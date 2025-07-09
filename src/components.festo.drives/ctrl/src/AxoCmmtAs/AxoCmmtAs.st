@@ -14,8 +14,91 @@ NAMESPACE AXOpen.Components.Festo.Drives
     {#ix-attr:[Container(Layout.Wrap)]}
     {S7.extern=ReadWrite}
     CLASS PUBLIC AxoCmmtAs EXTENDS AXOpen.Components.Drives.AxoDrive IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoDrive
+        VAR PUBLIC //STATUS
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-attr:[ReadOnly()]}
+            DriveStatus         :   AxoCmmtAs_Component_Status;
+            Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
+            TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
+        END_VAR
+        VAR PUBLIC // HwDiag
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
+            {#ix-set:AttributeName = "<#Update diagnostics#>"}
+            HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
+        END_VAR
+        VAR PUBLIC // AxisRef
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("AxisRef")]}
+            {#ix-attr:[ReadOnly()]}
+            AxisRefExt :  AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
+        END_VAR
+        VAR PUBLIC // Scaling
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant required position#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantRequiredPosition         :   LREAL   :=  1000;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant actual position#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantActualPosition         :   LREAL   :=  0.001;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant required velocity#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantRequiredVelocity         :   LREAL   :=  1;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant actual velocity#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantActualVelocity         :   LREAL   :=  0.000000000931322574615478515625;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant required torque#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantRequiredTorque         :   LREAL   :=  1;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant actual torque#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantActualTorque         :   LREAL   :=  0.00006103515625;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant required acceleration#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantRequiredAcceleration        :   LREAL   :=  LREAL#16.384;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant actual acceleration#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantActualAcceleration        :   LREAL   :=  LREAL#0.06103515625;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant required deceleration#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantRequiredDeceleration        :   LREAL   :=  LREAL#16.384;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant actual deceleration#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantActualDeceleration        :   LREAL   :=  LREAL#0.06103515625;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant required jerk#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantRequiredJerk        :   LREAL   :=  LREAL#0.001;
+            {#ix-attr:[ComponentDetails("Scaling")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Scaling constant actual jerk#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            ScalingConstantActualJerk        :   LREAL   :=  LREAL#1000.0;
+        END_VAR
 
-        VAR PUBLIC //Debug
+        VAR PUBLIC //   Debug
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentHeader()]}
             State : UINT;
@@ -24,79 +107,20 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Debug : LINT;
         END_VAR
 
-        VAR PUBLIC //CONFIG
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("Config")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Scaling constant required position#>"}
-            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
-            ScalingConstantRequiredPosition         :   LREAL   :=  1000;
-            {#ix-attr:[ComponentDetails("Config")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Scaling constant actual position#>"}
-            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
-            ScalingConstantActualPosition         :   LREAL   :=  0.001;
-            {#ix-attr:[ComponentDetails("Config")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Scaling constant required velocity#>"}
-            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
-            ScalingConstantRequiredVelocity         :   LREAL   :=  1;
-            {#ix-attr:[ComponentDetails("Config")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Scaling constant actual velocity#>"}
-            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
-            ScalingConstantActualVelocity         :   LREAL   :=  0.000000000931322574615478515625;
-            {#ix-attr:[ComponentDetails("Config")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Scaling constant required torque#>"}
-            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
-            ScalingConstantRequiredTorque         :   LREAL   :=  1;
-            {#ix-attr:[ComponentDetails("Config")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Scaling constant actual torque#>"}
-            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
-            ScalingConstantActualTorque         :   LREAL   :=  0.00006103515625;
-            {#ix-attr:[ComponentDetails("Config")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Scaling constant required acceleration#>"}
-            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
-            ScalingConstantRequiredAcceleration        :   LREAL   :=  0.00006103515625;
-            {#ix-attr:[ComponentDetails("Config")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Scaling constant required deceleration#>"}
-            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
-            ScalingConstantRequiredDeceleration        :   LREAL   :=  0.00006103515625;
-        END_VAR
-        VAR PUBLIC
-
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("Hardware diagnostics")]}
-            {#ix-set:AttributeName = "<#Update diagnostics#>"}
-            HardwareDiagnosticsTask :   AXOpen.Io.AxoHardwareDiagnostics;
-        END_VAR
-
         VAR PRIVATE
-            ScalingRead             :   BOOL := FALSE;
-            PNU_11724               :   LINT;
-            PNU_11725               :   LINT;
-            PNU_12345               :   REAL;
-            PNU_11122               :   REAL;
-            PNU_810                 :   REAL;
-            PNU_811                 :   REAL;
-            PNU_11203               :   BOOL;
-            PNU_11734               :   LINT;
-            PNU_11735               :   LINT;
-            // State : UINT;
-            _AxisRefExt             :   AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
+            _ScalingRead             :   BOOL := FALSE;
+            PNU_11724               :   LINT;       //  Resolution position (P1.7841.0.0)
+            PNU_11725               :   LINT;       //  Resolution velocity (P1.7842.0.0)
+            PNU_11726               :   LINT;       //  Resolution acceleration (P1.7843.0.0)
+            PNU_11727               :   LINT;       //  Resolution jerk (P1.7844.0.0)
+            PNU_12345               :   REAL;       //  Base value velocity (P1.11280701.0.0)
+            PNU_11122               :   REAL;       //  Maximum motor torque/servo drive (P1.381.0.0)
+            PNU_810                 :   REAL;       //  Base value acceleration (P1.11280702.0.0)
+            PNU_811                 :   REAL;       //  Base value deceleration (P1.11280703.0.0)
+            PNU_11203               :   BOOL;       //  Move to axis zero point after homing (P1.841.0.0)
+            PNU_11734               :   LINT;       //  Axis zero point offset (P1.8416.0.0)
+            PNU_11735               :   LINT;       //  Referencing method (P1.8417.0.0)
             Parametrization         :   AxoReadWritePROFIdriveParameter; 
-
-            _hwID                   :   WORD;
-            _hwIdDoServo            :   WORD;
-            _hwIdModuleAccessPoint  :   WORD;
-            _hwIdEmptyModule_1      :   WORD;
-            _hwIdTelegram111        :   WORD; 
-            _hwIdEmptyModule_2      :   WORD;
-            _hwIdTelegram750        :   WORD; 
 
             _initHwCheckDone        :   BOOL;
             _retval                 :   WORD;
@@ -107,30 +131,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _inputsCount            :   UINT;
             _outputsAddress         :   UDINT;  
             _outputsCount           :   UINT; 
+            _infoTimer              :   AXOpen.Timers.OnDelayTimer;
+            _infoTime               :   LTIME := LT#2S;
+            _errorTimer             :   AXOpen.Timers.OnDelayTimer;
+            _errorTime              :   LTIME := LT#5S;
         END_VAR
-
-        // Temporary workaround due to hwc station number issue
-        {attribute 'obsolete' := 'This method is(will be) deprecated after releasing hwc3.1.0. Use Run(parent,hwID) instead.'}
-        METHOD PUBLIC Run
-            VAR_INPUT
-                parent                  :   IAxoObject; 
-                hwID                    :   WORD;
-                hwIdModuleAccessPoint   :   WORD;                       //  Hardware identifier of the module acces point submodule 
-                hwIdTelegram111         :   WORD;                       //  Hardware ID of the Profidrive telegram 111 of this axis
-                hwIdTelegram750         :   WORD;                       //  Hardware ID of the Profidrive telegram 750 of this axis
-                Enable                  :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
-                EnablePositive          :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
-                EnableNegative          :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
-            END_VAR
-            _hwID               :=  hwID              ;              
-            _hwIdModuleAccessPoint          :=  hwIdModuleAccessPoint         ;         
-            _hwIdTelegram111    :=  hwIdTelegram111   ;   
-            _hwIdTelegram750    :=  hwIdTelegram750   ;   
-
-            _initHwCheckDone := TRUE;
-            THIS.Run(parent,_hwID,Enable,EnablePositive,EnableNegative);
-
-        END_METHOD
 
         ///<summary>
         /// Runs tasks and logic of this component.
@@ -145,14 +150,15 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
             VAR 
-                _AxisReference  :   REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
+                // _AxisReference  :   REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
                 tempDWord       :   DWORD;
+                //                                      |     -10   |     -9    |    -8    |    -7   |   -6   |   -5  |  -4  | -3  | -2 |-1|  0 | 1  |  2  |  3   |   4   |   5    |   6     |    7     |     8     |    9      |     10    |
+                _exp    :   ARRAY [-10..10] OF LREAL := [0.000000001,0.000000001,0.00000001,0.0000001,0.000001,0.00001,0.0001,0.001,0.01,0.1,1.0,10.0,100.0,1000.0,10000.0,100000.0,1000000.0,10000000.0,100000000.0,100000000.0,100000000.0];
             END_VAR
-
+            _infoTime   :=  DriveConfig.InfoTime;
+            _errorTime  :=  DriveConfig.ErrorTime;
             SUPER.Run(parent);
-
             Messenger.Serve(THIS);
-
 
             IF NOT _initHwCheckDone THEN
                 IF parent = NULL THEN
@@ -166,8 +172,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     RETURN;
                 END_IF;
     
-                _hwID                    := hwID;                                                      
-                _retval := ReadSlotFromHardwareID(hardwareID := TO_UINT(_hwID), geoAddr :=_geoAddr);   
+                AxisRefExt.HWIDs.HW_Device                   :=      TO_UINT(hwID);                                               
+                _retval := ReadSlotFromHardwareID(hardwareID := AxisRefExt.HWIDs.HW_Device, geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(     UINT#702,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#702;
@@ -178,8 +184,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _geoAddr.Slot   :=  UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdDoServo :=  TO_WORD(_outHwid);                                         
-                IF _hwIdDoServo = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_DoServo :=  _outHwid;                                         
+                IF AxisRefExt.HWIDs.HW_DoServo = UINT#0 THEN
                     Messenger.Activate(     UINT#710,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#710;
                     RETURN;
@@ -209,7 +215,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdDoServo , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_DoServo) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#716,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#716;
@@ -221,8 +227,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _geoAddr.Subslot   :=  UINT#0;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdDoServo :=  TO_WORD(_outHwid);                                         
-                IF _hwIdDoServo = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_DoServoSub :=  _outHwid;                                         
+                IF AxisRefExt.HWIDs.HW_DoServoSub = UINT#0 THEN
                     Messenger.Activate(     UINT#720,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#720;
                     RETURN;
@@ -252,7 +258,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdDoServo , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_DoServoSub) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#726,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#726;
@@ -264,8 +270,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _geoAddr.Subslot   :=  UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdModuleAccessPoint :=  TO_WORD(_outHwid);                                         
-                IF _hwIdModuleAccessPoint = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_ModuleAccessPoint := _outHwid;                                         
+                IF AxisRefExt.HWIDs.HW_ModuleAccessPoint = UINT#0 THEN
                     Messenger.Activate(     UINT#730,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#730;
                     RETURN;
@@ -295,7 +301,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#735;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdModuleAccessPoint , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_ModuleAccessPoint) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#736,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#736;
@@ -307,8 +313,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _geoAddr.Subslot   :=  UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdEmptyModule_1 :=  TO_WORD(_outHwid);                                         
-                IF _hwIdEmptyModule_1 = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_EmptyModule_1 :=  _outHwid;
+                IF AxisRefExt.HWIDs.HW_EmptyModule_1 = UINT#0 THEN
                     Messenger.Activate(     UINT#740,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#740;
                     RETURN;
@@ -338,7 +344,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#745;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdEmptyModule_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_EmptyModule_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#746,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#746;
@@ -350,8 +356,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _geoAddr.Subslot   :=  UINT#3;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdTelegram111 :=  TO_WORD(_outHwid);                                         
-                IF _hwIdTelegram111 = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_Telegram111 := _outHwid; 
+                IF AxisRefExt.HWIDs.HW_Telegram111 = UINT#0 THEN
                     Messenger.Activate(     UINT#750,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#750;
                     RETURN;
@@ -381,7 +387,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#755;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdTelegram111 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_Telegram111) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#24 OR _outputsCount <> UINT#24 THEN
                     Messenger.Activate(     UINT#756,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#756;
@@ -393,8 +399,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _geoAddr.Subslot   :=  UINT#4;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdEmptyModule_2 :=  TO_WORD(_outHwid);                                         
-                IF _hwIdEmptyModule_2 = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_EmptyModule_2 :=  _outHwid;
+                IF AxisRefExt.HWIDs.HW_EmptyModule_2 = UINT#0 THEN
                     Messenger.Activate(     UINT#760,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#760;
                     RETURN;
@@ -424,7 +430,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#765;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdEmptyModule_2 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_EmptyModule_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#766,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#766;
@@ -436,8 +442,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _geoAddr.Subslot   :=  UINT#5;                                                            
                 _geoAddr.HardwareType := UINT#5; // (5-Submodule)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdTelegram750 :=  TO_WORD(_outHwid);                                         
-                IF _hwIdTelegram750 = WORD#0 THEN
+                AxisRefExt.HWIDs.HW_Telegram750 :=  _outHwid;                                         
+                IF AxisRefExt.HWIDs.HW_Telegram750 = UINT#0 THEN
                     Messenger.Activate(     UINT#770,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#770;
                     RETURN;
@@ -467,7 +473,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#775;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdTelegram750 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_Telegram750) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#8 THEN
                     Messenger.Activate(     UINT#776,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#776;
@@ -480,38 +486,38 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#1130;
                     RETURN;
                 END_IF;
-                IF _hwID  = WORD#0 THEN
+                IF  AxisRefExt.HWIDs.HW_Device = UINT#0 THEN
                     Messenger.Activate(     UINT#1131,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1131;
                     RETURN;
                 END_IF;
         
-                IF _hwIdDoServo  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_DoServo  = UINT#0 THEN
                     Messenger.Activate(     UINT#1132,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1132;
                     RETURN;
                 END_IF;
-                IF _hwIdDoServo  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_ModuleAccessPoint  = UINT#0 THEN
                     Messenger.Activate(     UINT#1133,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1133;
                     RETURN;
                 END_IF;
-                IF _hwIdEmptyModule_1  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_EmptyModule_1 = UINT#0 THEN
                     Messenger.Activate(     UINT#1134,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1134;
                     RETURN;
                 END_IF;
-                IF _hwIdTelegram111  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_Telegram111 = UINT#0 THEN
                     Messenger.Activate(     UINT#1135,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1135;
                     RETURN;
                 END_IF;
-                IF _hwIdEmptyModule_2  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_EmptyModule_2   = UINT#0 THEN
                     Messenger.Activate(     UINT#1136,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1136;
                     RETURN;
                 END_IF;
-                IF _hwIdTelegram750  = WORD#0 THEN
+                IF AxisRefExt.HWIDs.HW_Telegram750  = UINT#0 THEN
                     Messenger.Activate(     UINT#1137,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1137;
                     RETURN;
@@ -520,44 +526,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
                 _initHwCheckDone    := TRUE;
             END_IF;            
-
-            _AxisRefExt.Data.hwID                   := _hwID;
-            _AxisRefExt.Data.hwIdModuleAccessPoint  := _hwIdModuleAccessPoint;
-            _AxisRefExt.Data.hwIdTelegram111        := _hwIdTelegram111;
-            _AxisRefExt.Data.hwIdTelegram750        := _hwIdTelegram750;
-
-            // Parametrization.Initialize(THIS);
-            // HardwareDiagnosticsTask.Initialize(THIS);
-
-            SUPER.Execute(_AxisRefExt,Enable,EnablePositive,EnableNegative);
-            Messenger.ActivateOnCondition(ULINT#2000, NOT EnablePositive, eAxoMessageCategory#Warning);
-            Messenger.ActivateOnCondition(ULINT#2001, NOT EnableNegative, eAxoMessageCategory#Warning);
-
-            THIS.Execute(_AxisRefExt);
-        END_METHOD   
-
-        METHOD PRIVATE Execute
-            VAR_INPUT
-                AxisRef             :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-            END_VAR
-            VAR 
-                _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
-                tempDWord   :   DWORD;
-            END_VAR
-
-            _AxisReference ?= AxisRef;
-            IF(_AxisReference = NULL) THEN
-                Messenger.Activate(     UINT#1400, eAxoMessageCategory#ProgrammingError);            
-                DriveStatus.Error.Id := UINT#1400;
-                RETURN;
-            END_IF;
+            Messenger.ActivateOnCondition(ULINT#1800, NOT _ScalingRead, eAxoMessageCategory#Warning);            
             //********************Diagnostics******************//          
-            HardwareDiagnosticsTask.Run(THIS,_AxisReference^.Data.hwID);
+            HardwareDiagnosticsTask.Run(THIS,TO_WORD(AxisRefExt.HWIDs.HW_Device));
             //********************PARAMETRIZAION***************//          
             Parametrization.Run(THIS);
-            Parametrization.Inputs.HardwareId := _AxisReference^.Data.hwIdModuleAccessPoint;            
+            Parametrization.Inputs.HardwareId := TO_WORD(AxisRefExt.HWIDs.HW_ModuleAccessPoint);            
             //*******************SCALING***********************//          
-            IF NOT ScalingRead THEN
+            IF NOT _ScalingRead THEN
                 Messenger.Activate(ULINT#1800 , eAxoMessageCategory#Warning);            
                 IF State = UINT#0 THEN
                     State := UINT#1;
@@ -569,7 +545,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11724;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(AxisRefExt.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11724 := Parametrization.Outputs.ValueReadLINT;
                         State := UINT#2;
@@ -588,7 +564,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11725;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(AxisRefExt.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11725 := Parametrization.Outputs.ValueReadLINT;
                         State := UINT#4;
@@ -607,7 +583,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12345;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(AxisRefExt.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_12345 := Parametrization.Outputs.ValueReadREAL;
                         State := UINT#6;
@@ -626,7 +602,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11122;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(AxisRefExt.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11122 := Parametrization.Outputs.ValueReadREAL;
                         State := UINT#8;
@@ -645,7 +621,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 810;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(AxisRefExt.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_810 := Parametrization.Outputs.ValueReadREAL;
                         State := UINT#10;
@@ -664,7 +640,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 811;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(AxisRefExt.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_811 := Parametrization.Outputs.ValueReadREAL;
                         State := UINT#12;
@@ -676,71 +652,125 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#13;
                     END_IF;
                 END_IF;    
-                
+                //Reading PNU 11726 Resolution acceleration (P1.7843.0.0)
                 IF State = UINT#13 THEN
-                    ScalingConstantRequiredPosition := EXP(LN(10) * TO_LREAL(-1 * PNU_11724));
-                    ScalingConstantActualPosition := EXP(LN(10) * TO_LREAL(PNU_11724));
-                    ScalingConstantRequiredVelocity := EXP(LN(10) * TO_LREAL(-1 * PNU_11725));
-                    ScalingConstantActualVelocity := PNU_12345 / 1073741824.0;
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 11726;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(AxisRefExt.HWIDs.HW_ModuleAccessPoint);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_11726 := Parametrization.Outputs.ValueReadLINT;
+                        State := UINT#14;
+                    END_IF;
+                END_IF;
+                IF State = UINT#14 THEN
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF NOT Parametrization.Outputs.Done THEN
+                        State := UINT#15;
+                    END_IF;
+                END_IF;                   
+                //Reading PNU 11727 Resolution jerk (P1.7844.0.0)
+                IF State = UINT#15 THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := FALSE;
+                    Parametrization.Inputs.ParameterNo := 11727;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(AxisRefExt.HWIDs.HW_ModuleAccessPoint);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        PNU_11727 := Parametrization.Outputs.ValueReadLINT;
+                        State := UINT#16;
+                    END_IF;
+                END_IF;
+                IF State = UINT#16 THEN
+                    Parametrization.Inputs.Enable := FALSE;
+                    IF NOT Parametrization.Outputs.Done THEN
+                        State := UINT#17;
+                    END_IF;
+                END_IF;                   
+                IF State = UINT#17 THEN
+                    ScalingConstantRequiredPosition := _exp[-1*(TO_INT(PNU_11724) + 3)];
+                    ScalingConstantActualPosition := LREAL#1.0/ScalingConstantRequiredPosition;
+
+                    ScalingConstantRequiredVelocity :=  _exp[-1*(TO_INT(PNU_11725) + 3)];
+                    ScalingConstantActualVelocity := PNU_12345 * _exp[(TO_INT(PNU_11725) + 6)] / LREAL#1073741824.0;  //  16#4000 0000 ~~ 1073741824
+
+                    ScalingConstantRequiredAcceleration := LREAL#16384.0 * _exp[TO_INT(PNU_11726)] / PNU_810;  //  16#4000 ~~ 16384
+                    ScalingConstantActualAcceleration := LREAL#1.0 / ScalingConstantRequiredAcceleration;
+
+                    ScalingConstantRequiredDeceleration := LREAL#16384.0 * _exp[TO_INT(PNU_11726)] / PNU_811; //  16#4000 ~~ 16384
+                    ScalingConstantActualDeceleration := LREAL#1.0 / ScalingConstantRequiredDeceleration;
+
                     ScalingConstantRequiredTorque := 1;
-                    ScalingConstantActualTorque := PNU_11122 / 16384;
-                    ScalingConstantRequiredAcceleration := 16384 / PNU_810;
-                    ScalingConstantRequiredDeceleration := 16384 / PNU_811;
-                    THIS.
-                    ScalingRead := TRUE;
+                    ScalingConstantActualTorque := PNU_11122 / 16384; //  16#4000 ~~ 16384
+
+                    ScalingConstantRequiredJerk := _exp[TO_INT(PNU_11727)];
+                    ScalingConstantActualJerk := LREAL#1.0 / ScalingConstantRequiredJerk;
+
+
+                    _ScalingRead := TRUE;
                     State := UINT#0;
 
-                    AxoStop_Deceleration := 1.0;
-                    AxoStop_Jerk := 500.0;
-                    AxoHalt_Deceleration := 1.0;
-                    AxoHalt_Jerk := 500.0;
-                    AxoHome_Position := 0.0;
-                    AxoHome_HommingMode := -17;
-                    AxoHome_Velocity := 0.01;
-                    AxoHome_Acceleration := 1;
-                    AxoHome_Deceleration := 1;
-                    AxoSetPosition_Position := 0.0;
-                    AxoMoveAbsolute_Position := 0.0;
-                    AxoMoveAbsolute_Velocity := 0.01;
-                    AxoMoveAbsolute_Acceleration := 1;
-                    AxoMoveAbsolute_Deceleration := 1;
-                    AxoMoveAbsolute_Jerk := 500;
-                    AxoMoveRelative_Distance := 0.0;
-                    AxoMoveRelative_Velocity := 0.01;
-                    AxoMoveRelative_Acceleration := 1;
-                    AxoMoveRelative_Deceleration := 1;
-                    AxoMoveRelative_Jerk := 500;
-                    AxoMoveAdditive_Distance := 0.0;
-                    AxoMoveAdditive_Velocity := 0.01;
-                    AxoMoveAdditive_Acceleration := 1;
-                    AxoMoveAdditive_Deceleration := 1;
-                    AxoMoveAdditive_Jerk := 500;
-                    AxoMoveVelocity_Velocity := 0.01;
-                    AxoMoveVelocity_Acceleration := 1;
-                    AxoMoveVelocity_Deceleration := 1;
-                    AxoMoveVelocity_Jerk := 500;
-                    AxoTorqueControl_Torque := 0.0;
-                    AxoTorqueControl_TorqueRamp := 1;
-                    AxoTorqueControl_Velocity := 0.01;
-                    AxoTorqueControl_Acceleration := 1;
-                    AxoTorqueControl_Deceleration := 1;
-                    AxoTorqueControl_Jerk := 500;
-                    AxoJog_Velocity := 0.01;
-                    AxoJog_Acceleration := 1;
-                    AxoJog_Deceleration := 1;
-                    AxoJog_Jerk := 500;
+                    AxoStop_Deceleration := 1000.0;         // mm/s2
+                    AxoStop_Jerk := 150000.0;               // mm/s3
+                    AxoHalt_Deceleration := 1000.0;         // mm/s2
+                    AxoHalt_Jerk := 150000.0;               // mm/s3
+                    AxoHome_Position := 0.0;                // mm
+                    AxoHome_HommingMode := 1;               // Negative hardware limit switch with zero pulse
+                    AxoHome_Velocity := 2.0;                // mm/s
+                    AxoHome_Acceleration := 1000.0;         // mm/s2
+                    AxoHome_Deceleration := 1000.0;         // mm/s2
+                    AxoSetPosition_Position := 0.0;         // mm
+                    AxoMoveAbsolute_Position := 0.0;        // mm
+                    AxoMoveAbsolute_Velocity := 5.0;        // mm/s
+                    AxoMoveAbsolute_Acceleration := 1000.0; // mm/s2
+                    AxoMoveAbsolute_Deceleration := 1000.0; // mm/s2
+                    AxoMoveAbsolute_Jerk := 150000.0;       // mm/s3
+                    AxoMoveRelative_Distance := 5.0;        // mm
+                    AxoMoveRelative_Velocity := 5.0;        // mm/s
+                    AxoMoveRelative_Acceleration := 1000.0; // mm/s2
+                    AxoMoveRelative_Deceleration := 1000.0; // mm/s2
+                    AxoMoveRelative_Jerk := 150000.0;       // mm/s3
+                    AxoMoveAdditive_Distance := 5.0;        // mm
+                    AxoMoveAdditive_Velocity := 5.0;        // mm/s
+                    AxoMoveAdditive_Acceleration := 1000.0; // mm/s2
+                    AxoMoveAdditive_Deceleration := 1000.0; // mm/s2
+                    AxoMoveAdditive_Jerk := 150000.0;       // mm/s3
+                    AxoMoveVelocity_Velocity := 5.0;        // mm/s
+                    AxoMoveVelocity_Acceleration := 1000.0; // mm/s2
+                    AxoMoveVelocity_Deceleration := 1000.0; // mm/s2
+                    AxoMoveVelocity_Jerk := 150000.0;       // mm/s3
+                    AxoTorqueControl_Torque := 0.0;         // Nm
+                    AxoTorqueControl_TorqueRamp := 1.0;     // Nm/s
+                    AxoTorqueControl_Velocity := 5.0;       // mm/s
+                    AxoTorqueControl_Acceleration := 1000.0;// mm/s2
+                    AxoTorqueControl_Deceleration := 1000.0;// mm/s2
+                    AxoTorqueControl_Jerk := 150000.0;      // mm/s3
+                    AxoJog_Velocity := 2.0;                 // mm/s
+                    AxoJog_Acceleration := 500.0;           // mm/s2
+                    AxoJog_Deceleration := 500.0;           // mm/s2
+                    AxoJog_Jerk := 150000.0;                // mm/s3
                 END_IF;                                
                 RETURN;
             END_IF;
             //*************************************************//
 
-            THIS.ActualPosition := TO_LREAL(_AxisReference^.Telegram111_In.XIST_A) * ScalingConstantActualPosition;
-            THIS.ActualVelocity := TO_LREAL(_AxisReference^.Telegram111_In.NIST_B) * ScalingConstantActualVelocity;
-            THIS.ActualTorque := TO_LREAL(_AxisReference^.Telegram750_In.M_Actual) * ScalingConstantActualTorque;
+            Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Warning);
+            Messenger.ActivateOnCondition(ULINT#301, Enable AND NOT EnableNegative, eAxoMessageCategory#Warning);
 
-            IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
+            //************************************************************
+            SUPER.Run(THIS,AxisRefExt,Enable,EnablePositive,EnableNegative);
+            //************************************************************
+
+            THIS.ActualPosition := TO_LREAL(AxisRefExt.Telegram111_In.XIST_A) * ScalingConstantActualPosition;
+            THIS.ActualVelocity := TO_LREAL(AxisRefExt.Telegram111_In.NIST_B) * ScalingConstantActualVelocity;
+            THIS.ActualTorque := TO_LREAL(AxisRefExt.Telegram750_In.M_Actual) * ScalingConstantActualTorque;
+
+            IF NOT AxisRefExt.Telegram111_In.ZSW1.operationEnabled THEN
                 DriveState := AXOpen.Components.Drives.eAxoDriveState#Disabled;
-            ELSIF State>=UINT#20 AND State<UINT#59 OR _AxisReference^.Telegram111_Out.STW1.StartHoming THEN// AxisRef^.Fieldbus_Out.DriveToZeroPoint
+            ELSIF State>=UINT#20 AND State<UINT#59 OR AxisRefExt.Telegram111_Out.STW1.StartHoming THEN// AxisRef^.Fieldbus_Out.DriveToZeroPoint
                 DriveState := AXOpen.Components.Drives.eAxoDriveState#Homing;
             ELSIF State>=UINT#80 AND State<UINT#109 THEN
                 DriveState := AXOpen.Components.Drives.eAxoDriveState#DiscreteMotion;
@@ -748,38 +778,20 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 DriveState := AXOpen.Components.Drives.eAxoDriveState#ContinuousMotion;
             // ELSIF _AxisReference^.Data.SynchronizedMotion THEN
             //     DriveState := AXOpen.Components.Drives.eAxoDriveState#SynchronizedMotion;
-            ELSIF NOT _AxisReference^.Telegram111_Out.STW1.cancelTraversing AND NOT _AxisReference^.Telegram111_In.ZSW1.driveStopped THEN
+            ELSIF NOT AxisRefExt.Telegram111_Out.STW1.cancelTraversing AND NOT AxisRefExt.Telegram111_In.ZSW1.driveStopped THEN
                 DriveState := AXOpen.Components.Drives.eAxoDriveState#Stopping;
-            ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent AND _AxisReference^.Telegram111_In.ZSW1.driveStopped THEN
+            ELSIF AxisRefExt.Telegram111_In.ZSW1.faultPresent AND AxisRefExt.Telegram111_In.ZSW1.driveStopped THEN
                 DriveState := AXOpen.Components.Drives.eAxoDriveState#Errorstop;
-            ELSIF _AxisReference^.Telegram111_In.ZSW1.driveStopped THEN
+            ELSIF AxisRefExt.Telegram111_In.ZSW1.driveStopped THEN
                 DriveState := AXOpen.Components.Drives.eAxoDriveState#Standstill;
             END_IF;
-        END_METHOD
+
+        END_METHOD   
 
         ///<summary>
         /// Ensures swapping the hardware input data structure into the AxisRef data structure  
         ///</summary>
-        METHOD PROTECTED  OVERRIDE UpdateInputs : BOOL
-            VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-            END_VAR
-            ;
-        END_METHOD   
-
-        ///<summary>
-        /// Ensures swapping the AxisRef data structure into the hardware output data structure
-        ///</summary>
-        METHOD PROTECTED OVERRIDE UpdateOutputs : BOOL
-            VAR_INPUT
-                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
-            END_VAR
-            ;
-        END_METHOD   
-
-        METHOD PROTECTED  UpdateInputs : BOOL
+        METHOD PROTECTED OVERRIDE UpdateInputs : BOOL
             VAR_INPUT
                 AxisRef             :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             END_VAR
@@ -798,7 +810,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_AxisReference^.Data.hwIdTelegram111 ,_Telegram111);
+            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(_AxisReference^.HWIDs.HW_Telegram111) ,_Telegram111);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(     UINT#1411, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1411;
@@ -870,8 +882,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _AxisReference^.Telegram111_In.Reserved.%B1                               := _Telegram111[22];
             _AxisReference^.Telegram111_In.Reserved.%B0                               := _Telegram111[23];
             //M_Actual 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_AxisReference^.Data.hwIdTelegram750,_Telegram750);
-            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_AxisReference^.Data.hwIdTelegram111 ,_Telegram111);
+            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(_AxisReference^.HWIDs.HW_Telegram750),_Telegram750);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(     UINT#1412, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1412;
@@ -880,7 +891,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _AxisReference^.Telegram750_In.M_Actual                                   := TO_INT(_Telegram750[0]);
         END_METHOD   
 
-        METHOD PROTECTED UpdateOutputs : BOOL
+        ///<summary>
+        /// Ensures swapping the AxisRef data structure into the hardware output data structure
+        ///</summary>
+        METHOD PROTECTED OVERRIDE UpdateOutputs : BOOL
             VAR_INPUT
                 AxisRef             :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             END_VAR
@@ -991,7 +1005,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _Telegram111[23] := _AxisReference^.Telegram111_Out.reserved11.%B0;
             _Telegram111[22] := _AxisReference^.Telegram111_Out.reserved11.%B1;
 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_AxisReference^.Data.hwIdTelegram111,_Telegram111);
+            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(_AxisReference^.HWIDs.HW_Telegram111),_Telegram111);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(     UINT#1421, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1421;
@@ -1007,7 +1021,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _Telegram750[7] := _AxisReference^.Telegram750_Out.Reserved.%B0;
             _Telegram750[6] := _AxisReference^.Telegram750_Out.Reserved.%B1;
 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_AxisReference^.Data.hwIdTelegram750,_Telegram750);
+            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(_AxisReference^.HWIDs.HW_Telegram750),_Telegram750);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(     UINT#1422, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1422;
@@ -1021,6 +1035,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///</summary>
         VAR INTERNAL
             MC_PowerEnable_PV					:	BOOL := FALSE;		//Enable - previous value
+            MC_PowerCycle					    :	ULINT   := ULINT#0;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_Power 
             VAR_INPUT
@@ -1031,7 +1046,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Status          :   BOOL;                       //  Effective state of the power stage
                 Valid           :   BOOL;                       //  If true, a valid set of outputs is available at the method
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification            
+                ErrorID         :   DINT;                       //  Error identification            
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
@@ -1047,17 +1062,19 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
 
             IF Enable THEN
+                MC_PowerCycle := MC_PowerCycle + ULINT#1;
                 THIS.UpdateInputs(AxisRef);
                 IF NOT MC_PowerEnable_PV THEN
                     _AxisReference^.Telegram750_Out.M_LIMIT_POS := 16384;
                     _AxisReference^.Telegram750_Out.M_LIMIT_NEG := -16384;
                     _AxisReference^.Telegram111_Out.MDI_ACC := TO_UINT(16384.0 * _AxisReference^.Data.OverrideAccelerationFactor);
                     _AxisReference^.Telegram111_Out.MDI_DEC := TO_UINT(16384.0 * _AxisReference^.Data.OverrideAccelerationFactor);
-                    _AxisReference^.Telegram111_Out.Override_ := TO_WORD(TO_INT(16384.0 * _AxisReference^.Data.OverrideVelocityFactor));
+                    _AxisReference^.Telegram111_Out.Override_ := TO_WORD(TO_INT(16384.0 )); // * _AxisReference^.Data.OverrideVelocityFactor));
                     _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
                 END_IF;
                 _AxisReference^.Telegram111_Out.STW1.on_ := TRUE;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
+                _AxisReference^.Telegram111_Out.STW1.acknowledgeFault := FALSE;
                 // _AxisReference^.Telegram111_Out.MDI_VELOCITY := DINT#1;
                 _AxisReference^.Telegram111_Out.POS_STW2.SW_Limit := TRUE;
                 _AxisReference^.Telegram111_Out.POS_STW2.HW_Limit := TRUE;
@@ -1068,19 +1085,41 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _AxisReference^.Telegram111_Out.STW1.intermediateStop := TRUE;
                 _AxisReference^.Telegram111_Out.STW1.controlByPlc := TRUE;
                 IF _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
+                    MC_PowerCycle := ULINT#0;
                     Status	:= TRUE;						(* Status OK*)
                     Valid := TRUE;
                 ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent = TRUE THEN
                     Error		:= TRUE; 						(*	Set the ERROR-Output *)
                     Valid := TRUE;
-                    ErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                    ErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
+                END_IF;
+                IF MC_PowerCycle >= ULINT#200 THEN
+                    MC_PowerCycle := ULINT#0;
+                    _AxisReference^.Telegram111_Out.STW1.on_  := FALSE;
+                    _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
+                    _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.NegModulo := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.SetupMode := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
+                    _AxisReference^.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
+                    _AxisReference^.Telegram111_Out.STW2.TravelToFixStop := FALSE;
+                    _AxisReference^.Telegram111_Out.STW1.acknowledgeFault := TRUE;
                 END_IF;
                 THIS.UpdateOutputs(AxisRef);
             END_IF;
 
-
-            IF NOT Enable AND MC_PowerEnable_PV THEN
+            IF NOT Enable AND MC_PowerEnable_PV  THEN
                 THIS.UpdateInputs(AxisRef);
+                MC_PowerCycle := ULINT#0;
                 _AxisReference^.Telegram111_Out.STW1.on_  := FALSE;
                 THIS.UpdateOutputs(AxisRef);
             END_IF;
@@ -1095,7 +1134,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///</summary>
         VAR INTERNAL
             MC_HomeExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_HomeErrorID					    : 	WORD;
+            MC_HomeErrorID					    : 	DINT;
             MC_HomeCycle					    : 	ULINT;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_Home
@@ -1114,7 +1153,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
              VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
@@ -1154,7 +1193,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    MC_HomeErrorID :=  WORD#16#0000;
+                    MC_HomeErrorID :=  DINT#0;
                     _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
                     _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
                     _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
@@ -1191,14 +1230,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11206; //Acc
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration);
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration * ScalingConstantRequiredAcceleration * 0.001);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#22;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1444, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1444;
+                        MC_HomeErrorID :=   DINT#1444;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1219,14 +1258,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11209;//Acc
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration);
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration * ScalingConstantRequiredAcceleration * 0.001);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#24;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1445, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1445;
+                        MC_HomeErrorID :=   DINT#1445;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1247,14 +1286,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11728;//Acc
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration);
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Acceleration * ScalingConstantRequiredAcceleration * 0.001);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#26;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1446, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1446;
+                        MC_HomeErrorID :=   DINT#1446;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1275,14 +1314,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11205; //Vel
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity);
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity * ScalingConstantRequiredVelocity * 0.001);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#28;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1447, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1447;
+                        MC_HomeErrorID :=   DINT#1447;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1303,14 +1342,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11208;//Vel
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity)*REAL#0.5;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity* ScalingConstantRequiredVelocity * 0.001)*REAL#0.5;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#30;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1448, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1448;
+                        MC_HomeErrorID :=   DINT#1448;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1331,14 +1370,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11211;//Vel
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity)*REAL#5.0;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Velocity * ScalingConstantRequiredVelocity * 0.001)*REAL#5.0;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#32;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1449, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1449;
+                        MC_HomeErrorID :=   DINT#1449;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1359,14 +1398,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11735;//mode
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11735 := Parametrization.Outputs.ValueReadLINT;
                         State := UINT#34;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1450, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1450;
+                        MC_HomeErrorID :=   DINT#1450;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1387,14 +1426,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11735;//mode
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := TO_LINT(HommingMode);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#36;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1451, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1451;
+                        MC_HomeErrorID :=   DINT#1451;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1415,14 +1454,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12681;//deactivate save zero offset
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBOOL := FALSE;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#38;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1452, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1452;
+                        MC_HomeErrorID :=   DINT#1452;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1464,14 +1503,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11203 := Parametrization.Outputs.ValueReadBool;
                         State := UINT#42;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1453, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1453;
+                        MC_HomeErrorID :=   DINT#1453;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1492,14 +1531,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11734 := Parametrization.Outputs.ValueReadLINT;
                         State := UINT#44;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1454, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1454;
+                        MC_HomeErrorID :=   DINT#1454;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1520,14 +1559,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBOOL := FALSE;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#46;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1455, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1455;
+                        MC_HomeErrorID :=   DINT#1455;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1548,14 +1587,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000000000.0);
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000000.0);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#48;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1456, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1456;
+                        MC_HomeErrorID :=   DINT#1456;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1576,14 +1615,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11735;//mode
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := TO_LINT(37);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#50;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1457, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1457;
+                        MC_HomeErrorID :=   DINT#1457;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1621,14 +1660,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBool := PNU_11203;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#54;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1458, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1458;
+                        MC_HomeErrorID :=   DINT#1458;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1649,14 +1688,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := PNU_11734;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                          State := UINT#56;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1459, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1459;
+                        MC_HomeErrorID :=   DINT#1459;
                         State := UINT#59;
                     END_IF;
                 END_IF;
@@ -1675,12 +1714,12 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11735;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := PNU_11735;
 
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1460, eAxoMessageCategory#ProgrammingError);
-                        MC_HomeErrorID :=   WORD#1460;
+                        MC_HomeErrorID :=   DINT#1460;
                         State := UINT#59;
                     END_IF;                    
                     _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE;
@@ -1701,8 +1740,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
                         State := UINT#58;
                     ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-                        IF MC_HomeErrorID = WORD#0 THEN
-                            MC_HomeErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        IF MC_HomeErrorID = DINT#0 THEN
+                            MC_HomeErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
                         END_IF;
                         State := UINT#59;
                     ELSIF _AxisReference^.Data.Cycle <> MC_HomeCycle THEN
@@ -1715,7 +1754,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             IF THIS.AxoHome_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                MC_HomeErrorID := WORD#0;
+                MC_HomeErrorID := DINT#0;
                 State := UINT#0;
                 // MC_HomeCycle := ULINT#0;     
                 Parametrization.Inputs.Enable := FALSE;
@@ -1724,7 +1763,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
             IF THIS.AxoHome_Task.RestoreTriggered() AND State>=UINT#20 AND State<=UINT#59 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_HomeErrorID := WORD#0;
+                MC_HomeErrorID := DINT#0;
                 State := UINT#0;
                 MC_HomeCycle := ULINT#0;     
                 Parametrization.Inputs.Enable := FALSE;
@@ -1743,7 +1782,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///</summary>
         VAR INTERNAL
             MC_StopExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_StopErrorID					    : 	WORD;
+            MC_StopErrorID					    : 	DINT;
             MC_StopCycle					    : 	ULINT;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_Stop 
@@ -1759,7 +1798,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by switching off power (only possibility to abort)                
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
@@ -1791,7 +1830,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    MC_StopErrorID := WORD#16#0000;
+                    MC_StopErrorID := DINT#0;
                     _AxisReference^.Telegram111_Out.STW2.TravelToFixStop := FALSE;
                     State := UINT#60;
                 END_IF;
@@ -1812,14 +1851,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12327;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk);
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk * ScalingConstantRequiredJerk );
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#62;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1473, eAxoMessageCategory#ProgrammingError);
-                        MC_StopErrorID :=   WORD#1473;
+                        MC_StopErrorID :=   DINT#1473;
                         State := UINT#69;
                     END_IF;
                 END_IF;
@@ -1881,8 +1920,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
                         State := UINT#68;
                     ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-                        IF MC_StopErrorID = WORD#0 THEN
-                            MC_StopErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        IF MC_StopErrorID = DINT#0 THEN
+                            MC_StopErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
                         END_IF;
                         State := UINT#69;
                     ELSIF _AxisReference^.Data.Cycle <> MC_StopCycle THEN
@@ -1896,7 +1935,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF THIS.AxoStop_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
                 _AxisReference^.Telegram111_Out.STW1.cancelTraversing := TRUE; 
-                MC_StopErrorID := WORD#0;
+                MC_StopErrorID := DINT#0;
                 State := UINT#0;
                 // MC_StopCycle := ULINT#0;              
                 THIS.UpdateOutputs(AxisRef);         
@@ -1905,7 +1944,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF THIS.AxoStop_Task.RestoreTriggered() AND State>=UINT#60 AND State<=UINT#69 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 _AxisReference^.Telegram111_Out.STW1.cancelTraversing := TRUE; 
-                MC_StopErrorID := WORD#0;
+                MC_StopErrorID := DINT#0;
                 State := UINT#0;
                 MC_StopCycle := ULINT#0;  
                 THIS.UpdateOutputs(AxisRef);         
@@ -1921,7 +1960,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///</summary>
         VAR INTERNAL
             MC_HaltExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_HaltErrorID					    : 	WORD;
+            MC_HaltErrorID					    : 	DINT;
             MC_HaltCycle					    : 	ULINT;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_Halt 
@@ -1937,7 +1976,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by switching off power (only possibility to abort)                
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
@@ -1951,9 +1990,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#1481, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1482, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
-
             IF THIS.AxoHalt_Task.StartTriggered() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Halt;
             END_IF;
@@ -1964,12 +2000,15 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 State := UINT#0;
             END_IF;
 
-            IF Execute THEN 				
+            IF Execute THEN 			
+                Messenger.ActivateOnCondition(ULINT#1481, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1482, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
+        
                 THIS.UpdateInputs(AxisRef);         
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    MC_HaltErrorID := WORD#16#0000;
+                    MC_HaltErrorID := DINT#0;
                     _AxisReference^.Telegram111_Out.STW2.TravelToFixStop := FALSE;
                     State := UINT#70;
                 END_IF;
@@ -1989,14 +2028,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12327;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk);
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(Jerk * ScalingConstantRequiredJerk);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#72;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate( UINT#1483, eAxoMessageCategory#ProgrammingError);
-                        MC_HaltErrorID :=   WORD#1483;
+                        MC_HaltErrorID :=   DINT#1483;
                         State := UINT#79;
                     END_IF;
                 END_IF;
@@ -2053,8 +2092,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
                         State := UINT#78;
                     ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-                        IF MC_HaltErrorID = WORD#0 THEN
-                            MC_HaltErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        IF MC_HaltErrorID = DINT#0 THEN
+                            MC_HaltErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
                         END_IF;
                         State := UINT#79;
                     ELSIF _AxisReference^.Data.Cycle <> MC_HaltCycle THEN
@@ -2068,7 +2107,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF THIS.AxoHalt_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
                 _AxisReference^.Telegram111_Out.STW1.cancelTraversing := TRUE; 
-                MC_HaltErrorID := WORD#0;
+                MC_HaltErrorID := DINT#0;
                 State := UINT#0;
                 // MC_HaltCycle := ULINT#0;     
                 THIS.UpdateOutputs(AxisRef);         
@@ -2077,7 +2116,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF THIS.AxoHalt_Task.RestoreTriggered() AND State>=UINT#70 AND State<=UINT#79 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 _AxisReference^.Telegram111_Out.STW1.cancelTraversing := TRUE; 
-                MC_HaltErrorID := WORD#0;
+                MC_HaltErrorID := DINT#0;
                 State := UINT#0;
                 MC_HaltCycle := ULINT#0;   
                 THIS.UpdateOutputs(AxisRef);           
@@ -2092,7 +2131,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_MoveAbsoluteExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_MoveAbsoluteErrorID					    : 	WORD;
+            MC_MoveAbsoluteErrorID					    : 	DINT;
             MC_MoveAbsoluteCycle					    : 	ULINT;
             MC_MoveAbsoluteContinuousUpdate_SV          :   BOOL;
             MC_MoveAbsolutePosition_PV                  :   LREAL;                                          
@@ -2120,7 +2159,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
@@ -2159,7 +2198,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    MC_MoveAbsoluteErrorID := WORD#16#0000;        
+                    MC_MoveAbsoluteErrorID := DINT#0;        
                     _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
                     _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
                     _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
@@ -2184,10 +2223,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Busy := TRUE;            
                     Active := TRUE;   
                     IF Velocity > 0 AND Acceleration > 0 AND Deceleration >0 AND Jerk > 0 THEN
-                        _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT(Position * ScalingConstantRequiredPosition);
-                        _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-                        _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
-                        _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);                        
+                        _AxisReference^.Telegram111_Out.MDI_TARPOS :=       TO_DINT(Position        *   ScalingConstantRequiredPosition);
+                        _AxisReference^.Telegram111_Out.MDI_VELOCITY :=     TO_DINT(Velocity        *   ScalingConstantRequiredVelocity     * _AxisReference^.Data.OverrideVelocityFactor);
+                        _AxisReference^.Telegram111_Out.MDI_ACC :=          TO_UINT(Acceleration    *   ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                        _AxisReference^.Telegram111_Out.MDI_DEC :=          TO_UINT(Deceleration    *   ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);                        
                         MC_MoveAbsolutePosition_PV      :=  Position;                  
                         MC_MoveAbsoluteVelocity_PV      :=  Velocity;                  
                         MC_MoveAbsoluteAcceleration_PV  :=  Acceleration;              
@@ -2206,14 +2245,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12327;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveAbsoluteJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveAbsoluteJerk_PV * ScalingConstantRequiredJerk * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#82;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1495, eAxoMessageCategory#ProgrammingError);
-                        MC_MoveAbsoluteErrorID :=   WORD#1495;
+                        MC_MoveAbsoluteErrorID :=   DINT#1495;
                         State := UINT#89;
                     END_IF;
                 END_IF;
@@ -2279,8 +2318,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
                         State := UINT#88;
                     ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-                        IF MC_MoveAbsoluteErrorID = WORD#0 THEN
-                            MC_MoveAbsoluteErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        IF MC_MoveAbsoluteErrorID = DINT#0 THEN
+                            MC_MoveAbsoluteErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
                         END_IF;
                         State := UINT#89;
                     ELSIF _AxisReference^.Data.Cycle <> MC_MoveAbsoluteCycle THEN
@@ -2295,7 +2334,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF THIS.AxoMoveAbsolute_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-                MC_MoveAbsoluteErrorID := WORD#0;
+                MC_MoveAbsoluteErrorID := DINT#0;
                 State := UINT#0;
                 // MC_MoveAbsoluteCycle := ULINT#0;    
                 THIS.UpdateOutputs(AxisRef);         
@@ -2304,7 +2343,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF THIS.AxoMoveAbsolute_Task.RestoreTriggered() AND State>=UINT#80 AND State<=UINT#89 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-                MC_MoveAbsoluteErrorID := WORD#0;
+                MC_MoveAbsoluteErrorID := DINT#0;
                 MC_MoveAbsoluteCycle := ULINT#0;     
                 State := UINT#0;
                 MC_MoveAbsoluteExecute_PV := FALSE;
@@ -2320,7 +2359,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_MoveRelativeExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_MoveRelativeErrorID					    : 	WORD;
+            MC_MoveRelativeErrorID					    : 	DINT;
             MC_MoveRelativeCycle					    : 	ULINT;
             MC_MoveRelativeContinuousUpdate_SV          :   BOOL;
             MC_MoveRelativeDistance_PV                  :   LREAL;                                          
@@ -2346,7 +2385,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
@@ -2384,7 +2423,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    MC_MoveRelativeErrorID := WORD#16#0000;
+                    MC_MoveRelativeErrorID := DINT#0;
                     _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
                     _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
                     _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
@@ -2409,10 +2448,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Busy := TRUE;            
                     Active := TRUE;   
                     IF Velocity > 0 AND Acceleration > 0 AND Deceleration >0 AND Jerk > 0 THEN
-                        _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT(Distance * ScalingConstantRequiredPosition);
-                        _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-                        _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
-                        _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                        _AxisReference^.Telegram111_Out.MDI_TARPOS :=       TO_DINT(Distance        *   ScalingConstantRequiredPosition);
+                        _AxisReference^.Telegram111_Out.MDI_VELOCITY :=     TO_DINT(Velocity        *   ScalingConstantRequiredVelocity     * _AxisReference^.Data.OverrideVelocityFactor);
+                        _AxisReference^.Telegram111_Out.MDI_ACC :=          TO_UINT(Acceleration    *   ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                        _AxisReference^.Telegram111_Out.MDI_DEC :=          TO_UINT(Deceleration    *   ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                         MC_MoveRelativeDistance_PV      :=  Distance;                  
                         MC_MoveRelativeVelocity_PV      :=  Velocity;                  
                         MC_MoveRelativeAcceleration_PV  :=  Acceleration;              
@@ -2430,14 +2469,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12327;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveRelativeJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveRelativeJerk_PV  * ScalingConstantRequiredJerk * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#92;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1505, eAxoMessageCategory#ProgrammingError);
-                        MC_MoveRelativeErrorID :=   WORD#1505;
+                        MC_MoveRelativeErrorID :=   DINT#1505;
                         State := UINT#99;
                     END_IF;
                 END_IF;
@@ -2496,10 +2535,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         MC_MoveRelativeJerk_PV          <>  Jerk ) THEN
                         _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;    
                         IF NOT _AxisReference^.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated THEN    
-                            _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT((Distance) * ScalingConstantRequiredPosition) - _AxisReference^.Telegram111_In.XIST_A;
-                            _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-                            _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
-                            _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                            _AxisReference^.Telegram111_Out.MDI_TARPOS :=   TO_DINT((Distance)      *   ScalingConstantRequiredPosition) - _AxisReference^.Telegram111_In.XIST_A;
+                            _AxisReference^.Telegram111_Out.MDI_VELOCITY := TO_DINT(Velocity        *   ScalingConstantRequiredVelocity     * _AxisReference^.Data.OverrideVelocityFactor);
+                            _AxisReference^.Telegram111_Out.MDI_ACC :=      TO_UINT(Acceleration    *   ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                            _AxisReference^.Telegram111_Out.MDI_DEC :=      TO_UINT(Deceleration    *   ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                             MC_MoveRelativeDistance_PV      :=  Distance;                  
                             MC_MoveRelativeVelocity_PV      :=  Velocity;                  
                             MC_MoveRelativeAcceleration_PV  :=  Acceleration;              
@@ -2511,8 +2550,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
                         State := UINT#98;
                     ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-                        IF MC_MoveRelativeErrorID = WORD#0 THEN
-                            MC_MoveRelativeErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        IF MC_MoveRelativeErrorID = DINT#0 THEN
+                            MC_MoveRelativeErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
                         END_IF;
                         State := UINT#99;
                     ELSIF _AxisReference^.Data.Cycle <> MC_MoveRelativeCycle THEN
@@ -2526,7 +2565,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF THIS.AxoMoveRelative_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-                MC_MoveRelativeErrorID := WORD#0;
+                MC_MoveRelativeErrorID := DINT#0;
                 // MC_MoveRelativeCycle := ULINT#0;     
                 State := UINT#0;
                 THIS.UpdateOutputs(AxisRef);         
@@ -2535,7 +2574,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF THIS.AxoMoveRelative_Task.RestoreTriggered() AND State>=UINT#90 AND State<=UINT#99 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-                MC_MoveRelativeErrorID := WORD#0;
+                MC_MoveRelativeErrorID := DINT#0;
                 MC_MoveRelativeCycle := ULINT#0;     
                 State := UINT#0;
                 THIS.UpdateOutputs(AxisRef);         
@@ -2553,7 +2592,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_MoveAdditiveExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_MoveAdditiveErrorID					    : 	WORD;
+            MC_MoveAdditiveErrorID					    : 	DINT;
             MC_MoveAdditiveCycle					    : 	ULINT;
             MC_MoveAdditiveContinuousUpdate_SV          :   BOOL;
             MC_MoveAdditiveDistance_PV                  :   LREAL;                                          
@@ -2579,7 +2618,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
@@ -2612,7 +2651,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;   
-                    MC_MoveAdditiveErrorID := WORD#16#0000;
+                    MC_MoveAdditiveErrorID := DINT#0;
                     _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
                     // _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
                     _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
@@ -2642,15 +2681,15 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE;    
                         IF _AxisReference^.Status.CurrentMotionTaskId = eAxoMotionTaskId#Axo_MoveAbsolute THEN
                             AxoMoveAbsolute_Task.Abort();
-                            _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT((MC_MoveAbsolutePosition_PV + Distance) * ScalingConstantRequiredPosition);
-                            _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-                            _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
-                            _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                            _AxisReference^.Telegram111_Out.MDI_TARPOS :=   TO_DINT((MC_MoveAbsolutePosition_PV + Distance) * ScalingConstantRequiredPosition);
+                            _AxisReference^.Telegram111_Out.MDI_VELOCITY := TO_DINT(Velocity        *   ScalingConstantRequiredVelocity     * _AxisReference^.Data.OverrideVelocityFactor);
+                            _AxisReference^.Telegram111_Out.MDI_ACC :=      TO_UINT(Acceleration    *   ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                            _AxisReference^.Telegram111_Out.MDI_DEC :=      TO_UINT(Deceleration    *   ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                         ELSE
-                            _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT((Distance) * ScalingConstantRequiredPosition);
-                            _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-                            _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
-                            _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                            _AxisReference^.Telegram111_Out.MDI_TARPOS :=   TO_DINT((Distance)      *    ScalingConstantRequiredPosition);
+                            _AxisReference^.Telegram111_Out.MDI_VELOCITY := TO_DINT(Velocity        *   ScalingConstantRequiredVelocity     * _AxisReference^.Data.OverrideVelocityFactor);
+                            _AxisReference^.Telegram111_Out.MDI_ACC :=      TO_UINT(Acceleration    *   ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                            _AxisReference^.Telegram111_Out.MDI_DEC :=      TO_UINT(Deceleration    *   ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                             _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
                         END_IF;
                         IF _AxisReference^.Status.CurrentMotionTaskId = eAxoMotionTaskId#Axo_MoveRelative THEN
@@ -2674,14 +2713,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12327;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveAdditiveJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveAdditiveJerk_PV  * ScalingConstantRequiredJerk * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#102;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1515, eAxoMessageCategory#ProgrammingError);
-                        MC_MoveAdditiveErrorID :=   WORD#1515;
+                        MC_MoveAdditiveErrorID :=   DINT#1515;
                         State := UINT#109;
                     END_IF;
                 END_IF;
@@ -2744,9 +2783,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                             ELSE
                                 _AxisReference^.Telegram111_Out.MDI_TARPOS := TO_DINT((Distance) * ScalingConstantRequiredPosition) - _AxisReference^.Telegram111_In.XIST_A;
                             END_IF;
-                            _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-                            _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
-                            _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                            _AxisReference^.Telegram111_Out.MDI_VELOCITY := TO_DINT(Velocity        *   ScalingConstantRequiredVelocity     * _AxisReference^.Data.OverrideVelocityFactor);
+                            _AxisReference^.Telegram111_Out.MDI_ACC :=      TO_UINT(Acceleration    *   ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                            _AxisReference^.Telegram111_Out.MDI_DEC :=      TO_UINT(Deceleration    *   ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);
                             MC_MoveAdditiveDistance_PV      :=  Distance;                  
                             MC_MoveAdditiveVelocity_PV      :=  Velocity;                  
                             MC_MoveAdditiveAcceleration_PV  :=  Acceleration;              
@@ -2758,8 +2797,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
                         State := UINT#108;
                     ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-                        IF MC_MoveAdditiveErrorID = WORD#0 THEN
-                            MC_MoveAdditiveErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        IF MC_MoveAdditiveErrorID = DINT#0 THEN
+                            MC_MoveAdditiveErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
                         END_IF;
                         State := UINT#109;
                     ELSIF _AxisReference^.Data.Cycle <> MC_MoveAdditiveCycle THEN
@@ -2773,7 +2812,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF THIS.AxoMoveAdditive_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-                MC_MoveAdditiveErrorID := WORD#0;
+                MC_MoveAdditiveErrorID := DINT#0;
                 // MC_MoveAdditiveCycle := ULINT#0;     
                 State := UINT#0;
                 THIS.UpdateOutputs(AxisRef);         
@@ -2782,7 +2821,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF THIS.AxoMoveAdditive_Task.RestoreTriggered() AND State>=UINT#100 AND State<=UINT#109 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-                MC_MoveAdditiveErrorID := WORD#0;
+                MC_MoveAdditiveErrorID := DINT#0;
                 MC_MoveAdditiveCycle := ULINT#0;     
                 State := UINT#0;
                 THIS.UpdateOutputs(AxisRef);         
@@ -2797,7 +2836,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_MoveVelocityExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_MoveVelocityErrorID					    : 	WORD;
+            MC_MoveVelocityErrorID					    : 	DINT;
             MC_MoveVelocityCycle					    : 	ULINT;
             MC_MoveVelocityContinuousUpdate_SV          :   BOOL;
             MC_MoveVelocityVelocity_PV                  :   LREAL;                    
@@ -2823,13 +2862,16 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
                 Dummy : BOOL;
                 Velocity_   :   LREAL;                     
                 Direction_  :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;                         
+                VelocityWindowPerCent     :   LREAL := LREAL#5.0;
+                VelocityWindowMin         :   LREAL;
+                VelocityWindowMax         :   LREAL;                 
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -2837,24 +2879,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF(_AxisReference = NULL) THEN
                 Messenger.Activate(     UINT#1520, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1520;
+                InVelocity := FALSE;
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#1521,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
-
-            IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
-                Velocity_ := Velocity;
-            ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
-                Velocity_ := -1 * Velocity;
-            ELSE
-                RETURN;
-            END_IF;
-
-            IF Velocity_> 0 THEN 
-                Direction_ := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
-            ELSE
-                Direction_ := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
-            END_IF;
                      
             Messenger.ActivateOnCondition(ULINT#1522, Execute AND Velocity = 0, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#1523, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
@@ -2871,6 +2899,27 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
 
             IF Execute THEN 	
+                IF Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
+                    Messenger.Activate(     UINT#1521, eAxoMessageCategory#ProgrammingError);
+                    DriveStatus.Error.Id := UINT#1521;
+                    InVelocity := FALSE;
+                    RETURN;
+                END_IF;
+    
+                IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
+                    Velocity_ := Velocity;
+                ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
+                    Velocity_ := -1 * Velocity;
+                ELSE
+                    RETURN;
+                END_IF;
+    
+                IF Velocity_> 0 THEN 
+                    Direction_ := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
+                ELSE
+                    Direction_ := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
+                END_IF;
+
                 THIS.UpdateInputs(AxisRef);         
                 IF NOT ContinuousUpdate THEN
                     MC_MoveVelocityContinuousUpdate_SV := FALSE;
@@ -2879,7 +2928,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    MC_MoveVelocityErrorID := WORD#16#0000;
+                    MC_MoveVelocityErrorID := DINT#0;
                     _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
                     _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
                     _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
@@ -2905,9 +2954,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Active := TRUE;   
                     IF Velocity <> 0 AND Acceleration > 0 AND Deceleration >0 AND Jerk > 0 THEN
                         _AxisReference^.Telegram111_Out.MDI_TARPOS := DINT#0;
-                        _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(ABS(Velocity_) *ScalingConstantRequiredVelocity);
-                        _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
-                        _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);                     
+                        _AxisReference^.Telegram111_Out.MDI_VELOCITY := TO_DINT(ABS(Velocity_)  *   ScalingConstantRequiredVelocity     * _AxisReference^.Data.OverrideVelocityFactor);
+                        _AxisReference^.Telegram111_Out.MDI_ACC :=      TO_UINT(Acceleration    *   ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                        _AxisReference^.Telegram111_Out.MDI_DEC :=      TO_UINT(Deceleration    *   ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);                     
 
                         MC_MoveVelocityVelocity_PV      :=  Velocity_;                  
                         MC_MoveVelocityAcceleration_PV  :=  Acceleration;              
@@ -2926,14 +2975,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12327;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveVelocityJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_MoveVelocityJerk_PV * ScalingConstantRequiredJerk * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#112;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1526, eAxoMessageCategory#ProgrammingError);
-                        MC_MoveVelocityErrorID :=   WORD#1526;
+                        MC_MoveVelocityErrorID :=   DINT#1526;
                         State := UINT#119;
                     END_IF;
                 END_IF;
@@ -2965,13 +3014,20 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#115;
                     END_IF;    
                 END_IF;
+                IF Direction_ = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection  THEN
+                    VelocityWindowMax := Velocity_ + (Velocity_ * VelocityWindowPerCent / REAL#100.0);
+                    VelocityWindowMin := Velocity_ - (Velocity_ * VelocityWindowPerCent / REAL#100.0);
+                ELSE
+                    VelocityWindowMax := Velocity_ - (Velocity_ * VelocityWindowPerCent / REAL#100.0);
+                    VelocityWindowMin := Velocity_ + (Velocity_ * VelocityWindowPerCent / REAL#100.0);
+                END_IF;
+                InVelocity := ActualVelocity >= VelocityWindowMin AND ActualVelocity <= VelocityWindowMax;                     
                 IF State = UINT#115 THEN
-                    IF TRUE THEN      
+                    IF InVelocity THEN      
                         State := UINT#116;
                     END_IF;    
                 END_IF;
                 IF State = UINT#116 THEN
-                    InVelocity := TRUE;            
                     IF NOT MC_MoveVelocityContinuousUpdate_SV THEN      
                         State := UINT#117;
                     END_IF;    
@@ -3003,8 +3059,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
                         State := UINT#118;
                     ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-                        IF MC_MoveVelocityErrorID = WORD#0 THEN
-                            MC_MoveVelocityErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        IF MC_MoveVelocityErrorID = DINT#0 THEN
+                            MC_MoveVelocityErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
                         END_IF;
                         State := UINT#119;
                     ELSIF _AxisReference^.Data.Cycle <> MC_MoveVelocityCycle THEN
@@ -3018,7 +3074,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF THIS.AxoMoveVelocity_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-                MC_MoveVelocityErrorID := WORD#0;
+                MC_MoveVelocityErrorID := DINT#0;
                 // MC_MoveVelocityCycle := ULINT#0;     
                 State := UINT#0;
                 THIS.UpdateOutputs(AxisRef);         
@@ -3027,7 +3083,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF THIS.AxoMoveVelocity_Task.RestoreTriggered() AND State>=UINT#110 AND State<=UINT#119 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-                MC_MoveVelocityErrorID := WORD#0;
+                MC_MoveVelocityErrorID := DINT#0;
                 MC_MoveVelocityCycle := ULINT#0;     
                 State := UINT#0;
                 THIS.UpdateOutputs(AxisRef);         
@@ -3045,7 +3101,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_TorqueControlExecute_PV					: 	BOOL;				//Execute - previous value
-            MC_TorqueControlErrorID					    : 	WORD;
+            MC_TorqueControlErrorID					    : 	DINT;
             MC_TorqueControlCycle					    : 	ULINT;
             MC_TorqueControlContinuousUpdate_SV         :   BOOL;
             MC_TorqueControlTorque_PV                   :   LREAL;                    
@@ -3077,13 +3133,16 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Active          :   BOOL;                       //  Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       //  ‘Command’ is aborted by another command
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                       //  Error identification             
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
                 Dummy : BOOL;
                 Torque_          :   LREAL;
                 PositiveDirection_  : BOOL;
+                TorqueWindowPerCent     :   LREAL := LREAL#5.0;
+                TorqueWindowMin         :   LREAL;
+                TorqueWindowMax         :   LREAL;                
             END_VAR
 
             _AxisReference ?= AxisRef;
@@ -3093,23 +3152,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 DriveStatus.Error.Id := UINT#1530;
                 RETURN;
             END_IF;
-
-            Messenger.ActivateOnCondition(ULINT#1531,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1532, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1533, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1534, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1535, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1536, Execute AND Torque = 0, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#1537, Execute AND TorqueRamp <= 0, eAxoMessageCategory#ProgrammingError);
-            
-            IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
-                Torque_ := Torque;
-            ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
-                Torque_ := -1 * Torque;
-            ELSE
-                RETURN;
-            END_IF; 
-            PositiveDirection_ := Torque_ > 0;                        
 
             IF THIS.AxoTorqueControl_Task.StartTriggered()  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_TorqueControl;
@@ -3121,6 +3163,23 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
 
             IF Execute THEN 	
+                Messenger.ActivateOnCondition(ULINT#1531,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1532, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1533, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1534, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1535, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1536, Execute AND Torque = 0, eAxoMessageCategory#ProgrammingError);
+                Messenger.ActivateOnCondition(ULINT#1537, Execute AND TorqueRamp <= 0, eAxoMessageCategory#ProgrammingError);
+                
+                IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
+                    Torque_ := Torque;
+                ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
+                    Torque_ := -1 * Torque;
+                ELSE
+                    RETURN;
+                END_IF; 
+                PositiveDirection_ := Torque_ > 0;  
+
                 THIS.UpdateInputs(AxisRef);         
                 IF NOT ContinuousUpdate THEN
                     MC_TorqueControlContinuousUpdate_SV := FALSE;
@@ -3129,7 +3188,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    MC_TorqueControlErrorID := WORD#16#0000;
+                    MC_TorqueControlErrorID := DINT#0;
                     _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
                     _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
                     _AxisReference^.Telegram111_Out.POS_STW1.PosModulo := FALSE;
@@ -3149,10 +3208,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.Enable := FALSE;
                     MC_TorqueControlContinuousUpdate_SV := ContinuousUpdate;
                     IF Velocity > 0 AND Acceleration > 0 AND Deceleration > 0 AND Jerk > 0 AND Torque <> 0 AND TorqueRamp > 0 THEN
-                        _AxisReference^.Telegram111_Out.MDI_TARPOS :=  TO_DINT(PositionLimit * ScalingConstantRequiredPosition);
-                        _AxisReference^.Telegram111_Out.MDI_VELOCITY :=  TO_DINT(Velocity *ScalingConstantRequiredVelocity);
-                        _AxisReference^.Telegram111_Out.MDI_ACC :=  TO_UINT(Acceleration *ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
-                        _AxisReference^.Telegram111_Out.MDI_DEC :=  TO_UINT(Deceleration *ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);                     
+                        _AxisReference^.Telegram111_Out.MDI_TARPOS :=   TO_DINT(PositionLimit   *   ScalingConstantRequiredPosition);
+                        _AxisReference^.Telegram111_Out.MDI_VELOCITY := TO_DINT(Velocity        *   ScalingConstantRequiredVelocity     * _AxisReference^.Data.OverrideVelocityFactor);
+                        _AxisReference^.Telegram111_Out.MDI_ACC :=      TO_UINT(Acceleration    *   ScalingConstantRequiredAcceleration * _AxisReference^.Data.OverrideAccelerationFactor);
+                        _AxisReference^.Telegram111_Out.MDI_DEC :=      TO_UINT(Deceleration    *   ScalingConstantRequiredDeceleration * _AxisReference^.Data.OverrideAccelerationFactor);                     
 
                         MC_TorqueControlPositionLimit_PV :=  PositionLimit;                  
                         MC_TorqueControlVelocity_PV      :=  Velocity;                  
@@ -3171,11 +3230,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     IF PositiveDirection_ AND THIS.ActualPosition >= MC_TorqueControlPositionLimit_PV THEN
                         State := UINT#129;
                         Messenger.Activate(         UINT#1538, eAxoMessageCategory#ProgrammingError);
-                        MC_TorqueControlErrorID :=  WORD#1538;
+                        MC_TorqueControlErrorID :=  DINT#1538;
                     ELSIF NOT PositiveDirection_ AND THIS.ActualPosition <= MC_TorqueControlPositionLimit_PV THEN
                         State := UINT#129;
                         Messenger.Activate(         UINT#1539, eAxoMessageCategory#ProgrammingError);
-                        MC_TorqueControlErrorID :=  WORD#1539;
+                        MC_TorqueControlErrorID :=  DINT#1539;
                     ELSE
                         State := UINT#121;
                     END_IF;
@@ -3189,26 +3248,57 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12168;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_TorqueControlTorque_PV * ScalingConstantRequiredTorque);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        Parametrization.Inputs.Enable := FALSE;
+                        Parametrization.Inputs.ReadWrite   := FALSE;
                         State := UINT#122;
+                        RETURN;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1540, eAxoMessageCategory#ProgrammingError);
-                        MC_TorqueControlErrorID :=  WORD#1540;
+                        MC_TorqueControlErrorID :=  DINT#1540;
+                        Parametrization.Inputs.Enable := FALSE;
+                        Parametrization.Inputs.ReadWrite   := FALSE;
                         State := UINT#129;
                     END_IF;
                 END_IF;
+                // IF State = UINT#122 THEN
+                //     Busy := TRUE;            
+                //     Active := TRUE;          
+                //     Parametrization.Inputs.Enable := FALSE;
+                //     Parametrization.Inputs.ReadWrite   := FALSE;
+                //     Debug := Debug + LINT#1;
+                //     IF  NOT Parametrization.Outputs.Done THEN
+                //         State := UINT#123;
+                //     END_IF;
+                // END_IF;  
+                //Writing PNU 11822 Default value torque rise ramp torque
                 IF State = UINT#122 THEN
                     Busy := TRUE;            
                     Active := TRUE;          
-                    Parametrization.Inputs.Enable := FALSE;
-                    Parametrization.Inputs.ReadWrite   := FALSE;
-                    IF  NOT Parametrization.Outputs.Done THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 11822;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_TorqueControlTorqueRamp_PV);
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        Parametrization.Inputs.Enable := FALSE;
+                        Parametrization.Inputs.ReadWrite   := FALSE;
                         State := UINT#123;
+                        RETURN;
                     END_IF;
-                END_IF;               
+                    IF Parametrization.Outputs.Error THEN 
+                        Messenger.Activate(         UINT#1540, eAxoMessageCategory#ProgrammingError);
+                        MC_TorqueControlErrorID :=  DINT#1540;
+                        Parametrization.Inputs.Enable := FALSE;
+                        Parametrization.Inputs.ReadWrite   := FALSE;
+                        State := UINT#129;
+                    END_IF;
+                END_IF;                             
                 //Writing PNU 12327 Jerk
                 IF State = UINT#123 THEN
                     Busy := TRUE;            
@@ -3218,14 +3308,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12327;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
-                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_TorqueControlJerk_PV * _AxisReference^.Data.OverrideJerkFactor);
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(MC_TorqueControlJerk_PV  * ScalingConstantRequiredJerk * _AxisReference^.Data.OverrideJerkFactor);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        Parametrization.Inputs.Enable := FALSE;
+                        Parametrization.Inputs.ReadWrite   := FALSE;
                         State := UINT#124;
+                        RETURN;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1541, eAxoMessageCategory#ProgrammingError);
-                        MC_TorqueControlErrorID :=  WORD#1541;
+                        MC_TorqueControlErrorID :=  DINT#1541;
                         State := UINT#129;
                     END_IF;
                 END_IF;
@@ -3253,6 +3346,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#126;
                     END_IF;    
                 END_IF;
+                IF PositiveDirection_  THEN
+                    TorqueWindowMax := Torque_ + (Torque_ * TorqueWindowPerCent / REAL#100.0);
+                    TorqueWindowMin := Torque_ - (Torque_ * TorqueWindowPerCent / REAL#100.0);
+                ELSE
+                    TorqueWindowMax := Torque_ - (Torque_ * TorqueWindowPerCent / REAL#100.0);
+                    TorqueWindowMin := Torque_ + (Torque_ * TorqueWindowPerCent / REAL#100.0);
+                END_IF;
+                InTorque := ActualTorque >= TorqueWindowMin AND ActualTorque <= TorqueWindowMax;                   
                 IF State = UINT#126 THEN
                     InTorque :=  _AxisReference^.Telegram111_In.POS_ZSW2.%X13;            
                     IF NOT MC_TorqueControlContinuousUpdate_SV THEN      
@@ -3273,7 +3374,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
                 IF (State=UINT#126 OR State =UINT#127) AND _AxisReference^.Telegram111_In.ZSW1.targetPosReached THEN
                     Messenger.Activate(         UINT#1542, eAxoMessageCategory#ProgrammingError);
-                    MC_TorqueControlErrorID :=  WORD#1542;
+                    MC_TorqueControlErrorID :=  DINT#1542;
                     State := UINT#129;
                 END_IF;
                 
@@ -3295,8 +3396,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
                         State := UINT#128;
                     ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-                        IF MC_TorqueControlErrorID = WORD#0 THEN
-                            MC_TorqueControlErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        IF MC_TorqueControlErrorID = DINT#0 THEN
+                            MC_TorqueControlErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
                         END_IF;
                         State := UINT#129;
                     ELSIF _AxisReference^.Data.Cycle <> MC_TorqueControlCycle THEN
@@ -3310,7 +3411,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF THIS.AxoTorqueControl_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-                MC_TorqueControlErrorID := WORD#0;
+                MC_TorqueControlErrorID := DINT#0;
                 // MC_TorqueControlCycle := ULINT#0;     
                 State := UINT#0;
                 THIS.UpdateOutputs(AxisRef);         
@@ -3319,7 +3420,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF THIS.AxoTorqueControl_Task.RestoreTriggered() AND State>=UINT#120 AND State<=UINT#129 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
                 _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
-                MC_TorqueControlErrorID := WORD#0;
+                MC_TorqueControlErrorID := DINT#0;
                 MC_TorqueControlCycle := ULINT#0;     
                 State := UINT#0;
                 THIS.UpdateOutputs(AxisRef);         
@@ -3337,7 +3438,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_SetPositionExecute_PV				: 	BOOL;				//Execute - previous value
-            MC_SetPositionErrorID					: 	WORD;
+            MC_SetPositionErrorID					: 	DINT;
             MC_SetPositionCycle					    : 	ULINT;						
             MC_SetPositionActualPosition            : 	LINT;						
         END_VAR  
@@ -3353,7 +3454,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Done            :   BOOL;                       //  ‘Position’ has new value
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                       //  Error identification             
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
@@ -3381,7 +3482,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 THIS.UpdateInputs(AxisRef);         
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
-                    MC_SetPositionErrorID := WORD#16#0000;
+                    MC_SetPositionErrorID := DINT#0;
                     _AxisReference^.Telegram111_Out.STW1.StartHoming := FALSE; 
                     _AxisReference^.Telegram111_Out.STW1.activateTraversing := FALSE; 
                     _AxisReference^.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
@@ -3410,14 +3511,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11735;//mode
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11735 := Parametrization.Outputs.ValueReadLINT;
                         State := UINT#131;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1551, eAxoMessageCategory#ProgrammingError);
-                        MC_SetPositionErrorID :=    WORD#1551;
+                        MC_SetPositionErrorID :=    DINT#1551;
                         State := UINT#159;
                     END_IF;
                 END_IF;
@@ -3436,14 +3537,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12681;//deactivate save zero offset
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBOOL := FALSE;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#133;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1552, eAxoMessageCategory#ProgrammingError);
-                        MC_SetPositionErrorID :=    WORD#1552;
+                        MC_SetPositionErrorID :=    DINT#1552;
                         State := UINT#159;
                     END_IF;
                 END_IF;
@@ -3462,14 +3563,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11203 := Parametrization.Outputs.ValueReadBool;
                         State := UINT#135;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1553, eAxoMessageCategory#ProgrammingError);
-                        MC_SetPositionErrorID :=    WORD#1553;
+                        MC_SetPositionErrorID :=    DINT#1553;
                         State := UINT#159;
                     END_IF;
                 END_IF;
@@ -3488,14 +3589,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         PNU_11734 := Parametrization.Outputs.ValueReadLINT;
                         State := UINT#137;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1554, eAxoMessageCategory#ProgrammingError);
-                        MC_SetPositionErrorID :=    WORD#1554;
+                        MC_SetPositionErrorID :=    DINT#1554;
                         State := UINT#159;
                     END_IF;
                 END_IF;
@@ -3514,14 +3615,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBOOL := FALSE;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#139;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1555, eAxoMessageCategory#ProgrammingError);
-                        MC_SetPositionErrorID :=    WORD#1555;
+                        MC_SetPositionErrorID :=    DINT#1555;
                         State := UINT#159;
                     END_IF;
                 END_IF;
@@ -3541,18 +3642,18 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Relative THEN
-                        Parametrization.Inputs.ValueWriteLINT := MC_SetPositionActualPosition + TO_LINT(Position * -10000000000.0);
+                        Parametrization.Inputs.ValueWriteLINT := MC_SetPositionActualPosition + TO_LINT(Position * -10000000.0);
                     ELSE
-                        Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000000000.0);
+                        Parametrization.Inputs.ValueWriteLINT := TO_LINT(Position * -10000000.0);
                     END_IF;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#141;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1556, eAxoMessageCategory#ProgrammingError);
-                        MC_SetPositionErrorID :=    WORD#1556;
+                        MC_SetPositionErrorID :=    DINT#1556;
                         State := UINT#159;
                     END_IF;
                 END_IF;
@@ -3571,14 +3672,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11735;//mode
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := TO_LINT(37);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#143;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1557, eAxoMessageCategory#ProgrammingError);
-                        MC_SetPositionErrorID :=    WORD#1557;
+                        MC_SetPositionErrorID :=    DINT#1557;
                         State := UINT#159;
                     END_IF;
                 END_IF;
@@ -3612,14 +3713,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11203;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBool := PNU_11203;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#147;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1558, eAxoMessageCategory#ProgrammingError);
-                        MC_SetPositionErrorID :=    WORD#1558;
+                        MC_SetPositionErrorID :=    DINT#1558;
                         State := UINT#159;
                     END_IF;
                 END_IF;
@@ -3638,14 +3739,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11734;//Move to axis zero after homming
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := PNU_11734;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                          State := UINT#149;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1559, eAxoMessageCategory#ProgrammingError);
-                        MC_SetPositionErrorID :=    WORD#1559;
+                        MC_SetPositionErrorID :=    DINT#1559;
                         State := UINT#159;
                     END_IF;
                 END_IF;
@@ -3663,14 +3764,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 11735;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := PNU_11735;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#151;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1560, eAxoMessageCategory#ProgrammingError);
-                        MC_SetPositionErrorID :=    WORD#1560;
+                        MC_SetPositionErrorID :=    DINT#1560;
                         State := UINT#159;
                    END_IF;
                 END_IF;
@@ -3729,8 +3830,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     IF NOT _AxisReference^.Telegram111_In.ZSW1.operationEnabled THEN
                         State := UINT#158;
                     ELSIF _AxisReference^.Telegram111_In.ZSW1.faultPresent THEN
-                        IF MC_SetPositionErrorID = WORD#0 THEN
-                            MC_SetPositionErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                        IF MC_SetPositionErrorID = DINT#0 THEN
+                            MC_SetPositionErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
                         END_IF;
                         State := UINT#159;
                     ELSIF _AxisReference^.Data.Cycle <> MC_SetPositionCycle THEN
@@ -3742,16 +3843,16 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             IF THIS.AxoSetPosition_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                MC_SetPositionErrorID := WORD#0;
+                MC_SetPositionErrorID := DINT#0;
                 // MC_SetPositionCycle := ULINT#0;     
                 Parametrization.Inputs.Enable := FALSE;
                 Parametrization.Inputs.ReadWrite   := FALSE;
                 State := UINT#0;
                 THIS.UpdateOutputs(AxisRef);         
             END_IF;
-            IF THIS.AxoSetPosition_Task.RestoreTriggered() AND State>=UINT#20 AND State<=UINT#59 THEN
+            IF THIS.AxoSetPosition_Task.RestoreTriggered() AND State>=UINT#130 AND State<=UINT#159 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_SetPositionErrorID := WORD#0;
+                MC_SetPositionErrorID := DINT#0;
                 MC_SetPositionCycle := ULINT#0;     
                 Parametrization.Inputs.Enable := FALSE;
                 Parametrization.Inputs.ReadWrite   := FALSE;
@@ -3779,7 +3880,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Enabled         :   BOOL;                       //  Signals that the override factor(s) is (are) set successfully
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                       //  Error identification             
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
@@ -3819,7 +3920,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL 
             MC_ReadParameterEnable_PV       : 	BOOL := FALSE;		//Enable - previous value
-            MC_ReadParameterErrorID         : 	WORD;
+            MC_ReadParameterErrorID         : 	DINT;
             MC_ReadParameterCycle			: 	ULINT;
             MC_ReadParameterValue			: 	LINT;
             MC_ReadParameterValid			: 	BOOL;
@@ -3834,7 +3935,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
             VAR 
@@ -3859,7 +3960,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF Enable THEN 	
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
-                    MC_ReadParameterErrorID := WORD#16#0000;         
+                    MC_ReadParameterErrorID := DINT#0;         
                     Parametrization.Inputs.Enable := FALSE;
                     State := UINT#160;
                 END_IF;
@@ -3870,7 +3971,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := TO_INT(ParameterNumber);
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         MC_ReadParameterValid := TRUE;
                         MC_ReadParameterValue := Parametrization.Outputs.ValueReadLINT;
@@ -3878,7 +3979,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1581, eAxoMessageCategory#ProgrammingError);
-                        MC_ReadParameterErrorID :=  WORD#1581;
+                        MC_ReadParameterErrorID :=  DINT#1581;
                         State := UINT#169;
                     END_IF;
                 END_IF;
@@ -3904,7 +4005,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             IF NOT Enable AND MC_ReadParameterEnable_PV  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_ReadParameterErrorID := WORD#0;
+                MC_ReadParameterErrorID := DINT#0;
                 MC_ReadParameterCycle := ULINT#0;  
                 MC_ReadParameterValid := FALSE;
                 MC_ReadParameterValue := LINT#0;   
@@ -3922,7 +4023,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_ReadRealParameterEnable_PV       : 	BOOL := FALSE;		//Enable - previous value
-            MC_ReadRealParameterErrorID         : 	WORD;
+            MC_ReadRealParameterErrorID         : 	DINT;
             MC_ReadRealParameterCycle			: 	ULINT;
             MC_ReadRealParameterValue			: 	REAL;
             MC_ReadRealParameterValid			: 	BOOL;
@@ -3937,7 +4038,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   REAL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
             VAR 
@@ -3962,7 +4063,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF Enable THEN 	
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
-                    MC_ReadRealParameterErrorID := WORD#16#0000;
+                    MC_ReadRealParameterErrorID := DINT#0;
                     Parametrization.Inputs.Enable := FALSE;
                     State := UINT#170;
                 END_IF;
@@ -3973,7 +4074,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := TO_INT(ParameterNumber);
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         MC_ReadRealParameterValid := TRUE;
                         MC_ReadRealParameterValue := Parametrization.Outputs.ValueReadREAL;
@@ -3981,7 +4082,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(             UINT#1591, eAxoMessageCategory#ProgrammingError);
-                        MC_ReadRealParameterErrorID :=  WORD#1591;
+                        MC_ReadRealParameterErrorID :=  DINT#1591;
                         State := UINT#179;
                     END_IF;
                 END_IF;
@@ -4007,7 +4108,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             IF NOT Enable AND MC_ReadRealParameterEnable_PV  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_ReadRealParameterErrorID := WORD#0;
+                MC_ReadRealParameterErrorID := DINT#0;
                 MC_ReadRealParameterCycle := ULINT#0;  
                 MC_ReadRealParameterValid := FALSE;
                 MC_ReadRealParameterValue := REAL#0.0;   
@@ -4025,7 +4126,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL 
             MC_ReadBoolParameterEnable_PV       : 	BOOL := FALSE;		//Enable - previous value
-            MC_ReadBoolParameterErrorID         : 	WORD;
+            MC_ReadBoolParameterErrorID         : 	DINT;
             MC_ReadBoolParameterCycle			: 	ULINT;
             MC_ReadBoolParameterValue			: 	BOOL;
             MC_ReadBoolParameterValid			: 	BOOL;
@@ -4040,7 +4141,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   BOOL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
             VAR 
@@ -4066,7 +4167,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF Enable THEN 	
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
-                    MC_ReadBoolParameterErrorID := WORD#16#0000;
+                    MC_ReadBoolParameterErrorID := DINT#0;
                     Parametrization.Inputs.Enable := FALSE;
                     State := UINT#180;
                 END_IF;
@@ -4077,7 +4178,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := TO_INT(ParameterNumber);
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         MC_ReadBoolParameterValid := TRUE;
                         MC_ReadBoolParameterValue := Parametrization.Outputs.ValueReadBOOL;
@@ -4085,7 +4186,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(             UINT#1601, eAxoMessageCategory#ProgrammingError);
-                        MC_ReadBoolParameterErrorID :=  WORD#1601;
+                        MC_ReadBoolParameterErrorID :=  DINT#1601;
                         State := UINT#189;
                     END_IF;
                 END_IF;
@@ -4111,7 +4212,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             IF NOT Enable AND MC_ReadBoolParameterEnable_PV  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_ReadBoolParameterErrorID := WORD#0;
+                MC_ReadBoolParameterErrorID := DINT#0;
                 MC_ReadBoolParameterCycle := ULINT#0;  
                 MC_ReadBoolParameterValid := FALSE;
                 MC_ReadBoolParameterValue := FALSE;   
@@ -4130,7 +4231,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_WriteParameterExecute_PV     : 	BOOL := FALSE;		//Enable - previous value
-            MC_WriteParameterErrorID        : 	WORD;
+            MC_WriteParameterErrorID        : 	DINT;
             MC_WriteParameterCycle			: 	ULINT;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_WriteParameter
@@ -4145,7 +4246,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
@@ -4182,14 +4283,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := TO_INT(ParameterNumber);
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteLINT := Value;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#191;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1611, eAxoMessageCategory#ProgrammingError);
-                        MC_WriteParameterErrorID := WORD#1611;
+                        MC_WriteParameterErrorID := DINT#1611;
                         State := UINT#199;
                     END_IF;
                 END_IF;
@@ -4220,14 +4321,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             IF THIS.AxoWriteParameter_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                MC_WriteParameterErrorID := WORD#0;
+                MC_WriteParameterErrorID := DINT#0;
                 // MC_WriteParameterCycle := ULINT#0;     
                 State := UINT#0;
             END_IF;
 
             IF THIS.AxoWriteParameter_Task.RestoreTriggered() AND State>=UINT#190 AND State<=UINT#199 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_WriteParameterErrorID := WORD#0;
+                MC_WriteParameterErrorID := DINT#0;
                 MC_WriteParameterCycle := ULINT#0;     
                 State := UINT#0;
             END_IF;     
@@ -4241,7 +4342,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_WriteRealParameterExecute_PV     : 	BOOL := FALSE;		//Enable - previous value
-            MC_WriteRealParameterErrorID        : 	WORD;
+            MC_WriteRealParameterErrorID        : 	DINT;
             MC_WriteRealParameterCycle			: 	ULINT;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_WriteRealParameter
@@ -4256,7 +4357,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
@@ -4293,14 +4394,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := TO_INT(ParameterNumber);
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteREAL := Value;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#201;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(             UINT#1621, eAxoMessageCategory#ProgrammingError);
-                        MC_WriteRealParameterErrorID := WORD#1621;
+                        MC_WriteRealParameterErrorID := DINT#1621;
                         State := UINT#209;
                     END_IF;
                 END_IF;
@@ -4331,14 +4432,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             IF THIS.AxoWriteRealParameter_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                MC_WriteRealParameterErrorID := WORD#0;
+                MC_WriteRealParameterErrorID := DINT#0;
                 // MC_WriteRealParameterCycle := ULINT#0;     
                 State := UINT#0;
             END_IF;
 
             IF THIS.AxoWriteRealParameter_Task.RestoreTriggered() AND State>=UINT#200 AND State<=UINT#209 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_WriteRealParameterErrorID := WORD#0;
+                MC_WriteRealParameterErrorID := DINT#0;
                 MC_WriteRealParameterCycle := ULINT#0;     
                 State := UINT#0;
             END_IF;     
@@ -4352,7 +4453,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_WriteBoolParameterExecute_PV     : 	BOOL := FALSE;		//Enable - previous value
-            MC_WriteBoolParameterErrorID        : 	WORD;
+            MC_WriteBoolParameterErrorID        : 	DINT;
             MC_WriteBoolParameterCycle			: 	ULINT;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_WriteBoolParameter
@@ -4367,7 +4468,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
@@ -4404,14 +4505,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := TO_INT(ParameterNumber);
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBOOL := Value;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#211;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(             UINT#1631, eAxoMessageCategory#ProgrammingError);
-                        MC_WriteBoolParameterErrorID := WORD#1631;
+                        MC_WriteBoolParameterErrorID := DINT#1631;
                         State := UINT#219;
                     END_IF;
                 END_IF;
@@ -4442,14 +4543,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             IF THIS.AxoWriteBoolParameter_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                MC_WriteBoolParameterErrorID := WORD#0;
+                MC_WriteBoolParameterErrorID := DINT#0;
                 // MC_WriteBoolParameterCycle := ULINT#0;     
                 State := UINT#0;
             END_IF;
 
             IF THIS.AxoWriteBoolParameter_Task.RestoreTriggered() AND State>=UINT#210 AND State<=UINT#219 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_WriteBoolParameterErrorID := WORD#0;
+                MC_WriteBoolParameterErrorID := DINT#0;
                 MC_WriteBoolParameterCycle := ULINT#0;     
                 State := UINT#0;
             END_IF;     
@@ -4464,7 +4565,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_ReadDigitalInputEnable_PV        : 	BOOL := FALSE;		//Enable - previous value
-            MC_ReadDigitalInputErrorID          : 	WORD;
+            MC_ReadDigitalInputErrorID          : 	DINT;
             MC_ReadDigitalInputCycle			: 	ULINT;
             MC_ReadDigitalInputValue			: 	BOOL;
             MC_ReadDigitalInputValid			: 	BOOL;					
@@ -4479,7 +4580,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   BOOL;                       //  The value of the selected input signal
             END_VAR
             VAR 
@@ -4495,7 +4596,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            IF(InputNumber < 0 OR InputNumber >256) THEN   //  TODO check the min max input number
+            IF(InputNumber < 0 OR InputNumber > 64) THEN   //  TODO check the min max input number
                 Messenger.Activate(     UINT#1641, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1641;
                 RETURN;
@@ -4510,7 +4611,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF Enable THEN 	
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
-                    MC_ReadDigitalInputErrorID := WORD#16#0000;         
+                    MC_ReadDigitalInputErrorID := DINT#0;         
                     Parametrization.Inputs.Enable := FALSE;
                     State := UINT#220;
                 END_IF;
@@ -4518,18 +4619,26 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Busy := TRUE;            
                     Parametrization.Inputs.Enable := TRUE;
                     Parametrization.Inputs.ReadWrite   := FALSE;
-                    Parametrization.Inputs.ParameterNo := 2888;
+                    IF InputNumber>= 0 AND InputNumber < 32 THEN
+                        Parametrization.Inputs.ParameterNo := 2888;  //X1A
+                    ELSIF InputNumber>= 32 AND InputNumber < 64 THEN
+                        Parametrization.Inputs.ParameterNo := 2889;  //X1C
+                    END_IF;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         MC_ReadDigitalInputValid := TRUE;
-                        MC_ReadDigitalInputValue := GetBit(TO_LWORD(Parametrization.Outputs.ValueReadLINT), TO_USINT(InputNumber));
+                        IF InputNumber>= 0 AND InputNumber < 32 THEN
+                            MC_ReadDigitalInputValue := GetBit(TO_LWORD(Parametrization.Outputs.ValueReadLINT), TO_USINT(InputNumber)); //X1A
+                        ELSIF InputNumber>= 32 AND InputNumber < 64 THEN
+                            MC_ReadDigitalInputValue := GetBit(TO_LWORD(Parametrization.Outputs.ValueReadLINT), TO_USINT(InputNumber-INT#32)); //X1C
+                        END_IF;
                         State := UINT#221;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(             UINT#1642, eAxoMessageCategory#ProgrammingError);
-                        MC_ReadDigitalInputErrorID :=   WORD#1642;
+                        MC_ReadDigitalInputErrorID :=   DINT#1642;
                         State := UINT#229;
                     END_IF;
                 END_IF;
@@ -4555,7 +4664,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             IF NOT Enable AND MC_ReadDigitalInputEnable_PV  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_ReadDigitalInputErrorID := WORD#0;
+                MC_ReadDigitalInputErrorID := DINT#0;
                 MC_ReadDigitalInputCycle := ULINT#0;  
                 MC_ReadDigitalInputValid := FALSE;
                 MC_ReadDigitalInputValue := FALSE;   
@@ -4574,7 +4683,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_ReadDigitalOutputEnable_PV        : 	BOOL := FALSE;		//Enable - previous value
-            MC_ReadDigitalOutputErrorID          : 	WORD;
+            MC_ReadDigitalOutputErrorID          : 	DINT;
             MC_ReadDigitalOutputCycle			: 	ULINT;
             MC_ReadDigitalOutputValue			: 	BOOL;
             MC_ReadDigitalOutputValid			: 	BOOL;					
@@ -4589,7 +4698,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   BOOL;                       //  The value of the selected output signal
             END_VAR
             VAR 
@@ -4620,7 +4729,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             IF Enable THEN 	
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
-                    MC_ReadDigitalOutputErrorID := WORD#16#0000;         
+                    MC_ReadDigitalOutputErrorID := DINT#0;         
                     Parametrization.Inputs.Enable := FALSE;
                     State := UINT#230;
                 END_IF;
@@ -4631,7 +4740,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 2888;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         MC_ReadDigitalOutputValid := TRUE;
                         MC_ReadDigitalOutputValue := GetBit(TO_LWORD(Parametrization.Outputs.ValueReadLINT), TO_USINT(OutputNumber));
@@ -4639,7 +4748,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(             UINT#1652, eAxoMessageCategory#ProgrammingError);
-                        MC_ReadDigitalOutputErrorID :=  WORD#1652;
+                        MC_ReadDigitalOutputErrorID :=  DINT#1652;
                         State := UINT#239;
                     END_IF;
                 END_IF;
@@ -4665,7 +4774,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             IF NOT Enable AND MC_ReadDigitalOutputEnable_PV  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_ReadDigitalOutputErrorID := WORD#0;
+                MC_ReadDigitalOutputErrorID := DINT#0;
                 MC_ReadDigitalOutputCycle := ULINT#0;  
                 MC_ReadDigitalOutputValid := FALSE;
                 MC_ReadDigitalOutputValue := FALSE;   
@@ -4683,7 +4792,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_WriteDigitalOutputExecute_PV     : 	BOOL := FALSE;		//Enable - previous value
-            MC_WriteDigitalOutputErrorID        : 	WORD;
+            MC_WriteDigitalOutputErrorID        : 	DINT;
             MC_WriteDigitalOutputCycle			: 	ULINT;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_WriteDigitalOutput
@@ -4698,7 +4807,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Done            :   BOOL;                       //  Writing of the output signal value is done
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
@@ -4739,7 +4848,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     //Remove after implementation on the drive side
                     State := UINT#249;
                     Messenger.Activate(             UINT#1662, eAxoMessageCategory#ProgrammingError);
-                    MC_WriteDigitalOutputErrorID := WORD#1662;
+                    MC_WriteDigitalOutputErrorID := DINT#1662;
                 END_IF;
                 IF State = UINT#240 THEN
                     Busy := TRUE;            
@@ -4748,14 +4857,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 0;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     Parametrization.Inputs.ValueWriteBOOL := Value;
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         State := UINT#241;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(             UINT#1663, eAxoMessageCategory#ProgrammingError);
-                        MC_WriteDigitalOutputErrorID := WORD#1663;
+                        MC_WriteDigitalOutputErrorID := DINT#1663;
                         State := UINT#249;
                     END_IF;
                 END_IF;
@@ -4786,14 +4895,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             IF THIS.AxoWriteDigitalOutput_Task.DoneReached() THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Done;
-                MC_WriteDigitalOutputErrorID := WORD#0;
+                MC_WriteDigitalOutputErrorID := DINT#0;
                 // MC_WriteDigitalOutputCycle := ULINT#0;     
                 State := UINT#0;
             END_IF;
 
             IF THIS.AxoWriteDigitalOutput_Task.RestoreTriggered() AND State>=UINT#240 AND State<=UINT#249 THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_WriteDigitalOutputErrorID := WORD#0;
+                MC_WriteDigitalOutputErrorID := DINT#0;
                 MC_WriteDigitalOutputCycle := ULINT#0;     
                 State := UINT#0;
             END_IF;     
@@ -4815,7 +4924,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Position        :   LREAL;                       //  New absolute position (in axis’ unit [u])
             END_VAR
             VAR 
@@ -4852,7 +4961,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Velocity        :   LREAL;                       //  The value of the actual velocity (in axis’ unit [u/s])
             END_VAR
             VAR 
@@ -4889,7 +4998,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Torque          :   LREAL;                       //  The value of the actual torque or force (in technical units)
             END_VAR
             VAR 
@@ -4929,7 +5038,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Valid               :   BOOL;                       //  A valid output is available at the method
                 Busy                :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error               :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID             :   WORD;                       //  Error identification
+                ErrorID             :   DINT;                       //  Error identification
                 ErrorStop           :   BOOL;                       //  See state diagram
                 Disabled            :   BOOL;                       //  See state diagram
                 Stopping            :   BOOL;                       //  See state diagram
@@ -4956,7 +5065,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 THIS.UpdateInputs(AxisRef);         
                 Valid := TRUE;
                 Error                   := _AxisReference^.Telegram111_In.ZSW1.faultPresent;
-                ErrorID                 := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                ErrorID                 := _AxisReference^.Telegram111_In.Fault_Code;
                 ErrorStop               := DriveState = AXOpen.Components.Drives.eAxoDriveState#ErrorStop;;                         
                 Disabled                := DriveState = AXOpen.Components.Drives.eAxoDriveState#Disabled;
                 Stopping                := DriveState = AXOpen.Components.Drives.eAxoDriveState#Stopping;
@@ -4988,7 +5097,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 ConstantVelocity:   BOOL;                       //  Velocity is constant. Velocity may be 0. For the actual value a window is applicable (window is vendor specific)
                 Accelerating    :   BOOL;                       //  Increasing the absolute value of the velocity
                 Decelerating    :   BOOL;                       //  Decreasing the absolute value of the velocity
@@ -5012,7 +5121,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 THIS.UpdateInputs(AxisRef);         
                 Valid := TRUE;
                 Error                   := _AxisReference^.Telegram111_In.ZSW1.faultPresent;
-                ErrorID                 := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                ErrorID                 := _AxisReference^.Telegram111_In.Fault_Code;
                 ConstantVelocity        := FALSE;
                 Accelerating            := _AxisReference^.Telegram111_In.ZSW1.axisAccelerates;
                 Decelerating            := _AxisReference^.Telegram111_In.ZSW1.axisDecelerates;
@@ -5034,7 +5143,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Valid               :   BOOL;                       //  A valid output is available at the method
                 Busy                :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error               :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID             :   WORD;                       //  Error identification
+                ErrorID             :   DINT;                       //  Error identification
                 HomeAbsSwitch       :   BOOL;                       //  Digital home switch input is active
                 LimitSwitchPos      :   BOOL;                       //  Positive hardware end switch is active
                 LimitSwitchNeg      :   BOOL;                       //  Negative hardware end switch is active
@@ -5062,7 +5171,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 THIS.UpdateInputs(AxisRef);         
                 Valid := TRUE;
                 Error                   := _AxisReference^.Telegram111_In.ZSW1.faultPresent;
-                ErrorID                 := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                ErrorID                 := _AxisReference^.Telegram111_In.Fault_Code;
                 HomeAbsSwitch           := FALSE;
                 LimitSwitchPos          := _AxisReference^.Telegram111_In.POS_ZSW1.%X9;
                 LimitSwitchNeg          := _AxisReference^.Telegram111_In.POS_ZSW1.%X8;
@@ -5081,7 +5190,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         ///<summary>
         VAR INTERNAL
             MC_ReadAxisErrorEnable_PV        : 	BOOL := FALSE;		//Enable - previous value
-            MC_ReadAxisErrorErrorID          : 	WORD;
+            MC_ReadAxisErrorErrorID          : 	DINT;
             MC_ReadAxisErrorCycle			: 	ULINT;
             MC_ReadAxisErrorValue			: 	LINT;
             MC_ReadAxisErrorValid			: 	BOOL;					
@@ -5096,7 +5205,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 AxisErrorID     :   DWORD;                      //  The value of the axis error. These values are vendor specific
             END_VAR
             VAR 
@@ -5123,7 +5232,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 THIS.UpdateInputs(AxisRef);         
                 IF State = UINT#0 THEN
                     Busy := TRUE;            
-                    MC_ReadAxisErrorErrorID := WORD#16#0000;         
+                    MC_ReadAxisErrorErrorID := DINT#0;         
                     Parametrization.Inputs.Enable := FALSE;
                     State := UINT#310;
                 END_IF;
@@ -5134,7 +5243,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ParameterNo := 12306;
                     Parametrization.Inputs.Subindex    := 0;
                     Parametrization.Inputs.AxisNo  := BYTE#1;
-                    Parametrization.Inputs.HardwareId  := _AxisReference^.Data.hwIdModuleAccessPoint;
+                    Parametrization.Inputs.HardwareId  := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);
                     IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
                         MC_ReadAxisErrorValid := TRUE;
                         MC_ReadAxisErrorValue := Parametrization.Outputs.ValueReadLINT;
@@ -5142,7 +5251,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
                         Messenger.Activate(         UINT#1731, eAxoMessageCategory#ProgrammingError);
-                        MC_ReadAxisErrorErrorID :=  WORD#1731;
+                        MC_ReadAxisErrorErrorID :=  DINT#1731;
                         State := UINT#319;
                     END_IF;
                 END_IF;
@@ -5169,7 +5278,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             IF NOT Enable AND MC_ReadAxisErrorEnable_PV  THEN
                 _AxisReference^.Status.CurrentMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_None;
-                MC_ReadAxisErrorErrorID := WORD#0;
+                MC_ReadAxisErrorErrorID := DINT#0;
                 MC_ReadAxisErrorCycle := ULINT#0;  
                 MC_ReadAxisErrorValid := FALSE;
                 MC_ReadAxisErrorValue := LINT#0;   
@@ -5204,7 +5313,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Done            :   BOOL;                       //  ‘Standstill’ or ‘Disabled’ state is reached
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
@@ -5297,7 +5406,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 IF State = UINT#329 THEN
                     _AxisReference^.Telegram111_Out.STW1.acknowledgeFault := FALSE;
                     Error := TRUE;
-                    ErrorID := TO_WORD(_AxisReference^.Telegram111_In.Fault_Code);
+                    ErrorID := TO_DINT(_AxisReference^.Telegram111_In.Fault_Code);
                 END_IF;
                 THIS.UpdateOutputs(AxisRef);         
             END_IF;
@@ -5310,17 +5419,18 @@ NAMESPACE AXOpen.Components.Festo.Drives
         END_METHOD
 
         METHOD PUBLIC OVERRIDE Restore
+            MC_PowerCycle                       := ULINT#0;
             MC_HomeExecute_PV					:= FALSE;
-            MC_HomeErrorID					    := WORD#0;
+            MC_HomeErrorID					    := DINT#0;
             MC_HomeCycle					    := ULINT#0;
             MC_StopExecute_PV					:= FALSE;
-            MC_StopErrorID					    := WORD#0;
+            MC_StopErrorID					    := DINT#0;
             MC_StopCycle					    := ULINT#0;
             MC_HaltExecute_PV					:= FALSE;
-            MC_HaltErrorID					    := WORD#0;
+            MC_HaltErrorID					    := DINT#0;
             MC_HaltCycle					    := ULINT#0;
             MC_MoveAbsoluteExecute_PV			:= FALSE;
-            MC_MoveAbsoluteErrorID				:= WORD#0;
+            MC_MoveAbsoluteErrorID				:= DINT#0;
             MC_MoveAbsoluteCycle				:= ULINT#0;
             MC_MoveAbsoluteContinuousUpdate_SV  := FALSE;
             MC_MoveAbsolutePosition_PV          := LREAL#0.0;                                          
@@ -5330,7 +5440,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             MC_MoveAbsoluteJerk_PV              := LREAL#0.0;                     
             MC_MoveAbsoluteDirection_PV         := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#CurrentDirection;        
             MC_MoveRelativeExecute_PV			:= FALSE;
-            MC_MoveRelativeErrorID				:= WORD#0;
+            MC_MoveRelativeErrorID				:= DINT#0;
             MC_MoveRelativeCycle				:= ULINT#0;
             MC_MoveRelativeContinuousUpdate_SV  := FALSE;
             MC_MoveRelativeDistance_PV          := LREAL#0.0;                                        
@@ -5339,7 +5449,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             MC_MoveRelativeDeceleration_PV      := LREAL#0.0;                              
             MC_MoveRelativeJerk_PV              := LREAL#0.0;
             MC_MoveAdditiveExecute_PV			:= FALSE;
-            MC_MoveAdditiveErrorID				:= WORD#0;
+            MC_MoveAdditiveErrorID				:= DINT#0;
             MC_MoveAdditiveCycle				:= ULINT#0;
             MC_MoveAdditiveContinuousUpdate_SV  := FALSE;
             MC_MoveAdditiveDistance_PV          := LREAL#0.0;                                       
@@ -5348,7 +5458,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             MC_MoveAdditiveDeceleration_PV      := LREAL#0.0;                             
             MC_MoveAdditiveJerk_PV              := LREAL#0.0;
             MC_MoveVelocityExecute_PV			:= FALSE;
-            MC_MoveVelocityErrorID				:= WORD#0;
+            MC_MoveVelocityErrorID				:= DINT#0;
             MC_MoveVelocityCycle				:= ULINT#0;
             MC_MoveVelocityContinuousUpdate_SV  := FALSE;
             MC_MoveVelocityVelocity_PV          := LREAL#0.0;               
@@ -5357,7 +5467,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             MC_MoveVelocityJerk_PV              := LREAL#0.0;                
             MC_MoveVelocityDirection_PV         := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#CurrentDirection;        
             MC_TorqueControlExecute_PV			:= FALSE;
-            MC_TorqueControlErrorID				:= WORD#0;
+            MC_TorqueControlErrorID				:= DINT#0;
             MC_TorqueControlCycle				:= ULINT#0;
             MC_TorqueControlContinuousUpdate_SV := FALSE;
             MC_TorqueControlTorque_PV           := LREAL#0.0;            
@@ -5369,45 +5479,45 @@ NAMESPACE AXOpen.Components.Festo.Drives
             MC_TorqueControlJerk_PV             := LREAL#0.0;             
             MC_TorqueControlDirection_PV        := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#CurrentDirection;        
             MC_SetPositionExecute_PV			:= FALSE;
-            MC_SetPositionErrorID				:= WORD#0;
+            MC_SetPositionErrorID				:= DINT#0;
             MC_SetPositionCycle					:= ULINT#0;					
             MC_SetPositionActualPosition        := LINT#0;
             MC_ReadParameterEnable_PV           := FALSE;
-            MC_ReadParameterErrorID             := WORD#0;
+            MC_ReadParameterErrorID             := DINT#0;
             MC_ReadParameterCycle			    := ULINT#0;
             MC_ReadParameterValue			    := LINT#0;
             MC_ReadParameterValid			    := FALSE;
             MC_ReadRealParameterEnable_PV       := FALSE;
-            MC_ReadRealParameterErrorID         := WORD#0;
+            MC_ReadRealParameterErrorID         := DINT#0;
             MC_ReadRealParameterCycle			:= ULINT#0;
             MC_ReadRealParameterValue			:= REAL#0.0;
             MC_ReadRealParameterValid			:= FALSE;
             MC_ReadBoolParameterEnable_PV       := FALSE;
-            MC_ReadBoolParameterErrorID         := WORD#0;
+            MC_ReadBoolParameterErrorID         := DINT#0;
             MC_ReadBoolParameterCycle			:= ULINT#0;
             MC_ReadBoolParameterValue			:= FALSE;
             MC_ReadBoolParameterValid			:= FALSE;
             MC_WriteParameterExecute_PV         := FALSE;
-            MC_WriteParameterErrorID            := WORD#0;
+            MC_WriteParameterErrorID            := DINT#0;
             MC_WriteParameterCycle			    := ULINT#0;
             MC_WriteRealParameterExecute_PV     := FALSE;
-            MC_WriteRealParameterErrorID        := WORD#0;
+            MC_WriteRealParameterErrorID        := DINT#0;
             MC_WriteRealParameterCycle			:= ULINT#0;
             MC_WriteBoolParameterExecute_PV     := FALSE;
-            MC_WriteBoolParameterErrorID        := WORD#0;
+            MC_WriteBoolParameterErrorID        := DINT#0;
             MC_WriteBoolParameterCycle			:= ULINT#0;
             MC_ReadDigitalInputEnable_PV        := FALSE;
-            MC_ReadDigitalInputErrorID          := WORD#0;
+            MC_ReadDigitalInputErrorID          := DINT#0;
             MC_ReadDigitalInputCycle			:= ULINT#0;
             MC_ReadDigitalInputValue			:= FALSE;
             MC_ReadDigitalInputValid			:= FALSE;
             MC_ReadDigitalOutputEnable_PV       := FALSE;
-            MC_ReadDigitalOutputErrorID         := WORD#0;
+            MC_ReadDigitalOutputErrorID         := DINT#0;
             MC_ReadDigitalOutputCycle			:= ULINT#0;
             MC_ReadDigitalOutputValue			:= FALSE;
             MC_ReadDigitalOutputValid			:= FALSE;
             MC_WriteDigitalOutputExecute_PV     := FALSE;
-            MC_WriteDigitalOutputErrorID        := WORD#0;
+            MC_WriteDigitalOutputErrorID        := DINT#0;
             MC_WriteDigitalOutputCycle			:= ULINT#0;
             MC_ReadStatusEnable_PV				:= FALSE;                                                    
             MC_ReadStatusDone_PV				:= FALSE;                                                    
@@ -5418,15 +5528,15 @@ NAMESPACE AXOpen.Components.Festo.Drives
             MC_ReadMotionStateValue			    := LINT#0;
             MC_ReadMotionStateValid			    := FALSE;
             MC_ReadAxisErrorEnable_PV           := FALSE;
-            MC_ReadAxisErrorErrorID             := WORD#0;
+            MC_ReadAxisErrorErrorID             := DINT#0;
             MC_ReadAxisErrorCycle			    := ULINT#0;
             MC_ReadAxisErrorValue			    := LINT#0;
             MC_ReadAxisErrorValid			    := FALSE;				
             LastMessageCode                     := ULINT#0;
-            MC_ResetExecute_PV				    := FALSE;        
+            MC_ResetExecute_PV				    := FALSE;           
             MC_ResetPower_PV				    := FALSE;
             
-            _AxisRefExt.Data.Cycle              := ULINT#0;
+            AxisRefExt.Data.Cycle              := ULINT#0;
             State                               := UINT#0;
             DriveStatus.Action.Id := UINT#0;
             DriveStatus.Error.Id  := UINT#0;
@@ -5469,26 +5579,27 @@ NAMESPACE AXOpen.Components.Festo.Drives
             AxoJogNegative.StopMotion := FALSE;
             Parametrization.Restore();
              
-            _AxisRefExt.Telegram111_Out.STW1.activateTraversing := FALSE; 
-            _AxisRefExt.Telegram111_Out.STW1.StartHoming := FALSE; 
-            _AxisRefExt.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
-            _AxisRefExt.Telegram111_Out.POS_STW1.PosModulo := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.NegModulo := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.SetupMode := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
-            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
-            _AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
-            _AxisRefExt.Telegram111_Out.STW2.TravelToFixStop := FALSE;
-            RestoreTask.DoneWhen(TRUE);
+            AxisRefExt.Telegram111_Out.STW1.activateTraversing := FALSE; 
+            AxisRefExt.Telegram111_Out.STW1.StartHoming := FALSE; 
+            AxisRefExt.Telegram111_Out.POS_STW1.MDI_MOD := FALSE; 
+            AxisRefExt.Telegram111_Out.POS_STW1.PosModulo := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.NegModulo := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.SetupMode := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.MDI_Activate := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW2.Trackingmode := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW2.jog_inc := FALSE;   
+            AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit0 := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit1 := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit2 := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit3 := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit4 := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit5 := FALSE;
+            AxisRefExt.Telegram111_Out.POS_STW1.travBlockBit6 := FALSE;    
+            AxisRefExt.Telegram111_Out.STW2.TravelToFixStop := FALSE;
 
             SUPER.Restore();
+
+            RestoreTask.DoneWhen(TRUE);
         END_METHOD
     END_CLASS
 END_NAMESPACE

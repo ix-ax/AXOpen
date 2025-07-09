@@ -50,13 +50,13 @@ NAMESPACE AXOpen.Elements
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
-            {#ix-attr:[ReadOnly()]}
+            // {#ix-attr:[ReadOnly()]}      //TODO uncomment this after debugging is finished
             Inputs              :   AxoCarousel_State;
             {#ix-attr:[ComponentDetails("Hardware signals")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
-            {#ix-attr:[ReadOnly()]}
+            // {#ix-attr:[ReadOnly()]}      //TODO uncomment this after debugging is finished
             Outputs              :   AxoCarousel_Control;
         END_VAR    
 
@@ -91,23 +91,21 @@ NAMESPACE AXOpen.Elements
             SUPER.Run(parent);
 
             Messenger.Serve(THIS);
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
             
             IF parent = NULL THEN
+                Messenger.Activate(UINT#700, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#700;
                 RETURN;
             END_IF;
             
-            Messenger.ActivateOnCondition(ULINT#701,Config.NumberOfPositions < UINT#2 , eAxoMessageCategory#ProgrammingError);
-
-            IF Config.NumberOfPositions <= UINT#0 THEN
+            IF Config.NumberOfPositions < UINT#2 THEN
+                Messenger.Activate(UINT#701, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#701;
                 RETURN;
             END_IF;
 
-            Messenger.ActivateOnCondition(ULINT#702,Config.NumberOfPositions > UINT#32 , eAxoMessageCategory#ProgrammingError);
-
-            IF Config.NumberOfPositions <= UINT#0 THEN
+            IF Config.NumberOfPositions > UINT#32 THEN
+                Messenger.Activate(UINT#702, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#702;
                 RETURN;
             END_IF;
@@ -163,9 +161,10 @@ NAMESPACE AXOpen.Elements
                 END_IF;
     
                 IF _progress = 300 THEN                                                                                     // TurnTask running: checking the initial position
-                    TaskMessenger.ActivateOnCondition(ULINT#703, NOT Inputs.InPosition, eAxoMessageCategory#Error);         // Turn table is not in the initial position
-                    IF NOT Inputs.InPosition THEN
-                        Status.Error.Id := UINT#703;
+                    IF NOT Inputs.InPosition THEN                                                                           // Turn table is not in the initial position
+                        Messenger.Activate(     UINT#703, eAxoMessageCategory#Error);                                       
+                        TaskMessenger.Activate( UINT#703, eAxoMessageCategory#Error);                                       
+                        Status.Error.Id :=      UINT#703;
                     END_IF;
 
                     IF Inputs.InPosition THEN
@@ -175,13 +174,15 @@ NAMESPACE AXOpen.Elements
                 END_IF;
     
                 IF _progress = 301 THEN                                                                                     // TurnTask running: evaluating start index
-                    IF CurrentPosition = UINT#0 THEN
-                        Status.Error.Id := UINT#704;
-                        TaskMessenger.Activate(ULINT#704, eAxoMessageCategory#Error);                                       // Invalid coding, no signal from any coding sensor
+                    IF CurrentPosition = UINT#0 THEN                                                                        // Invalid coding, no signal from any coding sensor
+                        Messenger.Activate(     UINT#704, eAxoMessageCategory#Error);                                       
+                        TaskMessenger.Activate( UINT#704, eAxoMessageCategory#Error);
+                        Status.Error.Id :=      UINT#704;                                       
                      END_IF;
-                    IF CurrentPosition > Config.NumberOfPositions THEN
-                        Status.Error.Id := UINT#705;
-                        TaskMessenger.Activate(ULINT#705, eAxoMessageCategory#Error);                                       // Invalid coding, current position is greather then maximum
+                    IF CurrentPosition > Config.NumberOfPositions THEN                                                      // Invalid coding, current position is greather then maximum
+                        Messenger.Activate(     UINT#705, eAxoMessageCategory#Error);                                       
+                        TaskMessenger.Activate( UINT#705, eAxoMessageCategory#Error);
+                        Status.Error.Id :=      UINT#705;                                       
                     END_IF;
     
                     IF CurrentPosition > UINT#0 AND CurrentPosition<= Config.NumberOfPositions THEN
@@ -193,9 +194,9 @@ NAMESPACE AXOpen.Elements
                 END_IF;
                 
                 IF _progress = 302 THEN                                                                                     // TurnTask running: turn table moving, waiting for 'Inputs.InPosition' to be reseted.
-                    TaskMessenger.ActivateOnCondition(ULINT#502, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#502;
+                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#502;
                     END_IF;
 
                     Outputs.EnableTurn := TRUE;
@@ -209,9 +210,9 @@ NAMESPACE AXOpen.Elements
                 END_IF;
                 
                 IF _progress = 303 THEN                                                                                     // TurnTask running: turn table moving, waiting for 'Inputs.InPosition' to be set.
-                    TaskMessenger.ActivateOnCondition(ULINT#503, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#503;
+                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#503;
                     END_IF;
     
                     Outputs.EnableTurn := FALSE;
@@ -230,8 +231,9 @@ NAMESPACE AXOpen.Elements
                         THIS.CallTimers(FALSE);
                         _progress := 309;
                     ELSE
-                        TaskMessenger.Activate(ULINT#706, eAxoMessageCategory#Error);
-                        Status.Error.Id := UINT#706;
+                        Messenger.Activate(     UINT#706, eAxoMessageCategory#Error);                                       
+                        TaskMessenger.Activate( UINT#706, eAxoMessageCategory#Error);
+                        Status.Error.Id :=      UINT#706;
                     END_IF;
                 END_IF;
                 
@@ -249,14 +251,14 @@ NAMESPACE AXOpen.Elements
                 Status.Action.Id :=  UINT#101;
                 Status.Error.Id :=  UINT#0;
             ELSIF TurnTask.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#800;
-                Status.Error.Id  :=  UINT#800;
+                Status.Action.Id :=  UINT#10000;
+                Status.Error.Id  :=  UINT#10000;
             ELSIF TurnTask.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#801;
-                Status.Error.Id  :=  UINT#801;
+                Status.Action.Id :=  UINT#10001;
+                Status.Error.Id  :=  UINT#10001;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#800,TurnTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#801,TurnTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10000,TurnTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,TurnTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#102,TurnTask.RestoreTriggered() , eAxoMessageCategory#Error);
             IF TurnTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
@@ -280,9 +282,9 @@ NAMESPACE AXOpen.Elements
                 END_IF;
     
                 IF _progress = 312 THEN                                                                                     // InitPositionTask running: turn table moving, waiting for 'Inputs.InPosition' to be reseted.
-                    TaskMessenger.ActivateOnCondition(ULINT#512, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#512;
+                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#512;
                     END_IF;
     
                     Outputs.EnableTurn := TRUE;
@@ -296,9 +298,9 @@ NAMESPACE AXOpen.Elements
                 END_IF;
                 
                 IF _progress = 313 THEN                                                                                     // InitPositionTask running: turn table moving, waiting for 'Inputs.InPosition' to be set.
-                    TaskMessenger.ActivateOnCondition(ULINT#513, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
-                        Status.Error.Id := UINT#513;
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#513;
                     END_IF;
     
                     Outputs.EnableTurn := FALSE;
@@ -326,14 +328,14 @@ NAMESPACE AXOpen.Elements
                 Status.Action.Id :=  UINT#111;
                 Status.Error.Id :=  UINT#0;
             ELSIF InitPositionTask.ErrorOccured() THEN
-                Status.Action.Id :=  UINT#810;
-                Status.Error.Id  :=  UINT#810;
+                Status.Action.Id :=  UINT#10010;
+                Status.Error.Id  :=  UINT#10010;
             ELSIF InitPositionTask.AbortTriggered()THEN
-                Status.Action.Id :=  UINT#811;
-                Status.Error.Id  :=  UINT#811;
+                Status.Action.Id :=  UINT#10011;
+                Status.Error.Id  :=  UINT#10011;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#810,InitPositionTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#811,InitPositionTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10010,InitPositionTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10011,InitPositionTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#112,InitPositionTask.RestoreTriggered() , eAxoMessageCategory#Error);
             IF InitPositionTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
                 Status.Action.Id :=  UINT#112;
@@ -381,6 +383,10 @@ NAMESPACE AXOpen.Elements
             InitPositionTask.Restore();
             Status.Action.Id := UINT#50;
             RestoreTask.DoneWhen(TRUE);
+
+            Outputs.EnableTurn  :=  FALSE;
+            Outputs.StartTurn   :=  FALSE;
+
 
         END_METHOD        
 

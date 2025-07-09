@@ -8,7 +8,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             {#ix-set:AttributeName = "<#Error time#>"}
             ErrorTime : LTIME := LT#10S;
             {#ix-set:AttributeName = "<#Camera number#>"}
-            CameraNo : UINT;
+            CameraNo : BYTE;
             {#ix-set:AttributeName = "<#Hardware IDs#>"}
             HWIDs : AxoVisionProHWIDs;
         END_VAR 

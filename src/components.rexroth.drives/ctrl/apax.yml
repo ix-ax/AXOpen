@@ -12,6 +12,7 @@ devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
   "@inxton/axopen.components.drives": '0.0.0-dev.0'
+  "@ax/simatic-1500-distributedio": ^10.0.1
 installStrategy: strict
 apaxVersion: 3.5.0
 scripts:
@@ -43,6 +44,15 @@ scripts:
     apax build    
     apax test    
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
+  ccc: |
+    START=$(date +%s)
+    ..\\..\\scripts\\create_complex_component.sh $APAX_YML_NAME
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ccc' Finished in :" $(expr $(date +%s) - $START) "s"
+  b: |
+    START=$(date +%s)
+    apax build
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax b' Finished in :" $(expr $(date +%s) - $START) "s"
+
 publicKeys:
   "@inxton": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17
 ...

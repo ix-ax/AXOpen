@@ -80,7 +80,7 @@ else
 	exit 1
 fi
 certfile="./certs/$PLC_NAME/$PLC_NAME.cer" 
-apax plc-cert --targetIP $PLC_IP_ADDRESS --output-file $certfile
+apax plc-cert --target $PLC_IP_ADDRESS --output $certfile
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Security  certificate has been succesfully uploaded.${NC}"
 else
