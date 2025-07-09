@@ -5,40 +5,34 @@
 @using Operon.Components.Tab
 @inherits RenderableComplexComponentBase<AxoComponent>;
 
-<div class="card flex-auto my-3 @BorderColorStatusClass">
-    <div class="flex flex-col w-full">
+<div class="flex flex-wrap card @BorderColorStatusClass">
+    <div class="flex flex-wrap">
         <h4>@Component.AttributeName</h4>
         <AxoObjectDiagnosticsView @ref="diagnosticsViewRef" ObservedObjects="new ITwinObject[] { this.Component }"></AxoObjectDiagnosticsView>
-    </div>    
-    <!--Header/Main/Basic controls-->
-    <div>
-        @if (@Component._isManuallyControllable.Cyclic)
-        {
-            currentPresentation = "Command-Control";
-        }
-        else
-        {
-            currentPresentation = "Status-Display";
-        }
-        <RenderableContentControl Presentation="@currentPresentation" Context="@Header"
-                                  Class="w-full" /> 
     </div>
+
+    <!--Header/Main/Basic controls-->
+    @if (@Component._isManuallyControllable.Cyclic)
+    {
+        currentPresentation = "Command-Control";
+    }
+    else
+    {
+        currentPresentation = "Status-Display";
+    }
+    <RenderableContentControl Presentation="@currentPresentation" Context="@Header" />
+
     <Accordion>
-        <AccordionItem  Title="@this.Component.Symbol">
-            <div class="">
-                <Tab>
-                    @foreach (var detailsTab in DetailsTabs)
-                    {
-                        <TabPage Title="@detailsTab.HumanReadable">
-                            <RenderableContentControl
-                                Context=@detailsTab
-                                Presentation="@currentPresentation"
-                                Class="w-full"
-                                LayoutChildrenClass="ms-0"/>
-                        </TabPage>
-                    }
-                </Tab>
-            </div>
+        <AccordionItem Title="@this.Component.Symbol">
+            <Tab>
+                @foreach (var detailsTab in DetailsTabs)
+                {
+                    <TabPage Title="@detailsTab.HumanReadable">
+                        <RenderableContentControl Context=@detailsTab
+                                                  Presentation="@currentPresentation" />
+                    </TabPage>
+                }
+            </Tab>
         </AccordionItem>
     </Accordion>
 </div>
@@ -46,7 +40,7 @@
 @code
 {
     private AxoObjectDiagnosticsView diagnosticsViewRef;
-    
+
     private string BorderColorStatusClass
     {
         get
