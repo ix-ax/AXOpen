@@ -1,4 +1,4 @@
-﻿name: "app_axopen.components.cognex.vision"
+name: "xapp_axopen.components.cognex.vision"
 version: '0.0.0-dev.0'
 type: app
 targets:
@@ -10,7 +10,7 @@ variables:
   # Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build. =>
   PLC_NAME: "plc_line"
   DEFAULT_NAMESPACE: "AXOpen.Components.Cognex.Vision"
-  AXTARGET: 192.168.100.120
+  AXTARGET: 192.168.100.121
   AXTARGETPLATFORMINPUT: .\bin\1500\
   AX_USERNAME: "adm"
   AX_TARGET_PWD: "123ABCDabcd$#!"
@@ -173,7 +173,3 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
     apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer --continuously
-
-
-
-
