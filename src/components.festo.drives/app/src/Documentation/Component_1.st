@@ -412,9 +412,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF; 
 
             IF(Steps[33].Execute(Sequencer, TRUE, 'Disable drive')) THEN
-                AxoCmmtAsEnable := FALSE;
-                AxoCmmtAsEnablePositive := FALSE;
-                AxoCmmtAsEnableNegative := FALSE;
+                Enable := FALSE;
+                EnablePositive := FALSE;
+                EnableNegative := FALSE;
                 IF(NOT AxoCmmtAs.AxoPower_Status) THEN                
                     AxoCmmtAs.Restore();   
                     Sequencer.MoveNext();       
