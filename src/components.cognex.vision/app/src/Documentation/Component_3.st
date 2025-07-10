@@ -31,7 +31,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             END_IF;
 
             //<Initialization>        
-            // Dataman_300.Run(parent := THIS, hwID :=  HwIdentifiers#dm_300_HwID);
+            Dataman_300.Run(parent := THIS, hwID :=  HwIdentifiers#dm_300_HwID);
             //</Initialization>
 
             THIS.UseInSequencer();
