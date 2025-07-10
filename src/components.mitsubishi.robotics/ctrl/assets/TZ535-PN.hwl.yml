@@ -38,7 +38,7 @@ Devices:
   - Name: In_Out_64_byte
     TypeIdentifier:
       FileName: GSDML-V2.3-MITSUBISHI-TZ535_PN-20140619.XML
-      GsdId: apax build
+      GsdId: ID_MODULE_IN_OUT64B
       
     Slot: 1    
   # - Name: In_Out_128_byte
