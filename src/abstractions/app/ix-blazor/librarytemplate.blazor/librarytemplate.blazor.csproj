@@ -15,4 +15,12 @@
     <ProjectReference Include="..\..\ix\abstractions_app.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Inxton.Operon" />
+  </ItemGroup>
+
 </Project>

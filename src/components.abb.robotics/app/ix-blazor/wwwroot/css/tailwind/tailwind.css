@@ -955,6 +955,9 @@
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
   }
+  .ps-3 {
+    padding-inline-start: calc(var(--spacing) * 3);
+  }
   .text-center {
     text-align: center;
   }
