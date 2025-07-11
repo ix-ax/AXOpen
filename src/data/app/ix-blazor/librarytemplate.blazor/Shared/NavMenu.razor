@@ -1,76 +1,88 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">librarytemplate.blazor</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
+﻿@using Operon.Icons
+@inject NavigationManager NavigationManager
+@implements IDisposable
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
+<button class="btn btn-no-bg-primary w-full md:hidden!" @onclick="ToggleNavMenu">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 mx-auto">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+    </svg>
+</button>
 
-        @*  icons come from:a
-            https://icon-sets.iconify.design/oi/
-        *@
+@if (!_navCollapsed)
+{
+    <nav class="nav w-full md:w-64">
+        <NavLink href="" class="nav-item" activeClass="active" Match="NavLinkMatch.All">
+            <HeroIcon Icon="home" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2 my-auto" />
+            Home
+        </NavLink>
+        <NavLink href="Rendering" class="nav-item" activeClass="active" Match="NavLinkMatch.All">
+            <HeroIcon Icon="home" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2 my-auto" />
+            Rendering
+        </NavLink>
+        <NavLink href="DistributedData" class="nav-item" activeClass="active" Match="NavLinkMatch.All">
+            <HeroIcon Icon="home" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2 my-auto" />
+            DistributedData
+        </NavLink>
+        <NavLink href="TestingDataExchange" class="nav-item" activeClass="active" Match="NavLinkMatch.All">
+            <HeroIcon Icon="home" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2 my-auto" />
+            Data Exchange
+        </NavLink>
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Rendering">
-                <span class="oi oi-plus" aria-hidden="true"></span> Rendering
-            </NavLink>
-        </div>
+        <NavLink href="TestingDataFragmentExchange" class="nav-item" activeClass="active" Match="NavLinkMatch.All">
+            <HeroIcon Icon="home" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2 my-auto" />
+            Fragment Exchange
+        </NavLink>
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="DistributedData">
-                <span class="oi oi-plus" aria-hidden="true"></span> DistributedData
-            </NavLink>
-        </div>
+        <NavLink href="TestingPersistentData" class="nav-item" activeClass="active" Match="NavLinkMatch.All">
+            <HeroIcon Icon="home" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2 my-auto" />
+            Persistent Data
+        </NavLink>
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="TestingDataExchange">
-                <span class="oi oi-plus" aria-hidden="true"></span> Data Exchange
-            </NavLink>
-        </div>
+        <NavLink href="Documentation" class="nav-item" activeClass="active" Match="NavLinkMatch.All">
+            <HeroIcon Icon="home" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2 my-auto" />
+            Documentation
+        </NavLink>
 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="TestingDataFragmentExchange">
-                <span class="oi oi-plus" aria-hidden="true"></span> Fragment Exchange
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="TestingPersistentData">
-                <span class="oi oi-plus" aria-hidden="true"></span> Persistent Data
-            </NavLink>
-        </div>
-
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="documentation">
-                <span class="oi oi-plus" aria-hidden="true"></span> Documentation
-            </NavLink>
-        </div> 
-        
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Security/UserAdministration">
-                <span class="oi oi-person" aria-hidden="true"></span> User Administration
-            </NavLink>
-        </div>
+        <NavLink href="Security/UserAdministration" class="nav-item" activeClass="active" Match="NavLinkMatch.All">
+            <HeroIcon Icon="home" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2 my-auto" />
+            User Administration
+        </NavLink>
 
     </nav>
+}
+
+<div class="fixed bottom-0 right-0 hidden md:block w-64">
+    <button class="btn btn-no-bg-primary w-full" @onclick="ToggleNavMenu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 mx-auto">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
+        </svg>
+    </button>
+
+    <a href="">
+        <img src="logo-header.svg" width="100%" />
+    </a>
 </div>
 
+
+
 @code {
-    private bool collapseNavMenu = true;
+    private bool _navCollapsed = false;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    public void ToggleNavMenu() => _navCollapsed = !_navCollapsed;
 
-    private void ToggleNavMenu()
+    protected override void OnInitialized()
     {
-        collapseNavMenu = !collapseNavMenu;
+        NavigationManager.LocationChanged += OnLocationChanged;
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        _navCollapsed = false;
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
     }
 }
