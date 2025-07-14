@@ -28,7 +28,6 @@ NAMESPACE AXOpen.Elements
             {#ix-set:AttributeName = "<#MessengerInfo#>"}
             {#ix-set:PlcTextList = "[1]:'<#Expecting positive signal.#>':'<#Check your signal input.#>';[2]:'<#Expecting negative signal.#>':'<#Check your signal input.#>'"}
             _messengerInfo : AXOpen.Messaging.Static.AxoMessenger;
-            
 
         END_VAR
        
@@ -85,14 +84,14 @@ NAMESPACE AXOpen.Elements
         /// </summary>
         METHOD PUBLIC IsTrue : BOOL
             IsTrue := _signal;
-            _messengerInfo.ActivateOnCondition(UINT#1,IsTrue,AXOpen.Messaging.eAxoMessageCategory#Warning);
+            _messengerInfo.ActivateOnCondition(UINT#1,NOT IsTrue,AXOpen.Messaging.eAxoMessageCategory#Warning);
         END_METHOD
         /// <summary>
         /// Returns TRUE if signal is off. It creates alarm otherwise.
         /// </summary>
         METHOD PUBLIC IsFalse : BOOL
             IsFalse := NOT _signal;
-            _messengerInfo.ActivateOnCondition(UINT#2,IsFalse,AXOpen.Messaging.eAxoMessageCategory#Warning);
+            _messengerInfo.ActivateOnCondition(UINT#2,NOT IsFalse,AXOpen.Messaging.eAxoMessageCategory#Warning);
         END_METHOD
 
         METHOD PUBLIC SignalStatus : BOOL
