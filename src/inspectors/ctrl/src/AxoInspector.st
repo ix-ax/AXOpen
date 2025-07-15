@@ -405,7 +405,7 @@ NAMESPACE AXOpen.Inspectors
                 Status : BOOL;
             END_VAR      
 
-            _DL._inspectorType := eInspectorType#Analogue;
+            _DL._inspectorType := eInspectorType#Digital;
             _DL._digitalInspectorData := inData^;
 
             THIS.Run(inParent);

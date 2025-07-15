@@ -29,15 +29,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             
             //<Initialization>        
             ExampleScrewdriver.Run( parent                  :=  THIS,
-                                    hwID                   := HwIdentifiers#wp462_t1_rh_deso_HwID,
-                                    hwId_Input_1_byte_1    := HwIdentifiers#wp462_t1_rh_deso_Input_1_byte_1_Input_1_byte_HwID,
-                                    hwId_Input_1_byte_2    := HwIdentifiers#wp462_t1_rh_deso_Input_1_byte_2_Input_1_byte_HwID,
-                                    hwId_Input_2_word_1    := HwIdentifiers#wp462_t1_rh_deso_Input_2_word_1_Input_2_word_HwID,
-                                    hwId_Input_1_word_1    := HwIdentifiers#wp462_t1_rh_deso_Input_1_word_1_Input_1_word_HwID,
-                                    hwId_Input_2_word_2    := HwIdentifiers#wp462_t1_rh_deso_Input_2_word_2_Input_2_word_HwID,
-                                    hwId_Input_1_word_2    := HwIdentifiers#wp462_t1_rh_deso_Input_1_word_2_Input_1_word_HwID,
-                                    hwId_Output_1_byte_1   := HwIdentifiers#wp462_t1_rh_deso_Output_1_byte_1_Output_1_byte_HwID,
-                                    hwId_Output_1_byte_2   := HwIdentifiers#wp462_t1_rh_deso_Output_1_byte_2_Output_1_byte_HwID);       
+                                    hwID                   := HwIdentifiers#wp462_t1_rh_deso_HwID);       
             //</Initialization>
 
         THIS.UseInSequencer();

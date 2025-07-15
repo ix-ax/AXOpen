@@ -16,4 +16,8 @@
     <ProjectReference Include="..\ix\app_axopen_components_rexroth_drives.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Inxton.Operon" />
+  </ItemGroup>
+
 </Project>

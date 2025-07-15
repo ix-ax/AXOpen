@@ -1,7 +1,7 @@
 USING AXOpen.Components.Cognex.Vision;
 
 CONFIGURATION MyConfiguration
-    TASK Main(Interval := T#10ms, Priority := 1);
+    TASK Main(Interval := T#20ms, Priority := 1);
     PROGRAM P1 WITH Main: MyProgram;
 
     VAR_GLOBAL
