@@ -211,7 +211,7 @@ else
                             EndBtnOperation();
                             OnDataSend?.Invoke(SelectedEntity.DataEntityId);}">
                             <div class="flex flex-wrap">
-                                <span>@Localizer["Send to the PLC"]: "@SelectedEntity.DataEntityId"</span>
+                                <span>@Localizer["Send"]: "@SelectedEntity.DataEntityId"</span>
                             </div>
                         </button>
                     </Authorized>
@@ -223,7 +223,7 @@ else
             <button type="button" class="btn btn-secondary w-100"
                     @onclick='EndBtnOperation'>
                 <div class="flex flex-wrap">
-                    <span>@Localizer["Close"]</span>
+                    <span>@Localizer["Don't send"]</span>
                 </div>
             </button>
         </div>
