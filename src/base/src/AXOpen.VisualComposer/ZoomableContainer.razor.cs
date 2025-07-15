@@ -52,11 +52,11 @@ namespace AXOpen.VisualComposer
         {
             if (_isDragging && !Disable && CanDragging)
             {
-                double offsetX = ((eventArgs.ClientX - _startX) / Parent.ElementSize.Width * 100) * (1 / Parent.Scale);
-                double offsetY = ((eventArgs.ClientY - _startY) / ((Parent!.BackgroundHeight / Parent!.BackgroundWidth) * Parent!.ElementSize.Width) * 100) * (1 / Parent.Scale);
+                double offsetX = ((eventArgs.ClientX - _startX) / Parent.ElementSize.Width * 100) * (1 / Parent.CurrentView.Scale);
+                double offsetY = ((eventArgs.ClientY - _startY) / ((Parent!.CurrentView.BackgroundHeight / Parent!.CurrentView.BackgroundWidth) * Parent!.ElementSize.Width) * 100) * (1 / Parent.CurrentView.Scale);
 
-                Parent!.TranslateX += offsetX;
-                Parent!.TranslateY += offsetY;
+                Parent!.CurrentView.TranslateX += offsetX;
+                Parent!.CurrentView.TranslateY += offsetY;
 
                 _startX = eventArgs.ClientX;
                 _startY = eventArgs.ClientY;
@@ -86,7 +86,7 @@ namespace AXOpen.VisualComposer
         {
             if (!Disable && CanDragging)
             {
-                Parent!.Scale = Math.Min(Math.Max(0.5, Parent!.Scale + eventArgs.DeltaY * -0.0001), 2);
+                Parent!.CurrentView.Scale = Math.Min(Math.Max(0.5, Parent!.CurrentView.Scale + eventArgs.DeltaY * -0.0001), 2);
                 await Parent.SaveAsync();
             }
         }

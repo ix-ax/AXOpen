@@ -37,8 +37,8 @@ namespace AXOpen.VisualComposer
         {
             if (_isDragging)
             {
-                double offsetX = ((eventArgs.ClientX - _startX) / Parent!.ElementSize.Width * 100) * (1 / Parent.Scale);
-                double offsetY = ((eventArgs.ClientY - _startY) / ((Parent!.BackgroundHeight / Parent!.BackgroundWidth) * Parent!.ElementSize.Width) * 100) * (1 / Parent.Scale);
+                double offsetX = ((eventArgs.ClientX - _startX) / Parent!.ElementSize.Width * 100) * (1 / Parent.CurrentView.Scale);
+                double offsetY = ((eventArgs.ClientY - _startY) / ((Parent!.CurrentView.BackgroundHeight / Parent!.CurrentView.BackgroundWidth) * Parent!.ElementSize.Width) * 100) * (1 / Parent.CurrentView.Scale);
 
                 Origin._left += offsetX;
                 Origin._top += offsetY;
@@ -52,7 +52,7 @@ namespace AXOpen.VisualComposer
 
         private void Down(PointerEventArgs eventArgs)
         {
-            Parent._zoomableContainer.CanDragging = false;
+            Parent.ZoomableContainer.CanDragging = false;
             _isDragging = true;
             _startX = eventArgs.ClientX;
             _startY = eventArgs.ClientY;
@@ -60,13 +60,13 @@ namespace AXOpen.VisualComposer
 
         private void Up(PointerEventArgs eventArgs)
         {
-            Parent._zoomableContainer.CanDragging = true;
+            Parent.ZoomableContainer.CanDragging = true;
             _isDragging = false;
         }
 
         private void Leave(PointerEventArgs eventArgs)
         {
-            Parent._zoomableContainer.CanDragging = true;
+            Parent.ZoomableContainer.CanDragging = true;
             _isDragging = false;
         }
 

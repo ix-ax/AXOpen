@@ -1,4 +1,4 @@
-﻿@if (Parent!.AllowZoomingAndPanning)
+﻿@if (Parent!.CurrentView.AllowZoomingAndPanning)
 {
     <div onwheel="event.preventDefault()"
          class="m-0 p-0">
@@ -7,8 +7,8 @@
              @onpointerup="Up"
              @onpointerleave="Leave"
              @onwheel="WheelAsync"
-             style="overflow: hidden; background-color: @(Parent.BackgroundColor);">
-            <div style="position: relative; transform: scale(@(Parent!.Scale)) translate(@(Parent!.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.TranslateY.ToString().Replace(',', '.'))%);">
+             style="overflow: hidden; background-color: @(Parent.CurrentView.BackgroundColor);">
+            <div style="position: relative; transform: scale(@(Parent!.CurrentView.Scale)) translate(@(Parent!.CurrentView.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.CurrentView.TranslateY.ToString().Replace(',', '.'))%);">
                 @ChildContent
             </div>
         </div>
@@ -22,8 +22,8 @@ else
              @onpointerup="Up"
              @onpointerleave="Leave"
              @onwheel="WheelAsync"
-             style="overflow: hidden; background-color: @(Parent.BackgroundColor);">
-            <div style="position: relative; transform: scale(@(Parent!.Scale)) translate(@(Parent!.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.TranslateY.ToString().Replace(',', '.'))%);">
+             style="overflow: hidden; background-color: @(Parent.CurrentView.BackgroundColor);">
+            <div style="position: relative; transform: scale(@(Parent!.CurrentView.Scale)) translate(@(Parent!.CurrentView.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.CurrentView.TranslateY.ToString().Replace(',', '.'))%);">
                 @ChildContent
             </div>
         </div>

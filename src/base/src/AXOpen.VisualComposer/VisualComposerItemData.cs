@@ -1,17 +1,21 @@
-﻿using AXOpen.VisualComposer.Types;
+﻿using AXOpen.VisualComposer.Serializing;
+using AXOpen.VisualComposer.Types;
 using AXSharp.Connector;
+using BlazorContextMenu;
 using Microsoft.AspNetCore.Components;
+using Operon.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace AXOpen.VisualComposer
 {
     public class VisualComposerItemData
     {
-        public bool ModalSettingOpen { get; set; } = false;
+        public bool ModalSettingOpen { get; set; }
 
         public EventCallback EventCallbackStateHasChanged { get; set; }
         public EventCallback EventCallbackSave { get; set; }
@@ -273,34 +277,32 @@ namespace AXOpen.VisualComposer
 
         public delegate void EmptyDelegate();
 
-        public EmptyDelegate StateHasChangeModalDelegate;
+        public EmptyDelegate StateHasChangeModalDelegate { get; set; }
 
-        public EmptyDelegate DragElementDelegate;
+        public EmptyDelegate DragElementDelegate { get; set; }
 
-        public VisualComposerItemData(EventCallback eventCallbackStateHasChanged, 
-            EventCallback eventCallbackSave, 
-            ITwinElement? twinElement, 
-            string? id, 
-            Guid? uniqueGuid, 
-            double left, 
-            double top, 
-            TransformType transform, 
-            string presentation, 
-            double width, 
-            double height, 
-            int zIndex, 
-            double scale, 
-            string roles, 
-            string? presentationTemplate, 
-            bool background, 
+        public VisualComposerItemData(EventCallback eventCallbackStateHasChanged,
+            EventCallback eventCallbackSave,
+            ITwinElement? twinElement,
+            double left,
+            double top,
+            TransformType transform,
+            string presentation,
+            double width,
+            double height,
+            int zIndex,
+            double scale,
+            string roles,
+            string? presentationTemplate,
+            bool background,
             string backgroundColor,
             int pollingInterval)
         {
             EventCallbackStateHasChanged = eventCallbackStateHasChanged;
             EventCallbackSave = eventCallbackSave;
             TwinElement = twinElement;
-            _id = id;
-            UniqueGuid = uniqueGuid;
+            _id = twinElement.Symbol;
+            UniqueGuid = Guid.NewGuid();
             _left = left;
             _top = top;
             _transform = transform;
@@ -316,17 +318,40 @@ namespace AXOpen.VisualComposer
             _pollingInterval = pollingInterval;
         }
 
-        public VisualComposerItemData(EventCallback eventCallbackStateHasChanged, 
-            EventCallback eventCallbackSave, 
-            ITwinElement? twinElement, 
-            string? id, 
-            Guid? uniqueGuid)
+        public VisualComposerItemData(EventCallback eventCallbackStateHasChanged,
+            EventCallback eventCallbackSave,
+            ITwinElement? twinElement)
         {
             EventCallbackStateHasChanged = eventCallbackStateHasChanged;
             EventCallbackSave = eventCallbackSave;
             TwinElement = twinElement;
-            _id = id;
-            UniqueGuid = uniqueGuid;
+            _id = twinElement.Symbol;
+            UniqueGuid = Guid.NewGuid();
+        }
+
+        public VisualComposerItemData(EventCallback eventCallbackStateHasChanged,
+            EventCallback eventCallbackSave,
+            ITwinElement? twinElement,
+            SerializableItem item)
+        {
+            EventCallbackStateHasChanged = eventCallbackStateHasChanged;
+            EventCallbackSave = eventCallbackSave;
+            TwinElement = twinElement;
+            _id = twinElement?.Symbol ?? item.Id;
+            UniqueGuid = Guid.NewGuid();
+            _left = item.Left;
+            _top = item.Top;
+            _transform = Types.TransformType.FromString(item.Transform);
+            _presentation = item.Presentation;
+            _width = item.Width;
+            _height = item.Height;
+            _zIndex = item.ZIndex;
+            _scale = item.Scale;
+            _roles = item.Roles;
+            _presentationTemplate = item.PresentationTemplate;
+            _background = item.Background;
+            _backgroundColor = item.BackgroundColor;
+            _pollingInterval = item.PollingInterval;
         }
     }
 }

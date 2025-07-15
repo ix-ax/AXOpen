@@ -25,5 +25,9 @@
 	<ItemGroup>
 	  <!-- <ProjectReference Include="..\..\..\..\..\operon\src\Operon\Operon.csproj" /> -->
 	</ItemGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
 	  
 </Project>

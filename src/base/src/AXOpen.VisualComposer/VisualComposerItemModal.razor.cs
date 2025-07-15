@@ -47,7 +47,7 @@ namespace AXOpen.VisualComposer
 
         public async Task RemoveAsync()
         {
-            await _parent.RemoveChildrenAsync(Origin);
+            await _parent.RemoveItemAsync(Origin);
         }
     }
 }

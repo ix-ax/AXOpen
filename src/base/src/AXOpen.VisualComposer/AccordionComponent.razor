@@ -1,4 +1,6 @@
 ﻿@using AXSharp.Connector;
+@using System.Reflection
+@using AXSharp.Connector.ValueTypes
 
 <div class="accordion-item">
     <div class="accordion-button @(IsExpanded ? "active" : null) flex flex-wrap items-center p-0!">
@@ -9,9 +11,12 @@
                 <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 icon-button-rotate " + (IsExpanded ? "rotated" : null))" />
             </button>
         </div>
-        <div class="p-2 cursor-pointer" @onclick="() => Parent.AddChildrenAsync(SourceTwinElement)">
-            <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-        </div>
+        @if (!Parent.CurrentView.IsWatchTable)
+        {
+            <div class="p-2 cursor-pointer" @onclick="() => Parent.AddItemAsync(SourceTwinElement)">
+                <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+            </div>
+        }
     </div>
     @if (IsExpanded)
     {
@@ -26,10 +31,15 @@
                     }
                     else if (kid is ITwinPrimitive prim)
                     {
-                        <div class="flex flex-wrap items-center ms-4 me-6">
-                            <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2" />
+                        
+                        <div class="flex flex-wrap items-center mx-4 gap-2">
+                            <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             <p class="truncate">@prim.Symbol</p>
-                            <a class="ms-auto" @onclick="() => Parent.AddChildrenAsync(prim)">
+                            <p>@(((dynamic)kid).Cyclic)</p>
+                            <RenderableContentControl Context="prim"
+                                                      Presentation="Command-Control"
+                                                      ParentContainer="@this" />
+                            <a class="ms-auto" @onclick="() => Parent.AddItemAsync(prim)">
                                 <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </a>
                         </div>
@@ -48,4 +58,25 @@
     public VisualComposerContainer Parent { get; set; }
 
     private bool IsExpanded { get; set; } = false;
+
+    // private static PropertyInfo GetPropertyInfo(string interpolated, ITwinElement obj)
+    // {
+    //     if (obj is OnlinerBase)
+    //         return interpolated is "Cyclic" or "GetAsync" or "AsObj" or "Edit"
+    //             ? obj.GetType().GetProperties().FirstOrDefault(p => p.Name == "Raw")
+    //             : obj.GetType().GetProperties().FirstOrDefault(p => p.Name == $"{interpolated}");
+
+    //     return obj.GetType().GetProperties().FirstOrDefault(p => p.Name == $"{interpolated}");
+    // }
+
+    // private static string GetPropertyValue(string interpolated, ITwinElement obj)
+    // {
+    //     string retVal = null;
+    //     var property = GetPropertyInfo(interpolated, obj);
+    //     if (property != null) retVal = property.GetValue(obj).ToString();
+
+    //     if (!string.IsNullOrEmpty(retVal))
+    //         return retVal;
+    //     return interpolated;
+    // }
 }
