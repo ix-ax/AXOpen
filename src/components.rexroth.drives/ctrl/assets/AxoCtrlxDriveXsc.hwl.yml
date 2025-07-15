@@ -1,0 +1,120 @@
+Devices:
+- Name: AxoCtrlxDriveXsc
+  Modules:
+  - Name: AxoCtrlxDriveXsc
+    TypeIdentifier:
+      FileName: GSDML-V2.41-Bosch Rexroth AG-ctrlX DRIVE-20241107.xml
+      GsdId: ID_DAP_XCS
+    Interfaces:
+    - Name: profinet
+      Label: X1
+      Addresses:
+        Configured:
+        - IPv4: "192.168.100.41/24"
+        - ProfinetDeviceName: AxoCtrlxDriveXsc
+      # Parameters:
+      #   IECV22LLDPMode: True
+        # TsnDomainName: 
+    Ports:
+      - Name: Port_1
+        Label: X1 P1
+      - Name: Port_2
+        Label: X1 P2
+  - Name: Outputs
+    TypeIdentifier:
+        FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+        GsdId: 'ID_M_XCS_INI_0_cons'
+    Slot: 1
+    Submodules:
+      - Name: 'S-0-0145_0_0__Signal_control_word__Value'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Signal_control_word_S_0_0145_0_0_cons'
+        Slot: 2
+      - Name: 'S-0-0282_0_0__Drive-controlled_positioning__Command_value'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Positioning_command_value_S_0_0282_0_0_cons'
+        Slot: 3
+      - Name: 'S-0-0259_0_0__Positioning_profile__Profile_velocity'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Positioning_velocity_S_0_0259_0_0_cons'
+        Slot: 4
+      - Name: 'S-0-0260_0_0__Positioning_profile__Acceleration'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Positioning_acceleration_S_0_0260_0_0_cons'
+        Slot: 5
+      - Name: 'S-0-0359_0_0__Positioning_profile__Deceleration'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Positioning_deceleration_S_0_0359_0_0_cons'
+        Slot: 6
+      - Name: 'S-0-1720_0_1__Power_supply_control__Control_word'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Power_supply_control_word_S_0_1720_0_1_cons'
+        Slot: 7
+      - Name: 'S-0-0092_0_0__Torque_force_limitation__Limit_value_bipolar'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Bipolar_torque_force_limit_value_S_0_0092_0_0_cons'
+        Slot: 8
+      - Name: 'S-0-0080_0_0__Torque_force_command_value'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Torque_force_command_value_S_0_0080_0_0_cons'
+        Slot: 9
+      - Name: 'S-0-0193_0_0__Positioning_jerk'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Positioning_jerk_S_0_0193_0_0_cons'
+        Slot: 10
+  - Name: Inputs
+    TypeIdentifier:
+        FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+        GsdId: 'ID_M_XCS_INI_0_prod'
+    Slot: 2
+    Submodules:
+      - Name: 'S-0-0144_0_0__Signal_status_word__Value'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Signal_status_word_S_0_0144_0_0_prod'
+        Slot: 2
+      - Name: 'S-0-0386_0_0__Position_controller__Position_actual_value'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Active_position_feedback_value_S_0_0386_0_0_prod'
+        Slot: 3
+      - Name: 'S-0-0535_0_0__Velocity_controller__Velocity_actual_value'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Active_velocity_feedback_value_S_0_0535_0_0_prod'
+        Slot: 4
+      - Name: 'S-0-0390_0_0__Diagnostic_message__Manufacturer_status_register'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Diagnostic_message_number_S_0_0390_0_0_prod'
+        Slot: 5
+      - Name: 'S-0-1720_0_2__Power_supply_control__Status_word'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Power_supply_status_word_S_0_1720_0_2_prod'
+        Slot: 6
+      - Name: 'S-0-0084_0_0__Torque_force_feedback_value'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Torque_force_feedback_value_S_0_0084_0_0_prod'
+        Slot: 7
+      - Name: 'P-0-0106_0_0__STO_function__Operating_status'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Operating_status_STO_P_0_0106_0_0_prod'
+        Slot: 8
+
+
+
+
+
+

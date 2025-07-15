@@ -12,7 +12,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by switching off power (only possibility to abort)                
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                        // Error identification           
              END_VAR
         END_METHOD
         METHOD AxoHalt  :   AXOpen.Core.IAxoTaskState
@@ -26,7 +26,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by switching off power (only possibility to abort)                
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                        // Error identification           
              END_VAR
         END_METHOD
         METHOD AxoHome  :   AXOpen.Core.IAxoTaskState
@@ -43,7 +43,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                        // Error identification           
              END_VAR
         END_METHOD
         METHOD AxoMoveAbsolute :   AXOpen.Core.IAxoTaskState
@@ -62,7 +62,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                        // Error identification           
              END_VAR
         END_METHOD
         METHOD AxoMoveRelative :   AXOpen.Core.IAxoTaskState 
@@ -80,7 +80,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                        // Error identification           
              END_VAR
         END_METHOD
         METHOD AxoMoveAdditive :   AXOpen.Core.IAxoTaskState
@@ -98,7 +98,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                        // Error identification           
              END_VAR
         END_METHOD
         METHOD AxoMoveVelocity :   AXOpen.Core.IAxoTaskState
@@ -116,7 +116,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                        // Error identification           
              END_VAR
         END_METHOD
         METHOD AxoTorqueControl:   AXOpen.Core.IAxoTaskState
@@ -137,7 +137,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Active          :   BOOL;                       //  Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       //  ‘Command’ is aborted by another command
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                        //  Error identification             
             END_VAR
         END_METHOD
         METHOD AxoSetPosition   :   AXOpen.Core.IAxoTaskState
@@ -149,7 +149,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
             VAR_OUTPUT
                 Done            :   BOOL;                       //  ‘Position’ has new value
                 Error           :   BOOL;                       //  Signals that an error has occurred within the FunctionBlock
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                        //  Error identification             
             END_VAR
         END_METHOD
         METHOD AxoSetOverride   : AXOpen.Core.IAxoToggleTask
@@ -163,7 +163,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Enabled         :   BOOL;                       //  Signals that the override factor(s) is (are) set successfully
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the FumethodnctionBlock
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                        //  Error identification             
             END_VAR
         END_METHOD
         METHOD AxoReadParameter : AXOpen.Core.IAxoToggleTask
@@ -175,7 +175,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
                 Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
         END_METHOD
@@ -188,7 +188,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
                 Value           :   REAL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
         END_METHOD
@@ -201,7 +201,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
                 Value           :   BOOL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
         END_METHOD
@@ -215,7 +215,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method 
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
             END_VAR
         END_METHOD
         METHOD AxoWriteRealParameter :   AXOpen.Core.IAxoTaskState
@@ -228,7 +228,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
             END_VAR
         END_METHOD
         METHOD AxoWriteBoolParameter :   AXOpen.Core.IAxoTaskState
@@ -241,7 +241,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
             END_VAR
         END_METHOD
         METHOD AxoReadDigitalInput : AXOpen.Core.IAxoToggleTask
@@ -253,7 +253,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
                 Value           :   BOOL;                       //  The value of the selected input signal
             END_VAR
         END_METHOD
@@ -266,7 +266,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
                 Value           :   BOOL;                       //  The value of the selected output signal
             END_VAR
         END_METHOD
@@ -280,7 +280,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Done            :   BOOL;                       //  Writing of the output signal value is done
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
             END_VAR
         END_METHOD
         METHOD AxoReadActualPosition : AXOpen.Core.IAxoToggleTask
@@ -291,7 +291,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
                 Position        :   LREAL;                       //  New absolute position (in axis’ unit [u])
             END_VAR
         END_METHOD
@@ -303,7 +303,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
                 Velocity        :   LREAL;                       //  The value of the actual velocity (in axis’ unit [u/s])
             END_VAR
         END_METHOD
@@ -315,7 +315,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
                 Torque          :   LREAL;                       //  The value of the actual torque or force (in technical units)
             END_VAR
         END_METHOD
@@ -327,7 +327,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
                 ErrorStop       :   BOOL;                       //  See state diagram
                 Disabled        :   BOOL;                       //  See state diagram
                 Stopping        :   BOOL;                       //  See state diagram
@@ -347,7 +347,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
                 ConstantVelocity:   BOOL;                       //  Velocity is constant. Velocity may be 0. For the actual value a window is applicable (window is vendor specific)
                 Accelerating    :   BOOL;                       //  Increasing the absolute value of the velocity
                 Decelerating    :   BOOL;                       //  Decreasing the absolute value of the velocity
@@ -363,7 +363,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
                 HomeAbsSwitch   :   BOOL;                       //  Digital home switch input is active
                 LimitSwitchPos  :   BOOL;                       //  Positive hardware end switch is active
                 LimitSwitchNeg  :   BOOL;                       //  Negative hardware end switch is active
@@ -383,7 +383,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
                 AxisErrorID     :   DWORD;                      //  The value of the axis error. These values are vendor specific
             END_VAR
         END_METHOD
@@ -392,7 +392,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Done            :   BOOL;                       //  ‘Standstill’ or ‘Disabled’ state is reached
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                        //  Error identification
             END_VAR
         END_METHOD
     END_INTERFACE    

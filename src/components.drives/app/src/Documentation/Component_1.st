@@ -12,8 +12,7 @@ NAMESPACE AXOpen.Components.Drives
 
         //<InitializationArgumentsDeclaration>
         VAR PUBLIC                
-            AxisIn          :   ARRAY[0..10] OF BYTE;       //  Input data of the axis
-            AxisOut         :   ARRAY[0..10] OF BYTE;       //  Output data of the axis
+            AxisRef         :   AxoDriveAxisReferenceExample;
             Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
             EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
             EnableNegative  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
@@ -28,7 +27,7 @@ NAMESPACE AXOpen.Components.Drives
             SUPER.Run(parent);
 
             //<Initialization>        
-            AxoDrive_.Run(THIS, REF(AxisIn), REF(AxisOut), Enable, EnablePositive, EnableNegative);        
+            AxoDrive_.Run(THIS, AxisRef, Enable, EnablePositive, EnableNegative);        
             //</Initialization>
 
         THIS.UseInSequencer();

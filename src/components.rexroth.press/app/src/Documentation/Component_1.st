@@ -30,10 +30,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
 
             //<Initialization>        
             AxoSmartFunctionKit.Run(parent              :=  THIS,                             
-                                    hwID                :=  HwIdentifiers#SFK_HwID,
-                                    hwIdParamCh_IDN     :=  HwIdentifiers#SFK_ParamCh_5Words_ID_PaCh_5Words_HwID,
-                                    hwIdInput_24_Words  :=  HwIdentifiers#SFK_Input_24_Words_ID_InMod_24Words_HwID,
-                                    hwIdOutput_21_Words :=  HwIdentifiers#SFK_Output_21_Words_ID_OutMod_21Words_HwID);
+                                    hwID                :=  HwIdentifiers#SFK_HwID);
 
             AxoSmartFunctionKit.Config.InfoTime := T#10s;             
             AxoSmartFunctionKit.Config.ErrorTime := T#30s;             

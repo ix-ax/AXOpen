@@ -248,14 +248,14 @@ public partial class AxoMessenger
                     if (PlcMessengerTextList != null && PlcMessengerTextList.Count > 0)
                     {
                         string _helpText = (from item in PlcMessengerTextList where item.Key == messageCode select item.Value.HelpText.ToString()).FirstOrDefault();
-                        retVal = string.IsNullOrEmpty(_helpText) ? prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !" : prefix + _helpText;
+                        retVal = string.IsNullOrEmpty(_helpText) ? prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !" : prefix + _helpText + " message code:(" + messageCode.ToString() + ")";
                     }
                     //Message texts are written in .NET and passed into the component
                     else if (DotNetMessengerTextList != null && DotNetMessengerTextList.Count > 0)
                     {
                         string _helpText = (from item in DotNetMessengerTextList where item.Key == messageCode select item.Value.HelpText.ToString()).FirstOrDefault();
-                        retVal = string.IsNullOrEmpty(_helpText) ? prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !" : prefix + _helpText;
-                    }
+                        retVal = string.IsNullOrEmpty(_helpText) ? prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !" : prefix + _helpText + " message code:(" + messageCode.ToString() + ")";
+                }
                     else
                     {
                         retVal = prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !";

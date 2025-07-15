@@ -32,9 +32,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             //<Initialization>        
             IndraDrive.Run(parent               :=  THIS,
                             hwID                :=  HwIdentifiers#ST3_indradrive_HwID,
-                            hwIdParamCh_IDN     :=  HwIdentifiers#ST3_indradrive_ParamCh_5Words_ID_PaCh_5Words_HwID,
-                            hwIdInput_9_Words   :=  HwIdentifiers#ST3_indradrive_Input_9_Words_ID_InMod_9Words_HwID,
-                            hwIdOutput_13_Words :=  HwIdentifiers#ST3_indradrive_Output_13_Words_ID_OutMod_13Words_HwID,
                             Enable              :=  Enable,
                             EnablePositive      :=  EnablePositive,
                             EnableNegative      :=  EnableNegative);
@@ -147,14 +144,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Move additive')) THEN
                 IndraDrive.AxoMoveAbsolute(  Position           :=  LREAL#10.0,
-                                                    Velocity        :=  LREAL#10.0,
+                                                    Velocity        :=  LREAL#1.0,
                                                     Acceleration    :=  LREAL#50.0,
                                                     Deceleration    :=  LREAL#50.0,
                                                     Jerk            :=  LREAL#50.0
                                                     );
-                IF IndraDrive.ActualPosition > 6.0 THEN
+                IF IndraDrive.ActualPosition > 7.5 THEN
                     IndraDrive.AxoMoveAdditive(  Distance        :=  LREAL#5.0,
-                                                        Velocity        :=  LREAL#1.0,
+                                                        Velocity        :=  LREAL#5.0,
                                                         Acceleration    :=  LREAL#50.0,
                                                         Deceleration    :=  LREAL#50.0,
                                                         Jerk            :=  LREAL#50.0

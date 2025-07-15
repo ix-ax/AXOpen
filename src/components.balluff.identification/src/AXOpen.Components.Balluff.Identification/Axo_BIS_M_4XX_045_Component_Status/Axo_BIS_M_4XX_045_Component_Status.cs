@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AXOpen.Messaging.Static;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,24 +41,31 @@ namespace AXOpen.Components.Balluff.Identification
                     errorDescriptionDict.Add(567,"Waiting for the signal Inputs.BitHeader1_JobAccepted to be reseted!");
                     errorDescriptionDict.Add(568,"Waiting for the signal Inputs.BitHeader1_JobError to be reseted!");                                                                       
 
-
-                    errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");                                
-                    errorDescriptionDict.Add(701, "Input variable `hwId_BISM` has invalid value in `Run` method!");                              
-
-                    errorDescriptionDict.Add(703, "Error reading the hwId_BISM in the UpdateInputs method!");                                    
-                    errorDescriptionDict.Add(704, "Error writing the hwId_BISM in the UpdateOutputs method!");                                   
-
-                    errorDescriptionDict.Add(800, "Read finished with error!");                                                                  
-                    errorDescriptionDict.Add(801, "Read was aborted, while not yet completed!");                                                 
-                    errorDescriptionDict.Add(820, "Write finished with error!");                                                                 
-                    errorDescriptionDict.Add(821, "Write was aborted, while not yet completed!");                                                
-                    errorDescriptionDict.Add(840, "Reset communication finished with error!");                                                   
-                    errorDescriptionDict.Add(841, "Reset communication was aborted, while not yet completed!");                                  
-                    errorDescriptionDict.Add(850, "Reset reader finished with error!");                                                          
-                    errorDescriptionDict.Add(851, "Reset reader was aborted, while not yet completed!");                                         
-                    errorDescriptionDict.Add(860, "Write char to memory finished with error!");
-                    errorDescriptionDict.Add(861, "Write char to memory was aborted, while not yet completed!");                                 
-
+                    errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
+                    errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090).");
+                    errorDescriptionDict.Add(710, "Hw configuration error. Value of hwId_BISM is zero.");
+                    errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1.");
+                    errorDescriptionDict.Add(712, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1.");
+                    errorDescriptionDict.Add(713, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1.");
+                    errorDescriptionDict.Add(714, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1.");
+                    errorDescriptionDict.Add(715, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1.");
+                    errorDescriptionDict.Add(716, "Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'ID_Mod_BIS_M_4XX_045'.");
+                    errorDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!");
+                    errorDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1132, "Input variable `hwId_BISM` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1201, "Error reading the hwId_BISM!");
+                    errorDescriptionDict.Add(1231, "Error writing the hwId_BISM!");
+                    errorDescriptionDict.Add(10000, "Read finished with error!");
+                    errorDescriptionDict.Add(10001, "Read was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(10020, "Write finished with error!");
+                    errorDescriptionDict.Add(10021, "Write was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(10040, "Reset communication finished with error!");
+                    errorDescriptionDict.Add(10041, "Reset communication was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(10050, "Reset reader finished with error!");
+                    errorDescriptionDict.Add(10051, "Reset reader was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(10060, "Write char to memory finished with error!");
+                    errorDescriptionDict.Add(10061, "Write char to memory was aborted, while not yet completed!");
 
                 }
                 string errorDescription = "   ";
@@ -178,16 +186,16 @@ namespace AXOpen.Components.Balluff.Identification
                     actionDescriptionDict.Add(162, "Write char to memory restored.");
 
 
-                    actionDescriptionDict.Add(800, "Read finished with error!");
-                    actionDescriptionDict.Add(801, "Read was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(820, "Write finished with error!");
-                    actionDescriptionDict.Add(821, "Write was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(840, "Reset communication finished with error!");
-                    actionDescriptionDict.Add(841, "Reset communication was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(850, "Reset reader finished with error!");
-                    actionDescriptionDict.Add(851, "Reset reader was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(860, "Write char to memory finished with error!");
-                    actionDescriptionDict.Add(861, "Write char to memory was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10000, "Read finished with error!");
+                    actionDescriptionDict.Add(10001, "Read was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10020, "Write finished with error!");
+                    actionDescriptionDict.Add(10021, "Write was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10040, "Reset communication finished with error!");
+                    actionDescriptionDict.Add(10041, "Reset communication was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10050, "Reset reader finished with error!");
+                    actionDescriptionDict.Add(10051, "Reset reader was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10060, "Write char to memory finished with error!");
+                    actionDescriptionDict.Add(10061, "Write char to memory was aborted, while not yet completed!");
 
                 }
 
