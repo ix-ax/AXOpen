@@ -48,9 +48,9 @@
                 {
                     if (item != null && @item.Data != null)
                     {
-                        <div class="input-group w-12">
+                        <div class="input-group">
                             <label>@item.Index</label>
-                            <input type="text" @bind="item.Data" maxlength="@MaxLen" />
+                            <input type="text" @bind="item.Data" maxlength="@MaxLen" class="w-12!" />
                         </div>
                     }
                 }
