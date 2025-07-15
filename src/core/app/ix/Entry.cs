@@ -41,6 +41,7 @@ namespace axopencore
 
         public static ix_axopencoreTwinController SecurePlc { get; }
             = new(ConnectorAdapterBuilder.Build()
+            //    .CreateDummy());
             .CreateWebApi(TargetIp, UserName, Pass, CertificateValidation, IgnoreSslErrors));
     }
 
