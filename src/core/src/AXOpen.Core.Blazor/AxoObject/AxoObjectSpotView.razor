@@ -7,7 +7,6 @@
 @using Microsoft.JSInterop
 @inject IJSRuntime JSRuntime
 
-
 <button type="button" class="btn @ButtonStyleClass"
         @onclick="() => SetCurrentObject()">
         @Component.AttributeName
@@ -75,6 +74,3 @@
         await base.OnInitializedAsync();
     }
 }
-
-
-

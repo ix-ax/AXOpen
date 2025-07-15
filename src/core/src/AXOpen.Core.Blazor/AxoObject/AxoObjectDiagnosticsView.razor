@@ -11,12 +11,9 @@
 @using AXSharp.Connector
 @inject AuthenticationStateProvider AuthenticationStateProvider;
 
- 
-    @if (MessageProvider.ActiveMessagesCount > 0)
-    {
-        <div class="flex flex-col w-full h-full p-3">
-
-
+@if (MessageProvider.ActiveMessagesCount > 0)
+{
+    <div class="flex flex-wrap flex-col">
         @foreach (var message in MessageProvider.Messengers)
         {
             if (message.State != eAxoMessengerState.Idle)
@@ -24,26 +21,23 @@
                 <AxoMessengerView Component="message"></AxoMessengerView>
             }
         }
-
-        </div>
-
-    }
-   
+    </div>
+}
 
 @code
 {
-    private AxoMessenger noMessageMessenger => new (null, string.Empty, string.Empty)
+    private AxoMessenger noMessageMessenger => new(null, string.Empty, string.Empty)
     {
-        
+
     };
-    
+
     private IJSObjectReference? module;
     private IEnumerable<ITwinObject> observedObjects = new List<ITwinObject>();
     private AxoMessageProvider provider;
-    
+
     [Parameter]
     public int DisplayMimeCount { get; set; } = 10;
-    
+
     [Parameter]
     public AxoMessageProvider MessageProvider
     {
@@ -51,10 +45,9 @@
         set
         {
             provider = value;
-        } 
+        }
     }
-    
-    
+
     [Parameter]
     public IEnumerable<ITwinObject> ObservedObjects
     {
@@ -63,12 +56,12 @@
         {
             observedObjects = value;
             this.OnComponentChanged();
-        } 
+        }
     }
 
     public override async void OnComponentChanged()
     {
-        // if (observedObjects.Count() == 0 
+        // if (observedObjects.Count() == 0
         //     && !observedObjects.First().Equals(this.Component))
         // {
         //     observedObjects = new[] { this.Component };
@@ -91,36 +84,32 @@
         await base.OnAfterRenderAsync(firstRender);
     }
 
-    
     ///<inheritdoc/>
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
         _ = MessageProvider.InitializeLightUpdate(this.StartPolling);
-        
+
         await LoadMessages();
 
         // Notify Blazor to refresh the UI
         StateHasChanged();
     }
-    
+
     private async Task AcknowledgeAll()
     {
         var ast = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        if (MessageProvider is {Messengers: not null })
+        if (MessageProvider is { Messengers: not null })
         {
-            foreach (var messenger in 
+            foreach (var messenger in
                      MessageProvider.Messengers
-                         .Where(p =>p.State == eAxoMessengerState.ActiveAcknowledgeRequired || 
+                         .Where(p => p.State == eAxoMessengerState.ActiveAcknowledgeRequired ||
                                                 p.State == eAxoMessengerState.InactiveWaitingForAcknowledge))
             {
                 messenger.Acknowledge(ast.User.Identity);
             }
         }
-        
+
         await LoadMessages();
     }
 }
-
-
-

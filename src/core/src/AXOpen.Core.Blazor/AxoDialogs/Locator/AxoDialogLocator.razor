@@ -2,7 +2,7 @@
 @using Operon.Components
 @inherits AXOpen.Core.Blazor.Dialogs.AxoLocator;
 
-<Modal @ref="DialogModalContainer" >
+<Modal @ref="ModalDialogContainer">
     <div class="modal-header">
         <a href="Identity/Account/Login">@Localizer["Log in"]</a>
     </div>
@@ -48,6 +48,6 @@
 
 @code
 {
-    protected Modal DialogModalContainer;
+    protected Modal ModalDialogContainer;
 }
 

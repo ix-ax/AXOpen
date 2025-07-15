@@ -41,7 +41,9 @@
 @code
 {
     string InspectionDescription { get; set; }
+
     eInspectorType InspectorType { get; set; }
+
     async Task<eInspectorType> GetInspectorType()
     {
         return (eInspectorType)await Component._inspectorType.GetAsync();

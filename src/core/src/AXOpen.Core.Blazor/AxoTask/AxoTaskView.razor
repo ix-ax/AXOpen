@@ -5,15 +5,11 @@
 @implements IDisposable;
 
 <div class="btn-group @AnimationClass">
-    <button class="btn @ButtonClass" 
-            type="button" 
-            disabled="@IsDisabled" 
-            @onclick="@InvokeTask">
+    <button type="button" class="btn @ButtonClass" disabled="@IsDisabled" @onclick="@InvokeTask">
         @if (ShowIcon && !string.IsNullOrEmpty(IconClass))
         {
-            <i class="@IconClass ms-2 me-2"></i>
+            <Operon.Icons.HeroIcon Icon="@IconClass" Type="Operon.Icons.IconType.Outline" Class="size-5" />
         }
-
         @if (ShowText)
         {
             <span>@Description</span>
@@ -21,11 +17,8 @@
     </button>
     @if (!HideRestoreButton)
     {
-        <button class="btn @ButtonClass"
-                type="button"
-                disabled="@IsDisabled"
-                @onclick="@RestoreTask">
-            X
+        <button type="button" class="btn @ButtonClass" disabled="@IsDisabled" @onclick="@RestoreTask">
+            <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5" />
         </button>
     }
 </div>
@@ -113,5 +106,5 @@
     public bool ShowText { get; set; } = true;
     
     [Parameter]
-    public string IconClass { get; set; } = "fas fa-star"; // Default icon class
+    public string IconClass { get; set; } = "star"; // Default icon class
 }

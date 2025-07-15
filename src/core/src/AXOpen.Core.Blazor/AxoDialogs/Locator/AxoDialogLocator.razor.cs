@@ -23,22 +23,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         private AxoDialogLocatorService _dialogProxyService { get; set; }
 
         /// <summary>
-        /// Controls the CSS display property of the modal dialog. Defaults to "none".
-        /// </summary>
-        public string ModalDisplay { set; get; } = "none;";
-
-        /// <summary>
-        /// Controls the CSS class of the modal dialog. Used to toggle visibility.
-        /// </summary>
-        public string ModalClass { set; get; } = string.Empty;
-
-        /// <summary>
-        /// Indicates whether the modal backdrop is shown.
-        /// </summary>
-        public bool ShowBackdrop { set; get; } = false;
-       
-
-        /// <summary>
         /// The SignalR client for managing real-time dialogue events.
         /// </summary>
         public SignalRDialogClient SignalRClient { get; set; }
@@ -137,36 +121,14 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             if (_dialogProxyService.DisplayedDialogs.Count() > 0)
             {
-                Open();
+                ModalDialogContainer.OpenModal();
             }
             else
             {
-                Close();
+                ModalDialogContainer.CloseModal();
             }
 
             return InvokeAsync(StateHasChanged);
-        }
-
-        /// <summary>
-        /// Opens the dialog UI elements.
-        /// </summary>
-        protected void Open()
-        {
-            DialogModalContainer.OpenModal();
-            ModalDisplay = "flex";
-            ModalClass = "show";
-            ShowBackdrop = true;
-        }
-
-        /// <summary>
-        /// Closes the dialog UI elements.
-        /// </summary>
-        protected void Close()
-        {
-            DialogModalContainer.CloseModal();
-            ModalDisplay = "none";
-            ModalClass = string.Empty;
-            ShowBackdrop = false;
         }
 
         /// <summary>

@@ -5,7 +5,7 @@
 @using Operon.Components.Tab
 @inherits RenderableComplexComponentBase<AxoComponent>;
 
-<div class="flex flex-wrap card @BorderColorStatusClass">
+<div class="flex flex-wrap flex-col card @BorderColorStatusClass">
     <div class="flex flex-wrap">
         <h4>@Component.AttributeName</h4>
         <AxoObjectDiagnosticsView @ref="diagnosticsViewRef" ObservedObjects="new ITwinObject[] { this.Component }"></AxoObjectDiagnosticsView>
@@ -22,19 +22,22 @@
     }
     <RenderableContentControl Presentation="@currentPresentation" Context="@Header" />
 
-    <Accordion>
-        <AccordionItem Title="@this.Component.Symbol">
-            <Tab>
-                @foreach (var detailsTab in DetailsTabs)
-                {
-                    <TabPage Title="@detailsTab.HumanReadable">
-                        <RenderableContentControl Context=@detailsTab
-                                                  Presentation="@currentPresentation" />
-                    </TabPage>
-                }
-            </Tab>
-        </AccordionItem>
-    </Accordion>
+    @if (DetailsTabs.Any())
+    {
+        <Accordion>
+            <AccordionItem Title="@this.Component.Symbol">
+                <Tab>
+                    @foreach (var detailsTab in DetailsTabs)
+                    {
+                        <TabPage Title="@detailsTab.HumanReadable">
+                            <RenderableContentControl Context=@detailsTab
+                                                      Presentation="@currentPresentation" />
+                        </TabPage>
+                    }
+                </Tab>
+            </AccordionItem>
+        </Accordion>
+    }
 </div>
 
 @code

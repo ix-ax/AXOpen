@@ -4,26 +4,17 @@
 @using AXSharp.Connector;
 @inherits RenderableComplexComponentBase<AxoStep>
 
-
-<div class="container text-left">
-    <div class="row @AxoStepHelper.StepRowColor(Component)">
-        <div class="col">
-            @*Left here for the future, just to store the idea that each step could be displayed as an AxoTask *@
-            @*            @if (IsControllable)
-            {
-            <AxoTaskCommandView Component="@Component" Description="@Description" />
-            }
-            else
-            {
-            <AxoTaskStatusView Component="@Component" Description="@Description" HideRestoreButton="true" />
-            }*@
-            @AxoStepHelper.Description(Component)
-        </div>
-        <div class="col">
-            @Component.Duration.Cyclic.TotalSeconds
-        </div>
-        <div class="col">
-            @Humanizer.DateHumanizeExtensions.Humanize(Component.StartTimeStamp.Cyclic, culture: CultureExtensions.Culture)
-        </div>
-    </div>
+<div class="flex flex-wrap justify-between @AxoStepHelper.StepRowColor(Component)">
+    @*Left here for the future, just to store the idea that each step could be displayed as an AxoTask *@
+    @*@if (IsControllable)
+        {
+        <AxoTaskCommandView Component="@Component" Description="@Description" />
+        }
+        else
+        {
+        <AxoTaskStatusView Component="@Component" Description="@Description" HideRestoreButton="true" />
+        }*@
+    <p>@AxoStepHelper.Description(Component)</p>
+    <p>@Component.Duration.Cyclic.TotalSeconds</p>
+    <p>@Humanizer.DateHumanizeExtensions.Humanize(Component.StartTimeStamp.Cyclic, culture: CultureExtensions.Culture)</p>
 </div>
