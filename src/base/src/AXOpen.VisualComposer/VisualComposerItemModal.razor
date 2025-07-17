@@ -18,7 +18,7 @@
                     <BaseInput @bind-Value="Origin.Top" Label="Top" />
                     <BaseInput @bind-Value="Origin.Left" Label="Left" />
 
-                    <div class="flex flex-row">
+                    <div class="flex flex-nowrap flex-row items-center">
                         @if (_customPresentation)
                         {
                             <BaseInput @bind-Value="Origin.Presentation" Label="Presentation" />
@@ -54,7 +54,7 @@
                     <BaseInput @bind-Value="Origin.Scale" Label="Scale" />
                     <BaseInput @bind-Value="Origin.Roles" Label="Roles" />
 
-                    <div class="flex flex-row">
+                    <div class="flex flex-nowrap flex-row items-center">
                         @if (_customPresentationTemplate)
                         {
                             <BaseInput @bind-Value="Origin.PresentationTemplate" Label="PresentationTemplate" />
@@ -75,7 +75,7 @@
                         <BaseInput @bind-Value="_customPresentationTemplate" Label="Custom" Class="ms-4" />
                     </div>
 
-                    <div class="flex flex-row">
+                    <div class="flex flex-nowrap flex-row items-center">
                         <BaseInput @bind-Value="Origin.Background" Label="Background" />
                         <input type="color" class="ms-4" @bind="Origin.BackgroundColor" title="Choose color">
                     </div>

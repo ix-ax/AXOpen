@@ -281,6 +281,11 @@ namespace AXOpen.VisualComposer
 
         public EmptyDelegate DragElementDelegate { get; set; }
 
+        public VisualComposerItemData()
+        {
+            
+        }
+
         public VisualComposerItemData(EventCallback eventCallbackStateHasChanged,
             EventCallback eventCallbackSave,
             ITwinElement? twinElement,

@@ -34,11 +34,16 @@
                                 </button>
                             </DropdownButton>
                             <DropdownBody Class="end">
+                            @if (!string.IsNullOrEmpty(_currentViewName))
+                            {
                                 <a class="dropdown-item" @onclick="_modalControllerObjects.Toggle">Controller objects</a>
                                 <a class="dropdown-item" @onclick="_modalUsedObject.Toggle">Used objects</a>
-                                <a class="dropdown-item" @onclick="_modalCreateNew.Toggle">Create new</a>
+                            }
+                            <a class="dropdown-item" @onclick="_modalViews.Toggle">Views</a>
+                            <a class="dropdown-item" @onclick="_modalCreateNew.Toggle">Create new</a>
+                            @if (!string.IsNullOrEmpty(_currentViewName))
+                            {
                                 <a class="dropdown-item" @onclick="_modalCreateCopy.Toggle">Create copy</a>
-                                <a class="dropdown-item" @onclick="_modalViews.Toggle">Views</a>
                                 <a class="dropdown-item" @onclick="_modalBackground.Toggle">Background</a>
                                 <a class="dropdown-item" @onclick="() => _editSVG = !_editSVG">Toggle Edit SVG</a>
                                 @if (_editSVG)
@@ -46,6 +51,7 @@
                                     <a class="dropdown-item" @onclick="_modalBackgroundSVGInput.Toggle">Background SVG Input</a>
                                 }
                                 <a class="dropdown-item" @onclick="async () => await ChangeThemeAsync()">Change theme</a>
+                            }
                         </DropdownBody>
                     </Dropdown>
                 }
@@ -74,7 +80,8 @@
                                 <td>
                                     <RenderableContentControl Context="item.TwinElement"
                                                               Presentation="Command-Control"
-                                                              ParentContainer="@this" />
+                                                              ParentContainer="@this"
+                                                              HideLabel="true" />
                                 </td>
                             </tr>
                         }
@@ -177,14 +184,12 @@
                                     <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                 }
 
-                                <p class="truncate">@item.Symbol</p>
+                                <p class="truncate me-auto">@item.Symbol</p>
                                 @if(item is ITwinPrimitive)
                                 {
-                                    <RenderableContentControl Context="item"
-                                                          Presentation="Command-Control"
-                                                          ParentContainer="@this" />
+                                    <p>@(((dynamic)item).Cyclic)</p>
                                 }
-                                <a class="ms-auto" @onclick="() => AddItemAsync(item)">
+                                <a @onclick="() => AddItemAsync(item)">
                                     <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                 </a>
                             </div>
@@ -192,8 +197,97 @@
                         }
                     }
                 </div>
-                <div class="modal-footer flex justify-end gap-1">
-                    <button class="btn btn-outline-red" @onclick="() => _modalControllerObjects.CloseModal()">Close</button>
+                <div class="modal-footer flex justify-end gap-1 items-center">
+                    <Collapse @ref="_collapseOptions">
+                        <div class="simple-border">
+                            <div class="flex flex-wrap flex-row items-center">
+                                <BaseInput @bind-Value="_options.Top" Label="Top" />
+                                @if (_optionsMove)
+                                {
+                                    <BaseInput @bind-Value="_optionsMoveBottom" Label="Move bottom" />
+                                }
+                                <BaseInput @bind-Value="_optionsMove" Label="Move" />
+                            </div>
+                            <div class="flex flex-wrap flex-row items-center">
+                                <BaseInput @bind-Value="_options.Left" Label="Left" />
+                                @if (_optionsMove)
+                                {
+                                    <BaseInput @bind-Value="_optionsMoveRight" Label="Move right" />
+                                    <button type="button" class="btn btn-no-bg-primary" @onclick="() => _optionsMoveDirection = (_optionsMoveDirection + 1) % 3">
+                                    @if(_optionsMoveDirection == 0)
+                                    {
+                                        <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                    }
+                                    else if (_optionsMoveDirection == 1)
+                                    {
+                                        <Operon.Icons.HeroIcon Icon="arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                    }
+                                    else if(_optionsMoveDirection == 2)
+                                    {
+                                        <Operon.Icons.HeroIcon Icon="arrow-right" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                    }
+                                    </button>
+                                }
+                            </div>
+
+                            <div class="flex flex-wrap flex-row items-center">
+                                <div class="flex flex-nowrap flex-row items-center">
+                                    @if (_customPresentation)
+                                    {
+                                        <BaseInput @bind-Value="_options.Presentation" Label="Presentation" />
+                                    }
+                                    else
+                                    {
+                                        <div class="input-group">
+                                            <label class="me-2">Presentation</label>
+                                            <select class="select min-w-6" value="@_options.Presentation" @onchange="@((args) => @_options.Presentation = (string)args.Value)">
+                                                @foreach (var presentation in PresentationType.AllTypes)
+                                                {
+                                                    <option data value="@presentation.ToString()">@presentation.ToString()</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    }
+                                    <BaseInput @bind-Value="_customPresentation" Label="Custom" Class="ms-4" />
+                                </div>
+
+                                <div class="input-group mx-4">
+                                    <label class="me-2">Transform</label>
+                                    <select class="select min-w-6" value="@_options.Transform.ToString()" @onchange="@((args) => @_options.Transform = TransformType.FromString((string)args.Value))">
+                                        @foreach (var transform in TransformType.AllTypes)
+                                        {
+                                            <option data value="@transform.ToString()">@transform.ToString()</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap flex-row items-center">
+                                <BaseInput @bind-Value="_options.Width" Label="Width" />
+                                <BaseInput @bind-Value="_options.Height" Label="Height" />
+                            </div>
+                            <div class="flex flex-wrap flex-row items-center">
+                                <BaseInput @bind-Value="_options.ZIndex" Label="ZIndex" />
+                                <BaseInput @bind-Value="_options.Scale" Label="Scale" />
+                                <BaseInput @bind-Value="_options.Roles" Label="Roles" />
+                            </div>
+                            <div class="flex flex-wrap flex-row items-center">
+                                <BaseInput @bind-Value="_options.PresentationTemplate" Label="PresentationTemplate" />
+
+                                <div class="flex flex-nowrap flex-row items-center">
+                                    <BaseInput @bind-Value="_options.Background" Label="Background" />
+                                    <input type="color" class="ms-4" @bind="_options.BackgroundColor" title="Choose color">
+                                </div>
+
+                                <BaseInput @bind-Value="_options.PollingInterval" Label="PollingInterval [ms]" />
+                            </div>
+                        </div>
+                    </Collapse>
+                    <div class="btn-group">
+                        <button class="btn @(_useOption ? "btn-primary" : "btn-outline-primary")" @onclick="() => _useOption = !_useOption">Options</button>
+                        <button class="btn btn-outline-primary" @onclick="() => _collapseOptions.Toggle()">
+                            <Operon.Icons.HeroIcon Icon="chevron-left" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                        </button>
+                    </div>
                     <button class="btn btn-outline-red" @onclick="() => _modalControllerObjects.CloseModal()">Close</button>
                 </div>
             </Modal>
@@ -402,12 +496,15 @@
         }
     </Authorized>
     <NotAuthorized>
-        <nav class="tab ms-2 my-2">
-            @foreach (var item in _serverStorageConfiguration.Views)
-            {
-                <button class="tab-item @(_currentViewName == item ? "active" : null)" @onclick="() => LoadAsync(item)">@item</button>
-            }
-        </nav>
+        @if(_serverStorageConfiguration != null)
+        {
+            <nav class="tab ms-2 my-2">
+                @foreach (var item in _serverStorageConfiguration.Views)
+                {
+                    <button class="tab-item @(_currentViewName == item ? "active" : null)" @onclick="() => LoadAsync(item)">@item</button>
+                }
+            </nav>
+        }
 
         @if (CurrentView.IsWatchTable)
         {
@@ -427,7 +524,8 @@
                                 <td>
                                     <RenderableContentControl Context="item.TwinElement"
                                                               Presentation="Command-Control"
-                                                              ParentContainer="@this" />
+                                                              ParentContainer="@this"
+                                                              HideLabel="true" />
                                 </td>
                             </tr>
                         }
@@ -483,4 +581,6 @@
     private Modal _modalViews { get; set; }
     private Modal _modalBackground { get; set; }
     private Modal _modalBackgroundSVGInput { get; set; }
+
+    private Collapse _collapseOptions { get; set; }
 }

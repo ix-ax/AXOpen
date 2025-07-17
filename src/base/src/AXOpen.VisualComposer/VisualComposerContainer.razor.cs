@@ -61,6 +61,14 @@ namespace AXOpen.VisualComposer
         public Size ElementSize { get; set; } = new Size();
         private Size _windowSize { get; set; } = new Size();
 
+        private VisualComposerItemData _options { get; set; } = new();
+        private bool _useOption { get; set; } = false;
+        private bool _optionsMove { get; set; } = false;
+        private int _optionsMoveDirection { get; set; } = 1; // 0 = none, 1 = bottom/col, 2 = right/row
+        private double _optionsMoveBottom { get; set; } = 10;
+        private double _optionsMoveRight { get; set; } = 15;
+        private bool _customPresentation { get; set; } = false;
+
         protected override void OnInitialized()
         {
             if (Id is null || Id == "")
@@ -139,7 +147,41 @@ namespace AXOpen.VisualComposer
 
         public async Task AddItemAsync(ITwinElement item)
         {
-            _items.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), item));
+            if (_useOption)
+            {
+                _items.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), item, _options.Left, _options.Top, _options.Transform, _options.Presentation, _options.Width, _options.Height, _options.ZIndex, _options.Scale, _options.Roles, _options.PresentationTemplate, _options.Background, _options.BackgroundColor, _options.PollingInterval));
+
+                if (_optionsMove)
+                {
+                    if(_optionsMoveDirection == 0) // none
+                    {
+                        _options.Left += _optionsMoveRight;
+                        _options.Top += _optionsMoveBottom;
+                    }
+                    else if (_optionsMoveDirection == 1) // bottom/col
+                    {
+                        _options.Top += _optionsMoveBottom;
+                        if (_options.Top >= 100)
+                        {
+                            _options.Left += _optionsMoveRight;
+                            _options.Top = _options.Top % 100;
+                        }
+                    }
+                    else if (_optionsMoveDirection == 2) // right/row
+                    {
+                        _options.Left += _optionsMoveRight;
+                        if (_options.Left >= 100)
+                        {
+                            _options.Top += _optionsMoveBottom;
+                            _options.Left = _options.Left % 100;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                _items.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), item));
+            }
 
             StateHasChanged();
 
@@ -310,6 +352,12 @@ namespace AXOpen.VisualComposer
             _localStorageData = await LocalStorage<Dictionary<string, SerializableView>>.LoadAsync(_protectedLocalStorage, Id);
             if (_localStorageData == null)
                 _localStorageData = new Dictionary<string, SerializableView>();
+
+            if(_serverStorageConfiguration != null && _serverStorageConfiguration.DefaultView != null)
+            {
+                if (_serverStorageAllViews.Contains(_serverStorageConfiguration.DefaultView) || _localStorageData.ContainsKey(_serverStorageConfiguration.DefaultView))
+                    await LoadAsync(_serverStorageConfiguration.DefaultView);
+            }
         }
 
         public List<string> GetAllFiles()
