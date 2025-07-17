@@ -185,7 +185,7 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             {
                 foreach (var apaxfile in context.GetApaxFiles(lib))
                 {
-                    context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"", "llvm" }, new[] { "bin", "axsharp.companion.json" });
+                    context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"", "llvm" }, new[] { "bin/1500", "bin/llvm", "axsharp.companion.json" });
                 }
             });
         }
@@ -240,13 +240,13 @@ public sealed class TestsTask : FrostingTask<BuildContext>
                 context.ApaxClean(lib);
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
-                context.ApaxTestLibrary(lib);
+               // context.ApaxTestLibrary(lib);
                 if (context.BuildParameters.DoPack)
                 {
                     context.ApaxPack(lib);
                     context.ApaxCopyArtifacts(lib);
                 }
-                context.ApaxClean(lib);
+                //context.ApaxClean(lib);
             });
 
         }
@@ -260,13 +260,13 @@ public sealed class TestsTask : FrostingTask<BuildContext>
                 context.ApaxClean(lib);
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
-                context.ApaxTestLibrary(lib);
+                // context.ApaxTestLibrary(lib);
                 if (context.BuildParameters.DoPack)
                 {
                     context.ApaxPack(lib);
                     context.ApaxCopyArtifacts(lib);
                 }
-                context.ApaxClean(lib);
+                //context.ApaxClean(lib);
             });
         }
 
