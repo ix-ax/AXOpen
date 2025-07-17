@@ -2,7 +2,7 @@ name: "apax.traversal"
 version: "0.0.0-dev.0"
 type: "app"
 targets:
-- "1500"
+  - "1500"
 registries:
   '@inxton': "https://npm.pkg.github.com/"
 devDependencies:
