@@ -1,0 +1,48 @@
+Devices:
+- Name: rf186c_cyc
+  Modules:
+  - Name: rf186c_cyc
+    TypeIdentifier:
+      FileName: 'GSDML-V2.43-SIEMENS-RF18XC-20240514.XML'
+      GsdId: 'DAP 22'
+    Interfaces:
+    - Name: 'profinet'
+      Label: 'X1'
+      Addresses:
+        Configured:
+        - IPv4: 192.168.100.100/24
+        - ProfinetDeviceName: rf186c_cyc
+        # Parameters:
+          # PrioritizedStartup (Boolean)
+          # IECV22LLDPMode: False
+    Ports:
+    - Name: Port_1
+      Label: X1 P1
+    - Name: Port_2
+      Label: X1 P2
+    Parameters:
+      RecordDataList:
+      - IndexName: 'General parameters'
+        Values:
+        - OffsetName: 'Diagnostic messages device'
+          Value: True
+        - OffsetName: 'Setting the module parameters exclusively via WBM (module parameterization via hardware configuration is ignored).'
+          Value: False      
+  - Name: CM
+    TypeIdentifier:
+      FileName: 'GSDML-V2.43-SIEMENS-RF18XC-20240514.XML'
+      GsdId: 'ID_1WCFG'
+    Parameters:
+      RecordDataList:
+      # - IndexName: 'General parameters'
+      #   Values:
+      #   - OffsetName: 'User mode'
+      #     ValueName: 'Ident profile / RFID standard profile'
+  - Apply:
+      TemplateName: rfxxx_32b_cyclic_iso_auto_read_uid
+      Arguments:
+        ModuleName: RF260R_1
+  - Apply:
+      TemplateName: rfxxx_128b_cyclic_iso_auto_read_uid
+      Arguments:
+        ModuleName: RF340R_1
