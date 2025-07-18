@@ -13,7 +13,7 @@
 
         public string Theme { get; set; }
 
-        public double Scale { get; set; }
+        public double Scale { get; set; } = 1.0;
         public double TranslateX { get; set; }
         public double TranslateY { get; set; }
         public bool AllowZoomingAndPanning { get; set; }
