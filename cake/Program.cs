@@ -458,7 +458,7 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
         {
             foreach (var apaxfile in context.GetApaxFiles(lib))
             {
-                context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"" }, new[] { "bin/1500", "axsharp.companion.json" });
+                context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"" }, new[] {"assets", "bin/1500", "axsharp.companion.json" });
             }
         });
 
@@ -522,10 +522,10 @@ public sealed class PushPackages : FrostingTask<BuildContext>
 
         if (Helpers.CanReleaseInternal())
         {      
-            if(int.Parse(GitVersionInformation.Major) >= 1)
-            {
+            //if(int.Parse(GitVersionInformation.Major) >= 1)
+            //{
                 context.ApaxPublish();
-            }
+            //}
        
 
             foreach (var nugetFile in Directory.EnumerateFiles(Path.Combine(context.Artifacts, @"nugets"), "*.nupkg")
