@@ -38,4 +38,15 @@
     </EmbeddedResource>
   </ItemGroup>
 
+	<ItemGroup>
+		<None Include="AxoDataExchange\**\*.*" Exclude="AxoDataExchange\**\*.js;AxoDataExchange\**\*.css" Pack="true" PackagePath="contentFiles\AxoDataExchange\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="DataPersistentExchange\**\*.*" Exclude="DataPersistentExchange\**\*.js;DataPersistentExchange\**\*.css" Pack="true" PackagePath="contentFiles\DataPersistentExchange\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="Distributed\**\*.*" Exclude="Distributed\**\*.js;Distributed\**\*.css" Pack="true" PackagePath="contentFiles\Distributed\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="build\AXOpen.Data.Blazor.targets" Pack="true" PackagePath="build\AXOpen.Data.Blazor.targets" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<DefaultItemExcludes>$(DefaultItemExcludes);temp\**\*</DefaultItemExcludes>
+	</PropertyGroup>
+
 </Project>

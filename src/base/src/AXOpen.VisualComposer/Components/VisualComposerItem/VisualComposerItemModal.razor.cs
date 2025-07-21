@@ -1,11 +1,8 @@
 ﻿using AXOpen.VisualComposer.Types;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-using Newtonsoft.Json.Linq;
 using AXSharp.Presentation.Blazor.Services;
 
-namespace AXOpen.VisualComposer
+namespace AXOpen.VisualComposer.Components.VisualComposerItem
 {
     public partial class VisualComposerItemModal
     {

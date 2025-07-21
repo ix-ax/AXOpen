@@ -1,0 +1,26 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="CopyDataAssets" AfterTargets="Build">
+		<Message Importance="high" Text="Copying custom files from Data package..." />
+
+		<ItemGroup>
+			<!-- MSBuildThisFileDirectory is where build/AXOpen.Data.Blazor.targets is located -->
+			<DataAxoDataExchange Include="$(MSBuildThisFileDirectory)..\contentFiles\AxoDataExchange\**\*" />
+			<DataDataPersistentExchange Include="$(MSBuildThisFileDirectory)..\contentFiles\DataPersistentExchange\**\*" />
+			<DataDistributed Include="$(MSBuildThisFileDirectory)..\contentFiles\Distributed\**\*" />
+		</ItemGroup>
+
+		<Delete Files="$(MSBuildProjectDirectory)\temp\Data\**\*.*" ContinueOnError="true" />
+
+		<!-- Create target folders in consumer project -->
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Data" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Data\AxoDataExchange" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Data\DataPersistentExchange" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Data\Distributed" ContinueOnError="true" />
+
+		<!-- Copy Components files -->
+		<Copy SourceFiles="@(DataAxoDataExchange)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Data\AxoDataExchange\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(DataDataPersistentExchange)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Data\DataPersistentExchange\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(DataDistributed)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Data\Distributed\%(RecursiveDir)" SkipUnchangedFiles="true" />
+	</Target>
+</Project>

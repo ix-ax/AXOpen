@@ -1,26 +1,17 @@
 ﻿using AngleSharp.Dom;
+using AXOpen.VisualComposer.Components.VisualComposerItem;
 using AXOpen.VisualComposer.Serializing;
-using AXOpen.VisualComposer.Types;
 using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.JSInterop;
-using Newtonsoft.Json.Linq;
 using Operon.Components;
-using System.Buffers;
-using System.Diagnostics;
-using System.Drawing;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
-using static AXOpen.VisualComposer.VisualComposerContainer;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace AXOpen.VisualComposer
+namespace AXOpen.VisualComposer.Components
 {
     public partial class VisualComposerContainer
     {

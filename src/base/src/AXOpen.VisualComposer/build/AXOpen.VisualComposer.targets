@@ -1,0 +1,20 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="CopyVisualComposerAssets" AfterTargets="Build">
+		<Message Importance="high" Text="Copying custom files from VisualComposer package..." />
+
+		<ItemGroup>
+			<!-- MSBuildThisFileDirectory is where build/Operon.targets is located -->
+			<VisualComposerComponents Include="$(MSBuildThisFileDirectory)..\contentFiles\Components\**\*" />
+		</ItemGroup>
+
+		<Delete Files="$(MSBuildProjectDirectory)\temp\VisualComposer\**\*.*" ContinueOnError="true" />
+
+		<!-- Create target folders in consumer project -->
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\VisualComposer" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\VisualComposer\Components" ContinueOnError="true" />
+
+		<!-- Copy Components files -->
+		<Copy SourceFiles="@(VisualComposerComponents)" DestinationFolder="$(MSBuildProjectDirectory)\temp\VisualComposer\Components\%(RecursiveDir)" SkipUnchangedFiles="true" />
+	</Target>
+</Project>

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     
@@ -40,4 +40,14 @@
       <LastGenOutput>BlazorResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+
+	<ItemGroup>
+		<None Include="Areas\**\*.*" Exclude="Areas\**\*.js;Areas\**\*.css" Pack="true" PackagePath="contentFiles\Areas\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="Views\**\*.*" Exclude="Views\**\*.js;Views\**\*.css" Pack="true" PackagePath="contentFiles\Views\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="build\AXOpen.Security.Blazor.targets" Pack="true" PackagePath="build\AXOpen.Security.Blazor.targets" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<DefaultItemExcludes>$(DefaultItemExcludes);temp\**\*</DefaultItemExcludes>
+	</PropertyGroup>
 </Project>
