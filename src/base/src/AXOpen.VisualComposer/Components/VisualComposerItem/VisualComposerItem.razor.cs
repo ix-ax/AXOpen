@@ -1,17 +1,7 @@
-﻿using AXOpen.VisualComposer.Types;
-using Microsoft.AspNetCore.Components.Web;
+﻿using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-using AXSharp.Connector;
-using Newtonsoft.Json.Linq;
-using System.ComponentModel;
-using AXSharp.Connector.Localizations;
-using System.Xml.Linq;
-using KristofferStrube.Blazor.SVGEditor;
-using static System.Formats.Asn1.AsnWriter;
-using AngleSharp.Dom.Events;
 
-namespace AXOpen.VisualComposer
+namespace AXOpen.VisualComposer.Components.VisualComposerItem
 {
     public partial class VisualComposerItem
     {

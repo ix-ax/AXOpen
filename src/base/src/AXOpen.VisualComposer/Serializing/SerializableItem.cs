@@ -1,4 +1,5 @@
-﻿using AXSharp.Connector;
+﻿using AXOpen.VisualComposer.Components.VisualComposerItem;
+using AXSharp.Connector;
 
 namespace AXOpen.VisualComposer.Serializing
 {

@@ -1,6 +1,5 @@
 ﻿using AXOpen.Messaging.Static;
-using AXOpen.VisualComposer;
-using AXSharp.Connector;
+using AXOpen.VisualComposer.Components.VisualComposerItem;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core

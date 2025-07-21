@@ -1,17 +1,9 @@
 ﻿using AXOpen.VisualComposer.Serializing;
 using AXOpen.VisualComposer.Types;
 using AXSharp.Connector;
-using BlazorContextMenu;
 using Microsoft.AspNetCore.Components;
-using Operon.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 
-namespace AXOpen.VisualComposer
+namespace AXOpen.VisualComposer.Components.VisualComposerItem
 {
     public class VisualComposerItemData
     {

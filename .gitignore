@@ -429,6 +429,8 @@ library_templates
 #DCP export 
 dcp_export/
 
+temp/
+
 *.apax.tgz
 
 #JSONREPOS
