@@ -434,7 +434,7 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
     {
         if (context.BuildParameters.PublishOnly)
         {
-            context.Log.Information("Skipping. Publish only.");
+            context.Log.Information("Skipping packaging. Publish only.");
             return;
         }
 
@@ -446,66 +446,58 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
 
         if(context.BuildParameters.DoPack)
         {
-            context.Libraries.ToList().ForEach(lib =>
-            {
-                foreach (var apaxfile in context.GetApaxFiles(lib))
-                {
-                    context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"" }, new[] { "bin/1500", "axsharp.companion.json" });
-                }
-            });
-
-            if (context.BuildParameters.DoPack)
-            {
-                if (context.BuildParameters.Paralellize)
-                {
-                    context.Libraries.ToList().ForEach(lib =>
-                    {
-                        context.Log.Information($"---------------------------------");
-                        context.Log.Information($"Packing {lib.folder}");
-                        context.Log.Information($"---------------------------------");
-                        context.ApaxClean(lib);
-                        context.ApaxInstall(context.GetLibraryAxFolders(lib));
-                        context.ApaxBuild(context.GetLibraryAxFolders(lib));
-                        context.ApaxPack(lib);
-                        context.ApaxCopyArtifacts(lib);
-                    });
-
-                }
-                else
-                {
-                    context.Libraries.ToList().ForEach(lib =>
-                    {
-                        context.Log.Information($"---------------------------------");
-                        context.Log.Information($"Packing {lib.folder}");
-                        context.Log.Information($"---------------------------------");
-                        context.ApaxClean(lib);
-                        context.ApaxInstall(context.GetLibraryAxFolders(lib));
-                        context.ApaxBuild(context.GetLibraryAxFolders(lib));
-                        context.ApaxPack(lib);
-                        context.ApaxCopyArtifacts(lib);
-                    });
-                }
-            }
-
-             //PackApax(context);
-            PackNugets(context);
+            PackApax(context);
+            PackNuGets(context);
         }
-        
-       
     }
 
     private static void PackApax(BuildContext context)
     {
+        context.Log.Information($"Pack APAX");
         context.Libraries.ToList().ForEach(lib =>
         {
-            context.ApaxPack(lib);
-            context.ApaxCopyArtifacts(lib);
+            foreach (var apaxfile in context.GetApaxFiles(lib))
+            {
+                context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"" }, new[] {"assets", "bin/1500", "axsharp.companion.json" });
+            }
         });
+
+        if (context.BuildParameters.Paralellize)
+        {
+            context.Libraries.Where(p => p.pack).ToList().ForEach(lib =>
+            {
+                context.Log.Information($"---------------------------------");
+                context.Log.Information($"Packing {lib.folder}");
+                context.Log.Information($"---------------------------------");
+                context.ApaxClean(lib);
+                context.ApaxInstall(context.GetLibraryAxFolders(lib));
+                context.ApaxBuild(context.GetLibraryAxFolders(lib));
+                context.ApaxPack(lib);
+                context.ApaxCopyArtifacts(lib);
+            });
+
+        }
+        else
+        {
+            context.Libraries.Where(p => p.pack).ToList().ForEach(lib =>
+            {
+                context.Log.Information($"---------------------------------");
+                context.Log.Information($"Packing {lib.folder}");
+                context.Log.Information($"---------------------------------");
+                context.ApaxClean(lib);
+                context.ApaxInstall(context.GetLibraryAxFolders(lib));
+                context.ApaxBuild(context.GetLibraryAxFolders(lib));
+                context.ApaxPack(lib);
+                context.ApaxCopyArtifacts(lib);
+            });
+        }
     }
 
 
-    private static void PackNugets(BuildContext context)
+    private static void PackNuGets(BuildContext context)
     {
+        context.Log.Information($"Pack NUGET");
+
         context.DotNetPack(context.PackableNugetsSlnf, 
             new Cake.Common.Tools.DotNet.Pack.DotNetPackSettings()
         {
@@ -530,10 +522,10 @@ public sealed class PushPackages : FrostingTask<BuildContext>
 
         if (Helpers.CanReleaseInternal())
         {      
-            if(int.Parse(GitVersionInformation.Major) >= 1)
-            {
+            //if(int.Parse(GitVersionInformation.Major) >= 1)
+            //{
                 context.ApaxPublish();
-            }
+            //}
        
 
             foreach (var nugetFile in Directory.EnumerateFiles(Path.Combine(context.Artifacts, @"nugets"), "*.nupkg")
