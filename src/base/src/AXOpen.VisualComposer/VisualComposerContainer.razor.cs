@@ -22,7 +22,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AXOpen.VisualComposer
 {
-    public partial class VisualComposerContainer : IDisposable
+    public partial class VisualComposerContainer
     {
         [Parameter]
         public ITwinObject[] Objects { get; set; }
@@ -35,8 +35,6 @@ namespace AXOpen.VisualComposer
 
         [Inject]
         private ProtectedLocalStorage _protectedLocalStorage { set; get; }
-
-        private FileWriterBuffer<SerializableView> _fileWriterBuffer = new FileWriterBuffer<SerializableView>();
 
         private bool _editSVG { get; set; } = false;
         private bool _inDesignMode { get; set; } = false;
@@ -56,7 +54,7 @@ namespace AXOpen.VisualComposer
         public SerializableView CurrentView { get; set; } = new SerializableView();
         private SerializableConfiguration? _serverStorageConfiguration { get; set; }
         private List<string> _serverStorageAllViews { get; set; } = new List<string>();
-        private const string SERVER_STORAGE_MAIN_DIR = "VisualComposerSerialize";
+        public const string SERVER_STORAGE_MAIN_DIR = "VisualComposerSerialize";
 
         public Size ElementSize { get; set; } = new Size();
         private Size _windowSize { get; set; } = new Size();
@@ -145,7 +143,7 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        public async Task AddItemAsync(ITwinElement item)
+        internal async Task AddItemAsync(ITwinElement item)
         {
             if (_useOption)
             {
@@ -188,22 +186,7 @@ namespace AXOpen.VisualComposer
             await SaveAsync();
         }
 
-        public void AddItem(ITwinElement item, double left, double top, TransformType transform,
-            string presentation,
-            double width,
-            double height,
-            int zIndex,
-            double scale,
-            string roles,
-            string? presentationTemplate,
-            bool background,
-            string backgroundColor,
-            int pollingInterval)
-        {
-            _items.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), item, left, top, transform, presentation, width, height, zIndex, scale, roles, presentationTemplate, background, backgroundColor, pollingInterval));
-        }
-
-        public async Task RemoveItemAsync(VisualComposerItemData item)
+        internal async Task RemoveItemAsync(VisualComposerItemData item)
         {
             _items.Remove(item);
 
@@ -230,29 +213,17 @@ namespace AXOpen.VisualComposer
             await SaveAsync();
         }
 
-        public async Task CreateNewViewAsync(string name, SaveLocationType saveLocationType, bool isWatchTable)
+        private async Task CreateNewViewAsync(string name, SaveLocationType saveLocationType, bool isWatchTable)
         {
             if (string.IsNullOrEmpty(name))
                 return;
 
             _currentViewName = name;
 
-            CurrentView = new SerializableView
-            {
-                IsWatchTable = isWatchTable,
-                BackgroundWidth = 1000,
-                BackgroundHeight = 350,
-                ImgSrc = null,
-                BackgroundColor = "#EBF9EB",
-                BackgroundSVGInput = "",
-                Theme = "text-dark",
-                Scale = 1,
-                TranslateX = 0,
-                TranslateY = 0,
-                AllowZoomingAndPanning = true
-            };
+            CurrentView = new SerializableView();
+            CurrentView.IsWatchTable = isWatchTable;
 
-            if(saveLocationType == SaveLocationType.Server)
+            if (saveLocationType == SaveLocationType.Server)
                 _serverStorageAllViews.Add(name);
             else if(saveLocationType == SaveLocationType.Local)
                 _localStorageData.Add(name, CurrentView);
@@ -262,7 +233,7 @@ namespace AXOpen.VisualComposer
             await SaveAsync();
         }
 
-        public async Task CreateCopyViewAsync(string name, SaveLocationType saveLocationType)
+        private async Task CreateCopyViewAsync(string name, SaveLocationType saveLocationType)
         {
             if (string.IsNullOrEmpty(name))
                 return;
@@ -279,7 +250,7 @@ namespace AXOpen.VisualComposer
             await SaveAsync();
         }
 
-        public async Task RemoveViewAsync(string name)
+        private async Task RemoveViewAsync(string name)
         {
             if (string.IsNullOrEmpty(name))
                 return;
@@ -288,8 +259,8 @@ namespace AXOpen.VisualComposer
             {
                 _serverStorageAllViews.Remove(name);
 
-                if (File.Exists("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + name.CorrectFilePath() + ".json"))
-                    File.Delete("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + name.CorrectFilePath() + ".json");
+                if (File.Exists(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), name.CorrectFilePath() + ".json")))
+                    File.Delete(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), name.CorrectFilePath() + ".json"));
             }
             else if (_localStorageData.ContainsKey(name))
             {
@@ -305,7 +276,7 @@ namespace AXOpen.VisualComposer
                 if (_serverStorageConfiguration.DefaultView == name)
                     _serverStorageConfiguration.DefaultView = null;
 
-                await Serializing<SerializableConfiguration>.SerializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", _serverStorageConfiguration);
+                await Serializing<SerializableConfiguration>.SerializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath() + ".json"), _serverStorageConfiguration);
             }
 
             if (_currentViewName == name)
@@ -323,17 +294,17 @@ namespace AXOpen.VisualComposer
             StateHasChanged();
         }
 
-        public async Task SaveAsync()
+        internal async Task SaveAsync()
         {
             List<SerializableItem> data = _items.Select(p => new SerializableItem(p)).ToList();
             CurrentView.Items = data;
 
             if (_serverStorageAllViews.Contains(_currentViewName))
             {
-                if (!Directory.Exists("VisualComposerSerialize/" + Id.CorrectFilePath()))
-                    Directory.CreateDirectory("VisualComposerSerialize/" + Id.CorrectFilePath());
+                if (!Directory.Exists(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath())))
+                    Directory.CreateDirectory(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath()));
 
-                await _fileWriterBuffer.AddToBufferAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + _currentViewName.CorrectFilePath() + ".json", CurrentView);
+                await Serializing<SerializableView>.SerializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), _currentViewName.CorrectFilePath() + ".json"), CurrentView);
             }
             else if(_localStorageData.ContainsKey(_currentViewName))
             {
@@ -341,7 +312,7 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        public async Task LoadMainAsync()
+        private async Task LoadMainAsync()
         {
             _serverStorageConfiguration = await Serializing<SerializableConfiguration>.DeserializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath() + ".json"));
             if (_serverStorageConfiguration == null)
@@ -360,16 +331,16 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        public List<string> GetAllFiles()
+        private List<string> GetAllFiles()
         {
             List<string> files = new();
 
-            if (!Directory.Exists("VisualComposerSerialize/" + Id.CorrectFilePath()))
+            if (!Directory.Exists(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath())))
                 return files;
 
             try
             {
-                Directory.GetFiles("VisualComposerSerialize/" + Id.CorrectFilePath() + "/", "*.json").ToList().ForEach(p => files.Add(Path.GetFileNameWithoutExtension(p)));
+                Directory.GetFiles(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath()), "*.json").ToList().ForEach(p => files.Add(Path.GetFileNameWithoutExtension(p)));
             }
             catch (Exception ex)
             {
@@ -379,7 +350,7 @@ namespace AXOpen.VisualComposer
             return files;
         }
 
-        public async Task LoadAsync(string view)
+        private async Task LoadAsync(string view)
         {
             _currentViewName = view;
 
@@ -388,7 +359,7 @@ namespace AXOpen.VisualComposer
 
             SerializableView? deserializedData = null;
             if (_serverStorageAllViews.Contains(view))
-                deserializedData = await Serializing<SerializableView>.DeserializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + view.CorrectFilePath() + ".json");
+                deserializedData = await Serializing<SerializableView>.DeserializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), view.CorrectFilePath() + ".json"));
             else if (_localStorageData.ContainsKey(view))
                 deserializedData = _localStorageData[view];
 
@@ -409,7 +380,7 @@ namespace AXOpen.VisualComposer
             StateHasChanged();
         }
 
-        public async Task ChangeThemeAsync()
+        private async Task ChangeThemeAsync()
         {
             if (CurrentView.Theme == "text-gray-900")
                 CurrentView.Theme = "text-gray-100";
@@ -419,19 +390,19 @@ namespace AXOpen.VisualComposer
             await SaveAsync();
         }
 
-        public async Task ChangeSaveLocationAsync(ChangeEventArgs e, SaveLocationType oldType, string view)
+        private async Task ChangeSaveLocationAsync(ChangeEventArgs e, SaveLocationType oldType, string view)
         {
             var newSaveLocation = e.Value.ToString();
             if (oldType == SaveLocationType.Server && _serverStorageAllViews.Contains(view) && newSaveLocation == "Local")
             {
                 // Read
-                var deserializedData = await Serializing<SerializableView>.DeserializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + view.CorrectFilePath() + ".json");
+                var deserializedData = await Serializing<SerializableView>.DeserializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), view.CorrectFilePath() + ".json"));
 
                 // Remove
                 _serverStorageAllViews.Remove(view);
 
-                if (File.Exists("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + view.CorrectFilePath() + ".json"))
-                    File.Delete("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + view.CorrectFilePath() + ".json");
+                if (File.Exists(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), view.CorrectFilePath() + ".json")))
+                    File.Delete(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), view.CorrectFilePath() + ".json"));
 
                 if(deserializedData != null)
                 {
@@ -457,17 +428,17 @@ namespace AXOpen.VisualComposer
                     _serverStorageAllViews.Add(view);
 
                     // Save
-                    if (!Directory.Exists("VisualComposerSerialize/" + Id.CorrectFilePath()))
-                        Directory.CreateDirectory("VisualComposerSerialize/" + Id.CorrectFilePath());
+                    if (!Directory.Exists(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath())))
+                        Directory.CreateDirectory(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath()));
 
-                    await _fileWriterBuffer.AddToBufferAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + view.CorrectFilePath() + ".json", data);
+                    await Serializing<SerializableView>.SerializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), view.CorrectFilePath() + ".json"), data);
                 }
             }
 
             StateHasChanged();
         }
 
-        public async Task ClearScaleAndTranslateAsync()
+        private async Task ClearScaleAndTranslateAsync()
         {
             CurrentView.Scale = 1;
             CurrentView.TranslateX = 0;
@@ -476,52 +447,52 @@ namespace AXOpen.VisualComposer
             await SaveAsync();
         }
 
-        public async Task ChangeAllowZoomingAndPanningAsync()
+        private async Task ChangeAllowZoomingAndPanningAsync()
         {
             CurrentView.AllowZoomingAndPanning = !CurrentView.AllowZoomingAndPanning;
 
             await SaveAsync();
         }
 
-        public async Task ChangeBaseViewsAsync(string view)
+        private async Task ChangeBaseViewsAsync(string view)
         {
             if (_serverStorageConfiguration.Views.Contains(view))
                 _serverStorageConfiguration.Views.Remove(view);
             else
                 _serverStorageConfiguration.Views.Add(view);
 
-            await Serializing<SerializableConfiguration>.SerializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", _serverStorageConfiguration);
+            await Serializing<SerializableConfiguration>.SerializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath() + ".json"), _serverStorageConfiguration);
         }
 
-        public async Task ChangeDefaultViewAsync(string view)
+        private async Task ChangeDefaultViewAsync(string view)
         {
             _serverStorageConfiguration.DefaultView = view;
 
             if (!_serverStorageConfiguration.Views.Contains(view))
                 _serverStorageConfiguration.Views.Add(view);
 
-            await Serializing<SerializableConfiguration>.SerializeAsync("VisualComposerSerialize/" + Id.CorrectFilePath() + ".json", _serverStorageConfiguration);
+            await Serializing<SerializableConfiguration>.SerializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath() + ".json"), _serverStorageConfiguration);
         }
 
-        public string? SearchValue { get; set; } = null;
-        public List<ITwinElement>? SearchResult { get; set; } = null;
-        public void Search()
+        private string? _searchValue { get; set; } = null;
+        private List<ITwinElement>? _searchResult { get; set; } = null;
+        private void Search()
         {
-            if (SearchValue is null || SearchValue == "")
+            if (_searchValue is null || _searchValue == "")
             {
-                SearchResult = null;
+                _searchResult = null;
                 return;
             }
 
-            if (SearchResult == null)
-                SearchResult = new();
+            if (_searchResult == null)
+                _searchResult = new();
             else
-                SearchResult.Clear();
+                _searchResult.Clear();
 
-            if (SearchValue[0] == '"' && SearchValue[SearchValue.Length - 1] == '"')
+            if (_searchValue[0] == '"' && _searchValue[_searchValue.Length - 1] == '"')
             {
 
-                var searchValueTrimmed = SearchValue.Substring(1, SearchValue.Length - 2);
+                var searchValueTrimmed = _searchValue.Substring(1, _searchValue.Length - 2);
 
                 var regex = new Regex(searchValueTrimmed, RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
@@ -534,13 +505,13 @@ namespace AXOpen.VisualComposer
 
                     var matchingPrimitives = primitives.Where(p => regex.IsMatch(p.Symbol));
 
-                    SearchResult.AddRange(matchingChildren);
-                    SearchResult.AddRange(matchingPrimitives);
+                    _searchResult.AddRange(matchingChildren);
+                    _searchResult.AddRange(matchingPrimitives);
                 }
             }
             else
             {
-                var searchTerms = SearchValue
+                var searchTerms = _searchValue
                     .Split(new[] { '.', ' ' }, StringSplitOptions.RemoveEmptyEntries)
                     .Select(term => term.Trim())
                     .ToList();
@@ -558,8 +529,8 @@ namespace AXOpen.VisualComposer
                         searchTerms.All(term =>
                             p.Symbol.Contains(term, StringComparison.OrdinalIgnoreCase)));
 
-                    SearchResult.AddRange(matchingChildren);
-                    SearchResult.AddRange(matchingPrimitives);
+                    _searchResult.AddRange(matchingChildren);
+                    _searchResult.AddRange(matchingPrimitives);
                 }
             }
 
@@ -570,13 +541,13 @@ namespace AXOpen.VisualComposer
             //}
         }
 
-        private bool isFileImported { get; set; } = false;
-        private bool isFileImporting { get; set; } = false;
+        private bool _isFileImported { get; set; } = false;
+        private bool _isFileImporting { get; set; } = false;
 
         private async Task UploadFile(InputFileChangeEventArgs e)
         {
-            isFileImported = false;
-            isFileImporting = true;
+            _isFileImported = false;
+            _isFileImporting = true;
 
             try
             {
@@ -597,14 +568,14 @@ namespace AXOpen.VisualComposer
                 CurrentView.BackgroundWidth = dimensions.Width;
                 CurrentView.BackgroundHeight = dimensions.Height;
 
-                isFileImported = true;
+                _isFileImported = true;
             }
             catch (Exception ex)
             {
                 CurrentView.ImgSrc = null;
             }
 
-            isFileImporting = false;
+            _isFileImporting = false;
 
             await SaveAsync();
         }
@@ -691,18 +662,13 @@ namespace AXOpen.VisualComposer
             }
         }
 
-        public string GetBgColor(SaveLocationType location)
+        private string GetBgColor(SaveLocationType location)
         {
             if (location == SaveLocationType.Server)
                 return "bg-purple-50";
             else if (location == SaveLocationType.Local)
                 return "bg-cyan-50";
             return "";
-        }
-
-        public void Dispose()
-        {
-            _fileWriterBuffer.Dispose();
         }
 
         public class Size

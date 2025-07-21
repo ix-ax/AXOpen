@@ -1,6 +1,6 @@
 ﻿namespace AXOpen.VisualComposer.Serializing
 {
-    internal class SerializableConfiguration
+    public class SerializableConfiguration
     {
         public List<string> Views { get; set; }
 

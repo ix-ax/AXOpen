@@ -2,21 +2,21 @@
 {
     public class SerializableView
     {
-        public bool IsWatchTable { get; set; }
-        public double BackgroundWidth { get; set; }
-        public double BackgroundHeight { get; set; }
-        public string? ImgSrc { get; set; }
-        public string BackgroundColor { get; set; }
+        public bool IsWatchTable { get; set; } = false;
+        public double BackgroundWidth { get; set; } = 1000;
+        public double BackgroundHeight { get; set; } = 350;
+        public string? ImgSrc { get; set; } = null;
+        public string BackgroundColor { get; set; } = "#EBF9EB";
 
-        public string BackgroundSVGInput { get; set; }
+        public string BackgroundSVGInput { get; set; } = "";
         public List<SerializableItem> Items { get; set; }
 
-        public string Theme { get; set; }
+        public string Theme { get; set; } = "text-dark";
 
-        public double Scale { get; set; }
-        public double TranslateX { get; set; }
-        public double TranslateY { get; set; }
-        public bool AllowZoomingAndPanning { get; set; }
+        public double Scale { get; set; } = 1;
+        public double TranslateX { get; set; } = 0;
+        public double TranslateY { get; set; } = 0;
+        public bool AllowZoomingAndPanning { get; set; } = true;
 
         public SerializableView()
         {

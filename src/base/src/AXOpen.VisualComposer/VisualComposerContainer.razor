@@ -156,10 +156,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="flex flex-wrap">
-                        <BaseInput @bind-Value="SearchValue" Placeholder="Search" Class="flex-1" />
+                        <BaseInput @bind-Value="_searchValue" Placeholder="Search" Class="flex-1" />
                         <button type="button" class="btn btn-primary" @onclick="Search">Search</button>
                     </div>
-                    @if (SearchValue is null || SearchResult is null)
+                    @if (_searchValue is null || _searchResult is null)
                     {
                         <div class="accordion">
                             @foreach (var item in Objects)
@@ -170,7 +170,7 @@
                     }
                     else
                     {
-                        @foreach (var item in SearchResult)
+                        @foreach (var item in _searchResult)
                         {
                             @if (!CurrentView.IsWatchTable || item is ITwinPrimitive)
                             {
@@ -456,7 +456,7 @@
                     <Accordion>
                         <AccordionItem Title="Upload image">
                             <InputFile class="file" accept=".png, .jpg, .jpeg, .svg" OnChange="@UploadFile" />
-                            @if (!isFileImported && isFileImporting)
+                            @if (!_isFileImported && _isFileImporting)
                             {
                                 <p>Loading</p>
                             }
