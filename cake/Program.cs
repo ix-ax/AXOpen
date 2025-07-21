@@ -180,14 +180,6 @@ public sealed class BuildTask : FrostingTask<BuildContext>
                     context.UpdateApaxDependencies(apaxfile, GitVersionInformation.SemVer);
                 }
             });
-
-            context.Libraries.ToList().ForEach(lib =>
-            {
-                foreach (var apaxfile in context.GetApaxFiles(lib))
-                {
-                    context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"", "llvm" }, new[] { "bin/1500", "bin/llvm", "axsharp.companion.json" });
-                }
-            });
         }
 
         var traversalProjectFolder = Path.Combine(context.RootDir, "traversals", "apax");
@@ -445,6 +437,14 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
             context.Log.Information("Skipping. Publish only.");
             return;
         }
+
+        context.Libraries.ToList().ForEach(lib =>
+        {
+            foreach (var apaxfile in context.GetApaxFiles(lib))
+            {
+                context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"" }, new[] { "bin/1500", "axsharp.companion.json" });
+            }
+        });
 
         if (context.BuildParameters.DoPack)
         {
