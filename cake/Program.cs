@@ -438,55 +438,60 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
             return;
         }
 
-        context.Libraries.ToList().ForEach(lib =>
-        {
-            foreach (var apaxfile in context.GetApaxFiles(lib))
-            {
-                context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"" }, new[] { "bin/1500", "axsharp.companion.json" });
-            }
-        });
-
-        if (context.BuildParameters.DoPack)
-        {
-            if (context.BuildParameters.Paralellize)
-            {
-                context.Libraries.ToList().ForEach(lib =>
-                {
-                    context.Log.Information($"---------------------------------");
-                    context.Log.Information($"Packing {lib.folder}");
-                    context.Log.Information($"---------------------------------");
-                    context.ApaxClean(lib);
-                    context.ApaxInstall(context.GetLibraryAxFolders(lib));
-                    context.ApaxBuild(context.GetLibraryAxFolders(lib));
-                    context.ApaxPack(lib);
-                    context.ApaxCopyArtifacts(lib);
-                });
-
-            }
-            else
-            {
-                context.Libraries.ToList().ForEach(lib =>
-                {
-                    context.Log.Information($"---------------------------------");
-                    context.Log.Information($"Packing {lib.folder}");
-                    context.Log.Information($"---------------------------------");
-                    context.ApaxClean(lib);
-                    context.ApaxInstall(context.GetLibraryAxFolders(lib));
-                    context.ApaxBuild(context.GetLibraryAxFolders(lib));
-                    context.ApaxPack(lib);
-                    context.ApaxCopyArtifacts(lib);
-                });
-            }
-        }
-        
         if (!context.BuildParameters.DoPack)
         {
             context.Log.Warning($"Skipping packaging.");
             return;
         }
 
-        //PackApax(context);
-        PackNugets(context);
+        if(context.BuildParameters.DoPack)
+        {
+            context.Libraries.ToList().ForEach(lib =>
+            {
+                foreach (var apaxfile in context.GetApaxFiles(lib))
+                {
+                    context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"" }, new[] { "bin/1500", "axsharp.companion.json" });
+                }
+            });
+
+            if (context.BuildParameters.DoPack)
+            {
+                if (context.BuildParameters.Paralellize)
+                {
+                    context.Libraries.ToList().ForEach(lib =>
+                    {
+                        context.Log.Information($"---------------------------------");
+                        context.Log.Information($"Packing {lib.folder}");
+                        context.Log.Information($"---------------------------------");
+                        context.ApaxClean(lib);
+                        context.ApaxInstall(context.GetLibraryAxFolders(lib));
+                        context.ApaxBuild(context.GetLibraryAxFolders(lib));
+                        context.ApaxPack(lib);
+                        context.ApaxCopyArtifacts(lib);
+                    });
+
+                }
+                else
+                {
+                    context.Libraries.ToList().ForEach(lib =>
+                    {
+                        context.Log.Information($"---------------------------------");
+                        context.Log.Information($"Packing {lib.folder}");
+                        context.Log.Information($"---------------------------------");
+                        context.ApaxClean(lib);
+                        context.ApaxInstall(context.GetLibraryAxFolders(lib));
+                        context.ApaxBuild(context.GetLibraryAxFolders(lib));
+                        context.ApaxPack(lib);
+                        context.ApaxCopyArtifacts(lib);
+                    });
+                }
+            }
+
+             //PackApax(context);
+            PackNugets(context);
+        }
+        
+       
     }
 
     private static void PackApax(BuildContext context)
