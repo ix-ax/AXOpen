@@ -237,16 +237,14 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         {
             context.Libraries.ToList().ForEach(lib =>
             {
+                context.Log.Information($"---------------------------------");
+                context.Log.Information($"Testing {lib.folder}");
+                context.Log.Information($"---------------------------------");
                 context.ApaxClean(lib);
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
                 context.ApaxTestLibrary(lib);
-                if (context.BuildParameters.DoPack)
-                {
-                    context.ApaxPack(lib);
-                    context.ApaxCopyArtifacts(lib);
-                }
-                //context.ApaxClean(lib);
+                context.ApaxClean(lib);
             });
 
         }
@@ -261,12 +259,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
                 context.ApaxTestLibrary(lib);
-                if (context.BuildParameters.DoPack)
-                {
-                    context.ApaxPack(lib);
-                    context.ApaxCopyArtifacts(lib);
-                }
-                //context.ApaxClean(lib);
+                context.ApaxClean(lib);
             });
         }
 
@@ -455,13 +448,35 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
 
         if (context.BuildParameters.DoPack)
         {
-            //context.Libraries.ToList().ForEach(lib =>
-            //{
-            //    foreach (var apaxfile in context.GetApaxFiles(lib))
-            //    {
-            //        context.ApaxChangeBuildProperties(apaxfile, new string[] { "\"1500\"", "llvm", "plcsim" }, new[] { "bin", "axsharp.companion.json" });
-            //    }
-            //});
+            if (context.BuildParameters.Paralellize)
+            {
+                context.Libraries.ToList().ForEach(lib =>
+                {
+                    context.Log.Information($"---------------------------------");
+                    context.Log.Information($"Packing {lib.folder}");
+                    context.Log.Information($"---------------------------------");
+                    context.ApaxClean(lib);
+                    context.ApaxInstall(context.GetLibraryAxFolders(lib));
+                    context.ApaxBuild(context.GetLibraryAxFolders(lib));
+                    context.ApaxPack(lib);
+                    context.ApaxCopyArtifacts(lib);
+                });
+
+            }
+            else
+            {
+                context.Libraries.ToList().ForEach(lib =>
+                {
+                    context.Log.Information($"---------------------------------");
+                    context.Log.Information($"Packing {lib.folder}");
+                    context.Log.Information($"---------------------------------");
+                    context.ApaxClean(lib);
+                    context.ApaxInstall(context.GetLibraryAxFolders(lib));
+                    context.ApaxBuild(context.GetLibraryAxFolders(lib));
+                    context.ApaxPack(lib);
+                    context.ApaxCopyArtifacts(lib);
+                });
+            }
         }
         
         if (!context.BuildParameters.DoPack)
