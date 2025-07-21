@@ -5,6 +5,7 @@ using Humanizer.DateTimeHumanizeStrategy;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
+using Operon.Components.Toast;
 using Pocos.AXOpen.Data;
 using System.Globalization;
 
@@ -16,14 +17,23 @@ namespace AXOpen.Data
         [Parameter, EditorRequired]
         public string GroupName { get; set; }
 
-        [Parameter] public string ConfigSuffix { get; set; } = "";
+        [Parameter]
+        public string ConfigSuffix { get; set; } = "";
 
-        [Parameter] public PredicateContainer? InjectedPredicateContainer { set; get; }
+        [Parameter]
+        public PredicateContainer? InjectedPredicateContainer { set; get; }
 
-        [Parameter] public Action<string>? OnDataSend { get; set; }
-        [Parameter] public bool EnableCurrentView { get; set; }
-        [Parameter] public bool DisableUserRoles { get; set; }
-        [Parameter] public int MinPaginationLimit { get; set; } = 25;
+        [Parameter]
+        public Action<string>? OnDataSend { get; set; }
+
+        [Parameter]
+        public bool EnableCurrentView { get; set; }
+
+        [Parameter]
+        public bool DisableUserRoles { get; set; }
+
+        [Parameter]
+        public int MinPaginationLimit { get; set; } = 25;
 
 
         [Inject]
@@ -33,7 +43,7 @@ namespace AXOpen.Data
         public AuthenticationStateProvider Authentication { set; get; }
 
         [Inject]
-        public IAlertService AlertService { get; set; }
+        public IToastService ToastService { get; set; }
 
         [Inject]
         public IDistributedDataExchangeService DistributedExchangeService { set; get; }
@@ -62,7 +72,7 @@ namespace AXOpen.Data
 
                 if (DataFragments != null)
                 {
-                    DistributedVM = new DistributedDataSelectorViewModel(AlertService, Authentication, DistributedExchangeService, GroupName, InjectedPredicateContainer);
+                    DistributedVM = new DistributedDataSelectorViewModel(ToastService, Authentication, DistributedExchangeService, GroupName, InjectedPredicateContainer);
 
                     DistributedVM.FilteredPageLimit = this.MinPaginationLimit;
 
@@ -143,48 +153,37 @@ namespace AXOpen.Data
             return DistributedVM.SendToPlc(this.SelectedEntity.DataEntityId);
         }
 
-        public int TotalCount // all symbols from query
+        public int Limit
         {
-            get => DistributedVM.FilteredCount;
+            set
+            {
+                DistributedVM.FilteredPageLimit = value;
+                DistributedVM.FillObservableRecordsAsync();
+            }
+            get
+            {
+                return DistributedVM.FilteredPageLimit;
+            }
         }
 
-        public int FilteredPage// displaing only selected page
+        public int Page
         {
-            get => DistributedVM.FilteredPage;
-            set => DistributedVM.FilteredPage = value;
+            set
+            {
+                DistributedVM.FilteredPage = value;
+                DistributedVM.FillObservableRecordsAsync();
+            }
+            get
+            {
+                return DistributedVM.FilteredPage;
+            }
         }
-        public int FilteredPageLimit // displaing only selected page
+
+        private async Task PageSizeAndSelectedChangedAsync(int pageSize, int selected)
         {
-            get => DistributedVM.FilteredPageLimit;
-            set => DistributedVM.FilteredPageLimit = value;
-        }
-
-        private int MaxPage =>
-       (int)(TotalCount % FilteredPageLimit == 0 ? TotalCount / FilteredPageLimit - 1 : TotalCount / FilteredPageLimit);
-
-        private async Task SetLimitAsync(int limit)
-        {
-            var oldLimit = FilteredPageLimit;
-            FilteredPageLimit = limit;
-
-            FilteredPage = FilteredPage * oldLimit / FilteredPageLimit;
-
+            DistributedVM.FilteredPageLimit = pageSize;
+            DistributedVM.FilteredPage = selected;
             await DistributedVM.FillObservableRecordsAsync();
         }
-
-        private async Task SetPageAsync(int page)
-        {
-            FilteredPage = page;
-            await DistributedVM.FillObservableRecordsAsync();
-        }
-
-        private int Modulo(int x, int m)
-        {
-            if (m == 0) return 0; // avoid exception caused by % 0
-            var r = x % m;
-            return r < 0 ? r + m : r;
-        }
-
-
     }
 }

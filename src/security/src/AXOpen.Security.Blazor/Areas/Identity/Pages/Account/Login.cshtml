@@ -7,23 +7,24 @@
 @{
     ViewData["Title"] = "Log in";
 }
-<div class="card">
-    <h4 class="card-header">@Localizer["Log in"]</h4>
-    <div class="card-body">
+
+<div class="flex justify-center">
+    <div class="w-md">
+        <h4>Log in</h4>
+        <hr class="mb-2" />
         <form id="account" method="post">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
+            <div asp-validation-summary="All"></div>
+            <div class="input-group">
                 <label asp-for="Input.Username">@Localizer["Username"]</label>
-                <input asp-for="Input.Username" class="form-control" />
-                <span asp-validation-for="Input.Username" class="text-danger"></span>
+                <input asp-for="Input.Username" />
+                <span asp-validation-for="Input.Username"></span>
             </div>
-            <div class="form-group">
+            <div class="input-group">
                 <label asp-for="Input.Password">@Localizer["Password"]</label>
-                <input asp-for="Input.Password" class="form-control" />
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                <input asp-for="Input.Password" />
+                <span asp-validation-for="Input.Password"></span>
             </div>
-            <button type="submit" class="btn btn-primary mt-2">@Localizer["Log in"]</button>
+            <button type="submit" class="btn btn-primary mt-2 w-full">@Localizer["Log in"]</button>
         </form>
     </div>
 </div>
-

@@ -44,6 +44,64 @@ A simple example could be a component of a pneumatic cylinder where the call of 
 
 Moreover, AXOpen comprises powerful tools that expedite the development of HMI/UI applications. It builds upon web technologies (Blazor) and the incredibly powerful [AX# library](https://inxton.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html) for the automated generation of user interfaces. Each library/component within AXOpen comes equipped with ready-to-use visual components, enabling swift deployment in any human-machine interface scenario. Though we develop HMI/UI controls based on `Blazor` technology, we keep the design open to other UI technologies from the .NET ecosystem.
 
+# Library Overview
+
+AXOpen provides a comprehensive set of libraries and components for industrial automation. Here's a detailed overview of the main libraries:
+
+## Core Libraries
+
+- **Core**: Contains fundamental components and base functionality for the AXOpen framework
+- **Abstractions**: Provides interfaces and abstract classes that define the framework's architecture
+- **Utils**: Utility functions and helper classes for common operations
+- **Timers**: Time-related functionality and timing operations
+- **Data**: Data management and handling subsystem for controller data
+- **IO**: Input/Output operations and communications
+
+## Component Libraries
+
+### Robotics
+- **components.robotics**: Base robotics functionality and common interfaces
+- **components.abb.robotics**: Integration with ABB robots
+- **components.kuka.robotics**: Integration with KUKA robots
+- **components.ur.robotics**: Integration with Universal Robots
+- **components.mitsubishi.robotics**: Integration with Mitsubishi robots
+
+### Vision and Identification
+- **components.cognex.vision**: Integration with Cognex vision systems
+- **components.keyence.vision**: Integration with Keyence vision systems
+- **components.balluff.identification**: Balluff identification systems integration
+- **components.siem.identification**: Siemens identification systems integration
+
+### Motion and Control
+- **components.drives**: Base functionality for drive systems
+- **components.festo.drives**: Integration with Festo drive systems
+- **components.rexroth.drives**: Integration with Rexroth drive systems
+- **components.rexroth.press**: Specialized integration for Rexroth press systems
+- **components.desoutter.tightening**: Integration with Desoutter tightening systems
+- **components.pneumatics**: Pneumatic system controls and operations
+
+### Base Components
+- **components.abstractions**: Base abstractions for all components
+- **components.elements**: Basic control elements and building blocks
+
+## Testing and Development
+- **inspectors**: Tools for system inspection and diagnostics
+- **probers**: Testing and probing functionality
+- **toolbox**: Collection of development tools and utilities
+- **tools**: Additional development tools and helpers
+
+## Integration and Platform
+- **simatic1500**: Specific integration for Siemens SIMATIC S7-1500 controllers
+- **sdk-ax**: Software Development Kit for AX integration
+- **traversals**: System traversal and navigation utilities
+- **Security**: Security-related functionality and access control
+
+Each library is designed with modularity in mind, allowing you to use only the components you need for your specific automation project. All components come with built-in support for:
+- Automated UI generation
+- Integrated alarm handling
+- Diagnostic capabilities
+- Documentation
+- Example implementations
 
 ## Tasks
 

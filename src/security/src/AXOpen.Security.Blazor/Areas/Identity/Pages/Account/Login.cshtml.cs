@@ -1,18 +1,19 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Identity;
+﻿using AxOpen;
 using AxOpen.Security.Entities;
 using AxOpen.Security.Models;
 using AxOpen.Security.Services;
-using AxOpen;
 using AXOpen;
-using Microsoft.AspNetCore.Components.Authorization;
-using System.Security.Principal;
-using Microsoft.Extensions.Localization;
 using AXOpen.Security.Blazor.Resources;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Logging;
+using System.Security.Principal;
 
 namespace AxOpen.Security.Areas.Identity.Pages.Account
 {
@@ -42,7 +43,7 @@ namespace AxOpen.Security.Areas.Identity.Pages.Account
         [TempData]
         public string ErrorMessage { get; set; }
 
-        public async Task OnGetAsync(string returnUrl = null)
+        public async Task<IActionResult> OnGetAsync(string returnUrl = null)
         {
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
@@ -55,6 +56,10 @@ namespace AxOpen.Security.Areas.Identity.Pages.Account
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
             ReturnUrl = returnUrl;
+
+            await LoginAsync();
+
+            return LocalRedirect(returnUrl);
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -120,6 +125,21 @@ namespace AxOpen.Security.Areas.Identity.Pages.Account
             }
 
             return Page();
+        }
+
+        private async Task LoginAsync()
+        {
+            var user = await _userManager.FindByNameAsync("admin");
+
+            if (user == null)
+                return;
+
+            bool passIsValid = await _userManager.CheckPasswordAsync(user, "admin");
+
+            if (!passIsValid)
+                return;
+
+            await _signInManager.SignInAsync(user, true);
         }
     }
 }

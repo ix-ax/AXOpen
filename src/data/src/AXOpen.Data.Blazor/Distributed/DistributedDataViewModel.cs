@@ -3,6 +3,7 @@ using AXOpen.Base.Data.Query;
 using AXOpen.Base.Dialogs;
 using AXOpen.Data.Interfaces;
 using Microsoft.AspNetCore.Components.Authorization;
+using Operon.Components.Toast;
 
 namespace AXOpen.Data
 {
@@ -10,7 +11,7 @@ namespace AXOpen.Data
     {
         protected readonly AuthenticationStateProvider Authentication;
 
-        protected readonly IAlertService AlertService;
+        protected readonly IToastService ToastService;
         protected readonly IDistributedDataExchangeService DistributedExchangeService;
         protected readonly IAxoDataExchangeConfigurationService ConfigurationService;
 
@@ -19,7 +20,7 @@ namespace AXOpen.Data
         protected readonly string ConfiguraionSuffix = "";
 
         public DistributedDataViewModel(
-            IAlertService alertService,
+            IToastService toastService,
             AuthenticationStateProvider authentication,
             IDistributedDataExchangeService distributedExchangeService,
             IAxoDataExchangeConfigurationService configuraionService,
@@ -31,7 +32,7 @@ namespace AXOpen.Data
 
             )
         {
-            AlertService = alertService;
+            ToastService = toastService;
             Authentication = authentication;
             ConfigurationService = configuraionService;
             DistributedExchangeService = distributedExchangeService;
@@ -176,7 +177,7 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Create error", "Please enter valid source identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, "Create error", "Please enter valid source identifier!", 20);
                 return;
             }
 
@@ -200,8 +201,8 @@ namespace AXOpen.Data
                 string createdRecords = string.Join(", ", created);
 
                 // Alert
-                AlertService?.AddAlertDialog(
-                    eAlertType.Info,
+                ToastService?.AddToast(
+                    eToastType.Info,
                     "Create new record",
                     $"Record \"{identifier}\" was created in repositories: {createdRecords}.",
                     7
@@ -219,8 +220,8 @@ namespace AXOpen.Data
                 string notCreatedRecords = string.Join(", ", alreadyExistInDb);
 
                 // Alert
-                AlertService?.AddAlertDialog(
-                    eAlertType.Warning,
+                ToastService?.AddToast(
+                    eToastType.Warning,
                     "Create record error",
                     $"Record \"{identifier}\" already exists in repositories: {notCreatedRecords}.",
                     14
@@ -238,7 +239,7 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Create data error", "Please enter valid identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, "Create data error", "Please enter valid identifier!", 20);
                 return;
             }
 
@@ -263,8 +264,8 @@ namespace AXOpen.Data
                 string createdRecords = string.Join(", ", Created);
 
                 // Alert
-                AlertService?.AddAlertDialog(
-                    eAlertType.Info,
+                ToastService?.AddToast(
+                    eToastType.Info,
                     "Create record from PLC",
                     $"Record \"{identifier}\" was created in repositories: {createdRecords}.",
                     7
@@ -282,8 +283,8 @@ namespace AXOpen.Data
                 string notCreatedRecords = string.Join(", ", NotCreated);
 
                 // Alert
-                AlertService?.AddAlertDialog(
-                    eAlertType.Warning,
+                ToastService?.AddToast(
+                    eToastType.Warning,
                     "Create record error",
                     $"Record \"{identifier}\" already exists in repositories: {notCreatedRecords}.",
                     14
@@ -301,7 +302,7 @@ namespace AXOpen.Data
         //{
         //    if (string.IsNullOrEmpty(identifier))
         //    {
-        //        AlertService?.AddAlertDialog(eAlertType.Warning, "Update data error", "Please enter valid identifier!", 20);
+        //        AlertService?.AddToast(eToastType.Warning, "Update data error", "Please enter valid identifier!", 20);
         //        return;
         //    }
 
@@ -345,8 +346,8 @@ namespace AXOpen.Data
         //        string updatedInRepositories = string.Join(", ", updated);
 
         //        // Alert
-        //        AlertService?.AddAlertDialog(
-        //            eAlertType.Info,
+        //        AlertService?.AddToast(
+        //            eToastType.Info,
         //            "Update record",
         //            $"Record \"{identifier}\" was updated in repositories: {updatedInRepositories}.",
         //            7
@@ -364,8 +365,8 @@ namespace AXOpen.Data
         //        string createdInRepositories = string.Join(", ", created);
 
         //        // Alert
-        //        AlertService?.AddAlertDialog(
-        //            eAlertType.Info,
+        //        AlertService?.AddToast(
+        //            eToastType.Info,
         //            "Create record",
         //            $"Record \"{identifier}\" was created in repositories: {createdInRepositories}.",
         //            7
@@ -383,8 +384,8 @@ namespace AXOpen.Data
         //        string notEqualEntityIds = string.Join(", ", notSameIdInPlc);
 
         //        // Alert
-        //        AlertService?.AddAlertDialog(
-        //            eAlertType.Warning,
+        //        AlertService?.AddToast(
+        //            eToastType.Warning,
         //            "Update error",
         //            $"Online records have a different ID than requested for update: {notEqualEntityIds}.",
         //            14
@@ -403,7 +404,7 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Update data error", "Please enter valid identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, "Update data error", "Please enter valid identifier!", 20);
                 return;
             }
 
@@ -433,8 +434,8 @@ namespace AXOpen.Data
                 string sentExchanges = string.Join(", ", sentToPlc);
 
                 // Alert message
-                AlertService?.AddAlertDialog(
-                    eAlertType.Info,
+                ToastService?.AddToast(
+                    eToastType.Info,
                     "Send record",
                     $"Record \"{identifier}\" was sent to exchanges: {sentExchanges} by user action.",
                     7
@@ -452,8 +453,8 @@ namespace AXOpen.Data
                 string notExistInRepos = string.Join(", ", notExistInDb);
 
                 // Alert message
-                AlertService?.AddAlertDialog(
-                    eAlertType.Warning,
+                ToastService?.AddToast(
+                    eToastType.Warning,
                     "Send error",
                     $"Record \"{identifier}\" does not exist in the database for: {notExistInRepos}.",
                     14
@@ -471,13 +472,13 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Copy error", "Please enter valid source identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, "Copy error", "Please enter valid source identifier!", 20);
                 return;
             }
 
             if (string.IsNullOrEmpty(newIdentifier))
             {
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Copy record error", "Data cannot be deleted. Please enter valid new identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, "Copy record error", "Data cannot be deleted. Please enter valid new identifier!", 20);
                 return;
             }
 
@@ -510,21 +511,21 @@ namespace AXOpen.Data
             if (copied.Count > 0)
             {
                 string createdRecords = string.Join(", ", copied);
-                AlertService?.AddAlertDialog(eAlertType.Info, "Copied record", $"Data with ID: \"{identifier}\" was created for: {createdRecords}!", 7);
+                ToastService?.AddToast(eToastType.Info, "Copied record", $"Data with ID: \"{identifier}\" was created for: {createdRecords}!", 7);
                 AxoApplication.Current.Logger.Information($"Copying record \"{identifier}\" with new ID \"{newIdentifier}\" into repositories {createdRecords} by user action was successful.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
 
             if (alreadyExist.Count > 0)
             {
                 string alreadyExistRecords = string.Join(", ", alreadyExist);
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Copied error", $"Record already exist for: {alreadyExistRecords}!", 14);
+                ToastService?.AddToast(eToastType.Warning, "Copied error", $"Record already exist for: {alreadyExistRecords}!", 14);
                 AxoApplication.Current.Logger.Warning($"Copying record \"{identifier}\" into repositories {alreadyExistRecords} by user action failed – record already exist.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
 
             if (notExist.Count > 0)
             {
                 string notExistRecords = string.Join(", ", notExist);
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Copied error", $"Source Record not exist for: {notExistRecords}!", 14);
+                ToastService?.AddToast(eToastType.Warning, "Copied error", $"Source Record not exist for: {notExistRecords}!", 14);
                 AxoApplication.Current.Logger.Warning($"Copying record \"{identifier}\" into repositories {notExistRecords} by user action failed – record does not exist.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
         }
@@ -533,7 +534,7 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                AlertService?.AddAlertDialog(eAlertType.Warning, "Delete error", "Please enter valid source identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, "Delete error", "Please enter valid source identifier!", 20);
                 return;
             }
 
@@ -558,8 +559,8 @@ namespace AXOpen.Data
                 string deletedInRepos = string.Join(", ", deleted);
 
                 // Alert message
-                AlertService?.AddAlertDialog(
-                    eAlertType.Info,
+                ToastService?.AddToast(
+                    eToastType.Info,
                     "Delete record",
                     $"Record \"{identifier}\" was deleted from repositories: {deletedInRepos}.",
                     7
@@ -576,8 +577,8 @@ namespace AXOpen.Data
                 string notExistInRepos = string.Join(", ", notExist);
 
                 // Alert message
-                AlertService?.AddAlertDialog(
-                    eAlertType.Warning,
+                ToastService?.AddToast(
+                    eToastType.Warning,
                     "Delete error",
                     $"Source record does not exist in repositories: {notExistInRepos}.",
                     14
@@ -635,7 +636,7 @@ namespace AXOpen.Data
 
             SelectedManagerVm = new DataExchangeViewModel();
             SelectedManagerVm.AuthenticationProvider = Authentication;
-            SelectedManagerVm.AlertDialogService = AlertService;
+            SelectedManagerVm.ToastService = ToastService;
 
             SelectedManagerVm.Model = exchange;
             SelectedManagerVm.SetInjectedEntityIds(MergeInjectedEntities());

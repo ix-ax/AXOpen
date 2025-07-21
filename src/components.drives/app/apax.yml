@@ -1,4 +1,4 @@
-﻿name: "app_axopen.components.drives"
+name: "app_axopen.components.drives"
 version: '0.0.0-dev.0'
 type: app
 targets:
@@ -173,7 +173,3 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
     apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
-
-
-
-

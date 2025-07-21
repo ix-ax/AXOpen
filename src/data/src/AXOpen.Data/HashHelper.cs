@@ -39,6 +39,18 @@ namespace AXOpen.Data
             if (@object == null)
                 return string.Empty;
 
+            var objectInfo = @object.GetType();
+
+            if (objectInfo.IsPrimitive) // for primitives types
+            {
+                return @object.ToString();
+            }
+
+            if (@object is string ) // string is special case
+            {
+                return @object.ToString();
+            }
+
             string stringToHash = string.Empty;
 
             foreach (PropertyInfo property in @object.GetType().GetProperties())

@@ -1,19 +1,20 @@
+using AxOpen.Security;
+using AxOpen.Security.Entities;
+using AxOpen.Security.Services;
+using AXOpen;
+using AXOpen.Base.Data;
+using AXOpen.Core;
+using AXOpen.Data.Json;
+using AXOpen.Logging;
+using AXOpen.VisualComposer;
+using AXSharp.Connector;
+using AXSharp.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using System.Data;
-using AXOpen.Core;
-using AxOpen.Security.Services;
-using AXSharp.Presentation.Blazor.Services;
-using AXSharp.Connector;
-using AXOpen.Base.Data;
-using AxOpen.Security.Entities;
-using System.Reflection;
-using AXOpen.Data.Json;
-using AxOpen.Security;
-using Serilog;
-using AXOpen;
-using AXOpen.Logging;
 using projname;
+using Serilog;
+using System.Data;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,10 +26,12 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddIxBlazorServices();
 builder.Services.AddAxoCoreServices();
 
+builder.Services.AddVisualComposerService();
+
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
-Entry.Plc.Connector.ConcurrentRequestMaxCount = 4; 
-Entry.Plc.Connector.ConcurrentRequestDelay = 100;
+//Entry.Plc.Connector.ConcurrentRequestMaxCount = 4; 
+//Entry.Plc.Connector.ConcurrentRequestDelay = 100;
 Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.ReThrow;
 
 Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()

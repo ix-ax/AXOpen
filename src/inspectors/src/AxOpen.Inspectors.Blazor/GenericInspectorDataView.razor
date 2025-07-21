@@ -1,31 +1,26 @@
 ﻿@namespace AXOpen.Inspectors
 
-
-
-<div class="row">
+<div class="flex flex-row gap-2">
     @if (Presentation != "ShadowControl")
     {
-        <div class="col-md me-2">
-
-        @if(Presentation == "ShadowDisplay")
-        {
-            <RenderableContentControl Context="@Data.Result" Presentation="ShadowDisplay" />
-            <RenderableContentControl Context="@Data.Timestamp" Presentation="ShadowDisplay" />
-        }
-        else
-        {
-            <RenderableContentControl Context="@Data.Result" Presentation="Display" />
-            <RenderableContentControl Context="@Data.Timestamp" Presentation="Display" />
-        }
-
-    </div>
+        <div class="flex flex-col w-1/3">
+            @if (Presentation == "ShadowDisplay")
+            {
+                <RenderableContentControl Context="@Data.Result" Presentation="ShadowDisplay" />
+                <RenderableContentControl Context="@Data.Timestamp" Presentation="ShadowDisplay" />
+            }
+            else
+            {
+                <RenderableContentControl Context="@Data.Result" Presentation="Display" />
+                <RenderableContentControl Context="@Data.Timestamp" Presentation="Display" />
+            }
+        </div>
     }
-    <div class="col-md mx-2">
-     
+    <div class="flex flex-col w-1/3">
         <RenderableContentControl Context="@Data.FailTime" Presentation="@Presentation" />
         <RenderableContentControl Context="@Data.PassTime" Presentation="@Presentation" />
     </div>
-    <div class="col-md ms-2">
+    <div class="flex flex-col w-1/3">
         <RenderableContentControl Context="@Data.NumberOfAllowedRetries" Presentation="@Presentation" />
         @if (Presentation != "ShadowControl")
         {

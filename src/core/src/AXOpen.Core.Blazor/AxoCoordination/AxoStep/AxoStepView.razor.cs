@@ -15,7 +15,7 @@ namespace AXOpen.Core
 
         public override void ConfigurePolling()
         {
-            this.StartPolling(Component.StepDescription, 350);
+            this.StartPolling(Component.Descr, 350);
             this.StartPolling(Component.Status, 350);
         }
     }

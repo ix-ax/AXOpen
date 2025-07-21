@@ -8,6 +8,7 @@ using AxOpen.Security.Services;
 using AXOpen;
 using AXOpen.Base.Dialogs;
 using Microsoft.Extensions.Localization;
+using Operon.Components.Toast;
 
 namespace AxOpen.Security.Views
 {
@@ -28,7 +29,7 @@ namespace AxOpen.Security.Views
         protected IRepositoryService _repositoryService { get; set; }
 
         [Inject]
-        protected IAlertService? _alertDialogService { get; set; }
+        protected IToastService? _toastService { get; set; }
 
         protected async Task<IIdentity> GetCurrentIdentity()
         {

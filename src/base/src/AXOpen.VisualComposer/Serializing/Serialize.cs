@@ -2,9 +2,9 @@
 
 namespace AXOpen.VisualComposer.Serializing
 {
-    internal static class Serializing<T>
+    public static class Serializing<T>
     {
-        internal static async Task SerializeAsync(string filePath, T serialize)
+        public static async Task SerializeAsync(string filePath, T serialize)
         {
             try
             {
@@ -19,7 +19,7 @@ namespace AXOpen.VisualComposer.Serializing
             }
         }
 
-        internal static T? Deserialize(string filePath)
+        public static T? Deserialize(string filePath)
         {
             if (!File.Exists(filePath))
                 return default;
@@ -40,7 +40,7 @@ namespace AXOpen.VisualComposer.Serializing
             return deserialize;
         }
 
-        internal static async Task<T?> DeserializeAsync(string filePath)
+        public static async Task<T?> DeserializeAsync(string filePath)
         {
             if (!File.Exists(filePath))
                 return default;

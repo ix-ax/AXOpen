@@ -1,11 +1,12 @@
-﻿using AXSharp.Connector.ValueTypes;
+﻿using AXSharp.Abstractions.Presentation;
 using AXSharp.Connector;
+using AXSharp.Connector.ValueTypes;
+using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AXSharp.Abstractions.Presentation;
 
 namespace axosimple
 {
@@ -29,7 +30,7 @@ namespace axosimple
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
             return await (dynamic)this.OnlineToPlainAsync();
         }
@@ -52,7 +53,7 @@ namespace axosimple
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             await this.PlainToOnlineAsync((dynamic)plain);
         }
@@ -137,7 +138,7 @@ namespace examples.PneumaticManipulator
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
             return await (dynamic)this.OnlineToPlainAsync();
         }
@@ -158,7 +159,7 @@ namespace examples.PneumaticManipulator
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             await this.PlainToOnlineAsync((dynamic)plain);
         }
@@ -229,7 +230,7 @@ namespace examples.PneumaticManipulator
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
             return await (dynamic)this.OnlineToPlainAsync();
         }
@@ -250,7 +251,7 @@ namespace examples.PneumaticManipulator
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             await this.PlainToOnlineAsync((dynamic)plain);
         }

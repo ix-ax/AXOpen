@@ -1,0 +1,39 @@
+﻿name: "axopen.data.tests_l1"
+version: '0.0.0-dev.0'
+
+type: app
+
+targets:
+  - "1500"
+
+registries:
+  "@inxton": "https://npm.pkg.github.com/"
+
+catalogs:
+  "@inxton/ax.catalog": 0.0.28
+
+devDependencies:
+  "@inxton/ax-sdk": '0.0.0-dev.0'
+
+dependencies:
+  "@inxton/axopen.data": '0.0.0-dev.0'
+  "@inxton/ax.axopen.app": '0.0.0-dev.0'
+  "@inxton/axopen.simatic1500": '0.0.0-dev.0'
+
+installStrategy: strict
+apaxVersion: 3.5.0
+scripts:
+ 
+  ixc: | # run ix builder
+    dotnet tool restore
+    dotnet ixc --skip-deps 
+
+
+
+
+
+
+
+
+
+

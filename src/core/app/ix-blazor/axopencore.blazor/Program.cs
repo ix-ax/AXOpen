@@ -58,7 +58,7 @@ namespace axopen_integrations_blazor
 
             Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
 
-            await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
+            //await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 
             //<AxoAppBuilder>
             var axoAppBuilder = AxoApplication.CreateBuilder();

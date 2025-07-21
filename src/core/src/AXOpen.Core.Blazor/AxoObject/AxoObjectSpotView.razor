@@ -2,33 +2,31 @@
 @inherits RenderableComplexComponentBase<AxoObject>
 @using System.Timers
 @using AXOpen.Messaging.Static
+@using AXOpen.VisualComposer
+@using AXOpen.VisualComposer.Components.VisualComposerItem
 @using AXSharp.Connector
 @using Microsoft.JSInterop
-@implements IAsyncDisposable;
 @inject IJSRuntime JSRuntime
 
-
-<button type="button" class="btn btn-primary"
-        data-bs-toggle="tooltip" 
-        data-bs-placement="top"
-        data-bs-custom-class="custom-tooltip"
-        data-bs-title="@Component.HumanReadable"
-        @onclick="SetCurrentObject">
-    @Component.AttributeName
-    <a>
-       @if (observer.ActiveMessagesCount > 0)
-       {
-           <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-               <span class="visually-hidden">New alerts</span>
-           </span>
-       }
-    </a>
+<button type="button" class="btn @ButtonStyleClass"
+        @onclick="() => SetCurrentObject()">
+        @Component.AttributeName
 </button>
 
 @code
 {
-    private IJSObjectReference? module;
-    private AxoMessageProvider? observer; 
+    private AxoMessageProvider? observer;
+
+    private string ButtonStyleClass
+    {
+        get
+        {
+            if (observer.ActiveMessagesCount > 0)
+                return "btn-danger";
+            else
+                return "btn-inactive";
+        }
+    }
 
     public override void ConfigurePolling()
     {
@@ -58,14 +56,18 @@
     }
 
     private readonly Timer updateTimer = new Timer();
-    
-    
-    ///<inheritdoc/>
-    public async ValueTask DisposeAsync()
+
+    protected virtual void SetCurrentObject(string presentationType = "Status-Display")
     {
-        if (module != null) await module.DisposeAsync();
+        if (RccContainer is RenderableContentControl rccContainer)
+        {
+            if (rccContainer.ParentContainer is VisualComposerItem composerItem)
+            {
+                composerItem.Parent.OpenDetails(this.Component, presentationType); // Updated to use presentationType
+            }
+        }
     }
-    
+
     ///<inheritdoc/>
     protected override async Task OnInitializedAsync()
     {
@@ -73,6 +75,3 @@
         await base.OnInitializedAsync();
     }
 }
-
-
-

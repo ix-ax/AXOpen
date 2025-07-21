@@ -1,6 +1,5 @@
 ﻿using AXOpen.Messaging.Static;
-using AXOpen.VisualComposer;
-using AXSharp.Connector;
+using AXOpen.VisualComposer.Components.VisualComposerItem;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
@@ -21,7 +20,7 @@ namespace AXOpen.Core
             {
                 if (rccContainer.ParentContainer is VisualComposerItem composerItem)
                 {
-                    composerItem.Parent.UpdateDetails(this.Component);
+                    composerItem.Parent.OpenDetails(this.Component);
                 }
             }
         }

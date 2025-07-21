@@ -1,20 +1,26 @@
 ﻿@namespace AXOpen.Core.Blazor.AxoDialogs
+@using Operon.Components
 @inherits AXOpen.Core.Blazor.Dialogs.AxoLocator;
 
-@if (_dialogProxyService?.DisplayedDialogs.Count() > 0)
-{
-    @if (DisplayInModalWindow)
-    {
-        @if (ShowBackdrop)
+<Modal @ref="ModalDialogContainer">
+    <div class="modal-header">
+        <a href="Identity/Account/Login">@Localizer["Log in"]</a>
+    </div>
+    <div class="modal-body">
+        @foreach (var dialogInstance in _dialogProxyService?.DisplayedDialogs)
         {
-            <div class="modal-backdrop fade show"></div>
+            <RenderableContentControl Context="@dialogInstance" Presentation="Dialog" />
         }
+    </div>
+</Modal>
 
+@* @if (_dialogProxyService?.DisplayedDialogs.Count() > 0)
+    {
+       
         <div class="modal modal-xl @ModalClass" tabindex="-1" role="dialog" style="display:@ModalDisplay; overflow-y: auto; ">
             <div class="modal-dialog mw-100 w-75 modal-dialog-centered" style="align-items: flex-start;" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        @* <h4>@Localizer["Make a Choice"]</h4> *@
                         <a href="Identity/Account/Login">@Localizer["Log in"]</a>
 
                     </div>
@@ -30,11 +36,18 @@
     }
     else
     {
-        @foreach (var dialogInstance in _dialogProxyService?.DisplayedDialogs)
+        if (_dialogProxyService != null)
         {
-            <RenderableContentControl Context="@dialogInstance" Presentation="Dialog" />
+            @foreach (var dialogInstance in _dialogProxyService?.DisplayedDialogs)
+            {
+                <RenderableContentControl Context="@dialogInstance" Presentation="Dialog"/>
+            }
         }
-    }
-}
+    } *@
 
+
+@code
+{
+    protected Modal ModalDialogContainer;
+}
 

@@ -6,9 +6,9 @@ namespace AXOpen.Core
     {
         public static string Description(AxoStep step)
         {
-            var text = string.IsNullOrEmpty(step.StepDescription.Cyclic)
+            var text = string.IsNullOrEmpty(step.Descr.Cyclic)
                 ? step.Order.Cyclic.ToString()
-                : step.StepDescription.GetCyclic();
+                : step.Descr.GetCyclic();
 
             if (step.IsActive.Cyclic)
             {
@@ -41,13 +41,13 @@ namespace AXOpen.Core
 
         public static void GetPrimitivesDescription(this AxoStep step, IList<ITwinPrimitive> ListOfPrimitives)
         {
-            ListOfPrimitives.Add(step.StepDescription);
+            ListOfPrimitives.Add(step.Descr);
             ListOfPrimitives.Add(step.StartTimeStamp);
         }
 
         public static void GetPrimitivesDescriptionErrorDetails(this AxoStep step, IList<ITwinPrimitive> ListOfPrimitives )
         {
-            ListOfPrimitives.Add(step.StepDescription); 
+            ListOfPrimitives.Add(step.Descr); 
             ListOfPrimitives.Add(step.ErrorDetails); 
         }
 

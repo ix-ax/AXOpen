@@ -3,9 +3,6 @@
 @using Microsoft.AspNetCore.Components.Authorization
 @inherits RenderableComplexComponentBase<AxoTextList>
 
-
-<div class="@_cardClass">
-    <div class="d-flex align-end ms-2 me-1 mt-1 mb-1">
-        <span>@_text</span>
-    </div>
+<div class="flex flex-wrap m-1 @_cardClass">
+    <p>@_text</p>
 </div>

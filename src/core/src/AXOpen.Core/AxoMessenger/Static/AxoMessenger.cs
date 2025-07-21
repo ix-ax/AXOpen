@@ -309,3 +309,8 @@ public partial class AxoMessenger
     }
 }
 }
+
+public class EmptyMessenger
+{
+    public string MessageText { get; set; } = "All good here.";
+}

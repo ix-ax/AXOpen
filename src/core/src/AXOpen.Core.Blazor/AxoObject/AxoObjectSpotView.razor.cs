@@ -6,16 +6,22 @@ namespace AXOpen.Core
 {
     public partial class AxoObjectSpotView
     {
-        private void SetCurrentObject()
+        
+    }
+
+    public class AxoObjectSpotControlView : AxoObjectSpotView
+    {
+        protected override void SetCurrentObject(string presentationType = "Status-Display")
         {
-            if (RccContainer is RenderableContentControl rccContainer)
-            {
-                if (rccContainer.ParentContainer is VisualComposerItem composerItem)
-                {
-                    composerItem.Parent.DetailsPresentationType = "Diagnostics";
-                    composerItem.Parent.UpdateDetails(this.Component);
-                }
-            }
+            base.SetCurrentObject("Command-Control"); 
+        }
+    }
+
+    public class AxoObjectSpotDiagnosticsView : AxoObjectSpotView
+    {
+        protected override void SetCurrentObject(string presentationType = "Status-Display")
+        {
+            base.SetCurrentObject("Diagnostics");
         }
     }
 }

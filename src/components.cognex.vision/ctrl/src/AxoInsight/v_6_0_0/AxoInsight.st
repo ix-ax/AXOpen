@@ -1261,6 +1261,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Error);
                         Status.Error.Id :=      UINT#540;
                         ChangeJobByNumberTask.ThrowWhen(TRUE);
+                    ELSIF _jobNumber = CommandStatus.CurrentJobID THEN 
+                        _progress := 347;
                     ELSE	
                         _progress := 341;
                     END_IF;

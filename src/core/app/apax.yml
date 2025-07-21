@@ -41,6 +41,7 @@ scripts:
   # AX_TARGET_PWD: Password for 'AX_USERNAME'
   # USE_PLC_SIM_ADVANCED with value of "true" will automatically trigger PlcSimAdvanced when calling apax alf or apax all
   # PNIO_MAC: MAC address of the network adapter connected to the Profinet network  
+  hw_load: hwld load --input ./bin/hwc/plc_line --target $AXTARGET --accept-security-disclaimer --certificate ./certs/plc_line/plc_line.cer --master-password $AX_TARGET_PWD --username $AX_USERNAME --password $AX_TARGET_PWD
   plcsim: | # start the PlcSimAdvanced if installed and if $USE_PLC_SIM_ADVANCED = true, register instance name according to name of the project, set its IpAddress to the value of $AXTARGET
     START=$(date +%s)
     ..\\..\\scripts\\plcsimadvanced.sh $APAX_YML_NAME $PLC_NAME $AXTARGET                                                                            

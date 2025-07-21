@@ -3,21 +3,18 @@
 @using AXOpen.Base
 @using AXOpen.Data.Query
 @using Microsoft.AspNetCore.Components.Authorization
+@using Operon.Components
+@using Operon.Icons
 
-@*  
-  icons : https://icon-sets.iconify.design/oi/ 
-  icons : https://icons.getbootstrap.com/ 
-*@   
 @if (IsNoActiveOperation())
 {
-    <div class="d-flex gap-2 align-items-start">
-
+    <div class="flex flex-wrap gap-2">
         <!-- Selector -->
         @if (EnableCurrentView)
         {
-            <div class="position-relative flex-grow-1">
-                <button class="btn btn-outline-primary w-100 text-start" @onclick="ToggleCurrentIdsDropdown">
-                    <div class="d-flex flex-row align-items-center gap-3 flex-wrap">
+            <div class="relative">
+                <button class="btn btn-outline-primary" @onclick="ToggleCurrentIdsDropdown">
+                    <div class="flex flex-wrap align-center gap-3">
 
                         @if (!string.IsNullOrEmpty(GetCurrentDataEntityId(DistributedVM.MainExchange)))
                         {
@@ -25,33 +22,30 @@
 
                             if (!DistributedVM.AllExchangesHasTheSameId())
                             {
-                                <i class="bi bi-exclamation-triangle text-warning"></i>
+                                <div class="alert alert-warning">
+                                    <h6>Warning alert</h6>
+                                </div>
                             }
                         }
                         else
                         {
-                            <span class="text-muted">Reload?</span>
+                            <span>Reload?</span>
                         }
                     </div>
                 </button>
 
                 @if (IsCurrentIdsDropdownOpen)
                 {
-                    <div class="shadow border bg-white p-2"
-                         style="position: absolute; z-index: 1000; width: 100%; min-width:600px; max-height: 600px; overflow-y: auto;">
-
-                        <div class="d-flex flex-column align-items-center gap-2">
+                    <div class="simple-border p-2 bg-gray-50" style="position: absolute; z-index: 1000;">
+                        <div class="flex flex-wrap gap-2">
                             <button class="btn btn-primary w-100" @onclick="DistributedVM.ReadAllCurrentEntityIds">Reload All</button>
-
-
-                            <table class="table table-hover mb-0">
+                            <table class="table table-hover table-striped mb-0">
                                 <thead>
                                     <tr>
                                         <th>DataEntityId</th>
                                         <th>@Localizer["In DataExchange"]</th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
                                     @foreach (var ex in DistributedVM.AllExchanges)
                                     {
@@ -71,15 +65,14 @@
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 }
             </div>
         }
 
-        <div class="position-relative flex-grow-1">
+        <div class="relative flex-grow-1">
             <button class="btn btn-outline-primary w-100 text-start" @onclick="ToggleDropdown">
-                <div class="d-flex flex-row align-items-center gap-3 flex-wrap">
+                <div class="flex flex-wrap align-center gap-3">
                     @if (SelectedEntity != null)
                     {
                         <span><strong>@SelectedEntity.DataEntityId</strong></span>
@@ -109,24 +102,20 @@
 
             @if (IsDropdownOpen)
             {
-                <div class="shadow border bg-white p-2"
-                     style="position: absolute; z-index: 1000; width: 100%; min-width:600px;  max-height: 600px; overflow-y: auto;">
-
-                    <div class="d-flex flex-row align-items-center gap-2">
-
+                <div class="simple-border p-2 bg-gray-50" style="position: absolute; z-index: 1000;">
+                    <div class="flex flex-wrap gap-2">
                         <QuerySymbolConfigurationView SymbolConfiguration="@DistributedVM.DefaulQueryDataEntityId"
                                                       HideDescripion="true"
                                                       SymbolConfigurationChanged="
                                               ()=>
-                    { DistributedVM.FilteredPage = 0 ;DistributedVM.FillObservableRecordsAsync();}" />
+                    { DistributedVM.FilteredPage = 1 ;DistributedVM.FillObservableRecordsAsync();}" />
 
                         <button class="btn btn-secondary" @onclick="DistributedVM.FillObservableRecordsAsync">
-                            <i class="bi bi-search"></i>
+                            <HeroIcon Icon="magnifying-glass" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                         </button>
-
                     </div>
 
-                    <table class="table table-hover mb-0">
+                    <table class="table table-hover table-striped">
                         <thead>
                             <tr>
                                 <th>DataEntityId</th>
@@ -136,7 +125,6 @@
                                 }
                             </tr>
                         </thead>
-
                         <tbody>
                             @foreach (var rec in DistributedVM.Records)
                             {
@@ -160,81 +148,16 @@
                             }
                         </tbody>
                     </table>
-
                     @if (DistributedVM.FilteredCount >= MinPaginationLimit)
                     {
-                        <div class="d-flex">
-
-                            <div class="dropup">
-                                Showing @(FilteredPage * FilteredPageLimit + 1) to @(((FilteredPage + 1) * FilteredPageLimit) > TotalCount ? TotalCount : ((FilteredPage + 1) * FilteredPageLimit)) of @TotalCount rows
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@FilteredPageLimit</button>
-                                <ul class="dropdown-menu m-0">
-                                    <li><a class="dropdown-item @(FilteredPageLimit == 5 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(5)">5</a></li>
-                                    <li><a class="dropdown-item @(FilteredPageLimit == 10 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(10)">10</a></li>
-                                    <li><a class="dropdown-item @(FilteredPageLimit == 25 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(25)">25</a></li>
-                                    <li><a class="dropdown-item @(FilteredPageLimit == 50 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(50)">50</a></li>
-                                    <li><a class="dropdown-item @(FilteredPageLimit == 100 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(100)">100</a></li>
-                                </ul>
-                                rows per page
-                            </div>
-                            <nav class="ms-auto">
-                                <ul class="pagination m-0">
-                                    <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(Modulo(FilteredPage - 1, MaxPage + 1))" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-
-                                    @if (MaxPage < 7)
-                                    {
-                                        @for (var i = 0; i < MaxPage + 1; i++)
-                                        {
-                                            var j = i;
-                                            <li class="page-item @(FilteredPage == i ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(j)">@(i + 1)</a></li>
-                                        }
-                                    }
-                                    else
-                                    {
-                                        <li class="page-item @(FilteredPage == 0 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(0)">1</a></li>
-
-                                        @if (FilteredPage < 4)
-                                        {
-                                            <li class="page-item @(FilteredPage == 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(1)">2</a></li>
-                                            <li class="page-item @(FilteredPage == 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(2)">3</a></li>
-                                            <li class="page-item @(FilteredPage == 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(3)">4</a></li>
-                                            <li class="page-item @(FilteredPage == 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(4)">5</a></li>
-                                            <li class="page-item disabled"><a class="page-link">...</a></li>
-                                        }
-                                        else if (FilteredPage > MaxPage - 4)
-                                        {
-                                            <li class="page-item disabled"><a class="page-link">...</a></li>
-                                            <li class="page-item @(FilteredPage == @MaxPage - 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 4)">@(MaxPage - 3)</a></li>
-                                            <li class="page-item @(FilteredPage == @MaxPage - 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 3)">@(MaxPage - 2)</a></li>
-                                            <li class="page-item @(FilteredPage == @MaxPage - 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 2)">@(MaxPage - 1)</a></li>
-                                            <li class="page-item @(FilteredPage == @MaxPage - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 1)">@(MaxPage)</a></li>
-                                        }
-                                        else
-                                        {
-                                            <li class="page-item disabled"><a class="page-link">...</a></li>
-                                            <li class="page-item @(FilteredPage == FilteredPageLimit - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(FilteredPage - 1)">@(FilteredPage)</a></li>
-                                            <li class="page-item @(FilteredPage == FilteredPageLimit ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(FilteredPage)">@(FilteredPage + 1)</a></li>
-                                            <li class="page-item @(FilteredPage == FilteredPageLimit + 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(FilteredPage + 1)">@(FilteredPage + 2)</a></li>
-                                            <li class="page-item disabled"><a class="page-link">...</a></li>
-                                        }
-
-                                        <li class="page-item @(FilteredPage == @MaxPage ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage)">@(MaxPage + 1)</a></li>
-                                    }
-
-                                    <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="async () => { if (MaxPage != -1) await SetPageAsync((FilteredPage + 1) % (MaxPage + 1)); }" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                                </ul>
-                            </nav>
-                        </div>
+                        <Operon.Components.Pagination Count="(int)DistributedVM.FilteredCount" @bind-PageSize="Limit" @bind-Selected="Page" PageSizeAndSelectedChangedAsync="PageSizeAndSelectedChangedAsync" />
                     }
-
                 </div>
             }
         </div>
-
         <!-- Send to PLC button -->
         @if (!string.IsNullOrEmpty(SelectedEntity?.DataEntityId))
         {
-
             @if (DisableUserRoles)
             {
                 <div>
@@ -255,79 +178,55 @@
                     </Authorized>
                 </AuthorizeView>
             }
-
         }
     </div>
 }
 else
 {
-
     @if (this.BtnOperation == "SendToPlc-Ack")
     {
-        <div class="row">
-            <div class="col">
-                <div class="d-flex gap-2 w-100">
-
-                    <div class="flex-fill">
-
-                        @if (DisableUserRoles)
-                        {
-                            <button type="button" class="btn btn-warning w-100 px-1 py-1"
-                                    @onclick="async () => {
-                                        await DistributedVM.SendToPlc(SelectedEntity.DataEntityId);
-                                        await DistributedVM.ReadAllCurrentEntityIds();
-                                        EndBtnOperation();
-                                        OnDataSend?.Invoke(SelectedEntity.DataEntityId);}">
-                                <div class="d-flex flex-row justify-content-center align-items-center">
-                                    <i class="bi bi-cloud-upload me-2"></i>
-                                    <span>@Localizer["Send to the PLC"]: "@SelectedEntity.DataEntityId"</span>
-                                </div>
-
-                            </button>
-                        }
-                        else
-                        {
-                            <AuthorizeView Roles="@DataExchangeRoleNames.can_data_send_to_plc">
-                                <Authorized>
-                                    <button type="button" class="btn btn-warning w-100 px-1 py-1"
-                                            @onclick="async () => {
-                                        await DistributedVM.SendToPlc(SelectedEntity.DataEntityId);
-                                        await DistributedVM.ReadAllCurrentEntityIds();
-                                        EndBtnOperation();
-                                        OnDataSend?.Invoke(SelectedEntity.DataEntityId);}">
-                                        <div class="d-flex flex-row justify-content-center align-items-center">
-                                            <i class="bi bi-cloud-upload me-2"></i>
-                                            <span>@Localizer["Send to the PLC"]: "@SelectedEntity.DataEntityId"</span>
-                                        </div>
-
-                                    </button>
-                                </Authorized>
-                            </AuthorizeView>
-                        }
-
+    <div class="flex flex-wrap gap-2 w-full">
+        <div class="">
+            @if (DisableUserRoles)
+            {
+                <button type="button" class="btn btn-warning w-100 px-1 py-1"
+                        @onclick="async () => {
+                            await DistributedVM.SendToPlc(SelectedEntity.DataEntityId);
+                            await DistributedVM.ReadAllCurrentEntityIds();
+                            EndBtnOperation();
+                            OnDataSend?.Invoke(SelectedEntity.DataEntityId);}">
+                    <div class="flex flex-wrap">
+                        <span>@Localizer["Send to the PLC"]: "@SelectedEntity.DataEntityId"</span>
                     </div>
-
-
-                    <div class="flex-fill">
-                        <button type="button" class="btn btn-secondary w-100"
-                                @onclick='EndBtnOperation'>
-                            <div class="d-flex flex-row justify-content-center align-items-center">
-                                <i class="bi bi-x-circle mx-2"></i>
-                                <span>@Localizer["Close"]</span>
+                </button>
+            }
+            else
+            {
+                <AuthorizeView Roles="@DataExchangeRoleNames.can_data_send_to_plc">
+                    <Authorized>
+                        <button type="button" class="btn btn-warning w-100 px-1 py-1"
+                                @onclick="async () => {
+                            await DistributedVM.SendToPlc(SelectedEntity.DataEntityId);
+                            await DistributedVM.ReadAllCurrentEntityIds();
+                            EndBtnOperation();
+                            OnDataSend?.Invoke(SelectedEntity.DataEntityId);}">
+                            <div class="flex flex-wrap">
+                                <span>@Localizer["Send"]: "@SelectedEntity.DataEntityId"</span>
                             </div>
                         </button>
-                    </div>
-
-                </div>
-            </div>
+                    </Authorized>
+                </AuthorizeView>
+            }
         </div>
+
+        <div class="">
+            <button type="button" class="btn btn-secondary w-100"
+                    @onclick='EndBtnOperation'>
+                <div class="flex flex-wrap">
+                    <span>@Localizer["Don't send"]</span>
+                </div>
+            </button>
+        </div>
+    </div>
     }
-
-
-
-
-
-
 }
-
-

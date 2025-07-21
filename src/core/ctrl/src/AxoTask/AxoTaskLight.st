@@ -463,14 +463,14 @@ NAMESPACE AXOpen.Core
                 IF  (_openCycleCountInvoke <> _openCycleCountExecute) then
                     IF  ((_openCycleCountInvoke + ULINT#1) <> _openCycleCountExecute) THEN            
                         Status := eAxoTaskState#Ready;  
-                        _stateKicking := false;    
+                        _stateKicking := false;                          
                     END_IF; 
                 END_IF;
             END_IF;
 
             IF _stateKicking THEN
                 Status := eAxoTaskState#Busy; 
-
+                _taskTimer.Restore();
                 // This null check is due to implementation of RTC in unit tests
                 IF(_context.GetRtc() <> NULL) THEN
                     StartTimeStamp := _context.GetRtc().NowUTC();

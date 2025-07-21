@@ -1,22 +1,28 @@
 ﻿@using AXSharp.Connector;
+@using Operon.Components.Dropdown
 @namespace AXOpen.Data.Query
 
-<div class="d-flex flex-row align-items-center gap-2">
+<div class="flex flex-wrap items-center gap-2">
 
     @if (!HideDescripion)
     {
         <label> @SymbolConfiguration.SymbolPathWithParent</label>
     }
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Operation</button>
 
-    <ul class="dropdown-menu">
-
-        @foreach (var operation in OperationProvider.GetOperationsForType(SymbolConfiguration.SymbolType))
-        {
-            <li><a class="dropdown-item @(@SymbolConfiguration.Operation == operation ? "active" : "")" style="cursor: pointer" @onclick="() => {Operation = operation;}">@operation</a></li>
-        }
-
-    </ul>
+    <Dropdown @ref="_dropdownComponent">
+        <DropdownButton>
+            <button type="button" class="btn btn-secondary" @onclick="_dropdownComponent.Toggle">
+                @Operation
+                <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownComponent?.Open ?? false ? "rotated" : null))" />
+            </button>
+        </DropdownButton>
+        <DropdownBody>
+            @foreach (var operation in OperationProvider.GetOperationsForType(SymbolConfiguration.SymbolType))
+            {
+                <a class="dropdown-item @(@SymbolConfiguration.Operation == operation ? "active" : "")" @onclick="() => {Operation = operation;}">@operation</a>
+            }
+        </DropdownBody>
+    </Dropdown>
 
     @if (SymbolConfiguration.IsRangeOperation)
     {
@@ -43,3 +49,7 @@
     }
 
 </div>
+
+@code {
+    private Dropdown _dropdownComponent { get; set; }
+}

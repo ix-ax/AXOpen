@@ -47,7 +47,7 @@ namespace AXOpen.Logging
                         return;
 
                     var a = toDequeue.SelectMany(p => p.GetValueTags()).ToArray();
-                    await this.GetConnector()?.ReadBatchAsync(a)!;
+                    await this.GetConnector()?.ReadBatchAsync(a, eAccessPriority.Low)!;
 
                     foreach (var entry in toDequeue.Where(p => p.ToDequeue.LastValue))
                     {
@@ -64,7 +64,7 @@ namespace AXOpen.Logging
                                 break;
                             case AxoStep step:
                                 await step.ReadAsync();
-                                message = $"Step : {entry.Message.LastValue} : {step.StepDescription.LastValue ?? step.Description}";
+                                message = $"Step : {entry.Message.LastValue} : {step.Descr.LastValue ?? step.Description}";
                                 break;
                             case null:
                                 message = $"{entry.Message.LastValue} : [no identity provided '{entry.Sender.LastValue}']";

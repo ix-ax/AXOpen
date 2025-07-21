@@ -12,11 +12,9 @@ NAMESPACE AXOpen.Core
             {#ix-set:AttributeName = "<#Run step#>"}
             StepIn : AxoTask;
             {#ix-set:AttributeName = "<<"}
-            StepBackwardCommand : AxoTask;
-            BeforeStep : AxoStep;
-            CurrentStep : AxoStep;
-            AfterStep : AxoStep;
-            CollectDataTask : AxoRemoteTask;
+            StepBackwardCommand : AxoTask;            
+            CurrentStep : AxoStep;            
+            MaxSequenceDuration : LTIME;                  
         END_VAR   
         VAR PRIVATE
             _configurationFlowOrder : ULINT;   
@@ -28,10 +26,16 @@ NAMESPACE AXOpen.Core
             _refStep :  REF_TO AxoStep;       
             _microStep : UINT;   
             _context        :   IAxoContext;
-
-        END_VAR     
-
-        ///<summary>
+            _analytics : IAxoSequencerAnalitics;                      
+        END_VAR
+               
+                
+        METHOD PUBLIC SetAnalitics
+            VAR_INPUT
+                inAnalytics : IAxoSequencerAnalitics;
+            END_VAR 
+            _analytics := inAnalytics;               
+        END_METHOD    
         /// Opens sequencers operations.
         /// This method must be called prior to any other calls of this instance of 
         /// sequencer.
@@ -42,9 +46,7 @@ NAMESPACE AXOpen.Core
             END_IF;
 
             Open := FALSE;
-            
-            CollectDataTask.Execute(THIS);
-
+                       
             SUPER.SetSuspendMultipleExecuteCallCheck(TRUE);
 
             StepForwardCommand.SetSuspendMultipleExecuteCallCheck(TRUE);
@@ -69,7 +71,9 @@ NAMESPACE AXOpen.Core
                     AxoCoordinatorStates#Configuring :
                         THIS.OnBeforeSequenceStart();
                         CurrentOrder := ULINT#1;
+                        IF(_analytics <> NULL) THEN _analytics.Restart(); END_IF;
                         _coordinatorState := AxoCoordinatorStates#Running;
+                        _taskTimer.Restore();
                         _context.GetLogger().Log('Sequence in config state :', AXOpen.Logging.eLogLevel#Verbose, THIS);
                 END_CASE;    
                 Open := TRUE;
@@ -167,7 +171,7 @@ NAMESPACE AXOpen.Core
                 Execute := step.Execute();
                 IF step.HasError() THEN
                     _coordinatorState := AxoCoordinatorStates#Idle;
-                    SUPER.ThrowWhen(step.HasError(), '<#Error occured inside the sequence!!!#>');
+                    SUPER.ThrowWhen(step.HasError(), '<#Check that steps are unique and properly configured.#>');
                 END_IF;
                 
                 IF step.IsFirstEntryToStep() THEN
@@ -180,15 +184,15 @@ NAMESPACE AXOpen.Core
                 CurrentStep := _refStep^;                
             END_IF;   
 
-            IF(THIS.CurrentOrder + ULINT#1 = step.GetStepOrder() OR (THIS.CurrentOrder = THIS.GetNumberOfConfiguredSteps() AND step.GetStepOrder() = UINT#1)) THEN
-                _refStep ?= step;
-                AfterStep := _refStep^;
-            END_IF;
+            // IF(THIS.CurrentOrder + ULINT#1 = step.GetStepOrder() OR (THIS.CurrentOrder = THIS.GetNumberOfConfiguredSteps() AND step.GetStepOrder() = UINT#1)) THEN
+            //     _refStep ?= step;
+            //     AfterStep := _refStep^;
+            // END_IF;
 
-            IF(THIS.CurrentOrder - ULINT#1 = step.GetStepOrder() OR (THIS.CurrentOrder = UINT#1 AND step.GetStepOrder() = THIS.GetNumberOfConfiguredSteps())) THEN
-                _refStep ?= step;
-                BeforeStep := _refStep^;
-            END_IF; 
+            // IF(THIS.CurrentOrder - ULINT#1 = step.GetStepOrder() OR (THIS.CurrentOrder = UINT#1 AND step.GetStepOrder() = THIS.GetNumberOfConfiguredSteps())) THEN
+            //     _refStep ?= step;
+            //     BeforeStep := _refStep^;
+            // END_IF; 
         END_METHOD
                 
         ///<summary>
@@ -205,7 +209,8 @@ NAMESPACE AXOpen.Core
                 IF _coordinatorState = AxoCoordinatorStates#Running THEN
                     _context.GetLogger().Log('Step done :', AXOpen.Logging.eLogLevel#Verbose, _step);
                     _step.DoneWhen(_step.IsBusy());
-                    _step.SetIsActive(FALSE);
+                    IF(_analytics <> NULL) THEN _analytics.UpdateAnalytics(CurrentStep); END_IF;
+                    _step.SetIsActive(FALSE);                     
                     CurrentOrder := CurrentOrder + ULINT#1;                                      
                     // Finalize the StepIn Command in a case of step mode
                     StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);
@@ -232,6 +237,7 @@ NAMESPACE AXOpen.Core
                     _context.GetLogger().Log('Step request to step :', AXOpen.Logging.eLogLevel#Verbose, RequestedStep);
                     _step.DoneWhen(_step.IsBusy());
                     _step.SetIsActive(FALSE);
+                    IF(_analytics <> NULL) THEN _analytics.UpdateAnalytics(CurrentStep); END_IF;
                     CurrentOrder := RequestedStep.GetStepOrder();
                     // Finalize the StepIn Command in a case of step mode
                     StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);

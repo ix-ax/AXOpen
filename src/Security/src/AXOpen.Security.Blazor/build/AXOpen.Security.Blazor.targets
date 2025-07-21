@@ -1,0 +1,23 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="CopySecurityAssets" AfterTargets="Build">
+		<Message Importance="high" Text="Copying custom files from Security package..." />
+
+		<ItemGroup>
+			<!-- MSBuildThisFileDirectory is where build/AXOpen.Security.Blazor.targets is located -->
+			<SecurityAreas Include="$(MSBuildThisFileDirectory)..\contentFiles\Areas\**\*" />
+			<SecurityViews Include="$(MSBuildThisFileDirectory)..\contentFiles\Views\**\*" />
+		</ItemGroup>
+
+		<Delete Files="$(MSBuildProjectDirectory)\temp\Security\**\*.*" ContinueOnError="true" />
+
+		<!-- Create target folders in consumer project -->
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Security" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Security\Areas" ContinueOnError="true" />
+		<MakeDir Directories="$(MSBuildProjectDirectory)\temp\Security\Views" ContinueOnError="true" />
+
+		<!-- Copy Components files -->
+		<Copy SourceFiles="@(SecurityAreas)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Security\Areas\%(RecursiveDir)" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(SecurityViews)" DestinationFolder="$(MSBuildProjectDirectory)\temp\Security\Views\%(RecursiveDir)" SkipUnchangedFiles="true" />
+	</Target>
+</Project>

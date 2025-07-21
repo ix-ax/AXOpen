@@ -1,86 +1,78 @@
 ﻿@namespace AXOpen.Messaging.Static
 @using AXSharp.Connector;
 @using Microsoft.AspNetCore.Components.Authorization
+@using Operon.Components
+@using Operon.Components.Accordion
+@using Operon.Icons
 @inherits RenderableComplexComponentBase<AxoMessenger>
 @implements IDisposable;
 
-<tr class="@TableRowBackgroundColor">
-    <th scope="row">@Component.GetParent()?.AttributeName</th>
-    @if (!ShowHelpText )
-    {
-        <td>
-            <span class="@(IsActive ? "fw-bold" : "") @(AcknowledgedBeforeFallen ? "line-through" : "")">
-                @Category
-            </span>
-        </td>
-        <td>
-            <span class="@(IsActive ? "fw-bold" : "") @(AcknowledgedBeforeFallen ? "line-through" : "")">
-                @MessageText
-            </span>
-        </td>
-    }
-    else
-    {
-        <td>
-            <span class="@TableRowBackgroundColor">
-                @HelpText
-            </span>
-        </td>
-    }
-    <td style="font-size: 0.55em; margin-top: 0.15em;"></td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">
-        <AuthorizeView Roles="can_attempt_repair">
-            <Authorized>
-                <button class="btn @AckBtnBackgroundColor equal-button" type="button" @onclick="@RestoreTask" hidden="@HideRepairButton">
-                    <span class="oi bi-wrench" aria-hidden="true"></span>
-                </button>
-            </Authorized>
-        </AuthorizeView>
-        
-    </td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">
-        <button class="btn @AckBtnBackgroundColor equal-button" type="button" @onclick="@HelpTextTask" hidden="@HideHelpButton">
-            <span class="oi oi-question-mark" aria-hidden="true"></span>
-        </button>
-    </td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">
-        <button class="btn @AckBtnBackgroundColor equal-button" type="button" @onclick="@AcknowledgeTask" hidden="@HideAcknowledgeButton">
-            <span class="oi oi-x" aria-hidden="true"></span>
-        </button>
-    </td>
-</tr>
+@if (this.Component is not null)
+{
+    <div class="alert items-center @SeverityToAlertColor()">
+        <HeroIcon Icon="bell" Type="Operon.Icons.IconType.Outline" Class="size-6 me-2" />
+        <h6>@MessageText</h6>
+        <div class="flex flex-wrap ms-auto gap-1">
+            <a @onclick="() => _collapseDetails.Toggle()">
+                Details
+            </a>
+            <button class="cursor-pointer" @onclick="() => _collapseDetails.Toggle()">
+                <HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-6 icon-button-rotate " + (_collapseDetails?.Open ?? false ? "rotated" : null))" />
+            </button>
+            <button class="cursor-pointer" @onclick="AcknowledgeTask">
+                <HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+            </button>
+        </div>
+    </div>
 
-<tr class="@TableRowBackgroundColor">
-    <td colspan="3" style="font-size: 0.65em; margin-top: 0.25em;">
-        @Symbol
-    </td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">@Risen</td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">@Fallen</td>
-    <td style="font-size: 0.55em; margin-top: 0.15em;">@Acknowledged</td>
-    
-</tr>
+    <Collapse @ref="_collapseDetails">
+        <div class="simple-border">
+            <h6>@HelpText</h6>
+            <div class="flex flex-wrap justify-between">
+                <div class="flex flex-wrap gap-4">
+                    <BaseInput Value="Component.Symbol" Label="Origin" />
+                    <Operon.Components.Pickers.DateTimePicker Value="Component.Risen.Cyclic" Label="Risen" IsReadOnly="true" />
+                    <Operon.Components.Pickers.DateTimePicker Value="Component.Fallen.Cyclic" Label="Fallen" IsReadOnly="true" />
+                    <Operon.Components.Pickers.DateTimePicker Value="Component.Acknowledged.Cyclic" Label="Acknowledged" IsReadOnly="true" />
+                </div>
+                @if (!HideAcknowledgeButton || !HideRepairButton || true)
+                {
+                    <div class="flex flex-wrap items-center ms-auto">
+                        @if (!HideAcknowledgeButton || true)
+                        {
+                            <button class="btn btn-no-bg-primary" @onclick="() => AcknowledgeTask()">
+                                <HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                            </button>
+                        }
+                        @if (!HideRepairButton || true)
+                        {
+                            <button class="btn btn-no-bg-primary" @onclick="() => RestoreTask()">
+                                <HeroIcon Icon="lock-open" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                            </button>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </Collapse>
+}
 
 @code
-  {
-      private string TableRowBackgroundColor
-      {
-          get
-          {
-              string retval = "table-primary";
-              if (Component.Category.Cyclic < 600)         // Upto warning level excluding
-              {
-                  retval = "table-info";
-              }
-              else if (Component.Category.Cyclic < 700)   //From warning level including, upto error level excluding
-              {
-                  retval = "table-warning";
-              }
-              else if (Component.Category.Cyclic <= 1200) //From error level including, upto catastrophic level including
-              {
-                  retval = "table-danger";
-              }
-              return retval;
-          }
-      }
-  }
+{
+    private Collapse _collapseDetails { get; set; }
+
+    private string SeverityToAlertColor()
+    {
+        if (Component is null)
+            return "alert-primary"; // This is the default color for no alarms
+
+        if (Component.Category.Cyclic < 600) // Upto warning level excluding
+            return "alert-info";
+        else if (Component.Category.Cyclic < 700)   //From warning level including, upto error level excluding
+            return "alert-warning";
+        else if (Component.Category.Cyclic <= 1200) //From error level including, upto catastrophic level including
+            return "alert-danger";
+        return "alert-primary";
+    }
+}
 
