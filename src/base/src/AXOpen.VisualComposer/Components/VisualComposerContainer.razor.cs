@@ -89,7 +89,7 @@ namespace AXOpen.VisualComposer.Components
                 ElementSize = await GetElementSize(_backgroundId.ToString());
                 _windowSize = await GetWindowSize();
 
-                var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerContainer.razor.js");
+                var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/Components/VisualComposerContainer.razor.js");
                 await jsObject.InvokeVoidAsync("registerViewportChangeCallback", DotNetObjectReference.Create(this), "OnResize", _backgroundId.ToString());
 
                 StateHasChanged();
@@ -573,19 +573,19 @@ namespace AXOpen.VisualComposer.Components
 
         private async Task<Size> GetImageDimensions(string filePath)
         {
-            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerContainer.razor.js");
+            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/Components/VisualComposerContainer.razor.js");
             return await jsObject.InvokeAsync<Size>("getImageDimensions", filePath);
         }
 
         private async Task<Size> GetElementSize(string id)
         {
-            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerContainer.razor.js");
+            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/Components/VisualComposerContainer.razor.js");
             return await jsObject.InvokeAsync<Size>("getElementSize", id);
         }
 
         private async Task<Size> GetWindowSize()
         {
-            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerContainer.razor.js");
+            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/Components/VisualComposerContainer.razor.js");
             return await jsObject.InvokeAsync<Size>("getWindowSize");
         }
 
