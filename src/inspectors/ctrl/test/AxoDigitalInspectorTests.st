@@ -21,13 +21,19 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _testTimeDelay: LTIME;
 
             _comprehensiveResult: AxoComprehensiveResult;
+
+            _LocalUtcTime : LDATE_AND_TIME;
+            _AcumulatedElaplsedTime : LTIME;
         END_VAR  
 
         
         VAR
             _contextBlank : TestContext;
             _digitalInspectorBlank    : AxoInspector;            
-            _sequencerBlank  : AxoSequencer;                                                
+            _sequencerBlank  : AxoSequencer;      
+            _retryStep  : AxoStep;      
+            _terminateStep  : AxoStep;      
+
         END_VAR  
 
 
@@ -264,6 +270,93 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _context.Close();
         END_METHOD
 
+        METHOD _SimulateCheckWithDialog 
+            VAR_INPUT
+                diffTime : LTIME;
+            END_VAR
+            
+            _LocalUtcTime := _LocalUtcTime + diffTime;
+            _AcumulatedElaplsedTime := _AcumulatedElaplsedTime + diffTime;
+
+            _context.Open();
+            _rtcMock.SetNowUTC(_LocalUtcTime);
+            _rtmMock.SetElapsed(_AcumulatedElaplsedTime);
+
+           _digitalInspector.WithCoordinator(_sequencer)
+            .Inspect(_sequencer,REF(_digitalInspectorData),_inspectedBool)
+            .UpdateComprehensiveResult(_comprehensiveResult , 'Failures', 'ErrorCodes')
+            .Dialog(_retryStep, _terminateStep);
+
+            _context.Close();
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC digital_inspection_update_comprehensiveresult_when_fail
+
+            THIS.Initialize();
+            
+            _LocalUtcTime := LDT#2025-07-07-07:07:01.0;
+            _inspectedBool := FALSE; // detected status
+            _digitalInspectorData.RequiredStatus := TRUE;
+            _digitalInspectorData.PassTime := T#0ms;
+            _digitalInspectorData.FailTime := T#0ms;
+            _digitalInspectorData.Result := eInspectorResult#NoAction;
+
+            //******************* test start *********************/
+            this._SimulateCheckWithDialog(LT#10MS); 
+            Assert.Equal(eInspectorResult#Running, _digitalInspector.Result());
+            
+            this._SimulateCheckWithDialog(LT#100MS); // inspector fail
+
+            Assert.Equal(eOverallResult#NoAction, _comprehensiveResult.Result);
+            Assert.Equal(eInspectorResult#Failed, _digitalInspector.Result());
+
+            this._SimulateCheckWithDialog(LT#10MS); // wait for dialog
+            this._SimulateCheckWithDialog(LT#10MS); // wait for dialog
+
+            Assert.Equal(eOverallResult#NoAction, _comprehensiveResult.Result);
+            Assert.Equal(eInspectorResult#Failed, _digitalInspector.Result());
+
+            this._digitalInspector._DL._dialogueTerminate := true; // answer with dialog
+
+            this._SimulateCheckWithDialog(LT#10MS);
+
+            Assert.Equal(eOverallResult#Failed, _comprehensiveResult.Result);
+            Assert.Equal('Failures', _comprehensiveResult.GetFailures());
+            Assert.Equal('ErrorCodes', _comprehensiveResult.GetErrorCodes());
+
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC digital_inspection_pass_with_zero_time
+
+            THIS.Initialize();
+            
+            _LocalUtcTime := LDT#2025-07-07-07:07:01.0;
+            _inspectedBool := TRUE; // detected status
+            _digitalInspectorData.RequiredStatus := TRUE;
+            _digitalInspectorData.PassTime := T#0ms;
+            _digitalInspectorData.FailTime := T#20ms;
+            _digitalInspectorData.Result := eInspectorResult#NoAction;
+            _comprehensiveResult.Result := eOverallresult#InProgress;
+
+            //******************* test *********************/
+
+            Assert.Equal(eOverallResult#InProgress, _comprehensiveResult.Result);
+            Assert.Equal(eInspectorResult#NoAction, _digitalInspector.Result());
+
+            this._SimulateCheckWithDialog(LT#10MS); // inpsecotor task in kick status
+
+            Assert.Equal(eOverallResult#InProgress, _comprehensiveResult.Result);
+            Assert.Equal(eInspectorResult#Passed, _digitalInspector.Result());
+
+            Assert.Equal(eOverallResult#InProgress, _comprehensiveResult.Result);
+            Assert.Equal('', _comprehensiveResult.GetFailures());
+            Assert.Equal('', _comprehensiveResult.GetErrorCodes());
+
+
+        END_METHOD
+      
       
        END_CLASS
 END_NAMESPACE

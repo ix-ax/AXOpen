@@ -57,10 +57,11 @@ NAMESPACE AXOpen.Inspectors
         METHOD PROTECTED OVERRIDE OnStart 
             SUPER.OnStart();
  
-            // set default values for passtime and failtime if no values were provided
-            IF (_inspectionData^.PassTime = T#0S) THEN
-                _inspectionData^.PassTime := T#50MS;
-            END_IF;
+            // set default value for failtime if no values were provided
+            // minimal pass time is not requested due to evaluation in the same plc cycle
+            // IF (_inspectionData^.PassTime = T#0S) THEN
+            //     _inspectionData^.PassTime := T#50MS;
+            // END_IF;
             
             IF (_inspectionData^.FailTime = T#0S) THEN
                 _inspectionData^.FailTime := T#100MS;

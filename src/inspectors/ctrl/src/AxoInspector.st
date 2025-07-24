@@ -16,7 +16,14 @@ NAMESPACE AXOpen.Inspectors
             _isOverInspected: BOOL;
             _busy : BOOL;
             _commonData: REF_TO AxoInspectorData;
-            _originalOverallResult : IAxoComprehensiveResult;             
+            
+            _comprehensiveResult      : IAxoComprehensiveResult; 
+            _comprehensiveResultUpdateCycle    : ULINT; // when was updated comprehensiver result
+            
+            _updateOverallResult    : BOOL; // true if is called  UpdateComprehensiveResult()
+            _FailureDescription    : STRING; // fill in UpdateComprehensiveResult()
+            _ErrorCode             : STRING; // fill in UpdateComprehensiveResult()
+
         END_VAR
     
         VAR PUBLIC
@@ -114,6 +121,12 @@ NAMESPACE AXOpen.Inspectors
 
         METHOD PUBLIC Restore
             _inspectorTask.Restore();
+
+            _comprehensiveResultUpdateCycle := ULINT#0;
+
+            _updateOverallResult := false;
+            _FailureDescription :='';
+            _ErrorCode :='';
         END_METHOD
 
         ///<summary>
@@ -125,9 +138,12 @@ NAMESPACE AXOpen.Inspectors
                 RETURN;			
             END_IF;
             IF(THIS.Done()) THEN
+
+                THIS.UpdateOverallResult();
                 _coordinator.MoveNext();
                 THIS.Restore();
                 CarryOn := TRUE;
+
             END_IF;	            
         END_METHOD
 
@@ -143,6 +159,8 @@ NAMESPACE AXOpen.Inspectors
                 RETURN;			
             END_IF;
             IF(THIS.Done()) THEN
+                 THIS.UpdateOverallResult();
+
                 IF(THIS.Result() = eInspectorResult#Failed) THEN
                     IF(inTerminateStep <> NULL) THEN
                         _coordinator.RequestStep(inTerminateStep);
@@ -155,34 +173,68 @@ NAMESPACE AXOpen.Inspectors
                 TerminateWithStep := TRUE;
             END_IF;	            
         END_METHOD
+ 
 
         ///<summary>        
         /// Updates comprehensive result. The comprehensive result is set to `Failed` when any inspection fails or is inconclusive.
         /// Any bypassed or excluded inspections are not taken into account.	
         ///</summary>
         METHOD PUBLIC UpdateComprehensiveResult : IInspector
-            VAR_IN_OUT
-                inoResult : AxoComprehensiveResult;
+            VAR_INPUT
+                inResult                : IAxoComprehensiveResult;
+                inFailureDescription    : STRING;
+                inErrorCode             : STRING;
             END_VAR
+
+            _updateOverallResult := true;
+            _FailureDescription := inFailureDescription;
+            _ErrorCode := inErrorCode;
+            _comprehensiveResult := inResult;
+
             // Documentation: Set overall result to Failed if any inspection fails or is inconclusive.
             UpdateComprehensiveResult := THIS;
             IF(_inspectorTask.InspectionData() = NULL ) THEN
-                inoResult.SetResult(eOveralLResult#NoAction);
+                inResult.SetResult(eOveralLResult#NoAction);
                 RETURN;
             END_IF;
-            CASE _inspectorTask.InspectionData()^.Result OF
+            
+        END_METHOD
 
+         ///<summary>
+        /// Called only once when the inspector leaves the step.
+        /// </summary>
+        METHOD INTERNAL UpdateOverallResult
+
+            // must be requested and valid ITF
+            if not _updateOverallResult || _comprehensiveResult = NULL ||  _comprehensiveResultUpdateCycle <> ULINT#0 then 
+                RETURN;
+            end_if;
+          
+            _comprehensiveResultUpdateCycle := this.GetContext().OpenCycleCount();
+
+            CASE _inspectorTask.InspectionData()^.Result OF
+                
                 eInspectorResult#Failed:
-                    inoResult.SetResult(eOverallResult#Failed);
-                    //TODO here I should update descriptions
-                    //UpdateDescriptions(inoResult);		       			
+
+                    _comprehensiveResultUpdateCycle := THIS.GetContext().OpenCycleCount();
+
+                    _comprehensiveResult.SetResult(eOverallResult#Failed);
+                    _comprehensiveResult.AddFailure(_FailureDescription);
+                    _comprehensiveResult.AddErrorCode(_ErrorCode);
+                
                 eInspectorResult#Inconclusive:
-                    inoResult.SetResult(eOverallResult#Failed);
-                    // TODO: Consider updating detailed descriptions here.
+
+                    _comprehensiveResultUpdateCycle := THIS.GetContext().OpenCycleCount();
+
+                    _comprehensiveResult.SetResult(eOverallResult#Failed);
+                    _comprehensiveResult.AddFailure(_FailureDescription);
+                    _comprehensiveResult.AddErrorCode(_ErrorCode);
             ELSE
                 ;
             END_CASE;
+            
         END_METHOD
+
 
         ///<summary>
         /// Restores the state of the inspector task.
@@ -223,7 +275,20 @@ NAMESPACE AXOpen.Inspectors
         /// Returns the result of the inspection.
         /// </summary>
         METHOD PUBLIC Result : eInspectorResult
-            Result := _inspectorTask.InspectionData()^.Result;	
+
+        VAR
+            _inspectorData :  REF_TO AxoInspectorData;
+        end_var
+
+        // it can be null
+        _inspectorData := _inspectorTask.InspectionData();
+
+        if _inspectorData <> NULL THEN
+            Result := _inspectorData^.Result;	
+        ELSE
+            Result := eInspectorResult#NoAction;
+        END_IF;
+
         END_METHOD
           
         METHOD PRIVATE UpdateDialogInfo
@@ -412,14 +477,16 @@ NAMESPACE AXOpen.Inspectors
             _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
             _inspectorTask.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);
             _inspectorTask.Run(inParent);
-            
 
             Inspect := THIS;
             _inspectorTask.SetInspectionData(inData);
+
             IF(THIS.IsOverInspected()) THEN
                 RETURN;
             END_IF;
+
             _inspectorTask.Invoke();
+
             IF (_inspectorTask.Execute()) THEN
                 IF (inData^.IsByPassed) THEN
             

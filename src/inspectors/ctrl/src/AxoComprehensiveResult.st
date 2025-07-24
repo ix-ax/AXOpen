@@ -1,5 +1,7 @@
 NAMESPACE AXOpen.Inspectors
 
+    USING System.Strings;
+
     ///<summary>
     /// Class for gathering overall result of single or multiple inspections
     /// Only fail results are automatically written to comprehensive result
@@ -68,6 +70,38 @@ NAMESPACE AXOpen.Inspectors
             
             ErrorCodes := inErrorCodes;
         END_METHOD
+
+         ///<summary>
+        /// Add failure
+        ///</summary>
+        METHOD PUBLIC AddFailure
+            VAR_INPUT
+                inFailure : STRING;
+            END_VAR
+
+            if (Failures <> '') then 
+                Failures := Concat(Failures , ';' , inFailure);
+            else
+                Failures := inFailure;
+            end_if;
+
+        END_METHOD
+
+        ///<summary>
+        /// Add error code
+        ///</summary>
+        METHOD PUBLIC AddErrorCode
+            VAR_INPUT
+                inErrorCode : STRING;
+            END_VAR
+            
+             if ( ErrorCodes  <> '') then 
+                ErrorCodes := Concat(ErrorCodes , ';' , inErrorCode);
+            else
+                ErrorCodes := inErrorCode;
+            end_if;
+        END_METHOD
+
     END_CLASS
 
 
