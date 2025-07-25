@@ -20,7 +20,7 @@ NAMESPACE AXOpen.Inspectors
             _comprehensiveResult      : IAxoComprehensiveResult; 
             _comprehensiveResultUpdateCycle    : ULINT; // when was updated comprehensiver result
             
-            _updateOverallResult    : BOOL; // true if is called  UpdateComprehensiveResult()
+            _updateOverallResult    : BOOL; // TRUE if is called  UpdateComprehensiveResult()
             _FailureDescription    : STRING; // fill in UpdateComprehensiveResult()
             _ErrorCode             : STRING; // fill in UpdateComprehensiveResult()
 
@@ -124,7 +124,7 @@ NAMESPACE AXOpen.Inspectors
 
             _comprehensiveResultUpdateCycle := ULINT#0;
 
-            _updateOverallResult := false;
+            _updateOverallResult := FALSE;
             _FailureDescription :='';
             _ErrorCode :='';
         END_METHOD
@@ -186,7 +186,12 @@ NAMESPACE AXOpen.Inspectors
                 inErrorCode             : STRING;
             END_VAR
 
-            _updateOverallResult := true;
+            IF inResult = NULL THEN 
+                _updateOverallResult := FALSE;
+                RETURN;
+            END_IF;
+
+            _updateOverallResult := TRUE;
             _FailureDescription := inFailureDescription;
             _ErrorCode := inErrorCode;
             _comprehensiveResult := inResult;
@@ -278,12 +283,12 @@ NAMESPACE AXOpen.Inspectors
 
         VAR
             _inspectorData :  REF_TO AxoInspectorData;
-        end_var
+        END_VAR
 
         // it can be null
         _inspectorData := _inspectorTask.InspectionData();
 
-        if _inspectorData <> NULL THEN
+        IF _inspectorData <> NULL THEN
             Result := _inspectorData^.Result;	
         ELSE
             Result := eInspectorResult#NoAction;
