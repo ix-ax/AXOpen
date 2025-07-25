@@ -192,9 +192,11 @@ NAMESPACE AXOpen.Inspectors
             END_IF;
 
             _updateOverallResult := TRUE;
+            _comprehensiveResult := inResult;
+
+            // Failur Description can comes from Check data or input prameter
             _FailureDescription := inFailureDescription;
             _ErrorCode := inErrorCode;
-            _comprehensiveResult := inResult;
 
             // Documentation: Set overall result to Failed if any inspection fails or is inconclusive.
             UpdateComprehensiveResult := THIS;
@@ -215,6 +217,16 @@ NAMESPACE AXOpen.Inspectors
                 RETURN;
             end_if;
           
+
+            //chose the source of Failuredescription and ErrorCode
+            IF _inspectorTask.InspectionData()^.Failure <> '' THEN
+                _FailureDescription := _inspectorTask.InspectionData()^.Failure;
+            END_IF;
+
+            IF _inspectorTask.InspectionData()^.ErrorCode <> '' THEN
+                _ErrorCode := _inspectorTask.InspectionData()^.ErrorCode;
+            END_IF;
+           
             _comprehensiveResultUpdateCycle := this.GetContext().OpenCycleCount();
 
             CASE _inspectorTask.InspectionData()^.Result OF
