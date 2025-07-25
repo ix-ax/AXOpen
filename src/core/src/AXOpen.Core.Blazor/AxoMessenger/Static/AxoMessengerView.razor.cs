@@ -34,7 +34,7 @@ namespace AXOpen.Messaging.Static
 
         private async void AcknowledgeTask()
         {
-            Component.AcknowledgeRequest.Cyclic = true; 
+            Component.AcknowledgeRequest.Cyclic = true;
             AxoApplication.Current.Logger.Information($"Message '{this.MessageText}' acknowledged.", this.Component, await GetCurrentUserIdentity());
         }
 
@@ -46,14 +46,14 @@ namespace AXOpen.Messaging.Static
         {
             if (this.Component.GetParent() is AxoTask t)
             {
-                   t.Restore();
-                   AxoApplication.Current.Logger.Information($"Task '{this.Component.GetParent().Symbol}' has been restored using alarm view.", this.Component, await GetCurrentUserIdentity());
+                t.Restore();
+                AxoApplication.Current.Logger.Information($"Task '{this.Component.GetParent().Symbol}' has been restored using alarm view.", this.Component, await GetCurrentUserIdentity());
             }
         }
-        
+
         public override void ConfigurePolling()
         {
-            if(Component is null) return;
+            if (Component is null) return;
             StartPolling(Component.MessengerState, 500);
             StartPolling(Component.MessageCode, 500);
             StartPolling(Component.Category, 500);
@@ -64,7 +64,7 @@ namespace AXOpen.Messaging.Static
 
         public override void Dispose()
         {
-            if(Component is null) return;
+            if (Component is null) return;
             Component.StopPolling(this);
             base.Dispose();
         }
@@ -80,7 +80,7 @@ namespace AXOpen.Messaging.Static
                 return retval;
             }
         }
-        
+
         private string AckBtnBackgroundColor
         {
             get
@@ -152,6 +152,30 @@ namespace AXOpen.Messaging.Static
                 }
             }
         }
+        private string ParentDescription
+        {
+            get
+            {
+                var _parent = Component.GetParent();
+
+                if (_parent != null)
+                {
+                    AxoComponent _axoComponent = _parent as AxoComponent;
+
+                    if (_axoComponent != null)
+                    {
+                        if (!string.IsNullOrEmpty(_axoComponent.Description_raw))
+                            return $"{_axoComponent.AttributeName} ({_axoComponent.Description_raw}) ";
+                        else
+                            return _axoComponent.AttributeName;
+                    }
+                    else
+                        return _parent.AttributeName;
+                }
+
+                return Component.AttributeName;
+            }
+        }
         private string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
         private string Symbol => !(string.IsNullOrEmpty(Component.Symbol)) ? Component.Symbol.Replace(".", " . ") : "Unable to retrieve symbol!";
         private string MessageText => Component.GetMessageText();
@@ -179,13 +203,13 @@ namespace AXOpen.Messaging.Static
         private bool HideRepairButton => (!IsActive || this.Component.GetParent() is not AxoTask);
         private bool ShowHelpText;
 
-        
+
 
         private bool OnlyAlarmView { get; set; } = true;
 
         private void ToggleComponentView()
         {
-            this.OnlyAlarmView =false;
+            this.OnlyAlarmView = false;
         }
 
         private void ToggleAlarmView()

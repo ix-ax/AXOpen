@@ -11,7 +11,7 @@
 {
     <div class="alert items-center @SeverityToAlertColor()">
         <HeroIcon Icon="bell" Type="Operon.Icons.IconType.Outline" Class="size-6 me-2" />
-        <h6>@MessageText</h6>
+        <h6>@ParentDescription: @MessageText</h6>
         <div class="flex flex-wrap ms-auto gap-1">
             <a @onclick="() => _collapseDetails.Toggle()">
                 Details
