@@ -57,16 +57,21 @@ NAMESPACE AXOpen.Inspectors
         METHOD PROTECTED OVERRIDE OnStart 
             SUPER.OnStart();
  
-            // set default value for failtime if no values were provided
             // minimal pass time is not requested due to evaluation in the same plc cycle
             // IF (_inspectionData^.PassTime = T#0S) THEN
             //     _inspectionData^.PassTime := T#50MS;
             // END_IF;
             
+            // set default value for failtime if no values were provided
             IF (_inspectionData^.FailTime = T#0S) THEN
                 _inspectionData^.FailTime := T#100MS;
             END_IF;
-            
+
+            // failed time can not be less then pass time
+            IF ( _inspectionData^.FailTime <= _inspectionData^.PassTime ) THEN 
+                _inspectionData^.FailTime :=  _inspectionData^.PassTime + T#100MS;
+            END_IF;
+
             _inspectionData^.Result := eInspectorResult#NoAction;
 
             _passTimer.Restore();
@@ -96,7 +101,7 @@ NAMESPACE AXOpen.Inspectors
             _inspectionData^.TimeStamp := THIS.GetContext().GetRtc().NowUTC();
             _inspectionData^.Result    := eInspectorResult#Failed;
            
-            // if fail timer was not satisfied and pass timer passed, set inspector result to passed
+           // If the fail timer has not elapsed and the pass timer has elapsed, set the inspector result to "passed".
             IF (NOT _failTimer.output AND _passTimer.output) THEN
                 _inspectionData^.Result := eInspectorResult#Passed;
             END_IF;
