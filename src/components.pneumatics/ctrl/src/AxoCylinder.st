@@ -231,6 +231,23 @@ NAMESPACE AXOpen.Components.Pneumatics
             END_IF;    
             _Messenger.ActivateOnCondition(UINT#7, Condition, eAxoMessageCategory#Info);
             _MoveToHomeTask.IsDisabled := Condition;
-        END_METHOD        
+        END_METHOD  
+        
+        ///<summary>
+        /// Return Work position sensor value.
+        ///</summary>
+        METHOD PUBLIC IsInWorkPositon : BOOL
+            _Messenger.ActivateOnCondition(UINT#10, THIS._WorkSensor, eAxoMessageCategory#Warning);
+            IsInWorkPositon := THIS._WorkSensor;
+        END_METHOD  
+
+         ///<summary>
+        /// Return Home position sensor value.
+        ///</summary>
+        METHOD PUBLIC IsInWorkPositon : BOOL
+            _Messenger.ActivateOnCondition(UINT#11, THIS._HomeSensor, eAxoMessageCategory#Warning);
+            IsInWorkPositon := THIS._HomeSensor;
+        END_METHOD  
+
     END_CLASS
 END_NAMESPACE

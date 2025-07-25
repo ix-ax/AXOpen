@@ -32,6 +32,8 @@ namespace AXOpen.Components.Pneumatics
                 new KeyValuePair<ulong, AxoMessengerTextItem>(7, new AxoMessengerTextItem("Movement to home position is aborted.", "Check the blocking condition.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(8, new AxoMessengerTextItem("Movement to home position overshot the extremity sensor.", "Check the sensor position.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(9, new AxoMessengerTextItem("Movement to work position overshot the extremity sensor.", "Check the sensor position.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10, new AxoMessengerTextItem("Other component wait for work position sensor.", "Check the sensor position.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(11, new AxoMessengerTextItem("Other component wait for home position sensor.", "Check the sensor position.")),
             };
 
             _Messenger.DotNetMessengerTextList = messengerTextList;
