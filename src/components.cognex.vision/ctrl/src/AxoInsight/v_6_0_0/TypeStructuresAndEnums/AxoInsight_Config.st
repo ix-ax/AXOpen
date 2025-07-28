@@ -11,9 +11,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             {#ix-set:AttributeName = "<#Max job number#>"}
             MaxJobNumber : UINT := UINT#999;
             {#ix-set:AttributeName = "<#Result data size#>"}
-            ResultDataSize : eAxoInsight_ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_SIZE_INVALID;
+            ResultDataSize : UINT;
             {#ix-set:AttributeName = "<#User data size#>"}
-            UserDataSize : eAxoInsight_UserDataSize := eAxoInsight_UserDataSize#USER_DATA_SIZE_INVALID;
+            UserDataSize : UINT;
         END_STRUCT;
     END_TYPE 
 END_NAMESPACE

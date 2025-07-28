@@ -14,6 +14,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
             ResultDataSize : UINT;
             {#ix-set:AttributeName = "<#User data size#>"}
             UserDataSize : UINT;
+            {#ix-set:AttributeName = "<#Hardware IDs#>"}
+            HWIDs : AxoInsight_HWIDs;
         END_STRUCT;
     END_TYPE 
 END_NAMESPACE
