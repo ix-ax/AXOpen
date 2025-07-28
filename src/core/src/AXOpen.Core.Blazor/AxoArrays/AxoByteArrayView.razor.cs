@@ -54,14 +54,14 @@ namespace AXOpen.Core
 
         protected override async Task OnInitializedAsync()
         {
-            await Task.Run(() => UploadAndFormatData(null, null));
-            Component.DataChanged.Subscribe(UploadAndFormatData);
+            //await Task.Run(() => UploadAndFormatData(null, null));
+            //Component.DataChanged.Subscribe(UploadAndFormatData);
             await base.OnInitializedAsync();           
         }
         private async void UploadAndFormatData(ITwinPrimitive sender, ValueChangedEventArgs args)
         {
             try
-            {
+            {              
                 if (!initialized)
                 {
                     if (Component != null && Component.GetType() != null && Component.GetType().GetProperty("Data") != null)
