@@ -143,9 +143,9 @@ NAMESPACE AXOpen.Elements
                 THIS.Restore();
             END_IF;
             //****************************************
-            
     
             //*************TurnTask**************
+            TurnTask.ThrowWhen(TurnTask.IsBusy() AND NOT SafetyCondition, 'The safety condition is lost during movement.');
             TurnTask.SetIsDisabled(NOT SafetyCondition OR RestoreTask.IsBusy() OR InitPositionTask.IsBusy());
             IF TurnTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
@@ -253,9 +253,13 @@ NAMESPACE AXOpen.Elements
             ELSIF TurnTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10000;
                 Status.Error.Id  :=  UINT#10000;
+                Outputs.EnableTurn := FALSE;
+                Outputs.StartTurn := FALSE;
             ELSIF TurnTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10001;
                 Status.Error.Id  :=  UINT#10001;
+                Outputs.EnableTurn := FALSE;
+                Outputs.StartTurn := FALSE;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10000,TurnTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10001,TurnTask.IsAborted(), eAxoMessageCategory#Error);
@@ -267,6 +271,7 @@ NAMESPACE AXOpen.Elements
             //**************************************************
     
             //*************InitPositionTask***************
+            InitPositionTask.ThrowWhen(InitPositionTask.IsBusy() AND NOT SafetyCondition, 'The safety condition is lost during movement.');
             InitPositionTask.SetIsDisabled(NOT SafetyCondition OR RestoreTask.IsBusy() OR TurnTask.IsBusy());
             IF InitPositionTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
@@ -330,9 +335,13 @@ NAMESPACE AXOpen.Elements
             ELSIF InitPositionTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10010;
                 Status.Error.Id  :=  UINT#10010;
+                Outputs.EnableTurn := FALSE;
+                Outputs.StartTurn := FALSE;
             ELSIF InitPositionTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10011;
                 Status.Error.Id  :=  UINT#10011;
+                Outputs.EnableTurn := FALSE;
+                Outputs.StartTurn := FALSE;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10010,InitPositionTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10011,InitPositionTask.IsAborted(), eAxoMessageCategory#Error);
