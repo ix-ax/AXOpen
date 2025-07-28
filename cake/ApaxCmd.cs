@@ -293,7 +293,7 @@ public static class ApaxCmd
             context.Log.Information($"apax build started for in '{folder}'");
             var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
-                Arguments = "build --ignore-scripts",
+                Arguments = "build",
                 WorkingDirectory = folder,
                 RedirectStandardOutput = false,
                 RedirectStandardError = false,
