@@ -127,8 +127,8 @@ internal static class AppsRunTaskHelpers
         result = ApaxCmd.ApaxCommand(context, appFolder, "hwdo", ref summaryResult);
         WriteResult(context, result, logFilePath, appendToSameLine: true);
 
-        // Run "apax build --ignore-scripts" 
-        result = ApaxCmd.ApaxCommand(context, appFolder, "build --ignore-scripts", ref summaryResult);
+        // Run "apax build " 
+        result = ApaxCmd.ApaxCommand(context, appFolder, "build", ref summaryResult);
         WriteResult(context, result, logFilePath, appendToSameLine: true);
 
         // Run "dotnet ixc" 

@@ -2,14 +2,14 @@
 cd ctrl
 apax clean
 apax install
-apax build --ignore-scripts
+apax build
 dotnet ixc
 apax test
 cd ..
 cd app
 apax clean
 apax install
-apax build --ignore-scripts
+apax build
 dotnet ixc
 apax test
 cd ..
