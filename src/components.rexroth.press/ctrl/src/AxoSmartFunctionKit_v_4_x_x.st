@@ -14,9 +14,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
     CLASS PUBLIC AxoSmartFunctionKit_v_4_x_x EXTENDS AXOpen.Core.AxoComponent
         VAR PRIVATE
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
-            _infoTime               :   LTIME := LT#2S;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
-            _errorTime              :   LTIME := LT#5S;
             _context                :   IAxoContext;
             _hwID                   :   WORD;
             _hwIdParamCh_IDN        :   WORD;
@@ -765,8 +763,8 @@ NAMESPACE AXOpen.Components.Rexroth.Press
                 signal : BOOL;
             END_VAR
             
-            _infoTimer.OnDelay(THIS, signal , Config.InfoTime);
-            _errorTimer.OnDelay(THIS, signal , Config.ErrorTime );
+            _infoTimer.OnDelay(THIS, signal AND Config.InfoTime > LT#0S ,Config.InfoTime);
+            _errorTimer.OnDelay(THIS, signal AND Config.ErrorTime > LT#0S , Config.ErrorTime);
         END_METHOD
 
         METHOD PROTECTED OVERRIDE ManualControl

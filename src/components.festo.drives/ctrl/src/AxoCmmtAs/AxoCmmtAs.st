@@ -132,9 +132,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _outputsAddress         :   UDINT;  
             _outputsCount           :   UINT; 
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
-            _infoTime               :   LTIME := LT#2S;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
-            _errorTime              :   LTIME := LT#5S;
         END_VAR
 
         ///<summary>
@@ -155,8 +153,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 //                                      |     -10   |     -9    |    -8    |    -7   |   -6   |   -5  |  -4  | -3  | -2 |-1|  0 | 1  |  2  |  3   |   4   |   5    |   6     |    7     |     8     |    9      |     10    |
                 _exp    :   ARRAY [-10..10] OF LREAL := [0.000000001,0.000000001,0.00000001,0.0000001,0.000001,0.00001,0.0001,0.001,0.01,0.1,1.0,10.0,100.0,1000.0,10000.0,100000.0,1000000.0,10000000.0,100000000.0,100000000.0,100000000.0];
             END_VAR
-            _infoTime   :=  DriveConfig.InfoTime;
-            _errorTime  :=  DriveConfig.ErrorTime;
             SUPER.Run(parent);
             Messenger.Serve(THIS);
 

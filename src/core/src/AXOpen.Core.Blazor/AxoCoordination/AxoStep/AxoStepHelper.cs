@@ -6,9 +6,11 @@ namespace AXOpen.Core
     {
         public static string Description(AxoStep step)
         {
-            var text = string.IsNullOrEmpty(step.Descr.Cyclic)
-                ? step.Order.Cyclic.ToString()
-                : step.Descr.GetCyclic();
+            var text = !string.IsNullOrEmpty(step.Descr.Cyclic)
+                ? step.Descr.GetCyclic()
+                : !string.IsNullOrEmpty(step.Description) 
+                ? step.Description
+                : step.Order.Cyclic.ToString();
 
             if (step.IsActive.Cyclic)
             {

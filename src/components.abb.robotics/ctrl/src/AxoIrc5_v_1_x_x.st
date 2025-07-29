@@ -11,7 +11,6 @@ NAMESPACE AXOpen.Components.Abb.Robotics
     CLASS AxoIrc5_v_1_x_x EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.Robotics.IAxoRobotics
         VAR PRIVATE
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
-            _infoTime               :   LTIME := LT#2S;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
             _errorTime              :   LTIME := LT#5S;
             _blink                  :   AXOpen.Timers.AxoBlinker;
@@ -146,7 +145,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             SUPER.Run(parent);
 
             Messenger.Serve(THIS);
-
+            _errorTime := Config.ErrorTime;
             IF NOT _initHwCheckDone THEN
                 IF parent = NULL THEN
                     Messenger.Activate(ULINT#700, eAxoMessageCategory#ProgrammingError);
@@ -403,9 +402,6 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             Inputs.EventId                  := TO_UDINT(_dword);
             //*******************************************
             _context := THIS.GetContext();
-
-            _infoTime := Config.InfoTime;
-            _errorTime := Config.ErrorTime;
 
             //*************INITIALIZATION*************
 // THIS SHOULD BE PROBABLY REMOVED =>            
@@ -1778,8 +1774,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 signal : BOOL;
             END_VAR
             
-            _infoTimer.OnDelay(THIS, signal , _infoTime);
-            _errorTimer.OnDelay(THIS, signal , _errorTime );
+            _infoTimer.OnDelay(THIS, signal AND Config.InfoTime > T#0S ,Config.InfoTime);
+            _errorTimer.OnDelay(THIS, signal AND _errorTime > LT#0S , _errorTime);
         END_METHOD
     END_CLASS
 END_NAMESPACE
