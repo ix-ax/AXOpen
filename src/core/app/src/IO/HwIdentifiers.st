@@ -3,7 +3,7 @@ NAMESPACE AXOpen.Core
         HwIdentifiers : WORD
         (
             plc_line_HwID :=	WORD#32,
-            plc_line_Rail_0_HwID :=	WORD#257,
+            plc_line_Rail_0_HwID :=	WORD#273,
             plc_line_plc_line_HwID :=	WORD#48,
             plc_line_plc_line_CPU_display_1_HwID :=	WORD#54,
             plc_line_plc_line_Card_reader_writer_1_HwID :=	WORD#51,
