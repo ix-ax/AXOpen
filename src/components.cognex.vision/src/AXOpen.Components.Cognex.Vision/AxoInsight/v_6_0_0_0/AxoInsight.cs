@@ -49,6 +49,10 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 new KeyValuePair<ulong, AxoMessengerTextItem>(151, new AxoMessengerTextItem("SoftEvent finished succesfully.",                                              "")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(152, new AxoMessengerTextItem("SoftEvent restored.",                                                          "")),
 
+                new KeyValuePair<ulong, AxoMessengerTextItem>(160, new AxoMessengerTextItem("SendUserData started.",                                                        "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(161, new AxoMessengerTextItem("SendUserData finished succesfully.",                                           "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(162, new AxoMessengerTextItem("SendUserData restored.",                                                       "")),
+
                 //  General alarms
                 new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                      ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
@@ -157,6 +161,8 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10041, new AxoMessengerTextItem("Change job by number was aborted, while not yet completed!"                                                                  ,"Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10050, new AxoMessengerTextItem("SoftEvent finished with error!"                                                                                              ,"Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10051, new AxoMessengerTextItem("SoftEvent was aborted, while not yet completed!"                                                                             ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10060, new AxoMessengerTextItem("SendUserData finished with error!"                                                                                           ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10061, new AxoMessengerTextItem("SendUserData was aborted, while not yet completed!"                                                                          ,"Check the details.")),
 
             };
 
@@ -203,6 +209,8 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 new KeyValuePair<ulong, AxoMessengerTextItem>(552, new AxoMessengerTextItem("Waiting for the signal SoftEventStatus.TriggerSoftEventAcknowledge to be set!"                                                 ,"Check the status of the `SoftEventStatus.TriggerSoftEventAcknowledge` signal.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(553, new AxoMessengerTextItem("Waiting for the signal SoftEventStatus.TriggerSoftEventAcknowledge to be reseted!"                                             ,"Check the status of the `SoftEventStatus.TriggerSoftEventAcknowledge` signal.")),
 
+                new KeyValuePair<ulong, AxoMessengerTextItem>(561, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.ExtendedUserDataSetAcknowledge to be set!"                                             ,"Check the status of the `InspectionStatus.ExtendedUserDataSetAcknowledge` signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(562, new AxoMessengerTextItem("Waiting for the signal InspectionStatus.ExtendedUserDataSetAcknowledge to be reseted!"                                         ,"Check the status of the `InspectionStatus.ExtendedUserDataSetAcknowledge` signal.")),
             };
 
             TaskMessenger.DotNetMessengerTextList = messengerTextList;
@@ -257,6 +265,8 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     errorDescriptionDict.Add(552, "Waiting for the signal SoftEventStatus.TriggerSoftEventAcknowledge to be set!");
                     errorDescriptionDict.Add(553, "Waiting for the signal SoftEventStatus.TriggerSoftEventAcknowledge to be reseted!");
 
+                    errorDescriptionDict.Add(561, "Waiting for the signal InspectionStatus.ExtendedUserDataSetAcknowledge to be set!");
+                    errorDescriptionDict.Add(562, "Waiting for the signal InspectionStatus.ExtendedUserDataSetAcknowledge to be reseted!");
 
                     //  General alarms
                     errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!"                                                                               );
@@ -351,9 +361,11 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     errorDescriptionDict.Add(10020, "Change job by name finished with error!");   
                     errorDescriptionDict.Add(10021, "Change job by name was aborted, while not yet completed!"); 
                     errorDescriptionDict.Add(10040, "Change job by number finished with error!");   
-                    errorDescriptionDict.Add(10041, "Change job by number was aborted, while not yet completed!");   
-                    errorDescriptionDict.Add(10050, "SoftEvent finished with error!");   
-                    errorDescriptionDict.Add(10051, "SoftEvent was aborted, while not yet completed!");   
+                    errorDescriptionDict.Add(10041, "Change job by number was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(10050, "SoftEvent finished with error!");
+                    errorDescriptionDict.Add(10051, "SoftEvent was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(10060, "SendUserData finished with error!");
+                    errorDescriptionDict.Add(10061, "SendUserData was aborted, while not yet completed!");
                 }
                 string errorDescription = "   ";
 
@@ -462,6 +474,19 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     actionDescriptionDict.Add(151, "SoftEvent finished succesfully.");
                     actionDescriptionDict.Add(152, "SoftEvent restored.");
 
+                    actionDescriptionDict.Add(160, "SendData started.");
+                    actionDescriptionDict.Add(360, "SendData running.");
+                    actionDescriptionDict.Add(361, "SendData running.");
+                    actionDescriptionDict.Add(362, "SendData running.");
+                    actionDescriptionDict.Add(363, "SendData running.");
+                    actionDescriptionDict.Add(364, "SendData running.");
+                    actionDescriptionDict.Add(365, "SendData running.");
+                    actionDescriptionDict.Add(366, "SendData running.");
+                    actionDescriptionDict.Add(367, "SendData running.");
+                    actionDescriptionDict.Add(368, "SendData running.");
+                    actionDescriptionDict.Add(369, "SendData running.");
+                    actionDescriptionDict.Add(161, "SendData finished succesfully.");
+                    actionDescriptionDict.Add(162, "SendData restored.");
 
                     actionDescriptionDict.Add(10000, "Clearing of the inspection results finished with error!");
                     actionDescriptionDict.Add(10001, "Clearing of the inspection results was aborted, while not yet completed!");

@@ -159,7 +159,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             _Clock_1Hz              :   AxoBlinker;
             _readResultsJobID       :   BYTE;
             _readResultsLength      :   UINT;
-            _data_                :   ARRAY[0..1300] OF BYTE;
+            _data_                  :   ARRAY[0..1300] OF BYTE;
             _data_out               :   ARRAY[0..1300] OF BYTE;
             _sendDataInspectionType :   BYTE;
             _sendDataBufferID       :   BYTE;
@@ -4361,8 +4361,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 signal : BOOL;
             END_VAR
             
-            _infoTimer.OnDelay(THIS, signal ,Config.InfoTime);
-            _errorTimer.OnDelay(THIS, signal , Config.ErrorTime);
+            _infoTimer.OnDelay(THIS, signal AND Config.InfoTime > LT#0S ,Config.InfoTime);
+            _errorTimer.OnDelay(THIS, signal AND Config.ErrorTime > LT#0S , Config.ErrorTime);
         END_METHOD
 
     END_CLASS

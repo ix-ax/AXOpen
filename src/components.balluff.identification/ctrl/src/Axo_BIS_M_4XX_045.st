@@ -11,9 +11,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
     CLASS Axo_BIS_M_4XX_045 EXTENDS AXOpen.Core.AxoComponent
         VAR PRIVATE
             _infoTimer                  :   AXOpen.Timers.OnDelayTimer;
-            _infoTime                   :   LTIME := LT#2S;
             _errorTimer                 :   AXOpen.Timers.OnDelayTimer;
-            _errorTime                  :   LTIME := LT#5S;
             _context                    :   IAxoContext;
             _someTaskIsActive           :   BOOL;
             _hwID                       :   WORD;
@@ -295,9 +293,6 @@ NAMESPACE AXOpen.Components.Balluff.Identification
         
             //*******************************************
             _context := THIS.GetContext();
-
-            _infoTime := Config.InfoTime;
-            _errorTime := Config.ErrorTime;
 
             //*************INITIALIZATION*************
             RestoreTask.Run(THIS);
@@ -1218,8 +1213,8 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 signal : BOOL;
             END_VAR
             
-            _infoTimer.OnDelay(THIS, signal , _infoTime);
-            _errorTimer.OnDelay(THIS, signal , _errorTime );
+            _infoTimer.OnDelay(THIS, signal AND Config.InfoTime > LT#0S ,Config.InfoTime);
+            _errorTimer.OnDelay(THIS, signal AND Config.ErrorTime > LT#0S , Config.ErrorTime);
         END_METHOD
     END_CLASS
 END_NAMESPACE

@@ -12,8 +12,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
     {S7.extern=ReadWrite}
     CLASS PUBLIC AxoInsight EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.IAxoVisionSensor
         VAR PRIVATE
-            _UserDataSize           :   eAxoInsight_UserDataSize;
-            _ResultDataSize         :   eAxoInsight_ResultDataSize;
+            _UserDataSize           :   UINT;
+            _ResultDataSize         :   UINT;
             _hwID                   :   WORD;
             _hwIdAcquisitionControl :   WORD;
             _hwIdAcquisitionStatus  :   WORD;
@@ -46,6 +46,9 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _outputsCount           :   UINT; 
             _userDataLength         :   UINT;            
             _userData               :   AxoInsight_UserData;
+        END_VAR
+        VAR CONSTANT
+            _maxUserDataIndex : UINT:= UINT#253;
         END_VAR
 
         VAR PUBLIC //Header
@@ -536,17 +539,17 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdUserData , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount = UINT#0 AND _outputsCount = UINT#16 THEN
-                    _UserDataSize := eAxoInsight_UserDataSize#USER_DATA_16B;
+                    _UserDataSize := UINT#16;
                 ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#32 THEN
-                    _UserDataSize := eAxoInsight_UserDataSize#USER_DATA_32B;
+                    _UserDataSize := UINT#32;
                 ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#64 THEN
-                    _UserDataSize := eAxoInsight_UserDataSize#USER_DATA_64B;
+                    _UserDataSize := UINT#64;
                 ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#128 THEN
-                    _UserDataSize := eAxoInsight_UserDataSize#USER_DATA_128B;
+                    _UserDataSize := UINT#128;
                 ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#254 THEN
-                    _UserDataSize := eAxoInsight_UserDataSize#USER_DATA_254B;
+                    _UserDataSize := UINT#254;
                 ELSE
-                    _UserDataSize := eAxoInsight_UserDataSize#USER_DATA_SIZE_INVALID;
+                    _UserDataSize :=  UINT#0;
                     Messenger.Activate(UINT#776,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#776;    
                 END_IF;
@@ -587,21 +590,20 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdResultData , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _outputsCount = UINT#0 AND _inputsCount = UINT#20 THEN
-                    _ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_16B;
+                    _ResultDataSize := UINT#16;
                 ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#36 THEN
-                    _ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_32B;
+                    _ResultDataSize := UINT#32;
                 ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#68 THEN
-                    _ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_64B;
+                    _ResultDataSize := UINT#64;
                 ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#132 THEN
-                    _ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_128B;
+                    _ResultDataSize := UINT#128;
                 ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#250 THEN
-                    _ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_250B;
+                    _ResultDataSize := UINT#250;
                 ELSE
-                    _ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_SIZE_INVALID;
+                    _ResultDataSize := UINT#0;
                     Messenger.Activate(UINT#786,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#786;
                 END_IF;
-                
 
                 IF parent = NULL THEN
                     Messenger.Activate(UINT#1130, eAxoMessageCategory#ProgrammingError);
@@ -644,7 +646,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Status.Error.Id := UINT#1139;
                     RETURN; 
                 END_IF;
-
                 _initHwCheckDone    := TRUE;
             END_IF;
 
@@ -724,11 +725,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 RETURN;
             END_IF;
 
-            _invalidDataSize := NOT (_ResultDataSize = eAxoInsight_ResultDataSize#RESULT_DATA_16B OR
-                                    _ResultDataSize = eAxoInsight_ResultDataSize#RESULT_DATA_32B OR
-                                    _ResultDataSize = eAxoInsight_ResultDataSize#RESULT_DATA_64B OR
-                                    _ResultDataSize = eAxoInsight_ResultDataSize#RESULT_DATA_128B OR
-                                    _ResultDataSize = eAxoInsight_ResultDataSize#RESULT_DATA_250B);
+            _invalidDataSize := NOT (   _ResultDataSize =  UINT#16  OR
+                                        _ResultDataSize =  UINT#32  OR
+                                        _ResultDataSize =  UINT#64  OR
+                                        _ResultDataSize =  UINT#128 OR
+                                        _ResultDataSize =  UINT#250 );
 
             IF _invalidDataSize THEN
                 Messenger.Activate(UINT#1206, eAxoMessageCategory#ProgrammingError);
@@ -752,14 +753,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             SoftEventTask.Run(THIS);
             SendUserDataTask.Run(THIS);
             HardwareDiagnosticsTask.Run(THIS,_hwID);
-            //*************RESTORE********************
+            //*************Restore********************
             RestoreTask.IsDisabled := FALSE;
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
             //****************************************
 
-            //*************CLEAR*DATA*****************
+            //*************ClearInspectionResults*****
             ClearInspectionResultsTask.IsDisabled := RestoreTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy();
             IF ClearInspectionResultsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
@@ -838,7 +839,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _progress := 0;
             END_IF;
             //****************************************
-            //*************READ***********************
+
+            //*************Trigger********************
             TriggerTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy();
             IF TriggerTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
@@ -1020,7 +1022,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_IF;   
             //****************************************
 
-            //*************CHANGE JOB BY NAME*********
+            //*************ChangeJobByName************
             ChangeJobByNameTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy();
             IF ChangeJobByNameTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
@@ -1088,7 +1090,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     IF NOT InspectionStatus.Error THEN
                         THIS.CallTimers(FALSE);
                         _progress := 324;
-                        // _jobName := THIS.AppendSuffix(_jobName);
                     END_IF;
                 END_IF;
                 
@@ -1237,7 +1238,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_IF;  
             //****************************************
 
-            //*************CHANGE JOB BY NUMBER*******
+            //*************ChangeJobByNumber**********
             ChangeJobByNumberTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy();
             IF ChangeJobByNumberTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#140;
@@ -1397,7 +1398,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_IF;  
             //****************************************
 
-            //*************Soft event*****************
+            //*************SoftEvent******************
             SoftEventTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy()  OR SendUserDataTask.IsBusy();
             IF SoftEventTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#150;
@@ -1509,6 +1510,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         TaskMessenger.Activate( UINT#560, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#560;
                     END_IF;
+
+                    InspectionControl.ExecuteCommand := FALSE;
+                    InspectionControl.ClearError := FALSE;
+                    AcquisitionControl.SetOffline := FALSE;
+
                     IF THIS.SetUserData(_userData, _userDataLength) THEN
                         THIS.CallTimers(FALSE);
                         _progress := 361;
@@ -1516,6 +1522,82 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 361 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#561, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#561;
+                    END_IF;
+
+                    InspectionControl.ExtendedUserDataSet := TRUE;
+
+                    IF InspectionStatus.ExtendedUserDataSetAcknowledge OR _infoTimer.elapsedTime >=T#1S THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 362;
+                    END_IF;
+                END_IF;
+
+                IF _progress = 362 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#562, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#562;
+                    END_IF;
+
+                    InspectionControl.ExtendedUserDataSet := FALSE;
+
+                    IF NOT InspectionStatus.ExtendedUserDataSetAcknowledge THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 363;
+                    END_IF;
+                END_IF;
+
+                IF _progress = 363 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#563, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#563;
+                    END_IF;
+
+                    IF TRUE THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 364;
+                    END_IF;
+                END_IF;
+
+                IF _progress = 364 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#564, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#564;
+                    END_IF;
+
+                    IF TRUE THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 365;
+                    END_IF;
+                END_IF;
+
+                IF _progress = 365 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#565, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#565;
+                    END_IF;
+
+                    IF TRUE THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 366;
+                    END_IF;
+                END_IF;
+
+                IF _progress = 366 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#566, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#566;
+                    END_IF;
+
+                    IF TRUE THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 367;
+                    END_IF;
+                END_IF;
+
+                IF _progress = 367 THEN
                     SendUserDataTask.DoneWhen(TRUE);
                     _progress := 0;            
                 END_IF;               
@@ -1595,11 +1677,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 RETURN;
             END_IF;  
 
-            _invalidDataSize := NOT (_UserDataSize = eAxoInsight_UserDataSize#USER_DATA_16B OR
-                                     _UserDataSize = eAxoInsight_UserDataSize#USER_DATA_32B OR
-                                     _UserDataSize = eAxoInsight_UserDataSize#USER_DATA_64B OR
-                                     _UserDataSize = eAxoInsight_UserDataSize#USER_DATA_128B OR
-                                     _UserDataSize = eAxoInsight_UserDataSize#USER_DATA_254B);
+            _invalidDataSize := NOT (_UserDataSize = UINT#16  OR
+                                     _UserDataSize = UINT#32  OR
+                                     _UserDataSize = UINT#64  OR
+                                     _UserDataSize = UINT#128 OR
+                                     _UserDataSize = UINT#254 );
 
             IF _invalidDataSize THEN
                 Messenger.Activate(UINT#1235, eAxoMessageCategory#ProgrammingError);
@@ -1610,7 +1692,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             Config.UserDataSize := _UserDataSize;
 
             IF (UserData.DataChanged <> _UserDataChanged) THEN
-                IF Config.UserDataSize = eAxoInsight_UserDataSize#USER_DATA_16B THEN
+                IF Config.UserDataSize = UINT#16 THEN
                     FOR _index := 0 TO 15 DO
                         _data_16[_index] := UserData.Data[_index];
                     END_FOR;
@@ -1620,7 +1702,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         Status.Error.Id := UINT#1236;
                         RETURN;
                     END_IF;  
-                ELSIF Config.UserDataSize = eAxoInsight_UserDataSize#USER_DATA_32B THEN
+                ELSIF Config.UserDataSize = UINT#32 THEN
                     FOR _index := 0 TO 31 DO
                         _data_32[_index] := UserData.Data[_index];
                     END_FOR;
@@ -1630,7 +1712,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         Status.Error.Id := UINT#1237;
                         RETURN;
                     END_IF;  
-                ELSIF Config.UserDataSize = eAxoInsight_UserDataSize#USER_DATA_64B THEN
+                ELSIF Config.UserDataSize = UINT#64 THEN
                     FOR _index := 0 TO 63 DO
                         _data_64[_index] := UserData.Data[_index];
                     END_FOR;
@@ -1640,7 +1722,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         Status.Error.Id := UINT#1238;
                         RETURN;
                     END_IF;  
-                ELSIF Config.UserDataSize = eAxoInsight_UserDataSize#USER_DATA_128B THEN
+                ELSIF Config.UserDataSize = UINT#128 THEN
                     FOR _index := 0 TO 127 DO
                         _data_128[_index] := UserData.Data[_index];
                     END_FOR;
@@ -1650,7 +1732,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         Status.Error.Id := UINT#1239;
                         RETURN;
                     END_IF;  
-                ELSIF Config.UserDataSize = eAxoInsight_UserDataSize#USER_DATA_254B THEN
+                ELSIF Config.UserDataSize = UINT#254 THEN
                     FOR _index := 0 TO 253 DO
                         _data_254[_index] := UserData.Data[_index];
                     END_FOR;
@@ -1664,6 +1746,53 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _UserDataChanged := UserData.DataChanged;
             END_IF;
 
+        END_METHOD
+
+        METHOD PRIVATE CallTimers
+            VAR_INPUT
+                signal : BOOL;
+            END_VAR
+            
+            _infoTimer.OnDelay(THIS, signal AND Config.InfoTime > LT#0S ,Config.InfoTime);
+            _errorTimer.OnDelay(THIS, signal AND Config.ErrorTime > LT#0S , Config.ErrorTime);
+        END_METHOD
+
+        METHOD PRIVATE SetUserData: BOOL
+            VAR_IN_OUT
+                Data      :   AxoInsight_UserData;
+            END_VAR
+            VAR_INPUT
+                Length    :   UINT;	
+            END_VAR
+            VAR
+                _index : UINT;
+            END_VAR
+            
+            SetUserData := FALSE;
+
+            
+            IF (Length) > Config.UserDataSize THEN
+                Messenger.Activate(UINT#1402, eAxoMessageCategory#Error);
+                Status.Error.Id := UINT#1402;
+                RETURN;
+            END_IF;
+
+            IF (Length) > _maxUserDataIndex THEN
+                Messenger.Activate(UINT#1403, eAxoMessageCategory#Error);
+                Status.Error.Id := UINT#1403;
+                RETURN;
+            END_IF;
+
+            FOR	_index := UINT#0 TO Length BY UINT#1 DO	
+                UserData.Data[( _index)] := Data.Data[_index];
+            END_FOR;
+            
+            FOR	_index := Length TO _maxUserDataIndex BY UINT#1 DO	
+                UserData.Data[_index] := BYTE#0;
+            END_FOR;
+            UserData.ToggleDataChangedFlag();
+
+            SetUserData := TRUE;
         END_METHOD
 
         ///<summary>
@@ -1729,68 +1858,159 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             SendUserData := SendUserDataTask.Invoke(THIS);
         END_METHOD
 
-        METHOD PRIVATE CallTimers
-            VAR_INPUT
-                signal : BOOL;
-            END_VAR
-            
-            _infoTimer.OnDelay(THIS, signal , Config.InfoTime);
-            _errorTimer.OnDelay(THIS, signal , Config.ErrorTime );
+        ///<summary>
+		/// Sends the already prepared user data from PLC to device. 
+        ///</summary>   
+        METHOD PUBLIC SendUserData : IAxoTaskState
+            _userDataLength :=  Config.UserDataSize;
+            SendUserData := SendUserDataTask.Invoke(THIS);
         END_METHOD
 
-        METHOD INTERNAL AppendSuffix : STRING
+        ///<summary>
+		/// Writes a single byte into a specified position within an internal user data buffer. 
+        ///</summary>   
+        METHOD PUBLIC SetUserDataAsByte : BOOL
             VAR_INPUT
-                jobName : STRING;
+                inValue     : BYTE;
+                inPosition  : UINT;	
             END_VAR
-            VAR 
-                position : INT;
-            END_VAR
-            position := LengthOf(jobName) - 4;
-            IF EndOf(jobName, 4) <> '.job' THEN
-                AppendSuffix := Concat(jobName,'.job');
-            ELSE
-                AppendSuffix := jobName;
+
+            SetUserDataAsByte := FALSE;
+
+            IF (inPosition + UINT#1) > Config.UserDataSize THEN
+                Messenger.Activate(UINT#1404, eAxoMessageCategory#Error);
+                Status.Error.Id := UINT#1404;
+                RETURN;
             END_IF;
+
+            IF (inPosition + UINT#1) > _maxUserDataIndex THEN
+                Messenger.Activate(UINT#1405, eAxoMessageCategory#Error);
+                Status.Error.Id := UINT#1405;
+                RETURN;
+            END_IF;
+
+            _userData.Data[inPosition] := inValue;
+            
+            SetUserDataAsByte := TRUE;            
         END_METHOD
 
-        METHOD PRIVATE SetUserData :   BOOL
-            VAR_IN_OUT
-                Data      :   AxoInsight_UserData;
-            END_VAR
+        ///<summary>
+        /// Writes a 32-bit signed integer into the internal user data buffer starting at the specified byte position.
+        ///</summary>   
+        METHOD PUBLIC SetUserDataAsDint : BOOL
             VAR_INPUT
-                Length    :   UINT;	
+                inValue     : DINT;
+                inPosition  : UINT;	
+            END_VAR
+
+            SetUserDataAsDint := FALSE;
+
+            IF (inPosition + UINT#4) > Config.UserDataSize THEN
+                Messenger.Activate(UINT#1406, eAxoMessageCategory#Error);
+                Status.Error.Id := UINT#1406;
+                RETURN;
+            END_IF;
+
+            IF (inPosition + UINT#4) > _maxUserDataIndex THEN
+                Messenger.Activate(UINT#1407, eAxoMessageCategory#Error);
+                Status.Error.Id := UINT#1407;
+                RETURN;
+            END_IF;
+
+            _userData.Data[inPosition           ] := inValue.%B0;
+            _userData.Data[inPosition + UINT#1  ] := inValue.%B1;
+            _userData.Data[inPosition + UINT#2  ] := inValue.%B2;
+            _userData.Data[inPosition + UINT#3  ] := inValue.%B3;
+            
+            SetUserDataAsDint := TRUE;            
+        END_METHOD
+
+        ///<summary>
+        /// Writes a 32-bit IEEE 754 floating-point number (REAL) into the internal user data buffer 
+        /// starting at the specified byte position.
+        ///</summary>   
+        METHOD PUBLIC SetUserDataAsReal : BOOL
+            VAR_INPUT
+                inValue     : REAL;
+                inPosition  : UINT;	
             END_VAR
             VAR
-                _index : UINT;
-                _maxIndex : UINT; 
+                _dword : DWORD;
             END_VAR
-            
-            SetUserData := FALSE;
 
-            _maxIndex := UINT#253;
+            SetUserDataAsReal := FALSE;
 
-            IF (Length) >= TO_UINT(Config.UserDataSize) THEN
-                Messenger.Activate(UINT#716, eAxoMessageCategory#Error);
-                Status.Error.Id := UINT#716;
+            IF (inPosition + UINT#4) > Config.UserDataSize THEN
+                Messenger.Activate(UINT#1408, eAxoMessageCategory#Error);
+                Status.Error.Id := UINT#1408;
                 RETURN;
             END_IF;
 
-            IF (Length) > _maxIndex THEN
-                Messenger.Activate(UINT#717, eAxoMessageCategory#Error);
-                Status.Error.Id := UINT#717;
+            IF (inPosition + UINT#4) > _maxUserDataIndex THEN
+                Messenger.Activate(UINT#1409, eAxoMessageCategory#Error);
+                Status.Error.Id := UINT#1409;
                 RETURN;
             END_IF;
 
-            FOR	_index := UINT#0 TO Length BY UINT#1 DO	
-                UserData.Data[( _index)] := Data.Data[_index];
+            _dword := TO_DWORD(inValue);
+            _userData.Data[inPosition           ] := _dword.%B0;
+            _userData.Data[inPosition + UINT#1  ] := _dword.%B1;
+            _userData.Data[inPosition + UINT#2  ] := _dword.%B2;
+            _userData.Data[inPosition + UINT#3  ] := _dword.%B3;
+            
+            SetUserDataAsReal := TRUE;            
+        END_METHOD
+
+        ///<summary>
+        /// Writes a STRING value into the internal user data buffer starting at the specified byte position. 
+        ///</summary>   
+        METHOD PUBLIC SetUserDataAsString : BOOL
+            VAR_INPUT
+                inValue     : STRING;
+                inPosition  : UINT;	
+            END_VAR
+            VAR
+                _size   :   UINT;
+                _index  :   UINT;
+            END_VAR
+
+            SetUserDataAsString := FALSE;
+
+            _size := TO_UINT(LengthOf(inValue));
+            IF (inPosition + _size) > Config.UserDataSize THEN
+                Messenger.Activate(UINT#1410, eAxoMessageCategory#Error);
+                Status.Error.Id := UINT#1410;
+                RETURN;
+            END_IF;
+
+            IF (inPosition + _size) > _maxUserDataIndex THEN
+                Messenger.Activate(UINT#1411, eAxoMessageCategory#Error);
+                Status.Error.Id := UINT#1411;
+                RETURN;
+            END_IF;
+
+            Serialize(UINT#0, inValue, _data_255);
+            FOR _index := UINT#0 TO (TO_UINT(LengthOf(inValue)) - UINT#1) BY UINT#1 DO
+                _userData.Data[inPosition + _index] := _data_255[_index + UINT#1];
             END_FOR;
             
-            FOR	_index := Length TO _maxIndex BY UINT#1 DO	
-                UserData.Data[_index] := BYTE#0;
-            END_FOR;
-            UserData.ToggleDataChangedFlag();
+            SetUserDataAsString := TRUE;            
+        END_METHOD
 
-            SetUserData := TRUE;
+        ///<summary>
+        /// Clears all user data in the internal buffer and sends it to the device.
+        ///</summary>
+        METHOD PUBLIC ClearUserData : IAxoTaskState
+            VAR
+                _index : UINT;
+            END_VAR
+            FOR _index := UINT#0 TO _maxUserDataIndex BY UINT#1 DO
+                _userData.Data[_index] := BYTE#0;
+            END_FOR;
+            UserDataToSent  :=  _userData;
+            UserDataLength  :=  UINT#0; 
+            _userDataLength :=  Config.UserDataSize;
+            ClearUserData   :=  SendUserDataTask.Invoke(THIS);
         END_METHOD
 
         ///<summary>
@@ -1809,7 +2029,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         ///</summary>   
         METHOD PUBLIC OVERRIDE Restore
             VAR
-                _index : INT;
+                _index : UINT;
             END_VAR
             _progress := 0;
             Status.Action.Id := UINT#0;
@@ -1827,17 +2047,18 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             SendUserDataTask.Restore();
             HardwareDiagnosticsTask.Restore();
 
-            FOR _index := 0 TO 253 DO
+            FOR _index := 0 TO _maxUserDataIndex DO
+                _userData.Data[_index]      := BYTE#0;
                 UserDataToSent.Data[_index] := BYTE#0;
             END_FOR;
-            UserDataLength := UINT#0;      
-            RequiredJobName := '';
-            RequiredJobNumber := UINT#0;
+            UserDataLength      := UINT#0;      
+            RequiredJobName     := '';
+            RequiredJobNumber   := UINT#0;
              
             Results.InspectionID                            :=  UINT#0;
             Results.ResultCode                              :=  UINT#0;
             
-            FOR _index := 0 TO 249 DO
+            FOR _index := 0 TO UINT#249 DO
                 InspectionResults.Data[_index] := BYTE#0;
             END_FOR;
             InspectionResults.ToggleDataChangedFlag();
@@ -1846,7 +2067,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             AcquisitionControl.Trigger					    :=  FALSE;
             AcquisitionControl.ClearExposureComplete        :=  AcquisitionStatus.ExposureComplete;
             AcquisitionControl.SetOffline                   :=  FALSE;
-
 
             InspectionControl.EnableResultsBuffering        :=  FALSE;
             InspectionControl.AcknowledgeInspectionResults  :=  FALSE;
@@ -1865,7 +2085,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             SoftEventControl.TriggerSoftEvent.Data[6]       :=  FALSE;
             SoftEventControl.TriggerSoftEvent.Data[7]       :=  FALSE;
 
-            FOR _index := 0 TO 253 DO
+            FOR _index := 0 TO _maxUserDataIndex DO
                 UserData.Data[_index] := BYTE#0;
             END_FOR;
             UserData.ToggleDataChangedFlag();
