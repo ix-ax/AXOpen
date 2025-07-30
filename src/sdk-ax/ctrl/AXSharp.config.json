@@ -1,1 +1,1 @@
-{"OutputProjectFolder":"ix","UseBase":false,"NoDependencyUpdate":false,"IgnoreS7Pragmas":false,"ProjectFile":"inxton_ax_sdk.csproj"}
+{"OutputProjectFolder":"ix","UseBase":false,"NoDependencyUpdate":false,"IgnoreS7Pragmas":false,"SkipDependencyCompilation":false,"TargetPlatfromMoniker":"ax","ProjectFile":"inxton_ax_sdk.csproj"}

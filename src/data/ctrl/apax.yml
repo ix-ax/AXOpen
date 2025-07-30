@@ -2,9 +2,9 @@ name: "@inxton/axopen.data"
 version: '0.0.0-dev.0'
 type: lib
 targets:
-  - llvm
+  - "1500"
 files:
-  - src
+  - bin
   - snippets
   - axsharp.companion.json
 registries:

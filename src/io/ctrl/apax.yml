@@ -2,9 +2,9 @@ name: "@inxton/axopen.io"
 version: '0.0.0-dev.0'
 type: lib
 targets:
-  - llvm
+  - "1500"
 files:
-  - src
+  - bin
   - axsharp.companion.json
 registries:
   "@inxton": "https://npm.pkg.github.com/"
