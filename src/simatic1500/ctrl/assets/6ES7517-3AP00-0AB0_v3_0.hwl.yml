@@ -17,7 +17,9 @@ Templates:
     - Name: ProfinetDeviceName_X3
       Value: plcname_profinet_interface_x3
     - Name: AdminName
-      Value: adm
+      Value: admin
+    - Name: CycleCommunicationLoad
+      Value: 20
     Content:
       Name: "${PLCName}"
       TypeIdentifier:
@@ -92,7 +94,7 @@ Templates:
         AdditionalInformation: ""
         # ClockMemoryByteAddress: 0
         ClockMemoryByte: False
-        CycleCommunicationLoad: 20
+        CycleCommunicationLoad: ${CycleCommunicationLoad}
         CycleEnableMinimumCycleTime: True
         CycleMaximumCycleTime: 150
         CycleMinimumCycleTime: 1

@@ -26,14 +26,14 @@ namespace AXOpen.Core
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            UpdateData(null, null);
-            Component.DataChanged.Subscribe(UpdateData);
+            //UpdateData(null, null);
+            //Component.DataChanged.Subscribe(UpdateData);
         }
 
         private async void UpdateData(ITwinPrimitive sender, ValueChangedEventArgs args)
         {
             try
-            {
+            {               
                 if (!initialized)
                 {
                     if (Component != null && Component.GetType() != null && Component.GetType().GetProperty("Data") != null)

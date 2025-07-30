@@ -162,9 +162,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _P_0_0450               :   REAL;       // 2bytes, 2decimal places
 
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
-            _infoTime               :   LTIME := LT#2S;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
-            _errorTime              :   LTIME := LT#5S;
             _lastMessageCodeFromMC  :   ULINT;
         END_VAR
 
@@ -184,8 +182,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //                                      |     -10   |     -9    |    -8    |    -7   |   -6   |   -5  |  -4  | -3  | -2 |-1|  0 | 1  |  2  |  3   |   4   |   5    |   6     |    7     |     8     |    9      |     10    |
                 _exp    :   ARRAY [-10..10] OF LREAL := [0.000000001,0.000000001,0.00000001,0.0000001,0.000001,0.00001,0.0001,0.001,0.01,0.1,1.0,10.0,100.0,1000.0,10000.0,100000.0,1000000.0,10000000.0,100000000.0,100000000.0,100000000.0];
             END_VAR
-            _infoTime   :=  DriveConfig.InfoTime;
-            _errorTime  :=  DriveConfig.ErrorTime;
             SUPER.Run(parent);
             Messenger.Serve(THIS);
 
@@ -5992,8 +5988,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 signal : BOOL;
             END_VAR
             
-            _infoTimer.OnDelay(THIS, signal , _infoTime);
-            _errorTimer.OnDelay(THIS, signal , _errorTime );
+            _infoTimer.OnDelay(THIS, signal AND DriveConfig.InfoTime > LT#0S ,DriveConfig.InfoTime);
+            _errorTimer.OnDelay(THIS, signal AND DriveConfig.ErrorTime > LT#0S , DriveConfig.ErrorTime);
         END_METHOD
         METHOD PRIVATE CallTimers
             VAR_INPUT
@@ -6001,8 +5997,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 signal_2 : BOOL;
             END_VAR
             
-            _infoTimer.OnDelay(THIS, signal_1 , _infoTime);
-            _errorTimer.OnDelay(THIS, signal_2 , _errorTime );
+            _infoTimer.OnDelay(THIS, signal_1 AND DriveConfig.InfoTime > LT#0S ,DriveConfig.InfoTime);
+            _errorTimer.OnDelay(THIS, signal_2 AND DriveConfig.ErrorTime > LT#0S , DriveConfig.ErrorTime);
         END_METHOD
     END_CLASS
 END_NAMESPACE
