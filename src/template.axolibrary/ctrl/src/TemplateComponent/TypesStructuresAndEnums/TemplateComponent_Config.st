@@ -7,6 +7,8 @@ NAMESPACE Template.Axolibrary
             InfoTime : LTIME := LT#5S;
             {#ix-set:AttributeName = "<#Error time#>"}
             ErrorTime : LTIME := LT#10S;
+            {#ix-set:AttributeName = "<#Hardware IDs#>"}
+            HWIDs : TemplateComponent_HWIDs;
         END_VAR 
     END_CLASS    
 END_NAMESPACE
