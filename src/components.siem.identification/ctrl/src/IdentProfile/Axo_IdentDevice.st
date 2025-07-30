@@ -10,9 +10,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
     CLASS PUBLIC Axo_IdentDevice EXTENDS AXOpen.Core.AxoComponent
         VAR PRIVATE
             _infoTimer                  :   AXOpen.Timers.OnDelayTimer;
-            _infoTime                   :   LTIME := LT#2S;
             _errorTimer                 :   AXOpen.Timers.OnDelayTimer;
-            _errorTime                  :   LTIME := LT#5S;
             _blink                      :   AXOpen.Timers.AxoBlinker;
             _context                    :   IAxoContext;
             _someTaskIsActive           :   BOOL;
@@ -223,9 +221,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
             Status.IdentProfile_Status.Id := TO_ULINT(_identProfile_Status);
             //*******************************************
             _context := THIS.GetContext();
-
-            _infoTime := Config.InfoTime;
-            _errorTime := Config.ErrorTime;
 
             //*************INITIALIZATION*************
             RestoreTask.Run(THIS);
@@ -910,8 +905,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 signal : BOOL;
             END_VAR
             
-            _infoTimer.OnDelay(THIS, signal , _infoTime);
-            _errorTimer.OnDelay(THIS, signal , _errorTime );
+            _infoTimer.OnDelay(THIS, signal AND Config.InfoTime > LT#0S ,Config.InfoTime);
+            _errorTimer.OnDelay(THIS, signal AND Config.ErrorTime > LT#0S , Config.ErrorTime);
         END_METHOD
     END_CLASS
 END_NAMESPACE

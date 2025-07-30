@@ -5383,8 +5383,9 @@ NAMESPACE Template.Axolibrary
                 signal : BOOL;
             END_VAR
             
-            _infoTimer.OnDelay(THIS, signal ,Config.InfoTime);
-            _errorTimer.OnDelay(THIS, signal , Config.ErrorTime);
+            _infoTimer.OnDelay(THIS, signal AND Config.InfoTime > T#0S ,Config.InfoTime);
+            _errorTimer.OnDelay(THIS, signal AND Config.ErrorTime > T#0S , Config.ErrorTime);
+
         END_METHOD
 
     END_CLASS
