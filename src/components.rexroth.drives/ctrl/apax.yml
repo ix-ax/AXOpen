@@ -2,9 +2,9 @@ name: "@inxton/axopen.components.rexroth.drives"
 version: '0.0.0-dev.0'
 type: lib
 targets:
-  - "1500"
+  - llvm
 files:
-  - bin
+  - src
   - axsharp.companion.json
 registries:
   "@inxton": "https://npm.pkg.github.com/"

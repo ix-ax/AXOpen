@@ -2,9 +2,9 @@ name: "@inxton/axopen.probers"
 version: '0.0.0-dev.0'
 type: lib
 targets:
-  - "1500"
+  - llvm
 files:
-  - bin
+  - src
   - axsharp.companion.json
 # variables:
   # APAX_BUILD_ARGS: [ -d ]
