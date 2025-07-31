@@ -56,11 +56,19 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             {#ix-set:AttributeName = "<#Result#>"}
             Result : BYTE;
             // {#ix-set:AttributeName = "<#ID code#>"}
-            IDcode : ARRAY[0..63] OF BYTE;
+            IDcode : ARRAY[0..15] OF BYTE;
+            {#ix-set:AttributeName = "<#Date#>"}
+            Date_ : UDINT;			
             {#ix-set:AttributeName = "<#Cycle counter#>"}
             CnoSE : UDINT;			
             {#ix-set:AttributeName = "<#Program number#>"}
             ProgramNo : BYTE;			
+            {#ix-set:AttributeName = "<#Step#>"}
+            Step : UINT;			
+            {#ix-set:AttributeName = "<#Result_0#>"}
+            Result_0 : BYTE;			
+            // {#ix-set:AttributeName = "<#QualityCode#>"}
+            QualityCode : ARRAY [0..4] OF BYTE;			
             {#ix-set:AttributeName = "<#Torque min#>"}
             TorqueMin : REAL;			
             {#ix-set:AttributeName = "<#Torque#>"}
@@ -73,10 +81,16 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             Angle : REAL;			
             {#ix-set:AttributeName = "<#Angle max#>"}
             AngleMax : REAL;			
-            {#ix-set:AttributeName = "<#Error code#>"}
-            ErrorCode : WORD;
-            {#ix-set:AttributeName = "<#Error class#>"}
-            ErrorClass : WORD;
+            {#ix-set:AttributeName = "<#Total angle min#>"}
+            TotalAngleMin : REAL;			
+            {#ix-set:AttributeName = "<#Total angle#>"}
+            TotalAngle : REAL;			
+            {#ix-set:AttributeName = "<#Total angle max#>"}
+            TotalAngleMax : REAL;			
+            // {#ix-set:AttributeName = "<#Error code#>"}
+            // ErrorCode : WORD;
+            // {#ix-set:AttributeName = "<#Error class#>"}
+            // ErrorClass : WORD;
         END_VAR 
     END_CLASS    
 END_NAMESPACE
