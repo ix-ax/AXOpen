@@ -12,8 +12,8 @@ variables:
   DEFAULT_NAMESPACE: "AXOpen.Components.Rexroth.Tightening"
   AXTARGET: 192.168.100.120
   AXTARGETPLATFORMINPUT: .\bin\1500\
-  AX_USERNAME: "adm"
-  AX_TARGET_PWD: "123ABCDabcd$#!"
+  AX_USERNAME: "admin"
+  AX_TARGET_PWD: "Qwerty123456+"
   USE_PLC_SIM_ADVANCED: "true"
   # <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.
 registries:
@@ -54,7 +54,6 @@ scripts:
     dotnet tool restore
     dotnet ixc --skip-deps 
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ixc' Finished in :" $(expr $(date +%s) - $START) "s"
-  postbuild: apax run ixc # run after build
   dcpli: | # list all interfaces, used to discover MAC address of the adapter connected to PLC                                                              (apax dcp-utility list-interfaces )
     START=$(date +%s)
     ..\\..\\scripts\\dcp_utility_list_interfaces.sh                                                                                                         
@@ -149,6 +148,7 @@ scripts:
     START=$(date +%s)
     apax install
     apax build
+    dotnet ixc
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ib' Finished in :" $(expr $(date +%s) - $START) "s"
   icb: |
     START=$(date +%s)
@@ -169,6 +169,7 @@ scripts:
     START=$(date +%s)
     apax install
     apax build
+    dotnet ixc
     apax test
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
