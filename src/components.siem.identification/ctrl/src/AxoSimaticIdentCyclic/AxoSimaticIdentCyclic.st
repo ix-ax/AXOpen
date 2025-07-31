@@ -114,7 +114,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             _progress       :   INT;
             _infoTimer      :   AXOpen.Timers.OnDelayTimer;
             _errorTimer     :   AXOpen.Timers.OnDelayTimer;
-            _data_in        :   ARRAY[0..254] OF BYTE;
+            _data_in        :   ARRAY[0..131] OF BYTE;
             _data_out_1     :   ARRAY[0..0] OF BYTE;
             _data_out_2     :   ARRAY[0..1] OF BYTE;
             _data_out_4     :   ARRAY[0..3] OF BYTE;
@@ -144,6 +144,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 parent      :   IAxoObject;
                 hwID        :   UINT;
                 Port        :   eAxoSimaticIdentCyclic_Port := eAxoSimaticIdentCyclic_Port#X21;
+            END_VAR
+            VAR
+                _index      :   UINT;
             END_VAR
 
             SUPER.Run(parent);
@@ -351,12 +354,21 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 RETURN;
             END_IF;
 
-            // AxoSimaticIdentCyclicInputStructure_hwID_in_2.Item1  :=      _data_in[0].%X0;
-            // AxoSimaticIdentCyclicInputStructure_hwID_in_2.Item2  :=      _data_in[0].%X1;
-            // AxoSimaticIdentCyclicInputStructure_hwID_in_2.Item3  :=      _data_in[0].%X2;
-            // AxoSimaticIdentCyclicInputStructure_hwID_in_2.Item4  :=      _data_in[0].%X3; 
-            // AxoSimaticIdentCyclicInputStructure_hwID_in_2.Item5  :=      _data_in[0].%X4; 
+            Inputs.Status.NDR                       :=      _data_in[0].%X0;
+            Inputs.Status.RESETCONF 			    :=      _data_in[0].%X1;
+            Inputs.Status.STOPCONF 			        :=      _data_in[0].%X2;
+            Inputs.Status.ANTSTATUS 			    :=      _data_in[0].%X3;
+            Inputs.Status.BLOCK 			        :=      _data_in[0].%X4;
 
+            Inputs.Status.PRESENCE 			        :=      _data_in[0].%X6;
+            Inputs.Status.ERROR_STARTUP 	        :=      _data_in[0].%X7;
+
+            Inputs.Status.ACTIVECMD 			    :=      _data_in[2];
+            Inputs.Status.BLOCKLENGTH 		        :=      _data_in[3];
+
+            FOR _index := UINT#4 TO Config.IOsize DO
+                Inputs.Data[_index - UINT#4] := _data_in[_index];
+            END_FOR;  
           
             //*************INITIALIZATION*************
             RestoreTask.Run(THIS);
@@ -385,7 +397,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 THIS.Restore();
             END_IF;
             //****************************************
-            
     
             //*************TemplateTask_10steps_1**************
             TemplateTask_10steps_1.SetIsDisabled(FALSE);
