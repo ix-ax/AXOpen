@@ -67,7 +67,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             Step : UINT;			
             {#ix-set:AttributeName = "<#Result_0#>"}
             Result_0 : BYTE;			
-            {#ix-set:AttributeName = "<#QualityCode#>"}
+            // {#ix-set:AttributeName = "<#QualityCode#>"}
             QualityCode : ARRAY [0..4] OF BYTE;			
             {#ix-set:AttributeName = "<#Torque min#>"}
             TorqueMin : REAL;			

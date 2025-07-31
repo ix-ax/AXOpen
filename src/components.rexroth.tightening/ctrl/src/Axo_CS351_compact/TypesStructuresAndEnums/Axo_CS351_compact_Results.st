@@ -19,6 +19,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             {#ix-set:AttributeName = "<#Result_0#>"}
             Result_0 : BYTE;
             {#ix-set:AttributeName = "<#QualityCode#>"}
+            {#ix-set:DisplayFormat = "string"}
             QualityCode : Axo_CS351_compact_QualityCode;
             {#ix-set:AttributeName = "<#Torque min#>"}
             TorqueMin : REAL;			
