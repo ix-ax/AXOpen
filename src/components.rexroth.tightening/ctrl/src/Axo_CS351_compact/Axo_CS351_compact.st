@@ -2421,24 +2421,25 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         Status.Error.Id :=      UINT#550;
                     END_IF;
     
-                    Results.Result      := Inputs.Result;
-                    Results.IDcode.Data := Inputs.IDcode;
-                    Results.Date_       := Inputs.Date_;		
-                    Results.CnoSE       := Inputs.CnoSE;		
-                    Results.ProgramNo   := Inputs.ProgramNo;		
-                    Results.Step        := Inputs.Step;		
-                    Results.Result_0    := Inputs.Result_0;		
-                    Results.TorqueMin   := Inputs.TorqueMin;			
-                    Results.QualityCode := Inputs.QualityCode;			
-                    Results.Torque      := Inputs.Torque;		
-                    Results.TorqueMax   := Inputs.TorqueMax;		
-                    Results.AngleMin    := Inputs.AngleMin;		
-                    Results.Angle       := Inputs.Angle;		
-                    Results.AngleMax    := Inputs.AngleMax;			
-                    // Results.ErrorCode := Inputs.ErrorCode;
-                    // Results.ErrorClass := Inputs.ErrorClass;
+                    Results.Result              := Inputs.Result;
+                    Results.IDcode.Data         := Inputs.IDcode;
+                    Results.Date_               := Inputs.Date_;		
+                    Results.CnoSE               := Inputs.CnoSE;		
+                    Results.ProgramNo           := Inputs.ProgramNo;		
+                    Results.Step                := Inputs.Step;		
+                    Results.Result_0            := Inputs.Result_0;		
+                    Results.TorqueMin           := Inputs.TorqueMin;			
+                    Results.QualityCode.Data    := Inputs.QualityCode;			
+                    Results.Torque              := Inputs.Torque;		
+                    Results.TorqueMax           := Inputs.TorqueMax;		
+                    Results.AngleMin            := Inputs.AngleMin;		
+                    Results.Angle               := Inputs.Angle;		
+                    Results.AngleMax            := Inputs.AngleMax;			
+                    // Results.ErrorCode           := Inputs.ErrorCode;
+                    // Results.ErrorClass          := Inputs.ErrorClass;
 
                     Results.IDcode.ToggleDataChangedFlag();
+                    Results.QualityCode.ToggleDataChangedFlag();
 
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
@@ -3200,24 +3201,25 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         Status.Error.Id :=      UINT#619;
                     END_IF;
 
-                    Results.Result      := Inputs.Result;
-                    Results.IDcode.Data := Inputs.IDcode;
-                    Results.Date_       := Inputs.Date_;		
-                    Results.CnoSE       := Inputs.CnoSE;		
-                    Results.ProgramNo   := Inputs.ProgramNo;		
-                    Results.Step        := Inputs.Step;		
-                    Results.Result_0    := Inputs.Result_0;		
-                    Results.TorqueMin   := Inputs.TorqueMin;			
-                    Results.QualityCode := Inputs.QualityCode;			
-                    Results.Torque      := Inputs.Torque;		
-                    Results.TorqueMax   := Inputs.TorqueMax;		
-                    Results.AngleMin    := Inputs.AngleMin;		
-                    Results.Angle       := Inputs.Angle;		
-                    Results.AngleMax    := Inputs.AngleMax;			
-                    // Results.ErrorCode := Inputs.ErrorCode;
-                    // Results.ErrorClass := Inputs.ErrorClass;
+                    Results.Result              := Inputs.Result;
+                    Results.IDcode.Data         := Inputs.IDcode;
+                    Results.Date_               := Inputs.Date_;		
+                    Results.CnoSE               := Inputs.CnoSE;		
+                    Results.ProgramNo           := Inputs.ProgramNo;		
+                    Results.Step                := Inputs.Step;		
+                    Results.Result_0            := Inputs.Result_0;		
+                    Results.TorqueMin           := Inputs.TorqueMin;			
+                    Results.QualityCode.Data    := Inputs.QualityCode;			
+                    Results.Torque              := Inputs.Torque;		
+                    Results.TorqueMax           := Inputs.TorqueMax;		
+                    Results.AngleMin            := Inputs.AngleMin;		
+                    Results.Angle               := Inputs.Angle;		
+                    Results.AngleMax            := Inputs.AngleMax;			
+                    // Results.ErrorCode           := Inputs.ErrorCode;
+                    // Results.ErrorClass          := Inputs.ErrorClass;
 
                     Results.IDcode.ToggleDataChangedFlag();
+                    Results.QualityCode.ToggleDataChangedFlag();
 
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
