@@ -37,9 +37,7 @@
 
 	<ItemGroup>
 		<Folder Include=".g\Onliners\" />
-		<Folder Include=".g\Onliners\Axo_CS351_compact\TypesStructuresAndEnums\" />
 		<Folder Include=".g\POCO\" />
-		<Folder Include=".g\POCO\Axo_CS351_compact\TypesStructuresAndEnums\" />
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
 	</ItemGroup>
