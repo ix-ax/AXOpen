@@ -13,6 +13,10 @@ NAMESPACE AXOpen.Components.Siem.Identification
             IOsize  : eAxoSimaticIdentCyclic_IOsize := eAxoSimaticIdentCyclic_IOsize#INVALID;
             {#ix-set:AttributeName = "<#Hardware IDs#>"}
             HWIDs : AxoSimaticIdentCyclic_HWIDs;
+            {#ix-set:AttributeName = "<#Data buffer low index#>"}
+            DataBufferLowIndex  :  INT;
+            {#ix-set:AttributeName = "<#Data buffer high index#>"}
+            DataBufferHighIndex :  INT;
         END_VAR 
     END_CLASS    
 END_NAMESPACE

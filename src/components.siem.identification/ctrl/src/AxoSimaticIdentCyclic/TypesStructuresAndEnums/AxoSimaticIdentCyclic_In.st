@@ -6,8 +6,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
             {#ix-set:AttributeName = "<#Status#>"}
             {#ix-attr:[ReadOnly()]}
             Status  :   AxoSimaticIdentCyclic_Status;
-            {#ix-attr:[ReadOnly()]}
-            // {#ix-set:AttributeName = "<#Data#>"}
             Data    :   ARRAY[0..123] OF BYTE;
         END_VAR 
     END_CLASS    

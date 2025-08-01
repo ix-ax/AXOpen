@@ -8,6 +8,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
     {S7.extern=ReadWrite}
     CLASS AxoSimaticIdentCyclic EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC // HEADER
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentHeader()]}
             {#ix-attr:[ReadOnly()]}
             Progress       :   INT;
         END_VAR
@@ -22,28 +24,28 @@ NAMESPACE AXOpen.Components.Siem.Identification
         VAR PUBLIC // TEMPLATE TASKS
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_1#>"}
-            TemplateTask_10steps_1 : AXOpen.Core.AxoTask;
+            {#ix-set:AttributeName = "<#ReadUID_Task#>"}
+            ReadUID_Task : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_2#>"}
-            TemplateTask_10steps_2 : AXOpen.Core.AxoTask;
+            {#ix-set:AttributeName = "<#ReadTagFieldTask#>"}
+            ReadTagFieldTask : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_3#>"}
-            TemplateTask_10steps_3 : AXOpen.Core.AxoTask;
+            {#ix-set:AttributeName = "<#WriteTagFieldTask#>"}
+            WriteTagFieldTask : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_4#>"}
-            TemplateTask_10steps_4 : AXOpen.Core.AxoTask;
+            {#ix-set:AttributeName = "<#ReadTask#>"}
+            ReadTask : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_5#>"}
-            TemplateTask_10steps_5 : AXOpen.Core.AxoTask;
+            {#ix-set:AttributeName = "<#WriteTask#>"}
+            WriteTask : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_6#>"}
-            TemplateTask_10steps_6 : AXOpen.Core.AxoTask;
+            {#ix-set:AttributeName = "<#ResetTask#>"}
+            ResetTask : AXOpen.Core.AxoTask;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Template tasks")]}
@@ -99,7 +101,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
-            {#ix-attr:[ReadOnly()]}
+            // {#ix-attr:[ReadOnly()]}  //TODO uncomment this after debugging is finished
             Outputs              :   AxoSimaticIdentCyclic_Out;
         END_VAR    
 
@@ -114,12 +116,12 @@ NAMESPACE AXOpen.Components.Siem.Identification
             _progress       :   INT;
             _infoTimer      :   AXOpen.Timers.OnDelayTimer;
             _errorTimer     :   AXOpen.Timers.OnDelayTimer;
-            _data_in        :   ARRAY[0..131] OF BYTE;
+            _data_in        :   ARRAY[0..127] OF BYTE;
             _data_out_1     :   ARRAY[0..0] OF BYTE;
             _data_out_2     :   ARRAY[0..1] OF BYTE;
-            _data_out_4     :   ARRAY[0..3] OF BYTE;
-            _data_out_8     :   ARRAY[0..7] OF BYTE;
-            _data_out_255   :   ARRAY[0..254] OF BYTE;
+            _data_out_32    :   ARRAY[0..31] OF BYTE;
+            _data_out_116   :   ARRAY[0..115] OF BYTE;
+            _data_out_128   :   ARRAY[0..127] OF BYTE;
             _word           :   WORD;
             _dword          :   DWORD;
 
@@ -132,6 +134,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
             _inputsCount            :   UINT;
             _outputsAddress         :   UDINT;  
             _outputsCount           :   UINT; 
+            _NDR_PV                 :   BOOL;
+            _dataBufferOffset       :   INT;
         END_VAR
 
 
@@ -142,11 +146,14 @@ NAMESPACE AXOpen.Components.Siem.Identification
         METHOD PUBLIC Run
             VAR_INPUT
                 parent      :   IAxoObject;
-                hwID        :   UINT;
-                Port        :   eAxoSimaticIdentCyclic_Port := eAxoSimaticIdentCyclic_Port#X21;
+                hwID        :   WORD;   //	Hardware ID address of the communication module
+                Port        :   eAxoSimaticIdentCyclic_Port := eAxoSimaticIdentCyclic_Port#NONE;
+            END_VAR
+            VAR_IN_OUT
+                DataBuffer  :   ARRAY[*] OF BYTE;
             END_VAR
             VAR
-                _index      :   UINT;
+                _index      :   INT;
             END_VAR
 
             SUPER.Run(parent);
@@ -161,13 +168,13 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     Status.Error.Id := UINT#700;
                     RETURN;
                 END_IF;
-                IF hwID = UINT#0 THEN
+                IF hwID = WORD#0 THEN
                     Messenger.Activate(UINT#701, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#701;
                     RETURN;
                 END_IF;
     
-                Config.HWIDs.HW_Head := hwID;                                                      
+                Config.HWIDs.HW_Head := TO_UINT(hwID);                                                      
                 _retval := ReadSlotFromHardwareID(hardwareID := Config.HWIDs.HW_Head, geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(UINT#702,eAxoMessageCategory#Error);
@@ -253,6 +260,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_Reader) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                     IF _inputsCount = UINT#32 AND _outputsCount = UINT#32 THEN
                         Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_32;
+                    ELSIF _inputsCount = UINT#116 AND _outputsCount = UINT#116 THEN
+                        Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_116;
                     ELSIF _inputsCount = UINT#128 AND _outputsCount = UINT#128 THEN
                         Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_128;
                     ELSE
@@ -299,6 +308,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_Reader) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                     IF _inputsCount = UINT#32 AND _outputsCount = UINT#32 THEN
                         Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_32;
+                    ELSIF _inputsCount = UINT#116 AND _outputsCount = UINT#116 THEN
+                        Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_116;
                     ELSIF _inputsCount = UINT#128 AND _outputsCount = UINT#128 THEN
                         Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_128;
                     ELSE
@@ -307,8 +318,106 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id := UINT#736;
                         RETURN;
                     END_IF;
+                ELSIF Port = eAxoSimaticIdentCyclic_Port#X23 THEN
+                    //******************Slot 4*****************//
+                    _geoAddr.Slot   :=  UINT#4;                                                            
+                    _geoAddr.HardwareType := UINT#4; // (4-Module)
+                    _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => Config.HWIDs.HwID_Reader);        
+                    IF Config.HWIDs.HwID_Reader = UINT#0 THEN
+                        Messenger.Activate(UINT#740,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#740;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8091 THEN
+                        Messenger.Activate(UINT#741,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#741;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8094 THEN
+                        Messenger.Activate(UINT#742,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#742;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8095 THEN
+                        Messenger.Activate(UINT#743,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#743;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8096 THEN
+                        Messenger.Activate(UINT#744,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#744;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8097 THEN
+                        Messenger.Activate(UINT#745,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#745;
+                        RETURN;
+                    END_IF;
+                    ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_Reader) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                    IF _inputsCount = UINT#32 AND _outputsCount = UINT#32 THEN
+                        Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_32;
+                    ELSIF _inputsCount = UINT#116 AND _outputsCount = UINT#116 THEN
+                        Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_116;
+                    ELSIF _inputsCount = UINT#128 AND _outputsCount = UINT#128 THEN
+                        Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_128;
+                    ELSE
+                        Config.IOsize := eAxoSimaticIdentCyclic_IOsize#INVALID;
+                        Messenger.Activate(UINT#746,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#746;
+                        RETURN;
+                    END_IF;
+                ELSIF Port = eAxoSimaticIdentCyclic_Port#X24 THEN
+                    //******************Slot 5*****************//
+                    _geoAddr.Slot   :=  UINT#5;                                                            
+                    _geoAddr.HardwareType := UINT#4; // (4-Module)
+                    _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => Config.HWIDs.HwID_Reader);        
+                    IF Config.HWIDs.HwID_Reader = UINT#0 THEN
+                        Messenger.Activate(UINT#750,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#750;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8091 THEN
+                        Messenger.Activate(UINT#751,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#751;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8094 THEN
+                        Messenger.Activate(UINT#752,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#752;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8095 THEN
+                        Messenger.Activate(UINT#753,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#753;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8096 THEN
+                        Messenger.Activate(UINT#754,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#754;
+                        RETURN;
+                    END_IF;
+                    IF _retval = WORD#8097 THEN
+                        Messenger.Activate(UINT#755,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#755;
+                        RETURN;
+                    END_IF;
+                    ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_Reader) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                    IF _inputsCount = UINT#32 AND _outputsCount = UINT#32 THEN
+                        Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_32;
+                    ELSIF _inputsCount = UINT#116 AND _outputsCount = UINT#116 THEN
+                        Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_116;
+                    ELSIF _inputsCount = UINT#128 AND _outputsCount = UINT#128 THEN
+                        Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_128;
+                    ELSE
+                        Config.IOsize := eAxoSimaticIdentCyclic_IOsize#INVALID;
+                        Messenger.Activate(UINT#756,eAxoMessageCategory#Error);
+                        Status.Error.Id := UINT#756;
+                        RETURN;
+                    END_IF;
                 END_IF;
     
+                Config.Port := Port;
+
                 IF parent = NULL THEN
                     Messenger.Activate(UINT#1130,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1130;
@@ -324,11 +433,24 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     Status.Error.Id := UINT#1132;
                     RETURN;
                 END_IF;
-                IF Config.Port = eAxoSimaticIdentCyclic_Port#X21 AND Config.HWIDs.HwID_Reader  = UINT#0 THEN
+                IF Config.Port = eAxoSimaticIdentCyclic_Port#X22 AND Config.HWIDs.HwID_Reader  = UINT#0 THEN
                     Messenger.Activate(UINT#1133,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1133;
                     RETURN;
                 END_IF;
+                IF Config.Port = eAxoSimaticIdentCyclic_Port#X23 AND Config.HWIDs.HwID_Reader  = UINT#0 THEN
+                    Messenger.Activate(UINT#1134,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1134;
+                    RETURN;
+                END_IF;
+                IF Config.Port = eAxoSimaticIdentCyclic_Port#X24 AND Config.HWIDs.HwID_Reader  = UINT#0 THEN
+                    Messenger.Activate(UINT#1135,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#1135;
+                    RETURN;
+                END_IF;
+
+                Config.DataBufferLowIndex   := TO_INT(LOWER_BOUND(DataBuffer, 1));
+                Config.DataBufferHighIndex  := TO_INT(UPPER_BOUND(DataBuffer, 1));
 
                 _initHwCheckDone    := TRUE;
             END_IF;            
@@ -348,6 +470,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             // AxoSimaticIdentCyclicInputStructure_hwID_in_1.Item5  :=      _data_in[0].%X4; 
 
             _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwID_Reader) ,_data_in);
+
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1202;
@@ -366,18 +489,20 @@ NAMESPACE AXOpen.Components.Siem.Identification
             Inputs.Status.ACTIVECMD 			    :=      _data_in[2];
             Inputs.Status.BLOCKLENGTH 		        :=      _data_in[3];
 
-            FOR _index := UINT#4 TO Config.IOsize DO
-                Inputs.Data[_index - UINT#4] := _data_in[_index];
+            FOR _index := INT#4 TO (TO_INT(Config.IOsize) - INT#1) DO
+                Inputs.Data[_index - INT#4] := _data_in[_index];
             END_FOR;  
-          
+            FOR _index := TO_INT(Config.IOsize)  TO INT#127 DO
+                Inputs.Data[_index - INT#4] := BYTE#0;
+            END_FOR;  
             //*************INITIALIZATION*************
             RestoreTask.Run(THIS);
-            TemplateTask_10steps_1.Run(THIS);
-            TemplateTask_10steps_2.Run(THIS);
-            TemplateTask_10steps_3.Run(THIS);
-            TemplateTask_10steps_4.Run(THIS);
-            TemplateTask_10steps_5.Run(THIS);
-            TemplateTask_10steps_6.Run(THIS);
+            ReadUID_Task.Run(THIS);
+            ReadTagFieldTask.Run(THIS);
+            WriteTagFieldTask.Run(THIS);
+            ReadTask.Run(THIS);
+            WriteTask.Run(THIS);
+            ResetTask.Run(THIS);
             TemplateTask_20steps_1.Run(THIS);
             TemplateTask_20steps_2.Run(THIS);
             TemplateTask_20steps_3.Run(THIS);
@@ -398,94 +523,115 @@ NAMESPACE AXOpen.Components.Siem.Identification
             END_IF;
             //****************************************
     
-            //*************TemplateTask_10steps_1**************
-            TemplateTask_10steps_1.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_1.StartTriggered() THEN
+            //*************ReadUID_Task**************
+            ReadUID_Task.SetIsDisabled(FALSE);
+            IF ReadUID_Task.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#100,TemplateTask_10steps_1.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#101,TemplateTask_10steps_1.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_1.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#100,ReadUID_Task.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#101,ReadUID_Task.IsDone(), eAxoMessageCategory#Info);
+            IF ReadUID_Task.Execute(THIS) THEN
                 IF _progress = 0 THEN
+                    Outputs.Control.RESET := FALSE;
+                    Outputs.Control.STOP := FALSE;
+                    Outputs.Control.ANTOFF := FALSE;
+                    Outputs.Control.BLOCK := FALSE;
+                    _NDR_PV := Inputs.Status.NDR;
+                    _index  := INT#0;
+                    _dataBufferOffset := Config.DataBufferLowIndex;
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
                     _progress := 300;
                 END_IF;
     
-                IF _progress = 300 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 1>
+    
+                IF _progress = 300 THEN                                                                                     // ReadUID_Task running: , <add the detailed description of the current action 5>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
     
-                    IF TRUE THEN
+                    Outputs.Control.START := NOT Outputs.Control.START;
+                    IF TRUE THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 301;
+                        _NDR_PV := Inputs.Status.NDR;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 301 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 2>
+                
+                IF _progress = 301 THEN                                                                                     // ReadUID_Task running: , waiting for active command to be equal 1 (ReadUID)
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
     
-                    IF TRUE THEN
+                    Outputs.Control.CMD := BYTE#1;   // ReadUID command
+                    IF Inputs.Status.ACTIVECMD = Outputs.Control.CMD THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 302;
+                        // _NDR_PV := Inputs.Status.NDR;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 302 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 3>
+    
+                IF _progress = 302 THEN                                                                                     // ReadUID_Task running: , waiting for the tag presence
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#502;
                     END_IF;
-
-                    IF TRUE THEN
+    
+                    IF Inputs.Status.PRESENCE THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 303;
+                        // _NDR_PV := Inputs.Status.NDR;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 303 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 4>
+
+                IF _progress = 303 THEN                                                                                     // ReadUID_Task running: , waiting for new data
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#503;
                     END_IF;
     
-                    IF TRUE THEN
+                    // _NDR_PV := Inputs.Status.NDR;
+                    IF TRUE THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 304;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 304 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 5>
+                    
+                IF _progress = 304 THEN                                                                                     // ReadUID_Task running: , waiting for the new data
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#504;
                     END_IF;
-
-                    IF TRUE THEN
+    
+                    IF Inputs.Status.NDR <> _NDR_PV THEN
                         THIS.CallTimers(FALSE);
                         _progress := 305;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 305 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 6>
+                IF _progress = 305 THEN                                                                                     // ReadUID_Task running: , reading the data
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#505;
                     END_IF;
-    
-                    IF TRUE THEN
+
+                    FOR _index := INT#0 TO TO_INT(Inputs.Status.BLOCKLENGTH) DO
+                        DataBuffer[ _index + _dataBufferOffset] := Inputs.Data[_index];
+                    END_FOR;
+                    _dataBufferOffset := _dataBufferOffset + TO_INT(Inputs.Status.BLOCKLENGTH);
+                    IF Inputs.Status.BLOCK THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 301;
+                    ELSE
                         THIS.CallTimers(FALSE);
                         _progress := 306;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 306 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 7>
+                IF _progress = 306 THEN                                                                                     // ReadUID_Task running: , <add the detailed description of the current action 7>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#506, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#506;
@@ -497,7 +643,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 307 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 8>
+                IF _progress = 307 THEN                                                                                     // ReadUID_Task running: , <add the detailed description of the current action 8>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#507, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#507;
@@ -509,7 +655,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 308 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 9>
+                IF _progress = 308 THEN                                                                                     // ReadUID_Task running: , <add the detailed description of the current action 9>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#508, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#508;
@@ -521,44 +667,44 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 309 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_1.DoneWhen(TRUE);
+                IF _progress = 309 THEN                                                                                     // ReadUID_Task running: , <add the detailed description of the current action 10>
+                    ReadUID_Task.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_1.ThrowWhen(_errorTimer.output);
+                ReadUID_Task.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_1.ThrowWhen(TemplateTask_10steps_1.Duration >= Config.ErrorTime ,'TemplateTask_10steps_1 error.');
+                ReadUID_Task.ThrowWhen(ReadUID_Task.Duration >= Config.ErrorTime ,'ReadUID_Task error.');
             END_IF;
-            IF TemplateTask_10steps_1.DoneReached() THEN
+            IF ReadUID_Task.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_1.ErrorOccured() THEN
+            ELSIF ReadUID_Task.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10000;
                 Status.Error.Id  :=  UINT#10000;
-            ELSIF TemplateTask_10steps_1.AbortTriggered()THEN
+            ELSIF ReadUID_Task.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10001;
                 Status.Error.Id  :=  UINT#10001;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#10000,TemplateTask_10steps_1.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10001,TemplateTask_10steps_1.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#102,TemplateTask_10steps_1.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_1.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
+            Messenger.ActivateOnCondition(ULINT#10000,ReadUID_Task.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,ReadUID_Task.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#102,ReadUID_Task.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF ReadUID_Task.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
                 _progress := 0;
             END_IF;
             //**************************************************
     
-            //*************TemplateTask_10steps_2***************
-            TemplateTask_10steps_2.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_2.StartTriggered() THEN
+            //*************ReadTagFieldTask***************
+            ReadTagFieldTask.SetIsDisabled(FALSE);
+            IF ReadTagFieldTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#110,TemplateTask_10steps_2.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#111,TemplateTask_10steps_2.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_2.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#110,ReadTagFieldTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#111,ReadTagFieldTask.IsDone(), eAxoMessageCategory#Info);
+            IF ReadTagFieldTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
@@ -566,7 +712,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     _progress := 310;
                 END_IF;
     
-                IF _progress = 310 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 1>
+                IF _progress = 310 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 1>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#510;
@@ -578,7 +724,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
     
-                IF _progress = 311 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 2>
+                IF _progress = 311 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 2>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#511;
@@ -590,7 +736,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 312 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 3>
+                IF _progress = 312 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 3>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#512;
@@ -602,7 +748,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 313 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 4>
+                IF _progress = 313 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 4>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#513;
@@ -614,7 +760,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 314 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 5>
+                IF _progress = 314 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 5>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#514;
@@ -626,7 +772,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 315 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 6>
+                IF _progress = 315 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 6>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#515;
@@ -638,7 +784,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 316 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 7>
+                IF _progress = 316 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 7>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#516;
@@ -650,7 +796,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 317 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 8>
+                IF _progress = 317 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 8>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#517;
@@ -662,7 +808,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 318 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 9>
+                IF _progress = 318 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 9>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#518, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#518;
@@ -674,44 +820,44 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 319 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_2.DoneWhen(TRUE);
+                IF _progress = 319 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 10>
+                    ReadTagFieldTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_2.ThrowWhen(_errorTimer.output);
+                ReadTagFieldTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_2.ThrowWhen(TemplateTask_10steps_2.Duration >= Config.ErrorTime ,'TemplateTask_10steps_2 error.');
+                ReadTagFieldTask.ThrowWhen(ReadTagFieldTask.Duration >= Config.ErrorTime ,'ReadTagFieldTask error.');
             END_IF;
-            IF TemplateTask_10steps_2.DoneReached() THEN
+            IF ReadTagFieldTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_2.ErrorOccured() THEN
+            ELSIF ReadTagFieldTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10010;
                 Status.Error.Id  :=  UINT#10010;
-            ELSIF TemplateTask_10steps_2.AbortTriggered()THEN
+            ELSIF ReadTagFieldTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10011;
                 Status.Error.Id  :=  UINT#10011;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#10010,TemplateTask_10steps_2.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10011,TemplateTask_10steps_2.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,TemplateTask_10steps_2.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_2.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
+            Messenger.ActivateOnCondition(ULINT#10010,ReadTagFieldTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10011,ReadTagFieldTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#112,ReadTagFieldTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF ReadTagFieldTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
                 Status.Action.Id :=  UINT#112;
                 _progress := 0;
             END_IF;
             //**************************************************
     
-            //*************TemplateTask_10steps_3***************
-            TemplateTask_10steps_3.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_3.StartTriggered() THEN
+            //*************WriteTagFieldTask***************
+            WriteTagFieldTask.SetIsDisabled(FALSE);
+            IF WriteTagFieldTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#120,TemplateTask_10steps_3.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#121,TemplateTask_10steps_3.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_3.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#120,WriteTagFieldTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#121,WriteTagFieldTask.IsDone(), eAxoMessageCategory#Info);
+            IF WriteTagFieldTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
@@ -719,7 +865,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     _progress := 320;
                 END_IF;
     
-                IF _progress = 320 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 1>
+                IF _progress = 320 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 1>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#520;
@@ -731,7 +877,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
     
-                IF _progress = 321 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 2>
+                IF _progress = 321 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 2>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#521;
@@ -743,7 +889,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 322 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 3>
+                IF _progress = 322 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 3>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#522;
@@ -755,7 +901,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 323 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 4>
+                IF _progress = 323 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 4>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#523;
@@ -767,7 +913,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 324 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 5>
+                IF _progress = 324 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 5>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#524;
@@ -779,7 +925,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 325 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 6>
+                IF _progress = 325 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 6>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#525;
@@ -791,7 +937,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 326 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 7>
+                IF _progress = 326 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 7>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#526;
@@ -803,7 +949,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 327 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 8>
+                IF _progress = 327 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 8>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#527;
@@ -815,7 +961,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 328 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 9>
+                IF _progress = 328 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 9>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#528, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#528;
@@ -827,44 +973,44 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 329 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_3.DoneWhen(TRUE);
+                IF _progress = 329 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 10>
+                    WriteTagFieldTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_3.ThrowWhen(_errorTimer.output);
+                WriteTagFieldTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_3.ThrowWhen(TemplateTask_10steps_3.Duration >= Config.ErrorTime ,'TemplateTask_10steps_3 error.');
+                WriteTagFieldTask.ThrowWhen(WriteTagFieldTask.Duration >= Config.ErrorTime ,'WriteTagFieldTask error.');
             END_IF;
-            IF TemplateTask_10steps_3.DoneReached() THEN
+            IF WriteTagFieldTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_3.ErrorOccured() THEN
+            ELSIF WriteTagFieldTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10020;
                 Status.Error.Id  :=  UINT#10020;
-            ELSIF TemplateTask_10steps_3.AbortTriggered()THEN
+            ELSIF WriteTagFieldTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10021;
                 Status.Error.Id  :=  UINT#10021;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#10020,TemplateTask_10steps_3.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10021,TemplateTask_10steps_3.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#122,TemplateTask_10steps_3.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_3.RestoreTriggered() AND _progress >= 320 AND _progress <= 329  THEN
+            Messenger.ActivateOnCondition(ULINT#10020,WriteTagFieldTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10021,WriteTagFieldTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#122,WriteTagFieldTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF WriteTagFieldTask.RestoreTriggered() AND _progress >= 320 AND _progress <= 329  THEN
                 Status.Action.Id :=  UINT#122;
                 _progress := 0;
             END_IF;
             //**************************************************
     
-            //*************TemplateTask_10steps_4***************
-            TemplateTask_10steps_4.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_4.StartTriggered() THEN
+            //*************ReadTask***************
+            ReadTask.SetIsDisabled(FALSE);
+            IF ReadTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#130;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#130,TemplateTask_10steps_4.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#131,TemplateTask_10steps_4.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_4.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#130,ReadTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#131,ReadTask.IsDone(), eAxoMessageCategory#Info);
+            IF ReadTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
@@ -872,7 +1018,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     _progress := 330;
                 END_IF;
     
-                IF _progress = 330 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 1>
+                IF _progress = 330 THEN                                                                                     // ReadTask running: , <add the detailed description of the current action 1>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#530;
@@ -884,7 +1030,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
     
-                IF _progress = 331 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 2>
+                IF _progress = 331 THEN                                                                                     // ReadTask running: , <add the detailed description of the current action 2>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#531;
@@ -896,7 +1042,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 332 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 3>
+                IF _progress = 332 THEN                                                                                     // ReadTask running: , <add the detailed description of the current action 3>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#532;
@@ -908,7 +1054,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 333 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 4>
+                IF _progress = 333 THEN                                                                                     // ReadTask running: , <add the detailed description of the current action 4>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#533, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#533;
@@ -920,7 +1066,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 334 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 5>
+                IF _progress = 334 THEN                                                                                     // ReadTask running: , <add the detailed description of the current action 5>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#534, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#534;
@@ -932,7 +1078,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 335 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 6>
+                IF _progress = 335 THEN                                                                                     // ReadTask running: , <add the detailed description of the current action 6>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#535, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#535;
@@ -944,7 +1090,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 336 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 7>
+                IF _progress = 336 THEN                                                                                     // ReadTask running: , <add the detailed description of the current action 7>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#536, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#536;
@@ -956,7 +1102,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 337 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 8>
+                IF _progress = 337 THEN                                                                                     // ReadTask running: , <add the detailed description of the current action 8>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#537, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#537;
@@ -968,7 +1114,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 338 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 9>
+                IF _progress = 338 THEN                                                                                     // ReadTask running: , <add the detailed description of the current action 9>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#538, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#538;
@@ -980,44 +1126,44 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 339 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_4.DoneWhen(TRUE);
+                IF _progress = 339 THEN                                                                                     // ReadTask running: , <add the detailed description of the current action 10>
+                    ReadTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_4.ThrowWhen(_errorTimer.output);
+                ReadTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_4.ThrowWhen(TemplateTask_10steps_4.Duration >= Config.ErrorTime ,'TemplateTask_10steps_4 error.');
+                ReadTask.ThrowWhen(ReadTask.Duration >= Config.ErrorTime ,'ReadTask error.');
             END_IF;
-            IF TemplateTask_10steps_4.DoneReached() THEN
+            IF ReadTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#131;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_4.ErrorOccured() THEN
+            ELSIF ReadTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10030;
                 Status.Error.Id  :=  UINT#10030;
-            ELSIF TemplateTask_10steps_4.AbortTriggered()THEN
+            ELSIF ReadTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10031;
                 Status.Error.Id  :=  UINT#10031;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#10030,TemplateTask_10steps_4.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10031,TemplateTask_10steps_4.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#132,TemplateTask_10steps_4.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_4.RestoreTriggered() AND _progress >= 330 AND _progress <= 339  THEN
+            Messenger.ActivateOnCondition(ULINT#10030,ReadTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10031,ReadTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#132,ReadTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF ReadTask.RestoreTriggered() AND _progress >= 330 AND _progress <= 339  THEN
                 Status.Action.Id :=  UINT#132;
                 _progress := 0;
             END_IF;
             //**************************************************
     
-            //*************TemplateTask_10steps_5***************
-            TemplateTask_10steps_5.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_5.StartTriggered() THEN
+            //*************WriteTask***************
+            WriteTask.SetIsDisabled(FALSE);
+            IF WriteTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#140;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#140,TemplateTask_10steps_5.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#141,TemplateTask_10steps_5.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_5.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#140,WriteTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#141,WriteTask.IsDone(), eAxoMessageCategory#Info);
+            IF WriteTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
@@ -1025,7 +1171,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     _progress := 340;
                 END_IF;
     
-                IF _progress = 340 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 1>
+                IF _progress = 340 THEN                                                                                     // WriteTask running: , <add the detailed description of the current action 1>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#540;
@@ -1037,7 +1183,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
     
-                IF _progress = 341 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 2>
+                IF _progress = 341 THEN                                                                                     // WriteTask running: , <add the detailed description of the current action 2>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#541;
@@ -1049,7 +1195,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 342 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 3>
+                IF _progress = 342 THEN                                                                                     // WriteTask running: , <add the detailed description of the current action 3>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#542, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#542;
@@ -1061,7 +1207,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 343 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 4>
+                IF _progress = 343 THEN                                                                                     // WriteTask running: , <add the detailed description of the current action 4>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#543, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#543;
@@ -1073,7 +1219,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 344 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 5>
+                IF _progress = 344 THEN                                                                                     // WriteTask running: , <add the detailed description of the current action 5>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#544, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#544;
@@ -1085,7 +1231,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 345 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 6>
+                IF _progress = 345 THEN                                                                                     // WriteTask running: , <add the detailed description of the current action 6>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#545, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#545;
@@ -1097,7 +1243,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 346 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 7>
+                IF _progress = 346 THEN                                                                                     // WriteTask running: , <add the detailed description of the current action 7>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#546, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#546;
@@ -1109,7 +1255,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 347 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 8>
+                IF _progress = 347 THEN                                                                                     // WriteTask running: , <add the detailed description of the current action 8>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#547, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#547;
@@ -1121,7 +1267,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 348 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 9>
+                IF _progress = 348 THEN                                                                                     // WriteTask running: , <add the detailed description of the current action 9>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#548, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#548;
@@ -1133,76 +1279,86 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 349 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_5.DoneWhen(TRUE);
+                IF _progress = 349 THEN                                                                                     // WriteTask running: , <add the detailed description of the current action 10>
+                    WriteTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_5.ThrowWhen(_errorTimer.output);
+                WriteTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_5.ThrowWhen(TemplateTask_10steps_5.Duration >= Config.ErrorTime ,'TemplateTask_10steps_5 error.');
+                WriteTask.ThrowWhen(WriteTask.Duration >= Config.ErrorTime ,'WriteTask error.');
             END_IF;
-            IF TemplateTask_10steps_5.DoneReached() THEN
+            IF WriteTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#141;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_5.ErrorOccured() THEN
+            ELSIF WriteTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10040;
                 Status.Error.Id  :=  UINT#10040;
-            ELSIF TemplateTask_10steps_5.AbortTriggered()THEN
+            ELSIF WriteTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10041;
                 Status.Error.Id  :=  UINT#10041;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#10040,TemplateTask_10steps_5.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10041,TemplateTask_10steps_5.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#142,TemplateTask_10steps_5.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_5.RestoreTriggered() AND _progress >= 340 AND _progress <= 349  THEN
+            Messenger.ActivateOnCondition(ULINT#10040,WriteTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10041,WriteTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#142,WriteTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF WriteTask.RestoreTriggered() AND _progress >= 340 AND _progress <= 349  THEN
                 Status.Action.Id :=  UINT#142;
                 _progress := 0;
             END_IF;
             //**************************************************
     
-            //*************TemplateTask_10steps_6***************
-            TemplateTask_10steps_6.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_6.StartTriggered() THEN
+            //*************ResetTask***************
+            ResetTask.SetIsDisabled(FALSE);
+            IF ResetTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#150;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#150,TemplateTask_10steps_6.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#151,TemplateTask_10steps_6.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_6.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#150,ResetTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#151,ResetTask.IsDone(), eAxoMessageCategory#Info);
+            IF ResetTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
+                    Outputs.Control.START 			:=  FALSE;
+                    Outputs.Control.RESET 			:=  FALSE;
+                    Outputs.Control.STOP 			:=  FALSE;
+                    Outputs.Control.ANTOFF 			:=  FALSE;
+                    Outputs.Control.BLOCK 			:=  FALSE;
+                    Outputs.Control.CMD 			:=  BYTE#0;
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
                     _progress := 350;
                 END_IF;
     
-                IF _progress = 350 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 1>
+                IF _progress = 350 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 1>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#550;
                     END_IF;
-    
-                    IF TRUE THEN
+
+                    Outputs.Control.RESET 			:=  TRUE;
+
+                    IF Inputs.Status.RESETCONF THEN
                         THIS.CallTimers(FALSE);
                         _progress := 351;
                     END_IF;
                 END_IF;
     
-                IF _progress = 351 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 2>
+                IF _progress = 351 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 2>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#551;
                     END_IF;
-    
-                    IF TRUE THEN
+
+                    Outputs.Control.RESET 			:=  FALSE;
+
+                    IF NOT Inputs.Status.RESETCONF THEN
                         THIS.CallTimers(FALSE);
                         _progress := 352;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 352 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 3>
+                IF _progress = 352 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 3>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#552, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#552;
@@ -1210,11 +1366,11 @@ NAMESPACE AXOpen.Components.Siem.Identification
     
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 335;
+                        _progress := 353;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 353 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 4>
+                IF _progress = 353 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 4>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#553, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#553;
@@ -1226,7 +1382,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 354 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 5>
+                IF _progress = 354 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 5>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#554, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#554;
@@ -1238,7 +1394,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 355 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 6>
+                IF _progress = 355 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 6>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#555, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#555;
@@ -1250,7 +1406,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 356 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 7>
+                IF _progress = 356 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 7>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#556, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#556;
@@ -1262,7 +1418,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 357 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 8>
+                IF _progress = 357 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 8>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#557, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#557;
@@ -1274,7 +1430,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 358 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 9>
+                IF _progress = 358 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 9>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#558, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#558;
@@ -1286,31 +1442,31 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
                 END_IF;
                 
-                IF _progress = 359 THEN                                                                                     // TemplateTask_10steps_6 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_6.DoneWhen(TRUE);
+                IF _progress = 359 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 10>
+                    ResetTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_6.ThrowWhen(_errorTimer.output);
+                ResetTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_6.ThrowWhen(TemplateTask_10steps_6.Duration >= Config.ErrorTime ,'TemplateTask_10steps_6 error.');
+                ResetTask.ThrowWhen(ResetTask.Duration >= Config.ErrorTime ,'ResetTask error.');
             END_IF;
-            IF TemplateTask_10steps_6.DoneReached() THEN
+            IF ResetTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#151;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_6.ErrorOccured() THEN
+            ELSIF ResetTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10050;
                 Status.Error.Id  :=  UINT#10050;
-            ELSIF TemplateTask_10steps_6.AbortTriggered()THEN
+            ELSIF ResetTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10051;
                 Status.Error.Id  :=  UINT#10051;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#10050,TemplateTask_10steps_6.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10051,TemplateTask_10steps_6.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#152,TemplateTask_10steps_6.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_6.RestoreTriggered() AND _progress >= 350 AND _progress <= 359  THEN
+            Messenger.ActivateOnCondition(ULINT#10050,ResetTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10051,ResetTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#152,ResetTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF ResetTask.RestoreTriggered() AND _progress >= 350 AND _progress <= 359  THEN
                 Status.Action.Id :=  UINT#152;
                 _progress := 0;
             END_IF;
@@ -2961,51 +3117,119 @@ NAMESPACE AXOpen.Components.Siem.Identification
             // _data_out_1[0].%X3                  :=      AxoSimaticIdentCyclicOutputStructure_hwID_out_1.Item1;
             // _data_out_1[0].%X4                  :=      AxoSimaticIdentCyclicOutputStructure_hwID_out_1.Item2;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_CM),_data_out_1);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_CM),_data_out_2);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1231;
                 RETURN;
-            END_IF;            
+            END_IF;         
+            
+            IF Config.IOsize = eAxoSimaticIdentCyclic_IOsize#BYTES_32 THEN
+                _data_out_32[0].%X0      :=      Outputs.Control.START;
+                _data_out_32[0].%X1      :=      Outputs.Control.RESET;
+                _data_out_32[0].%X2      :=      Outputs.Control.STOP;
+                _data_out_32[0].%X3      :=      Outputs.Control.ANTOFF;
+                _data_out_32[0].%X4      :=      Outputs.Control.BLOCK;
+                
+                _data_out_32[2]          :=      Outputs.Control.CMD;
 
-            // _data_out_1[0].%X1                  :=      AxoSimaticIdentCyclicOutputStructure_hwID_out_2.Item1;
-            // _data_out_1[0].%X2                  :=      AxoSimaticIdentCyclicOutputStructure_hwID_out_2.Item2;
-            // _data_out_1[0].%X3                  :=      AxoSimaticIdentCyclicOutputStructure_hwID_out_2.Item1;
-            // _data_out_1[0].%X4                  :=      AxoSimaticIdentCyclicOutputStructure_hwID_out_2.Item2;
+                _data_out_32[4]          :=      Outputs.Control.TAGFIELD.%B1;
+                _data_out_32[5]          :=      Outputs.Control.TAGFIELD.%B0;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_Reader),_data_out_1);
-            IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
-                Status.Error.Id := UINT#1232;
-                RETURN;
+                _data_out_32[6]          :=      Outputs.Control.ADDRESS.%B3;
+                _data_out_32[7]          :=      Outputs.Control.ADDRESS.%B2;
+                _data_out_32[8]          :=      Outputs.Control.ADDRESS.%B1;
+                _data_out_32[9]          :=      Outputs.Control.ADDRESS.%B0;
+
+                _data_out_32[10]         :=      Outputs.Control.LENGTH.%B1;
+                _data_out_32[11]         :=      Outputs.Control.LENGTH.%B0;
+
+                _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_Reader),_data_out_32);
+                IF _retVal > WORD#0 THEN
+                    Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
+                    Status.Error.Id := UINT#1232;
+                    RETURN;
+                END_IF;
+            ELSIF Config.IOsize = eAxoSimaticIdentCyclic_IOsize#BYTES_116 THEN
+                _data_out_116[0].%X0      :=      Outputs.Control.START;
+                _data_out_116[0].%X1      :=      Outputs.Control.RESET;
+                _data_out_116[0].%X2      :=      Outputs.Control.STOP;
+                _data_out_116[0].%X3      :=      Outputs.Control.ANTOFF;
+                _data_out_116[0].%X4      :=      Outputs.Control.BLOCK;
+                
+                _data_out_116[2]          :=      Outputs.Control.CMD;
+
+                _data_out_116[4]          :=      Outputs.Control.TAGFIELD.%B1;
+                _data_out_116[5]          :=      Outputs.Control.TAGFIELD.%B0;
+
+                _data_out_116[6]          :=      Outputs.Control.ADDRESS.%B3;
+                _data_out_116[7]          :=      Outputs.Control.ADDRESS.%B2;
+                _data_out_116[8]          :=      Outputs.Control.ADDRESS.%B1;
+                _data_out_116[9]          :=      Outputs.Control.ADDRESS.%B0;
+
+                _data_out_116[10]         :=      Outputs.Control.LENGTH.%B1;
+                _data_out_116[11]         :=      Outputs.Control.LENGTH.%B0;
+
+                _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_Reader),_data_out_116);
+                IF _retVal > WORD#0 THEN
+                    Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
+                    Status.Error.Id := UINT#1232;
+                    RETURN;
+                END_IF;
+            ELSIF Config.IOsize = eAxoSimaticIdentCyclic_IOsize#BYTES_128 THEN
+                _data_out_128[0].%X0      :=      Outputs.Control.START;
+                _data_out_128[0].%X1      :=      Outputs.Control.RESET;
+                _data_out_128[0].%X2      :=      Outputs.Control.STOP;
+                _data_out_128[0].%X3      :=      Outputs.Control.ANTOFF;
+                _data_out_128[0].%X4      :=      Outputs.Control.BLOCK;
+                
+                _data_out_128[2]          :=      Outputs.Control.CMD;
+
+                _data_out_128[4]          :=      Outputs.Control.TAGFIELD.%B1;
+                _data_out_128[5]          :=      Outputs.Control.TAGFIELD.%B0;
+
+                _data_out_128[6]          :=      Outputs.Control.ADDRESS.%B3;
+                _data_out_128[7]          :=      Outputs.Control.ADDRESS.%B2;
+                _data_out_128[8]          :=      Outputs.Control.ADDRESS.%B1;
+                _data_out_128[9]          :=      Outputs.Control.ADDRESS.%B0;
+
+                _data_out_128[10]         :=      Outputs.Control.LENGTH.%B1;
+                _data_out_128[11]         :=      Outputs.Control.LENGTH.%B0;
+
+                _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_Reader),_data_out_128);
+                IF _retVal > WORD#0 THEN
+                    Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
+                    Status.Error.Id := UINT#1232;
+                    RETURN;
+                END_IF;
             END_IF;
            
             //******************************************      
 
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_1 : IAxoTaskState
-            TemplateMethod_10steps_1 := TemplateTask_10steps_1.Invoke(THIS);
+        METHOD PUBLIC ReadUID : IAxoTaskState
+            ReadUID := ReadUID_Task.Invoke(THIS);
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_2 : IAxoTaskState
-            TemplateMethod_10steps_2 := TemplateTask_10steps_2.Invoke(THIS);
+        METHOD PUBLIC ReadTagField : IAxoTaskState
+            ReadTagField := ReadTagFieldTask.Invoke(THIS);
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_3 : IAxoTaskState
-            TemplateMethod_10steps_3 := TemplateTask_10steps_3.Invoke(THIS);
+        METHOD PUBLIC WriteTagField : IAxoTaskState
+            WriteTagField := WriteTagFieldTask.Invoke(THIS);
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_4 : IAxoTaskState
-            TemplateMethod_10steps_4 := TemplateTask_10steps_4.Invoke(THIS);
+        METHOD PUBLIC Read : IAxoTaskState
+            Read := ReadTask.Invoke(THIS);
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_5 : IAxoTaskState
-            TemplateMethod_10steps_5 := TemplateTask_10steps_5.Invoke(THIS);
+        METHOD PUBLIC Write : IAxoTaskState
+            Write := WriteTask.Invoke(THIS);
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_6 : IAxoTaskState
-            TemplateMethod_10steps_6 := TemplateTask_10steps_6.Invoke(THIS);
+        METHOD PUBLIC Reset : IAxoTaskState
+            Reset := ResetTask.Invoke(THIS);
         END_METHOD
 
         METHOD PUBLIC TemplateMethod_20steps_1 : IAxoTaskState
@@ -3054,34 +3278,33 @@ NAMESPACE AXOpen.Components.Siem.Identification
             _data_out_2[0] := BYTE#0;
             _data_out_2[1] := BYTE#0;
 
-            FOR _index := 0 TO 3 DO
+            FOR _index := 0 TO 31 DO
                 _data_in[_index] := BYTE#0;
-                _data_out_4[_index] := BYTE#0;
-                _data_out_8[_index] := BYTE#0;
-                _data_out_255[_index] := BYTE#0;
+                _data_out_32[_index] := BYTE#0;
+                _data_out_116[_index] := BYTE#0;
+                _data_out_128[_index] := BYTE#0;
             END_FOR;
 
-            FOR _index := 4 TO 7 DO
+            FOR _index := 32 TO 115 DO
                 _data_in[_index] := BYTE#0;
-                _data_out_8[_index] := BYTE#0;
-                _data_out_255[_index] := BYTE#0;
+                _data_out_116[_index] := BYTE#0;
+                _data_out_128[_index] := BYTE#0;
             END_FOR;
 
-            FOR _index := 8 TO 254 DO
+            FOR _index := 116 TO 127 DO
                 _data_in[_index] := BYTE#0;
-                _data_out_255[_index] := BYTE#0;
+                _data_out_128[_index] := BYTE#0;
             END_FOR;
 
             _word           :=   WORD#0;
             _dword          :=   DWORD#0;
 
-
-            TemplateTask_10steps_1.Restore();
-            TemplateTask_10steps_2.Restore();
-            TemplateTask_10steps_3.Restore();
-            TemplateTask_10steps_4.Restore();
-            TemplateTask_10steps_5.Restore();
-            TemplateTask_10steps_6.Restore();
+            ReadUID_Task.Restore();
+            ReadTagFieldTask.Restore();
+            WriteTagFieldTask.Restore();
+            ReadTask.Restore();
+            WriteTask.Restore();
+            ResetTask.Restore();
             TemplateTask_20steps_1.Restore();
             TemplateTask_20steps_2.Restore();
             TemplateTask_20steps_3.Restore();

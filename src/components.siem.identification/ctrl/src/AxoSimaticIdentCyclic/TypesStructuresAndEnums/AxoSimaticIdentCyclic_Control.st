@@ -14,7 +14,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             {#ix-set:AttributeName = "<#Block#>"}
             BLOCK 			    :	BOOL;
             {#ix-set:AttributeName = "<#Command#>"}
-            CMD 			    :	BOOL;
+            CMD 			    :	BYTE;
             {#ix-set:AttributeName = "<#Index of the tag field#>"}
             TAGFIELD            :   WORD;
             {#ix-set:AttributeName = "<#Start address on the transponder#>"}

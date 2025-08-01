@@ -1,4 +1,4 @@
-﻿@page "/Component_2"
+﻿@page "/Component_4"
 @using AXOpen.Core;
 @using AXOpen.Components.Siem.Identification;
 
@@ -8,19 +8,19 @@
 
 @* 
 <!-- <GenericComponentStatusView> -->
-<AxoComponentStatusView Component="@Entry.Plc.documentation.componentTwo.ExampleCylinder" />
+<AxoComponentStatusView Component="@Entry.Plc.documentation.componentFour.ExampleCylinder" />
 <!-- </GenericComponentStatusView> -->
 
 <!-- <GenericComponentCommandView> -->
-<AxoComponentCommandView Component="@Entry.Plc.documentation.componentTwo.ExampleCylinder" />
+<AxoComponentCommandView Component="@Entry.Plc.documentation.componentFour.ExampleCylinder" />
 <!-- </GenericComponentCommandView> -->
  *@
 <!-- <RccComponentStatusView> -->
 <!-- This will render anything found on parameter assigned to Context  -->
-<RenderableContentControl Context="@Entry.Plc.documentation.componentTwo" Presentation="Status-Display" />
+@* <RenderableContentControl Context="@Entry.Plc.documentation.componentFour" Presentation="Status-Display" /> *@
 <!-- </RccComponentStatusView> -->
 <!-- <RccComponentCommandView> -->
 <!-- This will render anything found on parameter assigned to Context  -->
-<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.documentation.componentTwo.Sequencer" />
-<RenderableContentControl Context="@Entry.Plc.documentation.componentTwo" Presentation="Command-Control" />
+<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.documentation.componentFour.Sequencer" />
+<RenderableContentControl Context="@Entry.Plc.documentation.componentFour" Presentation="Command-Control" />
 <!-- </RccComponentCommandView> -->

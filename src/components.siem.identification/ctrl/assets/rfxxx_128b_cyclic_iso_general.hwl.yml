@@ -1,6 +1,6 @@
 Templates:
   Modules:
-  - Name: 'rfxxx_128b_cyclic_iso_auto_read_uid'
+  - Name: 'rfxxx_128b_cyclic_iso_general'
     Placeholders:
     - Name: 'ModuleName'
       Value: 'ModuleName'
@@ -30,10 +30,10 @@ Templates:
             Value: 0
           - OffsetName: 'Automatic command'
             # Possible ValueNames: Disabled or no command active - command execution via user program | Read UID | Read tag field | Read
-            ValueName: 'Read UID'
+            ValueName: 'Disabled or no command active - command execution via user program'
           - OffsetName: 'Address or tag field index'
             # Possible value range: [0, 4294967295]
             Value: 0
           - OffsetName: 'Data length'
             # Possible value range: [0, 124]
-            Value: 8
+            Value: 124
