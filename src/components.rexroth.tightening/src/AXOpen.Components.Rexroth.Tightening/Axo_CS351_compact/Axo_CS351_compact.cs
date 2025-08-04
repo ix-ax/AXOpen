@@ -102,7 +102,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(715, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 1. Expected module: 'Output_4_word_1' (GsdId=ID_MODULE_OUTPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_2 is zero."                                                                             ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_2 is zero."                                                            ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(721, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(722, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(723, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2."               ,"Check the hardware configuration.")),
@@ -110,7 +110,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(725, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(726, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 2. Expected module: 'Output_4_word_2' (GsdId=ID_MODULE_OUTPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(730, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_3 is zero."                                                                             ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(730, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_3 is zero."                                                            ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(731, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(732, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(733, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3."               ,"Check the hardware configuration.")),
@@ -118,7 +118,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(735, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(736, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 3. Expected module: 'Output_4_word_3' (GsdId=ID_MODULE_OUTPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(740, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_4 is zero."                                                                             ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(740, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_4 is zero."                                                            ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(741, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(742, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(743, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4."               ,"Check the hardware configuration.")),
@@ -126,7 +126,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(745, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(746, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 4. Expected module: 'Output_4_word_4' (GsdId=ID_MODULE_OUTPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(750, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_5 is zero."                                                                             ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(750, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_5 is zero."                                                            ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(751, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(752, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(753, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5."               ,"Check the hardware configuration.")),
@@ -134,7 +134,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(755, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(756, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 5. Expected module: 'Output_4_word_5' (GsdId=ID_MODULE_OUTPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(760, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_6 is zero."                                                                             ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(760, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_6 is zero."                                                            ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(761, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(762, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(763, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6."               ,"Check the hardware configuration.")),
@@ -142,7 +142,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(765, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(766, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 6. Expected module: 'Output_4_word_6' (GsdId=ID_MODULE_OUTPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(770, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_7 is zero."                                                                             ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(770, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_7 is zero."                                                            ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(771, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(772, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(773, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7."               ,"Check the hardware configuration.")),
@@ -150,7 +150,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(775, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(776, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 7. Expected module: 'Output_4_word_7' (GsdId=ID_MODULE_OUTPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(780, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_8 is zero."                                                                             ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(780, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_8 is zero."                                                            ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(781, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(782, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(783, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8."               ,"Check the hardware configuration.")),
@@ -158,7 +158,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(785, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(786, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 8.Expected module: 'Output_4_word_8' (GsdId=ID_MODULE_OUTPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(790, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_9 is zero."                                                                             ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(790, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_9 is zero."                                                            ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(791, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(792, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(793, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9."               ,"Check the hardware configuration.")),
@@ -166,7 +166,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(795, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 9."               ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(796, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 9. Expected module: 'Output_2_word_1' (GsdId=ID_MODULE_OUTPUT2W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_10 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_10 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(801, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 10."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(802, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 10."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(803, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 10."              ,"Check the hardware configuration.")),
@@ -174,7 +174,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(805, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 10."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(806, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 10. Expected module: 'Input_4_word_1' (GsdId=ID_MODULE_INPUT4W')."  ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(810, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_11 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(810, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_11 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(811, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 11."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(812, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 11."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(813, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 11."              ,"Check the hardware configuration.")),
@@ -182,7 +182,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(815, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 11."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(816, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 11. Expected module: 'Input_4_word_2' (GsdId=ID_MODULE_INPUT4W')."  ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(820, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_12 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(820, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_12 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(821, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 12."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(822, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 12."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(823, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 12."              ,"Check the hardware configuration.")),
@@ -190,7 +190,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(825, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 12."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(826, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 12. Expected module: 'Input_4_word_3' (GsdId=ID_MODULE_INPUT4W')."  ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(830, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_13 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(830, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_13 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(831, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 13."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(832, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 13."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(833, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 13."              ,"Check the hardware configuration.")),
@@ -198,7 +198,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(835, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 13."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(836, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 13. Expected module: 'Input_4_word_4' (GsdId=ID_MODULE_INPUT4W')."  ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(840, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_14 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(840, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_14 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(841, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 14."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(842, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 14."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(843, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 14."              ,"Check the hardware configuration.")),
@@ -206,7 +206,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(845, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 14."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(846, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 14. Expected module: 'Input_4_word_5' (GsdId=ID_MODULE_INPUT4W')."  ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(850, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_15 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(850, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_15 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(851, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 15."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(852, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 15."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(853, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 15."              ,"Check the hardware configuration.")),
@@ -214,7 +214,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(855, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 15."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(856, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 15. Expected module: 'Input_4_word_6' (GsdId=ID_MODULE_INPUT4W')."  ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(860, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_16 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(860, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_16 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(861, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 16."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(862, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 16."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(863, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 16."              ,"Check the hardware configuration.")),
@@ -222,7 +222,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(865, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 16."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(866, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 16. Expected module: 'Input_4_word_7' (GsdId=ID_MODULE_INPUT4W')."  ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(870, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_17 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(870, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_17 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(871, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 17."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(872, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 17."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(873, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 17."              ,"Check the hardware configuration.")),
@@ -230,7 +230,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(875, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 17."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(876, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 17. Expected module: 'Input_4_word_8' (GsdId=ID_MODULE_INPUT4W')."  ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(880, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_18 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(880, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_18 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(881, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 18."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(882, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 18."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(883, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 18."              ,"Check the hardware configuration.")),
@@ -238,7 +238,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(885, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 18."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(886, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 18. Expected module: 'Input_4_word_9' (GsdId=ID_MODULE_INPUT4W')."  ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(890, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_19 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(890, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_19 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(891, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 19."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(892, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 19."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(893, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 19."              ,"Check the hardware configuration.")),
@@ -246,7 +246,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(895, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 19."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(896, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 19. Expected module: 'Input_4_word_10' (GsdId=ID_MODULE_INPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(900, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_20 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(900, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_20 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(901, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 20."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(902, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 20."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(903, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 20."              ,"Check the hardware configuration.")),
@@ -254,7 +254,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(905, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 20."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(906, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 20. Expected module: 'Input_4_word_11' (GsdId=ID_MODULE_INPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(910, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_21 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(910, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_21 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(911, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 21."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(912, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 21."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(913, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 21."              ,"Check the hardware configuration.")),
@@ -262,7 +262,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(915, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 21."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(916, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 21. Expected module: 'Input_4_word_12' (GsdId=ID_MODULE_INPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(920, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_22 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(920, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_22 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(921, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 22."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(922, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 22."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(923, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 22."              ,"Check the hardware configuration.")),
@@ -270,7 +270,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(925, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 22."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(926, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 22. Expected module: 'Input_4_word_13' (GsdId=ID_MODULE_INPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(930, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_23 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(930, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_23 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(931, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 23."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(932, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 23."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(933, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 23."              ,"Check the hardware configuration.")),
@@ -278,7 +278,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(935, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 23."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(936, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 23. Expected module: 'Input_4_word_14' (GsdId=ID_MODULE_INPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(940, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_24 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(940, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_24 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(941, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 24."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(942, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 24."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(943, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 24."              ,"Check the hardware configuration.")),
@@ -286,7 +286,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(945, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 24."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(946, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 24. Expected module: 'Input_4_word_15' (GsdId=ID_MODULE_INPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(950, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_25 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(950, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_25 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(951, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 25."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(952, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 25."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(953, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 25."              ,"Check the hardware configuration.")),
@@ -294,7 +294,7 @@ namespace AXOpen.Components.Rexroth.Tightening
                 new KeyValuePair<ulong, AxoMessengerTextItem>(955, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 25."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(956, new AxoMessengerTextItem("Hw configuration error: Unexpected module detected in Slot 25. Expected module: 'Input_4_word_16' (GsdId=ID_MODULE_INPUT4W')." ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(960, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_26 is zero."                                                                            ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(960, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_Slot_26 is zero."                                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(961, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 26."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(962, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 26."              ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(963, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 26."              ,"Check the hardware configuration.")),
@@ -306,26 +306,32 @@ namespace AXOpen.Components.Rexroth.Tightening
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1130, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1131, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                      ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `hwId_1` has invalid value in `Run` method!"                                                                    ,"Check the call of the `Run` method, if the `hwId_1` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1133, new AxoMessengerTextItem("Input variable `hwId_2` has invalid value in `Run` method!"                                                                    ,"Check the call of the `Run` method, if the `hwId_2` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1134, new AxoMessengerTextItem("Input variable `hwId_3` has invalid value in `Run` method!"                                                                    ,"Check the call of the `Run` method, if the `hwId_3` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1135, new AxoMessengerTextItem("Input variable `hwId_4` has invalid value in `Run` method!"                                                                    ,"Check the call of the `Run` method, if the `hwId_4` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1136, new AxoMessengerTextItem("Input variable `hwId_5` has invalid value in `Run` method!"                                                                    ,"Check the call of the `Run` method, if the `hwId_5` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1137, new AxoMessengerTextItem("Input variable `hwId_6` has invalid value in `Run` method!"                                                                    ,"Check the call of the `Run` method, if the `hwId_6` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1138, new AxoMessengerTextItem("Input variable `hwId_7` has invalid value in `Run` method!"                                                                    ,"Check the call of the `Run` method, if the `hwId_7` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1139, new AxoMessengerTextItem("Input variable `hwId_8` has invalid value in `Run` method!"                                                                    ,"Check the call of the `Run` method, if the `hwId_8` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1140, new AxoMessengerTextItem("Input variable `hwId_9` has invalid value in `Run` method!"                                                                    ,"Check the call of the `Run` method, if the `hwId_9` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1141, new AxoMessengerTextItem("Input variable `hwId_10` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwId_10` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1142, new AxoMessengerTextItem("Input variable `hwId_11` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwId_11` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1143, new AxoMessengerTextItem("Input variable `hwId_12` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwId_12` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1144, new AxoMessengerTextItem("Input variable `hwId_13` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwId_13` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1145, new AxoMessengerTextItem("Input variable `hwId_14` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwId_14` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1146, new AxoMessengerTextItem("Input variable `hwId_15` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwId_15` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1147, new AxoMessengerTextItem("Input variable `hwId_16` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwId_16` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1148, new AxoMessengerTextItem("Input variable `hwId_17` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwId_17` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1149, new AxoMessengerTextItem("Input variable `hwId_18` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwId_18` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1150, new AxoMessengerTextItem("Input variable `hwId_19` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwId_19` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1151, new AxoMessengerTextItem("Input variable `hwId_20` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwId_20` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_1` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_1` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1133, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_2` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_2` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1134, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_3` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_3` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1135, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_4` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_4` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1136, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_5` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_5` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1137, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_6` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_6` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1138, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_7` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_7` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1139, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_8` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_8` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1140, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_9` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_9` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1141, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_10` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_10` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1142, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_11` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_11` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1143, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_12` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_12` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1144, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_13` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_13` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1145, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_14` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_14` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1146, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_15` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_15` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1147, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_16` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_16` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1148, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_17` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_17` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1149, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_18` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_18` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1150, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_19` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_19` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1151, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_20` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_20` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1152, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_21` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_21` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1153, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_22` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_22` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1154, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_23` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_23` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1155, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_24` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_24` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1156, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_25` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_25` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1157, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Slot_26` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Slot_26` parameter is assigned.")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the Input_4_word_1!"                                                                                            ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1202, new AxoMessengerTextItem("Error reading the Input_4_word_2!"                                                                                            ,"Check the hardware configuration.")),
@@ -844,49 +850,49 @@ namespace AXOpen.Components.Rexroth.Tightening
                     errorDescriptionDict.Add(724, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2."               );
                     errorDescriptionDict.Add(725, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2."               );
                     errorDescriptionDict.Add(726, "Hw configuration error: Unexpected module detected in Slot 2. Expected module: 'Output_4_word_2' (GsdId=ID_MODULE_OUTPUT4W')." );
-                    errorDescriptionDict.Add(730, "Hw configuration error. Value of _hwID_3 is zero."                                                                             );
+                    errorDescriptionDict.Add(730, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_3 is zero.");
                     errorDescriptionDict.Add(731, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3."               );
                     errorDescriptionDict.Add(732, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3."               );
                     errorDescriptionDict.Add(733, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3."               );
                     errorDescriptionDict.Add(734, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3."               );
                     errorDescriptionDict.Add(735, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3."               );
                     errorDescriptionDict.Add(736, "Hw configuration error: Unexpected module detected in Slot 3. Expected module: 'Output_4_word_3' (GsdId=ID_MODULE_OUTPUT4W')." );
-                    errorDescriptionDict.Add(740, "Hw configuration error. Value of _hwID_4 is zero."                                                                             );
+                    errorDescriptionDict.Add(740, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_4 is zero.");
                     errorDescriptionDict.Add(741, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4."               );
                     errorDescriptionDict.Add(742, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4."               );
                     errorDescriptionDict.Add(743, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4."               );
                     errorDescriptionDict.Add(744, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4."               );
                     errorDescriptionDict.Add(745, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4."               );
                     errorDescriptionDict.Add(746, "Hw configuration error: Unexpected module detected in Slot 4. Expected module: 'Output_4_word_4' (GsdId=ID_MODULE_OUTPUT4W')." );
-                    errorDescriptionDict.Add(750, "Hw configuration error. Value of _hwID_5 is zero."                                                                             );
+                    errorDescriptionDict.Add(750, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_5 is zero.");
                     errorDescriptionDict.Add(751, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5."               );
                     errorDescriptionDict.Add(752, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5."               );
                     errorDescriptionDict.Add(753, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5."               );
                     errorDescriptionDict.Add(754, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5."               );
                     errorDescriptionDict.Add(755, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5."               );
                     errorDescriptionDict.Add(756, "Hw configuration error: Unexpected module detected in Slot 5. Expected module: 'Output_4_word_5' (GsdId=ID_MODULE_OUTPUT4W')." );
-                    errorDescriptionDict.Add(760, "Hw configuration error. Value of _hwID_6 is zero."                                                                             );
+                    errorDescriptionDict.Add(760, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_6 is zero.");
                     errorDescriptionDict.Add(761, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6."               );
                     errorDescriptionDict.Add(762, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6."               );
                     errorDescriptionDict.Add(763, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6."               );
                     errorDescriptionDict.Add(764, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6."               );
                     errorDescriptionDict.Add(765, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6."               );
                     errorDescriptionDict.Add(766, "Hw configuration error: Unexpected module detected in Slot 6. Expected module: 'Output_4_word_6' (GsdId=ID_MODULE_OUTPUT4W')." );
-                    errorDescriptionDict.Add(770, "Hw configuration error. Value of _hwID_7 is zero."                                                                             );
+                    errorDescriptionDict.Add(770, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_7 is zero.");
                     errorDescriptionDict.Add(771, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7."               );
                     errorDescriptionDict.Add(772, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7."               );
                     errorDescriptionDict.Add(773, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7."               );
                     errorDescriptionDict.Add(774, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7."               );
                     errorDescriptionDict.Add(775, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7."               );
                     errorDescriptionDict.Add(776, "Hw configuration error: Unexpected module detected in Slot 7. Expected module: 'Output_4_word_7' (GsdId=ID_MODULE_OUTPUT4W')." );
-                    errorDescriptionDict.Add(780, "Hw configuration error. Value of _hwID_8 is zero."                                                                             );
+                    errorDescriptionDict.Add(780, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_8 is zero.");
                     errorDescriptionDict.Add(781, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8."               );
                     errorDescriptionDict.Add(782, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8."               );
                     errorDescriptionDict.Add(783, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8."               );
                     errorDescriptionDict.Add(784, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8."               );
                     errorDescriptionDict.Add(785, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8."               );
                     errorDescriptionDict.Add(786, "Hw configuration error: Unexpected module detected in Slot 8.Expected module: 'Output_4_word_8' (GsdId=ID_MODULE_OUTPUT4W')."  );
-                    errorDescriptionDict.Add(790, "Hw configuration error. Value of _hwID_9 is zero."                                                                             );
+                    errorDescriptionDict.Add(790, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_9 is zero.");
                     errorDescriptionDict.Add(791, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9."               );
                     errorDescriptionDict.Add(792, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9."               );
                     errorDescriptionDict.Add(793, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9."               );
@@ -1014,26 +1020,32 @@ namespace AXOpen.Components.Rexroth.Tightening
                     errorDescriptionDict.Add(966, "Hw configuration error: Unexpected module detected in Slot 26. Expected module: 'Input_2_word_1' (GsdId=ID_MODULE_INPUT2W')."  );
                     errorDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!"                                                                  );
                     errorDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!"                                                                     );
-                    errorDescriptionDict.Add(1132, "Input variable `hwId_1` has invalid value in `Run` method!"                                                                   );
-                    errorDescriptionDict.Add(1133, "Input variable `hwId_2` has invalid value in `Run` method!"                                                                   );
-                    errorDescriptionDict.Add(1134, "Input variable `hwId_3` has invalid value in `Run` method!"                                                                   );
-                    errorDescriptionDict.Add(1135, "Input variable `hwId_4` has invalid value in `Run` method!"                                                                   );
-                    errorDescriptionDict.Add(1136, "Input variable `hwId_5` has invalid value in `Run` method!"                                                                   );
-                    errorDescriptionDict.Add(1137, "Input variable `hwId_6` has invalid value in `Run` method!"                                                                   );
-                    errorDescriptionDict.Add(1138, "Input variable `hwId_7` has invalid value in `Run` method!"                                                                   );
-                    errorDescriptionDict.Add(1139, "Input variable `hwId_8` has invalid value in `Run` method!"                                                                   );
-                    errorDescriptionDict.Add(1140, "Input variable `hwId_9` has invalid value in `Run` method!"                                                                   );
-                    errorDescriptionDict.Add(1141, "Input variable `hwId_10` has invalid value in `Run` method!"                                                                  );
-                    errorDescriptionDict.Add(1142, "Input variable `hwId_11` has invalid value in `Run` method!"                                                                  );
-                    errorDescriptionDict.Add(1143, "Input variable `hwId_12` has invalid value in `Run` method!"                                                                  );
-                    errorDescriptionDict.Add(1144, "Input variable `hwId_13` has invalid value in `Run` method!"                                                                  );
-                    errorDescriptionDict.Add(1145, "Input variable `hwId_14` has invalid value in `Run` method!"                                                                  );
-                    errorDescriptionDict.Add(1146, "Input variable `hwId_15` has invalid value in `Run` method!"                                                                  );
-                    errorDescriptionDict.Add(1147, "Input variable `hwId_16` has invalid value in `Run` method!"                                                                  );
-                    errorDescriptionDict.Add(1148, "Input variable `hwId_17` has invalid value in `Run` method!"                                                                  );
-                    errorDescriptionDict.Add(1149, "Input variable `hwId_18` has invalid value in `Run` method!"                                                                  );
-                    errorDescriptionDict.Add(1150, "Input variable `hwId_19` has invalid value in `Run` method!"                                                                  );
-                    errorDescriptionDict.Add(1151, "Input variable `hwId_20` has invalid value in `Run` method!"                                                                  );
+                    errorDescriptionDict.Add(1132, "Input variable `Config.HWIDs.HwID_Slot_1` has invalid value in `Run` method!"                                                 );
+                    errorDescriptionDict.Add(1133, "Input variable `Config.HWIDs.HwID_Slot_2` has invalid value in `Run` method!"                                                 );
+                    errorDescriptionDict.Add(1134, "Input variable `Config.HWIDs.HwID_Slot_3` has invalid value in `Run` method!"                                                 );
+                    errorDescriptionDict.Add(1135, "Input variable `Config.HWIDs.HwID_Slot_4` has invalid value in `Run` method!"                                                 );
+                    errorDescriptionDict.Add(1136, "Input variable `Config.HWIDs.HwID_Slot_5` has invalid value in `Run` method!"                                                 );
+                    errorDescriptionDict.Add(1137, "Input variable `Config.HWIDs.HwID_Slot_6` has invalid value in `Run` method!"                                                 );
+                    errorDescriptionDict.Add(1138, "Input variable `Config.HWIDs.HwID_Slot_7` has invalid value in `Run` method!"                                                 );
+                    errorDescriptionDict.Add(1139, "Input variable `Config.HWIDs.HwID_Slot_8` has invalid value in `Run` method!"                                                 );
+                    errorDescriptionDict.Add(1140, "Input variable `Config.HWIDs.HwID_Slot_9` has invalid value in `Run` method!"                                                 );
+                    errorDescriptionDict.Add(1141, "Input variable `Config.HWIDs.HwID_Slot_10` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1142, "Input variable `Config.HWIDs.HwID_Slot_11` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1143, "Input variable `Config.HWIDs.HwID_Slot_12` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1144, "Input variable `Config.HWIDs.HwID_Slot_13` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1145, "Input variable `Config.HWIDs.HwID_Slot_14` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1146, "Input variable `Config.HWIDs.HwID_Slot_15` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1147, "Input variable `Config.HWIDs.HwID_Slot_16` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1148, "Input variable `Config.HWIDs.HwID_Slot_17` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1149, "Input variable `Config.HWIDs.HwID_Slot_18` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1150, "Input variable `Config.HWIDs.HwID_Slot_19` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1151, "Input variable `Config.HWIDs.HwID_Slot_20` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1152, "Input variable `Config.HWIDs.HwID_Slot_21` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1153, "Input variable `Config.HWIDs.HwID_Slot_22` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1154, "Input variable `Config.HWIDs.HwID_Slot_23` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1155, "Input variable `Config.HWIDs.HwID_Slot_24` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1156, "Input variable `Config.HWIDs.HwID_Slot_25` has invalid value in `Run` method!"                                                );
+                    errorDescriptionDict.Add(1157, "Input variable `Config.HWIDs.HwID_Slot_26` has invalid value in `Run` method!"                                                );
                     errorDescriptionDict.Add(1201, "Error reading the Input_4_word_1!"                                                                                            );
                     errorDescriptionDict.Add(1202, "Error reading the Input_4_word_2!"                                                                                            );
                     errorDescriptionDict.Add(1203, "Error reading the Input_4_word_3!"                                                                                            );
@@ -1364,97 +1376,293 @@ namespace AXOpen.Components.Rexroth.Tightening
                     // General alarms
                     actionDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
                     actionDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(702, "Input variable `hwId_1` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(703, "Input variable `hwId_2` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(704, "Input variable `hwId_3` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(705, "Input variable `hwId_4` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(706, "Input variable `hwId_5` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(707, "Input variable `hwId_6` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(708, "Input variable `hwId_7` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(709, "Input variable `hwId_8` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(710, "Input variable `hwId_9` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(711, "Input variable `hwId_10` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(712, "Input variable `hwId_11` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(713, "Input variable `hwId_12` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(714, "Input variable `hwId_13` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(715, "Input variable `hwId_14` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(716, "Input variable `hwId_15` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(717, "Input variable `hwId_16` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(718, "Input variable `hwId_17` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(719, "Input variable `hwId_18` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(720, "Input variable `hwId_19` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(721, "Input variable `hwId_20` has invalid value in `Run` method!");
-
-                    actionDescriptionDict.Add(722, "Error reading the Axo_CS351_compactInputStructureConfig.HWIDs.HwID_Slot_1!");
-                    actionDescriptionDict.Add(723, "Error reading the Axo_CS351_compactInputStructureConfig.HWIDs.HwID_Slot_2!");
-                    actionDescriptionDict.Add(724, "Error reading the Axo_CS351_compactInputStructure_hwID_3!");
-                    actionDescriptionDict.Add(725, "Error reading the Axo_CS351_compactInputStructure_hwID_4!");
-                    actionDescriptionDict.Add(726, "Error reading the Axo_CS351_compactInputStructure_hwID_5!");
-                    actionDescriptionDict.Add(727, "Error reading the Axo_CS351_compactInputStructure_hwID_6!");
-                    actionDescriptionDict.Add(728, "Error reading the Axo_CS351_compactInputStructure_hwID_7!");
-                    actionDescriptionDict.Add(729, "Error reading the Axo_CS351_compactInputStructure_hwID_8!");
-                    actionDescriptionDict.Add(730, "Error reading the Axo_CS351_compactInputStructure_hwID_9!");
-                    actionDescriptionDict.Add(731, "Error reading the Axo_CS351_compactInputStructureConfig.HWIDs.HwID_Slot_10!");
-
-                    actionDescriptionDict.Add(733, "Error writing the Axo_CS351_compactOutputStructureConfig.HWIDs.HwID_Slot_11!");
-                    actionDescriptionDict.Add(734, "Error writing the Axo_CS351_compactOutputStructureConfig.HWIDs.HwID_Slot_12!");
-                    actionDescriptionDict.Add(735, "Error writing the Axo_CS351_compactOutputStructureConfig.HWIDs.HwID_Slot_13!");
-                    actionDescriptionDict.Add(736, "Error writing the Axo_CS351_compactOutputStructureConfig.HWIDs.HwID_Slot_14!");
-                    actionDescriptionDict.Add(737, "Error writing the Axo_CS351_compactOutputStructureConfig.HWIDs.HwID_Slot_15!");
-                    actionDescriptionDict.Add(738, "Error writing the Axo_CS351_compactOutputStructureConfig.HWIDs.HwID_Slot_16!");
-                    actionDescriptionDict.Add(739, "Error writing the Axo_CS351_compactOutputStructureConfig.HWIDs.HwID_Slot_17!");
-                    actionDescriptionDict.Add(740, "Error writing the Axo_CS351_compactOutputStructureConfig.HWIDs.HwID_Slot_18!");
-                    actionDescriptionDict.Add(741, "Error writing the Axo_CS351_compactOutputStructureConfig.HWIDs.HwID_Slot_19!");
-                    actionDescriptionDict.Add(742, "Error writing the Axo_CS351_compactOutputStructureConfig.HWIDs.HwID_Slot_20!");
+                    actionDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090).");
+                    actionDescriptionDict.Add(710, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_1 is zero.");
+                    actionDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1.");
+                    actionDescriptionDict.Add(712, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1.");
+                    actionDescriptionDict.Add(713, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1.");
+                    actionDescriptionDict.Add(714, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1.");
+                    actionDescriptionDict.Add(715, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1.");
+                    actionDescriptionDict.Add(716, "Hw configuration error: Unexpected module detected in Slot 1. Expected module: 'Output_4_word_1' (GsdId=ID_MODULE_OUTPUT4W').");
+                    actionDescriptionDict.Add(720, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_2 is zero.");
+                    actionDescriptionDict.Add(721, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2.");
+                    actionDescriptionDict.Add(722, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2.");
+                    actionDescriptionDict.Add(723, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2.");
+                    actionDescriptionDict.Add(724, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2.");
+                    actionDescriptionDict.Add(725, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2.");
+                    actionDescriptionDict.Add(726, "Hw configuration error: Unexpected module detected in Slot 2. Expected module: 'Output_4_word_2' (GsdId=ID_MODULE_OUTPUT4W').");
+                    actionDescriptionDict.Add(730, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_3 is zero.");
+                    actionDescriptionDict.Add(731, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3.");
+                    actionDescriptionDict.Add(732, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3.");
+                    actionDescriptionDict.Add(733, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3.");
+                    actionDescriptionDict.Add(734, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3.");
+                    actionDescriptionDict.Add(735, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3.");
+                    actionDescriptionDict.Add(736, "Hw configuration error: Unexpected module detected in Slot 3. Expected module: 'Output_4_word_3' (GsdId=ID_MODULE_OUTPUT4W').");
+                    actionDescriptionDict.Add(740, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_4 is zero.");
+                    actionDescriptionDict.Add(741, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4.");
+                    actionDescriptionDict.Add(742, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4.");
+                    actionDescriptionDict.Add(743, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4.");
+                    actionDescriptionDict.Add(744, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4.");
+                    actionDescriptionDict.Add(745, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4.");
+                    actionDescriptionDict.Add(746, "Hw configuration error: Unexpected module detected in Slot 4. Expected module: 'Output_4_word_4' (GsdId=ID_MODULE_OUTPUT4W').");
+                    actionDescriptionDict.Add(750, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_5 is zero.");
+                    actionDescriptionDict.Add(751, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5.");
+                    actionDescriptionDict.Add(752, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5.");
+                    actionDescriptionDict.Add(753, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5.");
+                    actionDescriptionDict.Add(754, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5.");
+                    actionDescriptionDict.Add(755, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5.");
+                    actionDescriptionDict.Add(756, "Hw configuration error: Unexpected module detected in Slot 5. Expected module: 'Output_4_word_5' (GsdId=ID_MODULE_OUTPUT4W').");
+                    actionDescriptionDict.Add(760, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_6 is zero.");
+                    actionDescriptionDict.Add(761, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6.");
+                    actionDescriptionDict.Add(762, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6.");
+                    actionDescriptionDict.Add(763, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6.");
+                    actionDescriptionDict.Add(764, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6.");
+                    actionDescriptionDict.Add(765, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6.");
+                    actionDescriptionDict.Add(766, "Hw configuration error: Unexpected module detected in Slot 6. Expected module: 'Output_4_word_6' (GsdId=ID_MODULE_OUTPUT4W').");
+                    actionDescriptionDict.Add(770, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_7 is zero.");
+                    actionDescriptionDict.Add(771, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7.");
+                    actionDescriptionDict.Add(772, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7.");
+                    actionDescriptionDict.Add(773, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7.");
+                    actionDescriptionDict.Add(774, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7.");
+                    actionDescriptionDict.Add(775, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7.");
+                    actionDescriptionDict.Add(776, "Hw configuration error: Unexpected module detected in Slot 7. Expected module: 'Output_4_word_7' (GsdId=ID_MODULE_OUTPUT4W').");
+                    actionDescriptionDict.Add(780, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_8 is zero.");
+                    actionDescriptionDict.Add(781, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8.");
+                    actionDescriptionDict.Add(782, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8.");
+                    actionDescriptionDict.Add(783, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8.");
+                    actionDescriptionDict.Add(784, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8.");
+                    actionDescriptionDict.Add(785, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8.");
+                    actionDescriptionDict.Add(786, "Hw configuration error: Unexpected module detected in Slot 8.Expected module: 'Output_4_word_8' (GsdId=ID_MODULE_OUTPUT4W').");
+                    actionDescriptionDict.Add(790, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_9 is zero.");
+                    actionDescriptionDict.Add(791, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9.");
+                    actionDescriptionDict.Add(792, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9.");
+                    actionDescriptionDict.Add(793, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9.");
+                    actionDescriptionDict.Add(794, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 9.");
+                    actionDescriptionDict.Add(795, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 9.");
+                    actionDescriptionDict.Add(796, "Hw configuration error: Unexpected module detected in Slot 9. Expected module: 'Output_2_word_1' (GsdId=ID_MODULE_OUTPUT2W').");
+                    actionDescriptionDict.Add(800, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_10 is zero.");
+                    actionDescriptionDict.Add(801, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 10.");
+                    actionDescriptionDict.Add(802, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 10.");
+                    actionDescriptionDict.Add(803, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 10.");
+                    actionDescriptionDict.Add(804, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 10.");
+                    actionDescriptionDict.Add(805, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 10.");
+                    actionDescriptionDict.Add(806, "Hw configuration error: Unexpected module detected in Slot 10. Expected module: 'Input_4_word_1' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(810, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_11 is zero.");
+                    actionDescriptionDict.Add(811, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 11.");
+                    actionDescriptionDict.Add(812, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 11.");
+                    actionDescriptionDict.Add(813, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 11.");
+                    actionDescriptionDict.Add(814, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 11.");
+                    actionDescriptionDict.Add(815, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 11.");
+                    actionDescriptionDict.Add(816, "Hw configuration error: Unexpected module detected in Slot 11. Expected module: 'Input_4_word_2' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(820, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_12 is zero.");
+                    actionDescriptionDict.Add(821, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 12.");
+                    actionDescriptionDict.Add(822, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 12.");
+                    actionDescriptionDict.Add(823, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 12.");
+                    actionDescriptionDict.Add(824, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 12.");
+                    actionDescriptionDict.Add(825, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 12.");
+                    actionDescriptionDict.Add(826, "Hw configuration error: Unexpected module detected in Slot 12. Expected module: 'Input_4_word_3' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(830, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_13 is zero.");
+                    actionDescriptionDict.Add(831, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 13.");
+                    actionDescriptionDict.Add(832, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 13.");
+                    actionDescriptionDict.Add(833, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 13.");
+                    actionDescriptionDict.Add(834, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 13.");
+                    actionDescriptionDict.Add(835, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 13.");
+                    actionDescriptionDict.Add(836, "Hw configuration error: Unexpected module detected in Slot 13. Expected module: 'Input_4_word_4' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(840, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_14 is zero.");
+                    actionDescriptionDict.Add(841, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 14.");
+                    actionDescriptionDict.Add(842, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 14.");
+                    actionDescriptionDict.Add(843, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 14.");
+                    actionDescriptionDict.Add(844, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 14.");
+                    actionDescriptionDict.Add(845, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 14.");
+                    actionDescriptionDict.Add(846, "Hw configuration error: Unexpected module detected in Slot 14. Expected module: 'Input_4_word_5' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(850, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_15 is zero.");
+                    actionDescriptionDict.Add(851, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 15.");
+                    actionDescriptionDict.Add(852, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 15.");
+                    actionDescriptionDict.Add(853, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 15.");
+                    actionDescriptionDict.Add(854, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 15.");
+                    actionDescriptionDict.Add(855, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 15.");
+                    actionDescriptionDict.Add(856, "Hw configuration error: Unexpected module detected in Slot 15. Expected module: 'Input_4_word_6' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(860, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_16 is zero.");
+                    actionDescriptionDict.Add(861, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 16.");
+                    actionDescriptionDict.Add(862, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 16.");
+                    actionDescriptionDict.Add(863, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 16.");
+                    actionDescriptionDict.Add(864, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 16.");
+                    actionDescriptionDict.Add(865, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 16.");
+                    actionDescriptionDict.Add(866, "Hw configuration error: Unexpected module detected in Slot 16. Expected module: 'Input_4_word_7' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(870, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_17 is zero.");
+                    actionDescriptionDict.Add(871, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 17.");
+                    actionDescriptionDict.Add(872, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 17.");
+                    actionDescriptionDict.Add(873, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 17.");
+                    actionDescriptionDict.Add(874, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 17.");
+                    actionDescriptionDict.Add(875, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 17.");
+                    actionDescriptionDict.Add(876, "Hw configuration error: Unexpected module detected in Slot 17. Expected module: 'Input_4_word_8' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(880, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_18 is zero.");
+                    actionDescriptionDict.Add(881, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 18.");
+                    actionDescriptionDict.Add(882, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 18.");
+                    actionDescriptionDict.Add(883, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 18.");
+                    actionDescriptionDict.Add(884, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 18.");
+                    actionDescriptionDict.Add(885, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 18.");
+                    actionDescriptionDict.Add(886, "Hw configuration error: Unexpected module detected in Slot 18. Expected module: 'Input_4_word_9' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(890, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_19 is zero.");
+                    actionDescriptionDict.Add(891, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 19.");
+                    actionDescriptionDict.Add(892, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 19.");
+                    actionDescriptionDict.Add(893, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 19.");
+                    actionDescriptionDict.Add(894, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 19.");
+                    actionDescriptionDict.Add(895, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 19.");
+                    actionDescriptionDict.Add(896, "Hw configuration error: Unexpected module detected in Slot 19. Expected module: 'Input_4_word_10' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(900, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_20 is zero.");
+                    actionDescriptionDict.Add(901, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 20.");
+                    actionDescriptionDict.Add(902, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 20.");
+                    actionDescriptionDict.Add(903, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 20.");
+                    actionDescriptionDict.Add(904, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 20.");
+                    actionDescriptionDict.Add(905, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 20.");
+                    actionDescriptionDict.Add(906, "Hw configuration error: Unexpected module detected in Slot 20. Expected module: 'Input_4_word_11' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(910, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_21 is zero.");
+                    actionDescriptionDict.Add(911, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 21.");
+                    actionDescriptionDict.Add(912, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 21.");
+                    actionDescriptionDict.Add(913, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 21.");
+                    actionDescriptionDict.Add(914, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 21.");
+                    actionDescriptionDict.Add(915, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 21.");
+                    actionDescriptionDict.Add(916, "Hw configuration error: Unexpected module detected in Slot 21. Expected module: 'Input_4_word_12' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(920, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_22 is zero.");
+                    actionDescriptionDict.Add(921, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 22.");
+                    actionDescriptionDict.Add(922, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 22.");
+                    actionDescriptionDict.Add(923, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 22.");
+                    actionDescriptionDict.Add(924, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 22.");
+                    actionDescriptionDict.Add(925, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 22.");
+                    actionDescriptionDict.Add(926, "Hw configuration error: Unexpected module detected in Slot 22. Expected module: 'Input_4_word_13' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(930, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_23 is zero.");
+                    actionDescriptionDict.Add(931, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 23.");
+                    actionDescriptionDict.Add(932, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 23.");
+                    actionDescriptionDict.Add(933, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 23.");
+                    actionDescriptionDict.Add(934, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 23.");
+                    actionDescriptionDict.Add(935, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 23.");
+                    actionDescriptionDict.Add(936, "Hw configuration error: Unexpected module detected in Slot 23. Expected module: 'Input_4_word_14' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(940, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_24 is zero.");
+                    actionDescriptionDict.Add(941, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 24.");
+                    actionDescriptionDict.Add(942, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 24.");
+                    actionDescriptionDict.Add(943, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 24.");
+                    actionDescriptionDict.Add(944, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 24.");
+                    actionDescriptionDict.Add(945, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 24.");
+                    actionDescriptionDict.Add(946, "Hw configuration error: Unexpected module detected in Slot 24. Expected module: 'Input_4_word_15' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(950, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_25 is zero.");
+                    actionDescriptionDict.Add(951, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 25.");
+                    actionDescriptionDict.Add(952, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 25.");
+                    actionDescriptionDict.Add(953, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 25.");
+                    actionDescriptionDict.Add(954, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 25.");
+                    actionDescriptionDict.Add(955, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 25.");
+                    actionDescriptionDict.Add(956, "Hw configuration error: Unexpected module detected in Slot 25. Expected module: 'Input_4_word_16' (GsdId=ID_MODULE_INPUT4W').");
+                    actionDescriptionDict.Add(960, "Hw configuration error. Value of Config.HWIDs.HwID_Slot_26 is zero.");
+                    actionDescriptionDict.Add(961, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 26.");
+                    actionDescriptionDict.Add(962, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 26.");
+                    actionDescriptionDict.Add(963, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 26.");
+                    actionDescriptionDict.Add(964, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 26.");
+                    actionDescriptionDict.Add(965, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 26.");
+                    actionDescriptionDict.Add(966, "Hw configuration error: Unexpected module detected in Slot 26. Expected module: 'Input_2_word_1' (GsdId=ID_MODULE_INPUT2W').");
+                    actionDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!");
+                    actionDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1132, "Input variable `Config.HWIDs.HwID_Slot_1` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1133, "Input variable `Config.HWIDs.HwID_Slot_2` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1134, "Input variable `Config.HWIDs.HwID_Slot_3` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1135, "Input variable `Config.HWIDs.HwID_Slot_4` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1136, "Input variable `Config.HWIDs.HwID_Slot_5` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1137, "Input variable `Config.HWIDs.HwID_Slot_6` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1138, "Input variable `Config.HWIDs.HwID_Slot_7` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1139, "Input variable `Config.HWIDs.HwID_Slot_8` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1140, "Input variable `Config.HWIDs.HwID_Slot_9` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1141, "Input variable `Config.HWIDs.HwID_Slot_10` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1142, "Input variable `Config.HWIDs.HwID_Slot_11` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1143, "Input variable `Config.HWIDs.HwID_Slot_12` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1144, "Input variable `Config.HWIDs.HwID_Slot_13` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1145, "Input variable `Config.HWIDs.HwID_Slot_14` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1146, "Input variable `Config.HWIDs.HwID_Slot_15` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1147, "Input variable `Config.HWIDs.HwID_Slot_16` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1148, "Input variable `Config.HWIDs.HwID_Slot_17` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1149, "Input variable `Config.HWIDs.HwID_Slot_18` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1150, "Input variable `Config.HWIDs.HwID_Slot_19` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1151, "Input variable `Config.HWIDs.HwID_Slot_20` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1152, "Input variable `Config.HWIDs.HwID_Slot_21` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1153, "Input variable `Config.HWIDs.HwID_Slot_22` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1154, "Input variable `Config.HWIDs.HwID_Slot_23` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1155, "Input variable `Config.HWIDs.HwID_Slot_24` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1156, "Input variable `Config.HWIDs.HwID_Slot_25` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1157, "Input variable `Config.HWIDs.HwID_Slot_26` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1201, "Error reading the Input_4_word_1!");
+                    actionDescriptionDict.Add(1202, "Error reading the Input_4_word_2!");
+                    actionDescriptionDict.Add(1203, "Error reading the Input_4_word_3!");
+                    actionDescriptionDict.Add(1204, "Error reading the Input_4_word_4!");
+                    actionDescriptionDict.Add(1205, "Error reading the Input_4_word_5!");
+                    actionDescriptionDict.Add(1206, "Error reading the Input_4_word_6!");
+                    actionDescriptionDict.Add(1207, "Error reading the Input_4_word_7!");
+                    actionDescriptionDict.Add(1208, "Error reading the Input_4_word_8!");
+                    actionDescriptionDict.Add(1209, "Error reading the Input_4_word_9!");
+                    actionDescriptionDict.Add(1210, "Error reading the Input_4_word_10!");
+                    actionDescriptionDict.Add(1211, "Error reading the Input_4_word_11!");
+                    actionDescriptionDict.Add(1212, "Error reading the Input_4_word_12!");
+                    actionDescriptionDict.Add(1213, "Error reading the Input_4_word_13!");
+                    actionDescriptionDict.Add(1214, "Error reading the Input_4_word_14!");
+                    actionDescriptionDict.Add(1215, "Error reading the Input_4_word_15!");
+                    actionDescriptionDict.Add(1216, "Error reading the Input_4_word_16!");
+                    actionDescriptionDict.Add(1217, "Error reading the Input_2_word_1!");
+                    actionDescriptionDict.Add(1231, "Error writing the Output_4_word_1!");
+                    actionDescriptionDict.Add(1232, "Error writing the Output_4_word_2!");
+                    actionDescriptionDict.Add(1233, "Error writing the Output_4_word_3!");
+                    actionDescriptionDict.Add(1234, "Error writing the Output_4_word_4!");
+                    actionDescriptionDict.Add(1235, "Error writing the Output_4_word_5!");
+                    actionDescriptionDict.Add(1236, "Error writing the Output_4_word_6!");
+                    actionDescriptionDict.Add(1237, "Error writing the Output_4_word_7!");
+                    actionDescriptionDict.Add(1238, "Error writing the Output_4_word_8!");
+                    actionDescriptionDict.Add(1239, "Error writing the Output_2_word_1!");
+                    actionDescriptionDict.Add(2000, "Program number out of range!");
 
 
                     // DisableTask
-                    actionDescriptionDict.Add(900, "DisableTask finished with error!");
-                    actionDescriptionDict.Add(901, "DisableTask was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10000, "DisableTask finished with error!");
+                    actionDescriptionDict.Add(10001, "DisableTask was aborted, while not yet completed!");
                     // EnableTask 
-                    actionDescriptionDict.Add(905, "EnableTask task finished with error!");
-                    actionDescriptionDict.Add(906, "EnableTask task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10005, "EnableTask task finished with error!");
+                    actionDescriptionDict.Add(10006, "EnableTask task was aborted, while not yet completed!");
                     // DisableClockwiseTask
-                    actionDescriptionDict.Add(910, "DisableClockwiseTask finished with error!");
-                    actionDescriptionDict.Add(911, "DisableClockwiseTask was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10010, "DisableClockwiseTask finished with error!");
+                    actionDescriptionDict.Add(10011, "DisableClockwiseTask was aborted, while not yet completed!");
                     // EnableClockwiseTask 
-                    actionDescriptionDict.Add(915, "EnableClockwiseTask task finished with error!");
-                    actionDescriptionDict.Add(916, "EnableClockwiseTask task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10015, "EnableClockwiseTask task finished with error!");
+                    actionDescriptionDict.Add(10016, "EnableClockwiseTask task was aborted, while not yet completed!");
                     // DisableCounterClockwiseTask 
-                    actionDescriptionDict.Add(920, "DisableCounterClockwiseTask finished with error!");
-                    actionDescriptionDict.Add(921, "DisableCounterClockwiseTask was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10020, "DisableCounterClockwiseTask finished with error!");
+                    actionDescriptionDict.Add(10021, "DisableCounterClockwiseTask was aborted, while not yet completed!");
                     // EnableCounterClockwiseTask 
-                    actionDescriptionDict.Add(925, "EnableCounterClockwiseTask task finished with error!");
-                    actionDescriptionDict.Add(926, "EnableCounterClockwiseTask task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10025, "EnableCounterClockwiseTask task finished with error!");
+                    actionDescriptionDict.Add(10026, "EnableCounterClockwiseTask task was aborted, while not yet completed!");
                     // ResetFaultTask 
-                    actionDescriptionDict.Add(930, "ResetFaultTask task finished with error!");
-                    actionDescriptionDict.Add(931, "ResetFaultTask task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10030, "ResetFaultTask task finished with error!");
+                    actionDescriptionDict.Add(10031, "ResetFaultTask task was aborted, while not yet completed!");
                     // ResetResultsTask
-                    actionDescriptionDict.Add(935, "ResetResultsTask task finished with error!");
-                    actionDescriptionDict.Add(936, "ResetResultsTask task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10035, "ResetResultsTask task finished with error!");
+                    actionDescriptionDict.Add(10036, "ResetResultsTask task was aborted, while not yet completed!");
                     // SetScrewingProgramTask 
-                    actionDescriptionDict.Add(940, "SetScrewingProgramTask task finished with error!");
-                    actionDescriptionDict.Add(941, "SetScrewingProgramTask task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10040, "SetScrewingProgramTask task finished with error!");
+                    actionDescriptionDict.Add(10041, "SetScrewingProgramTask task was aborted, while not yet completed!");
                     // GetScrewingResultsTask 
-                    actionDescriptionDict.Add(950, "GetScrewingResultsTask task finished with error!");
-                    actionDescriptionDict.Add(951, "GetScrewingResultsTask task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10050, "GetScrewingResultsTask task finished with error!");
+                    actionDescriptionDict.Add(10051, "GetScrewingResultsTask task was aborted, while not yet completed!");
 
                     // ScrewClockwiseTask
-                    actionDescriptionDict.Add(960, "ScrewClockwiseTask task finished with error!");
-                    actionDescriptionDict.Add(961, "ScrewClockwiseTask task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10060, "ScrewClockwiseTask task finished with error!");
+                    actionDescriptionDict.Add(10061, "ScrewClockwiseTask task was aborted, while not yet completed!");
                     // ScrewCounterClockwise
-                    actionDescriptionDict.Add(980, "ScrewCounterClockwise task finished with error!");
-                    actionDescriptionDict.Add(981, "ScrewCounterClockwise task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10080, "ScrewCounterClockwise task finished with error!");
+                    actionDescriptionDict.Add(10081, "ScrewCounterClockwise task was aborted, while not yet completed!");
                     // RunAutomatTask       
-                    actionDescriptionDict.Add(1000, "RunAutomatTask task finished with error!");
-                    actionDescriptionDict.Add(1001, "RunAutomatTask task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10100, "RunAutomatTask task finished with error!");
+                    actionDescriptionDict.Add(10101, "RunAutomatTask task was aborted, while not yet completed!");
 
                     // TemplateTask_20steps_5
-                    actionDescriptionDict.Add(1040, "TemplateTask_20steps_5 task finished with error!");
-                    actionDescriptionDict.Add(1041, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10140, "TemplateTask_20steps_5 task finished with error!");
+                    actionDescriptionDict.Add(10141, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
                     // TemplateTask_20steps_6
-                    actionDescriptionDict.Add(1060, "TemplateTask_20steps_6 task finished with error!");
-                    actionDescriptionDict.Add(1061, "TemplateTask_20steps_6 task was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10160, "TemplateTask_20steps_6 task finished with error!");
+                    actionDescriptionDict.Add(10161, "TemplateTask_20steps_6 task was aborted, while not yet completed!");
 
                 }
 
