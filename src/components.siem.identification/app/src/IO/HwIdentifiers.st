@@ -28,7 +28,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             rf186c_HwID :=	WORD#278,
             rf186c_cyc_HwID :=	WORD#258,
             rf186c_cyc_RF260R_1_Reader_32_byte__cyclic_io_communication_HwID :=	WORD#264,
-            rf186c_cyc_RF340R_1_Reader_128_byte__cyclic_io_communication_HwID := WORD#263,
+            rf186c_cyc_RF340R_1_Reader_128_byte__cyclic_io_communication_HwID :=	WORD#263,
             rf186c_cyc_Rack_HwID :=	WORD#261,
             rf186c_cyc_rf186c_cyc_HwID :=	WORD#262,
             rf186c_cyc_rf186c_cyc_CM_Communication_HwID :=	WORD#265,

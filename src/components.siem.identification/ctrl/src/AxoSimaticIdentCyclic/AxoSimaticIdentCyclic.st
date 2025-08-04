@@ -19,33 +19,46 @@ NAMESPACE AXOpen.Components.Siem.Identification
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Restore#>"}
             RestoreTask : AXOpen.Core.AxoTask;
-        END_VAR
 
-        VAR PUBLIC // TEMPLATE TASKS
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#ReadUID_Task#>"}
             ReadUID_Task : AXOpen.Core.AxoTask;
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Tag field to read#>"}
+            ReadTagFieldManual : WORD;
+            {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#ReadTagFieldTask#>"}
             ReadTagFieldTask : AXOpen.Core.AxoTask;
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Tag field to write#>"}
+            WriteTagFieldManual : WORD;            
+            {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#WriteTagFieldTask#>"}
             WriteTagFieldTask : AXOpen.Core.AxoTask;
+
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#ReadTask#>"}
             ReadTask : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#WriteTask#>"}
             WriteTask : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#ResetTask#>"}
             ResetTask : AXOpen.Core.AxoTask;
+
+        END_VAR
+
+        VAR PUBLIC // TEMPLATE TASKS
+
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Template tasks")]}
@@ -136,6 +149,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             _outputsCount           :   UINT; 
             _NDR_PV                 :   BOOL;
             _dataBufferOffset       :   INT;
+            _readTagField           :   WORD;
         END_VAR
 
 
@@ -556,7 +570,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     IF TRUE THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 301;
-                        _NDR_PV := Inputs.Status.NDR;
                     END_IF;
                 END_IF;
                 
@@ -570,7 +583,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     IF Inputs.Status.ACTIVECMD = Outputs.Control.CMD THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 302;
-                        // _NDR_PV := Inputs.Status.NDR;
                     END_IF;
                 END_IF;
     
@@ -583,7 +595,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     IF Inputs.Status.PRESENCE THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 303;
-                        // _NDR_PV := Inputs.Status.NDR;
                     END_IF;
                 END_IF;
 
@@ -593,7 +604,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id :=      UINT#503;
                     END_IF;
     
-                    // _NDR_PV := Inputs.Status.NDR;
                     IF TRUE THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 304;
@@ -617,9 +627,14 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#505;
                     END_IF;
-
                     FOR _index := INT#0 TO TO_INT(Inputs.Status.BLOCKLENGTH) DO
-                        DataBuffer[ _index + _dataBufferOffset] := Inputs.Data[_index];
+                        IF (_index + _dataBufferOffset) > Config.DataBufferHighIndex THEN
+                            TaskMessenger.Activate( UINT#9999, eAxoMessageCategory#Warning);
+                            Status.Error.Id :=      UINT#9999;
+                            RETURN;
+                        ELSE
+                            DataBuffer[ _index + _dataBufferOffset] := Inputs.Data[_index];
+                        END_IF;
                     END_FOR;
                     _dataBufferOffset := _dataBufferOffset + TO_INT(Inputs.Status.BLOCKLENGTH);
                     IF Inputs.Status.BLOCK THEN
@@ -706,6 +721,13 @@ NAMESPACE AXOpen.Components.Siem.Identification
             Messenger.ActivateOnCondition(ULINT#111,ReadTagFieldTask.IsDone(), eAxoMessageCategory#Info);
             IF ReadTagFieldTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
+                    Outputs.Control.RESET := FALSE;
+                    Outputs.Control.STOP := FALSE;
+                    Outputs.Control.ANTOFF := FALSE;
+                    Outputs.Control.BLOCK := FALSE;
+                    _NDR_PV := Inputs.Status.NDR;
+                    _index  := INT#0;
+                    _dataBufferOffset := Config.DataBufferLowIndex;
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
@@ -718,7 +740,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id :=      UINT#510;
                     END_IF;
     
-                    IF TRUE THEN
+                    Outputs.Control.START := NOT Outputs.Control.START;
+                    IF TRUE THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 311;
                     END_IF;
@@ -730,7 +753,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id :=      UINT#511;
                     END_IF;
     
-                    IF TRUE THEN
+                    Outputs.Control.CMD := BYTE#2;   // ReadTagField command
+                    Outputs.Control.TAGFIELD := _readTagField;
+                    IF Inputs.Status.ACTIVECMD = Outputs.Control.CMD THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 312;
                     END_IF;
@@ -742,7 +767,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id :=      UINT#512;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.Status.PRESENCE THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 313;
                     END_IF;
@@ -766,8 +791,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id :=      UINT#514;
                     END_IF;
     
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
+                    IF Inputs.Status.NDR <> _NDR_PV THEN
+                            THIS.CallTimers(FALSE);
                         _progress := 315;
                     END_IF;
                 END_IF;
@@ -778,7 +803,20 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id :=      UINT#515;
                     END_IF;
     
-                    IF TRUE THEN
+                    FOR _index := INT#0 TO TO_INT(Inputs.Status.BLOCKLENGTH) DO
+                        IF (_index + _dataBufferOffset) > Config.DataBufferHighIndex THEN
+                            TaskMessenger.Activate( UINT#9999, eAxoMessageCategory#Warning);
+                            Status.Error.Id :=      UINT#9999;
+                            RETURN;
+                        ELSE
+                            DataBuffer[ _index + _dataBufferOffset] := Inputs.Data[_index];
+                        END_IF;
+                    END_FOR;
+                    _dataBufferOffset := _dataBufferOffset + TO_INT(Inputs.Status.BLOCKLENGTH);
+                    IF Inputs.Status.BLOCK THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 311;
+                    ELSE
                         THIS.CallTimers(FALSE);
                         _progress := 316;
                     END_IF;
@@ -3213,6 +3251,10 @@ NAMESPACE AXOpen.Components.Siem.Identification
         END_METHOD
 
         METHOD PUBLIC ReadTagField : IAxoTaskState
+            VAR_INPUT 
+                TagField : WORD;
+            END_VAR
+            _readTagField := TagField;
             ReadTagField := ReadTagFieldTask.Invoke(THIS);
         END_METHOD
 
@@ -3258,6 +3300,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
 
         METHOD PROTECTED OVERRIDE ManualControl
+            _readTagField := ReadTagFieldManual;
             THIS._isManuallyControllable := true;
         END_METHOD
         
