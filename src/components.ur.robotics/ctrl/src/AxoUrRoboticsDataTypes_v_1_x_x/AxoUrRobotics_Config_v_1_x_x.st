@@ -7,6 +7,8 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             InfoTime : LTIME := LT#2S;
             {#ix-set:AttributeName = "<#Error time#>"}
             ErrorTime : LTIME := LT#0S;
+            {#ix-set:AttributeName = "<#Task timeout#>"}
+            TaskTimeout : LTIME := LT#60S;
             {#ix-set:AttributeName = "<#Remote power on enabled#>"}
             RemotePowerOnEnabled:BOOL :=FALSE;
             {#ix-set:AttributeName = "<#Remote power on pulse time#>"}

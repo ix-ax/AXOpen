@@ -717,7 +717,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 
                 ResetTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ResetTask.ThrowWhen(ResetTask.Duration >= T#3S ,'Unable to reset the device.');
+                ResetTask.ThrowWhen(ResetTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ResetTask timeout.');
             END_IF;
             IF ResetTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -786,7 +786,6 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
                 SetScrewingProgramTask.ThrowWhen(SetScrewingProgramTask.Duration > Config.ProgramChangeTimeout, 'Unable to change the screwing program.');
                 THIS.CallTimers(TRUE);
-                
                 Status.Action.Id := TO_UINT(_progress);
             END_IF;
             IF SetScrewingProgramTask.DoneReached() THEN

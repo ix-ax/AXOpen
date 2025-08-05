@@ -2464,7 +2464,7 @@ NAMESPACE Template.Axolibrary
                 
                 TemplateTask_10steps_1.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_1.ThrowWhen(TemplateTask_10steps_1.Duration >= Config.ErrorTime ,'TemplateTask_10steps_1 error.');
+                TemplateTask_10steps_1.ThrowWhen(TemplateTask_10steps_1.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_1 timeout.');                
             END_IF;
             IF TemplateTask_10steps_1.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -2617,7 +2617,7 @@ NAMESPACE Template.Axolibrary
                 
                 TemplateTask_10steps_2.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_2.ThrowWhen(TemplateTask_10steps_2.Duration >= Config.ErrorTime ,'TemplateTask_10steps_2 error.');
+                TemplateTask_10steps_2.ThrowWhen(TemplateTask_10steps_2.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_2 timeout.');                
             END_IF;
             IF TemplateTask_10steps_2.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -2770,7 +2770,7 @@ NAMESPACE Template.Axolibrary
                 
                 TemplateTask_10steps_3.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_3.ThrowWhen(TemplateTask_10steps_3.Duration >= Config.ErrorTime ,'TemplateTask_10steps_3 error.');
+                TemplateTask_10steps_3.ThrowWhen(TemplateTask_10steps_3.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_3 timeout.');                
             END_IF;
             IF TemplateTask_10steps_3.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -2923,7 +2923,7 @@ NAMESPACE Template.Axolibrary
                 
                 TemplateTask_10steps_4.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_4.ThrowWhen(TemplateTask_10steps_4.Duration >= Config.ErrorTime ,'TemplateTask_10steps_4 error.');
+                TemplateTask_10steps_4.ThrowWhen(TemplateTask_10steps_4.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_4 timeout.');                
             END_IF;
             IF TemplateTask_10steps_4.DoneReached() THEN
                 Status.Action.Id :=  UINT#131;
@@ -3076,7 +3076,7 @@ NAMESPACE Template.Axolibrary
                 
                 TemplateTask_10steps_5.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_5.ThrowWhen(TemplateTask_10steps_5.Duration >= Config.ErrorTime ,'TemplateTask_10steps_5 error.');
+                TemplateTask_10steps_5.ThrowWhen(TemplateTask_10steps_5.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_5 timeout.');                
             END_IF;
             IF TemplateTask_10steps_5.DoneReached() THEN
                 Status.Action.Id :=  UINT#141;
@@ -3229,7 +3229,7 @@ NAMESPACE Template.Axolibrary
                 
                 TemplateTask_10steps_6.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_6.ThrowWhen(TemplateTask_10steps_6.Duration >= Config.ErrorTime ,'TemplateTask_10steps_6 error.');
+                TemplateTask_10steps_6.ThrowWhen(TemplateTask_10steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_6 timeout.');                
             END_IF;
             IF TemplateTask_10steps_6.DoneReached() THEN
                 Status.Action.Id :=  UINT#151;
@@ -3503,7 +3503,7 @@ NAMESPACE Template.Axolibrary
                 
                 TemplateTask_20steps_1.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_1.ThrowWhen(TemplateTask_20steps_1.Duration >= Config.ErrorTime ,'TemplateTask_20steps_1 error.');
+                TemplateTask_20steps_1.ThrowWhen(TemplateTask_20steps_1.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_1 timeout.');                
             END_IF;
             IF TemplateTask_20steps_1.DoneReached() THEN
                 Status.Action.Id :=  UINT#161;
@@ -3773,10 +3773,9 @@ NAMESPACE Template.Axolibrary
                 END_IF;
     
                 THIS.CallTimers(TRUE);
-                
                 TemplateTask_20steps_2.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_2.ThrowWhen(TemplateTask_20steps_2.Duration >= Config.ErrorTime ,'TemplateTask_20steps_2 error.');
+                TemplateTask_20steps_2.ThrowWhen(TemplateTask_20steps_2.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_2 timeout.');                
             END_IF;
             IF TemplateTask_20steps_2.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -4049,7 +4048,7 @@ NAMESPACE Template.Axolibrary
                 
                 TemplateTask_20steps_3.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_3.ThrowWhen(TemplateTask_20steps_3.Duration >= Config.ErrorTime ,'TemplateTask_20steps_3 error.');
+                TemplateTask_20steps_3.ThrowWhen(TemplateTask_20steps_3.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_3 timeout.');                
             END_IF;
             IF TemplateTask_20steps_3.DoneReached() THEN
                 Status.Action.Id :=  UINT#201;
@@ -4322,7 +4321,7 @@ NAMESPACE Template.Axolibrary
                 
                 TemplateTask_20steps_4.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_4.ThrowWhen(TemplateTask_20steps_4.Duration >= Config.ErrorTime ,'TemplateTask_20steps_4 error');
+                TemplateTask_20steps_4.ThrowWhen(TemplateTask_20steps_4.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_4 timeout.');                
             END_IF;
             IF TemplateTask_20steps_4.DoneReached() THEN
                 Status.Action.Id :=  UINT#221;
@@ -4595,7 +4594,7 @@ NAMESPACE Template.Axolibrary
                 
                 TemplateTask_20steps_5.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_5.ThrowWhen(TemplateTask_20steps_5.Duration >= Config.ErrorTime ,'TemplateTask_20steps_5 error.');
+                TemplateTask_20steps_5.ThrowWhen(TemplateTask_20steps_5.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_5 timeout.');                
             END_IF;
             IF TemplateTask_20steps_5.DoneReached() THEN
                 Status.Action.Id :=  UINT#241;
@@ -4868,7 +4867,7 @@ NAMESPACE Template.Axolibrary
                 
                 TemplateTask_20steps_6.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_6.ThrowWhen(TemplateTask_20steps_6.Duration >= Config.ErrorTime ,'TemplateTask_20steps_6 error.');
+                TemplateTask_20steps_6.ThrowWhen(TemplateTask_20steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_6 timeout.');                
             END_IF;
             IF TemplateTask_20steps_6.DoneReached() THEN
                 Status.Action.Id :=  UINT#261;

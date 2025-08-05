@@ -439,10 +439,9 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;
 
                 THIS.CallTimers(TRUE);
-                
                 StartAtMainTask.ThrowWhen(_errorTimer.output );
-
                 Status.Action.Id := TO_UINT(_power_progress);
+                StartAtMainTask.ThrowWhen(StartAtMainTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartAtMainTask timeout.');
             END_IF;
             IF StartAtMainTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -620,9 +619,9 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;		
                 
                 THIS.CallTimers(TRUE);
-                
                 StartMotorsAndProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
+                StartMotorsAndProgramTask.ThrowWhen(StartMotorsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartMotorsAndProgramTask timeout.');
             END_IF;
             IF StartMotorsAndProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -708,10 +707,9 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;	
 
                 THIS.CallTimers(TRUE);
-                
                 StopMovementsTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_power_progress);
+                StopMovementsTask.ThrowWhen(StopMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StopMovementsTask timeout.');
             END_IF;
             IF StopMovementsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -799,10 +797,9 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;		
 
                 THIS.CallTimers(TRUE);
-                
                 StopMovementsAndProgramTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_power_progress);
+                StopMovementsAndProgramTask.ThrowWhen(StopMovementsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StopMovementsAndProgramTask timeout.');
             END_IF;
             IF StopMovementsAndProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#131;
@@ -972,10 +969,9 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;	
 
 	            THIS.CallTimers(TRUE);
-                
                 StartMovementsTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_movement_progress);
+                StartMovementsTask.ThrowWhen(StartMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartMovementsTask timeout.');
             END_IF;
             IF StartMovementsTask.IsFirstExecutionCycle() THEN
                 MovementParameters := Status.CurrentMovementParameters;

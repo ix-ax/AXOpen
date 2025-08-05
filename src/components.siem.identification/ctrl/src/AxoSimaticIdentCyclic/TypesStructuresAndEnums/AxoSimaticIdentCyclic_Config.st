@@ -7,6 +7,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
             InfoTime : LTIME := LT#5S;
             {#ix-set:AttributeName = "<#Error time#>"}
             ErrorTime : LTIME := LT#10S;
+            {#ix-set:AttributeName = "<#Task timeout#>"}
+            TaskTimeout : LTIME := LT#50S;
             {#ix-set:AttributeName = "<#Port#>"}
             Port    : eAxoSimaticIdentCyclic_Port := eAxoSimaticIdentCyclic_Port#NONE;
             {#ix-set:AttributeName = "<#Reader IO image size (in bytes)#>"}

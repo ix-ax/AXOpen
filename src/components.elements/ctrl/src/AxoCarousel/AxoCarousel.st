@@ -245,7 +245,7 @@ NAMESPACE AXOpen.Elements
                 
                 TurnTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TurnTask.ThrowWhen(TurnTask.Duration >= Config.ErrorTime ,'TurnTask error.');
+                TurnTask.ThrowWhen(TurnTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TurnTask timeout.');
             END_IF;
             IF TurnTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -327,7 +327,7 @@ NAMESPACE AXOpen.Elements
                 
                 InitPositionTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                InitPositionTask.ThrowWhen(InitPositionTask.Duration >= Config.ErrorTime ,'InitPositionTask error.');
+                InitPositionTask.ThrowWhen(InitPositionTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'InitPositionTask timeout.');
             END_IF;
             IF InitPositionTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;

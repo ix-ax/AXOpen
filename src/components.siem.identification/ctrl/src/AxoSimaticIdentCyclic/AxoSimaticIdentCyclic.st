@@ -10,6 +10,22 @@ NAMESPACE AXOpen.Components.Siem.Identification
         VAR PUBLIC // HEADER
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#FIRE#>"}
+            FIRE       :   BOOL;
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#_dataBufferOffset#>"}
+            _dataBufferOffset       :   INT;
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#_bytesToWrite#>"}
+            _bytesToWrite           :   UINT;
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Progress#>"}
             {#ix-attr:[ReadOnly()]}
             Progress       :   INT;
         END_VAR
@@ -29,24 +45,42 @@ NAMESPACE AXOpen.Components.Siem.Identification
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Tag field to read#>"}
-            ReadTagFieldManual : WORD;
+            ReadTagFieldManual : UINT;
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#ReadTagFieldTask#>"}
             ReadTagFieldTask : AXOpen.Core.AxoTask;
 
+            {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Tag field to write#>"}
-            WriteTagFieldManual : WORD;            
+            WriteTagFieldManual : UINT;            
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Length of the tag field to write#>"}
+            WriteTagFieldLengthManual : UINT;            
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#WriteTagFieldTask#>"}
             WriteTagFieldTask : AXOpen.Core.AxoTask;
 
-            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Read address#>"}
+            ReadAddressManual : UINT;            
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Length of data to read#>"}
+            ReadLengthManual : UINT;            
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#ReadTask#>"}
             ReadTask : AXOpen.Core.AxoTask;
-            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Write address#>"}
+            WriteAddressManual : UINT;            
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Length of data to write#>"}
+            WriteLengthManual : UINT;            
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#WriteTask#>"}
             WriteTask : AXOpen.Core.AxoTask;
@@ -58,8 +92,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
         END_VAR
 
         VAR PUBLIC // TEMPLATE TASKS
-
-
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Template tasks")]}
             {#ix-set:AttributeName = "<#TemplateTask_20steps_1#>"}
@@ -148,10 +180,16 @@ NAMESPACE AXOpen.Components.Siem.Identification
             _outputsAddress         :   UDINT;  
             _outputsCount           :   UINT; 
             _NDR_PV                 :   BOOL;
-            _dataBufferOffset       :   INT;
-            _readTagField           :   WORD;
+            // _dataBufferOffset       :   INT;
+            _readTagField           :   UINT;
+            _writeTagField          :   UINT;
+            _writeTagFieldLength    :   UINT;
+            // _bytesToWrite           :   UINT;
+            _readAddress            :   UDINT;
+            _readLength             :   UDINT;
+            _writeAddress           :   UDINT;
+            _writeLength            :   UDINT;
         END_VAR
-
 
         ///<summary>
         /// Runs tasks and logic of this component.
@@ -477,12 +515,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 RETURN;
             END_IF;
 
-            // AxoSimaticIdentCyclicInputStructure_hwID_in_1.Item1  :=      _data_in[0].%X0;
-            // AxoSimaticIdentCyclicInputStructure_hwID_in_1.Item2  :=      _data_in[0].%X1;
-            // AxoSimaticIdentCyclicInputStructure_hwID_in_1.Item3  :=      _data_in[0].%X2;
-            // AxoSimaticIdentCyclicInputStructure_hwID_in_1.Item4  :=      _data_in[0].%X3; 
-            // AxoSimaticIdentCyclicInputStructure_hwID_in_1.Item5  :=      _data_in[0].%X4; 
-
             _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwID_Reader) ,_data_in);
 
             IF _retVal > WORD#0 THEN
@@ -558,41 +590,41 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     THIS.CallTimers(FALSE);
                     _progress := 300;
                 END_IF;
-    
-    
-                IF _progress = 300 THEN                                                                                     // ReadUID_Task running: , <add the detailed description of the current action 5>
+        
+                IF _progress = 300 THEN                                                                                     // ReadUID_Task running: , waiting for the tag presence
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
     
-                    Outputs.Control.START := NOT Outputs.Control.START;
-                    IF TRUE THEN              
+                    IF Inputs.Status.PRESENCE THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 301;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 301 THEN                                                                                     // ReadUID_Task running: , waiting for active command to be equal 1 (ReadUID)
+    
+                IF _progress = 301 THEN                                                                                     // ReadUID_Task running: , <add the detailed description of the current action 5>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
     
                     Outputs.Control.CMD := BYTE#1;   // ReadUID command
-                    IF Inputs.Status.ACTIVECMD = Outputs.Control.CMD THEN              
+                    Outputs.Control.START := NOT Outputs.Control.START;
+
+                    IF TRUE THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 302;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 302 THEN                                                                                     // ReadUID_Task running: , waiting for the tag presence
+                
+                IF _progress = 302 THEN                                                                                     // ReadUID_Task running: , waiting for active command to be equal 1 (ReadUID)
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#502;
                     END_IF;
     
-                    IF Inputs.Status.PRESENCE THEN              
+                    IF Inputs.Status.ACTIVECMD = Outputs.Control.CMD THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 303;
                     END_IF;
@@ -627,7 +659,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#505;
                     END_IF;
-                    FOR _index := INT#0 TO TO_INT(Inputs.Status.BLOCKLENGTH) DO
+                    FOR _index := INT#0 TO (TO_INT(Inputs.Status.BLOCKLENGTH) - INT#1) BY INT#1 DO
                         IF (_index + _dataBufferOffset) > Config.DataBufferHighIndex THEN
                             TaskMessenger.Activate( UINT#9999, eAxoMessageCategory#Warning);
                             Status.Error.Id :=      UINT#9999;
@@ -638,6 +670,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_FOR;
                     _dataBufferOffset := _dataBufferOffset + TO_INT(Inputs.Status.BLOCKLENGTH);
                     IF Inputs.Status.BLOCK THEN
+                        _NDR_PV := Inputs.Status.NDR;
                         THIS.CallTimers(FALSE);
                         _progress := 301;
                     ELSE
@@ -651,7 +684,11 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         TaskMessenger.Activate( UINT#506, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#506;
                     END_IF;
-    
+
+                    FOR _index := _dataBufferOffset TO Config.DataBufferHighIndex BY INT#1 DO
+                        DataBuffer[_index] := BYTE#0;
+                    END_FOR;
+
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 307;
@@ -689,9 +726,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
     
                 THIS.CallTimers(TRUE);
                 
-                ReadUID_Task.ThrowWhen(_errorTimer.output);
+                ReadUID_Task.ThrowWhen(_errorTimer.output OR Inputs.Status.ERROR_STARTUP);
                 Status.Action.Id := TO_UINT(_progress);  
-                ReadUID_Task.ThrowWhen(ReadUID_Task.Duration >= Config.ErrorTime ,'ReadUID_Task error.');
+                ReadUID_Task.ThrowWhen(ReadUID_Task.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ReadUID_Task timeout.');                
             END_IF;
             IF ReadUID_Task.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -734,40 +771,44 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     _progress := 310;
                 END_IF;
     
-                IF _progress = 310 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 1>
+                IF _progress = 310 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 3>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#510;
                     END_IF;
     
-                    Outputs.Control.START := NOT Outputs.Control.START;
-                    IF TRUE THEN              
+                    IF Inputs.Status.PRESENCE THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 311;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 311 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 2>
+
+                IF _progress = 311 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 1>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#511;
                     END_IF;
-    
+
                     Outputs.Control.CMD := BYTE#2;   // ReadTagField command
-                    Outputs.Control.TAGFIELD := _readTagField;
-                    IF Inputs.Status.ACTIVECMD = Outputs.Control.CMD THEN              
+                    Outputs.Data[0] := _readTagField.%B1;
+                    Outputs.Data[1] := _readTagField.%B0;
+                    FOR _index := INT#2 TO (TO_INT(Config.IOsize) - INT#5) BY INT#1 DO
+                        Outputs.Data[_index]  := BYTE#0;
+                    END_FOR;
+                    Outputs.Control.START := NOT Outputs.Control.START;
+                    IF TRUE THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 312;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 312 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 3>
+    
+                IF _progress = 312 THEN                                                                                     // ReadTagFieldTask running: , <add the detailed description of the current action 2>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#512;
                     END_IF;
     
-                    IF Inputs.Status.PRESENCE THEN              
+                    IF Inputs.Status.ACTIVECMD = Outputs.Control.CMD THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 313;
                     END_IF;
@@ -792,7 +833,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_IF;
     
                     IF Inputs.Status.NDR <> _NDR_PV THEN
-                            THIS.CallTimers(FALSE);
+                        THIS.CallTimers(FALSE);
                         _progress := 315;
                     END_IF;
                 END_IF;
@@ -803,7 +844,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id :=      UINT#515;
                     END_IF;
     
-                    FOR _index := INT#0 TO TO_INT(Inputs.Status.BLOCKLENGTH) DO
+                    FOR _index := INT#0 TO (TO_INT(Inputs.Status.BLOCKLENGTH) - INT#1) BY INT#1 DO
                         IF (_index + _dataBufferOffset) > Config.DataBufferHighIndex THEN
                             TaskMessenger.Activate( UINT#9999, eAxoMessageCategory#Warning);
                             Status.Error.Id :=      UINT#9999;
@@ -814,6 +855,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_FOR;
                     _dataBufferOffset := _dataBufferOffset + TO_INT(Inputs.Status.BLOCKLENGTH);
                     IF Inputs.Status.BLOCK THEN
+                        _NDR_PV := Inputs.Status.NDR;
                         THIS.CallTimers(FALSE);
                         _progress := 311;
                     ELSE
@@ -827,7 +869,10 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#516;
                     END_IF;
-    
+                    FOR _index := _dataBufferOffset TO Config.DataBufferHighIndex BY INT#1 DO
+                        DataBuffer[_index] := BYTE#0;
+                    END_FOR;
+
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 317;
@@ -865,9 +910,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
     
                 THIS.CallTimers(TRUE);
                 
-                ReadTagFieldTask.ThrowWhen(_errorTimer.output);
+                ReadTagFieldTask.ThrowWhen(_errorTimer.output OR Inputs.Status.ERROR_STARTUP);
                 Status.Action.Id := TO_UINT(_progress);  
-                ReadTagFieldTask.ThrowWhen(ReadTagFieldTask.Duration >= Config.ErrorTime ,'ReadTagFieldTask error.');
+                ReadTagFieldTask.ThrowWhen(ReadTagFieldTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ReadTagFieldTask timeout.');                
             END_IF;
             IF ReadTagFieldTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -896,56 +941,90 @@ NAMESPACE AXOpen.Components.Siem.Identification
             Messenger.ActivateOnCondition(ULINT#120,WriteTagFieldTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#121,WriteTagFieldTask.IsDone(), eAxoMessageCategory#Info);
             IF WriteTagFieldTask.Execute(THIS) THEN
-                IF _progress = 0 THEN
+                IF _progress = 0 THEN                    
+                    Outputs.Control.RESET := FALSE;
+                    Outputs.Control.STOP := FALSE;
+                    Outputs.Control.ANTOFF := FALSE;
+                    Outputs.Control.BLOCK := FALSE;
+                    // _NDR_PV := Inputs.Status.NDR;
+                    _index  := INT#0;
+                    _dataBufferOffset := Config.DataBufferLowIndex;
+                    _bytesToWrite := _writeTagFieldLength;
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
                     _progress := 320;
                 END_IF;
-    
-                IF _progress = 320 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 1>
+
+                IF _progress = 320 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 4>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#520;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.Status.PRESENCE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 321;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 321 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 2>
+
+                IF _progress = 321 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 3>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#521;
                     END_IF;
-    
+                    Outputs.Data[0] := _writeTagField.%B1;
+                    Outputs.Data[1] := _writeTagField.%B0;
+
+                    IF _bytesToWrite > (TO_UINT(Config.IOsize) - UINT#6) THEN
+                        FOR _index := INT#0 TO (TO_INT(Config.IOsize) - INT#7) BY INT#1 DO
+                            Outputs.Data[_index + INT#2] := DataBuffer[_index +_dataBufferOffset];
+                        END_FOR;
+                        _bytesToWrite       := _bytesToWrite     - TO_UINT(Config.IOsize)   + UINT#6;
+                        _dataBufferOffset   := _dataBufferOffset + TO_INT(Config.IOsize)    - INT#6;
+                        Outputs.Control.BLOCK := TRUE;
+                    ELSE
+                        FOR _index := INT#0 TO TO_INT(_bytesToWrite - UINT#1) BY INT#1 DO
+                            Outputs.Data[_index + INT#2] := DataBuffer[_index + _dataBufferOffset];
+                        END_FOR;
+                        FOR _index := _bytesToWrite TO (TO_INT(Config.IOsize) - INT#7) BY INT#1 DO
+                            Outputs.Data[_index + INT#2] := BYTE#0;
+                        END_FOR;
+                        _bytesToWrite := UINT#0;
+                        Outputs.Control.BLOCK := FALSE;
+                    END_IF;
+                    
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 322;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 322 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 3>
+
+                IF _progress = 322 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 1>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#522;
                     END_IF;
-    
-                    IF TRUE THEN
+
+                    _NDR_PV := Inputs.Status.NDR;
+
+                    Outputs.Control.CMD := BYTE#3;   // WriteTagField command
+
+                    IF FIRE THEN
+                        Outputs.Control.START := NOT Outputs.Control.START;
+                        FIRE := FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := 323;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 323 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 4>
+                IF _progress = 323 THEN                                                                                     // WriteTagFieldTask running: , <add the detailed description of the current action 2>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#523;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.Status.ACTIVECMD = Outputs.Control.CMD OR TRUE THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 324;
                     END_IF;
@@ -957,7 +1036,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id :=      UINT#524;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.Status.NDR <> _NDR_PV THEN
                         THIS.CallTimers(FALSE);
                         _progress := 325;
                     END_IF;
@@ -968,8 +1047,27 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#525;
                     END_IF;
-    
-                    IF TRUE THEN
+                    IF _bytesToWrite > Config.IOsize - UINT#4 THEN
+                        FOR _index := INT#0 TO (TO_INT(Config.IOsize) - INT#5) BY INT#1 DO
+                            Outputs.Data[_index] := DataBuffer[_index +_dataBufferOffset];
+                        END_FOR;
+                        _bytesToWrite       := _bytesToWrite    - TO_UINT(Config.IOsize) + UINT#4;
+                        _dataBufferOffset   := _dataBufferOffset + TO_INT(Config.IOsize) - INT#4;
+                        Outputs.Control.BLOCK := TRUE;
+                        THIS.CallTimers(FALSE);
+                        _progress := 322;
+                    ELSIF _bytesToWrite > UINT#0 THEN
+                        FOR _index := INT#0 TO TO_INT(_bytesToWrite - UINT#1) BY INT#1 DO
+                            Outputs.Data[_index] := DataBuffer[_index + _dataBufferOffset];
+                        END_FOR;
+                        FOR _index := _bytesToWrite TO (TO_INT(Config.IOsize) - INT#5) BY INT#1 DO
+                            Outputs.Data[_index] := BYTE#0;
+                        END_FOR;
+                        _bytesToWrite := UINT#0;
+                        Outputs.Control.BLOCK := FALSE;
+                        THIS.CallTimers(FALSE);
+                        _progress := 322;
+                    ELSE
                         THIS.CallTimers(FALSE);
                         _progress := 326;
                     END_IF;
@@ -980,8 +1078,10 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#526;
                     END_IF;
-    
-                    IF TRUE THEN
+
+                    // Outputs.Control.CMD := BYTE#0;
+
+                    IF Inputs.Status.ACTIVECMD = Outputs.Control.CMD THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 327;
                     END_IF;
@@ -1018,9 +1118,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
     
                 THIS.CallTimers(TRUE);
                 
-                WriteTagFieldTask.ThrowWhen(_errorTimer.output);
+                WriteTagFieldTask.ThrowWhen(_errorTimer.output OR Inputs.Status.ERROR_STARTUP);
                 Status.Action.Id := TO_UINT(_progress);  
-                WriteTagFieldTask.ThrowWhen(WriteTagFieldTask.Duration >= Config.ErrorTime ,'WriteTagFieldTask error.');
+                WriteTagFieldTask.ThrowWhen(WriteTagFieldTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'WriteTagFieldTask timeout.');                
             END_IF;
             IF WriteTagFieldTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -1050,6 +1150,13 @@ NAMESPACE AXOpen.Components.Siem.Identification
             Messenger.ActivateOnCondition(ULINT#131,ReadTask.IsDone(), eAxoMessageCategory#Info);
             IF ReadTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
+                    Outputs.Control.RESET := FALSE;
+                    Outputs.Control.STOP := FALSE;
+                    Outputs.Control.ANTOFF := FALSE;
+                    Outputs.Control.BLOCK := FALSE;
+                    _NDR_PV := Inputs.Status.NDR;
+                    _index  := INT#0;
+                    _dataBufferOffset := Config.DataBufferLowIndex;
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
@@ -1062,7 +1169,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id :=      UINT#530;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.Status.PRESENCE THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 331;
                     END_IF;
@@ -1073,6 +1180,22 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#531;
                     END_IF;
+
+                    Outputs.Control.CMD := BYTE#4;   // Read command
+                    Outputs.Data[0] := BYTE#0;  //_readTagField.%B1;    // Byte 4
+                    Outputs.Data[1] := BYTE#0;  //_readTagField.%B0;    // Byte 5  
+                    Outputs.Data[2] := _readAddress.%B3;                // Byte 6
+                    Outputs.Data[3] := _readAddress.%B2;                // Byte 7
+                    Outputs.Data[4] := _readAddress.%B1;                // Byte 8
+                    Outputs.Data[5] := _readAddress.%B0;                // Byte 9
+                    Outputs.Data[6] := _readLength.%B1;                 // Byte 10
+                    Outputs.Data[7] := _readLength.%B0;                 // Byte 11
+                    FOR _index := INT#8 TO (TO_INT(Config.IOsize) - INT#5) BY INT#1 DO
+                        Outputs.Data[_index]  := BYTE#0;
+                    END_FOR;
+                                            _NDR_PV := Inputs.Status.NDR;
+
+                    Outputs.Control.START := NOT Outputs.Control.START;
     
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
@@ -1086,7 +1209,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id :=      UINT#532;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.Status.ACTIVECMD = Outputs.Control.CMD THEN              
                         THIS.CallTimers(FALSE);
                         _progress := 333;
                     END_IF;
@@ -1110,7 +1233,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id :=      UINT#534;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.Status.NDR <> _NDR_PV THEN
                         THIS.CallTimers(FALSE);
                         _progress := 335;
                     END_IF;
@@ -1122,7 +1245,21 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id :=      UINT#535;
                     END_IF;
     
-                    IF TRUE THEN
+                    FOR _index := INT#0 TO TO_INT(Inputs.Status.BLOCKLENGTH) DO
+                        IF (_index + _dataBufferOffset) > Config.DataBufferHighIndex THEN
+                            TaskMessenger.Activate( UINT#9999, eAxoMessageCategory#Warning);
+                            Status.Error.Id :=      UINT#9999;
+                            RETURN;
+                        ELSE
+                            DataBuffer[ _index + _dataBufferOffset] := Inputs.Data[_index];
+                        END_IF;
+                    END_FOR;
+                    _dataBufferOffset := _dataBufferOffset + TO_INT(Inputs.Status.BLOCKLENGTH);
+                    IF Inputs.Status.BLOCK THEN
+                        _NDR_PV := Inputs.Status.NDR;
+                        THIS.CallTimers(FALSE);
+                        _progress := 331;
+                    ELSE
                         THIS.CallTimers(FALSE);
                         _progress := 336;
                     END_IF;
@@ -1133,7 +1270,11 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         TaskMessenger.Activate( UINT#536, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#536;
                     END_IF;
-    
+
+                    FOR _index := _dataBufferOffset TO Config.DataBufferHighIndex BY INT#1 DO
+                        DataBuffer[_index] := BYTE#0;
+                    END_FOR;
+
                     IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 337;
@@ -1173,7 +1314,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 ReadTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ReadTask.ThrowWhen(ReadTask.Duration >= Config.ErrorTime ,'ReadTask error.');
+                ReadTask.ThrowWhen(ReadTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ReadTask timeout.');                
             END_IF;
             IF ReadTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#131;
@@ -1326,7 +1467,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 WriteTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                WriteTask.ThrowWhen(WriteTask.Duration >= Config.ErrorTime ,'WriteTask error.');
+                WriteTask.ThrowWhen(WriteTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'WriteTask timeout.');                
             END_IF;
             IF WriteTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#141;
@@ -1489,7 +1630,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 ResetTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ResetTask.ThrowWhen(ResetTask.Duration >= Config.ErrorTime ,'ResetTask error.');
+                ResetTask.ThrowWhen(ResetTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ResetTask timeout.');                
             END_IF;
             IF ResetTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#151;
@@ -1763,7 +1904,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 TemplateTask_20steps_1.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_1.ThrowWhen(TemplateTask_20steps_1.Duration >= Config.ErrorTime ,'TemplateTask_20steps_1 error.');
+                TemplateTask_20steps_1.ThrowWhen(TemplateTask_20steps_1.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_1 timeout.');                
             END_IF;
             IF TemplateTask_20steps_1.DoneReached() THEN
                 Status.Action.Id :=  UINT#161;
@@ -2036,7 +2177,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 TemplateTask_20steps_2.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_2.ThrowWhen(TemplateTask_20steps_2.Duration >= Config.ErrorTime ,'TemplateTask_20steps_2 error.');
+                TemplateTask_20steps_2.ThrowWhen(TemplateTask_20steps_2.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_2 timeout.');                
             END_IF;
             IF TemplateTask_20steps_2.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -2309,7 +2450,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 TemplateTask_20steps_3.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_3.ThrowWhen(TemplateTask_20steps_3.Duration >= Config.ErrorTime ,'TemplateTask_20steps_3 error.');
+                TemplateTask_20steps_3.ThrowWhen(TemplateTask_20steps_3.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_3 timeout.');                
             END_IF;
             IF TemplateTask_20steps_3.DoneReached() THEN
                 Status.Action.Id :=  UINT#201;
@@ -2582,7 +2723,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 TemplateTask_20steps_4.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_4.ThrowWhen(TemplateTask_20steps_4.Duration >= Config.ErrorTime ,'TemplateTask_20steps_4 error');
+                TemplateTask_20steps_4.ThrowWhen(TemplateTask_20steps_4.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_4 timeout.');                
             END_IF;
             IF TemplateTask_20steps_4.DoneReached() THEN
                 Status.Action.Id :=  UINT#221;
@@ -2855,7 +2996,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 TemplateTask_20steps_5.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_5.ThrowWhen(TemplateTask_20steps_5.Duration >= Config.ErrorTime ,'TemplateTask_20steps_5 error.');
+                TemplateTask_20steps_5.ThrowWhen(TemplateTask_20steps_5.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_5 timeout.');                
             END_IF;
             IF TemplateTask_20steps_5.DoneReached() THEN
                 Status.Action.Id :=  UINT#241;
@@ -3128,7 +3269,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 TemplateTask_20steps_6.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_6.ThrowWhen(TemplateTask_20steps_6.Duration >= Config.ErrorTime ,'TemplateTask_20steps_6 error.');
+                TemplateTask_20steps_6.ThrowWhen(TemplateTask_20steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_6 timeout.');                
             END_IF;
             IF TemplateTask_20steps_6.DoneReached() THEN
                 Status.Action.Id :=  UINT#261;
@@ -3171,16 +3312,10 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 _data_out_32[2]          :=      Outputs.Control.CMD;
 
-                _data_out_32[4]          :=      Outputs.Control.TAGFIELD.%B1;
-                _data_out_32[5]          :=      Outputs.Control.TAGFIELD.%B0;
+                FOR _index := INT#4 TO INT#31 DO
+                    _data_out_32[_index] :=      Outputs.Data[_index - INT#4];
+                END_FOR;
 
-                _data_out_32[6]          :=      Outputs.Control.ADDRESS.%B3;
-                _data_out_32[7]          :=      Outputs.Control.ADDRESS.%B2;
-                _data_out_32[8]          :=      Outputs.Control.ADDRESS.%B1;
-                _data_out_32[9]          :=      Outputs.Control.ADDRESS.%B0;
-
-                _data_out_32[10]         :=      Outputs.Control.LENGTH.%B1;
-                _data_out_32[11]         :=      Outputs.Control.LENGTH.%B0;
 
                 _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_Reader),_data_out_32);
                 IF _retVal > WORD#0 THEN
@@ -3197,16 +3332,9 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 _data_out_116[2]          :=      Outputs.Control.CMD;
 
-                _data_out_116[4]          :=      Outputs.Control.TAGFIELD.%B1;
-                _data_out_116[5]          :=      Outputs.Control.TAGFIELD.%B0;
-
-                _data_out_116[6]          :=      Outputs.Control.ADDRESS.%B3;
-                _data_out_116[7]          :=      Outputs.Control.ADDRESS.%B2;
-                _data_out_116[8]          :=      Outputs.Control.ADDRESS.%B1;
-                _data_out_116[9]          :=      Outputs.Control.ADDRESS.%B0;
-
-                _data_out_116[10]         :=      Outputs.Control.LENGTH.%B1;
-                _data_out_116[11]         :=      Outputs.Control.LENGTH.%B0;
+                FOR _index := INT#4 TO INT#115 DO
+                    _data_out_116[_index] :=      Outputs.Data[_index - INT#4];
+                END_FOR;
 
                 _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_Reader),_data_out_116);
                 IF _retVal > WORD#0 THEN
@@ -3223,16 +3351,11 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 _data_out_128[2]          :=      Outputs.Control.CMD;
 
-                _data_out_128[4]          :=      Outputs.Control.TAGFIELD.%B1;
-                _data_out_128[5]          :=      Outputs.Control.TAGFIELD.%B0;
+                _data_out_128[4]          :=      Outputs.Data[0];
 
-                _data_out_128[6]          :=      Outputs.Control.ADDRESS.%B3;
-                _data_out_128[7]          :=      Outputs.Control.ADDRESS.%B2;
-                _data_out_128[8]          :=      Outputs.Control.ADDRESS.%B1;
-                _data_out_128[9]          :=      Outputs.Control.ADDRESS.%B0;
-
-                _data_out_128[10]         :=      Outputs.Control.LENGTH.%B1;
-                _data_out_128[11]         :=      Outputs.Control.LENGTH.%B0;
+                FOR _index := INT#4 TO INT#127 DO
+                    _data_out_128[_index] :=      Outputs.Data[_index - INT#4];
+                END_FOR;
 
                 _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_Reader),_data_out_128);
                 IF _retVal > WORD#0 THEN
@@ -3252,13 +3375,19 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
         METHOD PUBLIC ReadTagField : IAxoTaskState
             VAR_INPUT 
-                TagField : WORD;
+                TagField : UINT;
             END_VAR
             _readTagField := TagField;
             ReadTagField := ReadTagFieldTask.Invoke(THIS);
         END_METHOD
 
         METHOD PUBLIC WriteTagField : IAxoTaskState
+            VAR_INPUT 
+                TagField : UINT;
+                TagFieldLength : UINT;
+            END_VAR
+            _writeTagField := TagField;
+            _writeTagFieldLength := TagFieldLength;
             WriteTagField := WriteTagFieldTask.Invoke(THIS);
         END_METHOD
 
@@ -3300,7 +3429,13 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
 
         METHOD PROTECTED OVERRIDE ManualControl
-            _readTagField := ReadTagFieldManual;
+            _readTagField           := ReadTagFieldManual;
+            _writeTagField          := WriteTagFieldManual;
+            _writeTagFieldLength    := WriteTagFieldLengthManual;
+            _readAddress            := ReadAddressManual;
+            _readLength             := ReadLengthManual;
+            _writeAddress           := WriteAddressManual;
+            _writeLength            := WriteLengthManual;
             THIS._isManuallyControllable := true;
         END_METHOD
         
@@ -3326,21 +3461,38 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 _data_out_32[_index] := BYTE#0;
                 _data_out_116[_index] := BYTE#0;
                 _data_out_128[_index] := BYTE#0;
+                Inputs.Data[_index] := BYTE#0;
+                Outputs.Data[_index] := BYTE#0;
             END_FOR;
 
             FOR _index := 32 TO 115 DO
                 _data_in[_index] := BYTE#0;
                 _data_out_116[_index] := BYTE#0;
                 _data_out_128[_index] := BYTE#0;
+                Inputs.Data[_index] := BYTE#0;
+                Outputs.Data[_index] := BYTE#0;
             END_FOR;
 
-            FOR _index := 116 TO 127 DO
+            FOR _index := 116 TO 123 DO
+                _data_in[_index] := BYTE#0;
+                _data_out_128[_index] := BYTE#0;
+                Inputs.Data[_index] := BYTE#0;
+                Outputs.Data[_index] := BYTE#0;
+            END_FOR;
+            FOR _index := 124 TO 127 DO
                 _data_in[_index] := BYTE#0;
                 _data_out_128[_index] := BYTE#0;
             END_FOR;
 
             _word           :=   WORD#0;
             _dword          :=   DWORD#0;
+
+            _NDR_PV                 :=  FALSE;
+            _dataBufferOffset       :=  INT#0;
+            _readTagField           :=  UINT#0;
+            _writeTagField          :=  UINT#0;
+            _writeTagFieldLength    :=  UINT#0;
+            _bytesToWrite           :=  UINT#0;
 
             ReadUID_Task.Restore();
             ReadTagFieldTask.Restore();

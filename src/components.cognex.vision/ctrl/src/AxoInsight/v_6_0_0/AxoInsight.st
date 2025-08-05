@@ -818,8 +818,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 THIS.CallTimers(TRUE);
                 
                 ClearInspectionResultsTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_progress);
+                ClearInspectionResultsTask.ThrowWhen(ClearInspectionResultsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ClearInspectionResultsTask timeout.');
             END_IF;
             IF ClearInspectionResultsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -1000,8 +1000,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 THIS.CallTimers(TRUE);
                 
                 TriggerTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_progress);
+                TriggerTask.ThrowWhen(TriggerTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TriggerTask timeout.');
             END_IF;
             IF TriggerTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -1218,6 +1218,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 THIS.CallTimers(TRUE);
                 ChangeJobByNameTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
+                ChangeJobByNameTask.ThrowWhen(ChangeJobByNameTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ChangeJobByNameTask timeout.');
             END_IF;
             IF ChangeJobByNameTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -1378,6 +1379,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 THIS.CallTimers(TRUE);
                 ChangeJobByNumberTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
+                ChangeJobByNumberTask.ThrowWhen(ChangeJobByNumberTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ChangeJobByNumberTask timeout.');
             END_IF;
             IF ChangeJobByNumberTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#141;
@@ -1470,6 +1472,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 THIS.CallTimers(TRUE);
                 SoftEventTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
+                SoftEventTask.ThrowWhen(SoftEventTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'SoftEventTask timeout.');
             END_IF;
             IF SoftEventTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#151;
@@ -1605,6 +1608,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 THIS.CallTimers(TRUE);
                 SendUserDataTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
+                SendUserDataTask.ThrowWhen(SendUserDataTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'SendUserDataTask timeout.');
             END_IF;
             IF SendUserDataTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#161;

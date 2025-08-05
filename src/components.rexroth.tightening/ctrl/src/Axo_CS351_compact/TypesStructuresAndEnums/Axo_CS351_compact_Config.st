@@ -7,6 +7,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             InfoTime : LTIME := LT#5S;
             {#ix-set:AttributeName = "<#Error time#>"}
             ErrorTime : LTIME := LT#60S;
+            {#ix-set:AttributeName = "<#Task timeout#>"}
+            TaskTimeout : LTIME := LT#60S;
             {#ix-set:AttributeName = "<#Hardware IDs#>"}
             HWIDs : Axo_CS351_HWIDs;
         END_VAR 

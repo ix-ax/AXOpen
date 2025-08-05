@@ -1282,7 +1282,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
                 HardResetAllCamerasTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                HardResetAllCamerasTask.ThrowWhen(HardResetAllCamerasTask.Duration >= Config.ErrorTime ,'HardResetAllCamerasTask error.');
+                HardResetAllCamerasTask.ThrowWhen(HardResetAllCamerasTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'HardResetAllCamerasTask timeout.');
             END_IF;
             IF HardResetAllCamerasTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -1466,7 +1466,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
                 ResetTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ResetTask.ThrowWhen(ResetTask.Duration >= Config.ErrorTime ,'ResetTask error.');
+                ResetTask.ThrowWhen(ResetTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ResetTask timeout.');
             END_IF;
             IF ResetTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -1628,7 +1628,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
                 TriggerTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TriggerTask.ThrowWhen(TriggerTask.Duration >= Config.ErrorTime ,'TriggerTask error.');
+                TriggerTask.ThrowWhen(TriggerTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TriggerTask timeout.');
             END_IF;
             IF TriggerTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -2539,7 +2539,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 THIS.CallTimers(TRUE);
                 ReadResultsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ReadResultsTask.ThrowWhen(ReadResultsTask.Duration >= Config.ErrorTime ,'ReadResultsTask error.');
+                ReadResultsTask.ThrowWhen(ReadResultsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ReadResultsTask timeout.');
             END_IF;
             IF ReadResultsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#161;
@@ -3055,7 +3055,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
                 SendDataTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                SendDataTask.ThrowWhen(SendDataTask.Duration >= Config.ErrorTime ,'SendDataTask error.');
+                SendDataTask.ThrowWhen(SendDataTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'SendDataTask timeout.');
             END_IF;
             IF SendDataTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;

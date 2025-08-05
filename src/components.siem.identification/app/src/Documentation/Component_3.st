@@ -23,6 +23,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
             VAR_INPUT
                 parent : IAxoObject;
             END_VAR    
+            RF260R.Config.ErrorTime := T#0s;
+            RF260R.Config.TaskTimeout := T#0s;
 
             SUPER.Run(parent);
 

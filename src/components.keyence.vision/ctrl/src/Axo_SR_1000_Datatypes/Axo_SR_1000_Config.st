@@ -10,6 +10,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             InfoTime : LTIME := LT#2S;
             {#ix-set:AttributeName = "<#Error time#>"}
             ErrorTime : LTIME := LT#5S;
+            {#ix-set:AttributeName = "<#Task timeout#>"}
+            TaskTimeout : LTIME := LT#50S;
             {#ix-set:AttributeName = "<#Result data size#>"}
             ResultDataSize : eAxo_SR_1000_ResultDataSize := eAxo_SR_1000_ResultDataSize#RESULT_DATA_SIZE_INVALID;
             {#ix-set:AttributeName = "<#User data size#>"}
