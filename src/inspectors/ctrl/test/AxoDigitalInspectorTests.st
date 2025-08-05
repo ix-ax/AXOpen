@@ -300,14 +300,14 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             _digitalInspectorData.RequiredStatus := TRUE;
             _digitalInspectorData.PassTime := T#0ms;
             _digitalInspectorData.FailTime := T#0ms;
-            _digitalInspectorData.Result := eInspectorResult#NoAction;
-
+            _digitalInspectorData.Result := eInspectorResult#NoAction;     
+            _comprehensiveResult.Result :=  eOverallresult#NoAction;
             //******************* test start *********************/
             this._SimulateCheckWithDialog(LT#10MS); 
             Assert.Equal(eInspectorResult#Running, _digitalInspector.Result());
             
             this._SimulateCheckWithDialog(LT#100MS); // inspector fail
-
+            
             Assert.Equal(eOverallResult#NoAction, _comprehensiveResult.Result);
             Assert.Equal(eInspectorResult#Failed, _digitalInspector.Result());
 
