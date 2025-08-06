@@ -2286,7 +2286,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoHome_Task.ThrowWhen(_errorTimer.output );
-                THIS.AxoHome_Task.ThrowWhen(THIS.AxoHome_Task.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'AxoHome_Task timeout.');                
+                THIS.AxoHome_Task.ThrowWhen(THIS.AxoHome_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'AxoHome_Task timeout.');                
                 DriveStatus.Action.Id := _State;    
             END_IF;
 
@@ -2459,7 +2459,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;       
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoStop_Task.ThrowWhen(_errorTimer.output );
-                THIS.AxoStop_Task.ThrowWhen(THIS.AxoStop_Task.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'AxoStop_Task timeout.');                
+                THIS.AxoStop_Task.ThrowWhen(THIS.AxoStop_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'AxoStop_Task timeout.');                
                 DriveStatus.Action.Id := _State;   
             END_IF;
 
@@ -2624,7 +2624,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;           
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoHalt_Task.ThrowWhen(_errorTimer.output );
-                THIS.AxoHalt_Task.ThrowWhen(THIS.AxoHalt_Task.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'AxoHalt_Task timeout.');                
+                THIS.AxoHalt_Task.ThrowWhen(THIS.AxoHalt_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'AxoHalt_Task timeout.');                
                 DriveStatus.Action.Id := _State;     
             END_IF;
 
@@ -2857,7 +2857,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoMoveAbsolute_Task.ThrowWhen(_errorTimer.output );
-                THIS.AxoMoveAbsolute_Task.ThrowWhen(THIS.AxoMoveAbsolute_Task.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'AxoMoveAbsolute_Task timeout.');                
+                THIS.AxoMoveAbsolute_Task.ThrowWhen(THIS.AxoMoveAbsolute_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'AxoMoveAbsolute_Task timeout.');                
                 DriveStatus.Action.Id := _State;    
             END_IF;
 
@@ -3098,7 +3098,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoMoveRelative_Task.ThrowWhen(_errorTimer.output );
-                THIS.AxoMoveRelative_Task.ThrowWhen(THIS.AxoMoveRelative_Task.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'AxoMoveRelative_Task timeout.');                
+                THIS.AxoMoveRelative_Task.ThrowWhen(THIS.AxoMoveRelative_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'AxoMoveRelative_Task timeout.');                
                 DriveStatus.Action.Id := _State; 
             END_IF;
 
@@ -3349,7 +3349,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;   
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoMoveAdditive_Task.ThrowWhen(_errorTimer.output );
-                THIS.AxoMoveAdditive_Task.ThrowWhen(THIS.AxoMoveAdditive_Task.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'AxoMoveAdditive_Task timeout.');                
+                THIS.AxoMoveAdditive_Task.ThrowWhen(THIS.AxoMoveAdditive_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'AxoMoveAdditive_Task timeout.');                
                 DriveStatus.Action.Id := _State; 
             END_IF;
 
@@ -3623,7 +3623,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;         
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoMoveVelocity_Task.ThrowWhen(_errorTimer.output );
-                THIS.AxoMoveVelocity_Task.ThrowWhen(THIS.AxoMoveVelocity_Task.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'AxoMoveVelocity_Task timeout.');                
+                THIS.AxoMoveVelocity_Task.ThrowWhen(THIS.AxoMoveVelocity_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'AxoMoveVelocity_Task timeout.');                
                 DriveStatus.Action.Id := _State; 
             ELSE
                 InVelocity := FALSE;
@@ -4202,7 +4202,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;  
                 THIS.CallTimers(TRUE,FALSE);
                 THIS.AxoSetPosition_Task.ThrowWhen(_errorTimer.output );
-                THIS.AxoSetPosition_Task.ThrowWhen(THIS.AxoHome_Task.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'AxoSetPosition_Task timeout.');                
+                THIS.AxoSetPosition_Task.ThrowWhen(THIS.AxoHome_Task.Duration >= DriveConfig.TaskTimeout AND DriveConfig.TaskTimeout > T#0s ,'AxoSetPosition_Task timeout.');                
                 DriveStatus.Action.Id := _State;    
             END_IF;
 
