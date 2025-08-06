@@ -55,7 +55,7 @@ namespace AXOpen.Components.Cognex.Vision.v_24_0_0
 
                 //  General alarms
                 new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                      ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!"                                                    ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Device` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."        ,"Check the hardware configuration.")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Hw configuration error. Value of 'Config.HWIDs.HW_AcquisitionControl' is zero."                                                ,"Check the hardware configuration.")),
@@ -227,8 +227,8 @@ namespace AXOpen.Components.Cognex.Vision.v_24_0_0
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1401, new AxoMessengerTextItem("Hw configuration error. Result data size equals to zero. Seems that no modules are defined in slots 11-14"                    ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1402, new AxoMessengerTextItem("Input variable 'Length' in method 'SetUserData' is greather then 'Config.UserDataSize'."                                      ,"Check the input variable 'Length' in method 'SetUserData'.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1403, new AxoMessengerTextItem("Input variable 'Length' in method 'SetUserData' is greather then maximal user data size possible."                            ,"Check the input variable 'Length' in method 'SetUserData'.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1404, new AxoMessengerTextItem("Index of UserData in method 'SetUserDataAste' exceeds the size hardware structure mapped ('Config.UserDataSize')."            ,"Check the input variable 'inPosition' in method 'SetUserDataAsByte'.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1405, new AxoMessengerTextItem("Index of UserData in method 'SetUserDataAste' exceeds the maximal user data size possible."                                   ,"Check the input variable 'inPosition' in method 'SetUserDataAsByte'.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1404, new AxoMessengerTextItem("Index of UserData in method 'SetUserDataAsByte' exceeds the size hardware structure mapped ('Config.UserDataSize')."          ,"Check the input variable 'inPosition' in method 'SetUserDataAsByte'.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1405, new AxoMessengerTextItem("Index of UserData in method 'SetUserDataAsByte' exceeds the maximal user data size possible."                                 ,"Check the input variable 'inPosition' in method 'SetUserDataAsByte'.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1406, new AxoMessengerTextItem("Index of UserData in method 'SetUserDataAsDint' exceeds the size hardware structure mapped ('Config.UserDataSize')."          ,"Check the input variable 'inPosition' in method 'SetUserDataAsDint'.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1407, new AxoMessengerTextItem("Index of UserData in method 'SetUserDataAsDint' exceeds the maximal user data size possible."                                 ,"Check the input variable 'inPosition' in method 'SetUserDataAsDint'.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1408, new AxoMessengerTextItem("Index of UserData in method 'SetUserDataAsReal' exceeds the size hardware structure mapped ('Config.UserDataSize')."          ,"Check the input variable 'inPosition' in method 'SetUserDataAsReal'.")),
@@ -356,7 +356,7 @@ namespace AXOpen.Components.Cognex.Vision.v_24_0_0
 
                     //  General alarms
                     errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!"                                                                  );
-                    errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!"                                                                     );
+                    errorDescriptionDict.Add(701, "Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!");
                     errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."       );
                     errorDescriptionDict.Add(710, "Hw configuration error. Value of 'Config.HWIDs.HW_AcquisitionControl' is zero.");
                     errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."              );

@@ -9,6 +9,8 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             ErrorTime : LTIME := LT#30S;
             {#ix-set:AttributeName = "<#Task timeout#>"}
             TaskTimeout : LTIME := LT#50S;
+            {#ix-set:AttributeName = "<#Hardware IDs#>"}
+            HWIDs  :   AxoSmartFunctionKit_HWIDs_v_4_x_x;
             {#ix-set:AttributeName = "<#Location of the curve export#>"}
             CurveExportLocation : STRING ;
             {#ix-set:AttributeName = "<#Ip address#>"}

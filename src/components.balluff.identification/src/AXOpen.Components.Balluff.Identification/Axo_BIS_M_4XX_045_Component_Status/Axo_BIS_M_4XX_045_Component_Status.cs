@@ -42,9 +42,9 @@ namespace AXOpen.Components.Balluff.Identification
                     errorDescriptionDict.Add(568,"Waiting for the signal Inputs.BitHeader1_JobError to be reseted!");                                                                       
 
                     errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(701, "Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!");
                     errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090).");
-                    errorDescriptionDict.Add(710, "Hw configuration error. Value of hwId_BISM is zero.");
+                    errorDescriptionDict.Add(710, "Hw configuration error. Value of Config.HWIDs.HwId_BISM is zero.");
                     errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1.");
                     errorDescriptionDict.Add(712, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1.");
                     errorDescriptionDict.Add(713, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1.");
@@ -52,10 +52,10 @@ namespace AXOpen.Components.Balluff.Identification
                     errorDescriptionDict.Add(715, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1.");
                     errorDescriptionDict.Add(716, "Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'ID_Mod_BIS_M_4XX_045'.");
                     errorDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1132, "Input variable `hwId_BISM` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1201, "Error reading the hwId_BISM!");
-                    errorDescriptionDict.Add(1231, "Error writing the hwId_BISM!");
+                    errorDescriptionDict.Add(1131, "Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1132, "Input variable `Config.HWIDs.HwId_BISM` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1201, "Error reading the data from module with HWID: Config.HWIDs.HwId_BISM!");
+                    errorDescriptionDict.Add(1231, "Error writing the data to module with HWID: Config.HWIDs.HwId_BISM!");
                     errorDescriptionDict.Add(10000, "Read finished with error!");
                     errorDescriptionDict.Add(10001, "Read was aborted, while not yet completed!");
                     errorDescriptionDict.Add(10020, "Write finished with error!");

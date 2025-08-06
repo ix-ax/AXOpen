@@ -43,7 +43,7 @@ NAMESPACE Template.Axolibrary.Tests
             _context.Open();
             THIS._component.Run(
                                 parent  :=   _rootObject,
-                                hwID    :=   WORD#60);
+                                hwID    :=   UINT#60);
             AxUnit.Assert.Equal(TRUE, TRUE);   
             _context.Close();            
     END_METHOD

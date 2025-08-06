@@ -78,10 +78,10 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(262, new AxoMessengerTextItem("TemplateTask_20steps_6 restored.","")),
                 //  General alarms
                 new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                               ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                                  ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!"                                                                ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Device` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."                    ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_SystemControl is zero."                                                                             ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_SystemControl is zero."                                                                   ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(711, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(712, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(713, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."                           ,"Check the hardware configuration.")),
@@ -89,7 +89,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(715, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'System_Control' GsdId: '101'."           ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Engine_Control_1 is zero."                                                                          ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_EngineControl_1 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(721, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(722, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(723, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2."                           ,"Check the hardware configuration.")),
@@ -97,7 +97,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(725, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(726, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 2. Expected module: 'Engine_Control' GsdId: '401'."           ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(730, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Engine_Control_2 is zero."                                                                          ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(730, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_EngineControl_2 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(731, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(732, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(733, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3."                           ,"Check the hardware configuration.")),
@@ -105,7 +105,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(735, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(736, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 3. Expected module: 'Engine_Control' GsdId: '401'."           ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(740, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Engine_Control_3 is zero."                                                                          ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(740, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_EngineControl_3 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(741, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(742, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(743, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4."                           ,"Check the hardware configuration.")),
@@ -113,7 +113,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(745, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(746, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 4. Expected module: 'Engine_Control' GsdId: '401'."           ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(750, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Engine_Control_4 is zero."                                                                          ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(750, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_EngineControl_4 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(751, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(752, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(753, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5."                           ,"Check the hardware configuration.")),
@@ -121,7 +121,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(755, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(756, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 5. Expected module: 'Engine_Control' GsdId: '401'."           ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(760, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_User_Data_240_bytes_1 is zero."                                                                     ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(760, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_UserData_240B_1 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(761, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(762, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(763, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6."                           ,"Check the hardware configuration.")),
@@ -129,7 +129,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(765, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(766, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 6. Expected module: 'User_Data_240_bytes' GsdId: '705'."      ,"Check the hardware configuration.")),
                                                                                                                                                                                                                                         
-                new KeyValuePair<ulong, AxoMessengerTextItem>(770, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_User_Data_240_bytes_2 is zero."                                                                     ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(770, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_UserData_240B_2 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(771, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(772, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(773, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7."                           ,"Check the hardware configuration.")),
@@ -137,7 +137,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(775, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(776, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 7. Expected module: 'User_Data_240_bytes' GsdId: '705'."      ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(780, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_User_Data_240_bytes_3 is zero."                                                                     ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(780, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_UserData_240B_3 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(781, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(782, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(783, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8."                           ,"Check the hardware configuration.")),
@@ -145,7 +145,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(785, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(786, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 8. Expected module: 'User_Data_240_bytes' GsdId: '705'."      ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(790, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_User_Data_240_bytes_4 is zero."                                                                     ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(790, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_UserData_240B_4 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(791, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(792, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(793, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9."                           ,"Check the hardware configuration.")),
@@ -153,7 +153,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(795, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 9."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(796, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 9. Expected module: 'User_Data_240_bytes' GsdId: '705'."      ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_User_Data_240_bytes_5 is zero."                                                                     ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_UserData_240B_5 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(801, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 10."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(802, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 10."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(803, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 10."                          ,"Check the hardware configuration.")),
@@ -161,7 +161,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(805, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 10."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(806, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 10. Expected module: 'User_Data_240_bytes' GsdId: '705'."     ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(810, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_User_Data_64_bytes_1 is zero."                                                                      ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(810, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_UserData_64B_1 is zero."                                                                  ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(811, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 11."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(812, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 11."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(813, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 11."                          ,"Check the hardware configuration.")),
@@ -169,7 +169,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(815, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 11."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(816, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 11. Expected module: 'User_Data_64_bytes' GsdId: '703'."      ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(820, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Results_240_bytes_1 is zero."                                                                       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(820, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_ResultData_240B_1 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(821, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 12."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(822, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 12."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(823, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 12."                          ,"Check the hardware configuration.")),
@@ -177,7 +177,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(825, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 12."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(826, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 12. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(830, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Results_240_bytes_2 is zero."                                                                       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(830, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_ResultData_240B_2 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(831, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 13."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(832, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 13."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(833, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 13."                          ,"Check the hardware configuration.")),
@@ -185,7 +185,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(835, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 13."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(836, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 13. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(840, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Results_240_bytes_3 is zero."                                                                       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(840, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_ResultData_240B_3 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(841, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 14."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(842, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 14."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(843, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 14."                          ,"Check the hardware configuration.")),
@@ -193,7 +193,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(845, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 14."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(846, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 14. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(850, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Results_240_bytes_4 is zero."                                                                       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(850, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_ResultData_240B_4 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(851, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 15."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(852, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 15."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(853, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 15."                          ,"Check the hardware configuration.")),
@@ -201,7 +201,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(855, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 15."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(856, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 15. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(860, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Results_240_bytes_5 is zero."                                                                       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(860, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_ResultData_240B_5 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(861, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 16."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(862, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 16."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(863, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 16."                          ,"Check the hardware configuration.")),
@@ -209,7 +209,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(865, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 16."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(866, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 16. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(870, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Result_Data_64_bytes_1 is zero."                                                                    ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(870, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_ResultData_64B_1 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(871, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 17."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(872, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 17."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(873, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 17."                          ,"Check the hardware configuration.")),
@@ -403,49 +403,49 @@ namespace AXOpen.Components.Cognex.Vision
                                                                                                                                                                                                                                     
                                                                                                                                                                                                                                     
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1130, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                              ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1131, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                                 ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `hwID_SystemControl` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwID_SystemControl` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1133, new AxoMessengerTextItem("Input variable `hwID_Engine_Control_1` has invalid value in `Run` method!"                                                                ,"Check the call of the `Run` method, if the `hwID_Engine_Control_1` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1134, new AxoMessengerTextItem("Input variable `hwID_Engine_Control_2` has invalid value in `Run` method!"                                                                ,"Check the call of the `Run` method, if the `hwID_Engine_Control_2` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1135, new AxoMessengerTextItem("Input variable `hwID_Engine_Control_3` has invalid value in `Run` method!"                                                                ,"Check the call of the `Run` method, if the `hwID_Engine_Control_3` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1136, new AxoMessengerTextItem("Input variable `hwID_Engine_Control_4` has invalid value in `Run` method!"                                                                ,"Check the call of the `Run` method, if the `hwID_Engine_Control_4` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1137, new AxoMessengerTextItem("Input variable `hwID_User_Data_240_bytes_1` has invalid value in `Run` method!"                                                           ,"Check the call of the `Run` method, if the `hwID_User_Data_240_bytes_1` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1138, new AxoMessengerTextItem("Input variable `hwID_User_Data_240_bytes_2` has invalid value in `Run` method!"                                                           ,"Check the call of the `Run` method, if the `hwID_User_Data_240_bytes_2` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1139, new AxoMessengerTextItem("Input variable `hwID_User_Data_240_bytes_3` has invalid value in `Run` method!"                                                           ,"Check the call of the `Run` method, if the `hwID_User_Data_240_bytes_3` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1140, new AxoMessengerTextItem("Input variable `hwID_User_Data_240_bytes_4` has invalid value in `Run` method!"                                                           ,"Check the call of the `Run` method, if the `hwID_User_Data_240_bytes_4` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1141, new AxoMessengerTextItem("Input variable `hwID_User_Data_240_bytes_5` has invalid value in `Run` method!"                                                           ,"Check the call of the `Run` method, if the `hwID_User_Data_240_bytes_5` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1142, new AxoMessengerTextItem("Input variable `hwID_User_Data_64_bytes_1` has invalid value in `Run` method!"                                                            ,"Check the call of the `Run` method, if the `hwID_User_Data_64_bytes_1` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1143, new AxoMessengerTextItem("Input variable `hwID_Results_240_bytes_1` has invalid value in `Run` method!"                                                             ,"Check the call of the `Run` method, if the `hwID_Results_240_bytes_1` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1144, new AxoMessengerTextItem("Input variable `hwID_Results_240_bytes_2` has invalid value in `Run` method!"                                                             ,"Check the call of the `Run` method, if the `hwID_Results_240_bytes_2` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1145, new AxoMessengerTextItem("Input variable `hwID_Results_240_bytes_3` has invalid value in `Run` method!"                                                             ,"Check the call of the `Run` method, if the `hwID_Results_240_bytes_3` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1146, new AxoMessengerTextItem("Input variable `hwID_Results_240_bytes_4` has invalid value in `Run` method!"                                                             ,"Check the call of the `Run` method, if the `hwID_Results_240_bytes_4` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1147, new AxoMessengerTextItem("Input variable `hwID_Results_240_bytes_5` has invalid value in `Run` method!"                                                             ,"Check the call of the `Run` method, if the `hwID_Results_240_bytes_5` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1131, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!"                                                               ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Device` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_SystemControl` has invalid value in `Run` method!"                                                        ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_SystemControl` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1133, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Engine_Control_1` has invalid value in `Run` method!"                                                     ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Engine_Control_1` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1134, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Engine_Control_2` has invalid value in `Run` method!"                                                     ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Engine_Control_2` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1135, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Engine_Control_3` has invalid value in `Run` method!"                                                     ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Engine_Control_3` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1136, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Engine_Control_4` has invalid value in `Run` method!"                                                     ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Engine_Control_4` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1137, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_User_Data_240_bytes_1` has invalid value in `Run` method!"                                                ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_User_Data_240_bytes_1` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1138, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_User_Data_240_bytes_2` has invalid value in `Run` method!"                                                ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_User_Data_240_bytes_2` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1139, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_User_Data_240_bytes_3` has invalid value in `Run` method!"                                                ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_User_Data_240_bytes_3` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1140, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_User_Data_240_bytes_4` has invalid value in `Run` method!"                                                ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_User_Data_240_bytes_4` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1141, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_User_Data_240_bytes_5` has invalid value in `Run` method!"                                                ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_User_Data_240_bytes_5` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1142, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_User_Data_64_bytes_1` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_User_Data_64_bytes_1` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1143, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Results_240_bytes_1` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Results_240_bytes_1` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1144, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Results_240_bytes_2` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Results_240_bytes_2` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1145, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Results_240_bytes_3` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Results_240_bytes_3` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1146, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Results_240_bytes_4` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Results_240_bytes_4` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1147, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Results_240_bytes_5` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Results_240_bytes_5` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1148, new AxoMessengerTextItem("Input variable `hwId_17` has invalid value in `Run` method!"                                                                              ,"Check the call of the `Run` method, if the `hwId_17` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1149, new AxoMessengerTextItem("Input variable `hwId_18` has invalid value in `Run` method!"                                                                              ,"Check the call of the `Run` method, if the `hwId_18` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1150, new AxoMessengerTextItem("Input variable `hwId_19` has invalid value in `Run` method!"                                                                              ,"Check the call of the `Run` method, if the `hwId_19` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1151, new AxoMessengerTextItem("Input variable `hwId_20` has invalid value in `Run` method!"                                                                              ,"Check the call of the `Run` method, if the `hwId_20` parameter is assigned.")),
                                                                                                                                                                                                                                         
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_SystemControl!"                                                                         ,"Check the value of the _hwID_SystemControl and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1202, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_Engine_Control_1!"                                                                      ,"Check the value of the _hwID_Engine_Control_1 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1203, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_Engine_Control_2!"                                                                      ,"Check the value of the hwID_Engine_Control_2 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1204, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_Engine_Control_3!"                                                                      ,"Check the value of the hwID_Engine_Control_3 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1205, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_Engine_Control_4!"                                                                      ,"Check the value of the hwID_Engine_Control_4 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1206, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_1!"                                                                 ,"Check the value of the hwID_User_Data_240_bytes_1 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1207, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_2!"                                                                 ,"Check the value of the hwID_User_Data_240_bytes_2 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1208, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_3!"                                                                 ,"Check the value of the hwID_User_Data_240_bytes_3 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1209, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_4!"                                                                 ,"Check the value of the hwID_User_Data_240_bytes_4 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1210, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_5!"                                                                 ,"Check the value of the hwID_User_Data_240_bytes_5 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_SystemControl!"                                                   ,"Check the value of the Config.HWIDs.HW_SystemControl and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1202, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_Engine_Control_1!"                                                ,"Check the value of the Config.HWIDs.HW_Engine_Control_1 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1203, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_Engine_Control_2!"                                                ,"Check the value of the Config.HWIDs.HW_Engine_Control_2 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1204, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_Engine_Control_3!"                                                ,"Check the value of the Config.HWIDs.HW_Engine_Control_3 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1205, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_Engine_Control_4!"                                                ,"Check the value of the Config.HWIDs.HW_Engine_Control_4 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1206, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_User_Data_240_bytes_1!"                                           ,"Check the value of the Config.HWIDs.HW_User_Data_240_bytes_1 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1207, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_User_Data_240_bytes_2!"                                           ,"Check the value of the Config.HWIDs.HW_User_Data_240_bytes_2 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1208, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_User_Data_240_bytes_3!"                                           ,"Check the value of the Config.HWIDs.HW_User_Data_240_bytes_3 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1209, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_User_Data_240_bytes_4!"                                           ,"Check the value of the Config.HWIDs.HW_User_Data_240_bytes_4 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1210, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_User_Data_240_bytes_5!"                                           ,"Check the value of the Config.HWIDs.HW_User_Data_240_bytes_5 and reacheability of the device!")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1231, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_User_Data_64_bytes_1!"                                                                 ,"Check the value of the hwID_User_Data_64_bytes_1 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1232, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_1!"                                                                  ,"Check the value of the hwID_Results_240_bytes_1 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1233, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_2!"                                                                  ,"Check the value of the hwID_Results_240_bytes_2 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1234, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_3!"                                                                  ,"Check the value of the hwID_Results_240_bytes_3 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1235, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_4!"                                                                  ,"Check the value of the hwID_Results_240_bytes_4 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1236, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_5!"                                                                  ,"Check the value of the hwID_Results_240_bytes_5 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1237, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_17!"                                                                                   ,"Check the value of the hwID_17 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1238, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_18!"                                                                                   ,"Check the value of the hwID_18 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1239, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_19!"                                                                                   ,"Check the value of the hwID_19 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1230, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_20!"                                                                                   ,"Check the value of the hwID_20 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1231, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_User_Data_64_bytes_1!"                                         ,"Check the value of the Config.HWIDs.HW_User_Data_64_bytes_1 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1232, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_Results_240_bytes_1!"                                          ,"Check the value of the Config.HWIDs.HW_Results_240_bytes_1 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1233, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_Results_240_bytes_2!"                                          ,"Check the value of the Config.HWIDs.HW_Results_240_bytes_2 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1234, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_Results_240_bytes_3!"                                          ,"Check the value of the Config.HWIDs.HW_Results_240_bytes_3 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1235, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_Results_240_bytes_4!"                                          ,"Check the value of the Config.HWIDs.HW_Results_240_bytes_4 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1236, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_Results_240_bytes_5!"                                          ,"Check the value of the Config.HWIDs.HW_Results_240_bytes_5 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1237, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_17!"                                                           ,"Check the value of the Config.HWIDs.HW_17 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1238, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_18!"                                                           ,"Check the value of the Config.HWIDs.HW_18 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1239, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_19!"                                                           ,"Check the value of the Config.HWIDs.HW_19 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1230, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_20!"                                                           ,"Check the value of the Config.HWIDs.HW_20 and reacheability of the device!")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1301, new AxoMessengerTextItem("Invalid value of the 'CameraNo' input variable, value too low!"                                                                           ,"Check the value of the 'CameraNo' input variable!")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1302, new AxoMessengerTextItem("Invalid value of the 'CameraNo' input variable, value too high!"                                                                          ,"Check the value of the 'CameraNo' input variable!")),
@@ -911,10 +911,10 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(679, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
                     //  General alarms
                     errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!"                                                                                  );
+                    errorDescriptionDict.Add(701, "Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!");
                     errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."                    );
 
-                    errorDescriptionDict.Add(710, "Hw configuration error. Value of _hwID_SystemControl is zero."                                                                             );
+                    errorDescriptionDict.Add(710, "Hw configuration error. Value of Config.HWIDs.HW_SystemControl is zero.");
                     errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."                           );
                     errorDescriptionDict.Add(712, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."                           );
                     errorDescriptionDict.Add(713, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."                           );
@@ -922,7 +922,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(715, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."                           );
                     errorDescriptionDict.Add(716, "Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'System_Control' GsdId: '101'."           );
 
-                    errorDescriptionDict.Add(720, "Hw configuration error. Value of _hwID_Engine_Control_1 is zero."                                                                          );
+                    errorDescriptionDict.Add(720, "Hw configuration error. Value of Config.HWIDs.HW_Engine_Control_1 is zero.");
                     errorDescriptionDict.Add(721, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2."                           );
                     errorDescriptionDict.Add(722, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2."                           );
                     errorDescriptionDict.Add(723, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2."                           );
@@ -930,7 +930,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(725, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2."                           );
                     errorDescriptionDict.Add(726, "Hw configuration error: Module with unexpected size or type detected in Slot 2. Expected module: 'Engine_Control' GsdId: '401'."           );
 
-                    errorDescriptionDict.Add(730, "Hw configuration error. Value of _hwID_Engine_Control_2 is zero."                                                                          );
+                    errorDescriptionDict.Add(730, "Hw configuration error. Value of Config.HWIDs.HW_Engine_Control_2 is zero.");
                     errorDescriptionDict.Add(731, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3."                           );
                     errorDescriptionDict.Add(732, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3."                           );
                     errorDescriptionDict.Add(733, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3."                           );
@@ -938,7 +938,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(735, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3."                           );
                     errorDescriptionDict.Add(736, "Hw configuration error: Module with unexpected size or type detected in Slot 3. Expected module: 'Engine_Control' GsdId: '401'."           );
 
-                    errorDescriptionDict.Add(740, "Hw configuration error. Value of _hwID_Engine_Control_3 is zero."                                                                          );
+                    errorDescriptionDict.Add(740, "Hw configuration error. Value of Config.HWIDs.HW_Engine_Control_3 is zero.");
                     errorDescriptionDict.Add(741, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4."                           );
                     errorDescriptionDict.Add(742, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4."                           );
                     errorDescriptionDict.Add(743, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4."                           );
@@ -946,7 +946,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(745, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4."                           );
                     errorDescriptionDict.Add(746, "Hw configuration error: Module with unexpected size or type detected in Slot 4. Expected module: 'Engine_Control' GsdId: '401'."           );
 
-                    errorDescriptionDict.Add(750, "Hw configuration error. Value of _hwID_Engine_Control_4 is zero."                                                                          );
+                    errorDescriptionDict.Add(750, "Hw configuration error. Value of Config.HWIDs.HW_Engine_Control_4 is zero.");
                     errorDescriptionDict.Add(751, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5."                           );
                     errorDescriptionDict.Add(752, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5."                           );
                     errorDescriptionDict.Add(753, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5."                           );
@@ -954,7 +954,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(755, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5."                           );
                     errorDescriptionDict.Add(756, "Hw configuration error: Module with unexpected size or type detected in Slot 5. Expected module: 'Engine_Control' GsdId: '401'."           );
 
-                    errorDescriptionDict.Add(760, "Hw configuration error. Value of _hwID_User_Data_240_bytes_1 is zero."                                                                     );
+                    errorDescriptionDict.Add(760, "Hw configuration error. Value of Config.HWIDs.HW_User_Data_240_bytes_1 is zero.");
                     errorDescriptionDict.Add(761, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6."                           );
                     errorDescriptionDict.Add(762, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6."                           );
                     errorDescriptionDict.Add(763, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6."                           );
@@ -962,7 +962,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(765, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6."                           );
                     errorDescriptionDict.Add(766, "Hw configuration error: Module with unexpected size or type detected in Slot 6. Expected module: 'User_Data_240_bytes' GsdId: '705'."      );
 
-                    errorDescriptionDict.Add(770, "Hw configuration error. Value of _hwID_User_Data_240_bytes_2 is zero."                                                                     );
+                    errorDescriptionDict.Add(770, "Hw configuration error. Value of Config.HWIDs.HW_User_Data_240_bytes_2 is zero.");
                     errorDescriptionDict.Add(771, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7."                           );
                     errorDescriptionDict.Add(772, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7."                           );
                     errorDescriptionDict.Add(773, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7."                           );
@@ -970,7 +970,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(775, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7."                           );
                     errorDescriptionDict.Add(776, "Hw configuration error: Module with unexpected size or type detected in Slot 7. Expected module: 'User_Data_240_bytes' GsdId: '705'."      );
 
-                    errorDescriptionDict.Add(780, "Hw configuration error. Value of _hwID_User_Data_240_bytes_3 is zero."                                                                     );
+                    errorDescriptionDict.Add(780, "Hw configuration error. Value of Config.HWIDs.HW_User_Data_240_bytes_3 is zero.");
                     errorDescriptionDict.Add(781, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8."                           );
                     errorDescriptionDict.Add(782, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8."                           );
                     errorDescriptionDict.Add(783, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8."                           );
@@ -978,7 +978,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(785, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8."                           );
                     errorDescriptionDict.Add(786, "Hw configuration error: Module with unexpected size or type detected in Slot 8. Expected module: 'User_Data_240_bytes' GsdId: '705'."      );
 
-                    errorDescriptionDict.Add(790, "Hw configuration error. Value of _hwID_User_Data_240_bytes_4 is zero."                                                                     );
+                    errorDescriptionDict.Add(790, "Hw configuration error. Value of Config.HWIDs.HW_User_Data_240_bytes_4 is zero.");
                     errorDescriptionDict.Add(791, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9."                           );
                     errorDescriptionDict.Add(792, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9."                           );
                     errorDescriptionDict.Add(793, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9."                           );
@@ -986,7 +986,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(795, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 9."                           );
                     errorDescriptionDict.Add(796, "Hw configuration error: Module with unexpected size or type detected in Slot 9. Expected module: 'User_Data_240_bytes' GsdId: '705'."      );
 
-                    errorDescriptionDict.Add(800, "Hw configuration error. Value of _hwID_User_Data_240_bytes_5 is zero."                                                                     );
+                    errorDescriptionDict.Add(800, "Hw configuration error. Value of Config.HWIDs.HW_User_Data_240_bytes_5 is zero.");
                     errorDescriptionDict.Add(801, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 10."                          );
                     errorDescriptionDict.Add(802, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 10."                          );
                     errorDescriptionDict.Add(803, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 10."                          );
@@ -994,7 +994,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(805, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 10."                          );
                     errorDescriptionDict.Add(806, "Hw configuration error: Module with unexpected size or type detected in Slot 10. Expected module: 'User_Data_240_bytes' GsdId: '705'."     );
 
-                    errorDescriptionDict.Add(810, "Hw configuration error. Value of _hwID_User_Data_64_bytes_1 is zero."                                                                      );
+                    errorDescriptionDict.Add(810, "Hw configuration error. Value of Config.HWIDs.HW_User_Data_64_bytes_1 is zero.");
                     errorDescriptionDict.Add(811, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 11."                          );
                     errorDescriptionDict.Add(812, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 11."                          );
                     errorDescriptionDict.Add(813, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 11."                          );
@@ -1002,7 +1002,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(815, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 11."                          );
                     errorDescriptionDict.Add(816, "Hw configuration error: Module with unexpected size or type detected in Slot 11. Expected module: 'User_Data_64_bytes' GsdId: '703'."      );
 
-                    errorDescriptionDict.Add(820, "Hw configuration error. Value of _hwID_Results_240_bytes_1 is zero."                                                                       );
+                    errorDescriptionDict.Add(820, "Hw configuration error. Value of Config.HWIDs.HW_Results_240_bytes_1 is zero.");
                     errorDescriptionDict.Add(821, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 12."                          );
                     errorDescriptionDict.Add(822, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 12."                          );
                     errorDescriptionDict.Add(823, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 12."                          );
@@ -1010,7 +1010,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(825, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 12."                          );
                     errorDescriptionDict.Add(826, "Hw configuration error: Module with unexpected size or type detected in Slot 12. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   );
 
-                    errorDescriptionDict.Add(830, "Hw configuration error. Value of _hwID_Results_240_bytes_2 is zero."                                                                       );
+                    errorDescriptionDict.Add(830, "Hw configuration error. Value of Config.HWIDs.HW_Results_240_bytes_2 is zero.");
                     errorDescriptionDict.Add(831, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 13."                          );
                     errorDescriptionDict.Add(832, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 13."                          );
                     errorDescriptionDict.Add(833, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 13."                          );
@@ -1018,7 +1018,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(835, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 13."                          );
                     errorDescriptionDict.Add(836, "Hw configuration error: Module with unexpected size or type detected in Slot 13. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   );
 
-                    errorDescriptionDict.Add(840, "Hw configuration error. Value of _hwID_Results_240_bytes_3 is zero."                                                                       );
+                    errorDescriptionDict.Add(840, "Hw configuration error. Value of Config.HWIDs.HW_Results_240_bytes_3 is zero.");
                     errorDescriptionDict.Add(841, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 14."                          );
                     errorDescriptionDict.Add(842, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 14."                          );
                     errorDescriptionDict.Add(843, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 14."                          );
@@ -1026,7 +1026,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(845, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 14."                          );
                     errorDescriptionDict.Add(846, "Hw configuration error: Module with unexpected size or type detected in Slot 14. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   );
 
-                    errorDescriptionDict.Add(850, "Hw configuration error. Value of _hwID_Results_240_bytes_4 is zero."                                                                       );
+                    errorDescriptionDict.Add(850, "Hw configuration error. Value of Config.HWIDs.HW_Results_240_bytes_4 is zero.");
                     errorDescriptionDict.Add(851, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 15."                          );
                     errorDescriptionDict.Add(852, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 15."                          );
                     errorDescriptionDict.Add(853, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 15."                          );
@@ -1034,7 +1034,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(855, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 15."                          );
                     errorDescriptionDict.Add(856, "Hw configuration error: Module with unexpected size or type detected in Slot 15. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   );
 
-                    errorDescriptionDict.Add(860, "Hw configuration error. Value of _hwID_Results_240_bytes_5 is zero."                                                                       );
+                    errorDescriptionDict.Add(860, "Hw configuration error. Value of Config.HWIDs.HW_Results_240_bytes_5 is zero.");
                     errorDescriptionDict.Add(861, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 16."                          );
                     errorDescriptionDict.Add(862, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 16."                          );
                     errorDescriptionDict.Add(863, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 16."                          );
@@ -1042,7 +1042,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(865, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 16."                          );
                     errorDescriptionDict.Add(866, "Hw configuration error: Module with unexpected size or type detected in Slot 16. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   );
 
-                    errorDescriptionDict.Add(870, "Hw configuration error. Value of _hwID_Result_Data_64_bytes_1 is zero."                                                                    );
+                    errorDescriptionDict.Add(870, "Hw configuration error. Value of Config.HWIDs.HW_Result_Data_64_bytes_1 is zero.");
                     errorDescriptionDict.Add(871, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 17."                          );
                     errorDescriptionDict.Add(872, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 17."                          );
                     errorDescriptionDict.Add(873, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 17."                          );
@@ -1235,45 +1235,45 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(1106, "Hw configuration error: Module with unexpected size or type detected in Slot 40. Expected module: 'gsd_id_of_req_module'."                );
 
                     errorDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!"                                                                              );
-                    errorDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!"                                                                                 );
-                    errorDescriptionDict.Add(1132, "Input variable `hwID_SystemControl` has invalid value in `Run` method!"                                                                   );
-                    errorDescriptionDict.Add(1133, "Input variable `hwID_Engine_Control_1` has invalid value in `Run` method!"                                                                );
-                    errorDescriptionDict.Add(1134, "Input variable `hwID_Engine_Control_2` has invalid value in `Run` method!"                                                                );
-                    errorDescriptionDict.Add(1135, "Input variable `hwID_Engine_Control_3` has invalid value in `Run` method!"                                                                );
-                    errorDescriptionDict.Add(1136, "Input variable `hwID_Engine_Control_4` has invalid value in `Run` method!"                                                                );
-                    errorDescriptionDict.Add(1137, "Input variable `hwID_User_Data_240_bytes_1` has invalid value in `Run` method!"                                                           );
-                    errorDescriptionDict.Add(1138, "Input variable `hwID_User_Data_240_bytes_2` has invalid value in `Run` method!"                                                           );
-                    errorDescriptionDict.Add(1139, "Input variable `hwID_User_Data_240_bytes_3` has invalid value in `Run` method!"                                                           );
-                    errorDescriptionDict.Add(1140, "Input variable `hwID_User_Data_240_bytes_4` has invalid value in `Run` method!"                                                           );
-                    errorDescriptionDict.Add(1141, "Input variable `hwID_User_Data_240_bytes_5` has invalid value in `Run` method!"                                                           );
-                    errorDescriptionDict.Add(1142, "Input variable `hwID_User_Data_64_bytes_1` has invalid value in `Run` method!"                                                            );
-                    errorDescriptionDict.Add(1143, "Input variable `hwID_Results_240_bytes_1` has invalid value in `Run` method!"                                                             );
-                    errorDescriptionDict.Add(1144, "Input variable `hwID_Results_240_bytes_2` has invalid value in `Run` method!"                                                             );
-                    errorDescriptionDict.Add(1145, "Input variable `hwID_Results_240_bytes_3` has invalid value in `Run` method!"                                                             );
-                    errorDescriptionDict.Add(1146, "Input variable `hwID_Results_240_bytes_4` has invalid value in `Run` method!"                                                             );
-                    errorDescriptionDict.Add(1147, "Input variable `hwID_Results_240_bytes_5` has invalid value in `Run` method!"                                                             );
+                    errorDescriptionDict.Add(1131, "Input variable `Config.HWIDs.HW_Device has invalid value in `Run` method!"                                                                                 );
+                    errorDescriptionDict.Add(1132, "Input variable `Config.HWIDs.HW_SystemControl` has invalid value in `Run` method!"                                                                   );
+                    errorDescriptionDict.Add(1133, "Input variable `Config.HWIDs.HW_Engine_Control_1` has invalid value in `Run` method!"                                                                );
+                    errorDescriptionDict.Add(1134, "Input variable `Config.HWIDs.HW_Engine_Control_2` has invalid value in `Run` method!"                                                                );
+                    errorDescriptionDict.Add(1135, "Input variable `Config.HWIDs.HW_Engine_Control_3` has invalid value in `Run` method!"                                                                );
+                    errorDescriptionDict.Add(1136, "Input variable `Config.HWIDs.HW_Engine_Control_4` has invalid value in `Run` method!"                                                                );
+                    errorDescriptionDict.Add(1137, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_1` has invalid value in `Run` method!"                                                           );
+                    errorDescriptionDict.Add(1138, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_2` has invalid value in `Run` method!"                                                           );
+                    errorDescriptionDict.Add(1139, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_3` has invalid value in `Run` method!"                                                           );
+                    errorDescriptionDict.Add(1140, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_4` has invalid value in `Run` method!"                                                           );
+                    errorDescriptionDict.Add(1141, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_5` has invalid value in `Run` method!"                                                           );
+                    errorDescriptionDict.Add(1142, "Input variable `Config.HWIDs.HW_User_Data_64_bytes_1` has invalid value in `Run` method!"                                                            );
+                    errorDescriptionDict.Add(1143, "Input variable `Config.HWIDs.HW_Results_240_bytes_1` has invalid value in `Run` method!"                                                             );
+                    errorDescriptionDict.Add(1144, "Input variable `Config.HWIDs.HW_Results_240_bytes_2` has invalid value in `Run` method!"                                                             );
+                    errorDescriptionDict.Add(1145, "Input variable `Config.HWIDs.HW_Results_240_bytes_3` has invalid value in `Run` method!"                                                             );
+                    errorDescriptionDict.Add(1146, "Input variable `Config.HWIDs.HW_Results_240_bytes_4` has invalid value in `Run` method!"                                                             );
+                    errorDescriptionDict.Add(1147, "Input variable `Config.HWIDs.HW_Results_240_bytes_5` has invalid value in `Run` method!");
                     errorDescriptionDict.Add(1148, "Input variable `hwId_17` has invalid value in `Run` method!"                                                                              );
                     errorDescriptionDict.Add(1149, "Input variable `hwId_18` has invalid value in `Run` method!"                                                                              );
                     errorDescriptionDict.Add(1150, "Input variable `hwId_19` has invalid value in `Run` method!"                                                                              );
                     errorDescriptionDict.Add(1151, "Input variable `hwId_20` has invalid value in `Run` method!"                                                                              );
 
-                    errorDescriptionDict.Add(1201, "Error reading the AxoVisionProInputStructure_hwID_SystemControl!"                                                                         );
-                    errorDescriptionDict.Add(1202, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_1!"                                                                      );
-                    errorDescriptionDict.Add(1203, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_2!"                                                                      );
-                    errorDescriptionDict.Add(1204, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_3!"                                                                      );
-                    errorDescriptionDict.Add(1205, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_4!"                                                                      );
-                    errorDescriptionDict.Add(1206, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_1!"                                                                 );
-                    errorDescriptionDict.Add(1207, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_2!"                                                                 );
-                    errorDescriptionDict.Add(1208, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_3!"                                                                 );
-                    errorDescriptionDict.Add(1209, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_4!"                                                                 );
-                    errorDescriptionDict.Add(1210, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_5!"                                                                 );
+                    errorDescriptionDict.Add(1201, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_SystemControl!"                                                                         );
+                    errorDescriptionDict.Add(1202, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_Engine_Control_1!"                                                                      );
+                    errorDescriptionDict.Add(1203, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_Engine_Control_2!"                                                                      );
+                    errorDescriptionDict.Add(1204, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_Engine_Control_3!"                                                                      );
+                    errorDescriptionDict.Add(1205, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_Engine_Control_4!"                                                                      );
+                    errorDescriptionDict.Add(1206, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_User_Data_240_bytes_1!"                                                                 );
+                    errorDescriptionDict.Add(1207, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_User_Data_240_bytes_2!"                                                                 );
+                    errorDescriptionDict.Add(1208, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_User_Data_240_bytes_3!"                                                                 );
+                    errorDescriptionDict.Add(1209, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_User_Data_240_bytes_4!"                                                                 );
+                    errorDescriptionDict.Add(1210, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_User_Data_240_bytes_5!");
 
-                    errorDescriptionDict.Add(1231, "Error writing the AxoVisionProOutputStructure_hwID_User_Data_64_bytes_1!"                                                                 );
-                    errorDescriptionDict.Add(1232, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_1!"                                                                  );
-                    errorDescriptionDict.Add(1233, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_2!"                                                                  );
-                    errorDescriptionDict.Add(1234, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_3!"                                                                  );
-                    errorDescriptionDict.Add(1235, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_4!"                                                                  );
-                    errorDescriptionDict.Add(1236, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_5!"                                                                  );
+                    errorDescriptionDict.Add(1231, "Error writing the output data to the module with HWID: Config.HWIDs.HW_User_Data_64_bytes_1!"                                                                 );
+                    errorDescriptionDict.Add(1232, "Error writing the output data to the module with HWID: Config.HWIDs.HW_Results_240_bytes_1!"                                                                  );
+                    errorDescriptionDict.Add(1233, "Error writing the output data to the module with HWID: Config.HWIDs.HW_Results_240_bytes_2!"                                                                  );
+                    errorDescriptionDict.Add(1234, "Error writing the output data to the module with HWID: Config.HWIDs.HW_Results_240_bytes_3!"                                                                  );
+                    errorDescriptionDict.Add(1235, "Error writing the output data to the module with HWID: Config.HWIDs.HW_Results_240_bytes_4!"                                                                  );
+                    errorDescriptionDict.Add(1236, "Error writing the output data to the module with HWID: Config.HWIDs.HW_Results_240_bytes_5!");
                     errorDescriptionDict.Add(1237, "Error writing the AxoVisionProOutputStructure_hwID_17!"                                                                                   );
                     errorDescriptionDict.Add(1238, "Error writing the AxoVisionProOutputStructure_hwID_18!"                                                                                   );
                     errorDescriptionDict.Add(1239, "Error writing the AxoVisionProOutputStructure_hwID_19!"                                                                                   );
@@ -1583,45 +1583,45 @@ namespace AXOpen.Components.Cognex.Vision
                     actionDescriptionDict.Add(262, "TemplateTask_20steps_6 restored.");
                     // General alarms
                     actionDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
-                    actionDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(702, "Input variable `hwID_System_Control` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(703, "Input variable `hwID_Engine_Control_1` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(704, "Input variable `hwID_Engine_Control_2` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(705, "Input variable `hwID_Engine_Control_3` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(706, "Input variable `hwID_Engine_Control_4` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(707, "Input variable `hwID_User_Data_240_bytes_1` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(708, "Input variable `hwID_User_Data_240_bytes_2` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(709, "Input variable `hwID_User_Data_240_bytes_3` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(710, "Input variable `hwID_User_Data_240_bytes_4` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(711, "Input variable `hwID_User_Data_240_bytes_5` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(712, "Input variable `hwID_User_Data_64_bytes_1` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(713, "Input variable `hwID_Results_240_bytes_1` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(714, "Input variable `hwID_Results_240_bytes_2` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(715, "Input variable `hwID_Results_240_bytes_3` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(716, "Input variable `hwID_Results_240_bytes_4` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(717, "Input variable `hwID_Results_240_bytes_5` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(701, "Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(702, "Input variable `Config.HWIDs.HW_System_Control` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(703, "Input variable `Config.HWIDs.HW_Engine_Control_1` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(704, "Input variable `Config.HWIDs.HW_Engine_Control_2` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(705, "Input variable `Config.HWIDs.HW_Engine_Control_3` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(706, "Input variable `Config.HWIDs.HW_Engine_Control_4` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(707, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_1` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(708, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_2` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(709, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_3` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(710, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_4` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(711, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_5` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(712, "Input variable `Config.HWIDs.HW_User_Data_64_bytes_1` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(713, "Input variable `Config.HWIDs.HW_Results_240_bytes_1` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(714, "Input variable `Config.HWIDs.HW_Results_240_bytes_2` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(715, "Input variable `Config.HWIDs.HW_Results_240_bytes_3` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(716, "Input variable `Config.HWIDs.HW_Results_240_bytes_4` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(717, "Input variable `Config.HWIDs.HW_Results_240_bytes_5` has invalid value in `Run` method!");
                     actionDescriptionDict.Add(718, "Input variable `hwId_17` has invalid value in `Run` method!");
                     actionDescriptionDict.Add(719, "Input variable `hwId_18` has invalid value in `Run` method!");
                     actionDescriptionDict.Add(720, "Input variable `hwId_19` has invalid value in `Run` method!");
                     actionDescriptionDict.Add(721, "Input variable `hwId_20` has invalid value in `Run` method!");
 
-                    actionDescriptionDict.Add(722, "Error reading the AxoVisionProInputStructure_hwID_System_Control!");
-                    actionDescriptionDict.Add(723, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_1!");
-                    actionDescriptionDict.Add(724, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_2!");
-                    actionDescriptionDict.Add(725, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_3!");
-                    actionDescriptionDict.Add(726, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_4!");
-                    actionDescriptionDict.Add(727, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_1!");
-                    actionDescriptionDict.Add(728, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_2!");
-                    actionDescriptionDict.Add(729, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_3!");
-                    actionDescriptionDict.Add(730, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_4!");
-                    actionDescriptionDict.Add(731, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_5!");
+                    actionDescriptionDict.Add(722, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_System_Control!");
+                    actionDescriptionDict.Add(723, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_Engine_Control_1!");
+                    actionDescriptionDict.Add(724, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_Engine_Control_2!");
+                    actionDescriptionDict.Add(725, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_Engine_Control_3!");
+                    actionDescriptionDict.Add(726, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_Engine_Control_4!");
+                    actionDescriptionDict.Add(727, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_User_Data_240_bytes_1!");
+                    actionDescriptionDict.Add(728, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_User_Data_240_bytes_2!");
+                    actionDescriptionDict.Add(729, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_User_Data_240_bytes_3!");
+                    actionDescriptionDict.Add(730, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_User_Data_240_bytes_4!");
+                    actionDescriptionDict.Add(731, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_User_Data_240_bytes_5!");
 
-                    actionDescriptionDict.Add(733, "Error writing the AxoVisionProOutputStructure_hwID_User_Data_64_bytes_1!");
-                    actionDescriptionDict.Add(734, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_1!");
-                    actionDescriptionDict.Add(735, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_2!");
-                    actionDescriptionDict.Add(736, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_3!");
-                    actionDescriptionDict.Add(737, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_4!");
-                    actionDescriptionDict.Add(738, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_5!");
+                    actionDescriptionDict.Add(733, "Error writing the output data to the module: Config.HWIDs.HW_User_Data_64_bytes_1!");
+                    actionDescriptionDict.Add(734, "Error writing the output data to the module: Config.HWIDs.HW_Results_240_bytes_1!");
+                    actionDescriptionDict.Add(735, "Error writing the output data to the module: Config.HWIDs.HW_Results_240_bytes_2!");
+                    actionDescriptionDict.Add(736, "Error writing the output data to the module: Config.HWIDs.HW_Results_240_bytes_3!");
+                    actionDescriptionDict.Add(737, "Error writing the output data to the module: Config.HWIDs.HW_Results_240_bytes_4!");
+                    actionDescriptionDict.Add(738, "Error writing the output data to the module: Config.HWIDs.HW_Results_240_bytes_5!");
                     actionDescriptionDict.Add(739, "Error writing the AxoVisionProOutputStructure_hwID_17!");
                     actionDescriptionDict.Add(740, "Error writing the AxoVisionProOutputStructure_hwID_18!");
                     actionDescriptionDict.Add(741, "Error writing the AxoVisionProOutputStructure_hwID_19!");

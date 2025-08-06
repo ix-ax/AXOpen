@@ -5,7 +5,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
     CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            ExampleRobot : AXOpen.Components.Mitsubishi.Robotics.AxoCr800_v_1_x_x;  
+            ExampleRobot : AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800; 
         END_VAR
         //</ComponentDeclaration>                          
 

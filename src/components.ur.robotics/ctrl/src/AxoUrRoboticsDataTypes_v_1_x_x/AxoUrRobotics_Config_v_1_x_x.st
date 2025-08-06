@@ -9,6 +9,8 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             ErrorTime : LTIME := LT#0S;
             {#ix-set:AttributeName = "<#Task timeout#>"}
             TaskTimeout : LTIME := LT#60S;
+            {#ix-set:AttributeName = "<#Hardware IDs#>"}
+            HWIDs : AxoUrRobotics_HWIDs_v_1_x_x;
             {#ix-set:AttributeName = "<#Remote power on enabled#>"}
             RemotePowerOnEnabled:BOOL :=FALSE;
             {#ix-set:AttributeName = "<#Remote power on pulse time#>"}

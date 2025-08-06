@@ -9,6 +9,8 @@ NAMESPACE AXOpen.Components.Balluff.Identification
             ErrorTime : LTIME := LT#5S;
             {#ix-set:AttributeName = "<#Task timeout#>"}
             TaskTimeout : LTIME := LT#50S;
+            {#ix-set:AttributeName = "<#Hardware IDs#>"}
+            HWIDs : Axo_BIS_M_4XX_045_HWIDs;
             {#ix-set:AttributeName = "<#Start address#>"}
             StartAddress: WORD := WORD#0;
             {#ix-set:AttributeName = "<#Rfid code size#>"}

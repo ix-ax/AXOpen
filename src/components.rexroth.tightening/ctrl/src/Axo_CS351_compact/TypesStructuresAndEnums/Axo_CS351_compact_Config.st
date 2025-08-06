@@ -11,6 +11,10 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             TaskTimeout : LTIME := LT#60S;
             {#ix-set:AttributeName = "<#Hardware IDs#>"}
             HWIDs : Axo_CS351_HWIDs;
+            {#ix-set:AttributeName = "<#Torque scaling constant (depends on the type of spindle used)#>"}
+            TorqueScalingConstant : REAL := REAL#100000.0;
+            {#ix-set:AttributeName = "<#Angle scaling constant (depends on the type of spindle used)#>"}
+            AngleScalingConstant : REAL := REAL#10000.0;
         END_VAR 
     END_CLASS    
 END_NAMESPACE

@@ -2,8 +2,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
    {S7.extern=ReadWrite}
 	CLASS AxoVisionProHWIDs 
       VAR PUBLIC
-         {#ix-set:AttributeName = "<#Hardware ID 'HEAD' submodule#>"}
-         HW_Head              : UINT;
+         {#ix-set:AttributeName = "<#Hardware ID of the device#>"}
+         HW_Device              : UINT;
          {#ix-set:AttributeName = "<#Hardware ID 'SystemControl' submodule#>"}
          HW_SystemControl     : UINT;
          {#ix-set:AttributeName = "<#Hardware ID 'EngineControl_1' submodule#>"}

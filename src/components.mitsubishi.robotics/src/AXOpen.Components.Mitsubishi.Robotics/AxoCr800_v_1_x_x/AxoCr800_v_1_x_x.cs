@@ -7,9 +7,9 @@ using AXOpen.Components.Abstractions;
 using AXOpen.Messaging.Static;
 using AXSharp.Connector;
 
-namespace AXOpen.Components.Mitsubishi.Robotics
+namespace AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
 {
-    public partial class AxoCr800_v_1_x_x : AXOpen.Core.AxoComponent
+    public partial class AxoCr800 : AXOpen.Core.AxoComponent
     {
         partial void PostConstruct(ITwinObject parent, string readableTail, string symbolTail)
         {
@@ -54,10 +54,10 @@ namespace AXOpen.Components.Mitsubishi.Robotics
 
                 //  General alarm
                 new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                                               ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                                                  ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                                                                              ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Device` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."                                    ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Hw configuration error. Value of hwIdInOut_64_byte is zero."                                                                                               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_InOut_64_byte is zero."                                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(711, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(712, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(713, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."                                           ,"Check the hardware configuration.")),
@@ -66,12 +66,12 @@ namespace AXOpen.Components.Mitsubishi.Robotics
                 new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'In_Out_64_byte' (GsdId=ID_MODULE_IN_OUT64B)."            ,"Check the hardware configuration.")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1130, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                                              ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1131, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                                                 ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `hwIdInOut_64_byte` has invalid value in `Run` method!"                                                                                    ,"Check the call of the `Run` method, if the `hwID_in_1` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1131, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                                                                             ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Device` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_InOut_64_byte` has invalid value in `Run` method!"                                                                      ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_InOut_64_byte` parameter is assigned.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the InOut_64_byte!"                                                                                                                         ,"Check the value of the hwIdInOut_64_byte and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the InOut_64_byte!"                                                                                                                         ,"Check the value of the Config.HWIDs.HwID_InOut_64_byte and reacheability of the device!")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1231, new AxoMessengerTextItem("Error writing the InOut_64_byte!"                                                                                                                         ,"Check the value of the hwIdInOut_64_byte and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1231, new AxoMessengerTextItem("Error writing the InOut_64_byte!"                                                                                                                         ,"Check the value of the Config.HWIDs.HwID_InOut_64_byte and reacheability of the device!")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem("Start at main finished with error!"                                                                                                                      ,"Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10001, new AxoMessengerTextItem("Start at main was aborted, while not yet completed!"                                                                                                     ,"Check the details.")),
@@ -137,7 +137,7 @@ namespace AXOpen.Components.Mitsubishi.Robotics
             TaskMessenger.DotNetMessengerTextList = messengerTextList;
         }
     }
-    public partial class AxoMitsubishiRobotics_Component_Status_v_1_x_x : AXOpen.Components.Robotics.AxoRobot_Status
+    public partial class AxoMitsubishiRobotics_Component_Status : AXOpen.Components.Robotics.AxoRobot_Status
     {
         Dictionary<ulong, string> errorDescriptionDict = new Dictionary<ulong, string>();
         Dictionary<ulong, string> actionDescriptionDict = new Dictionary<ulong, string>();
@@ -185,9 +185,9 @@ namespace AXOpen.Components.Mitsubishi.Robotics
                     errorDescriptionDict.Add(553, "Waiting for the value of the `Inputs.ActionNo` to be the same as the value of the `Outputs.ActionNo`.");
                     //  General alarm
                     errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!"                                                                                              );
-                    errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!"                                                                                                 );
+                    errorDescriptionDict.Add(701, "Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                                                                                                 );
                     errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."                                   );
-                    errorDescriptionDict.Add(710, "Hw configuration error. Value of hwIdInOut_64_byte is zero."                                                                                              );
+                    errorDescriptionDict.Add(710, "Hw configuration error. Value of Config.HWIDs.HwID_InOut_64_byte is zero."                                                                                              );
                     errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."                                          );
                     errorDescriptionDict.Add(712, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."                                          );
                     errorDescriptionDict.Add(713, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."                                          );
@@ -195,8 +195,8 @@ namespace AXOpen.Components.Mitsubishi.Robotics
                     errorDescriptionDict.Add(715, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."                                          );
                     errorDescriptionDict.Add(716, "Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'In_Out_64_byte' (GsdId=ID_MODULE_IN_OUT64B)."           );
                     errorDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!"                                                                                             );
-                    errorDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!"                                                                                                );
-                    errorDescriptionDict.Add(1132, "Input variable `hwIdInOut_64_byte` has invalid value in `Run` method!"                                                                                   );
+                    errorDescriptionDict.Add(1131, "Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                                                                                                );
+                    errorDescriptionDict.Add(1132, "Input variable `Config.HWIDs.HwID_InOut_64_byte` has invalid value in `Run` method!"                                                                                   );
                     errorDescriptionDict.Add(1201, "Error reading the InOut_64_byte!"                                                                                                                        );
                     errorDescriptionDict.Add(1231, "Error writing the InOut_64_byte!"                                                                                                                        );
                     errorDescriptionDict.Add(10000, "Start at main finished with error!"                                                                                                                     );

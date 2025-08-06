@@ -11,15 +11,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         VAR PRIVATE
             _UserDataSize           :   eAxoDataman_UserDataSize;
             _ResultDataSize         :   eAxoDataman_ResultDataSize;
-            _hwID                   :   WORD;
-            _hwIdAcquisitionControl :   WORD;
-            _hwIdAcquisitionStatus  :   WORD;
-            _hwIdResultsControl     :   WORD;
-            _hwIdResultsStatus      :   WORD;
-            _hwIdSoftEventControl   :   WORD;
-            _hwIdUserData           :   WORD;
-            _hwIdResultData         :   WORD;
-
             _progress               :   INT := 0;
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
@@ -164,7 +155,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                  :   IAxoObject; 
-                hwID                    :   WORD;
+                hwID                    :   UINT;
             END_VAR
             
             VAR
@@ -175,20 +166,20 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
             Messenger.Serve(THIS);
 
+            Config.HWIDs.HW_Device := hwID;
             IF NOT _initHwCheckDone THEN
                 IF parent = NULL THEN
                     Messenger.Activate(UINT#700, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#700;
                     RETURN;
                 END_IF;
-                IF hwID = WORD#0 THEN
+                IF Config.HWIDs.HW_Device = UINT#0 THEN
                     Messenger.Activate(UINT#701, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#701;
                     RETURN;
                 END_IF;
     
-                _hwID                    := hwID;                                                      
-                _retval := ReadSlotFromHardwareID(hardwareID := TO_UINT(_hwID), geoAddr :=_geoAddr);   
+                _retval := ReadSlotFromHardwareID(hardwareID := Config.HWIDs.HW_Device, geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(UINT#702,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#702;
@@ -197,9 +188,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAcquisitionControl :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAcquisitionControl = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => Config.HWIDs.HwIdAcquisitionControl);        
+                IF Config.HWIDs.HwIdAcquisitionControl = UINT#0 THEN
                     Messenger.Activate(UINT#710,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#710;
                     RETURN;
@@ -229,7 +219,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Status.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAcquisitionControl , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwIdAcquisitionControl) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#1 THEN
                     Messenger.Activate(UINT#716,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#716;
@@ -238,9 +228,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAcquisitionStatus :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAcquisitionStatus = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => Config.HWIDs.HwIdAcquisitionStatus);        
+                IF Config.HWIDs.HwIdAcquisitionStatus = UINT#0 THEN
                     Messenger.Activate(UINT#720,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#720;
                     RETURN;
@@ -270,7 +259,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Status.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAcquisitionStatus , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwIdAcquisitionStatus) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#3 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#726,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#726;
@@ -279,9 +268,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 //******************Slot 3*****************//
                 _geoAddr.Slot   :=  UINT#3;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdResultsControl :=  TO_WORD(_outHwid);                                         
-                IF _hwIdResultsControl = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => Config.HWIDs.HwIdResultsControl);        
+                IF Config.HWIDs.HwIdResultsControl = UINT#0 THEN
                     Messenger.Activate(UINT#730,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#730;
                     RETURN;
@@ -311,7 +299,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Status.Error.Id := UINT#735;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdResultsControl , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwIdResultsControl) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#1 THEN
                     Messenger.Activate(UINT#736,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#736;
@@ -320,9 +308,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 //******************Slot 4*****************//
                 _geoAddr.Slot   :=  UINT#4;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdResultsStatus :=  TO_WORD(_outHwid);                                         
-                IF _hwIdResultsStatus = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => Config.HWIDs.HwIdResultsStatus);        
+                IF Config.HWIDs.HwIdResultsStatus = UINT#0 THEN
                     Messenger.Activate(UINT#740,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#740;
                     RETURN;
@@ -352,7 +339,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Status.Error.Id := UINT#745;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdResultsStatus , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwIdResultsStatus) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#1 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#746,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#746;
@@ -361,9 +348,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 //******************Slot 5*****************//
                 _geoAddr.Slot   :=  UINT#5;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdSoftEventControl :=  TO_WORD(_outHwid);                                         
-                IF _hwIdSoftEventControl = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => Config.HWIDs.HwIdSoftEventControl);        
+                IF Config.HWIDs.HwIdSoftEventControl = UINT#0 THEN
                     Messenger.Activate(UINT#750,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#750;
                     RETURN;
@@ -393,7 +379,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Status.Error.Id := UINT#755;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdSoftEventControl , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwIdSoftEventControl) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#1 OR _outputsCount <> UINT#1 THEN
                     Messenger.Activate(UINT#756,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#756;
@@ -402,9 +388,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 //******************Slot 6*****************//
                 _geoAddr.Slot   :=  UINT#6;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdUserData :=  TO_WORD(_outHwid);                                         
-                IF _hwIdUserData = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => Config.HWIDs.HwIdUserData);        
+                IF Config.HWIDs.HwIdUserData = UINT#0 THEN
                     Messenger.Activate(UINT#760,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#760;
                     RETURN;
@@ -434,7 +419,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Status.Error.Id := UINT#765;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdUserData , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwIdUserData) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount = UINT#0 AND _outputsCount = UINT#20 THEN           //16 + 4 ( Option(UINT) + Length(UINT))
                     _UserDataSize := eAxoDataman_UserDataSize#USER_DATA_16B;
                 ELSIF _inputsCount = UINT#0 AND _outputsCount = UINT#36 THEN        //32 + 4 ( Option(UINT) + Length(UINT))
@@ -454,9 +439,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 //******************Slot 7*****************//
                 _geoAddr.Slot   :=  UINT#7;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdResultData :=  TO_WORD(_outHwid);                                         
-                IF _hwIdResultData = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => Config.HWIDs.HwIdResultData);        
+                IF Config.HWIDs.HwIdResultData = UINT#0 THEN
                     Messenger.Activate(UINT#770,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#770;
                     RETURN;
@@ -486,7 +470,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Status.Error.Id := UINT#775;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdResultData , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwIdResultData) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _outputsCount = UINT#0 AND _inputsCount = UINT#24 THEN               //16 + 8 ( Id(UINT) + Code(UINT) + Extended(UINT) + Length(UINT))
                     _ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_16B;
                 ELSIF _outputsCount = UINT#0 AND _inputsCount = UINT#40 THEN            //32 + 8 ( Id(UINT) + Code(UINT) + Extended(UINT) + Length(UINT))
@@ -507,35 +491,35 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Messenger.Activate(UINT#1130, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1130;
                     RETURN;
-                ELSIF _hwID = WORD#0 THEN
+                ELSIF Config.HWIDs.HW_Device = UINT#0 THEN
                     Messenger.Activate(UINT#1131, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1131;
                     RETURN;
-                ELSIF _hwIdAcquisitionControl = WORD#0 THEN
+                ELSIF Config.HWIDs.HwIdAcquisitionControl = UINT#0 THEN
                     Messenger.Activate(UINT#1132, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1132;
                     RETURN;
-                ELSIF _hwIdAcquisitionStatus = WORD#0 THEN
+                ELSIF Config.HWIDs.HwIdAcquisitionStatus = UINT#0 THEN
                     Messenger.Activate(UINT#1133, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1133;
                     RETURN;
-                ELSIF _hwIdResultsControl = WORD#0 THEN
+                ELSIF Config.HWIDs.HwIdResultsControl = UINT#0 THEN
                     Messenger.Activate(UINT#1134, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1134;
                     RETURN;
-                ELSIF _hwIdResultsStatus = WORD#0 THEN
+                ELSIF Config.HWIDs.HwIdResultsStatus = UINT#0 THEN
                     Messenger.Activate(UINT#1135, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1135;
                     RETURN;
-                ELSIF _hwIdSoftEventControl = WORD#0 THEN
+                ELSIF Config.HWIDs.HwIdSoftEventControl = UINT#0 THEN
                     Messenger.Activate(UINT#1136, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1136;
                     RETURN;
-                ELSIF  _hwIdUserData= WORD#0 THEN
+                ELSIF  Config.HWIDs.HwIdUserData= UINT#0 THEN
                     Messenger.Activate(UINT#1137, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1137;
                     RETURN;
-                ELSIF _hwIdResultData = WORD#0 THEN
+                ELSIF Config.HWIDs.HwIdResultData = UINT#0 THEN
                     Messenger.Activate(UINT#1138, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1138;
                     RETURN; 
@@ -545,7 +529,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_IF;
 
             //***********Update inputs **************
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAcquisitionStatus ,_data_in);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwIdAcquisitionStatus) ,_data_in);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1201;
@@ -558,7 +542,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             AcquisitionStatus.TriggerID.%B1                 :=      _data_in[1];	 
             AcquisitionStatus.TriggerID.%B0                 :=      _data_in[2];	 
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultsStatus ,_data_in);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwIdResultsStatus) ,_data_in);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1202;
@@ -571,7 +555,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             ResultsStatus.ResultsAvailable                  :=      _data_in[0].%X3;
             ResultsStatus.ErrorDetected                     :=      _data_in[0].%X7;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdSoftEventControl ,_data_in);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwIdSoftEventControl) ,_data_in);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1203, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1203;
@@ -587,7 +571,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             SoftEventStatus.Reserved06                      :=      _data_in[0].%X6;
             SoftEventStatus.SetMatchStringAcknowledge       :=      _data_in[0].%X7;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdResultData ,_data_in);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwIdResultData) ,_data_in);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1204, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1204;
@@ -621,7 +605,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             RestoreTask.Run(THIS);
             ClearResultDataTask.Run(THIS);
             ReadTask.Run(THIS);
-            HardwareDiagnosticsTask.Run(THIS,_hwID);
+            HardwareDiagnosticsTask.Run(THIS,Config.HWIDs.HW_Device);
 
             TaskMessenger.Serve(THIS);
 
@@ -908,7 +892,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _data_1[0].%X0                  :=      AcquisitionControl.TriggerEnable;
             _data_1[0].%X1                  :=      AcquisitionControl.Trigger;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdAcquisitionControl,_data_1);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwIdAcquisitionControl),_data_1);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1231;
@@ -918,7 +902,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _data_1[0].%X0                  :=      ResultsControl.EnableResultBuffering;
             _data_1[0].%X1                  :=      ResultsControl.ResultsAcknowledge;
             
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdResultsControl,_data_1);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwIdResultsControl),_data_1);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1232;
@@ -934,7 +918,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             _data_1[0].%X6                  :=      SoftEventControl.Reserved06;
             _data_1[0].%X7                  :=      SoftEventControl.SetMatchString;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdSoftEventControl,_data_1);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwIdSoftEventControl),_data_1);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1233, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1233;
@@ -960,7 +944,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     FOR _index := 0 TO 15 DO
                         _data_16[_index] := UserData.Data[_index];
                     END_FOR;
-                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_16);
+                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwIdUserData) ,_data_16);
                     IF _retVal > WORD#0 THEN
                         Messenger.Activate(UINT#1235, eAxoMessageCategory#ProgrammingError);
                         Status.Error.Id := UINT#1235;
@@ -970,7 +954,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     FOR _index := 0 TO 31 DO
                         _data_32[_index] := UserData.Data[_index];
                     END_FOR;
-                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_32);
+                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwIdUserData) ,_data_32);
                     IF _retVal > WORD#0 THEN
                         Messenger.Activate(UINT#1236, eAxoMessageCategory#ProgrammingError);
                         Status.Error.Id := UINT#1236;
@@ -980,7 +964,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     FOR _index := 0 TO 63 DO
                         _data_64[_index] := UserData.Data[_index];
                     END_FOR;
-                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_64);
+                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwIdUserData) ,_data_64);
                     IF _retVal > WORD#0 THEN
                         Messenger.Activate(UINT#1237, eAxoMessageCategory#ProgrammingError);
                         Status.Error.Id := UINT#1237;
@@ -990,7 +974,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     FOR _index := 0 TO 127 DO
                         _data_128[_index] := UserData.Data[_index];
                     END_FOR;
-                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_128);
+                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwIdUserData) ,_data_128);
                     IF _retVal > WORD#0 THEN
                         Messenger.Activate(UINT#1238, eAxoMessageCategory#ProgrammingError);
                         Status.Error.Id := UINT#1238;
@@ -1000,7 +984,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     FOR _index := 0 TO 253 DO
                         _data_250[_index] := UserData.Data[_index];
                     END_FOR;
-                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdUserData ,_data_250);
+                    _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwIdUserData) ,_data_250);
                     IF _retVal > WORD#0 THEN
                         Messenger.Activate(UINT#1239, eAxoMessageCategory#ProgrammingError);
                         Status.Error.Id := UINT#1239;

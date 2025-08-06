@@ -73,7 +73,7 @@ namespace AXOpen.Components.Abb.Robotics
 
                     //  General alarm
                     errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(701, "Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!");
                     errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090).");
                     errorDescriptionDict.Add(710, "Hw configuration error. Value of _hwIdDI_64_bytes is zero.");
                     errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1.");
@@ -90,9 +90,9 @@ namespace AXOpen.Components.Abb.Robotics
                     errorDescriptionDict.Add(725, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2.");
                     errorDescriptionDict.Add(726, "Hw configuration error: Module with unexpected size or type detected in Slot 2. Expected module with 64 output bytes (GsdId=2).");
                     errorDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1132, "Input variable `hwIdDI_64_bytes` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1133, "Input variable `hwIdDO_64_bytes` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1131, "Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1132, "Input variable `Config.HWIDs.HwID_DI_64_bytes` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1133, "Input variable `Config.HWIDs.HwID_DO_64_bytes` has invalid value in `Run` method!");
                     errorDescriptionDict.Add(1201, "Error reading the hwIdDI_64_bytes!" );
                     errorDescriptionDict.Add(1231, "Error writing the _hwIdDO_64_bytes!");
                     errorDescriptionDict.Add(10000, "Start at main finished with error!");

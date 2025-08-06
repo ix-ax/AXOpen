@@ -171,8 +171,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent  : IAxoObject;
-                hwID    :   WORD;
+                parent  :   IAxoObject;
+                hwID    :   UINT;
             END_VAR
             
             Progress := _progress;
@@ -187,13 +187,13 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     Status.Error.Id := UINT#700;
                     RETURN;
                 END_IF;
-                IF hwID = WORD#0 THEN
+                Config.HWIDs.HW_Device := hwID;
+                IF Config.HWIDs.HW_Device = UINT#0 THEN
                     Messenger.Activate(UINT#701, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#701;
                     RETURN;
                 END_IF;
     
-                Config.HWIDs.HW_Device  := TO_UINT(hwID);
                 _retval := ReadSlotFromHardwareID(hardwareID := Config.HWIDs.HW_Device, geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(UINT#702,eAxoMessageCategory#Error);
@@ -1608,8 +1608,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             _dword.%B1                          :=  _data_in4w[1].%B0;        //  75
             _dword.%B2                          :=  _data_in4w[2].%B1;        //  76
             _dword.%B3                          :=  _data_in4w[2].%B0;        //  77
-            // _debug_dword    :=  _dword;
-            Inputs.TorqueMin                    :=  TO_REAL(TO_DINT(_dword)) / REAL#100000.0;
+            Inputs.TorqueMin                    :=  TO_REAL(TO_DINT(_dword)) / Config.TorqueScalingConstant; /// REAL#100000.0;
             _dword.%B0                          :=  _data_in4w[3].%B1;        //  78
             _dword.%B1                          :=  _data_in4w[3].%B0;        //  79
 
@@ -1623,12 +1622,12 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
             _dword.%B2                           :=  _data_in4w[0].%B1;        //  80
             _dword.%B3                           :=  _data_in4w[0].%B0;        //  81
-            Inputs.Torque                        :=  TO_REAL(TO_DINT(_dword)) / REAL#100000.0;
+            Inputs.Torque                        :=  TO_REAL(TO_DINT(_dword))  / Config.TorqueScalingConstant; /// REAL#100000.0;
             _dword.%B0                           :=  _data_in4w[1].%B1;        //  82
             _dword.%B1                           :=  _data_in4w[1].%B0;        //  83
             _dword.%B2                           :=  _data_in4w[2].%B1;        //  84
             _dword.%B3                           :=  _data_in4w[2].%B0;        //  85
-            Inputs.TorqueMax                     :=  TO_REAL(TO_DINT(_dword)) / REAL#100000.0;
+            Inputs.TorqueMax                     :=  TO_REAL(TO_DINT(_dword))  / Config.TorqueScalingConstant; /// REAL#100000.0;
             _dword.%B0                           :=  _data_in4w[3].%B1;        //  86
             _dword.%B1                           :=  _data_in4w[3].%B0;        //  87
 
@@ -1642,12 +1641,12 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
             _dword.%B2                           :=  _data_in4w[0].%B1;        //  88
             _dword.%B3                           :=  _data_in4w[0].%B0;        //  89
-            Inputs.AngleMin                      :=  TO_REAL(TO_DINT(_dword)) / REAL#100000.0;
+            Inputs.AngleMin                      :=  TO_REAL(TO_DINT(_dword))  / Config.AngleScalingConstant; /// REAL#100000.0;
             _dword.%B0                           :=  _data_in4w[1].%B1;        //  90
             _dword.%B1                           :=  _data_in4w[1].%B0;        //  91
             _dword.%B2                           :=  _data_in4w[2].%B1;        //  92
             _dword.%B3                           :=  _data_in4w[2].%B0;        //  93
-            Inputs.Angle                         :=  TO_REAL(TO_DINT(_dword)) / REAL#100000.0;
+            Inputs.Angle                         :=  TO_REAL(TO_DINT(_dword)) / Config.AngleScalingConstant; /// REAL#100000.0;
             _dword.%B0                           :=  _data_in4w[3].%B1;        //  94
             _dword.%B1                           :=  _data_in4w[3].%B0;        //  95
 
@@ -1660,7 +1659,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;  
             _dword.%B2                          :=  _data_in4w[0].%B1;        //  96
             _dword.%B3                          :=  _data_in4w[0].%B0;        //  97
-            Inputs.AngleMax                     :=  TO_REAL(TO_DINT(_dword)) / REAL#100000.0;
+            Inputs.AngleMax                     :=  TO_REAL(TO_DINT(_dword)) / Config.AngleScalingConstant; /// REAL#100000.0;
 
             Inputs.ErrorCode.%B0                :=  _data_in4w[1].%B1;        //  99  
             Inputs.ErrorCode.%B1                :=  _data_in4w[1].%B0;        //  98
@@ -1718,7 +1717,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             //************************************************
             _blink.Blink(THIS, T#500ms,T#500ms);
             //********************Diagnostics*****************        
-            HardwareDiagnosticsTask.Run(THIS,TO_WORD(Config.HWIDs.HW_Device));
+            HardwareDiagnosticsTask.Run(THIS,Config.HWIDs.HW_Device);
             //************************************************
     
             //*************RESTORE****************************

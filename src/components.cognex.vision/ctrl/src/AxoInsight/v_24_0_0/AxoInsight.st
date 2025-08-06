@@ -21,21 +21,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
             _ResultDataSize_Slot_13 :   UINT;
             _ResultDataSize_Slot_14 :   UINT;
             _ResultDataSize         :   UINT;
-            // _hwID                   :   WORD;
-            // _hwIdAcquisitionControl :   WORD;
-            // _hwIdAcquisitionStatus  :   WORD;
-            // _hwIdInspectionControl  :   WORD;
-            // _hwIdInspectionStatus   :   WORD;
-            // _hwIdCommandControl     :   WORD;
-            // _hwIdSoftEventControl   :   WORD;
-            // _hwIdUserDataSlot_7     :   WORD;
-            // _hwIdUserDataSlot_8     :   WORD;
-            // _hwIdUserDataSlot_9     :   WORD;
-            // _hwIdUserDataSlot_10    :   WORD;
-            // _hwIdResultData_Slot_11 :   WORD;
-            // _hwIdResultData_Slot_12 :   WORD;
-            // _hwIdResultData_Slot_13 :   WORD;
-            // _hwIdResultData_Slot_14 :   WORD;
 
             _progress               :   INT := 0;
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
@@ -237,8 +222,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent                  :   IAxoObject; 
-                hwID                    :   WORD;
+                parent  :   IAxoObject; 
+                hwID    :   UINT;
             END_VAR
             VAR
                 _index              :   UINT;
@@ -263,13 +248,13 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                     Status.Error.Id := UINT#700;
                     RETURN;
                 END_IF;
-                IF hwID = WORD#0 THEN
+                Config.HWIDs.HW_Device := hwID;
+                IF Config.HWIDs.HW_Device = UINT#0 THEN
                     Messenger.Activate(UINT#701, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#701;
                     RETURN;
                 END_IF;
     
-                Config.HWIDs.HW_Device                    := TO_UINT(hwID);                                                      
                 _retval := ReadSlotFromHardwareID(hardwareID := Config.HWIDs.HW_Device, geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(UINT#702,eAxoMessageCategory#Error);
@@ -1157,7 +1142,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
             ChangeJobByNumberTask.Run(THIS);
             SoftEventTask.Run(THIS);
             SendUserDataTask.Run(THIS);
-            HardwareDiagnosticsTask.Run(THIS,TO_WORD(Config.HWIDs.HW_Device));
+            HardwareDiagnosticsTask.Run(THIS,Config.HWIDs.HW_Device);
             //*************Restore********************
             RestoreTask.IsDisabled := FALSE;
             IF RestoreTask.Execute(THIS) THEN

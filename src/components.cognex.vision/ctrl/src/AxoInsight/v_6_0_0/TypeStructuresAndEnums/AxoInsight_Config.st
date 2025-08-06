@@ -10,6 +10,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             ErrorTime : LTIME := LT#50S;
             {#ix-set:AttributeName = "<#Task timeout#>"}
             TaskTimeout : LTIME := LT#50S;
+            {#ix-set:AttributeName = "<#Hardware IDs#>"}
+            HWIDs : AxoInsight_HWIDs;
             {#ix-set:AttributeName = "<#Max job number#>"}
             MaxJobNumber : UINT := UINT#999;
             {#ix-set:AttributeName = "<#Result data size#>"}

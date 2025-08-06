@@ -46,7 +46,7 @@ awk -v ns="$NAMESPACE" "
 BEGIN {
     print \"NAMESPACE \" ns
     print \"    TYPE\"
-    print \"        HwIdentifiers : WORD\"
+    print \"        HwIdentifiers : UINT\"
     print \"        (\"
 }
 {
@@ -56,7 +56,7 @@ BEGIN {
     if (line ~ /CONFIGURATION HardwareIDs|VAR_GLOBAL CONSTANT|END_VAR|END_CONFIGURATION/) next
 
     gsub(/:_/, \"__\", line)
-    gsub(/: UINT := UINT/, \":=\\tWORD\", line)
+    gsub(/: UINT := UINT/, \":=\\UINT\", line)
     gsub(/;/, \",\", line)
 
     match(line, /^[[:space:]]*/)
@@ -70,7 +70,7 @@ BEGIN {
     print \"    \" prefix rest
 }
 END {
-    print \"            NONE := WORD#0\"
+    print \"            NONE := UINT#0\"
     print \"        );\"
     print \"    END_TYPE\"
     print \"END_NAMESPACE\"

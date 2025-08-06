@@ -11,7 +11,7 @@ NAMESPACE AXOpen.Io
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-set:AttributeName = "<#Hardware ID#>"}
             {#ix-attr:[ReadOnly()]}
-            hardwareID	                :   WORD;	                //  Input	Hardware identifier of the component.
+            hardwareID	                :   UINT;	                //  Input	Hardware identifier of the component.
             {#ix-set:AttributeName = "<#Diagnostics return code#>"}
             {#ix-attr:[ReadOnly()]}
             GetDiagnosticsReturnCode    :   GetDiagnosticsReturnCode;
@@ -28,7 +28,7 @@ NAMESPACE AXOpen.Io
         METHOD PUBLIC Run
             VAR_INPUT
                 inParent    :   IAxoObject;
-                hwID        :   WORD;
+                hwID        :   UINT;
             END_VAR
             VAR
                 diagInfo : Siemens.Simatic.S71500.Diagnostics.Hardware.DiagnosticDetails;            
@@ -36,7 +36,7 @@ NAMESPACE AXOpen.Io
                    
             
             IF SUPER.Execute(inParent) THEN
-                GetDiagnosticsReturnCode := GetDiagnostics(TO_UINT(hwID), diagInfo);
+                GetDiagnosticsReturnCode := GetDiagnostics(hwID, diagInfo);
 
                 IF GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
                     diagnosticDetails.ComponentStateDetail.HardwareComponentState.NoAdditionalInformation   :=  diagInfo.ComponentStateDetail.HardwareComponentState.NoAdditionalInformation;    

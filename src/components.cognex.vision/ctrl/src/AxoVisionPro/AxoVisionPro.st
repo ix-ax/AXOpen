@@ -178,7 +178,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
         METHOD PUBLIC Run
             VAR_INPUT
                 parent      :   IAxoObject;
-                hwID        :   WORD;
+                hwID        :   UINT;
                 CameraNo    :   BYTE;
             END_VAR
 			VAR_TEMP 
@@ -209,14 +209,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#700;
                     RETURN;
                 END_IF;
-                IF hwID = WORD#0 THEN
+                Config.HWIDs.HW_Device  := hwID;
+                IF Config.HWIDs.HW_Device = UINT#0 THEN
                     Messenger.Activate(ULINT#701, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#701;
                     RETURN;
                 END_IF;
     
-                Config.HWIDs.HW_Head                    := TO_UINT(hwID);                                                      
-                _retval := ReadSlotFromHardwareID(hardwareID := Config.HWIDs.HW_Head, geoAddr :=_geoAddr);   
+                _retval := ReadSlotFromHardwareID(hardwareID := Config.HWIDs.HW_Device, geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(UINT#702,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#702;
@@ -910,7 +910,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     RETURN;
                 END_IF;
 
-                IF Config.HWIDs.HW_Head  = UINT#0 THEN
+                IF Config.HWIDs.HW_Device  = UINT#0 THEN
                     Messenger.Activate(UINT#1131,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1131;
                     RETURN;
@@ -1108,7 +1108,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             //****************************************
     
             //********************Diagnostics*********        
-            HardwareDiagnosticsTask.Run(THIS,TO_WORD(Config.HWIDs.HW_Head));
+            HardwareDiagnosticsTask.Run(THIS,Config.HWIDs.HW_Device);
             //****************************************
     
             //*************RESTORE********************

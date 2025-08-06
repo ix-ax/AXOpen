@@ -1,10 +1,10 @@
 NAMESPACE AXOpen.Components.Keyence.Vision
-    TYPE
-        {S7.extern=ReadWrite}
-        Axo_SR_1000_ParameterBankNumber : 
-        STRUCT
+    {S7.extern=ReadWrite}
+    {#ix-attr:[Container(Layout.Stack)]}
+    CLASS PUBLIC Axo_SR_1000_ParameterBankNumber 
+        VAR PUBLIC
             {#ix-set:AttributeName = "<#Bank Number Register#>"}
             BankNumberRegister : UINT;
-        END_STRUCT;
-    END_TYPE 
+        END_VAR 
+    END_CLASS    
 END_NAMESPACE

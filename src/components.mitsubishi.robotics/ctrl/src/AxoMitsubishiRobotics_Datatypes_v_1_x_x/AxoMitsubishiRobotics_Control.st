@@ -1,27 +1,41 @@
-NAMESPACE AXOpen.Components.Kuka.Robotics
+NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x 
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Wrap)]}
-    CLASS AxoKukaRobotics_Control_v_5_x_x 
+    CLASS AxoMitsubishiRobotics_Control
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
-            {#ix-set:AttributeName = "<#Program Start [EXT_START]#>"}
-            ExternalStart : BOOL;	
-            {#ix-set:AttributeName = "<#Move Enable [MOVE_ENABLE]#>"}
-            MoveEnable : BOOL;			
-            {#ix-set:AttributeName = "<#Error Confirmation [CONF_MESS]#>"} 
-            ErrorConfirmation : BOOL;	
-            {#ix-set:AttributeName = "<#Drives Off [DRIVES_OFF]#>"}
-            DrivesOff : BOOL;			
-            {#ix-set:AttributeName = "<#Drives On [DRIVES_ON]#>"}
-            DrivesOn : BOOL;			
-            {#ix-set:AttributeName = "<#Activate Interface [I_O_ACT]#>"}
-            ActivateInterface : BOOL;	
-            {#ix-set:AttributeName = "<#Start At Main [START_AT_MAIN]#>"}
-            StartAtMain : BOOL;			
+            {#ix-set:AttributeName = "<#Operation enable (rights)#>"}
+            OperationEnable:BOOL;
+            {#ix-set:AttributeName = "<#Automatic operation enabled#>"}
+            AutoEnable:BOOL;
+            {#ix-set:AttributeName = "<#Start#>"}
+            Start:BOOL;	
+            {#ix-set:AttributeName = "<#Stop#>"}
+            Stop:BOOL;
+            {#ix-set:AttributeName = "<#Program reset#>"}
+            ProgramReset:BOOL;
+            {#ix-set:AttributeName = "<#Error Reset#>"}
+            ErrorReset:BOOL;
+            {#ix-set:AttributeName = "<#Cycle Stop#>"}
+            CycleStop:BOOL;	
+            {#ix-set:AttributeName = "<#Servo Off#>"}
+            ServoOff:BOOL;
+
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
+            {#ix-set:AttributeName = "<#Servo On#>"}
+            ServoOn:BOOL;	
+            {#ix-set:AttributeName = "<#General Purpose reset#>"}
+            GeneralPurposeReset:BOOL;	
+            {#ix-set:AttributeName = "<#Overide specification#>"}
+            OverideSpecifications:BOOL;	
+
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Master mode#>"}
             MasterMode : BYTE;
-        
+            
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Tool 1 retract#>"}
@@ -40,16 +54,15 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             Tool_4_Retract : BOOL;
             {#ix-set:AttributeName = "<#Tool 4 extend#>"}
             Tool_4_Extend : BOOL;
-        
+
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
-            {#ix-set:AttributeName = "<#Tool 1 retract#>"}
             {#ix-set:AttributeName = "<#Zones#>"}
             Zone : BYTE;
             {#ix-set:AttributeName = "<#In position#>"}
             InPosition : BYTE;
             {#ix-set:AttributeName = "<#Action number#>"}
-            ActionNo : BYTE; 
+            ActionNo : BYTE := BYTE#255; 
             {#ix-set:AttributeName = "<#Global robot speed#>"}
             GlobalSpeed : BYTE; 
             {#ix-set:AttributeName = "<#Tool number#>"}
@@ -62,7 +75,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             UserSpecSpeed1 : REAL; 
             {#ix-set:AttributeName = "<#User specific speed 2#>"}
             UserSpecSpeed2 : REAL; 
-    
+
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {attribute  addProperty Name "<#Coordinates#>"}     

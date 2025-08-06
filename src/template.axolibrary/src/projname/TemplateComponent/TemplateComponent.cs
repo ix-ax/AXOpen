@@ -79,7 +79,7 @@ namespace Template.Axolibrary
                 new KeyValuePair<ulong, AxoMessengerTextItem>(262, new AxoMessengerTextItem("TemplateTask_20steps_6 restored.","")),
                 //  General alarms
                 new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                      ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Device` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."        ,"Check the hardware configuration.")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_in_1 is zero."                                                              ,"Check the hardware configuration.")),
@@ -403,7 +403,7 @@ namespace Template.Axolibrary
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1106, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 40. Expected module: 'gsd_id_of_req_module'."    ,"Check the hardware configuration.")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1130, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                  ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1131, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                     ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1131, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Device` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_in_1` has invalid value in `Run` method!"                                                   ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_in_1` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1133, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_in_2` has invalid value in `Run` method!"                                                   ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_in_2` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1134, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_in_3` has invalid value in `Run` method!"                                                   ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_in_3` parameter is assigned.")),
@@ -944,7 +944,7 @@ namespace Template.Axolibrary
                     errorDescriptionDict.Add(679, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     // General alarms
                     errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(701, "Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!");
                     errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090).");
                     errorDescriptionDict.Add(710, "Hw configuration error. Value of Config.HWIDs.HwID_in_1 is zero.");
                     errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1.");
@@ -1227,7 +1227,7 @@ namespace Template.Axolibrary
                     errorDescriptionDict.Add(1105, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 40.");
                     errorDescriptionDict.Add(1106, "Hw configuration error: Module with unexpected size or type detected in Slot 40. Expected module: 'gsd_id_of_req_module'.");
                     errorDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!");
+                    errorDescriptionDict.Add(1131, "Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!");
                     errorDescriptionDict.Add(1132, "Variable `Config.HWIDs.HwID_in_1` has invalid value in `Run` method!");
                     errorDescriptionDict.Add(1133, "Variable `Config.HWIDs.HwID_in_2` has invalid value in `Run` method!");
                     errorDescriptionDict.Add(1134, "Variable `Config.HWIDs.HwID_in_3` has invalid value in `Run` method!");
@@ -1603,7 +1603,7 @@ namespace Template.Axolibrary
                     actionDescriptionDict.Add(262, "TemplateTask_20steps_6 restored.");
                     // General alarms
                     actionDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
-                    actionDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(701, "Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!");
                     actionDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090).");
                     actionDescriptionDict.Add(710, "Hw configuration error. Value of Config.HWIDs.HwID_in_1 is zero.");
                     actionDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1.");

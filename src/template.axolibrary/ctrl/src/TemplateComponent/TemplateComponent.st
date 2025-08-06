@@ -163,8 +163,8 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
     
-                Config.HWIDs.HW_Head := hwID;                                                      
-                _retval := ReadSlotFromHardwareID(hardwareID := Config.HWIDs.HW_Head, geoAddr :=_geoAddr);   
+                Config.HWIDs.HW_Device := hwID;                                                      
+                _retval := ReadSlotFromHardwareID(hardwareID := Config.HWIDs.HW_Device, geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(UINT#702,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#702;
@@ -1777,7 +1777,7 @@ NAMESPACE Template.Axolibrary
                     Status.Error.Id := UINT#1130;
                     RETURN;
                 END_IF;
-                IF Config.HWIDs.HW_Head  = UINT#0 THEN
+                IF Config.HWIDs.HW_Device  = UINT#0 THEN
                     Messenger.Activate(UINT#1131,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1131;
                     RETURN;
@@ -2321,7 +2321,7 @@ NAMESPACE Template.Axolibrary
             //****************************************
     
             //********************Diagnostics*********        
-            HardwareDiagnosticsTask.Run(THIS,TO_WORD(Config.HWIDs.HW_Head));
+            HardwareDiagnosticsTask.Run(THIS,Config.HWIDs.HW_Device);
             //****************************************
     
             //*************RESTORE********************
