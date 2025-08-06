@@ -39,6 +39,13 @@ NAMESPACE AXOpen.Inspectors
         //actual number of retries
         {#ix-set:AttributeName = "<#Attempts#>"}
         RetryAttemptsCount : UINT;
+
+        {#ix-set:AttributeName = "<#ErrorCode#>"}
+        ErrorCode : STRING;
+
+        {#ix-set:AttributeName = "<#Failure Description#>"}
+        Failure : STRING;
+
         //</CommonInspectorDataDeclaration>   
         END_VAR
 

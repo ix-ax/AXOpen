@@ -231,6 +231,7 @@ NAMESPACE AXOpen.Components.Pneumatics
             END_IF;    
             _Messenger.ActivateOnCondition(UINT#7, Condition, eAxoMessageCategory#Info);
             _MoveToHomeTask.IsDisabled := Condition;
-        END_METHOD        
+        END_METHOD  
+        
     END_CLASS
 END_NAMESPACE

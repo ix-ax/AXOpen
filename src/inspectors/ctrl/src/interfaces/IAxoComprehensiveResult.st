@@ -28,6 +28,18 @@ NAMESPACE AXOpen.Inspectors
                 inErrorCodes: STRING;
             END_VAR
         END_METHOD
+
+        METHOD AddFailure 
+            VAR_INPUT
+                inFailure: STRING;
+            END_VAR
+        END_METHOD
+
+        METHOD AddErrorCode 
+            VAR_INPUT
+                inErrorCode: STRING;
+            END_VAR
+        END_METHOD
         
     END_INTERFACE
 END_NAMESPACE

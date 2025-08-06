@@ -11,6 +11,12 @@
         <AxoObjectDiagnosticsView @ref="diagnosticsViewRef" ObservedObjects="new ITwinObject[] { this.Component }"></AxoObjectDiagnosticsView>
     </div>
 
+    @if (!string.IsNullOrEmpty(Component.Description_raw))
+    {
+        <div class="feedback"> @Component.Description_raw</div>
+    }
+
+   
     <!--Header/Main/Basic controls-->
     @if (@Component._isManuallyControllable.Cyclic)
     {
