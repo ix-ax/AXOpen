@@ -18,7 +18,7 @@ NAMESPACE AXOpen.Inspectors
             _commonData: REF_TO AxoInspectorData;
             
             _comprehensiveResult      : IAxoComprehensiveResult; 
-            _comprehensiveResultUpdateCycle    : ULINT; // when was updated comprehensiver result
+            _comprehensiveResultUpdateCycle    : ULINT; // when was updated comprehensive result
             
             _updateOverallResult    : BOOL; // TRUE if is called  UpdateComprehensiveResult()
             _FailureDescription    : STRING; // fill in UpdateComprehensiveResult()
