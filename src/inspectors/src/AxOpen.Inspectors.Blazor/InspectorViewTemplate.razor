@@ -76,6 +76,8 @@
                 <div class="flex flex-row justify-end my-1 gap-4">
                     <RenderableContentControl Context="@Data.IsByPassed" Presentation="@Presentation" />
                     <RenderableContentControl Context="@Data.IsExcluded" Presentation="@Presentation" />
+                    <RenderableContentControl Context="@Data.Failure" Presentation="@Presentation" />
+                    <RenderableContentControl Context="@Data.ErrorCode" Presentation="@Presentation" />
                 </div>
             </div>
         }
