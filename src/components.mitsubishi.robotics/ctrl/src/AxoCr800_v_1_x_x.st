@@ -5,16 +5,15 @@ USING AXOpen.Components.Robotics;
 USING AXOpen.Components.Abstractions.Robotics;
 USING Siemens.Simatic.S71500.Hardware.Utilities;
 
-NAMESPACE AXOpen.Components.Mitsubishi.Robotics
+NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
     {S7.extern=ReadWrite}
-    CLASS AxoCr800_v_1_x_x EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+    CLASS AxoCr800 EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.Robotics.IAxoRobotics
         VAR PRIVATE
             _infoTimer          :   AXOpen.Timers.OnDelayTimer;
             _errorTimer         :   AXOpen.Timers.OnDelayTimer;
             _blink              :   AXOpen.Timers.AxoBlinker;
             _context            :   IAxoContext;
-            _hwID               :   WORD;
-            _hwIdInOut_64_byte  :   WORD;   
+            
             _dword: DWORD;
             _data : ARRAY[0..63] OF BYTE; 
 
@@ -67,14 +66,14 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
-            Config  :   AxoCr800Config_v_1_x_x;
+            Config  :   AxoMitsubishiRobotics_Config;
         END_VAR
 
         VAR PUBLIC //STATUS
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            Status         :   AxoMitsubishiRobotics_Component_Status_v_1_x_x;
+            Status         :   AxoMitsubishiRobotics_Component_Status;
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Power progress#>"}
@@ -93,13 +92,13 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Inputs              :   AxoMitsubishiRobotics_State_v_1_x_x;
+            Inputs              :   AxoMitsubishiRobotics_State;
             {#ix-attr:[ComponentDetails("Hardware signals")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Outputs              :   AxoMitsubishiRobotics_Control_v_1_x_x;
+            Outputs              :   AxoMitsubishiRobotics_Control;
         END_VAR    
 
         VAR PUBLIC //HardwareDiagnostics
@@ -115,8 +114,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent              : IAxoObject;
-                hwID                :   WORD;
+                parent  :   IAxoObject;
+                hwID    :   UINT;
             END_VAR
 
             SUPER.Run(parent);
@@ -129,14 +128,14 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                     Status.Error.Id := UINT#700;
                     RETURN;
                 END_IF;
-                IF hwID = WORD#0 THEN
+                Config.HWIDs.HwID_Device :=  hwID;
+                IF Config.HWIDs.HwID_Device = UINT#0 THEN
                     Messenger.Activate(UINT#701, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#701;
                     RETURN;
                 END_IF;
     
-                _hwID                    := hwID;                                                      
-                _retval := ReadSlotFromHardwareID(hardwareID := TO_UINT(_hwID), geoAddr :=_geoAddr);   
+                _retval := ReadSlotFromHardwareID(hardwareID := Config.HWIDs.HwID_Device, geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(UINT#702,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#702;
@@ -146,9 +145,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdInOut_64_byte :=  TO_WORD(_outHwid);                                         
-                IF _hwIdInOut_64_byte = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => Config.HWIDs.HwID_InOut_64_byte);        
+                IF Config.HWIDs.HwID_InOut_64_byte = UINT#0 THEN
                     Messenger.Activate(UINT#710,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#710;
                     RETURN;
@@ -178,7 +176,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                     Status.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdInOut_64_byte , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_InOut_64_byte) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#64 OR _outputsCount <> UINT#64 THEN
                     Messenger.Activate(UINT#716,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#716;
@@ -190,12 +188,12 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                     Status.Error.Id := UINT#1130;
                     RETURN;
                 END_IF;
-                IF _hwID  = WORD#0 THEN
+                IF Config.HWIDs.HwID_Device  = UINT#0 THEN
                     Messenger.Activate(UINT#1131,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1131;
                     RETURN;
                 END_IF;
-                IF _hwIdInOut_64_byte  = WORD#0 THEN
+                IF Config.HWIDs.HwID_InOut_64_byte  = UINT#0 THEN
                     Messenger.Activate(UINT#1132,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1132;
                     RETURN;
@@ -206,7 +204,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
 
 
             //***********UPDATE**INPUTS******************
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdInOut_64_byte ,_data);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwID_InOut_64_byte) ,_data);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1201;
@@ -333,7 +331,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
             HardwareDiagnosticsTask.Run(THIS);
             //****************************************
             //********************Diagnostics*********        
-            HardwareDiagnosticsTask.Run(THIS,_hwID);
+            HardwareDiagnosticsTask.Run(THIS,Config.HWIDs.HwID_Device);
             //****************************************
 
             //*************RESTORE********************
@@ -439,10 +437,9 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;
 
                 THIS.CallTimers(TRUE);
-                
                 StartAtMainTask.ThrowWhen(_errorTimer.output );
-
                 Status.Action.Id := TO_UINT(_power_progress);
+                StartAtMainTask.ThrowWhen(StartAtMainTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartAtMainTask timeout.');
             END_IF;
             IF StartAtMainTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -620,9 +617,9 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;		
                 
                 THIS.CallTimers(TRUE);
-                
                 StartMotorsAndProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
+                StartMotorsAndProgramTask.ThrowWhen(StartMotorsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartMotorsAndProgramTask timeout.');
             END_IF;
             IF StartMotorsAndProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -708,10 +705,9 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;	
 
                 THIS.CallTimers(TRUE);
-                
                 StopMovementsTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_power_progress);
+                StopMovementsTask.ThrowWhen(StopMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StopMovementsTask timeout.');
             END_IF;
             IF StopMovementsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -799,10 +795,9 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;		
 
                 THIS.CallTimers(TRUE);
-                
                 StopMovementsAndProgramTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_power_progress);
+                StopMovementsAndProgramTask.ThrowWhen(StopMovementsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StopMovementsAndProgramTask timeout.');
             END_IF;
             IF StopMovementsAndProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#131;
@@ -972,10 +967,9 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 END_IF;	
 
 	            THIS.CallTimers(TRUE);
-                
                 StartMovementsTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_movement_progress);
+                StartMovementsTask.ThrowWhen(StartMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartMovementsTask timeout.');
             END_IF;
             IF StartMovementsTask.IsFirstExecutionCycle() THEN
                 MovementParameters := Status.CurrentMovementParameters;
@@ -1089,7 +1083,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
             _data[42]            := _dword.%B2;
             _data[43]            := _dword.%B3;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdInOut_64_byte,_data);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_InOut_64_byte),_data);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1231;

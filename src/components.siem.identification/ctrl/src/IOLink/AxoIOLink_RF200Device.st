@@ -15,7 +15,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             _context                    :   IAxoContext;
             _someTaskIsActive           :   BOOL;
 
-            _HW_ID                      :	WORD    :=  WORD#16#0;     
+            _HW_ID                      :	UINT    :=  UINT#16#0;     
             _portAddr                   :	INT     :=  INT#0;     
             _version                    :	USINT   :=  USINT#11;    
 
@@ -141,8 +141,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent      : IAxoObject;
-                HW_ID       :	WORD    :=  WORD#16#0;      //	Logic IO address of the IO-Link Master
+                parent      :   IAxoObject;
+                HW_ID       :	UINT    :=  UINT#16#0;      //	Logic IO address of the IO-Link Master
                 portAddr    :	INT     :=  INT#0;          //  Start address of port
                 version     :	USINT   :=  USINT#11;       //	IO-Link version of the reader; 11: IO-Link V1.1, 10: IO-Link V1.0
             END_VAR
@@ -155,12 +155,12 @@ NAMESPACE AXOpen.Components.Siem.Identification
             Messenger.Serve(THIS);
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#701,HW_ID = WORD#0, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#701,HW_ID = UINT#0, eAxoMessageCategory#ProgrammingError);
 
             IF parent = NULL THEN
                 Status.Error.Id := UINT#700;
                 RETURN;
-            ELSIF HW_ID = WORD#0 THEN
+            ELSIF HW_ID = UINT#0 THEN
                 Status.Error.Id := UINT#701;
                 RETURN;
             END_IF;

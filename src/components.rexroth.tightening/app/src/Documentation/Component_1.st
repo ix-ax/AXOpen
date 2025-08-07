@@ -27,10 +27,10 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
 
             //<Initialization>        
-            ExampleComponent.Run(parent := THIS , hwID:= WORD#60);
+            ExampleComponent.Run(parent := THIS , hwID:= HwIdentifiers#Axo_CS351_HwID);
             //</Initialization>
 
-        THIS.UseInSequencer();
+            THIS.UseInSequencer();
         END_METHOD
 
         //<Usage>    

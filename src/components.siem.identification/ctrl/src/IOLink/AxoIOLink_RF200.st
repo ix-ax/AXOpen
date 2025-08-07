@@ -17,7 +17,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             statIndex                   :	INT     :=  INT#0;                      //	Requested index
             statSubindex                :	INT     :=  INT#0;                      //	Requested subindex
             statRecordLen               :	INT     :=  INT#0;                      //	Length of record to be written
-            statHwID                    :	WORD    :=  WORD#0;                     //  Static value for input 'hwID'
+            statHwID                    :	UINT    :=  UINT#0;                     //  Static value for input 'hwID'
             statCap                     :	INT     :=  INT#0;                      //  Static value for input 'cap'
             statReadWrite               :	BOOL    :=  FALSE;                      //  Static value for input 'readWrite'
             statPort                    :	INT     :=  INT#0;                      //  Static value for input 'port'
@@ -120,7 +120,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
         METHOD PUBLIC Run
             VAR_INPUT
                 execute                 :	BOOL    :=  FALSE;                  //  Request job (on rising edge)
-                hwID                    :	WORD    :=  WORD#0;                 //  Hardware identifier of IO-Link master module or first sub module
+                hwID                    :	UINT    :=  UINT#0;                 //  Hardware identifier of IO-Link master module or first sub module
                 cap                     :	INT     :=  INT#0;                  //  Client Access Point (CAP) 0xB400 or 0x00E3 (227)
                 readWrite               :	BOOL    :=  FALSE;                  //  Read and write access to IO-Link device 0: Read, 1:Write
                 port                    :	INT     :=  INT#0;                  //  Port of device on the IO-Link Master

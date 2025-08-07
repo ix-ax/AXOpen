@@ -17,7 +17,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             {#ix-set:AttributeName = "<#AxisNo#>"}
             AxisNo	        :   BYTE := BYTE#1;
             {#ix-set:AttributeName = "<#HardwareId#>"}
-            HardwareId	    :   WORD;    
+            HardwareId	    :   UINT;    
             {#ix-set:AttributeName = "<#ValueWriteREAL#>"}
             ValueWriteREAL  :   REAL;
             {#ix-set:AttributeName = "<#ValueWriteLINT#>"}

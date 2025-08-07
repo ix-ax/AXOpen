@@ -12,9 +12,10 @@ variables:
   DEFAULT_NAMESPACE: "AXOpen.Components.Siem.Identification"
   AXTARGET: 192.168.100.120
   AXTARGETPLATFORMINPUT: .\bin\1500\
-  AX_USERNAME: "adm"
-  AX_TARGET_PWD: "123ABCDabcd$#!"
-  USE_PLC_SIM_ADVANCED: "true"
+  AX_USERNAME: "admin"
+  AX_TARGET_PWD: "Qwerty123456+"
+  # USE_PLC_SIM_ADVANCED: "true"
+  USE_PLC_SIM_ADVANCED: "false"
   # <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.
 registries:
   "@inxton": "https://npm.pkg.github.com/"
@@ -54,7 +55,6 @@ scripts:
     dotnet tool restore
     dotnet ixc --skip-deps 
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ixc' Finished in :" $(expr $(date +%s) - $START) "s"
-  postbuild: apax run ixc # run after build
   dcpli: | # list all interfaces, used to discover MAC address of the adapter connected to PLC                                                              (apax dcp-utility list-interfaces )
     START=$(date +%s)
     ..\\..\\scripts\\dcp_utility_list_interfaces.sh                                                                                                         
@@ -171,5 +171,9 @@ scripts:
     apax build
     apax test
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
+  gc: |
+    START=$(date +%s)
+    apax plc-cert --target $AXTARGET --output .\\certs\\plc_line\\plc_line.cer
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax gc' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
     apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously

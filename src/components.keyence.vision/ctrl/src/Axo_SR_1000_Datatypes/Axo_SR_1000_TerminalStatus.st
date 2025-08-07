@@ -1,8 +1,8 @@
 NAMESPACE AXOpen.Components.Keyence.Vision
-    TYPE
-        {S7.extern=ReadWrite}
-        Axo_SR_1000_TerminalStatus : 
-        STRUCT
+    {S7.extern=ReadWrite}
+    {#ix-attr:[Container(Layout.Stack)]}
+    CLASS PUBLIC Axo_SR_1000_TerminalStatus 
+        VAR PUBLIC
             {#ix-set:AttributeName = "<#IN1 Status#>"}
             IN1_Status : BOOL;
             {#ix-set:AttributeName = "<#IN2 Status#>"}
@@ -13,6 +13,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             OUT2_Status : BOOL;
             {#ix-set:AttributeName = "<#OUT3 Status#>"}
             OUT3_Status : BOOL;
-        END_STRUCT;
-    END_TYPE 
+        END_VAR 
+    END_CLASS    
 END_NAMESPACE

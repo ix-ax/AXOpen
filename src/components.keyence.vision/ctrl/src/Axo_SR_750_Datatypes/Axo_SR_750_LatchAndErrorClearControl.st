@@ -1,12 +1,12 @@
 NAMESPACE AXOpen.Components.Keyence.Vision
-    TYPE
-        {S7.extern=ReadWrite}
-        Axo_SR_750_LatchAndErrorClearControl : 
-        STRUCT
+    {S7.extern=ReadWrite}
+    {#ix-attr:[Container(Layout.Stack)]}
+    CLASS PUBLIC Axo_SR_750_LatchAndErrorClearControl  
+        VAR PUBLIC
             {#ix-set:AttributeName = "<#Result Data Latch#>"}
             ResultDataLatch :  BOOL;
             {#ix-set:AttributeName = "<#Error Clear#>"}
             ErrorClear :  BOOL;
-        END_STRUCT;
-    END_TYPE 
+        END_VAR 
+    END_CLASS    
 END_NAMESPACE

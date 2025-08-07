@@ -36,6 +36,7 @@
   	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include=".g\Onliners\" />
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
 	</ItemGroup>

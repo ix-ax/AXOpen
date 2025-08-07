@@ -1,3 +1,4 @@
 @import "tailwindcss";
 @import "../../../../../../../operon/src/Operon/wwwroot/css/operon.css";
-@source "../../../../../../../operon/src/Operon";
+@source "../../../../../../../operon/src/Operon/Components";
+@source "../../../../../../../operon/src/Operon/Icons";

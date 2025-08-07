@@ -335,7 +335,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             
             // Read cyclic data
             // rwr := DPRD_DAT(LADDR := TO_UINT (HwConnect^.HW_ID), RECORD => HwConnect^.Static.cyc_status);
-            rwr := Siemens.Simatic.S71500.DistributedIO.ReadData(refHwConnect^.HW_ID , data);
+            rwr := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(refHwConnect^.HW_ID) , data);
             IF rwr > WORD#0 THEN
                 nStatus := DWORD#16#FEFE0005; 
                 RETURN;
@@ -384,7 +384,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             data[0] := refHwConnect^.Static.cyc_control.%B1;  //TODO check order of the bytes
             data[1] := refHwConnect^.Static.cyc_control.%B0;
             
-            rww := Siemens.Simatic.S71500.DistributedIO.WriteData(refHwConnect^.HW_ID,data);
+            rww := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(refHwConnect^.HW_ID),data);
             IF rww > WORD#0 THEN
                 nStatus := DWORD#16#FEFE0006; 
                 RETURN;
@@ -1365,7 +1365,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 //            INDEX := HwConnect^.Static.index,
                 //            LEN := statBufLen,
                 //            RECORD := HwConnect^.Static.pnConfigRecord.record.buf);
-                statWRREC(  id := refHwConnect^.HW_ID,
+                statWRREC(  id := TO_WORD(refHwConnect^.HW_ID),
                             index := refHwConnect^.Static.index,
                             length := statBufLen,
                             record := refHwConnect^.Static.pnConfigRecord.record.buf);
@@ -1380,7 +1380,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 //            INDEX := HwConnect^.Static.index,
                 //            MLEN := HwConnect^.Static.buf_max,
                 //            RECORD := HwConnect^.Static.pnConfigRecord.record.buf);
-                statRDREC( id := refHwConnect^.HW_ID,
+                statRDREC( id := TO_WORD(refHwConnect^.HW_ID),
                            index := refHwConnect^.Static.index,
                            maxLength := refHwConnect^.Static.buf_max,
                            record := refHwConnect^.Static.pnConfigRecord.record.buf);

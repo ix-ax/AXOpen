@@ -15,18 +15,6 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             _stopTasksAreActive     :   BOOL;
             _stopType               :   eAxoRoboticsStopType;
             _someTaskIsActive       :   BOOL;
-            _hwID                                                    : WORD;
-            _hwIdAxoUrRobotics_T2O_State                             : WORD;
-            _hwIdAxoUrRobotics_T2O_IO                                : WORD;
-            _hwIdAxoUrRobotics_T2O_Joints                            : WORD;
-            _hwIdAxoUrRobotics_T2O_TCP                               : WORD;
-            _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers     : WORD;
-            _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers     : WORD;
-            _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers   : WORD;
-            _hwIdAxoUrRobotics_O2T_Robot_IO                          : WORD;
-            _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1       : WORD;
-            _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2       : WORD;
-
             
             _initHwCheckDone        :   BOOL;
             _retval                 :   WORD;
@@ -135,9 +123,9 @@ NAMESPACE AXOpen.Components.Ur.Robotics
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent                                                  : IAxoObject;
-                hwID                                                    : WORD;
-                refPowerOnPulse                                         : REF_TO BOOL;
+                parent          :   IAxoObject;
+                hwID            :   UINT;
+                refPowerOnPulse :   REF_TO BOOL;
             END_VAR
             VAR 
                 _word : WORD;
@@ -158,14 +146,14 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#700;
                     RETURN;
                 END_IF;
-                IF hwID = WORD#0 THEN
+                Config.HWIDs.HwId_Device  := hwID;
+                IF Config.HWIDs.HwId_Device = UINT#0 THEN
                     Messenger.Activate(UINT#701, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#701;
                     RETURN;
                 END_IF;
     
-                _hwID                    := hwID;                                                      
-                _retval := ReadSlotFromHardwareID(hardwareID := TO_UINT(_hwID), geoAddr :=_geoAddr);   
+                _retval := ReadSlotFromHardwareID(hardwareID := Config.HWIDs.HwId_Device, geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(UINT#702,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#702;
@@ -176,8 +164,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_T2O_State :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_T2O_State = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_State = UINT#0 THEN
                     Messenger.Activate(UINT#710,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#710;
                     RETURN;
@@ -207,7 +194,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_T2O_State , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_T2O_State) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#32 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#716,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#716;
@@ -217,8 +204,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_T2O_IO :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_T2O_IO = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_IO = UINT#0 THEN
                     Messenger.Activate(UINT#720,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#720;
                     RETURN;
@@ -248,7 +234,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_T2O_IO , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_T2O_IO) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#68 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#726,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#726;
@@ -258,8 +244,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#3;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_T2O_Joints :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_T2O_Joints = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_Joints = UINT#0 THEN
                     Messenger.Activate(UINT#730,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#730;
                     RETURN;
@@ -289,7 +274,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#735;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_T2O_Joints , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_T2O_Joints) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#104 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#736,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#736;
@@ -299,8 +284,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#4;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_T2O_TCP :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_T2O_TCP = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_TCP = UINT#0 THEN
                     Messenger.Activate(UINT#740,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#740;
                     RETURN;
@@ -330,7 +314,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#745;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_T2O_TCP , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_T2O_TCP) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#76 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#746,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#746;
@@ -340,8 +324,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#5;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers = UINT#0 THEN
                     Messenger.Activate(UINT#750,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#750;
                     RETURN;
@@ -371,7 +354,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#755;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#756,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#756;
@@ -381,8 +364,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#6;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers = UINT#0 THEN
                     Messenger.Activate(UINT#760,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#760;
                     RETURN;
@@ -412,7 +394,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#765;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#96 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#766,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#766;
@@ -422,8 +404,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#7;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers = UINT#0 THEN
                     Messenger.Activate(UINT#770,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#770;
                     RETURN;
@@ -453,7 +434,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#775;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#132 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#776,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#776;
@@ -463,8 +444,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#8;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_O2T_Robot_IO :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_O2T_Robot_IO = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_O2T_Robot_IO = UINT#0 THEN
                     Messenger.Activate(UINT#780,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#780;
                     RETURN;
@@ -494,7 +474,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#785;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_O2T_Robot_IO , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_O2T_Robot_IO) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#24 THEN
                     Messenger.Activate(UINT#786,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#786;
@@ -504,8 +484,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#9;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1 = UINT#0 THEN
                     Messenger.Activate(UINT#790,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#790;
                     RETURN;
@@ -535,7 +514,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#795;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#100 THEN
                     Messenger.Activate(UINT#796,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#796;
@@ -545,8 +524,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#10;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2 = UINT#0 THEN
                     Messenger.Activate(UINT#800,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#800;
                     RETURN;
@@ -576,7 +554,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#805;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#100 THEN
                     Messenger.Activate(UINT#806,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#806;
@@ -588,57 +566,57 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#1130;
                     RETURN;
                 END_IF;
-                IF _hwID  = WORD#0 THEN
+                IF Config.HWIDs.HwId_Device  = UINT#0 THEN
                     Messenger.Activate(UINT#1131,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1131;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_T2O_State  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_State  = UINT#0 THEN
                     Messenger.Activate(UINT#1132,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1132;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_T2O_IO  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_IO  = UINT#0 THEN
                     Messenger.Activate(UINT#1133,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1133;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_T2O_Joints  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_Joints  = UINT#0 THEN
                     Messenger.Activate(UINT#1134,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1134;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_T2O_TCP  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_TCP  = UINT#0 THEN
                     Messenger.Activate(UINT#1135,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1135;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers  = UINT#0 THEN
                     Messenger.Activate(UINT#1136,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1136;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers  = UINT#0 THEN
                     Messenger.Activate(UINT#1137,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1137;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers  = UINT#0 THEN
                     Messenger.Activate(UINT#1138,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1138;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_O2T_Robot_IO  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_O2T_Robot_IO  = UINT#0 THEN
                     Messenger.Activate(UINT#1139,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1139;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1  = UINT#0 THEN
                     Messenger.Activate(UINT#1140,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1140;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2  = UINT#0 THEN
                     Messenger.Activate(UINT#1141,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1141;
                     RETURN;
@@ -667,7 +645,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             _stopTasksAreActive := StopMovementsTask.IsBusy() OR StopMovementsAndProgramTask.IsBusy();
             //****************************************
             //********************Diagnostics*********        
-            HardwareDiagnosticsTask.Run(THIS,_hwID);
+            HardwareDiagnosticsTask.Run(THIS,Config.HWIDs.HwId_Device);
             RebootControllerTask.Execute(THIS);
             //****************************************
             //*************RESTORE********************
@@ -680,7 +658,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             //***********UPDATE**INPUTS******************
             //Inputs Low level
             //INPUTS T2O STATE ROBOT => st_URO_CB3_T2OInfoData
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAxoUrRobotics_T2O_State, _data);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_T2O_State), _data);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1201;
@@ -727,7 +705,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Inputs.Safety.ST_IsStoppedDueSafety              := _data[29].%X2;
 
             //INPUTS T20 IO => st_URO_CB3_T2OIoStateData
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAxoUrRobotics_T2O_IO, _data);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_T2O_IO), _data);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1202;
@@ -873,7 +851,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Inputs.Tool.ToolCurrent                          := TO_REAL(_dword);    
 
             // //INPUTS T20 JOINT => st_URO_CB3_T2OJointsData
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAxoUrRobotics_T2O_Joints, _data);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_T2O_Joints), _data);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1203, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1203;
@@ -1031,7 +1009,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Inputs.Joints.JointMode_5                        := TO_USINT(_data[101]);
 
             //INPUTS T20 TCP => st_URO_CB3_T2OTcpData
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAxoUrRobotics_T2O_TCP, _data);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_T2O_TCP), _data);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1204, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1204;
@@ -1152,7 +1130,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Inputs.TCP.TCP_ForceScalar                       := TO_REAL(_dword);  
 
             //INPUTS T20 BITS => st_URO_CB3_T2OBitRegsData
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers, _data);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers), _data);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1205, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1205;
@@ -1231,7 +1209,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Inputs.Bits.Register_63                          := _data[7].%X7;
 
             //INPUTS T20 BITS => st_URO_CB3_T2OIntRegsData
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers, _data);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers), _data);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1206, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1206;
@@ -1382,7 +1360,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Inputs.Ints.Register_23                          := TO_DINT(_dword);
 
             //INPUTS T20 BITS => st_URO_CB3_T2OFloatRegsData
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers, _data);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers), _data);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1207, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1207;
@@ -1633,6 +1611,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 THIS.CallTimers(TRUE);
                 StartAtMainTask.ThrowWhen(_errorTimer.output );
                 Status.Action.Id := TO_UINT(_power_progress);
+                StartAtMainTask.ThrowWhen(StartAtMainTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartAtMainTask timeout.');                
             END_IF;
             IF StartAtMainTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -1808,6 +1787,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 THIS.CallTimers(TRUE);
                 StartMotorsAndProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
+                StartMotorsAndProgramTask.ThrowWhen(StartMotorsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartMotorsAndProgramTask timeout.');                
             END_IF;
             IF StartMotorsAndProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -1986,8 +1966,8 @@ NAMESPACE AXOpen.Components.Ur.Robotics
 	            THIS.CallTimers(TRUE);
                 
                 StartMovementsTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_movement_progress);
+                StartMovementsTask.ThrowWhen(StartMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartMovementsTask timeout.');                
             END_IF;
             IF StartMovementsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -2062,11 +2042,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     _power_progress := 0;
                 END_IF;		
 
-                THIS.CallTimers(TRUE);
-                
+                THIS.CallTimers(TRUE);                
                 StopMovementsAndProgramTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_power_progress);
+                StopMovementsAndProgramTask.ThrowWhen(StopMovementsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StopMovementsAndProgramTask timeout.');                
             END_IF;
             IF StopMovementsAndProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#211;
@@ -2140,11 +2119,11 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     StopMovementsTask.DoneWhen(TRUE);
                     _power_progress := 0;
                 END_IF;		
-                THIS.CallTimers(TRUE);
-                
-                StopMovementsTask.ThrowWhen(_errorTimer.output);
 
+                THIS.CallTimers(TRUE);
+                StopMovementsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
+                StopMovementsTask.ThrowWhen(StopMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StopMovementsTask timeout.');                
             END_IF;
             IF StopMovementsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#221;
@@ -2271,7 +2250,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             _data24[22] := _dword.%B1;
             _data24[23] := _dword.%B0;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdAxoUrRobotics_O2T_Robot_IO,_data24);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_O2T_Robot_IO),_data24);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1231;
@@ -2459,7 +2438,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             _data100[98]    := _dword.%B1;
             _data100[99]    := _dword.%B0;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1,_data100);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1),_data100);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1232;
@@ -2647,7 +2626,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             _data100[98]    := _dword.%B1;
             _data100[99]    := _dword.%B0;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2,_data100);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2),_data100);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1233, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1233;

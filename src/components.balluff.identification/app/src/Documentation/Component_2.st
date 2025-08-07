@@ -29,8 +29,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
 
             //<Initialization>        
             ExampleReader.Run(  parent := THIS,
-                                hwID            := HwIdentifiers#BNIPNT507005Z040_HwID,
-                                hwId_BISM       := HwIdentifiers#BNIPNT507005Z040_BIS_M_4XX_045_1_BIS_M_4XX_045_HwID);
+                                hwID            := HwIdentifiers#BNIPNT507005Z040_HwID);
             //</Initialization>
 
         THIS.UseInSequencer();

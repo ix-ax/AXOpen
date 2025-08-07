@@ -12,7 +12,6 @@ PROGRAM MyProgram
     sandbox.InjectRtm(_rtm);
     sandbox.Run();    
 
-
     documentation.InjectRtc(_rtc);
     documentation.InjectRtm(_rtm);
     documentation.Run();

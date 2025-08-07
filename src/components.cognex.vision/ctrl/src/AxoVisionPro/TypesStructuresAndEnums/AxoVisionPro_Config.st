@@ -7,6 +7,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             InfoTime : LTIME := LT#5S;
             {#ix-set:AttributeName = "<#Error time#>"}
             ErrorTime : LTIME := LT#10S;
+            {#ix-set:AttributeName = "<#Task timeout#>"}
+            TaskTimeout : LTIME := LT#50S;
             {#ix-set:AttributeName = "<#Camera number#>"}
             CameraNo : BYTE;
             {#ix-set:AttributeName = "<#Hardware IDs#>"}

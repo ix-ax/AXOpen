@@ -5,7 +5,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
         VAR PUBLIC
             _manualControl : BOOL;
             {#ix-attr:[Container(Layout.Stack)]}
-            _testRobot : AXOpen.Components.Mitsubishi.Robotics.AxoCr800_v_1_x_x;
+            _testRobot : AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800;
             _rootObject :   AxoObject;
         END_VAR
 

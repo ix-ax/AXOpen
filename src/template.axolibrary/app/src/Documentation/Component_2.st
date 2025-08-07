@@ -27,7 +27,7 @@ NAMESPACE Template.Axolibrary
             END_IF;
 
             //<Initialization>        
-            ExampleComponent.Run(parent  :=   THIS,hwID    :=   WORD#60);
+            ExampleComponent.Run(parent  :=   THIS,hwID    :=   UINT#60);
             //</Initialization>
 
         THIS.UseInSequencer();

@@ -5,7 +5,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
     CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            ExampleRobot : AXOpen.Components.Kuka.Robotics.AxoKrc4_v_5_x_x;      
+            ExampleRobot : AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4;              
         END_VAR
         //</ComponentDeclaration>                          
 

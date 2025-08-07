@@ -1,8 +1,8 @@
 NAMESPACE AXOpen.Components.Keyence.Vision
-    TYPE
-        {S7.extern=ReadWrite}
-        Axo_SR_1000_OperationalResultStatus : 
-        STRUCT
+    {S7.extern=ReadWrite}
+    {#ix-attr:[Container(Layout.Stack)]}
+    CLASS PUBLIC Axo_SR_1000_OperationalResultStatus 
+        VAR PUBLIC
             {#ix-set:AttributeName = "<#Read Result Code#>"}
             ReadResultCode :  UINT;
             {#ix-set:AttributeName = "<#Preset Result Code#>"}
@@ -23,6 +23,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             GeneralErrorCode :  UINT;
             {#ix-set:AttributeName = "<#_Reserved[3]#>"}
             _Reserved_3 :  UINT;
-        END_STRUCT;
-    END_TYPE 
+        END_VAR 
+    END_CLASS    
 END_NAMESPACE

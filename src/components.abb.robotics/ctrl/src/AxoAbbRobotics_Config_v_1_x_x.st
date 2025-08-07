@@ -7,6 +7,10 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             InfoTime : LTIME := LT#2S;
             {#ix-set:AttributeName = "<#Error time#>"}
             ErrorTime : LTIME := LT#5S;
+            {#ix-set:AttributeName = "<#Task timeout#>"}
+            TaskTimeout : LTIME := LT#50S;
+            {#ix-set:AttributeName = "<#Hardware IDs#>"}
+            HWIDs : AxoAbbRobotics_HWIDs;
         END_VAR 
     END_CLASS    
 END_NAMESPACE

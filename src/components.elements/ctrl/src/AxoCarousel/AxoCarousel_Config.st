@@ -7,6 +7,8 @@ NAMESPACE AXOpen.Elements
             InfoTime : LTIME := LT#5S;
             {#ix-set:AttributeName = "<#Error time#>"}
             ErrorTime : LTIME := LT#10S;
+            {#ix-set:AttributeName = "<#Task timeout#>"}
+            TaskTimeout : LTIME := LT#10S;
             {#ix-set:AttributeName = "<#Direction#>"}
             Direction   : eAxoCarouselDirection;
             {#ix-set:AttributeName = "<#Number of positions#>"}

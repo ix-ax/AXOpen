@@ -77,7 +77,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             // THIS.Execute();
             //*****************Execute inline***************
                 //Check the Inputs
-                IF Inputs.HardwareId = WORD#0 THEN
+                IF Inputs.HardwareId = UINT#0 THEN
                     Error_ := TRUE;
                     ErrorId_ := DWORD#16#00001010;    //Inputs.HardwareId = 0
                     RETURN;
@@ -125,7 +125,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _lenght := LenHeader + LenRequest;
                     
                     WriteRecord_(request    :=  StartRW,
-                                id          :=  Inputs.HardwareId,
+                                id          :=  TO_WORD(Inputs.HardwareId),
                                 index       :=  16#b02e,
                                 length      :=  _lenght,
                                 record      :=  RW_Data,      
@@ -167,7 +167,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _lenght := LenHeader + LenRead;
                     
                     ReadRecord_(request     :=  StartRW,
-                                id          :=  Inputs.HardwareId,
+                                id          :=  TO_WORD(Inputs.HardwareId),
                                 index       :=  16#b02e,
                                 maxLength   :=  _lenght,
                                 record      :=  RD_Data,      
@@ -358,7 +358,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _lenght := LenHeader + LenRead;
 
                     ReadRecord_(request     :=  StartRW,
-                                id          :=  Inputs.HardwareId,
+                                id          :=  TO_WORD(Inputs.HardwareId),
                                 index       :=  16#b02e,
                                 maxLength   :=  _lenght,
                                 record      :=  RD_Data,      
@@ -505,7 +505,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _lenght := LenHeader + LenWrite;
 
                     WriteRecord_(request    :=  StartRW,
-                                id          :=  Inputs.HardwareId,
+                                id          :=  TO_WORD(Inputs.HardwareId),
                                 index       :=  16#b02e,
                                 length      :=  _lenght,
                                 record      :=  WR_Data,      
@@ -539,7 +539,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _lenght := LenHeader + LenRead;
 
                     ReadRecord_(request     :=  StartRW,
-                                id          :=  Inputs.HardwareId,
+                                id          :=  TO_WORD(Inputs.HardwareId),
                                 index       :=  16#b02e,
                                 maxLength   :=  _lenght,
                                 record      :=  RD_Data,      

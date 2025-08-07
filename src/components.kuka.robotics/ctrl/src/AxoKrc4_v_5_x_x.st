@@ -5,9 +5,9 @@ USING AXOpen.Components.Robotics;
 USING AXOpen.Components.Abstractions.Robotics;
 USING Siemens.Simatic.S71500.Hardware.Utilities;
 
-NAMESPACE AXOpen.Components.Kuka.Robotics
+NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
     {S7.extern=ReadWrite}
-    CLASS AxoKrc4_v_5_x_x EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.Robotics.IAxoRobotics
+    CLASS AxoKrc4 EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.Robotics.IAxoRobotics
         VAR PRIVATE
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
@@ -15,9 +15,6 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             _stopTasksAreActive     :   BOOL;
             _stopType               :   eAxoRoboticsStopType;
             _someTaskIsActive       :   BOOL;
-            _hwID                   :   WORD;
-            _hwId_None              :   WORD;
-            _hwId_512_DI_DO         :   WORD;
 
             _dword: DWORD;
             _data : ARRAY[0..63] OF BYTE; 
@@ -93,14 +90,14 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
-            Config  :   AxoKukaRobotics_Config_v_5_x_x;
+            Config  :   AxoKukaRobotics_Config;
         END_VAR
 
         VAR PUBLIC //STATUS
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            Status          :   AxoKukaRobotics_Component_Status_v_5_x_x;
+            Status          :   AxoKukaRobotics_Component_Status;
             Messenger       :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger   :   AXOpen.Messaging.Static.AxoMessenger;
             _progress       :   INT := 0;
@@ -112,13 +109,13 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Inputs              :   AxoKukaRobotics_State_v_5_x_x;
+            Inputs              :   AxoKukaRobotics_State;
             {#ix-attr:[ComponentDetails("Hardware signals")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
             {#ix-attr:[ReadOnly()]}
-            Outputs              :   AxoKukaRobotics_Control_v_5_x_x;
+            Outputs              :   AxoKukaRobotics_Control;
         END_VAR    
 
         VAR PUBLIC //HardwareDiagnostics
@@ -134,8 +131,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent : IAxoObject;
-                hwID            :   WORD;   
+                parent  : IAxoObject;
+                hwID    :   UINT;   
             END_VAR
 
             SUPER.Run(parent);
@@ -148,14 +145,14 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                     Status.Error.Id := UINT#700;
                     RETURN;
                 END_IF;
-                IF hwID = WORD#0 THEN
+                Config.HWIDs.HwID_Device:= hwID;                                                      
+                IF Config.HWIDs.HwID_Device = UINT#0 THEN
                     Messenger.Activate(UINT#701, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#701;
                     RETURN;
                 END_IF;
     
-                _hwID                    := hwID;                                                      
-                _retval := ReadSlotFromHardwareID(hardwareID := TO_UINT(_hwID), geoAddr :=_geoAddr);   
+                _retval := ReadSlotFromHardwareID(hardwareID := Config.HWIDs.HwID_Device, geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(UINT#702,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#702;
@@ -165,9 +162,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                        //Needs to be checked, by default there is a safety module configured once gsdml file is applied                                    
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwId_None :=  TO_WORD(_outHwid);                                         
-                IF _hwId_None <> WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => Config.HWIDs.HwID_None);        
+                IF Config.HWIDs.HwID_None <> UINT#0 THEN
                     Messenger.Activate(UINT#710,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#710;
                     RETURN;
@@ -206,9 +202,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 //******************Slot 2*****************//
                 _geoAddr.Slot   :=  UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwId_512_DI_DO :=  TO_WORD(_outHwid);                                         
-                IF _hwId_512_DI_DO = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => Config.HWIDs.HwID_512_DI_DO);        
+                IF Config.HWIDs.HwID_512_DI_DO = UINT#0 THEN
                     Messenger.Activate(UINT#720,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#720;
                     RETURN;
@@ -238,7 +233,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                     Status.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwId_512_DI_DO , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_512_DI_DO) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#726,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#726;
@@ -250,17 +245,17 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                     Status.Error.Id := UINT#1130;
                     RETURN;
                 END_IF;
-                IF _hwID  = WORD#0 THEN
+                IF Config.HWIDs.HwID_Device  = UINT#0 THEN
                     Messenger.Activate(UINT#1131,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1131;
                     RETURN;
                 END_IF;
-                IF _hwId_None <> WORD#0 THEN
+                IF Config.HWIDs.HwID_None <> UINT#0 THEN
                     Messenger.Activate(UINT#1132,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1132;
                     RETURN;
                 END_IF;
-                IF _hwId_512_DI_DO  = WORD#0 THEN
+                IF Config.HWIDs.HwID_512_DI_DO  = UINT#0 THEN
                     Messenger.Activate(UINT#1133,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1133;
                     RETURN;
@@ -271,7 +266,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
 
 
             //***********UPDATE**INPUTS******************
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwId_512_DI_DO ,_data);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwID_512_DI_DO) ,_data);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1201;
@@ -407,7 +402,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             _stopTasksAreActive := StopMovementsTask.IsBusy() OR StopMovementsAndProgramTask.IsBusy() OR StopProgramTask.IsBusy() OR StopMotorsTask.IsBusy();
             //****************************************
             //********************Diagnostics*********        
-            HardwareDiagnosticsTask.Run(THIS,_hwID);
+            HardwareDiagnosticsTask.Run(THIS,Config.HWIDs.HwID_Device);
             //****************************************
 
             //*************RESTORE********************
@@ -457,6 +452,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 THIS.CallTimers(TRUE);
                 StartAtMainTask.ThrowWhen(_errorTimer.output );
                 Status.Action.Id := TO_UINT(_progress);
+                StartAtMainTask.ThrowWhen(StartAtMainTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartAtMainTask timeout.');
             END_IF;
             IF StartAtMainTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -605,6 +601,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 THIS.CallTimers(TRUE);
                 StartMotorsAndProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
+                StartMotorsAndProgramTask.ThrowWhen(StartMotorsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartMotorsAndProgramTask timeout.');
             END_IF;
             IF StartMotorsAndProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -850,6 +847,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
 	            THIS.CallTimers(TRUE);
                 StartMotorsProgramAndMovementsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
+                StartMotorsProgramAndMovementsTask.ThrowWhen(StartMotorsProgramAndMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartMotorsProgramAndMovementsTask timeout.');
             END_IF;
             IF StartMotorsProgramAndMovementsTask.IsFirstExecutionCycle() THEN
                 MovementParameters := Status.CurrentMovementParameters;
@@ -1121,8 +1119,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
 	            THIS.CallTimers(TRUE);
                 
                 StartMovementsTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_progress);
+                StartMovementsTask.ThrowWhen(StartMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartMovementsTask timeout.');
             END_IF;
             IF StartMovementsTask.IsFirstExecutionCycle() THEN
                 MovementParameters := Status.CurrentMovementParameters;
@@ -1273,6 +1271,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 THIS.CallTimers(TRUE);
                 StartProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
+                StartProgramTask.ThrowWhen(StartProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartProgramTask timeout.');
             END_IF;
             IF StartProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#171;
@@ -1335,6 +1334,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 THIS.CallTimers(TRUE);
                 StopMotorsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
+                StopMotorsTask.ThrowWhen(StopMotorsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StopMotorsTask timeout.');
             END_IF;
             IF StopMotorsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -1404,8 +1404,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 THIS.CallTimers(TRUE);
                 
                 StopMovementsAndProgramTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_progress);
+                StopMovementsAndProgramTask.ThrowWhen(StopMovementsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StopMovementsAndProgramTask timeout.');
             END_IF;
             IF StopMovementsAndProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#191;
@@ -1464,8 +1464,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 THIS.CallTimers(TRUE);
                 
                 StopMovementsTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_progress);
+                StopMovementsTask.ThrowWhen(StopMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StopMovementsTask timeout.');
             END_IF;
             IF StopMovementsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#201;
@@ -1523,8 +1523,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 THIS.CallTimers(TRUE);
                 
                 StopProgramTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_progress);
+                StopProgramTask.ThrowWhen(StopProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StopProgramTask timeout.');
             END_IF;
             IF StopProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#911;
@@ -1669,7 +1669,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             _data[42]            := _dword.%B1;
             _data[43]            := _dword.%B0;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwId_512_DI_DO,_data);
+            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_512_DI_DO),_data);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1231;

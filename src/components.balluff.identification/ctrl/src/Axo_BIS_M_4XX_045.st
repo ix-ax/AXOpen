@@ -14,8 +14,6 @@ NAMESPACE AXOpen.Components.Balluff.Identification
             _errorTimer                 :   AXOpen.Timers.OnDelayTimer;
             _context                    :   IAxoContext;
             _someTaskIsActive           :   BOOL;
-            _hwID                       :   WORD;
-            _hwId_BISM                  :   WORD;
             _readAddress                :   WORD;
             _readNumberOfBytes          :   WORD;
             _writeAddress               :   WORD;
@@ -164,8 +162,8 @@ NAMESPACE AXOpen.Components.Balluff.Identification
         METHOD PUBLIC Run
             VAR_INPUT
                 parent      : IAxoObject;
-                hwID        :   WORD;   
-                hwId_BISM   :   WORD;   //  Hardware Id of the reader 
+                hwID        :   UINT;   
+                // hwId_BISM   :   WORD;   //  Hardware Id of the reader 
             END_VAR
             
             VAR 
@@ -175,22 +173,21 @@ NAMESPACE AXOpen.Components.Balluff.Identification
             SUPER.Run(parent);
             
             Messenger.Serve(THIS);
-
-
+    
+            Config.HWIDs.HW_Device := hwID;
             IF NOT _initHwCheckDone THEN
                 IF parent = NULL THEN
                     Messenger.Activate(UINT#700, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#700;
                     RETURN;
                 END_IF;
-                IF hwID = WORD#0 THEN
+                IF Config.HWIDs.HW_Device = UINT#0 THEN
                     Messenger.Activate(UINT#701, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#701;
                     RETURN;
                 END_IF;
     
-                _hwID   := hwID;                                                      
-                _retval := ReadSlotFromHardwareID(hardwareID := TO_UINT(_hwID), geoAddr :=_geoAddr);   
+                _retval := ReadSlotFromHardwareID(hardwareID := Config.HWIDs.HW_Device, geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(UINT#702,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#702;
@@ -199,9 +196,8 @@ NAMESPACE AXOpen.Components.Balluff.Identification
 
                 //******************Slot 1*****************//
                 _geoAddr.Slot   :=  UINT#1;                                                            
-                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwId_BISM :=  TO_WORD(_outHwid);                                         
-                IF _hwId_BISM = WORD#0 THEN
+                _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => Config.HWIDs.HwId_BISM);        
+                IF Config.HWIDs.HwId_BISM = UINT#0 THEN
                     Messenger.Activate(UINT#710,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#710;
                     RETURN;
@@ -231,7 +227,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                     Status.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwId_BISM , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_BISM) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#10 OR _outputsCount <> UINT#10 THEN
                     Messenger.Activate(UINT#716,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#716;
@@ -239,11 +235,8 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 END_IF;
             END_IF;
 
-            _hwID       :=  hwID           ;
-            _hwId_BISM  :=  hwId_BISM;
-
             //***********UPDATE**INPUTS******************
-            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwId_BISM ,_data);
+            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwId_BISM),_data);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(UINT#1201,eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1201;
@@ -305,7 +298,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
 
             //****************************************
             //********************Diagnostics*********        
-            HardwareDiagnosticsTask.Run(THIS,_hwID);
+            HardwareDiagnosticsTask.Run(THIS,Config.HWIDs.HW_Device);
             //****************************************
 
             //*************RESTORE********************
@@ -493,6 +486,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 THIS.CallTimers(TRUE);
                 ReadTask.ThrowWhen(_errorTimer.output );
                 Status.Action.Id := TO_UINT(_progress);
+                ReadTask.ThrowWhen(ReadTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ReadTask timeout.');
             END_IF;
             IF ReadTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -729,6 +723,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 THIS.CallTimers(TRUE);
                 WriteTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
+                WriteTask.ThrowWhen(WriteTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'WriteTask timeout.');
             END_IF;
             IF WriteTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -811,6 +806,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
 	            THIS.CallTimers(TRUE);
                 ResetCommunicationTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
+                ResetCommunicationTask.ThrowWhen(ResetCommunicationTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ResetCommunicationTask timeout.');
             END_IF;
             IF ResetCommunicationTask.IsFirstExecutionCycle() THEN
                 ;
@@ -913,6 +909,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 THIS.CallTimers(TRUE);
                 ResetReaderTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
+                ResetReaderTask.ThrowWhen(ResetReaderTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ResetReaderTask timeout.');
             END_IF;
             IF ResetReaderTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#141;
@@ -1066,8 +1063,8 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 THIS.CallTimers(TRUE);
                 
                 WriteCharToMemoryTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_progress);
+                WriteCharToMemoryTask.ThrowWhen(WriteCharToMemoryTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'WriteCharToMemoryTask timeout.');
             END_IF;
             IF WriteCharToMemoryTask.IsFirstExecutionCycle() THEN
                 ;
@@ -1132,7 +1129,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
  
             _data[9]            :=  _data[0];
 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwId_BISM,_data);
+            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwId_BISM),_data);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1231;

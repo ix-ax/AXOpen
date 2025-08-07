@@ -1,8 +1,8 @@
 NAMESPACE AXOpen.Components.Keyence.Vision
-    TYPE
-        {S7.extern=ReadWrite}
-        Axo_SR_1000_ErrorStatus : 
-        STRUCT
+    {S7.extern=ReadWrite}
+    {#ix-attr:[Container(Layout.Stack)]}
+    CLASS PUBLIC Axo_SR_1000_ErrorStatus 
+        VAR PUBLIC
             {#ix-set:AttributeName = "<#Read Failure#>"}
             ReadFailure : BOOL;
             {#ix-set:AttributeName = "<#Preset Failure#>"}
@@ -13,6 +13,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             TuneFailure : BOOL;
             {#ix-set:AttributeName = "<#EXT. Request Failure #>"}
             EXT_RequestFailure : BOOL;
-        END_STRUCT;
-    END_TYPE 
+        END_VAR 
+    END_CLASS    
 END_NAMESPACE
