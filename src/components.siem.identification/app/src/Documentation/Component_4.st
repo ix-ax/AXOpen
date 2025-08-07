@@ -41,7 +41,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             
             //</Initialization>
 
-        THIS.UseInSequencer();
+            THIS.UseInSequencer();
         END_METHOD
 
         //<Usage>    
@@ -119,7 +119,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 //*******************************************************************************************//
                 // Deserialization of the string from the array of bytes to get its length at the _data[0]
                 _data[0] := BYTE#100;
-                FOR _index := UINT#0 TO TO_UINT(_offset) - UINT#1 BY UINT#1 DO
+                FOR _index := UINT#0 TO UINT#127 BY UINT#1 DO
                     _data[_index + UINT#1] := DataBuffer[_index];
                 END_FOR;
                 
