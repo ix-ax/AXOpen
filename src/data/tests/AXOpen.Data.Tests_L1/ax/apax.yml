@@ -10,7 +10,7 @@ registries:
   "@inxton": "https://npm.pkg.github.com/"
 
 catalogs:
-  "@inxton/ax.catalog": 0.0.28
+  "@inxton/ax.catalog": 0.0.29
 
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
