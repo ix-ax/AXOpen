@@ -115,6 +115,7 @@ NAMESPACE AXOpen.Core
             END_VAR
             VAR                
                 Sequencer : REF_TO AxoSequencer;
+                SequencerContainer : REF_TO AxoSequencerContainer;
                 coordAsAxoObject : IAxoObject;
                 _currentlyOpenCycleCount : ULINT;                
             END_VAR    
@@ -141,12 +142,16 @@ NAMESPACE AXOpen.Core
                 END_IF;
             END_IF;    
 
-            Sequencer ?= coord;
+            Sequencer ?= coord;            
+            SequencerContainer ?= coord;
             IF(Sequencer <> NULL) THEN 
                 // Sequencer^.SetSuspendMultipleExecuteCallCheck(TRUE);  // moved to Sequencer.Open
                 ExecuteInternal := Sequencer^.Execute(THIS, Enable);
+            ELSIF (SequencerContainer <> NULL) THEN
+                ExecuteInternal := SequencerContainer^.Execute(THIS, Enable);   
             END_IF;
 
+            
                 
             // Selector ?= coord;
             // IF(coord <> NULL) THEN Sequencer^.ExecuteWithSelector(THIS, Enable); END_IF;    
