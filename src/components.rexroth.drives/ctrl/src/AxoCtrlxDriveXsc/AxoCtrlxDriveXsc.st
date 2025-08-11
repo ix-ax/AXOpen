@@ -5716,9 +5716,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         /// internal axis-related errors – it does not affect the output of the other methods.
         ///<summary>
         VAR INTERNAL
-            MC_ResetExecute_PV					: 	BOOL := FALSE;		//Execute - previous value           
-            MC_ResetPower_PV					: 	BOOL := FALSE;		//Execute - previous value           
-            MC_ResetDone_PV                     : 	BOOL := FALSE;		//Execute - previous value           
+            MC_ResetState       : 	UINT := UINT#0;
         END_VAR    
         METHOD PUBLIC OVERRIDE MC_Reset
             VAR_INPUT
@@ -5744,42 +5742,53 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
 
             IF Execute THEN
-                IF Execute AND NOT MC_ResetExecute_PV THEN
-                    Busy := TRUE;
-                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.IPOSYNC := FALSE;
-                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
-                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := FALSE;
-                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := FALSE;
+                IF Execute AND MC_ResetState = UINT#0 THEN
+                    MC_ResetState   := UINT#10;
+                END_IF;
+
+                IF MC_ResetState = UINT#10 THEN
+                    Done            := FALSE;
+                    Busy            := TRUE;
+                    Error           := FALSE;
+                    ErrorID         := UINT#0;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative := FALSE;      
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ImmediateChange := TRUE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1;
-                END_IF;
-                IF Busy THEN
-                    Busy := TRUE;
-                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 ;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := TRUE;
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
-                        _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
-                        Done := TRUE;
-                        Busy := FALSE;
+                        MC_ResetState := UINT#20;    
                     END_IF;
                 END_IF;
-            ELSIF NOT Execute AND MC_ResetExecute_PV THEN
+
+                IF MC_ResetState = UINT#20 THEN
+                    Done            := FALSE;
+                    Busy            := TRUE;
+                    Error           := FALSE;
+                    ErrorID         := UINT#0;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
+                    IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
+                        MC_ResetState := UINT#30;    
+                    END_IF;
+                END_IF;     
+
+                IF MC_ResetState = UINT#30 THEN
+                    Done            := TRUE;
+                    Busy            := FALSE;
+                    Error           := FALSE;
+                    ErrorID         := UINT#0;
+                END_IF;              
+            END_IF;
+            IF NOT Execute THEN
                 Done := FALSE;
                 Error:=FALSE;
                 ErrorID := DINT#0;
                 Busy := FALSE;
                 _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
+                MC_ResetState := UINT#0;
             END_IF;
-            IF Execute AND MC_ResetDone_PV THEN
-                _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
-                Done := TRUE;
-            END_IF;
-            MC_ResetDone_PV := Done;
-            MC_ResetExecute_PV := Execute;
         END_METHOD
 
         METHOD PUBLIC OVERRIDE Restore
@@ -5896,9 +5905,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_ReadAxisErrorValue			    := LINT#0;
             MC_ReadAxisErrorValid			    := FALSE;				
             LastMessageCode                     := ULINT#0;
-            MC_ResetExecute_PV				    := FALSE;        
-            MC_ResetPower_PV				    := FALSE;
-            
+            MC_ResetState                       := UINT#0;
             AxisRefExt.Data.Cycle               := ULINT#0;
             _State                              := UINT#0;
             DriveStatus.Action.Id := UINT#0;
