@@ -892,6 +892,9 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             THIS.Initialize();
             _context.Open();
             // Act/Assert 
+          
+            myTask.SetSuspendMultipleExecuteCallCheck(FALSE);
+
             myTask.Invoke();      
             myTask.Execute();
             Assert.Equal(TRUE, myTask.IsBusy());
@@ -923,12 +926,13 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             THIS.Initialize();
             _context.Open();
             // Act/Assert 
-            Assert.Equal(FALSE, myTask.GetSuspendMultipleExecuteCallCheckState());
+            Assert.Equal(TRUE, myTask.GetSuspendMultipleExecuteCallCheckState());
         END_METHOD   
         {Test}
         METHOD PUBLIC task_should_stay_at_busy_state_and_remote_abort_signal_should_be_reseted_as_the_abbility_to_abort_task_is_disabled_by_default
             THIS.Initialize();
             _context.Open();
+            
             myTask.Invoke();
             myTask.Execute();
             myTask.RemoteAbort := TRUE;
@@ -1328,7 +1332,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             THIS.Initialize();
             _context.Open();
             _context.Close();
-
+            myTask.SetSuspendCyclicExecuteIsNotCalledCheck(FALSE);
              // Act
             _context.Open();
             myTask.Invoke();          
@@ -1389,8 +1393,9 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         {Test}
         METHOD PUBLIC multiple_execute_call_should_return_an_error
             // Arrange/Act
-            THIS.Initialize();
+            THIS.Initialize();            
             _context.Open();
+            myTask.SetSuspendMultipleExecuteCallCheck(FALSE);
             myTask.Execute();          
             myTask.Execute();          
             _context.Close();
