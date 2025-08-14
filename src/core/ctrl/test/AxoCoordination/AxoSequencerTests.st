@@ -739,7 +739,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             THIS.PrepareSequence();
             
             Assert.Equal(TRUE, THIS.EqualAxoCoordinatorStates(AxoCoordinatorStates#Configuring, _sequencer.GetCoordinatorState()));
-            Assert.Equal(TRUE, THIS.EqualAxoCoordinatorStates(eAxoTaskState#Disabled, _step_1.GetState()));
+            Assert.Equal(TRUE, _step_1.IsDisabled);
 
             _context.Open();
             _sequencer.Open();
@@ -765,9 +765,9 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(FALSE, _step_2.IsDone());
             Assert.Equal(FALSE, _step_3.IsBusy());
             Assert.Equal(FALSE, _step_3.IsDone());
-            Assert.Equal(TRUE , _step_1.GetState() = eAxoTaskState#Disabled);
-            Assert.Equal(TRUE , _step_2.GetState() = eAxoTaskState#Disabled);
-            Assert.Equal(TRUE , _step_3.GetState() = eAxoTaskState#Disabled);
+            Assert.Equal(TRUE , _step_1.IsDisabled);
+            Assert.Equal(TRUE , _step_2.IsDisabled);
+            Assert.Equal(TRUE , _step_3.IsDisabled);
             _context.Close();
             Assert.Equal(TRUE , THIS.EqualAxoCoordinatorStates(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
         END_METHOD
@@ -855,9 +855,9 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(FALSE, _step_2.IsDone());
             Assert.Equal(FALSE, _step_3.IsBusy());
             Assert.Equal(FALSE, _step_3.IsDone());
-            Assert.Equal(TRUE , _step_1.GetState() = eAxoTaskState#Disabled);
-            Assert.Equal(TRUE , _step_2.GetState() = eAxoTaskState#Disabled);
-            Assert.Equal(TRUE , _step_3.GetState() = eAxoTaskState#Disabled);
+            Assert.Equal(TRUE , _step_1.IsDisabled);
+            Assert.Equal(TRUE , _step_2.IsDisabled);
+            Assert.Equal(TRUE , _step_3.IsDisabled);
             _context.Close();
             Assert.Equal(TRUE , THIS.EqualAxoCoordinatorStates(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
         END_METHOD
@@ -1116,7 +1116,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(FALSE,_step_1.IsDone());
 
             Assert.Equal(FALSE,_step_2.IsActive);
-            Assert.Equal(FALSE,_step_2.IsReady());
+            Assert.Equal(TRUE,_step_2.IsReady());
             Assert.Equal(FALSE,_step_2.IsBusy());
             Assert.Equal(FALSE,_step_2.IsDone());
 

@@ -17,8 +17,9 @@ NAMESPACE AXOpen.Core
             Status : eAxoTaskState;     
              
             ///<summary>
-            /// Gets or sets whether this task is disabled for execution.
+            /// Gets whether this task is disabled for execution.
             ///</summary>
+            {#ix-attr:[ReadOnly()]}
             IsDisabled : BOOL;      
 
             ///<summary>
@@ -66,22 +67,10 @@ NAMESPACE AXOpen.Core
             _multipleExecuteIsCalled : BOOL;
         END_VAR 
 
-      
-
         ///<summary>
         /// Gets the actual state of this task.
         ///</summary>    
         METHOD PUBLIC GetState : eAxoTaskState          
-           IF IsDisabled THEN 
-                IF Status <> eAxoTaskState#Error THEN
-                    Status := eAxoTaskState#Disabled; 
-                END_IF;
-            ELSE
-                IF  Status = eAxoTaskState#Disabled THEN
-                    Status := eAxoTaskState#Ready; 
-                END_IF;
-            END_IF;
-
             GetState := Status;
         END_METHOD
 
@@ -93,20 +82,6 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task is ready.
         ///</summary>
         METHOD PUBLIC IsReady : BOOL 
-            IF IsDisabled THEN 
-                IF Status <> eAxoTaskState#Error THEN
-                    Status := eAxoTaskState#Disabled; 
-                END_IF;
-                IsReady := false; 
-                RETURN;
-            ELSE
-                IF  Status = eAxoTaskState#Disabled THEN
-                    Status := eAxoTaskState#Ready; 
-                    IsReady := TRUE; 
-                    RETURN;
-                END_IF;
-            END_IF;
-
             IsReady := Status = eAxoTaskState#Ready; 
         END_METHOD   
 
@@ -114,20 +89,6 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task is done.
         ///</summary>
         METHOD PUBLIC IsDone : BOOL 
-            IF IsDisabled THEN 
-                IF Status <> eAxoTaskState#Error THEN
-                    Status := eAxoTaskState#Disabled; 
-                END_IF;
-                IsDone := false; 
-                RETURN;
-            ELSE
-                IF  Status = eAxoTaskState#Disabled THEN
-                    Status := eAxoTaskState#Ready; 
-                    IsDone := false; 
-                    RETURN;
-                END_IF;
-            END_IF;
-
             IsDone := Status = eAxoTaskState#Done ; 
         END_METHOD
                     
@@ -135,20 +96,6 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task is busy/executing.
         ///</summary>
         METHOD PUBLIC IsBusy : BOOL 
-            IF IsDisabled THEN
-                IF Status <> eAxoTaskState#Error THEN
-                    Status := eAxoTaskState#Disabled; 
-                END_IF;
-                IsBusy := false; 
-                RETURN;
-            ELSE
-                IF  Status = eAxoTaskState#Disabled THEN
-                    Status := eAxoTaskState#Ready; 
-                    IsBusy := false; 
-                    RETURN;
-                END_IF;
-            END_IF;
-
             IsBusy := Status = eAxoTaskState#Busy; 
         END_METHOD
             
@@ -156,20 +103,6 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task is aborted.
         ///</summary>
         METHOD PUBLIC IsAborted : BOOL 
-            IF IsDisabled THEN 
-                IF Status <> eAxoTaskState#Error THEN
-                    Status := eAxoTaskState#Disabled; 
-                END_IF;
-                IsAborted := false; 
-                RETURN;
-            ELSE
-                IF  Status = eAxoTaskState#Disabled THEN
-                    Status := eAxoTaskState#Ready; 
-                    IsAborted := false; 
-                    RETURN; 
-                END_IF;
-            END_IF;
-            
             IsAborted := Status = eAxoTaskState#Aborted; 
         END_METHOD
             
@@ -177,23 +110,6 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task has error.
         ///</summary>
         METHOD PUBLIC HasError : BOOL 
-            IF IsDisabled THEN 
-                IF Status <> eAxoTaskState#Error THEN
-                    Status := eAxoTaskState#Disabled; 
-                    HasError := FALSE; 
-                    RETURN; 
-                ELSE
-                    HasError := TRUE; 
-                    RETURN; 
-                END_IF;
-            ELSE
-                IF  Status = eAxoTaskState#Disabled THEN
-                    Status := eAxoTaskState#Ready; 
-                    HasError := FALSE; 
-                    RETURN; 
-                END_IF;
-            END_IF;
-
             HasError := Status = eAxoTaskState#Error; 
         END_METHOD   
 
@@ -301,7 +217,6 @@ NAMESPACE AXOpen.Core
             END_IF;     
         END_METHOD 
   
-
         ///<summary>
         /// Invokes this task.
         ///</summary>    
@@ -326,19 +241,7 @@ NAMESPACE AXOpen.Core
                 ErrorDetails := 'NULL CONTEXT'; 
                 RETURN;               
             END_IF;
-
-            IF IsDisabled THEN 
-                IF Status <> eAxoTaskState#Error THEN
-                    Status := eAxoTaskState#Disabled; 
-                END_IF;
-            ELSE
-                IF  Status = eAxoTaskState#Disabled THEN
-                    Status := eAxoTaskState#Ready; 
-                END_IF;
-            END_IF;
-
-            
-           
+          
             IF Status = eAxoTaskState#Done AND THIS.IsNewInvokeCall() THEN
                 Status := eAxoTaskState#Ready; 
             END_IF;
@@ -347,9 +250,9 @@ NAMESPACE AXOpen.Core
 
             // task should not be Invoked, if the execute method was not called in this or previous PLC cycle
             IF Status = eAxoTaskState#Ready THEN
-                IF (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) THEN
-                        Status := eAxoTaskState#Kicking;      
-                        _context.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
+                IF (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) AND NOT IsDisabled THEN
+                    Status := eAxoTaskState#Kicking;      
+                    _context.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
                 ELSE
                     IF(NOT _suspendCyclicExecuteIsNotCalledCheck) THEN                                                               
                         _cyclicExecuteIsNotCalled := TRUE;                    
@@ -370,7 +273,7 @@ NAMESPACE AXOpen.Core
                 _context : IAxoContext;
             END_VAR    
             _context := THIS.GetContext(); 
-            IF(Status <> eAxoTaskState#Ready AND Status <> eAxoTaskState#Disabled) THEN
+            IF(Status <> eAxoTaskState#Ready) THEN
                 IF(_context = NULL) THEN
                     _context := THIS.GetContext();
                 END_IF;      
@@ -379,16 +282,6 @@ NAMESPACE AXOpen.Core
             END_IF;    
             Status := eAxoTaskState#Ready; 
             ErrorDetails := '';               
-
-            IF IsDisabled THEN 
-                IF Status <> eAxoTaskState#Error THEN
-                    Status := eAxoTaskState#Disabled; 
-                END_IF;
-            ELSE
-                IF  Status = eAxoTaskState#Disabled THEN
-                    Status := eAxoTaskState#Ready; 
-                END_IF;
-            END_IF;
 
             Restore := THIS;
             THIS.OnRestore();
@@ -438,7 +331,6 @@ NAMESPACE AXOpen.Core
             
             _openCycleCount :=  _context.OpenCycleCount();
 
-            
             IF NOT _suspendMultipleExecuteCallCheck THEN
                 IF _openCycleCountExecute = _openCycleCount && _openCycleCount > ULINT#0 THEN
                     _multipleExecuteIsCalled := TRUE;                
@@ -449,13 +341,17 @@ NAMESPACE AXOpen.Core
                        
             _openCycleCountExecute := _openCycleCount;
         
-                
             // If the Invoke() method was called in more then one PLC cycle back without calling the Execute() method
             // and the Execute() is subsequently called without calling the Invoke() method in the same PLC cycle,
             // CommandTask is set back to ready and does not start the execution.
             //IF Status = eAxoTaskState#Kicking AND NOT THIS.IsInvokeCalledInThisPlcCycle() AND NOT THIS.WasInvokeCalledInPreviousPlcCycle() THEN
             
             _stateKicking :=  Status = eAxoTaskState#Kicking;
+            
+            IF IsDisabled && (_stateKicking || Status = eAxoTaskState#Busy) THEN 
+                THIS.Abort();
+            END_IF;
+
             
             _isFirstExecutionCycle := FALSE; 
 
@@ -487,16 +383,6 @@ NAMESPACE AXOpen.Core
             IF(Status = eAxoTaskState#Error) THEN
                 THIS.WhileError();
             END_IF;   
-
-            IF IsDisabled THEN 
-                IF Status <> eAxoTaskState#Error THEN
-                    Status := eAxoTaskState#Disabled; 
-                END_IF;
-            ELSE
-                IF  Status = eAxoTaskState#Disabled THEN
-                    Status := eAxoTaskState#Ready; 
-                END_IF;
-            END_IF;
 
             Execute := Status = eAxoTaskState#Busy;
 
@@ -609,7 +495,7 @@ NAMESPACE AXOpen.Core
             END_VAR    
             _context := THIS.GetContext(); 
 
-            IF THIS.Status = eAxoTaskState#Aborted THEN
+            IF THIS.Status = eAxoTaskState#Aborted AND NOT IsDisabled THEN
                  
                 THIS.Status := eAxoTaskState#Busy;
                 THIS.OnResume();
@@ -633,7 +519,6 @@ NAMESPACE AXOpen.Core
             END_VAR
             _RemoteRestoreEnabled := Enable; // Assign the input value to the variable.
         END_METHOD
-
 
         ///<summary>
         /// Executes once when the task is aborted.

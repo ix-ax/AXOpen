@@ -391,10 +391,10 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             // Arrange
             THIS.Initialize();
             _context.Open();
-           myTask.IsDisabled := TRUE;
-           myTask.Invoke();
-           // Act/Assert 
-           Assert.Equal(FALSE, myTask.Execute());             
+            myTask.SetIsDisabled(TRUE);
+            myTask.Invoke();
+            // Act/Assert 
+            Assert.Equal(FALSE, myTask.Execute());             
         END_METHOD
 
         {Test}
@@ -476,7 +476,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             myTask.DoneWhen(TRUE);
             actState := myTask.GetState();
             Assert.Equal(TRUE, THIS.Equal(expState, actState));           
-            expState := eAxoTaskState#Disabled;
+            expState := eAxoTaskState#Ready;
             myTask.Restore();
             actState := myTask.GetState();
             Assert.Equal(TRUE, THIS.Equal(expState, actState));           

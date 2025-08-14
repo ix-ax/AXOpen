@@ -804,7 +804,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             THIS.PrepareSequence();
             
             Assert.Equal(TRUE, THIS.EqualAxoCoordinatorStates(AxoCoordinatorStates#Configuring, _sequencer.GetCoordinatorState()));
-            Assert.Equal(TRUE, THIS.EqualeAxoTaskState(eAxoTaskState#Disabled, _sequencer._step_1.GetState()));
+            Assert.Equal(TRUE, _sequencer._step_1.IsDisabled);
 
             _context.Open();
             _sequencer.Open();
@@ -830,9 +830,9 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             Assert.Equal(FALSE, _sequencer._step_2.IsDone());
             Assert.Equal(FALSE, _sequencer._step_3.IsBusy());
             Assert.Equal(FALSE, _sequencer._step_3.IsDone());
-            Assert.Equal(TRUE , _sequencer._step_1.GetState() = eAxoTaskState#Disabled);
-            Assert.Equal(TRUE , _sequencer._step_2.GetState() = eAxoTaskState#Disabled);
-            Assert.Equal(TRUE , _sequencer._step_3.GetState() = eAxoTaskState#Disabled);
+            Assert.Equal(TRUE , _sequencer._step_1.IsDisabled);
+            Assert.Equal(TRUE , _sequencer._step_2.IsDisabled);
+            Assert.Equal(TRUE , _sequencer._step_3.IsDisabled);
             _context.Close();
             Assert.Equal(TRUE , THIS.EqualAxoCoordinatorStates(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
         END_METHOD
@@ -920,9 +920,9 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             Assert.Equal(FALSE, _sequencer._step_2.IsDone());
             Assert.Equal(FALSE, _sequencer._step_3.IsBusy());
             Assert.Equal(FALSE, _sequencer._step_3.IsDone());
-            Assert.Equal(TRUE , _sequencer._step_1.GetState() = eAxoTaskState#Disabled);
-            Assert.Equal(TRUE , _sequencer._step_2.GetState() = eAxoTaskState#Disabled);
-            Assert.Equal(TRUE , _sequencer._step_3.GetState() = eAxoTaskState#Disabled);
+            Assert.Equal(TRUE , _sequencer._step_1.IsDisabled);
+            Assert.Equal(TRUE , _sequencer._step_2.IsDisabled);
+            Assert.Equal(TRUE , _sequencer._step_3.IsDisabled);
             _context.Close();
             Assert.Equal(TRUE , THIS.EqualAxoCoordinatorStates(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
         END_METHOD
