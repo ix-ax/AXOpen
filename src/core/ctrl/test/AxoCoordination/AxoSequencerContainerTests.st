@@ -1179,11 +1179,13 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             Assert.Equal(FALSE, _sequencer._step_1.IsReady());
             Assert.Equal(TRUE , _sequencer._step_1.IsBusy());
             Assert.Equal(FALSE, _sequencer._step_1.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_1.IsDisabled);
  
             Assert.Equal(FALSE, _sequencer._step_2.IsActive);
-            Assert.Equal(FALSE, _sequencer._step_2.IsReady());
+            Assert.Equal(TRUE , _sequencer._step_2.IsReady());
             Assert.Equal(FALSE, _sequencer._step_2.IsBusy());
             Assert.Equal(FALSE, _sequencer._step_2.IsDone());
+            Assert.Equal(TRUE , _sequencer._step_2.IsDisabled);
 
             // Act
             _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
@@ -1195,11 +1197,13 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             Assert.Equal(FALSE, _sequencer._step_1.IsReady());
             Assert.Equal(FALSE, _sequencer._step_1.IsBusy());
             Assert.Equal(TRUE , _sequencer._step_1.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_1.IsDisabled);
  
             Assert.Equal(TRUE , _sequencer._step_2.IsActive);
             Assert.Equal(TRUE , _sequencer._step_2.IsReady());
             Assert.Equal(FALSE, _sequencer._step_2.IsBusy());
             Assert.Equal(FALSE, _sequencer._step_2.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_2.IsDisabled);
         END_METHOD
 
         {Test}        
@@ -1225,11 +1229,13 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             Assert.Equal(FALSE,_sequencer._step_1.IsReady());
             Assert.Equal(TRUE ,_sequencer._step_1.IsBusy());
             Assert.Equal(FALSE,_sequencer._step_1.IsDone());
+            Assert.Equal(FALSE,_sequencer._step_1.IsDisabled);
 
             Assert.Equal(FALSE,_sequencer._step_2.IsActive);
-            Assert.Equal(FALSE,_sequencer._step_2.IsReady());
+            Assert.Equal(TRUE ,_sequencer._step_2.IsReady());
             Assert.Equal(FALSE,_sequencer._step_2.IsBusy());
             Assert.Equal(FALSE,_sequencer._step_2.IsDone());
+            Assert.Equal(TRUE ,_sequencer._step_2.IsDisabled);
 
             _previousOrder := _sequencer.CurrentOrder;
             
@@ -1252,6 +1258,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             Assert.Equal(FALSE,_sequencer._step_1.IsReady());
             Assert.Equal(FALSE,_sequencer._step_1.IsBusy());
             Assert.Equal(FALSE,_sequencer._step_1.IsDone());
+            Assert.Equal(FALSE,_sequencer._step_1.IsDone());
 
             Assert.Equal(TRUE ,_sequencer._step_2.IsActive);
             Assert.Equal(TRUE ,_sequencer._step_2.IsReady());
@@ -1273,6 +1280,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             Assert.Equal(FALSE,_sequencer._step_1.IsReady());
             Assert.Equal(TRUE ,_sequencer._step_1.IsBusy());
             Assert.Equal(FALSE,_sequencer._step_1.IsDone());
+            Assert.Equal(FALSE,_sequencer._step_1.IsDisabled);
 
             // Act
             _context.Open();
@@ -1288,6 +1296,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             Assert.Equal(FALSE,_sequencer._step_1.IsReady());
             Assert.Equal(FALSE,_sequencer._step_1.IsBusy());
             Assert.Equal(FALSE,_sequencer._step_1.IsDone());
+            Assert.Equal(TRUE ,_sequencer._step_1.IsDisabled);
         END_METHOD
 
         {Test}        
@@ -1299,7 +1308,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             THIS.ExecuteSequence(FALSE,FALSE);
 
             Assert.Equal(FALSE,_sequencer._step_2.IsActive);
-            Assert.Equal(FALSE,_sequencer._step_2.IsReady());
+            Assert.Equal(TRUE ,_sequencer._step_2.IsReady());
             Assert.Equal(FALSE,_sequencer._step_2.IsBusy());
             Assert.Equal(FALSE,_sequencer._step_2.IsDone());
 
@@ -1405,7 +1414,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
             Assert.Equal(ULINT#3,_sequencer.CurrentOrder);
             Assert.Equal(TRUE ,_sequencer.StepForwardCommand.IsDisabled);
-            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsReady());
+            Assert.Equal(TRUE ,_sequencer.StepForwardCommand.IsReady());
             Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsBusy());
             Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsDone());
         END_METHOD
@@ -1434,11 +1443,13 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             Assert.Equal(FALSE,_sequencer._step_3.IsReady());
             Assert.Equal(TRUE ,_sequencer._step_3.IsBusy());
             Assert.Equal(FALSE,_sequencer._step_3.IsDone());
+            Assert.Equal(FALSE,_sequencer._step_3.IsDisabled);
 
             Assert.Equal(FALSE,_sequencer._step_2.IsActive);
-            Assert.Equal(FALSE,_sequencer._step_2.IsReady());
+            Assert.Equal(TRUE ,_sequencer._step_2.IsReady());
             Assert.Equal(FALSE,_sequencer._step_2.IsBusy());
             Assert.Equal(FALSE,_sequencer._step_2.IsDone());
+            Assert.Equal(TRUE ,_sequencer._step_2.IsDisabled);
 
             _previousOrder := _sequencer.CurrentOrder;
             
@@ -1461,6 +1472,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             Assert.Equal(FALSE,_sequencer._step_3.IsReady());
             Assert.Equal(FALSE,_sequencer._step_3.IsBusy());
             Assert.Equal(FALSE,_sequencer._step_3.IsDone());
+            Assert.Equal(TRUE ,_sequencer._step_3.IsDisabled);
 
             Assert.Equal(TRUE ,_sequencer._step_2.IsActive);
             Assert.Equal(TRUE ,_sequencer._step_2.IsReady());
@@ -1515,9 +1527,10 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             THIS.ExecuteSequence(FALSE,FALSE);
 
             Assert.Equal(FALSE,_sequencer._step_2.IsActive);
-            Assert.Equal(FALSE,_sequencer._step_2.IsReady());
+            Assert.Equal(TRUE ,_sequencer._step_2.IsReady());
             Assert.Equal(FALSE,_sequencer._step_2.IsBusy());
             Assert.Equal(FALSE,_sequencer._step_2.IsDone());
+            Assert.Equal(TRUE ,_sequencer._step_2.IsDisabled);
             
             // Act
             _context.Open();
@@ -1532,6 +1545,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             Assert.Equal(TRUE ,_sequencer._step_2.IsReady());
             Assert.Equal(FALSE,_sequencer._step_2.IsBusy());
             Assert.Equal(FALSE,_sequencer._step_2.IsDone());
+            Assert.Equal(FALSE,_sequencer._step_2.IsDisabled);
         END_METHOD
 
         {Test}        
@@ -1597,9 +1611,10 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
             Assert.Equal(ULINT#1,_sequencer.CurrentOrder);
             Assert.Equal(TRUE ,_sequencer.StepBackwardCommand.IsDisabled);
-            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsReady());
+            Assert.Equal(TRUE ,_sequencer.StepBackwardCommand.IsReady());
             Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsBusy());
             Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsDone());
+            Assert.Equal(TRUE ,_sequencer.StepBackwardCommand.IsDisabled);
         END_METHOD
 
         {Test}        
