@@ -279,7 +279,7 @@ NAMESPACE AXOpen.Core
             END_VAR    
             _context := THIS.GetContext();     
             IF _context <> NULL THEN
-                IsExecuteCalledInThisPlcCycle := _openCycleCountExecute = _context.OpenCycleCount();
+                IsExecuteCalledInThisPlcCycle := _openCycleCountExecute = _context.OpenCycleCount() && _openCycleCountExecute <> ULINT#0;
             ELSE
                 IsExecuteCalledInThisPlcCycle := FALSE;
             END_IF;     
@@ -350,12 +350,12 @@ NAMESPACE AXOpen.Core
                 IF (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) THEN
                         Status := eAxoTaskState#Kicking;      
                         _context.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
-                ELSE                                         
-                    IF(NOT _suspendCyclicExecuteIsNotCalledCheck) THEN 
-                        _cyclicExecuteIsNotCalled := TRUE;
+                ELSE
+                    IF(NOT _suspendCyclicExecuteIsNotCalledCheck) THEN                                                               
+                        _cyclicExecuteIsNotCalled := TRUE;                    
                         Status := eAxoTaskState#Error;
-                        ErrorDetails := 'CyclicExecuteIsNotCalled'; 
-                    END_IF;                     
+                        ErrorDetails := 'CyclicExecuteIsNotCalled';                     
+                    END_IF;                                         
                 END_IF;     
             END_IF;     
            
@@ -438,15 +438,15 @@ NAMESPACE AXOpen.Core
             
             _openCycleCount :=  _context.OpenCycleCount();
 
+            
             IF NOT _suspendMultipleExecuteCallCheck THEN
-                IF _openCycleCountExecute = _openCycleCount THEN
-                    _multipleExecuteIsCalled := TRUE;
+                IF _openCycleCountExecute = _openCycleCount && _openCycleCount > ULINT#0 THEN
+                    _multipleExecuteIsCalled := TRUE;                
                     Status := eAxoTaskState#Error;
                     ErrorDetails := 'MultipleExecuteIsCalled';   
-                END_IF;
+                END_IF;                
             END_IF;
-           
-
+                       
             _openCycleCountExecute := _openCycleCount;
         
                 

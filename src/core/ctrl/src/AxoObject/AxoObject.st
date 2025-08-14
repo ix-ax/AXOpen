@@ -72,7 +72,7 @@ NAMESPACE AXOpen.Core
         /// Gets parent in which this object was initialized.
         ///</summary>
         METHOD PUBLIC GetParent : IAxoObject
-            IF(_context <> NULL) THEN
+            IF(_parent <> NULL) THEN
                 GetParent := _parent;
                 _dg_.%X1 := FALSE;
             ELSE                

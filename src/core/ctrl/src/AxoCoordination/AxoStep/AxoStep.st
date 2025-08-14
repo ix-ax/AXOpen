@@ -124,6 +124,8 @@ NAMESPACE AXOpen.Core
                 _context := THIS.GetContext();
             END_IF;
 
+            THIS._suspendMultipleExecuteCallCheck := FALSE;
+
             IF _context <> NULL THEN 
                 _currentlyOpenCycleCount := _context.OpenCycleCount();
                 _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
