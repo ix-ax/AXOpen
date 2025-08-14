@@ -498,10 +498,13 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
 
         {Test}
         METHOD PUBLIC execution_of_the_invoked_task_should_not_start_after_any_empty_cycles
-            THIS.Initialize();
+            THIS.Initialize();            
+            _context.Open();
+            _context.Close();
+
             myTask.Invoke();
             Assert.Equal(TRUE,THIS.Equal(eAxoTaskState#Kicking,myTask.GetState()));
-
+            
             _context.Open();
             _context.Close();
 
@@ -926,7 +929,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             THIS.Initialize();
             _context.Open();
             // Act/Assert 
-            Assert.Equal(TRUE, myTask.GetSuspendMultipleExecuteCallCheckState());
+            Assert.Equal(FALSE, myTask.GetSuspendMultipleExecuteCallCheckState());
         END_METHOD   
         {Test}
         METHOD PUBLIC task_should_stay_at_busy_state_and_remote_abort_signal_should_be_reseted_as_the_abbility_to_abort_task_is_disabled_by_default
