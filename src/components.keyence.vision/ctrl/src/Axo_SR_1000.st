@@ -1118,14 +1118,14 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             
             //*************RESTORE********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
             //****************************************
 
             //*************ClearResultDataTask***************
-            ClearResultDataTask.IsDisabled := RestoreTask.IsBusy() OR ReadTask.IsBusy() OR TuneTask.IsBusy();
+            ClearResultDataTask.SetIsDisabled(RestoreTask.IsBusy() OR ReadTask.IsBusy() OR TuneTask.IsBusy());
             IF ClearResultDataTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#130;
             END_IF;            
@@ -1310,7 +1310,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //******************************************
 
             //*************ReadTask*********************
-            ReadTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearResultDataTask.IsBusy() OR TuneTask.IsBusy();
+            ReadTask.SetIsDisabled( RestoreTask.IsBusy() OR ClearResultDataTask.IsBusy() OR TuneTask.IsBusy());
             IF ReadTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#180;
             END_IF;            

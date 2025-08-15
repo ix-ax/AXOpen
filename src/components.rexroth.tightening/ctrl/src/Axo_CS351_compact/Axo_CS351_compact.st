@@ -1721,7 +1721,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             //************************************************
     
             //*************RESTORE****************************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;

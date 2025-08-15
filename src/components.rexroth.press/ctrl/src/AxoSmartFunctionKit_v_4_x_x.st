@@ -451,13 +451,13 @@ NAMESPACE AXOpen.Components.Rexroth.Press
                 
 
             //*************RESTORE********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
             //****************************************
             //*************RunCommandTask***************
-            RunCommandTask.IsDisabled := FALSE;
+            RunCommandTask.SetIsDisabled(FALSE);
             IF RunCommandTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;
@@ -603,7 +603,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             TaskMessenger.ActivateOnCondition(TO_ULINT(Inputs.Status), Inputs.Status>WORD#0, eAxoMessageCategory#Error);
             //*******************************************
             //*************GetResultsTask***************
-            GetResultsTask.IsDisabled := Config.IpAddress = '';
+            GetResultsTask.SetIsDisabled(Config.IpAddress = '');
             IF GetResultsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;
@@ -628,7 +628,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             END_IF;
             //*******************************************
             //*************ExportCurveTask***************
-            ExportCurveTask.IsDisabled := Config.IpAddress = '' OR Config.CurveExportLocation = '';
+            ExportCurveTask.SetIsDisabled(Config.IpAddress = '' OR Config.CurveExportLocation = '');
             IF ExportCurveTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
             END_IF;

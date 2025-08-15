@@ -335,14 +335,14 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
             //****************************************
 
             //*************RESTORE********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
             //****************************************
 
             //*************StartAtMainTask***************
-            StartAtMainTask.IsDisabled := Inputs.Start;
+            StartAtMainTask.SetIsDisabled(Inputs.Start);
             IF StartAtMainTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;
@@ -461,7 +461,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
             //*******************************************
 
             //***********StartMotorsAndProgramTask*******
-            StartMotorsAndProgramTask.IsDisabled := FALSE;
+            StartMotorsAndProgramTask.SetIsDisabled(FALSE);
             IF StartMotorsAndProgramTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;
@@ -641,7 +641,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
             //*******************************************
                         
             //***********StopMovementsTask***************
-            StopMovementsTask.IsDisabled := FALSE;
+            StopMovementsTask.SetIsDisabled(FALSE);
             IF StopMovementsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
             END_IF;
@@ -729,7 +729,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
             //*******************************************
 
             //***********StopMovementsAndProgramTask*****
-            StopMovementsAndProgramTask.IsDisabled := FALSE;
+            StopMovementsAndProgramTask.SetIsDisabled(FALSE);
             IF StopMovementsAndProgramTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#130;
             END_IF;
@@ -819,7 +819,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
             //*******************************************
             
             //***********StartMovementsTask**************
-            StartMovementsTask.IsDisabled := FALSE;
+            StartMovementsTask.SetIsDisabled(FALSE);
             IF StartMovementsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#140;
             END_IF;

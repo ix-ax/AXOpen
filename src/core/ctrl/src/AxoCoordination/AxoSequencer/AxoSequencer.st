@@ -16,6 +16,7 @@ NAMESPACE AXOpen.Core
             CurrentStep : AxoStep;            
             MaxSequenceDuration : LTIME;                  
         END_VAR   
+        
         VAR PRIVATE
             _configurationFlowOrder : ULINT;   
             _numberOfConfiguredSteps : ULINT;   
@@ -28,7 +29,6 @@ NAMESPACE AXOpen.Core
             _context        :   IAxoContext;
             _analytics : IAxoSequencerAnalitics;                      
         END_VAR
-               
                 
         METHOD PUBLIC SetAnalitics
             VAR_INPUT
@@ -105,13 +105,13 @@ NAMESPACE AXOpen.Core
                     // Stepping is possible only in StepByStepMode
                     IF SteppingMode = eAxoSteppingMode#StepByStep THEN
                         // Stepping Forwards and Backwards commands cannot be executed simultaneously
-                        StepForwardCommand.IsDisabled := StepBackwardCommand.IsBusy() 
+                        StepForwardCommand.SetIsDisabled(StepBackwardCommand.IsBusy() 
                                                             // Stepping Forwards disabled from last step
-                                                            OR CurrentOrder >= _numberOfConfiguredSteps;
-                        StepIn.IsDisabled :=  FALSE;
-                        StepBackwardCommand.IsDisabled := StepForwardCommand.IsBusy() 
+                                                            OR CurrentOrder >= _numberOfConfiguredSteps);
+                        StepIn.SetIsDisabled(FALSE);
+                        StepBackwardCommand.SetIsDisabled(StepForwardCommand.IsBusy() 
                                                             // Stepping Backwards disabled from first step
-                                                            OR CurrentOrder <= ULINT#1;
+                                                            OR CurrentOrder <= ULINT#1);
                         // StepForward command increments the CurrentOrder just to a maximum value of _numberOfConfiguredSteps 
                         IF StepForwardCommand.Execute() THEN
                             IF CurrentOrder < _numberOfConfiguredSteps THEN
@@ -323,12 +323,11 @@ NAMESPACE AXOpen.Core
                 GetNumberOfConfiguredSteps := ULINT#0;
             END_IF;
         END_METHOD  
-        
        
         METHOD PROTECTED DisableAllSteppingComands 
-            StepForwardCommand.IsDisabled := TRUE;
-            StepIn.IsDisabled := TRUE;
-            StepBackwardCommand.IsDisabled := TRUE;
+            StepForwardCommand.SetIsDisabled(TRUE);
+            StepIn.SetIsDisabled(TRUE);
+            StepBackwardCommand.SetIsDisabled(TRUE);
         END_METHOD
 
         METHOD PROTECTED AbortCurrentStep 
