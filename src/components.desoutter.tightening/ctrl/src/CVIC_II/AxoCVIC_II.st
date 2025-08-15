@@ -637,7 +637,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             //****************************************
 
             //*************RESTORE********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
@@ -732,7 +732,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             //******************************************
 
             //*************SetScrewingProgram***********
-            SetScrewingProgramTask.IsDisabled := FALSE;
+            SetScrewingProgramTask.SetIsDisabled(FALSE);
             IF SetScrewingProgramTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;            
@@ -800,7 +800,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             //****************************************
 
             //*************StartScrewing**************
-            StartScrewingTask.IsDisabled := FALSE;
+            StartScrewingTask.SetIsDisabled(FALSE);
             IF StartScrewingTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
             END_IF;

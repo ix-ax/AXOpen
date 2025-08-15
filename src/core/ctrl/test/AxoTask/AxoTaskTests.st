@@ -405,7 +405,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
            myTask.Invoke();
            // Act/Assert 
            Assert.Equal(TRUE, myTask.Execute());             
-           myTask.IsDisabled := TRUE;
+           myTask.SetIsDisabled(TRUE);
            Assert.Equal(FALSE, myTask.Execute());             
         END_METHOD
 
@@ -422,7 +422,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             END_IF;    
             actState := myTask.GetState();
             Assert.Equal(TRUE, THIS.Equal(expState, actState));           
-            myTask.IsDisabled := TRUE;
+            myTask.SetIsDisabled(TRUE);
             myTask.Invoke();   
             myTask.Execute();
             actState := myTask.GetState();
@@ -469,7 +469,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             actState := myTask.GetState();
             Assert.Equal(TRUE, THIS.Equal(expState, actState));           
             myTask.RemoteInvoke := TRUE;
-            myTask.IsDisabled := TRUE;
+            myTask.SetIsDisabled(TRUE);
             myTask.Invoke();   
             myTask.Execute();
             myTask.ThrowWhen(FALSE);

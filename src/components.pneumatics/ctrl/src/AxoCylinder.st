@@ -213,9 +213,10 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             IF(Condition) THEN                        
                 _moveWorkSignal := FALSE;   
+                _MoveToWorkTask.Abort();
+                _Messenger.Activate(UINT#6, eAxoMessageCategory#Info);
             END_IF;    
-            _Messenger.ActivateOnCondition(UINT#6, Condition, eAxoMessageCategory#Info);
-            _MoveToWorkTask.IsDisabled := Condition;
+            _MoveToWorkTask.SetIsDisabled(Condition);
         END_METHOD        
 
         ///<summary>
@@ -228,10 +229,10 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             IF(Condition) THEN                        
                 _moveHomeSignal := FALSE;   
+                _Messenger.Activate(UINT#7, eAxoMessageCategory#Info);
+                _MoveToHomeTask.Abort();
             END_IF;    
-            _Messenger.ActivateOnCondition(UINT#7, Condition, eAxoMessageCategory#Info);
-            _MoveToHomeTask.IsDisabled := Condition;
+            _MoveToHomeTask.SetIsDisabled(Condition);
         END_METHOD  
-        
     END_CLASS
 END_NAMESPACE

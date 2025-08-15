@@ -614,14 +614,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             END_IF;
             
             //*************RESTORE********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
             //****************************************
 
             //*************CLEAR*DATA*****************
-            ClearResultDataTask.IsDisabled := RestoreTask.IsBusy() OR ReadTask.IsBusy();
+            ClearResultDataTask.SetIsDisabled(RestoreTask.IsBusy() OR ReadTask.IsBusy());
             IF ClearResultDataTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;            
@@ -701,7 +701,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
             //****************************************
 
             //*************READ***********************
-            ReadTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearResultDataTask.IsBusy();
+            ReadTask.SetIsDisabled( RestoreTask.IsBusy() OR ClearResultDataTask.IsBusy());
             IF ReadTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;            

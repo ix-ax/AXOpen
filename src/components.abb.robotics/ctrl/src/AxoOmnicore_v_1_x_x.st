@@ -427,14 +427,14 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             //****************************************
 
             //*************RESTORE********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
             //****************************************
 
             //*************StartAtMainTask***************
-            StartAtMainTask.IsDisabled := _stopTasksAreActive;
+            StartAtMainTask.SetIsDisabled(_stopTasksAreActive);
             IF StartAtMainTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;
@@ -498,7 +498,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             //*******************************************
 
             //***********StartMotorsAndProgramTask*******
-            StartMotorsAndProgramTask.IsDisabled := _stopTasksAreActive OR StartProgramTask.IsBusy() OR StartMotorsTask.IsBusy();
+            StartMotorsAndProgramTask.SetIsDisabled(_stopTasksAreActive OR StartProgramTask.IsBusy() OR StartMotorsTask.IsBusy());
             IF StartMotorsAndProgramTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;
@@ -645,7 +645,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             //*******************************************
                         
             //***********StartMotorsProgramAndMovementsTask*******
-            StartMotorsProgramAndMovementsTask.IsDisabled := _stopTasksAreActive OR StartProgramTask.IsBusy() OR StartMotorsTask.IsBusy() OR StartMovementsTask.IsBusy();
+            StartMotorsProgramAndMovementsTask.SetIsDisabled(_stopTasksAreActive OR StartProgramTask.IsBusy() OR StartMotorsTask.IsBusy() OR StartMovementsTask.IsBusy());
             IF StartMotorsProgramAndMovementsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
             END_IF;
@@ -896,7 +896,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             //*******************************************
                         
             //***********StartMotorsTask*****************
-            StartMotorsTask.IsDisabled := _stopTasksAreActive OR StartMotorsProgramAndMovementsTask.IsBusy() OR StartMotorsAndProgramTask.IsBusy();
+            StartMotorsTask.SetIsDisabled(_stopTasksAreActive OR StartMotorsProgramAndMovementsTask.IsBusy() OR StartMotorsAndProgramTask.IsBusy());
             IF StartMotorsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#140;
             END_IF;
@@ -1024,7 +1024,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             //*******************************************
                
             //***********StartMovementsTask**************
-            StartMovementsTask.IsDisabled := _stopTasksAreActive OR StartMotorsProgramAndMovementsTask.IsBusy();
+            StartMovementsTask.SetIsDisabled(_stopTasksAreActive OR StartMotorsProgramAndMovementsTask.IsBusy());
             IF StartMovementsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#150;
             END_IF;
@@ -1213,7 +1213,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             //*******************************************
 
             //***********StartProgramTask*******
-            StartProgramTask.IsDisabled := _stopTasksAreActive;
+            StartProgramTask.SetIsDisabled(_stopTasksAreActive);
             IF StartAtMainTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#170;
             END_IF;
@@ -1289,7 +1289,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             //*******************************************
 
             //***********StopMotorsTask***************
-            StopMotorsTask.IsDisabled := FALSE;
+            StopMotorsTask.SetIsDisabled(FALSE);
             IF StartAtMainTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#180;
             END_IF;
@@ -1365,7 +1365,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             //*******************************************
 
             //***********StopMovementsAndProgramTask*****
-            StopMovementsAndProgramTask.IsDisabled := FALSE;
+            StopMovementsAndProgramTask.SetIsDisabled(FALSE);
             IF StopMovementsAndProgramTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#190;
             END_IF;
@@ -1447,7 +1447,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             //*******************************************
             
             //***********StopMovementsTask***************
-            StopMovementsTask.IsDisabled := FALSE;
+            StopMovementsTask.SetIsDisabled(FALSE);
             IF StopMovementsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#400;
             END_IF;
@@ -1516,7 +1516,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             //*******************************************
 
             //***********StopProgramTask*****************
-            StopProgramTask.IsDisabled := FALSE;
+            StopProgramTask.SetIsDisabled(FALSE);
             IF StopProgramTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#210;
             END_IF;

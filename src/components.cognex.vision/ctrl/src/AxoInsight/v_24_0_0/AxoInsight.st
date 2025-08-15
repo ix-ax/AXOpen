@@ -1144,14 +1144,14 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
             SendUserDataTask.Run(THIS);
             HardwareDiagnosticsTask.Run(THIS,Config.HWIDs.HW_Device);
             //*************Restore********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
             //****************************************
 
             //************* ClearInspectionResults****
-            ClearInspectionResultsTask.IsDisabled := RestoreTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy();
+            ClearInspectionResultsTask.SetIsDisabled(RestoreTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy());
             IF ClearInspectionResultsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;
@@ -1230,7 +1230,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
             END_IF;
             //****************************************
             //*************Trigger********************
-            TriggerTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy();
+            TriggerTask.SetIsDisabled( RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy());
             IF TriggerTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;
@@ -1477,7 +1477,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
             //****************************************
 
             //*************ChangeJobByName************
-            ChangeJobByNameTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy();
+            ChangeJobByNameTask.SetIsDisabled( RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy());
             IF ChangeJobByNameTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
             END_IF;
@@ -1694,7 +1694,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
             //****************************************
 
             //*************ChangeJobByNumber**********
-            ChangeJobByNumberTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy();
+            ChangeJobByNumberTask.SetIsDisabled( RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR SoftEventTask.IsBusy() OR SendUserDataTask.IsBusy());
             IF ChangeJobByNumberTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#140;
             END_IF;
@@ -1855,7 +1855,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
             //****************************************
 
             //*************SoftEvent******************
-            SoftEventTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SendUserDataTask.IsBusy();
+            SoftEventTask.SetIsDisabled( RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SendUserDataTask.IsBusy());
             IF SoftEventTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#150;
             END_IF;
@@ -1948,7 +1948,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
             //******************************************      
             
             //*************SendUserData*****************
-            SendUserDataTask.IsDisabled :=   RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy()  OR SoftEventTask.IsBusy();
+            SendUserDataTask.SetIsDisabled(  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy()  OR SoftEventTask.IsBusy());
             IF SendUserDataTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#160;
             END_IF;
