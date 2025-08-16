@@ -649,7 +649,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             RebootControllerTask.Execute(THIS);
             //****************************************
             //*************RESTORE********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
@@ -1554,7 +1554,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Coordinates.Rz                                   := Inputs.Inputs.Floats.Register_7;
 
             //*************StartAtMainTask***************
-            StartAtMainTask.IsDisabled := _stopTasksAreActive;
+            StartAtMainTask.SetIsDisabled(_stopTasksAreActive);
             IF StartAtMainTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;
@@ -1633,7 +1633,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             //*******************************************
 
             //***********StartMotorsAndProgramTask*******
-            StartMotorsAndProgramTask.IsDisabled := _stopTasksAreActive;
+            StartMotorsAndProgramTask.SetIsDisabled(_stopTasksAreActive);
             IF StartMotorsAndProgramTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;
@@ -1809,7 +1809,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             //*******************************************
                         
             //***********StartMovementsTask**************
-            StartMovementsTask.IsDisabled := NOT Inputs.Inputs.Robot.PW_IsPowerOn;
+            StartMovementsTask.SetIsDisabled(NOT Inputs.Inputs.Robot.PW_IsPowerOn);
             IF StartMovementsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#180;
             END_IF;
@@ -1989,7 +1989,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             //*******************************************
 
             //***********StopMovementsAndProgramTask*****
-            StopMovementsAndProgramTask.IsDisabled := FALSE;
+            StopMovementsAndProgramTask.SetIsDisabled(FALSE);
             IF StopMovementsAndProgramTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#210;
             END_IF;
@@ -2067,7 +2067,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             //*******************************************
             
             //***********StopMovementsTask***************
-            StopMovementsTask.IsDisabled := FALSE;
+            StopMovementsTask.SetIsDisabled(FALSE);
             IF StopMovementsAndProgramTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#220;
             END_IF;
@@ -2145,7 +2145,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             //*******************************************
 
             //*************POWER ON********************
-            PowerOnTask.IsDisabled := NOT(Inputs.RobotMode=eAxoUrRoboticsRobotMode#DISCONNECTED AND Config.RemotePowerOnEnabled);
+            PowerOnTask.SetIsDisabled(NOT(Inputs.RobotMode=eAxoUrRoboticsRobotMode#DISCONNECTED AND Config.RemotePowerOnEnabled));
             IF PowerOnTask.Execute(THIS) THEN
                 refPowerOnPulse^ :=TRUE;
                 Status.Action.Id :=  UINT#420;//('<#POWER ON PULSE WAS SEND TO CONTROLER#>');

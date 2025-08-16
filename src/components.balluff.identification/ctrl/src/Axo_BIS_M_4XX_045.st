@@ -302,14 +302,14 @@ NAMESPACE AXOpen.Components.Balluff.Identification
             //****************************************
 
             //*************RESTORE********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
             //****************************************
 
             //*************ReadTask************
-            ReadTask.IsDisabled := FALSE;
+            ReadTask.SetIsDisabled(FALSE);
             IF ReadTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;
@@ -509,7 +509,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
 
  
             //***********WriteTask*******
-            WriteTask.IsDisabled := FALSE;
+            WriteTask.SetIsDisabled(FALSE);
             IF WriteTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
             END_IF;
@@ -745,7 +745,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
             //*******************************************
                         
             //****ResetCommunicationTask*****
-            ResetCommunicationTask.IsDisabled := FALSE;
+            ResetCommunicationTask.SetIsDisabled(FALSE);
             IF ResetCommunicationTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#140;
             END_IF;
@@ -831,7 +831,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
             //*******************************************
 
             //***********ResetReaderTask*****************
-            ResetReaderTask.IsDisabled := FALSE;
+            ResetReaderTask.SetIsDisabled(FALSE);
             IF ResetReaderTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#150;
             END_IF;
@@ -931,7 +931,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
             //*******************************************
   
             //***********WriteCharToMemoryTask**************
-            WriteCharToMemoryTask.IsDisabled := FALSE;
+            WriteCharToMemoryTask.SetIsDisabled(FALSE);
             IF WriteCharToMemoryTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#160;
             END_IF;

@@ -263,14 +263,14 @@ NAMESPACE AXOpen.Components.Siem.Identification
             //*******************************************
 
             //*************RESTORE***********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
             //*******************************************
 
             //*************ReadTask**********************
-            ReadTagTask.IsDisabled := FALSE;
+            ReadTagTask.SetIsDisabled(FALSE);
             IF ReadTagTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;
@@ -399,7 +399,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
  
             //***********WriteTask***********************
-            WriteTagTask.IsDisabled := FALSE;
+            WriteTagTask.SetIsDisabled(FALSE);
             IF WriteTagTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
             END_IF;

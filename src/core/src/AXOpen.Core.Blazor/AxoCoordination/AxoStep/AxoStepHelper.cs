@@ -24,8 +24,8 @@ namespace AXOpen.Core
         {
             switch ((eAxoTaskState)step.Status.Cyclic)
             {
-                case eAxoTaskState.Disabled:
-                    return "bg-secondary text-white";
+                //case eAxoTaskState.Disabled:
+                //    return "bg-secondary text-white";
                 case eAxoTaskState.Ready:
                     return "bg-primary text-white";
                 case eAxoTaskState.Kicking:
