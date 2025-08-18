@@ -404,5 +404,17 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC GetCurrentStep : IAxoStep
             GetCurrentStep := CurrentStep;
         END_METHOD
+
+        METHOD PUBLIC GetSteppingMode : eAxoSteppingMode
+            GetSteppingMode := SteppingMode;
+        END_METHOD
+
+        METHOD PUBLIC SetSteppingMode 
+            VAR_INPUT
+                inSteppingMode : eAxoSteppingMode; 
+            END_VAR
+            SteppingMode := inSteppingMode;
+        END_METHOD
+
     END_CLASS    
 END_NAMESPACE
