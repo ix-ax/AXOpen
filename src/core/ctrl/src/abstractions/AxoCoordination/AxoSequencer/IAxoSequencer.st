@@ -15,5 +15,10 @@ NAMESPACE AXOpen.Core
         METHOD HasError : BOOL END_METHOD 
         METHOD Invoke : IAxoTaskState VAR_INPUT inParent : IAxoObject; END_VAR END_METHOD
         METHOD Restore : IAxoTaskState END_METHOD                     
+        METHOD SetIsDisabled
+            VAR_INPUT
+                Disabled : BOOL;
+            END_VAR    
+        END_METHOD      
     END_INTERFACE  
 END_NAMESPACE
