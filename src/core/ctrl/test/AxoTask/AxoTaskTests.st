@@ -1497,5 +1497,18 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             // TODO 
             // Assert.Equal(ULINT#3, myTask._messenger.MessageCode);           
         END_METHOD     
+
+        {Test}
+        METHOD PUBLIC invoke_disabled_task_should_not_enter_error_state
+            // Arrange/Act
+            myTask.Run(_rootObject);
+            _context.Open();
+            myTask.SetIsDisabled(TRUE);
+            myTask.Invoke();
+            myTask.Execute();          
+            _context.Close();   
+            
+            Assert.Equal(FALSE, myTask.HasError()); 
+        END_METHOD     
     END_CLASS
 END_NAMESPACE
