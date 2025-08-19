@@ -3,9 +3,9 @@ NAMESPACE AXOpen.Components.Keyence.Vision
     {#ix-attr:[Container(Layout.Wrap)]}
     CLASS PUBLIC Axo_IV3_Out
         VAR PUBLIC 
-            {#ix-set:AttributeName = "<#Control#>"}
+            {#ix-set:AttributeName = "<#Command control#>"}
             {#ix-attr:[ReadOnly()]}
-            Control           :   Axo_IV3_Control;
+            CommandControl           :   Axo_IV3_CommandControl;
         END_VAR 
     END_CLASS    
 END_NAMESPACE
