@@ -29,16 +29,9 @@ namespace AXOpen.Core
 
         public override void ConfigurePolling()
         {
-            var task = (AxoTask)this.Component;
-            List<ITwinElement> kids = new List<ITwinElement>();
-
-            kids.Add(task.Status);
-            kids.Add(task.IsDisabled);
-            kids.Add(task.ErrorDetails);
-            kids.ForEach(p =>
-            {
-                this.StartPolling(p, 250);
-            });
+            Component.Status.StartPolling(250, this);
+            Component.IsDisabled.StartPolling(250, this);
+            Component.ErrorDetails.StartPolling(250, this);
         }
 
         private async void InvokeTask()
@@ -95,6 +88,7 @@ namespace AXOpen.Core
             {
                 if(this.Component.IsDisabled.LastValue)
                     return "btn-inactive blur-[1px]";
+
                 switch ((eAxoTaskState)Component.Status.LastValue)
                 {
                     case eAxoTaskState.Busy:
@@ -115,50 +109,6 @@ namespace AXOpen.Core
 
         private bool IsTaskRunning => Component.Status.Cyclic == (ushort)eAxoTaskState.Busy;
         private bool IsTaskAborted => Component.Status.Cyclic == (ushort)eAxoTaskState.Aborted;
-
-        private Pocos.AXOpen.Core.AxoTask _lastPocoValue = new();
-
-        protected override bool ShouldRender()
-        {
-            if (_lastPocoValue.Status != Component.Status.LastValue)
-            {
-                SaveLastPocoValue();
-                return true;
-            }
-
-            if (_lastPocoValue.IsDisabled != IsDisabled)
-            {
-                SaveLastPocoValue();
-                return true;
-            }
-
-            if (_lastPocoValue.StartTimeStamp != Component.StartTimeStamp.LastValue)
-            {
-                SaveLastPocoValue();
-                return true;
-            }
-            if (_lastPocoValue.StartSignature != Component.StartSignature.LastValue)
-            {
-                SaveLastPocoValue();
-                return true;
-            }
-
-            return false;
-        }
-
-        private void SaveLastPocoValue()
-        {
-            _lastPocoValue.Status = Component.Status.LastValue;
-            _lastPocoValue.IsDisabled = IsDisabled;
-            _lastPocoValue.RemoteInvoke = Component.RemoteInvoke.LastValue;
-            _lastPocoValue.RemoteRestore = Component.RemoteRestore.LastValue;
-            _lastPocoValue.RemoteAbort = Component.RemoteAbort.LastValue;
-            _lastPocoValue.RemoteResume = Component.RemoteResume.LastValue;
-            _lastPocoValue.StartSignature = Component.StartSignature.LastValue;
-            _lastPocoValue.Duration = Component.Duration.LastValue;
-            _lastPocoValue.StartTimeStamp = Component.StartTimeStamp.LastValue;
-            _lastPocoValue.ErrorDetails = Component.ErrorDetails.LastValue;
-        }
 
         [Parameter]
         public bool Disable { get; set; }
