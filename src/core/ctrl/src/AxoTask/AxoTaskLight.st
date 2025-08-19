@@ -250,9 +250,13 @@ NAMESPACE AXOpen.Core
 
             // task should not be Invoked, if the execute method was not called in this or previous PLC cycle
             IF Status = eAxoTaskState#Ready THEN
-                IF (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) AND NOT IsDisabled THEN
-                    Status := eAxoTaskState#Kicking;      
-                    _context.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
+                IF (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) THEN
+                    IF(NOT IsDisabled) THEN
+                        Status := eAxoTaskState#Kicking;      
+                        _context.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
+                    ELSE
+                        _context.GetLogger().Log('Attempt to invoke disabled task', eLogLevel#Information, THIS);    
+                    END_IF;    
                 ELSE
                     IF(NOT _suspendCyclicExecuteIsNotCalledCheck) THEN                                                               
                         _cyclicExecuteIsNotCalled := TRUE;                    
