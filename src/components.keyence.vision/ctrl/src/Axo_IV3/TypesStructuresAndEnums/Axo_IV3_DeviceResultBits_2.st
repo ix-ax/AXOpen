@@ -1,15 +1,11 @@
 NAMESPACE AXOpen.Components.Keyence.Vision
     {S7.extern=ReadWrite}
-    {#ix-attr:[Container(Layout.Wrap)]}
+    {#ix-attr:[Container(Layout.Stack)]}
     CLASS PUBLIC Axo_IV3_DeviceResultBits_2
         VAR PUBLIC
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Master number/total status product type#>"}
             MasterNumber : UINT;                                                                // IW1352
 
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Tool 17#>"}
             Tool_17 : BOOL;                                                                      // IB1354.0
             {#ix-set:AttributeName = "<#Tool 18#>"}

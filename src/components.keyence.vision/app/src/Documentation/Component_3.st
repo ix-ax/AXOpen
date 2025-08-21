@@ -41,7 +41,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
         END_VAR
 
         VAR PRIVATE
-            _ResultData  :   AXOpen.Components.Keyence.Vision.Axo_SR_1000_ResultData;
+            _OverAllResult  : BOOL;
+            _ResultData  :  ARRAY[0..20] OF UINT;
         END_VAR
 
         METHOD PRIVATE UseInSequencer   
@@ -49,29 +50,36 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             Sequencer.Run(THIS);
             Sequencer.Open();
 
-            IF(Steps[0].Execute(Sequencer, 'Clear result data')) THEN
-                ;
-                // IF(Component.ClearResultData().IsDone()) THEN                
-                //     Sequencer.MoveNext();                
-                // END_IF;    
+            IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+                Component.Restore();
+                Sequencer.MoveNext();                
+            END_IF;    
+
+            IF(Steps[1].Execute(Sequencer, 'Change program')) THEN
+                IF(Component.ChangeProgram(UINT#0).IsDone()) THEN                
+                    Sequencer.MoveNext();                
+                END_IF;    
             END_IF;
 
-            IF(Steps[1].Execute(Sequencer, 'Tune')) THEN
-                ;
-                // IF(Component.Tune(UINT#0).IsDone()) THEN                
-                //     Sequencer.MoveNext();                
-                // END_IF;    
-            END_IF;
-
-            IF(Steps[2].Execute(Sequencer, 'Read data')) THEN
-                ;
-                // IF(Component.Read(UINT#0).IsDone()) THEN                       
-                //     Sequencer.MoveNext();                
-                // END_IF;    
+            IF(Steps[2].Execute(Sequencer, 'Trigger')) THEN
+                IF(Component.Trigger().IsDone()) THEN                       
+                    Sequencer.MoveNext();                
+                END_IF;    
             END_IF;       
 
-            IF(Steps[3].Execute(Sequencer, 'Evaluate data')) THEN
-                // _ResultData := Component.ResultData;
+            IF(Steps[3].Execute(Sequencer, 'Access the result data')) THEN
+                _OverAllResult := Component.Inputs.DeviceResultBits_1.OverallJudgmentOK;
+                // The meaning of the result data changes with the type of the control, 
+                // so it must be evaluated individually in the production code
+                _ResultData[0] := Component.Inputs.ToolResult_1.MatchingRate;
+                _ResultData[1] := Component.Inputs.ToolResult_1.MatchingRateMAX;
+                _ResultData[2] := Component.Inputs.ToolResult_1.MatchingRateMIN;
+                _ResultData[3] := Component.Inputs.ToolResult_1.LowerThreshold;
+                _ResultData[4] := Component.Inputs.ToolResult_1.UpperThreshold;
+                _ResultData[5] := Component.Inputs.ToolResult_1.DecimalPointPosition;
+                _ResultData[6] := Component.Inputs.ToolResult_1.Data_1;
+                _ResultData[7] := Component.Inputs.ToolResult_1.Data_2;
+                _ResultData[8] := Component.Inputs.ToolResult_1.Data_3;
                 Sequencer.CompleteSequence();                               
             END_IF;   
 

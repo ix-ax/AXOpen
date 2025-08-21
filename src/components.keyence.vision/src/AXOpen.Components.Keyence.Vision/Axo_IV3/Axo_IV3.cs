@@ -29,14 +29,14 @@ namespace AXOpen.Components.Keyence.Vision
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0,   new AxoMessengerTextItem("  ", "  ")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(50, new AxoMessengerTextItem("Restore has been executed.","")),
-                // TemplateTask_10steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(100, new AxoMessengerTextItem("TemplateTask_10steps_1 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(101, new AxoMessengerTextItem("TemplateTask_10steps_1 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(102, new AxoMessengerTextItem("TemplateTask_10steps_1 restored.","")),
-                // TemplateTask_10steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(110, new AxoMessengerTextItem("TemplateTask_10steps_2 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(111, new AxoMessengerTextItem("TemplateTask_10steps_2 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(112, new AxoMessengerTextItem("TemplateTask_10steps_2 restored.","")),
+                // TriggerTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(100, new AxoMessengerTextItem("TriggerTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(101, new AxoMessengerTextItem("TriggerTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(102, new AxoMessengerTextItem("TriggerTask restored.","")),
+                // ChangeProgramTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(110, new AxoMessengerTextItem("ChangeProgramTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(111, new AxoMessengerTextItem("ChangeProgramTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(112, new AxoMessengerTextItem("ChangeProgramTask restored.","")),
                 // TemplateTask_10steps_3
                 new KeyValuePair<ulong, AxoMessengerTextItem>(120, new AxoMessengerTextItem("TemplateTask_10steps_3 started.","")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(121, new AxoMessengerTextItem("TemplateTask_10steps_3 finished succesfully.","")),
@@ -77,6 +77,27 @@ namespace AXOpen.Components.Keyence.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(260, new AxoMessengerTextItem("TemplateTask_20steps_6 started.","")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(261, new AxoMessengerTextItem("TemplateTask_20steps_6 finished succesfully.","")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(262, new AxoMessengerTextItem("TemplateTask_20steps_6 restored.","")),
+                //  General warnings
+                new KeyValuePair<ulong, AxoMessengerTextItem>(454, new AxoMessengerTextItem("Expansion program setting mismatch error (normal)"                                                                             ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(458, new AxoMessengerTextItem("External master registration error (OCR)"                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(460, new AxoMessengerTextItem("Field Network Error, Invalid request (OCR/threshold)"                                                                          ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(461, new AxoMessengerTextItem("Field network bad request error (FTP/SD)"                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(462, new AxoMessengerTextItem("Field network overrun error"                                                                                                   ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(463, new AxoMessengerTextItem("Field Network Error, Invalid request (Save Master)"                                                                            ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(464, new AxoMessengerTextItem("Field Network Error, Invalid request (Change Program)"                                                                         ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(465, new AxoMessengerTextItem("Trigger error"                                                                                                                 ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(466, new AxoMessengerTextItem("External master registration error (Insufficient outline)"                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(467, new AxoMessengerTextItem("External master registration error (Insufficient area)"                                                                        ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(468, new AxoMessengerTextItem("External master registration error (Brightness correction failed)"                                                             ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(469, new AxoMessengerTextItem("External master registration error (Insufficient edge failed)"                                                                 ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(470, new AxoMessengerTextItem("FTP Transfer Error (Insufficient Data Buffer)"                                                                                 ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(471, new AxoMessengerTextItem("FTP Transfer Error (Transfer Failed)"                                                                                          ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(472, new AxoMessengerTextItem("FTP Connection Error"                                                                                                          ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(473, new AxoMessengerTextItem("External master registration error (Insufficient work memory)"                                                                 ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(474, new AxoMessengerTextItem("External master registration error (No images)"                                                                                ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(475, new AxoMessengerTextItem("SD Card Transfer Error (Insufficient Transfer Buffer)"                                                                         ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(476, new AxoMessengerTextItem("SD Card Transfer Error (Transfer Failed)"                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(477, new AxoMessengerTextItem("External master registration error (learning tool/sorting mode)"                                                               ,"Check the product documentation.")),
                 //  General alarms
                 new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Device` parameter is assigned.")),
@@ -796,47 +817,116 @@ namespace AXOpen.Components.Keyence.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1669, new AxoMessengerTextItem("Error reading the input data from the module with HWID: 'HwID_ToolResult_64'!"                                                   ,"Check the value of the Config.HWIDs.HwID_ToolResult_64 and reacheability of the device!")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1670, new AxoMessengerTextItem("Error reading the input data from the module with HWID: 'HwID_DeviceResultBits_2'!"                                              ,"Check the value of the Config.HWIDs.HwID_ToolResult_65 and reacheability of the device!")),
                                                                                                                                                                                                                                
-
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1701, new AxoMessengerTextItem("Error writing the output data to the module with HWID: 'HwID_CommandControl'!"                                                   ,"Check the value of the Config.HWIDs.HwID_CommandControl and reacheability of the device!")),
-                
 
-                // TemplateTask_10steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem("TemplateTask_10steps_1 finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10001, new AxoMessengerTextItem("TemplateTask_10steps_1 was aborted, while not yet completed!","Check the details.")),
-                // TemplateTask_10steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10010, new AxoMessengerTextItem("TemplateTask_10steps_2 finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10011, new AxoMessengerTextItem("TemplateTask_10steps_2 was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1801, new AxoMessengerTextItem("Program 1 corruption error"                                                                                                       ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1802, new AxoMessengerTextItem("Program 2 corruption error"                                                                                                       ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1803, new AxoMessengerTextItem("Program 3 corruption error"                                                                                                       ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1804, new AxoMessengerTextItem("Program 4 corruption error"                                                                                                       ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1805, new AxoMessengerTextItem("Program 5 corruption error"                                                                                                       ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1806, new AxoMessengerTextItem("Program 6 corruption error"                                                                                                       ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1807, new AxoMessengerTextItem("Program 7 corruption error"                                                                                                       ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1808, new AxoMessengerTextItem("Program 8 corruption error"                                                                                                       ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1809, new AxoMessengerTextItem("Program 9 corruption error"                                                                                                       ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1810, new AxoMessengerTextItem("Program 10 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1811, new AxoMessengerTextItem("Program 11 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1812, new AxoMessengerTextItem("Program 12 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1813, new AxoMessengerTextItem("Program 13 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1814, new AxoMessengerTextItem("Program 14 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1815, new AxoMessengerTextItem("Program 15 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1816, new AxoMessengerTextItem("Program 16 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1817, new AxoMessengerTextItem("Program 17 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1818, new AxoMessengerTextItem("Program 18 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1819, new AxoMessengerTextItem("Program 19 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1820, new AxoMessengerTextItem("Program 20 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1821, new AxoMessengerTextItem("Program 21 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1822, new AxoMessengerTextItem("Program 22 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1823, new AxoMessengerTextItem("Program 23 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1824, new AxoMessengerTextItem("Program 24 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1825, new AxoMessengerTextItem("Program 25 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1826, new AxoMessengerTextItem("Program 26 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1827, new AxoMessengerTextItem("Program 27 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1828, new AxoMessengerTextItem("Program 28 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1829, new AxoMessengerTextItem("Program 29 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1830, new AxoMessengerTextItem("Program 30 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1831, new AxoMessengerTextItem("Program 31 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1832, new AxoMessengerTextItem("Program 32 corruption error"                                                                                                      ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1852, new AxoMessengerTextItem("Program switching error (on startup;external input)"                                                                              ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1853, new AxoMessengerTextItem("Program switching error (on startup;Panel/PC/Network/Automatic Switching)"                                                        ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1855, new AxoMessengerTextItem("Program switching error (in [RUN] status)"                                                                                        ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1879, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1895, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1896, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1897, new AxoMessengerTextItem("Non-volatile memory error"                                                                                                        ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1898, new AxoMessengerTextItem("Non-volatile memory error"                                                                                                        ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1899, new AxoMessengerTextItem("Non-volatile memory error"                                                                                                        ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1900, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1901, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1902, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1903, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1904, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1905, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1906, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1907, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1908, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1909, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1910, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1911, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1912, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1913, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1914, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1915, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1916, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1917, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1918, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1919, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1920, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1921, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1922, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1923, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1924, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1925, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1926, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1927, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1928, new AxoMessengerTextItem("System error"                                                                                                                     ,"Check the product documentation.")),
+
+                // TriggerTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem("TriggerTask finished with error!"                                                                                                ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10001, new AxoMessengerTextItem("TriggerTask was aborted, while not yet completed!"                                                                               ,"Check the details.")),
+                // ChangeProgramTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10010, new AxoMessengerTextItem("ChangeProgramTask finished with error!"                                                                                          ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10011, new AxoMessengerTextItem("ChangeProgramTask was aborted, while not yet completed!"                                                                         ,"Check the details.")),
                 // TemplateTask_10steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10020, new AxoMessengerTextItem("TemplateTask_10steps_3 finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10021, new AxoMessengerTextItem("TemplateTask_10steps_3 was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10020, new AxoMessengerTextItem("TemplateTask_10steps_3 finished with error!"                                                                                     ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10021, new AxoMessengerTextItem("TemplateTask_10steps_3 was aborted, while not yet completed!"                                                                    ,"Check the details.")),
                 // TemplateTask_10steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10030, new AxoMessengerTextItem("TemplateTask_10steps_4 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10031, new AxoMessengerTextItem("TemplateTask_10steps_4 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10030, new AxoMessengerTextItem("TemplateTask_10steps_4 task finished with error!"                                                                                ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10031, new AxoMessengerTextItem("TemplateTask_10steps_4 task was aborted, while not yet completed!"                                                               ,"Check the details.")),
                 // TemplateTask_10steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10040, new AxoMessengerTextItem("TemplateTask_10steps_5 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10041, new AxoMessengerTextItem("TemplateTask_10steps_5 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10040, new AxoMessengerTextItem("TemplateTask_10steps_5 task finished with error!"                                                                                ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10041, new AxoMessengerTextItem("TemplateTask_10steps_5 task was aborted, while not yet completed!"                                                               ,"Check the details.")),
                 // TemplateTask_10steps_6
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10050, new AxoMessengerTextItem("TemplateTask_10steps_6 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10051, new AxoMessengerTextItem("TemplateTask_10steps_6 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10050, new AxoMessengerTextItem("TemplateTask_10steps_6 task finished with error!"                                                                                ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10051, new AxoMessengerTextItem("TemplateTask_10steps_6 task was aborted, while not yet completed!"                                                               ,"Check the details.")),
 
                 // TemplateTask_20steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10060, new AxoMessengerTextItem("TemplateTask_20steps_1 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10061, new AxoMessengerTextItem("TemplateTask_20steps_1 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10060, new AxoMessengerTextItem("TemplateTask_20steps_1 task finished with error!"                                                                                ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10061, new AxoMessengerTextItem("TemplateTask_20steps_1 task was aborted, while not yet completed!"                                                               ,"Check the details.")),
                 // TemplateTask_20steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10080, new AxoMessengerTextItem("TemplateTask_20steps_2 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10081, new AxoMessengerTextItem("TemplateTask_20steps_2 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10080, new AxoMessengerTextItem("TemplateTask_20steps_2 task finished with error!"                                                                                ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10081, new AxoMessengerTextItem("TemplateTask_20steps_2 task was aborted, while not yet completed!"                                                               ,"Check the details.")),
                 // TemplateTask_20steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10100, new AxoMessengerTextItem("TemplateTask_20steps_3 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10101, new AxoMessengerTextItem("TemplateTask_20steps_3 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10100, new AxoMessengerTextItem("TemplateTask_20steps_3 task finished with error!"                                                                                ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10101, new AxoMessengerTextItem("TemplateTask_20steps_3 task was aborted, while not yet completed!"                                                               ,"Check the details.")),
                 // TemplateTask_20steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10120, new AxoMessengerTextItem("TemplateTask_20steps_4 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10121, new AxoMessengerTextItem("TemplateTask_20steps_4 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10120, new AxoMessengerTextItem("TemplateTask_20steps_4 task finished with error!"                                                                                ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10121, new AxoMessengerTextItem("TemplateTask_20steps_4 task was aborted, while not yet completed!"                                                               ,"Check the details.")),
                 // TemplateTask_20steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10140, new AxoMessengerTextItem("TemplateTask_20steps_5 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10141, new AxoMessengerTextItem("TemplateTask_20steps_5 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10140, new AxoMessengerTextItem("TemplateTask_20steps_5 task finished with error!"                                                                                ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10141, new AxoMessengerTextItem("TemplateTask_20steps_5 task was aborted, while not yet completed!"                                                               ,"Check the details.")),
                 // TemplateTask_20steps_6
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10160, new AxoMessengerTextItem("TemplateTask_20steps_6 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10161, new AxoMessengerTextItem("TemplateTask_20steps_6 task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10160, new AxoMessengerTextItem("TemplateTask_20steps_6 task finished with error!"                                                                                ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10161, new AxoMessengerTextItem("TemplateTask_20steps_6 task was aborted, while not yet completed!"                                                               ,"Check the details.")),
 
         };
 
@@ -848,198 +938,198 @@ namespace AXOpen.Components.Keyence.Vision
             List<KeyValuePair<ulong, AxoMessengerTextItem>> messengerTextList = new List<KeyValuePair<ulong, AxoMessengerTextItem>>
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0,    new AxoMessengerTextItem("  ", "  ")),
-                // TemplateTask_10steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(500,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(501,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(502,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(503,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(504,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(505,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(506,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(507,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(508,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(509,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                // TemplateTask_10steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(510,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(511,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(512,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(513,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(514,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(515,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(516,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(517,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(518,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(519,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                // TriggerTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(500,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CommandStatusBits.TriggerReady` to be set!"                                               ,"Check the status of the `Inputs.CommandStatusBits.TriggerReady`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(501,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CommandStatusBits.TriggerResponse` to be set!"                                            ,"Check the status of the `Inputs.CommandStatusBits.TriggerResponse`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(502,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CommandStatusBits.BUSY` to be set!"                                                       ,"Check the status of the `Inputs.CommandStatusBits.BUSY`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(503,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CommandStatusBits.ImagingStatus` to be se!"                                               ,"Check the status of the `Inputs.CommandStatusBits.ImagingStatus`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(504,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CommandStatusBits.BUSY` to be reseted!"                                                   ,"Check the status of the `Inputs.CommandStatusBits.BUSY`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(505,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CommandStatusBits.ResultUpdateComplete` to be inverted!"                                  ,"Check the status of the `Inputs.CommandStatusBits.ResultUpdateComplete`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(506,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CommandStatusBits.ResultAvailable` to be set!"                                            ,"Check the status of the `Inputs.CommandStatusBits.ResultAvailable`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(507,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.DeviceStatusWords.ResultNo` to be incremented!"                                           ,"Check the status of the `_insert_naInputs.DeviceStatusWords.ResultNome_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(508,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(509,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                // ChangeProgramTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(510,  new AxoMessengerTextItem("Required program number is greather than the maximal program number of the device."                                               ,"Check the value of the program number")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(511,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(512,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CommandStatusBits.ProgramSwitchingResponse` to be set!"                                   ,"Check the status of the `Inputs.CommandStatusBits.ProgramSwitchingResponse`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(513,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.CommandStatusBits.ProgramSwitchingResponse` to be reseted!"                               ,"Check the status of the `Inputs.CommandStatusBits.ProgramSwitchingResponse`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(514,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(515,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(516,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(517,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(518,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(519,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
                 // TemplateTask_10steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(520,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(521,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(522,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(523,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(524,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(525,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(526,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(527,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(528,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(529,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(520,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(521,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(522,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(523,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(524,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(525,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(526,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(527,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(528,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(529,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
                 //TemplateTask_10steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(530,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(531,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(532,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(533,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(534,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(535,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(536,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(537,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(538,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(539,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(530,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(531,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(532,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(533,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(534,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(535,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(536,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(537,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(538,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(539,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
                 //TemplateTask_10steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(540,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(541,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(542,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(543,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(544,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(545,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(546,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(547,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(548,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(549,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(540,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(541,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(542,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(543,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(544,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(545,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(546,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(547,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(548,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(549,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
                 //TemplateTask_10steps_6
-                new KeyValuePair<ulong, AxoMessengerTextItem>(550,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(551,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(552,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(553,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(554,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(555,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(556,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(557,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(558,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(559,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(550,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(551,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(552,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(553,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(554,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(555,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(556,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(557,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(558,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(559,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
                 //TemplateTask_20steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(560,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(561,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(562,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(563,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(564,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(565,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(566,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(567,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(568,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(569,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(570,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(571,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(572,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(573,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(574,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(575,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(576,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(577,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(578,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(579,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(560,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(561,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(562,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(563,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(564,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(565,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(566,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(567,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(568,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(569,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(570,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(571,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(572,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(573,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(574,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(575,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(576,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(577,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(578,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(579,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
                 //TemplateTask_20steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(580,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(581,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(582,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(583,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(584,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(585,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(586,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(587,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(588,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(589,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(590,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(591,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(592,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(593,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(594,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(595,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(596,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(597,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(598,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(599,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(580,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(581,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(582,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(583,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(584,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(585,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(586,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(587,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(588,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(589,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(590,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(591,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(592,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(593,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(594,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(595,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(596,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(597,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(598,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(599,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
                 //TemplateTask_20steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(600,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(601,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(602,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(603,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(604,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(605,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(606,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(607,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(608,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(609,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(610,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(611,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(612,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(613,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(614,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(615,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(616,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(617,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(618,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(619,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(600,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(601,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(602,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(603,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(604,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(605,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(606,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(607,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(608,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(609,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(610,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(611,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(612,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(613,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(614,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(615,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(616,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(617,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(618,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(619,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
                 //TemplateTask_20steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(620,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(621,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(622,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(623,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(624,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(625,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(626,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(627,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(628,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(629,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(630,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(631,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(632,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(633,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(634,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(635,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(636,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(637,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(638,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(639,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(620,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(621,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(622,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(623,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(624,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(625,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(626,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(627,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(628,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(629,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(630,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(631,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(632,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(633,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(634,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(635,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(636,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(637,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(638,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(639,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
                 //TemplateTask_20steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(640,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(641,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(642,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(643,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(644,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(645,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(646,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(647,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(648,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(649,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(650,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(651,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(652,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(653,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(654,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(655,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(656,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(657,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(658,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(659,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(640,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(641,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(642,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(643,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(644,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(645,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(646,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(647,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(648,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(649,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(650,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(651,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(652,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(653,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(654,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(655,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(656,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(657,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(658,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(659,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
                 //TemplateTask_20steps_6
-                new KeyValuePair<ulong, AxoMessengerTextItem>(660,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(661,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(662,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(663,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(664,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(665,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(666,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(667,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(668,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(669,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(670,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(671,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(672,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(673,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(674,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(675,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(676,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(677,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(678,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(679,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(660,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(661,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(662,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(663,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(664,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(665,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(666,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(667,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(668,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(669,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(670,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(671,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(672,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(673,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(674,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(675,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(676,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(677,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(678,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(679,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               ,"Check the status of the `_insert_name_`  signal/variable.")),
 
 
 
@@ -1062,570 +1152,940 @@ namespace AXOpen.Components.Keyence.Vision
                 if (errorDescriptionDict.Count == 0)
                 {
                     errorDescriptionDict.Add(0, "   ");
-                    // TemplateTask_10steps_1
-                    errorDescriptionDict.Add(500, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(501, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(502, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(503, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(504, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(505, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(506, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(507, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(508, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(509, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_2
-                    errorDescriptionDict.Add(510, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(511, "Waiting for the signal `Inputs.Status.WorkSensor` to be reseted!");
-                    errorDescriptionDict.Add(512, "Waiting for the signal `Inputs.Status.HomeSensor` to be set!");
-                    errorDescriptionDict.Add(513, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(514, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(515, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(516, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(517, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(518, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(519, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    //  General warnings
+                    errorDescriptionDict.Add(454, "Expansion program setting mismatch error (normal)"                                                                             );
+                    errorDescriptionDict.Add(458, "External master registration error (OCR)"                                                                                      );
+                    errorDescriptionDict.Add(460, "Field Network Error, Invalid request (OCR/threshold)"                                                                          );
+                    errorDescriptionDict.Add(461, "Field network bad request error (FTP/SD)"                                                                                      );
+                    errorDescriptionDict.Add(462, "Field network overrun error"                                                                                                   );
+                    errorDescriptionDict.Add(463, "Field Network Error, Invalid request (Save Master)"                                                                            );
+                    errorDescriptionDict.Add(464, "Field Network Error, Invalid request (Change Program)"                                                                         );
+                    errorDescriptionDict.Add(465, "Trigger error"                                                                                                                 );
+                    errorDescriptionDict.Add(466, "External master registration error (Insufficient outline)"                                                                     );
+                    errorDescriptionDict.Add(467, "External master registration error (Insufficient area)"                                                                        );
+                    errorDescriptionDict.Add(468, "External master registration error (Brightness correction failed)"                                                             );
+                    errorDescriptionDict.Add(469, "External master registration error (Insufficient edge failed)"                                                                 );
+                    errorDescriptionDict.Add(470, "FTP Transfer Error (Insufficient Data Buffer)"                                                                                 );
+                    errorDescriptionDict.Add(471, "FTP Transfer Error (Transfer Failed)"                                                                                          );
+                    errorDescriptionDict.Add(472, "FTP Connection Error"                                                                                                          );
+                    errorDescriptionDict.Add(473, "External master registration error (Insufficient work memory)"                                                                 );
+                    errorDescriptionDict.Add(474, "External master registration error (No images)"                                                                                );
+                    errorDescriptionDict.Add(475, "SD Card Transfer Error (Insufficient Transfer Buffer)"                                                                         );
+                    errorDescriptionDict.Add(476, "SD Card Transfer Error (Transfer Failed)"                                                                                      );
+                    errorDescriptionDict.Add(477, "External master registration error (learning tool/sorting mode)"                                                               );
+                    // TriggerTask
+                    errorDescriptionDict.Add(500,  "Waiting for the signal/variable `Inputs.CommandStatusBits.TriggerReady` to be set!"                                               );
+                    errorDescriptionDict.Add(501,  "Waiting for the signal/variable `Inputs.CommandStatusBits.TriggerResponse` to be set!"                                            );
+                    errorDescriptionDict.Add(502,  "Waiting for the signal/variable `Inputs.CommandStatusBits.BUSY` to be set!"                                                       );
+                    errorDescriptionDict.Add(503,  "Waiting for the signal/variable `Inputs.CommandStatusBits.ImagingStatus` to be se!"                                               );
+                    errorDescriptionDict.Add(504,  "Waiting for the signal/variable `Inputs.CommandStatusBits.BUSY` to be reseted!"                                                   );
+                    errorDescriptionDict.Add(505,  "Waiting for the signal/variable `Inputs.CommandStatusBits.ResultUpdateComplete` to be inverted!"                                  );
+                    errorDescriptionDict.Add(506,  "Waiting for the signal/variable `Inputs.CommandStatusBits.ResultAvailable` to be set!"                                            );
+                    errorDescriptionDict.Add(507,  "Waiting for the signal/variable `Inputs.DeviceStatusWords.ResultNo` to be incremented!"                                           );
+                    errorDescriptionDict.Add(508,  "Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               );
+                    errorDescriptionDict.Add(509,  "Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               );
+                    // ChangeProgramTask
+                    errorDescriptionDict.Add(510,  "Required program number is greather than the maximal program number of the device."                                               );
+                    errorDescriptionDict.Add(511,  "Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               );
+                    errorDescriptionDict.Add(512,  "Waiting for the signal/variable `Inputs.CommandStatusBits.ProgramSwitchingResponse` to be set!"                                   );
+                    errorDescriptionDict.Add(513,  "Waiting for the signal/variable `Inputs.CommandStatusBits.ProgramSwitchingResponse` to be reseted!"                               );
+                    errorDescriptionDict.Add(514,  "Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               );
+                    errorDescriptionDict.Add(515,  "Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               );
+                    errorDescriptionDict.Add(516,  "Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               );
+                    errorDescriptionDict.Add(517,  "Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               );
+                    errorDescriptionDict.Add(518,  "Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               );
+                    errorDescriptionDict.Add(519,  "Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                               );
                     // TemplateTask_10steps_3
-                    errorDescriptionDict.Add(520, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(520, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     errorDescriptionDict.Add(521, "Waiting for the signal `Inputs.Status.HomeSensor` to be reseted!");
                     errorDescriptionDict.Add(522, "Waiting for the signal `Inputs.Status.WorkSensor` to be set!");
-                    errorDescriptionDict.Add(523, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(524, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(525, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(526, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(527, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(528, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(529, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(523, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(524, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(525, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(526, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(527, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(528, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(529, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     // TemplateTask_10steps_4
-                    errorDescriptionDict.Add(530, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(531, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(532, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(533, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(534, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(535, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(536, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(537, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(538, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(539, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(530, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(531, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(532, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(533, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(534, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(535, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(536, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(537, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(538, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(539, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     // TemplateTask_10steps_5
-                    errorDescriptionDict.Add(540, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(541, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(542, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(543, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(544, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(545, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(546, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(547, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(548, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(549, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(540, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(541, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(542, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(543, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(544, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(545, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(546, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(547, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(548, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(549, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     // TemplateTask_10steps_6
-                    errorDescriptionDict.Add(550, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(551, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(552, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(553, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(554, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(555, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(556, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(557, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(558, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(559, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(550, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(551, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(552, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(553, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(554, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(555, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(556, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(557, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(558, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(559, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     // TemplateTask_20steps_1
-                    errorDescriptionDict.Add(560, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(561, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(562, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(563, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(564, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(565, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(566, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(567, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(568, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(569, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(570, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(571, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(572, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(573, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(574, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(575, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(576, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(577, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(578, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(579, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(560, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(561, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(562, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(563, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(564, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(565, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(566, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(567, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(568, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(569, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(570, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(571, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(572, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(573, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(574, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(575, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(576, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(577, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(578, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(579, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     // TemplateTask_20steps_2
-                    errorDescriptionDict.Add(580, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(581, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(582, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(583, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(584, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(585, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(586, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(587, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(588, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(589, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(590, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(591, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(592, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(593, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(594, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(595, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(596, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(597, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(598, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(599, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(580, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(581, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(582, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(583, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(584, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(585, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(586, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(587, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(588, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(589, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(590, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(591, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(592, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(593, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(594, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(595, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(596, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(597, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(598, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(599, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     // TemplateTask_20steps_3
-                    errorDescriptionDict.Add(600, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(601, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(602, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(603, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(604, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(605, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(606, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(607, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(608, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(609, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(610, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(611, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(612, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(613, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(614, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(615, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(616, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(617, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(618, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(619, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(600, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(601, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(602, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(603, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(604, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(605, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(606, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(607, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(608, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(609, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(610, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(611, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(612, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(613, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(614, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(615, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(616, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(617, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(618, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(619, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     // TemplateTask_20steps_4
-                    errorDescriptionDict.Add(620, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(621, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(622, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(623, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(624, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(625, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(626, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(627, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(628, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(629, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(630, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(631, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(632, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(633, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(634, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(635, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(636, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(637, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(638, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(639, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(620, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(621, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(622, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(623, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(624, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(625, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(626, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(627, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(628, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(629, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(630, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(631, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(632, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(633, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(634, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(635, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(636, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(637, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(638, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(639, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     // TemplateTask_20steps_5
-                    errorDescriptionDict.Add(640, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(641, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(642, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(643, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(644, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(645, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(646, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(647, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(648, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(649, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(650, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(651, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(652, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(653, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(654, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(655, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(656, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(657, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(658, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(659, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(640, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(641, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(642, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(643, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(644, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(645, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(646, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(647, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(648, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(649, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(650, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(651, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(652, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(653, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(654, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(655, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(656, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(657, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(658, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(659, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     // TemplateTask_20steps_6
-                    errorDescriptionDict.Add(660, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(661, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(662, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(663, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(664, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(665, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(666, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(667, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(668, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(669, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(670, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(671, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(672, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(673, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(674, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(675, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(676, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(677, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(678, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(679, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // General alarms
-                    errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(701, "Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090).");
-                    errorDescriptionDict.Add(710, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl is zero.");
-                    errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1.");
-                    errorDescriptionDict.Add(712, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1.");
-                    errorDescriptionDict.Add(713, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1.");
-                    errorDescriptionDict.Add(714, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1.");
-                    errorDescriptionDict.Add(715, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1.");
-                    errorDescriptionDict.Add(716, "Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(720, "Hw configuration error. Value of Config.HWIDs.HwID_CommandStatusBits is zero.");
-                    errorDescriptionDict.Add(721, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2.");
-                    errorDescriptionDict.Add(722, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2.");
-                    errorDescriptionDict.Add(723, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2.");
-                    errorDescriptionDict.Add(724, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2.");
-                    errorDescriptionDict.Add(725, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2.");
-                    errorDescriptionDict.Add(726, "Hw configuration error: Module with unexpected size or type detected in Slot 2. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(730, "Hw configuration error. Value of Config.HWIDs.HwID_DeviceResultBits_1 is zero.");
-                    errorDescriptionDict.Add(731, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3.");
-                    errorDescriptionDict.Add(732, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3.");
-                    errorDescriptionDict.Add(733, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3.");
-                    errorDescriptionDict.Add(734, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3.");
-                    errorDescriptionDict.Add(735, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3.");
-                    errorDescriptionDict.Add(736, "Hw configuration error: Module with unexpected size or type detected in Slot 3. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(740, "Hw configuration error. Value of Config.HWIDs.HwID_DeviceStatusWords is zero.");
-                    errorDescriptionDict.Add(741, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4.");
-                    errorDescriptionDict.Add(742, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4.");
-                    errorDescriptionDict.Add(743, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4.");
-                    errorDescriptionDict.Add(744, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4.");
-                    errorDescriptionDict.Add(745, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4.");
-                    errorDescriptionDict.Add(746, "Hw configuration error: Module with unexpected size or type detected in Slot 4. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(750, "Hw configuration error. Value of Config.HWIDs.HwID_DeviceStatistics is zero.");
-                    errorDescriptionDict.Add(751, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5.");
-                    errorDescriptionDict.Add(752, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5.");
-                    errorDescriptionDict.Add(753, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5.");
-                    errorDescriptionDict.Add(754, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5.");
-                    errorDescriptionDict.Add(755, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5.");
-                    errorDescriptionDict.Add(756, "Hw configuration error: Module with unexpected size or type detected in Slot 5. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(760, "Hw configuration error. Value of Config.HWIDs.HwID_PositionAdjustResult is zero.");
-                    errorDescriptionDict.Add(761, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6.");
-                    errorDescriptionDict.Add(762, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6.");
-                    errorDescriptionDict.Add(763, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6.");
-                    errorDescriptionDict.Add(764, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6.");
-                    errorDescriptionDict.Add(765, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6.");
-                    errorDescriptionDict.Add(766, "Hw configuration error: Module with unexpected size or type detected in Slot 6. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(770, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_1 is zero.");
-                    errorDescriptionDict.Add(771, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7.");
-                    errorDescriptionDict.Add(772, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7.");
-                    errorDescriptionDict.Add(773, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7.");
-                    errorDescriptionDict.Add(774, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7.");
-                    errorDescriptionDict.Add(775, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7.");
-                    errorDescriptionDict.Add(776, "Hw configuration error: Module with unexpected size or type detected in Slot 7. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(780, "Hw configuration error. Value of Config.HWIDs.HwID_in_8 is zero.");
-                    errorDescriptionDict.Add(781, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8.");
-                    errorDescriptionDict.Add(782, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8.");
-                    errorDescriptionDict.Add(783, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8.");
-                    errorDescriptionDict.Add(784, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8.");
-                    errorDescriptionDict.Add(785, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8.");
-                    errorDescriptionDict.Add(786, "Hw configuration error: Module with unexpected size or type detected in Slot 8. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(790, "Hw configuration error. Value of Config.HWIDs.HwID_in_9 is zero.");
-                    errorDescriptionDict.Add(791, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9.");
-                    errorDescriptionDict.Add(792, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9.");
-                    errorDescriptionDict.Add(793, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9.");
-                    errorDescriptionDict.Add(794, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 9.");
-                    errorDescriptionDict.Add(795, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 9.");
-                    errorDescriptionDict.Add(796, "Hw configuration error: Module with unexpected size or type detected in Slot 9. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(800, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl0 is zero.");
-                    errorDescriptionDict.Add(801, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 10.");
-                    errorDescriptionDict.Add(802, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 10.");
-                    errorDescriptionDict.Add(803, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 10.");
-                    errorDescriptionDict.Add(804, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 10.");
-                    errorDescriptionDict.Add(805, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 10.");
-                    errorDescriptionDict.Add(806, "Hw configuration error: Module with unexpected size or type detected in Slot 10. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(810, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl1 is zero.");
-                    errorDescriptionDict.Add(811, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 11.");
-                    errorDescriptionDict.Add(812, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 11.");
-                    errorDescriptionDict.Add(813, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 11.");
-                    errorDescriptionDict.Add(814, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 11.");
-                    errorDescriptionDict.Add(815, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 11.");
-                    errorDescriptionDict.Add(816, "Hw configuration error: Module with unexpected size or type detected in Slot 11. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(820, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl2 is zero.");
-                    errorDescriptionDict.Add(821, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 12.");
-                    errorDescriptionDict.Add(822, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 12.");
-                    errorDescriptionDict.Add(823, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 12.");
-                    errorDescriptionDict.Add(824, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 12.");
-                    errorDescriptionDict.Add(825, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 12.");
-                    errorDescriptionDict.Add(826, "Hw configuration error: Module with unexpected size or type detected in Slot 12. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(830, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl3 is zero.");
-                    errorDescriptionDict.Add(831, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 13.");
-                    errorDescriptionDict.Add(832, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 13.");
-                    errorDescriptionDict.Add(833, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 13.");
-                    errorDescriptionDict.Add(834, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 13.");
-                    errorDescriptionDict.Add(835, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 13.");
-                    errorDescriptionDict.Add(836, "Hw configuration error: Module with unexpected size or type detected in Slot 13. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(840, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl4 is zero.");
-                    errorDescriptionDict.Add(841, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 14.");
-                    errorDescriptionDict.Add(842, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 14.");
-                    errorDescriptionDict.Add(843, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 14.");
-                    errorDescriptionDict.Add(844, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 14.");
-                    errorDescriptionDict.Add(845, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 14.");
-                    errorDescriptionDict.Add(846, "Hw configuration error: Module with unexpected size or type detected in Slot 14. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(850, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl5 is zero.");
-                    errorDescriptionDict.Add(851, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 15.");
-                    errorDescriptionDict.Add(852, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 15.");
-                    errorDescriptionDict.Add(853, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 15.");
-                    errorDescriptionDict.Add(854, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 15.");
-                    errorDescriptionDict.Add(855, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 15.");
-                    errorDescriptionDict.Add(856, "Hw configuration error: Module with unexpected size or type detected in Slot 15. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(860, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl6 is zero.");
-                    errorDescriptionDict.Add(861, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 16.");
-                    errorDescriptionDict.Add(862, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 16.");
-                    errorDescriptionDict.Add(863, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 16.");
-                    errorDescriptionDict.Add(864, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 16.");
-                    errorDescriptionDict.Add(865, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 16.");
-                    errorDescriptionDict.Add(866, "Hw configuration error: Module with unexpected size or type detected in Slot 16. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(870, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl7 is zero.");
-                    errorDescriptionDict.Add(871, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 17.");
-                    errorDescriptionDict.Add(872, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 17.");
-                    errorDescriptionDict.Add(873, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 17.");
-                    errorDescriptionDict.Add(874, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 17.");
-                    errorDescriptionDict.Add(875, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 17.");
-                    errorDescriptionDict.Add(876, "Hw configuration error: Module with unexpected size or type detected in Slot 17. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(880, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl8 is zero.");
-                    errorDescriptionDict.Add(881, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 18.");
-                    errorDescriptionDict.Add(882, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 18.");
-                    errorDescriptionDict.Add(883, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 18.");
-                    errorDescriptionDict.Add(884, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 18.");
-                    errorDescriptionDict.Add(885, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 18.");
-                    errorDescriptionDict.Add(886, "Hw configuration error: Module with unexpected size or type detected in Slot 18. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(890, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl9 is zero.");
-                    errorDescriptionDict.Add(891, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 19.");
-                    errorDescriptionDict.Add(892, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 19.");
-                    errorDescriptionDict.Add(893, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 19.");
-                    errorDescriptionDict.Add(894, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 19.");
-                    errorDescriptionDict.Add(895, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 19.");
-                    errorDescriptionDict.Add(896, "Hw configuration error: Module with unexpected size or type detected in Slot 19. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(900, "Hw configuration error. Value of Config.HWIDs.HwID_CommandStatusBits0 is zero.");
-                    errorDescriptionDict.Add(901, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 20.");
-                    errorDescriptionDict.Add(902, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 20.");
-                    errorDescriptionDict.Add(903, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 20.");
-                    errorDescriptionDict.Add(904, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 20.");
-                    errorDescriptionDict.Add(905, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 20.");
-                    errorDescriptionDict.Add(906, "Hw configuration error: Module with unexpected size or type detected in Slot 20. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(910, "Hw configuration error. Value of Config.HWIDs.HwID_out_1 is zero.");
-                    errorDescriptionDict.Add(911, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 21.");
-                    errorDescriptionDict.Add(912, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 21.");
-                    errorDescriptionDict.Add(913, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 21.");
-                    errorDescriptionDict.Add(914, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 21.");
-                    errorDescriptionDict.Add(915, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 21.");
-                    errorDescriptionDict.Add(916, "Hw configuration error: Module with unexpected size or type detected in Slot 21. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(920, "Hw configuration error. Value of Config.HWIDs.HwID_out_2 is zero.");
-                    errorDescriptionDict.Add(921, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 22.");
-                    errorDescriptionDict.Add(922, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 22.");
-                    errorDescriptionDict.Add(923, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 22.");
-                    errorDescriptionDict.Add(924, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 22.");
-                    errorDescriptionDict.Add(925, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 22.");
-                    errorDescriptionDict.Add(926, "Hw configuration error: Module with unexpected size or type detected in Slot 22. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(930, "Hw configuration error. Value of Config.HWIDs.HwID_out_3 is zero.");
-                    errorDescriptionDict.Add(931, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 23.");
-                    errorDescriptionDict.Add(932, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 23.");
-                    errorDescriptionDict.Add(933, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 23.");
-                    errorDescriptionDict.Add(934, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 23.");
-                    errorDescriptionDict.Add(935, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 23.");
-                    errorDescriptionDict.Add(936, "Hw configuration error: Module with unexpected size or type detected in Slot 23. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(940, "Hw configuration error. Value of Config.HWIDs.HwID_out_4 is zero.");
-                    errorDescriptionDict.Add(941, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 24.");
-                    errorDescriptionDict.Add(942, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 24.");
-                    errorDescriptionDict.Add(943, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 24.");
-                    errorDescriptionDict.Add(944, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 24.");
-                    errorDescriptionDict.Add(945, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 24.");
-                    errorDescriptionDict.Add(946, "Hw configuration error: Module with unexpected size or type detected in Slot 24. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(950, "Hw configuration error. Value of Config.HWIDs.HwID_out_5 is zero.");
-                    errorDescriptionDict.Add(951, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 25.");
-                    errorDescriptionDict.Add(952, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 25.");
-                    errorDescriptionDict.Add(953, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 25.");
-                    errorDescriptionDict.Add(954, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 25.");
-                    errorDescriptionDict.Add(955, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 25.");
-                    errorDescriptionDict.Add(956, "Hw configuration error: Module with unexpected size or type detected in Slot 25. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(960, "Hw configuration error. Value of Config.HWIDs.HwID_out_6 is zero.");
-                    errorDescriptionDict.Add(961, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 26.");
-                    errorDescriptionDict.Add(962, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 26.");
-                    errorDescriptionDict.Add(963, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 26.");
-                    errorDescriptionDict.Add(964, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 26.");
-                    errorDescriptionDict.Add(965, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 26.");
-                    errorDescriptionDict.Add(966, "Hw configuration error: Module with unexpected size or type detected in Slot 26. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(970, "Hw configuration error. Value of Config.HWIDs.HwID_out_7 is zero.");
-                    errorDescriptionDict.Add(971, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 27.");
-                    errorDescriptionDict.Add(972, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 27.");
-                    errorDescriptionDict.Add(973, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 27.");
-                    errorDescriptionDict.Add(974, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 27.");
-                    errorDescriptionDict.Add(975, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 27.");
-                    errorDescriptionDict.Add(976, "Hw configuration error: Module with unexpected size or type detected in Slot 27. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(980, "Hw configuration error. Value of Config.HWIDs.HwID_out_8 is zero.");
-                    errorDescriptionDict.Add(981, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 28.");
-                    errorDescriptionDict.Add(982, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 28.");
-                    errorDescriptionDict.Add(983, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 28.");
-                    errorDescriptionDict.Add(984, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 28.");
-                    errorDescriptionDict.Add(985, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 28.");
-                    errorDescriptionDict.Add(986, "Hw configuration error: Module with unexpected size or type detected in Slot 28. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(990, "Hw configuration error. Value of Config.HWIDs.HwID_out_9 is zero.");
-                    errorDescriptionDict.Add(991, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 29.");
-                    errorDescriptionDict.Add(992, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 29.");
-                    errorDescriptionDict.Add(993, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 29.");
-                    errorDescriptionDict.Add(994, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 29.");
-                    errorDescriptionDict.Add(995, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 29.");
-                    errorDescriptionDict.Add(996, "Hw configuration error: Module with unexpected size or type detected in Slot 29. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(1000, "Hw configuration error. Value of Config.HWIDs.HwID_out_10 is zero.");
-                    errorDescriptionDict.Add(1001, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 30.");
-                    errorDescriptionDict.Add(1002, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 30.");
-                    errorDescriptionDict.Add(1003, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 30.");
-                    errorDescriptionDict.Add(1004, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 30.");
-                    errorDescriptionDict.Add(1005, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 30.");
-                    errorDescriptionDict.Add(1006, "Hw configuration error: Module with unexpected size or type detected in Slot 30. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(1010, "Hw configuration error. Value of Config.HWIDs.HwID_out_11 is zero.");
-                    errorDescriptionDict.Add(1011, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 31.");
-                    errorDescriptionDict.Add(1012, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 31.");
-                    errorDescriptionDict.Add(1013, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 31.");
-                    errorDescriptionDict.Add(1014, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 31.");
-                    errorDescriptionDict.Add(1015, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 31.");
-                    errorDescriptionDict.Add(1016, "Hw configuration error: Module with unexpected size or type detected in Slot 31. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(1020, "Hw configuration error. Value of Config.HWIDs.HwID_out_12 is zero.");
-                    errorDescriptionDict.Add(1021, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 32.");
-                    errorDescriptionDict.Add(1022, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 32.");
-                    errorDescriptionDict.Add(1023, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 32.");
-                    errorDescriptionDict.Add(1024, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 32.");
-                    errorDescriptionDict.Add(1025, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 32.");
-                    errorDescriptionDict.Add(1026, "Hw configuration error: Module with unexpected size or type detected in Slot 32. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(1030, "Hw configuration error. Value of Config.HWIDs.HwID_out_13 is zero.");
-                    errorDescriptionDict.Add(1031, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 33.");
-                    errorDescriptionDict.Add(1032, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 33.");
-                    errorDescriptionDict.Add(1033, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 33.");
-                    errorDescriptionDict.Add(1034, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 33.");
-                    errorDescriptionDict.Add(1035, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 33.");
-                    errorDescriptionDict.Add(1036, "Hw configuration error: Module with unexpected size or type detected in Slot 33. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(1040, "Hw configuration error. Value of Config.HWIDs.HwID_out_14 is zero.");
-                    errorDescriptionDict.Add(1041, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 34.");
-                    errorDescriptionDict.Add(1042, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 34.");
-                    errorDescriptionDict.Add(1043, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 34.");
-                    errorDescriptionDict.Add(1044, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 34.");
-                    errorDescriptionDict.Add(1045, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 34.");
-                    errorDescriptionDict.Add(1046, "Hw configuration error: Module with unexpected size or type detected in Slot 34. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(1050, "Hw configuration error. Value of Config.HWIDs.HwID_out_15 is zero.");
-                    errorDescriptionDict.Add(1051, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 35.");
-                    errorDescriptionDict.Add(1052, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 35.");
-                    errorDescriptionDict.Add(1053, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 35.");
-                    errorDescriptionDict.Add(1054, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 35.");
-                    errorDescriptionDict.Add(1055, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 35.");
-                    errorDescriptionDict.Add(1056, "Hw configuration error: Module with unexpected size or type detected in Slot 35. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(1060, "Hw configuration error. Value of Config.HWIDs.HwID_out_16 is zero.");
-                    errorDescriptionDict.Add(1061, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 36.");
-                    errorDescriptionDict.Add(1062, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 36.");
-                    errorDescriptionDict.Add(1063, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 36.");
-                    errorDescriptionDict.Add(1064, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 36.");
-                    errorDescriptionDict.Add(1065, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 36.");
-                    errorDescriptionDict.Add(1066, "Hw configuration error: Module with unexpected size or type detected in Slot 36. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(1070, "Hw configuration error. Value of Config.HWIDs.HwID_out_17 is zero.");
-                    errorDescriptionDict.Add(1071, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 37.");
-                    errorDescriptionDict.Add(1072, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 37.");
-                    errorDescriptionDict.Add(1073, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 37.");
-                    errorDescriptionDict.Add(1074, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 37.");
-                    errorDescriptionDict.Add(1075, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 37.");
-                    errorDescriptionDict.Add(1076, "Hw configuration error: Module with unexpected size or type detected in Slot 37. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(1080, "Hw configuration error. Value of Config.HWIDs.HwID_out_18 is zero.");
-                    errorDescriptionDict.Add(1081, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 38.");
-                    errorDescriptionDict.Add(1082, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 38.");
-                    errorDescriptionDict.Add(1083, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 38.");
-                    errorDescriptionDict.Add(1084, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 38.");
-                    errorDescriptionDict.Add(1085, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 38.");
-                    errorDescriptionDict.Add(1086, "Hw configuration error: Module with unexpected size or type detected in Slot 38. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(1090, "Hw configuration error. Value of Config.HWIDs.HwID_out_19 is zero.");
-                    errorDescriptionDict.Add(1091, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 39.");
-                    errorDescriptionDict.Add(1092, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 39.");
-                    errorDescriptionDict.Add(1093, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 39.");
-                    errorDescriptionDict.Add(1094, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 39.");
-                    errorDescriptionDict.Add(1095, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 39.");
-                    errorDescriptionDict.Add(1096, "Hw configuration error: Module with unexpected size or type detected in Slot 39. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(1100, "Hw configuration error. Value of Config.HWIDs.HwID_out_20 is zero.");
-                    errorDescriptionDict.Add(1101, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 40.");
-                    errorDescriptionDict.Add(1102, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 40.");
-                    errorDescriptionDict.Add(1103, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 40.");
-                    errorDescriptionDict.Add(1104, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 40.");
-                    errorDescriptionDict.Add(1105, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 40.");
-                    errorDescriptionDict.Add(1106, "Hw configuration error: Module with unexpected size or type detected in Slot 40. Expected module: 'gsd_id_of_req_module'.");
-                    errorDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(1131, "Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1132, "Variable `Config.HWIDs.HwID_CommandControl` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1133, "Variable `Config.HWIDs.HwID_CommandStatusBits` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1134, "Variable `Config.HWIDs.HwID_DeviceResultBits_1` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1135, "Variable `Config.HWIDs.HwID_DeviceStatusWords` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1136, "Variable `Config.HWIDs.HwID_DeviceStatistics` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1137, "Variable `Config.HWIDs.HwID_PositionAdjustResult` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1138, "Variable `Config.HWIDs.HwID_ToolResult_1` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1139, "Variable `Config.HWIDs.HwID_in_8` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1140, "Variable `Config.HWIDs.HwID_in_9` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1141, "Variable `Config.HWIDs.HwID_CommandControl0` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1142, "Variable `Config.HWIDs.HwID_CommandControl1` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1143, "Variable `Config.HWIDs.HwID_CommandControl2` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1144, "Variable `Config.HWIDs.HwID_CommandControl3` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1145, "Variable `Config.HWIDs.HwID_CommandControl4` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1146, "Variable `Config.HWIDs.HwID_CommandControl5` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1147, "Variable `Config.HWIDs.HwID_CommandControl6` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1148, "Variable `Config.HWIDs.HwID_CommandControl7` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1149, "Variable `Config.HWIDs.HwID_CommandControl8` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1150, "Variable `Config.HWIDs.HwID_CommandControl9` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1151, "Variable `Config.HWIDs.HwID_CommandStatusBits0` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1152, "Variable `Config.HWIDs.HwID_out_1` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1153, "Variable `Config.HWIDs.HwID_out_2` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1154, "Variable `Config.HWIDs.HwID_out_3` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1155, "Variable `Config.HWIDs.HwID_out_4` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1156, "Variable `Config.HWIDs.HwID_out_5` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1157, "Variable `Config.HWIDs.HwID_out_6` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1158, "Variable `Config.HWIDs.HwID_out_7` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1159, "Variable `Config.HWIDs.HwID_out_8` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1160, "Variable `Config.HWIDs.HwID_out_9` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1161, "Variable `Config.HWIDs.HwID_out_10` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1162, "Variable `Config.HWIDs.HwID_out_11` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1163, "Variable `Config.HWIDs.HwID_out_12` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1164, "Variable `Config.HWIDs.HwID_out_13` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1165, "Variable `Config.HWIDs.HwID_out_14` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1166, "Variable `Config.HWIDs.HwID_out_15` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1167, "Variable `Config.HWIDs.HwID_out_16` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1168, "Variable `Config.HWIDs.HwID_out_17` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1169, "Variable `Config.HWIDs.HwID_out_18` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1170, "Variable `Config.HWIDs.HwID_out_19` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1171, "Variable `Config.HWIDs.HwID_out_20` has invalid value in `Run` method!");
-                    errorDescriptionDict.Add(1201, "Error reading the Axo_IV3InputStructure_HwID_CommandControl!");
-                    errorDescriptionDict.Add(1202, "Error reading the Axo_IV3InputStructure_HwID_CommandStatusBits!");
-                    errorDescriptionDict.Add(1203, "Error reading the Axo_IV3InputStructure_HwID_DeviceResultBits_1!");
-                    errorDescriptionDict.Add(1204, "Error reading the Axo_IV3InputStructure_HwID_DeviceStatusWords!");
-                    errorDescriptionDict.Add(1205, "Error reading the Axo_IV3InputStructure_HwID_DeviceStatistics!");
-                    errorDescriptionDict.Add(1206, "Error reading the Axo_IV3InputStructure_HwID_PositionAdjustResult!");
-                    errorDescriptionDict.Add(1207, "Error reading the Axo_IV3InputStructure_HwID_ToolResult_1!");
-                    errorDescriptionDict.Add(1208, "Error reading the Axo_IV3InputStructure_HwID_in_8!");
-                    errorDescriptionDict.Add(1209, "Error reading the Axo_IV3InputStructure_HwID_in_9!");
-                    errorDescriptionDict.Add(1210, "Error reading the Axo_IV3InputStructure_HwID_CommandControl0!");
-                    errorDescriptionDict.Add(1211, "Error reading the Axo_IV3InputStructure_HwID_CommandControl1!");
-                    errorDescriptionDict.Add(1212, "Error reading the Axo_IV3InputStructure_HwID_CommandControl2!");
-                    errorDescriptionDict.Add(1213, "Error reading the Axo_IV3InputStructure_HwID_CommandControl3!");
-                    errorDescriptionDict.Add(1214, "Error reading the Axo_IV3InputStructure_HwID_CommandControl4!");
-                    errorDescriptionDict.Add(1215, "Error reading the Axo_IV3InputStructure_HwID_CommandControl5!");
-                    errorDescriptionDict.Add(1216, "Error reading the Axo_IV3InputStructure_HwID_CommandControl6!");
-                    errorDescriptionDict.Add(1217, "Error reading the Axo_IV3InputStructure_HwID_CommandControl7!");
-                    errorDescriptionDict.Add(1218, "Error reading the Axo_IV3InputStructure_HwID_CommandControl8!");
-                    errorDescriptionDict.Add(1219, "Error reading the Axo_IV3InputStructure_HwID_CommandControl9!");
-                    errorDescriptionDict.Add(1220, "Error reading the Axo_IV3InputStructure_HwID_CommandStatusBits0!");
-                    errorDescriptionDict.Add(1231, "Error writing the Axo_IV3OutputStructure_HwID_out_1!");
-                    errorDescriptionDict.Add(1232, "Error writing the Axo_IV3OutputStructure_HwID_out_2!");
-                    errorDescriptionDict.Add(1233, "Error writing the Axo_IV3OutputStructure_HwID_out_3!");
-                    errorDescriptionDict.Add(1234, "Error writing the Axo_IV3OutputStructure_HwID_out_4!");
-                    errorDescriptionDict.Add(1235, "Error writing the Axo_IV3OutputStructure_HwID_out_5!");
-                    errorDescriptionDict.Add(1236, "Error writing the Axo_IV3OutputStructure_HwID_out_6!");
-                    errorDescriptionDict.Add(1237, "Error writing the Axo_IV3OutputStructure_HwID_out_7!");
-                    errorDescriptionDict.Add(1238, "Error writing the Axo_IV3OutputStructure_HwID_out_8!");
-                    errorDescriptionDict.Add(1239, "Error writing the Axo_IV3OutputStructure_HwID_out_9!");
-                    errorDescriptionDict.Add(1240, "Error writing the Axo_IV3OutputStructure_HwID_out_10!");
-                    errorDescriptionDict.Add(1241, "Error writing the Axo_IV3OutputStructure_HwID_out_11!");
-                    errorDescriptionDict.Add(1242, "Error writing the Axo_IV3OutputStructure_HwID_out_12!");
-                    errorDescriptionDict.Add(1243, "Error writing the Axo_IV3OutputStructure_HwID_out_13!");
-                    errorDescriptionDict.Add(1244, "Error writing the Axo_IV3OutputStructure_HwID_out_14!");
-                    errorDescriptionDict.Add(1245, "Error writing the Axo_IV3OutputStructure_HwID_out_15!");
-                    errorDescriptionDict.Add(1246, "Error writing the Axo_IV3OutputStructure_HwID_out_16!");
-                    errorDescriptionDict.Add(1247, "Error writing the Axo_IV3OutputStructure_HwID_out_17!");
-                    errorDescriptionDict.Add(1248, "Error writing the Axo_IV3OutputStructure_HwID_out_18!");
-                    errorDescriptionDict.Add(1249, "Error writing the Axo_IV3OutputStructure_HwID_out_19!");
-                    errorDescriptionDict.Add(1250, "Error writing the Axo_IV3OutputStructure_HwID_out_20!");
-                    // TemplateTask_10steps_1
-                    errorDescriptionDict.Add(10000, "TemplateTask_10steps_1 finished with error!");
-                    errorDescriptionDict.Add(10001, "TemplateTask_10steps_1 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_2
-                    errorDescriptionDict.Add(10010, "TemplateTask_10steps_2 finished with error!");
-                    errorDescriptionDict.Add(10011, "TemplateTask_10steps_2 was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(660, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(661, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(662, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(663, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(664, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(665, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(666, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(667, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(668, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(669, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(670, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(671, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(672, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(673, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(674, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(675, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(676, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(677, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(678, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    errorDescriptionDict.Add(679, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
+                    //  General alarms
+                    errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!"                                                              );
+                    errorDescriptionDict.Add(701, "Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                                             );
+                    errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."   );
+                    errorDescriptionDict.Add(710, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl is zero."                                               );
+                    errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."          );
+                    errorDescriptionDict.Add(712, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."          );
+                    errorDescriptionDict.Add(713, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."          );
+                    errorDescriptionDict.Add(714, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1."          );
+                    errorDescriptionDict.Add(715, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."          );
+                    errorDescriptionDict.Add(716, "Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: '101'."                  );
+                    errorDescriptionDict.Add(720, "Hw configuration error. Value of Config.HWIDs.HwID_CommandStatusBits is zero."                                            );
+                    errorDescriptionDict.Add(721, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2."          );
+                    errorDescriptionDict.Add(722, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2."          );
+                    errorDescriptionDict.Add(723, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2."          );
+                    errorDescriptionDict.Add(724, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2."          );
+                    errorDescriptionDict.Add(725, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2."          );
+                    errorDescriptionDict.Add(726, "Hw configuration error: Module with unexpected size or type detected in Slot 2. Expected module: '201'."                  );
+                    errorDescriptionDict.Add(730, "Hw configuration error. Value of Config.HWIDs.HwID_DeviceResultBits_1 is zero."                                           );
+                    errorDescriptionDict.Add(731, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3."          );
+                    errorDescriptionDict.Add(732, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3."          );
+                    errorDescriptionDict.Add(733, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3."          );
+                    errorDescriptionDict.Add(734, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3."          );
+                    errorDescriptionDict.Add(735, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3."          );
+                    errorDescriptionDict.Add(736, "Hw configuration error: Module with unexpected size or type detected in Slot 3. Expected module: '202'."                  );
+                    errorDescriptionDict.Add(740, "Hw configuration error. Value of Config.HWIDs.HwID_DeviceStatusWords is zero."                                            );
+                    errorDescriptionDict.Add(741, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4."          );
+                    errorDescriptionDict.Add(742, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4."          );
+                    errorDescriptionDict.Add(743, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4."          );
+                    errorDescriptionDict.Add(744, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4."          );
+                    errorDescriptionDict.Add(745, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4."          );
+                    errorDescriptionDict.Add(746, "Hw configuration error: Module with unexpected size or type detected in Slot 4. Expected module: '203'."                  );
+                    errorDescriptionDict.Add(750, "Hw configuration error. Value of Config.HWIDs.HwID_DeviceStatistics is zero."                                             );
+                    errorDescriptionDict.Add(751, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5."          );
+                    errorDescriptionDict.Add(752, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5."          );
+                    errorDescriptionDict.Add(753, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5."          );
+                    errorDescriptionDict.Add(754, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5."          );
+                    errorDescriptionDict.Add(755, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5."          );
+                    errorDescriptionDict.Add(756, "Hw configuration error: Module with unexpected size or type detected in Slot 5. Expected module: '204'."                  );
+                    errorDescriptionDict.Add(760, "Hw configuration error. Value of Config.HWIDs.HwID_PositionAdjustResult is zero."                                         );
+                    errorDescriptionDict.Add(761, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6."          );
+                    errorDescriptionDict.Add(762, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6."          );
+                    errorDescriptionDict.Add(763, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6."          );
+                    errorDescriptionDict.Add(764, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6."          );
+                    errorDescriptionDict.Add(765, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6."          );
+                    errorDescriptionDict.Add(766, "Hw configuration error: Module with unexpected size or type detected in Slot 6. Expected module: '301'."                  );
+                    errorDescriptionDict.Add(770, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_1 is zero."                                                 );
+                    errorDescriptionDict.Add(771, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7."          );
+                    errorDescriptionDict.Add(772, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7."          );
+                    errorDescriptionDict.Add(773, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7."          );
+                    errorDescriptionDict.Add(774, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7."          );
+                    errorDescriptionDict.Add(775, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7."          );
+                    errorDescriptionDict.Add(776, "Hw configuration error: Module with unexpected size or type detected in Slot 7. Expected module: '302'."                  );
+                    errorDescriptionDict.Add(780, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_2 is zero."                                                 );
+                    errorDescriptionDict.Add(781, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8."          );
+                    errorDescriptionDict.Add(782, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8."          );
+                    errorDescriptionDict.Add(783, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8."          );
+                    errorDescriptionDict.Add(784, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8."          );
+                    errorDescriptionDict.Add(785, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8."          );
+                    errorDescriptionDict.Add(786, "Hw configuration error: Module with unexpected size or type detected in Slot 8. Expected module: '302'."                  );
+                    errorDescriptionDict.Add(790, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_3 is zero."                                                 );
+                    errorDescriptionDict.Add(791, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9."          );
+                    errorDescriptionDict.Add(792, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9."          );
+                    errorDescriptionDict.Add(793, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9."          );
+                    errorDescriptionDict.Add(794, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 9."          );
+                    errorDescriptionDict.Add(795, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 9."          );
+                    errorDescriptionDict.Add(796, "Hw configuration error: Module with unexpected size or type detected in Slot 9. Expected module: '302'."                  );
+                    errorDescriptionDict.Add(800, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_4 is zero."                                                 );
+                    errorDescriptionDict.Add(801, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 10."         );
+                    errorDescriptionDict.Add(802, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 10."         );
+                    errorDescriptionDict.Add(803, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 10."         );
+                    errorDescriptionDict.Add(804, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 10."         );
+                    errorDescriptionDict.Add(805, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 10."         );
+                    errorDescriptionDict.Add(806, "Hw configuration error: Module with unexpected size or type detected in Slot 10. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(810, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_5 is zero."                                                 );
+                    errorDescriptionDict.Add(811, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 11."         );
+                    errorDescriptionDict.Add(812, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 11."         );
+                    errorDescriptionDict.Add(813, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 11."         );
+                    errorDescriptionDict.Add(814, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 11."         );
+                    errorDescriptionDict.Add(815, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 11."         );
+                    errorDescriptionDict.Add(816, "Hw configuration error: Module with unexpected size or type detected in Slot 11. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(820, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_6 is zero."                                                 );
+                    errorDescriptionDict.Add(821, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 12."         );
+                    errorDescriptionDict.Add(822, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 12."         );
+                    errorDescriptionDict.Add(823, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 12."         );
+                    errorDescriptionDict.Add(824, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 12."         );
+                    errorDescriptionDict.Add(825, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 12."         );
+                    errorDescriptionDict.Add(826, "Hw configuration error: Module with unexpected size or type detected in Slot 12. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(830, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_7 is zero."                                                 );
+                    errorDescriptionDict.Add(831, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 13."         );
+                    errorDescriptionDict.Add(832, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 13."         );
+                    errorDescriptionDict.Add(833, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 13."         );
+                    errorDescriptionDict.Add(834, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 13."         );
+                    errorDescriptionDict.Add(835, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 13."         );
+                    errorDescriptionDict.Add(836, "Hw configuration error: Module with unexpected size or type detected in Slot 13. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(840, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_8 is zero."                                                 );
+                    errorDescriptionDict.Add(841, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 14."         );
+                    errorDescriptionDict.Add(842, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 14."         );
+                    errorDescriptionDict.Add(843, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 14."         );
+                    errorDescriptionDict.Add(844, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 14."         );
+                    errorDescriptionDict.Add(845, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 14."         );
+                    errorDescriptionDict.Add(846, "Hw configuration error: Module with unexpected size or type detected in Slot 14. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(850, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_9 is zero."                                                 );
+                    errorDescriptionDict.Add(851, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 15."         );
+                    errorDescriptionDict.Add(852, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 15."         );
+                    errorDescriptionDict.Add(853, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 15."         );
+                    errorDescriptionDict.Add(854, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 15."         );
+                    errorDescriptionDict.Add(855, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 15."         );
+                    errorDescriptionDict.Add(856, "Hw configuration error: Module with unexpected size or type detected in Slot 15. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(860, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_10 is zero."                                                );
+                    errorDescriptionDict.Add(861, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 16."         );
+                    errorDescriptionDict.Add(862, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 16."         );
+                    errorDescriptionDict.Add(863, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 16."         );
+                    errorDescriptionDict.Add(864, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 16."         );
+                    errorDescriptionDict.Add(865, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 16."         );
+                    errorDescriptionDict.Add(866, "Hw configuration error: Module with unexpected size or type detected in Slot 16. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(870, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_11 is zero."                                                );
+                    errorDescriptionDict.Add(871, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 17."         );
+                    errorDescriptionDict.Add(872, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 17."         );
+                    errorDescriptionDict.Add(873, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 17."         );
+                    errorDescriptionDict.Add(874, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 17."         );
+                    errorDescriptionDict.Add(875, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 17."         );
+                    errorDescriptionDict.Add(876, "Hw configuration error: Module with unexpected size or type detected in Slot 17. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(880, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_12 is zero."                                                );
+                    errorDescriptionDict.Add(881, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 18."         );
+                    errorDescriptionDict.Add(882, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 18."         );
+                    errorDescriptionDict.Add(883, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 18."         );
+                    errorDescriptionDict.Add(884, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 18."         );
+                    errorDescriptionDict.Add(885, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 18."         );
+                    errorDescriptionDict.Add(886, "Hw configuration error: Module with unexpected size or type detected in Slot 18. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(890, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_13 is zero."                                                );
+                    errorDescriptionDict.Add(891, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 19."         );
+                    errorDescriptionDict.Add(892, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 19."         );
+                    errorDescriptionDict.Add(893, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 19."         );
+                    errorDescriptionDict.Add(894, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 19."         );
+                    errorDescriptionDict.Add(895, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 19."         );
+                    errorDescriptionDict.Add(896, "Hw configuration error: Module with unexpected size or type detected in Slot 19. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(900, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_14 is zero."                                                );
+                    errorDescriptionDict.Add(901, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 20."         );
+                    errorDescriptionDict.Add(902, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 20."         );
+                    errorDescriptionDict.Add(903, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 20."         );
+                    errorDescriptionDict.Add(904, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 20."         );
+                    errorDescriptionDict.Add(905, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 20."         );
+                    errorDescriptionDict.Add(906, "Hw configuration error: Module with unexpected size or type detected in Slot 20. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(910, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_15 is zero."                                                );
+                    errorDescriptionDict.Add(911, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 21."         );
+                    errorDescriptionDict.Add(912, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 21."         );
+                    errorDescriptionDict.Add(913, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 21."         );
+                    errorDescriptionDict.Add(914, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 21."         );
+                    errorDescriptionDict.Add(915, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 21."         );
+                    errorDescriptionDict.Add(916, "Hw configuration error: Module with unexpected size or type detected in Slot 21. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(920, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_16 is zero."                                                );
+                    errorDescriptionDict.Add(921, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 22."         );
+                    errorDescriptionDict.Add(922, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 22."         );
+                    errorDescriptionDict.Add(923, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 22."         );
+                    errorDescriptionDict.Add(924, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 22."         );
+                    errorDescriptionDict.Add(925, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 22."         );
+                    errorDescriptionDict.Add(926, "Hw configuration error: Module with unexpected size or type detected in Slot 22. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(930, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_17 is zero."                                                );
+                    errorDescriptionDict.Add(931, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 23."         );
+                    errorDescriptionDict.Add(932, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 23."         );
+                    errorDescriptionDict.Add(933, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 23."         );
+                    errorDescriptionDict.Add(934, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 23."         );
+                    errorDescriptionDict.Add(935, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 23."         );
+                    errorDescriptionDict.Add(936, "Hw configuration error: Module with unexpected size or type detected in Slot 23. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(940, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_18 is zero."                                                );
+                    errorDescriptionDict.Add(941, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 24."         );
+                    errorDescriptionDict.Add(942, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 24."         );
+                    errorDescriptionDict.Add(943, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 24."         );
+                    errorDescriptionDict.Add(944, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 24."         );
+                    errorDescriptionDict.Add(945, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 24."         );
+                    errorDescriptionDict.Add(946, "Hw configuration error: Module with unexpected size or type detected in Slot 24. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(950, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_19 is zero."                                                );
+                    errorDescriptionDict.Add(951, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 25."         );
+                    errorDescriptionDict.Add(952, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 25."         );
+                    errorDescriptionDict.Add(953, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 25."         );
+                    errorDescriptionDict.Add(954, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 25."         );
+                    errorDescriptionDict.Add(955, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 25."         );
+                    errorDescriptionDict.Add(956, "Hw configuration error: Module with unexpected size or type detected in Slot 25. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(960, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_20 is zero."                                                );
+                    errorDescriptionDict.Add(961, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 26."         );
+                    errorDescriptionDict.Add(962, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 26."         );
+                    errorDescriptionDict.Add(963, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 26."         );
+                    errorDescriptionDict.Add(964, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 26."         );
+                    errorDescriptionDict.Add(965, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 26."         );
+                    errorDescriptionDict.Add(966, "Hw configuration error: Module with unexpected size or type detected in Slot 26. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(970, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_21 is zero."                                                );
+                    errorDescriptionDict.Add(971, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 27."         );
+                    errorDescriptionDict.Add(972, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 27."         );
+                    errorDescriptionDict.Add(973, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 27."         );
+                    errorDescriptionDict.Add(974, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 27."         );
+                    errorDescriptionDict.Add(975, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 27."         );
+                    errorDescriptionDict.Add(976, "Hw configuration error: Module with unexpected size or type detected in Slot 27. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(980, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_22 is zero."                                                );
+                    errorDescriptionDict.Add(981, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 28."         );
+                    errorDescriptionDict.Add(982, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 28."         );
+                    errorDescriptionDict.Add(983, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 28."         );
+                    errorDescriptionDict.Add(984, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 28."         );
+                    errorDescriptionDict.Add(985, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 28."         );
+                    errorDescriptionDict.Add(986, "Hw configuration error: Module with unexpected size or type detected in Slot 28. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(990, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_23 is zero."                                                );
+                    errorDescriptionDict.Add(991, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 29."         );
+                    errorDescriptionDict.Add(992, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 29."         );
+                    errorDescriptionDict.Add(993, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 29."         );
+                    errorDescriptionDict.Add(994, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 29."         );
+                    errorDescriptionDict.Add(995, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 29."         );
+                    errorDescriptionDict.Add(996, "Hw configuration error: Module with unexpected size or type detected in Slot 29. Expected module: '302'."                 );
+                    errorDescriptionDict.Add(1000, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_24 is zero."                                               );
+                    errorDescriptionDict.Add(1001, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 30."        );
+                    errorDescriptionDict.Add(1002, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 30."        );
+                    errorDescriptionDict.Add(1003, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 30."        );
+                    errorDescriptionDict.Add(1004, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 30."        );
+                    errorDescriptionDict.Add(1005, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 30."        );
+                    errorDescriptionDict.Add(1006, "Hw configuration error: Module with unexpected size or type detected in Slot 30. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1010, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_25 is zero."                                               );
+                    errorDescriptionDict.Add(1011, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 31."        );
+                    errorDescriptionDict.Add(1012, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 31."        );
+                    errorDescriptionDict.Add(1013, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 31."        );
+                    errorDescriptionDict.Add(1014, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 31."        );
+                    errorDescriptionDict.Add(1015, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 31."        );
+                    errorDescriptionDict.Add(1016, "Hw configuration error: Module with unexpected size or type detected in Slot 31. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1020, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_26 is zero."                                               );
+                    errorDescriptionDict.Add(1021, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 32."        );
+                    errorDescriptionDict.Add(1022, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 32."        );
+                    errorDescriptionDict.Add(1023, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 32."        );
+                    errorDescriptionDict.Add(1024, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 32."        );
+                    errorDescriptionDict.Add(1025, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 32."        );
+                    errorDescriptionDict.Add(1026, "Hw configuration error: Module with unexpected size or type detected in Slot 32. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1030, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_27 is zero."                                               );
+                    errorDescriptionDict.Add(1031, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 33."        );
+                    errorDescriptionDict.Add(1032, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 33."        );
+                    errorDescriptionDict.Add(1033, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 33."        );
+                    errorDescriptionDict.Add(1034, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 33."        );
+                    errorDescriptionDict.Add(1035, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 33."        );
+                    errorDescriptionDict.Add(1036, "Hw configuration error: Module with unexpected size or type detected in Slot 33. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1040, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_28 is zero."                                               );
+                    errorDescriptionDict.Add(1041, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 34."        );
+                    errorDescriptionDict.Add(1042, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 34."        );
+                    errorDescriptionDict.Add(1043, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 34."        );
+                    errorDescriptionDict.Add(1044, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 34."        );
+                    errorDescriptionDict.Add(1045, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 34."        );
+                    errorDescriptionDict.Add(1046, "Hw configuration error: Module with unexpected size or type detected in Slot 34. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1050, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_29 is zero."                                               );
+                    errorDescriptionDict.Add(1051, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 35."        );
+                    errorDescriptionDict.Add(1052, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 35."        );
+                    errorDescriptionDict.Add(1053, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 35."        );
+                    errorDescriptionDict.Add(1054, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 35."        );
+                    errorDescriptionDict.Add(1055, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 35."        );
+                    errorDescriptionDict.Add(1056, "Hw configuration error: Module with unexpected size or type detected in Slot 35. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1060, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_30 is zero."                                               );
+                    errorDescriptionDict.Add(1061, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 36."        );
+                    errorDescriptionDict.Add(1062, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 36."        );
+                    errorDescriptionDict.Add(1063, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 36."        );
+                    errorDescriptionDict.Add(1064, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 36."        );
+                    errorDescriptionDict.Add(1065, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 36."        );
+                    errorDescriptionDict.Add(1066, "Hw configuration error: Module with unexpected size or type detected in Slot 36. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1070, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_31 is zero."                                               );
+                    errorDescriptionDict.Add(1071, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 37."        );
+                    errorDescriptionDict.Add(1072, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 37."        );
+                    errorDescriptionDict.Add(1073, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 37."        );
+                    errorDescriptionDict.Add(1074, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 37."        );
+                    errorDescriptionDict.Add(1075, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 37."        );
+                    errorDescriptionDict.Add(1076, "Hw configuration error: Module with unexpected size or type detected in Slot 37. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1080, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_32 is zero."                                               );
+                    errorDescriptionDict.Add(1081, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 38."        );
+                    errorDescriptionDict.Add(1082, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 38."        );
+                    errorDescriptionDict.Add(1083, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 38."        );
+                    errorDescriptionDict.Add(1084, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 38."        );
+                    errorDescriptionDict.Add(1085, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 38."        );
+                    errorDescriptionDict.Add(1086, "Hw configuration error: Module with unexpected size or type detected in Slot 38. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1090, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_33 is zero."                                               );
+                    errorDescriptionDict.Add(1091, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 39."        );
+                    errorDescriptionDict.Add(1092, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 39."        );
+                    errorDescriptionDict.Add(1093, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 39."        );
+                    errorDescriptionDict.Add(1094, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 39."        );
+                    errorDescriptionDict.Add(1095, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 39."        );
+                    errorDescriptionDict.Add(1096, "Hw configuration error: Module with unexpected size or type detected in Slot 39. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1100, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_34 is zero."                                               );
+                    errorDescriptionDict.Add(1101, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 40."        );
+                    errorDescriptionDict.Add(1102, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 40."        );
+                    errorDescriptionDict.Add(1103, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 40."        );
+                    errorDescriptionDict.Add(1104, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 40."        );
+                    errorDescriptionDict.Add(1105, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 40."        );
+                    errorDescriptionDict.Add(1106, "Hw configuration error: Module with unexpected size or type detected in Slot 40. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1110, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_35 is zero."                                               );
+                    errorDescriptionDict.Add(1111, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 41."        );
+                    errorDescriptionDict.Add(1112, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 41."        );
+                    errorDescriptionDict.Add(1113, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 41."        );
+                    errorDescriptionDict.Add(1114, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 41."        );
+                    errorDescriptionDict.Add(1115, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 41."        );
+                    errorDescriptionDict.Add(1116, "Hw configuration error: Module with unexpected size or type detected in Slot 41. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1120, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_36 is zero."                                               );
+                    errorDescriptionDict.Add(1121, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 42."        );
+                    errorDescriptionDict.Add(1122, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 42."        );
+                    errorDescriptionDict.Add(1123, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 42."        );
+                    errorDescriptionDict.Add(1124, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 42."        );
+                    errorDescriptionDict.Add(1125, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 42."        );
+                    errorDescriptionDict.Add(1126, "Hw configuration error: Module with unexpected size or type detected in Slot 42. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1130, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_37 is zero."                                               );
+                    errorDescriptionDict.Add(1131, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 43."        );
+                    errorDescriptionDict.Add(1132, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 43."        );
+                    errorDescriptionDict.Add(1133, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 43."        );
+                    errorDescriptionDict.Add(1134, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 43."        );
+                    errorDescriptionDict.Add(1135, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 43."        );
+                    errorDescriptionDict.Add(1136, "Hw configuration error: Module with unexpected size or type detected in Slot 43. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1140, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_38 is zero."                                               );
+                    errorDescriptionDict.Add(1141, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 44."        );
+                    errorDescriptionDict.Add(1142, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 44."        );
+                    errorDescriptionDict.Add(1143, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 44."        );
+                    errorDescriptionDict.Add(1144, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 44."        );
+                    errorDescriptionDict.Add(1145, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 44."        );
+                    errorDescriptionDict.Add(1146, "Hw configuration error: Module with unexpected size or type detected in Slot 44. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1150, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_39 is zero."                                               );
+                    errorDescriptionDict.Add(1151, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 45."        );
+                    errorDescriptionDict.Add(1152, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 45."        );
+                    errorDescriptionDict.Add(1153, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 45."        );
+                    errorDescriptionDict.Add(1154, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 45."        );
+                    errorDescriptionDict.Add(1155, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 45."        );
+                    errorDescriptionDict.Add(1156, "Hw configuration error: Module with unexpected size or type detected in Slot 45. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1160, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_40 is zero."                                               );
+                    errorDescriptionDict.Add(1161, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 46."        );
+                    errorDescriptionDict.Add(1162, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 46."        );
+                    errorDescriptionDict.Add(1163, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 46."        );
+                    errorDescriptionDict.Add(1164, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 46."        );
+                    errorDescriptionDict.Add(1165, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 46."        );
+                    errorDescriptionDict.Add(1166, "Hw configuration error: Module with unexpected size or type detected in Slot 46. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1170, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_41 is zero."                                               );
+                    errorDescriptionDict.Add(1171, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 47."        );
+                    errorDescriptionDict.Add(1172, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 47."        );
+                    errorDescriptionDict.Add(1173, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 47."        );
+                    errorDescriptionDict.Add(1174, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 47."        );
+                    errorDescriptionDict.Add(1175, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 47."        );
+                    errorDescriptionDict.Add(1176, "Hw configuration error: Module with unexpected size or type detected in Slot 47. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1180, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_42 is zero."                                               );
+                    errorDescriptionDict.Add(1181, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 48."        );
+                    errorDescriptionDict.Add(1182, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 48."        );
+                    errorDescriptionDict.Add(1183, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 48."        );
+                    errorDescriptionDict.Add(1184, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 48."        );
+                    errorDescriptionDict.Add(1185, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 48."        );
+                    errorDescriptionDict.Add(1186, "Hw configuration error: Module with unexpected size or type detected in Slot 48. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1190, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_43 is zero."                                               );
+                    errorDescriptionDict.Add(1191, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 49."        );
+                    errorDescriptionDict.Add(1192, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 49."        );
+                    errorDescriptionDict.Add(1193, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 49."        );
+                    errorDescriptionDict.Add(1194, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 49."        );
+                    errorDescriptionDict.Add(1195, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 49."        );
+                    errorDescriptionDict.Add(1196, "Hw configuration error: Module with unexpected size or type detected in Slot 49. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1200, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_44 is zero."                                               );
+                    errorDescriptionDict.Add(1201, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 50."        );
+                    errorDescriptionDict.Add(1202, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 50."        );
+                    errorDescriptionDict.Add(1203, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 50."        );
+                    errorDescriptionDict.Add(1204, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 50."        );
+                    errorDescriptionDict.Add(1205, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 50."        );
+                    errorDescriptionDict.Add(1206, "Hw configuration error: Module with unexpected size or type detected in Slot 50. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1210, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_45 is zero."                                               );
+                    errorDescriptionDict.Add(1211, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 51."        );
+                    errorDescriptionDict.Add(1212, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 51."        );
+                    errorDescriptionDict.Add(1213, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 51."        );
+                    errorDescriptionDict.Add(1214, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 51."        );
+                    errorDescriptionDict.Add(1215, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 51."        );
+                    errorDescriptionDict.Add(1216, "Hw configuration error: Module with unexpected size or type detected in Slot 51. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1220, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_46 is zero."                                               );
+                    errorDescriptionDict.Add(1221, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 52."        );
+                    errorDescriptionDict.Add(1222, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 52."        );
+                    errorDescriptionDict.Add(1223, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 52."        );
+                    errorDescriptionDict.Add(1224, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 52."        );
+                    errorDescriptionDict.Add(1225, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 52."        );
+                    errorDescriptionDict.Add(1226, "Hw configuration error: Module with unexpected size or type detected in Slot 52. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1230, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_47 is zero."                                               );
+                    errorDescriptionDict.Add(1231, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 53."        );
+                    errorDescriptionDict.Add(1232, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 53."        );
+                    errorDescriptionDict.Add(1233, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 53."        );
+                    errorDescriptionDict.Add(1234, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 53."        );
+                    errorDescriptionDict.Add(1235, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 53."        );
+                    errorDescriptionDict.Add(1236, "Hw configuration error: Module with unexpected size or type detected in Slot 53. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1240, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_48 is zero."                                               );
+                    errorDescriptionDict.Add(1241, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 54."        );
+                    errorDescriptionDict.Add(1242, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 54."        );
+                    errorDescriptionDict.Add(1243, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 54."        );
+                    errorDescriptionDict.Add(1244, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 54."        );
+                    errorDescriptionDict.Add(1245, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 54."        );
+                    errorDescriptionDict.Add(1246, "Hw configuration error: Module with unexpected size or type detected in Slot 54. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1250, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_49 is zero."                                               );
+                    errorDescriptionDict.Add(1251, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 55."        );
+                    errorDescriptionDict.Add(1252, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 55."        );
+                    errorDescriptionDict.Add(1253, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 55."        );
+                    errorDescriptionDict.Add(1254, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 55."        );
+                    errorDescriptionDict.Add(1255, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 55."        );
+                    errorDescriptionDict.Add(1256, "Hw configuration error: Module with unexpected size or type detected in Slot 55. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1260, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_50 is zero."                                               );
+                    errorDescriptionDict.Add(1261, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 56."        );
+                    errorDescriptionDict.Add(1262, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 56."        );
+                    errorDescriptionDict.Add(1263, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 56."        );
+                    errorDescriptionDict.Add(1264, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 56."        );
+                    errorDescriptionDict.Add(1265, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 56."        );
+                    errorDescriptionDict.Add(1266, "Hw configuration error: Module with unexpected size or type detected in Slot 56. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1270, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_51 is zero."                                               );
+                    errorDescriptionDict.Add(1271, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 57."        );
+                    errorDescriptionDict.Add(1272, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 57."        );
+                    errorDescriptionDict.Add(1273, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 57."        );
+                    errorDescriptionDict.Add(1274, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 57."        );
+                    errorDescriptionDict.Add(1275, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 57."        );
+                    errorDescriptionDict.Add(1276, "Hw configuration error: Module with unexpected size or type detected in Slot 57. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1280, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_52 is zero."                                               );
+                    errorDescriptionDict.Add(1281, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 58."        );
+                    errorDescriptionDict.Add(1282, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 58."        );
+                    errorDescriptionDict.Add(1283, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 58."        );
+                    errorDescriptionDict.Add(1284, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 58."        );
+                    errorDescriptionDict.Add(1285, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 58."        );
+                    errorDescriptionDict.Add(1286, "Hw configuration error: Module with unexpected size or type detected in Slot 58. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1290, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_53 is zero."                                               );
+                    errorDescriptionDict.Add(1291, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 59."        );
+                    errorDescriptionDict.Add(1292, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 59."        );
+                    errorDescriptionDict.Add(1293, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 59."        );
+                    errorDescriptionDict.Add(1294, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 59."        );
+                    errorDescriptionDict.Add(1295, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 59."        );
+                    errorDescriptionDict.Add(1296, "Hw configuration error: Module with unexpected size or type detected in Slot 59. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1300, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_54 is zero."                                               );
+                    errorDescriptionDict.Add(1301, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 60."        );
+                    errorDescriptionDict.Add(1302, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 60."        );
+                    errorDescriptionDict.Add(1303, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 60."        );
+                    errorDescriptionDict.Add(1304, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 60."        );
+                    errorDescriptionDict.Add(1305, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 60."        );
+                    errorDescriptionDict.Add(1306, "Hw configuration error: Module with unexpected size or type detected in Slot 60. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1310, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_55 is zero."                                               );
+                    errorDescriptionDict.Add(1311, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 61."        );
+                    errorDescriptionDict.Add(1312, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 61."        );
+                    errorDescriptionDict.Add(1313, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 61."        );
+                    errorDescriptionDict.Add(1314, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 61."        );
+                    errorDescriptionDict.Add(1315, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 61."        );
+                    errorDescriptionDict.Add(1316, "Hw configuration error: Module with unexpected size or type detected in Slot 61. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1320, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_56 is zero."                                               );
+                    errorDescriptionDict.Add(1321, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 62."        );
+                    errorDescriptionDict.Add(1322, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 62."        );
+                    errorDescriptionDict.Add(1323, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 62."        );
+                    errorDescriptionDict.Add(1324, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 62."        );
+                    errorDescriptionDict.Add(1325, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 62."        );
+                    errorDescriptionDict.Add(1326, "Hw configuration error: Module with unexpected size or type detected in Slot 62. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1330, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_57 is zero."                                               );
+                    errorDescriptionDict.Add(1331, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 63."        );
+                    errorDescriptionDict.Add(1332, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 63."        );
+                    errorDescriptionDict.Add(1333, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 63."        );
+                    errorDescriptionDict.Add(1334, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 63."        );
+                    errorDescriptionDict.Add(1335, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 63."        );
+                    errorDescriptionDict.Add(1336, "Hw configuration error: Module with unexpected size or type detected in Slot 63. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1340, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_58 is zero."                                               );
+                    errorDescriptionDict.Add(1341, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 64."        );
+                    errorDescriptionDict.Add(1342, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 64."        );
+                    errorDescriptionDict.Add(1343, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 64."        );
+                    errorDescriptionDict.Add(1344, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 64."        );
+                    errorDescriptionDict.Add(1345, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 64."        );
+                    errorDescriptionDict.Add(1346, "Hw configuration error: Module with unexpected size or type detected in Slot 64. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1350, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_59 is zero."                                               );
+                    errorDescriptionDict.Add(1351, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 65."        );
+                    errorDescriptionDict.Add(1352, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 65."        );
+                    errorDescriptionDict.Add(1353, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 65."        );
+                    errorDescriptionDict.Add(1354, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 65."        );
+                    errorDescriptionDict.Add(1355, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 65."        );
+                    errorDescriptionDict.Add(1356, "Hw configuration error: Module with unexpected size or type detected in Slot 65. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1360, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_60 is zero."                                               );
+                    errorDescriptionDict.Add(1361, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 66."        );
+                    errorDescriptionDict.Add(1362, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 66."        );
+                    errorDescriptionDict.Add(1363, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 66."        );
+                    errorDescriptionDict.Add(1364, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 66."        );
+                    errorDescriptionDict.Add(1365, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 66."        );
+                    errorDescriptionDict.Add(1366, "Hw configuration error: Module with unexpected size or type detected in Slot 66. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1370, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_61 is zero."                                               );
+                    errorDescriptionDict.Add(1371, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 67."        );
+                    errorDescriptionDict.Add(1372, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 67."        );
+                    errorDescriptionDict.Add(1373, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 67."        );
+                    errorDescriptionDict.Add(1374, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 67."        );
+                    errorDescriptionDict.Add(1375, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 67."        );
+                    errorDescriptionDict.Add(1376, "Hw configuration error: Module with unexpected size or type detected in Slot 67. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1380, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_62 is zero."                                               );
+                    errorDescriptionDict.Add(1381, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 68."        );
+                    errorDescriptionDict.Add(1382, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 68."        );
+                    errorDescriptionDict.Add(1383, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 68."        );
+                    errorDescriptionDict.Add(1384, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 68."        );
+                    errorDescriptionDict.Add(1385, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 68."        );
+                    errorDescriptionDict.Add(1386, "Hw configuration error: Module with unexpected size or type detected in Slot 68. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1390, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_63 is zero."                                               );
+                    errorDescriptionDict.Add(1391, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 69."        );
+                    errorDescriptionDict.Add(1392, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 69."        );
+                    errorDescriptionDict.Add(1393, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 69."        );
+                    errorDescriptionDict.Add(1394, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 69."        );
+                    errorDescriptionDict.Add(1395, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 69."        );
+                    errorDescriptionDict.Add(1396, "Hw configuration error: Module with unexpected size or type detected in Slot 69. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1400, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_64 is zero."                                               );
+                    errorDescriptionDict.Add(1401, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 70."        );
+                    errorDescriptionDict.Add(1402, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 70."        );
+                    errorDescriptionDict.Add(1403, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 70."        );
+                    errorDescriptionDict.Add(1404, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 70."        );
+                    errorDescriptionDict.Add(1405, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 70."        );
+                    errorDescriptionDict.Add(1406, "Hw configuration error: Module with unexpected size or type detected in Slot 70. Expected module: '302'."                );
+                    errorDescriptionDict.Add(1410, "Hw configuration error. Value of Config.HWIDs.HwID_DeviceResultBits_2 is zero."                                          );
+                    errorDescriptionDict.Add(1411, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 71."        );
+                    errorDescriptionDict.Add(1412, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 71."        );
+                    errorDescriptionDict.Add(1413, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 71."        );
+                    errorDescriptionDict.Add(1414, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 71."        );
+                    errorDescriptionDict.Add(1415, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 71."        );
+                    errorDescriptionDict.Add(1416, "Hw configuration error: Module with unexpected size or type detected in Slot 71. Expected module: '401'."                );
+                    errorDescriptionDict.Add(1500, "Input variable `parent` has NULL reference in `Run` method!"                                    );
+                    errorDescriptionDict.Add(1501, "Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                   );
+                    errorDescriptionDict.Add(1502, "Variable `Config.HWIDs.HwID_CommandControl` has invalid value in `Run` method!"                 );
+                    errorDescriptionDict.Add(1503, "Variable `Config.HWIDs.HwID_CommandStatusBits` has invalid value in `Run` method!"              );
+                    errorDescriptionDict.Add(1504, "Variable `Config.HWIDs.HwID_DeviceResultBits_1` has invalid value in `Run` method!"             );
+                    errorDescriptionDict.Add(1505, "Variable `Config.HWIDs.HwID_DeviceStatusWords` has invalid value in `Run` method!"              );
+                    errorDescriptionDict.Add(1506, "Variable `Config.HWIDs.HwID_DeviceStatistics` has invalid value in `Run` method!"               );
+                    errorDescriptionDict.Add(1507, "Variable `Config.HWIDs.HwID_PositionAdjustResult` has invalid value in `Run` method!"           );
+                    errorDescriptionDict.Add(1508, "Variable `Config.HWIDs.HwID_ToolResult_1` has invalid value in `Run` method!"                   );
+                    errorDescriptionDict.Add(1509, "Variable `Config.HWIDs.HwID_ToolResult_2` has invalid value in `Run` method!"                   );
+                    errorDescriptionDict.Add(1510, "Variable `Config.HWIDs.HwID_ToolResult_3` has invalid value in `Run` method!"                   );
+                    errorDescriptionDict.Add(1511, "Variable `Config.HWIDs.HwID_ToolResult_4` has invalid value in `Run` method!"                   );
+                    errorDescriptionDict.Add(1512, "Variable `Config.HWIDs.HwID_ToolResult_5` has invalid value in `Run` method!"                   );
+                    errorDescriptionDict.Add(1513, "Variable `Config.HWIDs.HwID_ToolResult_6` has invalid value in `Run` method!"                   );
+                    errorDescriptionDict.Add(1514, "Variable `Config.HWIDs.HwID_ToolResult_7` has invalid value in `Run` method!"                   );
+                    errorDescriptionDict.Add(1515, "Variable `Config.HWIDs.HwID_ToolResult_8` has invalid value in `Run` method!"                   );
+                    errorDescriptionDict.Add(1516, "Variable `Config.HWIDs.HwID_ToolResult_9` has invalid value in `Run` method!"                   );
+                    errorDescriptionDict.Add(1517, "Variable `Config.HWIDs.HwID_ToolResult_10` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1518, "Variable `Config.HWIDs.HwID_ToolResult_11` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1519, "Variable `Config.HWIDs.HwID_ToolResult_12` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1520, "Variable `Config.HWIDs.HwID_ToolResult_13` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1521, "Variable `Config.HWIDs.HwID_ToolResult_14` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1522, "Variable `Config.HWIDs.HwID_ToolResult_15` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1523, "Variable `Config.HWIDs.HwID_ToolResult_16` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1524, "Variable `Config.HWIDs.HwID_ToolResult_17` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1525, "Variable `Config.HWIDs.HwID_ToolResult_18` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1526, "Variable `Config.HWIDs.HwID_ToolResult_19` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1527, "Variable `Config.HWIDs.HwID_ToolResult_20` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1528, "Variable `Config.HWIDs.HwID_ToolResult_21` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1529, "Variable `Config.HWIDs.HwID_ToolResult_22` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1530, "Variable `Config.HWIDs.HwID_ToolResult_23` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1531, "Variable `Config.HWIDs.HwID_ToolResult_24` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1532, "Variable `Config.HWIDs.HwID_ToolResult_25` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1533, "Variable `Config.HWIDs.HwID_ToolResult_26` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1534, "Variable `Config.HWIDs.HwID_ToolResult_27` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1535, "Variable `Config.HWIDs.HwID_ToolResult_28` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1536, "Variable `Config.HWIDs.HwID_ToolResult_29` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1537, "Variable `Config.HWIDs.HwID_ToolResult_30` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1538, "Variable `Config.HWIDs.HwID_ToolResult_31` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1539, "Variable `Config.HWIDs.HwID_ToolResult_32` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1540, "Variable `Config.HWIDs.HwID_ToolResult_33` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1541, "Variable `Config.HWIDs.HwID_ToolResult_34` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1542, "Variable `Config.HWIDs.HwID_ToolResult_35` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1543, "Variable `Config.HWIDs.HwID_ToolResult_36` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1544, "Variable `Config.HWIDs.HwID_ToolResult_37` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1545, "Variable `Config.HWIDs.HwID_ToolResult_38` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1546, "Variable `Config.HWIDs.HwID_ToolResult_39` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1547, "Variable `Config.HWIDs.HwID_ToolResult_40` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1548, "Variable `Config.HWIDs.HwID_ToolResult_41` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1549, "Variable `Config.HWIDs.HwID_ToolResult_42` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1550, "Variable `Config.HWIDs.HwID_ToolResult_43` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1551, "Variable `Config.HWIDs.HwID_ToolResult_44` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1552, "Variable `Config.HWIDs.HwID_ToolResult_45` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1553, "Variable `Config.HWIDs.HwID_ToolResult_46` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1554, "Variable `Config.HWIDs.HwID_ToolResult_47` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1555, "Variable `Config.HWIDs.HwID_ToolResult_48` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1556, "Variable `Config.HWIDs.HwID_ToolResult_49` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1557, "Variable `Config.HWIDs.HwID_ToolResult_50` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1558, "Variable `Config.HWIDs.HwID_ToolResult_51` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1559, "Variable `Config.HWIDs.HwID_ToolResult_52` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1560, "Variable `Config.HWIDs.HwID_ToolResult_53` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1561, "Variable `Config.HWIDs.HwID_ToolResult_54` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1562, "Variable `Config.HWIDs.HwID_ToolResult_55` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1563, "Variable `Config.HWIDs.HwID_ToolResult_56` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1564, "Variable `Config.HWIDs.HwID_ToolResult_57` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1565, "Variable `Config.HWIDs.HwID_ToolResult_58` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1566, "Variable `Config.HWIDs.HwID_ToolResult_59` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1567, "Variable `Config.HWIDs.HwID_ToolResult_60` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1568, "Variable `Config.HWIDs.HwID_ToolResult_61` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1569, "Variable `Config.HWIDs.HwID_ToolResult_62` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1570, "Variable `Config.HWIDs.HwID_ToolResult_63` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1571, "Variable `Config.HWIDs.HwID_ToolResult_64` has invalid value in `Run` method!"                  );
+                    errorDescriptionDict.Add(1572, "Variable `Config.HWIDs.HwID_DeviceResultBits_2` has invalid value in `Run` method!"             );
+                    errorDescriptionDict.Add(1601, "Error reading the input data from the module with HWID: 'HwID_CommandStatusBits'!"              );
+                    errorDescriptionDict.Add(1602, "Error reading the input data from the module with HWID: 'HwID_DeviceResultBits_1'!"             );
+                    errorDescriptionDict.Add(1603, "Error reading the input data from the module with HWID: 'HwID_DeviceStatusWords'!"              );
+                    errorDescriptionDict.Add(1604, "Error reading the input data from the module with HWID: 'HwID_DeviceStatistics'!"               );
+                    errorDescriptionDict.Add(1605, "Error reading the input data from the module with HWID: 'HwID_PositionAdjustResult'!"           );
+                    errorDescriptionDict.Add(1606, "Error reading the input data from the module with HWID: 'HwID_ToolResult_1'!"                   );
+                    errorDescriptionDict.Add(1607, "Error reading the input data from the module with HWID: 'HwID_ToolResult_2'!"                   );
+                    errorDescriptionDict.Add(1608, "Error reading the input data from the module with HWID: 'HwID_ToolResult_3'!"                   );
+                    errorDescriptionDict.Add(1609, "Error reading the input data from the module with HWID: 'HwID_ToolResult_4'!"                   );
+                    errorDescriptionDict.Add(1610, "Error reading the input data from the module with HWID: 'HwID_ToolResult_5'!"                   );
+                    errorDescriptionDict.Add(1611, "Error reading the input data from the module with HWID: 'HwID_ToolResult_6'!"                   );
+                    errorDescriptionDict.Add(1612, "Error reading the input data from the module with HWID: 'HwID_ToolResult_7'!"                   );
+                    errorDescriptionDict.Add(1613, "Error reading the input data from the module with HWID: 'HwID_ToolResult_8'!"                   );
+                    errorDescriptionDict.Add(1614, "Error reading the input data from the module with HWID: 'HwID_ToolResult_9'!"                   );
+                    errorDescriptionDict.Add(1615, "Error reading the input data from the module with HWID: 'HwID_ToolResult_10'!"                  );
+                    errorDescriptionDict.Add(1616, "Error reading the input data from the module with HWID: 'HwID_ToolResult_11'!"                  );
+                    errorDescriptionDict.Add(1617, "Error reading the input data from the module with HWID: 'HwID_ToolResult_12'!"                  );
+                    errorDescriptionDict.Add(1618, "Error reading the input data from the module with HWID: 'HwID_ToolResult_13'!"                  );
+                    errorDescriptionDict.Add(1619, "Error reading the input data from the module with HWID: 'HwID_ToolResult_14'!"                  );
+                    errorDescriptionDict.Add(1620, "Error reading the input data from the module with HWID: 'HwID_ToolResult_15'!"                  );
+                    errorDescriptionDict.Add(1621, "Error reading the input data from the module with HWID: 'HwID_ToolResult_16'!"                  );
+                    errorDescriptionDict.Add(1622, "Error reading the input data from the module with HWID: 'HwID_ToolResult_17'!"                  );
+                    errorDescriptionDict.Add(1623, "Error reading the input data from the module with HWID: 'HwID_ToolResult_18'!"                  );
+                    errorDescriptionDict.Add(1624, "Error reading the input data from the module with HWID: 'HwID_ToolResult_19'!"                  );
+                    errorDescriptionDict.Add(1625, "Error reading the input data from the module with HWID: 'HwID_ToolResult_20'!"                  );
+                    errorDescriptionDict.Add(1626, "Error reading the input data from the module with HWID: 'HwID_ToolResult_21'!"                  );
+                    errorDescriptionDict.Add(1627, "Error reading the input data from the module with HWID: 'HwID_ToolResult_22'!"                  );
+                    errorDescriptionDict.Add(1628, "Error reading the input data from the module with HWID: 'HwID_ToolResult_23'!"                  );
+                    errorDescriptionDict.Add(1629, "Error reading the input data from the module with HWID: 'HwID_ToolResult_24'!"                  );
+                    errorDescriptionDict.Add(1630, "Error reading the input data from the module with HWID: 'HwID_ToolResult_25'!"                  );
+                    errorDescriptionDict.Add(1631, "Error reading the input data from the module with HWID: 'HwID_ToolResult_26'!"                  );
+                    errorDescriptionDict.Add(1632, "Error reading the input data from the module with HWID: 'HwID_ToolResult_27'!"                  );
+                    errorDescriptionDict.Add(1633, "Error reading the input data from the module with HWID: 'HwID_ToolResult_28'!"                  );
+                    errorDescriptionDict.Add(1634, "Error reading the input data from the module with HWID: 'HwID_ToolResult_29'!"                  );
+                    errorDescriptionDict.Add(1635, "Error reading the input data from the module with HWID: 'HwID_ToolResult_30'!"                  );
+                    errorDescriptionDict.Add(1636, "Error reading the input data from the module with HWID: 'HwID_ToolResult_31'!"                  );
+                    errorDescriptionDict.Add(1637, "Error reading the input data from the module with HWID: 'HwID_ToolResult_32'!"                  );
+                    errorDescriptionDict.Add(1638, "Error reading the input data from the module with HWID: 'HwID_ToolResult_33'!"                  );
+                    errorDescriptionDict.Add(1639, "Error reading the input data from the module with HWID: 'HwID_ToolResult_34'!"                  );
+                    errorDescriptionDict.Add(1640, "Error reading the input data from the module with HWID: 'HwID_ToolResult_35'!"                  );
+                    errorDescriptionDict.Add(1641, "Error reading the input data from the module with HWID: 'HwID_ToolResult_36'!"                  );
+                    errorDescriptionDict.Add(1642, "Error reading the input data from the module with HWID: 'HwID_ToolResult_37'!"                  );
+                    errorDescriptionDict.Add(1643, "Error reading the input data from the module with HWID: 'HwID_ToolResult_38'!"                  );
+                    errorDescriptionDict.Add(1644, "Error reading the input data from the module with HWID: 'HwID_ToolResult_39'!"                  );
+                    errorDescriptionDict.Add(1645, "Error reading the input data from the module with HWID: 'HwID_ToolResult_40'!"                  );
+                    errorDescriptionDict.Add(1646, "Error reading the input data from the module with HWID: 'HwID_ToolResult_41'!"                  );
+                    errorDescriptionDict.Add(1647, "Error reading the input data from the module with HWID: 'HwID_ToolResult_42'!"                  );
+                    errorDescriptionDict.Add(1648, "Error reading the input data from the module with HWID: 'HwID_ToolResult_43'!"                  );
+                    errorDescriptionDict.Add(1649, "Error reading the input data from the module with HWID: 'HwID_ToolResult_44'!"                  );
+                    errorDescriptionDict.Add(1650, "Error reading the input data from the module with HWID: 'HwID_ToolResult_45'!"                  );
+                    errorDescriptionDict.Add(1651, "Error reading the input data from the module with HWID: 'HwID_ToolResult_46'!"                  );
+                    errorDescriptionDict.Add(1652, "Error reading the input data from the module with HWID: 'HwID_ToolResult_47'!"                  );
+                    errorDescriptionDict.Add(1653, "Error reading the input data from the module with HWID: 'HwID_ToolResult_48'!"                  );
+                    errorDescriptionDict.Add(1654, "Error reading the input data from the module with HWID: 'HwID_ToolResult_49'!"                  );
+                    errorDescriptionDict.Add(1655, "Error reading the input data from the module with HWID: 'HwID_ToolResult_50'!"                  );
+                    errorDescriptionDict.Add(1656, "Error reading the input data from the module with HWID: 'HwID_ToolResult_51'!"                  );
+                    errorDescriptionDict.Add(1657, "Error reading the input data from the module with HWID: 'HwID_ToolResult_52'!"                  );
+                    errorDescriptionDict.Add(1658, "Error reading the input data from the module with HWID: 'HwID_ToolResult_53'!"                  );
+                    errorDescriptionDict.Add(1659, "Error reading the input data from the module with HWID: 'HwID_ToolResult_54'!"                  );
+                    errorDescriptionDict.Add(1660, "Error reading the input data from the module with HWID: 'HwID_ToolResult_55'!"                  );
+                    errorDescriptionDict.Add(1661, "Error reading the input data from the module with HWID: 'HwID_ToolResult_56'!"                  );
+                    errorDescriptionDict.Add(1662, "Error reading the input data from the module with HWID: 'HwID_ToolResult_57'!"                  );
+                    errorDescriptionDict.Add(1663, "Error reading the input data from the module with HWID: 'HwID_ToolResult_58'!"                  );
+                    errorDescriptionDict.Add(1664, "Error reading the input data from the module with HWID: 'HwID_ToolResult_59'!"                  );
+                    errorDescriptionDict.Add(1665, "Error reading the input data from the module with HWID: 'HwID_ToolResult_60'!"                  );
+                    errorDescriptionDict.Add(1666, "Error reading the input data from the module with HWID: 'HwID_ToolResult_61'!"                  );
+                    errorDescriptionDict.Add(1667, "Error reading the input data from the module with HWID: 'HwID_ToolResult_62'!"                  );
+                    errorDescriptionDict.Add(1668, "Error reading the input data from the module with HWID: 'HwID_ToolResult_63'!"                  );
+                    errorDescriptionDict.Add(1669, "Error reading the input data from the module with HWID: 'HwID_ToolResult_64'!"                  );
+                    errorDescriptionDict.Add(1670, "Error reading the input data from the module with HWID: 'HwID_DeviceResultBits_2'!"             );
+                    errorDescriptionDict.Add(1701, "Error writing the output data to the module with HWID: 'HwID_CommandControl'!"                  );
+                    errorDescriptionDict.Add(1801, "Program 1 corruption error"                                                                     );
+                    errorDescriptionDict.Add(1802, "Program 2 corruption error"                                                                     );
+                    errorDescriptionDict.Add(1803, "Program 3 corruption error"                                                                     );
+                    errorDescriptionDict.Add(1804, "Program 4 corruption error"                                                                     );
+                    errorDescriptionDict.Add(1805, "Program 5 corruption error"                                                                     );
+                    errorDescriptionDict.Add(1806, "Program 6 corruption error"                                                                     );
+                    errorDescriptionDict.Add(1807, "Program 7 corruption error"                                                                     );
+                    errorDescriptionDict.Add(1808, "Program 8 corruption error"                                                                     );
+                    errorDescriptionDict.Add(1809, "Program 9 corruption error"                                                                     );
+                    errorDescriptionDict.Add(1810, "Program 10 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1811, "Program 11 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1812, "Program 12 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1813, "Program 13 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1814, "Program 14 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1815, "Program 15 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1816, "Program 16 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1817, "Program 17 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1818, "Program 18 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1819, "Program 19 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1820, "Program 20 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1821, "Program 21 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1822, "Program 22 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1823, "Program 23 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1824, "Program 24 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1825, "Program 25 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1826, "Program 26 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1827, "Program 27 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1828, "Program 28 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1829, "Program 29 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1830, "Program 30 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1831, "Program 31 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1832, "Program 32 corruption error"                                                                    );
+                    errorDescriptionDict.Add(1852, "Program switching error (on startup;external input)"                                            );
+                    errorDescriptionDict.Add(1853, "Program switching error (on startup;Panel/PC/Network/Automatic Switching)"                      );
+                    errorDescriptionDict.Add(1855, "Program switching error (in [RUN] status)"                                                      );
+                    errorDescriptionDict.Add(1879, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1895, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1896, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1897, "Non-volatile memory error"                                                                      );
+                    errorDescriptionDict.Add(1898, "Non-volatile memory error"                                                                      );
+                    errorDescriptionDict.Add(1899, "Non-volatile memory error"                                                                      );
+                    errorDescriptionDict.Add(1900, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1901, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1902, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1903, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1904, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1905, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1906, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1907, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1908, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1909, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1910, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1911, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1912, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1913, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1914, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1915, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1916, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1917, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1918, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1919, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1920, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1921, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1922, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1923, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1924, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1925, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1926, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1927, "System error"                                                                                   );
+                    errorDescriptionDict.Add(1928, "System error"                                                                                   );
+                    // TriggerTask                                                                                                                                           );
+                    errorDescriptionDict.Add(10000, "TriggerTask finished with error!");
+                    errorDescriptionDict.Add(10001, "TriggerTask was aborted, while not yet completed!");
+                    // ChangeProgramTask
+                    errorDescriptionDict.Add(10010, "ChangeProgramTask finished with error!");
+                    errorDescriptionDict.Add(10011, "ChangeProgramTask was aborted, while not yet completed!");
                     // TemplateTask_10steps_3
                     errorDescriptionDict.Add(10020, "TemplateTask_10steps_3 finished with error!");
                     errorDescriptionDict.Add(10021, "TemplateTask_10steps_3 was aborted, while not yet completed!");
@@ -1684,34 +2144,34 @@ namespace AXOpen.Components.Keyence.Vision
                 {
                     actionDescriptionDict.Add(0, "   ");
                     actionDescriptionDict.Add(50, "Restore has been executed.");
-                    // TemplateTask_10steps_1
-                    actionDescriptionDict.Add(100, "TemplateTask_10steps_1 started.");
-                    actionDescriptionDict.Add(300, "TemplateTask_10steps_1 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(301, "TemplateTask_10steps_1 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(302, "TemplateTask_10steps_1 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(303, "TemplateTask_10steps_1 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(304, "TemplateTask_10steps_1 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(305, "TemplateTask_10steps_1 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(306, "TemplateTask_10steps_1 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(307, "TemplateTask_10steps_1 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(308, "TemplateTask_10steps_1 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(309, "TemplateTask_10steps_1 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(101, "TemplateTask_10steps_1 finished succesfully.");
-                    actionDescriptionDict.Add(102, "TemplateTask_10steps_1 restored.");
-                    // TemplateTask_10steps_2
-                    actionDescriptionDict.Add(110, "TemplateTask_10steps_2 started.");
-                    actionDescriptionDict.Add(310, "TemplateTask_10steps_2 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(311, "TemplateTask_10steps_2 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(312, "TemplateTask_10steps_2 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(313, "TemplateTask_10steps_2 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(314, "TemplateTask_10steps_2 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(315, "TemplateTask_10steps_2 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(316, "TemplateTask_10steps_2 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(317, "TemplateTask_10steps_2 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(318, "TemplateTask_10steps_2 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(319, "TemplateTask_10steps_2 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(111, "TemplateTask_10steps_2 finished succesfully.");
-                    actionDescriptionDict.Add(112, "TemplateTask_10steps_2 restored.");
+                    // TriggerTask
+                    actionDescriptionDict.Add(100, "TriggerTask started.");
+                    actionDescriptionDict.Add(300, "TriggerTask running, waiting for the raising of the 'TriggerReady' signal.");
+                    actionDescriptionDict.Add(301, "TriggerTask running, waiting for the raising of the 'TriggerResponse' signal.");
+                    actionDescriptionDict.Add(302, "TriggerTask running, waiting for the raising of the 'BUSY' signal.");
+                    actionDescriptionDict.Add(303, "TriggerTask running, waiting for the raising of the 'ImagingStatus' signal.");
+                    actionDescriptionDict.Add(304, "TriggerTask running, waiting for the falling of the 'BUSY' signal.");
+                    actionDescriptionDict.Add(305, "TriggerTask running, waiting for the change of the 'ResultUpdateComplete' signal.");
+                    actionDescriptionDict.Add(306, "TriggerTask running, waiting for the raising of the 'ResultAvailable' signal.");
+                    actionDescriptionDict.Add(307, "TriggerTask running, waiting for the incrementation of the 'ResultNo' signal.");
+                    actionDescriptionDict.Add(308, "TriggerTask running, <add the detailed description of the current action 9>");
+                    actionDescriptionDict.Add(309, "TriggerTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(101, "TriggerTask finished succesfully.");
+                    actionDescriptionDict.Add(102, "TriggerTask restored.");
+                    // ChangeProgramTask
+                    actionDescriptionDict.Add(110, "ChangeProgramTask started.");
+                    actionDescriptionDict.Add(310, "ChangeProgramTask running, checking the program number.");
+                    actionDescriptionDict.Add(311, "ChangeProgramTask running, setting the programm number.");
+                    actionDescriptionDict.Add(312, "ChangeProgramTask running, waiting for the raising of the 'ProgramSwitchingResponse' signal.");
+                    actionDescriptionDict.Add(313, "ChangeProgramTask running, waiting for the falling of the 'ProgramSwitchingResponse' signal.");
+                    actionDescriptionDict.Add(314, "ChangeProgramTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(315, "ChangeProgramTask running, <add the detailed description of the current action 6>");
+                    actionDescriptionDict.Add(316, "ChangeProgramTask running, <add the detailed description of the current action 7>");
+                    actionDescriptionDict.Add(317, "ChangeProgramTask running, <add the detailed description of the current action 8>");
+                    actionDescriptionDict.Add(318, "ChangeProgramTask running, <add the detailed description of the current action 9>");
+                    actionDescriptionDict.Add(319, "ChangeProgramTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(111, "ChangeProgramTask finished succesfully.");
+                    actionDescriptionDict.Add(112, "ChangeProgramTask restored.");
                     // TemplateTask_10steps_3
                     actionDescriptionDict.Add(120, "TemplateTask_10steps_3 started.");
                     actionDescriptionDict.Add(320, "TemplateTask_10steps_3 running, <add the detailed description of the current action 1>");
@@ -1923,368 +2383,717 @@ namespace AXOpen.Components.Keyence.Vision
                     actionDescriptionDict.Add(713, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1.");
                     actionDescriptionDict.Add(714, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 1.");
                     actionDescriptionDict.Add(715, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1.");
-                    actionDescriptionDict.Add(716, "Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'gsd_id_of_req_module'.");
+                    actionDescriptionDict.Add(716, "Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: '101'.");
                     actionDescriptionDict.Add(720, "Hw configuration error. Value of Config.HWIDs.HwID_CommandStatusBits is zero.");
                     actionDescriptionDict.Add(721, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2.");
                     actionDescriptionDict.Add(722, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2.");
                     actionDescriptionDict.Add(723, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2.");
                     actionDescriptionDict.Add(724, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 2.");
                     actionDescriptionDict.Add(725, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2.");
-                    actionDescriptionDict.Add(726, "Hw configuration error: Module with unexpected size or type detected in Slot 2. Expected module: 'gsd_id_of_req_module'.");
+                    actionDescriptionDict.Add(726, "Hw configuration error: Module with unexpected size or type detected in Slot 2. Expected module: '201'.");
                     actionDescriptionDict.Add(730, "Hw configuration error. Value of Config.HWIDs.HwID_DeviceResultBits_1 is zero.");
                     actionDescriptionDict.Add(731, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3.");
                     actionDescriptionDict.Add(732, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3.");
                     actionDescriptionDict.Add(733, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3.");
                     actionDescriptionDict.Add(734, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 3.");
                     actionDescriptionDict.Add(735, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3.");
-                    actionDescriptionDict.Add(736, "Hw configuration error: Module with unexpected size or type detected in Slot 3. Expected module: 'gsd_id_of_req_module'.");
+                    actionDescriptionDict.Add(736, "Hw configuration error: Module with unexpected size or type detected in Slot 3. Expected module: '202'.");
                     actionDescriptionDict.Add(740, "Hw configuration error. Value of Config.HWIDs.HwID_DeviceStatusWords is zero.");
                     actionDescriptionDict.Add(741, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4.");
                     actionDescriptionDict.Add(742, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4.");
                     actionDescriptionDict.Add(743, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4.");
                     actionDescriptionDict.Add(744, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 4.");
                     actionDescriptionDict.Add(745, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4.");
-                    actionDescriptionDict.Add(746, "Hw configuration error: Module with unexpected size or type detected in Slot 4. Expected module: 'gsd_id_of_req_module'.");
+                    actionDescriptionDict.Add(746, "Hw configuration error: Module with unexpected size or type detected in Slot 4. Expected module: '203'.");
                     actionDescriptionDict.Add(750, "Hw configuration error. Value of Config.HWIDs.HwID_DeviceStatistics is zero.");
                     actionDescriptionDict.Add(751, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5.");
                     actionDescriptionDict.Add(752, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5.");
                     actionDescriptionDict.Add(753, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5.");
                     actionDescriptionDict.Add(754, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 5.");
                     actionDescriptionDict.Add(755, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5.");
-                    actionDescriptionDict.Add(756, "Hw configuration error: Module with unexpected size or type detected in Slot 5. Expected module: 'gsd_id_of_req_module'.");
+                    actionDescriptionDict.Add(756, "Hw configuration error: Module with unexpected size or type detected in Slot 5. Expected module: '204'.");
                     actionDescriptionDict.Add(760, "Hw configuration error. Value of Config.HWIDs.HwID_PositionAdjustResult is zero.");
                     actionDescriptionDict.Add(761, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6.");
                     actionDescriptionDict.Add(762, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6.");
                     actionDescriptionDict.Add(763, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6.");
                     actionDescriptionDict.Add(764, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 6.");
                     actionDescriptionDict.Add(765, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6.");
-                    actionDescriptionDict.Add(766, "Hw configuration error: Module with unexpected size or type detected in Slot 6. Expected module: 'gsd_id_of_req_module'.");
+                    actionDescriptionDict.Add(766, "Hw configuration error: Module with unexpected size or type detected in Slot 6. Expected module: '301'.");
                     actionDescriptionDict.Add(770, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_1 is zero.");
                     actionDescriptionDict.Add(771, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7.");
                     actionDescriptionDict.Add(772, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7.");
                     actionDescriptionDict.Add(773, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7.");
                     actionDescriptionDict.Add(774, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 7.");
                     actionDescriptionDict.Add(775, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7.");
-                    actionDescriptionDict.Add(776, "Hw configuration error: Module with unexpected size or type detected in Slot 7. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(780, "Hw configuration error. Value of Config.HWIDs.HwID_in_8 is zero.");
+                    actionDescriptionDict.Add(776, "Hw configuration error: Module with unexpected size or type detected in Slot 7. Expected module: '302'.");
+                    actionDescriptionDict.Add(780, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_2 is zero.");
                     actionDescriptionDict.Add(781, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8.");
                     actionDescriptionDict.Add(782, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8.");
                     actionDescriptionDict.Add(783, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8.");
                     actionDescriptionDict.Add(784, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 8.");
                     actionDescriptionDict.Add(785, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8.");
-                    actionDescriptionDict.Add(786, "Hw configuration error: Module with unexpected size or type detected in Slot 8. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(790, "Hw configuration error. Value of Config.HWIDs.HwID_in_9 is zero.");
+                    actionDescriptionDict.Add(786, "Hw configuration error: Module with unexpected size or type detected in Slot 8. Expected module: '302'.");
+                    actionDescriptionDict.Add(790, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_3 is zero.");
                     actionDescriptionDict.Add(791, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9.");
                     actionDescriptionDict.Add(792, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9.");
                     actionDescriptionDict.Add(793, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9.");
                     actionDescriptionDict.Add(794, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 9.");
                     actionDescriptionDict.Add(795, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 9.");
-                    actionDescriptionDict.Add(796, "Hw configuration error: Module with unexpected size or type detected in Slot 9. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(800, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl0 is zero.");
+                    actionDescriptionDict.Add(796, "Hw configuration error: Module with unexpected size or type detected in Slot 9. Expected module: '302'.");
+                    actionDescriptionDict.Add(800, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_4 is zero.");
                     actionDescriptionDict.Add(801, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 10.");
                     actionDescriptionDict.Add(802, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 10.");
                     actionDescriptionDict.Add(803, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 10.");
                     actionDescriptionDict.Add(804, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 10.");
                     actionDescriptionDict.Add(805, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 10.");
-                    actionDescriptionDict.Add(806, "Hw configuration error: Module with unexpected size or type detected in Slot 10. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(810, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl1 is zero.");
+                    actionDescriptionDict.Add(806, "Hw configuration error: Module with unexpected size or type detected in Slot 10. Expected module: '302'.");
+                    actionDescriptionDict.Add(810, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_5 is zero.");
                     actionDescriptionDict.Add(811, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 11.");
                     actionDescriptionDict.Add(812, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 11.");
                     actionDescriptionDict.Add(813, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 11.");
                     actionDescriptionDict.Add(814, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 11.");
                     actionDescriptionDict.Add(815, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 11.");
-                    actionDescriptionDict.Add(816, "Hw configuration error: Module with unexpected size or type detected in Slot 11. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(820, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl2 is zero.");
+                    actionDescriptionDict.Add(816, "Hw configuration error: Module with unexpected size or type detected in Slot 11. Expected module: '302'.");
+                    actionDescriptionDict.Add(820, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_6 is zero.");
                     actionDescriptionDict.Add(821, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 12.");
                     actionDescriptionDict.Add(822, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 12.");
                     actionDescriptionDict.Add(823, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 12.");
                     actionDescriptionDict.Add(824, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 12.");
                     actionDescriptionDict.Add(825, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 12.");
-                    actionDescriptionDict.Add(826, "Hw configuration error: Module with unexpected size or type detected in Slot 12. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(830, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl3 is zero.");
+                    actionDescriptionDict.Add(826, "Hw configuration error: Module with unexpected size or type detected in Slot 12. Expected module: '302'.");
+                    actionDescriptionDict.Add(830, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_7 is zero.");
                     actionDescriptionDict.Add(831, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 13.");
                     actionDescriptionDict.Add(832, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 13.");
                     actionDescriptionDict.Add(833, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 13.");
                     actionDescriptionDict.Add(834, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 13.");
                     actionDescriptionDict.Add(835, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 13.");
-                    actionDescriptionDict.Add(836, "Hw configuration error: Module with unexpected size or type detected in Slot 13. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(840, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl4 is zero.");
+                    actionDescriptionDict.Add(836, "Hw configuration error: Module with unexpected size or type detected in Slot 13. Expected module: '302'.");
+                    actionDescriptionDict.Add(840, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_8 is zero.");
                     actionDescriptionDict.Add(841, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 14.");
                     actionDescriptionDict.Add(842, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 14.");
                     actionDescriptionDict.Add(843, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 14.");
                     actionDescriptionDict.Add(844, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 14.");
                     actionDescriptionDict.Add(845, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 14.");
-                    actionDescriptionDict.Add(846, "Hw configuration error: Module with unexpected size or type detected in Slot 14. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(850, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl5 is zero.");
+                    actionDescriptionDict.Add(846, "Hw configuration error: Module with unexpected size or type detected in Slot 14. Expected module: '302'.");
+                    actionDescriptionDict.Add(850, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_9 is zero.");
                     actionDescriptionDict.Add(851, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 15.");
                     actionDescriptionDict.Add(852, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 15.");
                     actionDescriptionDict.Add(853, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 15.");
                     actionDescriptionDict.Add(854, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 15.");
                     actionDescriptionDict.Add(855, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 15.");
-                    actionDescriptionDict.Add(856, "Hw configuration error: Module with unexpected size or type detected in Slot 15. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(860, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl6 is zero.");
+                    actionDescriptionDict.Add(856, "Hw configuration error: Module with unexpected size or type detected in Slot 15. Expected module: '302'.");
+                    actionDescriptionDict.Add(860, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_10 is zero.");
                     actionDescriptionDict.Add(861, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 16.");
                     actionDescriptionDict.Add(862, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 16.");
                     actionDescriptionDict.Add(863, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 16.");
                     actionDescriptionDict.Add(864, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 16.");
                     actionDescriptionDict.Add(865, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 16.");
-                    actionDescriptionDict.Add(866, "Hw configuration error: Module with unexpected size or type detected in Slot 16. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(870, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl7 is zero.");
+                    actionDescriptionDict.Add(866, "Hw configuration error: Module with unexpected size or type detected in Slot 16. Expected module: '302'.");
+                    actionDescriptionDict.Add(870, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_11 is zero.");
                     actionDescriptionDict.Add(871, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 17.");
                     actionDescriptionDict.Add(872, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 17.");
                     actionDescriptionDict.Add(873, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 17.");
                     actionDescriptionDict.Add(874, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 17.");
                     actionDescriptionDict.Add(875, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 17.");
-                    actionDescriptionDict.Add(876, "Hw configuration error: Module with unexpected size or type detected in Slot 17. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(880, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl8 is zero.");
+                    actionDescriptionDict.Add(876, "Hw configuration error: Module with unexpected size or type detected in Slot 17. Expected module: '302'.");
+                    actionDescriptionDict.Add(880, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_12 is zero.");
                     actionDescriptionDict.Add(881, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 18.");
                     actionDescriptionDict.Add(882, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 18.");
                     actionDescriptionDict.Add(883, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 18.");
                     actionDescriptionDict.Add(884, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 18.");
                     actionDescriptionDict.Add(885, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 18.");
-                    actionDescriptionDict.Add(886, "Hw configuration error: Module with unexpected size or type detected in Slot 18. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(890, "Hw configuration error. Value of Config.HWIDs.HwID_CommandControl9 is zero.");
+                    actionDescriptionDict.Add(886, "Hw configuration error: Module with unexpected size or type detected in Slot 18. Expected module: '302'.");
+                    actionDescriptionDict.Add(890, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_13 is zero.");
                     actionDescriptionDict.Add(891, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 19.");
                     actionDescriptionDict.Add(892, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 19.");
                     actionDescriptionDict.Add(893, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 19.");
                     actionDescriptionDict.Add(894, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 19.");
                     actionDescriptionDict.Add(895, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 19.");
-                    actionDescriptionDict.Add(896, "Hw configuration error: Module with unexpected size or type detected in Slot 19. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(900, "Hw configuration error. Value of Config.HWIDs.HwID_CommandStatusBits0 is zero.");
+                    actionDescriptionDict.Add(896, "Hw configuration error: Module with unexpected size or type detected in Slot 19. Expected module: '302'.");
+                    actionDescriptionDict.Add(900, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_14 is zero.");
                     actionDescriptionDict.Add(901, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 20.");
                     actionDescriptionDict.Add(902, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 20.");
                     actionDescriptionDict.Add(903, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 20.");
                     actionDescriptionDict.Add(904, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 20.");
                     actionDescriptionDict.Add(905, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 20.");
-                    actionDescriptionDict.Add(906, "Hw configuration error: Module with unexpected size or type detected in Slot 20. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(910, "Hw configuration error. Value of Config.HWIDs.HwID_out_1 is zero.");
+                    actionDescriptionDict.Add(906, "Hw configuration error: Module with unexpected size or type detected in Slot 20. Expected module: '302'.");
+                    actionDescriptionDict.Add(910, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_15 is zero.");
                     actionDescriptionDict.Add(911, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 21.");
                     actionDescriptionDict.Add(912, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 21.");
                     actionDescriptionDict.Add(913, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 21.");
                     actionDescriptionDict.Add(914, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 21.");
                     actionDescriptionDict.Add(915, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 21.");
-                    actionDescriptionDict.Add(916, "Hw configuration error: Module with unexpected size or type detected in Slot 21. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(920, "Hw configuration error. Value of Config.HWIDs.HwID_out_2 is zero.");
+                    actionDescriptionDict.Add(916, "Hw configuration error: Module with unexpected size or type detected in Slot 21. Expected module: '302'.");
+                    actionDescriptionDict.Add(920, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_16 is zero.");
                     actionDescriptionDict.Add(921, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 22.");
                     actionDescriptionDict.Add(922, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 22.");
                     actionDescriptionDict.Add(923, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 22.");
                     actionDescriptionDict.Add(924, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 22.");
                     actionDescriptionDict.Add(925, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 22.");
-                    actionDescriptionDict.Add(926, "Hw configuration error: Module with unexpected size or type detected in Slot 22. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(930, "Hw configuration error. Value of Config.HWIDs.HwID_out_3 is zero.");
+                    actionDescriptionDict.Add(926, "Hw configuration error: Module with unexpected size or type detected in Slot 22. Expected module: '302'.");
+                    actionDescriptionDict.Add(930, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_17 is zero.");
                     actionDescriptionDict.Add(931, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 23.");
                     actionDescriptionDict.Add(932, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 23.");
                     actionDescriptionDict.Add(933, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 23.");
                     actionDescriptionDict.Add(934, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 23.");
                     actionDescriptionDict.Add(935, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 23.");
-                    actionDescriptionDict.Add(936, "Hw configuration error: Module with unexpected size or type detected in Slot 23. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(940, "Hw configuration error. Value of Config.HWIDs.HwID_out_4 is zero.");
+                    actionDescriptionDict.Add(936, "Hw configuration error: Module with unexpected size or type detected in Slot 23. Expected module: '302'.");
+                    actionDescriptionDict.Add(940, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_18 is zero.");
                     actionDescriptionDict.Add(941, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 24.");
                     actionDescriptionDict.Add(942, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 24.");
                     actionDescriptionDict.Add(943, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 24.");
                     actionDescriptionDict.Add(944, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 24.");
                     actionDescriptionDict.Add(945, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 24.");
-                    actionDescriptionDict.Add(946, "Hw configuration error: Module with unexpected size or type detected in Slot 24. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(950, "Hw configuration error. Value of Config.HWIDs.HwID_out_5 is zero.");
+                    actionDescriptionDict.Add(946, "Hw configuration error: Module with unexpected size or type detected in Slot 24. Expected module: '302'.");
+                    actionDescriptionDict.Add(950, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_19 is zero.");
                     actionDescriptionDict.Add(951, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 25.");
                     actionDescriptionDict.Add(952, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 25.");
                     actionDescriptionDict.Add(953, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 25.");
                     actionDescriptionDict.Add(954, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 25.");
                     actionDescriptionDict.Add(955, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 25.");
-                    actionDescriptionDict.Add(956, "Hw configuration error: Module with unexpected size or type detected in Slot 25. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(960, "Hw configuration error. Value of Config.HWIDs.HwID_out_6 is zero.");
+                    actionDescriptionDict.Add(956, "Hw configuration error: Module with unexpected size or type detected in Slot 25. Expected module: '302'.");
+                    actionDescriptionDict.Add(960, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_20 is zero.");
                     actionDescriptionDict.Add(961, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 26.");
                     actionDescriptionDict.Add(962, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 26.");
                     actionDescriptionDict.Add(963, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 26.");
                     actionDescriptionDict.Add(964, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 26.");
                     actionDescriptionDict.Add(965, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 26.");
-                    actionDescriptionDict.Add(966, "Hw configuration error: Module with unexpected size or type detected in Slot 26. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(970, "Hw configuration error. Value of Config.HWIDs.HwID_out_7 is zero.");
+                    actionDescriptionDict.Add(966, "Hw configuration error: Module with unexpected size or type detected in Slot 26. Expected module: '302'.");
+                    actionDescriptionDict.Add(970, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_21 is zero.");
                     actionDescriptionDict.Add(971, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 27.");
                     actionDescriptionDict.Add(972, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 27.");
                     actionDescriptionDict.Add(973, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 27.");
                     actionDescriptionDict.Add(974, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 27.");
                     actionDescriptionDict.Add(975, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 27.");
-                    actionDescriptionDict.Add(976, "Hw configuration error: Module with unexpected size or type detected in Slot 27. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(980, "Hw configuration error. Value of Config.HWIDs.HwID_out_8 is zero.");
+                    actionDescriptionDict.Add(976, "Hw configuration error: Module with unexpected size or type detected in Slot 27. Expected module: '302'.");
+                    actionDescriptionDict.Add(980, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_22 is zero.");
                     actionDescriptionDict.Add(981, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 28.");
                     actionDescriptionDict.Add(982, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 28.");
                     actionDescriptionDict.Add(983, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 28.");
                     actionDescriptionDict.Add(984, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 28.");
                     actionDescriptionDict.Add(985, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 28.");
-                    actionDescriptionDict.Add(986, "Hw configuration error: Module with unexpected size or type detected in Slot 28. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(990, "Hw configuration error. Value of Config.HWIDs.HwID_out_9 is zero.");
+                    actionDescriptionDict.Add(986, "Hw configuration error: Module with unexpected size or type detected in Slot 28. Expected module: '302'.");
+                    actionDescriptionDict.Add(990, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_23 is zero.");
                     actionDescriptionDict.Add(991, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 29.");
                     actionDescriptionDict.Add(992, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 29.");
                     actionDescriptionDict.Add(993, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 29.");
                     actionDescriptionDict.Add(994, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 29.");
                     actionDescriptionDict.Add(995, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 29.");
-                    actionDescriptionDict.Add(996, "Hw configuration error: Module with unexpected size or type detected in Slot 29. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(1000, "Hw configuration error. Value of Config.HWIDs.HwID_out_10 is zero.");
+                    actionDescriptionDict.Add(996, "Hw configuration error: Module with unexpected size or type detected in Slot 29. Expected module: '302'.");
+                    actionDescriptionDict.Add(1000, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_24 is zero.");
                     actionDescriptionDict.Add(1001, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 30.");
                     actionDescriptionDict.Add(1002, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 30.");
                     actionDescriptionDict.Add(1003, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 30.");
                     actionDescriptionDict.Add(1004, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 30.");
                     actionDescriptionDict.Add(1005, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 30.");
-                    actionDescriptionDict.Add(1006, "Hw configuration error: Module with unexpected size or type detected in Slot 30. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(1010, "Hw configuration error. Value of Config.HWIDs.HwID_out_11 is zero.");
+                    actionDescriptionDict.Add(1006, "Hw configuration error: Module with unexpected size or type detected in Slot 30. Expected module: '302'.");
+                    actionDescriptionDict.Add(1010, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_25 is zero.");
                     actionDescriptionDict.Add(1011, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 31.");
                     actionDescriptionDict.Add(1012, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 31.");
                     actionDescriptionDict.Add(1013, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 31.");
                     actionDescriptionDict.Add(1014, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 31.");
                     actionDescriptionDict.Add(1015, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 31.");
-                    actionDescriptionDict.Add(1016, "Hw configuration error: Module with unexpected size or type detected in Slot 31. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(1020, "Hw configuration error. Value of Config.HWIDs.HwID_out_12 is zero.");
+                    actionDescriptionDict.Add(1016, "Hw configuration error: Module with unexpected size or type detected in Slot 31. Expected module: '302'.");
+                    actionDescriptionDict.Add(1020, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_26 is zero.");
                     actionDescriptionDict.Add(1021, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 32.");
                     actionDescriptionDict.Add(1022, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 32.");
                     actionDescriptionDict.Add(1023, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 32.");
                     actionDescriptionDict.Add(1024, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 32.");
                     actionDescriptionDict.Add(1025, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 32.");
-                    actionDescriptionDict.Add(1026, "Hw configuration error: Module with unexpected size or type detected in Slot 32. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(1030, "Hw configuration error. Value of Config.HWIDs.HwID_out_13 is zero.");
+                    actionDescriptionDict.Add(1026, "Hw configuration error: Module with unexpected size or type detected in Slot 32. Expected module: '302'.");
+                    actionDescriptionDict.Add(1030, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_27 is zero.");
                     actionDescriptionDict.Add(1031, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 33.");
                     actionDescriptionDict.Add(1032, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 33.");
                     actionDescriptionDict.Add(1033, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 33.");
                     actionDescriptionDict.Add(1034, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 33.");
                     actionDescriptionDict.Add(1035, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 33.");
-                    actionDescriptionDict.Add(1036, "Hw configuration error: Module with unexpected size or type detected in Slot 33. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(1040, "Hw configuration error. Value of Config.HWIDs.HwID_out_14 is zero.");
+                    actionDescriptionDict.Add(1036, "Hw configuration error: Module with unexpected size or type detected in Slot 33. Expected module: '302'.");
+                    actionDescriptionDict.Add(1040, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_28 is zero.");
                     actionDescriptionDict.Add(1041, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 34.");
                     actionDescriptionDict.Add(1042, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 34.");
                     actionDescriptionDict.Add(1043, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 34.");
                     actionDescriptionDict.Add(1044, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 34.");
                     actionDescriptionDict.Add(1045, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 34.");
-                    actionDescriptionDict.Add(1046, "Hw configuration error: Module with unexpected size or type detected in Slot 34. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(1050, "Hw configuration error. Value of Config.HWIDs.HwID_out_15 is zero.");
+                    actionDescriptionDict.Add(1046, "Hw configuration error: Module with unexpected size or type detected in Slot 34. Expected module: '302'.");
+                    actionDescriptionDict.Add(1050, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_29 is zero.");
                     actionDescriptionDict.Add(1051, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 35.");
                     actionDescriptionDict.Add(1052, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 35.");
                     actionDescriptionDict.Add(1053, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 35.");
                     actionDescriptionDict.Add(1054, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 35.");
                     actionDescriptionDict.Add(1055, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 35.");
-                    actionDescriptionDict.Add(1056, "Hw configuration error: Module with unexpected size or type detected in Slot 35. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(1060, "Hw configuration error. Value of Config.HWIDs.HwID_out_16 is zero.");
+                    actionDescriptionDict.Add(1056, "Hw configuration error: Module with unexpected size or type detected in Slot 35. Expected module: '302'.");
+                    actionDescriptionDict.Add(1060, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_30 is zero.");
                     actionDescriptionDict.Add(1061, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 36.");
                     actionDescriptionDict.Add(1062, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 36.");
                     actionDescriptionDict.Add(1063, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 36.");
                     actionDescriptionDict.Add(1064, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 36.");
                     actionDescriptionDict.Add(1065, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 36.");
-                    actionDescriptionDict.Add(1066, "Hw configuration error: Module with unexpected size or type detected in Slot 36. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(1070, "Hw configuration error. Value of Config.HWIDs.HwID_out_17 is zero.");
+                    actionDescriptionDict.Add(1066, "Hw configuration error: Module with unexpected size or type detected in Slot 36. Expected module: '302'.");
+                    actionDescriptionDict.Add(1070, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_31 is zero.");
                     actionDescriptionDict.Add(1071, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 37.");
                     actionDescriptionDict.Add(1072, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 37.");
                     actionDescriptionDict.Add(1073, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 37.");
                     actionDescriptionDict.Add(1074, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 37.");
                     actionDescriptionDict.Add(1075, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 37.");
-                    actionDescriptionDict.Add(1076, "Hw configuration error: Module with unexpected size or type detected in Slot 37. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(1080, "Hw configuration error. Value of Config.HWIDs.HwID_out_18 is zero.");
+                    actionDescriptionDict.Add(1076, "Hw configuration error: Module with unexpected size or type detected in Slot 37. Expected module: '302'.");
+                    actionDescriptionDict.Add(1080, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_32 is zero.");
                     actionDescriptionDict.Add(1081, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 38.");
                     actionDescriptionDict.Add(1082, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 38.");
                     actionDescriptionDict.Add(1083, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 38.");
                     actionDescriptionDict.Add(1084, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 38.");
                     actionDescriptionDict.Add(1085, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 38.");
-                    actionDescriptionDict.Add(1086, "Hw configuration error: Module with unexpected size or type detected in Slot 38. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(1090, "Hw configuration error. Value of Config.HWIDs.HwID_out_19 is zero.");
+                    actionDescriptionDict.Add(1086, "Hw configuration error: Module with unexpected size or type detected in Slot 38. Expected module: '302'.");
+                    actionDescriptionDict.Add(1090, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_33 is zero.");
                     actionDescriptionDict.Add(1091, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 39.");
                     actionDescriptionDict.Add(1092, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 39.");
                     actionDescriptionDict.Add(1093, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 39.");
                     actionDescriptionDict.Add(1094, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 39.");
                     actionDescriptionDict.Add(1095, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 39.");
-                    actionDescriptionDict.Add(1096, "Hw configuration error: Module with unexpected size or type detected in Slot 39. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(1100, "Hw configuration error. Value of Config.HWIDs.HwID_out_20 is zero.");
+                    actionDescriptionDict.Add(1096, "Hw configuration error: Module with unexpected size or type detected in Slot 39. Expected module: '302'.");
+                    actionDescriptionDict.Add(1100, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_34 is zero.");
                     actionDescriptionDict.Add(1101, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 40.");
                     actionDescriptionDict.Add(1102, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 40.");
                     actionDescriptionDict.Add(1103, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 40.");
                     actionDescriptionDict.Add(1104, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 40.");
                     actionDescriptionDict.Add(1105, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 40.");
-                    actionDescriptionDict.Add(1106, "Hw configuration error: Module with unexpected size or type detected in Slot 40. Expected module: 'gsd_id_of_req_module'.");
-                    actionDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!");
-                    actionDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1132, "Input variable `Config.HWIDs.HwID_CommandControl` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1133, "Input variable `Config.HWIDs.HwID_CommandStatusBits` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1134, "Input variable `Config.HWIDs.HwID_DeviceResultBits_1` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1135, "Input variable `Config.HWIDs.HwID_DeviceStatusWords` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1136, "Input variable `Config.HWIDs.HwID_DeviceStatistics` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1137, "Input variable `Config.HWIDs.HwID_PositionAdjustResult` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1138, "Input variable `Config.HWIDs.HwID_ToolResult_1` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1139, "Input variable `Config.HWIDs.HwID_in_8` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1140, "Input variable `Config.HWIDs.HwID_in_9` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1141, "Input variable `Config.HWIDs.HwID_CommandControl0` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1142, "Input variable `Config.HWIDs.HwID_CommandControl1` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1143, "Input variable `Config.HWIDs.HwID_CommandControl2` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1144, "Input variable `Config.HWIDs.HwID_CommandControl3` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1145, "Input variable `Config.HWIDs.HwID_CommandControl4` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1146, "Input variable `Config.HWIDs.HwID_CommandControl5` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1147, "Input variable `Config.HWIDs.HwID_CommandControl6` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1148, "Input variable `Config.HWIDs.HwID_CommandControl7` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1149, "Input variable `Config.HWIDs.HwID_CommandControl8` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1150, "Input variable `Config.HWIDs.HwID_CommandControl9` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1151, "Input variable `Config.HWIDs.HwID_CommandStatusBits0` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1152, "Input variable `Config.HWIDs.HwID_out_1` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1153, "Input variable `Config.HWIDs.HwID_out_2` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1154, "Input variable `Config.HWIDs.HwID_out_3` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1155, "Input variable `Config.HWIDs.HwID_out_4` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1156, "Input variable `Config.HWIDs.HwID_out_5` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1157, "Input variable `Config.HWIDs.HwID_out_6` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1158, "Input variable `Config.HWIDs.HwID_out_7` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1159, "Input variable `Config.HWIDs.HwID_out_8` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1160, "Input variable `Config.HWIDs.HwID_out_9` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1161, "Input variable `Config.HWIDs.HwID_out_10` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1162, "Input variable `Config.HWIDs.HwID_out_11` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1163, "Input variable `Config.HWIDs.HwID_out_12` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1164, "Input variable `Config.HWIDs.HwID_out_13` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1165, "Input variable `Config.HWIDs.HwID_out_14` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1166, "Input variable `Config.HWIDs.HwID_out_15` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1167, "Input variable `Config.HWIDs.HwID_out_16` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1168, "Input variable `Config.HWIDs.HwID_out_17` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1169, "Input variable `Config.HWIDs.HwID_out_18` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1170, "Input variable `Config.HWIDs.HwID_out_19` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1171, "Input variable `Config.HWIDs.HwID_out_20` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(1201, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_CommandControl!");
-                    actionDescriptionDict.Add(1202, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_CommandStatusBits!");
-                    actionDescriptionDict.Add(1203, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_DeviceResultBits_1!");
-                    actionDescriptionDict.Add(1204, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_DeviceStatusWords!");
-                    actionDescriptionDict.Add(1205, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_DeviceStatistics!");
-                    actionDescriptionDict.Add(1206, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_PositionAdjustResult!");
-                    actionDescriptionDict.Add(1207, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_ToolResult_1!");
-                    actionDescriptionDict.Add(1208, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_in_8!");
-                    actionDescriptionDict.Add(1209, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_in_9!");
-                    actionDescriptionDict.Add(1210, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_CommandControl0!");
-                    actionDescriptionDict.Add(1211, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_CommandControl1!");
-                    actionDescriptionDict.Add(1212, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_CommandControl2!");
-                    actionDescriptionDict.Add(1213, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_CommandControl3!");
-                    actionDescriptionDict.Add(1214, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_CommandControl4!");
-                    actionDescriptionDict.Add(1215, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_CommandControl5!");
-                    actionDescriptionDict.Add(1216, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_CommandControl6!");
-                    actionDescriptionDict.Add(1217, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_CommandControl7!");
-                    actionDescriptionDict.Add(1218, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_CommandControl8!");
-                    actionDescriptionDict.Add(1219, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_CommandControl9!");
-                    actionDescriptionDict.Add(1220, "Error reading the Axo_IV3InputStructureConfig.HWIDs.HwID_CommandStatusBits0!");
-                    actionDescriptionDict.Add(1231, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_1!");
-                    actionDescriptionDict.Add(1232, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_2!");
-                    actionDescriptionDict.Add(1233, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_3!");
-                    actionDescriptionDict.Add(1234, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_4!");
-                    actionDescriptionDict.Add(1235, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_5!");
-                    actionDescriptionDict.Add(1236, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_6!");
-                    actionDescriptionDict.Add(1237, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_7!");
-                    actionDescriptionDict.Add(1238, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_8!");
-                    actionDescriptionDict.Add(1239, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_9!");
-                    actionDescriptionDict.Add(1240, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_10!");
-                    actionDescriptionDict.Add(1241, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_11!");
-                    actionDescriptionDict.Add(1242, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_12!");
-                    actionDescriptionDict.Add(1243, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_13!");
-                    actionDescriptionDict.Add(1244, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_14!");
-                    actionDescriptionDict.Add(1245, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_15!");
-                    actionDescriptionDict.Add(1246, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_16!");
-                    actionDescriptionDict.Add(1247, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_17!");
-                    actionDescriptionDict.Add(1248, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_18!");
-                    actionDescriptionDict.Add(1249, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_19!");
-                    actionDescriptionDict.Add(1250, "Error writing the Axo_IV3OutputStructureConfig.HWIDs.HwID_out_20!");
-                    // TemplateTask_10steps_1
-                    actionDescriptionDict.Add(10000, "TemplateTask_10steps_1 finished with error!");
-                    actionDescriptionDict.Add(10001, "TemplateTask_10steps_1 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_2
-                    actionDescriptionDict.Add(10010, "TemplateTask_10steps_2 finished with error!");
-                    actionDescriptionDict.Add(10011, "TemplateTask_10steps_2 was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(1106, "Hw configuration error: Module with unexpected size or type detected in Slot 40. Expected module: '302'.");
+                    actionDescriptionDict.Add(1110, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_35 is zero.");
+                    actionDescriptionDict.Add(1111, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 41.");
+                    actionDescriptionDict.Add(1112, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 41.");
+                    actionDescriptionDict.Add(1113, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 41.");
+                    actionDescriptionDict.Add(1114, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 41.");
+                    actionDescriptionDict.Add(1115, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 41.");
+                    actionDescriptionDict.Add(1116, "Hw configuration error: Module with unexpected size or type detected in Slot 41. Expected module: '302'.");
+                    actionDescriptionDict.Add(1120, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_36 is zero.");
+                    actionDescriptionDict.Add(1121, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 42.");
+                    actionDescriptionDict.Add(1122, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 42.");
+                    actionDescriptionDict.Add(1123, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 42.");
+                    actionDescriptionDict.Add(1124, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 42.");
+                    actionDescriptionDict.Add(1125, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 42.");
+                    actionDescriptionDict.Add(1126, "Hw configuration error: Module with unexpected size or type detected in Slot 42. Expected module: '302'.");
+                    actionDescriptionDict.Add(1130, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_37 is zero.");
+                    actionDescriptionDict.Add(1131, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 43.");
+                    actionDescriptionDict.Add(1132, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 43.");
+                    actionDescriptionDict.Add(1133, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 43.");
+                    actionDescriptionDict.Add(1134, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 43.");
+                    actionDescriptionDict.Add(1135, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 43.");
+                    actionDescriptionDict.Add(1136, "Hw configuration error: Module with unexpected size or type detected in Slot 43. Expected module: '302'.");
+                    actionDescriptionDict.Add(1140, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_38 is zero.");
+                    actionDescriptionDict.Add(1141, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 44.");
+                    actionDescriptionDict.Add(1142, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 44.");
+                    actionDescriptionDict.Add(1143, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 44.");
+                    actionDescriptionDict.Add(1144, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 44.");
+                    actionDescriptionDict.Add(1145, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 44.");
+                    actionDescriptionDict.Add(1146, "Hw configuration error: Module with unexpected size or type detected in Slot 44. Expected module: '302'.");
+                    actionDescriptionDict.Add(1150, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_39 is zero.");
+                    actionDescriptionDict.Add(1151, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 45.");
+                    actionDescriptionDict.Add(1152, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 45.");
+                    actionDescriptionDict.Add(1153, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 45.");
+                    actionDescriptionDict.Add(1154, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 45.");
+                    actionDescriptionDict.Add(1155, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 45.");
+                    actionDescriptionDict.Add(1156, "Hw configuration error: Module with unexpected size or type detected in Slot 45. Expected module: '302'.");
+                    actionDescriptionDict.Add(1160, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_40 is zero.");
+                    actionDescriptionDict.Add(1161, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 46.");
+                    actionDescriptionDict.Add(1162, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 46.");
+                    actionDescriptionDict.Add(1163, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 46.");
+                    actionDescriptionDict.Add(1164, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 46.");
+                    actionDescriptionDict.Add(1165, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 46.");
+                    actionDescriptionDict.Add(1166, "Hw configuration error: Module with unexpected size or type detected in Slot 46. Expected module: '302'.");
+                    actionDescriptionDict.Add(1170, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_41 is zero.");
+                    actionDescriptionDict.Add(1171, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 47.");
+                    actionDescriptionDict.Add(1172, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 47.");
+                    actionDescriptionDict.Add(1173, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 47.");
+                    actionDescriptionDict.Add(1174, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 47.");
+                    actionDescriptionDict.Add(1175, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 47.");
+                    actionDescriptionDict.Add(1176, "Hw configuration error: Module with unexpected size or type detected in Slot 47. Expected module: '302'.");
+                    actionDescriptionDict.Add(1180, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_42 is zero.");
+                    actionDescriptionDict.Add(1181, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 48.");
+                    actionDescriptionDict.Add(1182, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 48.");
+                    actionDescriptionDict.Add(1183, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 48.");
+                    actionDescriptionDict.Add(1184, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 48.");
+                    actionDescriptionDict.Add(1185, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 48.");
+                    actionDescriptionDict.Add(1186, "Hw configuration error: Module with unexpected size or type detected in Slot 48. Expected module: '302'.");
+                    actionDescriptionDict.Add(1190, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_43 is zero.");
+                    actionDescriptionDict.Add(1191, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 49.");
+                    actionDescriptionDict.Add(1192, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 49.");
+                    actionDescriptionDict.Add(1193, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 49.");
+                    actionDescriptionDict.Add(1194, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 49.");
+                    actionDescriptionDict.Add(1195, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 49.");
+                    actionDescriptionDict.Add(1196, "Hw configuration error: Module with unexpected size or type detected in Slot 49. Expected module: '302'.");
+                    actionDescriptionDict.Add(1200, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_44 is zero.");
+                    actionDescriptionDict.Add(1201, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 50.");
+                    actionDescriptionDict.Add(1202, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 50.");
+                    actionDescriptionDict.Add(1203, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 50.");
+                    actionDescriptionDict.Add(1204, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 50.");
+                    actionDescriptionDict.Add(1205, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 50.");
+                    actionDescriptionDict.Add(1206, "Hw configuration error: Module with unexpected size or type detected in Slot 50. Expected module: '302'.");
+                    actionDescriptionDict.Add(1210, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_45 is zero.");
+                    actionDescriptionDict.Add(1211, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 51.");
+                    actionDescriptionDict.Add(1212, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 51.");
+                    actionDescriptionDict.Add(1213, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 51.");
+                    actionDescriptionDict.Add(1214, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 51.");
+                    actionDescriptionDict.Add(1215, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 51.");
+                    actionDescriptionDict.Add(1216, "Hw configuration error: Module with unexpected size or type detected in Slot 51. Expected module: '302'.");
+                    actionDescriptionDict.Add(1220, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_46 is zero.");
+                    actionDescriptionDict.Add(1221, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 52.");
+                    actionDescriptionDict.Add(1222, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 52.");
+                    actionDescriptionDict.Add(1223, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 52.");
+                    actionDescriptionDict.Add(1224, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 52.");
+                    actionDescriptionDict.Add(1225, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 52.");
+                    actionDescriptionDict.Add(1226, "Hw configuration error: Module with unexpected size or type detected in Slot 52. Expected module: '302'.");
+                    actionDescriptionDict.Add(1230, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_47 is zero.");
+                    actionDescriptionDict.Add(1231, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 53.");
+                    actionDescriptionDict.Add(1232, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 53.");
+                    actionDescriptionDict.Add(1233, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 53.");
+                    actionDescriptionDict.Add(1234, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 53.");
+                    actionDescriptionDict.Add(1235, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 53.");
+                    actionDescriptionDict.Add(1236, "Hw configuration error: Module with unexpected size or type detected in Slot 53. Expected module: '302'.");
+                    actionDescriptionDict.Add(1240, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_48 is zero.");
+                    actionDescriptionDict.Add(1241, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 54.");
+                    actionDescriptionDict.Add(1242, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 54.");
+                    actionDescriptionDict.Add(1243, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 54.");
+                    actionDescriptionDict.Add(1244, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 54.");
+                    actionDescriptionDict.Add(1245, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 54.");
+                    actionDescriptionDict.Add(1246, "Hw configuration error: Module with unexpected size or type detected in Slot 54. Expected module: '302'.");
+                    actionDescriptionDict.Add(1250, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_49 is zero.");
+                    actionDescriptionDict.Add(1251, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 55.");
+                    actionDescriptionDict.Add(1252, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 55.");
+                    actionDescriptionDict.Add(1253, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 55.");
+                    actionDescriptionDict.Add(1254, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 55.");
+                    actionDescriptionDict.Add(1255, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 55.");
+                    actionDescriptionDict.Add(1256, "Hw configuration error: Module with unexpected size or type detected in Slot 55. Expected module: '302'.");
+                    actionDescriptionDict.Add(1260, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_50 is zero.");
+                    actionDescriptionDict.Add(1261, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 56.");
+                    actionDescriptionDict.Add(1262, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 56.");
+                    actionDescriptionDict.Add(1263, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 56.");
+                    actionDescriptionDict.Add(1264, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 56.");
+                    actionDescriptionDict.Add(1265, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 56.");
+                    actionDescriptionDict.Add(1266, "Hw configuration error: Module with unexpected size or type detected in Slot 56. Expected module: '302'.");
+                    actionDescriptionDict.Add(1270, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_51 is zero.");
+                    actionDescriptionDict.Add(1271, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 57.");
+                    actionDescriptionDict.Add(1272, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 57.");
+                    actionDescriptionDict.Add(1273, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 57.");
+                    actionDescriptionDict.Add(1274, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 57.");
+                    actionDescriptionDict.Add(1275, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 57.");
+                    actionDescriptionDict.Add(1276, "Hw configuration error: Module with unexpected size or type detected in Slot 57. Expected module: '302'.");
+                    actionDescriptionDict.Add(1280, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_52 is zero.");
+                    actionDescriptionDict.Add(1281, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 58.");
+                    actionDescriptionDict.Add(1282, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 58.");
+                    actionDescriptionDict.Add(1283, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 58.");
+                    actionDescriptionDict.Add(1284, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 58.");
+                    actionDescriptionDict.Add(1285, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 58.");
+                    actionDescriptionDict.Add(1286, "Hw configuration error: Module with unexpected size or type detected in Slot 58. Expected module: '302'.");
+                    actionDescriptionDict.Add(1290, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_53 is zero.");
+                    actionDescriptionDict.Add(1291, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 59.");
+                    actionDescriptionDict.Add(1292, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 59.");
+                    actionDescriptionDict.Add(1293, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 59.");
+                    actionDescriptionDict.Add(1294, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 59.");
+                    actionDescriptionDict.Add(1295, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 59.");
+                    actionDescriptionDict.Add(1296, "Hw configuration error: Module with unexpected size or type detected in Slot 59. Expected module: '302'.");
+                    actionDescriptionDict.Add(1300, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_54 is zero.");
+                    actionDescriptionDict.Add(1301, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 60.");
+                    actionDescriptionDict.Add(1302, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 60.");
+                    actionDescriptionDict.Add(1303, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 60.");
+                    actionDescriptionDict.Add(1304, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 60.");
+                    actionDescriptionDict.Add(1305, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 60.");
+                    actionDescriptionDict.Add(1306, "Hw configuration error: Module with unexpected size or type detected in Slot 60. Expected module: '302'.");
+                    actionDescriptionDict.Add(1310, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_55 is zero.");
+                    actionDescriptionDict.Add(1311, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 61.");
+                    actionDescriptionDict.Add(1312, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 61.");
+                    actionDescriptionDict.Add(1313, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 61.");
+                    actionDescriptionDict.Add(1314, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 61.");
+                    actionDescriptionDict.Add(1315, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 61.");
+                    actionDescriptionDict.Add(1316, "Hw configuration error: Module with unexpected size or type detected in Slot 61. Expected module: '302'.");
+                    actionDescriptionDict.Add(1320, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_56 is zero.");
+                    actionDescriptionDict.Add(1321, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 62.");
+                    actionDescriptionDict.Add(1322, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 62.");
+                    actionDescriptionDict.Add(1323, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 62.");
+                    actionDescriptionDict.Add(1324, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 62.");
+                    actionDescriptionDict.Add(1325, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 62.");
+                    actionDescriptionDict.Add(1326, "Hw configuration error: Module with unexpected size or type detected in Slot 62. Expected module: '302'.");
+                    actionDescriptionDict.Add(1330, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_57 is zero.");
+                    actionDescriptionDict.Add(1331, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 63.");
+                    actionDescriptionDict.Add(1332, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 63.");
+                    actionDescriptionDict.Add(1333, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 63.");
+                    actionDescriptionDict.Add(1334, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 63.");
+                    actionDescriptionDict.Add(1335, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 63.");
+                    actionDescriptionDict.Add(1336, "Hw configuration error: Module with unexpected size or type detected in Slot 63. Expected module: '302'.");
+                    actionDescriptionDict.Add(1340, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_58 is zero.");
+                    actionDescriptionDict.Add(1341, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 64.");
+                    actionDescriptionDict.Add(1342, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 64.");
+                    actionDescriptionDict.Add(1343, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 64.");
+                    actionDescriptionDict.Add(1344, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 64.");
+                    actionDescriptionDict.Add(1345, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 64.");
+                    actionDescriptionDict.Add(1346, "Hw configuration error: Module with unexpected size or type detected in Slot 64. Expected module: '302'.");
+                    actionDescriptionDict.Add(1350, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_59 is zero.");
+                    actionDescriptionDict.Add(1351, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 65.");
+                    actionDescriptionDict.Add(1352, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 65.");
+                    actionDescriptionDict.Add(1353, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 65.");
+                    actionDescriptionDict.Add(1354, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 65.");
+                    actionDescriptionDict.Add(1355, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 65.");
+                    actionDescriptionDict.Add(1356, "Hw configuration error: Module with unexpected size or type detected in Slot 65. Expected module: '302'.");
+                    actionDescriptionDict.Add(1360, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_60 is zero.");
+                    actionDescriptionDict.Add(1361, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 66.");
+                    actionDescriptionDict.Add(1362, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 66.");
+                    actionDescriptionDict.Add(1363, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 66.");
+                    actionDescriptionDict.Add(1364, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 66.");
+                    actionDescriptionDict.Add(1365, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 66.");
+                    actionDescriptionDict.Add(1366, "Hw configuration error: Module with unexpected size or type detected in Slot 66. Expected module: '302'.");
+                    actionDescriptionDict.Add(1370, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_61 is zero.");
+                    actionDescriptionDict.Add(1371, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 67.");
+                    actionDescriptionDict.Add(1372, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 67.");
+                    actionDescriptionDict.Add(1373, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 67.");
+                    actionDescriptionDict.Add(1374, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 67.");
+                    actionDescriptionDict.Add(1375, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 67.");
+                    actionDescriptionDict.Add(1376, "Hw configuration error: Module with unexpected size or type detected in Slot 67. Expected module: '302'.");
+                    actionDescriptionDict.Add(1380, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_62 is zero.");
+                    actionDescriptionDict.Add(1381, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 68.");
+                    actionDescriptionDict.Add(1382, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 68.");
+                    actionDescriptionDict.Add(1383, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 68.");
+                    actionDescriptionDict.Add(1384, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 68.");
+                    actionDescriptionDict.Add(1385, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 68.");
+                    actionDescriptionDict.Add(1386, "Hw configuration error: Module with unexpected size or type detected in Slot 68. Expected module: '302'.");
+                    actionDescriptionDict.Add(1390, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_63 is zero.");
+                    actionDescriptionDict.Add(1391, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 69.");
+                    actionDescriptionDict.Add(1392, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 69.");
+                    actionDescriptionDict.Add(1393, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 69.");
+                    actionDescriptionDict.Add(1394, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 69.");
+                    actionDescriptionDict.Add(1395, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 69.");
+                    actionDescriptionDict.Add(1396, "Hw configuration error: Module with unexpected size or type detected in Slot 69. Expected module: '302'.");
+                    actionDescriptionDict.Add(1400, "Hw configuration error. Value of Config.HWIDs.HwID_ToolResult_64 is zero.");
+                    actionDescriptionDict.Add(1401, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 70.");
+                    actionDescriptionDict.Add(1402, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 70.");
+                    actionDescriptionDict.Add(1403, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 70.");
+                    actionDescriptionDict.Add(1404, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 70.");
+                    actionDescriptionDict.Add(1405, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 70.");
+                    actionDescriptionDict.Add(1406, "Hw configuration error: Module with unexpected size or type detected in Slot 70. Expected module: '302'.");
+                    actionDescriptionDict.Add(1410, "Hw configuration error. Value of Config.HWIDs.HwID_DeviceResultBits_2 is zero.");
+                    actionDescriptionDict.Add(1411, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 71.");
+                    actionDescriptionDict.Add(1412, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 71.");
+                    actionDescriptionDict.Add(1413, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 71.");
+                    actionDescriptionDict.Add(1414, "Hw configuration error. Invalid value for Slot in GeoAddr in ReadHardwareIDFromSlot          (8096) for slot 71.");
+                    actionDescriptionDict.Add(1415, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 71.");
+                    actionDescriptionDict.Add(1416, "Hw configuration error: Module with unexpected size or type detected in Slot 71. Expected module: '401'.");
+                    actionDescriptionDict.Add(1500, "Input variable `parent` has NULL reference in `Run` method!");
+                    actionDescriptionDict.Add(1501, "Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1502, "Variable `Config.HWIDs.HwID_CommandControl` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1503, "Variable `Config.HWIDs.HwID_CommandStatusBits` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1504, "Variable `Config.HWIDs.HwID_DeviceResultBits_1` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1505, "Variable `Config.HWIDs.HwID_DeviceStatusWords` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1506, "Variable `Config.HWIDs.HwID_DeviceStatistics` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1507, "Variable `Config.HWIDs.HwID_PositionAdjustResult` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1508, "Variable `Config.HWIDs.HwID_ToolResult_1` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1509, "Variable `Config.HWIDs.HwID_ToolResult_2` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1510, "Variable `Config.HWIDs.HwID_ToolResult_3` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1511, "Variable `Config.HWIDs.HwID_ToolResult_4` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1512, "Variable `Config.HWIDs.HwID_ToolResult_5` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1513, "Variable `Config.HWIDs.HwID_ToolResult_6` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1514, "Variable `Config.HWIDs.HwID_ToolResult_7` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1515, "Variable `Config.HWIDs.HwID_ToolResult_8` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1516, "Variable `Config.HWIDs.HwID_ToolResult_9` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1517, "Variable `Config.HWIDs.HwID_ToolResult_10` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1518, "Variable `Config.HWIDs.HwID_ToolResult_11` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1519, "Variable `Config.HWIDs.HwID_ToolResult_12` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1520, "Variable `Config.HWIDs.HwID_ToolResult_13` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1521, "Variable `Config.HWIDs.HwID_ToolResult_14` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1522, "Variable `Config.HWIDs.HwID_ToolResult_15` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1523, "Variable `Config.HWIDs.HwID_ToolResult_16` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1524, "Variable `Config.HWIDs.HwID_ToolResult_17` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1525, "Variable `Config.HWIDs.HwID_ToolResult_18` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1526, "Variable `Config.HWIDs.HwID_ToolResult_19` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1527, "Variable `Config.HWIDs.HwID_ToolResult_20` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1528, "Variable `Config.HWIDs.HwID_ToolResult_21` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1529, "Variable `Config.HWIDs.HwID_ToolResult_22` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1530, "Variable `Config.HWIDs.HwID_ToolResult_23` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1531, "Variable `Config.HWIDs.HwID_ToolResult_24` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1532, "Variable `Config.HWIDs.HwID_ToolResult_25` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1533, "Variable `Config.HWIDs.HwID_ToolResult_26` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1534, "Variable `Config.HWIDs.HwID_ToolResult_27` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1535, "Variable `Config.HWIDs.HwID_ToolResult_28` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1536, "Variable `Config.HWIDs.HwID_ToolResult_29` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1537, "Variable `Config.HWIDs.HwID_ToolResult_30` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1538, "Variable `Config.HWIDs.HwID_ToolResult_31` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1539, "Variable `Config.HWIDs.HwID_ToolResult_32` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1540, "Variable `Config.HWIDs.HwID_ToolResult_33` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1541, "Variable `Config.HWIDs.HwID_ToolResult_34` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1542, "Variable `Config.HWIDs.HwID_ToolResult_35` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1543, "Variable `Config.HWIDs.HwID_ToolResult_36` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1544, "Variable `Config.HWIDs.HwID_ToolResult_37` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1545, "Variable `Config.HWIDs.HwID_ToolResult_38` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1546, "Variable `Config.HWIDs.HwID_ToolResult_39` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1547, "Variable `Config.HWIDs.HwID_ToolResult_40` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1548, "Variable `Config.HWIDs.HwID_ToolResult_41` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1549, "Variable `Config.HWIDs.HwID_ToolResult_42` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1550, "Variable `Config.HWIDs.HwID_ToolResult_43` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1551, "Variable `Config.HWIDs.HwID_ToolResult_44` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1552, "Variable `Config.HWIDs.HwID_ToolResult_45` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1553, "Variable `Config.HWIDs.HwID_ToolResult_46` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1554, "Variable `Config.HWIDs.HwID_ToolResult_47` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1555, "Variable `Config.HWIDs.HwID_ToolResult_48` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1556, "Variable `Config.HWIDs.HwID_ToolResult_49` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1557, "Variable `Config.HWIDs.HwID_ToolResult_50` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1558, "Variable `Config.HWIDs.HwID_ToolResult_51` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1559, "Variable `Config.HWIDs.HwID_ToolResult_52` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1560, "Variable `Config.HWIDs.HwID_ToolResult_53` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1561, "Variable `Config.HWIDs.HwID_ToolResult_54` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1562, "Variable `Config.HWIDs.HwID_ToolResult_55` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1563, "Variable `Config.HWIDs.HwID_ToolResult_56` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1564, "Variable `Config.HWIDs.HwID_ToolResult_57` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1565, "Variable `Config.HWIDs.HwID_ToolResult_58` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1566, "Variable `Config.HWIDs.HwID_ToolResult_59` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1567, "Variable `Config.HWIDs.HwID_ToolResult_60` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1568, "Variable `Config.HWIDs.HwID_ToolResult_61` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1569, "Variable `Config.HWIDs.HwID_ToolResult_62` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1570, "Variable `Config.HWIDs.HwID_ToolResult_63` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1571, "Variable `Config.HWIDs.HwID_ToolResult_64` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1572, "Variable `Config.HWIDs.HwID_DeviceResultBits_2` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(1601, "Error reading the input data from the module with HWID: 'HwID_CommandStatusBits'!");
+                    actionDescriptionDict.Add(1602, "Error reading the input data from the module with HWID: 'HwID_DeviceResultBits_1'!");
+                    actionDescriptionDict.Add(1603, "Error reading the input data from the module with HWID: 'HwID_DeviceStatusWords'!");
+                    actionDescriptionDict.Add(1604, "Error reading the input data from the module with HWID: 'HwID_DeviceStatistics'!");
+                    actionDescriptionDict.Add(1605, "Error reading the input data from the module with HWID: 'HwID_PositionAdjustResult'!");
+                    actionDescriptionDict.Add(1606, "Error reading the input data from the module with HWID: 'HwID_ToolResult_1'!");
+                    actionDescriptionDict.Add(1607, "Error reading the input data from the module with HWID: 'HwID_ToolResult_2'!");
+                    actionDescriptionDict.Add(1608, "Error reading the input data from the module with HWID: 'HwID_ToolResult_3'!");
+                    actionDescriptionDict.Add(1609, "Error reading the input data from the module with HWID: 'HwID_ToolResult_4'!");
+                    actionDescriptionDict.Add(1610, "Error reading the input data from the module with HWID: 'HwID_ToolResult_5'!");
+                    actionDescriptionDict.Add(1611, "Error reading the input data from the module with HWID: 'HwID_ToolResult_6'!");
+                    actionDescriptionDict.Add(1612, "Error reading the input data from the module with HWID: 'HwID_ToolResult_7'!");
+                    actionDescriptionDict.Add(1613, "Error reading the input data from the module with HWID: 'HwID_ToolResult_8'!");
+                    actionDescriptionDict.Add(1614, "Error reading the input data from the module with HWID: 'HwID_ToolResult_9'!");
+                    actionDescriptionDict.Add(1615, "Error reading the input data from the module with HWID: 'HwID_ToolResult_10'!");
+                    actionDescriptionDict.Add(1616, "Error reading the input data from the module with HWID: 'HwID_ToolResult_11'!");
+                    actionDescriptionDict.Add(1617, "Error reading the input data from the module with HWID: 'HwID_ToolResult_12'!");
+                    actionDescriptionDict.Add(1618, "Error reading the input data from the module with HWID: 'HwID_ToolResult_13'!");
+                    actionDescriptionDict.Add(1619, "Error reading the input data from the module with HWID: 'HwID_ToolResult_14'!");
+                    actionDescriptionDict.Add(1620, "Error reading the input data from the module with HWID: 'HwID_ToolResult_15'!");
+                    actionDescriptionDict.Add(1621, "Error reading the input data from the module with HWID: 'HwID_ToolResult_16'!");
+                    actionDescriptionDict.Add(1622, "Error reading the input data from the module with HWID: 'HwID_ToolResult_17'!");
+                    actionDescriptionDict.Add(1623, "Error reading the input data from the module with HWID: 'HwID_ToolResult_18'!");
+                    actionDescriptionDict.Add(1624, "Error reading the input data from the module with HWID: 'HwID_ToolResult_19'!");
+                    actionDescriptionDict.Add(1625, "Error reading the input data from the module with HWID: 'HwID_ToolResult_20'!");
+                    actionDescriptionDict.Add(1626, "Error reading the input data from the module with HWID: 'HwID_ToolResult_21'!");
+                    actionDescriptionDict.Add(1627, "Error reading the input data from the module with HWID: 'HwID_ToolResult_22'!");
+                    actionDescriptionDict.Add(1628, "Error reading the input data from the module with HWID: 'HwID_ToolResult_23'!");
+                    actionDescriptionDict.Add(1629, "Error reading the input data from the module with HWID: 'HwID_ToolResult_24'!");
+                    actionDescriptionDict.Add(1630, "Error reading the input data from the module with HWID: 'HwID_ToolResult_25'!");
+                    actionDescriptionDict.Add(1631, "Error reading the input data from the module with HWID: 'HwID_ToolResult_26'!");
+                    actionDescriptionDict.Add(1632, "Error reading the input data from the module with HWID: 'HwID_ToolResult_27'!");
+                    actionDescriptionDict.Add(1633, "Error reading the input data from the module with HWID: 'HwID_ToolResult_28'!");
+                    actionDescriptionDict.Add(1634, "Error reading the input data from the module with HWID: 'HwID_ToolResult_29'!");
+                    actionDescriptionDict.Add(1635, "Error reading the input data from the module with HWID: 'HwID_ToolResult_30'!");
+                    actionDescriptionDict.Add(1636, "Error reading the input data from the module with HWID: 'HwID_ToolResult_31'!");
+                    actionDescriptionDict.Add(1637, "Error reading the input data from the module with HWID: 'HwID_ToolResult_32'!");
+                    actionDescriptionDict.Add(1638, "Error reading the input data from the module with HWID: 'HwID_ToolResult_33'!");
+                    actionDescriptionDict.Add(1639, "Error reading the input data from the module with HWID: 'HwID_ToolResult_34'!");
+                    actionDescriptionDict.Add(1640, "Error reading the input data from the module with HWID: 'HwID_ToolResult_35'!");
+                    actionDescriptionDict.Add(1641, "Error reading the input data from the module with HWID: 'HwID_ToolResult_36'!");
+                    actionDescriptionDict.Add(1642, "Error reading the input data from the module with HWID: 'HwID_ToolResult_37'!");
+                    actionDescriptionDict.Add(1643, "Error reading the input data from the module with HWID: 'HwID_ToolResult_38'!");
+                    actionDescriptionDict.Add(1644, "Error reading the input data from the module with HWID: 'HwID_ToolResult_39'!");
+                    actionDescriptionDict.Add(1645, "Error reading the input data from the module with HWID: 'HwID_ToolResult_40'!");
+                    actionDescriptionDict.Add(1646, "Error reading the input data from the module with HWID: 'HwID_ToolResult_41'!");
+                    actionDescriptionDict.Add(1647, "Error reading the input data from the module with HWID: 'HwID_ToolResult_42'!");
+                    actionDescriptionDict.Add(1648, "Error reading the input data from the module with HWID: 'HwID_ToolResult_43'!");
+                    actionDescriptionDict.Add(1649, "Error reading the input data from the module with HWID: 'HwID_ToolResult_44'!");
+                    actionDescriptionDict.Add(1650, "Error reading the input data from the module with HWID: 'HwID_ToolResult_45'!");
+                    actionDescriptionDict.Add(1651, "Error reading the input data from the module with HWID: 'HwID_ToolResult_46'!");
+                    actionDescriptionDict.Add(1652, "Error reading the input data from the module with HWID: 'HwID_ToolResult_47'!");
+                    actionDescriptionDict.Add(1653, "Error reading the input data from the module with HWID: 'HwID_ToolResult_48'!");
+                    actionDescriptionDict.Add(1654, "Error reading the input data from the module with HWID: 'HwID_ToolResult_49'!");
+                    actionDescriptionDict.Add(1655, "Error reading the input data from the module with HWID: 'HwID_ToolResult_50'!");
+                    actionDescriptionDict.Add(1656, "Error reading the input data from the module with HWID: 'HwID_ToolResult_51'!");
+                    actionDescriptionDict.Add(1657, "Error reading the input data from the module with HWID: 'HwID_ToolResult_52'!");
+                    actionDescriptionDict.Add(1658, "Error reading the input data from the module with HWID: 'HwID_ToolResult_53'!");
+                    actionDescriptionDict.Add(1659, "Error reading the input data from the module with HWID: 'HwID_ToolResult_54'!");
+                    actionDescriptionDict.Add(1660, "Error reading the input data from the module with HWID: 'HwID_ToolResult_55'!");
+                    actionDescriptionDict.Add(1661, "Error reading the input data from the module with HWID: 'HwID_ToolResult_56'!");
+                    actionDescriptionDict.Add(1662, "Error reading the input data from the module with HWID: 'HwID_ToolResult_57'!");
+                    actionDescriptionDict.Add(1663, "Error reading the input data from the module with HWID: 'HwID_ToolResult_58'!");
+                    actionDescriptionDict.Add(1664, "Error reading the input data from the module with HWID: 'HwID_ToolResult_59'!");
+                    actionDescriptionDict.Add(1665, "Error reading the input data from the module with HWID: 'HwID_ToolResult_60'!");
+                    actionDescriptionDict.Add(1666, "Error reading the input data from the module with HWID: 'HwID_ToolResult_61'!");
+                    actionDescriptionDict.Add(1667, "Error reading the input data from the module with HWID: 'HwID_ToolResult_62'!");
+                    actionDescriptionDict.Add(1668, "Error reading the input data from the module with HWID: 'HwID_ToolResult_63'!");
+                    actionDescriptionDict.Add(1669, "Error reading the input data from the module with HWID: 'HwID_ToolResult_64'!");
+                    actionDescriptionDict.Add(1670, "Error reading the input data from the module with HWID: 'HwID_DeviceResultBits_2'!");
+                    actionDescriptionDict.Add(1701, "Error writing the output data to the module with HWID: 'HwID_CommandControl'!");
+                    actionDescriptionDict.Add(1801, "Program 1 corruption error");
+                    actionDescriptionDict.Add(1802, "Program 2 corruption error");
+                    actionDescriptionDict.Add(1803, "Program 3 corruption error");
+                    actionDescriptionDict.Add(1804, "Program 4 corruption error");
+                    actionDescriptionDict.Add(1805, "Program 5 corruption error");
+                    actionDescriptionDict.Add(1806, "Program 6 corruption error");
+                    actionDescriptionDict.Add(1807, "Program 7 corruption error");
+                    actionDescriptionDict.Add(1808, "Program 8 corruption error");
+                    actionDescriptionDict.Add(1809, "Program 9 corruption error");
+                    actionDescriptionDict.Add(1810, "Program 10 corruption error");
+                    actionDescriptionDict.Add(1811, "Program 11 corruption error");
+                    actionDescriptionDict.Add(1812, "Program 12 corruption error");
+                    actionDescriptionDict.Add(1813, "Program 13 corruption error");
+                    actionDescriptionDict.Add(1814, "Program 14 corruption error");
+                    actionDescriptionDict.Add(1815, "Program 15 corruption error");
+                    actionDescriptionDict.Add(1816, "Program 16 corruption error");
+                    actionDescriptionDict.Add(1817, "Program 17 corruption error");
+                    actionDescriptionDict.Add(1818, "Program 18 corruption error");
+                    actionDescriptionDict.Add(1819, "Program 19 corruption error");
+                    actionDescriptionDict.Add(1820, "Program 20 corruption error");
+                    actionDescriptionDict.Add(1821, "Program 21 corruption error");
+                    actionDescriptionDict.Add(1822, "Program 22 corruption error");
+                    actionDescriptionDict.Add(1823, "Program 23 corruption error");
+                    actionDescriptionDict.Add(1824, "Program 24 corruption error");
+                    actionDescriptionDict.Add(1825, "Program 25 corruption error");
+                    actionDescriptionDict.Add(1826, "Program 26 corruption error");
+                    actionDescriptionDict.Add(1827, "Program 27 corruption error");
+                    actionDescriptionDict.Add(1828, "Program 28 corruption error");
+                    actionDescriptionDict.Add(1829, "Program 29 corruption error");
+                    actionDescriptionDict.Add(1830, "Program 30 corruption error");
+                    actionDescriptionDict.Add(1831, "Program 31 corruption error");
+                    actionDescriptionDict.Add(1832, "Program 32 corruption error");
+                    actionDescriptionDict.Add(1852, "Program switching error (on startup;external input)");
+                    actionDescriptionDict.Add(1853, "Program switching error (on startup;Panel/PC/Network/Automatic Switching)");
+                    actionDescriptionDict.Add(1855, "Program switching error (in [RUN] status)");
+                    actionDescriptionDict.Add(1879, "System error");
+                    actionDescriptionDict.Add(1895, "System error");
+                    actionDescriptionDict.Add(1896, "System error");
+                    actionDescriptionDict.Add(1897, "Non-volatile memory error");
+                    actionDescriptionDict.Add(1898, "Non-volatile memory error");
+                    actionDescriptionDict.Add(1899, "Non-volatile memory error");
+                    actionDescriptionDict.Add(1900, "System error");
+                    actionDescriptionDict.Add(1901, "System error");
+                    actionDescriptionDict.Add(1902, "System error");
+                    actionDescriptionDict.Add(1903, "System error");
+                    actionDescriptionDict.Add(1904, "System error");
+                    actionDescriptionDict.Add(1905, "System error");
+                    actionDescriptionDict.Add(1906, "System error");
+                    actionDescriptionDict.Add(1907, "System error");
+                    actionDescriptionDict.Add(1908, "System error");
+                    actionDescriptionDict.Add(1909, "System error");
+                    actionDescriptionDict.Add(1910, "System error");
+                    actionDescriptionDict.Add(1911, "System error");
+                    actionDescriptionDict.Add(1912, "System error");
+                    actionDescriptionDict.Add(1913, "System error");
+                    actionDescriptionDict.Add(1914, "System error");
+                    actionDescriptionDict.Add(1915, "System error");
+                    actionDescriptionDict.Add(1916, "System error");
+                    actionDescriptionDict.Add(1917, "System error");
+                    actionDescriptionDict.Add(1918, "System error");
+                    actionDescriptionDict.Add(1919, "System error");
+                    actionDescriptionDict.Add(1920, "System error");
+                    actionDescriptionDict.Add(1921, "System error");
+                    actionDescriptionDict.Add(1922, "System error");
+                    actionDescriptionDict.Add(1923, "System error");
+                    actionDescriptionDict.Add(1924, "System error");
+                    actionDescriptionDict.Add(1925, "System error");
+                    actionDescriptionDict.Add(1926, "System error");
+                    actionDescriptionDict.Add(1927, "System error");
+                    actionDescriptionDict.Add(1928, "System error");
+                    // TriggerTask
+                    actionDescriptionDict.Add(10000, "TriggerTask finished with error!");
+                    actionDescriptionDict.Add(10001, "TriggerTask was aborted, while not yet completed!");
+                    // ChangeProgramTask
+                    actionDescriptionDict.Add(10010, "ChangeProgramTask finished with error!");
+                    actionDescriptionDict.Add(10011, "ChangeProgramTask was aborted, while not yet completed!");
                     // TemplateTask_10steps_3
                     actionDescriptionDict.Add(10020, "TemplateTask_10steps_3 finished with error!");
                     actionDescriptionDict.Add(10021, "TemplateTask_10steps_3 was aborted, while not yet completed!");

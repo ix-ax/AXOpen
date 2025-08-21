@@ -1,10 +1,8 @@
 NAMESPACE AXOpen.Components.Keyence.Vision
     {S7.extern=ReadWrite}
-    {#ix-attr:[Container(Layout.Wrap)]}
+    {#ix-attr:[Container(Layout.Stack)]}
     CLASS PUBLIC Axo_IV3_PositionAdjustResult
         VAR PUBLIC
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Position correction score#>"}
             PositionCorrectionScore : UINT;                                                     // IW52
             {#ix-set:AttributeName = "<#Position correction score MAX#>"}

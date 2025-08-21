@@ -9,6 +9,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             ErrorTime : LTIME := LT#10S;
             {#ix-set:AttributeName = "<#Task timeout#>"}
             TaskTimeout : LTIME := LT#50S;
+            {#ix-set:AttributeName = "<#Maximal program number#>"}
+            MaxProgramNumber : UINT := UINT#31;         // by default 31, 127 in case of SDcard used
             {#ix-set:AttributeName = "<#Hardware IDs#>"}
             HWIDs : Axo_IV3_HWIDs;
         END_VAR 

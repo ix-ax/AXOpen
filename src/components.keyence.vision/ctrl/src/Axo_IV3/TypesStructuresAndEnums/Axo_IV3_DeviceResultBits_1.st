@@ -1,10 +1,8 @@
 NAMESPACE AXOpen.Components.Keyence.Vision
     {S7.extern=ReadWrite}
-    {#ix-attr:[Container(Layout.Wrap)]}
+    {#ix-attr:[Container(Layout.Stack)]}
     CLASS PUBLIC Axo_IV3_DeviceResultBits_1
         VAR PUBLIC
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Overall judgment OK#>"}
             OverallJudgmentOK : BOOL;                                                           // IB4.0
             {#ix-set:AttributeName = "<#Position correction#>"}
@@ -20,8 +18,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             {#ix-set:AttributeName = "<#Overall judgment NG#>"}
             OverallJudgmentNG : BOOL;                                                           // IB4.6
                                                                                                 // IB4.7
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Tool 1#>"}
             Tool_1 : BOOL;                                                                      // IB6.0
             {#ix-set:AttributeName = "<#Tool 2#>"}

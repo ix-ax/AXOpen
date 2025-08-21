@@ -1,10 +1,8 @@
 NAMESPACE AXOpen.Components.Keyence.Vision
     {S7.extern=ReadWrite}
-    {#ix-attr:[Container(Layout.Wrap)]}
+    {#ix-attr:[Container(Layout.Stack)]}
     CLASS PUBLIC Axo_IV3_DeviceStatistics
         VAR PUBLIC
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Processing time MAX#>"}
             ProcessingTimeMax : UINT;                                                           // IW24
             {#ix-set:AttributeName = "<#Processing time MIN#>"}

@@ -4,7 +4,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
     CLASS PUBLIC Axo_IV3_Out
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Command control#>"}
-            {#ix-attr:[ReadOnly()]}
+            // {#ix-attr:[ReadOnly()]}
             CommandControl           :   Axo_IV3_CommandControl;
         END_VAR 
     END_CLASS    

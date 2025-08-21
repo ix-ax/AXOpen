@@ -8,26 +8,34 @@ NAMESPACE AXOpen.Components.Keyence.Vision
     {S7.extern=ReadWrite}
     CLASS Axo_IV3 EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC // HEADER
-            {#ix-attr:[ReadOnly()]}
-            Progress       :   INT;
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Progress#>"}
+            Progress : INT;
         END_VAR
 
         VAR PUBLIC // TASKS
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#TriggerTask#>"}
+            TriggerTask : AXOpen.Core.AxoTask;
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Restore#>"}
             RestoreTask : AXOpen.Core.AxoTask;
+        
+
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Required program number#>"}
+            RequiredProgramNumber : UINT;
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#ChangeProgramTask#>"}
+            ChangeProgramTask : AXOpen.Core.AxoTask;
         END_VAR
 
         VAR PUBLIC // TEMPLATE TASKS
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_1#>"}
-            TemplateTask_10steps_1 : AXOpen.Core.AxoTask;
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_2#>"}
-            TemplateTask_10steps_2 : AXOpen.Core.AxoTask;
+
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Template tasks")]}
             {#ix-set:AttributeName = "<#TemplateTask_10steps_3#>"}
@@ -128,6 +136,9 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             _inputsCount            :   UINT;
             _outputsAddress         :   UDINT;  
             _outputsCount           :   UINT; 
+            _resultUpdateComplete   :   BOOL;
+            _resultNo               :   UINT;
+            _programNumber          :   UINT;
         END_VAR
 
         ///<summary>
@@ -6054,8 +6065,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
           
             //*************INITIALIZATION*************
             RestoreTask.Run(THIS);
-            TemplateTask_10steps_1.Run(THIS);
-            TemplateTask_10steps_2.Run(THIS);
+            TriggerTask.Run(THIS);
+            ChangeProgramTask.Run(THIS);
             TemplateTask_10steps_3.Run(THIS);
             TemplateTask_10steps_4.Run(THIS);
             TemplateTask_10steps_5.Run(THIS);
@@ -6071,6 +6082,13 @@ NAMESPACE AXOpen.Components.Keyence.Vision
     
             //********************Diagnostics*********        
             HardwareDiagnosticsTask.Run(THIS,Config.HWIDs.HW_Device);
+            IF Inputs.CommandStatusBits.Error THEN
+                Messenger.Activate(UINT#1800 + Inputs.DeviceStatusWords.ErrorNo, eAxoMessageCategory#Error);
+                Status.Error.Id := UINT#1800 + Inputs.DeviceStatusWords.ErrorNo;
+            ELSIF Inputs.CommandStatusBits.Warning THEN
+                Messenger.Activate(UINT#400 + Inputs.DeviceStatusWords.WarningNo, eAxoMessageCategory#Warning);
+                Status.Error.Id := UINT#400 + Inputs.DeviceStatusWords.WarningNo;
+            END_IF;
             //****************************************
     
             //*************RESTORE********************
@@ -6081,118 +6099,133 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //****************************************
             
     
-            //*************TemplateTask_10steps_1**************
-            TemplateTask_10steps_1.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_1.StartTriggered() THEN
+            //*************TriggerTask**************
+            TriggerTask.SetIsDisabled(FALSE);
+            IF TriggerTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#100,TemplateTask_10steps_1.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#101,TemplateTask_10steps_1.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_1.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#100,TriggerTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#101,TriggerTask.IsDone(), eAxoMessageCategory#Info);
+            IF TriggerTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
+                    _resultUpdateComplete := Inputs.CommandStatusBits.ResultUpdateComplete;
+                    _resultNo := Inputs.DeviceStatusWords.ResultNo;
+                    Outputs.CommandControl.TriggerRequest                               := FALSE;
+                    Outputs.CommandControl.MasterRegistrationRequest                    := FALSE;
+                    Outputs.CommandControl.ProgramSwitchingRequest                      := FALSE;
+                    Outputs.CommandControl.WarningClearRequest                          := FALSE;
+                    Outputs.CommandControl.StatisticsResetRequest                       := FALSE;
+                    Outputs.CommandControl.BufferClearRequest                           := FALSE;
+                    Outputs.CommandControl.SdCardSavingStopRequest                      := FALSE;
+                    Outputs.CommandControl.SettingValueChangeRequest                    := FALSE;
+                    Outputs.CommandControl.ResultAcquisitionCompleteNotification        := FALSE;                    
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
                     _progress := 300;
                 END_IF;
     
-                IF _progress = 300 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 1>
+                IF _progress = 300 THEN                                                                                     // TriggerTask running: , waiting for the raising of the 'TriggerReady' signal.
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
-    
-                    IF TRUE THEN
+
+                    IF Inputs.CommandStatusBits.TriggerReady THEN
                         THIS.CallTimers(FALSE);
                         _progress := 301;
                     END_IF;
                 END_IF;
     
-                IF _progress = 301 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 2>
+                IF _progress = 301 THEN                                                                                     // TriggerTask running: , waiting for the raising of the 'TriggerResponse' signal.
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
+
+                    Outputs.CommandControl.TriggerRequest := TRUE;
     
-                    IF TRUE THEN
+                    IF Inputs.CommandStatusBits.TriggerResponse THEN
                         THIS.CallTimers(FALSE);
                         _progress := 302;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 302 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 3>
+                IF _progress = 302 THEN                                                                                     // TriggerTask running: , waiting for the raising of the 'BUSY' signal.
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#502;
                     END_IF;
 
-                    IF TRUE THEN
+                    IF Inputs.CommandStatusBits.BUSY THEN
                         THIS.CallTimers(FALSE);
                         _progress := 303;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 303 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 4>
+                IF _progress = 303 THEN                                                                                     // TriggerTask running: , waiting for the raising of the 'ImagingStatus' signal.
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#503;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.CommandStatusBits.ImagingStatus THEN
                         THIS.CallTimers(FALSE);
                         _progress := 304;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 304 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 5>
+                IF _progress = 304 THEN                                                                                     // TriggerTask running: , waiting for the falling of the 'BUSY' signal.
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#504;
                     END_IF;
 
-                    IF TRUE THEN
+                    Outputs.CommandControl.TriggerRequest := FALSE;
+
+                    IF NOT Inputs.CommandStatusBits.BUSY THEN
                         THIS.CallTimers(FALSE);
                         _progress := 305;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 305 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 6>
+                IF _progress = 305 THEN                                                                                     // TriggerTask running: , waiting for the change of the 'ResultUpdateComplete' signal.
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#505;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.CommandStatusBits.ResultUpdateComplete <> _resultUpdateComplete THEN
                         THIS.CallTimers(FALSE);
                         _progress := 306;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 306 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 7>
+                IF _progress = 306 THEN                                                                                     // TriggerTask running: , waiting for the raising of the 'ResultAvailable' signal.
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#506, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#506;
                     END_IF;
     
-                    IF TRUE THEN
+                    IF Inputs.CommandStatusBits.ResultAvailable THEN
                         THIS.CallTimers(FALSE);
                         _progress := 307;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 307 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 8>
+                IF _progress = 307 THEN                                                                                     // TriggerTask running: , waiting for the incrementation of the 'ResultNo' signal.
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#507, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#507;
                     END_IF;
 
-                    IF TRUE THEN
+                    IF Inputs.DeviceStatusWords.ResultNo > _resultNo THEN
                         THIS.CallTimers(FALSE);
                         _progress := 308;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 308 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 9>
+                IF _progress = 308 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 9>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#508, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#508;
@@ -6204,100 +6237,120 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 309 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_1.DoneWhen(TRUE);
+                IF _progress = 309 THEN                                                                                     // TriggerTask running: , <add the detailed description of the current action 10>
+                    TriggerTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_1.ThrowWhen(_errorTimer.output);
+                TriggerTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_1.ThrowWhen(TemplateTask_10steps_1.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_1 timeout.');                
+                TriggerTask.ThrowWhen(TriggerTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TriggerTask timeout.');                
             END_IF;
-            IF TemplateTask_10steps_1.DoneReached() THEN
+            IF TriggerTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_1.ErrorOccured() THEN
+            ELSIF TriggerTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10000;
                 Status.Error.Id  :=  UINT#10000;
-            ELSIF TemplateTask_10steps_1.AbortTriggered()THEN
+            ELSIF TriggerTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10001;
                 Status.Error.Id  :=  UINT#10001;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#10000,TemplateTask_10steps_1.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10001,TemplateTask_10steps_1.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#102,TemplateTask_10steps_1.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_1.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
+            Messenger.ActivateOnCondition(ULINT#10000,TriggerTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,TriggerTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#102,TriggerTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF TriggerTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
                 _progress := 0;
             END_IF;
             //**************************************************
     
-            //*************TemplateTask_10steps_2***************
-            TemplateTask_10steps_2.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_2.StartTriggered() THEN
+            //*************ChangeProgramTask***************
+            ChangeProgramTask.SetIsDisabled(FALSE);
+            IF ChangeProgramTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#110,TemplateTask_10steps_2.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#111,TemplateTask_10steps_2.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_2.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#110,ChangeProgramTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#111,ChangeProgramTask.IsDone(), eAxoMessageCategory#Info);
+            IF ChangeProgramTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
+                    Outputs.CommandControl.TriggerRequest                               := FALSE;
+                    Outputs.CommandControl.MasterRegistrationRequest                    := FALSE;
+                    Outputs.CommandControl.ProgramSwitchingRequest                      := FALSE;
+                    Outputs.CommandControl.WarningClearRequest                          := FALSE;
+                    Outputs.CommandControl.StatisticsResetRequest                       := FALSE;
+                    Outputs.CommandControl.BufferClearRequest                           := FALSE;
+                    Outputs.CommandControl.SdCardSavingStopRequest                      := FALSE;
+                    Outputs.CommandControl.SettingValueChangeRequest                    := FALSE;
+                    Outputs.CommandControl.ResultAcquisitionCompleteNotification        := FALSE;                    
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
                     _progress := 310;
                 END_IF;
     
-                IF _progress = 310 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 1>
-                    IF _infoTimer.output THEN
+                IF _progress = 310 THEN                                                                                     // ChangeProgramTask running: , checking the program number.
+                    // IF _infoTimer.output THEN
+                    //     TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
+                    //     Status.Error.Id :=      UINT#510;
+                    // END_IF;
+
+                    IF _programNumber <= Config.MaxProgramNumber THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 311;
+                    ELSE
                         TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#510;
                     END_IF;
-    
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 311;
-                    END_IF;
                 END_IF;
     
-                IF _progress = 311 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 2>
+                IF _progress = 311 THEN                                                                                     // ChangeProgramTask running: , setting the programm number.
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#511;
                     END_IF;
-    
-                    IF TRUE THEN
+
+                    Outputs.CommandControl.ProgramNo := _programNumber;
+                    IF Outputs.CommandControl.ProgramNo = Inputs.DeviceStatusWords.CurrentProgramNo THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 319;
+                    ELSE
                         THIS.CallTimers(FALSE);
                         _progress := 312;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 312 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 3>
+                IF _progress = 312 THEN                                                                                     // ChangeProgramTask running: , waiting for the raising of the 'ProgramSwitchingResponse' signal.
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#512;
                     END_IF;
     
-                    IF TRUE THEN
+                    Outputs.CommandControl.ProgramSwitchingRequest                      := TRUE;
+
+                    IF Inputs.CommandStatusBits.ProgramSwitchingResponse THEN
                         THIS.CallTimers(FALSE);
                         _progress := 313;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 313 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 4>
+                IF _progress = 313 THEN                                                                                     // ChangeProgramTask running: , waiting for the falling of the 'ProgramSwitchingResponse' signal.
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#513;
                     END_IF;
     
-                    IF TRUE THEN
+                    Outputs.CommandControl.ProgramSwitchingRequest                      := FALSE;
+
+                    IF NOT Inputs.CommandStatusBits.ProgramSwitchingResponse THEN
                         THIS.CallTimers(FALSE);
                         _progress := 314;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 314 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 5>
+                IF _progress = 314 THEN                                                                                     // ChangeProgramTask running: , <add the detailed description of the current action 5>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#514;
@@ -6309,7 +6362,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 315 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 6>
+                IF _progress = 315 THEN                                                                                     // ChangeProgramTask running: , <add the detailed description of the current action 6>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#515;
@@ -6321,7 +6374,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 316 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 7>
+                IF _progress = 316 THEN                                                                                     // ChangeProgramTask running: , <add the detailed description of the current action 7>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#516;
@@ -6333,7 +6386,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 317 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 8>
+                IF _progress = 317 THEN                                                                                     // ChangeProgramTask running: , <add the detailed description of the current action 8>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#517;
@@ -6345,7 +6398,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 318 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 9>
+                IF _progress = 318 THEN                                                                                     // ChangeProgramTask running: , <add the detailed description of the current action 9>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#518, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#518;
@@ -6357,31 +6410,32 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     END_IF;
                 END_IF;
                 
-                IF _progress = 319 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_2.DoneWhen(TRUE);
+                IF _progress = 319 THEN                                                                                     // ChangeProgramTask running: , <add the detailed description of the current action 10>
+                    ChangeProgramTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_2.ThrowWhen(_errorTimer.output);
+                ChangeProgramTask.ThrowWhen(Inputs.CommandStatusBits.ProgramSwitchingFailed,'Attempt to change the program failed.');
+                ChangeProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_2.ThrowWhen(TemplateTask_10steps_2.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_2 timeout.');                
+                ChangeProgramTask.ThrowWhen(ChangeProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ChangeProgramTask timeout.');                
             END_IF;
-            IF TemplateTask_10steps_2.DoneReached() THEN
+            IF ChangeProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_2.ErrorOccured() THEN
+            ELSIF ChangeProgramTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10010;
                 Status.Error.Id  :=  UINT#10010;
-            ELSIF TemplateTask_10steps_2.AbortTriggered()THEN
+            ELSIF ChangeProgramTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10011;
                 Status.Error.Id  :=  UINT#10011;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#10010,TemplateTask_10steps_2.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10011,TemplateTask_10steps_2.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,TemplateTask_10steps_2.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_2.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
+            Messenger.ActivateOnCondition(ULINT#10010,ChangeProgramTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10011,ChangeProgramTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#112,ChangeProgramTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF ChangeProgramTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
                 Status.Action.Id :=  UINT#112;
                 _progress := 0;
             END_IF;
@@ -8670,12 +8724,16 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_1 : IAxoTaskState
-            TemplateMethod_10steps_1 := TemplateTask_10steps_1.Invoke(THIS);
+        METHOD PUBLIC Trigger : IAxoTaskState
+            Trigger := TriggerTask.Invoke(THIS);
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_2 : IAxoTaskState
-            TemplateMethod_10steps_2 := TemplateTask_10steps_2.Invoke(THIS);
+        METHOD PUBLIC ChangeProgram : IAxoTaskState
+            VAR_INPUT
+                inProgramNumber : UINT;
+            END_VAR
+            _programNumber := inProgramNumber;
+            ChangeProgram := ChangeProgramTask.Invoke(THIS);
         END_METHOD
 
         METHOD PUBLIC TemplateMethod_10steps_3 : IAxoTaskState
@@ -8721,6 +8779,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
         METHOD PROTECTED OVERRIDE ManualControl
             THIS._isManuallyControllable := true;
+            _programNumber := RequiredProgramNumber;
+
         END_METHOD
         
         ///<summary>
@@ -8736,6 +8796,18 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             _progress       :=   INT#0;
             _retVal    :=   WORD#0;
 
+            Outputs.CommandControl.TriggerRequest                               := FALSE;
+            Outputs.CommandControl.MasterRegistrationRequest                    := FALSE;
+            Outputs.CommandControl.ProgramSwitchingRequest                      := FALSE;
+            Outputs.CommandControl.WarningClearRequest                          := FALSE;
+            Outputs.CommandControl.StatisticsResetRequest                       := FALSE;
+            Outputs.CommandControl.BufferClearRequest                           := FALSE;
+            Outputs.CommandControl.SdCardSavingStopRequest                      := FALSE;
+            Outputs.CommandControl.SettingValueChangeRequest                    := FALSE;
+            Outputs.CommandControl.ResultAcquisitionCompleteNotification        := FALSE;
+            Outputs.CommandControl.ProgramNo                                    := UINT#0;
+            Outputs.CommandControl.Function_1                                   := WORD#0;
+            Outputs.CommandControl.Function_2                                   := DWORD#0;
 
             FOR _index := 0 TO 11 DO
                 _data_in[_index] := BYTE#0;
@@ -8749,8 +8821,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             _word           :=   WORD#0;
             _dword          :=   DWORD#0;
 
-            TemplateTask_10steps_1.Restore();
-            TemplateTask_10steps_2.Restore();
+            TriggerTask.Restore();
+            ChangeProgramTask.Restore();
             TemplateTask_10steps_3.Restore();
             TemplateTask_10steps_4.Restore();
             TemplateTask_10steps_5.Restore();

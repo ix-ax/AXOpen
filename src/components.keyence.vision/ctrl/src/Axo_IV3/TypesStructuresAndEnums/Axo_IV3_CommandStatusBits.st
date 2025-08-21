@@ -1,10 +1,8 @@
 NAMESPACE AXOpen.Components.Keyence.Vision
     {S7.extern=ReadWrite}
-    {#ix-attr:[Container(Layout.Wrap)]}
+    {#ix-attr:[Container(Layout.Stack)]}
     CLASS PUBLIC Axo_IV3_CommandStatusBits
         VAR PUBLIC
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Trigger response#>"}                    
             TriggerResponse : BOOL;                                                             // IB0.0
             {#ix-set:AttributeName = "<#Master registration response#>"}
@@ -22,8 +20,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             {#ix-set:AttributeName = "<#Setting value change response#>"}
             SettingValueChangeResponse : BOOL;                                                  // IB0.7
 
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Trigger failed#>"}
             TriggerFailed : BOOL;                                                               // IB1.0
             {#ix-set:AttributeName = "<#Master registration failed#>"}
@@ -38,8 +34,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             {#ix-set:AttributeName = "<#Setting value change failed#>"}
             SettingValueChangeFailed : BOOL;                                                    // IB1.7
 
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Result available#>"}
             ResultAvailable : BOOL;                                                             // IB2.0
             {#ix-set:AttributeName = "<#Result update complete#>"}
@@ -57,8 +51,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             {#ix-set:AttributeName = "<#SD card identification status#>"}
             SdCardIdentificationStatus : BOOL;                                                  // IB2.7 
 
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Sorting mode information#>"}
             SortingModeInformation : BOOL;                                                      // IB3.0
                                                                                                 // IB3.1
@@ -72,7 +64,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             Warning : BOOL;                                                                     // IB3.6
             {#ix-set:AttributeName = "<#Error#>"}
             Error : BOOL;                                                                       // IB3.7
-
         END_VAR 
     END_CLASS    
 END_NAMESPACE
