@@ -29,9 +29,9 @@ namespace AXOpen.Core
 
         public override void ConfigurePolling()
         {
-            Component.Status.StartPolling(250, this);
-            Component.IsDisabled.StartPolling(250, this);
-            Component.ErrorDetails.StartPolling(250, this);
+            this.StartPolling(Component.Status, 250);
+            this.StartPolling(Component.IsDisabled, 250);
+            this.StartPolling(Component.ErrorDetails, 250);
         }
 
         private async void InvokeTask()
