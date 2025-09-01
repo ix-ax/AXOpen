@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Template.Axolibrary
+namespace AXOpen.Components.Dukane.Welders
 {
     public partial class TemplateComponent
     {

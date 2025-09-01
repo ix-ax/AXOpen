@@ -4,7 +4,7 @@ USING AXOpen.Messaging.Static;
 USING AXOpen.Components.Abstractions;
 USING Siemens.Simatic.S71500.Hardware.Utilities;
 
-NAMESPACE Template.Axolibrary
+NAMESPACE AXOpen.Components.Dukane.Welders
     {S7.extern=ReadWrite}
     CLASS TemplateComponent EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC // HEADER
