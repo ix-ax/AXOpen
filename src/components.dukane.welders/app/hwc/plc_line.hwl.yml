@@ -14,3 +14,4 @@ IoSystems:
   ControllerInterfaces:
   - Ref: plc_line/plc_line/profinet_x1
   DeviceInterfaces:
+  - Ref: DukaneIqSeriesWelder_1/DukaneIqSeriesWelder_1/profinet

@@ -79,6 +79,8 @@
 	  <ProjectReference Include="..\..\..\components.rexroth.tightening\app\ix\app_axopen_components_rexroth_tightening.csproj" />
 	  <ProjectReference Include="..\..\..\components.rexroth.tightening\src\AXOpen.Components.Rexroth.Tightening\inxton_axopen_components_rexroth_tightening.csproj" />
 	  <ProjectReference Include="..\..\..\data\tests\AXOpen.Data.Tests_L1\ix\axopen_data_tests_l1.csproj" />
+	  <ProjectReference Include="..\..\..\components.dukane.welders\app\ix\app_axopen_components_dukane_welders.csproj" />
+	  <ProjectReference Include="..\..\..\components.dukane.welders\src\AXOpen.Components.Dukane.Welders\inxton_axopen_components_dukane_welders.csproj" />
 	</ItemGroup>
 	
 </Project>
