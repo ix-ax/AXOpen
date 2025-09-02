@@ -9,8 +9,8 @@
 
 @if (this.Component is not null)
 {
-    <div class="alert items-center @SeverityToAlertColor()">
-        <HeroIcon Icon="bell" Type="Operon.Icons.IconType.Outline" Class="size-6 me-2" />
+    <div class="w-full alert items-center @SeverityToAlertColor()">
+        <HeroIcon Icon="bell" Type="@BellIconType" Class="size-6 me-2" />
         <h6>@ParentDescription: @MessageText</h6>
         <div class="flex flex-wrap ms-auto gap-1">
             <a @onclick="() => _collapseDetails.Toggle()">
@@ -26,14 +26,16 @@
     </div>
 
     <Collapse @ref="_collapseDetails">
-        <div class="simple-border">
-            <h6>@HelpText</h6>
-            <div class="flex flex-wrap justify-between">
+        <div class="w-full simple-border">
+            <div>
+                <h6>@HelpText</h6>
+            </div>
+            <div class="flex flex-wrap justify-between my-2">
+               
                 <div class="flex flex-wrap gap-4">
-                    <BaseInput Value="Component.Symbol" Label="Origin" />
-                    <Operon.Components.Pickers.DateTimePicker Value="Component.Risen.Cyclic" Label="Risen" IsReadOnly="true" />
-                    <Operon.Components.Pickers.DateTimePicker Value="Component.Fallen.Cyclic" Label="Fallen" IsReadOnly="true" />
-                    <Operon.Components.Pickers.DateTimePicker Value="Component.Acknowledged.Cyclic" Label="Acknowledged" IsReadOnly="true" />
+                    <Operon.Components.Pickers.DateTimePicker Value="Component.Risen.Cyclic" Label="Risen" IsReadOnly="true"/>
+                    <Operon.Components.Pickers.DateTimePicker Value="Component.Fallen.Cyclic" Label="Fallen" IsReadOnly="true"/>
+                    <Operon.Components.Pickers.DateTimePicker Value="Component.Acknowledged.Cyclic" Label="Acknowledged" IsReadOnly="true"/>
                 </div>
                 @if (!HideAcknowledgeButton || !HideRepairButton || true)
                 {
@@ -41,17 +43,24 @@
                         @if (!HideAcknowledgeButton || true)
                         {
                             <button class="btn btn-no-bg-primary" @onclick="() => AcknowledgeTask()">
-                                <HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                <HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5"/>
                             </button>
                         }
                         @if (!HideRepairButton || true)
                         {
-                            <button class="btn btn-no-bg-primary" @onclick="() => RestoreTask()">
-                                <HeroIcon Icon="lock-open" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                            </button>
+                            <AuthorizeView Roles="Maintenance,Administrator">
+                                <Authorized>
+                                    <button class="btn btn-no-bg-primary" @onclick="() => RestoreTask()">
+                                        <HeroIcon Icon="lock-open" Type="Operon.Icons.IconType.Outline" Class="size-5"/>
+                                    </button>
+                                </Authorized>
+                            </AuthorizeView>
                         }
                     </div>
                 }
+            </div>
+            <div>
+                <h7>@Component.Symbol</h7>
             </div>
         </div>
     </Collapse>
@@ -59,6 +68,29 @@
 
 @code
 {
+
+    private IconType BellIconType
+    {
+        get
+        {
+            switch (MessengerState)
+            {
+                case eAxoMessengerState.Idle:
+                    return Operon.Icons.IconType.Outline;
+                case eAxoMessengerState.ActiveAlreadyAcknowledged:
+                case eAxoMessengerState.ActiveAcknowledgeRequired:
+                case eAxoMessengerState.ActiveAcknowledgeNotRequired:
+                    return Operon.Icons.IconType.Solid;
+                case eAxoMessengerState.InactiveWaitingForAcknowledge:
+                    return Operon.Icons.IconType.Outline;
+                case eAxoMessengerState.InvalidImplementation:
+                    return Operon.Icons.IconType.Mini;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+    }
+
     private Collapse _collapseDetails { get; set; }
 
     private string SeverityToAlertColor()
