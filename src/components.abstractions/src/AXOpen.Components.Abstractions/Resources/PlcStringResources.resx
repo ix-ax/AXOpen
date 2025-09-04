@@ -60,18 +60,14 @@
   </resheader>
   <data name="Command_state" xml:space="preserve">
     <value>Command state</value>
-    <comment>src\AxoTask\AxoTask.st,8</comment>
   </data>
   <data name="Stepping_mode" xml:space="preserve">
     <value>Stepping mode</value>
-    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,3</comment>
   </data>
   <data name="Sequence_mode" xml:space="preserve">
     <value>Sequence mode</value>
-    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,5</comment>
   </data>
   <data name="Run_step" xml:space="preserve">
     <value>Run step</value>
-    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,10</comment>
   </data>
 </root>
