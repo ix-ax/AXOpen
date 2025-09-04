@@ -97,7 +97,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
-            // {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[ReadOnly()]}
             Outputs              :   AxoMitsubishiRobotics_Control;
         END_VAR    
 
