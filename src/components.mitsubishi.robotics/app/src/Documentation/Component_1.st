@@ -145,7 +145,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 IF(ExampleRobot.StopMovementsAndProgram().IsDone()) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
-            END_IF;       
+            END_IF;   
+                
             IF(Steps[12].Execute(Sequencer, 'Restore')) THEN
                 ExampleRobot.Restore();              
                 Sequencer.CompleteSequence();                
