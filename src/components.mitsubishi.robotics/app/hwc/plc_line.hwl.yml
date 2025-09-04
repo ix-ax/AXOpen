@@ -2,7 +2,7 @@ Devices:
 - Name: plc_line
   Modules:
   - Apply:
-      TemplateName: 6ES7516-3AP03-0AB0_v4_0
+      TemplateName: 6ES7517-3AQ10-0AB0_v4_0
       Arguments:
         PLCName: plc_line
         IpAddress_X1: 192.168.100.120/24
