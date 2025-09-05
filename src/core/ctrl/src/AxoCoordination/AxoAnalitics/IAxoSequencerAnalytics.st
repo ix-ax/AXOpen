@@ -4,7 +4,7 @@ NAMESPACE AXOpen.Core
     /// Provides methods to update step information, restart statistics collection,
     /// and control data collection for sequencers.
     /// </summary>
-    INTERFACE PUBLIC IAxoSequencerAnalitics
+    INTERFACE PUBLIC IAxoSequencerAnalytics
         /// <summary>
         /// Updates the analytics data for a specific step in the sequencer.
         /// This method processes the provided step and updates its associated statistics.
@@ -21,13 +21,14 @@ NAMESPACE AXOpen.Core
         /// This method clears any existing data and prepares the system for fresh data collection.
         /// </summary>
         METHOD Restart            
-        END_METHOD 
+        END_METHOD     
         
         /// <summary>
-        /// Starts the data collection process for sequencer statistics.
+        /// Starts the data collection process for sequencer statistics.    
         /// Returns a boolean value indicating whether the data collection was successfully started.
-        /// </summary>
-        /// <returns>True if data collection starts successfully; otherwise, false.</returns>
-        METHOD CollectData : BOOL END_METHOD
+        /// The operation is run asynchronously.
+        /// </summary>    
+        METHOD Save : BOOL
+        END_METHOD    
     END_INTERFACE    
 END_NAMESPACE

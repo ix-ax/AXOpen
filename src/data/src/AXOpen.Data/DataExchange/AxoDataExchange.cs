@@ -247,7 +247,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>(RemoteCreateAccessPriority);
         Repository.Create(identifier, cloned);
         sw.Stop();
-        AxoApplication.Current.Logger.Information($"Record '{identifier}' created in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
+        AxoApplication.Current.Logger.Debug($"Record '{identifier}' created in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
         return true;
     }
 
@@ -261,7 +261,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
             var record = Repository.Read(identifier);
             await ((ITwinObject)DataEntity).PlainToOnline(record, RemoteReadAccessPriority);
             sw.Stop();
-            AxoApplication.Current.Logger.Information($"Record '{identifier}' read from '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
+            AxoApplication.Current.Logger.Debug($"Record '{identifier}' read from '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
             return true;
         }
         catch (Exception exception)
@@ -282,7 +282,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         cloned.Hash = HashHelper.CreateHash(cloned);
         Repository.Update(identifier, cloned);
         sw.Stop();
-        AxoApplication.Current.Logger.Information($"Record '{identifier}' updated in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
+        AxoApplication.Current.Logger.Debug($"Record '{identifier}' updated in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
         return true;
     }
 
@@ -294,7 +294,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         await DataEntity.DataEntityId.SetAsync(identifier);
         Repository.Delete(identifier);
         sw.Stop();
-        AxoApplication.Current.Logger.Information($"Record '{identifier}' deleted in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
+        AxoApplication.Current.Logger.Debug($"Record '{identifier}' deleted in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
         return true;
     }
 
@@ -306,7 +306,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         await DataEntity.DataEntityId.SetAsync(identifier);
         var retVal = Repository.Exists(identifier);
         sw.Stop();
-        AxoApplication.Current.Logger.Information($"Information about record '{identifier}' existence in '{this.Symbol}' retrieved in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
+        AxoApplication.Current.Logger.Debug($"Information about record '{identifier}' existence in '{this.Symbol}' retrieved in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
         return retVal;
     }
 
@@ -331,7 +331,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         }
 
         sw.Stop();
-        AxoApplication.Current.Logger.Information($"Record '{identifier}' created in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms' using `Create or update` function.", this, AxoApplication.Current.ControllerIdentity);
+        AxoApplication.Current.Logger.Debug($"Record '{identifier}' created in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms' using `Create or update` function.", this, AxoApplication.Current.ControllerIdentity);
 
         return true;
     }

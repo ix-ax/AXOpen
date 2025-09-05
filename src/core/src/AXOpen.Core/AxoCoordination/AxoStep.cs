@@ -12,18 +12,6 @@ namespace AXOpen.Core
 {
     public partial class AxoStep : AXOpen.Core.AxoTaskLight, IAxoStep
     {
-        private uint? _UID;
-        public uint UID
-        {
-            get
-            {
-                if (_UID == null)
-                {
-                    var bytes = Encoding.UTF8.GetBytes(Symbol ?? string.Empty);
-                    _UID = XXH32.DigestOf(bytes);
-                }
-                return _UID.Value;
-            }
-        }
+        
     }
 }

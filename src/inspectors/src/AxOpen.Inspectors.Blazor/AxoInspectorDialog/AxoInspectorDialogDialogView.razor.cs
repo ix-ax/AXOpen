@@ -54,7 +54,7 @@ namespace AXOpen.Inspectors
                 base.Component._dialogueRetry.Edit = true;
                 await base.CloseDialogsWithSignalR();
                 var identity = (await _asp.GetAuthenticationStateAsync()).User.Identity;
-                AxoApplication.Current.Logger.Information($"{nameof(Retry)} of {Component.HumanReadable} was executed.", identity);
+                AxoApplication.Current.Logger.Information($"{nameof(Retry)} of '{Component.HumanReadable}' was executed.", identity);
             }
             else
             {
@@ -67,14 +67,14 @@ namespace AXOpen.Inspectors
             base.Component._dialogueTerminate.Edit = true;
             await base.CloseDialogsWithSignalR();
             var identity = (await _asp.GetAuthenticationStateAsync()).User.Identity;
-            AxoApplication.Current.Logger.Information($"{nameof(Terminate)} of {Component.HumanReadable} was executed.", identity);
+            AxoApplication.Current.Logger.Information($"{nameof(Terminate)} of '{Component.HumanReadable}' was executed.", identity);
         }
         public async Task Override()
         {
             base.Component._dialogueOverride.Edit = true;
             await base.CloseDialogsWithSignalR();
             var identity = (await _asp.GetAuthenticationStateAsync()).User.Identity;
-            AxoApplication.Current.Logger.Information($"{nameof(Override)} of {Component.HumanReadable} was executed.", identity);
+            AxoApplication.Current.Logger.Information($"{nameof(Override)} of '{Component.HumanReadable}' was executed.", identity);
         }
 
 

@@ -83,7 +83,7 @@ namespace AXOpen.Logging
                     }
                     catch (Exception e)
                     {
-                        AxoApplication.Current.Logger.Information($"There was in issue with getting logs from `{this.Carret.Symbol}`", this, new GenericIdentity("anonymous"), this);
+                        AxoApplication.Current.Logger.Error($"There was in issue with getting logs from `{this.Carret.Symbol}`", this, new GenericIdentity("anonymous"), this);
                     }
                
             });

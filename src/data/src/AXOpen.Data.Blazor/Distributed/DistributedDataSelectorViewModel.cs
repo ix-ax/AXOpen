@@ -237,7 +237,7 @@ namespace AXOpen.Data
 
                 // Log
                 AxoApplication.Current.Logger.Information(
-                    $"Sent record \"{identifier}\" to: {sentExchanges} by user action.",
+                    $"Record \"{identifier}\" sent to: {sentExchanges} by user action.",
                     Authentication.GetAuthenticationStateAsync().Result.User.Identity
                 );
             }
