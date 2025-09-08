@@ -1,13 +1,17 @@
 ﻿@page "/Documentation"
 @using AXOpen.Core;
+@using Operon.Components.Tab
 @* @using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents; *@
 
 
-<TabControl>
-    <TabPage Text="Component_1 - SR_750">
+<Tab>
+    <TabPage Title="Component_1 - SR_750">
         <Component_1></Component_1>
     </TabPage>
-    <TabPage Text="Component_2 - SR_1000">
+    <TabPage Title="Component_2 - SR_1000">
         <Component_2></Component_2>
     </TabPage>
-</TabControl>
+    <TabPage Title="Component_3 - IV3">
+        <Component_3></Component_3>
+    </TabPage>
+</Tab>
