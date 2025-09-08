@@ -8,22 +8,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
     {S7.extern=ReadWrite}
     CLASS PUBLIC Axo_SR_750 EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.IAxoCodeReader 
         VAR PRIVATE
-            // _hwID                                               :   WORD;
-            // _hwIdHandshakeAndGeneralErrorStatus                 :   WORD;
-            // _hwIdBUSY_Status                                    :   WORD;
-            // _hwIdCompletionStatus                               :   WORD;
-            // _hwIdErrorStatus                                    :   WORD;
-            // _hwIdTerminalStatus                                 :   WORD;
-            // _hwIdUnstableReadStatus                             :   WORD;
-            // _hwIdMatchingLevelAndTotalEvaluationGradeStatus     :   WORD;
-            // _hwIdOperationalResultStatus                        :   WORD;
-            // _hwIdReadData                                       :   WORD;
-            // _hwIdLatchAndErrorClearControl                      :   WORD;
-            // _hwIdOperationInstructionControl                    :   WORD;
-            // _hwIdCompletionClearControl                         :   WORD;
-            // _hwIdParameterBankNumber                            :   WORD;
-            // _hwIdUserData                                       :   WORD;
-
             _progress                                           :   INT := 0;
             _infoTimer                                          :   AXOpen.Timers.OnDelayTimer;
             _errorTimer                                         :   AXOpen.Timers.OnDelayTimer;

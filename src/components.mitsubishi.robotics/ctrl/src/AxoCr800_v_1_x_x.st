@@ -340,16 +340,15 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 THIS.Restore();
             END_IF;
             //****************************************
-
+            _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
             //*************StartAtMainTask***************
-            StartAtMainTask.SetIsDisabled(Inputs.Start);
+            StartAtMainTask.SetIsDisabled(FALSE);
             IF StartAtMainTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;
             Messenger.ActivateOnCondition(ULINT#100,StartAtMainTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#101,StartAtMainTask.IsDone(), eAxoMessageCategory#Info);
             IF StartAtMainTask.Execute(THIS) THEN
-                _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
                 IF _power_progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     Outputs.ActionNo := BYTE#255;
@@ -546,6 +545,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                     END_IF;
                     
                     Outputs.ServoOn:=_blink.output;
+                    Outputs.ServoOff:=FALSE;
 
                     IF Inputs.ServoOn THEN
                          THIS.CallTimers(FALSE);
@@ -565,6 +565,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                     END_IF;
                     
                     Outputs.ServoOn:=_blink.output;
+                    Outputs.ServoOff:=FALSE;
 
                     IF NOT Inputs.ErrorReset THEN
                          Outputs.ServoOn:=FALSE;
@@ -585,6 +586,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                     END_IF;
 
                     Outputs.Start:=_blink.output;
+                    Outputs.Stop := FALSE;
 
                     IF Inputs.Start THEN
                         Outputs.Start:=FALSE;
@@ -604,7 +606,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                     END_IF;
 
                     Outputs.Start:=_blink.output;
-                   
+                    Outputs.Stop := FALSE;
+                    
                     IF NOT Inputs.ErrorReset THEN
                         Outputs.Start:=FALSE;
                         _power_progress := 318;
@@ -689,8 +692,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         Status.Error.Id :=      UINT#522;
                     END_IF;
                     
-                    Outputs.Stop:=TRUE ;
-                    Outputs.Start:=FALSE ;
+                    Outputs.Stop :=_blink.output ;
+                    Outputs.Start :=FALSE ;
                     
                     IF Inputs.Stop THEN
                         Outputs.Stop:=FALSE;
@@ -853,6 +856,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         END_IF;
                     END_IF;
 
+                    Outputs.OverideSpecifications := FALSE;
+
                     IF Inputs.AutoEnable AND Inputs.OperationEnable AND Inputs.ServoOn AND NOT Inputs.ErrorReset THEN
                         THIS.CallTimers(FALSE);
                         _movement_progress := 344;
@@ -874,6 +879,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                     Outputs.Coordinates     := Status.CurrentMovementParameters.Coordinates; 		
                 
                     Outputs.ActionNo := BYTE#254;
+
+                    Outputs.OverideSpecifications := TRUE;
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
@@ -927,6 +934,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#551;
                     END_IF;
+
+                    Outputs.OverideSpecifications := FALSE;
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
@@ -1006,7 +1015,10 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
 
             _data[1].%X0 	     := Outputs.ServoOn;    
             _data[1].%X1 	     := Outputs.GeneralPurposeReset;    
-            _data[1].%X2 	     := Outputs.OverideSpecifications;    
+
+
+
+            _data[1].%X7 	     := Outputs.OverideSpecifications;    
                 
             //Tool signals
             _data[2].%X0 	     := Outputs.Tool_1_Retract;    

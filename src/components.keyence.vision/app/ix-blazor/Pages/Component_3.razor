@@ -1,0 +1,26 @@
+﻿@page "/Component_3"
+@using AXOpen.Core;
+@using AXOpen.Components.Keyence.Vision;
+
+<PageTitle>Documentation</PageTitle>
+
+<!-- <GenericComponentStatusView> -->
+<AxoComponentStatusView Component="@Entry.Plc.documentation.componentThree.Component" />
+<!-- </GenericComponentStatusView> -->
+
+<!-- <GenericComponentCommandView> -->
+<AxoComponentCommandView Component="@Entry.Plc.documentation.componentThree.Component" />
+<!-- </GenericComponentCommandView> -->
+
+<!-- <RccComponentStatusView> -->
+<!-- This will render anything found on parameter assigned to Context  -->
+<RenderableContentControl Context="@Entry.Plc.documentation.componentThree" Presentation="Status-Display" />
+<!-- </RccComponentStatusView> -->
+
+<!-- <RccComponentCommandView> -->
+<!-- This will render anything found on parameter assigned to Context  -->
+<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.documentation.componentOne.Sequencer" />
+<RenderableContentControl Context="@Entry.Plc.documentation.componentThree" Presentation="Command-Control" />
+<!-- </RccComponentCommandView> -->
+
+
