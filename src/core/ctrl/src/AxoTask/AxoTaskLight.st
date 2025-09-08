@@ -66,10 +66,7 @@ NAMESPACE AXOpen.Core
             _cyclicExecuteIsNotCalled : BOOL;
             _multipleExecuteIsCalled : BOOL;
         END_VAR 
-        VAR PRIVATE
-            _isDisabled : BOOL;   
-        END_VAR
-
+      
         ///<summary>
         /// Gets the actual state of this task.
         ///</summary>    
@@ -254,7 +251,7 @@ NAMESPACE AXOpen.Core
             // task should not be Invoked, if the execute method was not called in this or previous PLC cycle
             IF Status = eAxoTaskState#Ready THEN
                 IF (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) THEN
-                    IF(NOT _isDisabled) THEN
+                    IF(NOT IsDisabled) THEN
                         Status := eAxoTaskState#Kicking;      
                         _context.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
                     ELSE
@@ -337,10 +334,7 @@ NAMESPACE AXOpen.Core
             _context := THIS.GetContext(); 
 
             _openCycleCount :=  _context.OpenCycleCount();
-
-            // Temporary workaround due to missing properties at the time this method was developed.
-            IsDisabled := _isDisabled;
-
+           
             IF NOT _suspendMultipleExecuteCallCheck THEN
                 IF _openCycleCountExecute = _openCycleCount && _openCycleCount > ULINT#0 THEN
                     _multipleExecuteIsCalled := TRUE;                
@@ -358,7 +352,7 @@ NAMESPACE AXOpen.Core
             
             _stateKicking :=  Status = eAxoTaskState#Kicking;
             
-            IF _isDisabled && (_stateKicking || Status = eAxoTaskState#Busy) THEN 
+            IF IsDisabled && (_stateKicking || Status = eAxoTaskState#Busy) THEN 
                 THIS.Abort();
             END_IF;
 
@@ -466,15 +460,15 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC SetIsDisabled
             VAR_INPUT
                 Disabled : BOOL;
-            END_VAR
-            _isDisabled := Disabled;
+            END_VAR            
+            IsDisabled := Disabled;
         END_METHOD
 
         ///<summary>
         /// Returns the value of the `IsDisabled` variable
         ///</summary>
         METHOD PUBLIC GetIsDisabled : BOOL
-            GetIsDisabled := _isDisabled;
+            GetIsDisabled := IsDisabled;
         END_METHOD
     
         ///<summary>
@@ -505,7 +499,7 @@ NAMESPACE AXOpen.Core
             END_VAR    
             _context := THIS.GetContext(); 
 
-            IF THIS.Status = eAxoTaskState#Aborted AND NOT _isDisabled THEN
+            IF THIS.Status = eAxoTaskState#Aborted AND NOT IsDisabled THEN
                  
                 THIS.Status := eAxoTaskState#Busy;
                 THIS.OnResume();

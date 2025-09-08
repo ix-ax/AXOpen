@@ -181,6 +181,8 @@ public sealed class BuildTask : FrostingTask<BuildContext>
                 }
             });
         }
+        
+       // context.DotnetIxr(context.Libraries.Where(p => p.pack && Directory.Exists(Path.Combine(context.RootDir, p.folder, "ctrl", "src"))).Select(p => Path.Combine(context.RootDir, p.folder, "ctrl")));
 
         var traversalProjectFolder = Path.Combine(context.RootDir, "traversals", "apax");
         if (!context.BuildParameters.NoBuild)
@@ -202,6 +204,8 @@ public sealed class BuildTask : FrostingTask<BuildContext>
         {
             context.ApaxBuild(new[] { traversalProjectFolder });
         }
+
+
     }
 }
 

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using AXSharp.Connector;
+using K4os.Hash.xxHash;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;   
-using AXSharp.Connector;
 
 namespace AXOpen.Core
 {
@@ -13,6 +14,13 @@ namespace AXOpen.Core
         {
             parent?.GetConnector()?.IdentityProvider?.AddIdentity(this);
             AxoApplication.Current.SystemDiagnostics.AddDiagnosticsFlag(this._dg_);
+            this.Identity.Cyclic = GetIdentity();
+        }
+
+        private ulong GetIdentity()
+        {
+            var bytes = Encoding.UTF8.GetBytes(Symbol ?? string.Empty);
+            return XXH64.DigestOf(bytes);
         }
     }
 }

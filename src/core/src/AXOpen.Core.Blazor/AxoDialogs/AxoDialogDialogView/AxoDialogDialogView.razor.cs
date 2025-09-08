@@ -7,22 +7,13 @@ namespace AXOpen.Core
     public partial class AxoDialogDialogView : AxoDialogBaseView<AxoDialog>, IDisposable
     {
 
-
         private bool IsOkDialogType() => (Component._buttons.Cyclic == (short)eDialogButtons.Ok);
-
-
         private bool IsYesNoDialogType() => (Component._buttons.Cyclic == (short)eDialogButtons.YesNo);
-
-
         private bool IsYesNoCancelDialogType() => (Component._buttons.Cyclic == (short)eDialogButtons.YesNoCancel);
-
-
         protected override void OnInitialized()
         {
             base.OnInitialized(); // call always "base"
         }
-
-
 
         private string BackgroundColor
         {

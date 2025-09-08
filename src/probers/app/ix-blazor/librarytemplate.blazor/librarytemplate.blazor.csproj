@@ -15,4 +15,8 @@
     <ProjectReference Include="..\..\ix\probers_app.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
 </Project>

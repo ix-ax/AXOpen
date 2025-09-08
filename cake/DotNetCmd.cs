@@ -45,6 +45,21 @@ public static class DotNetCmd
         }
     }
 
+    public static void DotnetIxr(this BuildContext context, IEnumerable<string> folders)
+    {
+        foreach (var folder in folders)
+        {
+            context.ProcessRunner.Start(Helpers.GetDotNetCommand(), new ProcessSettings()
+            {
+                Arguments = "ixr",
+                WorkingDirectory = folder,
+                RedirectStandardOutput = false,
+                RedirectStandardError = false,
+                Silent = false
+            }).WaitForExit();
+        }
+    }
+
 
     //this BuildContext context, string folder, string apaxCommand, ref bool summaryResult
     public static string DotNetIxc(this BuildContext context, string folder, ref bool summaryResult)

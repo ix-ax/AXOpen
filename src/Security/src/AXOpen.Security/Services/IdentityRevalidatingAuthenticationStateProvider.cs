@@ -56,7 +56,7 @@ namespace AxOpen.Security.Services
 
                 if (userPrincipal == null)
                 {
-                    AxoApplication.Current.Logger.Information($"Ivalid user principals, will be logged out!", new GenericIdentity("Unknown"));
+                    AxoApplication.Current.Logger.Information($"Invalid user principals, user will be logged out!", new GenericIdentity("Unknown"));
                     return false;
                 }
 
