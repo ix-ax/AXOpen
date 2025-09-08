@@ -11,7 +11,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Telegram111_In  :   AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_IN;
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Telegram 111")]}
-            // {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Telegram111 Outputs#>"}
             Telegram111_Out :   AXOpen.Components.Festo.Drives.PROFIdriveTelegram_111_OUT;
         END_VAR
@@ -23,7 +23,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Telegram750_In  :   AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_IN;
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Telegram 750")]}
-            // {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Telegram750 Outputs#>"}
             Telegram750_Out :   AXOpen.Components.Festo.Drives.PROFIdriveTelegram_750_OUT;
         END_VAR   
