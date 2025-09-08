@@ -856,6 +856,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         END_IF;
                     END_IF;
 
+                    Outputs.OverideSpecifications := FALSE;
+
                     IF Inputs.AutoEnable AND Inputs.OperationEnable AND Inputs.ServoOn AND NOT Inputs.ErrorReset THEN
                         THIS.CallTimers(FALSE);
                         _movement_progress := 344;
@@ -877,6 +879,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                     Outputs.Coordinates     := Status.CurrentMovementParameters.Coordinates; 		
                 
                     Outputs.ActionNo := BYTE#254;
+
+                    Outputs.OverideSpecifications := TRUE;
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
@@ -930,6 +934,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#551;
                     END_IF;
+
+                    Outputs.OverideSpecifications := FALSE;
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
@@ -1009,7 +1015,10 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
 
             _data[1].%X0 	     := Outputs.ServoOn;    
             _data[1].%X1 	     := Outputs.GeneralPurposeReset;    
-            _data[1].%X2 	     := Outputs.OverideSpecifications;    
+
+
+
+            _data[1].%X7 	     := Outputs.OverideSpecifications;    
                 
             //Tool signals
             _data[2].%X0 	     := Outputs.Tool_1_Retract;    
