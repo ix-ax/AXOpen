@@ -66,10 +66,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Resources\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <None Include="..\..\..\..\assets\icons\icon_128_128.png">
 	    <Pack>True</Pack>
 	    <PackagePath>\</PackagePath>

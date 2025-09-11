@@ -2,7 +2,7 @@
 @using Operon.Components
 @inherits AXOpen.Core.Blazor.Dialogs.AxoLocator;
 
-<Modal @ref="ModalDialogContainer">
+<Modal @ref="ModalDialogContainer" Static="true">
     <div class="modal-header">
         <a href="Identity/Account/Login">@Localizer["Log in"]</a>
     </div>
@@ -13,38 +13,6 @@
         }
     </div>
 </Modal>
-
-@* @if (_dialogProxyService?.DisplayedDialogs.Count() > 0)
-    {
-       
-        <div class="modal modal-xl @ModalClass" tabindex="-1" role="dialog" style="display:@ModalDisplay; overflow-y: auto; ">
-            <div class="modal-dialog mw-100 w-75 modal-dialog-centered" style="align-items: flex-start;" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <a href="Identity/Account/Login">@Localizer["Log in"]</a>
-
-                    </div>
-                    <div class="modal-body">
-                        @foreach (var dialogInstance in _dialogProxyService?.DisplayedDialogs)
-                        {
-                            <RenderableContentControl Context="@dialogInstance" Presentation="Dialog" />
-                        }
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
-    else
-    {
-        if (_dialogProxyService != null)
-        {
-            @foreach (var dialogInstance in _dialogProxyService?.DisplayedDialogs)
-            {
-                <RenderableContentControl Context="@dialogInstance" Presentation="Dialog"/>
-            }
-        }
-    } *@
-
 
 @code
 {

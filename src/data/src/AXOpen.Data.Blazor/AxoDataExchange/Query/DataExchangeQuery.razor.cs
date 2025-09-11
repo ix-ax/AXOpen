@@ -94,7 +94,7 @@ namespace AXOpen.Data.Query
         public string SymbolsQueryFilter // string that contains the symbol
         {
             set
-            {
+           {
                 if (_SymbolsQueryFilter != value)
                 {
                     _SymbolsQueryFilter = value;
@@ -206,7 +206,7 @@ namespace AXOpen.Data.Query
                 _DisplyedSymbols.Clear();
 
                 _DisplyedSymbols.AddRange(
-                    FilteredSymbols.Skip(SymbolsQueryPage * SymbolsQueryPageLimit).Take(SymbolsQueryPageLimit)
+                    FilteredSymbols.Skip((SymbolsQueryPage - 1) * SymbolsQueryPageLimit).Take(SymbolsQueryPageLimit)
                     );
             });
         }

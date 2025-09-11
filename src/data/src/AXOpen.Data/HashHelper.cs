@@ -25,7 +25,7 @@ namespace AXOpen.Data
             {
                 var result = new PasswordHasher<Pocos.AXOpen.Data.IAxoDataEntity>().VerifyHashedPassword(dataEntity, dataEntity.Hash, CreateStringToHash(dataEntity)) != PasswordVerificationResult.Failed;
                 if (!result)
-                    AxoApplication.Current.Logger.Information($"Data {dataEntity} has external modifications.", identity);
+                    AxoApplication.Current.Logger.Warning($"Data {dataEntity} has external modifications.", identity);
                 return result;
             }
             catch (Exception)

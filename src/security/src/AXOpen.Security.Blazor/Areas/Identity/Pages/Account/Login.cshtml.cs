@@ -43,7 +43,7 @@ namespace AxOpen.Security.Areas.Identity.Pages.Account
         [TempData]
         public string ErrorMessage { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(string returnUrl = null)
+        public async Task OnGetAsync(string returnUrl = null)
         {
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
@@ -56,10 +56,6 @@ namespace AxOpen.Security.Areas.Identity.Pages.Account
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
             ReturnUrl = returnUrl;
-
-            await LoginAsync();
-
-            return LocalRedirect(returnUrl);
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)

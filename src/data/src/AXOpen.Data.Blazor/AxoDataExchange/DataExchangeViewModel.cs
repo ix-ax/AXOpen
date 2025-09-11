@@ -428,8 +428,8 @@ namespace AXOpen.Data
         public async Task SendToPlc()
         {
             await DataExchange.FromRepositoryToControllerAsync(SelectedRecord, RefUIData);
-            AxoApplication.Current.Logger.Information($"Sended to Plc {SelectedRecord.DataEntityId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
-            ToastService?.AddToast(eToastType.Success, "Sended to PLC!", "Item was successfully sended to PLC!", 10);
+            AxoApplication.Current.Logger.Information($"Sent to Plc {SelectedRecord.DataEntityId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+            ToastService?.AddToast(eToastType.Success, "Sent to PLC!", "Item was successfully sent to PLC!", 10);
         }
 
         public async Task LoadFromPlc()
@@ -503,7 +503,7 @@ namespace AXOpen.Data
 
                     ToastService?.AddToast(eToastType.Success, "Exported!", "Data was successfully exported!", 10);
 
-                    AxoApplication.Current.Logger.Information($"Exported data from {DataExchange} to path {path} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+                    AxoApplication.Current.Logger.Information($"Data form '{DataExchange}' where exported to location '{path}' by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
                 }
                 catch (Exception e)
                 {
@@ -522,8 +522,8 @@ namespace AXOpen.Data
                     DataExchange.ImportData(path, AuthenticationProvider.GetAuthenticationStateAsync().Result, exportFileType: ExportSet.ExportFileType, separator: ExportSet.Separator);
                     this.UpdateObservableRecords();
 
-                    ToastService?.AddToast(eToastType.Success, "Imported!", "Data was successfully imported!", 10);
-                    AxoApplication.Current.Logger.Information($"Imported data into {DataExchange} from path {path} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+                    ToastService?.AddToast(eToastType.Success, "Imported!", "Data were successfully imported!", 10);
+                    AxoApplication.Current.Logger.Information($"Data imported into '{DataExchange}' from location '{path}' by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
 
                     importStatus = eOperationStatus.Done;
                 }

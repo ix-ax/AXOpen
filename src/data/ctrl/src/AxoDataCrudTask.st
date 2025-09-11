@@ -34,10 +34,12 @@ NAMESPACE AXOpen.Data
                 operation : eCrudOperation;
             END_VAR
 
+            // This may produce unwanted side effects if the task is invoked with different parameters while it is running.
+            // It may prevent done state to be provided upstream to the caller.
             IF SUPER.IsDone() THEN
                 IF (_LastDataEntityIdentifier   <> identifier OR 
                     _LastCrudOperation          <> operation ) THEN
-                    SUPER.Restore();
+                    SUPER.Restore();                    
                 END_IF;
             END_IF;
 
