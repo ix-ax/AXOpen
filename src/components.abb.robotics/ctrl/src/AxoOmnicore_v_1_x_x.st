@@ -1024,7 +1024,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             //*******************************************
                
             //***********StartMovementsTask**************
-            StartMovementsTask.SetIsDisabled(_stopTasksAreActive OR StartMotorsProgramAndMovementsTask.IsBusy());
+            StartMovementsTask.SetIsDisabled(FALSE);
             IF StartMovementsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#150;
             END_IF;
