@@ -89,12 +89,9 @@ else
 
                 <QuerySymbolConfigurationView SymbolConfiguration="@Vm.DefaulQueryDataEntityId" HideDescripion="true"></QuerySymbolConfigurationView>
 
-                <form @onsubmit="() => Vm.Filter()" class="btn-group">
-                    <button type="button" class="btn btn-secondary items-center" name="searchbutton">
-                        <Operon.Icons.HeroIcon Icon="magnifying-glass" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                    </button>
-                </form>
-
+                <button type="button" class="btn btn-secondary items-center" @onclick="Vm.Filter">
+                    <Operon.Icons.HeroIcon Icon="magnifying-glass" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                </button>
             }
             @if (EnableFiltering)
             {

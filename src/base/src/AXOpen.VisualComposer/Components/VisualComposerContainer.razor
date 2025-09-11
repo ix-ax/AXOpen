@@ -37,21 +37,21 @@
                             <DropdownBody Class="end">
                             @if (!string.IsNullOrEmpty(_currentViewName))
                             {
-                                <a class="dropdown-item" @onclick="_modalControllerObjects.Toggle">Controller objects</a>
-                                <a class="dropdown-item" @onclick="_modalUsedObject.Toggle">Used objects</a>
+                                <a class="dropdown-item" @onclick="() => { _modalControllerObjects.Toggle(); _dropdownOption.CloseDropdown(); }">Controller objects</a>
+                                <a class="dropdown-item" @onclick="() => { _modalUsedObject.Toggle(); _dropdownOption.CloseDropdown(); }">Used objects</a>
                             }
-                            <a class="dropdown-item" @onclick="_modalViews.Toggle">Views</a>
-                            <a class="dropdown-item" @onclick="_modalCreateNew.Toggle">Create new</a>
+                            <a class="dropdown-item" @onclick="() => { _modalViews.Toggle(); _dropdownOption.CloseDropdown(); }">Views</a>
+                            <a class="dropdown-item" @onclick="() => { _modalCreateNew.Toggle(); _dropdownOption.CloseDropdown(); }">Create new</a>
                             @if (!string.IsNullOrEmpty(_currentViewName))
                             {
-                                <a class="dropdown-item" @onclick="_modalCreateCopy.Toggle">Create copy</a>
-                                <a class="dropdown-item" @onclick="_modalBackground.Toggle">Background</a>
-                                <a class="dropdown-item" @onclick="() => _editSVG = !_editSVG">Toggle Edit SVG</a>
+                                <a class="dropdown-item" @onclick="() => { _modalCreateCopy.Toggle(); _dropdownOption.CloseDropdown(); }">Create copy</a>
+                                <a class="dropdown-item" @onclick="() => { _modalBackground.Toggle(); _dropdownOption.CloseDropdown(); }">Background</a>
+                                <a class="dropdown-item" @onclick="() => { _editSVG = !_editSVG; _dropdownOption.CloseDropdown(); }">Toggle Edit SVG</a>
                                 @if (_editSVG)
                                 {
-                                    <a class="dropdown-item" @onclick="_modalBackgroundSVGInput.Toggle">Background SVG Input</a>
+                                    <a class="dropdown-item" @onclick="() => { _modalBackgroundSVGInput.Toggle(); _dropdownOption.CloseDropdown(); }">Background SVG Input</a>
                                 }
-                                <a class="dropdown-item" @onclick="async () => await ChangeThemeAsync()">Change theme</a>
+                                <a class="dropdown-item" @onclick="async () => { await ChangeThemeAsync(); _dropdownOption.CloseDropdown(); }">Change theme</a>
                             }
                         </DropdownBody>
                     </Dropdown>
