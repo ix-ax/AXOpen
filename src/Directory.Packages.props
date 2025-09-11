@@ -7,12 +7,12 @@
   <ItemGroup>
     <GlobalPackageReference Include="GitVersion.MsBuild" Version="5.10.3" />
     <!-- AX# START -->
-    <PackageVersion Include="AXSharp.Abstractions" Version="0.40.1-alpha.282" />
-    <PackageVersion Include="AXSharp.Connector" Version="0.40.1-alpha.282" />
-    <PackageVersion Include="AXSharp.Connector.S71500.WebAPI" Version="0.40.1-alpha.282" />
-    <PackageVersion Include="AXSharp.Presentation.Blazor" Version="0.40.1-alpha.282" />
-    <PackageVersion Include="AXSharp.Presentation.Blazor.Controls" Version="0.40.1-alpha.282" />
-    <PackageVersion Include="Inxton.Operon" Version="0.2.0-alpha.80" />
+    <PackageVersion Include="AXSharp.Abstractions" Version="0.40.2-alpha.293" />
+    <PackageVersion Include="AXSharp.Connector" Version="0.40.2-alpha.293" />
+    <PackageVersion Include="AXSharp.Connector.S71500.WebAPI" Version="0.40.2-alpha.293" />
+    <PackageVersion Include="AXSharp.Presentation.Blazor" Version="0.40.2-alpha.293" />
+    <PackageVersion Include="AXSharp.Presentation.Blazor.Controls" Version="0.40.2-alpha.293" />
+    <PackageVersion Include="Inxton.Operon" Version="0.2.0-alpha.89" />
     <!-- AX# END -->
     <!-- Other -->
     <PackageVersion Include="ClosedXML" Version="0.104.2" />
@@ -73,5 +73,6 @@
     <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.0" Condition="'$(TargetFramework)' == 'net8.0'" />
   </ItemGroup>
 </Project>
+
 
 

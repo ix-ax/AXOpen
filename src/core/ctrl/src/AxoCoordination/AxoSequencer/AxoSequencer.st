@@ -27,12 +27,12 @@ NAMESPACE AXOpen.Core
             _refStep :  REF_TO AxoStep;       
             _microStep : UINT;   
             _context        :   IAxoContext;
-            _analytics : IAxoSequencerAnalitics;                      
+            _analytics : IAxoSequencerAnalytics;                      
         END_VAR
                 
         METHOD PUBLIC SetAnalitics
             VAR_INPUT
-                inAnalytics : IAxoSequencerAnalitics;
+                inAnalytics : IAxoSequencerAnalytics;
             END_VAR 
             _analytics := inAnalytics;               
         END_METHOD    
@@ -396,8 +396,8 @@ NAMESPACE AXOpen.Core
             VAR_IN_OUT
                 step : AxoStep;
             END_VAR 
-            IF(step.Execute(THIS)) THEN                               
-               THIS.CompleteSequence();               
+            IF(step.Execute(THIS)) THEN                
+                THIS.CompleteSequence();                        
             END_IF;  
         END_METHOD
     

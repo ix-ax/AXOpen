@@ -70,7 +70,7 @@ namespace AXOpen.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Is manually controllable.
+        ///   Looks up a localized string similar to Manually Controllable.
         /// </summary>
         public static string Is_manually_controllable {
             get {

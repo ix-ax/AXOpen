@@ -1,0 +1,136 @@
+{
+    "folders": [
+        {
+            "name": "core",
+            "path": "src/core/ctrl"
+        },
+        {
+            "name": "abstractions",
+            "path": "src/abstractions/ctrl"
+        },
+        {
+            "name": "ax.axopen.app",
+            "path": "src/ax.axopen.app/ctrl"
+        },
+        {
+            "name": "ax.axopen.hwlibrary",
+            "path": "src/ax.axopen.hwlibrary/ctrl"
+        },
+        {
+            "name": "ax.axopen.min",
+            "path": "src/ax.axopen.min/ctrl"
+        },
+        {
+            "name": "ax.latest.packages",
+            "path": "src/ax.latest.packages/ctrl"
+        },
+        {
+            "name": "components.abb.robotics",
+            "path": "src/components.abb.robotics/ctrl"
+        },
+        {
+            "name": "components.abstractions",
+            "path": "src/components.abstractions/ctrl"
+        },
+        {
+            "name": "components.balluff.identification",
+            "path": "src/components.balluff.identification/ctrl"
+        },
+        {
+            "name": "components.cognex.vision",
+            "path": "src/components.cognex.vision/ctrl"
+        },
+        {
+            "name": "components.desoutter.tightening",
+            "path": "src/components.desoutter.tightening/ctrl"
+        },
+        {
+            "name": "components.drives",
+            "path": "src/components.drives/ctrl"
+        },
+        {
+            "name": "components.elements",
+            "path": "src/components.elements/ctrl"
+        },
+        {
+            "name": "components.festo.drives",
+            "path": "src/components.festo.drives/ctrl"
+        },
+        {
+            "name": "components.keyence.vision",
+            "path": "src/components.keyence.vision/ctrl"
+        },
+        {
+            "name": "components.kuka.robotics",
+            "path": "src/components.kuka.robotics/ctrl"
+        },
+        {
+            "name": "components.mitsubishi.robotics",
+            "path": "src/components.mitsubishi.robotics/ctrl"
+        },
+        {
+            "name": "components.pneumatics",
+            "path": "src/components.pneumatics/ctrl"
+        },
+        {
+            "name": "components.rexroth.drives",
+            "path": "src/components.rexroth.drives/ctrl"
+        },
+        {
+            "name": "components.rexroth.press",
+            "path": "src/components.rexroth.press/ctrl"
+        },
+        {
+            "name": "components.rexroth.tightening",
+            "path": "src/components.rexroth.tightening/ctrl"
+        },
+        {
+            "name": "components.robotics",
+            "path": "src/components.robotics/ctrl"
+        },
+        {
+            "name": "components.siem.identification",
+            "path": "src/components.siem.identification/ctrl"
+        },
+        {
+            "name": "components.ur.robotics",
+            "path": "src/components.ur.robotics/ctrl"
+        },
+        {
+            "name": "data",
+            "path": "src/data/ctrl"
+        },
+        {
+            "name": "inspectors",
+            "path": "src/inspectors/ctrl"
+        },
+        {
+            "name": "io",
+            "path": "src/io/ctrl"
+        },
+        {
+            "name": "probers",
+            "path": "src/probers/ctrl"
+        },
+        {
+            "name": "sdk-ax",
+            "path": "src/sdk-ax/ctrl"
+        },
+        {
+            "name": "simatic1500",
+            "path": "src/simatic1500/ctrl"
+        },
+        {
+            "name": "template.axolibrary",
+            "path": "src/template.axolibrary/ctrl"
+        },
+        {
+            "name": "timers",
+            "path": "src/timers/ctrl"
+        },
+        {
+            "name": "utils",
+            "path": "src/utils/ctrl"
+        }
+    ]
+}

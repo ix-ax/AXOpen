@@ -443,7 +443,7 @@ namespace AXOpen.Data
 
                 // Log message
                 AxoApplication.Current.Logger.Information(
-                    $"Sent record \"{identifier}\" to exchanges: {sentExchanges} by user action.",
+                    $"Record \"{identifier}\" sent to exchanges: {sentExchanges} by user action.",
                     Authentication.GetAuthenticationStateAsync().Result.User.Identity
                 );
             }
