@@ -450,10 +450,40 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 END_IF;
                 
 
-                IF _power_progress = 300 THEN  
+                IF _power_progress = 300 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#500, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#500;
+                    END_IF;
+
+                    IF Inputs.CycleOn THEN
+                        THIS.CallTimers(FALSE);
+                        _power_progress := 301;
+                    ELSE
+                        THIS.CallTimers(FALSE);
+                        _power_progress := 301;
+                    END_IF;
+                END_IF;
+                
+                IF _power_progress = 301 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate(UINT#501, eAxoMessageCategory#Warning);
+                        Status.Error.Id     := UINT#501;
+                    END_IF;
+
+                    Outputs.StopProgram:=_blink.output;
+
+                    IF NOT Inputs.CycleOn THEN
+                        Outputs.StopProgram:= FALSE;
+                        THIS.CallTimers(FALSE);
+                        _power_progress := 302;
+                    END_IF;
+                END_IF;
+
+                IF _power_progress = 302 THEN  
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate(UINT#502, eAxoMessageCategory#Warning);
+                        Status.Error.Id     := UINT#502;
                     END_IF;
                     Outputs.ActionNo := BYTE#255;
 
@@ -463,11 +493,11 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         THIS.CallTimers(FALSE);
                         Outputs.ActionNo := BYTE#0;
                         Outputs.StartAtMain :=FALSE;
-                        _power_progress:=301;                    
+                        _power_progress:=303;                    
                     END_IF;
                 END_IF;
 
-                IF _power_progress = 301 THEN  
+                IF _power_progress = 303 THEN  
                     StartAtMainTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
                     _power_progress := 0;
