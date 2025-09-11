@@ -111,27 +111,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             _Parameter  : ARRAY[0..9] OF BYTE; 
             _Fieldbus   : ARRAY[0..25] OF BYTE; 
-            // _HW_Device            : WORD;
-            // _HW_Outputs           : WORD;
-            // _HW_Inputs            : WORD;
-            // _HW_S_0_0134_0_0      : WORD;
-            // _HW_S_0_0145_0_0      : WORD;
-            // _HW_S_0_0282_0_0      : WORD;
-            // _HW_S_0_0259_0_0      : WORD;
-            // _HW_S_0_0260_0_0      : WORD;
-            // _HW_S_0_0359_0_0      : WORD;
-            // _HW_S_0_1720_0_1      : WORD;
-            // _HW_S_0_0092_0_0      : WORD;
-            // _HW_S_0_0080_0_0      : WORD;
-            // _HW_S_0_0193_0_0      : WORD;
-            // _HW_S_0_0135_0_0      : WORD;
-            // _HW_S_0_0144_0_0      : WORD;
-            // _HW_S_0_0386_0_0      : WORD;
-            // _HW_S_0_0535_0_0      : WORD;
-            // _HW_S_0_0390_0_0      : WORD;
-            // _HW_S_0_1720_0_2      : WORD;
-            // _HW_S_0_0084_0_0      : WORD;
-            // _HW_P_0_0106_0_0      : WORD;
                
             _initHwCheckDone        :   BOOL;
             _retval                 :   WORD;
@@ -145,7 +124,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _ReadRecord             :   ReadRecord;
             _WriteRecord            :   WriteRecord;
             _ScalingRead            :   BOOL;
-            // _State                  :   UINT;
             _S_0_0076               :   WORD;       // 2byte, binary
             _S_0_0077               :   INT;        // 2byte, 0 decimal places
             _S_0_0078               :   INT;        // 2byte, 0 decimal places
@@ -1139,9 +1117,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             Messenger.ActivateOnCondition(ULINT#1800, NOT _ScalingRead, eAxoMessageCategory#Warning);            
             //********************Diagnostics******************//          
             HardwareDiagnosticsTask.Run(THIS,AxisRefExt.HWIDs.HW_Device);
-            //********************PARAMETRIZAION***************//          
-            // Parametrization.Run(THIS);
-            // Parametrization.Inputs.HardwareId := TO_WORD(_AxisReference^.HWIDs.HW_ModuleAccessPoint);            
             //*******************SCALING***********************//          
             IF NOT _ScalingRead THEN
                 IF _State = UINT#0 THEN
@@ -5717,6 +5692,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///<summary>
         VAR INTERNAL
             MC_ResetState       : 	UINT := UINT#0;
+            MC_ResetPower_PV    : 	BOOL := FALSE;	
         END_VAR    
         METHOD PUBLIC OVERRIDE MC_Reset
             VAR_INPUT
@@ -5743,8 +5719,27 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IF Execute THEN
                 IF Execute AND MC_ResetState = UINT#0 THEN
-                    MC_ResetState   := UINT#10;
+                    IF AxoPower_Task.IsSwitchedOn() OR 
+                       _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable OR
+                       _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn THEN
+                         MC_ResetPower_PV := TRUE;
+                    END_IF;
+                    IF MC_ResetPower_PV THEN
+                        MC_ResetState   := UINT#1;
+                    ELSE
+                        MC_ResetState   := UINT#10;
+                    END_IF;
                 END_IF;
+
+                IF MC_ResetState = UINT#1 THEN
+                    Busy := TRUE;
+                    THIS.AxoPower_Task.SwitchOff();
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := FALSE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := FALSE;
+                    IF THIS.AxoPower_Task.IsSwitchedOff() THEN
+                        MC_ResetState := UINT#10;
+                    END_IF;                
+                END_IF;                
 
                 IF MC_ResetState = UINT#10 THEN
                     Done            := FALSE;
@@ -5770,9 +5765,21 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     ErrorID         := UINT#0;
                     _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
                     IF NOT _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.DriveErrorZKL1 THEN
-                        MC_ResetState := UINT#30;    
+                        IF MC_ResetPower_PV THEN
+                            MC_ResetState   := UINT#21;
+                        ELSE
+                            MC_ResetState   := UINT#30;
+                        END_IF; 
                     END_IF;
                 END_IF;     
+
+                IF MC_ResetState = UINT#21 THEN
+                    Busy := TRUE;
+                    THIS.AxoPower_Task.SwitchOn();
+                    IF THIS.AxoPower_Task.IsSwitchedOn() THEN
+                        MC_ResetState := UINT#30;
+                    END_IF;                
+                END_IF;   
 
                 IF MC_ResetState = UINT#30 THEN
                     Done            := TRUE;
