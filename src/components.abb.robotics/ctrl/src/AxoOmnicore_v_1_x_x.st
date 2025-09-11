@@ -150,8 +150,6 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 _outHwid                :   UINT;
             END_VAR
 
-            Progress := _power_progress;
-
             SUPER.Run(parent);
 
             Messenger.Serve(THIS);
@@ -1148,7 +1146,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
-                        _power_progress:=361;
+                        _movement_progress:=361;
                     END_IF;
                 END_IF;	
                 
