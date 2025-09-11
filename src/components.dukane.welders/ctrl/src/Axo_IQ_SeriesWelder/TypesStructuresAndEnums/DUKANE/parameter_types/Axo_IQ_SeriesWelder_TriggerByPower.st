@@ -12,5 +12,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#PreTrigger_Amplitude#>"}
             PreTrigger_Amplitude    : DINT;   // Range - 20% - 100%            
         END_VAR 
-    END_CLASS    
+    END_CLASS   
 END_NAMESPACE

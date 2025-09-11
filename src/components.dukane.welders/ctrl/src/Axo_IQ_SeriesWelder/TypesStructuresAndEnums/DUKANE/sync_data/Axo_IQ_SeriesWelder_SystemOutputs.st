@@ -76,5 +76,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#RunningMPCProbeSelection#>"}
             RunningMPCProbeSelection : DINT := DINT#1;   // Values of 1 to 16 are permitted, values outside of that range will be ignored.
         END_VAR 
-    END_CLASS    
+    END_CLASS
 END_NAMESPACE

@@ -24,7 +24,6 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             Weld2Energy             : Axo_IQ_SeriesWelder_PressLimit;   // 0x216E
             {#ix-set:AttributeName = "<#Weld2Power#>"}
             Weld2Power              : Axo_IQ_SeriesWelder_PressLimit;   // 0x2173
-      
         END_VAR 
-    END_CLASS    
+    END_CLASS
 END_NAMESPACE

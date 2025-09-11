@@ -24,7 +24,6 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             FinalHoldPosition   : Axo_IQ_SeriesWelder_PressLimit;   // 0x21A0
             {#ix-set:AttributeName = "<#ErrorStatus#>"}
             ErrorStatus         : Axo_IQ_SeriesWelder_PressLimit;   // 0x21A5
-      
         END_VAR 
     END_CLASS    
 END_NAMESPACE

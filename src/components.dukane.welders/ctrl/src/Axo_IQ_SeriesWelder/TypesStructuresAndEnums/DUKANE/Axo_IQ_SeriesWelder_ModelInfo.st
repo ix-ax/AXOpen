@@ -16,5 +16,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#FP_BootloaderVersion#>"}
             FP_BootloaderVersion    : STRING[66];
         END_VAR 
-    END_CLASS    
+    END_CLASS   
 END_NAMESPACE

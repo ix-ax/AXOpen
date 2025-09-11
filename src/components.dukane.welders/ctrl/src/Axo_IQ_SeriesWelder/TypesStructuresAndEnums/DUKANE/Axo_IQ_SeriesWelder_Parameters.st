@@ -40,5 +40,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#LimitWeld1PowerEnable#>"}
             LimitWeld1PowerEnable               : Axo_IQ_SeriesWelder_PressLimitEnable;     // 0x21D5
         END_VAR 
-    END_CLASS    
+    END_CLASS
 END_NAMESPACE

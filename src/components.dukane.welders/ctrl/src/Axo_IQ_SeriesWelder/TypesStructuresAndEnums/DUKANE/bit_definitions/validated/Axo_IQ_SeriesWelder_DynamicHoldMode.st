@@ -67,7 +67,6 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             bit6 : BOOL;   // bit6
             {#ix-set:AttributeName = "<#bit7#>"}
             bit7 : BOOL;   // bit7
-      
         END_VAR 
     END_CLASS    
 END_NAMESPACE

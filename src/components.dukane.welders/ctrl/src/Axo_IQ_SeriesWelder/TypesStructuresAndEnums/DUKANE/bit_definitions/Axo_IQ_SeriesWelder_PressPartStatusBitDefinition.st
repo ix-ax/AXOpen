@@ -68,5 +68,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#Weld1Time#>"}
             Weld1Time : BOOL;
         END_VAR 
-    END_CLASS    
+    END_CLASS
 END_NAMESPACE

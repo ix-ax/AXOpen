@@ -3,78 +3,76 @@ NAMESPACE AXOpen.Components.Dukane.Welders
     {#ix-attr:[Container(Layout.Wrap)]}
     CLASS PUBLIC Axo_IQ_SeriesWelder_SystemInputs
         VAR PUBLIC 
-            {#ix-set:AttributeName = "<#N0#>"}
-            N0  : BOOL;                     // Not Used
-            {#ix-set:AttributeName = "<#N01#>"}
-            N01 : BOOL;                     // Not Used
-            {#ix-set:AttributeName = "<#N02#>"}
-            N02 : BOOL;                     // Not Used
-            {#ix-set:AttributeName = "<#N03#>"}
-            N03 : BOOL;                     // Not Used
-            {#ix-set:AttributeName = "<#N04#>"}
-            N04 : BOOL;                     // Not Used
-            {#ix-set:AttributeName = "<#N05#>"}
-            N05 : BOOL;                     // Not Used
-            {#ix-set:AttributeName = "<#N06#>"}
-            N06 : BOOL;                     // Not Used
-            {#ix-set:AttributeName = "<#ClearSetup#>"}
-            ClearSetup : BOOL;              // Not Used
-            {#ix-set:AttributeName = "<#N2#>"}
-            N2 : BOOL;                      // Not Used
-            {#ix-set:AttributeName = "<#N3#>"}
-            N3 : BOOL;                      // Not Used
-            {#ix-set:AttributeName = "<#N4#>"}
-            N4 : BOOL;                      // Not Used
-            {#ix-set:AttributeName = "<#N5#>"}
-            N5 : BOOL;                      // Not Used
-            {#ix-set:AttributeName = "<#N6#>"}
-            N6 : BOOL;                      // Not Used
-            {#ix-set:AttributeName = "<#N7#>"}
-            N7 : BOOL;                      // Not Used
-            {#ix-set:AttributeName = "<#N8#>"}
-            N8 : BOOL;                      // Not Used
-            {#ix-set:AttributeName = "<#N9#>"}
-            N9 : BOOL;                      // Not Used
-            {#ix-set:AttributeName = "<#RunScan#>"}
-            RunScan : BOOL;                 // A rising edge will run a "Test Scan" cycle.
-            {#ix-set:AttributeName = "<#N11#>"}
-            N11 : BOOL;                     // Not Used
-            {#ix-set:AttributeName = "<#N12#>"}
-            N12 : BOOL;                     // Not Used
-            {#ix-set:AttributeName = "<#N13#>"}
-            N13 : BOOL;                     // Not Used
-            {#ix-set:AttributeName = "<#N14#>"}
-            N14 : BOOL;                     // Not Used
-            {#ix-set:AttributeName = "<#N15#>"}
-            N15 : BOOL;                     // Not Used
-            {#ix-set:AttributeName = "<#N16#>"}
-            N16 : BOOL;                     // Not Used
-            {#ix-set:AttributeName = "<#N17#>"}
-            N17 : BOOL;                     // Not Used
-            {#ix-set:AttributeName = "<#RunContinuously#>"}
-            RunContinuously : BOOL;         // A rising edge will start an "iQ Controlled" weld cycle, sonics will run.
-            {#ix-set:AttributeName = "<#RunWeld#>"}
-            RunWeld : BOOL;                 // A high level will run an "Automation Controlled" weld cycle.
-            {#ix-set:AttributeName = "<#RunTest#>"}
-            RunTest : BOOL;                 // A high level will run an test cycle.
-            {#ix-set:AttributeName = "<#ClearError#>"}
-            ClearError : BOOL;              // This will reset any clearable errors in the iQ.
-            {#ix-set:AttributeName = "<#OTF_AmplitudeEnable#>"}
-            OTF_AmplitudeEnable : BOOL;     // Enable the On-The-Fly Amplitude adjustment feature.
-            {#ix-set:AttributeName = "<#CycleStop#>"}
-            CycleStop : BOOL;               // A rising edge will stop sonics. A new cycle will cannot be started when this is
-            {#ix-set:AttributeName = "<#FrontPanelLockout_0#>"}
-            FrontPanelLockout_0 : BOOL;     // Not Applicable for iQ Auto Plus
-            {#ix-set:AttributeName = "<#FrontPanelLockout_1#>"}
-            FrontPanelLockout_1 : BOOL;     // Not Applicable for iQ Auto Plus
-            {#ix-set:AttributeName = "<#OTF_Amp_Setpoint#>"}
-            OTF_Amp_Setpoint : DINT := DINT#20;   // On-The-Fly Amplitude SetPoint.
-            {#ix-set:AttributeName = "<#ActiveSetupSelection#>"}
-            ActiveSetupSelection : DINT := DINT#1;
-            {#ix-set:AttributeName = "<#RunningSetupSelection#>"}
-            RunningSetupSelection : DINT := DINT#1;   // This Setup# field is what tells the iQ which locally stored setup to use on the
-            {#ix-set:AttributeName = "<#RunningMPCProbeSelection#>"}
-            RunningMPCProbeSelection : DINT := DINT#1;   // Values of 1 to 16 are permitted, values outside of that range will be ignored.
+            {#ix-set:AttributeName = "<#SystemErrorStatus#>"}
+            SystemErrorStatus : Axo_IQ_SeriesWelder_ErrorStatusBitDefinition;
+            {#ix-set:AttributeName = "<#SystemInitiateError#>"}
+            SystemInitiateError : DInt;
+            {#ix-set:AttributeName = "<#SystemProcessError#>"}
+            SystemProcessError : Axo_IQ_SeriesWelder_ProcessErrorStatus;
+            {#ix-set:AttributeName = "<#GeneratorState#>"}
+            GeneratorState : DInt;
+            {#ix-set:AttributeName = "<#RealTimeAmplitude#>"}
+            RealTimeAmplitude : DInt;   // The current amplitude of the stack in units percent amplitude.
+            {#ix-set:AttributeName = "<#RealTimeFrequency#>"}
+            RealTimeFrequency : DInt;   // The current frequency of the stack in units of Hz.
+            {#ix-set:AttributeName = "<#RealTimePower#>"}
+            RealTimePower : DInt;   // The current driven power of the stack in units of Watts
+            {#ix-set:AttributeName = "<#SystemStatus#>"}
+            SystemStatus : Axo_IQ_SeriesWelder_SystemStatusBitDefinition;
+            {#ix-set:AttributeName = "<#Temperature#>"}
+            Temperature : DInt;   // The current internal temperature of the iQ in units of Degrees Celcius
+            {#ix-set:AttributeName = "<#CycleCount#>"}
+            CycleCount : DInt;   // Count of total number of cycles since power up (not influenced by a test cycle)
+            {#ix-set:AttributeName = "<#GoodPartCount#>"}
+            GoodPartCount : DInt;   // Count of total number of "good parts" as determined by the Process Limits.
+            {#ix-set:AttributeName = "<#BadPartCount#>"}
+            BadPartCount : DInt;   // Count of total number of "bad parts" as determined by the Process Limits.
+            {#ix-set:AttributeName = "<#SuspectPartCount#>"}
+            SuspectPartCount : DInt;   // Count of total number of "suspect parts" as determined by the Process Limits.
+            {#ix-set:AttributeName = "<#AbortedPartCount#>"}
+            AbortedPartCount : DInt;   // Count of total number of weld cycles that failed to trigger since power up (not
+            {#ix-set:AttributeName = "<#CyclePartStatus#>"}
+            CyclePartStatus : Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition;
+            {#ix-set:AttributeName = "<#CycleWeldTime#>"}
+            CycleWeldTime : DInt;   // Total Weld Time of the last cycle, units of mS .
+            {#ix-set:AttributeName = "<#CycleWeldPeakPower#>"}
+            CycleWeldPeakPower : DInt;   // Peak Weld Power of last cycle, units of Watts .
+            {#ix-set:AttributeName = "<#CycleWeldEnergy#>"}
+            CycleWeldEnergy : DInt;   // Total Weld Energy of last cycle, units of Joules .
+            {#ix-set:AttributeName = "<#ActiveSetup#>"}
+            ActiveSetup : DInt;   // Weld process control "setup" that the PLC access,values range from 1 to 16.
+            {#ix-set:AttributeName = "<#RunningSetup#>"}
+            RunningSetup : DInt;   // Commands the weld process control setup that the iQ will use on the next cycle,
+            {#ix-set:AttributeName = "<#RunningMPCProbe#>"}
+            RunningMPCProbe : DInt;   // Commands the MPC probe selection that the iQ will use on the next cycle, values
+            {#ix-set:AttributeName = "<#SelectedInputVoltage#>"}
+            SelectedInputVoltage : DInt;
+            {#ix-set:AttributeName = "<#RealTimePosition#>"}
+            RealTimePosition : DInt;
+            {#ix-set:AttributeName = "<#RealTimeVelocity#>"}
+            RealTimeVelocity : DInt;
+            {#ix-set:AttributeName = "<#PressPartStatus_Bad_lo#>"}
+            PressPartStatus_Bad_lo : Axo_IQ_SeriesWelder_PressPartStatusBitDefinition;
+            {#ix-set:AttributeName = "<#PressPartStatus_Sus_lo#>"}
+            PressPartStatus_Sus_lo : Axo_IQ_SeriesWelder_PressPartStatusBitDefinition;
+            {#ix-set:AttributeName = "<#PressPartStatus_Sus_hi#>"}
+            PressPartStatus_Sus_hi : Axo_IQ_SeriesWelder_PressPartStatusBitDefinition;
+            {#ix-set:AttributeName = "<#PressPartStatus_Bad_hi#>"}
+            PressPartStatus_Bad_hi : Axo_IQ_SeriesWelder_PressPartStatusBitDefinition;
+            {#ix-set:AttributeName = "<#CycleTriggerTime#>"}
+            CycleTriggerTime : DInt;
+            {#ix-set:AttributeName = "<#CycleTriggerPosition#>"}
+            CycleTriggerPosition : DInt;
+            {#ix-set:AttributeName = "<#CycleTriggerDelayTime#>"}
+            CycleTriggerDelayTime : DInt;
+            {#ix-set:AttributeName = "<#CycleTriggerDelayDistance#>"}
+            CycleTriggerDelayDistance : DInt;
+            {#ix-set:AttributeName = "<#CycleWeld1Distance#>"}
+            CycleWeld1Distance : DInt;
+            {#ix-set:AttributeName = "<#CycleWeld1Position#>"}
+            CycleWeld1Position : DInt;
+            {#ix-set:AttributeName = "<#CycleTotalTime#>"}
+            CycleTotalTime : DInt;
         END_VAR 
-    END_CLASS    
+    END_CLASS
 END_NAMESPACE

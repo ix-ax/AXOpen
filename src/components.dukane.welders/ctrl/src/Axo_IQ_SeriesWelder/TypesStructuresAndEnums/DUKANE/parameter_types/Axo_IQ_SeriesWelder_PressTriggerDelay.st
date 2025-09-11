@@ -12,5 +12,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#TriggerDelayDistance#>"}
             TriggerDelayDistance : DINT;
         END_VAR 
-    END_CLASS    
+    END_CLASS   
 END_NAMESPACE

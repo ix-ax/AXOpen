@@ -17,5 +17,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#FreqCtrlMode#>"}
             FreqCtrlMode    : DINT;                                     // 0x2120
         END_VAR 
-    END_CLASS    
+    END_CLASS 
 END_NAMESPACE

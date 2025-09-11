@@ -20,7 +20,6 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             PressWeldScrub      : Axo_IQ_SeriesWelder_PressWeldScrub;       // 0x2142
             {#ix-set:AttributeName = "<#PressPostWeld#>"}
             PressPostWeld       : Axo_IQ_SeriesWelder_PressPostWeld;        // 0x2144
-      
         END_VAR 
-    END_CLASS    
+    END_CLASS  
 END_NAMESPACE

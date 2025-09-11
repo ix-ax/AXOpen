@@ -33,7 +33,6 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             Err_availble                    : BOOL;
             {#ix-set:AttributeName = "<#Err_iQ_AnyFault#>"}
             Err_iQ_AnyFault                 : BOOL;
-            
         END_VAR 
-    END_CLASS    
+    END_CLASS
 END_NAMESPACE

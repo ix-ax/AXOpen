@@ -8,5 +8,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#PowerRegulationSetpoINT#>"}
             PowerRegulationSetpoINT : DINT;            
         END_VAR 
-    END_CLASS    
+    END_CLASS  
 END_NAMESPACE

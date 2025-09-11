@@ -16,5 +16,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#analog_sensor_data#>"}
             analog_sensor_data : Axo_IQ_SeriesWelder_AnalogSensor;   // analog sensor data being currently displayed / to be edited
         END_VAR 
-    END_CLASS    
+    END_CLASS   
 END_NAMESPACE

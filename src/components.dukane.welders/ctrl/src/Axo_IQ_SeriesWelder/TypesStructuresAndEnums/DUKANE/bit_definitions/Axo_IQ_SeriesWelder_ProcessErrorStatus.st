@@ -1,5 +1,5 @@
 NAMESPACE AXOpen.Components.Dukane.Welders
-    {S7.extern=ReadWrite}
+     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Wrap)]}
     CLASS PUBLIC Axo_IQ_SeriesWelder_ProcessErrorStatus
         VAR PUBLIC 
@@ -68,5 +68,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#Trigger_Time#>"}
             Trigger_Time : BOOL;
         END_VAR 
-    END_CLASS    
+    END_CLASS
 END_NAMESPACE

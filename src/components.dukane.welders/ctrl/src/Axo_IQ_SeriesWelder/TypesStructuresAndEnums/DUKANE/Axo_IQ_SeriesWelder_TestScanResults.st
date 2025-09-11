@@ -6,5 +6,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#buf1#>"}
             TestScanResults : DINT;
         END_VAR 
-    END_CLASS    
+    END_CLASS   
 END_NAMESPACE

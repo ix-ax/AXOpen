@@ -16,5 +16,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#selected_analog_sensor#>"}
             selected_analog_sensor      : INT;   // selected analog sensor to be displayed/edited
         END_VAR 
-    END_CLASS    
+    END_CLASS   
 END_NAMESPACE

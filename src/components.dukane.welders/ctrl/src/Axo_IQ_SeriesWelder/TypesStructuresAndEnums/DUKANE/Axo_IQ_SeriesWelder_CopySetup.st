@@ -8,5 +8,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#Source_Setup#>"}
             Source_Setup        :	INT;
         END_VAR 
-    END_CLASS    
+    END_CLASS   
 END_NAMESPACE

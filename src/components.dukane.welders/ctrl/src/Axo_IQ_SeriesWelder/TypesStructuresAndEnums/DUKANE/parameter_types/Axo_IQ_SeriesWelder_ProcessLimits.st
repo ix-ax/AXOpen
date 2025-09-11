@@ -30,5 +30,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#WeldEnergyUpperBad#>"}
             WeldEnergyUpperBad      : DINT;                                             // 0-65535 Joules            
         END_VAR 
-    END_CLASS    
+    END_CLASS
 END_NAMESPACE

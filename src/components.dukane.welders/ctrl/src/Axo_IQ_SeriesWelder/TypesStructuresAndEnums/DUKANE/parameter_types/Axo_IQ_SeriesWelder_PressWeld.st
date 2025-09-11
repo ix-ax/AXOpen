@@ -28,5 +28,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#Weld2Position#>"}
             Weld2Position           : DINT;                             // 0x2141        
         END_VAR 
-    END_CLASS    
+    END_CLASS
 END_NAMESPACE

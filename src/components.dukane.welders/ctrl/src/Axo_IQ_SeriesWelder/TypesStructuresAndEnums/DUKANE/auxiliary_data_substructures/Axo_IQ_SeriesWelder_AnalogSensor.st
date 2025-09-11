@@ -14,5 +14,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#MAX_VAL#>"}
             MAX_VAL     : DINT;
         END_VAR 
-    END_CLASS    
+    END_CLASS 
 END_NAMESPACE

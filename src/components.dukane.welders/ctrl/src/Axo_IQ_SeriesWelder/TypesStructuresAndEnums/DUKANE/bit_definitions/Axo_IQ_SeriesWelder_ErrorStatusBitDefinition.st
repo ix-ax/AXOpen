@@ -13,12 +13,12 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             _3 : BOOL;
             {#ix-set:AttributeName = "<#Under_Voltage_1#>"}
             Under_Voltage_1 : BOOL;   // The AC power line voltage is NOT within acceptable limits.
-            {#ix-set:AttributeName = "<#_4#>"}
-            _4 : BOOL;
             {#ix-set:AttributeName = "<#_5#>"}
             _5 : BOOL;
             {#ix-set:AttributeName = "<#_6#>"}
             _6 : BOOL;
+            {#ix-set:AttributeName = "<#_7#>"}
+            _7 : BOOL;
             {#ix-set:AttributeName = "<#Over_Amplitude_Fault#>"}
             Over_Amplitude_Fault : BOOL;   // This bit will be set if the generator observes the Actual Amplitude to be over 100% in any Fixed Pulse Width operating mode.
             {#ix-set:AttributeName = "<#InternalError_5#>"}

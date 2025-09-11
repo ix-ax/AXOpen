@@ -24,5 +24,5 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#detect_structure_change#>"}
             detect_structure_change : BOOL;                                 // when data structure was changed during development to force a refresh
         END_VAR 
-    END_CLASS    
+    END_CLASS
 END_NAMESPACE

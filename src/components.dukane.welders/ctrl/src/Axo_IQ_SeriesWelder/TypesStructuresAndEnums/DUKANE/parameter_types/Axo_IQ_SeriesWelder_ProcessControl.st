@@ -10,7 +10,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-set:AttributeName = "<#RampDownTime#>"}
             RampDownTime : DINT;                                                        // Units of mS, range 20-32767mS.
             {#ix-set:AttributeName = "<#OBSOLETE_ProcessControlEnable#>"}
-            OBSOLETE_ProcessControlEnable  : Axo_IQ_SeriesWelder_ProcessControlEnable;  // OBSOLETE: Replaced by "iQ_PressWeld.Weld X Source" USED_TO_BE: Unsigned 32bit INTeger bitmask allowing the control of 'IQ Controlled' or 'Auto
+            OBSOLETE_ProcessControlEnable  : Axo_IQ_SeriesWelder_ProcessControlEnable;  // OBSOLETE: Replaced by "Axo_IQ_SeriesWelder_PressWeld.Weld X Source" USED_TO_BE: Unsigned 32bit INTeger bitmask allowing the control of 'IQ Controlled' or 'Auto
             {#ix-set:AttributeName = "<#WeldTime#>"}
             WeldTime : DINT;                                                            // Units of mS indicating the duration of the 'iQ Controlled' weld.
             {#ix-set:AttributeName = "<#WeldPower#>"}
@@ -23,7 +23,6 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             AfterBurstDelay : DINT;                                                     // Units of mS indicating the duration of the "AfterBurst Delay".
             {#ix-set:AttributeName = "<#AfterBurstDuration#>"}
             AfterBurstDuration : DINT;                                                  // Units of mS indicating the duration of the "AfterBurst Duration".
-
         END_VAR 
     END_CLASS    
 END_NAMESPACE

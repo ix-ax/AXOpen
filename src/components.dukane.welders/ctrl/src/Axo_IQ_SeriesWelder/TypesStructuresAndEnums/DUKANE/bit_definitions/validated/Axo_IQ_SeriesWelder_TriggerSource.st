@@ -1,5 +1,5 @@
 NAMESPACE AXOpen.Components.Dukane.Welders
-    {S7.extern=ReadWrite}
+     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Wrap)]}
     CLASS PUBLIC Axo_IQ_SeriesWelder_TriggerSource
         VAR PUBLIC 
@@ -67,7 +67,6 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             res_bit6 : BOOL;   // bit6
             {#ix-set:AttributeName = "<#res_bit7#>"}
             res_bit7 : BOOL;   // bit7
-
         END_VAR 
-    END_CLASS    
+    END_CLASS
 END_NAMESPACE
