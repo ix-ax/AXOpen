@@ -99,6 +99,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#_State#>"}
             _State                  :   UINT;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#HW_S_0_0134_0_0 update counter#>"}
+            HW_S_0_0134_0_0                  :   ULINT;
         END_VAR
 
         VAR PRIVATE
@@ -1704,6 +1708,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;    
 
+            HW_S_0_0134_0_0 := HW_S_0_0134_0_0 + ULINT#1;
+
             _data2[1].%X0   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue;
             _data2[1].%X2   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl;
             _data2[1].%X3   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative;
@@ -2246,8 +2252,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         END_METHOD
 
         ///<summary>
-        /// This method commands a controlled motion stop and transfers the axis to the_State ‘Stopping’. It aborts any
-        /// ongoing method execution. While the axis is in_State ‘Stopping’, no other method can perform any motion on the
+        /// This method commands a controlled motion stop and transfers the axis to the State ‘Stopping’. It aborts any
+        /// ongoing method execution. While the axis is in State ‘Stopping’, no other method can perform any motion on the
         /// same axis. 
         ///</summary>
         VAR INTERNAL
@@ -2414,8 +2420,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         END_METHOD
 
         ///<summary>
-        /// This method commands a controlled motion stop. The axis is moved to the_State ‘DiscreteMotion’, until the
-        /// velocity is zero. With the ‘Done’ output set, the_State is transferred to ‘Standstill’.
+        /// This method commands a controlled motion stop. The axis is moved to the State ‘DiscreteMotion’, until the
+        /// velocity is zero. With the ‘Done’ output set, the State is transferred to ‘Standstill’.
         ///</summary>
         VAR INTERNAL
             MC_HaltExecute_PV					: 	BOOL;				//Execute - previous value
@@ -5416,7 +5422,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         END_METHOD
 
         ///<summary>
-        /// This method returns in detail the status of the_State diagram of the axis
+        /// This method returns in detail the status of the State diagram of the axis
         ///<summary>
         VAR INTERNAL
             MC_ReadStatusEnable_PV				: 	BOOL := FALSE;		//Enable - previous value                                                    
@@ -5687,7 +5693,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         END_METHOD
 
         ///<summary>
-        /// This method makes the transition from the_State ‘ErrorStop’ to ‘Standstill’ or ‘Disabled’ by resetting all 
+        /// This method makes the transition from the State ‘ErrorStop’ to ‘Standstill’ or ‘Disabled’ by resetting all 
         /// internal axis-related errors – it does not affect the output of the other methods.
         ///<summary>
         VAR INTERNAL
