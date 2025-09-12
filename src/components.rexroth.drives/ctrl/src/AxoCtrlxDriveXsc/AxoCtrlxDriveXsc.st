@@ -5776,7 +5776,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF MC_ResetState = UINT#21 THEN
                     Busy := TRUE;
                     THIS.AxoPower_Task.SwitchOn();
-                    IF THIS.AxoPower_Task.IsSwitchedOn() THEN
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := TRUE;
+                    _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := TRUE;
+                    IF THIS.AxoPower_Task.IsSwitchedOn() AND 
+                        _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND
+                        _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
                         MC_ResetState := UINT#30;
                     END_IF;                
                 END_IF;   
