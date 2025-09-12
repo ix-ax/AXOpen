@@ -99,10 +99,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#_State#>"}
             _State                  :   UINT;
-            {#ix-attr:[ComponentHeader()]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#HW_S_0_0134_0_0 update counter#>"}
-            HW_S_0_0134_0_0                  :   ULINT;
         END_VAR
 
         VAR PRIVATE
@@ -1707,8 +1703,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 DriveStatus.Error.Id := UINT#1231;
                 RETURN;
             END_IF;    
-
-            HW_S_0_0134_0_0 := HW_S_0_0134_0_0 + ULINT#1;
 
             _data2[1].%X0   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue;
             _data2[1].%X2   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl;
@@ -5741,8 +5735,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     Busy := TRUE;
                     THIS.AxoPower_Task.Manual();
                     THIS.AxoPower_Task.SwitchOff();
-                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := FALSE;
-                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := FALSE;
                     IF THIS.AxoPower_Task.IsSwitchedOff() THEN
                         MC_ResetState := UINT#10;
                     END_IF;                
@@ -5788,13 +5780,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     THIS.AxoPower_Task.Manual();
                     THIS.AxoPower_Task.SwitchOn();
                     Busy := TRUE;
-                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := TRUE;
-                    // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn := TRUE;
-                    // IF THIS.AxoPower_Task.IsSwitchedOn() AND 
-                    //     _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0 AND
-                    //     _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1 THEN
-                    //     MC_ResetState := UINT#30;
-                    // END_IF;                
                     IF THIS.AxoPower_Task.IsSwitchedOn() THEN
                         MC_ResetState := UINT#30;
                     END_IF;                
