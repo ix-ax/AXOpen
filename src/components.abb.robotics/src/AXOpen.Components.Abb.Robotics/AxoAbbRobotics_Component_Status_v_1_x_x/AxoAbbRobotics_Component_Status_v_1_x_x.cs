@@ -21,7 +21,8 @@ namespace AXOpen.Components.Abb.Robotics
                 if (errorDescriptionDict.Count == 0)
                 {
                     errorDescriptionDict.Add(0, "   ");
-                    errorDescriptionDict.Add(500,  "Waiting for the signal Inputs.PpMoved to be set!");                                                                 
+                    errorDescriptionDict.Add(501, "Waiting for the signal Inputs.CycleOn to be reseted!");
+                    errorDescriptionDict.Add(502, "Waiting for the signal Inputs.PpMoved to be set!");
                     errorDescriptionDict.Add(510,  "Waiting for the signal Inputs.AutoOn to be set!");                                                                                      
                     errorDescriptionDict.Add(511,  "Waiting for the signal Inputs.Error to be reseted!");                                                                                   
                     errorDescriptionDict.Add(512,  "Waiting for the signal Inputs.EmgStop to be reseted!");                                                                                 
