@@ -38,6 +38,8 @@ namespace AxOpen.Security.Models
         [Required]
         public string Group { get; set; }
 
+        public string? ExternalAuthId { get; set; }
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (!((OldPassword == "" || OldPassword == null) && (Password == "" || Password == null) && (ConfirmPassword == "" || ConfirmPassword == null)))

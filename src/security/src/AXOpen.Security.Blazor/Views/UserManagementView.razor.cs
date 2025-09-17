@@ -1,25 +1,25 @@
 ﻿using AxOpen.Security.Entities;
+using AxOpen.Security.Entities;
+using AxOpen.Security.Models;
 using AxOpen.Security.Services;
 using AXOpen;
-using AXOpen.Base.Dialogs;
-using System.Collections.ObjectModel;
-
-using AxOpen.Security.Entities;
-
-using AxOpen.Security.Models;
-
-using AXOpen.Base.Dialogs;
 using AXOpen;
-
+using AXOpen.Base.Dialogs;
+using AXOpen.Base.Dialogs;
 using AXOpen.Security;
-using Microsoft.Extensions.Localization;
+using AXOpen.Security.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Localization;
 using Operon.Components.Toast;
+using System.Collections.ObjectModel;
+using System.Text;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AxOpen.Security.Views
 {
-    public partial class UserManagementView : BaseSecurityView
+    public partial class UserManagementView : BaseSecurityView, IDisposable
     {
         private User SelectedUser { get; set; }
 
@@ -35,6 +35,43 @@ namespace AxOpen.Security.Views
             }
         }
 
+        [Inject]
+        private ISerialService _serialService { get; set; }
+
+        protected override void OnInitialized()
+        {
+            _model = new UpdateUserModel();
+
+            _serialService.SerialError += OnSerialError;
+            _serialService.DataReceived += OnSerialDataReceived;
+        }
+
+        public void Dispose()
+        {
+            _serialService.DataReceived -= OnSerialDataReceived;
+            _serialService.SerialError -= OnSerialError;
+        }
+
+        private void OnSerialError()
+        {
+            _serialService.DataReceived -= OnSerialDataReceived;
+            Console.WriteLine("Serial port error");
+        }
+
+        private void OnSerialDataReceived(byte[] data)
+        {
+            if (SelectedUser != null)
+                _model.ExternalAuthId = Encoding.ASCII.GetString(System.Security.Cryptography.SHA512.HashData(Encoding.ASCII.GetBytes(Encoding.ASCII.GetString(data).Trim())));
+
+            _toastService?.AddToast(eToastType.Success, Localizer["Updated!"], "The external token has been updated", 10);
+            StateHasChanged();
+        }
+
+        private void ClearExternalAuthId()
+        {
+            _model.ExternalAuthId = null;
+        }
+
         public void RowClicked(User user)
         {
             SelectedUser = user;
@@ -45,6 +82,7 @@ namespace AxOpen.Security.Views
             _model.Group = user.Group;
             _model.EnableAutoLogOut = user.EnableAutoLogOut;
             _model.AutoLogOutTimeOutMinutes = user.AutoLogOutTimeOutMinutes;
+            _model.ExternalAuthId = user.ExternalAuthId;
 
             StateHasChanged();
         }
@@ -97,6 +135,26 @@ namespace AxOpen.Security.Views
             SelectedUser.EnableAutoLogOut = _model.EnableAutoLogOut;
             SelectedUser.AutoLogOutTimeOutMinutes = _model.AutoLogOutTimeOutMinutes;
 
+            if (SelectedUser.ExternalAuthId != _model.ExternalAuthId)
+            {
+                if (!string.IsNullOrEmpty(_model.ExternalAuthId))
+                {
+                    List<User> users = _repositoryService.UserRepository.GetRecords().Where(user => user.ExternalAuthId != null && user.ExternalAuthId.Equals(_model.ExternalAuthId)).ToList();
+                    if (users.Any())
+                    {
+                        _toastService?.AddToast(eToastType.Danger, Localizer["Not updated!"], "User was not updated, because externalId has using diferent user!", 10);
+                        return;
+                    }
+
+                    string externalAuthIdHashed = _model.ExternalAuthId;
+                    SelectedUser.ExternalAuthId = externalAuthIdHashed;
+                }
+                else
+                {
+                    SelectedUser.ExternalAuthId = null;
+                }
+            }
+            
             if (SelectedUser.Group != _model.Group)
             {
                 SelectedUser.Group = _model.Group;
@@ -127,11 +185,6 @@ namespace AxOpen.Security.Views
 
                 AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
             }
-        }
-
-        protected override void OnInitialized()
-        {
-            _model = new UpdateUserModel();
         }
     }
 }

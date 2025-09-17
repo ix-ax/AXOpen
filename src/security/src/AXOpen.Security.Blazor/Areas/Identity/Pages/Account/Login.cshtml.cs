@@ -4,6 +4,7 @@ using AxOpen.Security.Models;
 using AxOpen.Security.Services;
 using AXOpen;
 using AXOpen.Security.Blazor.Resources;
+using AXOpen.Security.Blazor.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
@@ -13,7 +14,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
+using Microsoft.JSInterop;
 using System.Security.Principal;
+using System.Text;
 
 namespace AxOpen.Security.Areas.Identity.Pages.Account
 {
