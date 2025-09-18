@@ -7,7 +7,7 @@ using AXOpen;
 using AXOpen.Base.Dialogs;
 using AXOpen.Base.Dialogs;
 using AXOpen.Security;
-using AXOpen.Security.Blazor.Services;
+using AXOpen.Security.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Localization;

@@ -1,4 +1,5 @@
 ﻿@page
+@using AXOpen.Security.Services
 @using AxOpen.Security.Services
 @using Microsoft.AspNetCore.Identity
 @using AxOpen.Security.Entities
@@ -6,35 +7,17 @@
 @using Operon.Components.Toast
 
 @attribute [IgnoreAntiforgeryToken]
-@inject SignInManager<User> _signInManager
-@inject IRepositoryService _repositoryService
+@inject ExternalLoginService _externalLoginService
 @inject IToastService _toastService
 
 @functions {
     public async Task<IActionResult> OnPost([FromForm] string? externalAuthId)
     {
-        if (_signInManager.IsSignedIn(User))
-        {
-            await _signInManager.SignOutAsync();
-        }
-
-        if (!string.IsNullOrEmpty(externalAuthId))
-        {
-            string externalAuthIdHashed = Encoding.ASCII.GetString(System.Security.Cryptography.SHA512.HashData(Encoding.ASCII.GetBytes(externalAuthId)));
-            List<User> users = _repositoryService.UserRepository.GetRecords().Where(user => user.ExternalAuthId != null && user.ExternalAuthId.Equals(externalAuthIdHashed)).ToList();
-            if (users.Any())
-            {
-                if (users.Count() == 1)
-                {
-                    await _signInManager.SignInAsync(users.First(), isPersistent: false);
-                    _toastService?.AddToast(eToastType.Danger, "Login", "User was successfully logged in!", 10);
-                }
-                else
-                    _toastService?.AddToast(eToastType.Danger, "Login failed!", "Multiple users with same external id!", 10);
-            }
-            else
-                _toastService?.AddToast(eToastType.Danger, "Login failed!", "User was not found!", 10);
-        }
+        string? result = await _externalLoginService.LoginAsync(externalAuthId);
+        if(result == null)
+            _toastService?.AddToast(eToastType.Danger, "Login", "User was successfully logged in!", 10);
+        else
+            _toastService?.AddToast(eToastType.Danger, "Login failed!", result, 10);
 
         return Redirect("~/");
     }

@@ -1,7 +1,6 @@
 ﻿using AxOpen.Security.Entities;
 using AxOpen.Security.Services;
 using Microsoft.AspNetCore.Identity;
-using Operon.Components.Toast;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AXOpen.Security.Blazor.Services
+namespace AXOpen.Security.Services
 {
     public class ExternalLoginService
     {

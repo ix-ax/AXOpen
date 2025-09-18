@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AXOpen;
 using Microsoft.AspNetCore.Components.Authorization;
+using AXOpen.Security.Services;
 
 namespace AxOpen.Security.Services
 {
@@ -54,6 +55,9 @@ namespace AxOpen.Security.Services
 
             //services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddScoped<IRepositoryService, RepositoryService>(provider => new RepositoryService(repos.userRepo, roleGroupManager));
+
+            services.AddScoped<ISerialService, SerialService>();
+            services.AddScoped<ExternalLoginService>();
         }
     }
 }
