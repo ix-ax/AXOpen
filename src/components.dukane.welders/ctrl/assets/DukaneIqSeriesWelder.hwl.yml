@@ -10,7 +10,7 @@ Devices:
       Label: X1
       Addresses:
         Configured:
-        - IPv4: 192.168.100.152/24
+        - IPv4: 10.1.100.62/24
         - ProfinetDeviceName: DukaneIqSeriesWelder_1
       Parameters:
         # PrioritizedStartup (Boolean)

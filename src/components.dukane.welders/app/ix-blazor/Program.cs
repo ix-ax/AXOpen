@@ -34,6 +34,7 @@ Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
 //Entry.Plc.Connector.ConcurrentRequestDelay = 100;
 Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.ReThrow;
 
+
 Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
     .WriteTo
     .Console()
@@ -44,7 +45,9 @@ Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
     .MinimumLevel.Information()
     .CreateLogger());
 
-await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
+
+
+_ = Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Verbose()
