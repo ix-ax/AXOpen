@@ -193,7 +193,6 @@ NAMESPACE AXOpen.Components.Dukane.Welders
         END_VAR
 
         VAR PUBLIC
-            iq_if : Axo_IQ_SeriesWelder_Interface;            // Main interface UDT (parameters, buffers, HMI)
             Config_reset_on_coms_fault : BOOL := TRUE;
             Config_async_write_permited : BOOL := TRUE;
             AxoTaskCompareThisCycle : BOOL := TRUE;
