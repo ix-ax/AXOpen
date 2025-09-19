@@ -19,7 +19,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders.Tests
         VAR PROTECTED
             _context        :   TestContext;
             _rootObject     :   MockAxoObject;
-            _component      :   AXOpen.Components.Dukane.Welders.TemplateComponent;
+            _component      :   AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder;
         END_VAR        
                 
         VAR PRIVATE
