@@ -7,18 +7,18 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             Weld1Position : BOOL;
             {#ix-set:AttributeName = "<#ErrorStatus#>"}
             ErrorStatus : BOOL;
-            {#ix-set:AttributeName = "<#_26#>"}
-            _26 : BOOL;
-            {#ix-set:AttributeName = "<#_27#>"}
-            _27 : BOOL;
-            {#ix-set:AttributeName = "<#_28#>"}
-            _28 : BOOL;
-            {#ix-set:AttributeName = "<#_29#>"}
-            _29 : BOOL;
-            {#ix-set:AttributeName = "<#_30#>"}
-            _30 : BOOL;
-            {#ix-set:AttributeName = "<#_31#>"}
-            _31 : BOOL;
+            // {#ix-set:AttributeName = "<#_26#>"}
+            // _26 : BOOL;
+            // {#ix-set:AttributeName = "<#_27#>"}
+            // _27 : BOOL;
+            // {#ix-set:AttributeName = "<#_28#>"}
+            // _28 : BOOL;
+            // {#ix-set:AttributeName = "<#_29#>"}
+            // _29 : BOOL;
+            // {#ix-set:AttributeName = "<#_30#>"}
+            // _30 : BOOL;
+            // {#ix-set:AttributeName = "<#_31#>"}
+            // _31 : BOOL;
             {#ix-set:AttributeName = "<#TotalWeldTime#>"}
             TotalWeldTime : BOOL;
             {#ix-set:AttributeName = "<#TotalWeldDistance#>"}
