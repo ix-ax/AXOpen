@@ -111,7 +111,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
-            {#ix-attr:[ReadOnly()]}
+            // {#ix-attr:[ReadOnly()]}
             Outputs              :   Axo_IQ_SeriesWelder_SystemOutputs;
         END_VAR    
 
