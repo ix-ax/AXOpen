@@ -134,11 +134,6 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#CopySetup#>"}
             CopySetup             : Axo_IQ_SeriesWelder_CopySetup;
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("CopySetup")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#detect_structure_change#>"}
-            detect_structure_change : BOOL;                                 // when data structure was changed during development to force a refresh
         END_VAR
 
         
@@ -200,7 +195,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
         VAR PUBLIC
             iq_if : Axo_IQ_SeriesWelder_Interface;            // Main interface UDT (parameters, buffers, HMI)
             Config_reset_on_coms_fault : BOOL := TRUE;
-            Config_async_write_permited : BOOL := FALSE;
+            Config_async_write_permited : BOOL := TRUE;
             AxoTaskCompareThisCycle : BOOL := TRUE;
             AxoTaskRefresh : BOOL := FALSE;
             synchronous_read_retval : INT := INT#0;           // DPRD_DAT RET_VAL
@@ -216,9 +211,8 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             pTriggerSourcePosition : BOOL := FALSE;
             pTriggerSourcePower : BOOL := FALSE;
             pEnableWeld : BOOL := FALSE;
-            block_reload_detection : BOOL := FALSE;           // ====== System FB/FC instances ======
-            RD_REC : ReadRecord;      // RDREC;
-            WR_REC : WriteRecord;     // WRREC;               // ====== Indications (HMI) ======
+            ReadRecord : ReadRecord;
+            WriteRecord : WriteRecord;                        // ====== Indications (HMI) ======
             ton_coms_stable : OnDelay; // TON_TIME;
             tof_async_read_ind : OffDelay; // TOF_TIME;
             tof_async_write_ind : OffDelay; // TOF_TIME;      // ====== String read buffer for model/fw versions ======
@@ -236,21 +230,21 @@ NAMESPACE AXOpen.Components.Dukane.Welders
         END_VAR
 
         VAR CONSTANT 
-            index_async_data1 : DInt := DINT#16#2100;         // index 0x2100 - starting with regulation amplitude
-            index_async_data2 : DInt := DINT#16#2129;         // index 0x2129 (8489) - starting with power regulation enable
-            index_async_data3 : DInt := DINT#16#214B;         // index 0x214B (8523)
-            index_async_data4 : DInt := DINT#16#2178;
-            index_async_data5 : DInt := DINT#16#21AA;
-            index_async_model_no : DInt := DINT#16#2080;      // model no - string
-            index_async_serial_no : DInt := DINT#16#2081;     // serial no (Dint)
-            index_async_mb_firmware_ver : DInt := DINT#16#2082;   // motherboard firmware version - string
-            index_async_fp_firmware_ver : DInt := DINT#16#2083;   // front panel firmware version - string
-            index_async_mb_bootloader_no : DInt := DINT#16#2084;   // motherboard bootloader version - string
-            index_async_fp_bootloader_no : DInt := DINT#16#2085;   // front panel bootloader version - string
-            index_async_test_scan_result : DInt := DINT#16#2128;
-            index_asycn_copyrec : DInt := DINT#16#2127;
-            initial_parameter_refresh : Word := WORD#2#0000000000011111;
-            initial_model_refresh : Word := WORD#2#0000000000111111;
+            index_async_data1 : DINT := DINT#16#2100;         // index 0x2100 - starting with regulation amplitude
+            index_async_data2 : DINT := DINT#16#2129;         // index 0x2129 (8489) - starting with power regulation enable
+            index_async_data3 : DINT := DINT#16#214B;         // index 0x214B (8523)
+            index_async_data4 : DINT := DINT#16#2178;
+            index_async_data5 : DINT := DINT#16#21AA;
+            index_async_model_no : DINT := DINT#16#2080;      // model no - string
+            index_async_serial_no : DINT := DINT#16#2081;     // serial no (DINT)
+            index_async_mb_firmware_ver : DINT := DINT#16#2082;   // motherboard firmware version - string
+            index_async_fp_firmware_ver : DINT := DINT#16#2083;   // front panel firmware version - string
+            index_async_mb_bootloader_no : DINT := DINT#16#2084;   // motherboard bootloader version - string
+            index_async_fp_bootloader_no : DINT := DINT#16#2085;   // front panel bootloader version - string
+            index_async_test_scan_result : DINT := DINT#16#2128;
+            index_asycn_copyrec : DINT := DINT#16#2127;
+            initial_parameter_refresh : WORD := WORD#2#0000000000011111;
+            initial_model_refresh : WORD := WORD#2#0000000000111111;
         END_VAR
 
 
@@ -4484,7 +4478,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_PLC_to_iQ_Outputs) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _outputsCount <> UINT#0 OR _inputsCount <> UINT#20 THEN
+                IF _outputsCount <> UINT#20 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#916,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#916;
                     RETURN;
@@ -4995,12 +4989,10 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             // Network 3: Initialize read request
             // ============================================================================
             
-            IF coms_just_restored OR coms_stable AND (AxoTaskRefresh OR block_reload_detection OR detect_structure_change) THEN
+            IF coms_just_restored OR coms_stable AND AxoTaskRefresh THEN
                 model_read_map := initial_model_refresh;
                 par_read_map := initial_parameter_refresh;
                 AxoTaskRefresh := FALSE;
-                block_reload_detection := TRUE;
-                detect_structure_change := TRUE;
             END_IF;
             
             // ============================================================================
@@ -7815,30 +7807,33 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             IF (coms_stable) THEN
                 
                 //Save rd_req value from previous iteation
-                prev_rd_req := RD_REC.request;
+                prev_rd_req := ReadRecord.request;
                 
                 // Proces valid data if needed
-                IF RD_REC.VALID THEN
-                    Hmi.read_status[async_read_no] := RD_REC.STATUS;
+                IF ReadRecord.VALID THEN
+                    Hmi.read_status[async_read_no] := ReadRecord.STATUS;
                     CASE async_read_no OF
                         -16: // Model no decode to string
                             // Chars_TO_Strg(Chars := str_read_buffer,
                             //               pChars := 0,
                             //               Cnt := RD_REC.length,
                             //               Strg => ModelInfo.ModelNumber);
-                            _data_255[0]:= TO_BYTE(RD_REC.length);
-                            FOR index := UINT#0 TO RD_REC.length DO
+                            _data_255[0]:= TO_BYTE(ReadRecord.length);
+                            FOR index := UINT#0 TO ReadRecord.length DO
                                 _data_255[index + UINT#1] := str_read_buffer_254[index];
                             END_FOR;
                             Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.ModelNumber);
+
+                        -15:  
+                            Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.SerialNumber);                            
 
                         -14: // MB firmware version decode to string
                             // Chars_TO_Strg(Chars := str_read_buffer_254,
                             //               pChars := 0,
                             //               Cnt := RD_REC.length,
                             //               Strg => ModelInfo.MB_FirmwareVersion);
-                            _data_255[0]:= TO_BYTE(RD_REC.length);
-                            FOR index := UINT#0 TO RD_REC.length DO
+                            _data_255[0]:= TO_BYTE(ReadRecord.length);
+                            FOR index := UINT#0 TO ReadRecord.length DO
                                 _data_255[index + UINT#1] := str_read_buffer_254[index];
                             END_FOR;
                             Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.MB_FirmwareVersion);
@@ -7848,8 +7843,8 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                             //               pChars := 0,
                             //               Cnt := RD_REC.length,
                             //               Strg => ModelInfo.FP_FirmwareVersion);
-                            _data_255[0]:= TO_BYTE(RD_REC.length);
-                            FOR index := UINT#0 TO RD_REC.length DO
+                            _data_255[0]:= TO_BYTE(ReadRecord.length);
+                            FOR index := UINT#0 TO ReadRecord.length DO
                                 _data_255[index + UINT#1] := str_read_buffer_254[index];
                             END_FOR;
                             Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.FP_FirmwareVersion);
@@ -7859,8 +7854,8 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                             //               pChars := 0,
                             //               Cnt := RD_REC.length,
                             //               Strg => ModelInfo.MB_BootLoaderVersion);
-                            _data_255[0]:= TO_BYTE(RD_REC.length);
-                            FOR index := UINT#0 TO RD_REC.length DO
+                            _data_255[0]:= TO_BYTE(ReadRecord.length);
+                            FOR index := UINT#0 TO ReadRecord.length DO
                                 _data_255[index + UINT#1] := str_read_buffer_254[index];
                             END_FOR;
                             Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.MB_BootLoaderVersion);
@@ -7870,8 +7865,8 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                             //               pChars := 0,
                             //               Cnt := RD_REC.length,
                             //               Strg => ModelInfo.FP_BootloaderVersion);
-                            _data_255[0]:= TO_BYTE(RD_REC.length);
-                            FOR index := UINT#0 TO RD_REC.length DO
+                            _data_255[0]:= TO_BYTE(ReadRecord.length);
+                            FOR index := UINT#0 TO ReadRecord.length DO
                                 _data_255[index + UINT#1] := str_read_buffer_254[index];
                             END_FOR;
                             Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.FP_BootloaderVersion);
@@ -7925,8 +7920,8 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 END_IF;
                 
                 // Read request error - reset invalidated date if needed
-                IF RD_REC.ERROR THEN
-                    Hmi.read_status[async_read_no] := RD_REC.STATUS;
+                IF ReadRecord.ERROR THEN
+                    Hmi.read_status[async_read_no] := ReadRecord.STATUS;
                     
                     CASE async_read_no OF
                         -16:
@@ -7945,7 +7940,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 END_IF;
                 
                 // Unmask bit map after successfully / unsuccesfully finished readout of model no
-                IF (RD_REC.VALID OR RD_REC.ERROR) THEN
+                IF (ReadRecord.VALID OR ReadRecord.ERROR) THEN
                     IF (async_read_no < 0) AND (async_read_no >= -16) THEN
                         mask := THIS.DECO_WORD(TO_UINT(async_read_no + 16));
                         model_read_map := model_read_map AND (NOT mask);
@@ -7958,14 +7953,14 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 END_IF;
                 
                 // Unmask bit map after successfully finished readout of parameters
-                IF RD_REC.VALID THEN
+                IF ReadRecord.VALID THEN
                     IF (async_read_no > 0) AND (async_read_no <= 16) THEN
                         mask := THIS.DECO_WORD(TO_UINT(async_read_no - 1));
                         par_read_map := par_read_map AND (NOT mask);
                     END_IF;
                 END_IF;
                 
-                rd_any_response := (RD_REC.BUSY OR RD_REC.VALID OR RD_REC.ERROR);
+                rd_any_response := (ReadRecord.BUSY OR ReadRecord.VALID OR ReadRecord.ERROR);
                 
                 //If we get a signal that request was processed we can set it to false to prepare for generating a new rising edge
                 IF rd_req AND rd_any_response THEN
@@ -7992,72 +7987,72 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 //Perform the read itself
                 CASE async_read_no OF
                     -16: //Read model no string  
-                        RD_REC( request := rd_req, 
+                        ReadRecord( request := rd_req, 
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_model_no,
                                 maxLength := UINT#64,
                                 record := str_read_buffer_254);
                     -15:  //Read serial no
-                        RD_REC( request := rd_req, 
+                        ReadRecord( request := rd_req, 
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_serial_no,
                                 maxLength := UINT#4,
                                 record :=  str_read_buffer_254); // ModelInfo.SerialNumber);
                     -14: //Read mb firmware version
-                        RD_REC( request := rd_req, 
+                        ReadRecord( request := rd_req, 
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_mb_firmware_ver,
                                 maxLength := UINT#64,
                                 record := str_read_buffer_254);
                     -13: //Read fp firmware version
-                        RD_REC( request := rd_req, 
+                        ReadRecord( request := rd_req, 
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_fp_firmware_ver,
                                 maxLength := UINT#64,
                                 record := str_read_buffer_254);
                     -12: //Read mb bootloader version
-                        RD_REC( request := rd_req, 
+                        ReadRecord( request := rd_req, 
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_mb_bootloader_no,
                                 maxLength := UINT#64,
                                 record := str_read_buffer_254);
                     -11: //Read fp bootloader version
-                        RD_REC( request := rd_req, 
+                        ReadRecord( request := rd_req, 
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_fp_bootloader_no,
                                 maxLength := UINT#64,
                                 record := str_read_buffer_254);
                         
                     1:  //Read parameter packet 1
-                        RD_REC( request := rd_req, 
+                        ReadRecord( request := rd_req, 
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_data1,
                                 maxLength := UINT#132,
                                 record := str_read_buffer_254); 
                                 THIS.ByteArray_TO_buf1(str_read_buffer_254,ReadBuffers.buf1);
                     2:  //Read parameter packet 2
-                        RD_REC( request := rd_req, 
+                        ReadRecord( request := rd_req, 
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_data2,
                                 maxLength := UINT#136,
                                 record := str_read_buffer_254); 
                                 THIS.ByteArray_TO_buf2(str_read_buffer_254,ReadBuffers.buf2);
                     3:  //Read parameter packet 3
-                        RD_REC( request := rd_req, 
+                        ReadRecord( request := rd_req, 
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_data3,
                                 maxLength := UINT#180,
                                 record := str_read_buffer_254); 
                                 THIS.ByteArray_TO_buf3(str_read_buffer_254,ReadBuffers.buf3);
                     4:  //Read parameter packet 4
-                        RD_REC( request := rd_req, 
+                        ReadRecord( request := rd_req, 
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_data4,
                                 maxLength := UINT#200,
                                 record := str_read_buffer_254); 
                                 THIS.ByteArray_TO_buf4(str_read_buffer_254,ReadBuffers.buf4);
                     5:  //Read parameter packet 5
-                        RD_REC( request := rd_req, 
+                        ReadRecord( request := rd_req, 
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_data5,
                                 maxLength := UINT#176,
@@ -8066,7 +8061,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
 
                         //Start of on-demand request types    
                     17: //Read test scan results
-                        RD_REC( request := rd_req, 
+                        ReadRecord( request := rd_req, 
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_test_scan_result,
                                 maxLength := UINT#4,
@@ -8077,7 +8072,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                                                                                             TO_DWORD(str_read_buffer_254[  3])); 
                     ELSE
                         //By default we call test scan results request (but req is off so o data transfer)
-                        RD_REC( request := FALSE, 
+                        ReadRecord( request := FALSE, 
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_test_scan_result,
                                 maxLength := UINT#4,
@@ -8253,20 +8248,20 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             IF (coms_stable) THEN
                 
                 //Save wr_req value from previous iteation
-                prev_wr_req := WR_REC.request;
+                prev_wr_req := WriteRecord.request;
                 
                 // React tovalid writes if needed
-                IF WR_REC.DONE THEN
-                    Hmi.write_status[async_write_no] := WR_REC.STATUS;
+                IF WriteRecord.DONE THEN
+                    Hmi.write_status[async_write_no] := WriteRecord.STATUS;
                 END_IF;
                 
                 // Write request error - reset invalidated date if needed
-                IF WR_REC.ERROR THEN
-                    Hmi.write_status[async_write_no] := WR_REC.STATUS;
+                IF WriteRecord.ERROR THEN
+                    Hmi.write_status[async_write_no] := WriteRecord.STATUS;
                 END_IF;
                 
                 // Unmask bit map after successfully / unsuccesfully finished write and trigger apropriate re-read
-                IF (WR_REC.DONE OR WR_REC.ERROR) THEN
+                IF (WriteRecord.DONE OR WriteRecord.ERROR) THEN
                     IF (async_write_no > 0) AND (async_write_no <= 16) THEN
                         mask := THIS.DECO_WORD(TO_UINT(async_write_no - 1));
                         par_write_map := par_write_map AND (NOT mask); // unmask the processed write request
@@ -8278,7 +8273,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                wr_any_response := (WR_REC.BUSY OR WR_REC.DONE OR WR_REC.ERROR);
+                wr_any_response := (WriteRecord.BUSY OR WriteRecord.DONE OR WriteRecord.ERROR);
                 
                 //If we get a singnal that request was processed we can set it to false to prepare for generating a new rising edge
                 IF wr_req AND wr_any_response THEN
@@ -8372,35 +8367,35 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 CASE async_write_no OF
                     1:  //Write parameter packet 1
                         THIS.buf1_TO_ByteArray(WriteBuffers.buf1,write_buffer_254);
-                        WR_REC(request := wr_req,
+                        WriteRecord(request := wr_req,
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_data1,
                                 length := UINT#132,
                                 record := write_buffer_254);
                     2:  //Write parameter packet 2
                         THIS.buf2_TO_ByteArray(WriteBuffers.buf2,write_buffer_254);
-                        WR_REC(request := wr_req,
+                        WriteRecord(request := wr_req,
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_data2,
                                 length := UINT#136,
                                 record := write_buffer_254);
                     3:  //Write parameter packet 3
                         THIS.buf3_TO_ByteArray(WriteBuffers.buf3,write_buffer_254);
-                        WR_REC(request := wr_req,
+                        WriteRecord(request := wr_req,
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_data3,
                                 length := UINT#180,
                                 record := write_buffer_254);
                     4:  //Write parameter packet 4
                         THIS.buf4_TO_ByteArray(WriteBuffers.buf4,write_buffer_254);
-                        WR_REC(request := wr_req,
+                        WriteRecord(request := wr_req,
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_data4,
                                 length := UINT#200,
                                 record := write_buffer_254);
                     5:  //Write parameter packet 5
                         THIS.buf5_TO_ByteArray(WriteBuffers.buf5,write_buffer_254);
-                        WR_REC(request := wr_req,
+                        WriteRecord(request := wr_req,
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_data5,
                                 length := UINT#176,
@@ -8411,7 +8406,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                         write_buffer_254[ 1] := TO_BYTE(    TO_WORD(CopySetup.Destination_Setup));
                         write_buffer_254[ 2] := TO_BYTE(SHR(TO_WORD(CopySetup.Source_Setup),        UINT#8));
                         write_buffer_254[ 3] := TO_BYTE(    TO_WORD(CopySetup.Source_Setup));
-                        WR_REC(request := wr_req,
+                        WriteRecord(request := wr_req,
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_asycn_copyrec,
                                 length := UINT#4,
@@ -8419,7 +8414,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     ELSE
                         //By default we call 0 byte WR_REC using REQ=false
                         THIS.buf1_TO_ByteArray(WriteBuffers.buf1,write_buffer_254);
-                        WR_REC( request := false,
+                        WriteRecord( request := false,
                                 id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
                                 index := index_async_data1,
                                 length := UINT#0,
