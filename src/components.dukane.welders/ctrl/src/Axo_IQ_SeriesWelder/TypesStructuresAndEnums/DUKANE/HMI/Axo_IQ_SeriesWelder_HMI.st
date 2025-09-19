@@ -7,8 +7,6 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             c : Axo_IQ_SeriesWelder_HMI_command;
             {#ix-set:AttributeName = "<#s#>"}
             s : Axo_IQ_SeriesWelder_HMI_status;
-            {#ix-set:AttributeName = "<#e#>"}
-            e : Axo_IQ_SeriesWelder_HMI_errors;
         END_VAR 
     END_CLASS   
 END_NAMESPACE
