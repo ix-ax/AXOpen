@@ -3,20 +3,20 @@ NAMESPACE AXOpen.Components.Dukane.Welders
     {#ix-attr:[Container(Layout.Wrap)]}
     CLASS PUBLIC Axo_IQ_SeriesWelder_SystemStatusBitDefinition
         VAR PUBLIC 
-            {#ix-set:AttributeName = "<#res_bit24#>"}
-            res_bit24 : BOOL;   // bit24
-            {#ix-set:AttributeName = "<#res_bit25#>"}
-            res_bit25 : BOOL;   // bit25
-            {#ix-set:AttributeName = "<#res_bit26#>"}
-            res_bit26 : BOOL;   // bit26
-            {#ix-set:AttributeName = "<#res_bit27#>"}
-            res_bit27 : BOOL;   // bit27
-            {#ix-set:AttributeName = "<#res_bit28#>"}
-            res_bit28 : BOOL;   // bit28
-            {#ix-set:AttributeName = "<#res_bit29#>"}
-            res_bit29 : BOOL;   // bit29
-            {#ix-set:AttributeName = "<#res_bit30#>"}
-            res_bit30 : BOOL;   // bit30
+            // {#ix-set:AttributeName = "<#res_bit24#>"}
+            // res_bit24 : BOOL;   // bit24
+            // {#ix-set:AttributeName = "<#res_bit25#>"}
+            // res_bit25 : BOOL;   // bit25
+            // {#ix-set:AttributeName = "<#res_bit26#>"}
+            // res_bit26 : BOOL;   // bit26
+            // {#ix-set:AttributeName = "<#res_bit27#>"}
+            // res_bit27 : BOOL;   // bit27
+            // {#ix-set:AttributeName = "<#res_bit28#>"}
+            // res_bit28 : BOOL;   // bit28
+            // {#ix-set:AttributeName = "<#res_bit29#>"}
+            // res_bit29 : BOOL;   // bit29
+            // {#ix-set:AttributeName = "<#res_bit30#>"}
+            // res_bit30 : BOOL;   // bit30
             {#ix-set:AttributeName = "<#SetupChanged#>"}
             SetupChanged : BOOL;   // bit31
             {#ix-set:AttributeName = "<#InCycle#>"}
@@ -33,8 +33,8 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             In_TestScan : BOOL;   // bit21
             {#ix-set:AttributeName = "<#MPC_Present#>"}
             MPC_Present : BOOL;   // bit22
-            {#ix-set:AttributeName = "<#res_bit23#>"}
-            res_bit23 : BOOL;   // bit23
+            // {#ix-set:AttributeName = "<#res_bit23#>"}
+            // res_bit23 : BOOL;   // bit23
             {#ix-set:AttributeName = "<#PowerOK#>"}
             PowerOK : BOOL;   // bit8
             {#ix-set:AttributeName = "<#MPC_Ready#>"}
