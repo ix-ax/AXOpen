@@ -14,6 +14,7 @@ namespace AxOpen.Security.Entities
         public DateTime Modified { get; set; }
         public bool EnableAutoLogOut { get; set; }
         public uint AutoLogOutTimeOutMinutes { get; set; }
+        public string? ExternalAuthId { get; set; }
 
         public User(string username, string email, string group, bool canUserChangePassword, bool enableAutoLogOut, uint autoLogOutTimeOutMinutes)
         {

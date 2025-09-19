@@ -13,7 +13,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
+using Microsoft.JSInterop;
 using System.Security.Principal;
+using System.Text;
 
 namespace AxOpen.Security.Areas.Identity.Pages.Account
 {
