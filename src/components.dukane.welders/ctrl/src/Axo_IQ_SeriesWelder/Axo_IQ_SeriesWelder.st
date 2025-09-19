@@ -221,7 +221,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             tof_async_write_ind : OffDelay; // TOF_TIME;      // ====== String read buffer for model/fw versions ======
             str_read_buffer_254 : ARRAY[0..253] OF BYTE;           
             write_buffer_254 : ARRAY[0..253] OF BYTE;           
-            buf_test_scan_result : Axo_IQ_SeriesWelder_TestScanResults;
+            // buf_test_scan_result : Axo_IQ_SeriesWelder_TestScanResults;
             async_read_no : INT := INT#0;                     // -16..-11 (model/fw), 1..5 (params), 17.. (on-demand)
             async_write_no : INT := INT#0;                    // 1..5 (params), 17.. (on-demand) ====== Bitmaps ======
             model_read_map : WORD := WORD#16#0000;            // model string read requests
