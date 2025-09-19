@@ -36,20 +36,30 @@ namespace AxOpen.Security.Views
         }
 
         [Inject]
+        private IServiceProvider _serviceProvider { get; set; }
+
         private ISerialService _serialService { get; set; }
 
         protected override void OnInitialized()
         {
+            _serialService = (ISerialService?)_serviceProvider.GetService(typeof(ISerialService));
+
             _model = new UpdateUserModel();
 
-            _serialService.SerialError += OnSerialError;
-            _serialService.DataReceived += OnSerialDataReceived;
+            if(_serialService != null)
+            {
+                _serialService.SerialError += OnSerialError;
+                _serialService.DataReceived += OnSerialDataReceived;
+            }
         }
 
         public void Dispose()
         {
-            _serialService.DataReceived -= OnSerialDataReceived;
-            _serialService.SerialError -= OnSerialError;
+            if (_serialService != null)
+            {
+                _serialService.DataReceived -= OnSerialDataReceived;
+                _serialService.SerialError -= OnSerialError;
+            }
         }
 
         private void OnSerialError()

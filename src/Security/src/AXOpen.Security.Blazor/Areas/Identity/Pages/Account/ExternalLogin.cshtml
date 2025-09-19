@@ -7,17 +7,32 @@
 @using Operon.Components.Toast
 
 @attribute [IgnoreAntiforgeryToken]
-@inject ExternalLoginService _externalLoginService
+@inject IRepositoryService _repositoryService
+@inject SignInManager<User> _signInManager
 @inject IToastService _toastService
 
 @functions {
     public async Task<IActionResult> OnPost([FromForm] string? externalAuthId)
     {
-        string? result = await _externalLoginService.LoginAsync(externalAuthId);
-        if(result == null)
-            _toastService?.AddToast(eToastType.Danger, "Login", "User was successfully logged in!", 10);
+        if (string.IsNullOrWhiteSpace(externalAuthId))
+            _toastService?.AddToast(eToastType.Danger, "Login failed!", "Missing externalAuthId.", 10);
+
+        string externalAuthIdHashed = Encoding.ASCII.GetString(System.Security.Cryptography.SHA512.HashData(Encoding.ASCII.GetBytes(externalAuthId)));
+        List<User> users = _repositoryService.UserRepository.GetRecords().Where(user => user.ExternalAuthId != null && user.ExternalAuthId.Equals(externalAuthIdHashed)).ToList();
+        if (users.Any())
+        {
+            if (users.Count() == 1)
+            {
+                await _signInManager.SignOutAsync();
+
+                await _signInManager.SignInAsync(users.First(), isPersistent: false);
+                _toastService?.AddToast(eToastType.Danger, "Login", "User was successfully logged in!", 10);
+            }
+            else
+                _toastService?.AddToast(eToastType.Danger, "Login failed!", "Multiple users with same external id!", 10);
+        }
         else
-            _toastService?.AddToast(eToastType.Danger, "Login failed!", result, 10);
+            _toastService?.AddToast(eToastType.Danger, "Login failed!", "User not found.", 10);
 
         return Redirect("~/");
     }

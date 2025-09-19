@@ -4,7 +4,7 @@
 @using Operon.Components.Dropdown
 @attribute [IgnoreAntiforgeryToken]
 @namespace AxOpen.Security.Views
-@inject ISerialService _serialService
+@inject IServiceProvider _serviceProvider
 
 <div class="flex flex-wrap">
     <AuthorizeView>
@@ -30,7 +30,7 @@
         </NotAuthorized>
     </AuthorizeView>
 
-    @if (!_serialService.PortOpen && _showConnectButton)
+    @if (_serialService != null && !_serialService.PortOpen && _showConnectButton)
     {
         <button class="btn btn-primary" @onclick="ConnectAsync">Connect to Serial Port</button>
     }
@@ -41,11 +41,16 @@
 
     private bool _showConnectButton { get; set; } = false;
 
+    private ISerialService? _serialService { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
-        _serialService.AfterOpenPort += StateHasChanged;
-
-        ChangeAfterDelayAsync();
+        _serialService = (ISerialService?)_serviceProvider.GetService(typeof(ISerialService));
+        if (_serialService != null)
+        {
+            _serialService.AfterOpenPort += StateHasChanged;
+            await ChangeAfterDelayAsync();
+        }
     }
 
     private async Task ChangeAfterDelayAsync()

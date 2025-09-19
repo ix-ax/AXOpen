@@ -18,7 +18,7 @@ namespace AxOpen.Security.Services
     {
         public static void ConfigureAxBlazorSecurity(this IServiceCollection services,
             (IRepository<User> userRepo, IRepository<Group> groupRepo) repos,
-            List<Role>? roles = null, bool addAllRolesToAdminGroup = false)
+            List<Role>? roles = null, bool addAllRolesToAdminGroup = false, bool usingExternalLogin = false)
         {
             services.AddTransient<IUserStore<User>, UserStore>();
             services.AddTransient<IRoleStore<Role>, RoleStore>();
@@ -56,8 +56,8 @@ namespace AxOpen.Security.Services
             //services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddScoped<IRepositoryService, RepositoryService>(provider => new RepositoryService(repos.userRepo, roleGroupManager));
 
-            services.AddScoped<ISerialService, SerialService>();
-            services.AddScoped<ExternalLoginService>();
+            if (usingExternalLogin)
+                services.AddScoped<ISerialService, SerialService>();
         }
     }
 }

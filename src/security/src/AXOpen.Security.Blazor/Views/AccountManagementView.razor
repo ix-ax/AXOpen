@@ -14,7 +14,7 @@
 @inject IRepositoryService _repositoryService
 @inject IToastService _toastService
 @inject AuthenticationStateProvider _authenticationStateProvider
-@inject ISerialService _serialService
+@inject IServiceProvider _serviceProvider
 @implements IDisposable
 
 <AuthorizeView>
@@ -75,6 +75,8 @@
 @code {
     private ManageUserModel _model { get; set; }
 
+    private ISerialService? _serialService { get; set; }
+
     private async void OnValidUpdate()
     {
         User _user = await _userManager.FindByNameAsync(_model.Username);
@@ -121,6 +123,8 @@
 
     protected override async Task OnInitializedAsync()
     {
+        _serialService = (ISerialService?)_serviceProvider.GetService(typeof(ISerialService));
+
         _model = new ManageUserModel();
 
         User _user = await _userManager.FindByNameAsync(_authenticationStateProvider.GetAuthenticationStateAsync().Result.User.Identity.Name);
@@ -131,14 +135,20 @@
         _model.CanUserChangePassword = _user.CanUserChangePassword;
         _model.ExternalAuthId = _user.ExternalAuthId;
 
-        _serialService.SerialError += OnSerialError;
-        _serialService.DataReceived += OnSerialDataReceived;
+        if (_serialService != null)
+        {
+            _serialService.SerialError += OnSerialError;
+            _serialService.DataReceived += OnSerialDataReceived;
+        }
     }
 
     public void Dispose()
     {
-        _serialService.DataReceived -= OnSerialDataReceived;
-        _serialService.SerialError -= OnSerialError;
+        if (_serialService != null)
+        {
+            _serialService.DataReceived -= OnSerialDataReceived;
+            _serialService.SerialError -= OnSerialError;
+        }
     }
 
     private void OnSerialError()
