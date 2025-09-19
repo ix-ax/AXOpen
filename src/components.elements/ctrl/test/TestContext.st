@@ -2,7 +2,7 @@ USING AXOpen.Core;
 USING AXOpen.Rtc;
 USING AXOpen.Logging;
 
-NAMESPACE AxoIO.Tests
+NAMESPACE AXOpen.Elements.Tests
     {S7.extern=ReadWrite}
     CLASS TestContext EXTENDS AXOpen.Core.Dummies.MockAxoContext       
         
