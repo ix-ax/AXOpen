@@ -83,34 +83,34 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             Config  :   Axo_IQ_SeriesWelder_Config;
         END_VAR
 
-        VAR PUBLIC // Parameters
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("Parameters")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Parameters#>"}
-            Parameters : Axo_IQ_SeriesWelder_Parameters;       // Parameters (to be potentialy edited by user)
-        END_VAR
+        // VAR PUBLIC // Parameters
+        //     {#ix-attr:[Container(Layout.Stack)]}
+        //     {#ix-attr:[ComponentDetails("Parameters")]}
+        //     {#ix-attr:[ReadOnly()]}
+        //     {#ix-set:AttributeName = "<#Parameters#>"}
+        //     Parameters : Axo_IQ_SeriesWelder_Parameters;       // Parameters (to be potentialy edited by user)
+        // END_VAR
 
-        VAR PUBLIC // Buffers
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("Buffers")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#ReadBuffers#>"}
-            ReadBuffers : Axo_IQ_SeriesWelder_Buffers;          // Read buffers for parameter data transfer and user change detection
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("Buffers")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#WriteBuffers#>"}
-            WriteBuffers : Axo_IQ_SeriesWelder_Buffers;         // Write buffers for parameter transfer to the iQ (also to prevent inconsistent changes during transfer)
-        END_VAR
+        // VAR PUBLIC // Buffers
+        //     {#ix-attr:[Container(Layout.Stack)]}
+        //     {#ix-attr:[ComponentDetails("Buffers")]}
+        //     {#ix-attr:[ReadOnly()]}
+        //     {#ix-set:AttributeName = "<#ReadBuffers#>"}
+        //     ReadBuffers : Axo_IQ_SeriesWelder_Buffers;          // Read buffers for parameter data transfer and user change detection
+        //     {#ix-attr:[Container(Layout.Stack)]}
+        //     {#ix-attr:[ComponentDetails("Buffers")]}
+        //     {#ix-attr:[ReadOnly()]}
+        //     {#ix-set:AttributeName = "<#WriteBuffers#>"}
+        //     WriteBuffers : Axo_IQ_SeriesWelder_Buffers;         // Write buffers for parameter transfer to the iQ (also to prevent inconsistent changes during transfer)
+        // END_VAR
 
-        VAR PUBLIC // ModelInfo
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("ModelInfo")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#ModelInfo#>"}
-            ModelInfo   : Axo_IQ_SeriesWelder_ModelInfo;        // Information on HW / SW versions etc.
-        END_VAR
+        // VAR PUBLIC // ModelInfo
+        //     {#ix-attr:[Container(Layout.Stack)]}
+        //     {#ix-attr:[ComponentDetails("ModelInfo")]}
+        //     {#ix-attr:[ReadOnly()]}
+        //     {#ix-set:AttributeName = "<#ModelInfo#>"}
+        //     ModelInfo   : Axo_IQ_SeriesWelder_ModelInfo;        // Information on HW / SW versions etc.
+        // END_VAR
 
         VAR PUBLIC // Hmi
             {#ix-attr:[Container(Layout.Stack)]}
@@ -120,21 +120,21 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             Hmi                     : Axo_IQ_SeriesWelder_HMI;              // HMI control bits and values (apart from parameters)
         END_VAR
 
-        VAR PUBLIC // TestScanResults
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("TestScanResults")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#TestScanResults#>"}
-            TestScanResults       : Axo_IQ_SeriesWelder_TestScanResults;
-        END_VAR
+        // VAR PUBLIC // TestScanResults
+        //     {#ix-attr:[Container(Layout.Stack)]}
+        //     {#ix-attr:[ComponentDetails("TestScanResults")]}
+        //     {#ix-attr:[ReadOnly()]}
+        //     {#ix-set:AttributeName = "<#TestScanResults#>"}
+        //     TestScanResults       : Axo_IQ_SeriesWelder_TestScanResults;
+        // END_VAR
 
-        VAR PUBLIC // CopySetup
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("CopySetup")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#CopySetup#>"}
-            CopySetup             : Axo_IQ_SeriesWelder_CopySetup;
-        END_VAR
+        // VAR PUBLIC // CopySetup
+        //     {#ix-attr:[Container(Layout.Stack)]}
+        //     {#ix-attr:[ComponentDetails("CopySetup")]}
+        //     {#ix-attr:[ReadOnly()]}
+        //     {#ix-set:AttributeName = "<#CopySetup#>"}
+        //     CopySetup             : Axo_IQ_SeriesWelder_CopySetup;
+        // END_VAR
 
         
         VAR PUBLIC // STATUS
@@ -212,6 +212,9 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             pTriggerSourcePower : BOOL := FALSE;
             pEnableWeld : BOOL := FALSE;
             ReadRecord : ReadRecord;
+            ReadRecord2 : ReadRecord;
+            ReadRecord2req : BOOL;
+            ReadRecord2maxLen : UINT;
             WriteRecord : WriteRecord;                        // ====== Indications (HMI) ======
             ton_coms_stable : OnDelay; // TON_TIME;
             tof_async_read_ind : OffDelay; // TOF_TIME;
@@ -243,8 +246,8 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             index_async_fp_bootloader_no : DINT := DINT#16#2085;   // front panel bootloader version - string
             index_async_test_scan_result : DINT := DINT#16#2128;
             index_asycn_copyrec : DINT := DINT#16#2127;
-            initial_parameter_refresh : WORD := WORD#2#0000000000011111;
-            initial_model_refresh : WORD := WORD#2#0000000000111111;
+            initial_parameter_refresh   : WORD := WORD#2#0000000000011111;
+            initial_model_refresh       : WORD := WORD#2#0000000000111111;
         END_VAR
 
 
@@ -4976,14 +4979,14 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             // Network 2: Clear model info on lost coms
             // ============================================================================
             
-            IF NOT coms_read_ok THEN
-                ModelInfo.ModelNumber := '';
-                ModelInfo.SerialNumber := DINT#0;
-                ModelInfo.MB_FirmwareVersion := '';
-                ModelInfo.FP_FirmwareVersion := '';
-                ModelInfo.MB_BootLoaderVersion := '';
-                ModelInfo.FP_BootloaderVersion := '';
-            END_IF;
+            // IF NOT coms_read_ok THEN
+            //     ModelInfo.ModelNumber := '';
+            //     ModelInfo.SerialNumber := DINT#0;
+            //     ModelInfo.MB_FirmwareVersion := '';
+            //     ModelInfo.FP_FirmwareVersion := '';
+            //     ModelInfo.MB_BootLoaderVersion := '';
+            //     ModelInfo.FP_BootloaderVersion := '';
+            // END_IF;
             
             // ============================================================================
             // Network 3: Initialize read request
@@ -5005,90 +5008,90 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             // Network 5: To enable any other IQ control weld time must be enabled first
             // ============================================================================
             
-            IF Parameters.PressWeld.Weld1Source.Power OR Parameters.PressWeld.Weld1Source.Energy OR Parameters.PressWeld.Weld1Source.Distance OR
-                Parameters.PressWeld.Weld1Source.Position OR Parameters.PressWeld.Weld1Source.Ground_Detect OR Parameters.PressWeld.Weld1Source.Force THEN
-                Parameters.PressWeld.Weld1Source._Time := TRUE;
-            END_IF;
+            // IF Parameters.PressWeld.Weld1Source.Power OR Parameters.PressWeld.Weld1Source.Energy OR Parameters.PressWeld.Weld1Source.Distance OR
+            //     Parameters.PressWeld.Weld1Source.Position OR Parameters.PressWeld.Weld1Source.Ground_Detect OR Parameters.PressWeld.Weld1Source.Force THEN
+            //     Parameters.PressWeld.Weld1Source._Time := TRUE;
+            // END_IF;
             
-            IF Parameters.PressWeld.Weld1Source.Enable_Weld_1 AND NOT pEnableWeld THEN
-                Parameters.PressWeld.Weld1Source._Time := TRUE;
-            END_IF;
-            Parameters.PressWeld.Weld1Source.Enable_Weld_1 := Parameters.PressWeld.Weld1Source._Time;
-            pEnableWeld := Parameters.PressWeld.Weld1Source.Enable_Weld_1;
+            // IF Parameters.PressWeld.Weld1Source.Enable_Weld_1 AND NOT pEnableWeld THEN
+            //     Parameters.PressWeld.Weld1Source._Time := TRUE;
+            // END_IF;
+            // Parameters.PressWeld.Weld1Source.Enable_Weld_1 := Parameters.PressWeld.Weld1Source._Time;
+            // pEnableWeld := Parameters.PressWeld.Weld1Source.Enable_Weld_1;
             
             // ============================================================================
             // Network 6: Automated reaction to (user) parameter changes
             // (handled more fully in Network 18 below - compare & set write map)
             // ============================================================================
             
-            IF Parameters.PressTrigger.TriggerSource.Position AND NOT pTriggerSourcePosition THEN
-                Parameters.PressTrigger.TriggerSource.Power := FALSE;
-            END_IF;
-            pTriggerSourcePosition := Parameters.PressTrigger.TriggerSource.Position;
+            // IF Parameters.PressTrigger.TriggerSource.Position AND NOT pTriggerSourcePosition THEN
+            //     Parameters.PressTrigger.TriggerSource.Power := FALSE;
+            // END_IF;
+            // pTriggerSourcePosition := Parameters.PressTrigger.TriggerSource.Position;
             
-            IF Parameters.PressTrigger.TriggerSource.Power AND NOT pTriggerSourcePower THEN
-                Parameters.PressTrigger.TriggerSource.Position := FALSE;
-            END_IF;
-            pTriggerSourcePower :=Parameters.PressTrigger.TriggerSource.Power;
+            // IF Parameters.PressTrigger.TriggerSource.Power AND NOT pTriggerSourcePower THEN
+            //     Parameters.PressTrigger.TriggerSource.Position := FALSE;
+            // END_IF;
+            // pTriggerSourcePower :=Parameters.PressTrigger.TriggerSource.Power;
             
-            IF Parameters.PressTrigger.TriggerSource.Position AND Parameters.PressTrigger.TriggerSource.Power THEN
-                Parameters.PressTrigger.TriggerSource.Power := FALSE;
-            END_IF;
+            // IF Parameters.PressTrigger.TriggerSource.Position AND Parameters.PressTrigger.TriggerSource.Power THEN
+            //     Parameters.PressTrigger.TriggerSource.Power := FALSE;
+            // END_IF;
             
-            Parameters.PressTrigger.TriggerSource.Enable_Trigger := Parameters.PressTrigger.TriggerSource.Position OR Parameters.PressTrigger.TriggerSource.Power;
+            // Parameters.PressTrigger.TriggerSource.Enable_Trigger := Parameters.PressTrigger.TriggerSource.Position OR Parameters.PressTrigger.TriggerSource.Power;
             
-            Parameters.PressPretrigger.PreTriggerSource._Time := Parameters.PressTrigger.TriggerSource.Power;
-            Parameters.PressPretrigger.PreTriggerSource.Enable_Trigger := Parameters.PressTrigger.TriggerSource.Power;
-            IF Parameters.PressTrigger.TriggerSource.Power THEN
-                Parameters.PressPretrigger.PreTriggerTime := 0;
-            END_IF;
+            // Parameters.PressPretrigger.PreTriggerSource._Time := Parameters.PressTrigger.TriggerSource.Power;
+            // Parameters.PressPretrigger.PreTriggerSource.Enable_Trigger := Parameters.PressTrigger.TriggerSource.Power;
+            // IF Parameters.PressTrigger.TriggerSource.Power THEN
+            //     Parameters.PressPretrigger.PreTriggerTime := 0;
+            // END_IF;
             
             // ============================================================================
             // Network 7: Afterburst enable / disable (handled via buf5 fields)
             // ============================================================================
-            tmp_DW := TO_DWORD(Parameters.AfterburstEnable) AND DWORD#1;
-            IF tmp_DW <> DWORD#0 THEN
-                Parameters.AfterburstEnable := TO_DINT(TO_DWORD(Parameters.AfterburstEnable) OR DWORD#2);
-            ELSE
-                Parameters.AfterburstEnable := DINT#0;
-            END_IF;
+            // tmp_DW := TO_DWORD(Parameters.AfterburstEnable) AND DWORD#1;
+            // IF tmp_DW <> DWORD#0 THEN
+            //     Parameters.AfterburstEnable := TO_DINT(TO_DWORD(Parameters.AfterburstEnable) OR DWORD#2);
+            // ELSE
+            //     Parameters.AfterburstEnable := DINT#0;
+            // END_IF;
             
             // ============================================================================
             // Network 8: HMI processing (user controls -> request bits)
             // ============================================================================
-            IF Hmi.c.flip_freq_tracking_compat THEN
-                Hmi.c.flip_freq_tracking_compat := FALSE;
-                tmp_bit := (Parameters.FreqCtrlMode = 6);
-                IF tmp_bit THEN
-                    Parameters.FreqCtrlMode := 1;
-                ELSE
-                    Parameters.FreqCtrlMode := 0;
-                END_IF;
-            END_IF;
+            // IF Hmi.c.flip_freq_tracking_compat THEN
+            //     Hmi.c.flip_freq_tracking_compat := FALSE;
+            //     tmp_bit := (Parameters.FreqCtrlMode = 6);
+            //     IF tmp_bit THEN
+            //         Parameters.FreqCtrlMode := 1;
+            //     ELSE
+            //         Parameters.FreqCtrlMode := 0;
+            //     END_IF;
+            // END_IF;
             
-            IF Hmi.c.apply_scanned_freq THEN
-                Hmi.c.apply_scanned_freq := FALSE;
-                Hmi.s.DisplayApplyScannedFrequency := FALSE;
-                IF TestScanResults.TestScanResults > 0 THEN
-                    TestScanResults.TestScanResults := TestScanResults.TestScanResults;
-                END_IF;
-            END_IF;
+            // IF Hmi.c.apply_scanned_freq THEN
+            //     Hmi.c.apply_scanned_freq := FALSE;
+            //     Hmi.s.DisplayApplyScannedFrequency := FALSE;
+            //     IF TestScanResults.TestScanResults > 0 THEN
+            //         TestScanResults.TestScanResults := TestScanResults.TestScanResults;
+            //     END_IF;
+            // END_IF;
             
-            IF Hmi.c.dont_apply_scanned_freq THEN
-                Hmi.c.dont_apply_scanned_freq := FALSE;
-                Hmi.s.DisplayApplyScannedFrequency := FALSE;
-                IF Hmi.c.copy_setup THEN
-                    on_demand_write_map := on_demand_write_map OR TO_WORD(2#0000000000000001);
-                    Hmi.c.copy_setup := FALSE;
-                END_IF;
-            END_IF;
+            // IF Hmi.c.dont_apply_scanned_freq THEN
+            //     Hmi.c.dont_apply_scanned_freq := FALSE;
+            //     Hmi.s.DisplayApplyScannedFrequency := FALSE;
+            //     IF Hmi.c.copy_setup THEN
+            //         on_demand_write_map := on_demand_write_map OR TO_WORD(2#0000000000000001);
+            //         Hmi.c.copy_setup := FALSE;
+            //     END_IF;
+            // END_IF;
             
             // ============================================================================
             // Network 9: Parameters check (safety)
             // ============================================================================
-            IF Parameters.FreqCtrlMode <> 1 AND Parameters.FreqCtrlMode <> 6 THEN
-                Parameters.FreqCtrlMode := 1;
-            END_IF;
+            // IF Parameters.FreqCtrlMode <> 1 AND Parameters.FreqCtrlMode <> 6 THEN
+            //     Parameters.FreqCtrlMode := 1;
+            // END_IF;
             // ============================================================================
             // Network 10: Trigger read on HMI req 
             // ============================================================================
@@ -5182,8 +5185,9 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                         TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
-    
-                    IF TRUE THEN
+                    ReadRecord2req := FALSE;
+                    ReadRecord2( request := FALSE,record := str_read_buffer_254);
+                    IF NOT ReadRecord2.busy AND NOT ReadRecord2.error AND NOT ReadRecord2.valid THEN
                         THIS.CallTimers(FALSE);
                         _progress := 301;
                     END_IF;
@@ -5194,8 +5198,9 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                         TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
-    
-                    IF TRUE THEN
+                    ReadRecord2maxLen := UINT#64;
+                    ReadRecord2req := TRUE;
+                    IF ReadRecord2.busy THEN
                         THIS.CallTimers(FALSE);
                         _progress := 302;
                     END_IF;
@@ -5207,7 +5212,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                         Status.Error.Id :=      UINT#502;
                     END_IF;
 
-                    IF TRUE THEN
+                    IF NOT ReadRecord2.busy AND ReadRecord2.valid AND NOT ReadRecord2.error THEN
                         THIS.CallTimers(FALSE);
                         _progress := 303;
                     END_IF;
@@ -5285,10 +5290,18 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 309 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 10>
+                IF _progress = 309 THEN         
+                    ReadRecord2req := FALSE;                                                                            // TemplateTask_10steps_1 running: , <add the detailed description of the current action 10>
                     TemplateTask_10steps_1.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
+
+                ReadRecord2( request := ReadRecord2req, 
+                    id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+                    index := index_async_model_no,
+                    maxLength := ReadRecord2maxLen,
+                    record := str_read_buffer_254);
+
     
                 THIS.CallTimers(TRUE);
                 
@@ -7804,434 +7817,435 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             // Network 16: Read acyclic data
             // ============================================================================
             //Try asynchronous comunication only when synchronous comunication is stable (no errors for 1s)
-            IF (coms_stable) THEN
+            // IF (coms_stable) THEN
                 
-                //Save rd_req value from previous iteation
-                prev_rd_req := ReadRecord.request;
+            //     //Save rd_req value from previous iteation
+            //     prev_rd_req := ReadRecord.request;
                 
-                // Proces valid data if needed
-                IF ReadRecord.VALID THEN
-                    Hmi.read_status[async_read_no] := ReadRecord.STATUS;
-                    CASE async_read_no OF
-                        -16: // Model no decode to string
-                            // Chars_TO_Strg(Chars := str_read_buffer,
-                            //               pChars := 0,
-                            //               Cnt := RD_REC.length,
-                            //               Strg => ModelInfo.ModelNumber);
-                            _data_255[0]:= TO_BYTE(ReadRecord.length);
-                            FOR index := UINT#0 TO ReadRecord.length DO
-                                _data_255[index + UINT#1] := str_read_buffer_254[index];
-                            END_FOR;
-                            Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.ModelNumber);
+            //     // Proces valid data if needed
+            //     IF ReadRecord.VALID THEN
+            //         Hmi.read_status[async_read_no] := ReadRecord.STATUS;
+            //         CASE async_read_no OF
+            //             -16: // Model no decode to string
+            //                 // Chars_TO_Strg(Chars := str_read_buffer,
+            //                 //               pChars := 0,
+            //                 //               Cnt := RD_REC.length,
+            //                 //               Strg => ModelInfo.ModelNumber);
+            //                 _data_255[0]:= TO_BYTE(ReadRecord.length);
+            //                 FOR index := UINT#0 TO ReadRecord.length DO
+            //                     _data_255[index + UINT#1] := str_read_buffer_254[index];
+            //                 END_FOR;
+            //                 Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.ModelNumber);
 
-                        -15:  
-                            Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.SerialNumber);                            
+            //             -15:  
+            //                 Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.SerialNumber);                            
 
-                        -14: // MB firmware version decode to string
-                            // Chars_TO_Strg(Chars := str_read_buffer_254,
-                            //               pChars := 0,
-                            //               Cnt := RD_REC.length,
-                            //               Strg => ModelInfo.MB_FirmwareVersion);
-                            _data_255[0]:= TO_BYTE(ReadRecord.length);
-                            FOR index := UINT#0 TO ReadRecord.length DO
-                                _data_255[index + UINT#1] := str_read_buffer_254[index];
-                            END_FOR;
-                            Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.MB_FirmwareVersion);
+            //             -14: // MB firmware version decode to string
+            //                 // Chars_TO_Strg(Chars := str_read_buffer_254,
+            //                 //               pChars := 0,
+            //                 //               Cnt := RD_REC.length,
+            //                 //               Strg => ModelInfo.MB_FirmwareVersion);
+            //                 _data_255[0]:= TO_BYTE(ReadRecord.length);
+            //                 FOR index := UINT#0 TO ReadRecord.length DO
+            //                     _data_255[index + UINT#1] := str_read_buffer_254[index];
+            //                 END_FOR;
+            //                 Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.MB_FirmwareVersion);
 
-                        -13: // FP firmware version decode to string
-                            // Chars_TO_Strg(Chars := str_read_buffer_254,
-                            //               pChars := 0,
-                            //               Cnt := RD_REC.length,
-                            //               Strg => ModelInfo.FP_FirmwareVersion);
-                            _data_255[0]:= TO_BYTE(ReadRecord.length);
-                            FOR index := UINT#0 TO ReadRecord.length DO
-                                _data_255[index + UINT#1] := str_read_buffer_254[index];
-                            END_FOR;
-                            Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.FP_FirmwareVersion);
+            //             -13: // FP firmware version decode to string
+            //                 // Chars_TO_Strg(Chars := str_read_buffer_254,
+            //                 //               pChars := 0,
+            //                 //               Cnt := RD_REC.length,
+            //                 //               Strg => ModelInfo.FP_FirmwareVersion);
+            //                 _data_255[0]:= TO_BYTE(ReadRecord.length);
+            //                 FOR index := UINT#0 TO ReadRecord.length DO
+            //                     _data_255[index + UINT#1] := str_read_buffer_254[index];
+            //                 END_FOR;
+            //                 Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.FP_FirmwareVersion);
                                         
-                        -12: // MB bootloader version decode to string
-                            // Chars_TO_Strg(Chars := str_read_buffer_254,
-                            //               pChars := 0,
-                            //               Cnt := RD_REC.length,
-                            //               Strg => ModelInfo.MB_BootLoaderVersion);
-                            _data_255[0]:= TO_BYTE(ReadRecord.length);
-                            FOR index := UINT#0 TO ReadRecord.length DO
-                                _data_255[index + UINT#1] := str_read_buffer_254[index];
-                            END_FOR;
-                            Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.MB_BootLoaderVersion);
+            //             -12: // MB bootloader version decode to string
+            //                 // Chars_TO_Strg(Chars := str_read_buffer_254,
+            //                 //               pChars := 0,
+            //                 //               Cnt := RD_REC.length,
+            //                 //               Strg => ModelInfo.MB_BootLoaderVersion);
+            //                 _data_255[0]:= TO_BYTE(ReadRecord.length);
+            //                 FOR index := UINT#0 TO ReadRecord.length DO
+            //                     _data_255[index + UINT#1] := str_read_buffer_254[index];
+            //                 END_FOR;
+            //                 Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.MB_BootLoaderVersion);
                                         
-                        -11: // FP bootloader version decode to string
-                            // Chars_TO_Strg(Chars := str_read_buffer_254,
-                            //               pChars := 0,
-                            //               Cnt := RD_REC.length,
-                            //               Strg => ModelInfo.FP_BootloaderVersion);
-                            _data_255[0]:= TO_BYTE(ReadRecord.length);
-                            FOR index := UINT#0 TO ReadRecord.length DO
-                                _data_255[index + UINT#1] := str_read_buffer_254[index];
-                            END_FOR;
-                            Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.FP_BootloaderVersion);
+            //             -11: // FP bootloader version decode to string
+            //                 // Chars_TO_Strg(Chars := str_read_buffer_254,
+            //                 //               pChars := 0,
+            //                 //               Cnt := RD_REC.length,
+            //                 //               Strg => ModelInfo.FP_BootloaderVersion);
+            //                 _data_255[0]:= TO_BYTE(ReadRecord.length);
+            //                 FOR index := UINT#0 TO ReadRecord.length DO
+            //                     _data_255[index + UINT#1] := str_read_buffer_254[index];
+            //                 END_FOR;
+            //                 Deserialize(UDINT#0, str_read_buffer_254, ModelInfo.FP_BootloaderVersion);
                                         
-                        1:  //Data 1 read to buffer succesfull - copy
-                            Parameters.ProcCtrl := ReadBuffers.buf1.ProcCtrl;
-                            Parameters.ProcLimits := ReadBuffers.buf1.ProcLimits;
-                            Parameters.FreqCtrl := ReadBuffers.buf1.FreqCtrl;
-                            Parameters.TriggerByPower := ReadBuffers.buf1.TriggerByPower;
-                            Parameters.FreqCtrlMode := ReadBuffers.buf1.FreqCtrlMode;
+            //             1:  //Data 1 read to buffer succesfull - copy
+            //                 Parameters.ProcCtrl := ReadBuffers.buf1.ProcCtrl;
+            //                 Parameters.ProcLimits := ReadBuffers.buf1.ProcLimits;
+            //                 Parameters.FreqCtrl := ReadBuffers.buf1.FreqCtrl;
+            //                 Parameters.TriggerByPower := ReadBuffers.buf1.TriggerByPower;
+            //                 Parameters.FreqCtrlMode := ReadBuffers.buf1.FreqCtrlMode;
                             
-                        2: //Data 2 read to buffer succesfull - copy
-                            Parameters.PowerReg := ReadBuffers.buf2.PowerReg;
-                            Parameters.PressPretrigger := ReadBuffers.buf2.PressPretrigger;
-                            Parameters.PressTrigger := ReadBuffers.buf2.PressTrigger;
-                            Parameters.PressTriggerDelay := ReadBuffers.buf2.PressTriggerDelay;
-                            Parameters.PressWeld := ReadBuffers.buf2.PressWeld;
-                            Parameters.PressWeldScrub := ReadBuffers.buf2.PressWeldScrub;
-                            Parameters.PressPostWeld := ReadBuffers.buf2.PressPostWeld;
-                        3: //Data 3 read to buffer succesfull - copy
-                            Parameters.PressLimits.TriggerTime := ReadBuffers.buf3.TriggerTime;
-                            Parameters.PressLimits.TriggerPosition := ReadBuffers.buf3.TriggerPosition;
-                            Parameters.PressLimits.TriggerDelayTime := ReadBuffers.buf3.TriggerDelayTime;
-                            Parameters.PressLimits.TriggerDelayDistance := ReadBuffers.buf3.TriggerDelayDistance;
-                            Parameters.PressLimits.Weld1Distance := ReadBuffers.buf3.Weld1Distance;
-                            Parameters.PressLimits.Weld1Position := ReadBuffers.buf3.Weld1Position;
-                            Parameters.PressLimits.Weld2Time := ReadBuffers.buf3.Weld2Time;
-                            Parameters.PressLimits.Weld2Energy := ReadBuffers.buf3.Weld2Energy;
-                            Parameters.PressLimits.Weld2Power := ReadBuffers.buf3.Weld2Power;
-                        4: //Data 4 read to buffer succesfull - copy
-                            Parameters.PressLimits.Weld2Distance := ReadBuffers.buf4.Weld2Distance;
-                            Parameters.PressLimits.Weld2Position := ReadBuffers.buf4.Weld2Position;
-                            Parameters.PressLimits.TotalWeldTime := ReadBuffers.buf4.TotalWeldTime;
-                            Parameters.PressLimits.TotalWeldEnergy := ReadBuffers.buf4.TotalWeldEnergy;
-                            Parameters.PressLimits.TotalWeldDistance := ReadBuffers.buf4.TotalWeldDistance;
-                            Parameters.PressLimits.DynamicHoldTime := ReadBuffers.buf4.DynamicHoldTime;
-                            Parameters.PressLimits.DynamicHoldDistance := ReadBuffers.buf4.DynamicHoldDistance;
-                            Parameters.PressLimits.TotalCycleTime := ReadBuffers.buf4.TotalCycleTime;
-                            Parameters.PressLimits.FinalHoldPosition := ReadBuffers.buf4.FinalHoldPosition;
-                            Parameters.PressLimits.ErrorStatus := ReadBuffers.buf4.ErrorStatus;
-                        5: //Data 5 read to buffer succesfull - copy
-                            Parameters.AnalogSensor := ReadBuffers.buf5.AnalogSensor;
-                            Parameters.AfterburstEnable := ReadBuffers.buf5.AfterburstEnable;
-                            Parameters.LimitWeld1TimeEnable := ReadBuffers.buf5.LimitWeld1TimeEnable;
-                            Parameters.LimitWeld1EnergyEnable := ReadBuffers.buf5.LimitWeld1EnergyEnable;
-                            Parameters.LimitWeld1PowerEnable := ReadBuffers.buf5.LimitWeld1PowerEnable;
-                        17://Test scan read finished succesfully
-                            Hmi.s.DisplayApplyScannedFrequency := true;
+            //             2: //Data 2 read to buffer succesfull - copy
+            //                 Parameters.PowerReg := ReadBuffers.buf2.PowerReg;
+            //                 Parameters.PressPretrigger := ReadBuffers.buf2.PressPretrigger;
+            //                 Parameters.PressTrigger := ReadBuffers.buf2.PressTrigger;
+            //                 Parameters.PressTriggerDelay := ReadBuffers.buf2.PressTriggerDelay;
+            //                 Parameters.PressWeld := ReadBuffers.buf2.PressWeld;
+            //                 Parameters.PressWeldScrub := ReadBuffers.buf2.PressWeldScrub;
+            //                 Parameters.PressPostWeld := ReadBuffers.buf2.PressPostWeld;
+            //             3: //Data 3 read to buffer succesfull - copy
+            //                 Parameters.PressLimits.TriggerTime := ReadBuffers.buf3.TriggerTime;
+            //                 Parameters.PressLimits.TriggerPosition := ReadBuffers.buf3.TriggerPosition;
+            //                 Parameters.PressLimits.TriggerDelayTime := ReadBuffers.buf3.TriggerDelayTime;
+            //                 Parameters.PressLimits.TriggerDelayDistance := ReadBuffers.buf3.TriggerDelayDistance;
+            //                 Parameters.PressLimits.Weld1Distance := ReadBuffers.buf3.Weld1Distance;
+            //                 Parameters.PressLimits.Weld1Position := ReadBuffers.buf3.Weld1Position;
+            //                 Parameters.PressLimits.Weld2Time := ReadBuffers.buf3.Weld2Time;
+            //                 Parameters.PressLimits.Weld2Energy := ReadBuffers.buf3.Weld2Energy;
+            //                 Parameters.PressLimits.Weld2Power := ReadBuffers.buf3.Weld2Power;
+            //             4: //Data 4 read to buffer succesfull - copy
+            //                 Parameters.PressLimits.Weld2Distance := ReadBuffers.buf4.Weld2Distance;
+            //                 Parameters.PressLimits.Weld2Position := ReadBuffers.buf4.Weld2Position;
+            //                 Parameters.PressLimits.TotalWeldTime := ReadBuffers.buf4.TotalWeldTime;
+            //                 Parameters.PressLimits.TotalWeldEnergy := ReadBuffers.buf4.TotalWeldEnergy;
+            //                 Parameters.PressLimits.TotalWeldDistance := ReadBuffers.buf4.TotalWeldDistance;
+            //                 Parameters.PressLimits.DynamicHoldTime := ReadBuffers.buf4.DynamicHoldTime;
+            //                 Parameters.PressLimits.DynamicHoldDistance := ReadBuffers.buf4.DynamicHoldDistance;
+            //                 Parameters.PressLimits.TotalCycleTime := ReadBuffers.buf4.TotalCycleTime;
+            //                 Parameters.PressLimits.FinalHoldPosition := ReadBuffers.buf4.FinalHoldPosition;
+            //                 Parameters.PressLimits.ErrorStatus := ReadBuffers.buf4.ErrorStatus;
+            //             5: //Data 5 read to buffer succesfull - copy
+            //                 Parameters.AnalogSensor := ReadBuffers.buf5.AnalogSensor;
+            //                 Parameters.AfterburstEnable := ReadBuffers.buf5.AfterburstEnable;
+            //                 Parameters.LimitWeld1TimeEnable := ReadBuffers.buf5.LimitWeld1TimeEnable;
+            //                 Parameters.LimitWeld1EnergyEnable := ReadBuffers.buf5.LimitWeld1EnergyEnable;
+            //                 Parameters.LimitWeld1PowerEnable := ReadBuffers.buf5.LimitWeld1PowerEnable;
+            //             17://Test scan read finished succesfully
+            //                 Hmi.s.DisplayApplyScannedFrequency := true;
                             
-                    END_CASE;
-                END_IF;
+            //         END_CASE;
+            //     END_IF;
                 
-                // Read request error - reset invalidated date if needed
-                IF ReadRecord.ERROR THEN
-                    Hmi.read_status[async_read_no] := ReadRecord.STATUS;
+            //     // Read request error - reset invalidated date if needed
+            //     IF ReadRecord.ERROR THEN
+            //         Hmi.read_status[async_read_no] := ReadRecord.STATUS;
                     
-                    CASE async_read_no OF
-                        -16:
-                            ModelInfo.ModelNumber := '';
-                        -15:
-                            ModelInfo.SerialNumber := 0;
-                        -14:
-                            ModelInfo.MB_FirmwareVersion := '';
-                        -13:
-                            ModelInfo.FP_FirmwareVersion := '';
-                        -12:
-                            ModelInfo.MB_BootLoaderVersion := '';
-                        -11:
-                            ModelInfo.FP_BootloaderVersion := '';
-                    END_CASE;
-                END_IF;
+            //         CASE async_read_no OF
+            //             -16:
+            //                 ModelInfo.ModelNumber := '';
+            //             -15:
+            //                 ModelInfo.SerialNumber := 0;
+            //             -14:
+            //                 ModelInfo.MB_FirmwareVersion := '';
+            //             -13:
+            //                 ModelInfo.FP_FirmwareVersion := '';
+            //             -12:
+            //                 ModelInfo.MB_BootLoaderVersion := '';
+            //             -11:
+            //                 ModelInfo.FP_BootloaderVersion := '';
+            //         END_CASE;
+            //     END_IF;
                 
-                // Unmask bit map after successfully / unsuccesfully finished readout of model no
-                IF (ReadRecord.VALID OR ReadRecord.ERROR) THEN
-                    IF (async_read_no < 0) AND (async_read_no >= -16) THEN
-                        mask := THIS.DECO_WORD(TO_UINT(async_read_no + 16));
-                        model_read_map := model_read_map AND (NOT mask);
-                    END_IF;
+            //     // Unmask bit map after successfully / unsuccesfully finished readout of model no
+            //     IF (ReadRecord.VALID OR ReadRecord.ERROR) THEN
+            //         IF (async_read_no < 0) AND (async_read_no >= -16) THEN
+            //             mask := THIS.DECO_WORD(TO_UINT(async_read_no + 16));
+            //             model_read_map := model_read_map AND (NOT mask);
+            //         END_IF;
                     
-                    IF (async_read_no > 13) AND (async_read_no < + 32) THEN
-                        mask := THIS.DECO_WORD(TO_UINT(async_read_no - 17));
-                        on_demand_read_map := on_demand_read_map AND (NOT mask);
-                    END_IF;
-                END_IF;
+            //         IF (async_read_no > 13) AND (async_read_no < + 32) THEN
+            //             mask := THIS.DECO_WORD(TO_UINT(async_read_no - 17));
+            //             on_demand_read_map := on_demand_read_map AND (NOT mask);
+            //         END_IF;
+            //     END_IF;
                 
-                // Unmask bit map after successfully finished readout of parameters
-                IF ReadRecord.VALID THEN
-                    IF (async_read_no > 0) AND (async_read_no <= 16) THEN
-                        mask := THIS.DECO_WORD(TO_UINT(async_read_no - 1));
-                        par_read_map := par_read_map AND (NOT mask);
-                    END_IF;
-                END_IF;
+            //     // Unmask bit map after successfully finished readout of parameters
+            //     IF ReadRecord.VALID THEN
+            //         IF (async_read_no > 0) AND (async_read_no <= 16) THEN
+            //             mask := THIS.DECO_WORD(TO_UINT(async_read_no - 1));
+            //             par_read_map := par_read_map AND (NOT mask);
+            //         END_IF;
+            //     END_IF;
                 
-                rd_any_response := (ReadRecord.BUSY OR ReadRecord.VALID OR ReadRecord.ERROR);
+            //     rd_any_response := (ReadRecord.BUSY OR ReadRecord.VALID OR ReadRecord.ERROR);
                 
-                //If we get a signal that request was processed we can set it to false to prepare for generating a new rising edge
-                IF rd_req AND rd_any_response THEN
-                    rd_req := false;
-                END_IF;
+            //     //If we get a signal that request was processed we can set it to false to prepare for generating a new rising edge
+            //     IF rd_req AND rd_any_response THEN
+            //         rd_req := false;
+            //     END_IF;
                 
-                //If the previous request was processed and we are ready for a new one (new rising edge on rd_req) lets create one
-                IF (NOT prev_rd_req) AND (NOT rd_any_response) AND (NOT coms_just_restored) THEN
-                    IF (model_read_map <> WORD#0) THEN
-                        async_read_no := THIS.ENCO(model_read_map) - INT#16;
-                        rd_req := true;
-                    ELSIF (on_demand_read_map <> WORD#0) THEN
-                        async_read_no := THIS.ENCO(on_demand_read_map) + INT#17;
-                        rd_req := true;
-                    ELSIF (par_read_map <> WORD#0) THEN
-                        async_read_no := THIS.ENCO(par_read_map) + INT#1;
-                        rd_req := true;
-                    ELSE
-                        //If no request present we call the default RD_REC but without request
-                        async_read_no := 0;
-                    END_IF;
-                END_IF;
+            //     //If the previous request was processed and we are ready for a new one (new rising edge on rd_req) lets create one
+            //     IF (NOT prev_rd_req) AND (NOT rd_any_response) AND (NOT coms_just_restored) THEN
+            //         IF (model_read_map <> WORD#0) THEN
+            //             async_read_no := THIS.ENCO(model_read_map) - INT#16;
+            //             rd_req := true;
+            //         ELSIF (on_demand_read_map <> WORD#0) THEN
+            //             async_read_no := THIS.ENCO(on_demand_read_map) + INT#17;
+            //             rd_req := true;
+            //         ELSIF (par_read_map <> WORD#0) THEN
+            //             async_read_no := THIS.ENCO(par_read_map) + INT#1;
+            //             rd_req := true;
+            //         ELSE
+            //             //If no request present we call the default RD_REC but without request
+            //             async_read_no := 0;
+            //         END_IF;
+            //     END_IF;
                 
-                //Perform the read itself
-                CASE async_read_no OF
-                    -16: //Read model no string  
-                        ReadRecord( request := rd_req, 
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_model_no,
-                                maxLength := UINT#64,
-                                record := str_read_buffer_254);
-                    -15:  //Read serial no
-                        ReadRecord( request := rd_req, 
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_serial_no,
-                                maxLength := UINT#4,
-                                record :=  str_read_buffer_254); // ModelInfo.SerialNumber);
-                    -14: //Read mb firmware version
-                        ReadRecord( request := rd_req, 
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_mb_firmware_ver,
-                                maxLength := UINT#64,
-                                record := str_read_buffer_254);
-                    -13: //Read fp firmware version
-                        ReadRecord( request := rd_req, 
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_fp_firmware_ver,
-                                maxLength := UINT#64,
-                                record := str_read_buffer_254);
-                    -12: //Read mb bootloader version
-                        ReadRecord( request := rd_req, 
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_mb_bootloader_no,
-                                maxLength := UINT#64,
-                                record := str_read_buffer_254);
-                    -11: //Read fp bootloader version
-                        ReadRecord( request := rd_req, 
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_fp_bootloader_no,
-                                maxLength := UINT#64,
-                                record := str_read_buffer_254);
+            //     //Perform the read itself
+            //     CASE async_read_no OF
+            //         -16: //Read model no string  
+            //             ReadRecord( request := rd_req, 
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_model_no,
+            //                     maxLength := UINT#64,
+            //                     record := str_read_buffer_254);
+            //         -15:  //Read serial no
+            //             ReadRecord( request := rd_req, 
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_serial_no,
+            //                     maxLength := UINT#4,
+            //                     record :=  str_read_buffer_254); // ModelInfo.SerialNumber);
+            //         -14: //Read mb firmware version
+            //             ReadRecord( request := rd_req, 
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_mb_firmware_ver,
+            //                     maxLength := UINT#64,
+            //                     record := str_read_buffer_254);
+            //         -13: //Read fp firmware version
+            //             ReadRecord( request := rd_req, 
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_fp_firmware_ver,
+            //                     maxLength := UINT#64,
+            //                     record := str_read_buffer_254);
+            //         -12: //Read mb bootloader version
+            //             ReadRecord( request := rd_req, 
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_mb_bootloader_no,
+            //                     maxLength := UINT#64,
+            //                     record := str_read_buffer_254);
+            //         -11: //Read fp bootloader version
+            //             ReadRecord( request := rd_req, 
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_fp_bootloader_no,
+            //                     maxLength := UINT#64,
+            //                     record := str_read_buffer_254);
                         
-                    1:  //Read parameter packet 1
-                        ReadRecord( request := rd_req, 
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_data1,
-                                maxLength := UINT#132,
-                                record := str_read_buffer_254); 
-                                THIS.ByteArray_TO_buf1(str_read_buffer_254,ReadBuffers.buf1);
-                    2:  //Read parameter packet 2
-                        ReadRecord( request := rd_req, 
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_data2,
-                                maxLength := UINT#136,
-                                record := str_read_buffer_254); 
-                                THIS.ByteArray_TO_buf2(str_read_buffer_254,ReadBuffers.buf2);
-                    3:  //Read parameter packet 3
-                        ReadRecord( request := rd_req, 
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_data3,
-                                maxLength := UINT#180,
-                                record := str_read_buffer_254); 
-                                THIS.ByteArray_TO_buf3(str_read_buffer_254,ReadBuffers.buf3);
-                    4:  //Read parameter packet 4
-                        ReadRecord( request := rd_req, 
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_data4,
-                                maxLength := UINT#200,
-                                record := str_read_buffer_254); 
-                                THIS.ByteArray_TO_buf4(str_read_buffer_254,ReadBuffers.buf4);
-                    5:  //Read parameter packet 5
-                        ReadRecord( request := rd_req, 
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_data5,
-                                maxLength := UINT#176,
-                                record := str_read_buffer_254); 
-                                THIS.ByteArray_TO_buf5(str_read_buffer_254,ReadBuffers.buf5);
+            //         1:  //Read parameter packet 1
+            //             ReadRecord( request := rd_req, 
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_data1,
+            //                     maxLength := UINT#132,
+            //                     record := str_read_buffer_254); 
+            //                     THIS.ByteArray_TO_buf1(str_read_buffer_254,ReadBuffers.buf1);
+            //         2:  //Read parameter packet 2
+            //             ReadRecord( request := rd_req, 
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_data2,
+            //                     maxLength := UINT#136,
+            //                     record := str_read_buffer_254); 
+            //                     THIS.ByteArray_TO_buf2(str_read_buffer_254,ReadBuffers.buf2);
+            //         3:  //Read parameter packet 3
+            //             ReadRecord( request := rd_req, 
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_data3,
+            //                     maxLength := UINT#180,
+            //                     record := str_read_buffer_254); 
+            //                     THIS.ByteArray_TO_buf3(str_read_buffer_254,ReadBuffers.buf3);
+            //         4:  //Read parameter packet 4
+            //             ReadRecord( request := rd_req, 
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_data4,
+            //                     maxLength := UINT#200,
+            //                     record := str_read_buffer_254); 
+            //                     THIS.ByteArray_TO_buf4(str_read_buffer_254,ReadBuffers.buf4);
+            //         5:  //Read parameter packet 5
+            //             ReadRecord( request := rd_req, 
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_data5,
+            //                     maxLength := UINT#176,
+            //                     record := str_read_buffer_254); 
+            //                     THIS.ByteArray_TO_buf5(str_read_buffer_254,ReadBuffers.buf5);
 
-                        //Start of on-demand request types    
-                    17: //Read test scan results
-                        ReadRecord( request := rd_req, 
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_test_scan_result,
-                                maxLength := UINT#4,
-                                record := str_read_buffer_254); 
-                                TestScanResults.TestScanResults:=       TO_DINT(SHL(TO_DWORD(str_read_buffer_254[  0]), UINT#24) OR
-                                                                                        SHL(TO_DWORD(str_read_buffer_254[  1]), UINT#16) OR
-                                                                                        SHL(TO_DWORD(str_read_buffer_254[  2]),  UINT#8) OR
-                                                                                            TO_DWORD(str_read_buffer_254[  3])); 
-                    ELSE
-                        //By default we call test scan results request (but req is off so o data transfer)
-                        ReadRecord( request := FALSE, 
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_test_scan_result,
-                                maxLength := UINT#4,
-                                record := str_read_buffer_254); 
-                                TestScanResults.TestScanResults:=       TO_DINT(SHL(TO_DWORD(str_read_buffer_254[  0]), UINT#24) OR
-                                                                                        SHL(TO_DWORD(str_read_buffer_254[  1]), UINT#16) OR
-                                                                                        SHL(TO_DWORD(str_read_buffer_254[  2]),  UINT#8) OR
-                                                                                            TO_DWORD(str_read_buffer_254[  3])); 
-                END_CASE;
-            END_IF;
+            //             //Start of on-demand request types    
+            //         17: //Read test scan results
+            //             ReadRecord( request := rd_req, 
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_test_scan_result,
+            //                     maxLength := UINT#4,
+            //                     record := str_read_buffer_254); 
+            //                     TestScanResults.TestScanResults:=       TO_DINT(SHL(TO_DWORD(str_read_buffer_254[  0]), UINT#24) OR
+            //                                                                             SHL(TO_DWORD(str_read_buffer_254[  1]), UINT#16) OR
+            //                                                                             SHL(TO_DWORD(str_read_buffer_254[  2]),  UINT#8) OR
+            //                                                                                 TO_DWORD(str_read_buffer_254[  3])); 
+            //         ELSE
+            //             //By default we call test scan results request (but req is off so o data transfer)
+            //             ReadRecord( request := FALSE, 
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_test_scan_result,
+            //                     maxLength := UINT#4,
+            //                     record := str_read_buffer_254); 
+            //                     TestScanResults.TestScanResults:=       TO_DINT(SHL(TO_DWORD(str_read_buffer_254[  0]), UINT#24) OR
+            //                                                                             SHL(TO_DWORD(str_read_buffer_254[  1]), UINT#16) OR
+            //                                                                             SHL(TO_DWORD(str_read_buffer_254[  2]),  UINT#8) OR
+            //                                                                                 TO_DWORD(str_read_buffer_254[  3])); 
+            //     END_CASE;
+            
+            // END_IF;
             
             // ============================================================================
             // Network 17: Analog sensor settings HMI processing 
             // ============================================================================
-            // Currently supports only distance / MPC distance modes
-            IF Hmi.c.selected_analog_sensor > 8 THEN
-                Hmi.c.selected_analog_sensor := 8;
-            ELSIF Hmi.c.selected_analog_sensor < 1 THEN
-                Hmi.c.selected_analog_sensor := 1;
-            END_IF;
+            // // Currently supports only distance / MPC distance modes
+            // IF Hmi.c.selected_analog_sensor > 8 THEN
+            //     Hmi.c.selected_analog_sensor := 8;
+            // ELSIF Hmi.c.selected_analog_sensor < 1 THEN
+            //     Hmi.c.selected_analog_sensor := 1;
+            // END_IF;
             
-            tmp_W := par_read_map AND TO_WORD(2#0000000000010000);
-            IF tmp_W <> WORD#0 THEN
-                Hmi.s.current_analog_sensor := 0;
-            END_IF;
+            // tmp_W := par_read_map AND TO_WORD(2#0000000000010000);
+            // IF tmp_W <> WORD#0 THEN
+            //     Hmi.s.current_analog_sensor := 0;
+            // END_IF;
             
-            IF coms_stable THEN
-                IF Hmi.analog_sensor_data.Enable >= 2 THEN
-                    IF Inputs.SystemStatus.MPC_Present THEN
-                        Hmi.analog_sensor_data.Enable := 3;
-                    ELSE
-                        Hmi.analog_sensor_data.Enable := 2;
-                    END_IF;
-                ELSE
-                    Hmi.analog_sensor_data.Enable := 0;
-                END_IF;
-            END_IF;
+            // IF coms_stable THEN
+            //     IF Hmi.analog_sensor_data.Enable >= 2 THEN
+            //         IF Inputs.SystemStatus.MPC_Present THEN
+            //             Hmi.analog_sensor_data.Enable := 3;
+            //         ELSE
+            //             Hmi.analog_sensor_data.Enable := 2;
+            //         END_IF;
+            //     ELSE
+            //         Hmi.analog_sensor_data.Enable := 0;
+            //     END_IF;
+            // END_IF;
             
-            IF coms_stable AND par_read_map = WORD#0 THEN
-                IF Hmi.c.selected_analog_sensor <> Hmi.s.current_analog_sensor THEN
-                    Hmi.analog_sensor_data := Parameters.AnalogSensor.Sensor[Hmi.c.selected_analog_sensor];
-                    Hmi.s.current_analog_sensor := Hmi.c.selected_analog_sensor;
-                    IF Inputs.SystemStatus.MPC_Present THEN
-                        Hmi.c.selected_analog_sensor := Hmi.c.selected_analog_sensor;
-                    END_IF;
-                ELSE
-                //  IF Parameters.AnalogSensor.Sensor[Hmi.c.selected_analog_sensor] <> Hmi.analog_sensor_data THEN
-                    IF THIS.AnalogSensorDiffers(REF(Parameters.AnalogSensor.Sensor[Hmi.c.selected_analog_sensor]) , REF(Hmi.analog_sensor_data)) THEN
-                        Parameters.AnalogSensor.Sensor[Hmi.c.selected_analog_sensor] := Hmi.analog_sensor_data;
-                    END_IF;
-                END_IF;
-                IF NOT Inputs.SystemStatus.MPC_Present THEN
-                    Outputs.RunningMPCProbeSelection := 0;
-                END_IF;
-            END_IF;
+            // IF coms_stable AND par_read_map = WORD#0 THEN
+            //     IF Hmi.c.selected_analog_sensor <> Hmi.s.current_analog_sensor THEN
+            //         Hmi.analog_sensor_data := Parameters.AnalogSensor.Sensor[Hmi.c.selected_analog_sensor];
+            //         Hmi.s.current_analog_sensor := Hmi.c.selected_analog_sensor;
+            //         IF Inputs.SystemStatus.MPC_Present THEN
+            //             Hmi.c.selected_analog_sensor := Hmi.c.selected_analog_sensor;
+            //         END_IF;
+            //     ELSE
+            //     //  IF Parameters.AnalogSensor.Sensor[Hmi.c.selected_analog_sensor] <> Hmi.analog_sensor_data THEN
+            //         IF THIS.AnalogSensorDiffers(REF(Parameters.AnalogSensor.Sensor[Hmi.c.selected_analog_sensor]) , REF(Hmi.analog_sensor_data)) THEN
+            //             Parameters.AnalogSensor.Sensor[Hmi.c.selected_analog_sensor] := Hmi.analog_sensor_data;
+            //         END_IF;
+            //     END_IF;
+            //     IF NOT Inputs.SystemStatus.MPC_Present THEN
+            //         Outputs.RunningMPCProbeSelection := 0;
+            //     END_IF;
+            // END_IF;
             
             // ============================================================================
             // Network 18: Trigger writes on user data change 
             // ============================================================================
             
-            //Posibly compare only in certain cycles to limit the large data block comparison PLC load (if multiple IQ installed)
-            IF AxoTaskCompareThisCycle THEN
-                // We can only triger writes if we have communication and all parameters were already read
-                IF (Config_async_write_permited AND coms_stable AND (NOT coms_just_restored) AND (par_read_map = WORD#0)) THEN
-                    IF (comp_opt_cycler = 0) THEN
-                        // IF (Parameters.ProcCtrl <> ReadBuffers.buf1.ProcCtrl) OR
-                        //     (Parameters.ProcLimits <> ReadBuffers.buf1.ProcLimits) OR
-                        //     (Parameters.FreqCtrl <> ReadBuffers.buf1.FreqCtrl) OR
-                        //     (Parameters.TriggerByPower <> ReadBuffers.buf1.TriggerByPower) OR
-                        //     (Parameters.FreqCtrlMode <> ReadBuffers.buf1.FreqCtrlMode) THEN
-                        IF  (THIS.ProcCtrlDiffers(       REF(Parameters.ProcCtrl)       , REF(ReadBuffers.buf1.ProcCtrl)))       OR
-                            (THIS.ProcLimitsDiffers(     REF(Parameters.ProcLimits)     , REF(ReadBuffers.buf1.ProcLimits)))     OR
-                            (THIS.FreqCtrlDiffers(       REF(Parameters.FreqCtrl)       , REF(ReadBuffers.buf1.FreqCtrl)))       OR
-                            (THIS.TriggerByPowerDiffers( REF(Parameters.TriggerByPower) , REF(ReadBuffers.buf1.TriggerByPower))) OR
-                            (Parameters.FreqCtrlMode <> ReadBuffers.buf1.FreqCtrlMode) THEN
-                                par_write_map := par_write_map OR TO_WORD(2#000000000000001);
-                        END_IF;
-                    END_IF;
-                    IF (comp_opt_cycler = 1) THEN
-                        // IF (Parameters.PowerReg <> ReadBuffers.buf2.PowerReg) OR
-                        //     (Parameters.PressPretrigger <> ReadBuffers.buf2.PressPretrigger) OR
-                        //     (Parameters.PressTrigger <> ReadBuffers.buf2.PressTrigger) OR
-                        //     (Parameters.PressTriggerDelay <> ReadBuffers.buf2.PressTriggerDelay) OR
-                        //     (Parameters.PressWeld <> ReadBuffers.buf2.PressWeld) OR
-                        //     (Parameters.PressWeldScrub <> ReadBuffers.buf2.PressWeldScrub) OR
-                        //     (Parameters.PressPostWeld <> ReadBuffers.buf2.PressPostWeld) THEN
-                        IF  (THIS.PowerRegDiffers(          REF(Parameters.PowerReg)           ,   REF(ReadBuffers.buf2.PowerReg))) OR
-                            (THIS.PressPretriggerDiffers(   REF(Parameters.PressPretrigger)    ,   REF(ReadBuffers.buf2.PressPretrigger))) OR
-                            (THIS.PressTriggerDiffers(      REF(Parameters.PressTrigger)       ,   REF(ReadBuffers.buf2.PressTrigger))) OR
-                            (THIS.PressTriggerDelayDiffers( REF(Parameters.PressTriggerDelay)  ,   REF(ReadBuffers.buf2.PressTriggerDelay))) OR
-                            (THIS.PressWeldDiffers(         REF(Parameters.PressWeld)          ,   REF(ReadBuffers.buf2.PressWeld))) OR
-                            (THIS.PressWeldScrubDiffers(    REF(Parameters.PressWeldScrub)     ,   REF(ReadBuffers.buf2.PressWeldScrub))) OR
-                            (THIS.PressPostWeldDiffers(     REF(Parameters.PressPostWeld)      ,   REF(ReadBuffers.buf2.PressPostWeld))) THEN                            
-                            par_write_map := par_write_map OR TO_WORD(2#000000000000010);
-                        END_IF;
-                    END_IF;
-                    IF (comp_opt_cycler = 2) THEN
-                        // IF (Parameters.PressLimits.TriggerTime <> ReadBuffers.buf3.TriggerTime) OR
-                        //     (Parameters.PressLimits.TriggerPosition <> ReadBuffers.buf3.TriggerPosition) OR
-                        //     (Parameters.PressLimits.TriggerDelayTime <> ReadBuffers.buf3.TriggerDelayTime) OR
-                        //     (Parameters.PressLimits.TriggerDelayDistance <> ReadBuffers.buf3.TriggerDelayDistance) OR
-                        //     (Parameters.PressLimits.Weld1Distance <> ReadBuffers.buf3.Weld1Distance) OR
-                        //     (Parameters.PressLimits.Weld1Position <> ReadBuffers.buf3.Weld1Position) OR
-                        //     (Parameters.PressLimits.Weld2Time <> ReadBuffers.buf3.Weld2Time) OR
-                        //     (Parameters.PressLimits.Weld2Energy <> ReadBuffers.buf3.Weld2Energy) OR
-                        //     (Parameters.PressLimits.Weld2Power <> ReadBuffers.buf3.Weld2Power) THEN
-                        IF  (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TriggerTime)            ,   REF( ReadBuffers.buf3.TriggerTime))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TriggerPosition)        ,   REF( ReadBuffers.buf3.TriggerPosition))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TriggerDelayTime)       ,   REF( ReadBuffers.buf3.TriggerDelayTime))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TriggerDelayDistance)   ,   REF( ReadBuffers.buf3.TriggerDelayDistance))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.Weld1Distance)          ,   REF( ReadBuffers.buf3.Weld1Distance))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.Weld1Position)          ,   REF( ReadBuffers.buf3.Weld1Position))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.Weld2Time)              ,   REF( ReadBuffers.buf3.Weld2Time))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.Weld2Energy)            ,   REF( ReadBuffers.buf3.Weld2Energy))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.Weld2Power)             ,   REF( ReadBuffers.buf3.Weld2Power))) THEN
-                            par_write_map := par_write_map OR TO_WORD(2#000000000000100);
-                        END_IF;
-                    END_IF;
-                    IF (comp_opt_cycler = 3) THEN
-                        // IF (Parameters.PressLimits.Weld2Distance <> ReadBuffers.buf4.Weld2Distance) OR
-                        //     (Parameters.PressLimits.Weld2Position <> ReadBuffers.buf4.Weld2Position) OR
-                        //     (Parameters.PressLimits.TotalWeldTime <> ReadBuffers.buf4.TotalWeldTime) OR
-                        //     (Parameters.PressLimits.TotalWeldEnergy <> ReadBuffers.buf4.TotalWeldEnergy) OR
-                        //     (Parameters.PressLimits.TotalWeldDistance <> ReadBuffers.buf4.TotalWeldDistance) OR
-                        //     (Parameters.PressLimits.DynamicHoldTime <> ReadBuffers.buf4.DynamicHoldTime) OR
-                        //     (Parameters.PressLimits.DynamicHoldDistance <> ReadBuffers.buf4.DynamicHoldDistance) OR
-                        //     (Parameters.PressLimits.TotalCycleTime <> ReadBuffers.buf4.TotalCycleTime) OR
-                        //     (Parameters.PressLimits.FinalHoldPosition <> ReadBuffers.buf4.FinalHoldPosition) OR
-                        //     (Parameters.PressLimits.ErrorStatus <> ReadBuffers.buf4.ErrorStatus) THEN
-                        IF  (THIS.PressLimitDiffers(REF(Parameters.PressLimits.Weld2Distance)          ,   REF(ReadBuffers.buf4.Weld2Distance))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.Weld2Position)          ,   REF(ReadBuffers.buf4.Weld2Position))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TotalWeldTime)          ,   REF(ReadBuffers.buf4.TotalWeldTime))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TotalWeldEnergy)        ,   REF(ReadBuffers.buf4.TotalWeldEnergy))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TotalWeldDistance)      ,   REF(ReadBuffers.buf4.TotalWeldDistance))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.DynamicHoldTime)        ,   REF(ReadBuffers.buf4.DynamicHoldTime))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.DynamicHoldDistance)    ,   REF(ReadBuffers.buf4.DynamicHoldDistance))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TotalCycleTime)         ,   REF(ReadBuffers.buf4.TotalCycleTime))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.FinalHoldPosition)      ,   REF(ReadBuffers.buf4.FinalHoldPosition))) OR
-                            (THIS.PressLimitDiffers(REF(Parameters.PressLimits.ErrorStatus)            ,   REF(ReadBuffers.buf4.ErrorStatus))) THEN
-                                par_write_map := par_write_map OR TO_WORD(2#000000000001000);
-                        END_IF;
-                    END_IF;
-                    IF (comp_opt_cycler = 4) THEN
-                        // IF (Parameters.AnalogSensor <> ReadBuffers.buf5.AnalogSensor) OR
-                        //     (Parameters.AfterburstEnable <> ReadBuffers.buf5.AfterburstEnable) OR
-                        //     (Parameters.LimitWeld1TimeEnable <> ReadBuffers.buf5.LimitWeld1TimeEnable) OR
-                        //     (Parameters.LimitWeld1EnergyEnable <> ReadBuffers.buf5.LimitWeld1EnergyEnable) OR
-                        //     (Parameters.LimitWeld1PowerEnable <> ReadBuffers.buf5.LimitWeld1PowerEnable) THEN
-                        IF  (THIS.AnalogSensorSpecDiffers(REF(Parameters.AnalogSensor)             ,   REF(ReadBuffers.buf5.AnalogSensor))) OR
-                            (Parameters.AfterburstEnable                                           <>  ReadBuffers.buf5.AfterburstEnable) OR
-                            (THIS.PressLimitEnableDiffers(REF(Parameters.LimitWeld1TimeEnable)     ,   REF( ReadBuffers.buf5.LimitWeld1TimeEnable))) OR
-                            (THIS.PressLimitEnableDiffers(REF(Parameters.LimitWeld1EnergyEnable)   ,   REF( ReadBuffers.buf5.LimitWeld1EnergyEnable))) OR
-                            (THIS.PressLimitEnableDiffers(REF(Parameters.LimitWeld1PowerEnable)    ,   REF( ReadBuffers.buf5.LimitWeld1PowerEnable))) THEN
-                            par_write_map := par_write_map OR TO_WORD(2#000000000010000);
-                        END_IF;
-                    END_IF;
-                    comp_opt_cycler := (comp_opt_cycler + 1) MOD 5;
-                END_IF;
-            END_IF;
+            // //Posibly compare only in certain cycles to limit the large data block comparison PLC load (if multiple IQ installed)
+            // IF AxoTaskCompareThisCycle THEN
+            //     // We can only triger writes if we have communication and all parameters were already read
+            //     IF (Config_async_write_permited AND coms_stable AND (NOT coms_just_restored) AND (par_read_map = WORD#0)) THEN
+            //         IF (comp_opt_cycler = 0) THEN
+            //             // IF (Parameters.ProcCtrl <> ReadBuffers.buf1.ProcCtrl) OR
+            //             //     (Parameters.ProcLimits <> ReadBuffers.buf1.ProcLimits) OR
+            //             //     (Parameters.FreqCtrl <> ReadBuffers.buf1.FreqCtrl) OR
+            //             //     (Parameters.TriggerByPower <> ReadBuffers.buf1.TriggerByPower) OR
+            //             //     (Parameters.FreqCtrlMode <> ReadBuffers.buf1.FreqCtrlMode) THEN
+            //             IF  (THIS.ProcCtrlDiffers(       REF(Parameters.ProcCtrl)       , REF(ReadBuffers.buf1.ProcCtrl)))       OR
+            //                 (THIS.ProcLimitsDiffers(     REF(Parameters.ProcLimits)     , REF(ReadBuffers.buf1.ProcLimits)))     OR
+            //                 (THIS.FreqCtrlDiffers(       REF(Parameters.FreqCtrl)       , REF(ReadBuffers.buf1.FreqCtrl)))       OR
+            //                 (THIS.TriggerByPowerDiffers( REF(Parameters.TriggerByPower) , REF(ReadBuffers.buf1.TriggerByPower))) OR
+            //                 (Parameters.FreqCtrlMode <> ReadBuffers.buf1.FreqCtrlMode) THEN
+            //                     par_write_map := par_write_map OR TO_WORD(2#000000000000001);
+            //             END_IF;
+            //         END_IF;
+            //         IF (comp_opt_cycler = 1) THEN
+            //             // IF (Parameters.PowerReg <> ReadBuffers.buf2.PowerReg) OR
+            //             //     (Parameters.PressPretrigger <> ReadBuffers.buf2.PressPretrigger) OR
+            //             //     (Parameters.PressTrigger <> ReadBuffers.buf2.PressTrigger) OR
+            //             //     (Parameters.PressTriggerDelay <> ReadBuffers.buf2.PressTriggerDelay) OR
+            //             //     (Parameters.PressWeld <> ReadBuffers.buf2.PressWeld) OR
+            //             //     (Parameters.PressWeldScrub <> ReadBuffers.buf2.PressWeldScrub) OR
+            //             //     (Parameters.PressPostWeld <> ReadBuffers.buf2.PressPostWeld) THEN
+            //             IF  (THIS.PowerRegDiffers(          REF(Parameters.PowerReg)           ,   REF(ReadBuffers.buf2.PowerReg))) OR
+            //                 (THIS.PressPretriggerDiffers(   REF(Parameters.PressPretrigger)    ,   REF(ReadBuffers.buf2.PressPretrigger))) OR
+            //                 (THIS.PressTriggerDiffers(      REF(Parameters.PressTrigger)       ,   REF(ReadBuffers.buf2.PressTrigger))) OR
+            //                 (THIS.PressTriggerDelayDiffers( REF(Parameters.PressTriggerDelay)  ,   REF(ReadBuffers.buf2.PressTriggerDelay))) OR
+            //                 (THIS.PressWeldDiffers(         REF(Parameters.PressWeld)          ,   REF(ReadBuffers.buf2.PressWeld))) OR
+            //                 (THIS.PressWeldScrubDiffers(    REF(Parameters.PressWeldScrub)     ,   REF(ReadBuffers.buf2.PressWeldScrub))) OR
+            //                 (THIS.PressPostWeldDiffers(     REF(Parameters.PressPostWeld)      ,   REF(ReadBuffers.buf2.PressPostWeld))) THEN                            
+            //                 par_write_map := par_write_map OR TO_WORD(2#000000000000010);
+            //             END_IF;
+            //         END_IF;
+            //         IF (comp_opt_cycler = 2) THEN
+            //             // IF (Parameters.PressLimits.TriggerTime <> ReadBuffers.buf3.TriggerTime) OR
+            //             //     (Parameters.PressLimits.TriggerPosition <> ReadBuffers.buf3.TriggerPosition) OR
+            //             //     (Parameters.PressLimits.TriggerDelayTime <> ReadBuffers.buf3.TriggerDelayTime) OR
+            //             //     (Parameters.PressLimits.TriggerDelayDistance <> ReadBuffers.buf3.TriggerDelayDistance) OR
+            //             //     (Parameters.PressLimits.Weld1Distance <> ReadBuffers.buf3.Weld1Distance) OR
+            //             //     (Parameters.PressLimits.Weld1Position <> ReadBuffers.buf3.Weld1Position) OR
+            //             //     (Parameters.PressLimits.Weld2Time <> ReadBuffers.buf3.Weld2Time) OR
+            //             //     (Parameters.PressLimits.Weld2Energy <> ReadBuffers.buf3.Weld2Energy) OR
+            //             //     (Parameters.PressLimits.Weld2Power <> ReadBuffers.buf3.Weld2Power) THEN
+            //             IF  (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TriggerTime)            ,   REF( ReadBuffers.buf3.TriggerTime))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TriggerPosition)        ,   REF( ReadBuffers.buf3.TriggerPosition))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TriggerDelayTime)       ,   REF( ReadBuffers.buf3.TriggerDelayTime))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TriggerDelayDistance)   ,   REF( ReadBuffers.buf3.TriggerDelayDistance))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.Weld1Distance)          ,   REF( ReadBuffers.buf3.Weld1Distance))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.Weld1Position)          ,   REF( ReadBuffers.buf3.Weld1Position))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.Weld2Time)              ,   REF( ReadBuffers.buf3.Weld2Time))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.Weld2Energy)            ,   REF( ReadBuffers.buf3.Weld2Energy))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.Weld2Power)             ,   REF( ReadBuffers.buf3.Weld2Power))) THEN
+            //                 par_write_map := par_write_map OR TO_WORD(2#000000000000100);
+            //             END_IF;
+            //         END_IF;
+            //         IF (comp_opt_cycler = 3) THEN
+            //             // IF (Parameters.PressLimits.Weld2Distance <> ReadBuffers.buf4.Weld2Distance) OR
+            //             //     (Parameters.PressLimits.Weld2Position <> ReadBuffers.buf4.Weld2Position) OR
+            //             //     (Parameters.PressLimits.TotalWeldTime <> ReadBuffers.buf4.TotalWeldTime) OR
+            //             //     (Parameters.PressLimits.TotalWeldEnergy <> ReadBuffers.buf4.TotalWeldEnergy) OR
+            //             //     (Parameters.PressLimits.TotalWeldDistance <> ReadBuffers.buf4.TotalWeldDistance) OR
+            //             //     (Parameters.PressLimits.DynamicHoldTime <> ReadBuffers.buf4.DynamicHoldTime) OR
+            //             //     (Parameters.PressLimits.DynamicHoldDistance <> ReadBuffers.buf4.DynamicHoldDistance) OR
+            //             //     (Parameters.PressLimits.TotalCycleTime <> ReadBuffers.buf4.TotalCycleTime) OR
+            //             //     (Parameters.PressLimits.FinalHoldPosition <> ReadBuffers.buf4.FinalHoldPosition) OR
+            //             //     (Parameters.PressLimits.ErrorStatus <> ReadBuffers.buf4.ErrorStatus) THEN
+            //             IF  (THIS.PressLimitDiffers(REF(Parameters.PressLimits.Weld2Distance)          ,   REF(ReadBuffers.buf4.Weld2Distance))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.Weld2Position)          ,   REF(ReadBuffers.buf4.Weld2Position))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TotalWeldTime)          ,   REF(ReadBuffers.buf4.TotalWeldTime))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TotalWeldEnergy)        ,   REF(ReadBuffers.buf4.TotalWeldEnergy))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TotalWeldDistance)      ,   REF(ReadBuffers.buf4.TotalWeldDistance))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.DynamicHoldTime)        ,   REF(ReadBuffers.buf4.DynamicHoldTime))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.DynamicHoldDistance)    ,   REF(ReadBuffers.buf4.DynamicHoldDistance))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.TotalCycleTime)         ,   REF(ReadBuffers.buf4.TotalCycleTime))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.FinalHoldPosition)      ,   REF(ReadBuffers.buf4.FinalHoldPosition))) OR
+            //                 (THIS.PressLimitDiffers(REF(Parameters.PressLimits.ErrorStatus)            ,   REF(ReadBuffers.buf4.ErrorStatus))) THEN
+            //                     par_write_map := par_write_map OR TO_WORD(2#000000000001000);
+            //             END_IF;
+            //         END_IF;
+            //         IF (comp_opt_cycler = 4) THEN
+            //             // IF (Parameters.AnalogSensor <> ReadBuffers.buf5.AnalogSensor) OR
+            //             //     (Parameters.AfterburstEnable <> ReadBuffers.buf5.AfterburstEnable) OR
+            //             //     (Parameters.LimitWeld1TimeEnable <> ReadBuffers.buf5.LimitWeld1TimeEnable) OR
+            //             //     (Parameters.LimitWeld1EnergyEnable <> ReadBuffers.buf5.LimitWeld1EnergyEnable) OR
+            //             //     (Parameters.LimitWeld1PowerEnable <> ReadBuffers.buf5.LimitWeld1PowerEnable) THEN
+            //             IF  (THIS.AnalogSensorSpecDiffers(REF(Parameters.AnalogSensor)             ,   REF(ReadBuffers.buf5.AnalogSensor))) OR
+            //                 (Parameters.AfterburstEnable                                           <>  ReadBuffers.buf5.AfterburstEnable) OR
+            //                 (THIS.PressLimitEnableDiffers(REF(Parameters.LimitWeld1TimeEnable)     ,   REF( ReadBuffers.buf5.LimitWeld1TimeEnable))) OR
+            //                 (THIS.PressLimitEnableDiffers(REF(Parameters.LimitWeld1EnergyEnable)   ,   REF( ReadBuffers.buf5.LimitWeld1EnergyEnable))) OR
+            //                 (THIS.PressLimitEnableDiffers(REF(Parameters.LimitWeld1PowerEnable)    ,   REF( ReadBuffers.buf5.LimitWeld1PowerEnable))) THEN
+            //                 par_write_map := par_write_map OR TO_WORD(2#000000000010000);
+            //             END_IF;
+            //         END_IF;
+            //         comp_opt_cycler := (comp_opt_cycler + 1) MOD 5;
+            //     END_IF;
+            // END_IF;
             
             // ============================================================================
             // Network 19: Write req - HMI export (indicators) + response handling
@@ -8244,184 +8258,184 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             // Network 20: Write acyclic data
             // ============================================================================
             
-            //Try asynchronous comunication only when synchronous comunication is stable (no errors for 1s)
-            IF (coms_stable) THEN
+            // //Try asynchronous comunication only when synchronous comunication is stable (no errors for 1s)
+            // IF (coms_stable) THEN
                 
-                //Save wr_req value from previous iteation
-                prev_wr_req := WriteRecord.request;
+            //     //Save wr_req value from previous iteation
+            //     prev_wr_req := WriteRecord.request;
                 
-                // React tovalid writes if needed
-                IF WriteRecord.DONE THEN
-                    Hmi.write_status[async_write_no] := WriteRecord.STATUS;
-                END_IF;
+            //     // React tovalid writes if needed
+            //     IF WriteRecord.DONE THEN
+            //         Hmi.write_status[async_write_no] := WriteRecord.STATUS;
+            //     END_IF;
                 
-                // Write request error - reset invalidated date if needed
-                IF WriteRecord.ERROR THEN
-                    Hmi.write_status[async_write_no] := WriteRecord.STATUS;
-                END_IF;
+            //     // Write request error - reset invalidated date if needed
+            //     IF WriteRecord.ERROR THEN
+            //         Hmi.write_status[async_write_no] := WriteRecord.STATUS;
+            //     END_IF;
                 
-                // Unmask bit map after successfully / unsuccesfully finished write and trigger apropriate re-read
-                IF (WriteRecord.DONE OR WriteRecord.ERROR) THEN
-                    IF (async_write_no > 0) AND (async_write_no <= 16) THEN
-                        mask := THIS.DECO_WORD(TO_UINT(async_write_no - 1));
-                        par_write_map := par_write_map AND (NOT mask); // unmask the processed write request
-                        par_read_map := par_read_map OR mask; // and request a read to verify/refresh the data
-                    END_IF;
-                    IF (async_write_no > 16) AND (async_write_no <= 32) THEN
-                        mask := THIS.DECO_WORD(TO_UINT(async_write_no - 17));
-                        on_demand_write_map := on_demand_write_map AND (NOT mask); // unmask the processed write request
-                    END_IF;
-                END_IF;
+            //     // Unmask bit map after successfully / unsuccesfully finished write and trigger apropriate re-read
+            //     IF (WriteRecord.DONE OR WriteRecord.ERROR) THEN
+            //         IF (async_write_no > 0) AND (async_write_no <= 16) THEN
+            //             mask := THIS.DECO_WORD(TO_UINT(async_write_no - 1));
+            //             par_write_map := par_write_map AND (NOT mask); // unmask the processed write request
+            //             par_read_map := par_read_map OR mask; // and request a read to verify/refresh the data
+            //         END_IF;
+            //         IF (async_write_no > 16) AND (async_write_no <= 32) THEN
+            //             mask := THIS.DECO_WORD(TO_UINT(async_write_no - 17));
+            //             on_demand_write_map := on_demand_write_map AND (NOT mask); // unmask the processed write request
+            //         END_IF;
+            //     END_IF;
                 
-                wr_any_response := (WriteRecord.BUSY OR WriteRecord.DONE OR WriteRecord.ERROR);
+            //     wr_any_response := (WriteRecord.BUSY OR WriteRecord.DONE OR WriteRecord.ERROR);
                 
-                //If we get a singnal that request was processed we can set it to false to prepare for generating a new rising edge
-                IF wr_req AND wr_any_response THEN
-                    wr_req := false;
-                END_IF;
+            //     //If we get a singnal that request was processed we can set it to false to prepare for generating a new rising edge
+            //     IF wr_req AND wr_any_response THEN
+            //         wr_req := false;
+            //     END_IF;
                 
-                //If the previous request was processed and we are ready for a new one (new rising edge on rd_req) lets create one
-                IF Config_async_write_permited AND (NOT prev_wr_req) AND (NOT wr_any_response) AND (NOT coms_just_restored) THEN
-                    IF (par_write_map <> WORD#0) THEN
-                        async_write_no := THIS.ENCO(par_write_map) + 1;
-                        //Fill the write buffer with latest data just before the request
-                        CASE async_write_no OF
-                            1: //Write buffer 1
-                                WriteBuffers.buf1.ProcCtrl := Parameters.ProcCtrl;
-                                WriteBuffers.buf1.ProcLimits := Parameters.ProcLimits;
-                                WriteBuffers.buf1.FreqCtrl := Parameters.FreqCtrl;
-                                WriteBuffers.buf1.TriggerByPower := Parameters.TriggerByPower;
-                                WriteBuffers.buf1.FreqCtrlMode := Parameters.FreqCtrlMode;
-                                wr_req := true;
-                            2: //Write buffer 2
-                                WriteBuffers.buf2.PowerReg := Parameters.PowerReg;
-                                WriteBuffers.buf2.PressPretrigger := Parameters.PressPretrigger;
-                                WriteBuffers.buf2.PressTrigger := Parameters.PressTrigger;
-                                WriteBuffers.buf2.PressTriggerDelay := Parameters.PressTriggerDelay;
-                                WriteBuffers.buf2.PressWeld := Parameters.PressWeld;
-                                WriteBuffers.buf2.PressWeldScrub := Parameters.PressWeldScrub;
-                                WriteBuffers.buf2.PressPostWeld := Parameters.PressPostWeld;
-                                wr_req := true;
-                            3: //Write buffer 3
-                                WriteBuffers.buf3.TriggerTime := Parameters.PressLimits.TriggerTime;
-                                WriteBuffers.buf3.TriggerPosition := Parameters.PressLimits.TriggerPosition;
-                                WriteBuffers.buf3.TriggerDelayTime := Parameters.PressLimits.TriggerDelayTime;
-                                WriteBuffers.buf3.TriggerDelayDistance := Parameters.PressLimits.TriggerDelayDistance;
-                                WriteBuffers.buf3.Weld1Distance := Parameters.PressLimits.Weld1Distance;
-                                WriteBuffers.buf3.Weld1Position := Parameters.PressLimits.Weld1Position;
-                                WriteBuffers.buf3.Weld2Time := Parameters.PressLimits.Weld2Time;
-                                WriteBuffers.buf3.Weld2Energy := Parameters.PressLimits.Weld2Energy;
-                                WriteBuffers.buf3.Weld2Power := Parameters.PressLimits.Weld2Power;
-                                wr_req := true;
-                            4: //Write buffer 4
-                                WriteBuffers.buf4.Weld2Distance := Parameters.PressLimits.Weld2Distance;
-                                WriteBuffers.buf4.Weld2Position := Parameters.PressLimits.Weld2Position;
-                                WriteBuffers.buf4.TotalWeldTime := Parameters.PressLimits.TotalWeldTime;
-                                WriteBuffers.buf4.TotalWeldEnergy := Parameters.PressLimits.TotalWeldEnergy;
-                                WriteBuffers.buf4.TotalWeldDistance := Parameters.PressLimits.TotalWeldDistance;
-                                WriteBuffers.buf4.DynamicHoldTime := Parameters.PressLimits.DynamicHoldTime;
-                                WriteBuffers.buf4.DynamicHoldDistance := Parameters.PressLimits.DynamicHoldDistance;
-                                WriteBuffers.buf4.TotalCycleTime := Parameters.PressLimits.TotalCycleTime;
-                                WriteBuffers.buf4.FinalHoldPosition := Parameters.PressLimits.FinalHoldPosition;
-                                WriteBuffers.buf4.ErrorStatus := Parameters.PressLimits.ErrorStatus;
-                                wr_req := true;
+            //     //If the previous request was processed and we are ready for a new one (new rising edge on rd_req) lets create one
+            //     IF Config_async_write_permited AND (NOT prev_wr_req) AND (NOT wr_any_response) AND (NOT coms_just_restored) THEN
+            //         IF (par_write_map <> WORD#0) THEN
+            //             async_write_no := THIS.ENCO(par_write_map) + 1;
+            //             //Fill the write buffer with latest data just before the request
+            //             CASE async_write_no OF
+            //                 1: //Write buffer 1
+            //                     WriteBuffers.buf1.ProcCtrl := Parameters.ProcCtrl;
+            //                     WriteBuffers.buf1.ProcLimits := Parameters.ProcLimits;
+            //                     WriteBuffers.buf1.FreqCtrl := Parameters.FreqCtrl;
+            //                     WriteBuffers.buf1.TriggerByPower := Parameters.TriggerByPower;
+            //                     WriteBuffers.buf1.FreqCtrlMode := Parameters.FreqCtrlMode;
+            //                     wr_req := true;
+            //                 2: //Write buffer 2
+            //                     WriteBuffers.buf2.PowerReg := Parameters.PowerReg;
+            //                     WriteBuffers.buf2.PressPretrigger := Parameters.PressPretrigger;
+            //                     WriteBuffers.buf2.PressTrigger := Parameters.PressTrigger;
+            //                     WriteBuffers.buf2.PressTriggerDelay := Parameters.PressTriggerDelay;
+            //                     WriteBuffers.buf2.PressWeld := Parameters.PressWeld;
+            //                     WriteBuffers.buf2.PressWeldScrub := Parameters.PressWeldScrub;
+            //                     WriteBuffers.buf2.PressPostWeld := Parameters.PressPostWeld;
+            //                     wr_req := true;
+            //                 3: //Write buffer 3
+            //                     WriteBuffers.buf3.TriggerTime := Parameters.PressLimits.TriggerTime;
+            //                     WriteBuffers.buf3.TriggerPosition := Parameters.PressLimits.TriggerPosition;
+            //                     WriteBuffers.buf3.TriggerDelayTime := Parameters.PressLimits.TriggerDelayTime;
+            //                     WriteBuffers.buf3.TriggerDelayDistance := Parameters.PressLimits.TriggerDelayDistance;
+            //                     WriteBuffers.buf3.Weld1Distance := Parameters.PressLimits.Weld1Distance;
+            //                     WriteBuffers.buf3.Weld1Position := Parameters.PressLimits.Weld1Position;
+            //                     WriteBuffers.buf3.Weld2Time := Parameters.PressLimits.Weld2Time;
+            //                     WriteBuffers.buf3.Weld2Energy := Parameters.PressLimits.Weld2Energy;
+            //                     WriteBuffers.buf3.Weld2Power := Parameters.PressLimits.Weld2Power;
+            //                     wr_req := true;
+            //                 4: //Write buffer 4
+            //                     WriteBuffers.buf4.Weld2Distance := Parameters.PressLimits.Weld2Distance;
+            //                     WriteBuffers.buf4.Weld2Position := Parameters.PressLimits.Weld2Position;
+            //                     WriteBuffers.buf4.TotalWeldTime := Parameters.PressLimits.TotalWeldTime;
+            //                     WriteBuffers.buf4.TotalWeldEnergy := Parameters.PressLimits.TotalWeldEnergy;
+            //                     WriteBuffers.buf4.TotalWeldDistance := Parameters.PressLimits.TotalWeldDistance;
+            //                     WriteBuffers.buf4.DynamicHoldTime := Parameters.PressLimits.DynamicHoldTime;
+            //                     WriteBuffers.buf4.DynamicHoldDistance := Parameters.PressLimits.DynamicHoldDistance;
+            //                     WriteBuffers.buf4.TotalCycleTime := Parameters.PressLimits.TotalCycleTime;
+            //                     WriteBuffers.buf4.FinalHoldPosition := Parameters.PressLimits.FinalHoldPosition;
+            //                     WriteBuffers.buf4.ErrorStatus := Parameters.PressLimits.ErrorStatus;
+            //                     wr_req := true;
                                 
-                            5: //Write buffer 5
-                                WriteBuffers.buf5.AnalogSensor := Parameters.AnalogSensor;
-                                WriteBuffers.buf5.AfterburstEnable := Parameters.AfterburstEnable;
-                                WriteBuffers.buf5.LimitWeld1TimeEnable := Parameters.LimitWeld1TimeEnable;
-                                WriteBuffers.buf5.LimitWeld1EnergyEnable := Parameters.LimitWeld1EnergyEnable;
-                                WriteBuffers.buf5.LimitWeld1PowerEnable := Parameters.LimitWeld1PowerEnable;
-                                wr_req := true;
-                            ELSE
-                                //Unknown parameter write request - just unmask it
-                                mask := THIS.DECO_WORD(TO_UINT(async_write_no - 1));
-                                par_write_map := par_write_map AND (NOT mask); // unmask unknown write request
-                                wr_req := false;
-                                async_write_no := 0;
-                        END_CASE;
-                    ELSIF (on_demand_write_map <> WORD#0) THEN
-                        async_write_no := THIS.ENCO(on_demand_write_map) + 17;
-                        CASE async_write_no OF
-                            17: //Copyrec request
-                                wr_req := true;
-                            ELSE
-                                //Unknown on demand write request - just unmask it
-                                mask := THIS.DECO_WORD(TO_UINT(async_write_no - 17));
-                                on_demand_write_map := on_demand_write_map AND (NOT mask); // unmask unknown write request
-                                wr_req := false;
-                                async_write_no := 0;
-                        END_CASE;
-                    ELSE
-                        //If no request present we call the default WR_REC but without request
-                        async_write_no := 0;
-                    END_IF;
-                END_IF;
+            //                 5: //Write buffer 5
+            //                     WriteBuffers.buf5.AnalogSensor := Parameters.AnalogSensor;
+            //                     WriteBuffers.buf5.AfterburstEnable := Parameters.AfterburstEnable;
+            //                     WriteBuffers.buf5.LimitWeld1TimeEnable := Parameters.LimitWeld1TimeEnable;
+            //                     WriteBuffers.buf5.LimitWeld1EnergyEnable := Parameters.LimitWeld1EnergyEnable;
+            //                     WriteBuffers.buf5.LimitWeld1PowerEnable := Parameters.LimitWeld1PowerEnable;
+            //                     wr_req := true;
+            //                 ELSE
+            //                     //Unknown parameter write request - just unmask it
+            //                     mask := THIS.DECO_WORD(TO_UINT(async_write_no - 1));
+            //                     par_write_map := par_write_map AND (NOT mask); // unmask unknown write request
+            //                     wr_req := false;
+            //                     async_write_no := 0;
+            //             END_CASE;
+            //         ELSIF (on_demand_write_map <> WORD#0) THEN
+            //             async_write_no := THIS.ENCO(on_demand_write_map) + 17;
+            //             CASE async_write_no OF
+            //                 17: //Copyrec request
+            //                     wr_req := true;
+            //                 ELSE
+            //                     //Unknown on demand write request - just unmask it
+            //                     mask := THIS.DECO_WORD(TO_UINT(async_write_no - 17));
+            //                     on_demand_write_map := on_demand_write_map AND (NOT mask); // unmask unknown write request
+            //                     wr_req := false;
+            //                     async_write_no := 0;
+            //             END_CASE;
+            //         ELSE
+            //             //If no request present we call the default WR_REC but without request
+            //             async_write_no := 0;
+            //         END_IF;
+            //     END_IF;
                 
-                //Safety - if write is not pemited wr_req shoud be always false
-                IF NOT Config_async_write_permited THEN
-                    wr_req := false;
-                END_IF;
+            //     //Safety - if write is not pemited wr_req shoud be always false
+            //     IF NOT Config_async_write_permited THEN
+            //         wr_req := false;
+            //     END_IF;
                 
-                //Perform the write itself
-                CASE async_write_no OF
-                    1:  //Write parameter packet 1
-                        THIS.buf1_TO_ByteArray(WriteBuffers.buf1,write_buffer_254);
-                        WriteRecord(request := wr_req,
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_data1,
-                                length := UINT#132,
-                                record := write_buffer_254);
-                    2:  //Write parameter packet 2
-                        THIS.buf2_TO_ByteArray(WriteBuffers.buf2,write_buffer_254);
-                        WriteRecord(request := wr_req,
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_data2,
-                                length := UINT#136,
-                                record := write_buffer_254);
-                    3:  //Write parameter packet 3
-                        THIS.buf3_TO_ByteArray(WriteBuffers.buf3,write_buffer_254);
-                        WriteRecord(request := wr_req,
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_data3,
-                                length := UINT#180,
-                                record := write_buffer_254);
-                    4:  //Write parameter packet 4
-                        THIS.buf4_TO_ByteArray(WriteBuffers.buf4,write_buffer_254);
-                        WriteRecord(request := wr_req,
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_data4,
-                                length := UINT#200,
-                                record := write_buffer_254);
-                    5:  //Write parameter packet 5
-                        THIS.buf5_TO_ByteArray(WriteBuffers.buf5,write_buffer_254);
-                        WriteRecord(request := wr_req,
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_data5,
-                                length := UINT#176,
-                                record := write_buffer_254);
-                        //Start of on-demand request types    
-                    17: // Copyrec request
-                        write_buffer_254[ 0] := TO_BYTE(SHR(TO_WORD(CopySetup.Destination_Setup),   UINT#8));
-                        write_buffer_254[ 1] := TO_BYTE(    TO_WORD(CopySetup.Destination_Setup));
-                        write_buffer_254[ 2] := TO_BYTE(SHR(TO_WORD(CopySetup.Source_Setup),        UINT#8));
-                        write_buffer_254[ 3] := TO_BYTE(    TO_WORD(CopySetup.Source_Setup));
-                        WriteRecord(request := wr_req,
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_asycn_copyrec,
-                                length := UINT#4,
-                                record := write_buffer_254);
-                    ELSE
-                        //By default we call 0 byte WR_REC using REQ=false
-                        THIS.buf1_TO_ByteArray(WriteBuffers.buf1,write_buffer_254);
-                        WriteRecord( request := false,
-                                id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                                index := index_async_data1,
-                                length := UINT#0,
-                                record := write_buffer_254);
-                END_CASE;
-            END_IF;           
-            //******************************************      
+            //     //Perform the write itself
+            //     CASE async_write_no OF
+            //         1:  //Write parameter packet 1
+            //             THIS.buf1_TO_ByteArray(WriteBuffers.buf1,write_buffer_254);
+            //             WriteRecord(request := wr_req,
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_data1,
+            //                     length := UINT#132,
+            //                     record := write_buffer_254);
+            //         2:  //Write parameter packet 2
+            //             THIS.buf2_TO_ByteArray(WriteBuffers.buf2,write_buffer_254);
+            //             WriteRecord(request := wr_req,
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_data2,
+            //                     length := UINT#136,
+            //                     record := write_buffer_254);
+            //         3:  //Write parameter packet 3
+            //             THIS.buf3_TO_ByteArray(WriteBuffers.buf3,write_buffer_254);
+            //             WriteRecord(request := wr_req,
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_data3,
+            //                     length := UINT#180,
+            //                     record := write_buffer_254);
+            //         4:  //Write parameter packet 4
+            //             THIS.buf4_TO_ByteArray(WriteBuffers.buf4,write_buffer_254);
+            //             WriteRecord(request := wr_req,
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_data4,
+            //                     length := UINT#200,
+            //                     record := write_buffer_254);
+            //         5:  //Write parameter packet 5
+            //             THIS.buf5_TO_ByteArray(WriteBuffers.buf5,write_buffer_254);
+            //             WriteRecord(request := wr_req,
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_data5,
+            //                     length := UINT#176,
+            //                     record := write_buffer_254);
+            //             //Start of on-demand request types    
+            //         17: // Copyrec request
+            //             write_buffer_254[ 0] := TO_BYTE(SHR(TO_WORD(CopySetup.Destination_Setup),   UINT#8));
+            //             write_buffer_254[ 1] := TO_BYTE(    TO_WORD(CopySetup.Destination_Setup));
+            //             write_buffer_254[ 2] := TO_BYTE(SHR(TO_WORD(CopySetup.Source_Setup),        UINT#8));
+            //             write_buffer_254[ 3] := TO_BYTE(    TO_WORD(CopySetup.Source_Setup));
+            //             WriteRecord(request := wr_req,
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_asycn_copyrec,
+            //                     length := UINT#4,
+            //                     record := write_buffer_254);
+            //         ELSE
+            //             //By default we call 0 byte WR_REC using REQ=false
+            //             THIS.buf1_TO_ByteArray(WriteBuffers.buf1,write_buffer_254);
+            //             WriteRecord( request := false,
+            //                     id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
+            //                     index := index_async_data1,
+            //                     length := UINT#0,
+            //                     record := write_buffer_254);
+            //     END_CASE;
+            // END_IF;           
+            // //******************************************      
 
         END_METHOD
 
