@@ -63,6 +63,12 @@
                 <ValidationMessage For="@(() => _model.ConfirmPassword)" />
             </div>
 
+            @if (!string.IsNullOrEmpty(_model.ExternalAuthId))
+            {
+                <p>@Localizer["External Auth is set"]</p>
+                <button class="btn btn-secondary" @onclick="ClearExternalAuthId">@Localizer["Remove External Auth"]</button>
+            }
+
             <div class="input-group mt-2">
                 <label>Email</label>
                 <InputText @bind-Value="_model.Email" type="email" />
