@@ -1,24 +1,55 @@
 ﻿@page "/Component_1"
 @using AXOpen.Core;
+@using Operon.Components.Tab
 
-<!-- <GenericComponentStatusView> -->
-<AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.Dukane_IQ_SeriesWelder" />
-<!-- </GenericComponentStatusView> -->
+<Tab>
+    <TabPage Title="RenderableContentControl-Command-Control">
+        <AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.documentation.componentOne.Sequencer" ShowText="true" />
+        <!-- <RccComponentCommandView> -->
+        <!-- This will render anything found on parameter assigned to Context  -->
+        <RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Command-Control" />
+        <!-- </RccComponentCommandView> -->
+    </TabPage>
+    <TabPage Title="RenderableContentControl-Status-Display">
+        <!-- <RccComponentStatusView> -->
+        <!-- This will render anything found on parameter assigned to Context  -->
+        <RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Status-Display" />
+        <!-- </RccComponentStatusView> -->
+    </TabPage>
+    <TabPage Title="AxoComponentCommandView">
+        <!-- <GenericComponentCommandView> -->
+        <AxoComponentCommandView Component="@Entry.Plc.documentation.componentOne.Dukane_IQ_SeriesWelder" />
+        <!-- </GenericComponentCommandView> -->
+    </TabPage>
+    <TabPage Title="AxoComponentStatusView">
+        <!-- <GenericComponentStatusView> -->
+        <AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.Dukane_IQ_SeriesWelder" />
+        <!-- </GenericComponentStatusView> -->
+    </TabPage>
+</Tab>
 
-<!-- <GenericComponentCommandView> -->
-<AxoComponentCommandView Component="@Entry.Plc.documentation.componentOne.Dukane_IQ_SeriesWelder" />
-<!-- </GenericComponentCommandView> -->
-
-<!-- <RccComponentStatusView> -->
-<!-- This will render anything found on parameter assigned to Context  -->
-<RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Status-Display" />
-<!-- </RccComponentStatusView> -->
-
-
+@* <AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.documentation.componentOne.Sequencer" ShowText="true" />
 <!-- <RccComponentCommandView> -->
 <!-- This will render anything found on parameter assigned to Context  -->
 <RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Command-Control" />
 <!-- </RccComponentCommandView> -->
 
+    <!-- <RccComponentStatusView> -->
+    <!-- This will render anything found on parameter assigned to Context  -->
+    <RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Status-Display" />
+    <!-- </RccComponentStatusView> -->
+
+    <!-- <GenericComponentCommandView> -->
+    <AxoComponentCommandView Component="@Entry.Plc.documentation.componentOne.Dukane_IQ_SeriesWelder" />
+    <!-- </GenericComponentCommandView> -->
+
+    <!-- <GenericComponentStatusView> -->
+    <AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.Dukane_IQ_SeriesWelder" />
+    <!-- </GenericComponentStatusView> -->
 
 
+
+
+
+
+ *@

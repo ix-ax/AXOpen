@@ -29,26 +29,26 @@ namespace AXOpen.Components.Dukane.Welders
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0,   new AxoMessengerTextItem("  ", "  ")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(50, new AxoMessengerTextItem("Restore has been executed.","")),
-                // TemplateTask_10steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(100, new AxoMessengerTextItem("TemplateTask_10steps_1 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(101, new AxoMessengerTextItem("TemplateTask_10steps_1 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(102, new AxoMessengerTextItem("TemplateTask_10steps_1 restored.","")),
-                // TemplateTask_10steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(110, new AxoMessengerTextItem("TemplateTask_10steps_2 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(111, new AxoMessengerTextItem("TemplateTask_10steps_2 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(112, new AxoMessengerTextItem("TemplateTask_10steps_2 restored.","")),
-                // TemplateTask_10steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(120, new AxoMessengerTextItem("TemplateTask_10steps_3 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(121, new AxoMessengerTextItem("TemplateTask_10steps_3 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(122, new AxoMessengerTextItem("TemplateTask_10steps_3 restored.","")),
-                // TemplateTask_10steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(130, new AxoMessengerTextItem("TemplateTask_10steps_4 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(131, new AxoMessengerTextItem("TemplateTask_10steps_4 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(132, new AxoMessengerTextItem("TemplateTask_10steps_4 restored.","")),
-                // TemplateTask_10steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(140, new AxoMessengerTextItem("TemplateTask_10steps_5 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(141, new AxoMessengerTextItem("TemplateTask_10steps_5 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(142, new AxoMessengerTextItem("TemplateTask_10steps_5 restored.","")),
+                // ClearErrorTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(100, new AxoMessengerTextItem("ClearErrorTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(101, new AxoMessengerTextItem("ClearErrorTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(102, new AxoMessengerTextItem("ClearErrorTask restored.","")),
+                // ChangeWeldingSetupTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(110, new AxoMessengerTextItem("ChangeWeldingSetupTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(111, new AxoMessengerTextItem("ChangeWeldingSetupTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(112, new AxoMessengerTextItem("ChangeWeldingSetupTask restored.","")),
+                // ChangeWeldingProbeTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(120, new AxoMessengerTextItem("ChangeWeldingProbeTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(121, new AxoMessengerTextItem("ChangeWeldingProbeTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(122, new AxoMessengerTextItem("ChangeWeldingProbeTask restored.","")),
+                // CycleStopTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(130, new AxoMessengerTextItem("CycleStopTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(131, new AxoMessengerTextItem("CycleStopTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(132, new AxoMessengerTextItem("CycleStopTask restored.","")),
+                // RunWeldingWithTimeTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(140, new AxoMessengerTextItem("RunWeldingWithTimeTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(141, new AxoMessengerTextItem("RunWeldingWithTimeTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(142, new AxoMessengerTextItem("RunWeldingWithTimeTask restored.","")),
                 // TemplateTask_10steps_6
                 new KeyValuePair<ulong, AxoMessengerTextItem>(150, new AxoMessengerTextItem("TemplateTask_10steps_6 started.","")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(151, new AxoMessengerTextItem("TemplateTask_10steps_6 finished succesfully.","")),
@@ -109,21 +109,21 @@ namespace AXOpen.Components.Dukane.Welders
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1231, new AxoMessengerTextItem("Error writing the TemplateComponentOutputStructure_HwID_PLC_to_iQ_Outputs!"                                                   ,"Check the value of the Config.HWIDs.HwID_PLC_to_iQ_Outputs and reacheability of the device!")),
 
 
-                // TemplateTask_10steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem("TemplateTask_10steps_1 finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10001, new AxoMessengerTextItem("TemplateTask_10steps_1 was aborted, while not yet completed!","Check the details.")),
-                // TemplateTask_10steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10010, new AxoMessengerTextItem("TemplateTask_10steps_2 finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10011, new AxoMessengerTextItem("TemplateTask_10steps_2 was aborted, while not yet completed!","Check the details.")),
-                // TemplateTask_10steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10020, new AxoMessengerTextItem("TemplateTask_10steps_3 finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10021, new AxoMessengerTextItem("TemplateTask_10steps_3 was aborted, while not yet completed!","Check the details.")),
-                // TemplateTask_10steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10030, new AxoMessengerTextItem("TemplateTask_10steps_4 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10031, new AxoMessengerTextItem("TemplateTask_10steps_4 task was aborted, while not yet completed!","Check the details.")),
-                // TemplateTask_10steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10040, new AxoMessengerTextItem("TemplateTask_10steps_5 task finished with error!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10041, new AxoMessengerTextItem("TemplateTask_10steps_5 task was aborted, while not yet completed!","Check the details.")),
+                // ClearErrorTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem("ClearErrorTask finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10001, new AxoMessengerTextItem("ClearErrorTask was aborted, while not yet completed!","Check the details.")),
+                // ChangeWeldingSetupTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10010, new AxoMessengerTextItem("ChangeWeldingSetupTask finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10011, new AxoMessengerTextItem("ChangeWeldingSetupTask was aborted, while not yet completed!","Check the details.")),
+                // ChangeWeldingProbeTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10020, new AxoMessengerTextItem("ChangeWeldingProbeTask finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10021, new AxoMessengerTextItem("ChangeWeldingProbeTask was aborted, while not yet completed!","Check the details.")),
+                // CycleStopTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10030, new AxoMessengerTextItem("CycleStopTask task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10031, new AxoMessengerTextItem("CycleStopTask task was aborted, while not yet completed!","Check the details.")),
+                // RunWeldingWithTimeTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10040, new AxoMessengerTextItem("RunWeldingWithTimeTask task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10041, new AxoMessengerTextItem("RunWeldingWithTimeTask task was aborted, while not yet completed!","Check the details.")),
                 // TemplateTask_10steps_6
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10050, new AxoMessengerTextItem("TemplateTask_10steps_6 task finished with error!","Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10051, new AxoMessengerTextItem("TemplateTask_10steps_6 task was aborted, while not yet completed!","Check the details.")),
@@ -157,7 +157,7 @@ namespace AXOpen.Components.Dukane.Welders
             List<KeyValuePair<ulong, AxoMessengerTextItem>> messengerTextList = new List<KeyValuePair<ulong, AxoMessengerTextItem>>
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0,    new AxoMessengerTextItem("  ", "  ")),
-                // TemplateTask_10steps_1
+                // ClearErrorTask
                 new KeyValuePair<ulong, AxoMessengerTextItem>(500,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(501,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(502,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
@@ -168,7 +168,7 @@ namespace AXOpen.Components.Dukane.Welders
                 new KeyValuePair<ulong, AxoMessengerTextItem>(507,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(508,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(509,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                // TemplateTask_10steps_2
+                // ChangeWeldingSetupTask
                 new KeyValuePair<ulong, AxoMessengerTextItem>(510,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(511,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(512,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
@@ -179,7 +179,7 @@ namespace AXOpen.Components.Dukane.Welders
                 new KeyValuePair<ulong, AxoMessengerTextItem>(517,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(518,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(519,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                // TemplateTask_10steps_3
+                // ChangeWeldingProbeTask
                 new KeyValuePair<ulong, AxoMessengerTextItem>(520,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(521,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(522,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
@@ -190,7 +190,7 @@ namespace AXOpen.Components.Dukane.Welders
                 new KeyValuePair<ulong, AxoMessengerTextItem>(527,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(528,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(529,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                //TemplateTask_10steps_4
+                //CycleStopTask
                 new KeyValuePair<ulong, AxoMessengerTextItem>(530,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(531,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(532,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
@@ -201,7 +201,7 @@ namespace AXOpen.Components.Dukane.Welders
                 new KeyValuePair<ulong, AxoMessengerTextItem>(537,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(538,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(539,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                //TemplateTask_10steps_5
+                //RunWeldingWithTimeTask
                 new KeyValuePair<ulong, AxoMessengerTextItem>(540,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(541,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(542,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
@@ -371,7 +371,7 @@ namespace AXOpen.Components.Dukane.Welders
                 if (errorDescriptionDict.Count == 0)
                 {
                     errorDescriptionDict.Add(0, "   ");
-                    // TemplateTask_10steps_1
+                    // ClearErrorTask
                     errorDescriptionDict.Add(500, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(501, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(502, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
@@ -382,7 +382,7 @@ namespace AXOpen.Components.Dukane.Welders
                     errorDescriptionDict.Add(507, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(508, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(509, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_2
+                    // ChangeWeldingSetupTask
                     errorDescriptionDict.Add(510, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(511, "Waiting for the signal `Inputs.Status.WorkSensor` to be reseted!");
                     errorDescriptionDict.Add(512, "Waiting for the signal `Inputs.Status.HomeSensor` to be set!");
@@ -393,7 +393,7 @@ namespace AXOpen.Components.Dukane.Welders
                     errorDescriptionDict.Add(517, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(518, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(519, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_3
+                    // ChangeWeldingProbeTask
                     errorDescriptionDict.Add(520, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(521, "Waiting for the signal `Inputs.Status.HomeSensor` to be reseted!");
                     errorDescriptionDict.Add(522, "Waiting for the signal `Inputs.Status.WorkSensor` to be set!");
@@ -404,7 +404,7 @@ namespace AXOpen.Components.Dukane.Welders
                     errorDescriptionDict.Add(527, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(528, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(529, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_4
+                    // CycleStopTask
                     errorDescriptionDict.Add(530, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(531, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(532, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
@@ -415,7 +415,7 @@ namespace AXOpen.Components.Dukane.Welders
                     errorDescriptionDict.Add(537, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(538, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(539, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_5
+                    // RunWeldingWithTimeTask
                     errorDescriptionDict.Add(540, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(541, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
                     errorDescriptionDict.Add(542, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
@@ -587,21 +587,21 @@ namespace AXOpen.Components.Dukane.Welders
                     errorDescriptionDict.Add(1152, "Variable `Config.HWIDs.HwID_PLC_to_iQ_Outputs` has invalid value in `Run` method!");
                     errorDescriptionDict.Add(1201, "Error reading the TemplateComponentInputStructure_HwID_iQ_to_PLC_Inputs!");
                     errorDescriptionDict.Add(1231, "Error writing the TemplateComponentOutputStructure_HwID_PLC_to_iQ_Outputs!");
-                    // TemplateTask_10steps_1
-                    errorDescriptionDict.Add(10000, "TemplateTask_10steps_1 finished with error!");
-                    errorDescriptionDict.Add(10001, "TemplateTask_10steps_1 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_2
-                    errorDescriptionDict.Add(10010, "TemplateTask_10steps_2 finished with error!");
-                    errorDescriptionDict.Add(10011, "TemplateTask_10steps_2 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_3
-                    errorDescriptionDict.Add(10020, "TemplateTask_10steps_3 finished with error!");
-                    errorDescriptionDict.Add(10021, "TemplateTask_10steps_3 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_4
-                    errorDescriptionDict.Add(10030, "TemplateTask_10steps_4 task finished with error!");
-                    errorDescriptionDict.Add(10031, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
-                    // TemplateTask_10steps_5
-                    errorDescriptionDict.Add(10040, "TemplateTask_10steps_5 task finished with error!");
-                    errorDescriptionDict.Add(10041, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
+                    // ClearErrorTask
+                    errorDescriptionDict.Add(10000, "ClearErrorTask finished with error!");
+                    errorDescriptionDict.Add(10001, "ClearErrorTask was aborted, while not yet completed!");
+                    // ChangeWeldingSetupTask
+                    errorDescriptionDict.Add(10010, "ChangeWeldingSetupTask finished with error!");
+                    errorDescriptionDict.Add(10011, "ChangeWeldingSetupTask was aborted, while not yet completed!");
+                    // ChangeWeldingProbeTask
+                    errorDescriptionDict.Add(10020, "ChangeWeldingProbeTask finished with error!");
+                    errorDescriptionDict.Add(10021, "ChangeWeldingProbeTask was aborted, while not yet completed!");
+                    // CycleStopTask
+                    errorDescriptionDict.Add(10030, "CycleStopTask task finished with error!");
+                    errorDescriptionDict.Add(10031, "CycleStopTask task was aborted, while not yet completed!");
+                    // RunWeldingWithTimeTask
+                    errorDescriptionDict.Add(10040, "RunWeldingWithTimeTask task finished with error!");
+                    errorDescriptionDict.Add(10041, "RunWeldingWithTimeTask task was aborted, while not yet completed!");
                     // TemplateTask_10steps_6
                     errorDescriptionDict.Add(10050, "TemplateTask_10steps_6 task finished with error!");
                     errorDescriptionDict.Add(10051, "TemplateTask_10steps_6 task was aborted, while not yet completed!");
@@ -651,76 +651,76 @@ namespace AXOpen.Components.Dukane.Welders
                 {
                     actionDescriptionDict.Add(0, "   ");
                     actionDescriptionDict.Add(50, "Restore has been executed.");
-                    // TemplateTask_10steps_1
-                    actionDescriptionDict.Add(100, "TemplateTask_10steps_1 started.");
-                    actionDescriptionDict.Add(300, "TemplateTask_10steps_1 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(301, "TemplateTask_10steps_1 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(302, "TemplateTask_10steps_1 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(303, "TemplateTask_10steps_1 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(304, "TemplateTask_10steps_1 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(305, "TemplateTask_10steps_1 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(306, "TemplateTask_10steps_1 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(307, "TemplateTask_10steps_1 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(308, "TemplateTask_10steps_1 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(309, "TemplateTask_10steps_1 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(101, "TemplateTask_10steps_1 finished succesfully.");
-                    actionDescriptionDict.Add(102, "TemplateTask_10steps_1 restored.");
-                    // TemplateTask_10steps_2
-                    actionDescriptionDict.Add(110, "TemplateTask_10steps_2 started.");
-                    actionDescriptionDict.Add(310, "TemplateTask_10steps_2 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(311, "TemplateTask_10steps_2 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(312, "TemplateTask_10steps_2 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(313, "TemplateTask_10steps_2 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(314, "TemplateTask_10steps_2 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(315, "TemplateTask_10steps_2 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(316, "TemplateTask_10steps_2 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(317, "TemplateTask_10steps_2 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(318, "TemplateTask_10steps_2 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(319, "TemplateTask_10steps_2 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(111, "TemplateTask_10steps_2 finished succesfully.");
-                    actionDescriptionDict.Add(112, "TemplateTask_10steps_2 restored.");
-                    // TemplateTask_10steps_3
-                    actionDescriptionDict.Add(120, "TemplateTask_10steps_3 started.");
-                    actionDescriptionDict.Add(320, "TemplateTask_10steps_3 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(321, "TemplateTask_10steps_3 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(322, "TemplateTask_10steps_3 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(323, "TemplateTask_10steps_3 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(324, "TemplateTask_10steps_3 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(325, "TemplateTask_10steps_3 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(326, "TemplateTask_10steps_3 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(327, "TemplateTask_10steps_3 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(328, "TemplateTask_10steps_3 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(329, "TemplateTask_10steps_3 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(121, "TemplateTask_10steps_3 finished succesfully.");
-                    actionDescriptionDict.Add(122, "TemplateTask_10steps_3 restored.");
-                    // TemplateTask_10steps_4
-                    actionDescriptionDict.Add(130, "TemplateTask_10steps_4 started.");
-                    actionDescriptionDict.Add(330, "TemplateTask_10steps_4 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(331, "TemplateTask_10steps_4 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(332, "TemplateTask_10steps_4 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(333, "TemplateTask_10steps_4 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(334, "TemplateTask_10steps_4 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(335, "TemplateTask_10steps_4 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(336, "TemplateTask_10steps_4 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(337, "TemplateTask_10steps_4 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(338, "TemplateTask_10steps_4 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(339, "TemplateTask_10steps_4 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(131, "TemplateTask_10steps_4 finished succesfully.");
-                    actionDescriptionDict.Add(132, "TemplateTask_10steps_4 restored.");
-                    // TemplateTask_10steps_5
-                    actionDescriptionDict.Add(140, "TemplateTask_10steps_5 started.");
-                    actionDescriptionDict.Add(340, "TemplateTask_10steps_5 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(341, "TemplateTask_10steps_5 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(342, "TemplateTask_10steps_5 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(343, "TemplateTask_10steps_5 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(344, "TemplateTask_10steps_5 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(345, "TemplateTask_10steps_5 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(346, "TemplateTask_10steps_5 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(347, "TemplateTask_10steps_5 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(348, "TemplateTask_10steps_5 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(349, "TemplateTask_10steps_5 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(141, "TemplateTask_10steps_5 finished succesfully.");
-                    actionDescriptionDict.Add(142, "TemplateTask_10steps_5 restored.");
+                    // ClearErrorTask
+                    actionDescriptionDict.Add(100, "ClearErrorTask started.");
+                    actionDescriptionDict.Add(300, "ClearErrorTask running, <add the detailed description of the current action 1>");
+                    actionDescriptionDict.Add(301, "ClearErrorTask running, <add the detailed description of the current action 2>");
+                    actionDescriptionDict.Add(302, "ClearErrorTask running, <add the detailed description of the current action 3>");
+                    actionDescriptionDict.Add(303, "ClearErrorTask running, <add the detailed description of the current action 4>");
+                    actionDescriptionDict.Add(304, "ClearErrorTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(305, "ClearErrorTask running, <add the detailed description of the current action 6>");
+                    actionDescriptionDict.Add(306, "ClearErrorTask running, <add the detailed description of the current action 7>");
+                    actionDescriptionDict.Add(307, "ClearErrorTask running, <add the detailed description of the current action 8>");
+                    actionDescriptionDict.Add(308, "ClearErrorTask running, <add the detailed description of the current action 9>");
+                    actionDescriptionDict.Add(309, "ClearErrorTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(101, "ClearErrorTask finished succesfully.");
+                    actionDescriptionDict.Add(102, "ClearErrorTask restored.");
+                    // ChangeWeldingSetupTask
+                    actionDescriptionDict.Add(110, "ChangeWeldingSetupTask started.");
+                    actionDescriptionDict.Add(310, "ChangeWeldingSetupTask running, <add the detailed description of the current action 1>");
+                    actionDescriptionDict.Add(311, "ChangeWeldingSetupTask running, <add the detailed description of the current action 2>");
+                    actionDescriptionDict.Add(312, "ChangeWeldingSetupTask running, <add the detailed description of the current action 3>");
+                    actionDescriptionDict.Add(313, "ChangeWeldingSetupTask running, <add the detailed description of the current action 4>");
+                    actionDescriptionDict.Add(314, "ChangeWeldingSetupTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(315, "ChangeWeldingSetupTask running, <add the detailed description of the current action 6>");
+                    actionDescriptionDict.Add(316, "ChangeWeldingSetupTask running, <add the detailed description of the current action 7>");
+                    actionDescriptionDict.Add(317, "ChangeWeldingSetupTask running, <add the detailed description of the current action 8>");
+                    actionDescriptionDict.Add(318, "ChangeWeldingSetupTask running, <add the detailed description of the current action 9>");
+                    actionDescriptionDict.Add(319, "ChangeWeldingSetupTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(111, "ChangeWeldingSetupTask finished succesfully.");
+                    actionDescriptionDict.Add(112, "ChangeWeldingSetupTask restored.");
+                    // ChangeWeldingProbeTask
+                    actionDescriptionDict.Add(120, "ChangeWeldingProbeTask started.");
+                    actionDescriptionDict.Add(320, "ChangeWeldingProbeTask running, <add the detailed description of the current action 1>");
+                    actionDescriptionDict.Add(321, "ChangeWeldingProbeTask running, <add the detailed description of the current action 2>");
+                    actionDescriptionDict.Add(322, "ChangeWeldingProbeTask running, <add the detailed description of the current action 3>");
+                    actionDescriptionDict.Add(323, "ChangeWeldingProbeTask running, <add the detailed description of the current action 4>");
+                    actionDescriptionDict.Add(324, "ChangeWeldingProbeTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(325, "ChangeWeldingProbeTask running, <add the detailed description of the current action 6>");
+                    actionDescriptionDict.Add(326, "ChangeWeldingProbeTask running, <add the detailed description of the current action 7>");
+                    actionDescriptionDict.Add(327, "ChangeWeldingProbeTask running, <add the detailed description of the current action 8>");
+                    actionDescriptionDict.Add(328, "ChangeWeldingProbeTask running, <add the detailed description of the current action 9>");
+                    actionDescriptionDict.Add(329, "ChangeWeldingProbeTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(121, "ChangeWeldingProbeTask finished succesfully.");
+                    actionDescriptionDict.Add(122, "ChangeWeldingProbeTask restored.");
+                    // CycleStopTask
+                    actionDescriptionDict.Add(130, "CycleStopTask started.");
+                    actionDescriptionDict.Add(330, "CycleStopTask running, <add the detailed description of the current action 1>");
+                    actionDescriptionDict.Add(331, "CycleStopTask running, <add the detailed description of the current action 2>");
+                    actionDescriptionDict.Add(332, "CycleStopTask running, <add the detailed description of the current action 3>");
+                    actionDescriptionDict.Add(333, "CycleStopTask running, <add the detailed description of the current action 4>");
+                    actionDescriptionDict.Add(334, "CycleStopTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(335, "CycleStopTask running, <add the detailed description of the current action 6>");
+                    actionDescriptionDict.Add(336, "CycleStopTask running, <add the detailed description of the current action 7>");
+                    actionDescriptionDict.Add(337, "CycleStopTask running, <add the detailed description of the current action 8>");
+                    actionDescriptionDict.Add(338, "CycleStopTask running, <add the detailed description of the current action 9>");
+                    actionDescriptionDict.Add(339, "CycleStopTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(131, "CycleStopTask finished succesfully.");
+                    actionDescriptionDict.Add(132, "CycleStopTask restored.");
+                    // RunWeldingWithTimeTask
+                    actionDescriptionDict.Add(140, "RunWeldingWithTimeTask started.");
+                    actionDescriptionDict.Add(340, "RunWeldingWithTimeTask running, <add the detailed description of the current action 1>");
+                    actionDescriptionDict.Add(341, "RunWeldingWithTimeTask running, <add the detailed description of the current action 2>");
+                    actionDescriptionDict.Add(342, "RunWeldingWithTimeTask running, <add the detailed description of the current action 3>");
+                    actionDescriptionDict.Add(343, "RunWeldingWithTimeTask running, <add the detailed description of the current action 4>");
+                    actionDescriptionDict.Add(344, "RunWeldingWithTimeTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(345, "RunWeldingWithTimeTask running, <add the detailed description of the current action 6>");
+                    actionDescriptionDict.Add(346, "RunWeldingWithTimeTask running, <add the detailed description of the current action 7>");
+                    actionDescriptionDict.Add(347, "RunWeldingWithTimeTask running, <add the detailed description of the current action 8>");
+                    actionDescriptionDict.Add(348, "RunWeldingWithTimeTask running, <add the detailed description of the current action 9>");
+                    actionDescriptionDict.Add(349, "RunWeldingWithTimeTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(141, "RunWeldingWithTimeTask finished succesfully.");
+                    actionDescriptionDict.Add(142, "RunWeldingWithTimeTask restored.");
                     // TemplateTask_10steps_6
                     actionDescriptionDict.Add(150, "TemplateTask_10steps_6 started.");
                     actionDescriptionDict.Add(350, "TemplateTask_10steps_6 running, <add the detailed description of the current action 1>");
@@ -904,21 +904,21 @@ namespace AXOpen.Components.Dukane.Welders
                     actionDescriptionDict.Add(1152, "Input variable `Config.HWIDs.HwID_PLC_to_iQ_Outputs` has invalid value in `Run` method!");
                     actionDescriptionDict.Add(1201, "Error reading the TemplateComponentInputStructureConfig.HWIDs.HwID_iQ_to_PLC_Inputs!");
                     actionDescriptionDict.Add(1231, "Error writing the TemplateComponentOutputStructureConfig.HWIDs.HwID_PLC_to_iQ_Outputs!");
-                    // TemplateTask_10steps_1
-                    actionDescriptionDict.Add(10000, "TemplateTask_10steps_1 finished with error!");
-                    actionDescriptionDict.Add(10001, "TemplateTask_10steps_1 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_2
-                    actionDescriptionDict.Add(10010, "TemplateTask_10steps_2 finished with error!");
-                    actionDescriptionDict.Add(10011, "TemplateTask_10steps_2 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_3
-                    actionDescriptionDict.Add(10020, "TemplateTask_10steps_3 finished with error!");
-                    actionDescriptionDict.Add(10021, "TemplateTask_10steps_3 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_4
-                    actionDescriptionDict.Add(10030, "TemplateTask_10steps_4 task finished with error!");
-                    actionDescriptionDict.Add(10031, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
-                    // TemplateTask_10steps_5
-                    actionDescriptionDict.Add(10040, "TemplateTask_10steps_5 task finished with error!");
-                    actionDescriptionDict.Add(10041, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
+                    // ClearErrorTask
+                    actionDescriptionDict.Add(10000, "ClearErrorTask finished with error!");
+                    actionDescriptionDict.Add(10001, "ClearErrorTask was aborted, while not yet completed!");
+                    // ChangeWeldingSetupTask
+                    actionDescriptionDict.Add(10010, "ChangeWeldingSetupTask finished with error!");
+                    actionDescriptionDict.Add(10011, "ChangeWeldingSetupTask was aborted, while not yet completed!");
+                    // ChangeWeldingProbeTask
+                    actionDescriptionDict.Add(10020, "ChangeWeldingProbeTask finished with error!");
+                    actionDescriptionDict.Add(10021, "ChangeWeldingProbeTask was aborted, while not yet completed!");
+                    // CycleStopTask
+                    actionDescriptionDict.Add(10030, "CycleStopTask task finished with error!");
+                    actionDescriptionDict.Add(10031, "CycleStopTask task was aborted, while not yet completed!");
+                    // RunWeldingWithTimeTask
+                    actionDescriptionDict.Add(10040, "RunWeldingWithTimeTask task finished with error!");
+                    actionDescriptionDict.Add(10041, "RunWeldingWithTimeTask task was aborted, while not yet completed!");
                     // TemplateTask_10steps_6
                     actionDescriptionDict.Add(10050, "TemplateTask_10steps_6 task finished with error!");
                     actionDescriptionDict.Add(10051, "TemplateTask_10steps_6 task was aborted, while not yet completed!");

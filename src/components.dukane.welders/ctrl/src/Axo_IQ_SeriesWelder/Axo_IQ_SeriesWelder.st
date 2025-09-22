@@ -11,6 +11,21 @@ NAMESPACE AXOpen.Components.Dukane.Welders
     {S7.extern=ReadWrite}
     CLASS Axo_IQ_SeriesWelder EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC // HEADER
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Run welding with time#>"}
+            RunWeldingWithTimeTask : AXOpen.Core.AxoTask;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Required setup number#>"}
+            RequiredSetupNumber : UINT := UINT#1;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Required probe number#>"}
+            RequiredProbeNumber : UINT:= UINT#1;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Required welding time#>"}
+            RequiredWeldingTime : LTIME :=  LTIME#2s;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Progress#>"}
             {#ix-attr:[ReadOnly()]}
             Progress       :   INT;
         END_VAR
@@ -20,56 +35,58 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Restore#>"}
             RestoreTask : AXOpen.Core.AxoTask;
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Change setup#>"}
+            ChangeWeldingSetupTask : AXOpen.Core.AxoTask;
+
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Clear error#>"}
+            ClearErrorTask : AXOpen.Core.AxoTask;
+
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Change probe#>"}
+            ChangeWeldingProbeTask : AXOpen.Core.AxoTask;
+
+            
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#CycleStopTask#>"}
+            CycleStopTask : AXOpen.Core.AxoTask;
+
         END_VAR
 
         VAR PUBLIC // TEMPLATE TASKS
+
+
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_1#>"}
-            TemplateTask_10steps_1 : AXOpen.Core.AxoTask;
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_2#>"}
-            TemplateTask_10steps_2 : AXOpen.Core.AxoTask;
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_3#>"}
-            TemplateTask_10steps_3 : AXOpen.Core.AxoTask;
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_4#>"}
-            TemplateTask_10steps_4 : AXOpen.Core.AxoTask;
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
-            {#ix-set:AttributeName = "<#TemplateTask_10steps_5#>"}
-            TemplateTask_10steps_5 : AXOpen.Core.AxoTask;
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+            // {#ix-attr:[ComponentDetails("Template tasks")]}
             {#ix-set:AttributeName = "<#TemplateTask_10steps_6#>"}
             TemplateTask_10steps_6 : AXOpen.Core.AxoTask;
 
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+            // {#ix-attr:[ComponentDetails("Template tasks")]}
             {#ix-set:AttributeName = "<#TemplateTask_20steps_1#>"}
             TemplateTask_20steps_1 : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+            // {#ix-attr:[ComponentDetails("Template tasks")]}
             {#ix-set:AttributeName = "<#TemplateTask_20steps_2#>"}
             TemplateTask_20steps_2 : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+            // {#ix-attr:[ComponentDetails("Template tasks")]}
             {#ix-set:AttributeName = "<#TemplateTask_20steps_3#>"}
             TemplateTask_20steps_3 : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+            // {#ix-attr:[ComponentDetails("Template tasks")]}
             {#ix-set:AttributeName = "<#TemplateTask_20steps_4#>"}
             TemplateTask_20steps_4 : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+            // {#ix-attr:[ComponentDetails("Template tasks")]}
             {#ix-set:AttributeName = "<#TemplateTask_20steps_5#>"}
             TemplateTask_20steps_5 : AXOpen.Core.AxoTask;
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Template tasks")]}
+            // {#ix-attr:[ComponentDetails("Template tasks")]}
             {#ix-set:AttributeName = "<#TemplateTask_20steps_6#>"}
             TemplateTask_20steps_6 : AXOpen.Core.AxoTask;
             
@@ -81,14 +98,6 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Config#>"}
             Config  :   Axo_IQ_SeriesWelder_Config;
-        END_VAR
-
-        VAR PUBLIC // Hmi
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("Hmi")]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Hmi#>"}
-            Hmi                     : Axo_IQ_SeriesWelder_HMI;              // HMI control bits and values (apart from parameters)
         END_VAR
        
         VAR PUBLIC // STATUS
@@ -126,12 +135,8 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             _progress       :   INT;
             _infoTimer      :   AXOpen.Timers.OnDelayTimer;
             _errorTimer     :   AXOpen.Timers.OnDelayTimer;
-            _data_in        :   ARRAY[0..254] OF BYTE;
-            _data_out_1     :   ARRAY[0..0] OF BYTE;
-            _data_out_2     :   ARRAY[0..1] OF BYTE;
-            _data_out_4     :   ARRAY[0..3] OF BYTE;
-            _data_out_8     :   ARRAY[0..7] OF BYTE;
-            _data_out_255   :   ARRAY[0..254] OF BYTE;
+            _data_in        :   ARRAY[0..139] OF BYTE;
+            _data_out       :   ARRAY[0..19] OF BYTE;
             _word           :   WORD;
             _dword          :   DWORD;
 
@@ -144,59 +149,14 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             _inputsCount            :   UINT;
             _outputsAddress         :   UDINT;  
             _outputsCount           :   UINT; 
+
+            _setupNumber            :   UINT;
+            _probeNumber            :   UINT;
+            _weldingTime            :   LTIME;
+
+            _weldingTimer           :    AXOpen.Timers.OnDelayTimer;
         END_VAR
 
-        VAR PUBLIC
-            Config_reset_on_coms_fault : BOOL := TRUE;
-            coms_read_ok : BOOL := FALSE;                     // DPRD_DAT ok in this cycle
-            coms_stable : BOOL := FALSE;                      // after TON qualification
-            p_coms_stable : BOOL := FALSE;                    // edge helper
-            coms_just_restored : BOOL := FALSE;               // ====== Async comms state ======
-            rd_req : BOOL := FALSE;
-            wr_req : BOOL := FALSE;                           // ====== Rising-edge helpers for triggers ======
-            p_setup_changed : BOOL := FALSE;
-            p_testscan : BOOL := FALSE;
-            pTriggerSourcePosition : BOOL := FALSE;
-            pTriggerSourcePower : BOOL := FALSE;
-            pEnableWeld : BOOL := FALSE;
-            ReadRecord : ReadRecord;
-            ReadRecord2 : ReadRecord;
-            ReadRecord2req : BOOL;
-            ReadRecord2maxLen : UINT;
-            WriteRecord : WriteRecord;                        // ====== Indications (HMI) ======
-            ton_coms_stable : OnDelay; // TON_TIME;
-            tof_async_read_ind : OffDelay; // TOF_TIME;
-            tof_async_write_ind : OffDelay; // TOF_TIME;      // ====== String read buffer for model/fw versions ======
-            str_read_buffer_254 : ARRAY[0..253] OF BYTE;           
-            write_buffer_254 : ARRAY[0..253] OF BYTE;           
-            // buf_test_scan_result : Axo_IQ_SeriesWelder_TestScanResults;
-            async_read_no : INT := INT#0;                     // -16..-11 (model/fw), 1..5 (params), 17.. (on-demand)
-            async_write_no : INT := INT#0;                    // 1..5 (params), 17.. (on-demand) ====== Bitmaps ======
-            model_read_map : WORD := WORD#16#0000;            // model string read requests
-            on_demand_read_map : WORD := WORD#16#0000;        // on-demand reads
-            par_read_map : WORD := WORD#16#0000;              // parameter readout requests
-            on_demand_write_map : WORD := WORD#16#0000;       // on-demand writes
-            par_write_map : WORD := WORD#16#0000;             // parameter write requests ====== Comparison load spreader ======
-            comp_opt_cycler : INT := INT#0;                   // ====== General helpers ======
-        END_VAR
-
-        VAR CONSTANT 
-            index_async_data1 : DINT := DINT#16#2100;         // index 0x2100 - starting with regulation amplitude
-            index_async_data2 : DINT := DINT#16#2129;         // index 0x2129 (8489) - starting with power regulation enable
-            index_async_data3 : DINT := DINT#16#214B;         // index 0x214B (8523)
-            index_async_data4 : DINT := DINT#16#2178;
-            index_async_data5 : DINT := DINT#16#21AA;
-            index_async_model_no : DINT := DINT#16#2080;      // model no - string
-            index_async_serial_no : DINT := DINT#16#2081;     // serial no (DINT)
-            index_async_mb_firmware_ver : DINT := DINT#16#2082;   // motherboard firmware version - string
-            index_async_fp_firmware_ver : DINT := DINT#16#2083;   // front panel firmware version - string
-            index_async_mb_bootloader_no : DINT := DINT#16#2084;   // motherboard bootloader version - string
-            index_async_fp_bootloader_no : DINT := DINT#16#2085;   // front panel bootloader version - string
-            index_async_test_scan_result : DINT := DINT#16#2128;
-            index_asycn_copyrec : DINT := DINT#16#2127;
-            initial_parameter_refresh   : WORD := WORD#2#0000000000011111;
-            initial_model_refresh       : WORD := WORD#2#0000000000111111;
-        END_VAR
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method must or one of its overloads be called cyclically.
@@ -208,31 +168,15 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             END_VAR
 
             VAR_TEMP 
-                prev_rd_req : Bool;
-                rd_any_response : Bool;
-                tmp_bit : Bool;
-                prev_wr_req : Bool;
-                wr_any_response : Bool;
-                mask : Word;
-                tmp_W : Word;
-                tmp_DW : DWord;   
-                _data_in      :   ARRAY[0..139] OF BYTE;
-                _data_out     :   ARRAY[0..19] OF BYTE;
-                _data_255 : ARRAY[0..254] OF BYTE;        
                 index : UINT;
             END_VAR
     
             // IQ ULTRASONIC GENERATOR CONTROL - over profinet - mode "Profinet with Distance"
-            // Created by: Vaclav Fiala (fiala@gfm.cz)
-            // Rewrited 1-to-1 to SCL by Tomas Kovac
             
             // ============================================================================
-            // Adapted from original example code BY Dukane TO make the multi
-            // INSTANCE use easier TO deploy AND less error prone.
             // NOTE:  use the IQ Commander software (connected over USB TO the Generator)
             // TO set the comunicatiom mode TO "Profinet with Distance" -
             // otherwise the communication will NOT work.
-            
             // ============================================================================
 
             SUPER.Run(parent);
@@ -368,13 +312,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             END_IF;            
 
             //***********Update inputs **************
-
-            // ============================================================================
-            // Network 1: Read synchronous data from the module (inputs)
-            // ============================================================================
-            // This is new inputs reading =>
             _retval := ReadData(LADDR := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),RECORD => _data_in);
-            coms_read_ok := (_retval = WORD#0);
             IF _retval > WORD#0 THEN
                 Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1201;
@@ -413,11 +351,11 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             Inputs.SystemErrorStatus.Peak_Overload_Positive                  := _data_in[3].%X6;
             Inputs.SystemErrorStatus.Peak_Overload_Negative                  := _data_in[3].%X7;
 
-            tmp_DW.%B3                                                          := _data_in[4];
-            tmp_DW.%B2                                                          := _data_in[5];
-            tmp_DW.%B1                                                          := _data_in[6];
-            tmp_DW.%B0                                                          := _data_in[7];
-            Inputs.SystemInitiateError := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[4];
+            _dword.%B2                                                          := _data_in[5];
+            _dword.%B1                                                          := _data_in[6];
+            _dword.%B0                                                          := _data_in[7];
+            Inputs.SystemInitiateError := TO_DINT(_dword);
 
             // Inputs.SystemProcessError._0                                     := _data_in[8].%X0;
             // Inputs.SystemProcessError._1                                     := _data_in[8].%X1;
@@ -452,29 +390,29 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             Inputs.SystemProcessError.PreTrigger_Time                        := _data_in[11].%X6;
             Inputs.SystemProcessError.Trigger_Time                           := _data_in[11].%X7;
 
-            tmp_DW.%B3                                                          := _data_in[12];
-            tmp_DW.%B2                                                          := _data_in[13];
-            tmp_DW.%B1                                                          := _data_in[14];
-            tmp_DW.%B0                                                          := _data_in[15];
-            Inputs.GeneratorState := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[12];
+            _dword.%B2                                                          := _data_in[13];
+            _dword.%B1                                                          := _data_in[14];
+            _dword.%B0                                                          := _data_in[15];
+            Inputs.GeneratorState := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[16];
-            tmp_DW.%B2                                                          := _data_in[17];
-            tmp_DW.%B1                                                          := _data_in[18];
-            tmp_DW.%B0                                                          := _data_in[19];
-            Inputs.RealTimeAmplitude := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[16];
+            _dword.%B2                                                          := _data_in[17];
+            _dword.%B1                                                          := _data_in[18];
+            _dword.%B0                                                          := _data_in[19];
+            Inputs.RealTimeAmplitude := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[20];
-            tmp_DW.%B2                                                          := _data_in[21];
-            tmp_DW.%B1                                                          := _data_in[22];
-            tmp_DW.%B0                                                          := _data_in[23];
-            Inputs.RealTimeFrequency := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[20];
+            _dword.%B2                                                          := _data_in[21];
+            _dword.%B1                                                          := _data_in[22];
+            _dword.%B0                                                          := _data_in[23];
+            Inputs.RealTimeFrequency := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[24];
-            tmp_DW.%B2                                                          := _data_in[25];
-            tmp_DW.%B1                                                          := _data_in[26];
-            tmp_DW.%B0                                                          := _data_in[27];
-            Inputs.RealTimePower := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[24];
+            _dword.%B2                                                          := _data_in[25];
+            _dword.%B1                                                          := _data_in[26];
+            _dword.%B0                                                          := _data_in[27];
+            Inputs.RealTimePower := TO_DINT(_dword);
 
 
             // Inputs.SystemStatus.res_bit24                                    := _data_in[28].%X0;
@@ -510,41 +448,41 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             Inputs.SystemStatus.Trigger_Status                               := _data_in[31].%X6;
             Inputs.SystemStatus.US_Status                                    := _data_in[31].%X7;
 
-            tmp_DW.%B3                                                          := _data_in[32];
-            tmp_DW.%B2                                                          := _data_in[33];
-            tmp_DW.%B1                                                          := _data_in[34];
-            tmp_DW.%B0                                                          := _data_in[35];
-            Inputs.Temperature := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[32];
+            _dword.%B2                                                          := _data_in[33];
+            _dword.%B1                                                          := _data_in[34];
+            _dword.%B0                                                          := _data_in[35];
+            Inputs.Temperature := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[36];
-            tmp_DW.%B2                                                          := _data_in[37];
-            tmp_DW.%B1                                                          := _data_in[38];
-            tmp_DW.%B0                                                          := _data_in[39];
-            Inputs.CycleCount := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[36];
+            _dword.%B2                                                          := _data_in[37];
+            _dword.%B1                                                          := _data_in[38];
+            _dword.%B0                                                          := _data_in[39];
+            Inputs.CycleCount := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[40];
-            tmp_DW.%B2                                                          := _data_in[41];
-            tmp_DW.%B1                                                          := _data_in[42];
-            tmp_DW.%B0                                                          := _data_in[43];
-            Inputs.GoodPartCount := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[40];
+            _dword.%B2                                                          := _data_in[41];
+            _dword.%B1                                                          := _data_in[42];
+            _dword.%B0                                                          := _data_in[43];
+            Inputs.GoodPartCount := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[44];
-            tmp_DW.%B2                                                          := _data_in[45];
-            tmp_DW.%B1                                                          := _data_in[46];
-            tmp_DW.%B0                                                          := _data_in[47];
-            Inputs.BadPartCount := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[44];
+            _dword.%B2                                                          := _data_in[45];
+            _dword.%B1                                                          := _data_in[46];
+            _dword.%B0                                                          := _data_in[47];
+            Inputs.BadPartCount := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[48];
-            tmp_DW.%B2                                                          := _data_in[49];
-            tmp_DW.%B1                                                          := _data_in[50];
-            tmp_DW.%B0                                                          := _data_in[51];
-            Inputs.SuspectPartCount := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[48];
+            _dword.%B2                                                          := _data_in[49];
+            _dword.%B1                                                          := _data_in[50];
+            _dword.%B0                                                          := _data_in[51];
+            Inputs.SuspectPartCount := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[52];
-            tmp_DW.%B2                                                          := _data_in[53];
-            tmp_DW.%B1                                                          := _data_in[54];
-            tmp_DW.%B0                                                          := _data_in[55];
-            Inputs.AbortedPartCount := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[52];
+            _dword.%B2                                                          := _data_in[53];
+            _dword.%B1                                                          := _data_in[54];
+            _dword.%B0                                                          := _data_in[55];
+            Inputs.AbortedPartCount := TO_DINT(_dword);
 
             Inputs.CyclePartStatus.LowerBadEnergyLimit                       := _data_in[56].%X0;
             Inputs.CyclePartStatus.LowerSuspectEnergyLimit                   := _data_in[56].%X1;
@@ -579,59 +517,59 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             // Inputs.CyclePartStatus._30                                       := _data_in[59].%X6;
             // Inputs.CyclePartStatus._31                                       := _data_in[59].%X7;
 
-            tmp_DW.%B3                                                          := _data_in[60];
-            tmp_DW.%B2                                                          := _data_in[61];
-            tmp_DW.%B1                                                          := _data_in[62];
-            tmp_DW.%B0                                                          := _data_in[63];
-            Inputs.CycleWeldTime := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[60];
+            _dword.%B2                                                          := _data_in[61];
+            _dword.%B1                                                          := _data_in[62];
+            _dword.%B0                                                          := _data_in[63];
+            Inputs.CycleWeldTime := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[64];
-            tmp_DW.%B2                                                          := _data_in[65];
-            tmp_DW.%B1                                                          := _data_in[66];
-            tmp_DW.%B0                                                          := _data_in[67];
-            Inputs.CycleWeldPeakPower := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[64];
+            _dword.%B2                                                          := _data_in[65];
+            _dword.%B1                                                          := _data_in[66];
+            _dword.%B0                                                          := _data_in[67];
+            Inputs.CycleWeldPeakPower := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[68];
-            tmp_DW.%B2                                                          := _data_in[69];
-            tmp_DW.%B1                                                          := _data_in[70];
-            tmp_DW.%B0                                                          := _data_in[71];
-            Inputs.CycleWeldEnergy := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[68];
+            _dword.%B2                                                          := _data_in[69];
+            _dword.%B1                                                          := _data_in[70];
+            _dword.%B0                                                          := _data_in[71];
+            Inputs.CycleWeldEnergy := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[72];
-            tmp_DW.%B2                                                          := _data_in[73];
-            tmp_DW.%B1                                                          := _data_in[74];
-            tmp_DW.%B0                                                          := _data_in[75];
-            Inputs.ActiveSetup := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[72];
+            _dword.%B2                                                          := _data_in[73];
+            _dword.%B1                                                          := _data_in[74];
+            _dword.%B0                                                          := _data_in[75];
+            Inputs.ActiveSetup := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[76];
-            tmp_DW.%B2                                                          := _data_in[77];
-            tmp_DW.%B1                                                          := _data_in[78];
-            tmp_DW.%B0                                                          := _data_in[79];
-            Inputs.RunningSetup := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[76];
+            _dword.%B2                                                          := _data_in[77];
+            _dword.%B1                                                          := _data_in[78];
+            _dword.%B0                                                          := _data_in[79];
+            Inputs.RunningSetup := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[80];
-            tmp_DW.%B2                                                          := _data_in[81];
-            tmp_DW.%B1                                                          := _data_in[82];
-            tmp_DW.%B0                                                          := _data_in[83];
-            Inputs.RunningMPCProbe := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[80];
+            _dword.%B2                                                          := _data_in[81];
+            _dword.%B1                                                          := _data_in[82];
+            _dword.%B0                                                          := _data_in[83];
+            Inputs.RunningMPCProbe := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[84];
-            tmp_DW.%B2                                                          := _data_in[85];
-            tmp_DW.%B1                                                          := _data_in[86];
-            tmp_DW.%B0                                                          := _data_in[87];
-            Inputs.SelectedInputVoltage := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[84];
+            _dword.%B2                                                          := _data_in[85];
+            _dword.%B1                                                          := _data_in[86];
+            _dword.%B0                                                          := _data_in[87];
+            Inputs.SelectedInputVoltage := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[88];
-            tmp_DW.%B2                                                          := _data_in[89];
-            tmp_DW.%B1                                                          := _data_in[90];
-            tmp_DW.%B0                                                          := _data_in[91];
-            Inputs.RealTimePosition := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[88];
+            _dword.%B2                                                          := _data_in[89];
+            _dword.%B1                                                          := _data_in[90];
+            _dword.%B0                                                          := _data_in[91];
+            Inputs.RealTimePosition := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[92];
-            tmp_DW.%B2                                                          := _data_in[93];
-            tmp_DW.%B1                                                          := _data_in[94];
-            tmp_DW.%B0                                                          := _data_in[95];
-            Inputs.RealTimeVelocity := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[92];
+            _dword.%B2                                                          := _data_in[93];
+            _dword.%B1                                                          := _data_in[94];
+            _dword.%B0                                                          := _data_in[95];
+            Inputs.RealTimeVelocity := TO_DINT(_dword);
 
             Inputs.PressPartStatus_Bad_lo.Weld1Position                      := _data_in[96].%X0;
             Inputs.PressPartStatus_Bad_lo.ErrorStatus                        := _data_in[96].%X1;
@@ -766,122 +704,56 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             Inputs.PressPartStatus_Bad_hi.Weld1Time                          := _data_in[111].%X7;
 
 
-            tmp_DW.%B3                                                          := _data_in[112];
-            tmp_DW.%B2                                                          := _data_in[113];
-            tmp_DW.%B1                                                          := _data_in[114];
-            tmp_DW.%B0                                                          := _data_in[115];
-            Inputs.CycleTriggerTime := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[112];
+            _dword.%B2                                                          := _data_in[113];
+            _dword.%B1                                                          := _data_in[114];
+            _dword.%B0                                                          := _data_in[115];
+            Inputs.CycleTriggerTime := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[116];
-            tmp_DW.%B2                                                          := _data_in[117];
-            tmp_DW.%B1                                                          := _data_in[118];
-            tmp_DW.%B0                                                          := _data_in[119];
-            Inputs.CycleTriggerPosition := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[116];
+            _dword.%B2                                                          := _data_in[117];
+            _dword.%B1                                                          := _data_in[118];
+            _dword.%B0                                                          := _data_in[119];
+            Inputs.CycleTriggerPosition := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[120];
-            tmp_DW.%B2                                                          := _data_in[121];
-            tmp_DW.%B1                                                          := _data_in[122];
-            tmp_DW.%B0                                                          := _data_in[123];
-            Inputs.CycleTriggerDelayTime := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[120];
+            _dword.%B2                                                          := _data_in[121];
+            _dword.%B1                                                          := _data_in[122];
+            _dword.%B0                                                          := _data_in[123];
+            Inputs.CycleTriggerDelayTime := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[124];
-            tmp_DW.%B2                                                          := _data_in[125];
-            tmp_DW.%B1                                                          := _data_in[126];
-            tmp_DW.%B0                                                          := _data_in[127];
-            Inputs.CycleTriggerDelayDistance := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[124];
+            _dword.%B2                                                          := _data_in[125];
+            _dword.%B1                                                          := _data_in[126];
+            _dword.%B0                                                          := _data_in[127];
+            Inputs.CycleTriggerDelayDistance := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[128];
-            tmp_DW.%B2                                                          := _data_in[129];
-            tmp_DW.%B1                                                          := _data_in[130];
-            tmp_DW.%B0                                                          := _data_in[131];
-            Inputs.CycleWeld1Distance := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[128];
+            _dword.%B2                                                          := _data_in[129];
+            _dword.%B1                                                          := _data_in[130];
+            _dword.%B0                                                          := _data_in[131];
+            Inputs.CycleWeld1Distance := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[132];
-            tmp_DW.%B2                                                          := _data_in[133];
-            tmp_DW.%B1                                                          := _data_in[134];
-            tmp_DW.%B0                                                          := _data_in[135];
-            Inputs.CycleWeld1Position := TO_DINT(tmp_DW);
+            _dword.%B3                                                          := _data_in[132];
+            _dword.%B2                                                          := _data_in[133];
+            _dword.%B1                                                          := _data_in[134];
+            _dword.%B0                                                          := _data_in[135];
+            Inputs.CycleWeld1Position := TO_DINT(_dword);
 
-            tmp_DW.%B3                                                          := _data_in[136];
-            tmp_DW.%B2                                                          := _data_in[137];
-            tmp_DW.%B1                                                          := _data_in[138];
-            tmp_DW.%B0                                                          := _data_in[139];
-            Inputs.CycleTotalTime := TO_DINT(tmp_DW);
-            // <= This is new inputs reading
-
-            //*****************************************
-            // HMI sync OK flag
-            Hmi.s.ComsSyncReadOK := coms_stable;
-            
-            // qualify stable comms (no sync errors for 1s)
-            // ton_coms_stable(IN := coms_read_ok, PT := T#1s);
-            // coms_stable := ton_coms_stable.Q;
-            ton_coms_stable(signal := coms_read_ok, duration := T#1s);
-            coms_stable := ton_coms_stable.output;
-            
-            // rising edge of comms restored
-            coms_just_restored := coms_stable AND (NOT p_coms_stable);
-            p_coms_stable := coms_stable;
-
-
-            
-            // ============================================================================
-            // Network 4: Process synchronous data into HMI status
-            // ============================================================================
-            
-            Hmi.s.RunningAndActiveSetupNotSame := (Inputs.ActiveSetup <> Inputs.RunningSetup);
-            
-            // ============================================================================
-            // Network 10: Trigger read on HMI req 
-            // ============================================================================
-            IF Hmi.c.read_active_setup AND (Outputs.ActiveSetupSelection = Inputs.ActiveSetup) THEN
-                par_read_map := par_read_map OR TO_WORD(2#0000000000000001);
-            END_IF;
-            
-            // ============================================================================
-            // Network 11: Trigger re-read on setup change indication
-            // ============================================================================
-            Outputs.ClearSetup := coms_read_ok AND Inputs.SystemStatus.SetupChanged;
-            
-            IF (NOT Inputs.SystemStatus.SetupChanged AND p_setup_changed) AND coms_read_ok THEN
-                par_read_map := par_read_map OR initial_parameter_refresh;
-            END_IF;
-            p_setup_changed := Inputs.SystemStatus.SetupChanged;
-            
-            // ============================================================================
-            // Network 12: Trigger test scan data read when scan finished
-            // ============================================================================
-            IF (NOT Inputs.SystemStatus.In_TestScan) AND p_testscan AND coms_read_ok THEN
-                on_demand_read_map := on_demand_read_map OR TO_WORD(2#0000000000000001); // -> async_read_no 17
-            END_IF;
-            p_testscan := Inputs.SystemStatus.In_TestScan;
-            
-            // ============================================================================
-            // Network 13: If Comms faulted to Generator write zeros to Generator Output.
-            // ============================================================================
-            // 
-            IF Config_reset_on_coms_fault AND NOT coms_read_ok THEN
-                Outputs.RunContinuously := FALSE;
-                Outputs.RunWeld := FALSE;
-                Outputs.RunTest := FALSE;
-                Outputs.ClearError := FALSE;
-                Outputs.OTF_AmplitudeEnable := FALSE;
-                Outputs.CycleStop := FALSE;
-                Outputs.FrontPanelLockout_0 := FALSE;
-                Outputs.FrontPanelLockout_1 := FALSE;
-                Outputs.RunScan := FALSE;
-                Outputs.ClearSetup := FALSE;
-            END_IF;
-
+            _dword.%B3                                                          := _data_in[136];
+            _dword.%B2                                                          := _data_in[137];
+            _dword.%B1                                                          := _data_in[138];
+            _dword.%B0                                                          := _data_in[139];
+            Inputs.CycleTotalTime := TO_DINT(_dword);
 
 
             //*************INITIALIZATION*************
             RestoreTask.Run(THIS);
-            TemplateTask_10steps_1.Run(THIS);
-            TemplateTask_10steps_2.Run(THIS);
-            TemplateTask_10steps_3.Run(THIS);
-            TemplateTask_10steps_4.Run(THIS);
-            TemplateTask_10steps_5.Run(THIS);
+            ClearErrorTask.Run(THIS);
+            ChangeWeldingSetupTask.Run(THIS);
+            ChangeWeldingProbeTask.Run(THIS);
+            CycleStopTask.Run(THIS);
+            RunWeldingWithTimeTask.Run(THIS);
             TemplateTask_10steps_6.Run(THIS);
             TemplateTask_20steps_1.Run(THIS);
             TemplateTask_20steps_2.Run(THIS);
@@ -891,11 +763,11 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             TemplateTask_20steps_6.Run(THIS);
     
             //****************************************
-    
+
             //********************Diagnostics*********        
             HardwareDiagnosticsTask.Run(THIS,Config.HWIDs.HW_Device);
             //****************************************
-    
+            _blink.Blink(THIS,T#500MS,T#500MS);
             //*************RESTORE********************
             RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
@@ -904,14 +776,14 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             //****************************************
             
     
-            //*************TemplateTask_10steps_1**************
-            TemplateTask_10steps_1.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_1.StartTriggered() THEN
+            //*************ClearErrorTask**************
+            ClearErrorTask.SetIsDisabled(FALSE);
+            IF ClearErrorTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#100,TemplateTask_10steps_1.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#101,TemplateTask_10steps_1.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_1.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#100,ClearErrorTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#101,ClearErrorTask.IsDone(), eAxoMessageCategory#Info);
+            IF ClearErrorTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
@@ -919,45 +791,44 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     _progress := 300;
                 END_IF;
     
-                IF _progress = 300 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 1>
+                IF _progress = 300 THEN                                                                                     // ClearErrorTask running: , <add the detailed description of the current action 4>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
-                    ReadRecord2req := FALSE;
-                    ReadRecord2( request := FALSE,record := str_read_buffer_254);
-                    IF NOT ReadRecord2.busy AND NOT ReadRecord2.error AND NOT ReadRecord2.valid THEN
+                    Outputs.ClearError := _blink.output;
+                    IF NOT Inputs.SystemStatus.Any_Fault THEN
+                        Outputs.ClearError := FALSE;                    
                         THIS.CallTimers(FALSE);
                         _progress := 301;
                     END_IF;
                 END_IF;
     
-                IF _progress = 301 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 2>
+                IF _progress = 301 THEN                                                                                     // ClearErrorTask running: , <add the detailed description of the current action 4>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
-                    ReadRecord2maxLen := UINT#64;
-                    ReadRecord2req := TRUE;
-                    IF ReadRecord2.busy THEN
+    
+                    IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 302;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 302 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 3>
+                IF _progress = 302 THEN                                                                                     // ClearErrorTask running: , <add the detailed description of the current action 4>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#502;
                     END_IF;
-
-                    IF NOT ReadRecord2.busy AND ReadRecord2.valid AND NOT ReadRecord2.error THEN
+    
+                    IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 303;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 303 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 4>
+                IF _progress = 303 THEN                                                                                     // ClearErrorTask running: , <add the detailed description of the current action 4>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#503;
@@ -969,7 +840,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 304 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 5>
+                IF _progress = 304 THEN                                                                                     // ClearErrorTask running: , <add the detailed description of the current action 5>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#504;
@@ -981,7 +852,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 305 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 6>
+                IF _progress = 305 THEN                                                                                     // ClearErrorTask running: , <add the detailed description of the current action 6>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#505;
@@ -993,7 +864,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 306 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 7>
+                IF _progress = 306 THEN                                                                                     // ClearErrorTask running: , <add the detailed description of the current action 7>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#506, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#506;
@@ -1005,7 +876,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 307 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 8>
+                IF _progress = 307 THEN                                                                                     // ClearErrorTask running: , <add the detailed description of the current action 8>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#507, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#507;
@@ -1017,7 +888,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 308 THEN                                                                                     // TemplateTask_10steps_1 running: , <add the detailed description of the current action 9>
+                IF _progress = 308 THEN                                                                                     // ClearErrorTask running: , <add the detailed description of the current action 9>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#508, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#508;
@@ -1030,51 +901,44 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 END_IF;
                 
                 IF _progress = 309 THEN         
-                    ReadRecord2req := FALSE;                                                                            // TemplateTask_10steps_1 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_1.DoneWhen(TRUE);
+                    ClearErrorTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
-
-                ReadRecord2( request := ReadRecord2req, 
-                    id := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),
-                    index := index_async_model_no,
-                    maxLength := ReadRecord2maxLen,
-                    record := str_read_buffer_254);
 
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_1.ThrowWhen(_errorTimer.output);
+                ClearErrorTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_1.ThrowWhen(TemplateTask_10steps_1.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_1 timeout.');                
+                ClearErrorTask.ThrowWhen(ClearErrorTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ClearErrorTask timeout.');                
             END_IF;
-            IF TemplateTask_10steps_1.DoneReached() THEN
+            IF ClearErrorTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_1.ErrorOccured() THEN
+            ELSIF ClearErrorTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10000;
                 Status.Error.Id  :=  UINT#10000;
-            ELSIF TemplateTask_10steps_1.AbortTriggered()THEN
+            ELSIF ClearErrorTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10001;
                 Status.Error.Id  :=  UINT#10001;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#10000,TemplateTask_10steps_1.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10001,TemplateTask_10steps_1.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#102,TemplateTask_10steps_1.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_1.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
+            Messenger.ActivateOnCondition(ULINT#10000,ClearErrorTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,ClearErrorTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#102,ClearErrorTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF ClearErrorTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
                 _progress := 0;
             END_IF;
             //**************************************************
     
-            //*************TemplateTask_10steps_2***************
-            TemplateTask_10steps_2.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_2.StartTriggered() THEN
+            //*************ChangeWeldingSetupTask***************
+            ChangeWeldingSetupTask.SetIsDisabled(FALSE);
+            IF ChangeWeldingSetupTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#110,TemplateTask_10steps_2.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#111,TemplateTask_10steps_2.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_2.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#110,ChangeWeldingSetupTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#111,ChangeWeldingSetupTask.IsDone(), eAxoMessageCategory#Info);
+            IF ChangeWeldingSetupTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
@@ -1082,43 +946,52 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     _progress := 310;
                 END_IF;
     
-                IF _progress = 310 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 1>
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#510;
-                    END_IF;
-    
-                    IF TRUE THEN
+                IF _progress = 310 THEN                                                                                     // ChangeWeldingSetupTask running: , <add the detailed description of the current action 1>
+                    // IF _infoTimer.output THEN
+                    //     TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
+                    //     Status.Error.Id :=      UINT#510;
+                    // END_IF;
+
+                    IF _setupNumber >= UINT#1 AND _setupNumber<= UINT#16 THEN
                         THIS.CallTimers(FALSE);
                         _progress := 311;
+                    ELSE
+                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Error);
+                        Status.Error.Id :=      UINT#510;
                     END_IF;
                 END_IF;
     
-                IF _progress = 311 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 2>
+                IF _progress = 311 THEN                                                                                     // ChangeWeldingSetupTask running: , changing active setup selected
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#511;
                     END_IF;
-    
-                    IF TRUE THEN
+
+                    THIS.Outputs.ActiveSetupSelection := _setupNumber;
+                    THIS.Outputs.RunningSetupSelection := _setupNumber;
+
+                    IF THIS.Outputs.ActiveSetupSelection = THIS.Inputs.ActiveSetup THEN
                         THIS.CallTimers(FALSE);
                         _progress := 312;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 312 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 3>
+                IF _progress = 312 THEN                                                                                     // ChangeWeldingSetupTask running: , changing running setup selected
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#512;
                     END_IF;
-    
-                    IF TRUE THEN
+
+                    THIS.Outputs.ActiveSetupSelection := _setupNumber;
+                    THIS.Outputs.RunningSetupSelection := _setupNumber;
+
+                    IF THIS.Outputs.RunningSetupSelection = THIS.Inputs.RunningSetup THEN
                         THIS.CallTimers(FALSE);
                         _progress := 313;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 313 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 4>
+                IF _progress = 313 THEN                                                                                     // ChangeWeldingSetupTask running: , <add the detailed description of the current action 4>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#513;
@@ -1130,7 +1003,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 314 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 5>
+                IF _progress = 314 THEN                                                                                     // ChangeWeldingSetupTask running: , <add the detailed description of the current action 5>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#514;
@@ -1142,7 +1015,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 315 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 6>
+                IF _progress = 315 THEN                                                                                     // ChangeWeldingSetupTask running: , <add the detailed description of the current action 6>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#515;
@@ -1154,7 +1027,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 316 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 7>
+                IF _progress = 316 THEN                                                                                     // ChangeWeldingSetupTask running: , <add the detailed description of the current action 7>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#516;
@@ -1166,7 +1039,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 317 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 8>
+                IF _progress = 317 THEN                                                                                     // ChangeWeldingSetupTask running: , <add the detailed description of the current action 8>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#517;
@@ -1178,7 +1051,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 318 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 9>
+                IF _progress = 318 THEN                                                                                     // ChangeWeldingSetupTask running: , <add the detailed description of the current action 9>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#518, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#518;
@@ -1190,44 +1063,44 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 319 THEN                                                                                     // TemplateTask_10steps_2 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_2.DoneWhen(TRUE);
+                IF _progress = 319 THEN                                                                                     // ChangeWeldingSetupTask running: , <add the detailed description of the current action 10>
+                    ChangeWeldingSetupTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_2.ThrowWhen(_errorTimer.output);
+                ChangeWeldingSetupTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_2.ThrowWhen(TemplateTask_10steps_2.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_2 timeout.');                
+                ChangeWeldingSetupTask.ThrowWhen(ChangeWeldingSetupTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ChangeWeldingSetupTask timeout.');                
             END_IF;
-            IF TemplateTask_10steps_2.DoneReached() THEN
+            IF ChangeWeldingSetupTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_2.ErrorOccured() THEN
+            ELSIF ChangeWeldingSetupTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10010;
                 Status.Error.Id  :=  UINT#10010;
-            ELSIF TemplateTask_10steps_2.AbortTriggered()THEN
+            ELSIF ChangeWeldingSetupTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10011;
                 Status.Error.Id  :=  UINT#10011;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#10010,TemplateTask_10steps_2.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10011,TemplateTask_10steps_2.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,TemplateTask_10steps_2.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_2.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
+            Messenger.ActivateOnCondition(ULINT#10010,ChangeWeldingSetupTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10011,ChangeWeldingSetupTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#112,ChangeWeldingSetupTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF ChangeWeldingSetupTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
                 Status.Action.Id :=  UINT#112;
                 _progress := 0;
             END_IF;
             //**************************************************
     
-            //*************TemplateTask_10steps_3***************
-            TemplateTask_10steps_3.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_3.StartTriggered() THEN
+            //*************ChangeWeldingProbeTask***************
+            ChangeWeldingProbeTask.SetIsDisabled(FALSE);
+            IF ChangeWeldingProbeTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#120,TemplateTask_10steps_3.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#121,TemplateTask_10steps_3.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_3.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#120,ChangeWeldingProbeTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#121,ChangeWeldingProbeTask.IsDone(), eAxoMessageCategory#Info);
+            IF ChangeWeldingProbeTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
@@ -1235,31 +1108,36 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     _progress := 320;
                 END_IF;
     
-                IF _progress = 320 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 1>
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#520;
-                    END_IF;
+                IF _progress = 320 THEN                                                                                     // ChangeWeldingProbeTask running: , <add the detailed description of the current action 1>
+                    // IF _infoTimer.output THEN
+                    //     TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
+                    //     Status.Error.Id :=      UINT#520;
+                    // END_IF;
     
-                    IF TRUE THEN
+                    IF _probeNumber >= UINT#1 AND _probeNumber<= UINT#16 THEN
                         THIS.CallTimers(FALSE);
                         _progress := 321;
+                    ELSE
+                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Error);
+                        Status.Error.Id :=      UINT#520;
                     END_IF;
                 END_IF;
     
-                IF _progress = 321 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 2>
+                IF _progress = 321 THEN                                                                                     // ChangeWeldingProbeTask running: , <add the detailed description of the current action 2>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#521;
                     END_IF;
-    
-                    IF TRUE THEN
+
+                    THIS.Outputs.RunningMPCProbeSelection  := _probeNumber;
+
+                    IF THIS.Outputs.RunningMPCProbeSelection = THIS.Inputs.RunningMPCProbe THEN
                         THIS.CallTimers(FALSE);
                         _progress := 322;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 322 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 3>
+                IF _progress = 322 THEN                                                                                     // ChangeWeldingProbeTask running: , <add the detailed description of the current action 3>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#522;
@@ -1271,7 +1149,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 323 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 4>
+                IF _progress = 323 THEN                                                                                     // ChangeWeldingProbeTask running: , <add the detailed description of the current action 4>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#523;
@@ -1283,7 +1161,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 324 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 5>
+                IF _progress = 324 THEN                                                                                     // ChangeWeldingProbeTask running: , <add the detailed description of the current action 5>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#524;
@@ -1295,7 +1173,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 325 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 6>
+                IF _progress = 325 THEN                                                                                     // ChangeWeldingProbeTask running: , <add the detailed description of the current action 6>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#525;
@@ -1307,7 +1185,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 326 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 7>
+                IF _progress = 326 THEN                                                                                     // ChangeWeldingProbeTask running: , <add the detailed description of the current action 7>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#526;
@@ -1319,7 +1197,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 327 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 8>
+                IF _progress = 327 THEN                                                                                     // ChangeWeldingProbeTask running: , <add the detailed description of the current action 8>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#527;
@@ -1331,7 +1209,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 328 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 9>
+                IF _progress = 328 THEN                                                                                     // ChangeWeldingProbeTask running: , <add the detailed description of the current action 9>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#528, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#528;
@@ -1343,44 +1221,44 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 329 THEN                                                                                     // TemplateTask_10steps_3 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_3.DoneWhen(TRUE);
+                IF _progress = 329 THEN                                                                                     // ChangeWeldingProbeTask running: , <add the detailed description of the current action 10>
+                    ChangeWeldingProbeTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_3.ThrowWhen(_errorTimer.output);
+                ChangeWeldingProbeTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_3.ThrowWhen(TemplateTask_10steps_3.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_3 timeout.');                
+                ChangeWeldingProbeTask.ThrowWhen(ChangeWeldingProbeTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ChangeWeldingProbeTask timeout.');                
             END_IF;
-            IF TemplateTask_10steps_3.DoneReached() THEN
+            IF ChangeWeldingProbeTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_3.ErrorOccured() THEN
+            ELSIF ChangeWeldingProbeTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10020;
                 Status.Error.Id  :=  UINT#10020;
-            ELSIF TemplateTask_10steps_3.AbortTriggered()THEN
+            ELSIF ChangeWeldingProbeTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10021;
                 Status.Error.Id  :=  UINT#10021;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#10020,TemplateTask_10steps_3.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10021,TemplateTask_10steps_3.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#122,TemplateTask_10steps_3.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_3.RestoreTriggered() AND _progress >= 320 AND _progress <= 329  THEN
+            Messenger.ActivateOnCondition(ULINT#10020,ChangeWeldingProbeTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10021,ChangeWeldingProbeTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#122,ChangeWeldingProbeTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF ChangeWeldingProbeTask.RestoreTriggered() AND _progress >= 320 AND _progress <= 329  THEN
                 Status.Action.Id :=  UINT#122;
                 _progress := 0;
             END_IF;
             //**************************************************
     
-            //*************TemplateTask_10steps_4***************
-            TemplateTask_10steps_4.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_4.StartTriggered() THEN
+            //*************CycleStopTask***************
+            CycleStopTask.SetIsDisabled(FALSE);
+            IF CycleStopTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#130;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#130,TemplateTask_10steps_4.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#131,TemplateTask_10steps_4.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_4.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#130,CycleStopTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#131,CycleStopTask.IsDone(), eAxoMessageCategory#Info);
+            IF CycleStopTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
@@ -1388,19 +1266,22 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     _progress := 330;
                 END_IF;
     
-                IF _progress = 330 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 1>
+                IF _progress = 330 THEN                                                                                     // CycleStopTask running: , <add the detailed description of the current action 1>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#530;
                     END_IF;
     
-                    IF TRUE THEN
+                    Outputs.CycleStop := TRUE;
+
+                    IF NOT Inputs.SystemStatus.InCycle THEN
+                        Outputs.CycleStop := FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := 331;
                     END_IF;
                 END_IF;
     
-                IF _progress = 331 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 2>
+                IF _progress = 331 THEN                                                                                     // CycleStopTask running: , <add the detailed description of the current action 2>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#531;
@@ -1412,7 +1293,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 332 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 3>
+                IF _progress = 332 THEN                                                                                     // CycleStopTask running: , <add the detailed description of the current action 3>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#532;
@@ -1424,7 +1305,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 333 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 4>
+                IF _progress = 333 THEN                                                                                     // CycleStopTask running: , <add the detailed description of the current action 4>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#533, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#533;
@@ -1436,7 +1317,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 334 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 5>
+                IF _progress = 334 THEN                                                                                     // CycleStopTask running: , <add the detailed description of the current action 5>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#534, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#534;
@@ -1448,7 +1329,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 335 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 6>
+                IF _progress = 335 THEN                                                                                     // CycleStopTask running: , <add the detailed description of the current action 6>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#535, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#535;
@@ -1460,7 +1341,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 336 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 7>
+                IF _progress = 336 THEN                                                                                     // CycleStopTask running: , <add the detailed description of the current action 7>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#536, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#536;
@@ -1472,7 +1353,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 337 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 8>
+                IF _progress = 337 THEN                                                                                     // CycleStopTask running: , <add the detailed description of the current action 8>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#537, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#537;
@@ -1484,7 +1365,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 338 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 9>
+                IF _progress = 338 THEN                                                                                     // CycleStopTask running: , <add the detailed description of the current action 9>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#538, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#538;
@@ -1496,44 +1377,44 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 339 THEN                                                                                     // TemplateTask_10steps_4 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_4.DoneWhen(TRUE);
+                IF _progress = 339 THEN                                                                                     // CycleStopTask running: , <add the detailed description of the current action 10>
+                    CycleStopTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_4.ThrowWhen(_errorTimer.output);
+                CycleStopTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_4.ThrowWhen(TemplateTask_10steps_4.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_4 timeout.');                
+                CycleStopTask.ThrowWhen(CycleStopTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'CycleStopTask timeout.');                
             END_IF;
-            IF TemplateTask_10steps_4.DoneReached() THEN
+            IF CycleStopTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#131;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_4.ErrorOccured() THEN
+            ELSIF CycleStopTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10030;
                 Status.Error.Id  :=  UINT#10030;
-            ELSIF TemplateTask_10steps_4.AbortTriggered()THEN
+            ELSIF CycleStopTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10031;
                 Status.Error.Id  :=  UINT#10031;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#10030,TemplateTask_10steps_4.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10031,TemplateTask_10steps_4.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#132,TemplateTask_10steps_4.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_4.RestoreTriggered() AND _progress >= 330 AND _progress <= 339  THEN
+            Messenger.ActivateOnCondition(ULINT#10030,CycleStopTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10031,CycleStopTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#132,CycleStopTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF CycleStopTask.RestoreTriggered() AND _progress >= 330 AND _progress <= 339  THEN
                 Status.Action.Id :=  UINT#132;
                 _progress := 0;
             END_IF;
             //**************************************************
     
-            //*************TemplateTask_10steps_5***************
-            TemplateTask_10steps_5.SetIsDisabled(FALSE);
-            IF TemplateTask_10steps_5.StartTriggered() THEN
+            //*************RunWeldingWithTimeTask***************
+            RunWeldingWithTimeTask.SetIsDisabled(FALSE);
+            IF RunWeldingWithTimeTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#140;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#140,TemplateTask_10steps_5.IsBusy(), eAxoMessageCategory#Info);
-            Messenger.ActivateOnCondition(ULINT#141,TemplateTask_10steps_5.IsDone(), eAxoMessageCategory#Info);
-            IF TemplateTask_10steps_5.Execute(THIS) THEN
+            Messenger.ActivateOnCondition(ULINT#140,RunWeldingWithTimeTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#141,RunWeldingWithTimeTask.IsDone(), eAxoMessageCategory#Info);
+            IF RunWeldingWithTimeTask.Execute(THIS) THEN
                 IF _progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
@@ -1541,103 +1422,127 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     _progress := 340;
                 END_IF;
     
-                IF _progress = 340 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 1>
+                IF _progress = 340 THEN                                                                                     // RunWeldingWithTimeTask running: , <add the detailed description of the current action 1>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#540;
                     END_IF;
-    
-                    IF TRUE THEN
+
+                    Outputs.ClearError := _blink.output;
+
+                    IF NOT Inputs.SystemStatus.Any_Fault AND Inputs.SystemStatus.Ready THEN
+                        Outputs.ClearError := FALSE;                    
                         THIS.CallTimers(FALSE);
                         _progress := 341;
                     END_IF;
                 END_IF;
     
-                IF _progress = 341 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 2>
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#541;
-                    END_IF;
+                IF _progress = 341 THEN                                                                                     // RunWeldingWithTimeTask running: , <add the detailed description of the current action 2>
+                    // IF _infoTimer.output THEN
+                    //     TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
+                    //     Status.Error.Id :=      UINT#541;
+                    // END_IF;
     
-                    IF TRUE THEN
+                    IF _setupNumber >= UINT#1 AND _setupNumber<= UINT#16 THEN
                         THIS.CallTimers(FALSE);
                         _progress := 342;
+                    ELSE
+                        TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Error);
+                        Status.Error.Id :=      UINT#541;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 342 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 3>
+                IF _progress = 342 THEN                                                                                     // RunWeldingWithTimeTask running: , <add the detailed description of the current action 3>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#542, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#542;
                     END_IF;
-    
-                    IF TRUE THEN
+
+                    THIS.Outputs.ActiveSetupSelection := _setupNumber;
+                    THIS.Outputs.RunningSetupSelection := _setupNumber;
+
+                    IF THIS.Outputs.ActiveSetupSelection = THIS.Inputs.ActiveSetup THEN
                         THIS.CallTimers(FALSE);
                         _progress := 343;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 343 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 4>
+                IF _progress = 343 THEN                                                                                     // RunWeldingWithTimeTask running: , <add the detailed description of the current action 4>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#543, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#543;
                     END_IF;
-    
-                    IF TRUE THEN
+
+                    THIS.Outputs.ActiveSetupSelection := _setupNumber;
+                    THIS.Outputs.RunningSetupSelection := _setupNumber;
+
+                    IF THIS.Outputs.RunningSetupSelection = THIS.Inputs.RunningSetup THEN
                         THIS.CallTimers(FALSE);
                         _progress := 344;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 344 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 5>
+                IF _progress = 344 THEN                                                                                     // RunWeldingWithTimeTask running: , <add the detailed description of the current action 5>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#544, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#544;
                     END_IF;
-    
-                    IF TRUE THEN
+                    
+                    THIS.Outputs.RunningMPCProbeSelection  := _probeNumber;
+
+                    IF THIS.Outputs.RunningMPCProbeSelection = THIS.Inputs.RunningMPCProbe THEN
                         THIS.CallTimers(FALSE);
                         _progress := 345;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 345 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 6>
+                IF _progress = 345 THEN                                                                                     // RunWeldingWithTimeTask running: , <add the detailed description of the current action 6>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#545, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#545;
                     END_IF;
-    
-                    IF TRUE THEN
+                    
+                    _weldingTimer.OnDelay(THIS,FALSE,T#0S);
+
+                    Outputs.RunContinuously := TRUE;
+                    
+                    IF Inputs.SystemStatus.InCycle THEN
                         THIS.CallTimers(FALSE);
                         _progress := 346;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 346 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 7>
+                IF _progress = 346 THEN                                                                                     // RunWeldingWithTimeTask running: , <add the detailed description of the current action 7>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#546, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#546;
                     END_IF;
-    
-                    IF TRUE THEN
+
+                    _weldingTimer.OnDelay(THIS,TRUE,_weldingTime);
+
+                    IF _weldingTimer.output THEN
+                        _weldingTimer.OnDelay(THIS,FALSE,T#0S);
                         THIS.CallTimers(FALSE);
                         _progress := 347;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 347 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 8>
+                IF _progress = 347 THEN                                                                                     // RunWeldingWithTimeTask running: , <add the detailed description of the current action 8>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#547, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#547;
                     END_IF;
     
-                    IF TRUE THEN
+                    Outputs.RunContinuously := FALSE;
+                    Outputs.CycleStop := TRUE;
+                    IF NOT Inputs.SystemStatus.InCycle AND Inputs.SystemStatus.Ready THEN
+                        Outputs.CycleStop := FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := 348;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 348 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 9>
+                IF _progress = 348 THEN                                                                                     // RunWeldingWithTimeTask running: , <add the detailed description of the current action 9>
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#548, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#548;
@@ -1649,31 +1554,31 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     END_IF;
                 END_IF;
                 
-                IF _progress = 349 THEN                                                                                     // TemplateTask_10steps_5 running: , <add the detailed description of the current action 10>
-                    TemplateTask_10steps_5.DoneWhen(TRUE);
+                IF _progress = 349 THEN                                                                                     // RunWeldingWithTimeTask running: , <add the detailed description of the current action 10>
+                    RunWeldingWithTimeTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
     
                 THIS.CallTimers(TRUE);
                 
-                TemplateTask_10steps_5.ThrowWhen(_errorTimer.output);
+                RunWeldingWithTimeTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_5.ThrowWhen(TemplateTask_10steps_5.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_5 timeout.');                
+                RunWeldingWithTimeTask.ThrowWhen(RunWeldingWithTimeTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'RunWeldingWithTimeTask timeout.');                
             END_IF;
-            IF TemplateTask_10steps_5.DoneReached() THEN
+            IF RunWeldingWithTimeTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#141;
                 Status.Error.Id :=  UINT#0;
-            ELSIF TemplateTask_10steps_5.ErrorOccured() THEN
+            ELSIF RunWeldingWithTimeTask.ErrorOccured() THEN
                 Status.Action.Id :=  UINT#10040;
                 Status.Error.Id  :=  UINT#10040;
-            ELSIF TemplateTask_10steps_5.AbortTriggered()THEN
+            ELSIF RunWeldingWithTimeTask.AbortTriggered()THEN
                 Status.Action.Id :=  UINT#10041;
                 Status.Error.Id  :=  UINT#10041;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#10040,TemplateTask_10steps_5.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10041,TemplateTask_10steps_5.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#142,TemplateTask_10steps_5.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF TemplateTask_10steps_5.RestoreTriggered() AND _progress >= 340 AND _progress <= 349  THEN
+            Messenger.ActivateOnCondition(ULINT#10040,RunWeldingWithTimeTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10041,RunWeldingWithTimeTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#142,RunWeldingWithTimeTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF RunWeldingWithTimeTask.RestoreTriggered() AND _progress >= 340 AND _progress <= 349  THEN
                 Status.Action.Id :=  UINT#142;
                 _progress := 0;
             END_IF;
@@ -3471,11 +3376,6 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             //******************************************      
 
             //***********Update outputs ****************
-            // ============================================================================
-            // Network 14: Write synchronous data to the module (outputs)
-            // ============================================================================
-
-            // This is new outputs writing =>
             // _data_out[0].%X0    :=  Outputs.N0;
             // _data_out[0].%X1    :=  Outputs.N01;
             // _data_out[0].%X2    :=  Outputs.N02;
@@ -3509,29 +3409,29 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             _data_out[3].%X6    :=  Outputs.FrontPanelLockout_0;
             _data_out[3].%X7    :=  Outputs.FrontPanelLockout_1;
 
-            tmp_DW              :=  TO_DWORD(Outputs.OTF_Amp_Setpoint); 
-            _data_out[4]        :=  tmp_DW.%B3;
-            _data_out[5]        :=  tmp_DW.%B2;
-            _data_out[6]        :=  tmp_DW.%B1;
-            _data_out[7]        :=  tmp_DW.%B0;
+            _dword              :=  TO_DWORD(Outputs.OTF_Amp_Setpoint); 
+            _data_out[4]        :=  _dword.%B3;
+            _data_out[5]        :=  _dword.%B2;
+            _data_out[6]        :=  _dword.%B1;
+            _data_out[7]        :=  _dword.%B0;
 
-            tmp_DW              :=  TO_DWORD(Outputs.ActiveSetupSelection); 
-            _data_out[8]        :=  tmp_DW.%B3;
-            _data_out[9]        :=  tmp_DW.%B2;
-            _data_out[10]       :=  tmp_DW.%B1;
-            _data_out[11]       :=  tmp_DW.%B0;
+            _dword              :=  TO_DWORD(Outputs.ActiveSetupSelection); 
+            _data_out[8]        :=  _dword.%B3;
+            _data_out[9]        :=  _dword.%B2;
+            _data_out[10]       :=  _dword.%B1;
+            _data_out[11]       :=  _dword.%B0;
 
-            tmp_DW              :=  TO_DWORD(Outputs.RunningSetupSelection); 
-            _data_out[12]       :=  tmp_DW.%B3;
-            _data_out[13]       :=  tmp_DW.%B2;
-            _data_out[14]       :=  tmp_DW.%B1;
-            _data_out[15]       :=  tmp_DW.%B0;
+            _dword              :=  TO_DWORD(Outputs.RunningSetupSelection); 
+            _data_out[12]       :=  _dword.%B3;
+            _data_out[13]       :=  _dword.%B2;
+            _data_out[14]       :=  _dword.%B1;
+            _data_out[15]       :=  _dword.%B0;
 
-            tmp_DW              :=  TO_DWORD(Outputs.RunningMPCProbeSelection); 
-            _data_out[16]       :=  tmp_DW.%B3;
-            _data_out[17]       :=  tmp_DW.%B2;
-            _data_out[18]       :=  tmp_DW.%B1;
-            _data_out[19]       :=  tmp_DW.%B0;
+            _dword              :=  TO_DWORD(Outputs.RunningMPCProbeSelection); 
+            _data_out[16]       :=  _dword.%B3;
+            _data_out[17]       :=  _dword.%B2;
+            _data_out[18]       :=  _dword.%B1;
+            _data_out[19]       :=  _dword.%B0;
 
             _retval := WriteData(LADDR := TO_WORD(Config.HWIDs.HwID_PLC_to_iQ_Outputs),RECORD := _data_out);
             IF _retval > WORD#0 THEN
@@ -3539,44 +3439,42 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 Status.Error.Id := UINT#1231;
                 RETURN;
             END_IF;            
-            // <= This is new outputs writing 
-
-            // ============================================================================
-            // Network 15: Read req - HMI export (indicators)
-            // ============================================================================
-            // tof_async_read_ind(IN := (par_read_map <> 0) OR (on_demand_read_map <> 0) OR (model_read_map <> 0),PT := T#500ms);
-            // Hmi.s.AsyncReadIndicator := tof_async_read_ind.Q;
-            tof_async_read_ind(signal := (par_read_map <> WORD#0) OR (on_demand_read_map <> WORD#0) OR (model_read_map <> WORD#0) , duration := T#500ms);
-            Hmi.s.AsyncReadIndicator := tof_async_read_ind.output;
-            
-            
-            // ============================================================================
-            // Network 19: Write req - HMI export (indicators) + response handling
-            // ============================================================================
-            
-            tof_async_write_ind(signal := (par_write_map <> WORD#0) OR (on_demand_write_map <> WORD#0), duration := T#500ms);
-            Hmi.s.AsyncWriteIndicator := tof_async_write_ind.output;
-            
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_1 : IAxoTaskState
-            TemplateMethod_10steps_1 := TemplateTask_10steps_1.Invoke(THIS);
+        METHOD PUBLIC ClearError : IAxoTaskState
+            ClearError := ClearErrorTask.Invoke(THIS);
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_2 : IAxoTaskState
-            TemplateMethod_10steps_2 := TemplateTask_10steps_2.Invoke(THIS);
+        METHOD PUBLIC ChangeWeldingSetup : IAxoTaskState
+            VAR_INPUT
+                SetupNumber : UINT;
+            END_VAR
+            _setupNumber := SetupNumber;
+            ChangeWeldingSetup := ChangeWeldingSetupTask.Invoke(THIS);
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_3 : IAxoTaskState
-            TemplateMethod_10steps_3 := TemplateTask_10steps_3.Invoke(THIS);
+        METHOD PUBLIC ChangeWeldingProbe : IAxoTaskState
+            VAR_INPUT
+                ProbeNumber : UINT;
+            END_VAR
+            _probeNumber := ProbeNumber;            
+            ChangeWeldingProbe := ChangeWeldingProbeTask.Invoke(THIS);
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_4 : IAxoTaskState
-            TemplateMethod_10steps_4 := TemplateTask_10steps_4.Invoke(THIS);
+        METHOD PUBLIC CycleStop : IAxoTaskState
+            CycleStop := CycleStopTask.Invoke(THIS);
         END_METHOD
 
-        METHOD PUBLIC TemplateMethod_10steps_5 : IAxoTaskState
-            TemplateMethod_10steps_5 := TemplateTask_10steps_5.Invoke(THIS);
+        METHOD PUBLIC RunWeldingWithTime : IAxoTaskState
+            VAR_INPUT
+                SetupNumber : UINT;
+                ProbeNumber : UINT;
+                WeldingTime : LTIME;
+            END_VAR
+            _setupNumber := SetupNumber;
+            _probeNumber := ProbeNumber;   
+            _weldingTime := WeldingTime;
+            RunWeldingWithTime := RunWeldingWithTimeTask.Invoke(THIS);
         END_METHOD
 
         METHOD PUBLIC TemplateMethod_10steps_6 : IAxoTaskState
@@ -3609,6 +3507,9 @@ NAMESPACE AXOpen.Components.Dukane.Welders
 
 
         METHOD PROTECTED OVERRIDE ManualControl
+            _setupNumber := RequiredSetupNumber;
+            _probeNumber := RequiredProbeNumber;
+            _weldingTime := RequiredWeldingTime;
             THIS._isManuallyControllable := true;
         END_METHOD
         
@@ -3625,37 +3526,26 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             _progress       :=   INT#0;
             _retVal    :=   WORD#0;
 
-            _data_out_1[0] := BYTE#0;
-            _data_out_2[0] := BYTE#0;
-            _data_out_2[1] := BYTE#0;
 
-            FOR _index := 0 TO 3 DO
-                _data_in[_index] := BYTE#0;
-                _data_out_4[_index] := BYTE#0;
-                _data_out_8[_index] := BYTE#0;
-                _data_out_255[_index] := BYTE#0;
+            FOR _index := 0 TO 19 DO
+                _data_in[_index]    := BYTE#0;
+                _data_out[_index]   := BYTE#0;
             END_FOR;
 
-            FOR _index := 4 TO 7 DO
+            FOR _index := 20 TO 139 DO
                 _data_in[_index] := BYTE#0;
-                _data_out_8[_index] := BYTE#0;
-                _data_out_255[_index] := BYTE#0;
-            END_FOR;
-
-            FOR _index := 8 TO 254 DO
-                _data_in[_index] := BYTE#0;
-                _data_out_255[_index] := BYTE#0;
             END_FOR;
 
             _word           :=   WORD#0;
             _dword          :=   DWORD#0;
 
+            _weldingTimer.OnDelay(THIS,FALSE,T#0S);
 
-            TemplateTask_10steps_1.Restore();
-            TemplateTask_10steps_2.Restore();
-            TemplateTask_10steps_3.Restore();
-            TemplateTask_10steps_4.Restore();
-            TemplateTask_10steps_5.Restore();
+            ClearErrorTask.Restore();
+            ChangeWeldingSetupTask.Restore();
+            ChangeWeldingProbeTask.Restore();
+            CycleStopTask.Restore();
+            RunWeldingWithTimeTask.Restore();
             TemplateTask_10steps_6.Restore();
             TemplateTask_20steps_1.Restore();
             TemplateTask_20steps_2.Restore();
@@ -3664,6 +3554,23 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             TemplateTask_20steps_5.Restore();
             TemplateTask_20steps_6.Restore();
             HardwareDiagnosticsTask.Restore();
+
+
+            Outputs.ClearSetup := FALSE;
+            Outputs.RunScan := FALSE;
+            Outputs.RunContinuously := FALSE;
+            Outputs.RunWeld := FALSE;
+            Outputs.RunTest := FALSE;
+            Outputs.ClearError := FALSE;
+            Outputs.OTF_AmplitudeEnable := FALSE;
+            Outputs.CycleStop := FALSE;
+            Outputs.FrontPanelLockout_0 := FALSE;
+            Outputs.FrontPanelLockout_1 := FALSE;
+            // Outputs.OTF_Amp_Setpoint := DINT#0;
+            // Outputs.ActiveSetupSelection := DINT#0;
+            // Outputs.RunningSetupSelection := DINT#0;
+            // Outputs.RunningMPCProbeSelection := DINT#0;
+
 
             Status.Action.Id := UINT#50;
             RestoreTask.DoneWhen(TRUE);
