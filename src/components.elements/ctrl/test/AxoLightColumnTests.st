@@ -12,7 +12,7 @@ NAMESPACE AXOpen.Elements.Tests
     CLASS AxoLightColumnTests 
         VAR 
             context : TestContext;
-            _testLightColumn : AxoLightColumn;
+            _testLightColumn : AxoSignalTower;
             _redOutput : BOOL;
             _greenOutput : BOOL;
             _blueOutput : BOOL;

@@ -12,7 +12,7 @@ NAMESPACE AXOpen.Elements.Tests
     CLASS AxoButtonWithIndicatorTests 
         VAR 
             context : TestContext;
-            _testButtonWithIndicator : AxoLedButton;
+            _testButtonWithIndicator : AxoBacklitButton;
             _inputSignal : BOOL;
             _ledOutput : BOOL;
         END_VAR   

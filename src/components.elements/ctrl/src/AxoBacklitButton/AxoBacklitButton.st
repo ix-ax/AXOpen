@@ -3,7 +3,7 @@ NAMESPACE AXOpen.Components.Elements
     /// Button with LED indicator component.
     /// </summary>
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoLedButton 
+    CLASS PUBLIC AxoBacklitButton 
         EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Wrap)]}

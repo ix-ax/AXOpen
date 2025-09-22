@@ -3,7 +3,7 @@ NAMESPACE AXOpen.Components.Elements
     /// Represents a light column with multiple color lights.
     /// </summary>
     {S7.extern=ReadWrite}
-    CLASS AxoLightColumn 
+    CLASS AxoSignalTower 
         EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC
             Red                :   AXOpen.Elements.AxoDo; 
