@@ -25,7 +25,7 @@ NAMESPACE AXOpen.Components.Elements
             END_VAR
 
             VAR_OUTPUT
-                oLock : BOOL;
+                outLock : BOOL;
             END_VAR
 
             IF (inParent = NULL) THEN 
@@ -35,7 +35,7 @@ NAMESPACE AXOpen.Components.Elements
             SUPER.Run(inParent);
             THIS.IsLockOpen.Run(parent := THIS, inSignal    :=  inIsLockOpen );
             THIS.IsSensorOpen.Run(parent := THIS, inSignal    :=  inIsSensorOpen );
-            THIS.LockActionSignal.Run(parent := THIS, oSignal    =>  oLock );
+            THIS.LockActionSignal.Run(parent := THIS, oSignal    =>  outLock );
             _IsLocked := inIsLocked;
         END_METHOD
 

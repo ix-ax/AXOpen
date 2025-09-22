@@ -22,11 +22,11 @@ NAMESPACE AXOpen.Components.Elements
             END_VAR
 
             VAR_OUTPUT
-                oRed    : BOOL;
-                oGreen  : BOOL;
-                oBlue   : BOOL;
-                oYellow : BOOL;
-                oHorn   : BOOL;
+                outRed    : BOOL;
+                outGreen  : BOOL;
+                outBlue   : BOOL;
+                outYellow : BOOL;
+                outHorn   : BOOL;
             END_VAR
 
             IF (inParent = NULL) THEN 
@@ -35,11 +35,11 @@ NAMESPACE AXOpen.Components.Elements
 
             SUPER.Run(inParent);
 
-            THIS.Red.Run    (  parent := THIS, oSignal    =>  oRed );
-            THIS.Green.Run  (  parent := THIS, oSignal    =>  oGreen );
-            THIS.Blue.Run   (  parent := THIS, oSignal    =>  oBlue );
-            THIS.Yellow.Run (  parent := THIS, oSignal    =>  oYellow );
-            THIS.Horn.Run   (  parent := THIS, oSignal    =>  oHorn );
+            THIS.Red.Run    (  parent := THIS, oSignal    =>  outRed );
+            THIS.Green.Run  (  parent := THIS, oSignal    =>  outGreen );
+            THIS.Blue.Run   (  parent := THIS, oSignal    =>  outBlue );
+            THIS.Yellow.Run (  parent := THIS, oSignal    =>  outYellow );
+            THIS.Horn.Run   (  parent := THIS, oSignal    =>  outHorn );
         END_METHOD
     
         /// <summary>

@@ -29,7 +29,7 @@ NAMESPACE AXOpen.Components.Elements
             END_VAR
 
             VAR_OUTPUT
-                oLed : BOOL;
+                outLed : BOOL;
             END_VAR
 
             IF (inParent = NULL) THEN 
@@ -38,7 +38,7 @@ NAMESPACE AXOpen.Components.Elements
 
             SUPER.Run(inParent);
             THIS.Button.Run(  parent := THIS, inSignal    :=  inSignal );
-            THIS.Led.Run(  parent := THIS, oSignal    =>  oLed );
+            THIS.Led.Run(  parent := THIS, oSignal    =>  outLed );
         END_METHOD
 
         /// <summary>
