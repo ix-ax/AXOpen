@@ -3590,4 +3590,3 @@ NAMESPACE AXOpen.Components.Dukane.Welders
     END_CLASS
 END_NAMESPACE
 
-
