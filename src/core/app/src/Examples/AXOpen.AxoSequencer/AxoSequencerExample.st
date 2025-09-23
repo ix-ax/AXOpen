@@ -33,6 +33,7 @@ NAMESPACE AxoSequencerExamples
             step_9 : AxoStep;
             {#ix-set:Description = "Step number ten"}
             step_10 : AxoStep;
+            Enable : ARRAY[0..10] OF BOOL;
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main    
@@ -42,71 +43,70 @@ NAMESPACE AxoSequencerExamples
             
                 Counter := Counter + ULINT#1;
 
-                IF(step_1.Execute(coord)) THEN  
+                IF(step_1.Execute(coord,Enable[1])) THEN  
                     IF(Counter >= ULINT#100 ) THEN
                         Counter := ULINT#0;
                         coord.MoveNext();
                     END_IF;    
                 END_IF;    
             
-                IF(step_2.Execute(coord)) THEN
+                IF(step_2.Execute(coord,Enable[2])) THEN
                     IF(Counter >= ULINT#100) THEN
                         Counter := ULINT#0;
                         coord.MoveNext();
                     END_IF;    
                 END_IF; 
 
-                IF(step_3.Execute(coord)) THEN
-                    IF(Counter >= ULINT#100) THEN
-                        Counter := ULINT#0;
-                        step_3.ThrowWhen(TRUE);
-                        coord.MoveNext();
-                    END_IF;    
-                END_IF; 
-
-                IF(step_4.Execute(coord)) THEN
+                IF(step_3.Execute(coord,Enable[3])) THEN
                     IF(Counter >= ULINT#100) THEN
                         Counter := ULINT#0;
                         coord.MoveNext();
                     END_IF;    
                 END_IF; 
 
-                IF(step_5.Execute(coord)) THEN
+                IF(step_4.Execute(coord,Enable[4])) THEN
                     IF(Counter >= ULINT#100) THEN
                         Counter := ULINT#0;
                         coord.MoveNext();
                     END_IF;    
                 END_IF; 
 
-                IF(step_6.Execute(coord)) THEN
+                IF(step_5.Execute(coord,Enable[5])) THEN
                     IF(Counter >= ULINT#100) THEN
                         Counter := ULINT#0;
                         coord.MoveNext();
                     END_IF;    
                 END_IF; 
 
-                IF(step_7.Execute(coord)) THEN
+                IF(step_6.Execute(coord,Enable[6])) THEN
                     IF(Counter >= ULINT#100) THEN
                         Counter := ULINT#0;
                         coord.MoveNext();
                     END_IF;    
                 END_IF; 
 
-                IF(step_8.Execute(coord)) THEN
+                IF(step_7.Execute(coord,Enable[7])) THEN
                     IF(Counter >= ULINT#100) THEN
                         Counter := ULINT#0;
                         coord.MoveNext();
                     END_IF;    
                 END_IF; 
 
-                IF(step_9.Execute(coord)) THEN
+                IF(step_8.Execute(coord,Enable[8])) THEN
                     IF(Counter >= ULINT#100) THEN
                         Counter := ULINT#0;
                         coord.MoveNext();
                     END_IF;    
                 END_IF; 
 
-                IF(step_10.Execute(coord)) THEN
+                IF(step_9.Execute(coord,Enable[9])) THEN
+                    IF(Counter >= ULINT#100) THEN
+                        Counter := ULINT#0;
+                        coord.MoveNext();
+                    END_IF;    
+                END_IF; 
+
+                IF(step_10.Execute(coord,Enable[10])) THEN
                     IF(Counter >= ULINT#100) THEN
                         Counter := ULINT#0;
                         coord.CompleteSequence();
