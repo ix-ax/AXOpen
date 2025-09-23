@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AXOpen;
 using Microsoft.AspNetCore.Components.Authorization;
+using AXOpen.Security.Services;
 
 namespace AxOpen.Security.Services
 {
@@ -17,7 +18,7 @@ namespace AxOpen.Security.Services
     {
         public static void ConfigureAxBlazorSecurity(this IServiceCollection services,
             (IRepository<User> userRepo, IRepository<Group> groupRepo) repos,
-            List<Role>? roles = null, bool addAllRolesToAdminGroup = false)
+            List<Role>? roles = null, bool addAllRolesToAdminGroup = false, bool usingExternalLogin = false)
         {
             services.AddTransient<IUserStore<User>, UserStore>();
             services.AddTransient<IRoleStore<Role>, RoleStore>();
@@ -54,6 +55,9 @@ namespace AxOpen.Security.Services
 
             //services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddScoped<IRepositoryService, RepositoryService>(provider => new RepositoryService(repos.userRepo, roleGroupManager));
+
+            if (usingExternalLogin)
+                services.AddScoped<ISerialService, SerialService>();
         }
     }
 }

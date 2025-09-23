@@ -2,6 +2,7 @@
 using AxOpen.Security.Services;
 using AXOpen.Base.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -228,6 +229,7 @@ namespace AxOpen.Security.Stores
                     userData.Modified = user.Modified;
                     userData.AutoLogOutTimeOutMinutes = user.AutoLogOutTimeOutMinutes;
                     userData.EnableAutoLogOut = user.EnableAutoLogOut;
+                    userData.ExternalAuthId = user.ExternalAuthId;
                 }
                 else
                 {

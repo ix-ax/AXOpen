@@ -4,7 +4,7 @@ USING AXOpen.Core;
 USING AXOpen.Rtc;
 USING AXOpen.Logging;
 
-NAMESPACE AxoIO.Tests
+NAMESPACE AXOpen.Elements.Tests
    
     {TestFixture}
     {S7.extern=ReadWrite}
