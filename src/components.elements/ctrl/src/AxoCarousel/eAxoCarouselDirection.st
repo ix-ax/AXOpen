@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Elements
+NAMESPACE AXOpen.Components.Elements
     TYPE PUBLIC
         eAxoCarouselDirection :
         (		

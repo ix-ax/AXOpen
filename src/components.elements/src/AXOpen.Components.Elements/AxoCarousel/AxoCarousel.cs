@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AXOpen.Elements
+namespace AXOpen.Components.Elements
 {
     public partial class AxoCarousel
     {

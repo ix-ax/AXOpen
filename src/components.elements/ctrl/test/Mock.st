@@ -1,7 +1,7 @@
 USING AXOpen.Core;
 USING AXOpen.Rtc;
 USING AXOpen.Logging;
-NAMESPACE AXOpen.Elements.Tests
+NAMESPACE AXOpen.Components.Elements.Tests
     {S7.extern=ReadWrite}
     CLASS INTERNAL AxoRtcMock IMPLEMENTS IAxoRtc
         VAR PRIVATE 

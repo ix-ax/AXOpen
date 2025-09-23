@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Elements
+NAMESPACE AXOpen.Components.Elements
     // <AxoAoConfigDeclaration>
     /// <summary>
     /// Configuration class for analog output							

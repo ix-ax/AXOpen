@@ -4,7 +4,7 @@ USING AXOpen.Messaging.Static;
 USING AXOpen.Components.Abstractions;
 
 
-NAMESPACE AXOpen.Elements
+NAMESPACE AXOpen.Components.Elements
     {S7.extern=ReadWrite}
     CLASS AxoCarousel EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC // HEADER

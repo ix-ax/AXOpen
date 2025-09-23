@@ -1,5 +1,5 @@
 USING AXOpen.Core;
-NAMESPACE AXOpen.Elements
+NAMESPACE AXOpen.Components.Elements
 
     /// <summary>
     /// Class representing Analog output

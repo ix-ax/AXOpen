@@ -1,5 +1,5 @@
-USING AXOpen.Core;
-NAMESPACE AXOpen.Elements
+USING AXOpen.Components.Core;
+NAMESPACE AXOpen.Components.Elements
 
     /// <summary>
     /// Class representing Digital input
