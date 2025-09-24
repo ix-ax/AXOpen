@@ -125,7 +125,7 @@
 
     }
 
-    private string Description => this.Component.CurrentStep.Descr.GetCyclic();
+    private string Description => string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic()) ? "fadjslflasjdl" : this.Component.CurrentStep.Descr.GetCyclic();
 
     private string Duration => this.Component.Duration.GetCyclic().ToString(@"hh\:mm\:ss\.fff");
 
