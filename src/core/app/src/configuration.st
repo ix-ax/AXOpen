@@ -56,6 +56,6 @@ CONFIGURATION MyConfiguration
 
         {S7.extern=ReadWrite}
         AxoS71500Rtc : AxoS71500RtcContext;
-
+        AxoRtm : AXOpen.S71500.Rtm;
     END_VAR   
 END_CONFIGURATION

@@ -24,6 +24,7 @@ PROGRAM MyProgram
         D_222 : AxoDialogExamples.Dialogs;               
         //Dialogs : AxoDialogExamples.Dialogs;              
         AxoRtc : AxoRtc.AxoS71500Rtc;
+        AxoRtm : AXOpen.S71500.Rtm;
         AxoS71500Rtc : AxoS71500RtcContext;
     END_VAR    
     
@@ -34,6 +35,8 @@ PROGRAM MyProgram
     AxoToggleTasks.Run();
     AxoToggleTaskDocu.Run();
     AxoSequencers.Run();
+    AxoSequencers.InjectRtc(AxoRtc);
+    AxoSequencers.InjectRtm(AxoRtm);
     AxoSequencerContainer.Run();
     myComponentExample.Run();
     myComponentHeaderOnlyExample.Run();
@@ -47,6 +50,8 @@ PROGRAM MyProgram
     AxoMessengersDocu.InjectRtc(AxoRtc);        
     AxoTextListExampleContext.Run();
             
+   
+
     AxoByteArrayExampleContext.Run();
     AxoBoolArrayExampleContext.Run();
 
