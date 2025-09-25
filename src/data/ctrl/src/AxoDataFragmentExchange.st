@@ -57,7 +57,7 @@ NAMESPACE AXOpen.Data
         /// Check if data entry exists in each associated remote repository with given ID.
         /// </summary> 
         /// <param name="identifier">Data identifier.</param> 
-        METHOD PUBLIC EntityExist : IAxoEntityExistTaskState
+        METHOD PUBLIC EntityExist : IAxoDataCrudTaskEntityExistState
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR

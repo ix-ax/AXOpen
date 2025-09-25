@@ -1,7 +1,7 @@
 NAMESPACE AXOpen.Components.Elements
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Stack)]}
-    CLASS PUBLIC AxoCarousel_Control
+    CLASS PUBLIC AxoRotaryIndexingTable_Control
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Enable turn#>"}
             EnableTurn : BOOL;

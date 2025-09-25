@@ -43,7 +43,7 @@ NAMESPACE AXOpen.Data
             
         END_METHOD
     
-        METHOD PUBLIC ABSTRACT EntityExist : IAxoEntityExistTaskState
+        METHOD PUBLIC ABSTRACT EntityExist : IAxoDataCrudTaskEntityExistState
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR

@@ -1,6 +1,6 @@
 NAMESPACE AXOpen.Components.Elements
     TYPE PUBLIC
-        eAxoCarouselDirection :
+        eAxoRotaryIndexingTableDirection :
         (		
             Cw,
             Ccw

@@ -1,7 +1,7 @@
 NAMESPACE AXOpen.Components.Elements
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Stack)]}
-    CLASS PUBLIC AxoCarousel_Config
+    CLASS PUBLIC AxoRotaryIndexingTable_Config
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Info time#>"}
             InfoTime : LTIME := LT#5S;
@@ -10,7 +10,7 @@ NAMESPACE AXOpen.Components.Elements
             {#ix-set:AttributeName = "<#Task timeout#>"}
             TaskTimeout : LTIME := LT#10S;
             {#ix-set:AttributeName = "<#Direction#>"}
-            Direction   : eAxoCarouselDirection;
+            Direction   : eAxoRotaryIndexingTableDirection;
             {#ix-set:AttributeName = "<#Number of positions#>"}
             NumberOfPositions:UINT;
             {#ix-set:AttributeName = "<#Offset#>"}

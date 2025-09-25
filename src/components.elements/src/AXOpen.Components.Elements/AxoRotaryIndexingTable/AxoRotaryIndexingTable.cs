@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Components.Elements
 {
-    public partial class AxoCarousel
+    public partial class AxoRotaryIndexingTable
     {
         partial void PostConstruct(ITwinObject parent, string readableTail, string symbolTail)
         {

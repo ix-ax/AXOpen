@@ -6,7 +6,7 @@ USING AXOpen.Components.Abstractions;
 
 NAMESPACE AXOpen.Components.Elements
     {S7.extern=ReadWrite}
-    CLASS AxoCarousel EXTENDS AXOpen.Core.AxoComponent
+    CLASS AxoRotaryIndexingTable EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC // HEADER
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
@@ -33,14 +33,14 @@ NAMESPACE AXOpen.Components.Elements
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
-            Config  :   AxoCarousel_Config;
+            Config  :   AxoRotaryIndexingTable_Config;
         END_VAR
 
         VAR PUBLIC // STATUS
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
-            Status              :   AxoCarousel_Component_Status;
+            Status              :   AxoRotaryIndexingTable_Component_Status;
             Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR    
@@ -51,13 +51,13 @@ NAMESPACE AXOpen.Components.Elements
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
             // {#ix-attr:[ReadOnly()]}      //TODO uncomment this after debugging is finished
-            Inputs              :   AxoCarousel_State;
+            Inputs              :   AxoRotaryIndexingTable_State;
             {#ix-attr:[ComponentDetails("Hardware signals")]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
             // {#ix-attr:[ReadOnly()]}      //TODO uncomment this after debugging is finished
-            Outputs              :   AxoCarousel_Control;
+            Outputs              :   AxoRotaryIndexingTable_Control;
         END_VAR    
 
         VAR PRIVATE
@@ -72,27 +72,27 @@ NAMESPACE AXOpen.Components.Elements
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent              :   IAxoObject;
-                SafetyCondition     :   BOOL;
-            	InPosition          :   BOOL;
-            	InPrecisePosition   :   BOOL;                
-                CodingPosition      :   UINT;
+                inParent              :   IAxoObject;
+                inSafetyCondition     :   BOOL;
+            	inPosition            :   BOOL;
+            	inPrecisePosition     :   BOOL;                
+                inCodingPosition      :   UINT;
             END_VAR
 
             VAR_OUTPUT
-                EnableTurn : BOOL;
-                StartTurn : BOOL;
+                outEnableTurn : BOOL;
+                outStartTurn : BOOL;
             END_VAR
 
             VAR
                 _index :    UINT;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             Messenger.Serve(THIS);
             
-            IF parent = NULL THEN
+            IF inParent = NULL THEN
                 Messenger.Activate(UINT#700, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#700;
                 RETURN;
@@ -115,10 +115,10 @@ NAMESPACE AXOpen.Components.Elements
             END_IF;
             
             //***********Update inputs **************
-            Inputs.SafetyCondition      :=  SafetyCondition;
-            Inputs.InPosition           :=  InPosition;
-            Inputs.InPrecisePosition    :=  InPrecisePosition;
-            Inputs.CodingPosition       :=  CodingPosition;
+            Inputs.SafetyCondition      :=  inSafetyCondition;
+            Inputs.InPosition           :=  inPosition;
+            Inputs.InPrecisePosition    :=  inPrecisePosition;
+            Inputs.CodingPosition       :=  inCodingPosition;
 
 
             //*************INITIALIZATION*************
@@ -145,8 +145,8 @@ NAMESPACE AXOpen.Components.Elements
             //****************************************
     
             //*************TurnTask**************
-            TurnTask.ThrowWhen(TurnTask.IsBusy() AND NOT SafetyCondition, 'The safety condition is lost during movement.');
-            TurnTask.SetIsDisabled(NOT SafetyCondition OR RestoreTask.IsBusy() OR InitPositionTask.IsBusy());
+            TurnTask.ThrowWhen(TurnTask.IsBusy() AND NOT inSafetyCondition, 'The safety condition is lost during movement.');
+            TurnTask.SetIsDisabled(NOT inSafetyCondition OR RestoreTask.IsBusy() OR InitPositionTask.IsBusy());
             IF TurnTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;            
@@ -271,8 +271,8 @@ NAMESPACE AXOpen.Components.Elements
             //**************************************************
     
             //*************InitPositionTask***************
-            InitPositionTask.ThrowWhen(InitPositionTask.IsBusy() AND NOT SafetyCondition, 'The safety condition is lost during movement.');
-            InitPositionTask.SetIsDisabled(NOT SafetyCondition OR RestoreTask.IsBusy() OR TurnTask.IsBusy());
+            InitPositionTask.ThrowWhen(InitPositionTask.IsBusy() AND NOT inSafetyCondition, 'The safety condition is lost during movement.');
+            InitPositionTask.SetIsDisabled(NOT inSafetyCondition OR RestoreTask.IsBusy() OR TurnTask.IsBusy());
             IF InitPositionTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;            
@@ -357,8 +357,8 @@ NAMESPACE AXOpen.Components.Elements
             END_IF;
 
             //***********Update outputs ****************
-            EnableTurn  :=  Outputs.EnableTurn;
-            StartTurn   :=  Outputs.StartTurn;
+            outEnableTurn  :=  Outputs.EnableTurn;
+            outStartTurn   :=  Outputs.StartTurn;
             
             //******************************************      
 
