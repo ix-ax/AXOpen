@@ -16,6 +16,7 @@
 <div class="container">
     <div class="container text-left">
         <AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.AxoSequencers.coord"/>
+        <RenderableContentControl Context="@Entry.Plc.AxoSequencers.coord.CurrentOrder"/>
         <RenderableContentControl Context="@Entry.Plc.AxoSequencers" Presentation="Command-Control" />
     </div>
 </div>

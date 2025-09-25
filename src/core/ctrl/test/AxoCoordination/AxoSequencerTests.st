@@ -150,6 +150,38 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Close();
         END_METHOD
        
+        METHOD PRIVATE ExecuteSequence
+            VAR_INPUT
+                CompleteStep : BOOL;
+                CompleteSequence : BOOL;
+                EnableStep1 : BOOL;
+                EnableStep2 : BOOL;
+                EnableStep3 : BOOL;
+            END_VAR
+
+            THIS.PrepareSequence();
+
+            _context.Open();
+            _sequencer.Open();
+
+            IF _step_1.Execute(_sequencer,EnableStep1) THEN
+                IF CompleteStep THEN
+                    _sequencer.MoveNext();
+                END_IF;
+            END_IF;
+            IF _step_2.Execute(_sequencer,EnableStep2) THEN
+                IF CompleteStep THEN
+                    _sequencer.MoveNext();
+                END_IF;
+            END_IF;
+            IF _step_3.Execute(_sequencer,EnableStep3) THEN
+                IF CompleteSequence THEN
+                    _sequencer.CompleteSequence();
+                END_IF;
+            END_IF;
+            _context.Close();
+        END_METHOD
+       
         VAR PROTECTED        
             _contextClean       :   TestContext;
             _rtc                :   AXOpen.Core.Dummies.MockAxoRtc;
@@ -1522,6 +1554,32 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _sequencer.RequestStep(_step_3);
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(FALSE,FALSE);
+
+            _previousOrder := _sequencer.CurrentOrder;
+            
+            // Act
+            _context.Open();
+            _sequencer.Open();
+            _sequencer.StepBackwardCommand.Invoke();
+            _step_1.Execute(_sequencer);
+            _step_2.Execute(_sequencer);
+            _step_3.Execute(_sequencer);
+
+            // Assert
+            Assert.Equal(_previousOrder - ULINT#1  ,_sequencer.CurrentOrder);
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepBackward_command_should_decrement_Current_order_even_if_previous_step_is_disabled
+            VAR
+                _previousOrder : ULINT;
+            END_VAR
+            // Arrange
+            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            THIS.ExecuteSequence(FALSE,FALSE,TRUE,FALSE,TRUE);
+            _sequencer.RequestStep(_step_3);
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(FALSE,FALSE,TRUE,FALSE,TRUE);
 
             _previousOrder := _sequencer.CurrentOrder;
             

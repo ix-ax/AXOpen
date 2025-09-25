@@ -108,7 +108,6 @@ NAMESPACE AXOpen.Core
                         StepForwardCommand.SetIsDisabled(StepBackwardCommand.IsBusy() 
                                                             // Stepping Forwards disabled from last step
                                                             OR CurrentOrder >= _numberOfConfiguredSteps);
-                        StepIn.SetIsDisabled(FALSE);
                         StepBackwardCommand.SetIsDisabled(StepForwardCommand.IsBusy() 
                                                             // Stepping Backwards disabled from first step
                                                             OR CurrentOrder <= ULINT#1);
@@ -136,12 +135,30 @@ NAMESPACE AXOpen.Core
                 END_IF;
                
                 IF _coordinatorState = AxoCoordinatorStates#Running && (CurrentOrder = step.GetStepOrder()) && step.IsCalledJustOnceInThisPlcCycle() THEN
-                    IF Enable THEN
-                        step.SetIsActive(TRUE);
-                    ELSE
-                        CurrentOrder := CurrentOrder + ULINT#1;
-                        // Finalize the StepIn Command in a case of step mode
-                        StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);
+                    IF SteppingMode = eAxoSteppingMode#Continous THEN
+                        IF Enable THEN
+                            step.SetIsActive(TRUE);
+                        ELSE
+                            CurrentOrder := CurrentOrder + ULINT#1;
+                            // Since both the initial and final steps cannot be disabled, this 
+                            // Programming error will not be handled automatically. 
+                            // IF CurrentOrder > _numberOfConfiguredSteps THEN
+                            //     CurrentOrder := ULINT#1;
+                            // END_IF;
+                        END_IF;
+                    ELSIF SteppingMode = eAxoSteppingMode#StepByStep THEN
+                        StepIn.SetIsDisabled(FALSE);
+                        IF Enable THEN
+                            step.SetIsActive(TRUE);
+                        ELSIF StepIn.Execute() THEN
+                            CurrentOrder := CurrentOrder + ULINT#1;
+                            // Since both the initial and final steps cannot be disabled, this 
+                            // Programming error will not be handled automatically. 
+                            // IF CurrentOrder > _numberOfConfiguredSteps THEN
+                            //     CurrentOrder := ULINT#1;
+                            // END_IF;
+                            StepIn.DoneWhen(TRUE);
+                        END_IF;
                     END_IF;
                 ELSE
                     step.SetIsActive(FALSE);
