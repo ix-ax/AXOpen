@@ -108,5 +108,17 @@ NAMESPACE AXOpen.Timers_tests
         METHOD PUBLIC IsValid : BOOL
             IsValid := TRUE;
         END_METHOD
+    
+        METHOD PUBLIC InjectMessengerService
+            VAR_INPUT
+                inMessengerService : IAxoMessagingServices;
+            END_VAR
+
+            ;
+        END_METHOD
+    
+        METHOD PUBLIC GetMessengerService : IAxoMessagingServices
+            ;
+        END_METHOD
     END_CLASS      
 END_NAMESPACE

@@ -41,8 +41,14 @@ NAMESPACE AXOpen.Messaging.Static
                 inObject : IAxoObject;
             END_VAR  
            
-            SUPER.Run(inObject);
-            _context := inObject.GetContext(); 
+            IF  _context = NULL THEN  
+                IF inObject.GetContext() = NULL THEN
+                    RETURN;
+                END_IF;
+
+                SUPER.Run(inObject);
+                _context := inObject.GetContext(); 
+            END_IF;
            
             IF THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeRequired AND NOT AcknowledgementRequired THEN
                 THIS.MessengerState := eAxoMessengerState#ActiveAcknowledgeNotRequired;                 
