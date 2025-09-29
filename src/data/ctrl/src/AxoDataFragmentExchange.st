@@ -15,9 +15,9 @@ NAMESPACE AXOpen.Data
         /// <param name="identifier">Data identifier.</param>  
         METHOD PUBLIC Create : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR 
-            Create := Operation.Invoke(Identifier, eCrudOperation#Create);       
+            Create := Operation.Invoke(inIdentifier, eCrudOperation#Create);       
         END_METHOD       
         
         ///<summary>
@@ -26,9 +26,9 @@ NAMESPACE AXOpen.Data
         /// <param name="identifier">Data identifier.</param>  
         METHOD PUBLIC Read : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR  
-            Read := Operation.Invoke(Identifier, eCrudOperation#Read);             
+            Read := Operation.Invoke(inIdentifier, eCrudOperation#Read);             
         END_METHOD 
     
         ///<summary>
@@ -37,9 +37,9 @@ NAMESPACE AXOpen.Data
         /// <param name="identifier">Data identifier.</param> 
         METHOD PUBLIC Update : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR  
-            Update := Operation.Invoke(Identifier, eCrudOperation#Update);        
+            Update := Operation.Invoke(inIdentifier, eCrudOperation#Update);        
         END_METHOD 
     
         ///<summary>
@@ -48,9 +48,9 @@ NAMESPACE AXOpen.Data
         /// <param name="identifier">Data identifier.</param> 
         METHOD PUBLIC Delete : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR
-            Delete := Operation.Invoke(Identifier, eCrudOperation#Delete);         
+            Delete := Operation.Invoke(inIdentifier, eCrudOperation#Delete);         
         END_METHOD 
 
         ///<summary>
@@ -59,9 +59,9 @@ NAMESPACE AXOpen.Data
         /// <param name="identifier">Data identifier.</param> 
         METHOD PUBLIC EntityExist : IAxoDataCrudTaskEntityExistState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR
-            Operation.Invoke(Identifier, eCrudOperation#EntityExist);
+            Operation.Invoke(inIdentifier, eCrudOperation#EntityExist);
             EntityExist := Operation;
         END_METHOD 
 
@@ -71,9 +71,9 @@ NAMESPACE AXOpen.Data
         /// <param name="identifier">Data identifier.</param> 
         METHOD PUBLIC CreateOrUpdate : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR
-            CreateOrUpdate := Operation.Invoke(Identifier, eCrudOperation#CreateOrUpdate);         
+            CreateOrUpdate := Operation.Invoke(inIdentifier, eCrudOperation#CreateOrUpdate);         
         END_METHOD 
     
         METHOD PUBLIC Restore  

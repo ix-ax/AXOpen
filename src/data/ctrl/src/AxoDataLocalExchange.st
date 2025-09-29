@@ -13,7 +13,7 @@ NAMESPACE AXOpen.Data
                                                            
         METHOD PUBLIC ABSTRACT Create : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR
 
             
@@ -21,7 +21,7 @@ NAMESPACE AXOpen.Data
     
         METHOD PUBLIC ABSTRACT Read : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR
 
             
@@ -29,7 +29,7 @@ NAMESPACE AXOpen.Data
     
         METHOD PUBLIC ABSTRACT Update : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR
 
             
@@ -37,7 +37,7 @@ NAMESPACE AXOpen.Data
     
         METHOD PUBLIC ABSTRACT Delete : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR
 
             
@@ -45,7 +45,7 @@ NAMESPACE AXOpen.Data
     
         METHOD PUBLIC ABSTRACT EntityExist : IAxoDataCrudTaskEntityExistState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR
 
             
@@ -53,7 +53,7 @@ NAMESPACE AXOpen.Data
     
         METHOD PUBLIC ABSTRACT CreateOrUpdate : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR
 
             

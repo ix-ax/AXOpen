@@ -1,3 +1,4 @@
+USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 USING AXOpen.Components.Pneumatics;
 USING AXOpen.Core;

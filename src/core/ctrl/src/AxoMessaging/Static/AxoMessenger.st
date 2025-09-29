@@ -169,7 +169,7 @@ NAMESPACE AXOpen.Messaging.Static
             THIS.Sender := inParent;                    
             THIS.Message := inMessage;
             THIS.Activate(ULINT#18446744073709551615, inCategory);  
-            //THIS.GetContext().GetMessengerService().QueueMessage(THIS);             
+            THIS.GetContext().GetMessengerService().QueueMessage(THIS);             
         END_METHOD
 
         METHOD PRIVATE Deactivate
