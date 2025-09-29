@@ -10,8 +10,10 @@ NAMESPACE AXOpen.Core
         METHOD InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR END_METHOD        
         METHOD GetLogger : IAxoLogger  END_METHOD
         METHOD InjectLogger VAR_INPUT _logger : IAxoLogger; END_VAR END_METHOD    
-        METHOD InjectRtm VAR_INPUT Rtm : IAxoRtm; END_VAR END_METHOD         
+        METHOD InjectRtm VAR_INPUT inRtm : IAxoRtm; END_VAR END_METHOD              
         METHOD GetRtm : IAxoRtm  END_METHOD      
+        METHOD InjectMessengerService VAR_INPUT inMessengerService : IAxoMessagingServices; END_VAR END_METHOD  
+        METHOD GetMessengerService : IAxoMessagingServices END_METHOD      
         METHOD IsValid : BOOL END_METHOD    
     END_INTERFACE    
 END_NAMESPACE
