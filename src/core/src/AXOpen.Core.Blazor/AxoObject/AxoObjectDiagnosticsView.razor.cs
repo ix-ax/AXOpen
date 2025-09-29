@@ -1,4 +1,4 @@
-﻿using AXOpen.Messaging.Static;
+﻿using AXOpen.Messaging;
 using AXOpen.VisualComposer.Components.VisualComposerItem;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 

@@ -3908,7 +3908,7 @@ NAMESPACE AXOpen.Components.Drives
                 Homing          :   BOOL;                       //  See state diagram
                 Standstill      :   BOOL;                       //  See state diagram
                 DiscreteMotion  :   BOOL;                       //  See state diagram
-                ContinousMotion :   BOOL;                       //  See state diagram
+                ContinuousMotion:   BOOL;                       //  See state diagram
                 SynchronizedMotion: BOOL;                       //  See state diagram
             END_VAR
         END_METHOD

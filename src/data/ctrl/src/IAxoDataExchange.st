@@ -46,7 +46,7 @@ NAMESPACE AXOpen.Data
              
         METHOD Run 
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR            
         END_METHOD
     END_INTERFACE

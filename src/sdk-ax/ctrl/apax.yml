@@ -6,7 +6,7 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.29
+  "@inxton/ax.catalog": 0.0.31
 dependencies:
   '@ax/apax-build': 2.0.20
   '@ax/axunitst': 8.3.9
@@ -23,11 +23,11 @@ dependencies:
   '@ax/sdb': 1.8.8
   '@ax/simatic-package-tool': 2.0.15
   '@ax/sld': 3.3.3
-  '@ax/st-ls': 10.2.82
+  '@ax/st-ls': 10.2.95
   '@ax/st-resources.stc-plugin': 3.0.23
-  '@ax/stc': 10.2.82
-  '@ax/target-llvm': 10.2.82
-  '@ax/target-mc7plus': 10.2.82
+  '@ax/stc': 10.2.95
+  '@ax/target-llvm': 10.2.95
+  '@ax/target-mc7plus': 10.2.95
   '@ax/trace': 2.9.1
 installStrategy: strict
 apaxVersion: 3.5.0
