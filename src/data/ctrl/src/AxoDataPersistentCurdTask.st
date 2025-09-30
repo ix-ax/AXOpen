@@ -7,7 +7,7 @@ NAMESPACE AXOpen.Data
     /// </summary>
     {#ix-set:AttributeName = "<#Data operation#>"}     
     {S7.extern=ReadWrite}
-    CLASS AxoDataPersistentCurdTask EXTENDS AxOpen.Core.AxoRemoteTask IMPLEMENTS  IAxoEntityExistTaskState      
+    CLASS AxoDataPersistentCurdTask EXTENDS AxOpen.Core.AxoRemoteTask IMPLEMENTS  IAxoDataCrudTaskEntityExistState      
         VAR PUBLIC
             ///<summary>
             /// Gets or sets the type of CRUD operation to be perfomed.            

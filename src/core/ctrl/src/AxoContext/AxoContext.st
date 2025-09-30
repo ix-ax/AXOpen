@@ -97,7 +97,6 @@ NAMESPACE AXOpen.Core
             _rtc := Rtc;
         END_METHOD      
 
-
         VAR PRIVATE            
             NULL_RTM : _NULL_RTM;
             _rtm : IAxoRtm;
@@ -146,5 +145,26 @@ NAMESPACE AXOpen.Core
             END_VAR
             _contextLogger := _logger;
         END_METHOD            
+
+        VAR PROTECTED
+            NULL_MESSENGER_SERVICE : _NULL_MESSENGER_SERVICE;
+            _messengerService : IAxoMessagingServices;
+        END_VAR    
+        METHOD PUBLIC InjectMessengerService
+            VAR_INPUT
+                inMessengerService : IAxoMessagingServices;
+            END_VAR
+            IF(inMessengerService <> NULL) THEN
+                _messengerService := inMessengerService;
+            END_IF;                        
+        END_METHOD  
+
+        METHOD PUBLIC GetMessengerService : IAxoMessagingServices
+            IF(_messengerService = NULL) THEN                
+                GetMessengerService := NULL_MESSENGER_SERVICE;    
+                RETURN; 
+            END_IF;    
+            GetMessengerService := _messengerService;
+        END_METHOD
     END_CLASS          
 END_NAMESPACE

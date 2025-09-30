@@ -96,7 +96,7 @@ NAMESPACE AXOpen.Data
             Delete := dataExchangeTask;        
         END_METHOD 
 
-        METHOD PUBLIC OVERRIDE EntityExist : IAxoEntityExistTaskState
+        METHOD PUBLIC OVERRIDE EntityExist : IAxoDataCrudTaskEntityExistState
             VAR_INPUT
                 inIdentifier : STRING[254];
             END_VAR        

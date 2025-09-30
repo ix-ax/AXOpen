@@ -2,7 +2,7 @@ NAMESPACE AXOpen.Core
     ///<summary>
     /// Implementation of IAxoTaskState interface representing a satisfied task state given a specific status provided by `Satisfy` method.
     ///</summary>
-    CLASS PUBLIC TaskStateSatisfied IMPLEMENTS IAxoTaskState
+    CLASS PUBLIC AxoTaskStateSatisfied IMPLEMENTS IAxoTaskState
         VAR PUBLIC
             Status : eAxoTaskState;
             ErrorDetails : STRING[254];
@@ -16,6 +16,19 @@ NAMESPACE AXOpen.Core
                 inStatus : eAxoTaskState;
             END_VAR
             Status := inStatus;
+            Satisfy := THIS;
+        END_METHOD
+
+        ///<summary>
+        /// Sets the task state to the provided status and returns the current instance.    
+        /// </summary>
+        METHOD PUBLIC Satisfy : IAxoTaskState
+            VAR_INPUT
+                inStatus : eAxoTaskState;
+                inErrorDetails : STRING[254];
+            END_VAR
+            Status := inStatus;
+            ErrorDetails := inErrorDetails;
             Satisfy := THIS;
         END_METHOD
 

@@ -1,18 +1,7 @@
 USING AXOpen.Logging;
 USING AXOpen.Core;
 
-NAMESPACE AXOpen.Messaging.Static    
-
-    TYPE                    
-        eAxoMessengerState : (  Idle,                           // 0 - Not active
-                                ActiveAlreadyAcknowledged,      // 1 - Is still active, but already acknowledged, after acknowledgement goes to 1                               
-                                ActiveAcknowledgeRequired,      // 2 - Active and required acknowledgement. If acknowledged before deactivation, it goes to 0, if deactivated before acknowledgement, it goes to 4
-                                ActiveAcknowledgeNotRequired,   // 3 - Active without acknowledgement required. After deactivation it goes to 1.
-                                InactiveWaitingForAcknowledge,  // 4 - Not active waiting for acknowledgement. After acknowledgement it goes to 1.
-                                InvalidImplementation           // 5 - Instance of the AxoMessenger has _NULL_CONTEXT or _NULL_RTM 
-                                ) := Idle;
-    END_TYPE
-
+NAMESPACE AXOpen.Messaging.Static       
     {#ix-prop: public string PlcTextList }
     {S7.extern=ReadWrite}
     CLASS AxoMessenger EXTENDS AxoObject IMPLEMENTS AXOpen.Messaging.Static.IAxoMessageProperties, AXOpen.Core.IAxoMessenger
@@ -35,6 +24,9 @@ NAMESPACE AXOpen.Messaging.Static
             MessengerState : eAxoMessengerState; 
             {#ix-attr:[ReadOnly()]}
             ActiveContextCount : ULINT;
+            {#ix-attr:[ReadOnly()]}
+            Message : STRING[254];            
+            Sender : IAxoObject;
         END_VAR
 
         VAR PRIVATE            
@@ -48,7 +40,7 @@ NAMESPACE AXOpen.Messaging.Static
             VAR_INPUT
                 inObject : IAxoObject;
             END_VAR  
-
+           
             IF  _context = NULL THEN  
                 IF inObject.GetContext() = NULL THEN
                     RETURN;
@@ -57,7 +49,7 @@ NAMESPACE AXOpen.Messaging.Static
                 SUPER.Run(inObject);
                 _context := inObject.GetContext(); 
             END_IF;
-
+           
             IF THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeRequired AND NOT AcknowledgementRequired THEN
                 THIS.MessengerState := eAxoMessengerState#ActiveAcknowledgeNotRequired;                 
             END_IF;
@@ -103,6 +95,10 @@ NAMESPACE AXOpen.Messaging.Static
                 RETURN;
             END_IF;
 
+            IF _context.GetMessengerService().IsSuspended() THEN
+                RETURN;
+            END_IF;
+                            
             IF _messageCode = ULINT#0 THEN
                 RETURN;
             END_IF;
@@ -161,8 +157,26 @@ NAMESPACE AXOpen.Messaging.Static
             ELSE
                 THIS.Deactivate(_messageCode);        
             END_IF;
-
         END_METHOD   
+          
+        METHOD PUBLIC Post : AXOpen.Messaging.Static.IAxoMessageProperties
+            VAR_INPUT
+                inParent : IAxoObject;
+                inMessage : STRING[254];
+                inCategory : eAxoMessageCategory;
+            END_VAR
+            Post := THIS;            
+            IF inParent = NULL THEN                
+                RETURN;
+            END_IF;
+            SUPER.Run(inParent);
+            THIS.Sender := inParent;                    
+            THIS.Message := inMessage;
+            THIS.Activate(ULINT#18446744073709551615, inCategory);  
+            IF(THIS.GetContext().GetMessengerService() <> NULL) THEN
+                THIS.GetContext().GetMessengerService().QueueMessage(THIS);             
+            END_IF;
+        END_METHOD
 
         METHOD PRIVATE Deactivate
             VAR_INPUT
@@ -283,7 +297,6 @@ NAMESPACE AXOpen.Messaging.Static
             END_CASE;
 
         END_METHOD    
-
         ///<summary>
         /// Forces to require the message acknowledgement, even if the message category does not require it by default.
         ///</summary>

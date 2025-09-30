@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Elements
+NAMESPACE AXOpen.Components.Elements
     // <AxoAiConfigDeclaration>
     // <summary>
     // Configuration class for analog input							

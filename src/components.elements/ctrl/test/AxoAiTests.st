@@ -1,10 +1,10 @@
 USING AxUnit;
-USING AXOpen.Elements;
+USING AXOpen.Components.Elements;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
 USING AXOpen.Logging;
 
-NAMESPACE AXOpen.Elements.Tests
+NAMESPACE AXOpen.Components.Elements.Tests
    
     {TestFixture}
     {S7.extern=ReadWrite}
