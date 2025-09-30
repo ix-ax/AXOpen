@@ -163,17 +163,23 @@ NAMESPACE AXOpen.Core
     CLASS PUBLIC _NULL_MESSENGER_SERVICE IMPLEMENTS IAxoMessagingServices                 
         METHOD PUBLIC QueueMessage : BOOL
             VAR_INPUT
-                inMessage : IAxoMessenger;
+                inMessegenger : IAxoMessenger;
             END_VAR   
             QueueMessage := FALSE;         
         END_METHOD        
-
+        VAR PRIVATE
+            _isSuspended : BOOL := FALSE;
+        END_VAR
         METHOD PUBLIC SuspendMessaging
-            ;
+            _isSuspended := TRUE;
         END_METHOD
 
         METHOD PUBLIC ResumeMessaging
-            ;
+            _isSuspended := FALSE;
+        END_METHOD
+    
+        METHOD PUBLIC IsSuspended : BOOL
+            IsSuspended := _isSuspended;
         END_METHOD
     END_CLASS 
 END_NAMESPACE

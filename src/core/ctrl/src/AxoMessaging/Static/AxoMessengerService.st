@@ -24,10 +24,9 @@ NAMESPACE AXOpen.Messaging
                 queuedCount : DINT;
             END_VAR                        
 
-            SUPER.Run(inParent); // Call the base class Run method
-            RETURN;
+            SUPER.Run(inParent); // Call the base class Run method          
             _messages := inMessages; // Assign input messages to the class property
-
+            
             IF _messages <> NULL THEN            
                 lb := LOWER_BOUND(_messages^, 1);
                 ub := UPPER_BOUND(_messages^, 1);
@@ -38,7 +37,7 @@ NAMESPACE AXOpen.Messaging
                 queuedCount := DINT#0;
                 FOR i := lb TO ub DO
                     IF _messages^[i] <> NULL THEN
-                        //_messages^[i]^.Serve(_messages^[i]^.Sender); // Pass the message itself as the parameter
+                        _messages^[i]^.Serve(_messages^[i]^.Sender); // Pass the message itself as the parameter
                         queuedCount := queuedCount + DINT#1;
                     END_IF;
                 END_FOR;                
@@ -49,7 +48,7 @@ NAMESPACE AXOpen.Messaging
        
         METHOD PUBLIC QueueMessage : BOOL
             VAR_INPUT
-                inMessage : IAxoMessenger;
+                inMessegenger : IAxoMessenger;
             END_VAR
             VAR
                 lb : DINT;
@@ -63,7 +62,7 @@ NAMESPACE AXOpen.Messaging
 
             QueueMessage := FALSE;
 
-            IF (_messages = NULL) OR (inMessage = NULL) THEN
+            IF (_messages = NULL) OR (inMessegenger = NULL) THEN
                 RETURN;
             END_IF;
 
@@ -79,7 +78,7 @@ NAMESPACE AXOpen.Messaging
                 _nextMessageIndex := lb;
             END_IF;
 
-            tmpMsg ?= inMessage;
+            tmpMsg ?= inMessegenger;
            _messages^[_nextMessageIndex] := tmpMsg;
            QueueMessage := TRUE;                                                 
         END_METHOD                    
@@ -91,6 +90,11 @@ NAMESPACE AXOpen.Messaging
         METHOD PUBLIC ResumeMessaging
             _isSuspended := FALSE;
         END_METHOD
+
+        METHOD PUBLIC IsSuspended : BOOL
+            IsSuspended := _isSuspended;
+        END_METHOD    
+
     END_CLASS
         
    

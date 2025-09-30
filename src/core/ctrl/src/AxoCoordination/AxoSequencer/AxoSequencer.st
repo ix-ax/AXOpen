@@ -1,4 +1,5 @@
 NAMESPACE AXOpen.Core
+    USING System.Strings;
     {S7.extern=ReadWrite}
     CLASS AxoSequencer EXTENDS AxoTask IMPLEMENTS IAxoSequencer
         VAR PUBLIC                  
@@ -187,8 +188,8 @@ NAMESPACE AXOpen.Core
 
                 Execute := step.Execute();
                 IF step.HasError() THEN
-                    _coordinatorState := AxoCoordinatorStates#Idle;
-                    SUPER.ThrowWhen(step.HasError(), '<#Check that steps are unique and properly configured.#>');
+                    _coordinatorState := AxoCoordinatorStates#Idle;                   
+                    SUPER.ThrowWhen(step.HasError(), System.Strings.Concat('<#Check that steps are unique and properly configured.#>', ' : ', ToString(step.GetStepOrder())));  
                 END_IF;
                 
                 IF step.IsFirstEntryToStep() THEN

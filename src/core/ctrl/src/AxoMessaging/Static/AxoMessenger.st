@@ -95,6 +95,10 @@ NAMESPACE AXOpen.Messaging.Static
                 RETURN;
             END_IF;
 
+            IF _context.GetMessengerService().IsSuspended() THEN
+                RETURN;
+            END_IF;
+                            
             IF _messageCode = ULINT#0 THEN
                 RETURN;
             END_IF;
@@ -169,7 +173,9 @@ NAMESPACE AXOpen.Messaging.Static
             THIS.Sender := inParent;                    
             THIS.Message := inMessage;
             THIS.Activate(ULINT#18446744073709551615, inCategory);  
-            THIS.GetContext().GetMessengerService().QueueMessage(THIS);             
+            IF(THIS.GetContext().GetMessengerService() <> NULL) THEN
+                THIS.GetContext().GetMessengerService().QueueMessage(THIS);             
+            END_IF;
         END_METHOD
 
         METHOD PRIVATE Deactivate
