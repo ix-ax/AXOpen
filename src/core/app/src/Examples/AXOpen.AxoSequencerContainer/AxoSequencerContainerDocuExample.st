@@ -118,7 +118,8 @@ NAMESPACE AxoSequencerContainerExamples
             //<InstanceRunning>
             _mySequencerContainer.Run(_rootObject);
             //</InstanceRunning>
-        END_METHOD   
+        END_METHOD
+           
 
     END_CLASS
 END_NAMESPACE
