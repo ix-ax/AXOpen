@@ -160,7 +160,8 @@ NAMESPACE AXOpen.Core
     /// Provides an empty RTC object for uninitialized RTC.
     ///</summary>
     {S7.extern=ReadWrite}
-    CLASS PUBLIC _NULL_MESSENGER_SERVICE IMPLEMENTS IAxoMessagingServices                 
+    CLASS PUBLIC _NULL_MESSENGER_SERVICE IMPLEMENTS IAxoMessagingServices
+        // Due to compiler issues with interface inheritance, we will temporarily implement methods related to messaging suspension also here.
         METHOD PUBLIC QueueMessage : BOOL
             VAR_INPUT
                 inMessegenger : IAxoMessenger;
