@@ -17,7 +17,8 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             MAIN_123 := 4,
             MAIN_122 := 5,
             ExecuteSequence := 6,
-            LogicOutsideSteps := 7
+            LogicOutsideSteps := 7,
+            ExecuteSequenceWithPossibilityToEnableDisableSteps := 8
         ) := None;
     END_TYPE
 
@@ -42,6 +43,9 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             _step_1    : AxoStep;
             _step_2    : AxoStep;
             _step_3    : AxoStep;        
+            _enable_step_1    : BOOL := TRUE;
+            _enable_step_2    : BOOL := TRUE;
+            _enable_step_3    : BOOL := TRUE;        
             _stepLogic : eStepLogic;
             _orderCounter : ULINT;
             _CompleteStep : BOOL;
@@ -92,6 +96,9 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
                 eStepLogic#LogicOutsideSteps: 
                     THIS.LogicOutsideSteps();
+
+                eStepLogic#ExecuteSequenceWithPossibilityToEnableDisableSteps: 
+                    THIS.ExecuteSequence(_CompleteStep , _CompleteSequence,_enable_step_1,_enable_step_2,_enable_step_3);
 
                 END_CASE;
         END_METHOD
@@ -155,12 +162,38 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             END_IF;
         END_METHOD
 
+        METHOD PRIVATE ExecuteSequence
+            VAR_INPUT
+                CompleteStep : BOOL;
+                CompleteSequence : BOOL;
+                EnableStep1 : BOOL;
+                EnableStep2 : BOOL;
+                EnableStep3 : BOOL;
+            END_VAR
+
+            IF _step_1.Execute(THIS,EnableStep1) THEN
+                IF CompleteStep THEN
+                    THIS.MoveNext();
+                END_IF;
+            END_IF;
+            IF _step_2.Execute(THIS,EnableStep2) THEN
+                IF CompleteStep THEN
+                    THIS.MoveNext();
+                END_IF;
+            END_IF;
+            IF _step_3.Execute(THIS,EnableStep3) THEN
+                IF CompleteSequence THEN
+                    THIS.CompleteSequence();
+                END_IF;
+            END_IF;
+        END_METHOD
+       
+
         METHOD LogicOutsideSteps 
             THIS.MAIN_123();
             _counter := _counter + ULINT#1;
         END_METHOD
     END_CLASS
-
 
     {TestFixture}
     {S7.extern=ReadWrite}
@@ -243,6 +276,33 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             _sequencer._CompleteSequence := CompleteSequence;
 
             _sequencer._stepLogic := eStepLogic#ExecuteSequence;
+            // _sequencer.Initialize(_rootObject);
+            _sequencer.Invoke();
+            _sequencer.Run(_rootObject);
+
+            _context.Close();
+        END_METHOD
+
+        METHOD PRIVATE ExecuteSequence
+            VAR_INPUT
+                CompleteStep : BOOL;
+                CompleteSequence : BOOL;
+                EnableStep1 : BOOL;
+                EnableStep2 : BOOL;
+                EnableStep3 : BOOL;
+            END_VAR
+
+            THIS.PrepareSequence();
+
+            _context.Open();
+ 
+            _sequencer._CompleteStep := CompleteStep;
+            _sequencer._CompleteSequence := CompleteSequence;
+
+            _sequencer._stepLogic := eStepLogic#ExecuteSequenceWithPossibilityToEnableDisableSteps;
+            _sequencer._enable_step_1 := EnableStep1;
+            _sequencer._enable_step_2 := EnableStep2;
+            _sequencer._enable_step_3 := EnableStep3;
             // _sequencer.Initialize(_rootObject);
             _sequencer.Invoke();
             _sequencer.Run(_rootObject);
@@ -1605,6 +1665,32 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         END_METHOD
 
         {Test}        
+        METHOD PUBLIC StepBackward_command_should_decrement_Current_order_even_if_previous_step_is_disabled
+            VAR
+                _previousOrder : ULINT;
+            END_VAR
+            // Arrange
+            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            THIS.ExecuteSequence(FALSE,FALSE,TRUE,FALSE,TRUE);
+            _sequencer.RequestStep(_sequencer._step_3);
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(FALSE,FALSE,TRUE,FALSE,TRUE);
+
+            _previousOrder := _sequencer.CurrentOrder;
+            
+            // Act
+            _context.Open();
+            _sequencer.Open();
+            _sequencer.StepBackwardCommand.Invoke();
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
+
+            // Assert
+            Assert.Equal(_previousOrder - ULINT#1  ,_sequencer.CurrentOrder);
+        END_METHOD
+
+        {Test}        
         METHOD PUBLIC StepBackward_command_should_be_disabled_when_CurrentOrder_is_equal_to_last_step_order
             _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
             THIS.ExecuteSequence(FALSE,FALSE);
@@ -1833,6 +1919,89 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             Assert.Equal(ULINT#1, _sequencer._counter);
         END_METHOD
  
+        {Test}        
+        METHOD PUBLIC step_that_is_already_done_should_be_triggered_again_if_it_is_again_in_the_order_of_execution
+            VAR
+                counter : UINT;
+            END_VAR
+
+            THIS.PrepareSequence();
+            //First sequence cycle 
+            _context.Open();
+            _sequencer.Open();
+            IF _sequencer._step_1.Execute(_sequencer) THEN 
+                Assert.Equal(_sequencer._step_1.IsBusy(),TRUE);
+                Assert.Equal(_sequencer._step_1.IsDone(),FALSE);
+                counter := counter + UINT#1;
+                _sequencer.MoveNext();
+                Assert.Equal(_sequencer._step_1.IsBusy(),FALSE);
+                Assert.Equal(_sequencer._step_1.IsDone(),TRUE);
+            END_IF;
+            IF _sequencer._step_2.Execute(_sequencer) THEN 
+                Assert.Equal(_sequencer._step_2.IsBusy(),TRUE);
+                Assert.Equal(_sequencer._step_2.IsDone(),FALSE);
+                counter := counter + UINT#1;
+                _sequencer.MoveNext();
+                Assert.Equal(_sequencer._step_2.IsBusy(),FALSE);
+                Assert.Equal(_sequencer._step_2.IsDone(),TRUE);
+            END_IF;
+            IF _sequencer._step_3.Execute(_sequencer) THEN
+                Assert.Equal(_sequencer._step_3.IsBusy(),TRUE);
+                Assert.Equal(_sequencer._step_3.IsDone(),FALSE);
+                counter := counter + UINT#1;
+                _sequencer.RequestStep(_sequencer._step_1); 
+                 Assert.Equal(_sequencer._step_3.IsBusy(),FALSE);
+                Assert.Equal(_sequencer._step_3.IsDone(),TRUE);
+            END_IF;
+            _context.Close();
+            Assert.Equal(_sequencer._step_1.IsBusy(),FALSE);
+            Assert.Equal(_sequencer._step_2.IsBusy(),FALSE);
+            Assert.Equal(_sequencer._step_3.IsBusy(),FALSE);
+            Assert.Equal(_sequencer._step_1.IsDone(),TRUE );
+            Assert.Equal(_sequencer._step_2.IsDone(),TRUE );
+            Assert.Equal(_sequencer._step_3.IsDone(),TRUE );
+            Assert.Equal(_sequencer._step_1.StartSignature , ULINT#2);
+            Assert.Equal(_sequencer._step_2.StartSignature , ULINT#2);
+            Assert.Equal(_sequencer._step_3.StartSignature , ULINT#2);
+            Assert.Equal(counter, UINT#3);
+ 
+            // Second sequence cycle 
+            _context.Open();
+            _sequencer.Open();
+            IF _sequencer._step_1.Execute(_sequencer) THEN 
+                Assert.Equal(_sequencer._step_1.IsBusy(),TRUE);
+                Assert.Equal(_sequencer._step_1.IsDone(),FALSE);
+                counter := counter + UINT#1;
+                _sequencer.MoveNext();
+                Assert.Equal(_sequencer._step_1.IsBusy(),FALSE);
+                Assert.Equal(_sequencer._step_1.IsDone(),TRUE);
+            END_IF;
+            IF _sequencer._step_2.Execute(_sequencer) THEN 
+                Assert.Equal(_sequencer._step_2.IsBusy(),TRUE);
+                Assert.Equal(_sequencer._step_2.IsDone(),FALSE);
+                counter := counter + UINT#1;
+                _sequencer.MoveNext();
+                Assert.Equal(_sequencer._step_2.IsBusy(),FALSE);
+                Assert.Equal(_sequencer._step_2.IsDone(),TRUE);
+            END_IF;
+            IF _sequencer._step_3.Execute(_sequencer) THEN
+                Assert.Equal(_sequencer._step_3.IsBusy(),TRUE);
+                Assert.Equal(_sequencer._step_3.IsDone(),FALSE);
+                counter := counter + UINT#1;
+            END_IF;
+            _context.Close();
+            Assert.Equal(_sequencer._step_1.IsBusy(),FALSE);
+            Assert.Equal(_sequencer._step_2.IsBusy(),FALSE);
+            Assert.Equal(_sequencer._step_3.IsBusy(),TRUE);
+            Assert.Equal(_sequencer._step_1.IsDone(),TRUE );
+            Assert.Equal(_sequencer._step_2.IsDone(),TRUE );
+            Assert.Equal(_sequencer._step_3.IsDone(),FALSE );
+            Assert.Equal(_sequencer._step_1.StartSignature , ULINT#3);
+            Assert.Equal(_sequencer._step_2.StartSignature , ULINT#3);
+            Assert.Equal(_sequencer._step_3.StartSignature , ULINT#3);
+            Assert.Equal(counter, UINT#6);
+        END_METHOD
+
     END_CLASS  
 END_NAMESPACE
 

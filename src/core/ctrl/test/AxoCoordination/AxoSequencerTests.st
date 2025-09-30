@@ -1869,6 +1869,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
 
         {Test}        
         METHOD PUBLIC microstep_should_not_be_changed_by_sequencer_except_the_first_entry_to_step
+           
             THIS.PrepareSequence();
 
             //First sequence cycle
@@ -1889,6 +1890,89 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _step_3.Execute(_sequencer);
             _context.Close();
             Assert.Equal(UINT#10,_sequencer.GetMicroStepValue());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC step_that_is_already_done_should_be_triggered_again_if_it_is_again_in_the_order_of_execution
+            VAR
+                counter : UINT;
+            END_VAR
+
+            THIS.PrepareSequence();
+            //First sequence cycle 
+            _context.Open();
+            _sequencer.Open();
+            IF _step_1.Execute(_sequencer) THEN 
+                Assert.Equal(_step_1.IsBusy(),TRUE);
+                Assert.Equal(_step_1.IsDone(),FALSE);
+                counter := counter + UINT#1;
+                _sequencer.MoveNext();
+                Assert.Equal(_step_1.IsBusy(),FALSE);
+                Assert.Equal(_step_1.IsDone(),TRUE);
+            END_IF;
+            IF _step_2.Execute(_sequencer) THEN 
+                Assert.Equal(_step_2.IsBusy(),TRUE);
+                Assert.Equal(_step_2.IsDone(),FALSE);
+                counter := counter + UINT#1;
+                _sequencer.MoveNext();
+                Assert.Equal(_step_2.IsBusy(),FALSE);
+                Assert.Equal(_step_2.IsDone(),TRUE);
+            END_IF;
+            IF _step_3.Execute(_sequencer) THEN
+                Assert.Equal(_step_3.IsBusy(),TRUE);
+                Assert.Equal(_step_3.IsDone(),FALSE);
+                counter := counter + UINT#1;
+                _sequencer.RequestStep(_step_1); 
+                 Assert.Equal(_step_3.IsBusy(),FALSE);
+                Assert.Equal(_step_3.IsDone(),TRUE);
+            END_IF;
+            _context.Close();
+            Assert.Equal(_step_1.IsBusy(),FALSE);
+            Assert.Equal(_step_2.IsBusy(),FALSE);
+            Assert.Equal(_step_3.IsBusy(),FALSE);
+            Assert.Equal(_step_1.IsDone(),TRUE );
+            Assert.Equal(_step_2.IsDone(),TRUE );
+            Assert.Equal(_step_3.IsDone(),TRUE );
+            Assert.Equal(_step_1.StartSignature , ULINT#2);
+            Assert.Equal(_step_2.StartSignature , ULINT#2);
+            Assert.Equal(_step_3.StartSignature , ULINT#2);
+            Assert.Equal(counter, UINT#3);
+ 
+            // Second sequence cycle 
+            _context.Open();
+            _sequencer.Open();
+            IF _step_1.Execute(_sequencer) THEN 
+                Assert.Equal(_step_1.IsBusy(),TRUE);
+                Assert.Equal(_step_1.IsDone(),FALSE);
+                counter := counter + UINT#1;
+                _sequencer.MoveNext();
+                Assert.Equal(_step_1.IsBusy(),FALSE);
+                Assert.Equal(_step_1.IsDone(),TRUE);
+            END_IF;
+            IF _step_2.Execute(_sequencer) THEN 
+                Assert.Equal(_step_2.IsBusy(),TRUE);
+                Assert.Equal(_step_2.IsDone(),FALSE);
+                counter := counter + UINT#1;
+                _sequencer.MoveNext();
+                Assert.Equal(_step_2.IsBusy(),FALSE);
+                Assert.Equal(_step_2.IsDone(),TRUE);
+            END_IF;
+            IF _step_3.Execute(_sequencer) THEN
+                Assert.Equal(_step_3.IsBusy(),TRUE);
+                Assert.Equal(_step_3.IsDone(),FALSE);
+                counter := counter + UINT#1;
+            END_IF;
+            _context.Close();
+            Assert.Equal(_step_1.IsBusy(),FALSE);
+            Assert.Equal(_step_2.IsBusy(),FALSE);
+            Assert.Equal(_step_3.IsBusy(),TRUE);
+            Assert.Equal(_step_1.IsDone(),TRUE );
+            Assert.Equal(_step_2.IsDone(),TRUE );
+            Assert.Equal(_step_3.IsDone(),FALSE );
+            Assert.Equal(_step_1.StartSignature , ULINT#3);
+            Assert.Equal(_step_2.StartSignature , ULINT#3);
+            Assert.Equal(_step_3.StartSignature , ULINT#3);
+            Assert.Equal(counter, UINT#6);
         END_METHOD
     END_CLASS  
 END_NAMESPACE

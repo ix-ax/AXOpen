@@ -127,7 +127,8 @@ NAMESPACE AxoSequencerContainerExamples
             _rootObject :   AxoObject;
         END_VAR
         METHOD PROTECTED OVERRIDE Main
-            _SequencerContainerExample.Run(_rootObject);
+            THIS.InitializeRootObject(_SequencerContainerExample);
+            _SequencerContainerExample.Run();
         END_METHOD
     END_CLASS    
 END_NAMESPACE
