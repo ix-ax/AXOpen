@@ -1,3 +1,29 @@
+### [INTEGRATIONS] Additional alignments with application template ([#768](https://github.com/Inxton/AXOpen/pull/768))
+
+**Note:** Namespace and component renames require consumers to update imports, templates, and generated UI bindings before upgrading.
+
+- refactor: Migrated application, configuration, and UI layers to `AXOpen.Components.Elements.*`, replacing legacy `AXOpen.Elements.*` usage
+- refactor: Renamed the carousel component family to `AxoRotaryIndexingTable`, aligning state/control models, CRUD exposure, and tests with integration terminology
+- feat: Introduced `AdamAxoObject` as a safe root context for top-level objects that previously relied on null parents
+- feat: Expanded messaging suspension capabilities (including `_NULL_MESSAGING_SERVICE`) and exposed `IsSuspended()` for host applications
+- fix: Routed data exchange writes through `Operation.WriteAsync`, unifying telemetry, task tracking, and error propagation in async workflows
+- chore: Bumped AXSharp packages and CLI tools to `0.40.2-alpha.296`, realigned Apax catalogs, and reordered multi-root workspace entries for clarity
+- misc: Normalized identifier naming (e.g., `inIdentifier`) and surfaced CRUD existence state for rotary indexing tables
+
+**Impact:**
+- Aligns component namespaces with package layout, simplifying discovery and upgrade paths across templates
+- Clarifies rotary indexing semantics for operators and generated UIs, reducing friction when configuring indexing tables
+- Provides a reliable root object for contexts and ensures messaging suspension hooks behave consistently during diagnostics
+- Improves data exchange stability by enforcing a single async write path and updated dependency baselines
+
+**Risks/Review:**
+- Update all solution code, templates, and custom components referencing `AXOpen.Elements.*` or `AxoCarousel*` types
+- Validate rotary indexing table workflows (state transitions, CRUD views, generated UI) after the rename
+- Re-run messaging suspension scenarios to confirm the `_NULL_` implementation and new APIs behave as expected
+- Execute pipeline/build steps after the AXSharp dependency bump and catalog realignments
+
+**Testing:**
+- Manual verification pending; run component regressions, data exchange tests, and messaging suspension coverage in CI
 
 ### Misc improvements ([#755](https://github.com/Inxton/AXOpen/pull/755))
 

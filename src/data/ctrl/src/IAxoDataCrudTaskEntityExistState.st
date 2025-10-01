@@ -1,0 +1,5 @@
+NAMESPACE AXOpen.Data
+    INTERFACE PUBLIC IAxoDataCrudTaskEntityExistState EXTENDS AXOpen.Core.IAxoTaskState
+            METHOD Exist : BOOL END_METHOD
+    END_INTERFACE
+END_NAMESPACE

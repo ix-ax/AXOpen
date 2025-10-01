@@ -132,9 +132,9 @@ NAMESPACE AXOpen.Core
 
     METHOD PUBLIC WithType : IAxoAlertFormat
         VAR_INPUT
-            inAlertType : eDialogType;
+            inDialogType : eDialogType;
         END_VAR
-        _alertType := inAlertType;
+        _alertType := inDialogType;
         WithType := THIS;
     END_METHOD
 

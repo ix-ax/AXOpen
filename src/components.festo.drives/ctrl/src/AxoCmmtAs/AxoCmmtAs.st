@@ -5034,7 +5034,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Homing              :   BOOL;                       //  See state diagram
                 Standstill          :   BOOL;                       //  See state diagram
                 DiscreteMotion      :   BOOL;                       //  See state diagram
-                ContinuousMotion     :   BOOL;                       //  See state diagram
+                ContinuousMotion    :   BOOL;                       //  See state diagram
                 SynchronizedMotion  : BOOL;                       //  See state diagram
             END_VAR
             VAR 

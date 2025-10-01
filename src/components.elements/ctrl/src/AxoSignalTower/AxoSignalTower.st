@@ -6,11 +6,11 @@ NAMESPACE AXOpen.Components.Elements
     CLASS AxoSignalTower 
         EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC
-            Red                :   AXOpen.Elements.AxoDo; 
-            Green              :   AXOpen.Elements.AxoDo; 
-            Blue               :   AXOpen.Elements.AxoDo; 
-            Yellow             :   AXOpen.Elements.AxoDo; 
-            Horn               :   AXOpen.Elements.AxoDo;             
+            Red                :   AXOpen.Components.Elements.AxoDo; 
+            Green              :   AXOpen.Components.Elements.AxoDo; 
+            Blue               :   AXOpen.Components.Elements.AxoDo; 
+            Yellow             :   AXOpen.Components.Elements.AxoDo; 
+            Horn               :   AXOpen.Components.Elements.AxoDo;             
         END_VAR
 
         /// <summary>

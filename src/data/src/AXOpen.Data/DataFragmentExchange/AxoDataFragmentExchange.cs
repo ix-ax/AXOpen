@@ -86,7 +86,7 @@ public partial class AxoDataFragmentExchange
     public async Task InitializeRemoteDataExchange()
     {
         Operation.InitializeExclusively(Handle);
-        await this.WriteAsync();
+        await this.Operation.WriteAsync();
     }
 
     /// <summary>
@@ -96,7 +96,7 @@ public partial class AxoDataFragmentExchange
     public async Task DeInitializeRemoteDataExchange()
     {
         Operation.DeInitialize();
-        await this.WriteAsync();
+        await this.Operation.WriteAsync();
     }
 
     private async Task Handle()

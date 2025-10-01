@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AXOpen.Elements
+namespace AXOpen.Components.Elements
 {
 
-    public partial class AxoCarousel_Component_Status : AXOpen.Components.Abstractions.AxoComponent_Status
+    public partial class AxoRotaryIndexingTable_Component_Status : AXOpen.Components.Abstractions.AxoComponent_Status
     {
         Dictionary<ulong, string> errorDescriptionDict = new Dictionary<ulong, string>();
         Dictionary<ulong, string> actionDescriptionDict = new Dictionary<ulong, string>();

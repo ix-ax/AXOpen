@@ -1,6 +1,6 @@
 USING AXOpen.Core;
 
-NAMESPACE AXOpen.Elements
+NAMESPACE AXOpen.Components.Elements
     {S7.extern=ReadWrite}
     CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
@@ -20,7 +20,7 @@ NAMESPACE AXOpen.Elements
 
         //<AxoDiDeclaration>
         VAR PUBLIC
-            _testDi : AXOpen.Elements.AxoDi;
+            _testDi : AXOpen.Components.Elements.AxoDi;
         END_VAR
         //</AxoDiDeclaration>
 
@@ -33,7 +33,7 @@ NAMESPACE AXOpen.Elements
 
         //<AxoDoDeclaration>
         VAR PUBLIC
-            _testDo : AXOpen.Elements.AxoDo;
+            _testDo : AXOpen.Components.Elements.AxoDo;
         END_VAR
         //</AxoDoDeclaration>
 
@@ -46,7 +46,7 @@ NAMESPACE AXOpen.Elements
 
         //<AxoAiDeclaration>
         VAR PUBLIC
-            _testAi : AXOpen.Elements.AxoAi;
+            _testAi : AXOpen.Components.Elements.AxoAi;
         END_VAR
         //</AxoAiDeclaration>
 
@@ -59,7 +59,7 @@ NAMESPACE AXOpen.Elements
 
         //<AxoAoDeclaration>
         VAR PUBLIC
-            _testAo : AXOpen.Elements.AxoAo;
+            _testAo : AXOpen.Components.Elements.AxoAo;
         END_VAR
         //</AxoAoDeclaration>
 
@@ -71,7 +71,7 @@ NAMESPACE AXOpen.Elements
 
         //<AxoCarouselDeclaration>
         VAR PUBLIC
-            _testCarousel : AXOpen.Elements.AxoCarousel;
+            _testCarousel : AXOpen.Components.Elements.AxoCarousel;
         END_VAR
         //</AxoCarouselDeclaration>
 

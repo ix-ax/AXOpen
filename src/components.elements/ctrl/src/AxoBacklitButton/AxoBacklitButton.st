@@ -9,11 +9,11 @@ NAMESPACE AXOpen.Components.Elements
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Button")]}
             {#ix-set:AttributeName = "<#Button Signal#>"} 
-            Button             :   AXOpen.Elements.AxoDi;            
+            Button             :   AXOpen.Components.Elements.AxoDi;            
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Led")]}
             {#ix-set:AttributeName = "<#LED Indicator#>"} 
-            Led                :   AXOpen.Elements.AxoDo;             
+            Led                :   AXOpen.Components.Elements.AxoDo;             
         END_VAR
 
         /// <summary>

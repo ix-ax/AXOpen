@@ -1,7 +1,7 @@
-NAMESPACE AXOpen.Elements
+NAMESPACE AXOpen.Components.Elements
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Stack)]}
-    CLASS PUBLIC AxoCarousel_State
+    CLASS PUBLIC AxoRotaryIndexingTable_State
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Safety condition#>"}
             SafetyCondition : BOOL;

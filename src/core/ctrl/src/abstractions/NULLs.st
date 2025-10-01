@@ -16,6 +16,8 @@ NAMESPACE AXOpen.Core
             NULL_LOGGER : _NULL_LOGGER;
             {S7.extern=Hidden}
             NULL_RTM : _NULL_RTM;           
+            {S7.extern=Hidden}
+            NULL_MESSENGER_SERVICE : _NULL_MESSENGER_SERVICE;  
         END_VAR
 
         ///<summary>
@@ -23,8 +25,7 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PUBLIC IsValid : BOOL
             IsValid := FALSE;            
-        END_METHOD
-    
+        END_METHOD    
         METHOD PUBLIC CreateIdentity : ULINT CreateIdentity := ULINT#0; END_METHOD
         METHOD PUBLIC OpenCycleCount : ULINT OpenCycleCount := ULINT#0; END_METHOD                                         
         METHOD PUBLIC GetRtc : IAxoRtc GetRtc := NULL_RTC; END_METHOD
@@ -32,8 +33,18 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC GetLogger : IAxoLogger GetLogger :=  NULL_LOGGER; END_METHOD
         METHOD PUBLIC InjectLogger VAR_INPUT _logger : IAxoLogger; END_VAR ; END_METHOD           
         METHOD PUBLIC GetRtm : IAxoRtm GetRtm :=  NULL_RTM; END_METHOD
-        METHOD PUBLIC InjectRtm VAR_INPUT rtm : IAxoRtm; END_VAR ; END_METHOD           
-        METHOD PUBLIC InitializeRootObject VAR_IN_OUT inoRootObject : AxoObject; END_VAR ; END_METHOD         
+        METHOD PUBLIC InjectRtm VAR_INPUT inRtm : IAxoRtm; END_VAR ; END_METHOD           
+        METHOD PUBLIC InitializeRootObject VAR_IN_OUT inoRootObject : AxoObject; END_VAR ; END_METHOD             
+        METHOD PUBLIC InjectMessengerService
+            VAR_INPUT
+                inMessengerService : IAxoMessagingServices;
+            END_VAR
+
+            ;
+        END_METHOD    
+        METHOD PUBLIC GetMessengerService : IAxoMessagingServices
+            GetMessengerService := NULL_MESSENGER_SERVICE;
+        END_METHOD
     END_CLASS    
 
 
@@ -145,6 +156,32 @@ NAMESPACE AXOpen.Core
         END_METHOD
     END_CLASS 
     
+    ///<summary>
+    /// Provides an empty RTC object for uninitialized RTC.
+    ///</summary>
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC _NULL_MESSENGER_SERVICE IMPLEMENTS IAxoMessagingServices
+        // Due to compiler issues with interface inheritance, we will temporarily implement methods related to messaging suspension also here.
+        METHOD PUBLIC QueueMessage : BOOL
+            VAR_INPUT
+                inMessegenger : IAxoMessenger;
+            END_VAR   
+            QueueMessage := FALSE;         
+        END_METHOD        
+        VAR PRIVATE
+            _isSuspended : BOOL := FALSE;
+        END_VAR
+        METHOD PUBLIC SuspendMessaging
+            _isSuspended := TRUE;
+        END_METHOD
+
+        METHOD PUBLIC ResumeMessaging
+            _isSuspended := FALSE;
+        END_METHOD
     
+        METHOD PUBLIC IsSuspended : BOOL
+            IsSuspended := _isSuspended;
+        END_METHOD
+    END_CLASS 
 END_NAMESPACE
     

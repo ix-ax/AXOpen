@@ -168,7 +168,7 @@ public partial class AxoMessenger
 
     public async Task ReadDetailsAsync()
     {
-        var r = new ITwinPrimitive[] { this.MessageCode, Category, MessageCode,  MessengerState };
+        var r = new ITwinPrimitive[] { this.MessageCode, Category, MessageCode,  MessengerState, Message };
         await this.GetConnector()?.ReadBatchAsync(r)!;
     }
 
@@ -187,7 +187,15 @@ public partial class AxoMessenger
     /// <returns>The message text string.</returns>
     public string GetMessageText()
     {
+        //18446744073709551615
+        
         ulong messageCode = this.MessageCode.LastValue;
+
+        if (messageCode == ulong.MaxValue)
+        {
+            return this.Message.LastValue;
+        }
+
         string retVal = "";
         string prefix = "";
         if (this.MessengerState.Equals(eAxoMessengerState.InvalidImplementation) || this.MessengerState.LastValue.Equals((short)eAxoMessengerState.InvalidImplementation))
@@ -231,7 +239,15 @@ public partial class AxoMessenger
 
     public string GetHelpText()
         {
-            ulong messageCode = MessageCode.Cyclic;
+
+            ulong messageCode = MessageCode.LastValue;
+
+            if (messageCode == ulong.MaxValue)
+            {
+                return string.Empty;
+            }
+
+        
             string retVal = "";
             string prefix = "";
             if (this.MessengerState.Equals(eAxoMessengerState.InvalidImplementation))
