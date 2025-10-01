@@ -19,7 +19,7 @@ variables:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.31
+  "@inxton/ax.catalog": 0.0.32
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -56,7 +56,7 @@ scripts:
     dotnet tool restore
     dotnet ixc --skip-deps 
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ixc' Finished in :" $(expr $(date +%s) - $START) "s"
-  postbuild: apax run ixc # run after build
+  #postbuild: apax run ixc # run after build
   dcpli: | # list all interfaces, used to discover MAC address of the adapter connected to PLC                                                              (apax dcp-utility list-interfaces )
     START=$(date +%s)
     ..\\..\\scripts\\dcp_utility_list_interfaces.sh                                                                                                         
