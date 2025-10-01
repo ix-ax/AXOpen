@@ -114,7 +114,8 @@ NAMESPACE AxoSequencerExamples
                     Counter := Counter + ULINT#1;
                     IF(Counter >= ULINT#800 ) THEN
                         Counter := ULINT#0;
-                        coord.MoveNext();
+                        coord.RequestStep(step_1);
+                        // coord.MoveNext();
                     END_IF;    
                 END_IF; 
 

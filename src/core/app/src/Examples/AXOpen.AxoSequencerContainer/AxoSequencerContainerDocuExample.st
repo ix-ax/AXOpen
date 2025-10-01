@@ -5,8 +5,7 @@ NAMESPACE AxoSequencerContainerExamples
     CLASS AxoSequencerContainerDocuExample EXTENDS  AXOpen.Core.AxoSequencerContainer
         VAR PUBLIC
             _step_1 : AxoStep;
-            _step_2 : AxoStep;
-            _step_3 : AxoStep;
+            _step_s : ARRAY[0..10] OF AxoStep;
             _myCounter : ULINT;
         END_VAR
         //<MAIN>
@@ -24,17 +23,79 @@ NAMESPACE AxoSequencerContainerExamples
                 END_IF;    
             END_IF;    
         
-            IF(_step_2.Execute(THIS)) THEN
+            IF(_step_s[0].Execute(THIS)) THEN
                 IF(_myCounter >= ULINT#100) THEN
                     _myCounter := ULINT#0;
                     THIS.MoveNext();
                 END_IF;    
             END_IF; 
 
-            IF(_step_3.Execute(THIS)) THEN
+            IF(_step_s[1].Execute(THIS)) THEN
                 IF(_myCounter >= ULINT#100) THEN
                     _myCounter := ULINT#0;
-                    _step_3.ThrowWhen(TRUE);
+                    THIS.MoveNext();
+                END_IF;    
+            END_IF; 
+
+            IF(_step_s[2].Execute(THIS)) THEN
+                IF(_myCounter >= ULINT#100) THEN
+                    _myCounter := ULINT#0;
+                    THIS.MoveNext();
+                END_IF;    
+            END_IF; 
+
+            IF(_step_s[3].Execute(THIS)) THEN
+                IF(_myCounter >= ULINT#100) THEN
+                    _myCounter := ULINT#0;
+                    THIS.MoveNext();
+                END_IF;    
+            END_IF; 
+
+            IF(_step_s[4].Execute(THIS)) THEN
+                IF(_myCounter >= ULINT#100) THEN
+                    _myCounter := ULINT#0;
+                    THIS.MoveNext();
+                END_IF;    
+            END_IF; 
+
+            IF(_step_s[5].Execute(THIS)) THEN
+                IF(_myCounter >= ULINT#100) THEN
+                    _myCounter := ULINT#0;
+                    THIS.MoveNext();
+                END_IF;    
+            END_IF; 
+
+            IF(_step_s[6].Execute(THIS)) THEN
+                IF(_myCounter >= ULINT#100) THEN
+                    _myCounter := ULINT#0;
+                    THIS.MoveNext();
+                END_IF;    
+            END_IF; 
+
+            IF(_step_s[7].Execute(THIS)) THEN
+                IF(_myCounter >= ULINT#100) THEN
+                    _myCounter := ULINT#0;
+                    THIS.MoveNext();
+                END_IF;    
+            END_IF; 
+
+            IF(_step_s[8].Execute(THIS)) THEN
+                IF(_myCounter >= ULINT#100) THEN
+                    _myCounter := ULINT#0;
+                    THIS.MoveNext();
+                END_IF;    
+            END_IF; 
+
+            IF(_step_s[9].Execute(THIS)) THEN
+                IF(_myCounter >= ULINT#100) THEN
+                    _myCounter := ULINT#0;
+                    THIS.MoveNext();
+                END_IF;    
+            END_IF; 
+
+            IF(_step_s[10].Execute(THIS)) THEN
+                IF(_myCounter >= ULINT#100) THEN
+                    _myCounter := ULINT#0;
                     THIS.CompleteSequence();
                 END_IF;    
             END_IF; 
@@ -57,7 +118,6 @@ NAMESPACE AxoSequencerContainerExamples
             //<InstanceRunning>
             _mySequencerContainer.Run(_rootObject);
             //</InstanceRunning>
-        END_METHOD   
-
+        END_METHOD
     END_CLASS
 END_NAMESPACE

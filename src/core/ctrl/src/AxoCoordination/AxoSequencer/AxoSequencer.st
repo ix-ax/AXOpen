@@ -139,6 +139,9 @@ NAMESPACE AXOpen.Core
                     IF SteppingMode = eAxoSteppingMode#Continous THEN
                         IF Enable THEN
                             step.SetIsActive(TRUE);
+                            IF step.IsDone() THEN
+                                step.Restore();
+                            END_IF;
                         ELSE
                             CurrentOrder := CurrentOrder + ULINT#1;
                             // Since both the initial and final steps cannot be disabled, this 
@@ -151,6 +154,9 @@ NAMESPACE AXOpen.Core
                         StepIn.SetIsDisabled(FALSE);
                         IF Enable THEN
                             step.SetIsActive(TRUE);
+                            IF step.IsDone() THEN
+                                step.Restore();
+                            END_IF;
                         ELSIF StepIn.Execute() THEN
                             CurrentOrder := CurrentOrder + ULINT#1;
                             // Since both the initial and final steps cannot be disabled, this 
