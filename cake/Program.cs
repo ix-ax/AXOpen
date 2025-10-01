@@ -253,7 +253,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
                 context.Log.Information($"---------------------------------");
                 context.ApaxClean(lib);
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
-                //context.ApaxBuild(context.GetLibraryAxFolders(lib));
+                context.ApaxBuild(context.GetLibraryAxFolders(lib));
                 context.ApaxTestLibrary(lib);
                 context.ApaxClean(lib);
             });
