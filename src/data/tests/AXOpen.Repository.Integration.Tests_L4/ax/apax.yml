@@ -47,7 +47,7 @@ scripts:
   ixc: | # run ix builder
     dotnet tool restore
     dotnet ixc --skip-deps 
-  postbuild: apax run ixc # run after build
+  #postbuild: apax run ixc # run after build
   dcpli: | # list all interfaces, used to discover MAC address of the adapter connected to PLC                                                              (apax dcp-utility list-interfaces )
     ..\\..\\scripts\\dcp_utility_list_interfaces.sh                                                                                                         
   dcpd: | # discover all accesible devices connected to adapter with MAC address equal to entered MAC, used to discover MAC-addresses of the slaves         (apax dcp-utility discover)
