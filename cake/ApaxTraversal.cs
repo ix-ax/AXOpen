@@ -53,7 +53,7 @@ public static class ApaxTraversal
 
         
         var fileInfoList = new List<ApaxFileInfo>(); // Assuming FileInfo is a class you've defined to store file information
-        foreach (var filePath in allFiles.Where(p => p.Contains("\\app\\") || p.Contains("\\ctrl\\")))
+        foreach (var filePath in allFiles)
         {
             try
             {
