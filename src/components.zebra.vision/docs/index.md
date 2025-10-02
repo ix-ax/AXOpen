@@ -1,0 +1,1 @@
+[!INCLUDE [General](../../../docfx/articles/notes/LIBRARYHEADER.md)]
