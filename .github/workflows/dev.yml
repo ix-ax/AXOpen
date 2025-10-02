@@ -34,7 +34,6 @@ jobs:
       shell: pwsh
                        
     - name: "Run build script"
-      continue-on-error: true     
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
           GH_USER : ${{ secrets.GH_USER }}
@@ -44,7 +43,6 @@ jobs:
       shell: pwsh
       
     - name: "Publish packages"
-      continue-on-error: true     
       if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.publish == 'true' }}
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -53,6 +51,3 @@ jobs:
         dotnet run --project cake/Build.csproj --do-publish-only --do-publish --do-publish-release
         "PACK_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
       shell: pwsh
-
-
-          
