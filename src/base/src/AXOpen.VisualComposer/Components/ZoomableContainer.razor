@@ -8,7 +8,7 @@
              @onpointerleave="Leave"
              @onwheel="WheelAsync"
              style="overflow: hidden; background-color: @(Parent.CurrentView.BackgroundColor);">
-            <div style="position: relative; transform: scale(@(Parent!.CurrentView.Scale)) translate(@(Parent!.CurrentView.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.CurrentView.TranslateY.ToString().Replace(',', '.'))%);">
+            <div style="position: relative; transform: scale(@(Parent!.CurrentView.Scale.ToString().Replace(',', '.'))) translate(@(Parent!.CurrentView.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.CurrentView.TranslateY.ToString().Replace(',', '.'))%);">
                 @ChildContent
             </div>
         </div>
@@ -23,7 +23,7 @@ else
              @onpointerleave="Leave"
              @onwheel="WheelAsync"
              style="overflow: hidden; background-color: @(Parent.CurrentView.BackgroundColor);">
-            <div style="position: relative; transform: scale(@(Parent!.CurrentView.Scale)) translate(@(Parent!.CurrentView.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.CurrentView.TranslateY.ToString().Replace(',', '.'))%);">
+            <div style="position: relative; transform: scale(@(Parent!.CurrentView.Scale.ToString().Replace(',', '.'))) translate(@(Parent!.CurrentView.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.CurrentView.TranslateY.ToString().Replace(',', '.'))%);">
                 @ChildContent
             </div>
         </div>
