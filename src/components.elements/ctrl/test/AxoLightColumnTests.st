@@ -26,7 +26,7 @@ NAMESPACE AXOpen.Components.Elements.Tests
             
             _testLightColumn.Run(inParent := context.SignalParent, outRed => _redOutput, outGreen => _greenOutput, outBlue => _blueOutput, outYellow => _yellowOutput, outHorn => _hornOutput);
             
-            // Test that the component runs without errors when parent is valid
+            // Test that the component runs without errors when inParent is valid
             // The outputs should be processed correctly
             context.Close();
         END_METHOD
@@ -35,7 +35,7 @@ NAMESPACE AXOpen.Components.Elements.Tests
         METHOD PUBLIC Test_Run_NullParent_DoesNotRun
             _testLightColumn.Run(inParent := NULL, outRed => _redOutput, outGreen => _greenOutput, outBlue => _blueOutput, outYellow => _yellowOutput, outHorn => _hornOutput);
             
-            // Component should not process anything when parent is null
+            // Component should not process anything when inParent is null
             // No exceptions should be thrown
         END_METHOD
 

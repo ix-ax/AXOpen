@@ -17,7 +17,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 _testScrewdriver.ActivateManualControl();
             END_IF;   
 
-            _testScrewdriver.Run(   parent                  :=  _rootObject,
+            _testScrewdriver.Run(   inParent                  :=  _rootObject,
                                     hwID                   := HwIdentifiers#wp462_t1_rh_deso_HwID);       
 
             

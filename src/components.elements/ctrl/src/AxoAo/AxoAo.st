@@ -51,7 +51,7 @@ NAMESPACE AXOpen.Components.Elements
         METHOD PUBLIC Run
 
             VAR_INPUT
-                parent : Axopen.Core.IAxoObject;
+                inParent : Axopen.Core.IAxoObject;
             END_VAR
 
             VAR_OUTPUT
@@ -59,12 +59,12 @@ NAMESPACE AXOpen.Components.Elements
             END_VAR
     
 
-            IF (parent = NULL) THEN 
+            IF (inParent = NULL) THEN 
                 RETURN; 
             END_IF;
 
             IF _context = NULL THEN
-                SUPER.Run(parent);
+                SUPER.Run(inParent);
                 _context := THIS.GetContext();
             END_IF;
 

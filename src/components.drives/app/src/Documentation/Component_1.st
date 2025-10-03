@@ -21,10 +21,10 @@ NAMESPACE AXOpen.Components.Drives
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             //<Initialization>        
             AxoDrive_.Run(THIS, AxisRef, Enable, EnablePositive, EnableNegative);        

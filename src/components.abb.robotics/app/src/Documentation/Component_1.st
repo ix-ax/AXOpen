@@ -17,16 +17,16 @@ NAMESPACE AXOpen.Components.Abb.Robotics
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF(manualControl) THEN            
                 AxoIrc5_v_1_x_x.ActivateManualControl();
             END_IF;
 
             //<Initialization>        
-            AxoIrc5_v_1_x_x.Run(parent          := parent,
+            AxoIrc5_v_1_x_x.Run(inParent          := inParent,
                                 hwID            := HwIdentifiers#RobotBasicIO_HwID);        
             //</Initialization>
 

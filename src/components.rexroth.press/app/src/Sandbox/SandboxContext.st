@@ -10,7 +10,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
 
         METHOD PROTECTED OVERRIDE Main
             THIS.InitializeRootObject(_rootObject);
-            AxoSmartFunctionKit.Run(parent              :=  _rootObject,                             
+            AxoSmartFunctionKit.Run(inParent              :=  _rootObject,                             
                                     hwID                :=  HwIdentifiers#SFK_HwID);
 
             IF(ActivateManualControl) THEN

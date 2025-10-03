@@ -222,7 +222,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent  :   IAxoObject; 
+                inParent  :   IAxoObject; 
                 hwID    :   UINT;
             END_VAR
             VAR
@@ -238,12 +238,12 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
             END_VAR
             Progress := _progress;
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
             
             Messenger.Serve(THIS);
 
             IF NOT _initHwCheckDone THEN
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(UINT#700, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#700;
                     RETURN;
@@ -932,7 +932,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                 _ResultDataSize := _ResultDataSize_Slot_11 + _ResultDataSize_Slot_12 + _ResultDataSize_Slot_13 + _ResultDataSize_Slot_14;
                 //***************************************************//
                 
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(UINT#1130, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1130;
                     RETURN;

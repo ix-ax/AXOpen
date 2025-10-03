@@ -17,17 +17,17 @@ NAMESPACE AXOpen.Components.Dukane.Welders
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 Dukane_IQ_SeriesWelder.ActivateManualControl();
             END_IF;
 
             //<Initialization>        
-            Dukane_IQ_SeriesWelder.Run(parent := THIS, hwID := HwIdentifiers#DukaneIqSeriesWelder_1_HwID);
+            Dukane_IQ_SeriesWelder.Run(inParent := THIS, hwID := HwIdentifiers#DukaneIqSeriesWelder_1_HwID);
             //</Initialization>
 
         THIS.UseInSequencer();

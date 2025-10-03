@@ -51,16 +51,16 @@ NAMESPACE AXOpen.Components.Elements
         METHOD PUBLIC Run
 
             VAR_INPUT
-                parent : Axopen.Core.IAxoObject;
+                inParent : Axopen.Core.IAxoObject;
                 inSignal: BOOL;
             END_VAR
 
-            IF (parent = NULL) THEN 
+            IF (inParent = NULL) THEN 
                 RETURN; 
             END_IF;
 
             IF _context = NULL THEN
-                SUPER.Run(parent);
+                SUPER.Run(inParent);
                 _isTrueTask.Run(THIS);
                 _isFalseTask.Run(THIS);
                 _context := THIS.GetContext();

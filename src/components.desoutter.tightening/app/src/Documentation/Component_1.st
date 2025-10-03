@@ -18,17 +18,17 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF(manualControl) THEN            
                 ExampleScrewdriver.ActivateManualControl();
             END_IF;
             
             //<Initialization>        
-            ExampleScrewdriver.Run( parent                  :=  THIS,
+            ExampleScrewdriver.Run( inParent                  :=  THIS,
                                     hwID                   := HwIdentifiers#wp462_t1_rh_deso_HwID);       
             //</Initialization>
 

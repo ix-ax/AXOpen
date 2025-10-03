@@ -154,7 +154,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent                  :   IAxoObject; 
+                inParent                  :   IAxoObject; 
                 hwID                    :   UINT;
             END_VAR
             
@@ -162,13 +162,13 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 _index                  :   INT;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             Messenger.Serve(THIS);
 
             Config.HWIDs.HW_Device := hwID;
             IF NOT _initHwCheckDone THEN
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(UINT#700, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#700;
                     RETURN;
@@ -487,7 +487,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     Status.Error.Id := UINT#776;
                 END_IF;
 
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(UINT#1130, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1130;
                     RETURN;

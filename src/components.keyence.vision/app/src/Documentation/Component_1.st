@@ -17,10 +17,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 Component.ActivateManualControl();
@@ -28,7 +28,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             //<Initialization>     
             Component.Run(
-                                parent                                          :=   THIS,
+                                inParent                                          :=   THIS,
                                 hwID                                            :=   HwIdentifiers#sr_750_1_HwID);
             //</Initialization>
 

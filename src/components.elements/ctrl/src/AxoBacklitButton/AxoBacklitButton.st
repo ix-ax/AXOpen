@@ -19,7 +19,7 @@ NAMESPACE AXOpen.Components.Elements
         /// <summary>
         /// Runs the button with the given input signal and output LED signal.
         /// </summary>
-        /// <param name="inParent">The parent object.</param>
+        /// <param name="inParent">The inParent object.</param>
         /// <param name="inSignal">The input signal.</param>
         /// <param name="oLed">The output LED signal.</param>
         METHOD PUBLIC Run
@@ -37,8 +37,8 @@ NAMESPACE AXOpen.Components.Elements
             END_IF;
 
             SUPER.Run(inParent);
-            THIS.Button.Run(  parent := THIS, inSignal    :=  inSignal );
-            THIS.Led.Run(  parent := THIS, oSignal    =>  outLed );
+            THIS.Button.Run(  inParent := THIS, inSignal    :=  inSignal );
+            THIS.Led.Run(  inParent := THIS, oSignal    =>  outLed );
         END_METHOD
 
         /// <summary>

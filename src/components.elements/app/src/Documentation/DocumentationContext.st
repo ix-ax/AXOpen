@@ -88,10 +88,10 @@ NAMESPACE AXOpen.Components.Elements
 
         METHOD PUBLIC Main
             VAR_INPUT
-                parent  : IAxoObject;
+                inParent  : IAxoObject;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             
             //<AxoDiManualControl>
@@ -150,7 +150,7 @@ NAMESPACE AXOpen.Components.Elements
             _testCarousel.Config.NumberOfPositions:=UINT#8;
             _testCarousel.Config.Offset:=UINT#2;
 
-            _testCarousel.Run(  parent              :=  THIS,
+            _testCarousel.Run(  inParent              :=  THIS,
                                 SafetyCondition     :=  _testCarouselSafetyCondition,
                                 InPosition          :=  _testCarouselInPosition,
                                 InPrecisePosition   :=  _testCarouselInPrecisePosition,

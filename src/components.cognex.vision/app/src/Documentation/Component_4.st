@@ -19,10 +19,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
             
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 //<InsightManualControl>
@@ -31,7 +31,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             END_IF;
 
             //<Initialization>        
-            Insight_2800.Run(parent := THIS, hwID := HwIdentifiers#is2800_HwID);
+            Insight_2800.Run(inParent := THIS, hwID := HwIdentifiers#is2800_HwID);
             //</Initialization>
             THIS.UseInSequencer();
         END_METHOD

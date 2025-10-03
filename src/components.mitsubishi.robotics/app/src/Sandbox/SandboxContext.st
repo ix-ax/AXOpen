@@ -17,7 +17,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
                 _testRobot.ActivateManualControl();
             END_IF;   
 
-            _testRobot.Run(parent := _rootObject, hwID := HwIdentifiers#TZ535_PN_HwID);
+            _testRobot.Run(inParent := _rootObject, hwID := HwIdentifiers#TZ535_PN_HwID);
 
         END_METHOD
     END_CLASS

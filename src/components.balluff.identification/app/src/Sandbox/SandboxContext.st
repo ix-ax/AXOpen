@@ -21,7 +21,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
             END_VAR;
 
             THIS.InitializeRootObject(_rootObject);
-            _testReader.Run(    parent := _rootObject,
+            _testReader.Run(    inParent := _rootObject,
                                 hwID            := HwIdentifiers#BNIPNT507005Z040_HwID);
 
             IF(_manualControl) THEN

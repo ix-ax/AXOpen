@@ -1221,14 +1221,14 @@ NAMESPACE AXOpen.Components.Drives
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent          :   IAxoObject; 
+                inParent          :   IAxoObject; 
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
                 EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
                 EnableNegative  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
 
-            IF parent = NULL THEN
+            IF inParent = NULL THEN
                 RETURN;
             END_IF;
 
@@ -1236,7 +1236,7 @@ NAMESPACE AXOpen.Components.Drives
                 RETURN;
             END_IF;
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             THIS.UpdateInputs(AxisRef);
             THIS.Execute(AxisRef,Enable,EnablePositive,EnableNegative);
