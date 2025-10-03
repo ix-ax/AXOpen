@@ -21,18 +21,18 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
             // RETURN;
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF(manualControl) THEN            
                 AxoCmmtAs.ActivateManualControl();
             END_IF;  
 
             //<Initialization>        
-            AxoCmmtAs.Run(parent            :=  THIS,
+            AxoCmmtAs.Run(inParent          :=  THIS,
                             hwID                  :=    HwIdentifiers#cmmtas_HwID,
                             Enable                :=    Enable,
                             EnablePositive        :=    EnablePositive,

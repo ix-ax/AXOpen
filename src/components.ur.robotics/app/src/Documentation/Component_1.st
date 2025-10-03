@@ -23,17 +23,17 @@ NAMESPACE AXOpen.Components.Ur.Robotics
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 ExampleRobot.ActivateManualControl();
             END_IF;
 
             //<Initialization>        
-            ExampleRobot.Run(   parent                                                  := THIS,
+            ExampleRobot.Run(   inParent                                                := THIS,
                                 hwID                                                    := HwIdentifiers#ureol2l_HwID,
                                 refPowerOnPulse                                         := REF (PowerOnImpulse));
             ExampleRobot.Config.IpAddress := '192.168.100.61';

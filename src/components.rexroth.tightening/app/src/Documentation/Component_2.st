@@ -17,17 +17,17 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 ExampleComponent.ActivateManualControl();
             END_IF;
 
             //<Initialization>        
-            ExampleComponent.Run(parent := THIS , hwID := HwIdentifiers#Axo_CS351_HwID);
+            ExampleComponent.Run(inParent := THIS , hwID := HwIdentifiers#Axo_CS351_HwID);
             //</Initialization>
 
         THIS.UseInSequencer();

@@ -17,17 +17,17 @@ NAMESPACE Template.Axolibrary
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 ExampleComponent.ActivateManualControl();
             END_IF;
 
             //<Initialization>        
-            ExampleComponent.Run(parent  :=   THIS,hwID    :=   UINT#60);
+            ExampleComponent.Run(inParent  :=   THIS,hwID    :=   UINT#60);
             //</Initialization>
 
         THIS.UseInSequencer();

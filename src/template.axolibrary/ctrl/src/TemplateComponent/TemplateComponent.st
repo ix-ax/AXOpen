@@ -141,18 +141,18 @@ NAMESPACE Template.Axolibrary
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent      :   IAxoObject;
+                inParent    :   IAxoObject;
                 hwID        :   UINT;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             Messenger.Serve(THIS);
             
             Progress := _progress;
 
             IF NOT _initHwCheckDone THEN
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(UINT#700, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#700;
                     RETURN;
@@ -1772,7 +1772,7 @@ NAMESPACE Template.Axolibrary
                     RETURN;
                 END_IF;
  
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(UINT#1130,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1130;
                     RETURN;

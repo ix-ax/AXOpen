@@ -66,17 +66,17 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent              :   IAxoObject; 
+                inParent            :   IAxoObject; 
                 hwID                :   UINT;
                 Enable              :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
                 EnablePositive      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
                 EnableNegative      :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF NOT _initHwCheckDone THEN
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(     UINT#700, eAxoMessageCategory#ProgrammingError);
                     DriveStatus.Error.Id := UINT#700;
                     RETURN;
@@ -257,7 +257,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     RETURN;
                 END_IF;
                  
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(     UINT#1130,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#1130;
                     RETURN;
