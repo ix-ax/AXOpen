@@ -10,7 +10,7 @@
   - name: Server configuration
     href: ~/articles/notes/Configuration.md
   - name: Client Identification
-    href: ~/clientchat/src/index.html
+    href: ~/clientchat/src/index.html # Generated page (docfx output). Keep if publishing pre-built docs; otherwise move markdown under articles if authoring needed.
   - name: Embedding assets in nuget package
     href: ~/articles/notes/Assets_in_nuget_package.md  
   - name: ToolTips and PopOvers

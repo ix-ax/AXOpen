@@ -1,4 +1,4 @@
-# WORK IN PORGRESS
+# WORK IN PROGRESS
 
 # Components
 
@@ -21,15 +21,15 @@ This document describes the format and practices for writing components in AXOpe
 * Component should properly hide implementation details by marking methods preferably ```PROTECTED```.
 * Consider using the ```PRIVATE``` access modifier to prevent any access to that member if you deem it necessary. Be aware, though, that private members cannot be overridden by a derived class.
 * If there are any testing methods in the same library with the component, these must be marked ```INTERNAL```.
-* Each action of the component should be implemented using the ```AxoTask``` class. There is no exception to this rule, even for the actions that require a single cycle to complete. Task's ```Invoke``` should be placed into a method with an appropriate name (MoveAbsolute, MoveHome, Measure).
+* Each action of the component should be implemented using the ```AxoTask``` class. This applies even to actions that require a single scan/cycle to complete (consistency + easy future extension). A task's `Invoke` should be wrapped by a PUBLIC method with an appropriate verb-based name (`MoveAbsolute`, `MoveHome`, `Measure`, ...).
 
 ### Cyclic call
 
-Each component implements the logic required to run cyclically in the *Run* method of the CLASS. 
+Each component implements the logic required to run cyclically in one or more `Run` methods. Prefer pushing orchestration (deciding which component `Run` overload to call) to the parent context to keep components focused and testable.
 
 ### Components methods
 
-The methods that perform actions **MUST** return ```AXOpen.IAxoTaskStatus``` (typically ```AXOpen.Core.AxoTask```). This rule applies even to the logic that requires a single-cycle execution.
+The methods that perform actions **MUST** return `AXOpen.IAxoTaskState` (legacy docs may still mention `IAxoTaskStatus`). This rule applies even to logic that is, at present, single‑cycle.
 
 
 ## Library placement
@@ -75,7 +75,7 @@ The AxOpen does not use Hungarian prefixes, with few exceptions. IN/OUT and REF_
 
 Operations are run by tasks (`AxoTask`).
 - Member variable of the task must have the following format `{OperationName}Task`.
-- Each task must be exposed via a method in the following format `{OperationName}` that will return `IAxoTaskStatus`.
+- Each task must be exposed via a method in the following format `{OperationName}` that will return `IAxoTaskState`.
 - Executing logic of a task is run from the `Run` method of components class.
 
 ### States
@@ -85,13 +85,13 @@ All state-related members must be placed into `States` folder of the component.
 
 ### Component requirements
 
-Each component must inherit from `AXOpen.Core.AxoComponent`, which is an abstract block that requires concrete implementation of following memebers: `Restore()` method that restores the component into intial state and `ManualControl()` method that provided additional logic for manual control.
+Each component must inherit from `AXOpen.Core.AxoComponent`, which is an abstract block that requires concrete implementation of following members: `Restore()` (resets internal state) and `ManualControl()` (manual operation logic while in service mode).
 
-- `Restore()` must contain logic that will bring the component's internal states into the initial state. Restore method does not mean getting the component into physical ground position/state; it serves purely the purpose of having the component ready for operations from the programatic perspective.
+- `Restore()` must contain logic that brings the component's internal states into the initial state. It does NOT necessarily move hardware to a physical ground state; it prepares the software state machine.
 
 - `ManualControl()` method is required to be implemented. It can contain arbitrary logic that will be executed while the component is in a serviceable state.
 
-- Each component must implement `Run` method that will provide cyclic execution of tasks, I/O update, data transformation for given component. `Run` method is not formally required by `AxoComponent` and it can take arguments necessary for the cylic update and execution. For variaous scenarions component can implement different `Run` methods taking advantage of method overload.
+- Each component generally provides at least one `Run` method that performs: (1) IO/state refresh, (2) task invocation, (3) housekeeping (alarms, timers). `Run` is not enforced by the base class and may accept arguments for necessary external signals. Prefer smaller, intention‑revealing `Run` overloads vs. a monolithic method.
 
 ## Components naming conventions
 
@@ -112,10 +112,21 @@ The components for particular components are placed into appropriate library. Li
 - Each public and protected controller's method must be unit-tested using axunit.
 - When reasonable use integration testing using `prober` library to test the interaction between controller and .NET twin. 
 
+## Alarms & Messaging
+
+Components should surface diagnostic and alarm information consistently:
+
+* Use the framework messenger (e.g. `Messenger.Activate(id, category)`) rather than ad‑hoc BOOL flags.
+* Reserve ID ranges per component family to avoid collisions (document the range in the component's header comment if non‑obvious).
+* Expose current alarm / error state through the Status structure rather than additional public fields.
+* When a task fails, prefer: set task state to error, raise messenger entry, populate `Status.Error` (ID + optional textual details) and allow the task to complete with a final state rather than blocking forever.
+
+For UI auto‑rendering the alarm level icons provided by `AxoComponent` will reflect the highest active severity; ensure warnings are deactivated when condition clears to avoid stale visualization.
+
 
 ## Documentation requirements
 
 ### Public classes
 
 - Public and protected members (methods, fields) must have in code documentation. [See Documentation comments for more details](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/) and [docfx markup](https://dotnet.github.io/docfx/docs/markdown.html?q=referebce+code&tabs=linux%2Cdotnet).
-- Public methods than implement actions and initialization must have application examples (should be referenced from the actuall app code). PLC Application examples should be placed in `app/src/Documentation/` of the library folder, the code should be compilable and functional to the extent it is possible with ommited hardware. NET twin examples should be places in `app/ix-blazor` and `app/ix` folder. For details how to reference code snippet [see here](https://dotnet.github.io/docfx/docs/markdown.html?q=referebce+code&tabs=linux%2Cdotnet#code-snippet).
+- Public methods that implement actions and initialization must have application examples (reference actual app code). PLC examples should reside in `app/src/Documentation/` of the library folder, compilable (mock/omit hardware where required). .NET twin examples should be placed in `app/ix-blazor` and/or `app/ix`. For code snippet inclusion guidance see DocFX documentation.
