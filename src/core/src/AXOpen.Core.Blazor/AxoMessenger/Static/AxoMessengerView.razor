@@ -1,12 +1,200 @@
 ﻿@namespace AXOpen.Messaging.Static
-@using AXSharp.Connector;
-@using Microsoft.AspNetCore.Components.Authorization
-@using Operon.Components
-@using Operon.Components.Accordion
-@using Operon.Icons
 @inherits RenderableComplexComponentBase<AxoMessenger>
+@using AXOpen.Core
 @implements IDisposable;
 
+
+
+<tr class="@RowCss(Component)"
+    @onclick="() => HandleRowClick(Component)"
+    @onkeypress="args => HandleRowKeyPress(args, Component)"
+    role="@RowRole"
+    tabindex="@RowTabIndex">
+    <td class="alarm-table__severity">
+        <span class="alarm-table__severity-pill severity-@ConvertToSeverityName((eAxoMessageCategory)Component.Category.LastValue)" aria-label="@Component.Category">
+            @SeverityLabel(Component)
+        </span>
+    </td>
+    <td class="alarm-table__title">@Component.GetParent()?.AttributeName</td>
+    <td>@DisplayOrDash(@Component.GetMessageText())</td>
+    <td class="alarm-table__state">@StateLabel(Component)</td>
+    <td>@FormatTimestamp(Component.Risen.LastValue)</td>
+    <td>@FormatAcknowledged(Component)</td>
+    <td>@FormatDuration(Component)</td>
+    @if (HasActionsColumn || true)
+    {
+        <td class="alarm-table__actions">
+            @if (Actions is not null)
+            {
+                @Actions(Component)
+            }
+
+            @if (Component.State == (eAxoMessengerState.ActiveAcknowledgeRequired))
+            {
+                <button class="alarm-table__ack-btn" @onclick:stopPropagation="true" @onclick="(() => HandleAcknowledge(Component))" disabled="@(!CanAcknowledge(Component))">
+                    @AcknowledgeLabel
+                </button>
+            }
+        </td>
+    } 
+</tr>
+
+@code {
+    [Parameter] public RenderFragment<AXOpen.Messaging.Static.AxoMessenger>? Actions { get; set; }
+    [Parameter] public EventCallback<AXOpen.Messaging.Static.AxoMessenger> AcknowledgeRequested { get; set; }
+    [Parameter] public EventCallback<AXOpen.Messaging.Static.AxoMessenger> RowSelected { get; set; }
+    [Parameter] public string EmptyText { get; set; } = "No alarms to display.";
+    [Parameter] public string AcknowledgeLabel { get; set; } = "Acknowledge";
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public string? Style { get; set; }
+    [Parameter] public bool EnableFiltering { get; set; } = true;
+
+    private static string DisplayOrDash(string? value) => string.IsNullOrWhiteSpace(value) ? "—" : value;
+
+    private static string SeverityLabel(AxoMessenger Component) => ConvertToSeverityName((eAxoMessageCategory)Component.Category.LastValue);
+
+    private static string StateLabel(AxoMessenger Component)
+    {
+        if (!Component.IsActive)
+        {
+            return "Cleared";
+        }
+
+        return Component.IsAcknowledged ? "Active · Ack" : "Active";
+    }
+
+    private static string FormatTimestamp(DateTime? timestamp)
+        => timestamp?.ToLocalTime().ToString("g") ?? "—";
+
+    private static string FormatAcknowledged(AxoMessenger Component)
+    {
+        if (!Component.IsAcknowledged)
+        {
+            return Component.IsActive ? "Pending" : "—";
+        }
+
+        return Component.Acknowledged.LastValue.Equals(new DateTime())
+            ? "Acknowledged"
+            : FormatTimestamp(Component.Acknowledged.LastValue);
+    }
+
+    private static string FormatDuration(AxoMessenger Component)
+    {
+        try
+        {
+            if (Component.Risen.LastValue.Equals(new DateTime()))
+            {
+                return "—";
+            }
+
+            var end = Component.IsActive ? DateTime.UtcNow : Component.Acknowledged.LastValue;
+            if (end < Component.Risen.LastValue)
+            {
+                return "—";
+            }
+
+            var duration = end - Component.Risen.LastValue;
+            return duration switch
+            {
+                { TotalMinutes: < 1 } => "< 1 min",
+                { TotalHours: < 1 } => $"{(int)duration.TotalMinutes} min",
+                { TotalDays: < 1 } => $"{duration.TotalHours:F1} h",
+                _ => $"{duration.TotalDays:F1} d"
+            };
+        }
+        catch (Exception e)
+        {
+            //swallow;
+        }
+
+        return "—";
+
+    }
+
+    private bool CanAcknowledge(AxoMessenger Component) => Component.IsActive && !Component.IsAcknowledged;
+
+    private string? RowRole => RowSelected.HasDelegate ? "button" : null;
+    private int? RowTabIndex => RowSelected.HasDelegate ? 0 : (int?)null;
+
+    private static readonly eAxoMessageCategory[] SeverityOptions = Enum.GetValues<eAxoMessageCategory>();
+    private readonly HashSet<eAxoMessageCategory> _selectedSeverities = new(SeverityOptions);
+
+
+    private bool HasActionsColumn => Actions is not null || AcknowledgeRequested.HasDelegate;
+
+
+    private async Task HandleAcknowledge(AxoMessenger Component)
+    {
+        Component.Acknowledge(await this.GetCurrentUserIdentity());
+    }
+
+    private async Task HandleRowClick(AxoMessenger Component)
+    {
+        if (RowSelected.HasDelegate)
+        {
+            await RowSelected.InvokeAsync(Component);
+        }
+    }
+
+    private async Task HandleRowKeyPress(KeyboardEventArgs args, AxoMessenger Component)
+    {
+        if (args.Key is "Enter" or " ")
+        {
+            await HandleRowClick(Component);
+        }
+    }
+
+    private static string ConvertToSeverityName(eAxoMessageCategory category)
+    {
+        switch (category)
+        {
+            case eAxoMessageCategory.All:
+            case eAxoMessageCategory.Trace:
+            case eAxoMessageCategory.Debug:
+                return "detail";
+            case eAxoMessageCategory.Info:
+            case eAxoMessageCategory.TimedOut:
+            case eAxoMessageCategory.Notification:
+                return "info";
+            case eAxoMessageCategory.Warning:
+                return "warning";
+            case eAxoMessageCategory.Error:
+            case eAxoMessageCategory.ProgrammingError:
+                return "error";
+            case eAxoMessageCategory.Critical:
+            case eAxoMessageCategory.Fatal:
+            case eAxoMessageCategory.Catastrophic:
+                return "fatal";
+            case eAxoMessageCategory.None:
+                break;
+        }
+
+        return string.Empty;
+    }
+
+    private static string RowCss(AxoMessenger? Component)
+    {
+        if (Component is null) return string.Empty;
+        var severity = ConvertToSeverityName((eAxoMessageCategory)Component.Category.LastValue);
+        var state = Component.State == eAxoMessengerState.ActiveAlreadyAcknowledged ? "active" : "cleared";
+        var ack = Component.State == eAxoMessengerState.ActiveAlreadyAcknowledged ? "ack" : "unack";
+        return $"severity-{severity} state-{state} {ack}";
+    }
+
+    protected override void OnParametersSet()
+    {
+        if (!_selectedSeverities.Any())
+        {
+            foreach (var severity in SeverityOptions)
+            {
+                _selectedSeverities.Add(severity);
+            }
+        }
+    }
+}
+
+
+@*
 @if (this.Component is not null)
 {
     <div class="w-full alert items-center @SeverityToAlertColor()">
@@ -96,7 +284,7 @@
     private string SeverityToAlertColor()
     {
         if (Component is null)
-            return "alert-primary"; // This is the default color for no alarms
+            return "alert-primary"; // This is the default color for no Components
 
         if (Component.Category.Cyclic < 600) // Upto warning level excluding
             return "alert-info";
@@ -108,3 +296,4 @@
     }
 }
 
+ *@

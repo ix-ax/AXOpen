@@ -13,15 +13,31 @@
 
 @if (MessageProvider.ActiveMessagesCount > 0)
 {
-    <div class="flex flex-wrap flex-col">
-        @foreach (var message in MessageProvider.Messengers)
+    <table class="alarm-table @Class" style="@Style">
+    <caption class="visually-hidden">Alarm summary table</caption>
+    <thead>
+    <tr>
+        <th scope="col">Severity</th>
+        <th scope="col">Title</th>
+        <th scope="col">Equipment</th>
+        <th scope="col">State</th>
+        <th scope="col">Raised</th>
+        <th scope="col">Acknowledged</th>
+        <th scope="col">Duration</th>
+        <th scope="col" class="alarm-table__actions-header">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    @foreach (var message in MessageProvider.Messengers)
+    {
+        if (message.State != eAxoMessengerState.Idle)
         {
-            if (message.State != eAxoMessengerState.Idle)
-            {
-                <AxoMessengerView Component="message"></AxoMessengerView>
-            }
+            <AxoMessengerView Component="message"></AxoMessengerView>
         }
-    </div>
+    }
+    </tbody>
+    </table>
 }
 
 @code
@@ -34,6 +50,9 @@
     private IJSObjectReference? module;
     private IEnumerable<ITwinObject> observedObjects = new List<ITwinObject>();
     private AxoMessageProvider provider;
+
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public string? Style { get; set; }
 
     [Parameter]
     public int DisplayMimeCount { get; set; } = 10;

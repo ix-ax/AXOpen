@@ -135,29 +135,24 @@
         box-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
     }
 
-    .alarm-table__severity-pill.severity-debug::before {
-        background: #769899;
-    }
-
     .alarm-table__severity-pill.severity-info::before {
-        background: #2B8CC4;
+        background: #2dd4bf;
     }
 
     .alarm-table__severity-pill.severity-warning::before {
-        background: #EC9811;
+        background: #fbbf24;
     }
 
-    .alarm-table__severity-pill.severity-error::before {
-        background: #D0190F;
+    .alarm-table__severity-pill.severity-minor::before {
+        background: #f97316;
     }
 
-    .alarm-table__severity-pill.severity-fatal::before {
-        background: #9E1912;
+    .alarm-table__severity-pill.severity-major::before {
+        background: #ef4444;
     }
 
-    .alarm-table__severity-pill.severity-debug {
-        background: rgba(45, 212, 191, 0.2);
-        color: #0f172a;
+    .alarm-table__severity-pill.severity-critical::before {
+        background: #f43f5e;
     }
 
     .alarm-table__severity-pill.severity-info {
@@ -223,26 +218,25 @@
         background: rgba(30, 41, 59, 0.65);
     }
 
-    .alarm-table tbody tr.severity-fatal {
+    .alarm-table tbody tr.severity-critical {
         box-shadow: inset 4px 0 0 rgba(244, 63, 94, 0.8);
     }
 
-    .alarm-table tbody tr.severity-error {
+    .alarm-table tbody tr.severity-major {
         box-shadow: inset 4px 0 0 rgba(239, 68, 68, 0.7);
     }
 
-    .alarm-table tbody tr.severity-warning {
+    .alarm-table tbody tr.severity-minor {
         box-shadow: inset 4px 0 0 rgba(249, 115, 22, 0.6);
     }
-    
-    .alarm-table tbody tr.severity-info {
-        box-shadow: inset 4px 0 0 rgba(45, 212, 191, 0.45);
-    }
 
-    .alarm-table tbody tr.severity-detail {
+    .alarm-table tbody tr.severity-warning {
         box-shadow: inset 4px 0 0 rgba(251, 191, 36, 0.5);
     }
 
+    .alarm-table tbody tr.severity-info {
+        box-shadow: inset 4px 0 0 rgba(45, 212, 191, 0.45);
+    }
 
     .alarm-table tbody tr.state-cleared {
         opacity: 0.65;

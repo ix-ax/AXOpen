@@ -1,7 +1,7 @@
 ﻿using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.JSInterop;
+//using Microsoft.JSInterop;
 using System.Security.Principal;
 using AXOpen.Core;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -16,9 +16,9 @@ namespace AXOpen.Messaging.Static
         [Inject]
         protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
 
-        [Inject]
-        protected IJSRuntime js { get; set; }
-        private IJSObjectReference? jsModule;
+        //[Inject]
+        //protected IJSRuntime js { get; set; }
+        //private IJSObjectReference? jsModule;
 
         protected async Task<string?> GetCurrentUserName()
         {

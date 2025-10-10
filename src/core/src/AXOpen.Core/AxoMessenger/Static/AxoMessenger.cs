@@ -142,6 +142,13 @@ public partial class AxoMessenger
 
     public eAxoMessengerState State => (eAxoMessengerState)this.MessengerState.LastValue;
 
+    public bool IsActive => State == eAxoMessengerState.ActiveAlreadyAcknowledged ||
+                            State == eAxoMessengerState.ActiveAcknowledgeRequired ||
+                            State == eAxoMessengerState.ActiveAcknowledgeNotRequired;
+
+    public bool IsAcknowledged => State == eAxoMessengerState.ActiveAlreadyAcknowledged;
+                                      
+
     public void Acknowledge(IIdentity identity)
     {
         this.AcknowledgeRequest.Cyclic = true;
