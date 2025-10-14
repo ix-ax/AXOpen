@@ -65,7 +65,7 @@ case "$(echo "$USE_PLC_SIM_ADVANCED" | tr '[:upper:]' '[:lower:]')" in
         ;;
 esac
 
-printf "${RED}This command will prompt during execution, so do not leave your PC. You can enjoy your coffee afterward.\r\n${NC}"
+printf "${YELLOW}This command will prompt during execution, so do not leave your PC. You can enjoy your coffee afterward.\r\n${NC}"
 
 check_requisites_apax_script=$( dirname ${BASH_SOURCE[0]})"\\check_requisites_apax.sh"
 if ! $check_requisites_apax_script ; then

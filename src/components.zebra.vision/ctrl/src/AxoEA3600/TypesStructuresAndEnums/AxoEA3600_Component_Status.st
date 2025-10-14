@@ -1,9 +1,9 @@
 NAMESPACE AXOpen.Components.Zebra.Vision
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Stack)]}
-    CLASS PUBLIC TemplateComponent_Control
+    CLASS PUBLIC AxoEA3600_Component_Status EXTENDS AXOpen.Components.Abstractions.AxoComponent_Status
         VAR PUBLIC 
-
+            
         END_VAR 
     END_CLASS    
 END_NAMESPACE

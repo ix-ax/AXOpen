@@ -71,7 +71,7 @@ else
 	printf "${RED}Please check the details above.${NC}\n"
 	exit 1
 fi
-apax hwld load --input bin/hwc/$PLC_NAME --target $PLC_IP_ADDRESS --master-password $PASSWORD --accept-security-disclaimer --log Information
+echo y | apax hwld load --input bin/hwc/$PLC_NAME --target $PLC_IP_ADDRESS --master-password $PASSWORD --accept-security-disclaimer --log Information
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Hardware configuration has been succesfully downloaded.${NC}"
 else

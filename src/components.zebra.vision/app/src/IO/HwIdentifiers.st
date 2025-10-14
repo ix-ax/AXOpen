@@ -2,6 +2,13 @@ NAMESPACE AXOpen.Components.Zebra.Vision
     TYPE
         HwIdentifiers : UINT
         (
+            EA3600_HwID :=UINT#259,
+            EA3600_Data88Bin6Bout_Data_and_Transfer_Control_v2_HwID :=UINT#263,
+            EA3600_EA3600_HwID :=UINT#262,
+            EA3600_EA3600_EA3600_PIO_Interface_HwID :=UINT#264,
+            EA3600_EA3600_profinet_HwID :=UINT#258,
+            EA3600_EA3600_profinet_RJ45_10_100_MBit_s_HwID :=UINT#260,
+            EA3600_Rack_HwID :=UINT#261,
             plc_line_HwID :=UINT#32,
             plc_line_Rail_0_HwID :=UINT#257,
             plc_line_plc_line_HwID :=UINT#48,

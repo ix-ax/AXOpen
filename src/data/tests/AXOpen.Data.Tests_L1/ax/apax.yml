@@ -10,7 +10,7 @@ registries:
   "@inxton": "https://npm.pkg.github.com/"
 
 catalogs:
-  "@inxton/ax.catalog": 0.0.32
+  "@inxton/ax.catalog": 0.0.33
 
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
@@ -27,6 +27,7 @@ scripts:
   ixc: | # run ix builder
     dotnet tool restore
     dotnet ixc --skip-deps 
+
 
 
 

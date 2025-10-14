@@ -4,7 +4,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision
     CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            ExampleComponent : AXOpen.Components.Zebra.Vision.TemplateComponent;             
+            ExampleComponent : AXOpen.Components.Zebra.Vision.AxoEA3600;             
         END_VAR
         //</ComponentDeclaration>                          
 
@@ -48,24 +48,24 @@ NAMESPACE AXOpen.Components.Zebra.Vision
             Sequencer.Run(THIS);
             Sequencer.Open();
 
-            IF(Steps[0].Execute(Sequencer, 'TemplateMethod_10steps_1')) THEN
+            IF(Steps[0].Execute(Sequencer, 'ClearData')) THEN
                 ActivateManualControl := FALSE;
-                IF(ExampleComponent.TemplateMethod_10steps_1().IsDone()) THEN                
+                IF(ExampleComponent.ClearData().IsDone()) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;
 
-            IF(Steps[1].Execute(Sequencer, 'TemplateMethod_10steps_2')) THEN
-                IF(ExampleComponent.TemplateMethod_10steps_2().IsDone()) THEN     
+            IF(Steps[1].Execute(Sequencer, 'Read')) THEN
+                IF(ExampleComponent.Read().IsDone()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[2].Execute(Sequencer, 'TemplateMethod_10steps_3')) THEN
-                IF(ExampleComponent.TemplateMethod_10steps_3().IsDone()) THEN     
+            IF(Steps[2].Execute(Sequencer, 'ClearError')) THEN
+                IF(ExampleComponent.ClearError().IsDone()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
-            END_IF;       
+            END_IF;          
 
             IF(Steps[3].Execute(Sequencer, 'TemplateMethod_10steps_4')) THEN
                 IF(ExampleComponent.TemplateMethod_10steps_4().IsDone()) THEN     

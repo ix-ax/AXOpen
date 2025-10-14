@@ -14,3 +14,4 @@ IoSystems:
   ControllerInterfaces:
   - Ref: plc_line/plc_line/profinet_x1
   DeviceInterfaces:
+  - Ref: EA3600/EA3600/profinet

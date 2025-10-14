@@ -15,11 +15,11 @@ NAMESPACE AXOpen.Components.Zebra.Vision.Tests
     END_CLASS  
     {TestFixture}
     {S7.extern=ReadWrite}
-    CLASS CylinderTests 
+    CLASS AxoEA3600Tests 
         VAR PROTECTED
             _context        :   TestContext;
             _rootObject     :   MockAxoObject;
-            _component      :   AXOpen.Components.Zebra.Vision.TemplateComponent;
+            _component      :   AXOpen.Components.Zebra.Vision.AxoEA3600;
         END_VAR        
                 
         VAR PRIVATE
@@ -39,7 +39,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision.Tests
         END_METHOD
     
         {Test}
-        METHOD PUBLIC MoveHome
+        METHOD PUBLIC DefaultTest
             _context.Open();
             THIS._component.Run(
                                 parent  :=   _rootObject,

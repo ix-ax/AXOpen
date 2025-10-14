@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Components.Zebra.Vision
 {
-    public partial class TemplateComponent
+    public partial class AxoEA3600
     {
         partial void PostConstruct(ITwinObject parent, string readableTail, string symbolTail)
         {
@@ -29,18 +29,18 @@ namespace AXOpen.Components.Zebra.Vision
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0,   new AxoMessengerTextItem("  ", "  ")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(50, new AxoMessengerTextItem("Restore has been executed.","")),
-                // TemplateTask_10steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(100, new AxoMessengerTextItem("TemplateTask_10steps_1 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(101, new AxoMessengerTextItem("TemplateTask_10steps_1 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(102, new AxoMessengerTextItem("TemplateTask_10steps_1 restored.","")),
-                // TemplateTask_10steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(110, new AxoMessengerTextItem("TemplateTask_10steps_2 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(111, new AxoMessengerTextItem("TemplateTask_10steps_2 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(112, new AxoMessengerTextItem("TemplateTask_10steps_2 restored.","")),
-                // TemplateTask_10steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(120, new AxoMessengerTextItem("TemplateTask_10steps_3 started.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(121, new AxoMessengerTextItem("TemplateTask_10steps_3 finished succesfully.","")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(122, new AxoMessengerTextItem("TemplateTask_10steps_3 restored.","")),
+                // ReadTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(100, new AxoMessengerTextItem("ReadTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(101, new AxoMessengerTextItem("ReadTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(102, new AxoMessengerTextItem("ReadTask restored.","")),
+                // ClearDataTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(110, new AxoMessengerTextItem("ClearDataTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(111, new AxoMessengerTextItem("ClearDataTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(112, new AxoMessengerTextItem("ClearDataTask restored.","")),
+                // ClearErrorTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(120, new AxoMessengerTextItem("ClearErrorTask started.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(121, new AxoMessengerTextItem("ClearErrorTask finished succesfully.","")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(122, new AxoMessengerTextItem("ClearErrorTask restored.","")),
                 // TemplateTask_10steps_4
                 new KeyValuePair<ulong, AxoMessengerTextItem>(130, new AxoMessengerTextItem("TemplateTask_10steps_4 started.","")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(131, new AxoMessengerTextItem("TemplateTask_10steps_4 finished succesfully.","")),
@@ -488,15 +488,15 @@ namespace AXOpen.Components.Zebra.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1250, new AxoMessengerTextItem("Error writing the TemplateComponentOutputStructure_HwID_out_20!"                                                              ,"Check the value of the Config.HWIDs.HwID_out_20 and reacheability of the device!")),
 
 
-                // TemplateTask_10steps_1
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem("TemplateTask_10steps_1 finished with error!"                                                                                 ,"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10001, new AxoMessengerTextItem("TemplateTask_10steps_1 was aborted, while not yet completed!"                                                                ,"Check the details.")),
-                // TemplateTask_10steps_2
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10010, new AxoMessengerTextItem("TemplateTask_10steps_2 finished with error!"                                                                                 ,"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10011, new AxoMessengerTextItem("TemplateTask_10steps_2 was aborted, while not yet completed!"                                                                ,"Check the details.")),
-                // TemplateTask_10steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10020, new AxoMessengerTextItem("TemplateTask_10steps_3 finished with error!"                                                                                 ,"Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(10021, new AxoMessengerTextItem("TemplateTask_10steps_3 was aborted, while not yet completed!"                                                                ,"Check the details.")),
+                // ReadTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem("ReadTask finished with error!"                                                                                 ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10001, new AxoMessengerTextItem("ReadTask was aborted, while not yet completed!"                                                                ,"Check the details.")),
+                // ClearDataTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10010, new AxoMessengerTextItem("ClearDataTask finished with error!"                                                                                 ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10011, new AxoMessengerTextItem("ClearDataTask was aborted, while not yet completed!"                                                                ,"Check the details.")),
+                // ClearErrorTask
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10020, new AxoMessengerTextItem("ClearErrorTask finished with error!"                                                                                 ,"Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10021, new AxoMessengerTextItem("ClearErrorTask was aborted, while not yet completed!"                                                                ,"Check the details.")),
                 // TemplateTask_10steps_4
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10030, new AxoMessengerTextItem("TemplateTask_10steps_4 task finished with error!"                                                                            ,"Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10031, new AxoMessengerTextItem("TemplateTask_10steps_4 task was aborted, while not yet completed!"                                                           ,"Check the details.")),
@@ -536,7 +536,7 @@ namespace AXOpen.Components.Zebra.Vision
             List<KeyValuePair<ulong, AxoMessengerTextItem>> messengerTextList = new List<KeyValuePair<ulong, AxoMessengerTextItem>>
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0,    new AxoMessengerTextItem("  ", "  ")),
-                // TemplateTask_10steps_1
+                // ReadTask
                 new KeyValuePair<ulong, AxoMessengerTextItem>(500,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(501,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(502,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
@@ -547,7 +547,7 @@ namespace AXOpen.Components.Zebra.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(507,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(508,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(509,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
-                // TemplateTask_10steps_2
+                // ClearDataTask
                 new KeyValuePair<ulong, AxoMessengerTextItem>(510,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(511,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(512,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
@@ -558,7 +558,7 @@ namespace AXOpen.Components.Zebra.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(517,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(518,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(519,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
-                // TemplateTask_10steps_3
+                // ClearErrorTask
                 new KeyValuePair<ulong, AxoMessengerTextItem>(520,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(521,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(522,  new AxoMessengerTextItem("Waiting for the signal/variable `_insert_name_` to be set/reseted!"                                                           ,"Check the status of the `_insert_name_`  signal/variable.")),
@@ -737,7 +737,7 @@ namespace AXOpen.Components.Zebra.Vision
         }
     }
 
-    public partial class TemplateComponent_Component_Status : AXOpen.Components.Abstractions.AxoComponent_Status
+    public partial class AxoEA3600_Component_Status : AXOpen.Components.Abstractions.AxoComponent_Status
     {
         Dictionary<ulong, string> errorDescriptionDict = new Dictionary<ulong, string>();
         Dictionary<ulong, string> actionDescriptionDict = new Dictionary<ulong, string>();
@@ -750,7 +750,7 @@ namespace AXOpen.Components.Zebra.Vision
                 if (errorDescriptionDict.Count == 0)
                 {
                     errorDescriptionDict.Add(0, "   ");
-                    // TemplateTask_10steps_1
+                    // ReadTask
                     errorDescriptionDict.Add(500, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     errorDescriptionDict.Add(501, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     errorDescriptionDict.Add(502, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
@@ -761,7 +761,7 @@ namespace AXOpen.Components.Zebra.Vision
                     errorDescriptionDict.Add(507, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     errorDescriptionDict.Add(508, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     errorDescriptionDict.Add(509, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
-                    // TemplateTask_10steps_2
+                    // ClearDataTask
                     errorDescriptionDict.Add(510, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     errorDescriptionDict.Add(511, "Waiting for the signal `Inputs.Status.WorkSensor` to be reseted!");
                     errorDescriptionDict.Add(512, "Waiting for the signal `Inputs.Status.HomeSensor` to be set!");
@@ -772,7 +772,7 @@ namespace AXOpen.Components.Zebra.Vision
                     errorDescriptionDict.Add(517, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     errorDescriptionDict.Add(518, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     errorDescriptionDict.Add(519, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
-                    // TemplateTask_10steps_3
+                    // ClearErrorTask
                     errorDescriptionDict.Add(520, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     errorDescriptionDict.Add(521, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
                     errorDescriptionDict.Add(522, "Waiting for the signal/variable `_insert_name_` to be set/reseted!");
@@ -1308,15 +1308,15 @@ namespace AXOpen.Components.Zebra.Vision
                     errorDescriptionDict.Add(1248, "Error writing the TemplateComponentOutputStructure_HwID_out_18!");
                     errorDescriptionDict.Add(1249, "Error writing the TemplateComponentOutputStructure_HwID_out_19!");
                     errorDescriptionDict.Add(1250, "Error writing the TemplateComponentOutputStructure_HwID_out_20!");
-                    // TemplateTask_10steps_1
-                    errorDescriptionDict.Add(10000, "TemplateTask_10steps_1 finished with error!");
-                    errorDescriptionDict.Add(10001, "TemplateTask_10steps_1 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_2
-                    errorDescriptionDict.Add(10010, "TemplateTask_10steps_2 finished with error!");
-                    errorDescriptionDict.Add(10011, "TemplateTask_10steps_2 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_3
-                    errorDescriptionDict.Add(10020, "TemplateTask_10steps_3 finished with error!");
-                    errorDescriptionDict.Add(10021, "TemplateTask_10steps_3 was aborted, while not yet completed!");
+                    // ReadTask
+                    errorDescriptionDict.Add(10000, "ReadTask finished with error!");
+                    errorDescriptionDict.Add(10001, "ReadTask was aborted, while not yet completed!");
+                    // ClearDataTask
+                    errorDescriptionDict.Add(10010, "ClearDataTask finished with error!");
+                    errorDescriptionDict.Add(10011, "ClearDataTask was aborted, while not yet completed!");
+                    // ClearErrorTask
+                    errorDescriptionDict.Add(10020, "ClearErrorTask finished with error!");
+                    errorDescriptionDict.Add(10021, "ClearErrorTask was aborted, while not yet completed!");
                     // TemplateTask_10steps_4
                     errorDescriptionDict.Add(10030, "TemplateTask_10steps_4 task finished with error!");
                     errorDescriptionDict.Add(10031, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
@@ -1372,48 +1372,48 @@ namespace AXOpen.Components.Zebra.Vision
                 {
                     actionDescriptionDict.Add(0, "   ");
                     actionDescriptionDict.Add(50, "Restore has been executed.");
-                    // TemplateTask_10steps_1
-                    actionDescriptionDict.Add(100, "TemplateTask_10steps_1 started.");
-                    actionDescriptionDict.Add(300, "TemplateTask_10steps_1 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(301, "TemplateTask_10steps_1 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(302, "TemplateTask_10steps_1 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(303, "TemplateTask_10steps_1 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(304, "TemplateTask_10steps_1 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(305, "TemplateTask_10steps_1 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(306, "TemplateTask_10steps_1 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(307, "TemplateTask_10steps_1 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(308, "TemplateTask_10steps_1 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(309, "TemplateTask_10steps_1 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(101, "TemplateTask_10steps_1 finished succesfully.");
-                    actionDescriptionDict.Add(102, "TemplateTask_10steps_1 restored.");
-                    // TemplateTask_10steps_2
-                    actionDescriptionDict.Add(110, "TemplateTask_10steps_2 started.");
-                    actionDescriptionDict.Add(310, "TemplateTask_10steps_2 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(311, "TemplateTask_10steps_2 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(312, "TemplateTask_10steps_2 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(313, "TemplateTask_10steps_2 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(314, "TemplateTask_10steps_2 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(315, "TemplateTask_10steps_2 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(316, "TemplateTask_10steps_2 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(317, "TemplateTask_10steps_2 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(318, "TemplateTask_10steps_2 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(319, "TemplateTask_10steps_2 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(111, "TemplateTask_10steps_2 finished succesfully.");
-                    actionDescriptionDict.Add(112, "TemplateTask_10steps_2 restored.");
-                    // TemplateTask_10steps_3
-                    actionDescriptionDict.Add(120, "TemplateTask_10steps_3 started.");
-                    actionDescriptionDict.Add(320, "TemplateTask_10steps_3 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(321, "TemplateTask_10steps_3 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(322, "TemplateTask_10steps_3 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(323, "TemplateTask_10steps_3 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(324, "TemplateTask_10steps_3 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(325, "TemplateTask_10steps_3 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(326, "TemplateTask_10steps_3 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(327, "TemplateTask_10steps_3 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(328, "TemplateTask_10steps_3 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(329, "TemplateTask_10steps_3 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(121, "TemplateTask_10steps_3 finished succesfully.");
-                    actionDescriptionDict.Add(122, "TemplateTask_10steps_3 restored.");
+                    // ReadTask
+                    actionDescriptionDict.Add(100, "ReadTask started.");
+                    actionDescriptionDict.Add(300, "ReadTask running, <add the detailed description of the current action 1>");
+                    actionDescriptionDict.Add(301, "ReadTask running, <add the detailed description of the current action 2>");
+                    actionDescriptionDict.Add(302, "ReadTask running, <add the detailed description of the current action 3>");
+                    actionDescriptionDict.Add(303, "ReadTask running, <add the detailed description of the current action 4>");
+                    actionDescriptionDict.Add(304, "ReadTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(305, "ReadTask running, <add the detailed description of the current action 6>");
+                    actionDescriptionDict.Add(306, "ReadTask running, <add the detailed description of the current action 7>");
+                    actionDescriptionDict.Add(307, "ReadTask running, <add the detailed description of the current action 8>");
+                    actionDescriptionDict.Add(308, "ReadTask running, <add the detailed description of the current action 9>");
+                    actionDescriptionDict.Add(309, "ReadTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(101, "ReadTask finished succesfully.");
+                    actionDescriptionDict.Add(102, "ReadTask restored.");
+                    // ClearDataTask
+                    actionDescriptionDict.Add(110, "ClearDataTask started.");
+                    actionDescriptionDict.Add(310, "ClearDataTask running, <add the detailed description of the current action 1>");
+                    actionDescriptionDict.Add(311, "ClearDataTask running, <add the detailed description of the current action 2>");
+                    actionDescriptionDict.Add(312, "ClearDataTask running, <add the detailed description of the current action 3>");
+                    actionDescriptionDict.Add(313, "ClearDataTask running, <add the detailed description of the current action 4>");
+                    actionDescriptionDict.Add(314, "ClearDataTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(315, "ClearDataTask running, <add the detailed description of the current action 6>");
+                    actionDescriptionDict.Add(316, "ClearDataTask running, <add the detailed description of the current action 7>");
+                    actionDescriptionDict.Add(317, "ClearDataTask running, <add the detailed description of the current action 8>");
+                    actionDescriptionDict.Add(318, "ClearDataTask running, <add the detailed description of the current action 9>");
+                    actionDescriptionDict.Add(319, "ClearDataTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(111, "ClearDataTask finished succesfully.");
+                    actionDescriptionDict.Add(112, "ClearDataTask restored.");
+                    // ClearErrorTask
+                    actionDescriptionDict.Add(120, "ClearErrorTask started.");
+                    actionDescriptionDict.Add(320, "ClearErrorTask running, <add the detailed description of the current action 1>");
+                    actionDescriptionDict.Add(321, "ClearErrorTask running, <add the detailed description of the current action 2>");
+                    actionDescriptionDict.Add(322, "ClearErrorTask running, <add the detailed description of the current action 3>");
+                    actionDescriptionDict.Add(323, "ClearErrorTask running, <add the detailed description of the current action 4>");
+                    actionDescriptionDict.Add(324, "ClearErrorTask running, <add the detailed description of the current action 5>");
+                    actionDescriptionDict.Add(325, "ClearErrorTask running, <add the detailed description of the current action 6>");
+                    actionDescriptionDict.Add(326, "ClearErrorTask running, <add the detailed description of the current action 7>");
+                    actionDescriptionDict.Add(327, "ClearErrorTask running, <add the detailed description of the current action 8>");
+                    actionDescriptionDict.Add(328, "ClearErrorTask running, <add the detailed description of the current action 9>");
+                    actionDescriptionDict.Add(329, "ClearErrorTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(121, "ClearErrorTask finished succesfully.");
+                    actionDescriptionDict.Add(122, "ClearErrorTask restored.");
                     // TemplateTask_10steps_4
                     actionDescriptionDict.Add(130, "TemplateTask_10steps_4 started.");
                     actionDescriptionDict.Add(330, "TemplateTask_10steps_4 running, <add the detailed description of the current action 1>");
@@ -1967,15 +1967,15 @@ namespace AXOpen.Components.Zebra.Vision
                     actionDescriptionDict.Add(1248, "Error writing the TemplateComponentOutputStructureConfig.HWIDs.HwID_out_18!");
                     actionDescriptionDict.Add(1249, "Error writing the TemplateComponentOutputStructureConfig.HWIDs.HwID_out_19!");
                     actionDescriptionDict.Add(1250, "Error writing the TemplateComponentOutputStructureConfig.HWIDs.HwID_out_20!");
-                    // TemplateTask_10steps_1
-                    actionDescriptionDict.Add(10000, "TemplateTask_10steps_1 finished with error!");
-                    actionDescriptionDict.Add(10001, "TemplateTask_10steps_1 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_2
-                    actionDescriptionDict.Add(10010, "TemplateTask_10steps_2 finished with error!");
-                    actionDescriptionDict.Add(10011, "TemplateTask_10steps_2 was aborted, while not yet completed!");
-                    // TemplateTask_10steps_3
-                    actionDescriptionDict.Add(10020, "TemplateTask_10steps_3 finished with error!");
-                    actionDescriptionDict.Add(10021, "TemplateTask_10steps_3 was aborted, while not yet completed!");
+                    // ReadTask
+                    actionDescriptionDict.Add(10000, "ReadTask finished with error!");
+                    actionDescriptionDict.Add(10001, "ReadTask was aborted, while not yet completed!");
+                    // ClearDataTask
+                    actionDescriptionDict.Add(10010, "ClearDataTask finished with error!");
+                    actionDescriptionDict.Add(10011, "ClearDataTask was aborted, while not yet completed!");
+                    // ClearErrorTask
+                    actionDescriptionDict.Add(10020, "ClearErrorTask finished with error!");
+                    actionDescriptionDict.Add(10021, "ClearErrorTask was aborted, while not yet completed!");
                     // TemplateTask_10steps_4
                     actionDescriptionDict.Add(10030, "TemplateTask_10steps_4 task finished with error!");
                     actionDescriptionDict.Add(10031, "TemplateTask_10steps_4 task was aborted, while not yet completed!");

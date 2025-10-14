@@ -4,7 +4,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision
     CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             _manualControl : BOOL;
-            _testComponent : AXOpen.Components.Zebra.Vision.TemplateComponent;
+            _testComponent : AXOpen.Components.Zebra.Vision.AxoEA3600;
             _rootObject : AxoObject;
         END_VAR
 
