@@ -12,8 +12,7 @@
 @using AXSharp.Connector
 @inject AuthenticationStateProvider AuthenticationStateProvider;
 
-@if (MessageProvider.ActiveMessagesCount > 0)
-{
+
     @if (EnableFiltering)
     {
         <div class="alarm-table__filters" role="group" aria-label="Alarm filters" style="display: flex; flex-direction: column; gap: 0.5rem;">
@@ -164,7 +163,7 @@
             }
         </tbody>
     </table>
-}
+
 
 @code
 {
