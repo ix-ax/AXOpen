@@ -10,13 +10,16 @@ namespace AXOpen.Core
     {
         private bool IsActive => Component.IsActive.Cyclic == true;
 
+        [Parameter] public string? Class { get; set; }
+
         [Parameter]
         public bool IsControllable { get; set; }
 
         public override void ConfigurePolling()
         {
-            this.StartPolling(Component.Descr, 350);
-            this.StartPolling(Component.Status, 350);
+            this.StartPolling(Component.Descr, 750);
+            this.StartPolling(Component.Status, 750);
+            this.StartPolling(Component.Duration, 750);
         }
     }
 

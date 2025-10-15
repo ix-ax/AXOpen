@@ -9,6 +9,7 @@ namespace AXOpen.Core
 {
     public partial class AxoSequencerView : RenderableComplexComponentBase<AxoSequencer>, IDisposable
     {
+        
         [Parameter] public bool IsControllable { get; set; } = true;
 
         [Parameter] public bool HasTaskControlButton { get; set; } = true;
