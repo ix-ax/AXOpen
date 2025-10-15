@@ -11,9 +11,9 @@ if [ -d "./.apax" ]; then
 
     ASSETS_DIRS=$(find -L "./.apax" -type d -name 'assets')
     destinationDirectory="./gsd/source"
+    fileMask="[gG][sS][dD][mM][lL]*.xml"
     for DIR in $ASSETS_DIRS; do    
       sourceDirectory=$DIR
-      fileMask="[gG][sS][dD][mM][lL]*.xml"
       files=($sourceDirectory/$fileMask)
       if [ ${#files[@]} -gt 0 ] && [ "${files[0]}" != "$sourceDirectory/$fileMask" ]; then
         echo " ${#files[@]}  files is going to be copied to $destinationDirectory."
