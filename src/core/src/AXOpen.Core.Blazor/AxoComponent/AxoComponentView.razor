@@ -1,14 +1,24 @@
 ﻿@namespace AXOpen.Core
+@using AXOpen.Messaging
+@using AXOpen.Messaging.Static
 @using AXSharp.Connector.ValueTypes
 @using AXSharp.Connector;
 @using Operon.Components.Accordion
 @using Operon.Components.Tab
+@using System.Threading.Tasks
 @inherits RenderableComplexComponentBase<AxoComponent>;
 
 <div class="flex flex-wrap flex-col card  my-3">
     <h5>@Component.AttributeName</h5>
     <div class="w-full my-2">
-        <AxoObjectDiagnosticsView @ref="diagnosticsViewRef" ObservedObjects="new ITwinObject[] { this.Component }"></AxoObjectDiagnosticsView>
+        @foreach (var alarm in this.messageProvider.Messengers)
+        {            
+            if (alarm.State != eAxoMessengerState.Idle)
+            {
+                <AxoMessengerView Component="alarm" Class="my-1 w-full" />
+            }
+            
+        }        
     </div>
 
     @if (!string.IsNullOrEmpty(Component.Description_raw))
@@ -46,13 +56,13 @@
                 </Tab>
                 <p class="text-sm">@Component.Symbol</p>
             </AccordionItem>
-
         </Accordion>
     }
 </div>
 
 @code
 {
+    private AxoMessageProvider messageProvider;
     private AxoObjectDiagnosticsView diagnosticsViewRef;
 
     private string BorderColorStatusClass

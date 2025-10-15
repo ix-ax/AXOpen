@@ -121,6 +121,7 @@ namespace AXOpen.Core
             containsHeaderAttribute = this.Header.GetKids().Count() != 0;
             tabNames = GetAllTabNames(this.Component);
             containsDetailsAttribute = this.DetailsTabs.Count() != 0;
+            this.messageProvider = AxoMessageProvider.Create(new ITwinObject[] { this.Component });
         }
 
         protected override async Task OnInitializedAsync()
@@ -177,23 +178,14 @@ namespace AXOpen.Core
 
                     switch (seriousness)
                     {
-                        case eAxoMessageCategory.All:
-                        case eAxoMessageCategory.Trace:
-                        case eAxoMessageCategory.Debug:
                         case eAxoMessageCategory.Info:
                             return eAlarmLevel.ActiveInfo;
-                        case eAxoMessageCategory.TimedOut:
-                        case eAxoMessageCategory.Notification:
                         case eAxoMessageCategory.Warning:
                             return eAlarmLevel.ActiveWarnings;
                         case eAxoMessageCategory.Error:
                         case eAxoMessageCategory.ProgrammingError:
                         case eAxoMessageCategory.Critical:
-                        case eAxoMessageCategory.Fatal:
-                        case eAxoMessageCategory.Catastrophic:
                             return eAlarmLevel.ActiveErrors;
-                        case eAxoMessageCategory.None:
-                            break;
                         default:
                             break;
                     }

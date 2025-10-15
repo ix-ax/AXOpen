@@ -255,7 +255,7 @@ NAMESPACE AXOpen.Messaging.Static
         /// Restores all members of this instance to their initial states.
         ///</summary>
         METHOD PUBLIC Restore
-            Category := eAxoMessageCategory#All;           
+            Category := 0;           
             MessageCode := ULINT#0;
             Risen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
             Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
@@ -271,29 +271,17 @@ NAMESPACE AXOpen.Messaging.Static
                 _messageCategory : eAxoMessageCategory;
             END_VAR    
             
-            CASE _messageCategory OF
-                eAxoMessageCategory#Trace : 
-                    ToLogLevel := eLogLevel#Verbose;
-                eAxoMessageCategory#Debug : 
-                    ToLogLevel := eLogLevel#Debug;
+            CASE _messageCategory OF                
                 eAxoMessageCategory#Info : 
-                    ToLogLevel := eLogLevel#Information;    
-                eAxoMessageCategory#TimedOut : 
-                    ToLogLevel := eLogLevel#Information;
-                eAxoMessageCategory#Notification : 
-                    ToLogLevel := eLogLevel#Information;
+                    ToLogLevel := eLogLevel#Information;                                        
                 eAxoMessageCategory#Warning : 
                     ToLogLevel := eLogLevel#Warning;    
                 eAxoMessageCategory#Error : 
-                    ToLogLevel := eLogLevel#Error;    
-                eAxoMessageCategory#ProgrammingError : 
-                    ToLogLevel := eLogLevel#Error;     
+                    ToLogLevel := eLogLevel#Error;
+                eAxoMessageCategory#ProgrammingError :  
+                    ToLogLevel := eLogLevel#Error;                                         
                 eAxoMessageCategory#Critical : 
-                    ToLogLevel := eLogLevel#Fatal;  
-                eAxoMessageCategory#Fatal : 
-                    ToLogLevel := eLogLevel#Fatal;     
-                eAxoMessageCategory#Catastrophic : 
-                    ToLogLevel := eLogLevel#Fatal;              
+                    ToLogLevel := eLogLevel#Fatal;                  
             END_CASE;
 
         END_METHOD    

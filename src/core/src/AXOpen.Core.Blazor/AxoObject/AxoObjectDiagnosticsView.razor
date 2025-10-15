@@ -3,6 +3,7 @@
 @using AXOpen.Core
 @using AXOpen.Messaging.Static
 @using System.Runtime.CompilerServices
+@using System.Security.Principal
 @using AXSharp.Connector
 @using Microsoft.JSInterop
 @implements IAsyncDisposable;
@@ -13,52 +14,430 @@
 
 @if (MessageProvider.ActiveMessagesCount > 0)
 {
-    <table class="alarm-table @Class" style="@Style">
-    <caption class="visually-hidden">Alarm summary table</caption>
-    <thead>
-    <tr>
-        <th scope="col">Severity</th>
-        <th scope="col">Title</th>
-        <th scope="col">Equipment</th>
-        <th scope="col">State</th>
-        <th scope="col">Raised</th>
-        <th scope="col">Acknowledged</th>
-        <th scope="col">Duration</th>
-        <th scope="col" class="alarm-table__actions-header">Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-    @foreach (var message in MessageProvider.Messengers)
+    @if (EnableFiltering)
     {
-        if (message.State != eAxoMessengerState.Idle)
-        {
-            <AxoMessengerView Component="message"></AxoMessengerView>
-        }
+        <div class="alarm-table__filters" role="group" aria-label="Alarm filters" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <label class="alarm-table__filter-search" style="width: 100%;">
+                <span class="visually-hidden">Search alarms</span>
+                <input type="search" placeholder="Search title or equipment" @bind="SearchTerm" @bind:event="oninput" style="width: 100%;" />
+            </label>
+
+            <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                <div class="alarm-table__filter-group" role="group" aria-label="Severity filter">
+                    <span class="alarm-table__filter-label">Severity</span>
+                    @foreach (var severity in SeverityOptions)
+                    {
+                        <label class="alarm-table__filter-chip">
+                            <input type="checkbox" checked="@IsSeveritySelected(severity)" @onchange="args => ToggleSeverity(severity, args)" />
+                            <span>@SeverityLabel(severity)</span>
+                        </label>
+                    }
+                </div>
+
+                <div style="width: 1px; height: 1.5rem; background-color: #ddd; margin: 0 0.25rem;"></div>
+
+                <div class="alarm-table__filter-group" role="group" aria-label="State filter">
+                    <span class="alarm-table__filter-label">State</span>
+                    <label class="alarm-table__filter-toggle">
+                        <input type="checkbox" @bind="IncludeActive" />
+                        <span>Active</span>
+                    </label>
+                    <label class="alarm-table__filter-toggle">
+                        <input type="checkbox" @bind="IncludeCleared" />
+                        <span>Cleared</span>
+                    </label>
+                </div>
+
+                <div style="width: 1px; height: 1.5rem; background-color: #ddd; margin: 0 0.25rem;"></div>
+
+                <label class="alarm-table__filter-chip @(_shouldBounce ? "bounce-animation" : "")" style="margin-left: auto; cursor: pointer;" @onclick="RefreshMessages" title="Refresh messages">
+                    <span>↻ Refresh</span>
+                </label>
+            </div>
+        </div>
     }
-    </tbody>
+
+    <table class="alarm-table @Class" style="@Style">
+        <caption class="visually-hidden">Alarm summary table</caption>
+        <thead>
+            <tr>
+                <th scope="col">Severity</th>
+                <th scope="col">Title</th>
+                <th scope="col">Equipment</th>
+                <th scope="col">State</th>
+                <th scope="col">Raised</th>
+                <th scope="col">Acknowledged</th>
+                <th scope="col">Duration</th>
+                @if (HasActionsColumn || true)
+                {
+                    <th scope="col" class="alarm-table__actions-header">Actions</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @if (Rows.Count == 0)
+            {
+                <tr>
+                    <td colspan="@(HasActionsColumn ? 8 : 7)" class="alarm-table__empty">
+                        @EmptyText
+                    </td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var alarm in Rows)
+                {
+                    var isExpanded = _expandedAlarmIds.Contains(alarm.GetHashCode());
+                    <tr class="@RowCss(alarm)"
+                        @onclick="() => HandleRowClick(alarm)"
+                        @onkeypress="args => HandleRowKeyPress(args, alarm)"
+                        role="@RowRole"
+                        tabindex="@RowTabIndex">
+                        <td class="alarm-table__severity">
+                            <button class="alarm-table__expand-btn" @onclick:stopPropagation="true" @onclick="() => ToggleAlarmDetails(alarm)" title="@(isExpanded ? "Hide details" : "Show details")" aria-expanded="@isExpanded">
+                                <span class="alarm-table__expand-icon @(isExpanded ? "expanded" : "")">▶</span>
+                            </button>
+                            <span class="alarm-table__severity-pill severity-@ConvertToInternalSeverityName((eAxoMessageCategory)alarm.Category.LastValue)" aria-label="@alarm.Category">
+                                @SeverityLabel((eAxoMessageCategory)alarm.Category.LastValue)
+                            </span>
+                        </td>
+                        <td class="alarm-table__title">@DisplayOrDash(@alarm.GetMessageText())</td>
+                        <td>@alarm.GetParent()?.AttributeName</td>
+                        <td class="alarm-table__state">@StateLabel(alarm)</td>
+                        <td>@FormatTimestamp(alarm.Risen.LastValue)</td>
+                        <td>@FormatAcknowledged(alarm)</td>
+                        <td>@FormatDuration(alarm)</td>
+                        @if (HasActionsColumn || true)
+                        {
+                            <td class="alarm-table__actions">
+                                @if (Actions is not null)
+                                {
+                                    @Actions(alarm)
+                                }
+
+                                @if (alarm.State == (eAxoMessengerState.ActiveAcknowledgeRequired))
+                                {
+                                    <label class="alarm-table__filter-chip alarm-table__ack-chip" @onclick:stopPropagation="true" @onclick="(() => HandleAcknowledge(alarm))" style="@(CanAcknowledge(alarm) ? "cursor: pointer; white-space: nowrap;" : "opacity: 0.5; cursor: not-allowed; white-space: nowrap;")" title="Acknowledge alarm">
+                                        <span style="display: inline;">✓ @AcknowledgeLabel</span>
+                                    </label>
+                                }
+                            </td>
+                        } 
+                    </tr>
+                    @if (isExpanded)
+                    {
+                        <tr class="alarm-table__details-row">
+                            <td colspan="@(HasActionsColumn ? 8 : 7)" class="alarm-table__details">
+                                <div class="alarm-table__details-content">
+                                    <div class="alarm-table__details-grid">
+                                        <div class="alarm-table__detail-item">
+                                            <span class="alarm-table__detail-label">Suggestion:</span>
+                                            <span class="alarm-table__detail-value">@DisplayOrDash(alarm.GetHelpText())</span>
+                                        </div>   
+                                        <div class="alarm-table__detail-item">
+                                            <span class="alarm-table__detail-label">Symbol:</span>
+                                            <span class="alarm-table__detail-value">@DisplayOrDash(alarm.Component.Symbol)</span>
+                                        </div>
+                                        <div class="alarm-table__detail-item">
+                                            <span class="alarm-table__detail-label">Human Readable:</span>
+                                            <span class="alarm-table__detail-value">@DisplayOrDash(alarm.Component.HumanReadable)</span>
+                                        </div>                                                                           
+                                        <div class="alarm-table__detail-item">
+                                            <span class="alarm-table__detail-label">Alarm ID:</span>
+                                            <span class="alarm-table__detail-value">@DisplayOrDash(alarm.Identity.LastValue.ToString())</span>
+                                        </div>      
+                                        <AuthorizeView Roles="Administrator">
+                                            <Authorized>
+                                                <div class="alarm-table__detail-item">
+                                                    <span class="alarm-table__detail-label">Restore:</span>
+                                                    <button class="alarm-table__restore-btn" @onclick="() => RestoreParentTask(alarm)">Restore</button>
+                                                </div>
+                                            </Authorized>
+                                        </AuthorizeView>
+                                        
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
     </table>
 }
 
 @code
 {
-    private AxoMessenger noMessageMessenger => new(null, string.Empty, string.Empty)
+    private async Task RestoreParentTask(AxoMessenger? task)
     {
+        task?.RestoreParentTask(await this.GetCurrentUserIdentity());
+    }
 
-    };
+    private static string DisplayOrDash(string? value) => string.IsNullOrWhiteSpace(value) ? "—" : value;
+    private static string SeverityLabel(eAxoMessageCategory category) => ConvertToSeverityName(category);
+    private static string StateLabel(AxoMessenger alarm)
+    {
+        if (!alarm.IsActive)
+        {
+            return "Cleared";
+        }
+
+        return alarm.IsAcknowledged ? "Active · Ack" : "Active";
+    }
+    private static string FormatTimestamp(DateTime? timestamp)
+        => timestamp?.ToLocalTime().ToString("g") ?? "—";
+    private static string FormatAcknowledged(AxoMessenger Component)
+    {
+        if (!Component.IsAcknowledged)
+        {
+            return Component.IsActive ? "Pending" : "—";
+        }
+
+        return FormatTimestamp(Component.Acknowledged.LastValue);
+    }
+    private static string FormatDuration(AxoMessenger Component)
+    {
+        try
+        {
+            if (Component.Risen.LastValue.Equals(new DateTime()))
+            {
+                return "—";
+            }
+
+            var end = Component.IsActive ? DateTime.UtcNow : Component.Acknowledged.LastValue;
+            if (end < Component.Risen.LastValue)
+            {
+                return "—";
+            }
+
+            var duration = end - Component.Risen.LastValue;
+            return duration switch
+            {
+                { TotalMinutes: < 1 } => "< 1 min",
+                { TotalHours: < 1 } => $"{(int)duration.TotalMinutes} min",
+                { TotalDays: < 1 } => $"{duration.TotalHours:F1} h",
+                _ => $"{duration.TotalDays:F1} d"
+            };
+        }
+        catch (Exception e)
+        {
+            //swallow;
+        }
+
+        return "—";
+
+    }
+    private bool CanAcknowledge(AxoMessenger Component) => Component.IsActive && !Component.IsAcknowledged;
+    private string? RowRole => RowSelected.HasDelegate ? "button" : null;
+    private int? RowTabIndex => RowSelected.HasDelegate ? 0 : (int?)null;
+
+    private bool HasActionsColumn => Actions is not null || AcknowledgeRequested.HasDelegate;
+
+
+    protected async Task<IIdentity?> GetCurrentUserIdentity()
+    {
+        var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        return authenticationState?.User?.Identity;
+    }
+
+    private async Task HandleAcknowledge(AxoMessenger alarm)
+    {
+        alarm.Acknowledge(await this.GetCurrentUserIdentity());
+        await alarm.ReadDetailsAsync();
+    }
+
+    private async Task HandleRowClick(AxoMessenger alarm)
+    {
+        if (RowSelected.HasDelegate)
+        {
+            await RowSelected.InvokeAsync(alarm);
+        }
+    }
+
+    private async Task HandleRowKeyPress(KeyboardEventArgs args, AxoMessenger alarm)
+    {
+        if (args.Key is "Enter" or " ")
+        {
+            await HandleRowClick(alarm);
+        }
+    }
+
+    private static string ConvertToSeverityName(eAxoMessageCategory category)
+    {
+        switch (category)
+        {
+            case eAxoMessageCategory.Info:
+                return "info";
+            case eAxoMessageCategory.Warning:
+                return "warning";
+            case eAxoMessageCategory.Error:
+                return "error";
+            case eAxoMessageCategory.ProgrammingError:
+                return "system";
+            case eAxoMessageCategory.Critical:
+                return "fatal";
+         
+        }
+
+        return string.Empty;
+    }
+
+    private static string ConvertToInternalSeverityName(eAxoMessageCategory category)
+    {
+        switch (category)
+        {
+            case eAxoMessageCategory.Info:
+                return "info";
+            case eAxoMessageCategory.Warning:
+                return "warning";
+            case eAxoMessageCategory.Error:
+                return "minor";
+            case eAxoMessageCategory.ProgrammingError:
+                return "major";
+            case eAxoMessageCategory.Critical:
+                return "critical";
+
+        }
+
+        return string.Empty;
+    }
+
+    private static string RowCss(AxoMessenger? alarm)
+    {
+        var severity = ConvertToInternalSeverityName((eAxoMessageCategory)alarm.Category.LastValue);
+        var state = alarm.IsActive ? "active" : "cleared";
+        var ack = alarm.IsAcknowledged ? "ack" : "unack";
+        return $"severity-{severity} state-{state} {ack}";
+    }
+
+    private IReadOnlyList<AxoMessenger> BuildRows()
+    {
+        var source = this.MessageProvider.Messengers ?? Enumerable.Empty<AxoMessenger>();
+
+        if (!EnableFiltering)
+        {
+            return source
+                .OrderByDescending(a => a.IsActive)
+                .ThenByDescending(a => a.Category.LastValue)
+                .ThenByDescending(a => a.Risen.LastValue)
+                .ToList();
+        }
+
+        var filtered = source.Where(alarm => _selectedSeverities.Contains((eAxoMessageCategory)alarm.Category.LastValue))
+            .Where(alarm => alarm.IsActive ? IncludeActive : IncludeCleared);
+
+        var hasSearch = !string.IsNullOrWhiteSpace(SearchTerm);
+        if (hasSearch)
+        {
+            var term = SearchTerm.Trim();
+            filtered = filtered.Where(alarm => MatchesSearch(alarm, term));
+        }
+
+        return filtered
+            .OrderByDescending(a => a.IsActive)
+            .ThenByDescending(a => a.Category.LastValue)
+            .ThenByDescending(a => a.Risen.LastValue)
+            .ToList();
+    }
+
+    private static bool MatchesSearch(AxoMessenger alarm, string term)
+    {
+        return (alarm.Message.LastValue?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false)
+               || (alarm.Component.Symbol?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false)
+               || (alarm.Component.AttributeName?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false)
+               || (alarm.Message.LastValue?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false);
+    }
+
+    private IReadOnlyList<AxoMessenger> Rows => _rows ??= BuildRows();
+
+    private void ToggleSeverity(eAxoMessageCategory severity, ChangeEventArgs args)
+    {
+        var isChecked = args.Value is bool b && b;
+
+        if (isChecked)
+        {
+            _selectedSeverities.Add(severity);
+        }
+        else
+        {
+            _selectedSeverities.Remove(severity);
+        }
+
+        InvalidateFilters();
+    }
+
+    private string _searchTerm = string.Empty;
+
+    private string SearchTerm
+    {
+        get => _searchTerm;
+        set
+        {
+            var sanitized = value ?? string.Empty;
+            if (!string.Equals(_searchTerm, sanitized, StringComparison.Ordinal))
+            {
+                _searchTerm = sanitized;
+                InvalidateFilters();
+            }
+        }
+    }
+
+    private bool _includeCleared;
+
+    private bool IncludeCleared
+    {
+        get => _includeCleared;
+        set
+        {
+            if (_includeCleared != value)
+            {
+                _includeCleared = value;
+                InvalidateFilters();
+            }
+        }
+    }
+
+    private bool _includeActive = true;
+    private bool IncludeActive
+    {
+        get => _includeActive;
+        set
+        {
+            if (_includeActive != value)
+            {
+                _includeActive = value;
+                InvalidateFilters();
+            }
+        }
+    }
+
+    private IReadOnlyList<AxoMessenger>? _rows;
+
+    private void InvalidateFilters()
+    {
+        _rows = null;
+    }
+
 
     private IJSObjectReference? module;
     private IEnumerable<ITwinObject> observedObjects = new List<ITwinObject>();
     private AxoMessageProvider provider;
+    private static readonly eAxoMessageCategory[] SeverityOptions = Enum.GetValues<eAxoMessageCategory>().ToArray();
+    private readonly HashSet<eAxoMessageCategory> _selectedSeverities = new(SeverityOptions);
+    private bool _shouldBounce = false;
+    private System.Threading.Timer? _bounceTimer;
+    private DateTime _componentOpenedAt = DateTime.UtcNow;
+    private readonly HashSet<int> _expandedAlarmIds = new();
 
+    [Parameter] public EventCallback<AxoMessenger> RowSelected { get; set; }
+    [Parameter] public RenderFragment<AxoMessenger>? Actions { get; set; }
+    [Parameter] public EventCallback<AxoMessenger> AcknowledgeRequested { get; set; }
     [Parameter] public string? Class { get; set; }
     [Parameter] public string? Style { get; set; }
-
-    [Parameter]
-    public int DisplayMimeCount { get; set; } = 10;
-
-    [Parameter]
-    public AxoMessageProvider MessageProvider
+    [Parameter] public bool EnableFiltering { get; set; } = true;
+    [Parameter]  public int DisplayMimeCount { get; set; } = 10;
+    [Parameter] public string AcknowledgeLabel { get; set; } = "ACKN";
+    [Parameter] public AxoMessageProvider MessageProvider
     {
         get => provider;
         set
@@ -78,14 +457,12 @@
         }
     }
 
+    [Parameter] public string EmptyText { get; set; } = "No alarms to display.";
+
+    private bool IsSeveritySelected(eAxoMessageCategory severity) => _selectedSeverities.Contains(severity);
+
     public override async void OnComponentChanged()
     {
-        // if (observedObjects.Count() == 0
-        //     && !observedObjects.First().Equals(this.Component))
-        // {
-        //     observedObjects = new[] { this.Component };
-        // }
-
         MessageProvider = AxoMessageProvider.Create(observedObjects);
         await LoadMessages();
         base.OnComponentChanged();
@@ -96,11 +473,18 @@
     public async ValueTask DisposeAsync()
     {
         if (module != null) await module.DisposeAsync();
+        _bounceTimer?.Dispose();
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await base.OnAfterRenderAsync(firstRender);
+        
+        if (firstRender)
+        {
+            CheckBounceCondition();
+            StartBounceTimer();
+        }
     }
 
     ///<inheritdoc/>
@@ -113,6 +497,23 @@
 
         // Notify Blazor to refresh the UI
         StateHasChanged();
+    }
+
+    private void StartBounceTimer()
+    {
+        _bounceTimer = new System.Threading.Timer(_ =>
+        {
+            CheckBounceCondition();
+            InvokeAsync(StateHasChanged);
+        }, null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
+    }
+
+    private void CheckBounceCondition()
+    {
+        var hasNoAlarms = Rows.Count == 0 || MessageProvider.ActiveMessagesCount == 0;
+        var openForMoreThan7Seconds = (DateTime.UtcNow - _componentOpenedAt).TotalSeconds >= 7;
+        
+        _shouldBounce = hasNoAlarms || openForMoreThan7Seconds;
     }
 
     private async Task AcknowledgeAll()
@@ -130,5 +531,29 @@
         }
 
         await LoadMessages();
+    }
+
+    private async Task RefreshMessages()
+    {
+        _shouldBounce = false;
+        _componentOpenedAt = DateTime.UtcNow; // Reset the timer when user refreshes
+        InvalidateFilters();
+        await LoadMessages();
+        CheckBounceCondition();
+        StateHasChanged();
+    }
+
+    private void ToggleAlarmDetails(AxoMessenger alarm)
+    {
+        var alarmId = alarm.GetHashCode();
+        if (_expandedAlarmIds.Contains(alarmId))
+        {
+            _expandedAlarmIds.Remove(alarmId);
+        }
+        else
+        {
+            _expandedAlarmIds.Add(alarmId);
+        }
+        StateHasChanged();
     }
 }

@@ -1,299 +1,222 @@
 ﻿@namespace AXOpen.Messaging.Static
 @inherits RenderableComplexComponentBase<AxoMessenger>
-@using AXOpen.Core
+@using System.Security.Principal
 @implements IDisposable;
 
+<div class="alarm-card @SeverityCss @StateCss @AcknowledgedCss @Class" style="@Style">
+    <header class="alarm-card__header">
+        <div class="alarm-card__legend">
+            <span class="alarm-card__severity" aria-label="Severity">@SeverityLabel</span>
+            @if (!string.IsNullOrWhiteSpace(Component.GetMessageText()))
+            {
+                <span class="alarm-card__code" aria-label="Alarm code">@Component.GetMessageText()</span>
+            }
+        </div>
+        <div class="alarm-card__state" role="status">@StateLabel</div>
+    </header>
 
+    <section class="alarm-card__body">
+        <h3 class="alarm-card__title">@Component.Message.LastValue</h3>
+        @if (!string.IsNullOrWhiteSpace(Component.Message.LastValue))
+        {
+            <p class="alarm-card__message">@Component.Message.LastValue</p>
+        }
 
-<tr class="@RowCss(Component)"
-    @onclick="() => HandleRowClick(Component)"
-    @onkeypress="args => HandleRowKeyPress(args, Component)"
-    role="@RowRole"
-    tabindex="@RowTabIndex">
-    <td class="alarm-table__severity">
-        <span class="alarm-table__severity-pill severity-@ConvertToSeverityName((eAxoMessageCategory)Component.Category.LastValue)" aria-label="@Component.Category">
-            @SeverityLabel(Component)
-        </span>
-    </td>
-    <td class="alarm-table__title">@Component.GetParent()?.AttributeName</td>
-    <td>@DisplayOrDash(@Component.GetMessageText())</td>
-    <td class="alarm-table__state">@StateLabel(Component)</td>
-    <td>@FormatTimestamp(Component.Risen.LastValue)</td>
-    <td>@FormatAcknowledged(Component)</td>
-    <td>@FormatDuration(Component)</td>
-    @if (HasActionsColumn || true)
+        <dl class="alarm-card__facts">
+            <div>
+                <dt>Equipment</dt>
+                <dd>@DisplayOrDash(Component.Component.AttributeName)</dd>
+            </div>
+            <div>
+                <dt>Raised</dt>
+                <dd>@FormatTimestamp(Component.Risen.LastValue)</dd>
+            </div>
+            <div>
+                <dt>Acknowledged</dt>
+                <dd>@FormatAcknowledged()</dd>
+            </div>
+            <div>
+                <dt>Duration</dt>
+                <dd>@FormatDuration()</dd>
+            </div>
+        </dl>
+    </section>
+
+    <footer class="alarm-card__footer">
+        <button class="alarm-card__details-toggle" @onclick="ToggleDetails" title="@(IsDetailsExpanded ? "Hide details" : "Show details")" aria-expanded="@IsDetailsExpanded">
+            <span class="alarm-card__expand-icon @(IsDetailsExpanded ? "expanded" : "")">▶</span> @(IsDetailsExpanded ? "HIDE DETAILS" : "SHOW DETAILS")
+        </button>
+        @if (Actions is not null)
+        {
+            <div class="alarm-card__actions">
+                @Actions
+            </div>
+        }
+        <button class="alarm-card__ack" @onclick="HandleAcknowledge" disabled="@(!CanAcknowledge)">@AcknowledgeLabelOrDefault</button>
+    </footer>
+
+    @if (IsDetailsExpanded)
     {
-        <td class="alarm-table__actions">
-            @if (Actions is not null)
-            {
-                @Actions(Component)
-            }
-
-            @if (Component.State == (eAxoMessengerState.ActiveAcknowledgeRequired))
-            {
-                <button class="alarm-table__ack-btn" @onclick:stopPropagation="true" @onclick="(() => HandleAcknowledge(Component))" disabled="@(!CanAcknowledge(Component))">
-                    @AcknowledgeLabel
-                </button>
-            }
-        </td>
-    } 
-</tr>
+        <section class="alarm-card__details">
+            <div class="alarm-card__details-grid">
+                <div class="alarm-card__detail-item">
+                    <dt>Symbol</dt>
+                    <dd>@DisplayOrDash(Component.Symbol)</dd>
+                </div>
+                <div class="alarm-card__detail-item">
+                    <dt>Human Readable</dt>
+                    <dd>@DisplayOrDash(Component.HumanReadable)</dd>
+                </div>
+                <div class="alarm-card__detail-item">
+                    <dt>Alarm ID</dt>
+                    <dd>@DisplayOrDash(Component.Identity.LastValue.ToString())</dd>
+                </div>
+                <AuthorizeView Roles="Administrator">
+                    <Authorized>
+                        <div class="alarm-card__detail-item">
+                            <dt>RESTORE</dt>
+                            <button class="alarm-card__restore-btn" @onclick="RestoreParentTask">Restore</button>
+                        </div>
+                    </Authorized>
+                </AuthorizeView>
+                @if (AdditionalDetails is not null)
+                {
+                    @AdditionalDetails
+                }
+            </div>
+        </section>
+    }
+</div>
 
 @code {
-    [Parameter] public RenderFragment<AXOpen.Messaging.Static.AxoMessenger>? Actions { get; set; }
-    [Parameter] public EventCallback<AXOpen.Messaging.Static.AxoMessenger> AcknowledgeRequested { get; set; }
-    [Parameter] public EventCallback<AXOpen.Messaging.Static.AxoMessenger> RowSelected { get; set; }
-    [Parameter] public string EmptyText { get; set; } = "No alarms to display.";
-    [Parameter] public string AcknowledgeLabel { get; set; } = "Acknowledge";
+
+    private async Task RestoreParentTask()
+    {
+        Component.RestoreParentTask(await this.GetCurrentUserIdentity());
+    }
+
+    [Parameter] public AxoMessenger? Alarm { get; set; }
+    [Parameter] public string? Title { get; set; }
+    [Parameter] public string? Message { get; set; }
+    [Parameter] public string? Code { get; set; }
+    [Parameter] public string? Equipment { get; set; }
+    [Parameter] public eAxoMessageCategory Severity { get; set; } = eAxoMessageCategory.Warning;
+    [Parameter] public bool IsAcknowledged { get; set; }
+    [Parameter] public DateTimeOffset? RaisedAt { get; set; }
+    [Parameter] public DateTimeOffset? AcknowledgedAt { get; set; }
+    [Parameter] public DateTimeOffset? ClearedAt { get; set; }
+    [Parameter] public RenderFragment? Actions { get; set; }
+    [Parameter] public EventCallback AcknowledgeRequested { get; set; }
+    [Parameter] public string? AcknowledgeLabel { get; set; }
     [Parameter] public string? Class { get; set; }
     [Parameter] public string? Style { get; set; }
-    [Parameter] public bool EnableFiltering { get; set; } = true;
+    [Parameter] public RenderFragment? AdditionalDetails { get; set; }
 
-    private static string DisplayOrDash(string? value) => string.IsNullOrWhiteSpace(value) ? "—" : value;
-
-    private static string SeverityLabel(AxoMessenger Component) => ConvertToSeverityName((eAxoMessageCategory)Component.Category.LastValue);
-
-    private static string StateLabel(AxoMessenger Component)
-    {
-        if (!Component.IsActive)
-        {
-            return "Cleared";
-        }
-
-        return Component.IsAcknowledged ? "Active · Ack" : "Active";
-    }
-
-    private static string FormatTimestamp(DateTime? timestamp)
-        => timestamp?.ToLocalTime().ToString("g") ?? "—";
-
-    private static string FormatAcknowledged(AxoMessenger Component)
-    {
-        if (!Component.IsAcknowledged)
-        {
-            return Component.IsActive ? "Pending" : "—";
-        }
-
-        return Component.Acknowledged.LastValue.Equals(new DateTime())
-            ? "Acknowledged"
-            : FormatTimestamp(Component.Acknowledged.LastValue);
-    }
-
-    private static string FormatDuration(AxoMessenger Component)
-    {
-        try
-        {
-            if (Component.Risen.LastValue.Equals(new DateTime()))
-            {
-                return "—";
-            }
-
-            var end = Component.IsActive ? DateTime.UtcNow : Component.Acknowledged.LastValue;
-            if (end < Component.Risen.LastValue)
-            {
-                return "—";
-            }
-
-            var duration = end - Component.Risen.LastValue;
-            return duration switch
-            {
-                { TotalMinutes: < 1 } => "< 1 min",
-                { TotalHours: < 1 } => $"{(int)duration.TotalMinutes} min",
-                { TotalDays: < 1 } => $"{duration.TotalHours:F1} h",
-                _ => $"{duration.TotalDays:F1} d"
-            };
-        }
-        catch (Exception e)
-        {
-            //swallow;
-        }
-
-        return "—";
-
-    }
-
-    private bool CanAcknowledge(AxoMessenger Component) => Component.IsActive && !Component.IsAcknowledged;
-
-    private string? RowRole => RowSelected.HasDelegate ? "button" : null;
-    private int? RowTabIndex => RowSelected.HasDelegate ? 0 : (int?)null;
-
-    private static readonly eAxoMessageCategory[] SeverityOptions = Enum.GetValues<eAxoMessageCategory>();
-    private readonly HashSet<eAxoMessageCategory> _selectedSeverities = new(SeverityOptions);
+    private bool IsDetailsExpanded { get; set; } = false;
+   
+    
 
 
-    private bool HasActionsColumn => Actions is not null || AcknowledgeRequested.HasDelegate;
-
-
-    private async Task HandleAcknowledge(AxoMessenger Component)
-    {
-        Component.Acknowledge(await this.GetCurrentUserIdentity());
-    }
-
-    private async Task HandleRowClick(AxoMessenger Component)
-    {
-        if (RowSelected.HasDelegate)
-        {
-            await RowSelected.InvokeAsync(Component);
-        }
-    }
-
-    private async Task HandleRowKeyPress(KeyboardEventArgs args, AxoMessenger Component)
-    {
-        if (args.Key is "Enter" or " ")
-        {
-            await HandleRowClick(Component);
-        }
-    }
-
-    private static string ConvertToSeverityName(eAxoMessageCategory category)
+    private static string ConvertToInternalSeverityName(eAxoMessageCategory category)
     {
         switch (category)
         {
-            case eAxoMessageCategory.All:
-            case eAxoMessageCategory.Trace:
-            case eAxoMessageCategory.Debug:
-                return "detail";
             case eAxoMessageCategory.Info:
-            case eAxoMessageCategory.TimedOut:
-            case eAxoMessageCategory.Notification:
                 return "info";
             case eAxoMessageCategory.Warning:
                 return "warning";
             case eAxoMessageCategory.Error:
+                return "minor";
             case eAxoMessageCategory.ProgrammingError:
-                return "error";
+                return "major";
             case eAxoMessageCategory.Critical:
-            case eAxoMessageCategory.Fatal:
-            case eAxoMessageCategory.Catastrophic:
-                return "fatal";
-            case eAxoMessageCategory.None:
-                break;
+                return "critical";
+
         }
 
         return string.Empty;
     }
-
-    private static string RowCss(AxoMessenger? Component)
+    private string SeverityCss => $"severity-{ConvertToInternalSeverityName((eAxoMessageCategory)Component.Category.LastValue)}";
+    private string StateCss => Component.IsActive ? "state-active" : "state-cleared";
+    private string AcknowledgedCss => Component.IsAcknowledged ? "state-acknowledged" : string.Empty;
+    private string SeverityLabel => (eAxoMessageCategory)Component.Category.LastValue switch
     {
-        if (Component is null) return string.Empty;
-        var severity = ConvertToSeverityName((eAxoMessageCategory)Component.Category.LastValue);
-        var state = Component.State == eAxoMessengerState.ActiveAlreadyAcknowledged ? "active" : "cleared";
-        var ack = Component.State == eAxoMessengerState.ActiveAlreadyAcknowledged ? "ack" : "unack";
-        return $"severity-{severity} state-{state} {ack}";
-    }
+        eAxoMessageCategory.Info => "Info",
+        eAxoMessageCategory.Warning => "Warning",
+        eAxoMessageCategory.Error => "Minor Fault",
+        eAxoMessageCategory.ProgrammingError => "Major Fault",
+        eAxoMessageCategory.Critical => "Critical",
+        _ => "Unknown"
+    };
 
-    protected override void OnParametersSet()
+    private string StateLabel => Component.IsActive
+        ? (Component.IsAcknowledged ? "Active · Acknowledged" : "Active · Unacknowledged")
+        : "Cleared";
+
+    private bool CanAcknowledge => Component.IsActive || !Component.IsAcknowledged;
+    private string AcknowledgeLabelOrDefault => string.IsNullOrWhiteSpace(AcknowledgeLabel) ? "Acknowledge" : AcknowledgeLabel;
+
+    private async Task HandleAcknowledge()
     {
-        if (!_selectedSeverities.Any())
+        if (AcknowledgeRequested.HasDelegate)
         {
-            foreach (var severity in SeverityOptions)
-            {
-                _selectedSeverities.Add(severity);
-            }
+            await AcknowledgeRequested.InvokeAsync();
         }
-    }
-}
-
-
-@*
-@if (this.Component is not null)
-{
-    <div class="w-full alert items-center @SeverityToAlertColor()">
-        <HeroIcon Icon="bell" Type="@BellIconType" Class="size-6 me-2" />
-        <h6>@ParentDescription: @MessageText</h6>
-        <div class="flex flex-wrap ms-auto gap-1">
-            <a @onclick="() => _collapseDetails.Toggle()">
-                Details
-            </a>
-            <button class="cursor-pointer" @onclick="() => _collapseDetails.Toggle()">
-                <HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-6 icon-button-rotate " + (_collapseDetails?.Open ?? false ? "rotated" : null))" />
-            </button>
-            <button class="cursor-pointer" @onclick="AcknowledgeTask">
-                <HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
-            </button>
-        </div>
-    </div>
-
-    <Collapse @ref="_collapseDetails">
-        <div class="w-full border-1 m-1 p-1">
-            <div>
-                <h6>@HelpText</h6>
-            </div>
-            <div class="flex flex-wrap justify-between my-2">
-               
-                <div class="flex flex-wrap gap-4">
-                    <Operon.Components.Pickers.DateTimePicker Value="Component.Risen.Cyclic" Label="Risen" IsReadOnly="true"/>
-                    <Operon.Components.Pickers.DateTimePicker Value="Component.Fallen.Cyclic" Label="Fallen" IsReadOnly="true"/>
-                    <Operon.Components.Pickers.DateTimePicker Value="Component.Acknowledged.Cyclic" Label="Acknowledged" IsReadOnly="true"/>
-                </div>
-                @if (!HideAcknowledgeButton || !HideRepairButton || true)
-                {
-                    <div class="flex flex-wrap items-center ms-auto">
-                        @if (!HideAcknowledgeButton || true)
-                        {
-                            <button class="btn btn-no-bg-primary" @onclick="() => AcknowledgeTask()">
-                                <HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5"/>
-                            </button>
-                        }
-                        @if (!HideRepairButton || true)
-                        {
-                            <AuthorizeView Roles="Maintenance,Administrator">
-                                <Authorized>
-                                    <button class="btn btn-no-bg-primary" @onclick="() => RestoreTask()">
-                                        <HeroIcon Icon="lock-open" Type="Operon.Icons.IconType.Outline" Class="size-5"/>
-                                    </button>
-                                </Authorized>
-                            </AuthorizeView>
-                        }
-                    </div>
-                }
-            </div>
-            <div>
-                <h7>@Component.Symbol</h7>
-            </div>
-        </div>
-    </Collapse>
-}
-
-@code
-{
-
-    private IconType BellIconType
-    {
-        get
+        else
         {
-            switch (MessengerState)
-            {
-                case eAxoMessengerState.Idle:
-                    return Operon.Icons.IconType.Outline;
-                case eAxoMessengerState.ActiveAlreadyAcknowledged:
-                case eAxoMessengerState.ActiveAcknowledgeRequired:
-                case eAxoMessengerState.ActiveAcknowledgeNotRequired:
-                    return Operon.Icons.IconType.Solid;
-                case eAxoMessengerState.InactiveWaitingForAcknowledge:
-                    return Operon.Icons.IconType.Outline;
-                case eAxoMessengerState.InvalidImplementation:
-                    return Operon.Icons.IconType.Mini;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            Component.AcknowledgeRequest.Cyclic = true;
         }
     }
 
-    private Collapse _collapseDetails { get; set; }
+    private static string DisplayOrDash(string? value) => string.IsNullOrWhiteSpace(value) ? "—" : value;
 
-    private string SeverityToAlertColor()
+    private static string FormatTimestamp(DateTime? timestamp)
     {
-        if (Component is null)
-            return "alert-primary"; // This is the default color for no Components
+        return timestamp?.ToLocalTime().ToString("g", CultureInfo.CurrentCulture) ?? "—";
+    }
 
-        if (Component.Category.Cyclic < 600) // Upto warning level excluding
-            return "alert-info";
-        else if (Component.Category.Cyclic < 700)   //From warning level including, upto error level excluding
-            return "alert-warning";
-        else if (Component.Category.Cyclic <= 1200) //From error level including, upto catastrophic level including
-            return "alert-danger";
-        return "alert-primary";
+    private string FormatAcknowledged()
+    {
+        if (!Component.IsAcknowledged)
+        {
+            return (eAxoMessengerState)Component.MessengerState.LastValue == eAxoMessengerState.ActiveAcknowledgeRequired ? "Pending" : "Not Required";
+        }
+
+        return Component.Risen.LastValue.Equals(DateTime.MinValue)
+            ? "Acknowledged"
+            : FormatTimestamp(Component.Risen.LastValue);
+    }
+
+    private string FormatDuration()
+    {
+        if (Component.Risen.LastValue.Equals(DateTime.MinValue))
+        {
+            return "—";
+        }
+
+        var start = Component.Risen.LastValue;
+        var end = Component.IsActive
+            ? DateTime.UtcNow
+            : Component.Acknowledged.LastValue;
+
+        if (end < start)
+        {
+            return "—";
+        }
+
+        var duration = end - start;
+        return duration switch
+        {
+            { TotalMinutes: < 1 } => "< 1 min",
+            { TotalHours: < 1 } => $"{(int)duration.TotalMinutes} min",
+            { TotalDays: < 1 } => $"{duration.TotalHours:F1} h",
+            _ => $"{duration.TotalDays:F1} d"
+        };
+    }
+
+    private void ToggleDetails()
+    {
+        IsDetailsExpanded = !IsDetailsExpanded;
+        StateHasChanged();
     }
 }
-
- *@

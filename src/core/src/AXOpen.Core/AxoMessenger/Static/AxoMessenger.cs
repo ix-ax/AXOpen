@@ -140,6 +140,15 @@ public partial class AxoMessenger
         set{dotNetMessengerTextList = value != null ? value : new List<KeyValuePair<ulong, AxoMessengerTextItem>>(); }
     }
 
+
+    public void RestoreParentTask(IIdentity? currentUserIdentity)
+    {
+        (this?.GetParent() as AxoTask)?.Restore();
+        AxoApplication.Current.Logger.Information(
+            $"Task '{this.Component.GetParent().Symbol}' has been restored using alarm view.", this.Component,
+            currentUserIdentity);
+    }
+
     public eAxoMessengerState State => (eAxoMessengerState)this.MessengerState.LastValue;
 
     public bool IsActive => State == eAxoMessengerState.ActiveAlreadyAcknowledged ||
@@ -175,7 +184,7 @@ public partial class AxoMessenger
 
     public async Task ReadDetailsAsync()
     {
-        var r = new ITwinPrimitive[] { this.MessageCode, Category, MessageCode,  MessengerState, Message };
+        var r = new ITwinPrimitive[] { this.MessageCode, Category, MessageCode,  MessengerState, Message, Risen, Fallen, Acknowledged   };
         await this.GetConnector()?.ReadBatchAsync(r)!;
     }
 
