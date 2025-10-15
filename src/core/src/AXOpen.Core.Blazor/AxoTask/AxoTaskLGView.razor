@@ -1,0 +1,97 @@
+@namespace AXOpen.Core
+@using AXSharp.Connector;
+@using Microsoft.AspNetCore.Components.Authorization
+@inherits RenderableComplexComponentBase<AxoTask>
+@implements IDisposable;
+
+<div class="flux-task-lg @Class" style="@Style">
+    <button type="button"
+            class="flux-task-lg__button @StateCss @ExecutingCss @DisabledCss @RestoreButtonCss"
+            @onclick="this.InvokeTask"
+            data-state="@State.ToString().ToLowerInvariant()"
+            aria-live="polite"
+            aria-busy="@AriaBusy">
+        
+        <!-- Icon Section -->
+        <span class="flux-task-lg__glyph" aria-hidden="true">
+            @if (State == eAxoTaskState.Ready)
+            {
+                <span class="glyph glyph-ready"></span>
+            }
+            else if (State == eAxoTaskState.Kicking)
+            {
+                <span class="glyph glyph-kicking"><span></span></span>
+            }
+            else if (State == eAxoTaskState.Busy)
+            {
+                <span class="glyph glyph-busy">
+                    <span></span>
+                </span>
+            }
+            else if (State == eAxoTaskState.Done)
+            {
+                <span class="glyph glyph-done">
+                    <span></span>
+                </span>
+            }
+            else if (State == eAxoTaskState.Error)
+            {
+                <span class="glyph glyph-error">
+                    <span></span>
+                </span>
+            }
+        </span>
+
+        <!-- Content Section -->
+        <div class="flux-task-lg__content">
+            <span class="flux-task-lg__label">@Description</span>
+            <span class="flux-task-lg__state">@State.ToString()</span>
+        </div>
+
+        <!-- Restore Button -->
+        @if (!HideRestoreButton)
+        {
+            <button type="button"
+                    class="flux-task-lg__reset"
+                    title="Reset task"
+                    @onclick="@OnRestoreClick"
+                    @onclick:stopPropagation="true">
+                <span class="visually-hidden">Restore</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16">
+                    <path d="M8 2.25a5.75 5.75 0 1 1-4.069 9.819l1.09-1.09a.5.5 0 0 0-.353-.853H2.25a.5.5 0 0 0-.5.5v2.418a.5.5 0 0 0 .853.353l.94-.94A7.25 7.25 0 1 0 8 0.75v1.5Z" fill="currentColor" />
+                </svg>
+            </button>
+        }
+    </button>
+</div>
+
+@code {
+
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public string? Style { get; set; }
+    [Parameter] public bool ShowReset { get; set; }
+    [Parameter] public bool ShowAbortButton { get; set; } = false;
+    [Parameter] public bool ShowRestoreButton { get; set; } = true;
+    [Parameter] public bool ShowIcon { get; set; } = false;
+    [Parameter] public bool ShowText { get; set; } = true;
+    [Parameter] public string IconClass { get; set; } = "star";
+
+
+    private bool IsResetDisabled => !ShowReset;
+
+    private string StateCss => $"state-{State.ToString().ToLowerInvariant()}";
+
+    private string ExecutingCss => this.State == eAxoTaskState.Kicking ? "is-invoking" : string.Empty;
+
+    private string DisabledCss => this.Disable || this.Component.IsDisabled.LastValue ? "is-disabled" : string.Empty;
+
+    private string RestoreButtonCss => HideRestoreButton ? "no-restore-button" : string.Empty;
+
+    private string AriaBusy => (State is eAxoTaskState.Kicking or eAxoTaskState.Busy) ? "true" : "false";
+
+    private void OnRestoreClick(MouseEventArgs e)
+    {
+        // Stop propagation is handled in the markup with @onclick:stopPropagation
+        this.RestoreTask();
+    }
+}

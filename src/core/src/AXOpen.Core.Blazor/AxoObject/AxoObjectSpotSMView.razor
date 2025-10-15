@@ -6,22 +6,50 @@
 @using AXOpen.VisualComposer.Components.VisualComposerItem
 @using AXSharp.Connector
 @using Microsoft.JSInterop
+@using Operon.Icons
 @inject IJSRuntime JSRuntime
 
-<button type="button" class="btn @ButtonStyleClass"
+<button type="button" class="flux-tiny-spot @GetSpotStateClass()"
         @onclick="() => SetCurrentObject()">
-        @Component.AttributeName
+    <div class="flux-tiny-spot__content">
+        <div class="flux-tiny-spot__icon">
+            <HeroIcon Icon="@GetStatusIcon()" Type="IconType.Solid" Class="size-4"/>
+        </div>
+        <span class="flux-tiny-spot__label">@Component.AttributeName</span>
+        @if (observer?.ActiveMessagesCount > 0)
+        {
+            <div class="flux-tiny-spot__badge">
+                @observer.ActiveMessagesCount
+            </div>
+        }
+    </div>
 </button>
 
 @code
 {
     private AxoMessageProvider? observer;
 
+    private string GetSpotStateClass()
+    {
+        if (observer?.ActiveMessagesCount > 0)
+            return "flux-tiny-spot--danger";
+        else
+            return "flux-tiny-spot--normal";
+    }
+
+    private string GetStatusIcon()
+    {
+        if (observer?.ActiveMessagesCount > 0)
+            return "exclamation-circle";
+        else
+            return "cube";
+    }
+
     private string ButtonStyleClass
     {
         get
         {
-            if (observer.ActiveMessagesCount > 0)
+            if (observer?.ActiveMessagesCount > 0)
                 return "btn-danger";
             else
                 return "btn-inactive";

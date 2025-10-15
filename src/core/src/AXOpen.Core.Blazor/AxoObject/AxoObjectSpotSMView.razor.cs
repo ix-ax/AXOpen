@@ -4,12 +4,12 @@ using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
 {
-    public partial class AxoObjectSpotView
+    public partial class AxoObjectTinySpotView
     {
         
     }
 
-    public class AxoObjectSpotControlView : AxoObjectSpotView
+    public class AxoObjectSpotControlSMView : AxoObjectSpotSMView
     {
         protected override void SetCurrentObject(string presentationType = "Status-Display")
         {
@@ -17,11 +17,11 @@ namespace AXOpen.Core
         }
     }
 
-    public class AxoObjectSpotDiagnosticsView : AxoObjectSpotView
+    public class AxoObjectSpotDisplaySMView : AxoObjectSpotSMView
     {
         protected override void SetCurrentObject(string presentationType = "Status-Display")
         {
-            base.SetCurrentObject("Diagnostics");
+            base.SetCurrentObject("Status-Display");
         }
     }
 }
