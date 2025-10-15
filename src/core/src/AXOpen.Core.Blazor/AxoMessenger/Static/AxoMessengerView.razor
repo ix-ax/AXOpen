@@ -60,6 +60,10 @@
         <section class="alarm-card__details">
             <div class="alarm-card__details-grid">
                 <div class="alarm-card__detail-item">
+                    <dt>Suggestion</dt>
+                    <dd>@DisplayOrDash(Component.GetHelpText())</dd>
+                </div>
+                <div class="alarm-card__detail-item">
                     <dt>Symbol</dt>
                     <dd>@DisplayOrDash(Component.Symbol)</dd>
                 </div>
@@ -162,10 +166,7 @@
         {
             await AcknowledgeRequested.InvokeAsync();
         }
-        else
-        {
-            Component.AcknowledgeRequest.Cyclic = true;
-        }
+        Component.Acknowledge(await GetCurrentUserIdentity());
     }
 
     private static string DisplayOrDash(string? value) => string.IsNullOrWhiteSpace(value) ? "—" : value;

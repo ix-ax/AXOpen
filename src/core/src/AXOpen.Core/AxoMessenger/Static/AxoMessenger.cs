@@ -145,7 +145,7 @@ public partial class AxoMessenger
     {
         (this?.GetParent() as AxoTask)?.Restore();
         AxoApplication.Current.Logger.Information(
-            $"Task '{this.Component.GetParent().Symbol}' has been restored using alarm view.", this.Component,
+            $"Task has been restored using alarm view.", this.Component,
             currentUserIdentity);
     }
 
