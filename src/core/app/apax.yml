@@ -1,4 +1,4 @@
-name: "ix_axopencore"
+﻿name: "ix_axopencore"
 version: '0.0.0-dev.0'
 type: app
 targets:
@@ -19,7 +19,7 @@ variables:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.32
+  "@inxton/ax.catalog": 0.0.33
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -186,3 +186,4 @@ scripts:
     apax mon --targetIP $AXTARGET --file messages5.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
   mm6: |
     apax mon --targetIP $AXTARGET --file messages6.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+

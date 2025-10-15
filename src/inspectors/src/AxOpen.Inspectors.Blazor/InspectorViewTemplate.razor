@@ -5,7 +5,7 @@
 <div class="accordion my-3">
     <div class="accordion-item">
         <button class="accordion-button @(_accordionOpen ? "active" : null)" type="button" @onclick="() => _accordionOpen = !_accordionOpen">
-            <p class="overflow-visible my-auto">@Name</p>
+            <p class="overflow-visible my-auto">@NameWithUnit</p>
 
             <div class="flex flex-row items-center justify-end w-full mx-2 gap-2">
                 @if (!_accordionOpen)
@@ -33,7 +33,7 @@
                     }
                 }
 
-                <GenericIconView Result="@result" />
+                <GenericIconView Result="@Result" />
             </div>
 
             <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-auto my-auto icon-button-rotate " + (_accordionOpen ? "rotated" : null))" />
@@ -94,7 +94,10 @@
     [Parameter]
     public string Name { get; set; }
 
-    private short result
+    private string NameWithUnit => string.IsNullOrEmpty(this.Data?.Units) ? this.Name : $"{Name} [{this.Data.Units}]";
+
+
+    private short Result
     {
         get
         {
