@@ -17,10 +17,10 @@ NAMESPACE Template.Axolibrary
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 ExampleComponent.ActivateManualControl();
@@ -34,7 +34,8 @@ NAMESPACE Template.Axolibrary
         END_METHOD
 
         //<Usage>    
-        VAR PUBLIC                       
+        VAR PUBLIC       
+            {#ix-set:AttributeName = "<#Start test sequence#>"}
             Sequencer : AxoSequencer;       
             Steps : ARRAY[0..30] OF AXOpen.Core.AxoStep;
         END_VAR
@@ -48,6 +49,7 @@ NAMESPACE Template.Axolibrary
             Sequencer.Open();
 
             IF(Steps[0].Execute(Sequencer, 'TemplateMethod_10steps_1')) THEN
+                ActivateManualControl := FALSE;
                 IF(ExampleComponent.TemplateMethod_10steps_1().IsDone()) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    

@@ -48,7 +48,7 @@ namespace PlcSimAdvancedStarterTool.PlcSim
                 // Check if PlcSimInstanceName is already registered
                 bool instanceAlreadyRegistered = false;
 
-
+                
                 var iInstanceType = plcSimAdvancedApiDll.GetType("Siemens.Simatic.Simulation.Runtime.IInstance");
                 object plcSimInstance = null;
 

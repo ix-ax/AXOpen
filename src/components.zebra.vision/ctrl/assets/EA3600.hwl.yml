@@ -1,0 +1,19 @@
+Devices:
+- Name: EA3600
+  Modules:
+  - Name: EA3600
+    TypeIdentifier:
+      GsdId: 'DAP 1'
+      FileName: GSDML-V2.33-Zebra-EA3600-2-20181115.xml
+    Interfaces:
+    - Name: profinet
+      Label: X1
+      Addresses:
+        Configured:
+        - IPv4: 192.168.100.4/24
+        - ProfinetDeviceName: EA3600
+  - Name: Data88Bin6Bout
+    TypeIdentifier:
+      GsdId: 'ID_Mod_1'
+      FileName: GSDML-V2.33-Zebra-EA3600-2-20181115.xml
+    Slot: 1
