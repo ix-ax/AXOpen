@@ -4,6 +4,7 @@ NAMESPACE AXOpen.Inspectors
     /// Data subjected to each inspector instance.
     ///</summary>
     {S7.extern=ReadWrite}
+    {#ix-prop:public string Units}
     CLASS AxoInspectorData 
 
         VAR PUBLIC
