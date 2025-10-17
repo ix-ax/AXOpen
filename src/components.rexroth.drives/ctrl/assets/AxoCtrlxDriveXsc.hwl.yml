@@ -26,6 +26,11 @@ Devices:
         GsdId: 'ID_M_XCS_INI_0_cons'
     Slot: 1
     Submodules:
+      - Name: 'S-0-0134_0_0__Master_control_word__Value'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Master_control_word_S_0_0134_0_0_cons'
+        Slot: 1
       - Name: 'S-0-0145_0_0__Signal_control_word__Value'
         TypeIdentifier:
           FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
@@ -77,6 +82,11 @@ Devices:
         GsdId: 'ID_M_XCS_INI_0_prod'
     Slot: 2
     Submodules:
+      - Name: 'S-0-0135_0_0__Drive_status_word__Value'
+        TypeIdentifier:
+          FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'
+          GsdId: 'ID_SM_Drive_status_word_S_0_0135_0_0_prod'
+        Slot: 1
       - Name: 'S-0-0144_0_0__Signal_status_word__Value'
         TypeIdentifier:
           FileName: 'GSDML-V2.41-BOSCH REXROTH AG-CTRLX DRIVE-20241107.XML'

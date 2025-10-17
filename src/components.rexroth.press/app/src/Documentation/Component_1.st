@@ -19,10 +19,10 @@ NAMESPACE AXOpen.Components.Rexroth.Press
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 AxoSmartFunctionKit.ActivateManualControl();

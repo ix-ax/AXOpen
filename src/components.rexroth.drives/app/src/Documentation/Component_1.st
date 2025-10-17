@@ -21,10 +21,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
             
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF(manualControl) THEN            
                 IndraDrive.ActivateManualControl();

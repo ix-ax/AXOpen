@@ -12,8 +12,8 @@ variables:
   DEFAULT_NAMESPACE: "AXOpen.Components.Rexroth.Tightening"
   AXTARGET: 192.168.100.120
   AXTARGETPLATFORMINPUT: .\bin\1500\
-  AX_USERNAME: "adm"
-  AX_TARGET_PWD: "123ABCDabcd$#!"
+  AX_USERNAME: "admin"
+  AX_TARGET_PWD: "Qwerty123456+"
   USE_PLC_SIM_ADVANCED: "true"
   # <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.
 registries:
@@ -173,4 +173,12 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
     apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
-
+  t: |
+    apax install
+    apax hwl
+    apax ssc
+    apax gsd
+    apax hwcc
+    apax hwid
+    apax hwadr
+    apax build

@@ -23,10 +23,10 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 RF340R.ActivateManualControl();

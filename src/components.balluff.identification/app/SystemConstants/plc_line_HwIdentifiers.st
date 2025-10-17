@@ -5,14 +5,14 @@ CONFIGURATION HardwareIDs
         BNIPNT507005Z040_BNIPNT507005Z040_HwID : UINT := UINT#262;
         BNIPNT507005Z040_BNIPNT507005Z040_BNI_PNT_507_005_Z040_HwID : UINT := UINT#267;
         BNIPNT507005Z040_BNIPNT507005Z040_profinet_HwID : UINT := UINT#257;
-        BNIPNT507005Z040_BNIPNT507005Z040_profinet_port_1___M12_HwID : UINT := UINT#259;
-        BNIPNT507005Z040_BNIPNT507005Z040_profinet_port_2___M12_HwID : UINT := UINT#260;
+        BNIPNT507005Z040_BNIPNT507005Z040_profinet_port_1_M12_HwID : UINT := UINT#259;
+        BNIPNT507005Z040_BNIPNT507005Z040_profinet_port_2_M12_HwID : UINT := UINT#260;
         BNIPNT507005Z040_Rack_HwID : UINT := UINT#261;
         BNIPNT507005Z040_Standard_I_O_2_Standard_I_O_HwID : UINT := UINT#266;
         BNIPNT507005Z040_Standard_I_O_3_Standard_I_O_HwID : UINT := UINT#265;
         BNIPNT507005Z040_Standard_I_O_4_Standard_I_O_HwID : UINT := UINT#264;
         plc_line_HwID : UINT := UINT#32;
-        plc_line_Rail_0_HwID : UINT := UINT#273;
+        plc_line_Rail_0_HwID : UINT := UINT#268;
         plc_line_plc_line_HwID : UINT := UINT#48;
         plc_line_plc_line_CPU_display_1_HwID : UINT := UINT#54;
         plc_line_plc_line_Card_reader_writer_1_HwID : UINT := UINT#51;
