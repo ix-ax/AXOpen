@@ -4207,7 +4207,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF(AxisErrorID >= DWORD#16#000A0000 AND AxisErrorID <= DWORD#16#000AFFFF) THEN
                         _category   :=  eAxoMessageCategory#Info;
                     ELSIF(AxisErrorID >= DWORD#16#000C0000 AND AxisErrorID <= DWORD#16#000CFFFF) THEN
-                        _category   :=  eAxoMessageCategory#Notification;
+                        _category   :=  eAxoMessageCategory#Warning;
                     ELSIF(AxisErrorID >= DWORD#16#000E0000 AND AxisErrorID <= DWORD#16#000EFFFF) THEN
                         _category   :=  eAxoMessageCategory#Warning;
                     ELSIF(AxisErrorID >= DWORD#16#000F0000 AND AxisErrorID <= DWORD#16#000FFFFF) THEN
