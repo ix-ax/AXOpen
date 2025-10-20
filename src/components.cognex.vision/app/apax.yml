@@ -173,4 +173,12 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
     apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer --continuously
-
+  t: |
+    apax install
+    apax hwl
+    apax ssc
+    apax gsd
+    apax hwcc
+    apax hwid
+    apax hwadr
+    apax build

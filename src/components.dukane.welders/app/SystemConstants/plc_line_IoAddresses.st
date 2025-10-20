@@ -1,45 +1,60 @@
 CONFIGURATION IoAddresses
     VAR_GLOBAL
-        DukaneIqSeriesWelder_1_PLC_to_iQ_Outputs_OutputAddress_0 AT %QD0: DWORD;
-        DukaneIqSeriesWelder_1_PLC_to_iQ_Outputs_OutputAddress_1 AT %QD4: DWORD;
-        DukaneIqSeriesWelder_1_PLC_to_iQ_Outputs_OutputAddress_2 AT %QD8: DWORD;
-        DukaneIqSeriesWelder_1_PLC_to_iQ_Outputs_OutputAddress_3 AT %QD12: DWORD;
-        DukaneIqSeriesWelder_1_PLC_to_iQ_Outputs_OutputAddress_4 AT %QD16: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_0 AT %ID0: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_1 AT %ID4: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_2 AT %ID8: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_3 AT %ID12: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_4 AT %ID16: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_5 AT %ID20: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_6 AT %ID24: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_7 AT %ID28: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_8 AT %ID32: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_9 AT %ID36: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_10 AT %ID40: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_11 AT %ID44: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_12 AT %ID48: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_13 AT %ID52: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_14 AT %ID56: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_15 AT %ID60: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_16 AT %ID64: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_17 AT %ID68: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_18 AT %ID72: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_19 AT %ID76: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_20 AT %ID80: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_21 AT %ID84: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_22 AT %ID88: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_23 AT %ID92: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_24 AT %ID96: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_25 AT %ID100: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_26 AT %ID104: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_27 AT %ID108: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_28 AT %ID112: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_29 AT %ID116: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_30 AT %ID120: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_31 AT %ID124: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_32 AT %ID128: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_33 AT %ID132: DWORD;
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_InputAddress_34 AT %ID136: DWORD;
 
+        // Module DukaneIqSeriesWelder_1/iQ_to_PLC_Inputs
+        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_Input AT %IB0 : DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_Input_Layout;
+
+        // Module DukaneIqSeriesWelder_1/PLC_to_iQ_Outputs
+        DukaneIqSeriesWelder_1_PLC_to_iQ_Outputs_Output AT %QB0 : DukaneIqSeriesWelder_1_PLC_to_iQ_Outputs_Output_Layout;
     END_VAR
 END_CONFIGURATION
+
+TYPE
+    DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_Input_Layout : STRUCT
+        Signals_0 AT %B0 : DWORD;
+        Signals_1 AT %B4 : DWORD;
+        Signals_2 AT %B8 : DWORD;
+        Signals_3 AT %B12 : DWORD;
+        Signals_4 AT %B16 : DWORD;
+        Signals_5 AT %B20 : DWORD;
+        Signals_6 AT %B24 : DWORD;
+        Signals_7 AT %B28 : DWORD;
+        Signals_8 AT %B32 : DWORD;
+        Signals_9 AT %B36 : DWORD;
+        Signals_10 AT %B40 : DWORD;
+        Signals_11 AT %B44 : DWORD;
+        Signals_12 AT %B48 : DWORD;
+        Signals_13 AT %B52 : DWORD;
+        Signals_14 AT %B56 : DWORD;
+        Signals_15 AT %B60 : DWORD;
+        Signals_16 AT %B64 : DWORD;
+        Signals_17 AT %B68 : DWORD;
+        Signals_18 AT %B72 : DWORD;
+        Signals_19 AT %B76 : DWORD;
+        Signals_20 AT %B80 : DWORD;
+        Signals_21 AT %B84 : DWORD;
+        Signals_22 AT %B88 : DWORD;
+        Signals_23 AT %B92 : DWORD;
+        Signals_24 AT %B96 : DWORD;
+        Signals_25 AT %B100 : DWORD;
+        Signals_26 AT %B104 : DWORD;
+        Signals_27 AT %B108 : DWORD;
+        Signals_28 AT %B112 : DWORD;
+        Signals_29 AT %B116 : DWORD;
+        Signals_30 AT %B120 : DWORD;
+        Signals_31 AT %B124 : DWORD;
+        Signals_32 AT %B128 : DWORD;
+        Signals_33 AT %B132 : DWORD;
+        Signals_34 AT %B136 : DWORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    DukaneIqSeriesWelder_1_PLC_to_iQ_Outputs_Output_Layout : STRUCT
+        Signals_0 AT %B0 : DWORD;
+        Signals_1 AT %B4 : DWORD;
+        Signals_2 AT %B8 : DWORD;
+        Signals_3 AT %B12 : DWORD;
+        Signals_4 AT %B16 : DWORD;
+    END_STRUCT;
+END_TYPE

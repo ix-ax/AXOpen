@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Components.Pneumatics
+﻿NAMESPACE AXOpen.Components.Pneumatics
     TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
@@ -7,3 +7,4 @@ NAMESPACE AXOpen.Components.Pneumatics
         END_STRUCT;
     END_TYPE
 END_NAMESPACE
+

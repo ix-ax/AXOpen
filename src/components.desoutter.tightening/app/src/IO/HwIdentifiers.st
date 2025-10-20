@@ -3,7 +3,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
         HwIdentifiers : UINT
         (
             plc_line_HwID :=UINT#32,
-            plc_line_Rail_0_HwID :=UINT#273,
+            plc_line_Rail_0_HwID :=UINT#271,
             plc_line_plc_line_HwID :=UINT#48,
             plc_line_plc_line_CPU_display_1_HwID :=UINT#54,
             plc_line_plc_line_Card_reader_writer_1_HwID :=UINT#51,

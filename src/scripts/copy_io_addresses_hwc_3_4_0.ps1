@@ -70,6 +70,10 @@ if ($null -eq $startIdx_VarGlobal -or $null -eq $endIdx_VarGlobal -or $endIdx_Va
     exit 1
 }
 
+#if(($endIdx_VarGlobal - $startIdx_VarGlobal) -le 1) {
+#    Write-Error "Could not locate a proper VAR_GLOBAL ... END_VAR block in $input_file"
+#    exit 1
+#}
 # Slice the region (exclusive of the VAR_GLOBAL/END_VAR lines? Keep them out for item parsing)
 $varLines = $all[($startIdx_VarGlobal+1) .. ($endIdx_VarGlobal-1)]
 
@@ -168,15 +172,16 @@ for ($i = $endIdx_VarGlobal; $i -lt $all.Count; $i++) {
     }
 }
 
-for ($i = $startIdx_Type; $i -lt $all.Count; $i++) {
-    [void]$sbStruct.AppendLine("`t$($all[$i])")
-    if ($all[$i] -match '^\s*TYPE\b') {
-        [void]$sbStruct.AppendLine("        {S7.extern=ReadWrite}")
-        [void]$sbStruct.AppendLine("        {#ix-attr:[Container(Layout.Wrap)]}")
+if ($null -ne $startIdx_Type) {
+    for ($i = $startIdx_Type; $i -lt $all.Count; $i++) {
+        [void]$sbStruct.AppendLine("`t$($all[$i])")
+        if ($all[$i] -match '^\s*TYPE\b') {
+            [void]$sbStruct.AppendLine("        {S7.extern=ReadWrite}")
+            [void]$sbStruct.AppendLine("        {#ix-attr:[Container(Layout.Wrap)]}")
 
+        }
     }
 }
-
 
 [void]$sbIn.AppendLine("        END_STRUCT;")
 [void]$sbIn.AppendLine("    END_TYPE")

@@ -1,21 +1,20 @@
 CONFIGURATION IoAddresses
     VAR_GLOBAL
-        TZ535_PN_In_Out_64_byte_InputAddress_0 AT %IL0: LWORD;
-        TZ535_PN_In_Out_64_byte_InputAddress_1 AT %IL8: LWORD;
-        TZ535_PN_In_Out_64_byte_InputAddress_2 AT %IL16: LWORD;
-        TZ535_PN_In_Out_64_byte_InputAddress_3 AT %IL24: LWORD;
-        TZ535_PN_In_Out_64_byte_InputAddress_4 AT %IL32: LWORD;
-        TZ535_PN_In_Out_64_byte_InputAddress_5 AT %IL40: LWORD;
-        TZ535_PN_In_Out_64_byte_InputAddress_6 AT %IL48: LWORD;
-        TZ535_PN_In_Out_64_byte_InputAddress_7 AT %IL56: LWORD;
-        TZ535_PN_In_Out_64_byte_OutputAddress_0 AT %QL0: LWORD;
-        TZ535_PN_In_Out_64_byte_OutputAddress_1 AT %QL8: LWORD;
-        TZ535_PN_In_Out_64_byte_OutputAddress_2 AT %QL16: LWORD;
-        TZ535_PN_In_Out_64_byte_OutputAddress_3 AT %QL24: LWORD;
-        TZ535_PN_In_Out_64_byte_OutputAddress_4 AT %QL32: LWORD;
-        TZ535_PN_In_Out_64_byte_OutputAddress_5 AT %QL40: LWORD;
-        TZ535_PN_In_Out_64_byte_OutputAddress_6 AT %QL48: LWORD;
-        TZ535_PN_In_Out_64_byte_OutputAddress_7 AT %QL56: LWORD;
 
+        // Module TZ535-PN/In_Out_64_byte
+        TZ535_PN_In_Out_64_byte_Input AT %IB0 : TZ535_PN_In_Out_64_byte_Input_Layout;
+        TZ535_PN_In_Out_64_byte_Output AT %QB0 : TZ535_PN_In_Out_64_byte_Output_Layout;
     END_VAR
 END_CONFIGURATION
+
+TYPE
+    TZ535_PN_In_Out_64_byte_Input_Layout : STRUCT
+        Signals_0 AT %B0 : ARRAY[0..63] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    TZ535_PN_In_Out_64_byte_Output_Layout : STRUCT
+        Signals_1 AT %B0 : ARRAY[0..63] OF BYTE;
+    END_STRUCT;
+END_TYPE
