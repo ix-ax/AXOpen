@@ -66,7 +66,17 @@ namespace AXOpen.Core
 
         public bool IsDisabled => Disable || Component.IsDisabled.Cyclic;
 
-        public string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.GetAttributeName(CultureInfo.CurrentUICulture);
+        public string Description
+        {
+            get
+            {
+                if(!string.IsNullOrEmpty(Label))
+                {
+                    return Label;
+                }
+                return string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.GetAttributeName(CultureInfo.CurrentUICulture);
+            }
+        }         
     }
 
     public class AxoTaskCommandLGView : AxoTaskLGView

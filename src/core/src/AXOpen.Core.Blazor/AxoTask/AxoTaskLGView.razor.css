@@ -59,8 +59,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2rem;
-    height: 2rem;
+    width: 1.35rem;
+    height: 1.35rem;
     position: absolute;
     left: 1rem;
     flex-shrink: 0;
@@ -75,7 +75,7 @@
 }
 
 .flux-task-lg__glyph .glyph-ready {
-    border: 3px solid rgba(148, 163, 184, 0.8);
+    border: 2px solid rgba(148, 163, 184, 0.8);
     border-radius: 50%;
 }
 
@@ -86,7 +86,7 @@
 .flux-task-lg__glyph .glyph-kicking span {
     position: absolute;
     inset: 0;
-    border: 3px dashed rgba(148, 163, 184, 0.9);
+    border: 2px dashed rgba(148, 163, 184, 0.9);
     border-radius: 50%;
     animation: task-pulse 1.2s linear infinite;
 }
@@ -100,25 +100,25 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 3px solid transparent;
+    border: 2px solid transparent;
     border-top-color: rgba(148, 163, 184, 0.9);
     animation: task-spin 0.9s linear infinite;
 }
 
 .flux-task-lg__glyph .glyph-done span {
     display: inline-block;
-    width: 1.2rem;
-    height: 0.73rem;
+    width: 0.8rem;
+    height: 0.5rem;
     border: 2px solid rgba(148, 163, 184, 0.9);
     border-top: none;
     border-right: none;
-    transform: rotate(-45deg) translateY(0.13rem);
+    transform: rotate(-45deg) translateY(0.1rem);
 }
 
 .flux-task-lg__glyph .glyph-error span {
     position: relative;
-    width: 1.33rem;
-    height: 1.33rem;
+    width: 0.9rem;
+    height: 0.9rem;
 }
 
 .flux-task-lg__glyph .glyph-error span::before,
@@ -127,7 +127,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 1.33rem;
+    width: 0.9rem;
     height: 2px;
     background: #fee2e2;
     transform-origin: center;
@@ -304,8 +304,7 @@
     border-color: var(--border-primary);
 }
 
-.flux-task-lg__button.is-disabled .flux-task-lg__label {
-    text-decoration: line-through;
+.flux-task-lg__button.is-disabled .flux-task-lg__label {    
     text-decoration-color: var(--text-muted);
     text-decoration-thickness: 2px;
 }

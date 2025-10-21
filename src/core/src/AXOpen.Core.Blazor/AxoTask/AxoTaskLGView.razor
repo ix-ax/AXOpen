@@ -45,7 +45,7 @@
         <!-- Content Section -->
         <div class="flux-task-lg__content">
             <span class="flux-task-lg__label">@Description</span>
-            <span class="flux-task-lg__state">@State.ToString()</span>
+            @* <span class="flux-task-lg__state">@State.ToString()</span> *@
         </div>
 
         <!-- Restore Button -->
@@ -75,7 +75,7 @@
     [Parameter] public bool ShowIcon { get; set; } = false;
     [Parameter] public bool ShowText { get; set; } = true;
     [Parameter] public string IconClass { get; set; } = "star";
-
+    [Parameter] public string? Label { get; set; }
 
     private bool IsResetDisabled => !ShowReset;
 
