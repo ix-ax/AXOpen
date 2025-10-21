@@ -15,7 +15,39 @@
                 </span>
             }
         </div>
-        
+        <div>
+          <button type="button" 
+                class="flux-toggle-pill @(CurrentSteppingMode == eAxoSteppingMode.StepByStep ? "flux-toggle-pill--active" : "")"
+                @onclick="ToggleStepMode"
+                title="@(CurrentSteppingMode == eAxoSteppingMode.StepByStep ? "Exit step mode" : "Enter step mode")">
+            <span class="flux-toggle-pill__indicator"></span>
+            <span class="flux-toggle-pill__label">
+                @if(!HasExternalStepModeControl)
+                {
+                    if (CurrentSteppingMode == eAxoSteppingMode.StepByStep)
+                    {
+                        <text>STEP MODE</text>
+                    }   
+                    else
+                    {
+                       <text>STEP MODE</text>
+                    }
+                }
+                else
+                {
+                    if (CurrentSteppingMode == eAxoSteppingMode.StepByStep)
+                    {
+                        <text>STEP MODE ACTIVE - CONTROLLED BY MASTER SEQUENCE</text>
+                    }   
+                    else
+                    {
+                       <text>STEP MODE CONTROLLED BY MASTER SEQUENCE</text>
+                    }
+                    
+                }
+            </span>
+        </button>
+        </div>
         <div class="flux-sequencer__meta">
             <div class="flux-sequencer__duration">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="flux-sequencer__icon">
@@ -38,37 +70,34 @@
     </div>
 
     <!-- Current Step Display -->
-    <AxoStepView Class="flux-sequencer__current-step" Component="Component.CurrentStep" />
-
-    <!-- Controls -->
-    <div class="flux-sequencer__controls">
-        <button type="button" 
-                class="flux-toggle-pill @(CurrentSteppingMode == eAxoSteppingMode.StepByStep ? "flux-toggle-pill--active" : "")"
-                @onclick="ToggleStepMode"
-                title="@(CurrentSteppingMode == eAxoSteppingMode.StepByStep ? "Exit step mode" : "Enter step mode")">
-            <span class="flux-toggle-pill__indicator"></span>
-            <span class="flux-toggle-pill__label">
-                @if (CurrentSteppingMode == eAxoSteppingMode.StepByStep)
+    <div class="flux-sequencer__current-step">
+        @if(CurrentSteppingMode == eAxoSteppingMode.StepByStep)
+        {
+            <div>
+                <AxoTaskCommandLGView ShowText="false" HideRestoreButton="true" ShowAbortButton="false" Component="this.Component.StepBackwardCommand" />
+            </div>
+        }
+        <div class="flux-sequencer__current-step-text">
+            @if (Component.CurrentStep != null)
+            {
+                if(CurrentSteppingMode == eAxoSteppingMode.StepByStep)
                 {
-                    <text>EXIT STEP MODE</text>
+                    <AxoTaskCommandLGView Label="@GetRunStepButtonLabel()" ShowText="true" HideRestoreButton="false" ShowAbortButton="false" Component="this.Component.StepIn" />  
                 }
                 else
                 {
-                    <text>ENTER STEP MODE</text>
+                    <AxoTaskStatusLGView Label="@GetRunStepButtonLabel()" ShowText="true" HideRestoreButton="false" ShowAbortButton="false" Component="this.Component.StepIn" />  
                 }
-            </span>
-        </button>
-
-        @if (CurrentSteppingMode == eAxoSteppingMode.StepByStep)
+            }
+        </div>
+        @if(CurrentSteppingMode == eAxoSteppingMode.StepByStep)
         {
-            <div class="flux-sequencer__step-controls">
-                <AxoTaskCommandView ShowText="false" HideRestoreButton="true" ShowAbortButton="false" Component="this.Component.StepBackwardCommand" />
-                <AxoTaskCommandView ShowText="true" HideRestoreButton="false" ShowAbortButton="false" Component="this.Component.StepIn" />
-                <AxoTaskCommandView ShowText="false" HideRestoreButton="true" ShowAbortButton="false" Component="this.Component.StepForwardCommand" />
+            <div>
+                <AxoTaskCommandLGView ShowText="false" HideRestoreButton="true" ShowAbortButton="false" Component="this.Component.StepForwardCommand" />
             </div>
         }
     </div>
-
+      
     <!-- Error Details (if present) -->
     @if (!string.IsNullOrEmpty(Component.ErrorDetails.LastValue))
     {
@@ -92,6 +121,12 @@
         ExternalComponentError,
     }
 
+    [Parameter] public bool HasExternalStepModeControl { get; set; } = false;
+
+    private string GetRunStepButtonLabel()
+    {
+        return string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic()) ? "-" : this.Component.CurrentStep.Descr.GetCyclic();
+    }
 
     private IEnumerable<AxoObject> AssociatedComponents => this.Component.Associates.Where(p => p is AxoObject).Cast<AxoObject>();
 
@@ -205,7 +240,7 @@
 
     }
 
-    private string Description => string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic()) ? ":(" : this.Component.CurrentStep.Descr.GetCyclic();
+    private string Description => string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic()) ? "-" : this.Component.CurrentStep.Descr.GetCyclic();
 
     private string Duration => this.Component.Duration.GetCyclic().ToString(@"hh\:mm\:ss\.fff");
 

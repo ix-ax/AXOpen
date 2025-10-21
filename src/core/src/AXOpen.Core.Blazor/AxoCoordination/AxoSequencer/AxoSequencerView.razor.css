@@ -184,29 +184,29 @@
 
 /* Active State (Step Mode Enabled) */
 .flux-toggle-pill--active {
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(22, 163, 74, 0.1));
-    border-color: rgba(34, 197, 94, 0.5);
-    color: rgba(34, 197, 94, 0.95);
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.1));
+    border-color: rgba(251, 191, 36, 0.5);
+    color: rgba(251, 191, 36, 0.95);
 }
 
 :root[data-theme="light"] .flux-toggle-pill--active {
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(22, 163, 74, 0.08));
-    color: rgba(22, 163, 74, 1);
-    border-color: rgba(34, 197, 94, 0.6);
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.12), rgba(245, 158, 11, 0.08));
+    color: rgba(217, 119, 6, 1);
+    border-color: rgba(251, 191, 36, 0.6);
 }
 
 .flux-toggle-pill--active:hover {
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.15));
-    border-color: rgba(34, 197, 94, 0.6);
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.15));
+    border-color: rgba(251, 191, 36, 0.6);
 }
 
 .flux-toggle-pill--active .flux-toggle-pill__indicator {
-    background: rgba(34, 197, 94, 0.9);
-    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+    background: rgba(251, 191, 36, 0.9);
+    box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.2);
 }
 
 :root[data-theme="light"] .flux-toggle-pill--active .flux-toggle-pill__indicator {
-    background: rgba(22, 163, 74, 1);
+    background: rgba(217, 119, 6, 1);
 }
 
 .flux-toggle-pill--active .flux-toggle-pill__indicator::after {
