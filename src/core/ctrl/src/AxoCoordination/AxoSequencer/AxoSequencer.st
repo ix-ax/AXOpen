@@ -358,10 +358,12 @@ NAMESPACE AXOpen.Core
             // Abort current step if running
             IF _step.IsBusy() THEN
                 _step.Abort();
+                _step.Restore();
             END_IF;
             // Abort step in command if running, otherwise this command will be executed on the following step
             IF StepIn.IsBusy() THEN
                 StepIn.Abort();
+                StepIn.Restore();
             END_IF;
             _step.SetIsActive(FALSE);
         END_METHOD
