@@ -12,8 +12,8 @@ variables:
   DEFAULT_NAMESPACE: "AXOpen.Utils"
   AXTARGET: 192.168.100.120
   AXTARGETPLATFORMINPUT: .\bin\1500\
-  AX_USERNAME: "adm"
-  AX_TARGET_PWD: "123ABCDabcd$#!"
+  AX_USERNAME: "admin"
+  AX_TARGET_PWD: "Qwerty123456+"
   USE_PLC_SIM_ADVANCED: "true"
   # <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.
 registries:
@@ -55,7 +55,6 @@ scripts:
     dotnet tool restore
     dotnet ixc --skip-deps 
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ixc' Finished in :" $(expr $(date +%s) - $START) "s"
-  #postbuild: apax run ixc # run after build
   dcpli: | # list all interfaces, used to discover MAC address of the adapter connected to PLC                                                              (apax dcp-utility list-interfaces )
     START=$(date +%s)
     ..\\..\\scripts\\dcp_utility_list_interfaces.sh                                                                                                         
@@ -81,10 +80,6 @@ scripts:
     START=$(date +%s)
     ..\\..\\scripts\\clean_plc.sh $AXTARGET $AX_USERNAME $AX_TARGET_PWD  
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax clean_plc' Finished in :" $(expr $(date +%s) - $START) "s"
-  ssc: | # setup secure communication, create and import certificates, setup password for AX_USERNAME                                                       (create pkcs12ForCertificateImport.p12 & apax hwc setup-secure-communication & apax hwc import-certificate [TLS+Webserver] & apax hwc manage-users set-password)  
-    START=$(date +%s)
-    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD 
-    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ssc' Finished in :" $(expr $(date +%s) - $START) "s"
   gsd: | # copy and install all gsdml files from libraries                                                                                                  (copy gsdml files from all assets dir & apax hwc install-gsd)
     START=$(date +%s)
     ..\\..\\scripts\\copy_and_install_gsd.sh 
@@ -93,6 +88,10 @@ scripts:
     START=$(date +%s)
     ..\\..\\scripts\\copy_hwl_templates.sh 
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax hwl' Finished in :" $(expr $(date +%s) - $START) "s"
+  ssc: | # setup secure communication, create and import certificates, setup password for AX_USERNAME                                                       (create pkcs12ForCertificateImport.p12 & apax hwc setup-secure-communication & apax hwc import-certificate [TLS+Webserver] & apax hwc manage-users set-password)  
+    START=$(date +%s)
+    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD 
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ssc' Finished in :" $(expr $(date +%s) - $START) "s"
   hwcc: | # compile hardware configuration                                                                                                                  (apax hwc compile)
     START=$(date +%s)
     ..\\..\\scripts\\hw_compile.sh  
@@ -172,18 +171,21 @@ scripts:
     apax build
     apax test
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
+  gc: |
+    START=$(date +%s)
+    apax plc-cert --target $AXTARGET --output .\\certs\\plc_line\\plc_line.cer
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax gc' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
     apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
-
-
-
-
-
-
-
-
-
-
-
-
-
+  x: |
+    apax swfd
+    apax mm
+  t: |
+    apax install
+    apax hwl
+    apax ssc
+    apax gsd
+    apax hwcc
+    apax hwid
+    apax hwadr
+    apax build
