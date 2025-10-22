@@ -80,7 +80,7 @@ NAMESPACE AXOpen.Inspectors
 
        
         METHOD PUBLIC Restore 
-            SUPER.Restore();
+            SUPER.Restore();      
             _onDoneFlag := FALSE;
         END_METHOD
 

@@ -212,6 +212,10 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC IsFirstEntryToStep : BOOL 
             IsFirstEntryToStep := THIS.IsFirstExecutionCycle(); // Utilizes IsFirstExecutionCycle method.
         END_METHOD
+    
+        METHOD PUBLIC GetStepDescription : STRING
+            GetStepDescription := THIS.Descr;
+        END_METHOD
     END_CLASS    
 END_NAMESPACE
 

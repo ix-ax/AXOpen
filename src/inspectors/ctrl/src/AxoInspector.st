@@ -119,9 +119,9 @@ NAMESPACE AXOpen.Inspectors
             END_IF;	           
         END_METHOD
 
-        METHOD PUBLIC Restore
+        METHOD PUBLIC Restore           
             _inspectorTask.Restore();
-
+            
             _comprehensiveResultUpdateCycle := ULINT#0;
 
             _updateOverallResult := FALSE;

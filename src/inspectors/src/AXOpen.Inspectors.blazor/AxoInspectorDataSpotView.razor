@@ -1,0 +1,116 @@
+﻿@namespace AXOpen.Inspectors
+@using AXOpen.VisualComposer
+@using AXOpen.VisualComposer.Components.VisualComposerItem
+@using AXSharp.Connector
+@inherits RenderableComplexComponentBase<AxoInspectorData>
+
+<button type="button" 
+        class="flux-inspector-spot @ResultStateCss @Class" 
+        style="@Style"
+        @onclick="SetCurrentObject"
+        title="@Component?.AttributeName - @GetResultText()"
+        aria-label="@Component?.AttributeName inspection status: @GetResultText()">
+    <span class="flux-inspector-spot__indicator @ResultIndicatorCss" aria-hidden="true"></span>
+    <span class="flux-inspector-spot__label">@Component?.AttributeName</span>
+    <span class="flux-inspector-spot__icon @ResultIconCss" aria-hidden="true">@GetResultIcon()</span>
+</button>
+
+@code {
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public string? Style { get; set; }
+
+    private AxoInspectorData? Data
+    {
+        get
+        {
+            return this.Component;
+        }
+    }
+
+    private eInspectorResult ResultValue => ((eInspectorResult)Data?.Result.LastValue);
+
+    private string ResultStateCss => ResultValue switch
+    {
+        eInspectorResult.NoAction => "flux-inspector-spot--noaction",
+        eInspectorResult.Running => "flux-inspector-spot--running",
+        eInspectorResult.Passed => "flux-inspector-spot--passed",
+        eInspectorResult.Failed => "flux-inspector-spot--failed",
+        eInspectorResult.Inconclusive => "flux-inspector-spot--inconclusive",
+        eInspectorResult.Excluded => "flux-inspector-spot--excluded",
+        eInspectorResult.Bypassed => "flux-inspector-spot--bypassed",
+        _ => "flux-inspector-spot--unknown"
+    };
+
+    private string ResultIndicatorCss => ResultValue switch
+    {
+        eInspectorResult.NoAction => "flux-inspector-spot__indicator--noaction",
+        eInspectorResult.Running => "flux-inspector-spot__indicator--running",
+        eInspectorResult.Passed => "flux-inspector-spot__indicator--passed",
+        eInspectorResult.Failed => "flux-inspector-spot__indicator--failed",
+        eInspectorResult.Inconclusive => "flux-inspector-spot__indicator--inconclusive",
+        eInspectorResult.Excluded => "flux-inspector-spot__indicator--excluded",
+        eInspectorResult.Bypassed => "flux-inspector-spot__indicator--bypassed",
+        _ => "flux-inspector-spot__indicator--unknown"
+    };
+
+    private string ResultIconCss => ResultValue switch
+    {
+        eInspectorResult.Passed => "flux-inspector-spot__icon--passed",
+        eInspectorResult.Failed => "flux-inspector-spot__icon--failed",
+        eInspectorResult.Inconclusive => "flux-inspector-spot__icon--inconclusive",
+        _ => ""
+    };
+
+    private string GetResultIcon() => ResultValue switch
+    {
+        eInspectorResult.Running => "▶",
+        eInspectorResult.Passed => "✓",
+        eInspectorResult.Failed => "✕",
+        eInspectorResult.Inconclusive => "!",
+        eInspectorResult.Bypassed => "»",
+        _ => ""
+    };
+
+    private string GetResultText() => ResultValue switch
+    {
+        eInspectorResult.NoAction => "No Action",
+        eInspectorResult.Running => "Running",
+        eInspectorResult.Passed => "Passed",
+        eInspectorResult.Failed => "Failed",
+        eInspectorResult.Inconclusive => "Inconclusive",
+        eInspectorResult.Excluded => "Excluded",
+        eInspectorResult.Bypassed => "Bypassed",
+        _ => "Unknown"
+    };
+
+    /// <inheritdoc />
+    public override void ConfigurePolling()
+    {
+        // Polling configured in OnInitializedAsync
+    }
+
+    private async void SetCurrentObject()
+    {
+        if (RccContainer is RenderableContentControl rccContainer)
+        {
+            if (rccContainer.ParentContainer is VisualComposerItem composerItem)
+            {
+                if (composerItem.Parent != null)
+                {
+                    await composerItem.Parent.OpenDetails(this.Component, "Status");
+                }
+            }
+        }
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        if (this.Data != null)
+        {
+            this.StartPolling(Data.Result, 500);
+        }
+
+        return base.OnInitializedAsync();
+    }
+
+}

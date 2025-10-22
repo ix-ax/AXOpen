@@ -195,7 +195,7 @@ NAMESPACE AXOpen.Core
                 Execute := step.Execute();
                 IF step.HasError() THEN
                     _coordinatorState := AxoCoordinatorStates#Idle;                   
-                    SUPER.ThrowWhen(step.HasError(), System.Strings.Concat('<#Check that steps are unique and properly configured.#>', ' : ', ToString(step.GetStepOrder())));  
+                    SUPER.ThrowWhen(step.HasError(), System.Strings.Concat('<#Check that steps are unique and properly configured.#> : ', ToString(step.GetStepOrder()), ' - ', step.GetStepDescription()));  
                 END_IF;
                 
                 IF step.IsFirstEntryToStep() THEN
