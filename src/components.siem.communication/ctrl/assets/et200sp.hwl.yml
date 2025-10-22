@@ -1,0 +1,30 @@
+Devices:
+- Name: et200sp
+  Modules:
+  - Name: et200sp
+    TypeIdentifier:
+      FileName: GSDML-V2.45-Siemens-ET200SP-20250606.xml
+      GsdId: DIM ST V4.2
+    Interfaces:
+    - Name: profinet
+      Label: X1
+      Addresses:
+        Configured:
+        - IPv4: 192.168.100.121/24
+        - ProfinetDeviceName: et200sp
+      # Parameters:
+      #   IECV22LLDPMode: False
+      #   TsnDomainName: 
+    Ports:
+    - Name: Port_1
+      Label: X1 P1
+    - Name: Port_2
+      Label: X1 P2
+  - Apply:
+      TemplateName: 6ES7137-6AA01-0BA0_V2_0_light
+      Arguments:
+        ModuleName: CpPtp
+  - Name: Server_module_V1_1
+    TypeIdentifier:
+      GsdId: Servermodule_without_io
+      FileName: GSDML-V2.45-Siemens-ET200SP-20250606.xml

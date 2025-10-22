@@ -94,6 +94,7 @@ else
 
 	#apax run ci                                  # clean and install dependencies
 	apax clean
+	apax install --catalog
 	apax install
 
 	is_cert_hash_sha1_equal_script=$( dirname ${BASH_SOURCE[0]})"\\is_cert_hash_sha1_equal.sh"

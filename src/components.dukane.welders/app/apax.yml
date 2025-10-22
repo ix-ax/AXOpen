@@ -19,7 +19,7 @@ variables:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.33
+  "@inxton/ax.catalog": 0.0.35
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -185,3 +185,4 @@ scripts:
     apax hwid
     apax hwadr
     apax build
+

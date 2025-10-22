@@ -1,0 +1,18 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>AXOpen.Components.Siem.Communication.blazor</PageTitle>
+
+<div class="flex flex-col md:flex-row w-full">
+    <main class="flex-1">
+        <div class="flex items-center bg-gray-100 h-15 px-2">
+            <AxOpen.Security.Views.LoginDisplay />
+        </div>
+        <article class="block">
+            @Body
+        </article>
+    </main>
+
+    <NavMenu />
+
+    <Operon.Components.Toast.ToastView />
+</div>
