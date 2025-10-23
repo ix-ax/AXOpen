@@ -1,0 +1,315 @@
+Templates:
+  Modules:
+  - Name: '6ES7137-6AA01-0BA0_V2_0_light'
+    Placeholders:
+    - Name: 'ModuleName'
+      Value: 'ModuleName'
+    Content:
+      Name: '${ModuleName}'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.45-SIEMENS-ET200SP-20250606.XML'
+        GsdId: 'PTPCM Freeport V2.0'
+      Parameters:
+        RecordDataList:
+        - IndexName: 'Port configuration'
+          Values:
+          - OffsetName: 'Protocol'
+            # Possible ValueNames: Freeport | 3964(R)
+            ValueName: 'Freeport'
+          - OffsetName: 'Data transmission rate'
+            # Possible ValueNames: 300 | 600 | 1200 | 2400 | 4800 | 9600 | 19200 | 38400 | 57600 | 76800 | 115200 | 250000
+            ValueName: '9600'
+          - OffsetName: 'Parity'
+            # Possible ValueNames: None | Even | Odd | Mark: Set parity bit to 1 | Space: Set parity bit to 0 | Any
+            ValueName: 'Even'
+          - OffsetName: 'Data bits'
+            # Possible ValueNames: 8 bits | 7 bits
+            ValueName: '8 bits'
+          - OffsetName: 'Stop bits'
+            # Possible ValueNames: 1 | 2
+            ValueName: '1'
+          - OffsetName: 'Data flow control'
+            # Possible ValueNames: None | XON/XOFF | Hardware RTS always ON | Hardware RTS always switched | Hardware RTS always ON, ignore DTR/DSR
+            ValueName: 'None'
+          - OffsetName: 'XON character'
+            # Possible value range: [0, 255]
+            Value: 17
+          - OffsetName: 'XOFF character'
+            # Possible value range: [0, 255]
+            Value: 19
+          - OffsetName: 'Wait for XON after XOFF'
+            # Possible value range: [0, 65535]
+            Value: 20000
+          - OffsetName: 'Specification of the operating mode'
+            # Possible ValueNames: RS232C | Full duplex (RS422) 4-wire operation (point-to-point) | Full duplex (RS 422) four wire mode (multipoint master) | Full duplex (RS 422) four wire mode (multipoint slave) | Half duplex (RS485) 2-wire operation
+            ValueName: 'RS232C'
+          - OffsetName: 'Receive line initial state'
+            # Possible ValueNames: None | Signal R(A)=5 V, Signal R(B)=0 V (break detection) | Signal R(A)=0 V, Signal R(B)=5 V
+            ValueName: 'None'
+          - OffsetName: 'Activate break detection'
+            Value: False
+        - IndexName: 'Advanced functions'
+          Values:
+          - OffsetName: 'Enable diagnostics interrupt'
+            Value: True
+          - OffsetName: 'Diagnostics: No supply voltage L+'
+            Value: False
+        - IndexName: 'Configuration of message transfer'
+          Values:
+          - OffsetName: 'RTS ON delay'
+            # Possible value range: [0, 65535]
+            Value: 0
+          - OffsetName: 'RTS OFF delay'
+            # Possible value range: [0, 65535]
+            Value: 0
+          - OffsetName: 'Send break before frame start'
+            # Possible value range: [0, 65535]
+            Value: 0
+          - OffsetName: 'Send idle line'
+            # Possible value range: [0, 65535]
+            Value: 384
+          - OffsetName: 'No. of end delimiters'
+            # Possible value range: [0, 2]
+            Value: 0
+          - OffsetName: '1st end delimiter'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: '2nd end delimiter'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Number of appended characters'
+            # Possible value range: [0, 5]
+            Value: 0
+          - OffsetName: 'Character 1'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Character 2'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Character 3'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Character 4'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Character 5'
+            # Possible value range: [0, 255]
+            Value: 0
+        - IndexName: 'Configuration of message receipt'
+          Values:
+          - OffsetName: 'After receipt of a start character'
+            Value: False
+          - OffsetName: 'Start on any character'
+            Value: True
+          - OffsetName: 'After detection of a line break'
+            Value: False
+          - OffsetName: 'After detection of an idle line'
+            Value: False
+          - OffsetName: 'Frame start detection with character sequence 1'
+            Value: False
+          - OffsetName: 'Frame start detection with character sequence 2'
+            Value: False
+          - OffsetName: 'Frame start detection with character sequence 3'
+            Value: False
+          - OffsetName: 'Frame start detection with character sequence 4'
+            Value: False
+          - OffsetName: 'Duration of the idle line'
+            # Possible value range: [0, 65535]
+            Value: 40
+          - OffsetName: 'Start character'
+            # Possible value range: [0, 255]
+            Value: 2
+          - OffsetName: 'Sequence 1: Enable character 1'
+            Value: False
+          - OffsetName: 'Sequence 1: Enable character 2'
+            Value: False
+          - OffsetName: 'Sequence 1: Enable character 3'
+            Value: False
+          - OffsetName: 'Sequence 1: Enable character 4'
+            Value: False
+          - OffsetName: 'Sequence 1: Enable character 5'
+            Value: False
+          - OffsetName: 'Sequence 1 / Character 1'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 1 / Character 2'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 1 / Character 3'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 1 / Character 4'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 1 / Character 5'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 2: Enable character 1'
+            Value: False
+          - OffsetName: 'Sequence 2: Enable character 2'
+            Value: False
+          - OffsetName: 'Sequence 2: Enable character 3'
+            Value: False
+          - OffsetName: 'Sequence 2: Enable character 4'
+            Value: False
+          - OffsetName: 'Sequence 2: Enable character 5'
+            Value: False
+          - OffsetName: 'Sequence 2 / Character 1'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 2 / Character 2'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 2 / Character 3'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 2 / Character 4'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 2 / Character 5'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 3: Enable character 1'
+            Value: False
+          - OffsetName: 'Sequence 3: Enable character 2'
+            Value: False
+          - OffsetName: 'Sequence 3: Enable character 3'
+            Value: False
+          - OffsetName: 'Sequence 3: Enable character 4'
+            Value: False
+          - OffsetName: 'Sequence 3: Enable character 5'
+            Value: False
+          - OffsetName: 'Sequence 3 / Character 1'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 3 / Character 2'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 3 / Character 3'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 3 / Character 4'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 3 / Character 5'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 4: Enable character 1'
+            Value: False
+          - OffsetName: 'Sequence 4: Enable character 2'
+            Value: False
+          - OffsetName: 'Sequence 4: Enable character 3'
+            Value: False
+          - OffsetName: 'Sequence 4: Enable character 4'
+            Value: False
+          - OffsetName: 'Sequence 4: Enable character 5'
+            Value: False
+          - OffsetName: 'Sequence 4 / Character 1'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 4 / Character 2'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 4 / Character 3'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 4 / Character 4'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Sequence 4 / Character 5'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Recognize message end by response timeout'
+            Value: False
+          - OffsetName: 'Recognize message end by message timeout'
+            Value: False
+          - OffsetName: 'After character delay time elapses'
+            Value: True
+          - OffsetName: 'After receipt of a maximum number of characters'
+            Value: False
+          - OffsetName: 'Read message length from message'
+            Value: False
+          - OffsetName: 'After receipt of an end sequence'
+            Value: False
+          - Offset: '39.6'
+            Value: False
+          - Offset: '40'
+            # Possible value range: [1, 2048]
+            Value: 1
+          - OffsetName: 'Maximum frame length'
+            # Possible value range: [1, 2048]
+            Value: 1
+          - OffsetName: 'Offset of length field in message'
+            # Possible value range: [0, 2048]
+            Value: 0
+          - OffsetName: 'Size of length field'
+            # Possible value range: [0, 2] | [4, 4]
+            Value: 1
+          - OffsetName: 'Number of characters not counted in length specification'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Response timeout'
+            # Possible value range: [0, 65535]
+            Value: 200
+          - OffsetName: 'Message timeout'
+            # Possible value range: [0, 65535]
+            Value: 200
+          - OffsetName: 'Character delay time'
+            # Possible value range: [0, 65535]
+            Value: 40
+          - OffsetName: 'Enable end sequence Character 1'
+            Value: False
+          - OffsetName: 'Enable end sequence Character 2'
+            Value: False
+          - OffsetName: 'Enable end sequence Character 3'
+            Value: False
+          - OffsetName: 'Enable end sequence Character 4'
+            Value: False
+          - OffsetName: 'Enable end sequence Character 5'
+            Value: False
+          - OffsetName: 'End sequence Character 1'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'End sequence Character 2'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'End sequence Character 3'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'End sequence Character 4'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'End sequence Character 5'
+            # Possible value range: [0, 255]
+            Value: 0
+          - OffsetName: 'Buffered received frames'
+            # Possible value range: [1, 255]
+            Value: 255
+          - OffsetName: 'Prevent overwriting'
+            Value: True
+          - OffsetName: 'Clear receive buffer on startup'
+            Value: False
+        - IndexName: '3964(R) configuration'
+          Values:
+          - OffsetName: 'With block check (3964R)'
+            Value: True
+          - OffsetName: 'Priority'
+            # Possible ValueNames: Low | High
+            ValueName: 'High'
+          - OffsetName: 'Character delay time'
+            # Possible value range: [0, 65535]
+            Value: 220
+          - OffsetName: 'Acknowledgment delay'
+            # Possible value range: [0, 65535]
+            Value: 2000
+          - OffsetName: 'Connection attempts'
+            # Possible value range: [0, 255]
+            Value: 6
+          - OffsetName: 'Transmission attempts'
+            # Possible value range: [0, 255]
+            Value: 6
+        - IndexName: 'Potential group'
+          Values:
+          - OffsetName: 'Potential group'
+            # Possible ValueNames: Use potential group of the left module (dark BaseUnit) | Enable new potential group (light BaseUnit)
+            ValueName: 'Enable new potential group (light BaseUnit)'
