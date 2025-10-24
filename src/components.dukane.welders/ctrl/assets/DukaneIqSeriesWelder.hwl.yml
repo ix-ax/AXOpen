@@ -1,32 +1,62 @@
-Devices:
-- Name: DukaneIqSeriesWelder_1
-  Modules:
-  - Name: DukaneIqSeriesWelder_1
-    TypeIdentifier:
-      GsdId: DAP
-      FileName: 'GSDML-V2.31-DUKANE-IQ-20190110.XML'
-    Interfaces:
-    - Name: profinet
-      Label: X1
-      Addresses:
-        Configured:
-        - IPv4: 10.1.100.62/24
-        - ProfinetDeviceName: DukaneIqSeriesWelder_1
-      Parameters:
-        # PrioritizedStartup (Boolean)
-        IECV22LLDPMode: False
-    Ports:
-    - Name: 'Port_1'
-      Label: 'X1 P1'
-    - Name: 'Port_2'
-      Label: 'X1 P2'
-  - Name: iQ_to_PLC_Inputs
-    TypeIdentifier:
-      FileName: 'GSDML-V2.31-DUKANE-IQ-20190110.XML'
-      GsdId: 'ID_MODULE_INPUT'
-    Slot: 1
-  - Name: PLC_to_iQ_Outputs
-    TypeIdentifier:
-      FileName: 'GSDML-V2.31-DUKANE-IQ-20190110.XML'
-      GsdId: 'ID_MODULE_OUTPUT'
-    Slot: 2
+Templates:
+  Devices:
+    - Name: 'DukaneIqSeriesWelder'
+      Placeholders:
+        - Name: 'NAME'
+          Value: 'iq-auto-plus'
+        - Name: 'IP_ADDRESS_X1'
+          Value: '192.168.100.1/24'
+        - Name: 'PROFINET_DEVICE_NAME_X1'
+          Value: iq-auto-plus'
+      Content:
+        Name: '${NAME}'
+        Modules:
+          - Name: '${NAME}'
+            TypeIdentifier:
+              FileName: 'GSDML-V2.31-DUKANE-IQ-20190110.XML'
+              GsdId: 'DAP'
+            Interfaces:
+            - Name: 'Interface'
+              Label: 'X1'
+              Addresses:
+                Configured:
+                - IPv4: '${IP_ADDRESS_X1}'
+                - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+              Parameters:
+                IECV22LLDPMode: False
+                # PrioritizedStartup (Boolean)
+            Ports:
+            - Name: 'Port_1'
+              Label: 'X1 P1'
+              Parameters:
+                PortActivation: True
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                EndOfDetectionOfAccessibleDevices: False
+                EndOfTopologyDiscovery: False
+                PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # CableName: 0
+                # MediumAttachmentType: 'Copper'
+            - Name: 'Port_2'
+              Label: 'X1 P2'
+              Parameters:
+                PortActivation: True
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                EndOfDetectionOfAccessibleDevices: False
+                EndOfTopologyDiscovery: False
+                PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # CableName: 0
+                # MediumAttachmentType: 'Copper'
+          - Name: iQ_to_PLC_Inputs
+            TypeIdentifier:
+              FileName: 'GSDML-V2.31-DUKANE-IQ-20190110.XML'
+              GsdId: 'ID_MODULE_INPUT'
+            Slot: 1
+          - Name: PLC_to_iQ_Outputs
+            TypeIdentifier:
+              FileName: 'GSDML-V2.31-DUKANE-IQ-20190110.XML'
+              GsdId: 'ID_MODULE_OUTPUT'
+            Slot: 2

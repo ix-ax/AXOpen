@@ -27,7 +27,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             END_IF;
 
             //<Initialization>        
-            Dukane_IQ_SeriesWelder.Run(parent := THIS, hwID := HwIdentifiers#DukaneIqSeriesWelder_1_HwID);
+            Dukane_IQ_SeriesWelder.Run(parent := THIS, hwID := HwIdentifiers#dukaneiqauto_HwID);
             //</Initialization>
 
         THIS.UseInSequencer();

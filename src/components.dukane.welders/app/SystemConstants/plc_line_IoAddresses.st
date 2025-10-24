@@ -1,16 +1,16 @@
 CONFIGURATION IoAddresses
     VAR_GLOBAL
 
-        // Module DukaneIqSeriesWelder_1/iQ_to_PLC_Inputs
-        DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_Input AT %IB0 : DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_Input_Layout;
+        // Module dukaneiqauto/iQ_to_PLC_Inputs
+        dukaneiqauto_iQ_to_PLC_Inputs_Input AT %IB0 : dukaneiqauto_iQ_to_PLC_Inputs_Input_Layout;
 
-        // Module DukaneIqSeriesWelder_1/PLC_to_iQ_Outputs
-        DukaneIqSeriesWelder_1_PLC_to_iQ_Outputs_Output AT %QB0 : DukaneIqSeriesWelder_1_PLC_to_iQ_Outputs_Output_Layout;
+        // Module dukaneiqauto/PLC_to_iQ_Outputs
+        dukaneiqauto_PLC_to_iQ_Outputs_Output AT %QB0 : dukaneiqauto_PLC_to_iQ_Outputs_Output_Layout;
     END_VAR
 END_CONFIGURATION
 
 TYPE
-    DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_Input_Layout : STRUCT
+    dukaneiqauto_iQ_to_PLC_Inputs_Input_Layout : STRUCT
         Signals_0 AT %B0 : DWORD;
         Signals_1 AT %B4 : DWORD;
         Signals_2 AT %B8 : DWORD;
@@ -50,7 +50,7 @@ TYPE
 END_TYPE
 
 TYPE
-    DukaneIqSeriesWelder_1_PLC_to_iQ_Outputs_Output_Layout : STRUCT
+    dukaneiqauto_PLC_to_iQ_Outputs_Output_Layout : STRUCT
         Signals_0 AT %B0 : DWORD;
         Signals_1 AT %B4 : DWORD;
         Signals_2 AT %B8 : DWORD;
