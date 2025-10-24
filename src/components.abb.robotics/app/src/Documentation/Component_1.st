@@ -27,7 +27,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
 
             //<Initialization>        
             AxoIrc5_v_1_x_x.Run(parent          := inParent,
-                                hwID            := HwIdentifiers#RobotBasicIO_HwID);        
+                                hwID            :=  HwIdentifiers#abb_irc5_robot_HwID);             
             //</Initialization>
 
             THIS.UseInSequencer();

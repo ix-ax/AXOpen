@@ -29,7 +29,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             
             //<Initialization>        
             ExampleScrewdriver.Run( parent                  :=  THIS,
-                                    hwID                   := HwIdentifiers#wp462_t1_rh_deso_HwID);       
+                                    hwID                   := HwIdentifiers#desoutter_HwID);       
             //</Initialization>
 
         THIS.UseInSequencer();

@@ -2,18 +2,18 @@ Templates:
   Modules:
   - Name: '6ES7587-1AP00-0AB0_v4_0'
     Placeholders:
-    - Name: PLCName
-      Value: PLCName
-    - Name: IpAddress_X1
-      Value: 192.168.100.120/24
-    - Name: ProfinetDeviceName_X1
-      Value: plcname_profinet_interface_x1
-    - Name: AdminName
+    - Name: 'NAME'
+      Value: 'PLC_1'
+    - Name: 'IP_ADDRESS_X1'
+      Value: '192.168.0.1/24'
+    - Name: 'PROFINET_DEVICE_NAME_X1'
+      Value: 'plc_1'
+    - Name: ADMIN_NAME
       Value: admin
-    - Name: CycleCommunicationLoad
+    - Name: CYCLE_COMMUNICATION_LOAD
       Value: 20
     Content:
-      Name: "${PLCName}"
+      Name: "${NAME}"
       TypeIdentifier:
         OrderNumber: '6ES7 587-1AP00-0AB0'
         Version: 'V4.0'
@@ -46,12 +46,12 @@ Templates:
           # TrustedServerCertificates:
           # - 'TrustedSyslogServer.cer'
       Interfaces:
-      - Name: profinet_x1
-        Label: X1
+      - Name: 'PROFINET_interface_1'
+        Label: 'X1'
         Addresses:
           Configured:
-          - IPv4: "${IpAddress_X1}"
-          - ProfinetDeviceName:  "${ProfinetDeviceName_X1}"
+          - IPv4: '${IP_ADDRESS_X1}'
+          - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
         Parameters:
           OverwriteDeviceNames: False
           PnSendClock: 1000000
@@ -80,7 +80,7 @@ Templates:
         # ClockMemoryByteAddress (Integer)
         ClockMemoryByte: False
         # Possible value range: [15, 50]
-        CycleCommunicationLoad: ${CycleCommunicationLoad}
+        CycleCommunicationLoad: ${CYCLE_COMMUNICATION_LOAD}
         CycleEnableMinimumCycleTime: True
         # Possible value range: [1, 6000]
         CycleMaximumCycleTime: 150
@@ -154,7 +154,7 @@ Templates:
         Users:
         # UserManagement parameters listed below are intended as a sample. It is essential to adjust these settings according to your specific requirements before using them in your project.
         # To fully configure the user account, you must set a password for the user defined below. Please refer to the user documentation for instructions on setting passwords.
-          - Name: "${AdminName}"
+          - Name: "${ADMIN_NAME}"
             AssignedRoles:
             - 'AdminRole'
         Roles:

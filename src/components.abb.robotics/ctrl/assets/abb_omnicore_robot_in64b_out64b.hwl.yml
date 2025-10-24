@@ -1,0 +1,50 @@
+Templates:
+  Devices:
+  - Name: 'abb_omnicore_robot_in64b_out64b'
+    Placeholders:
+    - Name: 'NAME'
+      Value: 'abb_omnicore_robot'
+    - Name: 'IP_ADDRESS_X1'
+      Value: '192.168.0.1/24'
+    - Name: 'PROFINET_DEVICE_NAME_X1'
+      Value: 'abb_omnicore_robot'
+    Content:
+      Name: '${NAME}'
+      Modules:
+        - Name: '${NAME}'
+          TypeIdentifier:
+            FileName: 'GSDML-V2.43-ABB-ROBOTICS-OMNICORE-20230327.XML'
+            GsdId: 'DIM IO'
+          Interfaces:
+          - Name: 'PROFINET_Interface'
+            Label: 'X1'
+            Addresses:
+              Configured:
+              - IPv4: '${IP_ADDRESS_X1}'
+              - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+            Parameters:
+              IECV22LLDPMode: False
+              # PrioritizedStartup (Boolean)
+          # Ports:
+          # - Name: 'Port_1'
+          #   Label: 'X1 P1'
+          #   Parameters:
+          #     PortActivation: True
+          #     # Possible values: 8 - Automatic | 10 - TP 10 Mbps half duplex | 11 - TP 10 Mbps full duplex | 15 - TP 100 Mbps half duplex | 16 - TP 100 Mbps full duplex | 22 - 22
+          #     TransmissionRateAndDuplex: 'Automatic'
+          #     EndOfDetectionOfAccessibleDevices: False
+          #     EndOfTopologyDiscovery: False
+          #     # PortMonitoring: False
+          #     # TransmissionRateAutoNegotiation: True
+          #     # CableName: 0
+          #     # MediumAttachmentType: 'Copper'
+        - Name: DI_64_bytes
+          TypeIdentifier:
+            GsdId: '1'
+            FileName: GSDML-V2.43-ABB-Robotics-OmniCore-20230327.XML
+          Slot: 1
+        - Name: DO_64_bytes
+          TypeIdentifier:
+            GsdId: '2'
+            FileName: GSDML-V2.43-ABB-Robotics-OmniCore-20230327.XML
+          Slot: 2

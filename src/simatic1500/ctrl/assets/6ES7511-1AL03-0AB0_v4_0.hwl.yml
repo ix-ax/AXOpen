@@ -2,18 +2,17 @@ Templates:
   Modules:
   - Name: '6ES7511-1AL03-0AB0_v4_0'
     Placeholders:
-    - Name: PLCName
-      Value: plc_line
-    - Name: IpAddress_X1
-      Value: 192.168.100.120/24
-    - Name: ProfinetDeviceName_X1
-      Value: plc_line_profinet_interface_x1
-    - Name: AdminName
-      Value: admin
-    - Name: CycleCommunicationLoad
+    - Name: 'NAME'
+    - Name: 'IP_ADDRESS_X1'
+      Value: '192.168.0.1/24'
+    - Name: 'PROFINET_DEVICE_NAME_X1'
+      Value: 'plc_1.profinet interface_1'
+    - Name: ADMIN_NAME
+      Value: 'admin'
+    - Name: CYCLE_COMMUNICATION_LOAD
       Value: 50
     Content:
-      Name: "${PLCName}"
+      Name: "${NAME}"
       TypeIdentifier:
         OrderNumber: '6ES7 511-1AL03-0AB0'
         Version: 'V4.0'
@@ -46,25 +45,17 @@ Templates:
           # TrustedServerCertificates:
           # - 'TrustedSyslogServer.cer'
       Interfaces:
-      - Name: profinet_x1
-        Label: X1
+      - Name: 'PROFINET_interface_1'
+        Label: 'X1'
         Addresses:
           Configured:
-          - IPv4: "${IpAddress_X1}"
-          - ProfinetDeviceName:  "${ProfinetDeviceName_X1}"
+          - IPv4: '${IP_ADDRESS_X1}'
+          - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
         Parameters:
           OverwriteDeviceNames: False
           # Possible values: 250000 | 375000 | 500000 | 625000 | 750000 | 875000 | 1000000 | 1125000 | 1250000 | 1375000 | 1500000 | 1625000 | 1750000 | 1875000 | 2000000 | 2125000 | 2250000 | 2375000 | 2500000 | 2625000 | 2750000 | 2875000 | 3000000 | 3125000 | 3250000 | 3375000 | 3500000 | 3625000 | 3750000 | 3875000 | 4000000
           PnSendClock: 1000000
           UseWebServerForInterface: True
-          IECV22LLDPMode: False
-      - Name: 'Virtual_communication_interface'
-        Label: 'W1'
-        Addresses:
-          Configured:
-          - IPv4: '0.0.0.0/0'
-          - ProfinetDeviceName: "${PLCName}"
-        Parameters:
           IECV22LLDPMode: False
       Ports:
       - Name: 'Port_1'
@@ -102,7 +93,7 @@ Templates:
         # ClockMemoryByteAddress (Integer)
         ClockMemoryByte: False
         # Possible value range: [15, 50]
-        CycleCommunicationLoad: ${CycleCommunicationLoad}
+        CycleCommunicationLoad: ${CYCLE_COMMUNICATION_LOAD}
         CycleEnableMinimumCycleTime: True
         # Possible value range: [1, 6000]
         CycleMaximumCycleTime: 150
@@ -173,7 +164,7 @@ Templates:
         Users:
         # UserManagement parameters listed below are intended as a sample. It is essential to adjust these settings according to your specific requirements before using them in your project.
         # To fully configure the user account, you must set a password for the user defined below. Please refer to the user documentation for instructions on setting passwords.
-          - Name: "${AdminName}"
+          - Name: "${ADMIN_NAME}"
             AssignedRoles:
             - 'AdminRole'
         Roles:
