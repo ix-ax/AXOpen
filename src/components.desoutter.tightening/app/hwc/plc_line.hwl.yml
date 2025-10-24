@@ -8,14 +8,14 @@ Devices:
         PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
         ADMIN_NAME: 'admin'
         CYCLE_COMMUNICATION_LOAD: 50
-  - Apply: wp462-t1-rh-deso
+  - Apply: Desoutter_CVIC_II
     Arguments:
-      NAME: desoutter
+      NAME: desoutter_cvic_ii
       IP_ADDRESS_X1: 192.168.100.130/24
-      PROFINET_DEVICE_NAME_X1: desoutter
+      PROFINET_DEVICE_NAME_X1: desoutter_cvic_ii
 IoSystems:
 - Name: profinet_plc_line
   ControllerInterfaces:
   - Ref: plc_line/plc_line/PROFINET_interface_1
   DeviceInterfaces:
-  - Ref: desoutter/desoutter/Interface
+  - Ref: desoutter_cvic_ii/desoutter_cvic_ii/Interface

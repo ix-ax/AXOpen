@@ -1,0 +1,9 @@
+Templates:
+  Modules:
+  - Name: 'Cognex_Dataman380_UserData_16'
+    Content:
+      Name: 'UserData_16'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.44-Cognex-DataMan380-20250616.xml'
+        GsdId: '301'
+      Slot: 6        

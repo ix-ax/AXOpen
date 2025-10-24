@@ -780,8 +780,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         Status.Error.Id :=      UINT#514;
                     END_IF;
 
-                    IF (*Results.Code = UINT#0 OR*) Results.Length=UINT#0 OR Results.Length > TO_UINT(Config.ResultDataSize) THEN
-                        ReadTask.ThrowWhen(TRUE);
+                    // TODO allign with Peto Barancek and TcOpen
+                   IF (*Results.Code = UINT#0 OR  Byte 2-3 *)  Results.Length=UINT#0 OR Results.Length > TO_UINT(Config.ResultDataSize) THEN
+                    //  IF Results.Code = UINT#0 AND Results.Length=UINT#0 OR Results.Length > TO_UINT(Config.ResultDataSize) THEN
+                       ReadTask.ThrowWhen(TRUE);
                         IF Results.Length > TO_UINT(Config.ResultDataSize) THEN
                             TaskMessenger.Activate( UINT#614, eAxoMessageCategory#Error);
                             Status.Error.Id :=      UINT#614;

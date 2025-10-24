@@ -1,149 +1,42 @@
-NAMESPACE AXOpen.Components.Keyence.Vision
+﻿NAMESPACE AXOpen.Components.Keyence.Vision
     TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
         Outputs : STRUCT
-            iv3_1_CommandControl_0 AT %B0:  DWORD;
-            iv3_1_CommandControl_1 AT %B4:  DWORD;
-            iv3_1_CommandControl_2 AT %B8:  DWORD;
-            sr_1000_1_CompletionClearControl AT %B144:  BYTE;
-            sr_1000_1_LatchAndErrorClearControl AT %B146:  BYTE;
-            sr_1000_1_OperationInstructionControl AT %B145:  BYTE;
-            sr_1000_1_ParameterBank AT %B142:  WORD;
-            sr_1000_1_UserData_128_bytes_0 AT %B12:  WORD;
-            sr_1000_1_UserData_128_bytes_1 AT %B14:  WORD;
-            sr_1000_1_UserData_128_bytes_2 AT %B16:  WORD;
-            sr_1000_1_UserData_128_bytes_3 AT %B18:  WORD;
-            sr_1000_1_UserData_128_bytes_4 AT %B20:  WORD;
-            sr_1000_1_UserData_128_bytes_5 AT %B22:  WORD;
-            sr_1000_1_UserData_128_bytes_6 AT %B24:  WORD;
-            sr_1000_1_UserData_128_bytes_7 AT %B26:  WORD;
-            sr_1000_1_UserData_128_bytes_8 AT %B28:  WORD;
-            sr_1000_1_UserData_128_bytes_9 AT %B30:  WORD;
-            sr_1000_1_UserData_128_bytes_10 AT %B32:  WORD;
-            sr_1000_1_UserData_128_bytes_11 AT %B34:  WORD;
-            sr_1000_1_UserData_128_bytes_12 AT %B36:  WORD;
-            sr_1000_1_UserData_128_bytes_13 AT %B38:  WORD;
-            sr_1000_1_UserData_128_bytes_14 AT %B40:  WORD;
-            sr_1000_1_UserData_128_bytes_15 AT %B42:  WORD;
-            sr_1000_1_UserData_128_bytes_16 AT %B44:  WORD;
-            sr_1000_1_UserData_128_bytes_17 AT %B46:  WORD;
-            sr_1000_1_UserData_128_bytes_18 AT %B48:  WORD;
-            sr_1000_1_UserData_128_bytes_19 AT %B50:  WORD;
-            sr_1000_1_UserData_128_bytes_20 AT %B52:  WORD;
-            sr_1000_1_UserData_128_bytes_21 AT %B54:  WORD;
-            sr_1000_1_UserData_128_bytes_22 AT %B56:  WORD;
-            sr_1000_1_UserData_128_bytes_23 AT %B58:  WORD;
-            sr_1000_1_UserData_128_bytes_24 AT %B60:  WORD;
-            sr_1000_1_UserData_128_bytes_25 AT %B62:  WORD;
-            sr_1000_1_UserData_128_bytes_26 AT %B64:  WORD;
-            sr_1000_1_UserData_128_bytes_27 AT %B66:  WORD;
-            sr_1000_1_UserData_128_bytes_28 AT %B68:  WORD;
-            sr_1000_1_UserData_128_bytes_29 AT %B70:  WORD;
-            sr_1000_1_UserData_128_bytes_30 AT %B72:  WORD;
-            sr_1000_1_UserData_128_bytes_31 AT %B74:  WORD;
-            sr_1000_1_UserData_128_bytes_32 AT %B76:  WORD;
-            sr_1000_1_UserData_128_bytes_33 AT %B78:  WORD;
-            sr_1000_1_UserData_128_bytes_34 AT %B80:  WORD;
-            sr_1000_1_UserData_128_bytes_35 AT %B82:  WORD;
-            sr_1000_1_UserData_128_bytes_36 AT %B84:  WORD;
-            sr_1000_1_UserData_128_bytes_37 AT %B86:  WORD;
-            sr_1000_1_UserData_128_bytes_38 AT %B88:  WORD;
-            sr_1000_1_UserData_128_bytes_39 AT %B90:  WORD;
-            sr_1000_1_UserData_128_bytes_40 AT %B92:  WORD;
-            sr_1000_1_UserData_128_bytes_41 AT %B94:  WORD;
-            sr_1000_1_UserData_128_bytes_42 AT %B96:  WORD;
-            sr_1000_1_UserData_128_bytes_43 AT %B98:  WORD;
-            sr_1000_1_UserData_128_bytes_44 AT %B100:  WORD;
-            sr_1000_1_UserData_128_bytes_45 AT %B102:  WORD;
-            sr_1000_1_UserData_128_bytes_46 AT %B104:  WORD;
-            sr_1000_1_UserData_128_bytes_47 AT %B106:  WORD;
-            sr_1000_1_UserData_128_bytes_48 AT %B108:  WORD;
-            sr_1000_1_UserData_128_bytes_49 AT %B110:  WORD;
-            sr_1000_1_UserData_128_bytes_50 AT %B112:  WORD;
-            sr_1000_1_UserData_128_bytes_51 AT %B114:  WORD;
-            sr_1000_1_UserData_128_bytes_52 AT %B116:  WORD;
-            sr_1000_1_UserData_128_bytes_53 AT %B118:  WORD;
-            sr_1000_1_UserData_128_bytes_54 AT %B120:  WORD;
-            sr_1000_1_UserData_128_bytes_55 AT %B122:  WORD;
-            sr_1000_1_UserData_128_bytes_56 AT %B124:  WORD;
-            sr_1000_1_UserData_128_bytes_57 AT %B126:  WORD;
-            sr_1000_1_UserData_128_bytes_58 AT %B128:  WORD;
-            sr_1000_1_UserData_128_bytes_59 AT %B130:  WORD;
-            sr_1000_1_UserData_128_bytes_60 AT %B132:  WORD;
-            sr_1000_1_UserData_128_bytes_61 AT %B134:  WORD;
-            sr_1000_1_UserData_128_bytes_62 AT %B136:  WORD;
-            sr_1000_1_UserData_128_bytes_63 AT %B138:  WORD;
-            sr_1000_1_UserData_128_bytes_64 AT %B140:  WORD;
-            sr_750_1_CompletionClearControl AT %B279:  BYTE;
-            sr_750_1_LatchAndErrorClearControl AT %B281:  BYTE;
-            sr_750_1_OperationInstructionControl AT %B280:  BYTE;
-            sr_750_1_ParameterBank AT %B277:  WORD;
-            sr_750_1_UserData_128_bytes_0 AT %B147:  WORD;
-            sr_750_1_UserData_128_bytes_1 AT %B149:  WORD;
-            sr_750_1_UserData_128_bytes_2 AT %B151:  WORD;
-            sr_750_1_UserData_128_bytes_3 AT %B153:  WORD;
-            sr_750_1_UserData_128_bytes_4 AT %B155:  WORD;
-            sr_750_1_UserData_128_bytes_5 AT %B157:  WORD;
-            sr_750_1_UserData_128_bytes_6 AT %B159:  WORD;
-            sr_750_1_UserData_128_bytes_7 AT %B161:  WORD;
-            sr_750_1_UserData_128_bytes_8 AT %B163:  WORD;
-            sr_750_1_UserData_128_bytes_9 AT %B165:  WORD;
-            sr_750_1_UserData_128_bytes_10 AT %B167:  WORD;
-            sr_750_1_UserData_128_bytes_11 AT %B169:  WORD;
-            sr_750_1_UserData_128_bytes_12 AT %B171:  WORD;
-            sr_750_1_UserData_128_bytes_13 AT %B173:  WORD;
-            sr_750_1_UserData_128_bytes_14 AT %B175:  WORD;
-            sr_750_1_UserData_128_bytes_15 AT %B177:  WORD;
-            sr_750_1_UserData_128_bytes_16 AT %B179:  WORD;
-            sr_750_1_UserData_128_bytes_17 AT %B181:  WORD;
-            sr_750_1_UserData_128_bytes_18 AT %B183:  WORD;
-            sr_750_1_UserData_128_bytes_19 AT %B185:  WORD;
-            sr_750_1_UserData_128_bytes_20 AT %B187:  WORD;
-            sr_750_1_UserData_128_bytes_21 AT %B189:  WORD;
-            sr_750_1_UserData_128_bytes_22 AT %B191:  WORD;
-            sr_750_1_UserData_128_bytes_23 AT %B193:  WORD;
-            sr_750_1_UserData_128_bytes_24 AT %B195:  WORD;
-            sr_750_1_UserData_128_bytes_25 AT %B197:  WORD;
-            sr_750_1_UserData_128_bytes_26 AT %B199:  WORD;
-            sr_750_1_UserData_128_bytes_27 AT %B201:  WORD;
-            sr_750_1_UserData_128_bytes_28 AT %B203:  WORD;
-            sr_750_1_UserData_128_bytes_29 AT %B205:  WORD;
-            sr_750_1_UserData_128_bytes_30 AT %B207:  WORD;
-            sr_750_1_UserData_128_bytes_31 AT %B209:  WORD;
-            sr_750_1_UserData_128_bytes_32 AT %B211:  WORD;
-            sr_750_1_UserData_128_bytes_33 AT %B213:  WORD;
-            sr_750_1_UserData_128_bytes_34 AT %B215:  WORD;
-            sr_750_1_UserData_128_bytes_35 AT %B217:  WORD;
-            sr_750_1_UserData_128_bytes_36 AT %B219:  WORD;
-            sr_750_1_UserData_128_bytes_37 AT %B221:  WORD;
-            sr_750_1_UserData_128_bytes_38 AT %B223:  WORD;
-            sr_750_1_UserData_128_bytes_39 AT %B225:  WORD;
-            sr_750_1_UserData_128_bytes_40 AT %B227:  WORD;
-            sr_750_1_UserData_128_bytes_41 AT %B229:  WORD;
-            sr_750_1_UserData_128_bytes_42 AT %B231:  WORD;
-            sr_750_1_UserData_128_bytes_43 AT %B233:  WORD;
-            sr_750_1_UserData_128_bytes_44 AT %B235:  WORD;
-            sr_750_1_UserData_128_bytes_45 AT %B237:  WORD;
-            sr_750_1_UserData_128_bytes_46 AT %B239:  WORD;
-            sr_750_1_UserData_128_bytes_47 AT %B241:  WORD;
-            sr_750_1_UserData_128_bytes_48 AT %B243:  WORD;
-            sr_750_1_UserData_128_bytes_49 AT %B245:  WORD;
-            sr_750_1_UserData_128_bytes_50 AT %B247:  WORD;
-            sr_750_1_UserData_128_bytes_51 AT %B249:  WORD;
-            sr_750_1_UserData_128_bytes_52 AT %B251:  WORD;
-            sr_750_1_UserData_128_bytes_53 AT %B253:  WORD;
-            sr_750_1_UserData_128_bytes_54 AT %B255:  WORD;
-            sr_750_1_UserData_128_bytes_55 AT %B257:  WORD;
-            sr_750_1_UserData_128_bytes_56 AT %B259:  WORD;
-            sr_750_1_UserData_128_bytes_57 AT %B261:  WORD;
-            sr_750_1_UserData_128_bytes_58 AT %B263:  WORD;
-            sr_750_1_UserData_128_bytes_59 AT %B265:  WORD;
-            sr_750_1_UserData_128_bytes_60 AT %B267:  WORD;
-            sr_750_1_UserData_128_bytes_61 AT %B269:  WORD;
-            sr_750_1_UserData_128_bytes_62 AT %B271:  WORD;
-            sr_750_1_UserData_128_bytes_63 AT %B273:  WORD;
-            sr_750_1_UserData_128_bytes_64 AT %B275:  WORD;
+	        // Module keyence_iv3/CommandControl
+	        keyence_iv3_CommandControl_Output AT %B135 : keyence_iv3_CommandControl_Output_Layout;
+
+	        // Module keyence_sr_1000/CompletionClearControl
+	        keyence_sr_1000_CompletionClearControl_Output AT %B279 : keyence_sr_1000_CompletionClearControl_Output_Layout;
+
+	        // Module keyence_sr_1000/LatchAndErrorClearControl
+	        keyence_sr_1000_LatchAndErrorClearControl_Output AT %B281 : keyence_sr_1000_LatchAndErrorClearControl_Output_Layout;
+
+	        // Module keyence_sr_1000/OperationInstructionControl
+	        keyence_sr_1000_OperationInstructionControl_Output AT %B280 : keyence_sr_1000_OperationInstructionControl_Output_Layout;
+
+	        // Module keyence_sr_1000/ParameterBank
+	        keyence_sr_1000_ParameterBank_Output AT %B277 : keyence_sr_1000_ParameterBank_Output_Layout;
+
+	        // Module keyence_sr_1000/UserData_128
+	        keyence_sr_1000_UserData_128_Output AT %B147 : keyence_sr_1000_UserData_128_Output_Layout;
+
+	        // Module keyence_sr_750/CompletionClearControl
+	        keyence_sr_750_CompletionClearControl_Output AT %B132 : keyence_sr_750_CompletionClearControl_Output_Layout;
+
+	        // Module keyence_sr_750/LatchAndErrorClearControl
+	        keyence_sr_750_LatchAndErrorClearControl_Output AT %B134 : keyence_sr_750_LatchAndErrorClearControl_Output_Layout;
+
+	        // Module keyence_sr_750/OperationInstructionControl
+	        keyence_sr_750_OperationInstructionControl_Output AT %B133 : keyence_sr_750_OperationInstructionControl_Output_Layout;
+
+	        // Module keyence_sr_750/ParameterBank
+	        keyence_sr_750_ParameterBank_Output AT %B130 : keyence_sr_750_ParameterBank_Output_Layout;
+
+	        // Module keyence_sr_750/UserData_128
+	        keyence_sr_750_UserData_128_Output AT %B0 : keyence_sr_750_UserData_128_Output_Layout;
+
         END_STRUCT;
     END_TYPE
 END_NAMESPACE
+

@@ -1,0 +1,17 @@
+Templates:
+  Modules:
+  - Name: 'Cognex_Insight2800_UserData_16'
+    Placeholders:
+      - Name: 'SLOT'
+        Value: 7
+        AllowedValues:
+          - 7
+          - 8
+          - 9
+          - 10
+    Content:
+      Name: 'UserData_16'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
+        GsdId: '301'
+      Slot: ${SLOT}        

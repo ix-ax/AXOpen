@@ -18,7 +18,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             END_IF;   
 
             _testScrewdriver.Run(   parent  :=  _rootObject,
-                                    hwID    := HwIdentifiers#desoutter_HwID);       
+                                    hwID    := HwIdentifiers#desoutter_cvic_ii_HwID);       
 
             
         END_METHOD

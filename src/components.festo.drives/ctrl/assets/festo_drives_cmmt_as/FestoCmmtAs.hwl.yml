@@ -1,0 +1,91 @@
+Templates:
+  Devices:
+    - Name: 'FestoCmmtAs'
+      Placeholders:
+        - Name: 'NAME'
+          Value: 'festo_cmmtas'
+        - Name: 'IP_ADDRESS_X1'
+          Value: '192.168.100.1/24'
+        - Name: 'PROFINET_DEVICE_NAME_X1'
+          Value: 'festo_cmmtas'
+      Content:
+        Name: '${NAME}'
+        Modules:
+          - Name: '${NAME}'
+            TypeIdentifier:
+              FileName: GSDML-V2.41-Festo-CMMT-AS-20230601.xml
+              GsdId: IDD_DAP MP 1
+            Interfaces:
+            - Name: 'PN-IO_Interface'
+              Label: 'X1'
+              Addresses:
+                Configured:
+                - IPv4: '${IP_ADDRESS_X1}'
+                - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+              Parameters:
+                IECV22LLDPMode: False
+                IsochronousMode: False
+                # PrioritizedStartup (Boolean)
+            Ports:
+            - Name: 'Port_1'
+              Label: 'X1 P1'
+              Parameters:
+                PortActivation: True
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                EndOfDetectionOfAccessibleDevices: False
+                EndOfTopologyDiscovery: False
+                PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # CableName: 0
+                # MediumAttachmentType: 'Copper'
+            - Name: 'Port_2'
+              Label: 'X1 P2'
+              Parameters:
+                PortActivation: True
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                EndOfDetectionOfAccessibleDevices: False
+                EndOfTopologyDiscovery: False
+                PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # CableName: 0
+                # MediumAttachmentType: 'Copper'
+            Parameters:
+              RecordDataList:
+              - IndexName: 'General settings'
+                Values:
+                - OffsetName: 'Activate diagnostics'
+                  # Possible ValueNames: Inactive | Standard alarms (PROFIdrive)
+                  ValueName: 'Inactive'
+          - Name: DoServo
+            TypeIdentifier:
+              FileName: GSDML-V2.41-Festo-CMMT-AS-20230601.xml
+              GsdId: IDM_SERVO
+            Submodules:
+              # Do not uncomment this module. It is added by default and cannot be removed under any circumstances.
+              # - Name: Module_Access_Point
+              #   TypeIdentifier:
+              #     FileName: GSDML-V2.41-FESTO-CMMT-AS-20230601.XML
+              #     GsdId: IDS_MAP
+              #   Slot: 1
+              - Name: empty_submodule
+                TypeIdentifier:
+                  FileName: GSDML-V2.41-FESTO-CMMT-AS-20230601.XML
+                  GsdId: IDS_EMPTY
+                Slot: 2
+              - Name: SiemensTelegram111-PZD-12-12
+                TypeIdentifier:
+                  FileName: GSDML-V2.41-Festo-CMMT-AS-20230601.xml
+                  GsdId: IDS_TELEGRAM_111
+                Slot: 3
+              - Name: empty_submodule_1
+                TypeIdentifier:
+                  FileName: GSDML-V2.41-FESTO-CMMT-AS-20230601.XML
+                  GsdId: IDS_EMPTY
+                Slot: 4
+              - Name: SiemensTelegram750-PZD-4-1
+                TypeIdentifier:
+                  FileName: GSDML-V2.41-Festo-CMMT-AS-20230601.xml
+                  GsdId: IDS_TELEGRAM_750
+                Slot: 5

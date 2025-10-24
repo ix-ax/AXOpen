@@ -1,16 +1,16 @@
 CONFIGURATION HardwareIDs
     VAR_GLOBAL CONSTANT
-        dukaneiqauto_HwID : UINT := UINT#259;
-        dukaneiqauto_PLC_to_iQ_Outputs_PLC_to_iQ_Outputs_HwID : UINT := UINT#264;
-        dukaneiqauto_Rack_HwID : UINT := UINT#262;
-        dukaneiqauto_dukaneiqauto_HwID : UINT := UINT#263;
-        dukaneiqauto_dukaneiqauto_DAP_HwID : UINT := UINT#266;
-        dukaneiqauto_dukaneiqauto_Interface_HwID : UINT := UINT#258;
-        dukaneiqauto_dukaneiqauto_Interface_Port_1_HwID : UINT := UINT#260;
-        dukaneiqauto_dukaneiqauto_Interface_Port_2_HwID : UINT := UINT#261;
-        dukaneiqauto_iQ_to_PLC_Inputs_iQ_to_PLC_Inputs_HwID : UINT := UINT#265;
+        dukaneiqauto_HwID : UINT := UINT#258;
+        dukaneiqauto_PLC_to_iQ_Outputs_PLC_to_iQ_Outputs_HwID : UINT := UINT#263;
+        dukaneiqauto_Rack_HwID : UINT := UINT#261;
+        dukaneiqauto_dukaneiqauto_HwID : UINT := UINT#262;
+        dukaneiqauto_dukaneiqauto_DAP_HwID : UINT := UINT#265;
+        dukaneiqauto_dukaneiqauto_Interface_HwID : UINT := UINT#257;
+        dukaneiqauto_dukaneiqauto_Interface_Port_1_HwID : UINT := UINT#259;
+        dukaneiqauto_dukaneiqauto_Interface_Port_2_HwID : UINT := UINT#260;
+        dukaneiqauto_iQ_to_PLC_Inputs_iQ_to_PLC_Inputs_HwID : UINT := UINT#264;
         plc_line_HwID : UINT := UINT#32;
-        plc_line_Rail_0_HwID : UINT := UINT#256;
+        plc_line_Rail_0_HwID : UINT := UINT#266;
         plc_line_plc_line_HwID : UINT := UINT#48;
         plc_line_plc_line_CPU_display_1_HwID : UINT := UINT#54;
         plc_line_plc_line_Card_reader_writer_1_HwID : UINT := UINT#51;
@@ -22,7 +22,7 @@ CONFIGURATION HardwareIDs
         plc_line_plc_line_PROFINET_interface_2_HwID : UINT := UINT#72;
         plc_line_plc_line_PROFINET_interface_2_Port_3_HwID : UINT := UINT#73;
         plc_line_plc_line_Virtual_communication_interface_HwID : UINT := UINT#135;
-        profinet_plc_line_HwID : UINT := UINT#257;
+        profinet_plc_line_HwID : UINT := UINT#256;
 
     END_VAR
 END_CONFIGURATION
