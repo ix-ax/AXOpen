@@ -1,16 +1,16 @@
 CONFIGURATION IoAddresses
     VAR_GLOBAL
 
-        // Module cmmtas/DoServo
-        cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Input AT %IB0 : cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Input_Layout;
-        cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Output AT %QB0 : cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Output_Layout;
-        cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Input AT %IB24 : cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Input_Layout;
-        cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Output AT %QB24 : cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Output_Layout;
+        // Module festo_cmmtas/DoServo
+        festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Input AT %IB0 : festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Input_Layout;
+        festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Output AT %QB0 : festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Output_Layout;
+        festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Input AT %IB24 : festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Input_Layout;
+        festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Output AT %QB24 : festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Output_Layout;
     END_VAR
 END_CONFIGURATION
 
 TYPE
-    cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Input_Layout : STRUCT
+    festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -100,7 +100,7 @@ TYPE
 END_TYPE
 
 TYPE
-    cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Output_Layout : STRUCT
+    festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Output_Layout : STRUCT
         Signals_85 AT %X0.0 : BOOL;
         Signals_86 AT %X0.1 : BOOL;
         Signals_87 AT %X0.2 : BOOL;
@@ -175,13 +175,13 @@ TYPE
 END_TYPE
 
 TYPE
-    cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Input_Layout : STRUCT
+    festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Input_Layout : STRUCT
         Signals_0 AT %B0 : WORD;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Output_Layout : STRUCT
+    festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Output_Layout : STRUCT
         Signals_1 AT %B0 : WORD;
         Signals_2 AT %B2 : WORD;
         Signals_3 AT %B4 : WORD;

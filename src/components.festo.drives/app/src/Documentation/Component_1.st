@@ -33,7 +33,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             //<Initialization>        
             AxoCmmtAs.Run(parent            :=  THIS,
-                            hwID                  :=    HwIdentifiers#cmmtas_HwID,
+                            hwID                  :=    HwIdentifiers#festo_cmmtas_HwID,
                             Enable                :=    Enable,
                             EnablePositive        :=    EnablePositive,
                             EnableNegative        :=    EnableNegative);

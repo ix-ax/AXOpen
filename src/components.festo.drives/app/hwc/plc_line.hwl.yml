@@ -8,10 +8,15 @@ Devices:
         PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
         ADMIN_NAME: 'admin'
         CYCLE_COMMUNICATION_LOAD: 50
+  - Apply: FestoCmmtAs
+    Arguments:
+      NAME: festo_cmmtas
+      IP_ADDRESS_X1: 192.168.100.135/24
+      PROFINET_DEVICE_NAME_X1: festo_cmmtas        
 IoSystems:
 - Name: profinet_plc_line
   ControllerInterfaces:
   - Ref: plc_line/plc_line/PROFINET_interface_1
   DeviceInterfaces:
   # - Ref: device_1/device_1/PROFINET_Interface
-  - Ref: cmmtas/cmmtas/profinet
+  - Ref: festo_cmmtas/festo_cmmtas/PN-IO_Interface
