@@ -2,7 +2,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    SFK_Input_24_Words_Input_Layout : STRUCT
+	    rexroth_press_Input_24_Words_Input_Layout : STRUCT
 	        Signals_0 AT %B0 : WORD;
 	        Signals_1 AT %B2 : WORD;
 	        Signals_2 AT %B4 : WORD;
@@ -33,7 +33,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    SFK_Output_21_Words_Output_Layout : STRUCT
+	    rexroth_press_Output_21_Words_Output_Layout : STRUCT
 	        Signals_0 AT %B0 : WORD;
 	        Signals_1 AT %B2 : WORD;
 	        Signals_2 AT %B4 : WORD;
@@ -61,7 +61,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    SFK_ParamCh_5Words_Input_Layout : STRUCT
+	    rexroth_press_ParamCh_5Words_Input_Layout : STRUCT
 	        Signals_0 AT %B0 : WORD;
 	        Signals_1 AT %B2 : WORD;
 	        Signals_2 AT %B4 : WORD;
@@ -73,7 +73,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    SFK_ParamCh_5Words_Output_Layout : STRUCT
+	    rexroth_press_ParamCh_5Words_Output_Layout : STRUCT
 	        Signals_5 AT %B0 : WORD;
 	        Signals_6 AT %B2 : WORD;
 	        Signals_7 AT %B4 : WORD;

@@ -1,20 +1,20 @@
 CONFIGURATION IoAddresses
     VAR_GLOBAL
 
-        // Module SFK/Input_24_Words
-        SFK_Input_24_Words_Input AT %IB0 : SFK_Input_24_Words_Input_Layout;
+        // Module rexroth_press/Input_24_Words
+        rexroth_press_Input_24_Words_Input AT %IB0 : rexroth_press_Input_24_Words_Input_Layout;
 
-        // Module SFK/Output_21_Words
-        SFK_Output_21_Words_Output AT %QB0 : SFK_Output_21_Words_Output_Layout;
+        // Module rexroth_press/Output_21_Words
+        rexroth_press_Output_21_Words_Output AT %QB0 : rexroth_press_Output_21_Words_Output_Layout;
 
-        // Module SFK/ParamCh_5Words
-        SFK_ParamCh_5Words_Input AT %IB48 : SFK_ParamCh_5Words_Input_Layout;
-        SFK_ParamCh_5Words_Output AT %QB42 : SFK_ParamCh_5Words_Output_Layout;
+        // Module rexroth_press/ParamCh_5Words
+        rexroth_press_ParamCh_5Words_Input AT %IB48 : rexroth_press_ParamCh_5Words_Input_Layout;
+        rexroth_press_ParamCh_5Words_Output AT %QB42 : rexroth_press_ParamCh_5Words_Output_Layout;
     END_VAR
 END_CONFIGURATION
 
 TYPE
-    SFK_Input_24_Words_Input_Layout : STRUCT
+    rexroth_press_Input_24_Words_Input_Layout : STRUCT
         Signals_0 AT %B0 : WORD;
         Signals_1 AT %B2 : WORD;
         Signals_2 AT %B4 : WORD;
@@ -43,7 +43,7 @@ TYPE
 END_TYPE
 
 TYPE
-    SFK_Output_21_Words_Output_Layout : STRUCT
+    rexroth_press_Output_21_Words_Output_Layout : STRUCT
         Signals_0 AT %B0 : WORD;
         Signals_1 AT %B2 : WORD;
         Signals_2 AT %B4 : WORD;
@@ -69,7 +69,7 @@ TYPE
 END_TYPE
 
 TYPE
-    SFK_ParamCh_5Words_Input_Layout : STRUCT
+    rexroth_press_ParamCh_5Words_Input_Layout : STRUCT
         Signals_0 AT %B0 : WORD;
         Signals_1 AT %B2 : WORD;
         Signals_2 AT %B4 : WORD;
@@ -79,7 +79,7 @@ TYPE
 END_TYPE
 
 TYPE
-    SFK_ParamCh_5Words_Output_Layout : STRUCT
+    rexroth_press_ParamCh_5Words_Output_Layout : STRUCT
         Signals_5 AT %B0 : WORD;
         Signals_6 AT %B2 : WORD;
         Signals_7 AT %B4 : WORD;
