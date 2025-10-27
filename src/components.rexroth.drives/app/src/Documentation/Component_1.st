@@ -31,7 +31,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;   
             //<Initialization>        
             IndraDrive.Run(parent               :=  THIS,
-                            hwID                :=  HwIdentifiers#ST3_indradrive_HwID,
+                            hwID                :=  HwIdentifiers#rexroth_indradrive_HwID,
                             Enable              :=  Enable,
                             EnablePositive      :=  EnablePositive,
                             EnableNegative      :=  EnableNegative);

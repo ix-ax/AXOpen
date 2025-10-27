@@ -31,7 +31,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;   
             //<Initialization>        
             CtrlXdrive.Run(parent               :=  THIS,
-                            hwID                :=  HwIdentifiers#AxoCtrlxDriveXsc_HwID,
+                            hwID                :=  HwIdentifiers#rexroth_ctrlx_drive_HwID,
                             Enable              :=  Enable,
                             EnablePositive      :=  EnablePositive,
                             EnableNegative      :=  EnableNegative);
