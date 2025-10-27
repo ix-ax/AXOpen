@@ -38,11 +38,9 @@ Devices:
       #   Values:
       #   - OffsetName: 'User mode'
       #     ValueName: 'Ident profile / RFID standard profile'
-  - Apply:
-      TemplateName: rfxxx_32b_cyclic_iso_general
-      Arguments:
-        ModuleName: RF260R_1
-  - Apply:
-      TemplateName: rfxxx_128b_cyclic_iso_general
-      Arguments:
-        ModuleName: RF340R_1
+  - Apply: rfxxx_32b_cyclic_iso_general
+    Arguments:
+      ModuleName: RF260R_1
+  - Apply: rfxxx_128b_cyclic_iso_general
+    Arguments:
+      ModuleName: RF340R_1

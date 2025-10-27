@@ -7,7 +7,7 @@ Templates:
     Content:
       Name: "${ModuleName}"
       TypeIdentifier:
-        FileName: GSDML-V2.43-SIEMENS-ET200SP-20240209.XML
+        FileName: 'GSDML-V2.45-Siemens-ET200SP-20250606.XML'
         GsdId: CM 4xIO-Link V2.2 144I/128O
       Parameters:
         RecordDataList:
