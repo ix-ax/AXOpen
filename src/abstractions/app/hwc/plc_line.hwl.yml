@@ -13,4 +13,4 @@ IoSystems:
   ControllerInterfaces:
   - Ref: plc_line/plc_line/PROFINET_interface_1
   DeviceInterfaces:
-  # - Ref: device_1/device_1/PROFINET_Interface
+  # - Ref: device_1/device_1/interface_1
