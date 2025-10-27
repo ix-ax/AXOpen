@@ -8,10 +8,14 @@ Devices:
         PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
         ADMIN_NAME: 'admin'
         CYCLE_COMMUNICATION_LOAD: 50
+  - Apply: kuka_krc4_dio512
+    Arguments:
+      NAME: kuka_krc4
+      IP_ADDRESS_X1: 192.168.100.140/24
+      PROFINET_DEVICE_NAME_X1: kuka_krc4
 IoSystems:
 - Name: profinet_plc_line
   ControllerInterfaces:
   - Ref: plc_line/plc_line/PROFINET_interface_1
   DeviceInterfaces:
-  # - Ref: device_1/device_1/PROFINET_Interface
-  - Ref: KRC4/KRC4/profinet
+  - Ref: kuka_krc4/kuka_krc4/Interface1

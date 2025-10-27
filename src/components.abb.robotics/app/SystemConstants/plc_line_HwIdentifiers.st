@@ -6,7 +6,7 @@ CONFIGURATION HardwareIDs
         abb_irc5_robot_Rack_HwID : UINT := UINT#268;
         abb_irc5_robot_abb_irc5_robot_HwID : UINT := UINT#269;
         abb_irc5_robot_abb_irc5_robot_PROFINET_Interface_HwID : UINT := UINT#265;
-        abb_irc5_robot_abb_irc5_robot_PROFINET_Interface_Network_Port_HwID : UINT := UINT#267;
+        abb_irc5_robot_abb_irc5_robot_PROFINET_Interface_Port_1_HwID : UINT := UINT#267;
         abb_irc5_robot_abb_irc5_robot_Robot_Basic_Device_HwID : UINT := UINT#272;
         abb_omnicore_robot_HwID : UINT := UINT#258;
         abb_omnicore_robot_DI_64_bytes_DI_64_bytes_HwID : UINT := UINT#263;
@@ -15,7 +15,7 @@ CONFIGURATION HardwareIDs
         abb_omnicore_robot_abb_omnicore_robot_HwID : UINT := UINT#261;
         abb_omnicore_robot_abb_omnicore_robot_OmniCore_Standard_PROFINET_Device_HwID : UINT := UINT#264;
         abb_omnicore_robot_abb_omnicore_robot_PROFINET_Interface_HwID : UINT := UINT#257;
-        abb_omnicore_robot_abb_omnicore_robot_PROFINET_Interface_Network_Port_1_HwID : UINT := UINT#259;
+        abb_omnicore_robot_abb_omnicore_robot_PROFINET_Interface_Port_1_HwID : UINT := UINT#259;
         plc_line_HwID : UINT := UINT#32;
         plc_line_Rail_0_HwID : UINT := UINT#273;
         plc_line_plc_line_HwID : UINT := UINT#48;
