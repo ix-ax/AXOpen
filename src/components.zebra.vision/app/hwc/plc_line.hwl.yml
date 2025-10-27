@@ -8,10 +8,14 @@ Devices:
         PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
         ADMIN_NAME: 'admin'
         CYCLE_COMMUNICATION_LOAD: 50
+  - Apply: zebra_ea3600_88in6out
+    Arguments:
+      NAME: zebra
+      IP_ADDRESS_X1: 192.168.100.157/24
+      PROFINET_DEVICE_NAME_X1: zebra
 IoSystems:
 - Name: profinet_plc_line
   ControllerInterfaces:
   - Ref: plc_line/plc_line/PROFINET_interface_1
   DeviceInterfaces:
-  # - Ref: device_1/device_1/PROFINET_Interface
-  - Ref: EA3600/EA3600/profinet
+  - Ref: zebra/zebra/Interface
