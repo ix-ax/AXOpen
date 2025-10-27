@@ -1,0 +1,3 @@
+﻿NAMESPACE AXOpen.Utils
+END_NAMESPACE
+

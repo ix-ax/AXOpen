@@ -56,6 +56,7 @@ dependencies:
   "app_axopen.components.ur.robotics": "0.0.0-dev.0"
   "@inxton/axopen.components.ur.robotics": "0.0.0-dev.0"
   "app_axopen.components.zebra.vision": "0.0.0-dev.0"
+  "@inxton/axopen.components.zebra.vision-symbolinfogeneration-testingstep": "0.0.0-dev.0"
   "@inxton/axopen.components.zebra.vision": "0.0.0-dev.0"
   "ix_axopencore": "0.0.0-dev.0"
   "@inxton/axopen.core": "0.0.0-dev.0"

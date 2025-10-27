@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Core
+﻿NAMESPACE AXOpen.Core
     TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
@@ -7,3 +7,4 @@ NAMESPACE AXOpen.Core
         END_STRUCT;
     END_TYPE
 END_NAMESPACE
+

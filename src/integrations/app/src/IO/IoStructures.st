@@ -1,0 +1,3 @@
+﻿NAMESPACE AXOpen.Integrations
+END_NAMESPACE
+
