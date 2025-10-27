@@ -20,10 +20,9 @@ Devices:
       Label: X1 P1
     - Name: Port_2
       Label: X1 P2
-  - Apply:
-      TemplateName: 6ES7137-6AA01-0BA0_V2_0_light
-      Arguments:
-        ModuleName: CpPtp
+  - Apply: 6ES7137-6AA01-0BA0_V2_0_light
+    Arguments:
+      ModuleName: CpPtp
   - Name: Server_module_V1_1
     TypeIdentifier:
       GsdId: Servermodule_without_io
