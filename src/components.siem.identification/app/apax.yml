@@ -1,4 +1,4 @@
-name: "app_axopen.components.siem.identification"
+﻿name: "app_axopen.components.siem.identification"
 version: '0.0.0-dev.0'
 type: app
 targets:
@@ -14,13 +14,12 @@ variables:
   AXTARGETPLATFORMINPUT: .\bin\1500\
   AX_USERNAME: "admin"
   AX_TARGET_PWD: "Qwerty123456+"
-  # USE_PLC_SIM_ADVANCED: "true"
-  USE_PLC_SIM_ADVANCED: "false"
+  USE_PLC_SIM_ADVANCED: "true"
   # <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.32
+  "@inxton/ax.catalog": 0.0.35
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -80,10 +79,6 @@ scripts:
     START=$(date +%s)
     ..\\..\\scripts\\clean_plc.sh $AXTARGET $AX_USERNAME $AX_TARGET_PWD  
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax clean_plc' Finished in :" $(expr $(date +%s) - $START) "s"
-  ssc: | # setup secure communication, create and import certificates, setup password for AX_USERNAME                                                       (create pkcs12ForCertificateImport.p12 & apax hwc setup-secure-communication & apax hwc import-certificate [TLS+Webserver] & apax hwc manage-users set-password)  
-    START=$(date +%s)
-    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD 
-    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ssc' Finished in :" $(expr $(date +%s) - $START) "s"
   gsd: | # copy and install all gsdml files from libraries                                                                                                  (copy gsdml files from all assets dir & apax hwc install-gsd)
     START=$(date +%s)
     ..\\..\\scripts\\copy_and_install_gsd.sh 
@@ -92,6 +87,10 @@ scripts:
     START=$(date +%s)
     ..\\..\\scripts\\copy_hwl_templates.sh 
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax hwl' Finished in :" $(expr $(date +%s) - $START) "s"
+  ssc: | # setup secure communication, create and import certificates, setup password for AX_USERNAME                                                       (create pkcs12ForCertificateImport.p12 & apax hwc setup-secure-communication & apax hwc import-certificate [TLS+Webserver] & apax hwc manage-users set-password)  
+    START=$(date +%s)
+    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD 
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ssc' Finished in :" $(expr $(date +%s) - $START) "s"
   hwcc: | # compile hardware configuration                                                                                                                  (apax hwc compile)
     START=$(date +%s)
     ..\\..\\scripts\\hw_compile.sh  
@@ -177,3 +176,15 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax gc' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
     apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+  x: |
+    apax swfd
+    apax mm
+  t: |
+    apax install
+    apax hwl
+    apax ssc
+    apax gsd
+    apax hwcc
+    apax hwid
+    apax hwadr
+    apax build

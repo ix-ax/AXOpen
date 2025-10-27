@@ -5,7 +5,7 @@ CONFIGURATION HardwareIDs
         cmmtas_SiemensTelegram111_PZD_12_12_HwID : UINT := UINT#267;
         cmmtas_SiemensTelegram750_PZD_4_1_HwID : UINT := UINT#268;
         cmmtas_cmmtas_HwID : UINT := UINT#262;
-        cmmtas_cmmtas_CMMT_AS_____MP_HwID : UINT := UINT#269;
+        cmmtas_cmmtas_CMMT_AS___MP_HwID : UINT := UINT#269;
         cmmtas_cmmtas_DoServo_HwID : UINT := UINT#263;
         cmmtas_cmmtas_DoServo_Module_Access_Point_HwID : UINT := UINT#264;
         cmmtas_cmmtas_empty_submodule_1_HwID : UINT := UINT#265;
@@ -14,7 +14,7 @@ CONFIGURATION HardwareIDs
         cmmtas_cmmtas_profinet_Port_2_HwID : UINT := UINT#260;
         cmmtas_empty_submodule_HwID : UINT := UINT#266;
         plc_line_HwID : UINT := UINT#32;
-        plc_line_Rail_0_HwID : UINT := UINT#273;
+        plc_line_Rail_0_HwID : UINT := UINT#270;
         plc_line_plc_line_HwID : UINT := UINT#48;
         plc_line_plc_line_CPU_display_1_HwID : UINT := UINT#54;
         plc_line_plc_line_Card_reader_writer_1_HwID : UINT := UINT#51;

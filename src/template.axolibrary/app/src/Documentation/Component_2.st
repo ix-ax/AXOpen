@@ -35,6 +35,7 @@ NAMESPACE Template.Axolibrary
 
         //<Usage>    
         VAR PUBLIC                       
+            {#ix-set:AttributeName = "<#Start test sequence#>"}
             Sequencer : AxoSequencer;       
             Steps : ARRAY[0..30] OF AXOpen.Core.AxoStep;
         END_VAR
@@ -48,6 +49,7 @@ NAMESPACE Template.Axolibrary
             Sequencer.Open();
 
             IF(Steps[0].Execute(Sequencer, 'TemplateMethod_10steps_1')) THEN
+                ActivateManualControl := FALSE;
                 IF(ExampleComponent.TemplateMethod_10steps_1().IsDone()) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    

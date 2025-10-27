@@ -1,0 +1,32 @@
+﻿@page "/Component_2"
+@using AXOpen.Core;
+@using Operon.Components.Tab
+@using AXOpen.Components.Zebra.Vision;
+
+
+
+<Tab>
+    <TabPage Title="RenderableContentControl-Command-Control">
+        <AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.documentation.componentTwo.Sequencer" ShowText="true" />
+        <!-- <RccComponentCommandView> -->
+        <!-- This will render anything found on parameter assigned to Context  -->
+        <RenderableContentControl Context="@Entry.Plc.documentation.componentTwo" Presentation="Command-Control" />
+        <!-- </RccComponentCommandView> -->
+    </TabPage>
+    <TabPage Title="RenderableContentControl-Status-Display">
+        <!-- <RccComponentStatusView> -->
+        <!-- This will render anything found on parameter assigned to Context  -->
+        <RenderableContentControl Context="@Entry.Plc.documentation.componentTwo" Presentation="Status-Display" />
+        <!-- </RccComponentStatusView> -->
+    </TabPage>
+    <TabPage Title="AxoComponentCommandView">
+        <!-- <GenericComponentCommandView> -->
+        <AxoComponentCommandView Component="@Entry.Plc.documentation.componentTwo.ExampleComponent" />
+        <!-- </GenericComponentCommandView> -->
+    </TabPage>
+    <TabPage Title="AxoComponentStatusView">
+        <!-- <GenericComponentStatusView> -->
+        <AxoComponentStatusView Component="@Entry.Plc.documentation.componentTwo.ExampleComponent" />
+        <!-- </GenericComponentStatusView> -->
+    </TabPage>
+</Tab>
