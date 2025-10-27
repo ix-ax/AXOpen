@@ -1,0 +1,43 @@
+Templates:
+  Devices:
+  - Name: 'zebra_ea3600_88in6out'
+    Placeholders:
+    - Name: 'NAME'
+    - Name: 'IP_ADDRESS_X1'
+      Value: '192.168.0.1/24'
+    - Name: 'PROFINET_DEVICE_NAME_X1'
+      Value: 'ea3600'
+    Content:
+      Name: '${NAME}'
+      Modules:
+        - Name: '${NAME}'
+          TypeIdentifier:
+            FileName: 'GSDML-V2.33-ZEBRA-EA3600-2-20181115.XML'
+            GsdId: 'DAP 1'
+          Interfaces:
+          - Name: 'Interface'
+            Label: 'X1'
+            Addresses:
+              Configured:
+              - IPv4: '${IP_ADDRESS_X1}'
+              - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+            Parameters:
+              IECV22LLDPMode: False
+              # PrioritizedStartup (Boolean)
+          Ports:
+          - Name: 'Port_1'
+            Label: 'X1 P1'
+            Parameters:
+              # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+              TransmissionRateAndDuplex: 'Automatic'
+              EndOfDetectionOfAccessibleDevices: False
+              EndOfTopologyDiscovery: False
+              PortMonitoring: False
+              # TransmissionRateAutoNegotiation: True
+              # CableName: 0
+              # MediumAttachmentType: 'Copper'
+        - Name: Data88Bin6Bout
+          TypeIdentifier:
+            GsdId: 'ID_Mod_1'
+            FileName: GSDML-V2.33-Zebra-EA3600-2-20181115.xml
+          Slot: 1

@@ -1,6 +1,6 @@
-﻿name: "app_axopen.components.abb.robotics"
+name: "app_axopen.components.abb.robotics"
 version: '0.0.0-dev.0'
-type: app 
+type: app
 targets:
   - "1500"
   # - llvm
@@ -19,7 +19,7 @@ variables:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.35
+  "@inxton/ax.catalog": 0.0.36
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:

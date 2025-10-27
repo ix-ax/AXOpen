@@ -10,7 +10,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
         METHOD PROTECTED OVERRIDE Main
             THIS.InitializeRootObject(_rootObject);
-            _testComponent.Run(inParent  :=   _rootObject,hwID    :=   HwIdentifiers#Axo_CS351_HwID);
+            _testComponent.Run(inParent  :=   _rootObject,hwID    :=   HwIdentifiers#rexroth_cs351_HwID);
             
 
             IF(_manualControl) THEN

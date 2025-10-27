@@ -1,0 +1,74 @@
+Templates:
+  Devices:
+  - Name: 'rexroth_sfk_press'
+    Placeholders:
+    - Name: 'NAME'
+    - Name: 'IP_ADDRESS_X1'
+      Value: '192.168.0.1/24'
+    - Name: 'PROFINET_DEVICE_NAME_X1'
+      Value: 'axis'
+    Content:
+      Name: '${NAME}'
+      Modules:
+        - Name:  '${NAME}'
+          TypeIdentifier:
+            FileName: 'GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_02V02-20180110.XML'
+            GsdId: 'DAP_IndraDrive'
+          Interfaces:
+          - Name: 'PN-IO'
+            Label: 'X1'
+            Addresses:
+              Configured:
+              - IPv4: '${IP_ADDRESS_X1}'
+              - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+            Parameters:
+              # IECV22LLDPMode: True
+              # PrioritizedStartup (Boolean)
+          Ports:
+          - Name: 'Port_1'
+            Label: 'X1 P1'
+            Parameters:
+              # PortActivation: True
+              # TransmissionRateAndDuplex: 'Automatic'
+              # EndOfDetectionOfAccessibleDevices: False
+              # EndOfTopologyDiscovery: False
+              PortMonitoring: False
+              # TransmissionRateAutoNegotiation: True
+              # CableName: 0
+              # MediumAttachmentType: 'Copper'
+          - Name: 'Port_2'
+            Label: 'X1 P2'
+            Parameters:
+              # PortActivation: True
+              # TransmissionRateAndDuplex: 'Automatic'
+              # EndOfDetectionOfAccessibleDevices: False
+              # EndOfTopologyDiscovery: False
+              PortMonitoring: False
+              # TransmissionRateAutoNegotiation: True
+              # CableName: 0
+              # MediumAttachmentType: 'Copper'
+  # - Name: ParamCh_NotUsed
+  #   TypeIdentifier:
+  #     GsdId: ID_PaCh_NotUsed
+  #     FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_02V02-20180110.XML
+  #   Slot: 1
+        - Name: ParamCh_5Words
+          TypeIdentifier:
+            GsdId: ID_PaCh_5Words
+            FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_02V02-20180110.XML
+          Slot: 1
+        - Name: F-Modul_not_used
+          TypeIdentifier:
+            GsdId: ID_FMod_NotUsed
+            FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_02V02-20180110.XML
+          Slot: 2
+        - Name: Input_24_Words
+          TypeIdentifier:
+            GsdId: ID_InMod_24Words
+            FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_02V02-20180110.XML
+          Slot: 3
+        - Name: Output_21_Words
+          TypeIdentifier:
+            GsdId: ID_OutMod_21Words
+            FileName: GSDML-V2.1-BOSCH REXROTH AG-011F-INDRADRIVE_02V02-20180110.XML
+          Slot: 4

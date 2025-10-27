@@ -27,7 +27,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             END_IF;
 
             //<Initialization>        
-            ExampleComponent.Run(inParent := THIS , hwID := HwIdentifiers#Axo_CS351_HwID);
+            ExampleComponent.Run(inParent := THIS , hwID := HwIdentifiers#rexroth_cs351_HwID);
             //</Initialization>
 
         THIS.UseInSequencer();

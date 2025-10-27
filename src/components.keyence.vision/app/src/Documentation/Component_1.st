@@ -29,7 +29,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //<Initialization>     
             Component.Run(
                                 inParent                                          :=   THIS,
-                                hwID                                            :=   HwIdentifiers#sr_750_1_HwID);
+                                hwID                                            :=   HwIdentifiers#keyence_sr_750_HwID);
             //</Initialization>
 
             THIS.UseInSequencer();

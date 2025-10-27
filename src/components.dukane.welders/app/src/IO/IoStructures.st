@@ -2,7 +2,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    DukaneIqSeriesWelder_1_iQ_to_PLC_Inputs_Input_Layout : STRUCT
+	    dukaneiqauto_iQ_to_PLC_Inputs_Input_Layout : STRUCT
 	        Signals_0 AT %B0 : DWORD;
 	        Signals_1 AT %B4 : DWORD;
 	        Signals_2 AT %B8 : DWORD;
@@ -44,7 +44,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    DukaneIqSeriesWelder_1_PLC_to_iQ_Outputs_Output_Layout : STRUCT
+	    dukaneiqauto_PLC_to_iQ_Outputs_Output_Layout : STRUCT
 	        Signals_0 AT %B0 : DWORD;
 	        Signals_1 AT %B4 : DWORD;
 	        Signals_2 AT %B8 : DWORD;

@@ -48,7 +48,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 AxoCmmtAs.ActivateManualControl();
             END_IF;   
             AxoCmmtAs.Run(inParent            :=  _rootObject,
-                                hwID                  :=    HwIdentifiers#cmmtas_HwID,
+                                hwID                  :=    HwIdentifiers#festo_cmmtas_HwID,
                                 Enable                :=    Enable,
                                 EnablePositive        :=    EnablePositive,
                                 EnableNegative        :=    EnableNegative);

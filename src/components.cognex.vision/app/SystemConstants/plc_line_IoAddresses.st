@@ -1,101 +1,119 @@
 CONFIGURATION IoAddresses
     VAR_GLOBAL
 
-        // Module dm_280/Acquisition_Control
-        dm_280_Acquisition_Control_Output AT %QB1627 : dm_280_Acquisition_Control_Output_Layout;
+        // Module cognex_dataman_280/Acquisition_Control
+        cognex_dataman_280_Acquisition_Control_Output AT %QB1553 : cognex_dataman_280_Acquisition_Control_Output_Layout;
 
-        // Module dm_280/Acquisition_Status
-        dm_280_Acquisition_Status_Input AT %IB1685 : dm_280_Acquisition_Status_Input_Layout;
+        // Module cognex_dataman_280/Acquisition_Status
+        cognex_dataman_280_Acquisition_Status_Input AT %IB1590 : cognex_dataman_280_Acquisition_Status_Input_Layout;
 
-        // Module dm_280/Result_Data-128_bytes
-        dm_280_Result_Data_128_bytes_Input AT %IB1548 : dm_280_Result_Data_128_bytes_Input_Layout;
+        // Module cognex_dataman_280/ResultData_128
+        cognex_dataman_280_ResultData_128_Input AT %IB1453 : cognex_dataman_280_ResultData_128_Input_Layout;
 
-        // Module dm_280/Results_Control
-        dm_280_Results_Control_Output AT %QB1626 : dm_280_Results_Control_Output_Layout;
+        // Module cognex_dataman_280/Results_Control
+        cognex_dataman_280_Results_Control_Output AT %QB1552 : cognex_dataman_280_Results_Control_Output_Layout;
 
-        // Module dm_280/Results_Status
-        dm_280_Results_Status_Input AT %IB1684 : dm_280_Results_Status_Input_Layout;
+        // Module cognex_dataman_280/Results_Status
+        cognex_dataman_280_Results_Status_Input AT %IB1589 : cognex_dataman_280_Results_Status_Input_Layout;
 
-        // Module dm_280/Soft_Event_Control
-        dm_280_Soft_Event_Control_Input AT %IB1688 : dm_280_Soft_Event_Control_Input_Layout;
-        dm_280_Soft_Event_Control_Output AT %QB1625 : dm_280_Soft_Event_Control_Output_Layout;
+        // Module cognex_dataman_280/Soft_Event_Control
+        cognex_dataman_280_Soft_Event_Control_Input AT %IB1593 : cognex_dataman_280_Soft_Event_Control_Input_Layout;
+        cognex_dataman_280_Soft_Event_Control_Output AT %QB1551 : cognex_dataman_280_Soft_Event_Control_Output_Layout;
 
-        // Module dm_280/User_Data-128_bytes
-        dm_280_User_Data_128_bytes_Output AT %QB1493 : dm_280_User_Data_128_bytes_Output_Layout;
+        // Module cognex_dataman_280/UserData_128
+        cognex_dataman_280_UserData_128_Output AT %QB1419 : cognex_dataman_280_UserData_128_Output_Layout;
 
-        // Module dm_300/Acquisition_Control
-        dm_300_Acquisition_Control_Output AT %QB1492 : dm_300_Acquisition_Control_Output_Layout;
+        // Module cognex_dataman_380/Acquisition_Control
+        cognex_dataman_380_Acquisition_Control_Output AT %QB1418 : cognex_dataman_380_Acquisition_Control_Output_Layout;
 
-        // Module dm_300/Acquisition_Status
-        dm_300_Acquisition_Status_Input AT %IB1544 : dm_300_Acquisition_Status_Input_Layout;
+        // Module cognex_dataman_380/Acquisition_Status
+        cognex_dataman_380_Acquisition_Status_Input AT %IB1449 : cognex_dataman_380_Acquisition_Status_Input_Layout;
 
-        // Module dm_300/Result_Data-64_bytes
-        dm_300_Result_Data_64_bytes_Input AT %IB1471 : dm_300_Result_Data_64_bytes_Input_Layout;
+        // Module cognex_dataman_380/ResultData_128
+        cognex_dataman_380_ResultData_128_Input AT %IB1312 : cognex_dataman_380_ResultData_128_Input_Layout;
 
-        // Module dm_300/Results_Control
-        dm_300_Results_Control_Output AT %QB1491 : dm_300_Results_Control_Output_Layout;
+        // Module cognex_dataman_380/Results_Control
+        cognex_dataman_380_Results_Control_Output AT %QB1417 : cognex_dataman_380_Results_Control_Output_Layout;
 
-        // Module dm_300/Results_Status
-        dm_300_Results_Status_Input AT %IB1543 : dm_300_Results_Status_Input_Layout;
+        // Module cognex_dataman_380/Results_Status
+        cognex_dataman_380_Results_Status_Input AT %IB1448 : cognex_dataman_380_Results_Status_Input_Layout;
 
-        // Module dm_300/Soft_Event_Control
-        dm_300_Soft_Event_Control_Input AT %IB1547 : dm_300_Soft_Event_Control_Input_Layout;
-        dm_300_Soft_Event_Control_Output AT %QB1490 : dm_300_Soft_Event_Control_Output_Layout;
+        // Module cognex_dataman_380/Soft_Event_Control
+        cognex_dataman_380_Soft_Event_Control_Input AT %IB1452 : cognex_dataman_380_Soft_Event_Control_Input_Layout;
+        cognex_dataman_380_Soft_Event_Control_Output AT %QB1416 : cognex_dataman_380_Soft_Event_Control_Output_Layout;
 
-        // Module dm_300/User_Data-64_bytes
-        dm_300_User_Data_64_bytes_Output AT %QB1422 : dm_300_User_Data_64_bytes_Output_Layout;
+        // Module cognex_dataman_380/UserData_128
+        cognex_dataman_380_UserData_128_Output AT %QB1284 : cognex_dataman_380_UserData_128_Output_Layout;
 
-        // Module is2800/Acquisition_Control
-        is2800_Acquisition_Control_Output AT %QB1352 : is2800_Acquisition_Control_Output_Layout;
+        // Module cognex_insight_2800/Acquisition_Control
+        cognex_insight_2800_Acquisition_Control_Output AT %QB2169 : cognex_insight_2800_Acquisition_Control_Output_Layout;
 
-        // Module is2800/Acquisition_Status
-        is2800_Acquisition_Status_Input AT %IB1380 : is2800_Acquisition_Status_Input_Layout;
+        // Module cognex_insight_2800/Acquisition_Status
+        cognex_insight_2800_Acquisition_Status_Input AT %IB2432 : cognex_insight_2800_Acquisition_Status_Input_Layout;
 
-        // Module is2800/Command_Control
-        is2800_Command_Control_Input AT %IB1388 : is2800_Command_Control_Input_Layout;
-        is2800_Command_Control_Output AT %QB1348 : is2800_Command_Control_Output_Layout;
+        // Module cognex_insight_2800/Command_Control
+        cognex_insight_2800_Command_Control_Input AT %IB2440 : cognex_insight_2800_Command_Control_Input_Layout;
+        cognex_insight_2800_Command_Control_Output AT %QB2165 : cognex_insight_2800_Command_Control_Output_Layout;
 
-        // Module is2800/Inspection_Control
-        is2800_Inspection_Control_Output AT %QB1351 : is2800_Inspection_Control_Output_Layout;
+        // Module cognex_insight_2800/Inspection_Control
+        cognex_insight_2800_Inspection_Control_Output AT %QB2168 : cognex_insight_2800_Inspection_Control_Output_Layout;
 
-        // Module is2800/Inspection_Status
-        is2800_Inspection_Status_Input AT %IB1384 : is2800_Inspection_Status_Input_Layout;
+        // Module cognex_insight_2800/Inspection_Status
+        cognex_insight_2800_Inspection_Status_Input AT %IB2436 : cognex_insight_2800_Inspection_Status_Input_Layout;
 
-        // Module is2800/Result_Data-64_bytes
-        is2800_Result_Data_64_bytes_Input AT %IB1312 : is2800_Result_Data_64_bytes_Input_Layout;
+        // Module cognex_insight_2800/ResultData_250
+        cognex_insight_2800_ResultData_250_Input AT %IB2178 : cognex_insight_2800_ResultData_250_Input_Layout;
 
-        // Module is2800/SoftEvent_Control
-        is2800_SoftEvent_Control_Input AT %IB1392 : is2800_SoftEvent_Control_Input_Layout;
-        is2800_SoftEvent_Control_Output AT %QB1350 : is2800_SoftEvent_Control_Output_Layout;
+        // Module cognex_insight_2800/ResultDataAdd_128
+        cognex_insight_2800_ResultDataAdd_128_Input AT %IB1800 : cognex_insight_2800_ResultDataAdd_128_Input_Layout;
 
-        // Module is2800/User_Data-64_bytes
-        is2800_User_Data_64_bytes_Output AT %QB1284 : is2800_User_Data_64_bytes_Output_Layout;
+        // Module cognex_insight_2800/ResultDataAdd_250
+        cognex_insight_2800_ResultDataAdd_250_Input AT %IB1928 : cognex_insight_2800_ResultDataAdd_250_Input_Layout;
 
-        // Module is7600/Acquisition_Control
-        is7600_Acquisition_Control_Output AT %QB1421 : is7600_Acquisition_Control_Output_Layout;
+        // Module cognex_insight_2800/ResultDataAdd_64
+        cognex_insight_2800_ResultDataAdd_64_Input AT %IB1736 : cognex_insight_2800_ResultDataAdd_64_Input_Layout;
 
-        // Module is7600/Acquisition_Status
-        is7600_Acquisition_Status_Input AT %IB1465 : is7600_Acquisition_Status_Input_Layout;
+        // Module cognex_insight_2800/SoftEvent_Control
+        cognex_insight_2800_SoftEvent_Control_Input AT %IB2444 : cognex_insight_2800_SoftEvent_Control_Input_Layout;
+        cognex_insight_2800_SoftEvent_Control_Output AT %QB2167 : cognex_insight_2800_SoftEvent_Control_Output_Layout;
 
-        // Module is7600/Command_Control
-        is7600_Command_Control_Input AT %IB1468 : is7600_Command_Control_Input_Layout;
-        is7600_Command_Control_Output AT %QB1417 : is7600_Command_Control_Output_Layout;
+        // Module cognex_insight_2800/UserData_128
+        cognex_insight_2800_UserData_128_Output AT %QB1783 : cognex_insight_2800_UserData_128_Output_Layout;
 
-        // Module is7600/Inspection_Control
-        is7600_Inspection_Control_Output AT %QB1420 : is7600_Inspection_Control_Output_Layout;
+        // Module cognex_insight_2800/UserData_254
+        cognex_insight_2800_UserData_254_Output AT %QB1911 : cognex_insight_2800_UserData_254_Output_Layout;
 
-        // Module is7600/Inspection_Status
-        is7600_Inspection_Status_Input AT %IB1461 : is7600_Inspection_Status_Input_Layout;
+        // Module cognex_insight_2800/UserData_32
+        cognex_insight_2800_UserData_32_Output AT %QB1687 : cognex_insight_2800_UserData_32_Output_Layout;
 
-        // Module is7600/Result_Data-64_bytes
-        is7600_Result_Data_64_bytes_Input AT %IB1393 : is7600_Result_Data_64_bytes_Input_Layout;
+        // Module cognex_insight_2800/UserData_64
+        cognex_insight_2800_UserData_64_Output AT %QB1719 : cognex_insight_2800_UserData_64_Output_Layout;
 
-        // Module is7600/SoftEvent_Control
-        is7600_SoftEvent_Control_Input AT %IB1470 : is7600_SoftEvent_Control_Input_Layout;
-        is7600_SoftEvent_Control_Output AT %QB1419 : is7600_SoftEvent_Control_Output_Layout;
+        // Module cognex_insight_7600/Acquisition_Control
+        cognex_insight_7600_Acquisition_Control_Output AT %QB1686 : cognex_insight_7600_Acquisition_Control_Output_Layout;
 
-        // Module is7600/User_Data-64_bytes
-        is7600_User_Data_64_bytes_Output AT %QB1353 : is7600_User_Data_64_bytes_Output_Layout;
+        // Module cognex_insight_7600/Acquisition_Status
+        cognex_insight_7600_Acquisition_Status_Input AT %IB1730 : cognex_insight_7600_Acquisition_Status_Input_Layout;
+
+        // Module cognex_insight_7600/Command_Control
+        cognex_insight_7600_Command_Control_Input AT %IB1733 : cognex_insight_7600_Command_Control_Input_Layout;
+        cognex_insight_7600_Command_Control_Output AT %QB1682 : cognex_insight_7600_Command_Control_Output_Layout;
+
+        // Module cognex_insight_7600/Inspection_Control
+        cognex_insight_7600_Inspection_Control_Output AT %QB1685 : cognex_insight_7600_Inspection_Control_Output_Layout;
+
+        // Module cognex_insight_7600/Inspection_Status
+        cognex_insight_7600_Inspection_Status_Input AT %IB1726 : cognex_insight_7600_Inspection_Status_Input_Layout;
+
+        // Module cognex_insight_7600/ResultData_128
+        cognex_insight_7600_ResultData_128_Input AT %IB1594 : cognex_insight_7600_ResultData_128_Input_Layout;
+
+        // Module cognex_insight_7600/SoftEvent_Control
+        cognex_insight_7600_SoftEvent_Control_Input AT %IB1735 : cognex_insight_7600_SoftEvent_Control_Input_Layout;
+        cognex_insight_7600_SoftEvent_Control_Output AT %QB1684 : cognex_insight_7600_SoftEvent_Control_Output_Layout;
+
+        // Module cognex_insight_7600/UserData_128
+        cognex_insight_7600_UserData_128_Output AT %QB1554 : cognex_insight_7600_UserData_128_Output_Layout;
 
         // Module vision_pro/Engine_Control_1
         vision_pro_Engine_Control_1_Input AT %IB1288 : vision_pro_Engine_Control_1_Input_Layout;
@@ -156,14 +174,14 @@ CONFIGURATION IoAddresses
 END_CONFIGURATION
 
 TYPE
-    dm_280_Acquisition_Control_Output_Layout : STRUCT
+    cognex_dataman_280_Acquisition_Control_Output_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    dm_280_Acquisition_Status_Input_Layout : STRUCT
+    cognex_dataman_280_Acquisition_Status_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -173,7 +191,7 @@ TYPE
 END_TYPE
 
 TYPE
-    dm_280_Result_Data_128_bytes_Input_Layout : STRUCT
+    cognex_dataman_280_ResultData_128_Input_Layout : STRUCT
         Signals_0 AT %B0 : WORD;
         Signals_1 AT %B2 : WORD;
         Signals_2 AT %B4 : WORD;
@@ -183,14 +201,14 @@ TYPE
 END_TYPE
 
 TYPE
-    dm_280_Results_Control_Output_Layout : STRUCT
+    cognex_dataman_280_Results_Control_Output_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    dm_280_Results_Status_Input_Layout : STRUCT
+    cognex_dataman_280_Results_Status_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -200,7 +218,7 @@ TYPE
 END_TYPE
 
 TYPE
-    dm_280_Soft_Event_Control_Input_Layout : STRUCT
+    cognex_dataman_280_Soft_Event_Control_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -213,7 +231,7 @@ TYPE
 END_TYPE
 
 TYPE
-    dm_280_Soft_Event_Control_Output_Layout : STRUCT
+    cognex_dataman_280_Soft_Event_Control_Output_Layout : STRUCT
         Signals_8 AT %X0.0 : BOOL;
         Signals_9 AT %X0.1 : BOOL;
         Signals_10 AT %X0.2 : BOOL;
@@ -226,7 +244,7 @@ TYPE
 END_TYPE
 
 TYPE
-    dm_280_User_Data_128_bytes_Output_Layout : STRUCT
+    cognex_dataman_280_UserData_128_Output_Layout : STRUCT
         Signals_0 AT %B0 : WORD;
         Signals_1 AT %B2 : WORD;
         Signals_2 AT %B4 : ARRAY[0..127] OF BYTE;
@@ -234,14 +252,14 @@ TYPE
 END_TYPE
 
 TYPE
-    dm_300_Acquisition_Control_Output_Layout : STRUCT
+    cognex_dataman_380_Acquisition_Control_Output_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    dm_300_Acquisition_Status_Input_Layout : STRUCT
+    cognex_dataman_380_Acquisition_Status_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -251,24 +269,24 @@ TYPE
 END_TYPE
 
 TYPE
-    dm_300_Result_Data_64_bytes_Input_Layout : STRUCT
+    cognex_dataman_380_ResultData_128_Input_Layout : STRUCT
         Signals_0 AT %B0 : WORD;
         Signals_1 AT %B2 : WORD;
         Signals_2 AT %B4 : WORD;
         Signals_3 AT %B6 : WORD;
-        Signals_4 AT %B8 : ARRAY[0..63] OF BYTE;
+        Signals_4 AT %B8 : ARRAY[0..127] OF BYTE;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    dm_300_Results_Control_Output_Layout : STRUCT
+    cognex_dataman_380_Results_Control_Output_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    dm_300_Results_Status_Input_Layout : STRUCT
+    cognex_dataman_380_Results_Status_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -278,7 +296,7 @@ TYPE
 END_TYPE
 
 TYPE
-    dm_300_Soft_Event_Control_Input_Layout : STRUCT
+    cognex_dataman_380_Soft_Event_Control_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -291,7 +309,7 @@ TYPE
 END_TYPE
 
 TYPE
-    dm_300_Soft_Event_Control_Output_Layout : STRUCT
+    cognex_dataman_380_Soft_Event_Control_Output_Layout : STRUCT
         Signals_8 AT %X0.0 : BOOL;
         Signals_9 AT %X0.1 : BOOL;
         Signals_10 AT %X0.2 : BOOL;
@@ -304,15 +322,15 @@ TYPE
 END_TYPE
 
 TYPE
-    dm_300_User_Data_64_bytes_Output_Layout : STRUCT
+    cognex_dataman_380_UserData_128_Output_Layout : STRUCT
         Signals_0 AT %B0 : WORD;
         Signals_1 AT %B2 : WORD;
-        Signals_2 AT %B4 : ARRAY[0..63] OF BYTE;
+        Signals_2 AT %B4 : ARRAY[0..127] OF BYTE;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    is2800_Acquisition_Control_Output_Layout : STRUCT
+    cognex_insight_2800_Acquisition_Control_Output_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -321,7 +339,7 @@ TYPE
 END_TYPE
 
 TYPE
-    is2800_Acquisition_Status_Input_Layout : STRUCT
+    cognex_insight_2800_Acquisition_Status_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -330,25 +348,26 @@ TYPE
         Signals_5 AT %X0.5 : BOOL;
         Signals_6 AT %X0.6 : BOOL;
         Signals_7 AT %X0.7 : BOOL;
-        Signals_8 AT %B2 : WORD;
+        Signals_8 AT %B1 : BYTE;
+        Signals_9 AT %B2 : WORD;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    is2800_Command_Control_Input_Layout : STRUCT
+    cognex_insight_2800_Command_Control_Input_Layout : STRUCT
         Signals_0 AT %B0 : WORD;
         Signals_1 AT %B2 : WORD;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    is2800_Command_Control_Output_Layout : STRUCT
+    cognex_insight_2800_Command_Control_Output_Layout : STRUCT
         Signals_2 AT %B0 : WORD;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    is2800_Inspection_Control_Output_Layout : STRUCT
+    cognex_insight_2800_Inspection_Control_Output_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -358,7 +377,7 @@ TYPE
 END_TYPE
 
 TYPE
-    is2800_Inspection_Status_Input_Layout : STRUCT
+    cognex_insight_2800_Inspection_Status_Input_Layout : STRUCT
         Signals_0 AT %X0.1 : BOOL;
         Signals_1 AT %X0.2 : BOOL;
         Signals_2 AT %X0.3 : BOOL;
@@ -367,21 +386,40 @@ TYPE
         Signals_5 AT %X0.6 : BOOL;
         Signals_6 AT %X0.7 : BOOL;
         Signals_7 AT %X1.0 : BOOL;
-        Signals_8 AT %X1.7 : BOOL;
-        Signals_9 AT %B2 : WORD;
+        Signals_8 AT %X1.1 : BOOL;
+        Signals_9 AT %X1.7 : BOOL;
+        Signals_10 AT %B2 : WORD;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    is2800_Result_Data_64_bytes_Input_Layout : STRUCT
+    cognex_insight_2800_ResultData_250_Input_Layout : STRUCT
         Signals_0 AT %B0 : WORD;
         Signals_1 AT %B2 : WORD;
-        Signals_2 AT %B4 : ARRAY[0..63] OF BYTE;
+        Signals_2 AT %B4 : ARRAY[0..249] OF BYTE;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    is2800_SoftEvent_Control_Input_Layout : STRUCT
+    cognex_insight_2800_ResultDataAdd_128_Input_Layout : STRUCT
+        Signals_0 AT %B0 : ARRAY[0..127] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    cognex_insight_2800_ResultDataAdd_250_Input_Layout : STRUCT
+        Signals_0 AT %B0 : ARRAY[0..249] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    cognex_insight_2800_ResultDataAdd_64_Input_Layout : STRUCT
+        Signals_0 AT %B0 : ARRAY[0..63] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    cognex_insight_2800_SoftEvent_Control_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -394,7 +432,7 @@ TYPE
 END_TYPE
 
 TYPE
-    is2800_SoftEvent_Control_Output_Layout : STRUCT
+    cognex_insight_2800_SoftEvent_Control_Output_Layout : STRUCT
         Signals_8 AT %X0.0 : BOOL;
         Signals_9 AT %X0.1 : BOOL;
         Signals_10 AT %X0.2 : BOOL;
@@ -407,13 +445,31 @@ TYPE
 END_TYPE
 
 TYPE
-    is2800_User_Data_64_bytes_Output_Layout : STRUCT
+    cognex_insight_2800_UserData_128_Output_Layout : STRUCT
+        Signals_0 AT %B0 : ARRAY[0..127] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    cognex_insight_2800_UserData_254_Output_Layout : STRUCT
+        Signals_0 AT %B0 : ARRAY[0..253] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    cognex_insight_2800_UserData_32_Output_Layout : STRUCT
+        Signals_0 AT %B0 : ARRAY[0..31] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    cognex_insight_2800_UserData_64_Output_Layout : STRUCT
         Signals_0 AT %B0 : ARRAY[0..63] OF BYTE;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    is7600_Acquisition_Control_Output_Layout : STRUCT
+    cognex_insight_7600_Acquisition_Control_Output_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -422,7 +478,7 @@ TYPE
 END_TYPE
 
 TYPE
-    is7600_Acquisition_Status_Input_Layout : STRUCT
+    cognex_insight_7600_Acquisition_Status_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -436,19 +492,19 @@ TYPE
 END_TYPE
 
 TYPE
-    is7600_Command_Control_Input_Layout : STRUCT
+    cognex_insight_7600_Command_Control_Input_Layout : STRUCT
         Signals_0 AT %B0 : WORD;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    is7600_Command_Control_Output_Layout : STRUCT
+    cognex_insight_7600_Command_Control_Output_Layout : STRUCT
         Signals_1 AT %B0 : WORD;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    is7600_Inspection_Control_Output_Layout : STRUCT
+    cognex_insight_7600_Inspection_Control_Output_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -458,7 +514,7 @@ TYPE
 END_TYPE
 
 TYPE
-    is7600_Inspection_Status_Input_Layout : STRUCT
+    cognex_insight_7600_Inspection_Status_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -475,15 +531,15 @@ TYPE
 END_TYPE
 
 TYPE
-    is7600_Result_Data_64_bytes_Input_Layout : STRUCT
+    cognex_insight_7600_ResultData_128_Input_Layout : STRUCT
         Signals_0 AT %B0 : WORD;
         Signals_1 AT %B2 : WORD;
-        Signals_2 AT %B4 : ARRAY[0..63] OF BYTE;
+        Signals_2 AT %B4 : ARRAY[0..127] OF BYTE;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    is7600_SoftEvent_Control_Input_Layout : STRUCT
+    cognex_insight_7600_SoftEvent_Control_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -496,7 +552,7 @@ TYPE
 END_TYPE
 
 TYPE
-    is7600_SoftEvent_Control_Output_Layout : STRUCT
+    cognex_insight_7600_SoftEvent_Control_Output_Layout : STRUCT
         Signals_8 AT %X0.0 : BOOL;
         Signals_9 AT %X0.1 : BOOL;
         Signals_10 AT %X0.2 : BOOL;
@@ -509,8 +565,8 @@ TYPE
 END_TYPE
 
 TYPE
-    is7600_User_Data_64_bytes_Output_Layout : STRUCT
-        Signals_0 AT %B0 : ARRAY[0..63] OF BYTE;
+    cognex_insight_7600_UserData_128_Output_Layout : STRUCT
+        Signals_0 AT %B0 : ARRAY[0..127] OF BYTE;
     END_STRUCT;
 END_TYPE
 

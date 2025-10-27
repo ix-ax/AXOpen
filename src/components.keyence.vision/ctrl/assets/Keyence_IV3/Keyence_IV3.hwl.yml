@@ -1,0 +1,397 @@
+Templates:
+  Devices:
+    - Name: 'Keyence_IV3'
+      Placeholders:
+        - Name: 'NAME'
+          Value: 'keyence_iv3'
+        - Name: 'IP_ADDRESS_X1'
+          Value: '192.168.100.1/24'
+        - Name: 'PROFINET_DEVICE_NAME_X1'
+          Value: 'keyence_iv3'
+      Content:
+        Name: '${NAME}'
+        Modules:
+          - Name: '${NAME}'
+            TypeIdentifier:
+              FileName: 'GSDML-V2.4-KEYENCE-IV3-20211102.XML'
+              GsdId: 'DAP1'
+            Interfaces:
+            - Name: 'Interface'
+              Label: 'X1'
+              Addresses:
+                Configured:
+                - IPv4: '${IP_ADDRESS_X1}'
+                - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+              Parameters:
+                AdditionalInformation: ""
+                LocationIdentifier: ""
+                PlantDesignation: ""
+                IECV22LLDPMode: False
+                # PrioritizedStartup (Boolean)
+            Ports:
+            - Name: 'Port_1'
+              Label: 'X1 P1'
+              Parameters:
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                EndOfDetectionOfAccessibleDevices: False
+                EndOfTopologyDiscovery: False
+                PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # CableName: 0
+                # MediumAttachmentType: 'Copper'
+          - Name: CommandControl
+            TypeIdentifier:
+              FileName: 'GSDML-V2.4-KEYENCE-IV3-20211102.XML'
+              GsdId: '101'
+            Slot: 1
+          - Name: CommandStatusBits
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '201'
+            Slot: 2
+          - Name: DeviceResultBits_1
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '202'
+            Slot: 3
+          - Name: DeviceStatusWords
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '203'
+            Slot: 4
+          - Name: DeviceStatistics
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '204'
+            Slot: 5
+          - Name: PositionAdjustResult
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '301'
+            Slot: 6
+          - Name: ToolResult_1
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 7
+          - Name: ToolResult_2
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 8
+          - Name: ToolResult_3
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 9
+          - Name: ToolResult_4
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 10
+          - Name: ToolResult_5
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 11
+          - Name: ToolResult_6
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 12
+          - Name: ToolResult_7
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 13
+          - Name: ToolResult_8
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 14
+          - Name: ToolResult_9
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 15
+          - Name: ToolResult_10
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 16
+          - Name: ToolResult_11
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 17
+          - Name: ToolResult_12
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 18
+          - Name: ToolResult_13
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 19
+          - Name: ToolResult_14
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 20
+          - Name: ToolResult_15
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 21
+          - Name: ToolResult_16
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 22
+          - Name: ToolResult_17
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 23
+          - Name: ToolResult_18
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 24
+          - Name: ToolResult_19
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 25
+          - Name: ToolResult_20
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 26
+          - Name: ToolResult_21
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 27
+          - Name: ToolResult_22
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 28
+          - Name: ToolResult_23
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 29
+          - Name: ToolResult_24
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 30
+          - Name: ToolResult_25
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 31
+          - Name: ToolResult_26
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 32
+          - Name: ToolResult_27
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 33
+          - Name: ToolResult_28
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 34
+          - Name: ToolResult_29
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 35
+          - Name: ToolResult_30
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 36
+          - Name: ToolResult_31
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 37
+          - Name: ToolResult_32
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 38
+          - Name: ToolResult_33
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 39
+          - Name: ToolResult_34
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 40
+          - Name: ToolResult_35
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 41
+          - Name: ToolResult_36
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 42
+          - Name: ToolResult_37
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 43
+          - Name: ToolResult_38
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 44
+          - Name: ToolResult_39
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 45
+          - Name: ToolResult_40
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 46
+          - Name: ToolResult_41
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 47
+          - Name: ToolResult_42
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 48
+          - Name: ToolResult_43
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 49
+          - Name: ToolResult_44
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 50
+          - Name: ToolResult_45
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 51
+          - Name: ToolResult_46
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 52
+          - Name: ToolResult_47
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 53
+          - Name: ToolResult_48
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 54
+          - Name: ToolResult_49
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 55
+          - Name: ToolResult_50
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 56
+          - Name: ToolResult_51
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 57
+          - Name: ToolResult_52
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 58
+          - Name: ToolResult_53
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 59
+          - Name: ToolResult_54
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 60
+          - Name: ToolResult_55
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 61
+          - Name: ToolResult_56
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 62
+          - Name: ToolResult_57
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 63
+          - Name: ToolResult_58
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 64
+          - Name: ToolResult_59
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 65
+          - Name: ToolResult_60
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 66
+          - Name: ToolResult_61
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 67
+          - Name: ToolResult_62
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 68
+          - Name: ToolResult_63
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 69
+          - Name: ToolResult_64
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '302'
+            Slot: 70
+          - Name: DeviceResultBits_2
+            TypeIdentifier:
+              FileName: GSDML-V2.4-Keyence-IV3-20211102.xml
+              GsdId: '401'
+            Slot: 71

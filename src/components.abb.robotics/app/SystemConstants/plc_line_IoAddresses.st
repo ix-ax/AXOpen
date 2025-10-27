@@ -1,22 +1,22 @@
 CONFIGURATION IoAddresses
     VAR_GLOBAL
 
-        // Module OmniCore/DI_64_bytes
-        OmniCore_DI_64_bytes_Input AT %IB0 : OmniCore_DI_64_bytes_Input_Layout;
+        // Module abb_irc5_robot/DI_64_bytes
+        abb_irc5_robot_DI_64_bytes_Input AT %IB64 : abb_irc5_robot_DI_64_bytes_Input_Layout;
 
-        // Module OmniCore/DO_64_bytes
-        OmniCore_DO_64_bytes_Output AT %QB0 : OmniCore_DO_64_bytes_Output_Layout;
+        // Module abb_irc5_robot/DO_64_bytes
+        abb_irc5_robot_DO_64_bytes_Output AT %QB64 : abb_irc5_robot_DO_64_bytes_Output_Layout;
 
-        // Module RobotBasicIO/DI_64_bytes
-        RobotBasicIO_DI_64_bytes_Input AT %IB64 : RobotBasicIO_DI_64_bytes_Input_Layout;
+        // Module abb_omnicore_robot/DI_64_bytes
+        abb_omnicore_robot_DI_64_bytes_Input AT %IB0 : abb_omnicore_robot_DI_64_bytes_Input_Layout;
 
-        // Module RobotBasicIO/DO_64_bytes
-        RobotBasicIO_DO_64_bytes_Output AT %QB64 : RobotBasicIO_DO_64_bytes_Output_Layout;
+        // Module abb_omnicore_robot/DO_64_bytes
+        abb_omnicore_robot_DO_64_bytes_Output AT %QB0 : abb_omnicore_robot_DO_64_bytes_Output_Layout;
     END_VAR
 END_CONFIGURATION
 
 TYPE
-    OmniCore_DI_64_bytes_Input_Layout : STRUCT
+    abb_irc5_robot_DI_64_bytes_Input_Layout : STRUCT
         Signals_0_0 AT %X0.0 : BOOL;
         Signals_0_1 AT %X0.1 : BOOL;
         Signals_0_2 AT %X0.2 : BOOL;
@@ -533,7 +533,7 @@ TYPE
 END_TYPE
 
 TYPE
-    OmniCore_DO_64_bytes_Output_Layout : STRUCT
+    abb_irc5_robot_DO_64_bytes_Output_Layout : STRUCT
         Signals_0_0 AT %X0.0 : BOOL;
         Signals_0_1 AT %X0.1 : BOOL;
         Signals_0_2 AT %X0.2 : BOOL;
@@ -1050,7 +1050,7 @@ TYPE
 END_TYPE
 
 TYPE
-    RobotBasicIO_DI_64_bytes_Input_Layout : STRUCT
+    abb_omnicore_robot_DI_64_bytes_Input_Layout : STRUCT
         Signals_0_0 AT %X0.0 : BOOL;
         Signals_0_1 AT %X0.1 : BOOL;
         Signals_0_2 AT %X0.2 : BOOL;
@@ -1567,7 +1567,7 @@ TYPE
 END_TYPE
 
 TYPE
-    RobotBasicIO_DO_64_bytes_Output_Layout : STRUCT
+    abb_omnicore_robot_DO_64_bytes_Output_Layout : STRUCT
         Signals_0_0 AT %X0.0 : BOOL;
         Signals_0_1 AT %X0.1 : BOOL;
         Signals_0_2 AT %X0.2 : BOOL;

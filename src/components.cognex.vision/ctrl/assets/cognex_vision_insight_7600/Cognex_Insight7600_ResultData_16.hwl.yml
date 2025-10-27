@@ -1,0 +1,9 @@
+Templates:
+  Modules:
+  - Name: 'Cognex_Insight7600_ResultData_16'
+    Content:
+      Name: 'ResultData_16'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.34-COGNEX-INSIGHTCLASSB-20200327.XML'
+        GsdId: '401'
+      Slot: 8        

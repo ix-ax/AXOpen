@@ -15,10 +15,10 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             RETURN;
             
             _sr_750.Run(        inParent                                          :=   _rootObject,
-                                hwID                                            :=   HwIdentifiers#sr_750_1_HwID);
+                                hwID                                            :=   HwIdentifiers#keyence_sr_750_HwID);
 
             _sr_1000.Run(       inParent                                          :=   _rootObject,
-                                hwID                                            :=   HwIdentifiers#sr_1000_1_HwID);
+                                hwID                                            :=   HwIdentifiers#keyence_sr_1000_HwID);
 
 
             IF(_manualControl) THEN

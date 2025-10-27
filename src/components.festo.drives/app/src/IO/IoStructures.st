@@ -2,7 +2,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Input_Layout : STRUCT
+	    festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Input_Layout : STRUCT
 	        Signals_0 AT %X0.0 : BOOL;
 	        Signals_1 AT %X0.1 : BOOL;
 	        Signals_2 AT %X0.2 : BOOL;
@@ -94,7 +94,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Output_Layout : STRUCT
+	    festo_cmmtas_DoServo_SiemensTelegram111_PZD_12_12_Output_Layout : STRUCT
 	        Signals_85 AT %X0.0 : BOOL;
 	        Signals_86 AT %X0.1 : BOOL;
 	        Signals_87 AT %X0.2 : BOOL;
@@ -171,7 +171,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Input_Layout : STRUCT
+	    festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Input_Layout : STRUCT
 	        Signals_0 AT %B0 : WORD;
 	    END_STRUCT;
 	END_TYPE
@@ -179,7 +179,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Output_Layout : STRUCT
+	    festo_cmmtas_DoServo_SiemensTelegram750_PZD_4_1_Output_Layout : STRUCT
 	        Signals_1 AT %B0 : WORD;
 	        Signals_2 AT %B2 : WORD;
 	        Signals_3 AT %B4 : WORD;

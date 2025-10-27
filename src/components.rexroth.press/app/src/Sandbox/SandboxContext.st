@@ -11,7 +11,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
         METHOD PROTECTED OVERRIDE Main
             THIS.InitializeRootObject(_rootObject);
             AxoSmartFunctionKit.Run(inParent              :=  _rootObject,                             
-                                    hwID                :=  HwIdentifiers#SFK_HwID);
+                                    hwID                :=  HwIdentifiers#rexroth_press_HwID);
 
             IF(ActivateManualControl) THEN
                 AxoSmartFunctionKit.ActivateManualControl();

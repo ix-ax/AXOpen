@@ -111,8 +111,7 @@ if [[ "$(printf '%s\n' "$hwcv" "3.4.0" | sort -V | head -n1)" == "$hwcv" && "$hw
 	' "$input_file"
 
 	echo -e "${GREEN}Done. Files written to $output_dir${NC}"
-# Condition 2: exactly 3.4.0
-elif [[ "$hwcv" == "3.4.0" ]]; then
+else
 	# echo "input_file: $input_file"
 	# echo "output_dir: $output_dir"
 	# echo "output_file_inputs: $output_file_inputs"
@@ -131,6 +130,4 @@ elif [[ "$hwcv" == "3.4.0" ]]; then
 										  -NAMESPACE "$NAMESPACE"
 	exitCode=$?  
 	echo "exitCode: $exitCode"
-else
-    echo "Hwc version is above 3.4.0, not yet tested."
 fi

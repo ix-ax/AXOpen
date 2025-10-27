@@ -29,8 +29,8 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             END_IF;
 
             //<Initialization>        
-            AxoSmartFunctionKit.Run(inParent            :=  THIS,                             
-                                    hwID                :=  HwIdentifiers#SFK_HwID);
+            AxoSmartFunctionKit.Run(inParent              :=  THIS,                             
+                                    hwID                :=  HwIdentifiers#rexroth_press_HwID);
 
             AxoSmartFunctionKit.Config.InfoTime := T#10s;             
             AxoSmartFunctionKit.Config.ErrorTime := T#30s;             
