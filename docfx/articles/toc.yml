@@ -3,6 +3,8 @@
 - name: Templates and app notes        
   href: ~/articles/notes/README.md
   items:
+  - name: Application Setup Guide
+    href: ~/articles/notes/Application_Setup.md
   - name: Template themes
     href: ~/articles/notes/Themes.md
   - name: Template localization
