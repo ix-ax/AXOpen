@@ -7,11 +7,11 @@
   <ItemGroup>
     <GlobalPackageReference Include="GitVersion.MsBuild" Version="5.10.3" />
     <!-- AX# START -->
-    <PackageVersion Include="AXSharp.Abstractions" Version="0.43.1-dev-flux.305" />
-    <PackageVersion Include="AXSharp.Connector" Version="0.43.1-dev-flux.305" />
-    <PackageVersion Include="AXSharp.Connector.S71500.WebAPI" Version="0.43.1-dev-flux.305" />
-    <PackageVersion Include="AXSharp.Presentation.Blazor" Version="0.43.1-dev-flux.305" />
-    <PackageVersion Include="AXSharp.Presentation.Blazor.Controls" Version="0.43.1-dev-flux.305" />
+    <PackageVersion Include="AXSharp.Abstractions" Version="0.44.1-alpha.311" />
+    <PackageVersion Include="AXSharp.Connector" Version="0.44.1-alpha.311" />
+    <PackageVersion Include="AXSharp.Connector.S71500.WebAPI" Version="0.44.1-alpha.311" />
+    <PackageVersion Include="AXSharp.Presentation.Blazor" Version="0.44.1-alpha.311" />
+    <PackageVersion Include="AXSharp.Presentation.Blazor.Controls" Version="0.44.1-alpha.311" />
     <PackageVersion Include="Inxton.Operon" Version="0.2.0-dev-flux.97" />
     <!-- AX# END -->
     <!-- Other -->
@@ -73,6 +73,7 @@
     <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.0" Condition="'$(TargetFramework)' == 'net8.0'" />
   </ItemGroup>
 </Project>
+
 
 
 
