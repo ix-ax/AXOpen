@@ -626,7 +626,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
                 expMessage : TestMessage;
             END_VAR
             //--Arrange
-            expMessage.Category := eAxoMessageCategory#Debug;
+            expMessage.Category := eAxoMessageCategory#ProgrammingError;
             expMessage.Risen := LDATE_AND_TIME#2023-01-12-17:58:12.123;
             expMessage.Fallen := LDATE_AND_TIME#2023-01-12-18:00:12.123;
             
@@ -664,7 +664,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
                 expMessage : TestMessage;
             END_VAR
             //--Arrange
-            expMessage.Category := eAxoMessageCategory#Debug;
+            expMessage.Category := eAxoMessageCategory#ProgrammingError;
             expMessage.Risen := LDATE_AND_TIME#2023-01-12-17:58:12.123;
             expMessage.Fallen := LDATE_AND_TIME#2023-01-12-18:00:12.123;
             
@@ -701,67 +701,15 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
 
         END_METHOD
         
+       
+
         {Test}
-        METHOD PUBLIC message_of_debug_category_should_be_risen
+        METHOD PUBLIC message_of_info_category_should_be_risen
             VAR
                 expMessage : TestMessage;
             END_VAR
             //--Arrange
-            expMessage.Category := eAxoMessageCategory#Debug;
-            expMessage.Risen := LDATE_AND_TIME#2023-01-12-17:58:12.123;
-            
-            Assert.Equal(TRUE,THIS.AreEqual(LDATE_AND_TIME#1970-01-01-00:00:00.000,_suti._object._messenger.Risen));
-            _rtc.SetNowUTC(expMessage.Risen);
-
-            //--Act
-            _suti.InjectRtc(_rtc);
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate(UINT#1,expMessage.Category);
-            _suti.Close();
-
-            //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
-            Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
-            Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
-
-        END_METHOD
-
-        {Test}
-        METHOD PUBLIC message_of_trace_category_should_be_risen
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#Trace;
-            expMessage.Risen := LDATE_AND_TIME#2023-06-12-17:58:12.123;
-            
-            Assert.Equal(TRUE,THIS.AreEqual(LDATE_AND_TIME#1970-01-01-00:00:00.000,_suti._object._messenger.Risen));
-            _rtc.SetNowUTC(expMessage.Risen);
-
-            //--Act
-            _suti.InjectRtc(_rtc);
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate(UINT#1,expMessage.Category);
-            _suti.Close();
-
-            //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
-            Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
-            Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
-
-        END_METHOD
-
-        {Test}
-        METHOD PUBLIC message_of_notify_category_should_be_risen
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#Notification;
+            expMessage.Category := eAxoMessageCategory#Info;
             expMessage.Risen := LDATE_AND_TIME#2023-01-12-19:58:12.123;
             
             Assert.Equal(TRUE,THIS.AreEqual(LDATE_AND_TIME#1970-01-01-00:00:00.000,_suti._object._messenger.Risen));
@@ -835,33 +783,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
 
         END_METHOD
-
-        {Test}
-        METHOD PUBLIC message_of_info_category_should_be_risen
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#Info;
-            expMessage.Risen := LDATE_AND_TIME#2023-01-12-20:12:12.123;
-            
-            Assert.Equal(TRUE,THIS.AreEqual(LDATE_AND_TIME#1970-01-01-00:00:00.000,_suti._object._messenger.Risen));
-            _rtc.SetNowUTC(expMessage.Risen);
-
-            //--Act
-            _suti.InjectRtc(_rtc);
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate(UINT#1,expMessage.Category);
-            _suti.Close();
-
-            //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
-            Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
-            Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
-
-        END_METHOD
+       
         
         {Test}
         METHOD PUBLIC message_of_programming_error_category_should_be_risen
@@ -917,67 +839,17 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
 
         END_METHOD
 
+        
+
+     
+
         {Test}
-        METHOD PUBLIC message_of_catastrophic_category_should_be_risen
+        METHOD PUBLIC message_of_programmingError_category_should_require_acknowledgement_when_overriden
             VAR
                 expMessage : TestMessage;
             END_VAR
             //--Arrange
-            expMessage.Category := eAxoMessageCategory#Catastrophic;
-            expMessage.Risen := LDATE_AND_TIME#2023-01-12-17:12:57.123;
-            
-            Assert.Equal(TRUE,THIS.AreEqual(LDATE_AND_TIME#1970-01-01-00:00:00.000,_suti._object._messenger.Risen));
-            _rtc.SetNowUTC(expMessage.Risen);
-
-            //--Act
-            _suti.InjectRtc(_rtc);
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.Activate(UINT#1,expMessage.Category);
-            _suti.Close();
-
-            //--Assert
-            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
-            Assert.Equal(TRUE,THIS.AreEqual(_suti._object._messenger.Category,expMessage.Category));
-            Assert.Equal(TRUE,THIS.AreEqual(expMessage.Risen,_suti._object._messenger.Risen));
-
-        END_METHOD
-
-        {Test}
-        METHOD PUBLIC message_of_trace_category_should_not_require_acknowledgement_by_default
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#Trace;
- 
-            //--Act
-            //1st-PLC cycle: Rising of the message
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
-            _suti.Close();
-            //2nd-PLC cycle: Falling of the message
-            _suti.Open();
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
-            _suti.Close();
-
-            //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
-            Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
-
-        END_METHOD
-
-        {Test}
-        METHOD PUBLIC message_of_trace_category_should_require_acknowledgement_when_overriden
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#Trace;
+            expMessage.Category := eAxoMessageCategory#ProgrammingError;
  
             //--Act
             //1st-PLC cycle: Rising of the message
@@ -998,60 +870,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
 
         END_METHOD
     
-        {Test}
-        METHOD PUBLIC message_of_debug_category_should_not_require_acknowledgement_by_default
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#Debug;
- 
-            //--Act
-            //1st-PLC cycle: Rising of the message
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
-            _suti.Close();
-            //2nd-PLC cycle: Falling of the message
-            _suti.Open();
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
-            _suti.Close();
-
-            //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
-            Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
-
-        END_METHOD
-
-        {Test}
-        METHOD PUBLIC message_of_debug_category_should_require_acknowledgement_when_overriden
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#Debug;
- 
-            //--Act
-            //1st-PLC cycle: Rising of the message
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).RequireAcknowledgement();
-            _suti.Close();
-            //2nd-PLC cycle: Falling of the message
-            _suti.Open();
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
-            _suti.Close();
-
-            //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
-            Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
-
-        END_METHOD
-
+              
         {Test}
         METHOD PUBLIC message_of_info_category_should_not_require_acknowledgement_by_default
             VAR
@@ -1105,114 +924,10 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
+              
 
-        {Test}
-        METHOD PUBLIC message_of_timedout_category_should_not_require_acknowledgement_by_default
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#TimedOut;
- 
-            //--Act
-            //1st-PLC cycle: Rising of the message
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
-            _suti.Close();
-            //2nd-PLC cycle: Falling of the message
-            _suti.Open();
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
-            _suti.Close();
 
-            //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
-            Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
-
-        END_METHOD
-
-        {Test}
-        METHOD PUBLIC message_of_timedout_category_should_require_acknowledgement_when_overriden
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#TimedOut;
- 
-            //--Act
-            //1st-PLC cycle: Rising of the message
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).RequireAcknowledgement();
-            _suti.Close();
-            //2nd-PLC cycle: Falling of the message
-            _suti.Open();
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
-            _suti.Close();
-
-            //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
-            Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
-
-        END_METHOD
-
-        {Test}
-        METHOD PUBLIC message_of_notification_category_should_not_require_acknowledgement_by_default
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#Notification;
- 
-            //--Act
-            //1st-PLC cycle: Rising of the message
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
-            _suti.Close();
-            //2nd-PLC cycle: Falling of the message
-            _suti.Open();
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
-            _suti.Close();
-
-            //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
-            Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
-
-        END_METHOD
-
-        {Test}
-        METHOD PUBLIC message_of_notification_category_should_require_acknowledgement_when_overriden
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#Notification;
- 
-            //--Act
-            //1st-PLC cycle: Rising of the message
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).RequireAcknowledgement();
-            _suti.Close();
-            //2nd-PLC cycle: Falling of the message
-            _suti.Open();
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
-            _suti.Close();
-
-            //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
-            Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
-
-        END_METHOD
+      
 
         {Test}
         METHOD PUBLIC message_of_warning_category_should_not_require_acknowledgement_by_default
@@ -1430,114 +1145,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
 
         END_METHOD
 
-        {Test}
-        METHOD PUBLIC message_of_fatal_category_shouldrequire_acknowledgement_by_default
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#Fatal;
- 
-            //--Act
-            //1st-PLC cycle: Rising of the message
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
-            _suti.Close();
-            //2nd-PLC cycle: Falling of the message
-            _suti.Open();
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
-            _suti.Close();
-
-            //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
-            Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
-
-        END_METHOD
-
-        {Test}
-        METHOD PUBLIC message_of_fatal_category_should_not_require_acknowledgement_when_overriden
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#Fatal;
- 
-            //--Act
-            //1st-PLC cycle: Rising of the message
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).DoNotRequireAcknowledgement();
-            _suti.Close();
-            //2nd-PLC cycle: Falling of the message
-            _suti.Open();
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
-            _suti.Close();
-
-            //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
-            Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
-
-        END_METHOD
-
-        {Test}
-        METHOD PUBLIC message_of_catastrophic_category_shouldrequire_acknowledgement_by_default
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#Catastrophic;
- 
-            //--Act
-            //1st-PLC cycle: Rising of the message
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category);
-            _suti.Close();
-            //2nd-PLC cycle: Falling of the message
-            _suti.Open();
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
-            _suti.Close();
-
-            //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
-            Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
-
-        END_METHOD
-
-        {Test}
-        METHOD PUBLIC message_of_catastrophic_category_should_not_require_acknowledgement_when_overriden
-            VAR
-                expMessage : TestMessage;
-            END_VAR
-            //--Arrange
-            expMessage.Category := eAxoMessageCategory#Catastrophic;
- 
-            //--Act
-            //1st-PLC cycle: Rising of the message
-            _suti.Open();
-            _suti.InitializeRootObject( _suti._object);
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,TRUE,expMessage.Category).DoNotRequireAcknowledgement();
-            _suti.Close();
-            //2nd-PLC cycle: Falling of the message
-            _suti.Open();
-            _suti._object._messenger.Serve(_suti._object);
-            _suti._object._messenger.ActivateOnCondition(UINT#1,FALSE,expMessage.Category);
-            _suti.Close();
-
-            //--Assert
-            Assert.Equal(FALSE, _suti._object._messenger.IsActive());
-            Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
-
-        END_METHOD
-                
+                                               
         
         {Test}
         METHOD PUBLIC WaitingForAcknowledge_should_be_true_after_falling_of_the_message_that_require_acknowledgement

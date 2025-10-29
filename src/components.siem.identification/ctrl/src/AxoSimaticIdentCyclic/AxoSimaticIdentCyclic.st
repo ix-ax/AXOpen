@@ -182,7 +182,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent      :   IAxoObject;
+                inParent    :   IAxoObject;
                 hwID        :   UINT;   //	Hardware ID address of the communication module
                 Port        :   eAxoSimaticIdentCyclic_Port := eAxoSimaticIdentCyclic_Port#NONE;
             END_VAR
@@ -193,14 +193,14 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 _index      :   INT;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             Messenger.Serve(THIS);
             
             Progress := _progress;
 
             IF NOT _initHwCheckDone THEN
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(UINT#700, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#700;
                     RETURN;
@@ -455,7 +455,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
     
                 Config.Port := Port;
 
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(UINT#1130,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1130;
                     RETURN;

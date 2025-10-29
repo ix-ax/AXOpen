@@ -15,6 +15,11 @@ namespace AXOpen.Core;
 
 public partial class AxoSequencer
 {
+    /// <summary>
+    /// List of object associated with the sequencer.
+    /// </summary>
+    public IEnumerable<ITwinObject> Associates { get; set; } = new List<ITwinObject>();
+
     partial void PostConstruct(ITwinObject parent, string readableTail, string symbolTail)
     {
        

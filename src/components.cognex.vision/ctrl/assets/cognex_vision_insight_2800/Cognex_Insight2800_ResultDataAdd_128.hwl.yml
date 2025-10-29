@@ -1,0 +1,16 @@
+Templates:
+  Modules:
+  - Name: 'Cognex_Insight2800_ResultDataAdd_128'
+    Placeholders:
+      - Name: 'SLOT'
+        Value: 12
+        AllowedValues:
+          - 12
+          - 13
+          - 14
+    Content:
+      Name: 'ResultDataAdd_128'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
+        GsdId: '409'
+      Slot: '${SLOT}'        

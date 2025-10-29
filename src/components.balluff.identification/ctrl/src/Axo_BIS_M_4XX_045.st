@@ -161,7 +161,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent      : IAxoObject;
+                inParent      : IAxoObject;
                 hwID        :   UINT;   
                 // hwId_BISM   :   WORD;   //  Hardware Id of the reader 
             END_VAR
@@ -170,13 +170,13 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 i : INT;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
             
             Messenger.Serve(THIS);
     
             Config.HWIDs.HW_Device := hwID;
             IF NOT _initHwCheckDone THEN
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(UINT#700, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#700;
                     RETURN;

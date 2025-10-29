@@ -14,7 +14,7 @@ NAMESPACE AXOpen.Components.Drives
             IF(_manualControl) THEN            
                 _testDrive.ActivateManualControl();
             END_IF;   
-            _testDrive.Run(parent           :=  _rootObject,
+            _testDrive.Run(inParent           :=  _rootObject,
                             AxisRef         :=  _AxisRef,
                             Enable          :=  TRUE,
                             EnablePositive  :=  TRUE,

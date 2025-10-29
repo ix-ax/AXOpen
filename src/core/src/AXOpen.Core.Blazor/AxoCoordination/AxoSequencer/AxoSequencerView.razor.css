@@ -1,0 +1,347 @@
+/* ===================================
+   FLUX SEQUENCER COMPONENT STYLES
+   =================================== */
+
+.flux-sequencer {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-secondary);
+    border-radius: 1rem;
+    padding: 1rem;
+    transition: all 300ms ease;
+    width: 100%;
+}
+
+/* ===== HEADER ===== */
+
+.flux-sequencer__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.flux-sequencer__title-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.flux-sequencer__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+.flux-sequencer__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.flux-sequencer__duration {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.35rem 0.65rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-primary);
+    transition: all 300ms ease;
+}
+
+.flux-sequencer__icon {
+    color: var(--text-muted);
+    transition: color 300ms ease;
+}
+
+.flux-sequencer__error-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: rgba(239, 68, 68, 0.15);
+    color: rgba(248, 113, 113, 0.9);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    cursor: help;
+    transition: all 200ms ease;
+}
+
+.flux-sequencer__error-badge:hover {
+    transform: scale(1.1);
+    background: rgba(239, 68, 68, 0.25);
+}
+
+:root[data-theme="light"] .flux-sequencer__error-badge {
+    color: rgba(220, 38, 38, 1);
+}
+
+/* ===== CURRENT STEP ===== */
+
+.flux-sequencer__current-step {
+    padding: 0.75rem;
+    background: var(--bg-secondary);
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-secondary);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 300ms ease;
+}
+
+.flux-sequencer__current-step-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.flux-sequencer__current-step-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+/* ===== CONTROLS ===== */
+
+.flux-sequencer__controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+}
+
+/* ===== TOGGLE PILL BUTTON ===== */
+
+.flux-toggle-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 1.5rem;
+    border-radius: 999px;
+    border: 2px solid var(--border-primary);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    transition: all 300ms ease;
+    min-width: 200px;
+    justify-content: flex-start;
+}
+
+.flux-toggle-pill:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: rgba(148, 163, 184, 0.45);
+}
+
+.flux-toggle-pill:focus-visible {
+    outline: 2px solid rgba(148, 163, 184, 0.65);
+    outline-offset: 2px;
+}
+
+.flux-toggle-pill__indicator {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    background: var(--border-primary);
+    flex-shrink: 0;
+    transition: all 300ms ease;
+    position: relative;
+}
+
+.flux-toggle-pill__indicator::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0;
+    animation: none;
+}
+
+.flux-toggle-pill__label {
+    flex: 1;
+    text-align: left;
+}
+
+/* Active State (Step Mode Enabled) */
+.flux-toggle-pill--active {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.1));
+    border-color: rgba(251, 191, 36, 0.5);
+    color: rgba(251, 191, 36, 0.95);
+}
+
+:root[data-theme="light"] .flux-toggle-pill--active {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.12), rgba(245, 158, 11, 0.08));
+    color: rgba(217, 119, 6, 1);
+    border-color: rgba(251, 191, 36, 0.6);
+}
+
+.flux-toggle-pill--active:hover {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.15));
+    border-color: rgba(251, 191, 36, 0.6);
+}
+
+.flux-toggle-pill--active .flux-toggle-pill__indicator {
+    background: rgba(251, 191, 36, 0.9);
+    box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.2);
+}
+
+:root[data-theme="light"] .flux-toggle-pill--active .flux-toggle-pill__indicator {
+    background: rgba(217, 119, 6, 1);
+}
+
+.flux-toggle-pill--active .flux-toggle-pill__indicator::after {
+    opacity: 1;
+    animation: flux-toggle-pulse 2s ease-in-out infinite;
+}
+
+@keyframes flux-toggle-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+.flux-sequencer__step-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 0.75rem;
+    border-left: 2px solid var(--border-primary);
+}
+
+/* ===== ERROR DETAILS ===== */
+
+.flux-sequencer__error-details {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(239, 68, 68, 0.04));
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 0.75rem;
+    color: rgba(248, 113, 113, 0.95);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    animation: flux-error-fade-in 300ms ease;
+}
+
+:root[data-theme="light"] .flux-sequencer__error-details {
+    background: linear-gradient(135deg, rgba(254, 202, 202, 0.4), rgba(254, 226, 226, 0.2));
+    color: rgba(153, 27, 27, 1);
+}
+
+/* ===== SEQUENCER STATES ===== */
+
+/* Inactive State */
+.flux-sequencer--inactive {
+    opacity: 0.8;
+}
+
+.flux-sequencer--inactive .flux-sequencer__title {
+    opacity: 0.75;
+}
+
+/* Active State - Transparent background, just color changes */
+.flux-sequencer--active .flux-sequencer__duration {
+    color: rgba(99, 102, 241, 0.95);
+}
+
+:root[data-theme="light"] .flux-sequencer--active .flux-sequencer__duration {
+    color: rgba(67, 56, 202, 1);
+}
+
+.flux-sequencer--active .flux-sequencer__icon {
+    color: rgba(99, 102, 241, 0.8);
+}
+
+/* Error State - Transparent background, just color changes */
+.flux-sequencer--error .flux-sequencer__duration {
+    color: rgba(248, 113, 113, 0.95);
+}
+
+:root[data-theme="light"] .flux-sequencer--error .flux-sequencer__duration {
+    color: rgba(220, 38, 38, 1);
+}
+
+/* Timeout State - Transparent background, just color changes */
+.flux-sequencer--timeout .flux-sequencer__duration {
+    color: rgba(251, 191, 36, 0.95);
+}
+
+:root[data-theme="light"] .flux-sequencer--timeout .flux-sequencer__duration {
+    color: rgba(217, 119, 6, 1);
+}
+
+/* Disabled State */
+.flux-sequencer--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    filter: grayscale(0.3);
+}
+
+.flux-sequencer--disabled * {
+    pointer-events: none;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes flux-error-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+    .flux-sequencer__header {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .flux-sequencer__meta {
+        align-self: flex-start;
+    }
+    
+    .flux-sequencer__controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .flux-sequencer__step-controls {
+        border-left: none;
+        border-top: 2px solid var(--border-primary);
+        padding-left: 0;
+        padding-top: 0.75rem;
+        justify-content: center;
+    }
+}

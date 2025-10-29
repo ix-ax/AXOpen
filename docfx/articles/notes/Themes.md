@@ -1,6 +1,12 @@
 # **AXOpen.Themes**
 
+# [OBSOLETE we are transitioning to NuGet distributed themes]
+
+
 There is a way to change the look of the application by creating and using modified bootstrap files.
+
+> [!NOTE]
+> (2025 update) If you consume AXOpen UI packages via NuGet, shared themes can be distributed as static web assets under `_content/{PackageId}/css/themes`. Prefer referencing or copying from that location during build instead of committing large compiled CSS blobs to each app. Custom project‑specific themes may still live in `wwwroot/css/custom`.
 
 ## 1. Modifying bootstrap
 
@@ -23,7 +29,19 @@ $dark:          #021301 !default;
 
 ## 2. Compiling bootstrap
 
-Compile these files using the `sass` compiler:
+Compile these files using a `sass` compiler (e.g. `dart-sass`). Recommended build pattern:
+
+1. Place `.scss` sources under `themes/src` (keep variables overrides minimal; import bootstrap).
+2. Emit compiled & minified CSS to `wwwroot/css/custom` (or a package asset folder).
+3. Add a lightweight watch script for local iteration (optional).
+4. Exclude intermediate maps from source control unless required for debugging.
+
+Example `main.scss` structure:
+```scss
+@import "bootstrap/functions";
+@import "variables-overrides"; // your overrides
+@import "bootstrap";           // full bootstrap import last
+```
 
 ## 3. Using a theme
 
@@ -58,7 +76,7 @@ public async Task<ActionResult> ChangeThemeColor([FromQuery] string themeColor)
 
 This method creates a **cookie** with the name `ThemeColor` and the value of the selected theme. The cookie is then used to determine which stylesheet to use. The cookie **expires** after the browser session ends.
 
-In the `_Host.cshtml` file, the `css` file of the selected theme is loaded based on the value of the `theme` cookie:
+In the `_Host.cshtml` file (or equivalent layout), the `css` file of the selected theme is loaded based on the value of the `theme` cookie:
 
 ```html
 @switch (Request.Cookies["ThemeColor"])
@@ -83,7 +101,7 @@ Theme changes in action:
 
 ![Theme gif](~/images/Theme_demo.gif)
 
-# Change dark/light theme
+## Change dark/light theme
 
 If you change the theme to dark/light, redirection to the `theme` uri is triggered:
 
@@ -109,4 +127,20 @@ In the `_Host.cshtml` file, the `data-bs-theme` is set based on the value of the
 <html lang="en" data-bs-theme="@(Request.Cookies["Theme"] == "dark" ? "dark" : "light")">
 ```
 
-This theme change is implemented in bootstrap and if you have correct set colors it will be working as expected.
+### Bootstrap Color Mode (Dark / Light)
+
+Bootstrap 5+ supports data attribute driven color modes. Ensure any semantic colors you override have both light & dark suitable contrast. Keep overrides in SASS variables where possible to reduce manual duplication.
+
+### Fallback & Invalid Themes
+
+If a cookie specifies an unknown theme:
+
+1. Log (verbose) once for diagnosis.
+2. Fall back to default (Bootstrap) silently for users.
+
+### Packaging Considerations
+
+When exporting themes inside a reusable package:
+* Include only compiled CSS + license headers for any third‑party derivative work.
+* Provide a short `THEMES.md` describing supported names to keep app code free of hard‑coded assumptions.
+* Consider hashing file names (cache busting) and generating a manifest consumed by UI to enumerate available themes dynamically.

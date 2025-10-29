@@ -4,30 +4,45 @@ export YELLOW='\033[0;33m'
 export NC='\033[0m\r\n' # No Color+CRLF
 destinationDirectory="./hwc/library_templates"
 if [ -d "./.apax" ]; then
-  echo "Directory ".apax" exists!!!"
-  if ! [[ -d $destinationDirectory ]]; then
-    echo "Directory $destinationDirectory does not exist!!!"
-    mkdir -p $destinationDirectory
-  fi
-  
-  ASSETS_DIRS=$(find -L "./.apax" -type d -name 'assets')
+  echo -e "${GREEN}Directory ./.apax exists.${NC}"
 
-  for DIR in $ASSETS_DIRS; do      
-    sourceDirectory="$DIR"
-    files=($(find "$sourceDirectory" -maxdepth 1 \( -name "*.hwl.json" -o -name "*.hwl.yml" \)))
-	if [ ${#files[@]} -gt 0 ]; then
-      echo "${#files[@]} files are going to be copied to $destinationDirectory."
-	  for file in "${files[@]}"; do
-		cp -v "$file" "$destinationDirectory"
-		echo "$file file copied to $destinationDirectory."
-	  done
-      echo "${#files[@]} files copied to $destinationDirectory."
-    else
-      echo "No files matching the pattern '$fileMask' were found in '$sourceDirectory'."
-    fi
+  # Ensure destination root exists
+  mkdir -p "$destinationDirectory"
+
+  # Find all 'assets' directories under .apax
+  mapfile -t ASSETS_DIRS < <(find -L "./.apax" -type d -name 'assets')
+
+  if [ ${#ASSETS_DIRS[@]} -eq 0 ]; then
+    echo -e "${YELLOW}No 'assets' directories found under ./.apax.${NC}"
+    exit 0
+  fi
+
+  total=0
+  for DIR in "${ASSETS_DIRS[@]}"; do
+    # Find matching files recursively under each assets dir
+    while IFS= read -r -d '' file; do
+      # Compute path relative to the assets dir
+      rel="${file#$DIR/}"                   # e.g., "sub/dir/file.hwl.json" or "file.hwl.yml"
+      rel_dir="$(dirname "$rel")"           # e.g., "sub/dir" or "."
+      target_dir="$destinationDirectory/$rel_dir"
+
+      # Create target subdirectory if missing
+      mkdir -p "$target_dir"
+
+      # Copy the file, preserving relative subfolder structure
+      cp -v "$file" "$target_dir/"
+
+      echo -e "${GREEN}$file -> $target_dir${NC}"
+      total=$((total + 1))
+    done < <(find "$DIR" -type f \( -name "*.hwl.json" -o -name "*.hwl.yml" \) -print0)
   done
 
-  
+  if [ "$total" -gt 0 ]; then
+    echo -e "${GREEN}$total file(s) copied to $destinationDirectory (subfolders preserved).${NC}"
+  else
+    echo -e "${YELLOW}No matching *.hwl.json or *.hwl.yml files found under any 'assets' directories.${NC}"
+  fi
+
 else
-  echo "Directory "../ctrl/assets" does not exist!!!"
+  echo -e "${RED}Directory ./.apax does not exist!${NC}"
 fi

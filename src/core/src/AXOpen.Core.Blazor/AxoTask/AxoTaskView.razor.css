@@ -1,0 +1,313 @@
+.task-button__wrapper {
+    display: inline-flex;
+    align-items: center;
+}
+
+.task-button {
+    --task-bg: linear-gradient(135deg, var(--bg-tertiary), var(--bg-secondary));
+    --task-border: var(--border-primary);
+    --task-text: var(--text-primary);
+    padding: 0.75rem 1.3rem;
+    padding-right: 0.5rem; /* Reduced padding on right to accommodate reset button */
+    border-radius: 999px;
+    border: 1px solid var(--task-border);
+    background: var(--task-bg);
+    color: var(--task-text);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: visible; /* Changed from hidden to allow reset button to be visible */
+    transition: transform 120ms ease, box-shadow 160ms ease, border-color 160ms ease, background 300ms ease;
+}
+
+/* Restore balanced padding when restore button is not visible */
+.task-button.no-restore-button {
+    padding-right: 1.3rem;
+}
+
+.task-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-elevated);
+}
+
+:root[data-theme="dark"] .task-button:hover:not(:disabled) {
+    box-shadow: 0 16px 32px -24px rgba(15, 23, 42, 0.85);
+}
+
+.task-button:focus-visible {
+    outline: 2px solid rgba(148, 163, 184, 0.65);
+    outline-offset: 2px;
+}
+
+.task-button.is-disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    filter: grayscale(0.4);
+    transform: none !important;
+    position: relative;
+}
+
+.task-button.is-disabled::after {
+    content: "🚫";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+    z-index: 10;
+    background: rgba(15, 23, 42, 0.95);
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.task-button.is-disabled:hover::after {
+    opacity: 1;
+}
+
+.task-button.is-disabled .task-button__glyph {
+    opacity: 0.5;
+}
+
+.task-button.is-disabled .task-button__label {
+    text-decoration: line-through;
+    text-decoration-color: rgba(148, 163, 184, 0.9);
+    text-decoration-thickness: 2px;
+    text-decoration-style: solid;
+}
+
+.task-button:disabled:not(.is-disabled) {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.task-button__glyph {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.35rem;
+    height: 1.35rem;
+    position: relative;
+}
+
+.task-button__label {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+}
+
+.glyph {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.glyph-ready {
+    border: 2px solid rgba(148, 163, 184, 0.8);
+    border-radius: 50%;
+}
+
+.glyph-kicking {
+    position: relative;
+}
+
+.glyph-kicking span {
+    position: absolute;
+    inset: 0;
+    border: 2px dashed rgba(148, 163, 184, 0.9);
+    border-radius: 50%;
+    animation: task-pulse 1.2s linear infinite;
+}
+
+.glyph-busy {
+    position: relative;
+}
+
+.glyph-busy span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: rgba(148, 163, 184, 0.9);
+    animation: task-spin 0.9s linear infinite;
+}
+
+.glyph-done span {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.5rem;
+    border: 2px solid rgba(148, 163, 184, 0.9);
+    border-top: none;
+    border-right: none;
+    transform: rotate(-45deg) translateY(0.1rem);
+}
+
+.glyph-error span {
+    position: relative;
+    width: 0.9rem;
+    height: 0.9rem;
+}
+
+.glyph-error span::before,
+.glyph-error span::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.9rem;
+    height: 2px;
+    background: #fee2e2;
+    transform-origin: center;
+}
+
+:root[data-theme="light"] .glyph-error span::before,
+:root[data-theme="light"] .glyph-error span::after {
+    background: #991b1b;
+}
+
+.glyph-error span::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.glyph-error span::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.task-button.state-error {
+    --task-bg: linear-gradient(135deg, rgba(153, 27, 27, 0.95), rgba(220, 38, 38, 0.9));
+    --task-border: rgba(248, 113, 113, 0.5);
+    box-shadow: 0 18px 40px -24px rgba(248, 113, 113, 0.55);
+}
+
+:root[data-theme="light"] .task-button.state-error {
+    --task-bg: linear-gradient(135deg, rgba(220, 38, 38, 0.85), rgba(185, 28, 28, 0.95));
+}
+
+.task-button.state-done {
+    border-style: dashed;
+}
+
+.task-button.state-kicking::after {
+    content: "";
+    position: absolute;
+    inset: -30%;
+    border-radius: 50%;
+    border: 2px solid rgba(148, 163, 184, 0.35);
+    animation: task-ripple 1.4s ease-out infinite;
+    pointer-events: none;
+}
+
+.task-button.state-busy {
+    box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.3);
+}
+
+.task-button.is-invoking {
+    pointer-events: none;
+}
+
+.task-button__reset {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1px solid var(--border-primary);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    flex-shrink: 0; /* Prevent button from shrinking */
+    transition: transform 120ms ease, border-color 160ms ease, background 300ms ease, box-shadow 160ms ease;
+}
+
+.task-button__reset:hover:not(:disabled) {
+    transform: rotate(-12deg) scale(1.05);
+    border-color: rgba(226, 232, 240, 0.45);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+:root[data-theme="light"] .task-button__reset:hover:not(:disabled) {
+    background: rgba(226, 232, 240, 0.85);
+    border-color: rgba(100, 116, 139, 0.5);
+}
+
+.task-button__reset:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.task-button__reset:focus-visible {
+    outline: 2px solid rgba(148, 163, 184, 0.65);
+    outline-offset: 2px;
+}
+
+.task-button__description {
+    margin: 0.35rem 0 0;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+@keyframes task-pulse {
+    0% {
+        opacity: 1;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(0.9);
+    }
+}
+
+@keyframes task-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes task-ripple {
+    0% {
+        opacity: 0.7;
+        transform: scale(0.6);
+    }
+    80% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.15);
+    }
+}

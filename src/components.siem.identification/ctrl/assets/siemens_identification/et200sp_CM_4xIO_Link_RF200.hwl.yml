@@ -1,0 +1,29 @@
+Devices:
+- Name: et200sp_CM_4xIO_Link_RF200
+  Modules:
+  - Name: et200sp_CM_4xIO_Link_RF200
+    TypeIdentifier:
+      FileName: 'GSDML-V2.45-Siemens-ET200SP-20250606.XML'
+      GsdId: DIM ST V4.2
+    Interfaces:
+    - Name: profinet
+      Label: X1
+      Addresses:
+        Configured:
+        - IPv4: 192.168.100.98/24
+        - ProfinetDeviceName: et200sp_CM_4xIO_Link_RF200
+      # Parameters:
+      #   IECV22LLDPMode: False
+      #   TsnDomainName: 
+    Ports:
+    - Name: Port_1
+      Label: X1 P1
+    - Name: Port_2
+      Label: X1 P2
+  - Apply: 6ES7137-6BD00-0BA0_v2_2_RF240R
+    Arguments:
+      ModuleName: CM_4xIO-Link_V2_2_144I_128O_1
+  - Name: Server_module_V1_1
+    TypeIdentifier:
+      GsdId: Servermodule_without_io
+      FileName: 'GSDML-V2.45-Siemens-ET200SP-20250606.XML'

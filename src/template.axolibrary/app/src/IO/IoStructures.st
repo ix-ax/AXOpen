@@ -1,0 +1,3 @@
+﻿NAMESPACE Template.Axolibrary
+END_NAMESPACE
+

@@ -2,31 +2,113 @@
 @inherits RenderableComplexComponentBase<AxoSequencer>
 @namespace AXOpen.Core
 
-<div class="flex flex-wrap flex-col card @SequencerStateClass @(!this.IsControllable ? "disabled" : "")">
-    <div class="flex flex-wrap flex-row justify-between items-center w-full my-2">
-        <h7>@Component.AttributeName</h7>
-        <p class="text-danger-500">@Component.ErrorDetails.LastValue</p>
-        <p class="@SequenceTimeClass">@Duration</p>
-    </div>
-    <hr />
-    <Accordion>
-        <AccordionItem Title="@Description">
-            <div class="flex flex-wrap justify-between">
-                <button type="button" class="btn btn-info" @onclick="ToggleStepMode">
-                    @Localizer["Step mode"]
-                </button>
-
-                @if (CurrentSteppingMode == eAxoSteppingMode.StepByStep)
+<div class="flux-sequencer @SequencerStateClass @(!this.IsControllable ? "flux-sequencer--disabled" : "")">
+    
+    <!-- Sequencer Header -->
+    <div class="flux-sequencer__header">
+        <div class="flux-sequencer__title-group">
+            <h5 class="flux-sequencer__title">@Component.AttributeName</h5>
+            @if (CurrentStatus != eSequenceStatus.Inactive)
+            {
+                <span class="flux-badge @StatusBadgeClass">
+                    @StatusText
+                </span>
+            }
+        </div>
+        <div>
+          <button type="button" 
+                class="flux-toggle-pill @(CurrentSteppingMode == eAxoSteppingMode.StepByStep ? "flux-toggle-pill--active" : "")"
+                @onclick="ToggleStepMode"
+                title="@(CurrentSteppingMode == eAxoSteppingMode.StepByStep ? "Exit step mode" : "Enter step mode")">
+            <span class="flux-toggle-pill__indicator"></span>
+            <span class="flux-toggle-pill__label">
+                @if(!HasExternalStepModeControl)
                 {
-                    <div class="flex flex-wrap gap-1">
-                        <AxoTaskCommandView ShowText="true" HideRestoreButton="true" ShowAbortButton="false" Component="this.Component.StepBackwardCommand" />
-                        <AxoTaskCommandView ShowText="true" HideRestoreButton="false" ShowAbortButton="false" Component="this.Component.StepIn" />
-                        <AxoTaskCommandView ShowText="true" HideRestoreButton="true" ShowAbortButton="false" Component="this.Component.StepForwardCommand" />
-                    </div>
+                    if (CurrentSteppingMode == eAxoSteppingMode.StepByStep)
+                    {
+                        <text>STEP MODE</text>
+                    }   
+                    else
+                    {
+                       <text>STEP MODE</text>
+                    }
                 }
+                else
+                {
+                    if (CurrentSteppingMode == eAxoSteppingMode.StepByStep)
+                    {
+                        <text>STEP MODE ACTIVE - CONTROLLED BY MASTER SEQUENCE</text>
+                    }   
+                    else
+                    {
+                       <text>STEP MODE CONTROLLED BY MASTER SEQUENCE</text>
+                    }
+                    
+                }
+            </span>
+        </button>
+        </div>
+        <div class="flux-sequencer__meta">
+            <div class="flux-sequencer__duration">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="flux-sequencer__icon">
+                    <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M8 4V8L10.5 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="@SequenceTimeClass">@Duration</span>
             </div>
-        </AccordionItem>
-    </Accordion>
+            
+            @if (!string.IsNullOrEmpty(Component.ErrorDetails.LastValue))
+            {
+                <div class="flux-sequencer__error-badge" title="@Component.ErrorDetails.LastValue">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 1L1 14h14L8 1z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M8 6v3M8 11v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Current Step Display -->
+    <div class="flux-sequencer__current-step">
+        @if(CurrentSteppingMode == eAxoSteppingMode.StepByStep)
+        {
+            <div>
+                <AxoTaskCommandLGView ShowText="false" HideRestoreButton="true" ShowAbortButton="false" Component="this.Component.StepBackwardCommand" />
+            </div>
+        }
+        <div class="flux-sequencer__current-step-text">
+            @if (Component.CurrentStep != null)
+            {
+                if(CurrentSteppingMode == eAxoSteppingMode.StepByStep)
+                {
+                    <AxoTaskCommandLGView Label="@GetRunStepButtonLabel()" ShowText="true" HideRestoreButton="false" ShowAbortButton="false" Component="this.Component.StepIn" />  
+                }
+                else
+                {
+                    <AxoTaskStatusLGView Label="@GetRunStepButtonLabel()" ShowText="true" HideRestoreButton="false" ShowAbortButton="false" Component="this.Component.StepIn" />  
+                }
+            }
+        </div>
+        @if(CurrentSteppingMode == eAxoSteppingMode.StepByStep)
+        {
+            <div>
+                <AxoTaskCommandLGView ShowText="false" HideRestoreButton="true" ShowAbortButton="false" Component="this.Component.StepForwardCommand" />
+            </div>
+        }
+    </div>
+      
+    <!-- Error Details (if present) -->
+    @if (!string.IsNullOrEmpty(Component.ErrorDetails.LastValue))
+    {
+        <div class="flux-sequencer__error-details">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex-shrink: 0;">
+                <circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M9 5v4M9 11v1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>@Component.ErrorDetails.LastValue</span>
+        </div>
+    }
 </div>
 
 @code {
@@ -39,6 +121,15 @@
         ExternalComponentError,
     }
 
+    [Parameter] public bool HasExternalStepModeControl { get; set; } = false;
+
+    private string GetRunStepButtonLabel()
+    {
+        return string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic()) ? "-" : this.Component.CurrentStep.Descr.GetCyclic();
+    }
+
+    private IEnumerable<AxoObject> AssociatedComponents => this.Component.Associates.Where(p => p is AxoObject).Cast<AxoObject>();
+
     private eSequenceStatus CurrentStatus
     {
         get
@@ -49,13 +140,16 @@
             {
                 return eSequenceStatus.SequencerError;
             }
-
-            if (this.Component.MsgCnt.LastValue > 0)
+            
+            if (AssociatedComponents.Any(p => p.MsgCnt.LastValue > 0 ) 
+                && this.Component.Duration.LastValue > TimeSpan.FromSeconds(this.Component.MaxSequenceDuration.LastValue.TotalSeconds))
             {
                 return eSequenceStatus.ExternalComponentError;
             }
 
-            if (this.Component.Duration.LastValue > TimeSpan.FromSeconds(20))
+            if (this.Component.Duration.LastValue > 
+            TimeSpan.FromSeconds(this.Component.MaxSequenceDuration.LastValue.TotalSeconds) 
+            && this.Component.Duration.LastValue > TimeSpan.FromSeconds(10))
             {
                 return eSequenceStatus.SequenceTimeOutError;
             }
@@ -73,24 +167,45 @@
     {
         get
         {
-            switch (CurrentStatus)
+            return CurrentStatus switch
             {
-                case eSequenceStatus.Inactive:
-                    return "border-0 border-inactive-500 shadow-sm shadow-inactive-500/50";
-                case eSequenceStatus.SequencerError:
-                    return "border-3 border-danger-500 shadow-xl shadow-danger-500/50";
-                case eSequenceStatus.SequenceTimeOutError:
-                //return "border-1 border-warning-500 shadow-xl shadow-warning-500/50";
-                case eSequenceStatus.ExternalComponentError:
-                //return "border-1 border-danger-500 shadow-xl shadow-danger-500/50";
-                case eSequenceStatus.Active:
-                    //return "border-1 border-active-500 shadow-xs shadow-active-500/50";
-                    return "border-0 border-inactive-500 shadow-sm shadow-inactive-500/50";
-                default:
-                    return "border-0 border-inactive-500 shadow-sm shadow-inactive-500/50";
-            }
+                eSequenceStatus.Inactive => "flux-sequencer--inactive",
+                eSequenceStatus.Active => "flux-sequencer--active",
+                eSequenceStatus.SequencerError => "flux-sequencer--error",
+                eSequenceStatus.SequenceTimeOutError => "flux-sequencer--timeout",
+                eSequenceStatus.ExternalComponentError => "flux-sequencer--error",
+                _ => "flux-sequencer--inactive"
+            };
+        }
+    }
 
-            return "border-0 border-success-500 shadow-sm shadow-success-500/50";
+    private string StatusBadgeClass
+    {
+        get
+        {
+            return CurrentStatus switch
+            {
+                eSequenceStatus.Active => "flux-badge--primary",
+                eSequenceStatus.SequencerError => "flux-badge--danger",
+                eSequenceStatus.SequenceTimeOutError => "flux-badge--warning",
+                eSequenceStatus.ExternalComponentError => "flux-badge--danger",
+                _ => "flux-badge"
+            };
+        }
+    }
+
+    private string StatusText
+    {
+        get
+        {
+            return CurrentStatus switch
+            {
+                eSequenceStatus.Active => "Running",
+                eSequenceStatus.SequenceTimeOutError => "Timeout",
+                eSequenceStatus.SequencerError => "Error",                
+                eSequenceStatus.ExternalComponentError => "Error",
+                _ => "Idle"
+            };
         }
     }
 
@@ -98,7 +213,7 @@
     {
         get
         {
-            if (this.Component.Duration.LastValue > TimeSpan.FromSeconds(Component.MaxSequenceDuration.LastValue.TotalSeconds))
+            if (this.Component.Duration.LastValue > TimeSpan.FromSeconds(Component.MaxSequenceDuration.LastValue.TotalSeconds) && this.Component.Duration.LastValue > TimeSpan.FromSeconds(10))
             {
                 var delay = (this.Component.Duration.LastValue.TotalSeconds - Component.MaxSequenceDuration.LastValue.TotalSeconds);
                 return $"text-danger-500";
@@ -125,7 +240,7 @@
 
     }
 
-    private string Description => string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic()) ? ":(" : this.Component.CurrentStep.Descr.GetCyclic();
+    private string Description => string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic()) ? "-" : this.Component.CurrentStep.Descr.GetCyclic();
 
     private string Duration => this.Component.Duration.GetCyclic().ToString(@"hh\:mm\:ss\.fff");
 
@@ -135,6 +250,10 @@
         this.StartPolling(this.Component.SteppingMode, 500);
         this.StartPolling(this.Component.Duration, 1000);
         this.StartPolling(this.Component.MsgCnt, 2500);
+        foreach (var a in AssociatedComponents)
+        {
+                this.StartPolling(a.MsgCnt, 2500);
+        }
         this.StartPolling(Component.MaxSequenceDuration, 1000);
     }
 }

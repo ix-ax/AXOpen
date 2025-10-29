@@ -78,7 +78,7 @@
 
 	<ItemGroup>
 		<None Include="AxoInspectorDialog\**\*.*" Exclude="AxoInspectorDialog\**\*.js;AxoInspectorDialog\**\*.css" Pack="true" PackagePath="contentFiles\AxoInspectorDialog\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="AxoInspectorSpotView.razor" Pack="true" PackagePath="contentFiles\AxoInspectorSpotView.razor" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="AxoInspectorDataSpotView.razor" Pack="true" PackagePath="contentFiles\AxoInspectorSpotView.razor" CopyToOutputDirectory="PreserveNewest" />
 		<None Include="GenericIconView.razor" Pack="true" PackagePath="contentFiles\GenericIconView.razor" CopyToOutputDirectory="PreserveNewest" />
 		<None Include="GenericInspectorDataView.razor" Pack="true" PackagePath="contentFiles\GenericInspectorDataView.razor" CopyToOutputDirectory="PreserveNewest" />
 		<None Include="InspectorViewTemplate.razor" Pack="true" PackagePath="contentFiles\InspectorViewTemplate.razor" CopyToOutputDirectory="PreserveNewest" />

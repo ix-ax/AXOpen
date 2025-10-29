@@ -9,7 +9,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
 
         METHOD PROTECTED OVERRIDE Main
             THIS.InitializeRootObject(_rootObject);
-            ExampleRobot.Run(_rootObject,HwIdentifiers#KRC4_HwID);
+            ExampleRobot.Run(_rootObject,HwIdentifiers#kuka_krc4_HwID);
 
             IF ActivateManualControl THEN
                 ExampleRobot.ActivateManualControl();

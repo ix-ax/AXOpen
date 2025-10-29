@@ -38,10 +38,10 @@ NAMESPACE AXOpen.Components.Elements
 
         METHOD PUBLIC Main
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF(_manualControl) THEN
                 _testDi.ActivateManualControl();

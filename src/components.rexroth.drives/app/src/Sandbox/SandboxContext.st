@@ -46,16 +46,16 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IndraDrive.ActivateManualControl();
             END_IF;   
 
-            IndraDrive.Run(parent               :=  _rootObject,
-                            hwID                :=  HwIdentifiers#ST3_indradrive_HwID,
+            IndraDrive.Run(inParent               :=  _rootObject,
+                            hwID                :=  HwIdentifiers#rexroth_indradrive_HwID,
                             Enable              :=  Enable,
                             EnablePositive      :=  EnablePositive,
                             EnableNegative      :=  EnableNegative);
 
             THIS.UseInSequencerIndraDrive();
 
-            CtrlXdrive.Run(parent               :=  _rootObject,
-                            hwID                :=  HwIdentifiers#ST3_indradrive_HwID,
+            CtrlXdrive.Run(inParent               :=  _rootObject,
+                            hwID                :=  HwIdentifiers#rexroth_ctrlx_drive_HwID,
                             Enable              :=  Enable,
                             EnablePositive      :=  EnablePositive,
                             EnableNegative      :=  EnableNegative);                            

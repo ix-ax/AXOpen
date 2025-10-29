@@ -1,0 +1,9 @@
+Templates:
+  Modules:
+  - Name: 'Cognex_Insight7600_UserData_64'
+    Content:
+      Name: 'UserData_64'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.34-COGNEX-INSIGHTCLASSB-20200327.XML'
+        GsdId: '303'
+      Slot: 7        

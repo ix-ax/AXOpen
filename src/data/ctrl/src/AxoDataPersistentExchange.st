@@ -76,7 +76,7 @@ NAMESPACE AXOpen.Data
         ///<summary>
         /// Runs intialization and cyclical handling of this AxoDataPersistentExchange.        
         /// </summary>                 
-        /// <param name="parent">Parent of this object</param>
+        /// <param name="inParent">Parent of this object</param>
         METHOD PUBLIC OVERRIDE Run 
             VAR_INPUT
                 inParent : IAxoObject;

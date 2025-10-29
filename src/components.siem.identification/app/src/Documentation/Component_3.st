@@ -23,12 +23,12 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
             RF260R.Config.ErrorTime := T#0s;
             RF260R.Config.TaskTimeout := T#0s;
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 RF260R.ActivateManualControl();
@@ -36,7 +36,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
             //<Initialization>        
 
-            RF260R.Run( parent      :=  THIS,
+            RF260R.Run( inParent    :=  THIS,
                         hwID        :=  HwIdentifiers#rf186c_cyc_HwID,
                         Port        :=  eAxoSimaticIdentCyclic_Port#X21,
                         DataBuffer  :=  DataBuffer);

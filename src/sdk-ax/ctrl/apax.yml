@@ -6,7 +6,7 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.33
+  "@inxton/ax.catalog": 0.0.36
 dependencies:
   '@ax/apax-build': 2.0.20
   '@ax/axunitst': 8.3.9
@@ -14,7 +14,7 @@ dependencies:
   '@ax/certificate-management': 1.2.0
   '@ax/diagnostic-buffer': 1.3.2
   '@ax/hw-s7-1500': 3.4.0
-  '@ax/hwc': 3.4.0
+  '@ax/hwc': 4.0.0
   '@ax/hwld': 3.2.0
   '@ax/mod': 1.8.8
   '@ax/mon': 1.8.8

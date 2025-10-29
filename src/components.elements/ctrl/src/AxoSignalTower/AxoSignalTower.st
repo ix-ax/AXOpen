@@ -35,11 +35,11 @@ NAMESPACE AXOpen.Components.Elements
 
             SUPER.Run(inParent);
 
-            THIS.Red.Run    (  parent := THIS, oSignal    =>  outRed );
-            THIS.Green.Run  (  parent := THIS, oSignal    =>  outGreen );
-            THIS.Blue.Run   (  parent := THIS, oSignal    =>  outBlue );
-            THIS.Yellow.Run (  parent := THIS, oSignal    =>  outYellow );
-            THIS.Horn.Run   (  parent := THIS, oSignal    =>  outHorn );
+            THIS.Red.Run    (  inParent := THIS, oSignal    =>  outRed );
+            THIS.Green.Run  (  inParent := THIS, oSignal    =>  outGreen );
+            THIS.Blue.Run   (  inParent := THIS, oSignal    =>  outBlue );
+            THIS.Yellow.Run (  inParent := THIS, oSignal    =>  outYellow );
+            THIS.Horn.Run   (  inParent := THIS, oSignal    =>  outHorn );
         END_METHOD
     
         /// <summary>

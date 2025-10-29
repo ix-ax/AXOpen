@@ -13,9 +13,10 @@
 | Cognex | Insight with firmware lower then 24.0.0 | Insight family | Communication structure does not fit the somponent structure | Insight with firmware higher then 24.0.0 or Keyence :-) |
 | ANY | GW INSTEK - PSP-2010 | LABORATORY POWER SUPPLY | UNRELIABLE COMMUNICATION. REQUIRES ADDITIONAL 12V SUPPLY TO USE RS232 INTERFACE | TTi QL355 |
 | ANY | WD My Cloud EX2 | Network Drive, NAS | Cannot schedule shutdown via UPS | Synology DiskStation DS216j 2x 1 TB RED |
-| IAI | ALL | (!) Intelligent Actuators | Each type is different, very poor support, each has different parameterization, inconsistent software for control, inconsistent connection cables, inconsistent parameters... | Rexroth, Festo, Schneider |
+| IAI | ALL | (!) Intelligent Actuators | Each type is different, very poor support, each has different parameterization, inconsistent software for control, inconsistent connection cables, inconsistent parameters... | Festo, Schneider |
 | ANY | Fujitsu | Network Drive, NAS | Slow service startup, ping issues after standby and startup. Could not be pinged after link activation | Synology DiskStation DS218+, 2x HDD |
 | Ateq | Ateq with RS232 | Leak Tester | Our component is not adapted for it(1), requires additional serial card | Ateq with PROFINET, or Ateq without results (OK/NOK only) |
+| Rexroth | CtrlX | Drives | Unstable internal firmware that occasionally gets stuck and cannot be reset in case of an error. The only way to recover is to power it off and on again. Poor technical support. | Festo, Schneider |
 ||
 
 (1) Development would take up our precious time, hence it is inefficient for us.

@@ -1,13 +1,12 @@
-NAMESPACE AXOpen.Components.Balluff.Identification
+﻿NAMESPACE AXOpen.Components.Balluff.Identification
     TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
         Inputs : STRUCT
-            BNIPNT507005Z040_BIS_M_4XX_045_1_0 AT %B0:  WORD;
-            BNIPNT507005Z040_BIS_M_4XX_045_1_1 AT %B2:  WORD;
-            BNIPNT507005Z040_BIS_M_4XX_045_1_2 AT %B4:  WORD;
-            BNIPNT507005Z040_BIS_M_4XX_045_1_3 AT %B6:  WORD;
-            BNIPNT507005Z040_BIS_M_4XX_045_1_4 AT %B8:  WORD;
+	        // Module BNIPNT507005Z040/BIS_M-4XX-045_1
+	        BNIPNT507005Z040_BIS_M_4XX_045_1_Input AT %B0 : BNIPNT507005Z040_BIS_M_4XX_045_1_Input_Layout;
+
         END_STRUCT;
     END_TYPE
 END_NAMESPACE
+

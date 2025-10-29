@@ -11,6 +11,16 @@ namespace AXOpen.Core
             if (this.Component is AxoObject o)
             {
                 this.StartPolling(o.MsgCnt,2500);
+
+                foreach (var messageProviderMessenger in this.MessageProvider?.Messengers)
+                {
+                    StartPolling(messageProviderMessenger.MessengerState, 500);
+                    StartPolling(messageProviderMessenger.MessageCode, 500);
+                    StartPolling(messageProviderMessenger.Category, 500);
+                    StartPolling(messageProviderMessenger.Risen, 500);
+                    StartPolling(messageProviderMessenger.Fallen, 500);
+                    StartPolling(messageProviderMessenger.Acknowledged, 500);
+                }
             }
         }
 

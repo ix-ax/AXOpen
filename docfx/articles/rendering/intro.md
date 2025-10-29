@@ -40,3 +40,22 @@ While [presentation modes in AX#](https://inxton.github.io/axsharp/articles/blaz
 ```
 
 ---
+
+## Layout Attributes & Organization
+
+Auto‑rendered components rely on layout attributes applied to members of your `AxoComponent` (or derived) classes:
+
+| Attribute | Effect |
+|-----------|--------|
+| `ComponentHeader` | Places the member into the fixed (always visible) header region. |
+| `ComponentDetails("TabName")` | Places the member into a tab named `TabName` within the expandable details section. |
+| `Container(Layout.Wrap)` / `Container(Layout.Stack)` | Controls arrangement of grouped children inside the region they appear. |
+
+Guidelines:
+
+* Put frequently observed primary command tasks in the header.
+* Group secondary / diagnostic data into logically named tabs (e.g. Diagnostics, IO, Tuning).
+* Avoid overpopulating the header; if more than ~4 primary members appear, move non‑critical ones into a details tab.
+* When adding new members, maintain attribute ordering to keep stable layout diffs.
+
+See `AXOCOMPONENT.md` and `guidelines/components.md` for deeper examples and conventions.

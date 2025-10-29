@@ -19,17 +19,17 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 ExampleRobot.ActivateManualControl();
             END_IF;
 
             //<Initialization>        
-            ExampleRobot.Run(THIS,HwIdentifiers#KRC4_HwID);
+            ExampleRobot.Run(THIS,HwIdentifiers#kuka_krc4_HwID);
             //</Initialization>
 
         THIS.UseInSequencer();

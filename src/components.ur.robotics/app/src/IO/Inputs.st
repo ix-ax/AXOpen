@@ -1,86 +1,30 @@
-NAMESPACE AXOpen.Components.Ur.Robotics
+﻿NAMESPACE AXOpen.Components.Ur.Robotics
     TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
         Inputs : STRUCT
-            ureol2l_1_T2O_State_0 AT %B448:  LWORD;
-            ureol2l_1_T2O_State_1 AT %B456:  LWORD;
-            ureol2l_1_T2O_State_2 AT %B464:  LWORD;
-            ureol2l_1_T2O_State_3 AT %B472:  LWORD;
-            ureol2l_2_T2O_IO_0 AT %B380:  DWORD;
-            ureol2l_2_T2O_IO_1 AT %B384:  DWORD;
-            ureol2l_2_T2O_IO_2 AT %B388:  DWORD;
-            ureol2l_2_T2O_IO_3 AT %B392:  DWORD;
-            ureol2l_2_T2O_IO_4 AT %B396:  DWORD;
-            ureol2l_2_T2O_IO_5 AT %B400:  DWORD;
-            ureol2l_2_T2O_IO_6 AT %B404:  DWORD;
-            ureol2l_2_T2O_IO_7 AT %B408:  DWORD;
-            ureol2l_2_T2O_IO_8 AT %B412:  DWORD;
-            ureol2l_2_T2O_IO_9 AT %B416:  DWORD;
-            ureol2l_2_T2O_IO_10 AT %B420:  DWORD;
-            ureol2l_2_T2O_IO_11 AT %B424:  DWORD;
-            ureol2l_2_T2O_IO_12 AT %B428:  DWORD;
-            ureol2l_2_T2O_IO_13 AT %B432:  DWORD;
-            ureol2l_2_T2O_IO_14 AT %B436:  DWORD;
-            ureol2l_2_T2O_IO_15 AT %B440:  DWORD;
-            ureol2l_2_T2O_IO_16 AT %B444:  DWORD;
-            ureol2l_3_T2O_Joints_0 AT %B276:  LWORD;
-            ureol2l_3_T2O_Joints_1 AT %B284:  LWORD;
-            ureol2l_3_T2O_Joints_2 AT %B292:  LWORD;
-            ureol2l_3_T2O_Joints_3 AT %B300:  LWORD;
-            ureol2l_3_T2O_Joints_4 AT %B308:  LWORD;
-            ureol2l_3_T2O_Joints_5 AT %B316:  LWORD;
-            ureol2l_3_T2O_Joints_6 AT %B324:  LWORD;
-            ureol2l_3_T2O_Joints_7 AT %B332:  LWORD;
-            ureol2l_3_T2O_Joints_8 AT %B340:  LWORD;
-            ureol2l_3_T2O_Joints_9 AT %B348:  LWORD;
-            ureol2l_3_T2O_Joints_10 AT %B356:  LWORD;
-            ureol2l_3_T2O_Joints_11 AT %B364:  LWORD;
-            ureol2l_3_T2O_Joints_12 AT %B372:  LWORD;
-            ureol2l_4_T2O_TCP_0 AT %B200:  DWORD;
-            ureol2l_4_T2O_TCP_1 AT %B204:  DWORD;
-            ureol2l_4_T2O_TCP_2 AT %B208:  DWORD;
-            ureol2l_4_T2O_TCP_3 AT %B212:  DWORD;
-            ureol2l_4_T2O_TCP_4 AT %B216:  DWORD;
-            ureol2l_4_T2O_TCP_5 AT %B220:  DWORD;
-            ureol2l_4_T2O_TCP_6 AT %B224:  DWORD;
-            ureol2l_4_T2O_TCP_7 AT %B228:  DWORD;
-            ureol2l_4_T2O_TCP_8 AT %B232:  DWORD;
-            ureol2l_4_T2O_TCP_9 AT %B236:  DWORD;
-            ureol2l_4_T2O_TCP_10 AT %B240:  DWORD;
-            ureol2l_4_T2O_TCP_11 AT %B244:  DWORD;
-            ureol2l_4_T2O_TCP_12 AT %B248:  DWORD;
-            ureol2l_4_T2O_TCP_13 AT %B252:  DWORD;
-            ureol2l_4_T2O_TCP_14 AT %B256:  DWORD;
-            ureol2l_4_T2O_TCP_15 AT %B260:  DWORD;
-            ureol2l_4_T2O_TCP_16 AT %B264:  DWORD;
-            ureol2l_4_T2O_TCP_17 AT %B268:  DWORD;
-            ureol2l_4_T2O_TCP_18 AT %B272:  DWORD;
-            ureol2l_5_T2O_General_Purpose_Bit_Registers AT %B192:  LWORD;
-            ureol2l_6_T2O_General_Purpose_Int_Registers_0 AT %B96:  LWORD;
-            ureol2l_6_T2O_General_Purpose_Int_Registers_1 AT %B104:  LWORD;
-            ureol2l_6_T2O_General_Purpose_Int_Registers_2 AT %B112:  LWORD;
-            ureol2l_6_T2O_General_Purpose_Int_Registers_3 AT %B120:  LWORD;
-            ureol2l_6_T2O_General_Purpose_Int_Registers_4 AT %B128:  LWORD;
-            ureol2l_6_T2O_General_Purpose_Int_Registers_5 AT %B136:  LWORD;
-            ureol2l_6_T2O_General_Purpose_Int_Registers_6 AT %B144:  LWORD;
-            ureol2l_6_T2O_General_Purpose_Int_Registers_7 AT %B152:  LWORD;
-            ureol2l_6_T2O_General_Purpose_Int_Registers_8 AT %B160:  LWORD;
-            ureol2l_6_T2O_General_Purpose_Int_Registers_9 AT %B168:  LWORD;
-            ureol2l_6_T2O_General_Purpose_Int_Registers_10 AT %B176:  LWORD;
-            ureol2l_6_T2O_General_Purpose_Int_Registers_11 AT %B184:  LWORD;
-            ureol2l_7_T2O_General_Purpose_Float_Registers_0 AT %B0:  LWORD;
-            ureol2l_7_T2O_General_Purpose_Float_Registers_1 AT %B8:  LWORD;
-            ureol2l_7_T2O_General_Purpose_Float_Registers_2 AT %B16:  LWORD;
-            ureol2l_7_T2O_General_Purpose_Float_Registers_3 AT %B24:  LWORD;
-            ureol2l_7_T2O_General_Purpose_Float_Registers_4 AT %B32:  LWORD;
-            ureol2l_7_T2O_General_Purpose_Float_Registers_5 AT %B40:  LWORD;
-            ureol2l_7_T2O_General_Purpose_Float_Registers_6 AT %B48:  LWORD;
-            ureol2l_7_T2O_General_Purpose_Float_Registers_7 AT %B56:  LWORD;
-            ureol2l_7_T2O_General_Purpose_Float_Registers_8 AT %B64:  LWORD;
-            ureol2l_7_T2O_General_Purpose_Float_Registers_9 AT %B72:  LWORD;
-            ureol2l_7_T2O_General_Purpose_Float_Registers_10 AT %B80:  LWORD;
-            ureol2l_7_T2O_General_Purpose_Float_Registers_11 AT %B88:  LWORD;
+	        // Module ureol2l/1_T2O_State
+	        ureol2l_1_T2O_State_Input AT %B448 : ureol2l_1_T2O_State_Input_Layout;
+
+	        // Module ureol2l/2_T2O_IO
+	        ureol2l_2_T2O_IO_Input AT %B380 : ureol2l_2_T2O_IO_Input_Layout;
+
+	        // Module ureol2l/3_T2O_Joints
+	        ureol2l_3_T2O_Joints_Input AT %B276 : ureol2l_3_T2O_Joints_Input_Layout;
+
+	        // Module ureol2l/4_T2O_TCP
+	        ureol2l_4_T2O_TCP_Input AT %B200 : ureol2l_4_T2O_TCP_Input_Layout;
+
+	        // Module ureol2l/5_T2O_General_Purpose_Bit_Registers
+	        ureol2l_5_T2O_General_Purpose_Bit_Registers_Input AT %B192 : ureol2l_5_T2O_General_Purpose_Bit_Registers_Input_Layout;
+
+	        // Module ureol2l/6_T2O_General_Purpose_Int_Registers
+	        ureol2l_6_T2O_General_Purpose_Int_Registers_Input AT %B96 : ureol2l_6_T2O_General_Purpose_Int_Registers_Input_Layout;
+
+	        // Module ureol2l/7_T2O_General_Purpose_Float_Registers
+	        ureol2l_7_T2O_General_Purpose_Float_Registers_Input AT %B0 : ureol2l_7_T2O_General_Purpose_Float_Registers_Input_Layout;
+
         END_STRUCT;
     END_TYPE
 END_NAMESPACE
+

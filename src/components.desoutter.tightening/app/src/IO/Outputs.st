@@ -1,10 +1,15 @@
-NAMESPACE AXOpen.Components.Desoutter.Tightening
+﻿NAMESPACE AXOpen.Components.Desoutter.Tightening
     TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
         Outputs : STRUCT
-            wp462_t1_rh_deso_Output_1_byte_1 AT %B1:  BYTE;
-            wp462_t1_rh_deso_Output_1_byte_2 AT %B0:  BYTE;
+	        // Module desoutter_cvic_ii/Output_1_byte_1
+	        desoutter_cvic_ii_Output_1_byte_1_Output AT %B1 : desoutter_cvic_ii_Output_1_byte_1_Output_Layout;
+
+	        // Module desoutter_cvic_ii/Output_1_byte_2
+	        desoutter_cvic_ii_Output_1_byte_2_Output AT %B0 : desoutter_cvic_ii_Output_1_byte_2_Output_Layout;
+
         END_STRUCT;
     END_TYPE
 END_NAMESPACE
+

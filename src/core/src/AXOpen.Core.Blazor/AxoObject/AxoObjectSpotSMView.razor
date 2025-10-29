@@ -1,0 +1,105 @@
+﻿@namespace AXOpen.Core
+@inherits RenderableComplexComponentBase<AxoObject>
+@using System.Timers
+@using AXOpen.Messaging.Static
+@using AXOpen.VisualComposer
+@using AXOpen.VisualComposer.Components.VisualComposerItem
+@using AXSharp.Connector
+@using Microsoft.JSInterop
+@using Operon.Icons
+@inject IJSRuntime JSRuntime
+
+<button type="button" class="flux-tiny-spot @GetSpotStateClass()"
+        @onclick="() => SetCurrentObject()">
+    <div class="flux-tiny-spot__content">
+        <div class="flux-tiny-spot__icon">
+            <HeroIcon Icon="@GetStatusIcon()" Type="IconType.Solid" Class="size-4"/>
+        </div>
+        <span class="flux-tiny-spot__label">@Component.AttributeName</span>
+        @if (observer?.ActiveMessagesCount > 0)
+        {
+            <div class="flux-tiny-spot__badge">
+                @observer.ActiveMessagesCount
+            </div>
+        }
+    </div>
+</button>
+
+@code
+{
+    private AxoMessageProvider? observer;
+
+    private string GetSpotStateClass()
+    {
+        if (observer?.ActiveMessagesCount > 0)
+            return "flux-tiny-spot--danger flux-glow-alarm";
+        else
+            return "flux-tiny-spot--normal";
+    }
+
+    private string GetStatusIcon()
+    {
+        if (observer?.ActiveMessagesCount > 0)
+            return "exclamation-circle";
+        else
+            return "cube";
+    }
+
+    private string ButtonStyleClass
+    {
+        get
+        {
+            if (observer?.ActiveMessagesCount > 0)
+                return "btn-danger";
+            else
+                return "btn-inactive";
+        }
+    }
+
+    public override void ConfigurePolling()
+    {
+        if (this.Component is AxoObject o)
+        {
+            this.StartPolling(o.MsgCnt,2500);
+        }
+    }
+
+    /// <summary>
+    /// This method is called when a component is changed.
+    /// It creates a new instance of AxoMessageObserver using the changed component and assigns it to the observer variable.
+    /// </summary>
+    public override void OnComponentChanged()
+    {
+        observer = AxoMessageProvider.Create(new[] { this.Component });
+        
+        updateTimer.Interval = this.PollingInterval;
+        updateTimer.Enabled = true;
+        updateTimer.Elapsed += (sender, args) =>
+        {
+            InvokeAsync(this.StateHasChanged);
+
+        };
+        updateTimer.Start();
+        
+    }
+
+    private readonly Timer updateTimer = new Timer();
+
+    protected virtual void SetCurrentObject(string presentationType = "Status-Display")
+    {
+        if (RccContainer is RenderableContentControl rccContainer)
+        {
+            if (rccContainer.ParentContainer is VisualComposerItem composerItem)
+            {
+                composerItem.Parent.OpenDetails(this.Component, presentationType); // Updated to use presentationType
+            }
+        }
+    }
+
+    ///<inheritdoc/>
+    protected override async Task OnInitializedAsync()
+    {
+        if (observer != null) await observer.InitializeLightUpdate(this.StartPolling);
+        await base.OnInitializedAsync();
+    }
+}

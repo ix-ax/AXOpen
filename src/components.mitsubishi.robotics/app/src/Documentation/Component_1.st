@@ -18,17 +18,17 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF(manualControl) THEN            
                 ExampleRobot.ActivateManualControl();
             END_IF;
 
             //<Initialization>        
-            ExampleRobot.Run(parent := THIS , hwID := HwIdentifiers#TZ535_PN_HwID);
+            ExampleRobot.Run(inParent := THIS , hwID := HwIdentifiers#mitsubishi_tz535_robot_HwID);
             //</Initialization>
 
         THIS.UseInSequencer();

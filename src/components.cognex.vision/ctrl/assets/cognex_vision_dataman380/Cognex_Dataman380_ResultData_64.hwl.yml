@@ -1,0 +1,9 @@
+Templates:
+  Modules:
+  - Name: 'Cognex_Dataman380_ResultData_64'
+    Content:
+      Name: 'ResultData_64'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.44-Cognex-DataMan380-20250616.xml'
+        GsdId: '403'
+      Slot: 7        

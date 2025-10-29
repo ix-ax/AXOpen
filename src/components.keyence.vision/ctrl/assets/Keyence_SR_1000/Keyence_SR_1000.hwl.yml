@@ -1,0 +1,117 @@
+Templates:
+  Devices:
+    - Name: 'Keyence_SR_1000'
+      Placeholders:
+        - Name: 'NAME'
+          Value: 'keyence_sr_1000'
+        - Name: 'IP_ADDRESS_X1'
+          Value: '192.168.100.1/24'
+        - Name: 'PROFINET_DEVICE_NAME_X1'
+          Value: 'keyence_sr_1000'
+        - Name: 'RESULT_DATA'
+          Value: 'Keyence_SR_1000_ResultData_128'
+          AllowedValues:
+            - 'Keyence_SR_1000_ResultData_32'
+            - 'Keyence_SR_1000_ResultData_64'
+            - 'Keyence_SR_1000_ResultData_128'
+            - 'Keyence_SR_1000_ResultData_246'
+        - Name: 'USER_DATA'
+          Value: 'Keyence_SR_1000_UserData_128'
+          AllowedValues:
+            - 'Keyence_SR_1000_UserData_32'
+            - 'Keyence_SR_1000_UserData_64'
+            - 'Keyence_SR_1000_UserData_128'
+            - 'Keyence_SR_1000_UserData_252'
+      Content:
+        Name: '${NAME}'
+        Modules:
+          - Name: '${NAME}'
+            TypeIdentifier:
+              FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+              GsdId: 'DAP1'
+            Interfaces:
+            - Name: 'Interface'
+              Label: 'X1'
+              Addresses:
+                Configured:
+                - IPv4: '${IP_ADDRESS_X1}'
+                - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+              Parameters:
+                # IECV22LLDPMode: True
+                # PrioritizedStartup (Boolean)
+            Ports:
+            - Name: 'Port_1'
+              Label: 'X1 P1'
+              Parameters:
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                # EndOfDetectionOfAccessibleDevices: False
+                # EndOfTopologyDiscovery: False
+                # PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # CableName: 0
+                # MediumAttachmentType: 'Copper'
+          - Name: HandshakeAndGeneralErrorStatus
+            TypeIdentifier:
+              GsdId: '101'
+              FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+            Slot: 1
+          - Name: BusyStatus
+            TypeIdentifier:
+              GsdId: '102'
+              FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+            Slot: 2
+          - Name: CompletionStatus
+            TypeIdentifier:
+              GsdId: '103'
+              FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+            Slot: 3
+          - Name: ErrorStatus
+            TypeIdentifier:
+              GsdId: '104'
+              FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+            Slot: 4
+          - Name: TerminalStatus
+            TypeIdentifier:
+              GsdId: '105'
+              FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+            Slot: 5
+          - Name: UnstableReadStatus
+            TypeIdentifier:
+              GsdId: '106'
+              FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+            Slot: 6
+          - Name: MatchingLevelAndTotalEvaluationGradeStatus
+            TypeIdentifier:
+              GsdId: '107'
+              FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+            Slot: 7
+          - Name: OperationResultStatus
+            TypeIdentifier:
+              GsdId: '108'
+              FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+            Slot: 8
+          - Apply: ${RESULT_DATA}
+            # Slot: 9
+          - Name: LatchAndErrorClearControl
+            TypeIdentifier:
+              GsdId: '201'
+              FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+            Slot: 10
+          - Name: OperationInstructionControl
+            TypeIdentifier:
+              GsdId: '202'
+              FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+            Slot: 11
+          - Name: CompletionClearControl
+            TypeIdentifier:
+              GsdId: '203'
+              FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+            Slot: 12
+          - Name: ParameterBank
+            TypeIdentifier:
+              GsdId: '204'
+              FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+            Slot: 13
+          - Apply: ${USER_DATA}
+            # Slot: 14

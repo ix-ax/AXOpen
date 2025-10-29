@@ -1,0 +1,9 @@
+Templates:
+  Modules:
+  - Name: 'Cognex_Dataman280_ResultData_246'
+    Content:
+      Name: 'ResultData_246'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.44-COGNEX-DATAMAN280-20250924.XML'
+        GsdId: '405'
+      Slot: 7        
