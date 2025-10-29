@@ -3,53 +3,62 @@
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
         Outputs : STRUCT
-	        // Module dm_280/Acquisition_Control
-	        dm_280_Acquisition_Control_Output AT %B1627 : dm_280_Acquisition_Control_Output_Layout;
+	        // Module cognex_dataman_280/Acquisition_Control
+	        cognex_dataman_280_Acquisition_Control_Output AT %B1553 : cognex_dataman_280_Acquisition_Control_Output_Layout;
 
-	        // Module dm_280/Results_Control
-	        dm_280_Results_Control_Output AT %B1626 : dm_280_Results_Control_Output_Layout;
+	        // Module cognex_dataman_280/Results_Control
+	        cognex_dataman_280_Results_Control_Output AT %B1552 : cognex_dataman_280_Results_Control_Output_Layout;
 
-	        dm_280_Soft_Event_Control_Output AT %B1625 : dm_280_Soft_Event_Control_Output_Layout;
+	        cognex_dataman_280_Soft_Event_Control_Output AT %B1551 : cognex_dataman_280_Soft_Event_Control_Output_Layout;
 
-	        // Module dm_280/User_Data-128_bytes
-	        dm_280_User_Data_128_bytes_Output AT %B1493 : dm_280_User_Data_128_bytes_Output_Layout;
+	        // Module cognex_dataman_280/UserData_128
+	        cognex_dataman_280_UserData_128_Output AT %B1419 : cognex_dataman_280_UserData_128_Output_Layout;
 
-	        // Module dm_300/Acquisition_Control
-	        dm_300_Acquisition_Control_Output AT %B1492 : dm_300_Acquisition_Control_Output_Layout;
+	        // Module cognex_dataman_380/Acquisition_Control
+	        cognex_dataman_380_Acquisition_Control_Output AT %B1418 : cognex_dataman_380_Acquisition_Control_Output_Layout;
 
-	        // Module dm_300/Results_Control
-	        dm_300_Results_Control_Output AT %B1491 : dm_300_Results_Control_Output_Layout;
+	        // Module cognex_dataman_380/Results_Control
+	        cognex_dataman_380_Results_Control_Output AT %B1417 : cognex_dataman_380_Results_Control_Output_Layout;
 
-	        dm_300_Soft_Event_Control_Output AT %B1490 : dm_300_Soft_Event_Control_Output_Layout;
+	        cognex_dataman_380_Soft_Event_Control_Output AT %B1416 : cognex_dataman_380_Soft_Event_Control_Output_Layout;
 
-	        // Module dm_300/User_Data-64_bytes
-	        dm_300_User_Data_64_bytes_Output AT %B1422 : dm_300_User_Data_64_bytes_Output_Layout;
+	        // Module cognex_dataman_380/UserData_128
+	        cognex_dataman_380_UserData_128_Output AT %B1284 : cognex_dataman_380_UserData_128_Output_Layout;
 
-	        // Module is2800/Acquisition_Control
-	        is2800_Acquisition_Control_Output AT %B1352 : is2800_Acquisition_Control_Output_Layout;
+	        // Module cognex_insight_2800/Acquisition_Control
+	        cognex_insight_2800_Acquisition_Control_Output AT %B2169 : cognex_insight_2800_Acquisition_Control_Output_Layout;
 
-	        is2800_Command_Control_Output AT %B1348 : is2800_Command_Control_Output_Layout;
+	        cognex_insight_2800_Command_Control_Output AT %B2165 : cognex_insight_2800_Command_Control_Output_Layout;
 
-	        // Module is2800/Inspection_Control
-	        is2800_Inspection_Control_Output AT %B1351 : is2800_Inspection_Control_Output_Layout;
+	        // Module cognex_insight_2800/Inspection_Control
+	        cognex_insight_2800_Inspection_Control_Output AT %B2168 : cognex_insight_2800_Inspection_Control_Output_Layout;
 
-	        is2800_SoftEvent_Control_Output AT %B1350 : is2800_SoftEvent_Control_Output_Layout;
+	        cognex_insight_2800_SoftEvent_Control_Output AT %B2167 : cognex_insight_2800_SoftEvent_Control_Output_Layout;
 
-	        // Module is2800/User_Data-64_bytes
-	        is2800_User_Data_64_bytes_Output AT %B1284 : is2800_User_Data_64_bytes_Output_Layout;
+	        // Module cognex_insight_2800/UserData_128
+	        cognex_insight_2800_UserData_128_Output AT %B1783 : cognex_insight_2800_UserData_128_Output_Layout;
 
-	        // Module is7600/Acquisition_Control
-	        is7600_Acquisition_Control_Output AT %B1421 : is7600_Acquisition_Control_Output_Layout;
+	        // Module cognex_insight_2800/UserData_254
+	        cognex_insight_2800_UserData_254_Output AT %B1911 : cognex_insight_2800_UserData_254_Output_Layout;
 
-	        is7600_Command_Control_Output AT %B1417 : is7600_Command_Control_Output_Layout;
+	        // Module cognex_insight_2800/UserData_32
+	        cognex_insight_2800_UserData_32_Output AT %B1687 : cognex_insight_2800_UserData_32_Output_Layout;
 
-	        // Module is7600/Inspection_Control
-	        is7600_Inspection_Control_Output AT %B1420 : is7600_Inspection_Control_Output_Layout;
+	        // Module cognex_insight_2800/UserData_64
+	        cognex_insight_2800_UserData_64_Output AT %B1719 : cognex_insight_2800_UserData_64_Output_Layout;
 
-	        is7600_SoftEvent_Control_Output AT %B1419 : is7600_SoftEvent_Control_Output_Layout;
+	        // Module cognex_insight_7600/Acquisition_Control
+	        cognex_insight_7600_Acquisition_Control_Output AT %B1686 : cognex_insight_7600_Acquisition_Control_Output_Layout;
 
-	        // Module is7600/User_Data-64_bytes
-	        is7600_User_Data_64_bytes_Output AT %B1353 : is7600_User_Data_64_bytes_Output_Layout;
+	        cognex_insight_7600_Command_Control_Output AT %B1682 : cognex_insight_7600_Command_Control_Output_Layout;
+
+	        // Module cognex_insight_7600/Inspection_Control
+	        cognex_insight_7600_Inspection_Control_Output AT %B1685 : cognex_insight_7600_Inspection_Control_Output_Layout;
+
+	        cognex_insight_7600_SoftEvent_Control_Output AT %B1684 : cognex_insight_7600_SoftEvent_Control_Output_Layout;
+
+	        // Module cognex_insight_7600/UserData_128
+	        cognex_insight_7600_UserData_128_Output AT %B1554 : cognex_insight_7600_UserData_128_Output_Layout;
 
 	        vision_pro_Engine_Control_1_Output AT %B1267 : vision_pro_Engine_Control_1_Output_Layout;
 

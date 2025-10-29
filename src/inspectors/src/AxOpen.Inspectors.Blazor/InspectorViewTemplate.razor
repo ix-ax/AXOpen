@@ -3,7 +3,7 @@
 @inherits RenderableComponentBase;
 
 <div class="accordion my-3">
-    <div class="accordion-item">
+    <div class="accordion-item flux-inspector @GetStateClass()">
         <button class="accordion-button @(_accordionOpen ? "active" : null)" type="button" @onclick="() => _accordionOpen = !_accordionOpen">
             <p class="overflow-visible my-auto">@NameWithUnit</p>
 
@@ -110,6 +110,18 @@
     private bool IsAnalogInspectorData() => Data is AxoAnalogueInspectorData ? true : false;
     private bool IsDigitalInspectorData() => Data is AxoDigitalInspectorData ? true : false;
     private bool IsDataInspectorData() => Data is AxoDataInspectorData ? true : false;
+
+    private string GetStateClass() => ((eInspectorResult)Result) switch
+    {
+        eInspectorResult.NoAction => "flux-inspector--noaction",
+        eInspectorResult.Running => "flux-inspector--running",
+        eInspectorResult.Passed => "flux-inspector--passed",
+        eInspectorResult.Failed => "flux-inspector--failed",
+        eInspectorResult.Inconclusive => "flux-inspector--inconclusive",
+        eInspectorResult.Excluded => "flux-inspector--excluded",
+        eInspectorResult.Bypassed => "flux-inspector--bypassed",
+        _ => ""
+    };
 
     private bool IsOverInspected()
     {

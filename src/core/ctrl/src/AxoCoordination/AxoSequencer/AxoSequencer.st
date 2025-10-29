@@ -195,7 +195,7 @@ NAMESPACE AXOpen.Core
                 Execute := step.Execute();
                 IF step.HasError() THEN
                     _coordinatorState := AxoCoordinatorStates#Idle;                   
-                    SUPER.ThrowWhen(step.HasError(), System.Strings.Concat('<#Check that steps are unique and properly configured.#>', ' : ', ToString(step.GetStepOrder())));  
+                    SUPER.ThrowWhen(step.HasError(), System.Strings.Concat('<#Check that steps are unique and properly configured.#> : ', ToString(step.GetStepOrder()), ' - ', step.GetStepDescription()));  
                 END_IF;
                 
                 IF step.IsFirstEntryToStep() THEN
@@ -358,10 +358,12 @@ NAMESPACE AXOpen.Core
             // Abort current step if running
             IF _step.IsBusy() THEN
                 _step.Abort();
+                _step.Restore();
             END_IF;
             // Abort step in command if running, otherwise this command will be executed on the following step
             IF StepIn.IsBusy() THEN
                 StepIn.Abort();
+                StepIn.Restore();
             END_IF;
             _step.SetIsActive(FALSE);
         END_METHOD

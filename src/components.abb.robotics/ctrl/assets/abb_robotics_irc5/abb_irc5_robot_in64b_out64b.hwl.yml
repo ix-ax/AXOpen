@@ -1,0 +1,52 @@
+Templates:
+  Devices:
+    - Name: 'abb_irc5_robot_in64b_out64b'
+      Placeholders:
+        - Name: 'NAME'
+          Value: 'abb_irc5_robot'
+        - Name: 'IP_ADDRESS_X1'
+          Value: '192.168.100.1/24'
+        - Name: 'PROFINET_DEVICE_NAME_X1'
+          Value: 'abb_irc5_robot'
+      Content:
+        Name: '${NAME}'
+        Modules:
+          - Name: '${NAME}'
+            TypeIdentifier:
+              FileName: 'GSDML-V2.33-ABB-ROBOTICS-ROBOT-DEVICE-20180814.XML'
+              GsdId: 'DIM IO'
+            Interfaces:
+            - Name: 'PROFINET_Interface'
+              Label: 'X1'
+              Addresses:
+                Configured:
+                - IPv4: '${IP_ADDRESS_X1}'
+                - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+              Parameters:
+                IECV22LLDPMode: False
+                # PrioritizedStartup (Boolean)
+            Ports:
+            - Name: 'Port_1'
+              Label: 'X1 P1'
+              Parameters:
+                # PortActivation: True
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+                TransmissionRateAndDuplex: 'Automatic'
+                EndOfDetectionOfAccessibleDevices: False
+                EndOfTopologyDiscovery: False
+                # PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # CableName: 0
+                # MediumAttachmentType: 'Copper'
+          - Name: DI_64_bytes
+            TypeIdentifier:
+              GsdId: '1'
+              FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+            Slot: 1
+          - Name: DO_64_bytes
+            TypeIdentifier:
+              GsdId: '2'
+              FileName: gsdml-v2.33-abb-robotics-robot-device-20180814.XML
+            Slot: 2
+
+

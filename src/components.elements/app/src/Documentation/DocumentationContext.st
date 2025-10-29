@@ -71,7 +71,7 @@ NAMESPACE AXOpen.Components.Elements
 
         //<AxoCarouselDeclaration>
         VAR PUBLIC
-            _testCarousel : AXOpen.Components.Elements.AxoCarousel;
+            _testCarousel : AXOpen.Components.Elements.AxoRotaryIndexingTable;
         END_VAR
         //</AxoCarouselDeclaration>
 
@@ -88,10 +88,10 @@ NAMESPACE AXOpen.Components.Elements
 
         METHOD PUBLIC Main
             VAR_INPUT
-                parent  : IAxoObject;
+                inParent  : IAxoObject;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             
             //<AxoDiManualControl>
@@ -146,17 +146,17 @@ NAMESPACE AXOpen.Components.Elements
             //<AxoCarouselInitialization>
             _testCarousel.Config.ErrorTime:=T#10S;
             _testCarousel.Config.InfoTime:=T#2S;
-            _testCarousel.Config.Direction:=eAxoCarouselDirection#Cw;
+            _testCarousel.Config.Direction:=eAxoRotaryIndexingTableDirection#Cw;
             _testCarousel.Config.NumberOfPositions:=UINT#8;
             _testCarousel.Config.Offset:=UINT#2;
 
-            _testCarousel.Run(  parent              :=  THIS,
-                                SafetyCondition     :=  _testCarouselSafetyCondition,
-                                InPosition          :=  _testCarouselInPosition,
-                                InPrecisePosition   :=  _testCarouselInPrecisePosition,
-                                CodingPosition      :=  _testCarouselCodingPosition,
-                                EnableTurn          =>  _testCarouselEnableTurn,
-                                StartTurn           =>  _testCarouselStartTurn);
+            _testCarousel.Run(  inParent            :=  THIS,
+                                inSafetyCondition   :=  _testCarouselSafetyCondition,
+                                inPosition          :=  _testCarouselInPosition,
+                                inPrecisePosition   :=  _testCarouselInPrecisePosition,
+                                inCodingPosition    :=  _testCarouselCodingPosition,
+                                outEnableTurn       =>  _testCarouselEnableTurn,
+                                outStartTurn        =>  _testCarouselStartTurn);
             //</AxoCarouselInitialization>
         END_METHOD
     END_CLASS

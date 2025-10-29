@@ -27,6 +27,8 @@ namespace AXOpen.Core
             return authenticationState?.User?.Identity;
         }
 
+        public eAxoTaskState State => ((eAxoTaskState)this.Component.Status.LastValue);
+
         public override void ConfigurePolling()
         {
             this.StartPolling(Component.Status, 250);
@@ -80,7 +82,6 @@ namespace AXOpen.Core
                 }
             }
         }
-        
         
         private string ButtonClass
         {

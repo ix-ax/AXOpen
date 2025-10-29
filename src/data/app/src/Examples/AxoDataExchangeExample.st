@@ -129,7 +129,7 @@ NAMESPACE AxoDataExchangeExample
 
         METHOD INTERNAL Run
             VAR_INPUT
-                _parent : IAxoObject;
+                inParent : IAxoObject;
                 _processData : REF_TO AxoProcessDataManager;
             END_VAR
 

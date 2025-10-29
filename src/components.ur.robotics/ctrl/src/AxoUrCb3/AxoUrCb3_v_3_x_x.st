@@ -123,7 +123,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent          :   IAxoObject;
+                inParent        :   IAxoObject;
                 hwID            :   UINT;
                 refPowerOnPulse :   REF_TO BOOL;
             END_VAR
@@ -136,12 +136,12 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _data100 : ARRAY[0..99] OF BYTE;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             Messenger.Serve(THIS);
 
             IF NOT _initHwCheckDone THEN
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(UINT#700, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#700;
                     RETURN;
@@ -561,7 +561,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     RETURN;
                 END_IF;
  
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(UINT#1130,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1130;
                     RETURN;

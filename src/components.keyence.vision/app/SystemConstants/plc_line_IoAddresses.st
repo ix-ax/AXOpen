@@ -1,541 +1,1701 @@
 CONFIGURATION IoAddresses
     VAR_GLOBAL
-        iv3_1_CommandControl_OutputAddress_0 AT %QD0: DWORD;
-        iv3_1_CommandControl_OutputAddress_1 AT %QD4: DWORD;
-        iv3_1_CommandControl_OutputAddress_2 AT %QD8: DWORD;
-        iv3_1_CommandStatusBits_InputAddress AT %ID1356: DWORD;
-        iv3_1_DeviceResultBits_1_InputAddress AT %ID1352: DWORD;
-        iv3_1_DeviceResultBits_2_InputAddress AT %IL0: LWORD;
-        iv3_1_DeviceStatistics_InputAddress_0 AT %ID1308: DWORD;
-        iv3_1_DeviceStatistics_InputAddress_1 AT %ID1312: DWORD;
-        iv3_1_DeviceStatistics_InputAddress_2 AT %ID1316: DWORD;
-        iv3_1_DeviceStatistics_InputAddress_3 AT %ID1320: DWORD;
-        iv3_1_DeviceStatistics_InputAddress_4 AT %ID1324: DWORD;
-        iv3_1_DeviceStatistics_InputAddress_5 AT %ID1328: DWORD;
-        iv3_1_DeviceStatistics_InputAddress_6 AT %ID1332: DWORD;
-        iv3_1_DeviceStatusWords_InputAddress_0 AT %IL1336: LWORD;
-        iv3_1_DeviceStatusWords_InputAddress_1 AT %IL1344: LWORD;
-        iv3_1_PositionAdjustResult_InputAddress_0 AT %ID1288: DWORD;
-        iv3_1_PositionAdjustResult_InputAddress_1 AT %ID1292: DWORD;
-        iv3_1_PositionAdjustResult_InputAddress_2 AT %ID1296: DWORD;
-        iv3_1_PositionAdjustResult_InputAddress_3 AT %ID1300: DWORD;
-        iv3_1_PositionAdjustResult_InputAddress_4 AT %ID1304: DWORD;
-        iv3_1_ToolResult_1_InputAddress_0 AT %ID1268: DWORD;
-        iv3_1_ToolResult_1_InputAddress_1 AT %ID1272: DWORD;
-        iv3_1_ToolResult_1_InputAddress_2 AT %ID1276: DWORD;
-        iv3_1_ToolResult_1_InputAddress_3 AT %ID1280: DWORD;
-        iv3_1_ToolResult_1_InputAddress_4 AT %ID1284: DWORD;
-        iv3_1_ToolResult_10_InputAddress_0 AT %ID1088: DWORD;
-        iv3_1_ToolResult_10_InputAddress_1 AT %ID1092: DWORD;
-        iv3_1_ToolResult_10_InputAddress_2 AT %ID1096: DWORD;
-        iv3_1_ToolResult_10_InputAddress_3 AT %ID1100: DWORD;
-        iv3_1_ToolResult_10_InputAddress_4 AT %ID1104: DWORD;
-        iv3_1_ToolResult_11_InputAddress_0 AT %ID1068: DWORD;
-        iv3_1_ToolResult_11_InputAddress_1 AT %ID1072: DWORD;
-        iv3_1_ToolResult_11_InputAddress_2 AT %ID1076: DWORD;
-        iv3_1_ToolResult_11_InputAddress_3 AT %ID1080: DWORD;
-        iv3_1_ToolResult_11_InputAddress_4 AT %ID1084: DWORD;
-        iv3_1_ToolResult_12_InputAddress_0 AT %ID1048: DWORD;
-        iv3_1_ToolResult_12_InputAddress_1 AT %ID1052: DWORD;
-        iv3_1_ToolResult_12_InputAddress_2 AT %ID1056: DWORD;
-        iv3_1_ToolResult_12_InputAddress_3 AT %ID1060: DWORD;
-        iv3_1_ToolResult_12_InputAddress_4 AT %ID1064: DWORD;
-        iv3_1_ToolResult_13_InputAddress_0 AT %ID1028: DWORD;
-        iv3_1_ToolResult_13_InputAddress_1 AT %ID1032: DWORD;
-        iv3_1_ToolResult_13_InputAddress_2 AT %ID1036: DWORD;
-        iv3_1_ToolResult_13_InputAddress_3 AT %ID1040: DWORD;
-        iv3_1_ToolResult_13_InputAddress_4 AT %ID1044: DWORD;
-        iv3_1_ToolResult_14_InputAddress_0 AT %ID1008: DWORD;
-        iv3_1_ToolResult_14_InputAddress_1 AT %ID1012: DWORD;
-        iv3_1_ToolResult_14_InputAddress_2 AT %ID1016: DWORD;
-        iv3_1_ToolResult_14_InputAddress_3 AT %ID1020: DWORD;
-        iv3_1_ToolResult_14_InputAddress_4 AT %ID1024: DWORD;
-        iv3_1_ToolResult_15_InputAddress_0 AT %ID988: DWORD;
-        iv3_1_ToolResult_15_InputAddress_1 AT %ID992: DWORD;
-        iv3_1_ToolResult_15_InputAddress_2 AT %ID996: DWORD;
-        iv3_1_ToolResult_15_InputAddress_3 AT %ID1000: DWORD;
-        iv3_1_ToolResult_15_InputAddress_4 AT %ID1004: DWORD;
-        iv3_1_ToolResult_16_InputAddress_0 AT %ID968: DWORD;
-        iv3_1_ToolResult_16_InputAddress_1 AT %ID972: DWORD;
-        iv3_1_ToolResult_16_InputAddress_2 AT %ID976: DWORD;
-        iv3_1_ToolResult_16_InputAddress_3 AT %ID980: DWORD;
-        iv3_1_ToolResult_16_InputAddress_4 AT %ID984: DWORD;
-        iv3_1_ToolResult_17_InputAddress_0 AT %ID948: DWORD;
-        iv3_1_ToolResult_17_InputAddress_1 AT %ID952: DWORD;
-        iv3_1_ToolResult_17_InputAddress_2 AT %ID956: DWORD;
-        iv3_1_ToolResult_17_InputAddress_3 AT %ID960: DWORD;
-        iv3_1_ToolResult_17_InputAddress_4 AT %ID964: DWORD;
-        iv3_1_ToolResult_18_InputAddress_0 AT %ID928: DWORD;
-        iv3_1_ToolResult_18_InputAddress_1 AT %ID932: DWORD;
-        iv3_1_ToolResult_18_InputAddress_2 AT %ID936: DWORD;
-        iv3_1_ToolResult_18_InputAddress_3 AT %ID940: DWORD;
-        iv3_1_ToolResult_18_InputAddress_4 AT %ID944: DWORD;
-        iv3_1_ToolResult_19_InputAddress_0 AT %ID908: DWORD;
-        iv3_1_ToolResult_19_InputAddress_1 AT %ID912: DWORD;
-        iv3_1_ToolResult_19_InputAddress_2 AT %ID916: DWORD;
-        iv3_1_ToolResult_19_InputAddress_3 AT %ID920: DWORD;
-        iv3_1_ToolResult_19_InputAddress_4 AT %ID924: DWORD;
-        iv3_1_ToolResult_2_InputAddress_0 AT %ID1248: DWORD;
-        iv3_1_ToolResult_2_InputAddress_1 AT %ID1252: DWORD;
-        iv3_1_ToolResult_2_InputAddress_2 AT %ID1256: DWORD;
-        iv3_1_ToolResult_2_InputAddress_3 AT %ID1260: DWORD;
-        iv3_1_ToolResult_2_InputAddress_4 AT %ID1264: DWORD;
-        iv3_1_ToolResult_20_InputAddress_0 AT %ID888: DWORD;
-        iv3_1_ToolResult_20_InputAddress_1 AT %ID892: DWORD;
-        iv3_1_ToolResult_20_InputAddress_2 AT %ID896: DWORD;
-        iv3_1_ToolResult_20_InputAddress_3 AT %ID900: DWORD;
-        iv3_1_ToolResult_20_InputAddress_4 AT %ID904: DWORD;
-        iv3_1_ToolResult_21_InputAddress_0 AT %ID868: DWORD;
-        iv3_1_ToolResult_21_InputAddress_1 AT %ID872: DWORD;
-        iv3_1_ToolResult_21_InputAddress_2 AT %ID876: DWORD;
-        iv3_1_ToolResult_21_InputAddress_3 AT %ID880: DWORD;
-        iv3_1_ToolResult_21_InputAddress_4 AT %ID884: DWORD;
-        iv3_1_ToolResult_22_InputAddress_0 AT %ID848: DWORD;
-        iv3_1_ToolResult_22_InputAddress_1 AT %ID852: DWORD;
-        iv3_1_ToolResult_22_InputAddress_2 AT %ID856: DWORD;
-        iv3_1_ToolResult_22_InputAddress_3 AT %ID860: DWORD;
-        iv3_1_ToolResult_22_InputAddress_4 AT %ID864: DWORD;
-        iv3_1_ToolResult_23_InputAddress_0 AT %ID828: DWORD;
-        iv3_1_ToolResult_23_InputAddress_1 AT %ID832: DWORD;
-        iv3_1_ToolResult_23_InputAddress_2 AT %ID836: DWORD;
-        iv3_1_ToolResult_23_InputAddress_3 AT %ID840: DWORD;
-        iv3_1_ToolResult_23_InputAddress_4 AT %ID844: DWORD;
-        iv3_1_ToolResult_24_InputAddress_0 AT %ID808: DWORD;
-        iv3_1_ToolResult_24_InputAddress_1 AT %ID812: DWORD;
-        iv3_1_ToolResult_24_InputAddress_2 AT %ID816: DWORD;
-        iv3_1_ToolResult_24_InputAddress_3 AT %ID820: DWORD;
-        iv3_1_ToolResult_24_InputAddress_4 AT %ID824: DWORD;
-        iv3_1_ToolResult_25_InputAddress_0 AT %ID788: DWORD;
-        iv3_1_ToolResult_25_InputAddress_1 AT %ID792: DWORD;
-        iv3_1_ToolResult_25_InputAddress_2 AT %ID796: DWORD;
-        iv3_1_ToolResult_25_InputAddress_3 AT %ID800: DWORD;
-        iv3_1_ToolResult_25_InputAddress_4 AT %ID804: DWORD;
-        iv3_1_ToolResult_26_InputAddress_0 AT %ID768: DWORD;
-        iv3_1_ToolResult_26_InputAddress_1 AT %ID772: DWORD;
-        iv3_1_ToolResult_26_InputAddress_2 AT %ID776: DWORD;
-        iv3_1_ToolResult_26_InputAddress_3 AT %ID780: DWORD;
-        iv3_1_ToolResult_26_InputAddress_4 AT %ID784: DWORD;
-        iv3_1_ToolResult_27_InputAddress_0 AT %ID748: DWORD;
-        iv3_1_ToolResult_27_InputAddress_1 AT %ID752: DWORD;
-        iv3_1_ToolResult_27_InputAddress_2 AT %ID756: DWORD;
-        iv3_1_ToolResult_27_InputAddress_3 AT %ID760: DWORD;
-        iv3_1_ToolResult_27_InputAddress_4 AT %ID764: DWORD;
-        iv3_1_ToolResult_28_InputAddress_0 AT %ID728: DWORD;
-        iv3_1_ToolResult_28_InputAddress_1 AT %ID732: DWORD;
-        iv3_1_ToolResult_28_InputAddress_2 AT %ID736: DWORD;
-        iv3_1_ToolResult_28_InputAddress_3 AT %ID740: DWORD;
-        iv3_1_ToolResult_28_InputAddress_4 AT %ID744: DWORD;
-        iv3_1_ToolResult_29_InputAddress_0 AT %ID708: DWORD;
-        iv3_1_ToolResult_29_InputAddress_1 AT %ID712: DWORD;
-        iv3_1_ToolResult_29_InputAddress_2 AT %ID716: DWORD;
-        iv3_1_ToolResult_29_InputAddress_3 AT %ID720: DWORD;
-        iv3_1_ToolResult_29_InputAddress_4 AT %ID724: DWORD;
-        iv3_1_ToolResult_3_InputAddress_0 AT %ID1228: DWORD;
-        iv3_1_ToolResult_3_InputAddress_1 AT %ID1232: DWORD;
-        iv3_1_ToolResult_3_InputAddress_2 AT %ID1236: DWORD;
-        iv3_1_ToolResult_3_InputAddress_3 AT %ID1240: DWORD;
-        iv3_1_ToolResult_3_InputAddress_4 AT %ID1244: DWORD;
-        iv3_1_ToolResult_30_InputAddress_0 AT %ID688: DWORD;
-        iv3_1_ToolResult_30_InputAddress_1 AT %ID692: DWORD;
-        iv3_1_ToolResult_30_InputAddress_2 AT %ID696: DWORD;
-        iv3_1_ToolResult_30_InputAddress_3 AT %ID700: DWORD;
-        iv3_1_ToolResult_30_InputAddress_4 AT %ID704: DWORD;
-        iv3_1_ToolResult_31_InputAddress_0 AT %ID668: DWORD;
-        iv3_1_ToolResult_31_InputAddress_1 AT %ID672: DWORD;
-        iv3_1_ToolResult_31_InputAddress_2 AT %ID676: DWORD;
-        iv3_1_ToolResult_31_InputAddress_3 AT %ID680: DWORD;
-        iv3_1_ToolResult_31_InputAddress_4 AT %ID684: DWORD;
-        iv3_1_ToolResult_32_InputAddress_0 AT %ID648: DWORD;
-        iv3_1_ToolResult_32_InputAddress_1 AT %ID652: DWORD;
-        iv3_1_ToolResult_32_InputAddress_2 AT %ID656: DWORD;
-        iv3_1_ToolResult_32_InputAddress_3 AT %ID660: DWORD;
-        iv3_1_ToolResult_32_InputAddress_4 AT %ID664: DWORD;
-        iv3_1_ToolResult_33_InputAddress_0 AT %ID628: DWORD;
-        iv3_1_ToolResult_33_InputAddress_1 AT %ID632: DWORD;
-        iv3_1_ToolResult_33_InputAddress_2 AT %ID636: DWORD;
-        iv3_1_ToolResult_33_InputAddress_3 AT %ID640: DWORD;
-        iv3_1_ToolResult_33_InputAddress_4 AT %ID644: DWORD;
-        iv3_1_ToolResult_34_InputAddress_0 AT %ID608: DWORD;
-        iv3_1_ToolResult_34_InputAddress_1 AT %ID612: DWORD;
-        iv3_1_ToolResult_34_InputAddress_2 AT %ID616: DWORD;
-        iv3_1_ToolResult_34_InputAddress_3 AT %ID620: DWORD;
-        iv3_1_ToolResult_34_InputAddress_4 AT %ID624: DWORD;
-        iv3_1_ToolResult_35_InputAddress_0 AT %ID588: DWORD;
-        iv3_1_ToolResult_35_InputAddress_1 AT %ID592: DWORD;
-        iv3_1_ToolResult_35_InputAddress_2 AT %ID596: DWORD;
-        iv3_1_ToolResult_35_InputAddress_3 AT %ID600: DWORD;
-        iv3_1_ToolResult_35_InputAddress_4 AT %ID604: DWORD;
-        iv3_1_ToolResult_36_InputAddress_0 AT %ID568: DWORD;
-        iv3_1_ToolResult_36_InputAddress_1 AT %ID572: DWORD;
-        iv3_1_ToolResult_36_InputAddress_2 AT %ID576: DWORD;
-        iv3_1_ToolResult_36_InputAddress_3 AT %ID580: DWORD;
-        iv3_1_ToolResult_36_InputAddress_4 AT %ID584: DWORD;
-        iv3_1_ToolResult_37_InputAddress_0 AT %ID548: DWORD;
-        iv3_1_ToolResult_37_InputAddress_1 AT %ID552: DWORD;
-        iv3_1_ToolResult_37_InputAddress_2 AT %ID556: DWORD;
-        iv3_1_ToolResult_37_InputAddress_3 AT %ID560: DWORD;
-        iv3_1_ToolResult_37_InputAddress_4 AT %ID564: DWORD;
-        iv3_1_ToolResult_38_InputAddress_0 AT %ID528: DWORD;
-        iv3_1_ToolResult_38_InputAddress_1 AT %ID532: DWORD;
-        iv3_1_ToolResult_38_InputAddress_2 AT %ID536: DWORD;
-        iv3_1_ToolResult_38_InputAddress_3 AT %ID540: DWORD;
-        iv3_1_ToolResult_38_InputAddress_4 AT %ID544: DWORD;
-        iv3_1_ToolResult_39_InputAddress_0 AT %ID508: DWORD;
-        iv3_1_ToolResult_39_InputAddress_1 AT %ID512: DWORD;
-        iv3_1_ToolResult_39_InputAddress_2 AT %ID516: DWORD;
-        iv3_1_ToolResult_39_InputAddress_3 AT %ID520: DWORD;
-        iv3_1_ToolResult_39_InputAddress_4 AT %ID524: DWORD;
-        iv3_1_ToolResult_4_InputAddress_0 AT %ID1208: DWORD;
-        iv3_1_ToolResult_4_InputAddress_1 AT %ID1212: DWORD;
-        iv3_1_ToolResult_4_InputAddress_2 AT %ID1216: DWORD;
-        iv3_1_ToolResult_4_InputAddress_3 AT %ID1220: DWORD;
-        iv3_1_ToolResult_4_InputAddress_4 AT %ID1224: DWORD;
-        iv3_1_ToolResult_40_InputAddress_0 AT %ID488: DWORD;
-        iv3_1_ToolResult_40_InputAddress_1 AT %ID492: DWORD;
-        iv3_1_ToolResult_40_InputAddress_2 AT %ID496: DWORD;
-        iv3_1_ToolResult_40_InputAddress_3 AT %ID500: DWORD;
-        iv3_1_ToolResult_40_InputAddress_4 AT %ID504: DWORD;
-        iv3_1_ToolResult_41_InputAddress_0 AT %ID468: DWORD;
-        iv3_1_ToolResult_41_InputAddress_1 AT %ID472: DWORD;
-        iv3_1_ToolResult_41_InputAddress_2 AT %ID476: DWORD;
-        iv3_1_ToolResult_41_InputAddress_3 AT %ID480: DWORD;
-        iv3_1_ToolResult_41_InputAddress_4 AT %ID484: DWORD;
-        iv3_1_ToolResult_42_InputAddress_0 AT %ID448: DWORD;
-        iv3_1_ToolResult_42_InputAddress_1 AT %ID452: DWORD;
-        iv3_1_ToolResult_42_InputAddress_2 AT %ID456: DWORD;
-        iv3_1_ToolResult_42_InputAddress_3 AT %ID460: DWORD;
-        iv3_1_ToolResult_42_InputAddress_4 AT %ID464: DWORD;
-        iv3_1_ToolResult_43_InputAddress_0 AT %ID428: DWORD;
-        iv3_1_ToolResult_43_InputAddress_1 AT %ID432: DWORD;
-        iv3_1_ToolResult_43_InputAddress_2 AT %ID436: DWORD;
-        iv3_1_ToolResult_43_InputAddress_3 AT %ID440: DWORD;
-        iv3_1_ToolResult_43_InputAddress_4 AT %ID444: DWORD;
-        iv3_1_ToolResult_44_InputAddress_0 AT %ID408: DWORD;
-        iv3_1_ToolResult_44_InputAddress_1 AT %ID412: DWORD;
-        iv3_1_ToolResult_44_InputAddress_2 AT %ID416: DWORD;
-        iv3_1_ToolResult_44_InputAddress_3 AT %ID420: DWORD;
-        iv3_1_ToolResult_44_InputAddress_4 AT %ID424: DWORD;
-        iv3_1_ToolResult_45_InputAddress_0 AT %ID388: DWORD;
-        iv3_1_ToolResult_45_InputAddress_1 AT %ID392: DWORD;
-        iv3_1_ToolResult_45_InputAddress_2 AT %ID396: DWORD;
-        iv3_1_ToolResult_45_InputAddress_3 AT %ID400: DWORD;
-        iv3_1_ToolResult_45_InputAddress_4 AT %ID404: DWORD;
-        iv3_1_ToolResult_46_InputAddress_0 AT %ID368: DWORD;
-        iv3_1_ToolResult_46_InputAddress_1 AT %ID372: DWORD;
-        iv3_1_ToolResult_46_InputAddress_2 AT %ID376: DWORD;
-        iv3_1_ToolResult_46_InputAddress_3 AT %ID380: DWORD;
-        iv3_1_ToolResult_46_InputAddress_4 AT %ID384: DWORD;
-        iv3_1_ToolResult_47_InputAddress_0 AT %ID348: DWORD;
-        iv3_1_ToolResult_47_InputAddress_1 AT %ID352: DWORD;
-        iv3_1_ToolResult_47_InputAddress_2 AT %ID356: DWORD;
-        iv3_1_ToolResult_47_InputAddress_3 AT %ID360: DWORD;
-        iv3_1_ToolResult_47_InputAddress_4 AT %ID364: DWORD;
-        iv3_1_ToolResult_48_InputAddress_0 AT %ID328: DWORD;
-        iv3_1_ToolResult_48_InputAddress_1 AT %ID332: DWORD;
-        iv3_1_ToolResult_48_InputAddress_2 AT %ID336: DWORD;
-        iv3_1_ToolResult_48_InputAddress_3 AT %ID340: DWORD;
-        iv3_1_ToolResult_48_InputAddress_4 AT %ID344: DWORD;
-        iv3_1_ToolResult_49_InputAddress_0 AT %ID308: DWORD;
-        iv3_1_ToolResult_49_InputAddress_1 AT %ID312: DWORD;
-        iv3_1_ToolResult_49_InputAddress_2 AT %ID316: DWORD;
-        iv3_1_ToolResult_49_InputAddress_3 AT %ID320: DWORD;
-        iv3_1_ToolResult_49_InputAddress_4 AT %ID324: DWORD;
-        iv3_1_ToolResult_5_InputAddress_0 AT %ID1188: DWORD;
-        iv3_1_ToolResult_5_InputAddress_1 AT %ID1192: DWORD;
-        iv3_1_ToolResult_5_InputAddress_2 AT %ID1196: DWORD;
-        iv3_1_ToolResult_5_InputAddress_3 AT %ID1200: DWORD;
-        iv3_1_ToolResult_5_InputAddress_4 AT %ID1204: DWORD;
-        iv3_1_ToolResult_50_InputAddress_0 AT %ID288: DWORD;
-        iv3_1_ToolResult_50_InputAddress_1 AT %ID292: DWORD;
-        iv3_1_ToolResult_50_InputAddress_2 AT %ID296: DWORD;
-        iv3_1_ToolResult_50_InputAddress_3 AT %ID300: DWORD;
-        iv3_1_ToolResult_50_InputAddress_4 AT %ID304: DWORD;
-        iv3_1_ToolResult_51_InputAddress_0 AT %ID268: DWORD;
-        iv3_1_ToolResult_51_InputAddress_1 AT %ID272: DWORD;
-        iv3_1_ToolResult_51_InputAddress_2 AT %ID276: DWORD;
-        iv3_1_ToolResult_51_InputAddress_3 AT %ID280: DWORD;
-        iv3_1_ToolResult_51_InputAddress_4 AT %ID284: DWORD;
-        iv3_1_ToolResult_52_InputAddress_0 AT %ID248: DWORD;
-        iv3_1_ToolResult_52_InputAddress_1 AT %ID252: DWORD;
-        iv3_1_ToolResult_52_InputAddress_2 AT %ID256: DWORD;
-        iv3_1_ToolResult_52_InputAddress_3 AT %ID260: DWORD;
-        iv3_1_ToolResult_52_InputAddress_4 AT %ID264: DWORD;
-        iv3_1_ToolResult_53_InputAddress_0 AT %ID228: DWORD;
-        iv3_1_ToolResult_53_InputAddress_1 AT %ID232: DWORD;
-        iv3_1_ToolResult_53_InputAddress_2 AT %ID236: DWORD;
-        iv3_1_ToolResult_53_InputAddress_3 AT %ID240: DWORD;
-        iv3_1_ToolResult_53_InputAddress_4 AT %ID244: DWORD;
-        iv3_1_ToolResult_54_InputAddress_0 AT %ID208: DWORD;
-        iv3_1_ToolResult_54_InputAddress_1 AT %ID212: DWORD;
-        iv3_1_ToolResult_54_InputAddress_2 AT %ID216: DWORD;
-        iv3_1_ToolResult_54_InputAddress_3 AT %ID220: DWORD;
-        iv3_1_ToolResult_54_InputAddress_4 AT %ID224: DWORD;
-        iv3_1_ToolResult_55_InputAddress_0 AT %ID188: DWORD;
-        iv3_1_ToolResult_55_InputAddress_1 AT %ID192: DWORD;
-        iv3_1_ToolResult_55_InputAddress_2 AT %ID196: DWORD;
-        iv3_1_ToolResult_55_InputAddress_3 AT %ID200: DWORD;
-        iv3_1_ToolResult_55_InputAddress_4 AT %ID204: DWORD;
-        iv3_1_ToolResult_56_InputAddress_0 AT %ID168: DWORD;
-        iv3_1_ToolResult_56_InputAddress_1 AT %ID172: DWORD;
-        iv3_1_ToolResult_56_InputAddress_2 AT %ID176: DWORD;
-        iv3_1_ToolResult_56_InputAddress_3 AT %ID180: DWORD;
-        iv3_1_ToolResult_56_InputAddress_4 AT %ID184: DWORD;
-        iv3_1_ToolResult_57_InputAddress_0 AT %ID148: DWORD;
-        iv3_1_ToolResult_57_InputAddress_1 AT %ID152: DWORD;
-        iv3_1_ToolResult_57_InputAddress_2 AT %ID156: DWORD;
-        iv3_1_ToolResult_57_InputAddress_3 AT %ID160: DWORD;
-        iv3_1_ToolResult_57_InputAddress_4 AT %ID164: DWORD;
-        iv3_1_ToolResult_58_InputAddress_0 AT %ID128: DWORD;
-        iv3_1_ToolResult_58_InputAddress_1 AT %ID132: DWORD;
-        iv3_1_ToolResult_58_InputAddress_2 AT %ID136: DWORD;
-        iv3_1_ToolResult_58_InputAddress_3 AT %ID140: DWORD;
-        iv3_1_ToolResult_58_InputAddress_4 AT %ID144: DWORD;
-        iv3_1_ToolResult_59_InputAddress_0 AT %ID108: DWORD;
-        iv3_1_ToolResult_59_InputAddress_1 AT %ID112: DWORD;
-        iv3_1_ToolResult_59_InputAddress_2 AT %ID116: DWORD;
-        iv3_1_ToolResult_59_InputAddress_3 AT %ID120: DWORD;
-        iv3_1_ToolResult_59_InputAddress_4 AT %ID124: DWORD;
-        iv3_1_ToolResult_6_InputAddress_0 AT %ID1168: DWORD;
-        iv3_1_ToolResult_6_InputAddress_1 AT %ID1172: DWORD;
-        iv3_1_ToolResult_6_InputAddress_2 AT %ID1176: DWORD;
-        iv3_1_ToolResult_6_InputAddress_3 AT %ID1180: DWORD;
-        iv3_1_ToolResult_6_InputAddress_4 AT %ID1184: DWORD;
-        iv3_1_ToolResult_60_InputAddress_0 AT %ID88: DWORD;
-        iv3_1_ToolResult_60_InputAddress_1 AT %ID92: DWORD;
-        iv3_1_ToolResult_60_InputAddress_2 AT %ID96: DWORD;
-        iv3_1_ToolResult_60_InputAddress_3 AT %ID100: DWORD;
-        iv3_1_ToolResult_60_InputAddress_4 AT %ID104: DWORD;
-        iv3_1_ToolResult_61_InputAddress_0 AT %ID68: DWORD;
-        iv3_1_ToolResult_61_InputAddress_1 AT %ID72: DWORD;
-        iv3_1_ToolResult_61_InputAddress_2 AT %ID76: DWORD;
-        iv3_1_ToolResult_61_InputAddress_3 AT %ID80: DWORD;
-        iv3_1_ToolResult_61_InputAddress_4 AT %ID84: DWORD;
-        iv3_1_ToolResult_62_InputAddress_0 AT %ID48: DWORD;
-        iv3_1_ToolResult_62_InputAddress_1 AT %ID52: DWORD;
-        iv3_1_ToolResult_62_InputAddress_2 AT %ID56: DWORD;
-        iv3_1_ToolResult_62_InputAddress_3 AT %ID60: DWORD;
-        iv3_1_ToolResult_62_InputAddress_4 AT %ID64: DWORD;
-        iv3_1_ToolResult_63_InputAddress_0 AT %ID28: DWORD;
-        iv3_1_ToolResult_63_InputAddress_1 AT %ID32: DWORD;
-        iv3_1_ToolResult_63_InputAddress_2 AT %ID36: DWORD;
-        iv3_1_ToolResult_63_InputAddress_3 AT %ID40: DWORD;
-        iv3_1_ToolResult_63_InputAddress_4 AT %ID44: DWORD;
-        iv3_1_ToolResult_64_InputAddress_0 AT %ID8: DWORD;
-        iv3_1_ToolResult_64_InputAddress_1 AT %ID12: DWORD;
-        iv3_1_ToolResult_64_InputAddress_2 AT %ID16: DWORD;
-        iv3_1_ToolResult_64_InputAddress_3 AT %ID20: DWORD;
-        iv3_1_ToolResult_64_InputAddress_4 AT %ID24: DWORD;
-        iv3_1_ToolResult_7_InputAddress_0 AT %ID1148: DWORD;
-        iv3_1_ToolResult_7_InputAddress_1 AT %ID1152: DWORD;
-        iv3_1_ToolResult_7_InputAddress_2 AT %ID1156: DWORD;
-        iv3_1_ToolResult_7_InputAddress_3 AT %ID1160: DWORD;
-        iv3_1_ToolResult_7_InputAddress_4 AT %ID1164: DWORD;
-        iv3_1_ToolResult_8_InputAddress_0 AT %ID1128: DWORD;
-        iv3_1_ToolResult_8_InputAddress_1 AT %ID1132: DWORD;
-        iv3_1_ToolResult_8_InputAddress_2 AT %ID1136: DWORD;
-        iv3_1_ToolResult_8_InputAddress_3 AT %ID1140: DWORD;
-        iv3_1_ToolResult_8_InputAddress_4 AT %ID1144: DWORD;
-        iv3_1_ToolResult_9_InputAddress_0 AT %ID1108: DWORD;
-        iv3_1_ToolResult_9_InputAddress_1 AT %ID1112: DWORD;
-        iv3_1_ToolResult_9_InputAddress_2 AT %ID1116: DWORD;
-        iv3_1_ToolResult_9_InputAddress_3 AT %ID1120: DWORD;
-        iv3_1_ToolResult_9_InputAddress_4 AT %ID1124: DWORD;
-        sr_1000_1_BusyStatus_InputAddress AT %IB1528: BYTE;
-        sr_1000_1_CompletionClearControl_OutputAddress AT %QB144: BYTE;
-        sr_1000_1_CompletionStatus_InputAddress AT %IB1527: BYTE;
-        sr_1000_1_ErrorStatus_InputAddress AT %IB1526: BYTE;
-        sr_1000_1_HandshakeAndGeneralErrorStatus_InputAddress AT %IB1529: BYTE;
-        sr_1000_1_LatchAndErrorClearControl_OutputAddress AT %QB146: BYTE;
-        sr_1000_1_MatchingLevelAndTotalEvaluationGradeStatus_InputAddress AT %IL1516: LWORD;
-        sr_1000_1_OperationInstructionControl_OutputAddress AT %QB145: BYTE;
-        sr_1000_1_OperationResultStatus_InputAddress_0 AT %ID1496: DWORD;
-        sr_1000_1_OperationResultStatus_InputAddress_1 AT %ID1500: DWORD;
-        sr_1000_1_OperationResultStatus_InputAddress_2 AT %ID1504: DWORD;
-        sr_1000_1_OperationResultStatus_InputAddress_3 AT %ID1508: DWORD;
-        sr_1000_1_OperationResultStatus_InputAddress_4 AT %ID1512: DWORD;
-        sr_1000_1_ParameterBank_OutputAddress AT %QW142: WORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_0 AT %IL1360: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_1 AT %IL1368: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_2 AT %IL1376: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_3 AT %IL1384: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_4 AT %IL1392: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_5 AT %IL1400: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_6 AT %IL1408: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_7 AT %IL1416: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_8 AT %IL1424: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_9 AT %IL1432: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_10 AT %IL1440: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_11 AT %IL1448: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_12 AT %IL1456: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_13 AT %IL1464: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_14 AT %IL1472: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_15 AT %IL1480: LWORD;
-        sr_1000_1_ReadData_128_bytes_InputAddress_16 AT %IL1488: LWORD;
-        sr_1000_1_TerminalStatus_InputAddress AT %IB1525: BYTE;
-        sr_1000_1_UnstableReadStatus_InputAddress AT %IB1524: BYTE;
-        sr_1000_1_UserData_128_bytes_OutputAddress_0 AT %QW12: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_1 AT %QW14: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_2 AT %QW16: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_3 AT %QW18: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_4 AT %QW20: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_5 AT %QW22: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_6 AT %QW24: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_7 AT %QW26: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_8 AT %QW28: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_9 AT %QW30: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_10 AT %QW32: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_11 AT %QW34: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_12 AT %QW36: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_13 AT %QW38: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_14 AT %QW40: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_15 AT %QW42: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_16 AT %QW44: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_17 AT %QW46: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_18 AT %QW48: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_19 AT %QW50: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_20 AT %QW52: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_21 AT %QW54: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_22 AT %QW56: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_23 AT %QW58: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_24 AT %QW60: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_25 AT %QW62: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_26 AT %QW64: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_27 AT %QW66: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_28 AT %QW68: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_29 AT %QW70: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_30 AT %QW72: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_31 AT %QW74: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_32 AT %QW76: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_33 AT %QW78: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_34 AT %QW80: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_35 AT %QW82: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_36 AT %QW84: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_37 AT %QW86: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_38 AT %QW88: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_39 AT %QW90: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_40 AT %QW92: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_41 AT %QW94: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_42 AT %QW96: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_43 AT %QW98: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_44 AT %QW100: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_45 AT %QW102: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_46 AT %QW104: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_47 AT %QW106: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_48 AT %QW108: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_49 AT %QW110: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_50 AT %QW112: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_51 AT %QW114: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_52 AT %QW116: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_53 AT %QW118: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_54 AT %QW120: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_55 AT %QW122: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_56 AT %QW124: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_57 AT %QW126: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_58 AT %QW128: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_59 AT %QW130: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_60 AT %QW132: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_61 AT %QW134: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_62 AT %QW136: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_63 AT %QW138: WORD;
-        sr_1000_1_UserData_128_bytes_OutputAddress_64 AT %QW140: WORD;
-        sr_750_1_BusyStatus_InputAddress AT %IB1698: BYTE;
-        sr_750_1_CompletionClearControl_OutputAddress AT %QB279: BYTE;
-        sr_750_1_CompletionStatus_InputAddress AT %IB1697: BYTE;
-        sr_750_1_ErrorStatus_InputAddress AT %IB1696: BYTE;
-        sr_750_1_HandshakeAndGeneralErrorStatus_InputAddress AT %IB1699: BYTE;
-        sr_750_1_LatchAndErrorClearControl_OutputAddress AT %QB281: BYTE;
-        sr_750_1_MatchingLevelAndTotalEvaluationGradeStatus_InputAddress AT %IL1686: LWORD;
-        sr_750_1_OperationInstructionControl_OutputAddress AT %QB280: BYTE;
-        sr_750_1_OperationResultStatus_InputAddress_0 AT %ID1666: DWORD;
-        sr_750_1_OperationResultStatus_InputAddress_1 AT %ID1670: DWORD;
-        sr_750_1_OperationResultStatus_InputAddress_2 AT %ID1674: DWORD;
-        sr_750_1_OperationResultStatus_InputAddress_3 AT %ID1678: DWORD;
-        sr_750_1_OperationResultStatus_InputAddress_4 AT %ID1682: DWORD;
-        sr_750_1_ParameterBank_OutputAddress AT %QW277: WORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_0 AT %IL1530: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_1 AT %IL1538: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_2 AT %IL1546: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_3 AT %IL1554: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_4 AT %IL1562: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_5 AT %IL1570: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_6 AT %IL1578: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_7 AT %IL1586: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_8 AT %IL1594: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_9 AT %IL1602: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_10 AT %IL1610: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_11 AT %IL1618: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_12 AT %IL1626: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_13 AT %IL1634: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_14 AT %IL1642: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_15 AT %IL1650: LWORD;
-        sr_750_1_ReadData_128_bytes_InputAddress_16 AT %IL1658: LWORD;
-        sr_750_1_TerminalStatus_InputAddress AT %IB1695: BYTE;
-        sr_750_1_UnstableReadStatus_InputAddress AT %IB1694: BYTE;
-        sr_750_1_UserData_128_bytes_OutputAddress_0 AT %QW147: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_1 AT %QW149: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_2 AT %QW151: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_3 AT %QW153: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_4 AT %QW155: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_5 AT %QW157: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_6 AT %QW159: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_7 AT %QW161: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_8 AT %QW163: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_9 AT %QW165: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_10 AT %QW167: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_11 AT %QW169: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_12 AT %QW171: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_13 AT %QW173: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_14 AT %QW175: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_15 AT %QW177: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_16 AT %QW179: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_17 AT %QW181: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_18 AT %QW183: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_19 AT %QW185: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_20 AT %QW187: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_21 AT %QW189: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_22 AT %QW191: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_23 AT %QW193: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_24 AT %QW195: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_25 AT %QW197: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_26 AT %QW199: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_27 AT %QW201: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_28 AT %QW203: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_29 AT %QW205: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_30 AT %QW207: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_31 AT %QW209: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_32 AT %QW211: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_33 AT %QW213: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_34 AT %QW215: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_35 AT %QW217: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_36 AT %QW219: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_37 AT %QW221: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_38 AT %QW223: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_39 AT %QW225: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_40 AT %QW227: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_41 AT %QW229: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_42 AT %QW231: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_43 AT %QW233: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_44 AT %QW235: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_45 AT %QW237: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_46 AT %QW239: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_47 AT %QW241: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_48 AT %QW243: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_49 AT %QW245: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_50 AT %QW247: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_51 AT %QW249: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_52 AT %QW251: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_53 AT %QW253: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_54 AT %QW255: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_55 AT %QW257: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_56 AT %QW259: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_57 AT %QW261: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_58 AT %QW263: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_59 AT %QW265: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_60 AT %QW267: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_61 AT %QW269: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_62 AT %QW271: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_63 AT %QW273: WORD;
-        sr_750_1_UserData_128_bytes_OutputAddress_64 AT %QW275: WORD;
 
+        // Module keyence_iv3/CommandControl
+        keyence_iv3_CommandControl_Output AT %QB135 : keyence_iv3_CommandControl_Output_Layout;
+
+        // Module keyence_iv3/CommandStatusBits
+        keyence_iv3_CommandStatusBits_Input AT %IB1526 : keyence_iv3_CommandStatusBits_Input_Layout;
+
+        // Module keyence_iv3/DeviceResultBits_1
+        keyence_iv3_DeviceResultBits_1_Input AT %IB1522 : keyence_iv3_DeviceResultBits_1_Input_Layout;
+
+        // Module keyence_iv3/DeviceResultBits_2
+        keyence_iv3_DeviceResultBits_2_Input AT %IB170 : keyence_iv3_DeviceResultBits_2_Input_Layout;
+
+        // Module keyence_iv3/DeviceStatistics
+        keyence_iv3_DeviceStatistics_Input AT %IB1478 : keyence_iv3_DeviceStatistics_Input_Layout;
+
+        // Module keyence_iv3/DeviceStatusWords
+        keyence_iv3_DeviceStatusWords_Input AT %IB1506 : keyence_iv3_DeviceStatusWords_Input_Layout;
+
+        // Module keyence_iv3/PositionAdjustResult
+        keyence_iv3_PositionAdjustResult_Input AT %IB1458 : keyence_iv3_PositionAdjustResult_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_1
+        keyence_iv3_ToolResult_1_Input AT %IB1438 : keyence_iv3_ToolResult_1_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_10
+        keyence_iv3_ToolResult_10_Input AT %IB1258 : keyence_iv3_ToolResult_10_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_11
+        keyence_iv3_ToolResult_11_Input AT %IB1238 : keyence_iv3_ToolResult_11_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_12
+        keyence_iv3_ToolResult_12_Input AT %IB1218 : keyence_iv3_ToolResult_12_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_13
+        keyence_iv3_ToolResult_13_Input AT %IB1198 : keyence_iv3_ToolResult_13_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_14
+        keyence_iv3_ToolResult_14_Input AT %IB1178 : keyence_iv3_ToolResult_14_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_15
+        keyence_iv3_ToolResult_15_Input AT %IB1158 : keyence_iv3_ToolResult_15_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_16
+        keyence_iv3_ToolResult_16_Input AT %IB1138 : keyence_iv3_ToolResult_16_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_17
+        keyence_iv3_ToolResult_17_Input AT %IB1118 : keyence_iv3_ToolResult_17_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_18
+        keyence_iv3_ToolResult_18_Input AT %IB1098 : keyence_iv3_ToolResult_18_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_19
+        keyence_iv3_ToolResult_19_Input AT %IB1078 : keyence_iv3_ToolResult_19_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_2
+        keyence_iv3_ToolResult_2_Input AT %IB1418 : keyence_iv3_ToolResult_2_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_20
+        keyence_iv3_ToolResult_20_Input AT %IB1058 : keyence_iv3_ToolResult_20_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_21
+        keyence_iv3_ToolResult_21_Input AT %IB1038 : keyence_iv3_ToolResult_21_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_22
+        keyence_iv3_ToolResult_22_Input AT %IB1018 : keyence_iv3_ToolResult_22_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_23
+        keyence_iv3_ToolResult_23_Input AT %IB998 : keyence_iv3_ToolResult_23_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_24
+        keyence_iv3_ToolResult_24_Input AT %IB978 : keyence_iv3_ToolResult_24_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_25
+        keyence_iv3_ToolResult_25_Input AT %IB958 : keyence_iv3_ToolResult_25_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_26
+        keyence_iv3_ToolResult_26_Input AT %IB938 : keyence_iv3_ToolResult_26_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_27
+        keyence_iv3_ToolResult_27_Input AT %IB918 : keyence_iv3_ToolResult_27_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_28
+        keyence_iv3_ToolResult_28_Input AT %IB898 : keyence_iv3_ToolResult_28_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_29
+        keyence_iv3_ToolResult_29_Input AT %IB878 : keyence_iv3_ToolResult_29_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_3
+        keyence_iv3_ToolResult_3_Input AT %IB1398 : keyence_iv3_ToolResult_3_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_30
+        keyence_iv3_ToolResult_30_Input AT %IB858 : keyence_iv3_ToolResult_30_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_31
+        keyence_iv3_ToolResult_31_Input AT %IB838 : keyence_iv3_ToolResult_31_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_32
+        keyence_iv3_ToolResult_32_Input AT %IB818 : keyence_iv3_ToolResult_32_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_33
+        keyence_iv3_ToolResult_33_Input AT %IB798 : keyence_iv3_ToolResult_33_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_34
+        keyence_iv3_ToolResult_34_Input AT %IB778 : keyence_iv3_ToolResult_34_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_35
+        keyence_iv3_ToolResult_35_Input AT %IB758 : keyence_iv3_ToolResult_35_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_36
+        keyence_iv3_ToolResult_36_Input AT %IB738 : keyence_iv3_ToolResult_36_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_37
+        keyence_iv3_ToolResult_37_Input AT %IB718 : keyence_iv3_ToolResult_37_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_38
+        keyence_iv3_ToolResult_38_Input AT %IB698 : keyence_iv3_ToolResult_38_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_39
+        keyence_iv3_ToolResult_39_Input AT %IB678 : keyence_iv3_ToolResult_39_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_4
+        keyence_iv3_ToolResult_4_Input AT %IB1378 : keyence_iv3_ToolResult_4_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_40
+        keyence_iv3_ToolResult_40_Input AT %IB658 : keyence_iv3_ToolResult_40_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_41
+        keyence_iv3_ToolResult_41_Input AT %IB638 : keyence_iv3_ToolResult_41_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_42
+        keyence_iv3_ToolResult_42_Input AT %IB618 : keyence_iv3_ToolResult_42_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_43
+        keyence_iv3_ToolResult_43_Input AT %IB598 : keyence_iv3_ToolResult_43_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_44
+        keyence_iv3_ToolResult_44_Input AT %IB578 : keyence_iv3_ToolResult_44_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_45
+        keyence_iv3_ToolResult_45_Input AT %IB558 : keyence_iv3_ToolResult_45_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_46
+        keyence_iv3_ToolResult_46_Input AT %IB538 : keyence_iv3_ToolResult_46_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_47
+        keyence_iv3_ToolResult_47_Input AT %IB518 : keyence_iv3_ToolResult_47_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_48
+        keyence_iv3_ToolResult_48_Input AT %IB498 : keyence_iv3_ToolResult_48_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_49
+        keyence_iv3_ToolResult_49_Input AT %IB478 : keyence_iv3_ToolResult_49_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_5
+        keyence_iv3_ToolResult_5_Input AT %IB1358 : keyence_iv3_ToolResult_5_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_50
+        keyence_iv3_ToolResult_50_Input AT %IB458 : keyence_iv3_ToolResult_50_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_51
+        keyence_iv3_ToolResult_51_Input AT %IB438 : keyence_iv3_ToolResult_51_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_52
+        keyence_iv3_ToolResult_52_Input AT %IB418 : keyence_iv3_ToolResult_52_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_53
+        keyence_iv3_ToolResult_53_Input AT %IB398 : keyence_iv3_ToolResult_53_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_54
+        keyence_iv3_ToolResult_54_Input AT %IB378 : keyence_iv3_ToolResult_54_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_55
+        keyence_iv3_ToolResult_55_Input AT %IB358 : keyence_iv3_ToolResult_55_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_56
+        keyence_iv3_ToolResult_56_Input AT %IB338 : keyence_iv3_ToolResult_56_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_57
+        keyence_iv3_ToolResult_57_Input AT %IB318 : keyence_iv3_ToolResult_57_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_58
+        keyence_iv3_ToolResult_58_Input AT %IB298 : keyence_iv3_ToolResult_58_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_59
+        keyence_iv3_ToolResult_59_Input AT %IB278 : keyence_iv3_ToolResult_59_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_6
+        keyence_iv3_ToolResult_6_Input AT %IB1338 : keyence_iv3_ToolResult_6_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_60
+        keyence_iv3_ToolResult_60_Input AT %IB258 : keyence_iv3_ToolResult_60_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_61
+        keyence_iv3_ToolResult_61_Input AT %IB238 : keyence_iv3_ToolResult_61_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_62
+        keyence_iv3_ToolResult_62_Input AT %IB218 : keyence_iv3_ToolResult_62_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_63
+        keyence_iv3_ToolResult_63_Input AT %IB198 : keyence_iv3_ToolResult_63_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_64
+        keyence_iv3_ToolResult_64_Input AT %IB178 : keyence_iv3_ToolResult_64_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_7
+        keyence_iv3_ToolResult_7_Input AT %IB1318 : keyence_iv3_ToolResult_7_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_8
+        keyence_iv3_ToolResult_8_Input AT %IB1298 : keyence_iv3_ToolResult_8_Input_Layout;
+
+        // Module keyence_iv3/ToolResult_9
+        keyence_iv3_ToolResult_9_Input AT %IB1278 : keyence_iv3_ToolResult_9_Input_Layout;
+
+        // Module keyence_sr_1000/BusyStatus
+        keyence_sr_1000_BusyStatus_Input AT %IB1698 : keyence_sr_1000_BusyStatus_Input_Layout;
+
+        // Module keyence_sr_1000/CompletionClearControl
+        keyence_sr_1000_CompletionClearControl_Output AT %QB279 : keyence_sr_1000_CompletionClearControl_Output_Layout;
+
+        // Module keyence_sr_1000/CompletionStatus
+        keyence_sr_1000_CompletionStatus_Input AT %IB1697 : keyence_sr_1000_CompletionStatus_Input_Layout;
+
+        // Module keyence_sr_1000/ErrorStatus
+        keyence_sr_1000_ErrorStatus_Input AT %IB1696 : keyence_sr_1000_ErrorStatus_Input_Layout;
+
+        // Module keyence_sr_1000/HandshakeAndGeneralErrorStatus
+        keyence_sr_1000_HandshakeAndGeneralErrorStatus_Input AT %IB1699 : keyence_sr_1000_HandshakeAndGeneralErrorStatus_Input_Layout;
+
+        // Module keyence_sr_1000/LatchAndErrorClearControl
+        keyence_sr_1000_LatchAndErrorClearControl_Output AT %QB281 : keyence_sr_1000_LatchAndErrorClearControl_Output_Layout;
+
+        // Module keyence_sr_1000/MatchingLevelAndTotalEvaluationGradeStatus
+        keyence_sr_1000_MatchingLevelAndTotalEvaluationGradeStatus_Input AT %IB1686 : keyence_sr_1000_MatchingLevelAndTotalEvaluationGradeStatus_Input_Layout;
+
+        // Module keyence_sr_1000/OperationInstructionControl
+        keyence_sr_1000_OperationInstructionControl_Output AT %QB280 : keyence_sr_1000_OperationInstructionControl_Output_Layout;
+
+        // Module keyence_sr_1000/OperationResultStatus
+        keyence_sr_1000_OperationResultStatus_Input AT %IB1666 : keyence_sr_1000_OperationResultStatus_Input_Layout;
+
+        // Module keyence_sr_1000/ParameterBank
+        keyence_sr_1000_ParameterBank_Output AT %QB277 : keyence_sr_1000_ParameterBank_Output_Layout;
+
+        // Module keyence_sr_1000/ResultData_128
+        keyence_sr_1000_ResultData_128_Input AT %IB1530 : keyence_sr_1000_ResultData_128_Input_Layout;
+
+        // Module keyence_sr_1000/TerminalStatus
+        keyence_sr_1000_TerminalStatus_Input AT %IB1695 : keyence_sr_1000_TerminalStatus_Input_Layout;
+
+        // Module keyence_sr_1000/UnstableReadStatus
+        keyence_sr_1000_UnstableReadStatus_Input AT %IB1694 : keyence_sr_1000_UnstableReadStatus_Input_Layout;
+
+        // Module keyence_sr_1000/UserData_128
+        keyence_sr_1000_UserData_128_Output AT %QB147 : keyence_sr_1000_UserData_128_Output_Layout;
+
+        // Module keyence_sr_750/BusyStatus
+        keyence_sr_750_BusyStatus_Input AT %IB168 : keyence_sr_750_BusyStatus_Input_Layout;
+
+        // Module keyence_sr_750/CompletionClearControl
+        keyence_sr_750_CompletionClearControl_Output AT %QB132 : keyence_sr_750_CompletionClearControl_Output_Layout;
+
+        // Module keyence_sr_750/CompletionStatus
+        keyence_sr_750_CompletionStatus_Input AT %IB167 : keyence_sr_750_CompletionStatus_Input_Layout;
+
+        // Module keyence_sr_750/ErrorStatus
+        keyence_sr_750_ErrorStatus_Input AT %IB166 : keyence_sr_750_ErrorStatus_Input_Layout;
+
+        // Module keyence_sr_750/HandshakeAndGeneralErrorStatus
+        keyence_sr_750_HandshakeAndGeneralErrorStatus_Input AT %IB169 : keyence_sr_750_HandshakeAndGeneralErrorStatus_Input_Layout;
+
+        // Module keyence_sr_750/LatchAndErrorClearControl
+        keyence_sr_750_LatchAndErrorClearControl_Output AT %QB134 : keyence_sr_750_LatchAndErrorClearControl_Output_Layout;
+
+        // Module keyence_sr_750/MatchingLevelAndTotalEvaluationGradeStatus
+        keyence_sr_750_MatchingLevelAndTotalEvaluationGradeStatus_Input AT %IB156 : keyence_sr_750_MatchingLevelAndTotalEvaluationGradeStatus_Input_Layout;
+
+        // Module keyence_sr_750/OperationInstructionControl
+        keyence_sr_750_OperationInstructionControl_Output AT %QB133 : keyence_sr_750_OperationInstructionControl_Output_Layout;
+
+        // Module keyence_sr_750/OperationResultStatus
+        keyence_sr_750_OperationResultStatus_Input AT %IB136 : keyence_sr_750_OperationResultStatus_Input_Layout;
+
+        // Module keyence_sr_750/ParameterBank
+        keyence_sr_750_ParameterBank_Output AT %QB130 : keyence_sr_750_ParameterBank_Output_Layout;
+
+        // Module keyence_sr_750/ResultData_128
+        keyence_sr_750_ResultData_128_Input AT %IB0 : keyence_sr_750_ResultData_128_Input_Layout;
+
+        // Module keyence_sr_750/TerminalStatus
+        keyence_sr_750_TerminalStatus_Input AT %IB165 : keyence_sr_750_TerminalStatus_Input_Layout;
+
+        // Module keyence_sr_750/UnstableReadStatus
+        keyence_sr_750_UnstableReadStatus_Input AT %IB164 : keyence_sr_750_UnstableReadStatus_Input_Layout;
+
+        // Module keyence_sr_750/UserData_128
+        keyence_sr_750_UserData_128_Output AT %QB0 : keyence_sr_750_UserData_128_Output_Layout;
     END_VAR
 END_CONFIGURATION
+
+TYPE
+    keyence_iv3_CommandControl_Output_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+        Signals_4 AT %X0.4 : BOOL;
+        Signals_5 AT %X0.5 : BOOL;
+        Signals_6 AT %X0.6 : BOOL;
+        Signals_7 AT %X0.7 : BOOL;
+        Signals_8 AT %B1 : BYTE;
+        Signals_9 AT %X2.0 : BOOL;
+        Signals_10 AT %B3 : BYTE;
+        Signals_11 AT %B4 : WORD;
+        Signals_12 AT %B6 : WORD;
+        Signals_13 AT %B8 : DWORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_CommandStatusBits_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+        Signals_4 AT %X0.4 : BOOL;
+        Signals_5 AT %X0.5 : BOOL;
+        Signals_6 AT %X0.6 : BOOL;
+        Signals_7 AT %X0.7 : BOOL;
+        Signals_8 AT %X1.0 : BOOL;
+        Signals_9 AT %X1.1 : BOOL;
+        Signals_10 AT %X1.2 : BOOL;
+        Signals_11 AT %X1.6 : BOOL;
+        Signals_12 AT %X1.7 : BOOL;
+        Signals_13 AT %X2.0 : BOOL;
+        Signals_14 AT %X2.1 : BOOL;
+        Signals_15 AT %X2.2 : BOOL;
+        Signals_16 AT %X2.3 : BOOL;
+        Signals_17 AT %X2.4 : BOOL;
+        Signals_18 AT %X2.5 : BOOL;
+        Signals_19 AT %X2.7 : BOOL;
+        Signals_20 AT %X3.0 : BOOL;
+        Signals_21 AT %X3.4 : BOOL;
+        Signals_22 AT %X3.5 : BOOL;
+        Signals_23 AT %X3.6 : BOOL;
+        Signals_24 AT %X3.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_DeviceResultBits_1_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+        Signals_4 AT %X0.4 : BOOL;
+        Signals_5 AT %X0.5 : BOOL;
+        Signals_6 AT %X0.6 : BOOL;
+        Signals_7 AT %B1 : BYTE;
+        Signals_8 AT %X2.0 : BOOL;
+        Signals_9 AT %X2.1 : BOOL;
+        Signals_10 AT %X2.2 : BOOL;
+        Signals_11 AT %X2.3 : BOOL;
+        Signals_12 AT %X2.4 : BOOL;
+        Signals_13 AT %X2.5 : BOOL;
+        Signals_14 AT %X2.6 : BOOL;
+        Signals_15 AT %X2.7 : BOOL;
+        Signals_16 AT %X3.0 : BOOL;
+        Signals_17 AT %X3.1 : BOOL;
+        Signals_18 AT %X3.2 : BOOL;
+        Signals_19 AT %X3.3 : BOOL;
+        Signals_20 AT %X3.4 : BOOL;
+        Signals_21 AT %X3.5 : BOOL;
+        Signals_22 AT %X3.6 : BOOL;
+        Signals_23 AT %X3.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_DeviceResultBits_2_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %X2.0 : BOOL;
+        Signals_2 AT %X2.1 : BOOL;
+        Signals_3 AT %X2.2 : BOOL;
+        Signals_4 AT %X2.3 : BOOL;
+        Signals_5 AT %X2.4 : BOOL;
+        Signals_6 AT %X2.5 : BOOL;
+        Signals_7 AT %X2.6 : BOOL;
+        Signals_8 AT %X2.7 : BOOL;
+        Signals_9 AT %X3.0 : BOOL;
+        Signals_10 AT %X3.1 : BOOL;
+        Signals_11 AT %X3.2 : BOOL;
+        Signals_12 AT %X3.3 : BOOL;
+        Signals_13 AT %X3.4 : BOOL;
+        Signals_14 AT %X3.5 : BOOL;
+        Signals_15 AT %X3.6 : BOOL;
+        Signals_16 AT %X3.7 : BOOL;
+        Signals_17 AT %X4.0 : BOOL;
+        Signals_18 AT %X4.1 : BOOL;
+        Signals_19 AT %X4.2 : BOOL;
+        Signals_20 AT %X4.3 : BOOL;
+        Signals_21 AT %X4.4 : BOOL;
+        Signals_22 AT %X4.5 : BOOL;
+        Signals_23 AT %X4.6 : BOOL;
+        Signals_24 AT %X4.7 : BOOL;
+        Signals_25 AT %X5.0 : BOOL;
+        Signals_26 AT %X5.1 : BOOL;
+        Signals_27 AT %X5.2 : BOOL;
+        Signals_28 AT %X5.3 : BOOL;
+        Signals_29 AT %X5.4 : BOOL;
+        Signals_30 AT %X5.5 : BOOL;
+        Signals_31 AT %X5.6 : BOOL;
+        Signals_32 AT %X5.7 : BOOL;
+        Signals_33 AT %X6.0 : BOOL;
+        Signals_34 AT %X6.1 : BOOL;
+        Signals_35 AT %X6.2 : BOOL;
+        Signals_36 AT %X6.3 : BOOL;
+        Signals_37 AT %X6.4 : BOOL;
+        Signals_38 AT %X6.5 : BOOL;
+        Signals_39 AT %X6.6 : BOOL;
+        Signals_40 AT %X6.7 : BOOL;
+        Signals_41 AT %X7.0 : BOOL;
+        Signals_42 AT %X7.1 : BOOL;
+        Signals_43 AT %X7.2 : BOOL;
+        Signals_44 AT %X7.3 : BOOL;
+        Signals_45 AT %X7.4 : BOOL;
+        Signals_46 AT %X7.5 : BOOL;
+        Signals_47 AT %X7.6 : BOOL;
+        Signals_48 AT %X7.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_DeviceStatistics_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : DWORD;
+        Signals_5 AT %B12 : DWORD;
+        Signals_6 AT %B16 : DWORD;
+        Signals_7 AT %B20 : DWORD;
+        Signals_8 AT %B24 : DWORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_DeviceStatusWords_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_PositionAdjustResult_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_1_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_10_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_11_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_12_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_13_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_14_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_15_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_16_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_17_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_18_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_19_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_2_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_20_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_21_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_22_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_23_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_24_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_25_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_26_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_27_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_28_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_29_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_3_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_30_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_31_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_32_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_33_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_34_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_35_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_36_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_37_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_38_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_39_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_4_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_40_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_41_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_42_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_43_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_44_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_45_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_46_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_47_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_48_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_49_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_5_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_50_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_51_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_52_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_53_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_54_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_55_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_56_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_57_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_58_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_59_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_6_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_60_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_61_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_62_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_63_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_64_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_7_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_8_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_iv3_ToolResult_9_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_1000_BusyStatus_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+        Signals_4 AT %X0.4 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_1000_CompletionClearControl_Output_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+        Signals_4 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_1000_CompletionStatus_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+        Signals_4 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_1000_ErrorStatus_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+        Signals_4 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_1000_HandshakeAndGeneralErrorStatus_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.6 : BOOL;
+        Signals_4 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_1000_LatchAndErrorClearControl_Output_Layout : STRUCT
+        Signals_0 AT %X0.1 : BOOL;
+        Signals_1 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_1000_MatchingLevelAndTotalEvaluationGradeStatus_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_1000_OperationInstructionControl_Output_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_1000_OperationResultStatus_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_1000_ParameterBank_Output_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_1000_ResultData_128_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : ARRAY[0..127] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_1000_TerminalStatus_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.4 : BOOL;
+        Signals_3 AT %X0.5 : BOOL;
+        Signals_4 AT %X0.6 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_1000_UnstableReadStatus_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+        Signals_4 AT %X0.4 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_1000_UserData_128_Output_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : ARRAY[0..127] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_750_BusyStatus_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+        Signals_4 AT %X0.4 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_750_CompletionClearControl_Output_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+        Signals_4 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_750_CompletionStatus_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+        Signals_4 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_750_ErrorStatus_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+        Signals_4 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_750_HandshakeAndGeneralErrorStatus_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.6 : BOOL;
+        Signals_4 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_750_LatchAndErrorClearControl_Output_Layout : STRUCT
+        Signals_0 AT %X0.1 : BOOL;
+        Signals_1 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_750_MatchingLevelAndTotalEvaluationGradeStatus_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_750_OperationInstructionControl_Output_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_750_OperationResultStatus_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : WORD;
+        Signals_5 AT %B10 : WORD;
+        Signals_6 AT %B12 : WORD;
+        Signals_7 AT %B14 : WORD;
+        Signals_8 AT %B16 : WORD;
+        Signals_9 AT %B18 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_750_ParameterBank_Output_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_750_ResultData_128_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : WORD;
+        Signals_3 AT %B6 : WORD;
+        Signals_4 AT %B8 : ARRAY[0..127] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_750_TerminalStatus_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.4 : BOOL;
+        Signals_3 AT %X0.5 : BOOL;
+        Signals_4 AT %X0.6 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_750_UnstableReadStatus_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+        Signals_4 AT %X0.4 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    keyence_sr_750_UserData_128_Output_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : ARRAY[0..127] OF BYTE;
+    END_STRUCT;
+END_TYPE

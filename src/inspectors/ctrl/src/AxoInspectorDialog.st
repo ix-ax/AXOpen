@@ -110,13 +110,14 @@ NAMESPACE AXOpen.Inspectors
                        
                     END_IF;
 
-            
+
                 ELSE
 
                     IF(_parentInspectorRef^.Coordinator() <> NULL) THEN
                         _parentInspectorRef^.Coordinator().MoveNext();
+                        _parentInspectorRef^.Restore();
                     END_IF;	
-
+                    ;
                 END_IF;	
 
                 // restore this task, when answer is provided and task is done

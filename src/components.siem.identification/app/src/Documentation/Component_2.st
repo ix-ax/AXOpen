@@ -31,7 +31,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
             //<Initialization>        
 
-            IOlinkReader.Run(   parent      :=  THIS,
+            IOlinkReader.Run(   inParent    :=  THIS,
                                 HW_ID       :=  HwIdentifiers#et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_CM_4xIO_Link_V2_2_144I_128O_HwID, 
                                 portAddr    :=  INT#0,
                                 version     :=  USINT#11);

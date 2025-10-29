@@ -42,7 +42,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening.Tests
         METHOD PUBLIC MoveHome
             _context.Open();
             THIS._component.Run(
-                                parent  :=  _rootObject,
+                                inParent  :=  _rootObject,
                                 hwID    :=  UINT#60);
             AxUnit.Assert.Equal(TRUE, TRUE);   
             _context.Close();            

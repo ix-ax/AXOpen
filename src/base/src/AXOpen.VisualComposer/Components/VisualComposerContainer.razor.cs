@@ -70,8 +70,6 @@ namespace AXOpen.VisualComposer.Components
 
                 Id = Id.ComputeSha256Hash();
             }
-
-            detailsRcc = new RenderableContentControl();
         }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -594,45 +592,33 @@ namespace AXOpen.VisualComposer.Components
             ZoomableContainer = zoomableContainer;
         }
 
-        private RenderableContentControl detailsRcc { get; set; }
-
         public Modal DetailsModalWindow { get; set; }
-
-        //private string detailsPresentationType;
-
-        //public string DetailsPresentationType
-        //{
-        //    get => detailsPresentationType;
-        //    set
-        //    {
-        //        detailsPresentationType = value;
-        //        detailsRcc.Presentation = value;
-        //        this.StateHasChanged();
-        //    }
-        //}
 
         private RenderFragment RenderableContentControlFragment => builder =>
         {
             builder.OpenComponent<RenderableContentControl>(0);
-            builder.AddAttribute(1, "Context", detailsRcc.Context);
-            builder.AddAttribute(2, "Presentation", detailsRcc.Presentation);
+            builder.AddAttribute(1, "Context", DetailsContext);
+            builder.AddAttribute(2, "Presentation", DetailsPresentationType);
             builder.CloseComponent();
         };
 
+        private ITwinElement DetailsContext { get; set; }
+        private string DetailsPresentationType { get; set; }
+
+        /// <summary>
+        /// Sets the DetailsContext and opens the DetailsModalWindow
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="presentationType"></param>
+        /// <returns></returns>
         public async Task OpenDetails(ITwinElement element, string presentationType = "Status-Display")
         {
-            DetailsModalWindow.Toggle();
-
-            // Ensure the RenderableContentControl is rendered before interacting with it
-            await InvokeAsync(() =>
-            {
-                if (detailsRcc != null)
-                {
-                    detailsRcc.Context = element;
-                    detailsRcc.Presentation = presentationType;
-                    detailsRcc.ForceRender();
-                }
+            await Task.Run(() => { 
+                DetailsContext = element;
+                DetailsPresentationType = presentationType;
+                DetailsModalWindow.Toggle();
             });
+
         }
 
         private void Move(PointerEventArgs eventArgs)

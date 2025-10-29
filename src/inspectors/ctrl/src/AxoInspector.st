@@ -119,9 +119,9 @@ NAMESPACE AXOpen.Inspectors
             END_IF;	           
         END_METHOD
 
-        METHOD PUBLIC Restore
+        METHOD PUBLIC Restore           
             _inspectorTask.Restore();
-
+            
             _comprehensiveResultUpdateCycle := ULINT#0;
 
             _updateOverallResult := FALSE;
@@ -345,7 +345,7 @@ NAMESPACE AXOpen.Inspectors
             _DL._inspectorType := eInspectorType#Analogue;
             _DL._analogInspectorData := inData^;
            
-            // Documentation: Initialize the parent context and the associated inspector task.
+            // Documentation: Initialize the inParent context and the associated inspector task.
             THIS.Run(inParent);
             _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
             _inspectorTask.SetSuspendCyclicExecuteIsNotCalledCheck(TRUE);

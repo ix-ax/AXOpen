@@ -2,7 +2,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    OmniCore_DI_64_bytes_Input_Layout : STRUCT
+	    abb_irc5_robot_DI_64_bytes_Input_Layout : STRUCT
 	        Signals_0_0 AT %X0.0 : BOOL;
 	        Signals_0_1 AT %X0.1 : BOOL;
 	        Signals_0_2 AT %X0.2 : BOOL;
@@ -521,7 +521,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    OmniCore_DO_64_bytes_Output_Layout : STRUCT
+	    abb_irc5_robot_DO_64_bytes_Output_Layout : STRUCT
 	        Signals_0_0 AT %X0.0 : BOOL;
 	        Signals_0_1 AT %X0.1 : BOOL;
 	        Signals_0_2 AT %X0.2 : BOOL;
@@ -1040,7 +1040,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    RobotBasicIO_DI_64_bytes_Input_Layout : STRUCT
+	    abb_omnicore_robot_DI_64_bytes_Input_Layout : STRUCT
 	        Signals_0_0 AT %X0.0 : BOOL;
 	        Signals_0_1 AT %X0.1 : BOOL;
 	        Signals_0_2 AT %X0.2 : BOOL;
@@ -1559,7 +1559,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    RobotBasicIO_DO_64_bytes_Output_Layout : STRUCT
+	    abb_omnicore_robot_DO_64_bytes_Output_Layout : STRUCT
 	        Signals_0_0 AT %X0.0 : BOOL;
 	        Signals_0_1 AT %X0.1 : BOOL;
 	        Signals_0_2 AT %X0.2 : BOOL;

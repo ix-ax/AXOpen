@@ -36,7 +36,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
             //<Initialization>        
 
-            RF260R.Run( parent      :=  THIS,
+            RF260R.Run( inParent    :=  THIS,
                         hwID        :=  HwIdentifiers#rf186c_cyc_HwID,
                         Port        :=  eAxoSimaticIdentCyclic_Port#X21,
                         DataBuffer  :=  DataBuffer);

@@ -15,7 +15,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             RETURN;
             THIS.InitializeRootObject(_rootObject);
 
-            _testRobot.Run(     parent                                                  := _rootObject,
+            _testRobot.Run(     inParent                                                  := _rootObject,
                                 hwID                                                    := HwIdentifiers#ureol2l_HwID,
                                 refPowerOnPulse                                         := REF (PowerOnImpulse));
 

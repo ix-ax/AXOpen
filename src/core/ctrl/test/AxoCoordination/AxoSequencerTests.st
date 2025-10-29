@@ -1222,7 +1222,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
 
             // Assert
             Assert.Equal(FALSE,_step_1.IsActive);
-            Assert.Equal(FALSE,_step_1.IsReady());
+            Assert.Equal(TRUE,_step_1.IsReady());
             Assert.Equal(FALSE,_step_1.IsBusy());
             Assert.Equal(FALSE,_step_1.IsDone());
 
@@ -1258,7 +1258,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
 
             // Assert
             Assert.Equal(FALSE,_step_1.IsActive);
-            Assert.Equal(FALSE,_step_1.IsReady());
+            Assert.Equal(TRUE,_step_1.IsReady());
             Assert.Equal(FALSE,_step_1.IsBusy());
             Assert.Equal(FALSE,_step_1.IsDone());
         END_METHOD

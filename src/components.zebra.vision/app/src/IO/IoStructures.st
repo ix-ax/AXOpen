@@ -2,7 +2,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    EA3600_Data88Bin6Bout_Input_Layout : STRUCT
+	    zebra_Data88Bin6Bout_Input_Layout : STRUCT
 	        Signals_0 AT %B0 : ARRAY[0..703] OF BOOL;
 	    END_STRUCT;
 	END_TYPE
@@ -10,7 +10,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    EA3600_Data88Bin6Bout_Output_Layout : STRUCT
+	    zebra_Data88Bin6Bout_Output_Layout : STRUCT
 	        Signals_1_0 AT %X0.0 : BOOL;
 	        Signals_1_1 AT %X0.1 : BOOL;
 	        Signals_1_2 AT %X0.2 : BOOL;

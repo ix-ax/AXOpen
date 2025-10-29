@@ -28,7 +28,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
             END_IF;
 
             //<Initialization>        
-            ExampleReader.Run(  parent := THIS,
+            ExampleReader.Run(  inParent := THIS,
                                 hwID            := HwIdentifiers#BNIPNT507005Z040_HwID);
             //</Initialization>
 

@@ -53,7 +53,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             //Link: https://cache.industry.siemens.com/dl/files/653/109807653/att_1101693/v2/109807653_Simatic_Ident_Profinet_Beckhoff_DOC_V10_en.pdf
             //Chapter: 2.3.6.2 CM_CHANNEL, API, SLOT, SUB_SLOT
             //Page: 18
-            IdentProfileReader.Run(parent      :=  THIS,
+            IdentProfileReader.Run(inParent    :=  THIS,
                         HW_ID       :=  HwIdentifiers#rf186c_Reader_1__Reader__HwID,
                         API         :=  DWORD#16#5B00,	
                         SLOT 		:=  WORD#2,

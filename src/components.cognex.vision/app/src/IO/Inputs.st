@@ -3,59 +3,68 @@
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
         Inputs : STRUCT
-	        // Module dm_280/Acquisition_Status
-	        dm_280_Acquisition_Status_Input AT %B1685 : dm_280_Acquisition_Status_Input_Layout;
+	        // Module cognex_dataman_280/Acquisition_Status
+	        cognex_dataman_280_Acquisition_Status_Input AT %B1590 : cognex_dataman_280_Acquisition_Status_Input_Layout;
 
-	        // Module dm_280/Result_Data-128_bytes
-	        dm_280_Result_Data_128_bytes_Input AT %B1548 : dm_280_Result_Data_128_bytes_Input_Layout;
+	        // Module cognex_dataman_280/ResultData_128
+	        cognex_dataman_280_ResultData_128_Input AT %B1453 : cognex_dataman_280_ResultData_128_Input_Layout;
 
-	        // Module dm_280/Results_Status
-	        dm_280_Results_Status_Input AT %B1684 : dm_280_Results_Status_Input_Layout;
+	        // Module cognex_dataman_280/Results_Status
+	        cognex_dataman_280_Results_Status_Input AT %B1589 : cognex_dataman_280_Results_Status_Input_Layout;
 
-	        // Module dm_280/Soft_Event_Control
-	        dm_280_Soft_Event_Control_Input AT %B1688 : dm_280_Soft_Event_Control_Input_Layout;
+	        // Module cognex_dataman_280/Soft_Event_Control
+	        cognex_dataman_280_Soft_Event_Control_Input AT %B1593 : cognex_dataman_280_Soft_Event_Control_Input_Layout;
 
-	        // Module dm_300/Acquisition_Status
-	        dm_300_Acquisition_Status_Input AT %B1544 : dm_300_Acquisition_Status_Input_Layout;
+	        // Module cognex_dataman_380/Acquisition_Status
+	        cognex_dataman_380_Acquisition_Status_Input AT %B1449 : cognex_dataman_380_Acquisition_Status_Input_Layout;
 
-	        // Module dm_300/Result_Data-64_bytes
-	        dm_300_Result_Data_64_bytes_Input AT %B1471 : dm_300_Result_Data_64_bytes_Input_Layout;
+	        // Module cognex_dataman_380/ResultData_128
+	        cognex_dataman_380_ResultData_128_Input AT %B1312 : cognex_dataman_380_ResultData_128_Input_Layout;
 
-	        // Module dm_300/Results_Status
-	        dm_300_Results_Status_Input AT %B1543 : dm_300_Results_Status_Input_Layout;
+	        // Module cognex_dataman_380/Results_Status
+	        cognex_dataman_380_Results_Status_Input AT %B1448 : cognex_dataman_380_Results_Status_Input_Layout;
 
-	        // Module dm_300/Soft_Event_Control
-	        dm_300_Soft_Event_Control_Input AT %B1547 : dm_300_Soft_Event_Control_Input_Layout;
+	        // Module cognex_dataman_380/Soft_Event_Control
+	        cognex_dataman_380_Soft_Event_Control_Input AT %B1452 : cognex_dataman_380_Soft_Event_Control_Input_Layout;
 
-	        // Module is2800/Acquisition_Status
-	        is2800_Acquisition_Status_Input AT %B1380 : is2800_Acquisition_Status_Input_Layout;
+	        // Module cognex_insight_2800/Acquisition_Status
+	        cognex_insight_2800_Acquisition_Status_Input AT %B2432 : cognex_insight_2800_Acquisition_Status_Input_Layout;
 
-	        // Module is2800/Command_Control
-	        is2800_Command_Control_Input AT %B1388 : is2800_Command_Control_Input_Layout;
+	        // Module cognex_insight_2800/Command_Control
+	        cognex_insight_2800_Command_Control_Input AT %B2440 : cognex_insight_2800_Command_Control_Input_Layout;
 
-	        // Module is2800/Inspection_Status
-	        is2800_Inspection_Status_Input AT %B1384 : is2800_Inspection_Status_Input_Layout;
+	        // Module cognex_insight_2800/Inspection_Status
+	        cognex_insight_2800_Inspection_Status_Input AT %B2436 : cognex_insight_2800_Inspection_Status_Input_Layout;
 
-	        // Module is2800/Result_Data-64_bytes
-	        is2800_Result_Data_64_bytes_Input AT %B1312 : is2800_Result_Data_64_bytes_Input_Layout;
+	        // Module cognex_insight_2800/ResultData_250
+	        cognex_insight_2800_ResultData_250_Input AT %B2178 : cognex_insight_2800_ResultData_250_Input_Layout;
 
-	        // Module is2800/SoftEvent_Control
-	        is2800_SoftEvent_Control_Input AT %B1392 : is2800_SoftEvent_Control_Input_Layout;
+	        // Module cognex_insight_2800/ResultDataAdd_128
+	        cognex_insight_2800_ResultDataAdd_128_Input AT %B1800 : cognex_insight_2800_ResultDataAdd_128_Input_Layout;
 
-	        // Module is7600/Acquisition_Status
-	        is7600_Acquisition_Status_Input AT %B1465 : is7600_Acquisition_Status_Input_Layout;
+	        // Module cognex_insight_2800/ResultDataAdd_250
+	        cognex_insight_2800_ResultDataAdd_250_Input AT %B1928 : cognex_insight_2800_ResultDataAdd_250_Input_Layout;
 
-	        // Module is7600/Command_Control
-	        is7600_Command_Control_Input AT %B1468 : is7600_Command_Control_Input_Layout;
+	        // Module cognex_insight_2800/ResultDataAdd_64
+	        cognex_insight_2800_ResultDataAdd_64_Input AT %B1736 : cognex_insight_2800_ResultDataAdd_64_Input_Layout;
 
-	        // Module is7600/Inspection_Status
-	        is7600_Inspection_Status_Input AT %B1461 : is7600_Inspection_Status_Input_Layout;
+	        // Module cognex_insight_2800/SoftEvent_Control
+	        cognex_insight_2800_SoftEvent_Control_Input AT %B2444 : cognex_insight_2800_SoftEvent_Control_Input_Layout;
 
-	        // Module is7600/Result_Data-64_bytes
-	        is7600_Result_Data_64_bytes_Input AT %B1393 : is7600_Result_Data_64_bytes_Input_Layout;
+	        // Module cognex_insight_7600/Acquisition_Status
+	        cognex_insight_7600_Acquisition_Status_Input AT %B1730 : cognex_insight_7600_Acquisition_Status_Input_Layout;
 
-	        // Module is7600/SoftEvent_Control
-	        is7600_SoftEvent_Control_Input AT %B1470 : is7600_SoftEvent_Control_Input_Layout;
+	        // Module cognex_insight_7600/Command_Control
+	        cognex_insight_7600_Command_Control_Input AT %B1733 : cognex_insight_7600_Command_Control_Input_Layout;
+
+	        // Module cognex_insight_7600/Inspection_Status
+	        cognex_insight_7600_Inspection_Status_Input AT %B1726 : cognex_insight_7600_Inspection_Status_Input_Layout;
+
+	        // Module cognex_insight_7600/ResultData_128
+	        cognex_insight_7600_ResultData_128_Input AT %B1594 : cognex_insight_7600_ResultData_128_Input_Layout;
+
+	        // Module cognex_insight_7600/SoftEvent_Control
+	        cognex_insight_7600_SoftEvent_Control_Input AT %B1735 : cognex_insight_7600_SoftEvent_Control_Input_Layout;
 
 	        // Module vision_pro/Engine_Control_1
 	        vision_pro_Engine_Control_1_Input AT %B1288 : vision_pro_Engine_Control_1_Input_Layout;

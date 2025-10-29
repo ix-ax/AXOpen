@@ -69,7 +69,7 @@ NAMESPACE AXOpen.Core
         END_METHOD
 
         ///<summary>
-        /// Gets parent in which this object was initialized.
+        /// Gets inParent in which this object was initialized.
         ///</summary>
         METHOD PUBLIC GetParent : IAxoObject
             IF(_parent <> NULL) THEN
@@ -82,7 +82,7 @@ NAMESPACE AXOpen.Core
         END_METHOD
 
         ///<summary>
-        /// Initializes this object associating it given parent. 
+        /// Initializes this object associating it given inParent. 
         /// This method should be called only once upon the program start.
         /// Any subsequent call are ignored.
         ///</summary>
@@ -161,7 +161,7 @@ NAMESPACE AXOpen.Core
         END_VAR    
         
         ///<summary>
-        /// Aggregates message count for this object and all parent objects in the generation of this object.
+        /// Aggregates message count for this object and all inParent objects in the generation of this object.
         ///</summary>
         METHOD PUBLIC AggregateMessage
             VAR_INPUT

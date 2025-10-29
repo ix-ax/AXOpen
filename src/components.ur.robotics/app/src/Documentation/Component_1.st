@@ -33,7 +33,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             END_IF;
 
             //<Initialization>        
-            ExampleRobot.Run(   parent                                                  := THIS,
+            ExampleRobot.Run(   inParent                                                := THIS,
                                 hwID                                                    := HwIdentifiers#ureol2l_HwID,
                                 refPowerOnPulse                                         := REF (PowerOnImpulse));
             ExampleRobot.Config.IpAddress := '192.168.100.61';

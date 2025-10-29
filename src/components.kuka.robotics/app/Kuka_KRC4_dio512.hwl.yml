@@ -1,0 +1,36 @@
+Templates:
+  Modules:
+  - Name: 'Kuka_KRC4_dio512'
+    Placeholders:
+    - Name: 'NAME'
+    - Name: 'IP_ADDRESS_X1'
+      Value: '192.168.0.1/24'
+    - Name: 'PROFINET_DEVICE_NAME_X1'
+      Value: 'krc4'
+    Content:
+      Name: '${NAME}'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.33-KUKA-KRC4-PROFINET_5.0-20181102.XML'
+        GsdId: 'DIM 1'
+      Interfaces:
+      - Name: 'Interface1'
+        Label: 'X1'
+        Addresses:
+          Configured:
+          - IPv4: '${IP_ADDRESS_X1}'
+          - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+        Parameters:
+          IECV22LLDPMode: False
+          # PrioritizedStartup (Boolean)
+      Ports:
+      - Name: 'Port_1'
+        Label: 'X1 P1'
+        Parameters:
+          # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+          TransmissionRateAndDuplex: 'Automatic'
+          EndOfDetectionOfAccessibleDevices: False
+          EndOfTopologyDiscovery: False
+          # PortMonitoring: False
+          # TransmissionRateAutoNegotiation: True
+          # CableName: 0
+          # MediumAttachmentType: 'Copper'

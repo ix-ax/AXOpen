@@ -60,7 +60,7 @@ NAMESPACE AXOpen.Components.Elements.Tests
             _inputSignal := TRUE;
             _testButtonWithIndicator.Run(NULL, _inputSignal, _ledOutput);
             
-            // Assert that nothing happens when parent is null
+            // Assert that nothing happens when inParent is null
             // The component should not process anything
             
         END_METHOD

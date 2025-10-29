@@ -142,7 +142,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
                 HW_ID               :   UINT    :=  UINT#0; 			//Hardware identifier
                 API 				:   DWORD   :=  DWORD#16#0000_5B00; //API number 
                 SLOT 				:   WORD    :=  WORD#16#02;  		//Slot number  
@@ -153,15 +153,15 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 i : INT;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
             Messenger.Serve(THIS);
             TaskMessenger.Serve(THIS);
             IdentProfileMessenger.Serve(THIS);
 
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#700,inParent = NULL, eAxoMessageCategory#ProgrammingError);
             Messenger.ActivateOnCondition(ULINT#701,HW_ID = UINT#0, eAxoMessageCategory#ProgrammingError);
 
-            IF parent = NULL THEN
+            IF inParent = NULL THEN
                 Status.Error.Id := UINT#700;
                 RETURN;
             ELSIF HW_ID = UINT#0 THEN
