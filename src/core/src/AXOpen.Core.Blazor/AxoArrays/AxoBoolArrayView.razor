@@ -6,30 +6,32 @@
 @* @using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents; *@
 @inherits RenderableComplexComponentBase<AxoBoolArray>;
 
-<Accordion>
-    <AccordionItem Title="Data">
-        <div class="flex flex-wrap justify-between">
-            <p class="align-middle">@Component.AttributeName</p>
+<div data-axo-bool-array-view class="flex flex-wrap w-full">
+    <Accordion>
+        <AccordionItem Title="Data">
+            <div class="flex flex-wrap justify-between">
+                <p class="align-middle">@Component.AttributeName</p>
 
-            <button type="button" class="btn btn-primary" @onclick="() => UpdateData(null, null)">
-                <HeroIcon Icon="arrow-path" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-            </button>
-        </div>
-
-        @if (this.Data != null)
-        {
-            <div class="flex flex-nowrap flex-row overflow-x-auto mt-2">
-                @foreach (IndexedData<bool> item in this.Data)
-                {
-                    if (item != null)
-                    {
-                        <div class="checkbox-group">
-                            <input type="checkbox" @bind="item.Data" disabled="@IsDisabled" />
-                            <label>@item.Index</label>
-                        </div>
-                    }
-                }
+                <button type="button" class="btn btn-primary" @onclick="() => UpdateData(null, null)">
+                    <HeroIcon Icon="arrow-path" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                </button>
             </div>
-        }
-    </AccordionItem>
-</Accordion>
+
+            @if (this.Data != null)
+            {
+                <div class="flex flex-nowrap flex-row overflow-x-auto mt-2">
+                    @foreach (IndexedData<bool> item in this.Data)
+                    {
+                        if (item != null)
+                        {
+                            <div class="checkbox-group">
+                                <input type="checkbox" @bind="item.Data" disabled="@IsDisabled" />
+                                <label>@item.Index</label>
+                            </div>
+                        }
+                    }
+                </div>
+            }
+        </AccordionItem>
+    </Accordion>
+</div>

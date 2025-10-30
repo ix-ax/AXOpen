@@ -1,7 +1,4 @@
-﻿using System.Globalization;
-using System.IO;
-using System.Net.Http.Headers;
-using System.Reflection;
+using System.Globalization;
 using System.Security.Principal;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
@@ -10,7 +7,7 @@ using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
 {
-    public partial class AxoTaskView : RenderableComplexComponentBase<AxoTask>, IDisposable
+    public partial class AxoTaskLGView : RenderableComplexComponentBase<AxoTask>, IDisposable
     {
         [Inject]
         protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
@@ -61,56 +58,6 @@ namespace AXOpen.Core
             Component.ResumeTask();
         }
 
-        private string AnimationClass
-        {
-            get
-            {
-                if (this.Component.IsDisabled.LastValue)
-                    return "";
-                switch ((eAxoTaskState)Component.Status.LastValue)
-                {
-                    case eAxoTaskState.Busy:
-                        return "animate-pulse";
-                    case eAxoTaskState.Done:
-                        return "";
-                    case eAxoTaskState.Aborted:
-                        return "";
-                    case eAxoTaskState.Error:
-                        return "";
-                    default:
-                        return "";
-                }
-            }
-        }
-        
-        private string ButtonClass
-        {
-            get
-            {
-                if(this.Component.IsDisabled.LastValue)
-                    return "btn-inactive blur-[1px]";
-
-                switch ((eAxoTaskState)Component.Status.LastValue)
-                {
-                    case eAxoTaskState.Busy:
-                        return "btn-active shadow-xl shadow-active-500/50";
-                    case eAxoTaskState.Done:
-                        return "btn-success";
-                    case eAxoTaskState.Aborted:
-                        return "btn-attention";
-                    case eAxoTaskState.Error:
-                        return "btn-danger";
-                    case eAxoTaskState.Ready:
-                        return "btn-info";
-                    default:
-                        return "btn-inactive";
-                }
-            }
-        }
-
-        private bool IsTaskRunning => Component.Status.Cyclic == (ushort)eAxoTaskState.Busy;
-        private bool IsTaskAborted => Component.Status.Cyclic == (ushort)eAxoTaskState.Aborted;
-
         [Parameter]
         public bool Disable { get; set; }
 
@@ -119,20 +66,30 @@ namespace AXOpen.Core
 
         public bool IsDisabled => Disable || Component.IsDisabled.Cyclic;
 
-        public string Description => string.IsNullOrEmpty(Text) ? string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.GetAttributeName(CultureInfo.CurrentUICulture) : Text;
+        public string Description
+        {
+            get
+            {
+                if(!string.IsNullOrEmpty(Label))
+                {
+                    return Label;
+                }
+                return string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.GetAttributeName(CultureInfo.CurrentUICulture);
+            }
+        }         
     }
 
-    public class AxoTaskCommandView : AxoTaskView
+    public class AxoTaskCommandLGView : AxoTaskLGView
     {
-        public AxoTaskCommandView()
+        public AxoTaskCommandLGView()
         {
             this.Disable = false;
         }
     }
 
-    public class AxoTaskStatusView : AxoTaskView
+    public class AxoTaskStatusLGView : AxoTaskLGView
     {
-        public AxoTaskStatusView()
+        public AxoTaskStatusLGView()
         {
             this.Disable = true;
         }

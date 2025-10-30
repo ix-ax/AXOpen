@@ -29,35 +29,11 @@ jobs:
       with:
         fetch-depth: '0'   
 
-    - name: Get Branch Name
-      run: |
-        if ($env:GITHUB_REF -like "refs/pull/*") {
-          $BRANCH_NAME = "${{ github.event.pull_request.head.ref }}"
-        } else {
-          $BRANCH_NAME = $env:GITHUB_REF -replace 'refs/heads/', ''
-        }
-        Write-Host "Triggered on branch: $BRANCH_NAME"
-        "BRANCH_NAME=$BRANCH_NAME" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
-      shell: pwsh
-
-    - name: Get Short Commit SHA
-      run: |
-          $currentSHA = git rev-parse --short HEAD
-          "CURRENT_SHA=$currentSHA" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8  
-      shell: pwsh
-
-    - name: Setup
-      run: |
-        "TEST_EXIT_CODE=123" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
-        "PACK_EXIT_CODE=123" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
-      shell: pwsh
-
     - name: "Build  script"  
       run: dotnet build cake/Build.csproj
       shell: pwsh
                        
     - name: "Run build script"
-      continue-on-error: true     
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
           GH_USER : ${{ secrets.GH_USER }}
@@ -67,7 +43,6 @@ jobs:
       shell: pwsh
       
     - name: "Publish packages"
-      continue-on-error: true     
       if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.publish == 'true' }}
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -76,64 +51,3 @@ jobs:
         dotnet run --project cake/Build.csproj --do-publish-only --do-publish --do-publish-release
         "PACK_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
       shell: pwsh
-
-    - name: Display workflow details in Summary
-      run: |
-        if($env:TEST_EXIT_CODE -eq "123")
-        {
-          $TEST_RESULT = "SKIPPED"
-        }
-        elseif($env:TEST_EXIT_CODE -eq "0")
-        {
-          $TEST_RESULT = "PASSED"
-        }
-        else
-        {
-          $TEST_RESULT = "FAILED"
-        }
-        if($env:PACK_EXIT_CODE -eq "123")
-        {
-          $PACK_RESULT = "SKIPPED"
-        }
-        elseif($env:PACK_EXIT_CODE -eq "0")
-        {
-          $PACK_RESULT = "PASSED"
-        }
-        else
-        {
-          $PACK_RESULT = "FAILED"
-        }
-        "### Runner name: $env:RUNNER_NAME ::: Branch name: $env:BRANCH_NAME ::: Commit SHA: $env:CURRENT_SHA ::: Test result: $TEST_RESULT ::: Pack result: $Pack_RESULT"  | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append -Encoding utf8
-      shell: pwsh
-
-    - name: Evaluate final result
-      run: |
-          if($env:TEST_EXIT_CODE -eq "123")
-          {
-            echo "Tests skipped."
-          }
-          elseif($env:TEST_EXIT_CODE -eq "0")
-          {
-            echo "Tests passed."
-          }
-          else
-          {
-            echo "Tests failed."
-            Exit 1
-          }      
-          if($env:PACK_EXIT_CODE -eq "123")
-          {
-            echo "Packaging skipped."
-          }
-          elseif($env:PACK_EXIT_CODE -eq "0")
-          {
-            echo "Packaging passed."
-          }
-          else
-          {
-            echo "Packaging failed."
-            Exit 1
-          }      
-      shell: pwsh
-       
-          

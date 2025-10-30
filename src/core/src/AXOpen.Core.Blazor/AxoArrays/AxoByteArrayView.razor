@@ -8,56 +8,58 @@
 @using Operon.Icons
 @inherits RenderableComplexComponentBase<AxoByteArray>;
 
-<Accordion>
-    <AccordionItem Title="Data">
-        <div class="flex flex-wrap justify-between">
-            <p class="align-middle">@Component.AttributeName</p>
+<div data-axo-byte-array-view class="flex flex-wrap w-full">
+    <Accordion>
+        <AccordionItem Title="Data">
+            <div class="flex flex-wrap justify-between">
+                <p class="align-middle">@Component.AttributeName</p>
 
-            <div class="flex flex-wrap items-center gap-1">
-                <div class="">
-                    <select @bind="@DisplayFormat" class="select bg-background-light in-w-6">
-                        @foreach (var displayedFormat in DisplayedFormatList)
-                        {
-                            <option value="@displayedFormat.DisplayFormat"> @displayedFormat.Description </option>
-                        }
-                    </select>
-                </div>
-   
-                @if (IsControllable & !IsReadOnly)
-                {
-                    <button type="button" class="btn btn-primary" @onclick="() => UploadAndFormatData(null, null)">
-                        <HeroIcon Icon="arrow-up-tray" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                    </button>
-                    <button type="button" class="btn btn-primary" @onclick="() => Download()">
-                        <HeroIcon Icon="arrow-down-tray" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                    </button>
-                }
-                else
-                {
-                    <button type="button" class="btn btn-primary" @onclick="() => UploadAndFormatData(null, null)">
-                        <HeroIcon Icon="arrow-path" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                    </button>
-                }
-             </div>
-        </div>
+                <div class="flex flex-wrap items-center gap-1">
+                    <div class="">
+                        <select @bind="@DisplayFormat" class="select bg-background-light in-w-6">
+                            @foreach (var displayedFormat in DisplayedFormatList)
+                            {
+                                <option value="@displayedFormat.DisplayFormat"> @displayedFormat.Description </option>
+                            }
+                        </select>
+                    </div>
 
-        @if (this.Data != null)
-        {
-            <div class="flex flex-nowrap flex-row overflow-x-auto mt-2">
-                @foreach (IndexedData<string> item in this.Data)
-                {
-                    if (item != null && @item.Data != null)
+                    @if (IsControllable & !IsReadOnly)
                     {
-                        <div class="input-group">
-                            <label>@item.Index</label>
-                            <input type="text" @bind="item.Data" maxlength="@MaxLen" class="w-12!" />
-                        </div>
+                        <button type="button" class="btn btn-primary" @onclick="() => UploadAndFormatData(null, null)">
+                            <HeroIcon Icon="arrow-up-tray" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                        </button>
+                        <button type="button" class="btn btn-primary" @onclick="() => Download()">
+                            <HeroIcon Icon="arrow-down-tray" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                        </button>
                     }
-                }
+                    else
+                    {
+                        <button type="button" class="btn btn-primary" @onclick="() => UploadAndFormatData(null, null)">
+                            <HeroIcon Icon="arrow-path" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                        </button>
+                    }
+                </div>
             </div>
-        }
-    </AccordionItem>
-</Accordion>
+
+            @if (this.Data != null)
+            {
+                <div class="flex flex-nowrap flex-row overflow-x-auto mt-2">
+                    @foreach (IndexedData<string> item in this.Data)
+                    {
+                        if (item != null && @item.Data != null)
+                        {
+                            <div class="input-group">
+                                <label>@item.Index</label>
+                                <input type="text" @bind="item.Data" maxlength="@MaxLen" class="w-12!" />
+                            </div>
+                        }
+                    }
+                </div>
+            }
+        </AccordionItem>
+    </Accordion>
+</div>
 
 @code {
     private Dropdown _dropdownFormat { get; set; }

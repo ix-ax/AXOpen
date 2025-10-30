@@ -59,10 +59,6 @@
         </div>
     </div>
 
-    <div class="flex flex-wrap w-full">
-        <RenderableContentControl Context="this.Component.CurrentStep" />
-    </div>
-
     <!-- Current Step Display -->
     <div class="flex flex-wrap m-2 @(CurrentSteppingMode == eAxoSteppingMode.StepByStep ? "justify-between" : "justify-center") items-center p-2 gap-2">
         @if(CurrentSteppingMode == eAxoSteppingMode.StepByStep)
@@ -73,11 +69,11 @@
         {
             if(CurrentSteppingMode == eAxoSteppingMode.StepByStep)
             {
-                <AxoTaskCommandView ShowText="true" HideRestoreButton="false" ShowAbortButton="false" Component="this.Component.StepIn" Class="btn-lg" />
+                <AxoTaskCommandView Text="@GetRunStepButtonLabel()" ShowText="true" HideRestoreButton="false" ShowAbortButton="false" Component="this.Component.StepIn" Class="btn-lg" />
             }
             else
             {
-                <AxoTaskStatusView ShowText="true" HideRestoreButton="false" ShowAbortButton="false" Component="this.Component.StepIn" Class="btn-lg" />  
+                <AxoTaskStatusView Text="@GetRunStepButtonLabel()" ShowText="true" HideRestoreButton="false" ShowAbortButton="false" Component="this.Component.StepIn" Class="btn-lg" />
             }
         }
         @if(CurrentSteppingMode == eAxoSteppingMode.StepByStep)
@@ -107,6 +103,11 @@
     }
 
     [Parameter] public bool HasExternalStepModeControl { get; set; } = false;
+
+    private string GetRunStepButtonLabel()
+    {
+        return string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic()) ? "-" : this.Component.CurrentStep.Descr.GetCyclic();
+    }
 
     private IEnumerable<AxoObject> AssociatedComponents => this.Component.Associates.Where(p => p is AxoObject).Cast<AxoObject>();
 

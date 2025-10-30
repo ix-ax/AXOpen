@@ -49,15 +49,15 @@
     <!-- Main Header Content (Centered) -->
     @if (@Component._isManuallyControllable.Cyclic)
     {
-        currentPresentation = "Command-Control";
+        _currentPresentation = "Command-Control";
     }
     else
     {
-        currentPresentation = "Status-Display";
+        _currentPresentation = "Status-Display";
     }
     
     <div class="flex flex-wrap justify-center items-center w-full m-4">
-        <RenderableContentControl Presentation="@currentPresentation" Context="@Header"/>
+        <RenderableContentControl Presentation="@_currentPresentation" Context="@Header"/>
     </div>
 
     <!-- Details Section (Full Width) -->
@@ -72,7 +72,7 @@
                             <TabPage Title="@detailsTab.HumanReadable">
                                 <div class="w-full p-2">
                                     <RenderableContentControl Context=@detailsTab
-                                                              Presentation="@currentPresentation"/>
+                                                              Presentation="@_currentPresentation"/>
                                 </div>
                             </TabPage>
                         }
@@ -104,39 +104,29 @@
         _previousAlarmCount = _alarmCount;
     }
 
-    private int _alarmCount { get => messageProvider?.Messengers.Count(a => a.State != eAxoMessengerState.Idle) ?? 0; }
+    private int _alarmCount => messageProvider?.Messengers.Count(a => a.State != eAxoMessengerState.Idle) ?? 0;
 
     private bool HasCriticalAlarms => this.AlarmLevel == eAlarmLevel.ActiveErrors;
 
 
-    private string AlarmBorderClass
-    {
-        get
+    private string AlarmBorderClass => 
+        this.AlarmLevel switch
         {
-            return this.AlarmLevel switch
-            {
-                eAlarmLevel.NoAlarms => "",
-                eAlarmLevel.Unacknowledged => "border border-warning",
-                eAlarmLevel.ActiveInfo => "border border-info",
-                eAlarmLevel.ActiveWarnings => "border border-warning/20! shadow-glow-warning",
-                eAlarmLevel.ActiveErrors => "border border-danger/20! shadow-glow-danger",
-                _ => ""
-            };
-        }
-    }
+            eAlarmLevel.NoAlarms => "",
+            eAlarmLevel.Unacknowledged => "border border-warning",
+            eAlarmLevel.ActiveInfo => "border border-info",
+            eAlarmLevel.ActiveWarnings => "border border-warning/20! shadow-glow-warning",
+            eAlarmLevel.ActiveErrors => "border border-danger/20! shadow-glow-danger",
+            _ => ""
+        };
 
-    private string AlarmBadgeClass
-    {
-        get
+    private string AlarmBadgeClass =>
+        this.AlarmLevel switch
         {
-            return this.AlarmLevel switch
-            {
-                eAlarmLevel.ActiveErrors => "animate-pulse-danger badge-danger",
-                eAlarmLevel.ActiveWarnings => "badge-warning",
-                eAlarmLevel.ActiveInfo => "badge-primary",
-                eAlarmLevel.Unacknowledged => "badge-warning",
-                _ => "badge-primary"
-            };
-        }
-    }
+            eAlarmLevel.ActiveErrors => "animate-pulse-danger badge-danger",
+            eAlarmLevel.ActiveWarnings => "badge-warning",
+            eAlarmLevel.ActiveInfo => "badge-primary",
+            eAlarmLevel.Unacknowledged => "badge-warning",
+            _ => "badge-primary"
+        };
 }

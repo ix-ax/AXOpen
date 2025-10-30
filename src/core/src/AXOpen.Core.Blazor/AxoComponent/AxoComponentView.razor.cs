@@ -19,12 +19,12 @@ namespace AXOpen.Core
 {
     public partial class AxoComponentView : RenderableComplexComponentBase<AxoComponent>
     {
-        private string currentPresentation = "Status-Display";
-        private bool containsHeaderAttribute;
-        private bool containsDetailsAttribute;
-        private IEnumerable<string> tabNames = new List<string>();
-        private IEnumerable<ClaimsIdentity> identities;
-        private IEnumerable<ITwinObject> detailsTabs;
+        private string _currentPresentation = "Status-Display";
+        private bool _containsHeaderAttribute { get; set; } = false;
+        private bool _containsDetailsAttribute { get; set; } = false;
+        private IEnumerable<string> _tabNames { get; set; } = new List<string>();
+        private IEnumerable<ClaimsIdentity> _identities { get; set; }
+        private IEnumerable<ITwinObject> _detailsTabs { get; set; }
 
         [Parameter]
         public bool IsControllable { get; set; }
@@ -32,7 +32,7 @@ namespace AXOpen.Core
         public override void OnComponentChanged()
         {
             header = null;
-            detailsTabs = null;
+            _detailsTabs = null;
             this.StopPolling();
             this.OnInitialized();
         }
@@ -77,14 +77,14 @@ namespace AXOpen.Core
 
         private IEnumerable<ITwinObject> DetailsTabs
         {
-            get { return detailsTabs = detailsTabs ?? CreateDetailsTabs(); }
+            get { return _detailsTabs = _detailsTabs ?? CreateDetailsTabs(); }
         }
 
         private IEnumerable<ITwinObject> CreateDetailsTabs()
         {
             IList<ITwinObject> _detailsTabs = new List<ITwinObject>();
 
-            foreach (string tabName in tabNames)
+            foreach (string tabName in _tabNames)
             {
                 List<ITwinElement> currentTabElements = this.Component.GetKids()
                 .Where(p =>
@@ -116,9 +116,9 @@ namespace AXOpen.Core
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            containsHeaderAttribute = this.Header.GetKids().Count() != 0;
-            tabNames = GetAllTabNames(this.Component);
-            containsDetailsAttribute = this.DetailsTabs.Count() != 0;
+            _containsHeaderAttribute = this.Header.GetKids().Count() != 0;
+            _tabNames = GetAllTabNames(this.Component);
+            _containsDetailsAttribute = this.DetailsTabs.Count() != 0;
             this.messageProvider = AxoMessageProvider.Create(new ITwinObject[] { this.Component });
         }
 
@@ -130,21 +130,21 @@ namespace AXOpen.Core
             {
                 await connector?.ReadBatchAsync(a);
             }
-            identities = await GetClaimsIdentitiesAsync();
+            _identities = await GetClaimsIdentitiesAsync();
             await base.OnInitializedAsync();
         }
 
-       private bool DisplayByTheRole(string role)
+        private bool DisplayByTheRole(string role)
         {
-            if (identities != null && role != null)
+            if (_identities != null && role != null)
             {
-                List<ClaimsIdentity> _identities = identities.ToList();
+                List<ClaimsIdentity> identities = _identities.ToList();
 
-                for (int i = 0; i < _identities.Count; i++)
+                for (int i = 0; i < identities.Count; i++)
                 {
-                    if (_identities[i] != null)
+                    if (identities[i] != null)
                     {
-                        if (_identities[i].HasClaim(_identities[i].RoleClaimType, role))
+                        if (identities[i].HasClaim(identities[i].RoleClaimType, role))
                         {
                             return true;
                         }
