@@ -34,6 +34,10 @@ namespace AXOpen.Core
         public string HumanReadable { get; set; } = string.Empty;
         public string RoleName { get; set; } = string.Empty;
 
+        public string Symbol => string.Empty;
+
+        public Translator Interpreter => _parent.Interpreter;
+
         private readonly ITwinObject _parent;
 
         public string GetAttributeName(CultureInfo culture)

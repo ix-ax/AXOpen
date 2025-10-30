@@ -14,7 +14,7 @@
 
 @if (EnableFiltering)
 {
-    <div class="card p-2">
+    <div data-axo-object-diagnostics-view class="card p-2">
         <div class="input-group">
             <input type="text" id="inputTailwindString" @bind="SearchTerm" @bind:event="oninput" title="Search alarms" placeholder="Search title or equipment" />
         </div>

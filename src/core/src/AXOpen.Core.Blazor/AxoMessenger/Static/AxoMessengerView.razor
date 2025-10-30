@@ -4,7 +4,7 @@
 @using Operon.Icons
 @implements IDisposable;
 
-<div class="card m-2 @ConvertToInternalShadowGlowSeverityName((eAxoMessageCategory)Component.Category.LastValue) @ConvertToInternalBgShadowSeverityName((eAxoMessageCategory)Component.Category.LastValue) @Class">
+<div data-axo-messenger-view class="card m-2 @ConvertToInternalShadowGlowSeverityName((eAxoMessageCategory)Component.Category.LastValue) @ConvertToInternalBgShadowSeverityName((eAxoMessageCategory)Component.Category.LastValue) @Class">
     <div class="card-title flex flex-wrap flex-row justify-between gap-2 bg-background-light/40!">
         <div class="flux-flex flex-wrap items-center gap-2">
             <div class="flux-badge badge-primary gap-2" aria-label="Severity">
@@ -46,14 +46,14 @@
     </div>
 
     <div class="card-footer justify-between">
-        <button type="button" class="btn btn-primary btn-sm gap-2 transition duration-400" @onclick="ToggleDetails" title="@(IsDetailsExpanded ? "Hide details" : "Show details")" aria-expanded="@IsDetailsExpanded">
-            <HeroIcon Icon="chevron-right" Type="IconType.Outline" Class="@(IsDetailsExpanded ? "size-4 icon-button-rotate-90 rotated" : "size-4 icon-button-rotate-90")" />
-            @(IsDetailsExpanded ? "HIDE DETAILS" : "SHOW DETAILS")
+        <button type="button" class="btn btn-primary btn-sm gap-2 transition duration-400" @onclick="ToggleDetails" title="@(_isDetailsExpanded ? "Hide details" : "Show details")" aria-expanded="@_isDetailsExpanded">
+            <HeroIcon Icon="chevron-right" Type="IconType.Outline" Class="@(_isDetailsExpanded ? "size-4 icon-button-rotate-90 rotated" : "size-4 icon-button-rotate-90")" />
+            @(_isDetailsExpanded ? "HIDE DETAILS" : "SHOW DETAILS")
         </button>
-        <button class="btn btn-primary" @onclick="HandleAcknowledge" disabled="@(!CanAcknowledge)">Acknowledge</button>
+        <button class="btn btn-primary" @onclick="AcknowledgeTask" disabled="@(!CanAcknowledge)">Acknowledge</button>
     </div>
 
-    @if (IsDetailsExpanded)
+    @if (_isDetailsExpanded)
     {
         <div class="flex flex-wrap flex-col gap-2 m-4 pt-2 border-t border-border/80">
             <div class="flex flex-wrap flex-row justify-between w-full max-w-200">
@@ -89,15 +89,7 @@
 </div>
 
 @code {
-
-    private async Task RestoreParentTask()
-    {
-        Component.RestoreParentTask(await this.GetCurrentUserIdentity());
-    }
-
-    [Parameter] public string? Class { get; set; }
-
-    private bool IsDetailsExpanded { get; set; } = false;
+    private bool _isDetailsExpanded { get; set; } = false;
 
     private static string ConvertToInternalSeverityName(eAxoMessageCategory category)
     {
@@ -175,11 +167,6 @@
 
     private bool CanAcknowledge => Component.IsActive || !Component.IsAcknowledged;
 
-    private async Task HandleAcknowledge()
-    {
-        Component.Acknowledge(await GetCurrentUserIdentity());
-    }
-
     private static string DisplayOrDash(string? value) => string.IsNullOrWhiteSpace(value) ? "—" : value;
 
     private static string FormatTimestamp(DateTime? timestamp)
@@ -187,48 +174,9 @@
         return timestamp?.ToLocalTime().ToString("g", CultureInfo.CurrentCulture) ?? "—";
     }
 
-    private string FormatAcknowledged()
-    {
-        if (!Component.IsAcknowledged)
-        {
-            return (eAxoMessengerState)Component.MessengerState.LastValue == eAxoMessengerState.ActiveAcknowledgeRequired ? "Pending" : "Not Required";
-        }
-
-        return Component.Risen.LastValue.Equals(DateTime.MinValue)
-            ? "Acknowledged"
-            : FormatTimestamp(Component.Risen.LastValue);
-    }
-
-    private string FormatDuration()
-    {
-        if (Component.Risen.LastValue.Equals(DateTime.MinValue))
-        {
-            return "—";
-        }
-
-        var start = Component.Risen.LastValue;
-        var end = Component.IsActive
-            ? DateTime.UtcNow
-            : Component.Acknowledged.LastValue;
-
-        if (end < start)
-        {
-            return "—";
-        }
-
-        var duration = end - start;
-        return duration switch
-        {
-            { TotalMinutes: < 1 } => "< 1 min",
-            { TotalHours: < 1 } => $"{(int)duration.TotalMinutes} min",
-            { TotalDays: < 1 } => $"{duration.TotalHours:F1} h",
-            _ => $"{duration.TotalDays:F1} d"
-        };
-    }
-
     private void ToggleDetails()
     {
-        IsDetailsExpanded = !IsDetailsExpanded;
+        _isDetailsExpanded = !_isDetailsExpanded;
         StateHasChanged();
     }
 }

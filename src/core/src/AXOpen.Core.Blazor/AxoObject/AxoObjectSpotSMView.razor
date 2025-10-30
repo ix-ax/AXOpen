@@ -9,7 +9,7 @@
 @using Operon.Icons
 @inject IJSRuntime JSRuntime
 
-<button type="button" class="action-btn gap-2 @(observer?.ActiveMessagesCount > 0 ? "shadow-glow-danger" : null)" @onclick="() => SetCurrentObject()">
+<button data-axo-object-spot-sm-view type="button" class="action-btn gap-2 @(observer?.ActiveMessagesCount > 0 ? "shadow-glow-danger" : null)" @onclick="() => SetCurrentObject()">
     <div class="action-btn-icon-primary">
         <HeroIcon Icon="@(observer?.ActiveMessagesCount > 0 ? "exclamation-circle" : "cube")" Type="IconType.Solid" Class="size-4" />
     </div>

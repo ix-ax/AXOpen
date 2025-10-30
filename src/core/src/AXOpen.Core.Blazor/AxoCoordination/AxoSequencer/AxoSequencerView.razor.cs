@@ -9,18 +9,82 @@ namespace AXOpen.Core
 {
     public partial class AxoSequencerView : RenderableComplexComponentBase<AxoSequencer>, IDisposable
     {
-        
-        [Parameter] public bool IsControllable { get; set; } = true;
+        [Parameter]
+        public bool IsControllable { get; set; } = true;
 
-        [Parameter] public bool HasTaskControlButton { get; set; } = true;
+        [Parameter]
+        public bool HasExternalStepModeControl { get; set; } = false;
 
-        [Parameter] public bool HasSettings { get; set; } = true;
+        private string _description => string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic()) ? "-" : this.Component.CurrentStep.Descr.GetCyclic();
 
-        [Parameter] public bool HasStepControls { get; set; } = true;
+        private string _duration => this.Component.Duration.GetCyclic().ToString(@"hh\:mm\:ss\.fff");
 
-        [Parameter] public bool HasStepDetails { get; set; } = true;
-        
-        public bool EnableModalContent { set; get; }
+        private eAxoSteppingMode _currentSteppingMode => (eAxoSteppingMode)this.Component.SteppingMode.LastValue;
+
+        private async Task ToggleStepMode()
+        {
+            var currentSteppingMode = (eAxoSteppingMode)this.Component.SteppingMode.LastValue;
+
+            if (currentSteppingMode == eAxoSteppingMode.Continous)
+            {
+                await this.Component.SteppingMode.SetAsync((short)eAxoSteppingMode.StepByStep);
+            }
+            else
+            {
+                await this.Component.SteppingMode.SetAsync((short)eAxoSteppingMode.Continous);
+            }
+        }
+
+        private string _runStepButtonText => string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic()) ? "-" : this.Component.CurrentStep.Descr.GetCyclic();
+
+        private IEnumerable<AxoObject> _associatedComponents => this.Component.Associates.Where(p => p is AxoObject).Cast<AxoObject>();
+
+
+        private eSequenceStatus _currentStatus
+        {
+            get
+            {
+                var taskState = (eAxoTaskState)this.Component.Status.LastValue;
+
+                if (taskState == eAxoTaskState.Error)
+                {
+                    return eSequenceStatus.SequencerError;
+                }
+
+                if (_associatedComponents.Any(p => p.MsgCnt.LastValue > 0)
+                    && this.Component.Duration.LastValue > TimeSpan.FromSeconds(this.Component.MaxSequenceDuration.LastValue.TotalSeconds))
+                {
+                    return eSequenceStatus.ExternalComponentError;
+                }
+
+                if (this.Component.Duration.LastValue >
+                TimeSpan.FromSeconds(this.Component.MaxSequenceDuration.LastValue.TotalSeconds)
+                && this.Component.Duration.LastValue > TimeSpan.FromSeconds(10))
+                {
+                    return eSequenceStatus.SequenceTimeOutError;
+                }
+
+                if (taskState == eAxoTaskState.Busy)
+                {
+                    return eSequenceStatus.Active;
+                }
+
+                return eSequenceStatus.Inactive;
+            }
+        }
+
+        public override void ConfigurePolling()
+        {
+            this.StartPolling(this.Component.CurrentStep.Descr, 500);
+            this.StartPolling(this.Component.SteppingMode, 500);
+            this.StartPolling(this.Component.Duration, 1000);
+            this.StartPolling(this.Component.MsgCnt, 2500);
+            foreach (var a in _associatedComponents)
+            {
+                this.StartPolling(a.MsgCnt, 2500);
+            }
+            this.StartPolling(Component.MaxSequenceDuration, 1000);
+        }
     }
 
     public class AxoSequencerCommandView : AxoSequencerView
@@ -37,5 +101,14 @@ namespace AXOpen.Core
         {
             IsControllable = false;
         }
+    }
+
+    public enum eSequenceStatus
+    {
+        Inactive,
+        Active,
+        SequencerError,
+        SequenceTimeOutError,
+        ExternalComponentError,
     }
 }

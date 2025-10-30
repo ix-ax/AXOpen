@@ -19,35 +19,118 @@ namespace AXOpen.Core
 {
     public partial class AxoComponentView : RenderableComplexComponentBase<AxoComponent>
     {
+        [Inject]
+        private AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
+
+        [Parameter]
+        public bool IsControllable { get; set; }
+
         private string _currentPresentation = "Status-Display";
         private bool _containsHeaderAttribute { get; set; } = false;
         private bool _containsDetailsAttribute { get; set; } = false;
         private IEnumerable<string> _tabNames { get; set; } = new List<string>();
         private IEnumerable<ClaimsIdentity> _identities { get; set; }
-        private IEnumerable<ITwinObject> _detailsTabs { get; set; }
 
-        [Parameter]
-        public bool IsControllable { get; set; }
+        private IEnumerable<AxoMessenger>? _messengers => this.Component?.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
 
-        public override void OnComponentChanged()
+        private eAlarmLevel _alarmLevel
         {
-            header = null;
-            _detailsTabs = null;
-            this.StopPolling();
-            this.OnInitialized();
+            get
+            {
+                var _messengers = this._messengers?.ToList();
+                if (_messengers == null) { return eAlarmLevel.NoAlarms; }
+
+                if (_messengers.Any(p => p.State > eAxoMessengerState.Idle))
+                {
+                    var seriousness = (eAxoMessageCategory)_messengers.Max(p => p.Category.LastValue);
+
+                    switch (seriousness)
+                    {
+                        case eAxoMessageCategory.Info:
+                            return eAlarmLevel.ActiveInfo;
+                        case eAxoMessageCategory.Warning:
+                            return eAlarmLevel.ActiveWarnings;
+                        case eAxoMessageCategory.Error:
+                        case eAxoMessageCategory.ProgrammingError:
+                        case eAxoMessageCategory.Critical:
+                            return eAlarmLevel.ActiveErrors;
+                        default:
+                            break;
+                    }
+                }
+                else if (_messengers.Any(p => p.State > eAxoMessengerState.InactiveWaitingForAcknowledge))
+                {
+                    return eAlarmLevel.Unacknowledged;
+                }
+
+                return eAlarmLevel.NoAlarms;
+            }
         }
 
-        public override void ConfigurePolling()
+        private ITwinObject _header;
+        private ITwinObject Header
         {
-            if (this.Component is AxoComponent axoComponent)
+            get
             {
-                this.StartPolling(axoComponent._isManuallyControllable);
+                return _header = _header ?? new ComponentGroupContext(this.Component,
+                    this.Component.GetKids().Where(p => p.GetAttribute<ComponentHeaderAttribute>() != null)
+                        .ToList());
+            }
+        }
+
+        private IEnumerable<ITwinObject> _detailsTabs { get; set; }
+        private IEnumerable<ITwinObject> DetailsTabs
+        {
+            get { return _detailsTabs = _detailsTabs ?? CreateDetailsTabs(); }
+        }
+
+        private AxoMessageProvider? _messageProvider { get; set; }
+        private bool _showAlarms { get; set; } = false;
+        private int _previousAlarmCount { get; set; } = 0;
+
+        private int _alarmCount => _messageProvider?.Messengers.Count(a => a.State != eAxoMessengerState.Idle) ?? 0;
+
+        private bool _hasCriticalAlarms => this._alarmLevel == eAlarmLevel.ActiveErrors;
+
+        protected override void OnInitialized()
+        {
+            base.OnInitialized();
+            _containsHeaderAttribute = this.Header.GetKids().Count() != 0;
+            _tabNames = GetAllTabNames(this.Component);
+            _containsDetailsAttribute = this.DetailsTabs.Count() != 0;
+            this._messageProvider = AxoMessageProvider.Create(new ITwinObject[] { this.Component });
+        }
+
+        protected override async Task OnInitializedAsync()
+        {
+            var messengers = _messengers?.SelectMany(p => new ITwinPrimitive[] { p.Category, p.MessengerState, p.MessageCode });
+            var connector = _messengers?.FirstOrDefault()?.GetConnector();
+            if (connector != null)
+            {
+                await connector?.ReadBatchAsync(messengers);
+            }
+            _identities = await GetClaimsIdentitiesAsync();
+            await base.OnInitializedAsync();
+        }
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            base.OnAfterRender(firstRender);
+
+            // Auto-collapse alarm panel when all alarms are cleared
+            if (_previousAlarmCount > 0 && _alarmCount == 0 && _showAlarms)
+            {
+                _showAlarms = false;
+                StateHasChanged();
             }
 
-            Messengers?.Select(p => p.MessengerState).ToList().ForEach(messenger =>
-            {
-                this.StartPolling(messenger, 1500);
-            });
+            _previousAlarmCount = _alarmCount;
+        }
+
+        private async Task<IEnumerable<ClaimsIdentity>?> GetClaimsIdentitiesAsync()
+        {
+            var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            return authenticationState?.User?.Identities;
         }
 
         private IEnumerable<string> GetAllTabNames(ITwinObject twinObject)
@@ -61,23 +144,6 @@ namespace AXOpen.Core
         private IEnumerable<ITwinElement> GetAllKidsWithComponentDetailsAttribute(ITwinObject twinObject)
         {
             return twinObject.GetKids().Where(p => p.GetAttribute<ComponentDetailsAttribute>() != null);
-        }
-
-
-        private ITwinObject header;
-        private ITwinObject Header
-        {
-            get
-            {
-                return header = header ?? new ComponentGroupContext(this.Component,
-                    this.Component.GetKids().Where(p => p.GetAttribute<ComponentHeaderAttribute>() != null)
-                        .ToList());
-            }
-        }
-
-        private IEnumerable<ITwinObject> DetailsTabs
-        {
-            get { return _detailsTabs = _detailsTabs ?? CreateDetailsTabs(); }
         }
 
         private IEnumerable<ITwinObject> CreateDetailsTabs()
@@ -113,27 +179,6 @@ namespace AXOpen.Core
             return _detailsTabs;
         }
 
-        protected override void OnInitialized()
-        {
-            base.OnInitialized();
-            _containsHeaderAttribute = this.Header.GetKids().Count() != 0;
-            _tabNames = GetAllTabNames(this.Component);
-            _containsDetailsAttribute = this.DetailsTabs.Count() != 0;
-            this.messageProvider = AxoMessageProvider.Create(new ITwinObject[] { this.Component });
-        }
-
-        protected override async Task OnInitializedAsync()
-        {
-            var a = Messengers?.SelectMany(p => new ITwinPrimitive[] { p.Category, p.MessengerState, p.MessageCode });
-            var connector = Messengers?.FirstOrDefault()?.GetConnector();
-            if (connector != null)
-            {
-                await connector?.ReadBatchAsync(a);
-            }
-            _identities = await GetClaimsIdentitiesAsync();
-            await base.OnInitializedAsync();
-        }
-
         private bool DisplayByTheRole(string role)
         {
             if (_identities != null && role != null)
@@ -154,57 +199,35 @@ namespace AXOpen.Core
             return false;
         }
 
-        [Inject]
-        private AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
-        private async Task<IEnumerable<ClaimsIdentity>?> GetClaimsIdentitiesAsync()
+        public override void OnComponentChanged()
         {
-            var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-            return authenticationState?.User?.Identities;
+            _header = null;
+            _detailsTabs = null;
+            this.StopPolling();
+            this.OnInitialized();
         }
-        private IEnumerable<AxoMessenger>? Messengers => this.Component?.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
 
-        private eAlarmLevel AlarmLevel
+        public override void ConfigurePolling()
         {
-            get
+            if (this.Component is AxoComponent axoComponent)
             {
-                var _messengers = Messengers?.ToList();
-                if (_messengers == null) { return eAlarmLevel.NoAlarms; }
-
-                if (_messengers.Any(p => p.State > eAxoMessengerState.Idle))
-                {
-                    var seriousness = (eAxoMessageCategory)_messengers.Max(p => p.Category.LastValue);
-
-                    switch (seriousness)
-                    {
-                        case eAxoMessageCategory.Info:
-                            return eAlarmLevel.ActiveInfo;
-                        case eAxoMessageCategory.Warning:
-                            return eAlarmLevel.ActiveWarnings;
-                        case eAxoMessageCategory.Error:
-                        case eAxoMessageCategory.ProgrammingError:
-                        case eAxoMessageCategory.Critical:
-                            return eAlarmLevel.ActiveErrors;
-                        default:
-                            break;
-                    }
-                }
-                else if (_messengers.Any(p => p.State > eAxoMessengerState.InactiveWaitingForAcknowledge))
-                {
-                    return eAlarmLevel.Unacknowledged;
-                }
-
-                return eAlarmLevel.NoAlarms;
+                this.StartPolling(axoComponent._isManuallyControllable);
             }
-        }
 
-        public enum eAlarmLevel
-        {
-            NoAlarms,
-            Unacknowledged,
-            ActiveInfo,
-            ActiveWarnings,
-            ActiveErrors
+            _messengers?.Select(p => p.MessengerState).ToList().ForEach(messenger =>
+            {
+                this.StartPolling(messenger, 1500);
+            });
         }
+    }
+
+    public enum eAlarmLevel
+    {
+        NoAlarms,
+        Unacknowledged,
+        ActiveInfo,
+        ActiveWarnings,
+        ActiveErrors
     }
 
     public class AxoComponentCommandView : AxoComponentView

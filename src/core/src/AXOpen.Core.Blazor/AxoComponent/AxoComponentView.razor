@@ -6,14 +6,13 @@
 @using Operon.Components.Accordion
 @using Operon.Components.Tab
 @using System.Threading.Tasks
-@inherits RenderableComplexComponentBase<AxoComponent>;
+@inherits RenderableComplexComponentBase<AxoComponent>
 
-<div class="card m-2 @AlarmBorderClass">
-    
+<div data-axo-component-view class="card m-2 @AlarmBorderClass">
     <!-- Header Section -->
     <div class="card-title w-full flex flex-row justify-between">
         <h5>@Component.AttributeName</h5>
-        
+
         @if (_alarmCount > 0)
         {
             <button class="badge @AlarmBadgeClass" @onclick="() => { _showAlarms = !_showAlarms; }" title="@_alarmCount @(_alarmCount != 1 ? "s" : "") active">
@@ -23,10 +22,10 @@
     </div>
 
     <!-- Alarms Panel (Collapsible) -->
-    @if (_showAlarms && _alarmCount > 0 && messageProvider?.Messengers != null)
+    @if (_showAlarms && _alarmCount > 0 && _messageProvider?.Messengers != null)
     {
         <div class="card m-2 p-2">
-            @foreach (var alarm in messageProvider.Messengers)
+            @foreach (var alarm in _messageProvider.Messengers)
             {
                 if (alarm.State != eAxoMessengerState.Idle)
                 {
@@ -34,7 +33,7 @@
                         <AxoMessengerView Component="alarm" Class="w-full" />
                     </div>
                 }
-            }        
+            }
         </div>
     }
 
@@ -55,9 +54,9 @@
     {
         _currentPresentation = "Status-Display";
     }
-    
+
     <div class="flex flex-wrap justify-center items-center w-full m-4">
-        <RenderableContentControl Presentation="@_currentPresentation" Context="@Header"/>
+        <RenderableContentControl Presentation="@_currentPresentation" Context="@Header" />
     </div>
 
     <!-- Details Section (Full Width) -->
@@ -72,7 +71,7 @@
                             <TabPage Title="@detailsTab.HumanReadable">
                                 <div class="w-full p-2">
                                     <RenderableContentControl Context=@detailsTab
-                                                              Presentation="@_currentPresentation"/>
+                                                              Presentation="@_currentPresentation" />
                                 </div>
                             </TabPage>
                         }
@@ -84,33 +83,9 @@
     }
 </div>
 
-@code
-{
-    private AxoMessageProvider? messageProvider;
-    private bool _showAlarms = false;
-    private int _previousAlarmCount = 0;
-
-    protected override void OnAfterRender(bool firstRender)
-    {
-        base.OnAfterRender(firstRender);
-
-        // Auto-collapse alarm panel when all alarms are cleared
-        if (_previousAlarmCount > 0 && _alarmCount == 0 && _showAlarms)
-        {
-            _showAlarms = false;
-            StateHasChanged();
-        }
-
-        _previousAlarmCount = _alarmCount;
-    }
-
-    private int _alarmCount => messageProvider?.Messengers.Count(a => a.State != eAxoMessengerState.Idle) ?? 0;
-
-    private bool HasCriticalAlarms => this.AlarmLevel == eAlarmLevel.ActiveErrors;
-
-
-    private string AlarmBorderClass => 
-        this.AlarmLevel switch
+@code {
+    private string AlarmBorderClass =>
+        this._alarmLevel switch
         {
             eAlarmLevel.NoAlarms => "",
             eAlarmLevel.Unacknowledged => "border border-warning",
@@ -121,7 +96,7 @@
         };
 
     private string AlarmBadgeClass =>
-        this.AlarmLevel switch
+        this._alarmLevel switch
         {
             eAlarmLevel.ActiveErrors => "animate-pulse-danger badge-danger",
             eAlarmLevel.ActiveWarnings => "badge-warning",

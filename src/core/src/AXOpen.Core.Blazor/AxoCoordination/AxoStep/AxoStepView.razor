@@ -4,17 +4,17 @@
 @using AXSharp.Connector;
 @inherits RenderableComplexComponentBase<AxoStep>
 
-<div class="flex flex-wrap justify-center items-center gap-2 w-full px-4 py-2 @Class">
+<div data-axo-step-view class="flex flex-wrap justify-center items-center gap-2 w-full px-4 py-2 @Class">
     <div class="flex flex-wrap items-center">
-        @if (StepState == eStepState.Active || true)
+        @if (_stepState == eStepState.Active || true)
         {
             <span class="inline-flex w-5 h-5 rounded-full border-t-2 border-text animate-spin"></span>
         }
-        else if (StepState == eStepState.Done)
+        else if (_stepState == eStepState.Done)
         {
             <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Outline" Class="size-5" />
         }
-        else if (StepState == eStepState.Error)
+        else if (_stepState == eStepState.Error)
         {
             <Operon.Icons.HeroIcon Icon="exclamation-circle" Type="Operon.Icons.IconType.Outline" Class="size-5" />
         }
@@ -25,101 +25,22 @@
     </div>
 
     <div class="flex flex-wrap items-center">
-        <h6 class="text-base text-text font-semibold">@Description</h6>
+        <h6 class="text-base text-text font-semibold">@_description</h6>
     </div>
 
     <div class="flex flex-wrap items-center gap-2">
-        @if (StepState == eStepState.Active || StepState == eStepState.Done)
+        @if (_stepState == eStepState.Active || _stepState == eStepState.Done)
         {
-            <span class="badge @DurationBadgeClass" title="Duration">
+            <span class="badge @(_stepState == eStepState.Active ? "badge-primary" : null)" title="Duration">
                 <Operon.Icons.HeroIcon Icon="clock" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                @DurationText
+                @_durationText
             </span>
         }
-        @if (!string.IsNullOrEmpty(TimestampText))
+        @if (!string.IsNullOrEmpty(_timestampText))
         {
             <span class="text-sm text-text/80 font-semibold" title="@Component.StartTimeStamp.Cyclic.ToString()">
-                @TimestampText
+                @_timestampText
             </span>
         }
     </div>
 </div>
-
-@code {
-    private enum eStepState
-    {
-        Idle,
-        Ready,
-        Active,
-        Done,
-        Error
-    }
-
-    private eStepState StepState
-    {
-        get
-        {
-            var taskState = (eAxoTaskState)this.Component.Status.LastValue;
-            
-            return taskState switch
-            {
-                eAxoTaskState.Busy => eStepState.Active,
-                eAxoTaskState.Done => eStepState.Done,
-                eAxoTaskState.Error => eStepState.Error,
-                eAxoTaskState.Ready => eStepState.Ready,
-                _ => eStepState.Idle
-            };
-        }
-    }
-
-    private string Description
-    {
-        get
-        {
-            var desc = Component.Descr?.GetCyclic();
-            return string.IsNullOrEmpty(desc) ? Component.AttributeName : desc;
-        }
-    }
-
-    private string DurationText
-    {
-        get
-        {
-            var duration = Component.Duration.Cyclic;
-            if (duration.TotalHours >= 1)
-                return duration.ToString(@"h\:mm\:ss");
-            else if (duration.TotalMinutes >= 1)
-                return duration.ToString(@"m\:ss");
-            else
-                return duration.ToString(@"s\.ff\s");
-        }
-    }
-
-    private string DurationBadgeClass
-    {
-        get
-        {
-            var duration = Component.Duration.Cyclic.TotalSeconds;
-            // Consider adding threshold logic here if needed
-            return StepState == eStepState.Active ? "badge-primary" : null;
-        }
-    }
-
-    private string TimestampText
-    {
-        get
-        {
-            var timestamp = Component.StartTimeStamp.Cyclic;
-            if (timestamp == DateTime.MinValue) return string.Empty;
-            
-            try
-            {
-                return Humanizer.DateHumanizeExtensions.Humanize(timestamp, culture: CultureExtensions.Culture);
-            }
-            catch
-            {
-                return timestamp.ToString("HH:mm:ss");
-            }
-        }
-    }
-}
