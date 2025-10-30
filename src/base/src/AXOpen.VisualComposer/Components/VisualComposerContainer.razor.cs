@@ -571,20 +571,44 @@ namespace AXOpen.VisualComposer.Components
 
         private async Task<Size> GetImageDimensions(string filePath)
         {
-            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/Components/VisualComposerContainer.razor.js");
-            return await jsObject.InvokeAsync<Size>("getImageDimensions", filePath);
+            try
+            {
+                var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/Components/VisualComposerContainer.razor.js");
+                return await jsObject.InvokeAsync<Size>("getImageDimensions", filePath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return new Size { Width = 0, Height = 0 };
+            }
         }
 
         private async Task<Size> GetElementSize(string id)
         {
-            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/Components/VisualComposerContainer.razor.js");
-            return await jsObject.InvokeAsync<Size>("getElementSize", id);
+            try
+            {
+                var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/Components/VisualComposerContainer.razor.js");
+                return await jsObject.InvokeAsync<Size>("getElementSize", id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return new Size { Width = 0, Height = 0 };
+            }
         }
 
         private async Task<Size> GetWindowSize()
         {
-            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/Components/VisualComposerContainer.razor.js");
-            return await jsObject.InvokeAsync<Size>("getWindowSize");
+            try
+            {
+                var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/Components/VisualComposerContainer.razor.js");
+                return await jsObject.InvokeAsync<Size>("getWindowSize");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return new Size { Width = 0, Height = 0 };
+            }
         }
 
         internal void AddZoomableContainer(ZoomableContainer zoomableContainer)

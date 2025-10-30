@@ -4,58 +4,47 @@
 @inherits RenderableComplexComponentBase<AxoTask>
 @implements IDisposable;
 
-<div class="task-button__wrapper @Class" style="@Style">
-    <button type="button"
-            class="task-button @StateCss @ExecutingCss @DisabledCss @RestoreButtonCss"
-            @onclick="this.InvokeTask"
-            data-state="@State.ToString().ToLowerInvariant()"
-            aria-live="polite"
-            aria-busy="@AriaBusy">
-        <span class="task-button__glyph" aria-hidden="true">
-            @if (State == eAxoTaskState.Ready)
-            {
-                <span class="glyph glyph-ready"></span>
-            }
-            else if (State == eAxoTaskState.Kicking)
-            {
-                <span class="glyph glyph-kicking"><span></span></span>
-            }
-            else if (State == eAxoTaskState.Busy)
-            {
-                <span class="glyph glyph-busy">
-                    <span></span>
-                </span>
-            }
-            else if (State == eAxoTaskState.Done)
-            {
-                <span class="glyph glyph-done">
-                    <span></span>
-                </span>
-            }
-            else if (State == eAxoTaskState.Error)
-            {
-                <span class="glyph glyph-error">
-                    <span></span>
-                </span>
-            }
-        </span>
-        <span class="task-button__label">@Description</span>
-        
-        @if (!HideRestoreButton)
+<button type="button"
+        class="btn btn-primary text-sm! font-semibold! uppercase gap-4 justify-between @Class"
+        style="@Style"
+        @onclick="this.InvokeTask"
+        disabled="@(this.Disable || this.Component.IsDisabled.LastValue)">
+    <span class="flex flex-wrap items-center justify-center w-5 h-5" aria-hidden="true">
+        @if (State == eAxoTaskState.Ready)
         {
-            <button type="button"
-                    class="task-button__reset"
-                    title="Reset task"
-                    @onclick="@OnRestoreClick"
-                    @onclick:stopPropagation="true">
-                <span class="visually-hidden">Restore</span>
-                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16">
-                    <path d="M8 2.25a5.75 5.75 0 1 1-4.069 9.819l1.09-1.09a.5.5 0 0 0-.353-.853H2.25a.5.5 0 0 0-.5.5v2.418a.5.5 0 0 0 .853.353l.94-.94A7.25 7.25 0 1 0 8 0.75v1.5Z" fill="currentColor" />
-                </svg>
-            </button>
+            <span class="inline-flex items-center justify-center w-full h-full rounded-full border-2 border-border"></span>
         }
-    </button>
-</div>
+        else if (State == eAxoTaskState.Kicking)
+        {
+            <span class="inline-flex items-center justify-center w-full h-full rounded-full border-2 border-border border-dashed animate-pulse"></span>
+        }
+        else if (State == eAxoTaskState.Busy)
+        {
+            <span class="inline-flex items-center justify-center w-full h-full rounded-full border-t-2 border-text animate-spin"></span>
+        }
+        else if (State == eAxoTaskState.Done)
+        {
+            <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+        }
+        else if (State == eAxoTaskState.Error)
+        {
+            <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+        }
+    </span>
+    @Description
+    
+    @if (!HideRestoreButton)
+    {
+        <button type="button"
+                class="btn btn-no-bg-primary"
+                title="Reset task"
+                @onclick="@OnRestoreClick"
+                @onclick:stopPropagation="true">
+            <span class="hidden">Restore</span>
+            <Operon.Icons.HeroIcon Icon="arrow-path" Type="Operon.Icons.IconType.Solid" Class="size-5" />
+        </button>
+    }
+</button>
 
 @code {
 
@@ -68,27 +57,9 @@
     [Parameter] public bool ShowText { get; set; } = true;
     [Parameter] public string IconClass { get; set; } = "star"; // Default icon class
 
-
-    private bool IsResetDisabled => !ShowReset;
-
-    private string StateCss => $"state-{State.ToString().ToLowerInvariant()}";
-
-    private string ExecutingCss => this.State == eAxoTaskState.Kicking ? "is-invoking" : string.Empty;
-
-    private string DisabledCss => this.Disable || this.Component.IsDisabled.LastValue ? "is-disabled" : string.Empty;
-
-    private string RestoreButtonCss => HideRestoreButton ? "no-restore-button" : string.Empty;
-
-    private string AriaBusy => (State is eAxoTaskState.Kicking or eAxoTaskState.Busy) ? "true" : "false";
-
     private void OnRestoreClick(MouseEventArgs e)
     {
         // Stop propagation is handled in the markup with @onclick:stopPropagation
         this.RestoreTask();
     }
 }
-
-
-
-
-

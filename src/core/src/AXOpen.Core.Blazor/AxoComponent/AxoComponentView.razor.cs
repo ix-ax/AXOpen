@@ -19,8 +19,6 @@ namespace AXOpen.Core
 {
     public partial class AxoComponentView : RenderableComplexComponentBase<AxoComponent>
     {
-        private bool areDetailsCollapsed = true;
-        private bool areAlarmsCollapsed = true;
         private string currentPresentation = "Status-Display";
         private bool containsHeaderAttribute;
         private bool containsDetailsAttribute;
@@ -206,16 +204,6 @@ namespace AXOpen.Core
             ActiveInfo,
             ActiveWarnings,
             ActiveErrors
-        }
-
-        private void ToggleCollapseDetails()
-        {
-            areDetailsCollapsed = !areDetailsCollapsed;
-        }
-
-        private void ToggleAlarmsDetails()
-        {
-            areAlarmsCollapsed = !areAlarmsCollapsed;
         }
     }
 

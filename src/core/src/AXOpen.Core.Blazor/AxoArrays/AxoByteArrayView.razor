@@ -14,8 +14,8 @@
             <p class="align-middle">@Component.AttributeName</p>
 
             <div class="flex flex-wrap items-center gap-1">
-                <div class="select-group">
-                    <select @bind="@DisplayFormat" class="select min-w-6">
+                <div class="">
+                    <select @bind="@DisplayFormat" class="select bg-background-light in-w-6">
                         @foreach (var displayedFormat in DisplayedFormatList)
                         {
                             <option value="@displayedFormat.DisplayFormat"> @displayedFormat.Description </option>
@@ -43,7 +43,7 @@
 
         @if (this.Data != null)
         {
-            <div class="flex flex-nowrap flex-row overflow-x-auto mt-4">
+            <div class="flex flex-nowrap flex-row overflow-x-auto mt-2">
                 @foreach (IndexedData<string> item in this.Data)
                 {
                     if (item != null && @item.Data != null)

@@ -92,7 +92,7 @@
         }
         else if (_inDesignMode && _editSVG)
         {
-            <div class="relative overflow-hidden m-0 p-0">
+            <div class="relative overflow-hidden m-0 p-0 w-full">
                 <div id="@_backgroundId" style="width: 100%; height: @((CurrentView.BackgroundHeight / CurrentView.BackgroundWidth) * ElementSize.Width)px;">
                     <SVGEditor BackgroundTransparent="true" ViewBox="@("0 0 " + CurrentView.BackgroundWidth + " " + CurrentView.BackgroundHeight)" Input=@CurrentView.BackgroundSVGInput InputUpdated="(string s) => { CurrentView.BackgroundSVGInput = s; SaveAsync(); }" DisableZoom="true" DisablePanning="true" DisableScaleLabel="true" BackgroundWidth="CurrentView.BackgroundWidth" BackgroundHeight="CurrentView.BackgroundHeight" ElementWidth="ElementSize.Width" ElementHeight="(CurrentView.BackgroundHeight / CurrentView.BackgroundWidth) * ElementSize.Width" />
                 </div>
@@ -113,8 +113,7 @@
         }
         else
         {
-            <div onpointermove="event.preventDefault()"
-                 onpointerleave="event.preventDefault()">
+            <div onpointermove="event.preventDefault()" onpointerleave="event.preventDefault()" class="w-full">
                 <div @onpointermove="Move"
                      @onpointerleave="Leave">
                     <ZoomableContainer Parent="this" Disable="!CurrentView.AllowZoomingAndPanning">

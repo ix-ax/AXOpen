@@ -8,39 +8,29 @@
 @using System.Threading.Tasks
 @inherits RenderableComplexComponentBase<AxoComponent>;
 
-<div class="flux-card flux-card--elevated @AlarmBorderClass" style="margin: 0.75rem 0; width: 100%;">
+<div class="card m-2 @AlarmBorderClass">
     
     <!-- Header Section -->
-    <div class="flux-flex flux-flex--between" style="align-items: center; margin-bottom: 0.75rem;">
-        <h5 style="margin: 0; color: var(--text-primary); font-weight: 600; font-size: 1.125rem;">
-            @Component.AttributeName
-        </h5>
+    <div class="card-title w-full flex flex-row justify-between">
+        <h5>@Component.AttributeName</h5>
         
-        @if (HasActiveAlarms)
+        @if (_alarmCount > 0)
         {
-            <button class="flux-btn flux-btn--icon flux-btn--ghost @AlarmButtonClass" 
-                    @onclick="ToggleAlarms"
-                    title="@AlarmCount alarm(s) active">
-                <span class="flux-badge @AlarmBadgeClass" style="position: relative;">
-                    @AlarmCount
-                    @if (HasCriticalAlarms)
-                    {
-                        <span style="position: absolute; top: -2px; right: -2px; width: 6px; height: 6px; background: #ef4444; border-radius: 50%; border: 1px solid var(--bg-tertiary);"></span>
-                    }
-                </span>
+            <button class="badge @AlarmBadgeClass" @onclick="() => { _showAlarms = !_showAlarms; }" title="@_alarmCount @(_alarmCount != 1 ? "s" : "") active">
+                @(_alarmCount > 0 ? $"{_alarmCount} Active Alarm{(_alarmCount != 1 ? "s" : "")}" : "No Alarms")
             </button>
         }
     </div>
 
     <!-- Alarms Panel (Collapsible) -->
-    @if (_showAlarms && HasActiveAlarms && messageProvider?.Messengers != null)
+    @if (_showAlarms && _alarmCount > 0 && messageProvider?.Messengers != null)
     {
-        <div class="flux-card" style="margin-bottom: 0.75rem; background: var(--bg-secondary); padding: 0.5rem;">
+        <div class="card m-2 p-2">
             @foreach (var alarm in messageProvider.Messengers)
-            {            
+            {
                 if (alarm.State != eAxoMessengerState.Idle)
                 {
-                    <div style="margin: 0.25rem 0; width: 100%;">
+                    <div class="w-full m-1">
                         <AxoMessengerView Component="alarm" Class="w-full" />
                     </div>
                 }
@@ -51,7 +41,7 @@
     <!-- Description -->
     @if (!string.IsNullOrEmpty(Component.Description_raw))
     {
-        <div class="flux-text--muted" style="font-size: 0.875rem; margin-bottom: 0.75rem;">
+        <div class="text-sm text-text/60 m-2">
             @Component.Description_raw
         </div>
     }
@@ -66,28 +56,28 @@
         currentPresentation = "Status-Display";
     }
     
-    <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin: 1rem 0;">
+    <div class="flex flex-wrap justify-center items-center w-full m-4">
         <RenderableContentControl Presentation="@currentPresentation" Context="@Header"/>
     </div>
 
     <!-- Details Section (Full Width) -->
     @if (DetailsTabs.Any())
     {
-        <div style="width: 100%; margin-top: 1rem;">
+        <div class="w-full mt-4">
             <Accordion>
                 <AccordionItem Title="View Details">
                     <Tab>
                         @foreach (var detailsTab in DetailsTabs)
                         {
                             <TabPage Title="@detailsTab.HumanReadable">
-                                <div style="width: 100%; padding: 0.75rem; background: transparent;">
+                                <div class="w-full p-2">
                                     <RenderableContentControl Context=@detailsTab
                                                               Presentation="@currentPresentation"/>
                                 </div>
                             </TabPage>
                         }
                     </Tab>
-                    <p class="flux-text--muted" style="font-size: 0.75rem; margin-top: 0.5rem;">@Component.Symbol</p>
+                    <p class="text-sm text-text/60 m-2">@Component.Symbol</p>
                 </AccordionItem>
             </Accordion>
         </div>
@@ -97,41 +87,27 @@
 @code
 {
     private AxoMessageProvider? messageProvider;
-    private AxoObjectDiagnosticsView? diagnosticsViewRef;
     private bool _showAlarms = false;
     private int _previousAlarmCount = 0;
 
     protected override void OnAfterRender(bool firstRender)
     {
         base.OnAfterRender(firstRender);
-        
+
         // Auto-collapse alarm panel when all alarms are cleared
-        if (_previousAlarmCount > 0 && AlarmCount == 0 && _showAlarms)
+        if (_previousAlarmCount > 0 && _alarmCount == 0 && _showAlarms)
         {
             _showAlarms = false;
             StateHasChanged();
         }
-        
-        _previousAlarmCount = AlarmCount;
+
+        _previousAlarmCount = _alarmCount;
     }
 
-    private void ToggleAlarms()
-    {
-        _showAlarms = !_showAlarms;
-    }
-
-    private bool HasActiveAlarms => AlarmCount > 0;
+    private int _alarmCount { get => messageProvider?.Messengers.Count(a => a.State != eAxoMessengerState.Idle) ?? 0; }
 
     private bool HasCriticalAlarms => this.AlarmLevel == eAlarmLevel.ActiveErrors;
 
-    private int AlarmCount
-    {
-        get
-        {
-            if (messageProvider?.Messengers == null) return 0;
-            return messageProvider.Messengers.Count(a => a.State != eAxoMessengerState.Idle);
-        }
-    }
 
     private string AlarmBorderClass
     {
@@ -140,23 +116,10 @@
             return this.AlarmLevel switch
             {
                 eAlarmLevel.NoAlarms => "",
-                eAlarmLevel.Unacknowledged => "flux-border--warning",
-                eAlarmLevel.ActiveInfo => "flux-border--info",
-                eAlarmLevel.ActiveWarnings => "flux-border--warning flux-shadow--glow-warning",
-                eAlarmLevel.ActiveErrors => "flux-border--danger flux-shadow--glow-danger",
-                _ => ""
-            };
-        }
-    }
-
-    private string AlarmButtonClass
-    {
-        get
-        {
-            return this.AlarmLevel switch
-            {
-                eAlarmLevel.ActiveErrors => "flux-pulse",
-                eAlarmLevel.ActiveWarnings => "",
+                eAlarmLevel.Unacknowledged => "border border-warning",
+                eAlarmLevel.ActiveInfo => "border border-info",
+                eAlarmLevel.ActiveWarnings => "border border-warning/20! shadow-glow-warning",
+                eAlarmLevel.ActiveErrors => "border border-danger/20! shadow-glow-danger",
                 _ => ""
             };
         }
@@ -168,11 +131,11 @@
         {
             return this.AlarmLevel switch
             {
-                eAlarmLevel.ActiveErrors => "flux-badge--danger",
-                eAlarmLevel.ActiveWarnings => "flux-badge--warning",
-                eAlarmLevel.ActiveInfo => "flux-badge--primary",
-                eAlarmLevel.Unacknowledged => "flux-badge--warning",
-                _ => "flux-badge"
+                eAlarmLevel.ActiveErrors => "animate-pulse-danger badge-danger",
+                eAlarmLevel.ActiveWarnings => "badge-warning",
+                eAlarmLevel.ActiveInfo => "badge-primary",
+                eAlarmLevel.Unacknowledged => "badge-warning",
+                _ => "badge-primary"
             };
         }
     }

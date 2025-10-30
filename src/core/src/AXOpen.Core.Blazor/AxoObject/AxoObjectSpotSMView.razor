@@ -9,52 +9,22 @@
 @using Operon.Icons
 @inject IJSRuntime JSRuntime
 
-<button type="button" class="flux-tiny-spot @GetSpotStateClass()"
-        @onclick="() => SetCurrentObject()">
-    <div class="flux-tiny-spot__content">
-        <div class="flux-tiny-spot__icon">
-            <HeroIcon Icon="@GetStatusIcon()" Type="IconType.Solid" Class="size-4"/>
-        </div>
-        <span class="flux-tiny-spot__label">@Component.AttributeName</span>
-        @if (observer?.ActiveMessagesCount > 0)
-        {
-            <div class="flux-tiny-spot__badge">
-                @observer.ActiveMessagesCount
-            </div>
-        }
+<button type="button" class="action-btn gap-2 @(observer?.ActiveMessagesCount > 0 ? "shadow-glow-danger" : null)" @onclick="() => SetCurrentObject()">
+    <div class="action-btn-icon-primary">
+        <HeroIcon Icon="@(observer?.ActiveMessagesCount > 0 ? "exclamation-circle" : "cube")" Type="IconType.Solid" Class="size-4" />
     </div>
+    <span class="">@Component.AttributeName</span>
+    @if (observer?.ActiveMessagesCount > 0)
+    {
+        <div class="badge badge-danger">
+            @observer.ActiveMessagesCount
+        </div>
+    }
 </button>
 
 @code
 {
     private AxoMessageProvider? observer;
-
-    private string GetSpotStateClass()
-    {
-        if (observer?.ActiveMessagesCount > 0)
-            return "flux-tiny-spot--danger flux-glow-alarm";
-        else
-            return "flux-tiny-spot--normal";
-    }
-
-    private string GetStatusIcon()
-    {
-        if (observer?.ActiveMessagesCount > 0)
-            return "exclamation-circle";
-        else
-            return "cube";
-    }
-
-    private string ButtonStyleClass
-    {
-        get
-        {
-            if (observer?.ActiveMessagesCount > 0)
-                return "btn-danger";
-            else
-                return "btn-inactive";
-        }
-    }
 
     public override void ConfigurePolling()
     {
