@@ -1,7 +1,6 @@
 ﻿@if (Parent!.CurrentView.AllowZoomingAndPanning)
 {
-    <div onwheel="event.preventDefault()"
-         class="m-0 p-0">
+    <div onwheel="event.preventDefault()" class="m-0 p-0 w-full">
         <div @onpointermove="MoveAsync"
              @onpointerdown="Down"
              @onpointerup="Up"

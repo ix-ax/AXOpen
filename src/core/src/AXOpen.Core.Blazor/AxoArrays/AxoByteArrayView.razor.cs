@@ -165,7 +165,6 @@ namespace AXOpen.Core
             }
             catch (System.Exception ex)
             {
-
                 throw;
             }
         }
@@ -182,7 +181,6 @@ namespace AXOpen.Core
             }
             catch (System.Exception ex)
             {
-
                 throw;
             }
         }
@@ -221,7 +219,6 @@ namespace AXOpen.Core
             }
             catch (System.Exception ex)
             {
-
                 throw;
             }
         }

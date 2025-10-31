@@ -70,11 +70,7 @@ if ($null -eq $startIdx_VarGlobal -or $null -eq $endIdx_VarGlobal -or $endIdx_Va
     exit 1
 }
 
-#if(($endIdx_VarGlobal - $startIdx_VarGlobal) -le 1) {
-#    Write-Error "Could not locate a proper VAR_GLOBAL ... END_VAR block in $input_file"
-#    exit 1
-#}
-# Slice the region (exclusive of the VAR_GLOBAL/END_VAR lines? Keep them out for item parsing)
+
 $varLines = $all[($startIdx_VarGlobal+1) .. ($endIdx_VarGlobal-1)]
 
 # Builders for outputs
@@ -96,7 +92,7 @@ $sbStruct = [System.Text.StringBuilder]::new()
 
 # Helpers
 function EndsWithSemicolon([string]$line) {
-    # semicolon before end or trailing spaces/comments—treat a semicolon anywhere as terminator
+    # semicolon before end or trailing spaces/comments treat a semicolon anywhere as terminator
     return $line -match ';'
 }
 $containsInputs = $false
