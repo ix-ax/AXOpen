@@ -61,10 +61,12 @@ NAMESPACE AXOpen.Components.Elements
         END_VAR    
 
         VAR PRIVATE
-            _progress       :   INT;
-            _infoTimer      :   AXOpen.Timers.OnDelayTimer;
-            _errorTimer     :   AXOpen.Timers.OnDelayTimer;
-            _movementIsSuspended : BOOL;
+            _progress               :   INT;
+            _infoTimer              :   AXOpen.Timers.OnDelayTimer;
+            _errorTimer             :   AXOpen.Timers.OnDelayTimer;
+            _timeoutTimer           :   AXOpen.Timers.OnDelayTimer;
+            _movementIsSuspended    :   BOOL;
+            _suspentionCycleCount   :   ULINT;
 
         END_VAR
 
@@ -115,7 +117,7 @@ NAMESPACE AXOpen.Components.Elements
             IF Config.OffSet = UINT#0 THEN
                 Config.OffSet := UINT#1;
             END_IF;
-            
+
             //***********Update inputs **************
             Inputs.SafetyCondition      :=  inSafetyCondition;
             Inputs.InPosition           :=  inPosition;
@@ -243,11 +245,11 @@ NAMESPACE AXOpen.Components.Elements
                     TurnTask.DoneWhen(TRUE);
                 END_IF;
     
-                THIS.CallTimers(TRUE);
+                THIS.CallTimers(NOT _movementIsSuspended);
                 
                 TurnTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TurnTask.ThrowWhen(TurnTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TurnTask timeout.');
+                TurnTask.ThrowWhen(_timeoutTimer.output,'TurnTask timeout.');
             END_IF;
             IF TurnTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -325,11 +327,11 @@ NAMESPACE AXOpen.Components.Elements
                     InitPositionTask.DoneWhen(TRUE);
                 END_IF;
     
-                THIS.CallTimers(TRUE);
+                THIS.CallTimers(NOT _movementIsSuspended);
                 
                 InitPositionTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                InitPositionTask.ThrowWhen(InitPositionTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'InitPositionTask timeout.');
+                InitPositionTask.ThrowWhen(_timeoutTimer.output ,'InitPositionTask timeout.');
             END_IF;
             IF InitPositionTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -353,11 +355,19 @@ NAMESPACE AXOpen.Components.Elements
                 _progress := 0;
             END_IF;
             //**************************************************
-            IF NOT Inputs.SafetyCondition OR _movementIsSuspended THEN 
+            IF NOT Inputs.SafetyCondition THEN 
                 Outputs.EnableTurn  :=  FALSE;
                 Outputs.StartTurn   :=  FALSE;
             END_IF;
-
+            //**************************************************
+            IF _movementIsSuspended THEN 
+                Outputs.EnableTurn  :=  FALSE;
+                Outputs.StartTurn   :=  FALSE;
+                IF (THIS.GetContext().OpenCycleCount() - _suspentionCycleCount ) >= ULINT#1 THEN
+                    _movementIsSuspended := FALSE;
+                END_IF;
+            END_IF;
+  
             //***********Update outputs ****************
             outEnableTurn  :=  Outputs.EnableTurn;
             outStartTurn   :=  Outputs.StartTurn;
@@ -388,7 +398,10 @@ NAMESPACE AXOpen.Components.Elements
             IF(inoCondition) THEN                        
                 Outputs.EnableTurn  :=  FALSE;
                 Outputs.StartTurn   :=  FALSE;
-                // Messenger.ActivateOnCondition(inMessage, inoCondition AND (TurnTask.IsBusy() OR InitPositionTask.IsBusy()), eAxoMessageCategory#Info);
+                IF TurnTask.IsBusy() OR InitPositionTask.IsBusy() THEN
+                    Messenger.Post(THIS, inMessage, eAxoMessageCategory#Info);
+                END_IF;
+                _suspentionCycleCount := THIS.GetContext().OpenCycleCount();
             END_IF;   
             _movementIsSuspended := _movementIsSuspended OR inoCondition;
         END_METHOD      
@@ -426,6 +439,7 @@ NAMESPACE AXOpen.Components.Elements
             
             _infoTimer.OnDelay(THIS, signal AND Config.InfoTime > LT#0S ,Config.InfoTime);
             _errorTimer.OnDelay(THIS, signal AND Config.ErrorTime > LT#0S , Config.ErrorTime);
+            _timeoutTimer.OnDelay(THIS, signal AND Config.TaskTimeout > LT#0S , Config.TaskTimeout);
         END_METHOD
 
     END_CLASS
