@@ -64,6 +64,8 @@ NAMESPACE AXOpen.Components.Elements
             _progress       :   INT;
             _infoTimer      :   AXOpen.Timers.OnDelayTimer;
             _errorTimer     :   AXOpen.Timers.OnDelayTimer;
+            _movementIsSuspended : BOOL;
+
         END_VAR
 
         ///<summary>
@@ -153,7 +155,7 @@ NAMESPACE AXOpen.Components.Elements
             Messenger.ActivateOnCondition(ULINT#100,TurnTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#101,TurnTask.IsDone(), eAxoMessageCategory#Info);
             IF TurnTask.Execute(THIS) THEN
-                IF _progress = 0 THEN
+                IF _progress = 0 AND NOT _movementIsSuspended THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
@@ -279,7 +281,7 @@ NAMESPACE AXOpen.Components.Elements
             Messenger.ActivateOnCondition(ULINT#110,InitPositionTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#111,InitPositionTask.IsDone(), eAxoMessageCategory#Info);
             IF InitPositionTask.Execute(THIS) THEN
-                IF _progress = 0 THEN
+                IF _progress = 0 AND NOT _movementIsSuspended THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
@@ -351,7 +353,7 @@ NAMESPACE AXOpen.Components.Elements
                 _progress := 0;
             END_IF;
             //**************************************************
-            IF NOT Inputs.SafetyCondition THEN 
+            IF NOT Inputs.SafetyCondition OR _movementIsSuspended THEN 
                 Outputs.EnableTurn  :=  FALSE;
                 Outputs.StartTurn   :=  FALSE;
             END_IF;
@@ -372,6 +374,24 @@ NAMESPACE AXOpen.Components.Elements
             InitPosition := InitPositionTask.Invoke(THIS);
         END_METHOD
 
+        ///<summary>
+        /// Suspends the movement while the condition is 'true'. Task remains still executing.
+        ///</summary>
+        METHOD PUBLIC SuspendMovementWhile 
+            VAR_IN_OUT
+                inoCondition : BOOL;
+            END_VAR
+            VAR_INPUT
+                inMessage : STRING;
+            END_VAR
+
+            IF(inoCondition) THEN                        
+                Outputs.EnableTurn  :=  FALSE;
+                Outputs.StartTurn   :=  FALSE;
+                // Messenger.ActivateOnCondition(inMessage, inoCondition AND (TurnTask.IsBusy() OR InitPositionTask.IsBusy()), eAxoMessageCategory#Info);
+            END_IF;   
+            _movementIsSuspended := _movementIsSuspended OR inoCondition;
+        END_METHOD      
 
         METHOD PROTECTED OVERRIDE ManualControl
             THIS._isManuallyControllable := true;

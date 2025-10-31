@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\css\tailwind\" />
+    <PackageReference Include="Inxton.Operon" />
   </ItemGroup>
 
 </Project>

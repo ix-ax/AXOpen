@@ -107,55 +107,62 @@ Templates:
                 # TransmissionRateAutoNegotiation: True
                 # CableName: 0
                 # MediumAttachmentType: 'Copper'
-          - Name: Acquisition_Control
+          - Name: 'Slot_1' #Acquisition_Control
             TypeIdentifier:
               GsdId: '101'
               FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
             Slot: 1
-          - Name: Acquisition_Status
+          - Name: 'Slot_2' #Acquisition_Status
             TypeIdentifier:
               GsdId: '204'
               FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
             Slot: 2
-          - Name: Inspection_Control
+          - Name: 'Slot_3' #Inspection_Control
             TypeIdentifier:
               GsdId: '102'
               FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
             Slot: 3
-          - Name: Inspection_Status
+          - Name: 'Slot_4' #Inspection_Status
             TypeIdentifier:
               GsdId: '203'
               FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
             Slot: 4
-          - Name: Command_Control
+          - Name: 'Slot_5' #Command_Control
             TypeIdentifier:
               GsdId: '108'
               FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
             Slot: 5
-          - Name: SoftEvent_Control
+          - Name: 'Slot_6' #SoftEvent_Control
             TypeIdentifier:
               GsdId: '106'
               FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'  
             Slot: 6
           - Apply: ${USER_DATA_SLOT_7}
             Arguments:
+              ModuleName: 'Slot_7'
               SLOT: 7
           - Apply: ${USER_DATA_SLOT_8}
             Arguments:
+              ModuleName: 'Slot_8'
               SLOT: 8
           - Apply: ${USER_DATA_SLOT_9}
             Arguments:
+              ModuleName: 'Slot_9'
               SLOT: 9
           - Apply: ${USER_DATA_SLOT_10}
             Arguments:
+              ModuleName: 'Slot_10'
               SLOT: 10
           - Apply: ${RESULT_DATA_SLOT_11}
           - Apply: ${RESULT_DATA_SLOT_12}
             Arguments:
+              ModuleName: 'Slot_12'
               SLOT: 12
           - Apply: ${RESULT_DATA_SLOT_13}
             Arguments:
+              ModuleName: 'Slot_13'
               SLOT: 13
           - Apply: ${RESULT_DATA_SLOT_14}
             Arguments:
+              ModuleName: 'Slot_14'
               SLOT: 14
