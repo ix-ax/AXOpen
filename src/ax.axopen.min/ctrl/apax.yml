@@ -10,7 +10,7 @@ catalogs:
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
-  "@ax/system-strings": 10.2.7
+  "@ax/system-strings": ^10.2.7
 installStrategy: strict
 apaxVersion: 3.5.0
 scripts:

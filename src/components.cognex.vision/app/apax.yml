@@ -1,4 +1,4 @@
-﻿name: "app_axopen.components.cognex.vision"
+name: "app_axopen.components.cognex.vision"
 version: '0.0.0-dev.0'
 type: app
 targets:
@@ -188,4 +188,3 @@ scripts:
     apax hwid
     apax hwadr
     apax build
-
