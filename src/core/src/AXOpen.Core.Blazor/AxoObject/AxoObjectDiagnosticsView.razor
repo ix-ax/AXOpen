@@ -103,7 +103,7 @@
                         <td>@FormatTimestamp(alarm.Risen.LastValue)</td>
                         <td>@FormatAcknowledged(alarm)</td>
                         <td>@FormatDuration(alarm)</td>
-                        @if (HasActionsColumn)
+                        @if (HasActionsColumn || CanAcknowledge(alarm))
                         {
                             <td class="text-right">
                                 @if (Actions is not null)
@@ -113,7 +113,7 @@
 
                                 @if (alarm.State == (eAxoMessengerState.ActiveAcknowledgeRequired))
                                 {
-                                    <button type="button" class="btn btn-sm btn-primary gap-1" disabled="@CanAcknowledge(alarm)" @onclick:stopPropagation="true" @onclick="(() => HandleAcknowledge(alarm))" title="Acknowledge alarm">
+                                    <button type="button" class="btn btn-sm btn-primary gap-1" disabled="@(!CanAcknowledge(alarm))" @onclick:stopPropagation="true" @onclick="(() => HandleAcknowledge(alarm))" title="Acknowledge alarm">
                                         <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Solid" Class="size-5" />
                                         ACKN
                                     </button>
