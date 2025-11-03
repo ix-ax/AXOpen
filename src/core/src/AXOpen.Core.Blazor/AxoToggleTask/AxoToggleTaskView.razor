@@ -3,7 +3,7 @@
 @inherits RenderableComplexComponentBase<AxoToggleTask>
 @implements IDisposable;
 
-<div class="flex flex-wrap">
+<div data-axo-toggle-task-view class="flex flex-wrap">
     <button type="button" class="btn btn-primary" disabled="@IsDisabled" @onclick="@ToggleTask">
         @Description:@StateDescription
     </button>
