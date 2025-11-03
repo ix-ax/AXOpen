@@ -12,56 +12,56 @@
 
 <AuthorizeView Roles="Administrator">
     <Authorized>
-        <div class="flex flex-wrap m-2 items-center">
-            <nav class="tab ms-2 my-2">
-                @foreach (var item in _serverStorageAllViews)
-                {
-                    <button class="tab-item @(_currentViewName == item ? "active" : null) @GetBgColor(SaveLocationType.Server)" @onclick="() => LoadAsync(item)">@item</button>
-                }
-                @foreach (var item in _localStorageData.Keys)
-                {
-                    <button class="tab-item @(_currentViewName == item ? "active" : null) @GetBgColor(SaveLocationType.Local)" @onclick="() => LoadAsync(item)">@item</button>
-                }
-            </nav>
+    <div class="flex flex-wrap items-center">
+        <nav class="tab my-2 grow me-2">
+            @foreach (var item in _serverStorageAllViews)
+            {
+                    <button class="btn tab-btn @(_currentViewName == item ? "active" : null) @GetBgColor(SaveLocationType.Server)" @onclick="() => LoadAsync(item)">@item</button>
+            }
+            @foreach (var item in _localStorageData.Keys)
+            {
+                    <button class="btn tab-btn @(_currentViewName == item ? "active" : null) @GetBgColor(SaveLocationType.Local)" @onclick="() => LoadAsync(item)">@item</button>
+            }
+        </nav>
 
-            <div class="flex items-center ms-auto">
-                @if (_inDesignMode)
-                {
-                    <Dropdown @ref="_dropdownOption">
-                        <DropdownButton>
-                                <button class="btn btn-primary" @onclick="_dropdownOption.Toggle">
-                                    Options
+        <div class="flex items-center ms-auto">
+            @if (_inDesignMode)
+            {
+                <Dropdown @ref="_dropdownOption">
+                    <DropdownButton>
+                        <button class="btn btn-primary" @onclick="_dropdownOption.Toggle">
+                            Options
                                     <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownOption?.Open ?? false ? "rotated" : null))" />
-                                </button>
-                            </DropdownButton>
-                            <DropdownBody Class="end">
-                            @if (!string.IsNullOrEmpty(_currentViewName))
+                        </button>
+                    </DropdownButton>
+                    <DropdownBody Class="end">
+                        @if (!string.IsNullOrEmpty(_currentViewName))
+                        {
+                            <a class="dropdown-item" @onclick="() => { _modalControllerObjects.Toggle(); _dropdownOption.CloseDropdown(); }">Controller objects</a>
+                            <a class="dropdown-item" @onclick="() => { _modalUsedObject.Toggle(); _dropdownOption.CloseDropdown(); }">Used objects</a>
+                        }
+                        <a class="dropdown-item" @onclick="() => { _modalViews.Toggle(); _dropdownOption.CloseDropdown(); }">Views</a>
+                        <a class="dropdown-item" @onclick="() => { _modalCreateNew.Toggle(); _dropdownOption.CloseDropdown(); }">Create new</a>
+                        @if (!string.IsNullOrEmpty(_currentViewName))
+                        {
+                            <a class="dropdown-item" @onclick="() => { _modalCreateCopy.Toggle(); _dropdownOption.CloseDropdown(); }">Create copy</a>
+                            <a class="dropdown-item" @onclick="() => { _modalBackground.Toggle(); _dropdownOption.CloseDropdown(); }">Background</a>
+                            <a class="dropdown-item" @onclick="() => { _editSVG = !_editSVG; _dropdownOption.CloseDropdown(); }">Toggle Edit SVG</a>
+                            @if (_editSVG)
                             {
-                                <a class="dropdown-item" @onclick="() => { _modalControllerObjects.Toggle(); _dropdownOption.CloseDropdown(); }">Controller objects</a>
-                                <a class="dropdown-item" @onclick="() => { _modalUsedObject.Toggle(); _dropdownOption.CloseDropdown(); }">Used objects</a>
+                                <a class="dropdown-item" @onclick="() => { _modalBackgroundSVGInput.Toggle(); _dropdownOption.CloseDropdown(); }">Background SVG Input</a>
                             }
-                            <a class="dropdown-item" @onclick="() => { _modalViews.Toggle(); _dropdownOption.CloseDropdown(); }">Views</a>
-                            <a class="dropdown-item" @onclick="() => { _modalCreateNew.Toggle(); _dropdownOption.CloseDropdown(); }">Create new</a>
-                            @if (!string.IsNullOrEmpty(_currentViewName))
-                            {
-                                <a class="dropdown-item" @onclick="() => { _modalCreateCopy.Toggle(); _dropdownOption.CloseDropdown(); }">Create copy</a>
-                                <a class="dropdown-item" @onclick="() => { _modalBackground.Toggle(); _dropdownOption.CloseDropdown(); }">Background</a>
-                                <a class="dropdown-item" @onclick="() => { _editSVG = !_editSVG; _dropdownOption.CloseDropdown(); }">Toggle Edit SVG</a>
-                                @if (_editSVG)
-                                {
-                                    <a class="dropdown-item" @onclick="() => { _modalBackgroundSVGInput.Toggle(); _dropdownOption.CloseDropdown(); }">Background SVG Input</a>
-                                }
-                                <a class="dropdown-item" @onclick="async () => { await ChangeThemeAsync(); _dropdownOption.CloseDropdown(); }">Change theme</a>
-                            }
-                        </DropdownBody>
-                    </Dropdown>
-                }
+                            <a class="dropdown-item" @onclick="async () => { await ChangeThemeAsync(); _dropdownOption.CloseDropdown(); }">Change theme</a>
+                        }
+                    </DropdownBody>
+                </Dropdown>
+            }
 
-                <button class="btn btn-no-bg-secondary p-1" @onclick="() => _inDesignMode = !_inDesignMode">
+            <button class="btn btn-no-bg-secondary p-1" @onclick="() => _inDesignMode = !_inDesignMode">
                     <Operon.Icons.HeroIcon Icon="adjustments-horizontal" Type="Operon.Icons.IconType.Outline" Class="size-6" />
-                </button>
-            </div>
+            </button>
         </div>
+    </div>
 
         @if (CurrentView.IsWatchTable)
         {
@@ -462,8 +462,15 @@
                             }
                         </AccordionItem>
                         <AccordionItem Title="Color">
-                            <input type="color" class="" @bind="CurrentView.BackgroundColor" title="Choose color">
-                            <button type="button" class="btn btn-secondary" disabled="@(string.IsNullOrEmpty(CurrentView.ImgSrc) ? "disabled" : null)" @onclick="() => { CurrentView.ImgSrc = null; SaveAsync(); }">Clear image (only background color)</button>
+                            <div class="color-group">
+                                <input type="color" id="background-color-light" class="" @bind="CurrentView.BackgroundColorLight" title="Choose background color light">
+                                <label for="background-color-light">Background color light</label>
+                            </div>
+                            <div class="color-group">
+                                <input type="color" id="background-color-dark" class="" @bind="CurrentView.BackgroundColorDark" title="Choose background color dark">
+                                <label for="background-color-dark">Background color dark</label>
+                            </div>
+                            <button type="button" class="btn btn-primary" disabled="@(string.IsNullOrEmpty(CurrentView.ImgSrc) ? "disabled" : null)" @onclick="() => { CurrentView.ImgSrc = null; SaveAsync(); }">Clear image (only background color)</button>
                         </AccordionItem>
                     </Accordion>
                     <div class="mt-2">
@@ -498,10 +505,10 @@
     <NotAuthorized>
         @if(_serverStorageConfiguration != null)
         {
-            <nav class="tab ms-2 my-2">
+            <nav class="tab my-2">
                 @foreach (var item in _serverStorageConfiguration.Views)
                 {
-                    <button class="tab-item @(_currentViewName == item ? "active" : null)" @onclick="() => LoadAsync(item)">@item</button>
+                    <button class="btn tab-btn @(_currentViewName == item ? "active" : null)" @onclick="() => LoadAsync(item)">@item</button>
                 }
             </nav>
         }
