@@ -2,7 +2,7 @@
 @inherits RenderableComplexComponentBase<AxoSequencer>
 @namespace AXOpen.Core
 
-<div data-axo-sequencer-view class="card @(!this.IsControllable ? "opacity-60 cursor-default" : null)">
+<div data-axo-sequencer-view class="card bg-background-light/80! @(!this.IsControllable ? "opacity-60 cursor-default" : null)">
     <!-- Sequencer Header -->
     <div class="flex flex-wrap justify-between gap-2 mx-4 my-2">
         <div class="flex flex-wrap items-center gap-2">
@@ -15,10 +15,10 @@
             }
         </div>
         <div class="flex flex-wrap">
-            <button type="button" class="btn gap-2 @(_currentSteppingMode == eAxoSteppingMode.StepByStep ? "btn-primary" : "btn-outline-primary")"
+            <button type="button" class="btn gap-2 @(_currentSteppingMode == eAxoSteppingMode.StepByStep ? "btn-warning" : "btn-outline-primary")"
                 @onclick="ToggleStepMode"
                 title="@(_currentSteppingMode == eAxoSteppingMode.StepByStep ? "Exit step mode" : "Enter step mode")">
-                <span class="inline-flex w-5 h-5 rounded-full @(_currentSteppingMode == eAxoSteppingMode.StepByStep ? "bg-primary/40" : "border border-primary/40") shadow-glow-primary"></span>
+                <span class="inline-flex w-5 h-5 rounded-full @(_currentSteppingMode == eAxoSteppingMode.StepByStep ? "bg-warning/40 shadow-glow-warning animate-pulse" : "border border-primary/40 shadow-glow-primary")"></span>
                 @if(!HasExternalStepModeControl)
                 {
                     if (_currentSteppingMode == eAxoSteppingMode.StepByStep)
@@ -67,13 +67,13 @@
         }
         @if (Component.CurrentStep != null)
         {
-            if(_currentSteppingMode == eAxoSteppingMode.StepByStep)
+            @if(_currentSteppingMode == eAxoSteppingMode.StepByStep)
             {
-                <AxoTaskCommandView Text="@_runStepButtonText" ShowText="true" HideRestoreButton="false" ShowAbortButton="false" Component="this.Component.StepIn" Class="btn-lg" />
+                <AxoTaskCommandView Text="@_runStepButtonText" ShowText="true" HideRestoreButton="false" ShowAbortButton="false" Component="this.Component.StepIn" Class="btn-lg w-125" />
             }
             else
             {
-                <AxoTaskStatusView Text="@_runStepButtonText" ShowText="true" HideRestoreButton="false" ShowAbortButton="false" Component="this.Component.StepIn" Class="btn-lg" />
+                <AxoTaskStatusView Text="@_runStepButtonText" ShowText="true" HideRestoreButton="false" ShowAbortButton="false" Component="this.Component.StepIn" Class="btn-lg w-125" />
             }
         }
         @if(_currentSteppingMode == eAxoSteppingMode.StepByStep)
