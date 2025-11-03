@@ -13,7 +13,7 @@
 <AuthorizeView Roles="Administrator">
     <Authorized>
     <div class="flex flex-wrap items-center">
-        <nav class="tab my-2 grow me-2">
+        <nav class="tab m-2 grow">
             @foreach (var item in _serverStorageAllViews)
             {
                     <button class="btn tab-btn @(_currentViewName == item ? "active" : null) @GetBgColor(SaveLocationType.Server)" @onclick="() => LoadAsync(item)">@item</button>
@@ -505,7 +505,7 @@
     <NotAuthorized>
         @if(_serverStorageConfiguration != null)
         {
-            <nav class="tab my-2">
+            <nav class="tab m-2">
                 @foreach (var item in _serverStorageConfiguration.Views)
                 {
                     <button class="btn tab-btn @(_currentViewName == item ? "active" : null)" @onclick="() => LoadAsync(item)">@item</button>
