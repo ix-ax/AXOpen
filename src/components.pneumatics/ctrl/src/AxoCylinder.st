@@ -180,11 +180,14 @@ NAMESPACE AXOpen.Components.Pneumatics
             VAR_INPUT
                 Condition : BOOL;
             END_VAR
-
-            IF(Condition) THEN                        
+            VAR
+                _condition:BOOL;
+            END_VAR
+            _condition := (_moveWorkSignal OR _MoveToWorkTask.IsBusy()) AND NOT _WorkSensor AND Condition;
+            IF(_condition) THEN                
                 _moveWorkSignal := FALSE;   
             END_IF;   
-            _Messenger.ActivateOnCondition(UINT#4, Condition AND _MoveToWorkTask.IsBusy(), eAxoMessageCategory#Info);
+            _Messenger.ActivateOnCondition(UINT#4, _condition, eAxoMessageCategory#Info);
             _MoveToWorkIsSuspended := Condition;
         END_METHOD        
 
@@ -195,14 +198,20 @@ NAMESPACE AXOpen.Components.Pneumatics
             VAR_INPUT
                 Condition : BOOL;
             END_VAR
+            VAR
+                _condition:BOOL;
+            END_VAR
 
-            IF(Condition) THEN                        
+            _condition := (_moveHomeSignal OR _MoveToHomeTask.IsBusy()) AND NOT _HomeSensor AND Condition;
+            IF(_condition) THEN                        
                 _moveHomeSignal := FALSE;   
-            END_IF;    
-            _Messenger.ActivateOnCondition(UINT#5, Condition AND _MoveToHomeTask.IsBusy(), eAxoMessageCategory#Info);
-            _MoveToHomeIsSuspended := Condition;
-        END_METHOD    
-        
+            END_IF;   
+
+            _Messenger.ActivateOnCondition(UINT#5, _condition, eAxoMessageCategory#Info);
+            _MoveToHomeIsSuspended := _condition;
+
+        END_METHOD   
+
         ///<summary>
         /// Aborts the movement to the work position when the condition is 'true' and restores the respective task.
         ///</summary>
