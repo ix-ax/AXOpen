@@ -18,8 +18,12 @@ if(-not $is_on_dev_nothing_to_commit)
 }
 
 
-gh issue list --assignee "@me" --state "open"
-$issues = gh issue list --state "open" --assignee "@me" --json number,title | ConvertFrom-Json
+# gh issue list --assignee "@me" --state "open"
+# $issues = gh issue list --state "open" --assignee "@me" --json number,title | ConvertFrom-Json
+
+gh issue list --state "open"
+$issues = gh issue list --state "open" --json number,title | ConvertFrom-Json
+
 $issueIDs = $issues | ForEach-Object { $_.number }
 
 if (-not $IssueId) 
