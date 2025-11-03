@@ -178,12 +178,13 @@ NAMESPACE AXOpen.Components.Pneumatics
         ///</summary>
         METHOD PUBLIC SuspendMoveToWorkWhile 
             VAR_INPUT
-                Condition : BOOL;
+                inCondition : BOOL;
+                inWarningMessage : STRING := ''; //TODO: due to compatibility and future expansion.
             END_VAR
             VAR
                 _condition:BOOL;
             END_VAR
-            _condition := (_moveWorkSignal OR _MoveToWorkTask.IsBusy()) AND NOT _WorkSensor AND Condition;
+            _condition := (_moveWorkSignal OR _MoveToWorkTask.IsBusy()) AND NOT _WorkSensor AND inCondition;
             IF(_condition) THEN                
                 _moveWorkSignal := FALSE;   
             END_IF;   
@@ -196,13 +197,14 @@ NAMESPACE AXOpen.Components.Pneumatics
         ///</summary>
         METHOD PUBLIC SuspendMoveToHomeWhile 
             VAR_INPUT
-                Condition : BOOL;
+                inCondition : BOOL;
+                inWarningMessage : STRING := ''; //TODO: due to compatibility and future expansion.
             END_VAR
             VAR
                 _condition:BOOL;
             END_VAR
 
-            _condition := (_moveHomeSignal OR _MoveToHomeTask.IsBusy()) AND NOT _HomeSensor AND Condition;
+            _condition := (_moveHomeSignal OR _MoveToHomeTask.IsBusy()) AND NOT _HomeSensor AND inCondition;
             IF(_condition) THEN                        
                 _moveHomeSignal := FALSE;   
             END_IF;   
