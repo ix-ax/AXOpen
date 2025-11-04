@@ -1,4 +1,4 @@
-name: "@inxton/ax.axopen.min"
+﻿name: "@inxton/ax.axopen.min"
 version: '0.0.0-dev.0'
 type: generic
 files:
@@ -34,3 +34,4 @@ scripts:
     apax clean
     apax icb
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax cicb' Finished in :" $(expr $(date +%s) - $START) "s"
+
