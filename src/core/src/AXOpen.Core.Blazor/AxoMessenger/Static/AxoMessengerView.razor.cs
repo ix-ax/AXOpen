@@ -11,9 +11,11 @@ namespace AXOpen.Messaging.Static
 {
     public partial class AxoMessengerView : RenderableComplexComponentBase<AxoMessenger>, IDisposable
     {
-
         [Inject]
         protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
+
+        [Parameter]
+        public string? Class { get; set; }
 
         protected async Task<string?> GetCurrentUserName()
         {
@@ -30,14 +32,53 @@ namespace AXOpen.Messaging.Static
         private async void AcknowledgeTask()
         {
             Component.AcknowledgeRequest.Cyclic = true;
-            AxoApplication.Current.Logger.Information($"Message '{this.MessageText}' acknowledged.", this.Component, await GetCurrentUserIdentity());
+            AxoApplication.Current.Logger.Information($"Message '{this.Component.GetMessageText()}' acknowledged.", this.Component, await GetCurrentUserIdentity());
         }
 
-        private async void HelpTextTask()
+        private async Task RestoreParentTask()
         {
-            this.ShowHelpText = !this.ShowHelpText;
+            Component.RestoreParentTask(await this.GetCurrentUserIdentity());
+            AxoApplication.Current.Logger.Information($"Message '{this.Component.GetMessageText()}' restored.", this.Component, await GetCurrentUserIdentity());
         }
-       
+
+        private string FormatAcknowledged()
+        {
+            if (!Component.IsAcknowledged)
+            {
+                return (eAxoMessengerState)Component.MessengerState.LastValue == eAxoMessengerState.ActiveAcknowledgeRequired ? "Pending" : "Not Required";
+            }
+
+            return Component.Risen.LastValue.Equals(DateTime.MinValue)
+                ? "Acknowledged"
+                : FormatTimestamp(Component.Risen.LastValue);
+        }
+
+        private string FormatDuration()
+        {
+            if (Component.Risen.LastValue.Equals(DateTime.MinValue))
+            {
+                return "—";
+            }
+
+            var start = Component.Risen.LastValue;
+            var end = Component.IsActive
+                ? DateTime.UtcNow
+                : Component.Acknowledged.LastValue;
+
+            if (end < start)
+            {
+                return "—";
+            }
+
+            var duration = end - start;
+            return duration switch
+            {
+                { TotalMinutes: < 1 } => "< 1 min",
+                { TotalHours: < 1 } => $"{(int)duration.TotalMinutes} min",
+                { TotalDays: < 1 } => $"{duration.TotalHours:F1} h",
+                _ => $"{duration.TotalDays:F1} d"
+            };
+        }
 
         public override void ConfigurePolling()
         {
@@ -56,90 +97,7 @@ namespace AXOpen.Messaging.Static
             Component.StopPolling(this);
             base.Dispose();
         }
-        private string BackgroundColor
-        {
-            get
-            {
-                string retval = "btn-default";
-                if (IsActive)
-                {
-                    retval = AckBtnBackgroundColor;
-                }
-                return retval;
-            }
-        }
 
-        private string AckBtnBackgroundColor
-        {
-            get
-            {
-                string retval = "btn-default";
-                if (Component.Category.Cyclic < 600)         // Upto warning level excluding
-                {
-                    retval = "btn-info";
-                }
-                else if (Component.Category.Cyclic < 700)   //From warning level including, upto error level excluding
-                {
-                    retval = "btn-warning";
-                }
-                else if (Component.Category.Cyclic <= 1200) //From error level including, upto catastrophic level including
-                {
-                    retval = "btn-danger";
-                }
-                return retval;
-            }
-        }
-        private string Category
-        {
-            get
-            {
-                switch (Component.Category.Cyclic)
-                {
-                    case 0:
-                        return "All";
-                        break;
-                    case 100:
-                        return "Trace";
-                        break;
-                    case 200:
-                        return "Debug";
-                        break;
-                    case 300:
-                        return "Info";
-                        break;
-                    case 400:
-                        return "TimedOut";
-                        break;
-                    case 500:
-                        return "Notification";
-                        break;
-                    case 600:
-                        return "Warning";
-                        break;
-                    case 700:
-                        return "Error";
-                        break;
-                    case 900:
-                        return "ProgrammingError";
-                        break;
-                    case 1000:
-                        return "Critical";
-                        break;
-                    case 1100:
-                        return "Fatal";
-                        break;
-                    case 1200:
-                        return "Catastrophic";
-                        break;
-                    case 32000:
-                        return "None";
-                        break;
-                    default:
-                        return "None";
-                        break;
-                }
-            }
-        }
         private string ParentDescription
         {
             get
@@ -164,54 +122,12 @@ namespace AXOpen.Messaging.Static
                 return Component.AttributeName;
             }
         }
-        private string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
-        private string Symbol => !(string.IsNullOrEmpty(Component.Symbol)) ? Component.Symbol.Replace(".", " . ") : "Unable to retrieve symbol!";
-        private string MessageText => Component.GetMessageText();
-        private string HelpText => Component.GetHelpText();
-        private bool HelpTextDefined => Component.HelpTextDefined;
-        private string Risen => !(string.IsNullOrEmpty(Component.Risen.Cyclic.ToString())) ? Component.Risen.Cyclic.ToString() : "";
-        private string Fallen => !(string.IsNullOrEmpty(Component.Fallen.Cyclic.ToString())) ? Component.Fallen.Cyclic.ToString() : "";
-        private string Acknowledged => !(string.IsNullOrEmpty(Component.Acknowledged.Cyclic.ToString())) ? Component.Acknowledged.Cyclic.ToString() : "";
-        private eAxoMessengerState MessengerState
-        {
-            get
-            {
-                if (Component.State == eAxoMessengerState.Idle)
-                {
-                    ShowHelpText = false;
-                }
-                return Component.State;
-            }
-        }
-        private bool IsActive => Component.State == eAxoMessengerState.ActiveAcknowledgeRequired || Component.State == eAxoMessengerState.ActiveAcknowledgeNotRequired || Component.State == eAxoMessengerState.ActiveAlreadyAcknowledged;
-        private bool AcknowledgedBeforeFallen => Component.State == eAxoMessengerState.ActiveAlreadyAcknowledged;
-        private bool HideAcknowledgeButton => Component.State <= eAxoMessengerState.Idle || Component.State == eAxoMessengerState.ActiveAcknowledgeNotRequired || Component.State == eAxoMessengerState.ActiveAlreadyAcknowledged;
-        private bool HideHelpButton => MessengerState == eAxoMessengerState.Idle || !HelpTextDefined;
-
-        private bool HideRepairButton => (!IsActive || this.Component.GetParent() is not AxoTask);
-        private bool ShowHelpText;
-
-
-
-        private bool OnlyAlarmView { get; set; } = true;
-
-        private void ToggleComponentView()
-        {
-            this.OnlyAlarmView = false;
-        }
-
-        private void ToggleAlarmView()
-        {
-            this.OnlyAlarmView = !this.OnlyAlarmView;
-            this.StateHasChanged();
-        }
     }
 
     public class AxoMessengerDetailedCommandView : AxoMessengerView
     {
         public AxoMessengerDetailedCommandView()
         {
-
         }
     }
 
@@ -221,6 +137,4 @@ namespace AXOpen.Messaging.Static
         {
         }
     }
-
-
 }

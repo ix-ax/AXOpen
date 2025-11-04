@@ -3,7 +3,7 @@
 @inherits RenderableComplexComponentBase<AxoMomentaryTask>
 @implements IDisposable;
 
-<div class="flex flex-wrap">
+<div data-axo-momentary-task-view class="flex flex-wrap">
     <button type="button" class="btn btn-primary" disabled="@IsDisabled" @onmousedown="@SwitchOnTask" @onmouseup="@SwitchOffTask" @onfocusout="@SwitchOffTask">
        @Description: @StateDescription
     </button>

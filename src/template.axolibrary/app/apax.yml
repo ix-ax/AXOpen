@@ -172,10 +172,10 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
   gc: |
     START=$(date +%s)
-    apax plc-cert --target $AXTARGET --output .\\certs\\plc_line\\plc_line.cer
+    apax plc-cert --target $AXTARGET --output .\\certs\\$PLC_NAME\\$PLC_NAME.cer
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax gc' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
-    apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+    apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer --continuously
   x: |
     apax swfd
     apax mm
@@ -188,5 +188,23 @@ scripts:
     apax hwid
     apax hwadr
     apax build
-
-
+  tt: |
+    START=$(date +%s)
+    apax install
+    apax hwl
+    apax gc
+    apax gsd
+    apax hwcc
+    apax hwid
+    apax hwadr
+    apax hwdo
+    apax build
+    apax swfdo
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax tx' Finished in :" $(expr $(date +%s) - $START) "s"
+  ttx: |
+    START=$(date +%s)
+    apax install
+    apax build
+    apax gc
+    apax swfdo
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ttx' Finished in :" $(expr $(date +%s) - $START) "s"

@@ -4,152 +4,43 @@
 @using AXSharp.Connector;
 @inherits RenderableComplexComponentBase<AxoStep>
 
-<div class="flux-step @StepStateClass @Class" data-step-state="@StepState">
-    <div class="flux-step__indicator">
-        <span class="flux-step__icon @StepIconClass">
-            @if (StepState == eStepState.Active)
-            {
-                <span class="flux-step__spinner"></span>
-            }
-            else if (StepState == eStepState.Done)
-            {
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path d="M2 7L5.5 10.5L12 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            }
-            else if (StepState == eStepState.Error)
-            {
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path d="M3 3L11 11M11 3L3 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            }
-            else
-            {
-                <span class="flux-step__dot"></span>
-            }
-        </span>
-        <div class="flux-step__connector"></div>
+<div data-axo-step-view class="flex flex-wrap justify-center items-center gap-2 w-full px-4 py-2 @Class">
+    <div class="flex flex-wrap items-center">
+        @if (_stepState == eStepState.Active || true)
+        {
+            <span class="inline-flex w-5 h-5 rounded-full border-t-2 border-text animate-spin"></span>
+        }
+        else if (_stepState == eStepState.Done)
+        {
+            <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+        }
+        else if (_stepState == eStepState.Error)
+        {
+            <Operon.Icons.HeroIcon Icon="exclamation-circle" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+        }
+        else
+        {
+            <span class="inline-flex w-5 h-5 rounded-full border-2 border-border"></span>
+        }
     </div>
-    
-    <div class="flux-step__content">
-        <div class="flux-step__header">
-            <h6 class="flux-step__title">@Description</h6>
-            <div class="flux-step__meta">
-                @if (StepState == eStepState.Active || StepState == eStepState.Done)
-                {
-                    <span class="flux-badge flux-badge--sm @DurationBadgeClass" title="Duration">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-right: 0.25rem;">
-                            <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="M6 3V6L8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                        @DurationText
-                    </span>
-                }
-                @if (!string.IsNullOrEmpty(TimestampText))
-                {
-                    <span class="flux-text--muted flux-step__timestamp" title="@Component.StartTimeStamp.Cyclic.ToString()">
-                        @TimestampText
-                    </span>
-                }
-            </div>
-        </div>
-        
-        @* Future: Add step-specific actions if needed *@
+
+    <div class="flex flex-wrap items-center">
+        <h6 class="text-base text-text font-semibold">@_description</h6>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-2">
+        @if (_stepState == eStepState.Active || _stepState == eStepState.Done)
+        {
+            <span class="badge @(_stepState == eStepState.Active ? "badge-primary" : null)" title="Duration">
+                <Operon.Icons.HeroIcon Icon="clock" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                @_durationText
+            </span>
+        }
+        @if (!string.IsNullOrEmpty(_timestampText))
+        {
+            <span class="text-sm text-text/80 font-semibold" title="@Component.StartTimeStamp.Cyclic.ToString()">
+                @_timestampText
+            </span>
+        }
     </div>
 </div>
-
-@code {
-    private enum eStepState
-    {
-        Idle,
-        Ready,
-        Active,
-        Done,
-        Error
-    }
-
-    private eStepState StepState
-    {
-        get
-        {
-            var taskState = (eAxoTaskState)this.Component.Status.LastValue;
-            
-            return taskState switch
-            {
-                eAxoTaskState.Busy => eStepState.Active,
-                eAxoTaskState.Done => eStepState.Done,
-                eAxoTaskState.Error => eStepState.Error,
-                eAxoTaskState.Ready => eStepState.Ready,
-                _ => eStepState.Idle
-            };
-        }
-    }
-
-    private string StepStateClass => StepState switch
-    {
-        eStepState.Active => "flux-step--active",
-        eStepState.Done => "flux-step--done",
-        eStepState.Error => "flux-step--error",
-        eStepState.Ready => "flux-step--ready",
-        _ => "flux-step--idle"
-    };
-
-    private string StepIconClass => StepState switch
-    {
-        eStepState.Active => "flux-step__icon--active",
-        eStepState.Done => "flux-step__icon--done",
-        eStepState.Error => "flux-step__icon--error",
-        _ => ""
-    };
-
-    private string Description
-    {
-        get
-        {
-            var desc = Component.Descr?.GetCyclic();
-            return string.IsNullOrEmpty(desc) ? Component.AttributeName : desc;
-        }
-    }
-
-    private string DurationText
-    {
-        get
-        {
-            var duration = Component.Duration.Cyclic;
-            if (duration.TotalHours >= 1)
-                return duration.ToString(@"h\:mm\:ss");
-            else if (duration.TotalMinutes >= 1)
-                return duration.ToString(@"m\:ss");
-            else
-                return duration.ToString(@"s\.ff\s");
-        }
-    }
-
-    private string DurationBadgeClass
-    {
-        get
-        {
-            var duration = Component.Duration.Cyclic.TotalSeconds;
-            // Consider adding threshold logic here if needed
-            return StepState == eStepState.Active ? "flux-badge--primary" : "";
-        }
-    }
-
-    private string TimestampText
-    {
-        get
-        {
-            var timestamp = Component.StartTimeStamp.Cyclic;
-            if (timestamp == DateTime.MinValue) return string.Empty;
-            
-            try
-            {
-                return Humanizer.DateHumanizeExtensions.Humanize(timestamp, culture: CultureExtensions.Culture);
-            }
-            catch
-            {
-                return timestamp.ToString("HH:mm:ss");
-            }
-        }
-    }
-}

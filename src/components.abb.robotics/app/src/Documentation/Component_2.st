@@ -26,7 +26,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             END_IF;
 
             //<Initialization>        
-            AxoOmnicore_v_1_x_x.Run(parent          := inParent,
+            AxoOmnicore_v_1_x_x.Run(inParent          := inParent,
                                     hwID            := HwIdentifiers#abb_omnicore_robot_HwID);        
             //</Initialization>
 

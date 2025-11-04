@@ -20,7 +20,6 @@ if [ -d "./.apax" ]; then
 
   if [ ${#ASSETS_DIRS[@]} -eq 0 ]; then
     echo -e "${YELLOW}No 'assets' directories found under ./.apax.${NC}"
-    exit 0
   fi
 
   total=0
@@ -45,20 +44,20 @@ if [ -d "./.apax" ]; then
     echo -e "${YELLOW}No files matching '$fileMask' found under any 'assets' directories.${NC}"
   fi
 
-  # Install from destination if anything is present (could include existing files)
-  dest_count=$(find "$destinationDirectory" -type f -iname "$fileMask" | wc -l | tr -d ' ')
-  if [ "$dest_count" -gt 0 ]; then
-    echo -e "${GREEN}$dest_count file(s) will be installed from $destinationDirectory.${NC}"
-    if ! apax hwc install-gsd --input "$destinationDirectory"; then
-      printf "${RED}The installation of the gsdml files finished with an error!${NC}\n"
-      printf "${RED}Please check the details above.${NC}\n"
-      exit 1
-    fi
-    echo -e "${GREEN}$dest_count file(s) installed.${NC}"
-  else
-    echo -e "${YELLOW}No files matching '$fileMask' were found in '$destinationDirectory'.${NC}"
-  fi
-
 else
   echo -e "${RED}Directory ./.apax does not exist!!!${NC}"
+fi
+
+# Install from destination if anything is present (could include existing files)
+dest_count=$(find "$destinationDirectory" -type f -iname "$fileMask" | wc -l | tr -d ' ')
+if [ "$dest_count" -gt 0 ]; then
+  echo -e "${GREEN}$dest_count file(s) will be installed from $destinationDirectory.${NC}"
+  if ! apax hwc install-gsd --input "$destinationDirectory"; then
+    printf "${RED}The installation of the gsdml files finished with an error!${NC}\n"
+    printf "${RED}Please check the details above.${NC}\n"
+    exit 1
+  fi
+  echo -e "${GREEN}$dest_count file(s) installed.${NC}"
+else
+  echo -e "${YELLOW}No files matching '$fileMask' were found in '$destinationDirectory'.${NC}"
 fi

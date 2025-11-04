@@ -1,13 +1,25 @@
-﻿@if (Parent!.CurrentView.AllowZoomingAndPanning)
+﻿
+<style>
+    .bg-switcher {
+        background-color: @Parent.CurrentView.BackgroundColorLight;
+    }
+
+    [data-theme="dark"] .bg-switcher {
+        background-color: @Parent.CurrentView.BackgroundColorDark;
+    }
+</style>
+
+
+@if (Parent!.CurrentView.AllowZoomingAndPanning)
 {
-    <div onwheel="event.preventDefault()"
-         class="m-0 p-0">
+    <div onwheel="event.preventDefault()" class="m-0 p-0 w-full">
         <div @onpointermove="MoveAsync"
              @onpointerdown="Down"
              @onpointerup="Up"
              @onpointerleave="Leave"
              @onwheel="WheelAsync"
-             style="overflow: hidden; background-color: @(Parent.CurrentView.BackgroundColor);">
+             class="bg-switcher overflow-hidden">
+             @* style="overflow: hidden; background-color: @(Parent.CurrentView.BackgroundColor);"> *@
             <div style="position: relative; transform: scale(@(Parent!.CurrentView.Scale.ToString().Replace(',', '.'))) translate(@(Parent!.CurrentView.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.CurrentView.TranslateY.ToString().Replace(',', '.'))%);">
                 @ChildContent
             </div>
@@ -22,10 +34,12 @@ else
              @onpointerup="Up"
              @onpointerleave="Leave"
              @onwheel="WheelAsync"
-             style="overflow: hidden; background-color: @(Parent.CurrentView.BackgroundColor);">
+             class="bg-switcher overflow-hidden">
+            @*  style="overflow: hidden; background-color: @(Parent.CurrentView.BackgroundColorLight);"> *@
             <div style="position: relative; transform: scale(@(Parent!.CurrentView.Scale.ToString().Replace(',', '.'))) translate(@(Parent!.CurrentView.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.CurrentView.TranslateY.ToString().Replace(',', '.'))%);">
                 @ChildContent
             </div>
         </div>
     </div>
 }
+
