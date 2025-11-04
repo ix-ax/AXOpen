@@ -80,7 +80,7 @@ NAMESPACE AXOpen.Components.Pneumatics
             END_IF;
 
             SUPER.Run(inParent);
-
+            
             _Messenger.Serve(THIS);
 
             _Messenger.ActivateOnCondition(UINT#3, workSensor AND homeSensor, eAxoMessageCategory#Error);
@@ -179,7 +179,7 @@ NAMESPACE AXOpen.Components.Pneumatics
         METHOD PUBLIC SuspendMoveToWorkWhile 
             VAR_INPUT
                 inCondition : BOOL;
-                inWarningMessage : STRING := ''; //TODO: due to compatibility and future expansion.
+                inWarningMessage : STRING := ''; 
             END_VAR
             VAR
                 _condition:BOOL;
@@ -188,8 +188,14 @@ NAMESPACE AXOpen.Components.Pneumatics
             IF(_condition) THEN                
                 _moveWorkSignal := FALSE;   
             END_IF;   
-            _Messenger.ActivateOnCondition(UINT#4, _condition, eAxoMessageCategory#Info);
-            _MoveToWorkIsSuspended := Condition;
+            IF inWarningMessage = '' THEN
+                _Messenger.ActivateOnCondition(UINT#5, _condition, eAxoMessageCategory#Info);
+            ELSE
+                IF _condition then
+                    _Messenger.Post(THIS, inWarningMessage,eAxoMessageCategory#Warning);
+                END_IF;
+            END_IF;
+            _MoveToWorkIsSuspended := _condition;
         END_METHOD        
 
         ///<summary>
@@ -198,7 +204,7 @@ NAMESPACE AXOpen.Components.Pneumatics
         METHOD PUBLIC SuspendMoveToHomeWhile 
             VAR_INPUT
                 inCondition : BOOL;
-                inWarningMessage : STRING := ''; //TODO: due to compatibility and future expansion.
+                inWarningMessage : STRING := ''; 
             END_VAR
             VAR
                 _condition:BOOL;
@@ -209,7 +215,13 @@ NAMESPACE AXOpen.Components.Pneumatics
                 _moveHomeSignal := FALSE;   
             END_IF;   
 
-            _Messenger.ActivateOnCondition(UINT#5, _condition, eAxoMessageCategory#Info);
+            IF inWarningMessage = '' THEN
+                _Messenger.ActivateOnCondition(UINT#5, _condition, eAxoMessageCategory#Info);
+            ELSE
+                IF _condition then
+                    _Messenger.Post(THIS, inWarningMessage,eAxoMessageCategory#Warning);
+                END_IF;
+            END_IF;
             _MoveToHomeIsSuspended := _condition;
 
         END_METHOD   
