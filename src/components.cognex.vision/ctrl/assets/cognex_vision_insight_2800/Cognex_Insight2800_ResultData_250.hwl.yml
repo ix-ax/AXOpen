@@ -2,7 +2,7 @@ Templates:
   Modules:
   - Name: 'Cognex_Insight2800_ResultData_250'
     Content:
-      Name: 'ResultData_250'
+      Name: 'Slot_11_ResultData_250'
       TypeIdentifier:
         FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
         GsdId: '405'

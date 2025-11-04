@@ -6,6 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
 	  <Packable>false</Packable>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Inxton.Operon" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj" />

@@ -7,6 +7,10 @@
 	  <Packable>false</Packable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Inxton.Operon" />
+  </ItemGroup>
+  
   <ItemGroup>    
     <ProjectReference Include="..\..\..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj" />
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
@@ -16,8 +20,5 @@
     <ProjectReference Include="..\ix\app_axopen_components_siem_communication.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\css\tailwind\" />
-  </ItemGroup>
 
 </Project>

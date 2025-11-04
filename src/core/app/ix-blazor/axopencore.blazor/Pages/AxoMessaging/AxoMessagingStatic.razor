@@ -45,6 +45,8 @@
                             <div class="card ps-2">
                                 <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger4condition_1" Presentation="Command-Control" />
                                 <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger4condition_2" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger4text" Presentation="Command-Control" />
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger4condition_3" Presentation="Command-Control" />
                                 <AXOpen.Messaging.Static.AxoMessengerDetailedCommandView Component="@Entry.Plc.AxoMessengers._messenger4" />
                             </div>
                         </div>
@@ -52,7 +54,7 @@
                             <label>_messenger5</label>
                             <div class="card ps-2">
                                 <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5callcondition" Presentation="Command-Control" />
-                                @if (Entry.Plc.AxoMessengers._messenger5callcondition.LastValue)
+                                @if (Entry.Plc.AxoMessengers._messenger5callcondition.Cyclic)
                                 {
                                     <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_1" Presentation="Command-Control" />
                                     <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_2" Presentation="Command-Control" />
@@ -64,6 +66,8 @@
                                     <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_8" Presentation="Command-Control" />
                                     <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_9" Presentation="Command-Control" />
                                     <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_10" Presentation="Command-Control" />
+                                    <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5text" Presentation="Command-Control" />
+                                    <RenderableContentControl Context="@Entry.Plc.AxoMessengers._messenger5condition_11" Presentation="Command-Control" />
                                     <AXOpen.Messaging.Static.AxoMessengerDetailedCommandView Component="@Entry.Plc.AxoMessengers._messenger5" />
                                 }
                             </div>
