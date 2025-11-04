@@ -2,6 +2,12 @@ Templates:
   Modules:
   - Name: 'Cognex_Insight2800_ResultDataAdd_32'
     Placeholders:
+      - Name: 'ModuleName'
+        Value: 'Slot_12'
+        AllowedValues:
+          - 'Slot_12'
+          - 'Slot_13'
+          - 'Slot_14'    
       - Name: 'SLOT'
         Value: 12
         AllowedValues:
@@ -9,7 +15,7 @@ Templates:
           - 13
           - 14
     Content:
-      Name: 'ResultDataAdd_32'
+      Name: '${ModuleName}' # It would be nice to have the possibility to combine placeholders as follows: 'Slot_&${SLOT}$_ResultDataAdd_32'
       TypeIdentifier:
         FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
         GsdId: '407'

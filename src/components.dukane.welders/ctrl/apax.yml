@@ -10,6 +10,8 @@ registries:
   "@inxton": "https://npm.pkg.github.com/"
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
+catalogs:
+ "@inxton/ax.catalog": '0.0.38'
 dependencies:
   "@inxton/axopen.io": '0.0.0-dev.0'
 installStrategy: strict

@@ -45,49 +45,49 @@ CONFIGURATION IoAddresses
         // Module cognex_dataman_380/UserData_128
         cognex_dataman_380_UserData_128_Output AT %QB1767 : cognex_dataman_380_UserData_128_Output_Layout;
 
-        // Module cognex_insight_2800/Acquisition_Control
-        cognex_insight_2800_Acquisition_Control_Output AT %QB1766 : cognex_insight_2800_Acquisition_Control_Output_Layout;
+        // Module cognex_insight_2800/Slot_1
+        cognex_insight_2800_Slot_1_Output AT %QB1542 : cognex_insight_2800_Slot_1_Output_Layout;
 
-        // Module cognex_insight_2800/Acquisition_Status
-        cognex_insight_2800_Acquisition_Status_Input AT %IB2008 : cognex_insight_2800_Acquisition_Status_Input_Layout;
+        // Module cognex_insight_2800/Slot_10
+        cognex_insight_2800_Slot_10_Output AT %QB1284 : cognex_insight_2800_Slot_10_Output_Layout;
 
-        // Module cognex_insight_2800/Command_Control
-        cognex_insight_2800_Command_Control_Input AT %IB2016 : cognex_insight_2800_Command_Control_Input_Layout;
-        cognex_insight_2800_Command_Control_Output AT %QB1762 : cognex_insight_2800_Command_Control_Output_Layout;
+        // Module cognex_insight_2800/Slot_11_ResultData_250
+        cognex_insight_2800_Slot_11_ResultData_250_Input AT %IB2695 : cognex_insight_2800_Slot_11_ResultData_250_Input_Layout;
 
-        // Module cognex_insight_2800/Inspection_Control
-        cognex_insight_2800_Inspection_Control_Output AT %QB1765 : cognex_insight_2800_Inspection_Control_Output_Layout;
+        // Module cognex_insight_2800/Slot_12
+        cognex_insight_2800_Slot_12_Input AT %IB2445 : cognex_insight_2800_Slot_12_Input_Layout;
 
-        // Module cognex_insight_2800/Inspection_Status
-        cognex_insight_2800_Inspection_Status_Input AT %IB2012 : cognex_insight_2800_Inspection_Status_Input_Layout;
+        // Module cognex_insight_2800/Slot_13
+        cognex_insight_2800_Slot_13_Input AT %IB1562 : cognex_insight_2800_Slot_13_Input_Layout;
 
-        // Module cognex_insight_2800/ResultData_250
-        cognex_insight_2800_ResultData_250_Input AT %IB1754 : cognex_insight_2800_ResultData_250_Input_Layout;
+        // Module cognex_insight_2800/Slot_14
+        cognex_insight_2800_Slot_14_Input AT %IB1312 : cognex_insight_2800_Slot_14_Input_Layout;
 
-        // Module cognex_insight_2800/ResultDataAdd_128
-        cognex_insight_2800_ResultDataAdd_128_Input AT %IB1376 : cognex_insight_2800_ResultDataAdd_128_Input_Layout;
+        // Module cognex_insight_2800/Slot_2
+        cognex_insight_2800_Slot_2_Input AT %IB1812 : cognex_insight_2800_Slot_2_Input_Layout;
 
-        // Module cognex_insight_2800/ResultDataAdd_250
-        cognex_insight_2800_ResultDataAdd_250_Input AT %IB1504 : cognex_insight_2800_ResultDataAdd_250_Input_Layout;
+        // Module cognex_insight_2800/Slot_3
+        cognex_insight_2800_Slot_3_Output AT %QB1541 : cognex_insight_2800_Slot_3_Output_Layout;
 
-        // Module cognex_insight_2800/ResultDataAdd_64
-        cognex_insight_2800_ResultDataAdd_64_Input AT %IB1312 : cognex_insight_2800_ResultDataAdd_64_Input_Layout;
+        // Module cognex_insight_2800/Slot_4
+        cognex_insight_2800_Slot_4_Input AT %IB1816 : cognex_insight_2800_Slot_4_Input_Layout;
 
-        // Module cognex_insight_2800/SoftEvent_Control
-        cognex_insight_2800_SoftEvent_Control_Input AT %IB2020 : cognex_insight_2800_SoftEvent_Control_Input_Layout;
-        cognex_insight_2800_SoftEvent_Control_Output AT %QB1764 : cognex_insight_2800_SoftEvent_Control_Output_Layout;
+        // Module cognex_insight_2800/Slot_5
+        cognex_insight_2800_Slot_5_Input AT %IB1820 : cognex_insight_2800_Slot_5_Input_Layout;
+        cognex_insight_2800_Slot_5_Output AT %QB1538 : cognex_insight_2800_Slot_5_Output_Layout;
 
-        // Module cognex_insight_2800/UserData_128
-        cognex_insight_2800_UserData_128_Output AT %QB1380 : cognex_insight_2800_UserData_128_Output_Layout;
+        // Module cognex_insight_2800/Slot_6
+        cognex_insight_2800_Slot_6_Input AT %IB1824 : cognex_insight_2800_Slot_6_Input_Layout;
+        cognex_insight_2800_Slot_6_Output AT %QB1540 : cognex_insight_2800_Slot_6_Output_Layout;
 
-        // Module cognex_insight_2800/UserData_254
-        cognex_insight_2800_UserData_254_Output AT %QB1508 : cognex_insight_2800_UserData_254_Output_Layout;
+        // Module cognex_insight_2800/Slot_7
+        cognex_insight_2800_Slot_7_Output AT %QB2678 : cognex_insight_2800_Slot_7_Output_Layout;
 
-        // Module cognex_insight_2800/UserData_32
-        cognex_insight_2800_UserData_32_Output AT %QB1284 : cognex_insight_2800_UserData_32_Output_Layout;
+        // Module cognex_insight_2800/Slot_8
+        cognex_insight_2800_Slot_8_Output AT %QB2424 : cognex_insight_2800_Slot_8_Output_Layout;
 
-        // Module cognex_insight_2800/UserData_64
-        cognex_insight_2800_UserData_64_Output AT %QB1316 : cognex_insight_2800_UserData_64_Output_Layout;
+        // Module cognex_insight_2800/Slot_9
+        cognex_insight_2800_Slot_9_Output AT %QB2170 : cognex_insight_2800_Slot_9_Output_Layout;
 
         // Module cognex_insight_7600/Acquisition_Control
         cognex_insight_7600_Acquisition_Control_Output AT %QB2169 : cognex_insight_7600_Acquisition_Control_Output_Layout;
@@ -330,7 +330,7 @@ TYPE
 END_TYPE
 
 TYPE
-    cognex_insight_2800_Acquisition_Control_Output_Layout : STRUCT
+    cognex_insight_2800_Slot_1_Output_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -339,7 +339,39 @@ TYPE
 END_TYPE
 
 TYPE
-    cognex_insight_2800_Acquisition_Status_Input_Layout : STRUCT
+    cognex_insight_2800_Slot_10_Output_Layout : STRUCT
+        Signals_0 AT %B0 : ARRAY[0..253] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    cognex_insight_2800_Slot_11_ResultData_250_Input_Layout : STRUCT
+        Signals_0 AT %B0 : WORD;
+        Signals_1 AT %B2 : WORD;
+        Signals_2 AT %B4 : ARRAY[0..249] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    cognex_insight_2800_Slot_12_Input_Layout : STRUCT
+        Signals_0 AT %B0 : ARRAY[0..249] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    cognex_insight_2800_Slot_13_Input_Layout : STRUCT
+        Signals_0 AT %B0 : ARRAY[0..249] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    cognex_insight_2800_Slot_14_Input_Layout : STRUCT
+        Signals_0 AT %B0 : ARRAY[0..249] OF BYTE;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    cognex_insight_2800_Slot_2_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -354,20 +386,7 @@ TYPE
 END_TYPE
 
 TYPE
-    cognex_insight_2800_Command_Control_Input_Layout : STRUCT
-        Signals_0 AT %B0 : WORD;
-        Signals_1 AT %B2 : WORD;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    cognex_insight_2800_Command_Control_Output_Layout : STRUCT
-        Signals_2 AT %B0 : WORD;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    cognex_insight_2800_Inspection_Control_Output_Layout : STRUCT
+    cognex_insight_2800_Slot_3_Output_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -377,7 +396,7 @@ TYPE
 END_TYPE
 
 TYPE
-    cognex_insight_2800_Inspection_Status_Input_Layout : STRUCT
+    cognex_insight_2800_Slot_4_Input_Layout : STRUCT
         Signals_0 AT %X0.1 : BOOL;
         Signals_1 AT %X0.2 : BOOL;
         Signals_2 AT %X0.3 : BOOL;
@@ -393,33 +412,20 @@ TYPE
 END_TYPE
 
 TYPE
-    cognex_insight_2800_ResultData_250_Input_Layout : STRUCT
+    cognex_insight_2800_Slot_5_Input_Layout : STRUCT
         Signals_0 AT %B0 : WORD;
         Signals_1 AT %B2 : WORD;
-        Signals_2 AT %B4 : ARRAY[0..249] OF BYTE;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    cognex_insight_2800_ResultDataAdd_128_Input_Layout : STRUCT
-        Signals_0 AT %B0 : ARRAY[0..127] OF BYTE;
+    cognex_insight_2800_Slot_5_Output_Layout : STRUCT
+        Signals_2 AT %B0 : WORD;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    cognex_insight_2800_ResultDataAdd_250_Input_Layout : STRUCT
-        Signals_0 AT %B0 : ARRAY[0..249] OF BYTE;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    cognex_insight_2800_ResultDataAdd_64_Input_Layout : STRUCT
-        Signals_0 AT %B0 : ARRAY[0..63] OF BYTE;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    cognex_insight_2800_SoftEvent_Control_Input_Layout : STRUCT
+    cognex_insight_2800_Slot_6_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -432,7 +438,7 @@ TYPE
 END_TYPE
 
 TYPE
-    cognex_insight_2800_SoftEvent_Control_Output_Layout : STRUCT
+    cognex_insight_2800_Slot_6_Output_Layout : STRUCT
         Signals_8 AT %X0.0 : BOOL;
         Signals_9 AT %X0.1 : BOOL;
         Signals_10 AT %X0.2 : BOOL;
@@ -445,26 +451,20 @@ TYPE
 END_TYPE
 
 TYPE
-    cognex_insight_2800_UserData_128_Output_Layout : STRUCT
-        Signals_0 AT %B0 : ARRAY[0..127] OF BYTE;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    cognex_insight_2800_UserData_254_Output_Layout : STRUCT
+    cognex_insight_2800_Slot_7_Output_Layout : STRUCT
         Signals_0 AT %B0 : ARRAY[0..253] OF BYTE;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    cognex_insight_2800_UserData_32_Output_Layout : STRUCT
-        Signals_0 AT %B0 : ARRAY[0..31] OF BYTE;
+    cognex_insight_2800_Slot_8_Output_Layout : STRUCT
+        Signals_0 AT %B0 : ARRAY[0..253] OF BYTE;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    cognex_insight_2800_UserData_64_Output_Layout : STRUCT
-        Signals_0 AT %B0 : ARRAY[0..63] OF BYTE;
+    cognex_insight_2800_Slot_9_Output_Layout : STRUCT
+        Signals_0 AT %B0 : ARRAY[0..253] OF BYTE;
     END_STRUCT;
 END_TYPE
 
