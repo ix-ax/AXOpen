@@ -1,12 +1,14 @@
 @import "tailwindcss";
-@import "../../../../../../../../operon/src/Operon/wwwroot/css/operon.css";
+@import "../../temp/Operon/operon.css";
+@source "../../temp";
+/*@import "../../../../../../../../operon/src/Operon/wwwroot/css/operon.css";
 @source "../../../../../../../../ooperon/src/Operon/Components";
 @source "../../../../../../../../ooperon/src/Operon/Icons";
 @source "../../../../../../../../oaxopen/src/data/src/AXOpen.Data.Blazor";
 @source "../../../../../../../../oaxopen/src/core/src/AXOpen.Core.Blazor";
 @source "../../../../../../../../oaxopen/src/Security/src/AXOpen.Security.Blazor/Views";
 @source "../../../../../../../../oaxopen/src/inspectors/src/AXOpen.Inspectors.blazor";
-@source "../../../../../../../../oaxopen/src/base/src/AXOpen.VisualComposer";
+@source "../../../../../../../../oaxopen/src/base/src/AXOpen.VisualComposer";*/
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {

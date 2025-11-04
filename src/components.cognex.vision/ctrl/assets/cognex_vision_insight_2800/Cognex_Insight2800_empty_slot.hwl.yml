@@ -12,5 +12,6 @@ Templates:
           - 13
           - 14
     Content:
+      Name: 'empty_slot'
       TypeIdentifier: NotAssigned
       Slot: ${SLOT}        

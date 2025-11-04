@@ -1,7 +1,7 @@
 ## Check pre-requisites
 # Definition of the requisities and locations
-$dotNetRequiredVersion = "9.0.305"
-$dotNetWingetInstall = "Microsoft.DotNet.SDK.9 --version 9.0.305"
+$dotNetRequiredVersion = "9.0.306"
+$dotNetWingetInstall = "Microsoft.DotNet.SDK.9 --version 9.0.306"
 
 
 $visualStudioRequiredVersionRange = "[17.8.0,18.0)";

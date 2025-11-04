@@ -83,7 +83,11 @@ NAMESPACE AXOpen.Components.Elements
                 _testCarouselCodingPosition     :   UINT;
                 _testCarouselEnableTurn         :   BOOL;
                 _testCarouselStartTurn          :   BOOL;
-        END_VAR
+
+                _testCarouselSuspend1           :   BOOL;
+                _testCarouselSuspend2           :   BOOL;
+                _testCarouselSuspend3           :   BOOL;
+            END_VAR
         //</AxoCarouselInitializationArgumentsDeclaration>
 
         METHOD PUBLIC Main
@@ -144,8 +148,9 @@ NAMESPACE AXOpen.Components.Elements
             //</AxoCarouselManualControl>
 
             //<AxoCarouselInitialization>
-            _testCarousel.Config.ErrorTime:=T#10S;
-            _testCarousel.Config.InfoTime:=T#2S;
+            _testCarousel.Config.ErrorTime:=T#100S;
+            _testCarousel.Config.InfoTime:=T#20S;
+            _testCarousel.Config.TaskTimeout:=T#200S;
             _testCarousel.Config.Direction:=eAxoRotaryIndexingTableDirection#Cw;
             _testCarousel.Config.NumberOfPositions:=UINT#8;
             _testCarousel.Config.Offset:=UINT#2;
@@ -157,6 +162,11 @@ NAMESPACE AXOpen.Components.Elements
                                 inCodingPosition    :=  _testCarouselCodingPosition,
                                 outEnableTurn       =>  _testCarouselEnableTurn,
                                 outStartTurn        =>  _testCarouselStartTurn);
+
+            _testCarousel.SuspendMovementWhile(_testCarouselSuspend1,'Movement blocked by signal _testCarouselSuspend1');
+            _testCarousel.SuspendMovementWhile(_testCarouselSuspend2,'Movement blocked by signal _testCarouselSuspend2');
+            _testCarousel.SuspendMovementWhile(_testCarouselSuspend3,'Movement blocked by signal _testCarouselSuspend3');
+
             //</AxoCarouselInitialization>
         END_METHOD
     END_CLASS
