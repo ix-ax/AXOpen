@@ -55,6 +55,21 @@ NAMESPACE AXOpen.Components.Pneumatics
             _context : IAxoContext;
         END_VAR
 
+
+        ///<summary>
+        /// Returns 'true' if the movement to the work position is currently suspended.
+        ///</summary>
+        METHOD PUBLIC IsMoveToWorkSuspended : BOOL
+            IsMoveToWorkSuspended := _MoveToWorkIsSuspended;
+        END_METHOD
+
+        ///<summary>
+        /// Returns 'true' if the movement to the home position is currently suspended.
+        /// </summary>
+        METHOD PUBLIC IsMoveToHomeSuspended : BOOL
+            IsMoveToHomeSuspended := _MoveToHomeIsSuspended;
+        END_METHOD
+
         ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
@@ -62,12 +77,12 @@ NAMESPACE AXOpen.Components.Pneumatics
         METHOD PUBLIC Run 
             VAR_INPUT
                 inParent : IAxoObject;
-                homeSensor : BOOL;
-                workSensor : BOOL;    
+                inHomeSensor : BOOL;
+                inWorkSensor : BOOL;    
             END_VAR
             VAR_OUTPUT
-                moveHomeSignal : BOOL;
-                moveWorkSignal : BOOL;
+                outMoveHomeSignal : BOOL;
+                outMoveWorkSignal : BOOL;
             END_VAR
 
             IF (inParent = NULL) THEN 
@@ -81,62 +96,57 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             SUPER.Run(inParent);
 
+            _homeSensor := inHomeSensor;
+            _workSensor := inWorkSensor;
+
+
             _Messenger.Serve(THIS);
 
-            _Messenger.ActivateOnCondition(UINT#3, workSensor AND homeSensor, eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(UINT#3, _workSensor AND _homeSensor, eAxoMessageCategory#Error);
 
             IF(_StopTask.Execute(THIS)) THEN
-                moveHomeSignal := FALSE;
-                moveWorkSignal := FALSE;
+                _MoveHomeSignal := FALSE;
+                _MoveWorkSignal := FALSE;
                 _MoveToHomeTask.Restore();
                 _MoveToWorkTask.Restore();                
                 _StopTask.DoneWhen(TRUE);
             END_IF;    
 
-            IF(_MoveToWorkTask.Execute(THIS)) THEN                
-                moveHomeSignal := FALSE;
-                moveWorkSignal := TRUE;                
-                _MoveToWorkTask.DoneWhen(workSensor);
-                _MoveToHomeTask.Restore();                
+            IF(_MoveToWorkTask.Execute(THIS)) THEN  
+                IF(_MoveToWorkTask.IsFirstExecutionCycle()) THEN
+                    _MoveToHomeTask.Restore(); 
+                END_IF;                 
+                _MoveHomeSignal := FALSE;
+                _MoveWorkSignal := TRUE;                
+                _MoveToWorkTask.DoneWhen(_workSensor);                               
             END_IF;        
 
             _MoveToWorkIsBusy := _MoveToWorkTask.IsBusy();
 
            _Messenger.ActivateOnCondition(UINT#1, (_MoveToWorkIsBusy AND NOT _MoveToWorkIsSuspended AND _MoveToWorkTask.Duration >= T#10S), eAxoMessageCategory#Error);   
-           _Messenger.ActivateOnCondition(UINT#9, (_MoveToWorkTask.IsDone() AND NOT workSensor), eAxoMessageCategory#Warning); 
+           _Messenger.ActivateOnCondition(UINT#9, (_MoveToWorkTask.IsDone() AND NOT _workSensor), eAxoMessageCategory#Warning); 
             
 
-            IF(_MoveToHomeTask.Execute(THIS)) THEN                
-                moveHomeSignal := TRUE;
-                moveWorkSignal := FALSE;
-                _MoveToHomeTask.DoneWhen(homeSensor);
-                _MoveToWorkTask.Restore();                
+            IF(_MoveToHomeTask.Execute(THIS)) THEN    
+                IF(_MoveToHomeTask.IsFirstExecutionCycle()) THEN
+                    _MoveToWorkTask.Restore();
+                END_IF;
+                _MoveHomeSignal := TRUE;
+                _MoveWorkSignal := FALSE;
+                _MoveToHomeTask.DoneWhen(_homeSensor);                           
             END_IF; 
 
             _MoveToHomeIsBusy := _MoveToHomeTask.IsBusy();
 
             _Messenger.ActivateOnCondition(UINT#2, (_MoveToHomeIsBusy AND NOT _MoveToHomeIsSuspended AND _MoveToHomeTask.Duration >= T#10S), eAxoMessageCategory#Error);
-            _Messenger.ActivateOnCondition(UINT#8, (_MoveToHomeTask.IsDone() AND NOT homeSensor), eAxoMessageCategory#Warning);
+            _Messenger.ActivateOnCondition(UINT#8, (_MoveToHomeTask.IsDone() AND NOT _homeSensor), eAxoMessageCategory#Warning);
 
-            IF _MoveToWorkIsSuspended THEN
-                moveWorkSignal := FALSE;
-            END_IF;
 
-            _Messenger.ActivateOnCondition(UINT#4, _MoveToWorkIsSuspended AND _MoveToWorkIsBusy, eAxoMessageCategory#Info);
+            outMoveHomeSignal := _moveHomeSignal AND NOT _MoveToHomeIsSuspended;
+            outMoveWorkSignal := _moveWorkSignal AND NOT _MoveToWorkIsSuspended;
 
-            
-            IF _MoveToHomeIsSuspended THEN
-                moveHomeSignal := FALSE;
-            END_IF;
-
-           _Messenger.ActivateOnCondition(UINT#5, _MoveToHomeIsSuspended AND _MoveToHomeIsBusy, eAxoMessageCategory#Info);
-
-            _HomeSensor := homeSensor;
-            _WorkSensor := workSensor; 
-
-            _MoveHomeSignal := moveHomeSignal;
-            _MoveWorkSignal := moveWorkSignal;      
-
+            _MoveToHomeIsSuspended := FALSE;
+            _MoveToWorkIsSuspended := FALSE;
         END_METHOD
 
         METHOD PROTECTED OVERRIDE ManualControl
@@ -178,14 +188,30 @@ NAMESPACE AXOpen.Components.Pneumatics
         ///</summary>
         METHOD PUBLIC SuspendMoveToWorkWhile 
             VAR_INPUT
-                Condition : BOOL;
+                inCondition : BOOL;
+                inMessage : STRING := ''; 
+                inLevel :  eAxoMessageCategory := eAxoMessageCategory#Info;
+            END_VAR
+            VAR
+                _suspendCondition : BOOL;
+                _messageCondition : BOOL;
             END_VAR
 
-            IF(Condition) THEN                        
-                _moveWorkSignal := FALSE;   
-            END_IF;   
-            _Messenger.ActivateOnCondition(UINT#4, Condition AND _MoveToWorkTask.IsBusy(), eAxoMessageCategory#Info);
-            _MoveToWorkIsSuspended := Condition;
+            _suspendCondition := NOT _workSensor && inCondition;
+            _messageCondition := _suspendCondition && _MoveToWorkTask.IsEngaged();
+
+            IF(_messageCondition) THEN
+                IF inMessage = '' THEN
+                    _Messenger.Activate(UINT#4, eAxoMessageCategory#Info);
+                ELSE             
+                    _Messenger.Post(THIS, inMessage, inLevel);             
+                END_IF;
+            END_IF;  
+              
+            IF(_suspendCondition) THEN
+                _moveWorkSignal := FALSE;  
+                _MoveToWorkIsSuspended := TRUE;
+            END_IF;
         END_METHOD        
 
         ///<summary>
@@ -193,16 +219,32 @@ NAMESPACE AXOpen.Components.Pneumatics
         ///</summary>
         METHOD PUBLIC SuspendMoveToHomeWhile 
             VAR_INPUT
-                Condition : BOOL;
+                inCondition : BOOL;
+                inMessage : STRING := '';
+                inLevel :  eAxoMessageCategory := eAxoMessageCategory#Info;
+            END_VAR
+            VAR
+                _suspendCondition : BOOL;
+                _messageCondition : BOOL;
             END_VAR
 
-            IF(Condition) THEN                        
-                _moveHomeSignal := FALSE;   
-            END_IF;    
-            _Messenger.ActivateOnCondition(UINT#5, Condition AND _MoveToHomeTask.IsBusy(), eAxoMessageCategory#Info);
-            _MoveToHomeIsSuspended := Condition;
-        END_METHOD    
-        
+            _suspendCondition := NOT _homeSensor && inCondition;
+            _messageCondition := _suspendCondition && _MoveToHomeTask.IsEngaged();
+
+            IF(_messageCondition) THEN
+                IF inMessage = '' THEN
+                    _Messenger.Activate(UINT#5, eAxoMessageCategory#Info);
+                ELSE             
+                    _Messenger.Post(THIS, inMessage, inLevel);             
+                END_IF;
+            END_IF;  
+              
+            IF(_suspendCondition) THEN
+                _moveHomeSignal := FALSE;  
+                _MoveToHomeIsSuspended := TRUE;
+            END_IF;
+        END_METHOD   
+
         ///<summary>
         /// Aborts the movement to the work position when the condition is 'true' and restores the respective task.
         ///</summary>

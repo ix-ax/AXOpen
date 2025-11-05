@@ -10,6 +10,7 @@ NAMESPACE AXOpen.Core
         METHOD IsReady : BOOL END_METHOD   
         METHOD IsDone : BOOL END_METHOD   
         METHOD IsBusy : BOOL END_METHOD   
+        METHOD IsEngaged : BOOL END_METHOD   
         METHOD HasError : BOOL END_METHOD   
     END_INTERFACE
     INTERFACE INTERNAL IAxoTaskInt 
