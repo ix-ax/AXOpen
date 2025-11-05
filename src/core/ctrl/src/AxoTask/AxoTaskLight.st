@@ -100,6 +100,13 @@ NAMESPACE AXOpen.Core
         END_METHOD
             
         ///<summary>
+        /// Gets true when the task is active (busy or kicking).    
+        /// </summary>
+        METHOD PUBLIC IsEngaged : BOOL 
+            IsEngaged := Status = eAxoTaskState#Busy OR Status = eAxoTaskState#Kicking; 
+        END_METHOD
+
+        ///<summary>
         /// Gets true when the task is aborted.
         ///</summary>
         METHOD PUBLIC IsAborted : BOOL 
