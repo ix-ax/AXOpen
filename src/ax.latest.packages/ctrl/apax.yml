@@ -1,4 +1,4 @@
-name: "@inxton/ax.latest.packages"
+﻿name: "@inxton/ax.latest.packages"
 version: '0.0.0-dev.0'
 type: generic
 files:
@@ -8,17 +8,17 @@ devDependencies:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.36
+  "@inxton/ax.catalog": '0.0.38'
 dependencies:
-  "@ax/simatic-1500-clocks": 10.0.6
-  "@ax/system-bitaccess": 10.2.7
-  "@ax/system-math": 10.2.7
-  "@ax/system-serde": 10.2.7
-  "@ax/hwc": 4.0.0
-  "@ax/hw-s7-1500": 3.4.0
-  "@ax/hwld": 3.2.0
-  "@ax/stc": 10.2.95
-  "@ax/sld": 3.3.3
+  "@ax/simatic-1500-clocks": ^10.0.6
+  "@ax/system-bitaccess": ^10.2.7
+  "@ax/system-math": ^10.2.7
+  "@ax/system-serde": ^10.2.7
+  "@ax/hwc": ^4.0.0
+  "@ax/hw-s7-1500": ^4.0.0
+  "@ax/hwld": ^3.2.0
+  "@ax/stc": ^11.0.142
+  "@ax/sld": ^3.5.5
 installStrategy: strict
 apaxVersion: 3.5.0
 scripts:
@@ -42,3 +42,4 @@ scripts:
     apax clean
     apax icb
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax cicb' Finished in :" $(expr $(date +%s) - $START) "s"
+

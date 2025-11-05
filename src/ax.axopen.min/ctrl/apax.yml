@@ -1,4 +1,4 @@
-name: "@inxton/ax.axopen.min"
+﻿name: "@inxton/ax.axopen.min"
 version: '0.0.0-dev.0'
 type: generic
 files:
@@ -6,11 +6,11 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.36
+  "@inxton/ax.catalog": '0.0.38'
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
-  "@ax/system-strings": 10.2.7
+  "@ax/system-strings": ^10.2.7
 installStrategy: strict
 apaxVersion: 3.5.0
 scripts:
@@ -34,3 +34,4 @@ scripts:
     apax clean
     apax icb
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax cicb' Finished in :" $(expr $(date +%s) - $START) "s"
+

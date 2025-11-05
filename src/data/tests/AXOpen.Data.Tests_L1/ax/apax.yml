@@ -9,9 +9,6 @@ targets:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 
-catalogs:
-  "@inxton/ax.catalog": 0.0.36
-
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 
@@ -189,4 +186,5 @@ AXTARGETPLATFORMINPUT: .\bin\1500\
 PLC_NAME: "plc_line"
 AXTARGET: 192.168.100.120
 AX_TARGET_PWD: "Qwerty123456+"
+
 
