@@ -24,14 +24,12 @@
     <!-- Alarms Panel (Collapsible) -->
     @if (_showAlarms && _alarmCount > 0 && _messageProvider?.Messengers != null)
     {
-        <div class="card m-2 p-2">
+        <div class="w-full p-2">
             @foreach (var alarm in _messageProvider.Messengers)
             {
                 if (alarm.State != eAxoMessengerState.Idle)
                 {
-                    <div class="w-full m-1">
-                        <AxoMessengerView Component="alarm" Class="w-full" />
-                    </div>
+                    <AxoMessengerView Component="alarm" />
                 }
             }
         </div>
