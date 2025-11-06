@@ -10,9 +10,10 @@ Devices:
         CYCLE_COMMUNICATION_LOAD: 50
   - Apply: zebra_ea3600_88in6out
     Arguments:
-      NAME: zebra
+      NAME: zebra_ea3600
       IP_ADDRESS_X1: 192.168.100.157/24
-      PROFINET_DEVICE_NAME_X1: zebra
+      PROFINET_DEVICE_NAME_X1: zebra_ea3600 # Same as pnio name in TIA. 
+                                            # Not working nor in TIA, probably wrong module (ENGINEERING SAMPLE, NOT FOR SALE)
 IoSystems:
 - Name: profinet_plc_line
   ControllerInterfaces:
