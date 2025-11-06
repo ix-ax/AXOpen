@@ -1,0 +1,60 @@
+Templates:
+  Modules:
+  - Name: '6ES7155-6AU02-0BN0_v6_3'
+    Placeholders:
+    - Name: 'NAME'
+    - Name: 'IP_ADDRESS_X1'
+      Value: '192.168.0.1/24'
+    - Name: 'PROFINET_DEVICE_NAME_X1'
+      Value: 'et200sp'
+    Content:
+      Name: '${NAME}'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.45-SIEMENS-ET200SP-20250606.XML'
+        GsdId: 'IM 155-6 PN ST V6.3'
+      Interfaces:
+      - Name: 'PN-IO'
+        Label: 'X1'
+        Addresses:
+          Configured:
+          - IPv4: '${IP_ADDRESS_X1}'
+          - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+        Parameters:
+          IECV22LLDPMode: False
+          # PrioritizedStartup (Boolean)
+      Ports:
+      - Name: 'Port_1'
+        Label: 'X1 P1'
+        Parameters:
+          PortActivation: True
+          # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+          TransmissionRateAndDuplex: 'Automatic'
+          EndOfDetectionOfAccessibleDevices: False
+          EndOfTopologyDiscovery: False
+          PortMonitoring: False
+          # TransmissionRateAutoNegotiation: True
+          # CableName: 0
+          # MediumAttachmentType: 'Copper'
+      - Name: 'Port_2'
+        Label: 'X1 P2'
+        Parameters:
+          PortActivation: True
+          # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+          TransmissionRateAndDuplex: 'Automatic'
+          EndOfDetectionOfAccessibleDevices: False
+          EndOfTopologyDiscovery: False
+          PortMonitoring: False
+          # TransmissionRateAutoNegotiation: True
+          # CableName: 0
+          # MediumAttachmentType: 'Copper'
+      Parameters:
+        RecordDataList:
+        - IndexName: 'Configuration control'
+          Values:
+          - OffsetName: 'Configuration control'
+            Value: False
+        SNMPActive: False
+        # SNMPReadOnlyActive: False
+        SNMPReadOnlyCommunityName: 'public'
+        SNMPReadWriteCommunityName: 'private'
+        # DCPReadOnlyActive (Boolean)
