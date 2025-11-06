@@ -44,19 +44,19 @@ namespace AXOpen.Data
 
         public ObservableCollection<IBrowsableDataObject> Records { get; set; } = new ObservableCollection<IBrowsableDataObject>();
 
-        private QuerySymbolConfiguration _DefaulQuery_EntityId;
+        private QuerySymbolConfiguration _DefaulQueryDataEntityId;
 
-        public QuerySymbolConfiguration DefaulQuery_EntityId
+        public QuerySymbolConfiguration DefaulQueryDataEntityId
         {
             get
             {
-                if (_DefaulQuery_EntityId == null)
+                if (_DefaulQueryDataEntityId == null)
                 {
                     var poco = MainExchange.GetPlainTypes().First();
-                    _DefaulQuery_EntityId = new QuerySymbolConfiguration($"{poco.Name}._EntityId", typeof(string).FullName, "StartsWith", "", "");
+                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}._EntityId", typeof(string).FullName, "StartsWith", "", "");
                 }
 
-                return _DefaulQuery_EntityId;
+                return _DefaulQueryDataEntityId;
             }
         }
 
@@ -106,7 +106,7 @@ namespace AXOpen.Data
                 PredicateContainer pc = new PredicateContainer();
                 if (InjectedPredicateContainer != null) pc.AddPredicatesFrom(InjectedPredicateContainer);
 
-                pc.AddQuerySymbolToPredicates(PlainBuilders, DefaulQuery_EntityId);
+                pc.AddQuerySymbolToPredicates(PlainBuilders, DefaulQueryDataEntityId);
 
                 return pc;
             }
