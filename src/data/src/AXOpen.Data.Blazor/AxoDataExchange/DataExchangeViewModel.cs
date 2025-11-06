@@ -134,19 +134,19 @@ namespace AXOpen.Data
             }
         }
 
-        private QuerySymbolConfiguration _DefaulQueryDataEntityId;
+        private QuerySymbolConfiguration _DefaulQuery_EntityId;
 
-        public QuerySymbolConfiguration DefaulQueryDataEntityId
+        public QuerySymbolConfiguration DefaulQuery_EntityId
         {
             get
             {
-                if (_DefaulQueryDataEntityId == null)
+                if (_DefaulQuery_EntityId == null)
                 {
                     var poco = DataExchange.GetPlainTypes().First();
-                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}.DataEntityId", typeof(string).FullName, "StartsWith", "", "");
+                    _DefaulQuery_EntityId = new QuerySymbolConfiguration($"{poco.Name}._EntityId", typeof(string).FullName, "StartsWith", "", "");
                 }
 
-                return _DefaulQueryDataEntityId;
+                return _DefaulQuery_EntityId;
             }
         }
 
@@ -312,7 +312,7 @@ namespace AXOpen.Data
                 PredicateContainer pc = new PredicateContainer();
                 if (InjectedPredicateContainer != null) pc.AddPredicatesFrom(InjectedPredicateContainer);
 
-                pc.AddQuerySymbolToPredicates(PlainBuilders, DefaulQueryDataEntityId);
+                pc.AddQuerySymbolToPredicates(PlainBuilders, DefaulQuery_EntityId);
 
                 var poco = DataExchange.GetPlainTypes().First();
 
@@ -337,7 +337,7 @@ namespace AXOpen.Data
 
             if (Records.Count > 0)
             {
-                var found = Records.FirstOrDefault(p => p.DataEntityId == id);
+                var found = Records.FirstOrDefault(p => p._EntityId == id);
                 if (found == null)
                     throw new UnableToLocateRecordId($"Unable to locate record id '{id}'", null);
                 else
@@ -381,8 +381,8 @@ namespace AXOpen.Data
         {
             try
             {
-                await DataExchange.Delete(SelectedRecord.DataEntityId);
-                AxoApplication.Current.Logger.Information($"Deleted {SelectedRecord.DataEntityId} from {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+                await DataExchange.Delete(SelectedRecord._EntityId);
+                AxoApplication.Current.Logger.Information($"Deleted {SelectedRecord._EntityId} from {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
                 ToastService?.AddToast(eToastType.Success, "Deleted!", "Item was successfully deleted!", 10);
             }
             catch (Exception e)
@@ -428,7 +428,7 @@ namespace AXOpen.Data
         public async Task SendToPlc()
         {
             await DataExchange.FromRepositoryToControllerAsync(SelectedRecord, RefUIData);
-            AxoApplication.Current.Logger.Information($"Sent to Plc {SelectedRecord.DataEntityId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+            AxoApplication.Current.Logger.Information($"Sent to Plc {SelectedRecord._EntityId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
             ToastService?.AddToast(eToastType.Success, "Sent to PLC!", "Item was successfully sent to PLC!", 10);
         }
 
@@ -455,21 +455,21 @@ namespace AXOpen.Data
         //{
         //    try
         //    {
-        //        var identifier = SelectedRecord.DataEntityId;
+        //        var identifier = SelectedRecord._EntityId;
 
         //        var refdata = DataExchange.CloneDataObject();
 
-        //        var DataEntityId = (refdata as IAxoDataEntity).DataEntityId;
+        //        var _EntityId = (refdata as IAxoDataEntity)._EntityId;
 
         //        List<ITwinPrimitive> batchRedElements = new();
 
-        //        batchRedElements.Add(DataEntityId);
+        //        batchRedElements.Add(_EntityId);
 
         //        await refdata.GetConnector().ReadBatchAsync(batchRedElements);
 
-        //        if (DataEntityId.Cyclic != identifier)
+        //        if (_EntityId.Cyclic != identifier)
         //        {
-        //            AlertDialogService?.AddToast(eToastType.Warning, "Update error", $"Online record has different ID that requested to update: {DataEntityId.Cyclic}/{identifier}!", 14);
+        //            AlertDialogService?.AddToast(eToastType.Warning, "Update error", $"Online record has different ID that requested to update: {_EntityId.Cyclic}/{identifier}!", 14);
         //            return;
         //        }
 

@@ -227,7 +227,7 @@ namespace AXOpen.Data
             {
                 _Repository.Create(persistentGroupName, new PersistentRecord()
                 {
-                    DataEntityId = persistentGroupName,
+                    _EntityId = persistentGroupName,
                     Tags = NewTagValues,
                     _Modified = DateTime.Now,
                     _Created = DateTime.Now,
@@ -294,7 +294,7 @@ namespace AXOpen.Data
         {
             await Operation.ReadAsync();
             var operation = (ePersistentOperation)Operation.CrudOperation.LastValue;
-            var identifier = Operation.DataEntityIdentifier.LastValue;
+            var identifier = Operation._EntityIdentifier.LastValue;
             if (string.IsNullOrEmpty(identifier))
             {
                 identifier = DEFAULT_IDENTIFIER; // default persistent group

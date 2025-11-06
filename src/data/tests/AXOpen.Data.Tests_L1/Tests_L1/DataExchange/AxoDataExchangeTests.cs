@@ -40,7 +40,7 @@ namespace AXOpen.Data.Tests
             await sut.CreateAsync("aa", new SharedEntityHeader() { Name = "hello", ComesFrom = 1 });
 
             Assert.Equal(1, repo.Count);
-            Assert.Equal("aa", repo.Queryable.First().DataEntityId);
+            Assert.Equal("aa", repo.Queryable.First()._EntityId);
             Assert.Equal("hello", repo.Queryable.First().Name);
             Assert.Equal(1, repo.Queryable.First().ComesFrom);
         }
@@ -59,7 +59,7 @@ namespace AXOpen.Data.Tests
             var actual = await sut.ReadAsync("aa");
 
             Assert.Equal(2, repo.Count);
-            Assert.Equal("aa", actual.DataEntityId);
+            Assert.Equal("aa", actual._EntityId);
             Assert.Equal("hello", actual.Name);
             Assert.Equal(1, actual.ComesFrom);
         }
@@ -83,7 +83,7 @@ namespace AXOpen.Data.Tests
             var actual = await sut.ReadAsync("aa");
 
             Assert.Equal(1, repo.Count);
-            Assert.Equal("aa", actual.DataEntityId);
+            Assert.Equal("aa", actual._EntityId);
             Assert.Equal("world", actual.Name);
             Assert.Equal(100, actual.ComesFrom);
         }
@@ -150,7 +150,7 @@ namespace AXOpen.Data.Tests
             await sut.CreateOrUpdateAsync("aa", new SharedEntityHeader() { Name = "hello", ComesFrom = 1 });
 
             Assert.Equal(1, repo.Count);
-            Assert.Equal("aa", repo.Queryable.First().DataEntityId);
+            Assert.Equal("aa", repo.Queryable.First()._EntityId);
             Assert.Equal("hello", repo.Queryable.First().Name);
             Assert.Equal(1, repo.Queryable.First().ComesFrom);
         }
@@ -174,7 +174,7 @@ namespace AXOpen.Data.Tests
             var actual = await sut.ReadAsync("aa");
 
             Assert.Equal(1, repo.Count);
-            Assert.Equal("aa", actual.DataEntityId);
+            Assert.Equal("aa", actual._EntityId);
             Assert.Equal("world", actual.Name);
             Assert.Equal(100, actual.ComesFrom);
         }
@@ -209,7 +209,7 @@ namespace AXOpen.Data.Tests
             await sut.RemoteRead("hey remote create");
 
 
-            // TODO: Assert.Equal("hey remote create", await sut.Set.DataEntityId.GetAsync());
+            // TODO: Assert.Equal("hey remote create", await sut.Set._EntityId.GetAsync());
             //Assert.Equal(48, await sut.Set.ComesFrom.GetAsync());
             //Assert.Equal(68, await sut.Set.GoesTo.GetAsync());
 
@@ -226,10 +226,10 @@ namespace AXOpen.Data.Tests
 
             repo.Create("hey remote create", new SharedEntityHeader() { ComesFrom = 85, GoesTo = 98 });
 
-            await sut.FromRepositoryToShadowsAsync(new SharedEntityHeader() { DataEntityId = "hey remote create" }, sut.Set);
+            await sut.FromRepositoryToShadowsAsync(new SharedEntityHeader() { _EntityId = "hey remote create" }, sut.Set);
 
 
-            Assert.Equal("hey remote create", sut.Set.DataEntityId.Shadow);
+            Assert.Equal("hey remote create", sut.Set._EntityId.Shadow);
             Assert.Equal(85, sut.Set.ComesFrom.Shadow);
             Assert.Equal(98, sut.Set.GoesTo.Shadow);
         }
@@ -245,7 +245,7 @@ namespace AXOpen.Data.Tests
 
             repo.Create("hey remote create", new SharedEntityHeader() { ComesFrom = 85, GoesTo = 98 });
 
-            await sut.FromRepositoryToControllerAsync(new SharedEntityHeader() { DataEntityId = "hey remote create" }, sut.Set);
+            await sut.FromRepositoryToControllerAsync(new SharedEntityHeader() { _EntityId = "hey remote create" }, sut.Set);
 
             var records = repo.GetRecords("*", 100, 0, eSearchMode.Exact).ToList();
 
@@ -255,7 +255,7 @@ namespace AXOpen.Data.Tests
             // seems to have something to do with later additions to `LethargicWrite` in the generated code
             // Removing for the moment, seems to me that it is intended.
 
-            // TODO: Assert.Equal("hey remote create", await sut.Set.DataEntityId.GetAsync());
+            // TODO: Assert.Equal("hey remote create", await sut.Set._EntityId.GetAsync());
             // Assert.Equal(85, await sut.Set.ComesFrom.GetAsync());
             // Assert.Equal(98, await sut.Set.GoesTo.GetAsync());
 
@@ -446,13 +446,13 @@ namespace AXOpen.Data.Tests
             repo.Create("hey remote create", new SharedEntityHeader() { ComesFrom = 48, GoesTo = 68 });
 
 
-            sut.Set.DataEntityId.Shadow = "hey remote create";
+            sut.Set._EntityId.Shadow = "hey remote create";
             sut.Set.ComesFrom.Shadow = 140;
             sut.Set.GoesTo.Shadow = 885;
             await sut.UpdateFromShadowsAsync(sut.Set);
 
             var record = repo.Read("hey remote create");
-            Assert.Equal("hey remote create", record.DataEntityId);
+            Assert.Equal("hey remote create", record._EntityId);
             Assert.Equal(140, record.ComesFrom);
             Assert.Equal(885, record.GoesTo);
         }
@@ -469,7 +469,7 @@ namespace AXOpen.Data.Tests
             await sut.CreateNewAsync("hey remote create - brandnew", sut.Set);
 
             var record = repo.Read("hey remote create - brandnew");
-            Assert.Equal("hey remote create - brandnew", record.DataEntityId);
+            Assert.Equal("hey remote create - brandnew", record._EntityId);
         }
 
         [Fact]
@@ -489,7 +489,7 @@ namespace AXOpen.Data.Tests
             await sut.CreateCopyCurrentShadowsAsync("hey remote create - new", sut.DataExchangeTwinObject);
 
             var record = repo.Read("hey remote create - new");
-            Assert.Equal("hey remote create - new", record.DataEntityId);
+            Assert.Equal("hey remote create - new", record._EntityId);
             Assert.Equal(101, record.ComesFrom);
             Assert.Equal(201, record.GoesTo);
         }
@@ -511,7 +511,7 @@ namespace AXOpen.Data.Tests
             await sut.CreateDataFromControllerAsync("hey remote create", sut.Set);
 
             var record = repo.Read("hey remote create");
-            Assert.Equal("hey remote create", record.DataEntityId);
+            Assert.Equal("hey remote create", record._EntityId);
             Assert.Equal(1011, record.ComesFrom);
             Assert.Equal(1201, record.GoesTo);
         }
@@ -526,7 +526,7 @@ namespace AXOpen.Data.Tests
 
             sut.InitializeRemoteDataExchange(repo);
 
-            await sut.Operation.DataEntityIdentifier.SetAsync("foo");
+            await sut.Operation._EntityIdentifier.SetAsync("foo");
             sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
 
@@ -544,7 +544,7 @@ namespace AXOpen.Data.Tests
 
             sut.InitializeRemoteDataExchange();
 
-            await sut.Operation.DataEntityIdentifier.SetAsync("foo");
+            await sut.Operation._EntityIdentifier.SetAsync("foo");
             sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
 
@@ -562,7 +562,7 @@ namespace AXOpen.Data.Tests
 
             sut.InitializeRemoteDataExchange(repo);
 
-            await sut.Operation.DataEntityIdentifier.SetAsync("foo");
+            await sut.Operation._EntityIdentifier.SetAsync("foo");
             sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
 
@@ -604,7 +604,7 @@ namespace AXOpen.Data.Tests
                     switch (entry.Name)
                     {
                         case "axosimple.SharedProductionDataManager.csv":
-                            Assert.Equal("_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;48;68;\r", text);
+                            Assert.Equal("_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;48;68;\r", text);
                             break;
                     }
                 }
@@ -653,7 +653,7 @@ namespace AXOpen.Data.Tests
                     switch (entry.Name)
                     {
                         case "SharedHeaderManager.csv":
-                            Assert.Equal("_data.DataEntityId*_data.GoesTo*\r_data.DataEntityId*_data.GoesTo*\rsecond*21*\r", text);
+                            Assert.Equal("_data._EntityId*_data.GoesTo*\r_data._EntityId*_data.GoesTo*\rsecond*21*\r", text);
                             break;
                         default:
                             Assert.Fail("More entries tahn expected!");
@@ -686,8 +686,8 @@ namespace AXOpen.Data.Tests
             using (var sw = new StreamWriter(Path.Combine(tempDirectory, "SharedHeaderManager.csv")))
             {
                 sw.Write(
-                    "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r" +
-                    "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r" +
+                    "_data._EntityId;_data.ComesFrom;_data.GoesTo;\r" +
+                    "_data._EntityId;_data.ComesFrom;_data.GoesTo;\r" +
                     "hey remote create;48;68;\r"
                     );
             }
@@ -726,8 +726,8 @@ namespace AXOpen.Data.Tests
             using (var sw = new StreamWriter(Path.Combine(tempDirectory, "SharedHeaderManager.csv")))
             {
                 sw.Write(
-                    "_data.DataEntityId*_data.GoesTo*\r" +
-                    "_data.DataEntityId*_data.GoesTo*\r" +
+                    "_data._EntityId*_data.GoesTo*\r" +
+                    "_data._EntityId*_data.GoesTo*\r" +
                     "first*11*\r"
                     );
             }
@@ -767,8 +767,8 @@ namespace AXOpen.Data.Tests
             using (var sw = new StreamWriter(Path.Combine(tempDirectory, "SharedHeaderManager.csv")))
             {
                 sw.Write(
-                    "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r" +
-                    "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r" +
+                    "_data._EntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r" +
+                    "_data._EntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r" +
                     "hey remote create;48;68;130;\r"
                     );
             }
@@ -792,7 +792,7 @@ namespace AXOpen.Data.Tests
         [Fact()]
         public void HashTest()
         {
-            var a = new SharedEntityHeader() { DataEntityId = "a", ComesFrom = 1, GoesTo = 2, Changes = { new ValueChangeItem() { DateTime = new DateTime(12345), NewValue = 1, OldValue = 1, UserName = "admin" } } };
+            var a = new SharedEntityHeader() { _EntityId = "a", ComesFrom = 1, GoesTo = 2, Changes = { new ValueChangeItem() { DateTime = new DateTime(12345), NewValue = 1, OldValue = 1, UserName = "admin" } } };
 
             a.Hash = HashHelper.CreateHash(a);
 
@@ -804,7 +804,7 @@ namespace AXOpen.Data.Tests
         [Fact()]
         public void HashFalseTest()
         {
-            var a = new SharedEntityHeader() { DataEntityId = "a", ComesFrom = 1, GoesTo = 2, Changes = { new ValueChangeItem() { DateTime = new DateTime(12345), NewValue = 1, OldValue = 1, UserName = "admin" } } };
+            var a = new SharedEntityHeader() { _EntityId = "a", ComesFrom = 1, GoesTo = 2, Changes = { new ValueChangeItem() { DateTime = new DateTime(12345), NewValue = 1, OldValue = 1, UserName = "admin" } } };
 
             a.Hash = HashHelper.CreateHash(a);
 

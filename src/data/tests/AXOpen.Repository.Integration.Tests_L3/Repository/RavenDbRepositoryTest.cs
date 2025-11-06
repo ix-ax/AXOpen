@@ -14,13 +14,13 @@
 //            if (this.repository != null)
 //            {
 //                foreach (var item in this.repository.GetRecords("*"))
-//                    repository.Delete(item.DataEntityId);
+//                    repository.Delete(item._EntityId);
 //            }
 
 //            if (this.repository_altered_structure != null)
 //            {
 //                foreach (var item in this.repository_altered_structure.GetRecords("*"))
-//                    repository_altered_structure.Delete(item.DataEntityId);
+//                    repository_altered_structure.Delete(item._EntityId);
 //            }
 //        }
 

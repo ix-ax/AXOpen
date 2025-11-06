@@ -44,19 +44,19 @@ namespace AXOpen.Data
 
         public ObservableCollection<IBrowsableDataObject> Records { get; set; } = new ObservableCollection<IBrowsableDataObject>();
 
-        private QuerySymbolConfiguration _DefaulQueryDataEntityId;
+        private QuerySymbolConfiguration _DefaulQuery_EntityId;
 
-        public QuerySymbolConfiguration DefaulQueryDataEntityId
+        public QuerySymbolConfiguration DefaulQuery_EntityId
         {
             get
             {
-                if (_DefaulQueryDataEntityId == null)
+                if (_DefaulQuery_EntityId == null)
                 {
                     var poco = MainExchange.GetPlainTypes().First();
-                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}.DataEntityId", typeof(string).FullName, "StartsWith", "", "");
+                    _DefaulQuery_EntityId = new QuerySymbolConfiguration($"{poco.Name}._EntityId", typeof(string).FullName, "StartsWith", "", "");
                 }
 
-                return _DefaulQueryDataEntityId;
+                return _DefaulQuery_EntityId;
             }
         }
 
@@ -106,7 +106,7 @@ namespace AXOpen.Data
                 PredicateContainer pc = new PredicateContainer();
                 if (InjectedPredicateContainer != null) pc.AddPredicatesFrom(InjectedPredicateContainer);
 
-                pc.AddQuerySymbolToPredicates(PlainBuilders, DefaulQueryDataEntityId);
+                pc.AddQuerySymbolToPredicates(PlainBuilders, DefaulQuery_EntityId);
 
                 return pc;
             }
@@ -275,7 +275,7 @@ namespace AXOpen.Data
 
                 foreach (var exchange in ExsOnConnector)
                 {
-                    toRead.Add((exchange.DataExchangeTwinObject as IAxoDataEntity).DataEntityId);
+                    toRead.Add((exchange.DataExchangeTwinObject as IAxoDataEntity)._EntityId);
                 }
 
                 await connector.ReadBatchAsync(toRead);
@@ -287,11 +287,11 @@ namespace AXOpen.Data
             if (MainExchange.DataExchangeTwinObject is not IAxoDataEntity mainEntity)
                 return false;
 
-            var mainId = mainEntity.DataEntityId.Cyclic;
+            var mainId = mainEntity._EntityId.Cyclic;
 
             return !string.IsNullOrEmpty(mainId) &&
                    AllExchanges.All(ex =>
-                       (ex.DataExchangeTwinObject as IAxoDataEntity)?.DataEntityId.Cyclic == mainId);
+                       (ex.DataExchangeTwinObject as IAxoDataEntity)?._EntityId.Cyclic == mainId);
         }
 
     }

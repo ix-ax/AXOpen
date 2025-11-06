@@ -22,7 +22,7 @@ namespace AXOpen.Data.Persistent.Tests
             var repo = new InMemoryRepository<AXOpen.Data.PersistentRecord>();
             //await sut.InitializeRemoteDataExchange(data, repo);
 
-            PersistentRecord pr = new AXOpen.Data.PersistentRecord() { DataEntityId = PersistentGroupName };
+            PersistentRecord pr = new AXOpen.Data.PersistentRecord() { _EntityId = PersistentGroupName };
 
             pr.Tags.Add(new TagObject() { Symbol = data.PersistentVariable_1.Symbol, Value = 10 });
             pr.Tags.Add(new TagObject() { Symbol = data.PersistentVariable_2.Symbol, Value = 20 });
@@ -31,7 +31,7 @@ namespace AXOpen.Data.Persistent.Tests
             repo.Create(PersistentGroupName, pr);
 
             Assert.Equal(1, repo.Count);
-            Assert.Equal(PersistentGroupName, repo.Queryable.First().DataEntityId);
+            Assert.Equal(PersistentGroupName, repo.Queryable.First()._EntityId);
             Assert.Equal(3, repo.Queryable.First().Tags.Count());
 
             Assert.Equal(data.PersistentVariable_1.Symbol, repo.Queryable.First().Tags[0].Symbol);
@@ -56,14 +56,14 @@ namespace AXOpen.Data.Persistent.Tests
             var repo = new InMemoryRepository<AXOpen.Data.PersistentRecord>();
             //await sut.InitializeRemoteDataExchange(data, repo);
 
-            PersistentRecord pr = new AXOpen.Data.PersistentRecord() { DataEntityId = PersistentGroupName };
+            PersistentRecord pr = new AXOpen.Data.PersistentRecord() { _EntityId = PersistentGroupName };
             pr.Tags.Add(new TagObject() { Symbol = data.PersistentVariable_1.Symbol, Value = 10 });
             pr.Tags.Add(new TagObject() { Symbol = data.PersistentVariable_2.Symbol, Value = 20 });
             pr.Tags.Add(new TagObject() { Symbol = data.NotPersistentVariable.Symbol, Value = false });
 
             repo.Create(PersistentGroupName, pr);
 
-            PersistentRecord pr_1 = new AXOpen.Data.PersistentRecord() { DataEntityId = PersistentGroupName_1 };
+            PersistentRecord pr_1 = new AXOpen.Data.PersistentRecord() { _EntityId = PersistentGroupName_1 };
             pr.Tags.Add(new TagObject() { Symbol = data.PersistentVariable_1.Symbol, Value = 110 });
             pr.Tags.Add(new TagObject() { Symbol = data.PersistentVariable_2.Symbol, Value = 120 });
             pr.Tags.Add(new TagObject() { Symbol = data.NotPersistentVariable.Symbol, Value = true });
@@ -73,7 +73,7 @@ namespace AXOpen.Data.Persistent.Tests
             var recordFromRepo = repo.Read(PersistentGroupName);
 
             Assert.Equal(2, repo.Count);
-            Assert.Equal(PersistentGroupName, recordFromRepo.DataEntityId);
+            Assert.Equal(PersistentGroupName, recordFromRepo._EntityId);
             Assert.False(recordFromRepo.Tags.Where(p => p.Symbol == data.NotPersistentVariable.Symbol).First().Value);
             Assert.Equal(10, recordFromRepo.Tags.Where(p => p.Symbol == data.PersistentVariable_1.Symbol).First().Value);
             Assert.Equal(20, recordFromRepo.Tags.Where(p => p.Symbol == data.PersistentVariable_2.Symbol).First().Value);
@@ -96,7 +96,7 @@ namespace AXOpen.Data.Persistent.Tests
             await connector.Persistent.DataManager.InitializeRemoteDataExchange(data, repo); 
 
 
-            PersistentRecord pr = new AXOpen.Data.PersistentRecord() { DataEntityId = PersistentGroupName };
+            PersistentRecord pr = new AXOpen.Data.PersistentRecord() { _EntityId = PersistentGroupName };
 
             pr.Tags.Add(new TagObject() { Symbol = data.PersistentVariable_1.Symbol, Value = 10 });
             pr.Tags.Add(new TagObject() { Symbol = data.PersistentVariable_2.Symbol, Value = 20 });
@@ -196,7 +196,7 @@ namespace AXOpen.Data.Persistent.Tests
 
             await sut.InitializeRemoteDataExchange(data, repo);
 
-            await sut.Operation.DataEntityIdentifier.SetAsync(PersistentGroupName);
+            await sut.Operation._EntityIdentifier.SetAsync(PersistentGroupName);
             sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
             Assert.True(await sut.Operation.IsInitialized.GetAsync());
@@ -215,7 +215,7 @@ namespace AXOpen.Data.Persistent.Tests
             await sut.InitializeRemoteDataExchange(data, repo); 
 
 
-            await sut.Operation.DataEntityIdentifier.SetAsync(PersistentGroupName);
+            await sut.Operation._EntityIdentifier.SetAsync(PersistentGroupName);
             sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
             Assert.True(await sut.Operation.IsInitialized.GetAsync());

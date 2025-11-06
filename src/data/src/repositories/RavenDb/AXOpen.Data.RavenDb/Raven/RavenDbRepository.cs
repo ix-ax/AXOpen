@@ -73,7 +73,7 @@ namespace AXOpen.Data.RavenDb
         {
             using (var session = _store.OpenSession())
             {
-                T entity = session.Query<T>().SingleOrDefault(x => x.DataEntityId == identifier);
+                T entity = session.Query<T>().SingleOrDefault(x => x._EntityId == identifier);
                 if (entity != null)
                     throw new DuplicateIdException($"Record with ID '{identifier}' already exists in this collection.", null);
 
@@ -145,18 +145,18 @@ namespace AXOpen.Data.RavenDb
                     {
                         case eSearchMode.StartsWith:
                             query = session.Query<T>()
-                                           .Where(x => x.DataEntityId.StartsWith(identifier));
+                                           .Where(x => x._EntityId.StartsWith(identifier));
                             break;
 
                         case eSearchMode.Contains:
                             query = session.Query<T>()
-                                           .Search(x => x.DataEntityId, $"*{identifier}*");
+                                           .Search(x => x._EntityId, $"*{identifier}*");
                             break;
 
                         case eSearchMode.Exact:
                         default:
                             query = session.Query<T>()
-                                           .Where(x => x.DataEntityId == identifier);
+                                           .Where(x => x._EntityId == identifier);
                             break;
                     }
                 }
@@ -194,18 +194,18 @@ namespace AXOpen.Data.RavenDb
                     {
                         case eSearchMode.StartsWith:
                             return session.Query<T>()
-                                 .Where(x => x.DataEntityId.StartsWith(identifier))
+                                 .Where(x => x._EntityId.StartsWith(identifier))
                                  .Count();
 
                         case eSearchMode.Contains:
                             return session.Query<T>()
-                                .Search(x => x.DataEntityId, $"*{identifier}*")
+                                .Search(x => x._EntityId, $"*{identifier}*")
                                 .Count();
 
                         case eSearchMode.Exact:
                         default:
                             return session.Query<T>()
-                                   .Where(x => x.DataEntityId == identifier)
+                                   .Where(x => x._EntityId == identifier)
                                    .Count();
                     }
                 }
@@ -248,11 +248,11 @@ namespace AXOpen.Data.RavenDb
 
             if (ids != null)
             {
-                return query.Select(p => p.DataEntityId).Intersect(ids).ToList();
+                return query.Select(p => p._EntityId).Intersect(ids).ToList();
             }
             else
             {
-                return query.Select(p => p.DataEntityId).ToList();
+                return query.Select(p => p._EntityId).ToList();
             }
         }
 
@@ -261,7 +261,7 @@ namespace AXOpen.Data.RavenDb
             if (ids == null || !ids.Any())
                 return Enumerable.Empty<T>();
 
-            var query = Queryable.Where(p => ids.Contains(p.DataEntityId));
+            var query = Queryable.Where(p => ids.Contains(p._EntityId));
 
             if (sortingPredicates != null)
             {
@@ -322,14 +322,14 @@ namespace AXOpen.Data.RavenDb
         private IQueryable<T> ApplySorting(IQueryable<T> query, List<SortSettings> sortSettings)
         {
             if (sortSettings == null || !sortSettings.Any())
-                return query.OrderByDescending(p => p.DataEntityId);
+                return query.OrderByDescending(p => p._EntityId);
 
             IOrderedQueryable<T> orderedQuery = null;
 
             if (sortSettings.All(p => string.IsNullOrEmpty(p.MemberName)))
             {
                 var naturalSort = sortSettings.First();
-                return naturalSort.IsAscending ? query.OrderBy(p => p.DataEntityId) : query.OrderByDescending(p => p.DataEntityId);
+                return naturalSort.IsAscending ? query.OrderBy(p => p._EntityId) : query.OrderByDescending(p => p._EntityId);
             }
 
             foreach (var setting in sortSettings)

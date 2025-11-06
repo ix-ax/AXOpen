@@ -178,9 +178,9 @@ namespace AXOpen.Data
                 dictionary.Add(new ImportItems() { Key = headerItem });
             }
 
-            if(!dictionary.Exists(p => p.Key.Contains("DataEntityId")))
+            if(!dictionary.Exists(p => p.Key.Contains("_EntityId")))
             {
-                throw new Exception("DataEntityId is missing in the import file");
+                throw new Exception("_EntityId is missing in the import file");
             }
 
             // Load values
@@ -197,14 +197,14 @@ namespace AXOpen.Data
 
         protected void UpdateDocument(IRepository<TPlain> dataRepository, List<ImportItems> dictionary, IEnumerable<ITwinPrimitive> valueTags, ITwinObject prototype, AuthenticationState authenticationState, char separator = ';')
         {
-            string id = dictionary.FirstOrDefault(p => p.Key.Contains("DataEntityId")).Value;
-            var existing = dataRepository.Queryable.Where(p => p.DataEntityId == id).FirstOrDefault();
+            string id = dictionary.FirstOrDefault(p => p.Key.Contains("_EntityId")).Value;
+            var existing = dataRepository.Queryable.Where(p => p._EntityId == id).FirstOrDefault();
             if (existing != null)
             {
                 ((dynamic)prototype).PlainToShadow(existing);
             }
 
-            ((dynamic)prototype).DataEntityId.Shadow = id;
+            ((dynamic)prototype)._EntityId.Shadow = id;
 
             if (existing != null) ((dynamic)prototype).ChangeTracker.StartObservingChanges(authenticationState);
             // Swap values to shadow
@@ -246,7 +246,7 @@ namespace AXOpen.Data
 
                 existing.Changes = changes;
 
-                dataRepository.Update(existing.DataEntityId, existing);
+                dataRepository.Update(existing._EntityId, existing);
             }
             else
             {
@@ -262,7 +262,7 @@ namespace AXOpen.Data
 
                 Task.Delay(1000).Wait();
 
-                dataRepository.Create(newRecord.DataEntityId, newRecord);
+                dataRepository.Create(newRecord._EntityId, newRecord);
             }
         }
 
