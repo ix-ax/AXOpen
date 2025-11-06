@@ -48,16 +48,24 @@ else
   echo -e "${RED}Directory ./.apax does not exist!!!${NC}"
 fi
 
+# Ensure destination root exists
+if [ ! -d "$destinationDirectory" ]; then
+  echo -e "${YELLOW}Directory $destinationDirectory does not exist!!!${NC}"
+  mkdir -p "$destinationDirectory"
+fi
+
+gsdDirectory="./gsd"
+
 # Install from destination if anything is present (could include existing files)
-dest_count=$(find "$destinationDirectory" -type f -iname "$fileMask" | wc -l | tr -d ' ')
+dest_count=$(find "$gsdDirectory" -type f -iname "$fileMask" | wc -l | tr -d ' ')
 if [ "$dest_count" -gt 0 ]; then
-  echo -e "${GREEN}$dest_count file(s) will be installed from $destinationDirectory.${NC}"
-  if ! apax hwc install-gsd --input "$destinationDirectory"; then
+  echo -e "${GREEN}$dest_count file(s) will be installed from $gsdDirectory.${NC}"
+  if ! apax hwc install-gsd --input "$gsdDirectory"; then
     printf "${RED}The installation of the gsdml files finished with an error!${NC}\n"
     printf "${RED}Please check the details above.${NC}\n"
     exit 1
   fi
   echo -e "${GREEN}$dest_count file(s) installed.${NC}"
 else
-  echo -e "${YELLOW}No files matching '$fileMask' were found in '$destinationDirectory'.${NC}"
+  echo -e "${YELLOW}No files matching '$fileMask' were found in '$gsdDirectory'.${NC}"
 fi
