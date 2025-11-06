@@ -16,9 +16,9 @@
                 <button class="btn btn-outline-primary" @onclick="ToggleCurrentIdsDropdown">
                     <div class="flex flex-wrap align-center gap-3">
 
-                        @if (!string.IsNullOrEmpty(GetCurrent_EntityId(DistributedVM.MainExchange)))
+                        @if (!string.IsNullOrEmpty(GetCurrentDataEntityId(DistributedVM.MainExchange)))
                         {
-                            <span>@Localizer["In Plc"]: <strong>@GetCurrent_EntityId(DistributedVM.MainExchange)</strong></span>
+                            <span>@Localizer["In Plc"]: <strong>@GetCurrentDataEntityId(DistributedVM.MainExchange)</strong></span>
 
                             if (!DistributedVM.AllExchangesHasTheSameId())
                             {
@@ -49,8 +49,8 @@
                                 <tbody>
                                     @foreach (var ex in DistributedVM.AllExchanges)
                                     {
-                                        var mainId = GetCurrent_EntityId(DistributedVM.MainExchange);
-                                        var currentId = GetCurrent_EntityId(ex);
+                                        var mainId = GetCurrentDataEntityId(DistributedVM.MainExchange);
+                                        var currentId = GetCurrentDataEntityId(ex);
                                         var textClass = currentId != mainId ? "text-warning" : "text-body";
 
                                         <tr>

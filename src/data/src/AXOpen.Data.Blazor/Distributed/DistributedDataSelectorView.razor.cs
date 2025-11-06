@@ -96,7 +96,7 @@ namespace AXOpen.Data
             }
         }
 
-        public string GetCurrent_EntityId(IAxoDataExchange ex)
+        public string GetCurrentDataEntityId(IAxoDataExchange ex)
         {
             string ret = "";
 
