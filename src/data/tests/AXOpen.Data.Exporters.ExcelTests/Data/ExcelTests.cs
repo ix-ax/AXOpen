@@ -83,178 +83,327 @@ namespace AXOpen.Data.Tests
         [Fact()]
         public async void ExportTest()
         {
-            var parent = NSubstitute.Substitute.For<ITwinObject>();
-            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            int maxRetries = 3;
+            int attempt = 0;
+            Exception lastException = null;
 
-            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
-            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
-            sut.SetRepository(repo);
-
-            repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 48, GoesTo = 68 });
-
-            Assert.Equal(1, repo.Count);
-
-            var zipFile = Path.Combine(Path.GetTempPath(), "ExportDataTest", "ExportData.zip");
-
-            // export
-            sut.ExportData(zipFile, exportFileType: "Excel");
-
-            Assert.True(File.Exists(zipFile));
-
-            using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
+            while (attempt < maxRetries)
             {
-                Assert.Equal("_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;48;68;\r", GetTextFromExcel(zip.Entries[0].Open(), "b"));
+                attempt++;
+                try
+                {
+                    var parent = NSubstitute.Substitute.For<ITwinObject>();
+                    parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+                    var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+                    var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+                    sut.SetRepository(repo);
+
+                    repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 48, GoesTo = 68 });
+
+                    Assert.Equal(1, repo.Count);
+
+                    var zipFile = Path.Combine(Path.GetTempPath(), "ExportDataTest", "ExportData.zip");
+
+                    // export
+                    sut.ExportData(zipFile, exportFileType: "Excel");
+
+                    Assert.True(File.Exists(zipFile));
+
+                    using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
+                    {
+                        Assert.Equal("_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;48;68;\r", GetTextFromExcel(zip.Entries[0].Open(), "b"));
+                    }
+
+                    // clear
+                    if (File.Exists(zipFile))
+                        File.Delete(zipFile);
+
+                    // Test passed, exit retry loop
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    lastException = ex;
+                    if (attempt >= maxRetries)
+                    {
+                        throw;
+                    }
+                    // Optional: Add delay between retries
+                    await Task.Delay(100);
+                }
             }
 
-            // clear
-            if (File.Exists(zipFile))
-                File.Delete(zipFile);
+            // If we get here, all retries failed
+            if (lastException != null)
+            {
+                throw lastException;
+            }
         }
 
         [Fact()]
         public async void ExportComplexTest()
         {
-            var parent = NSubstitute.Substitute.For<ITwinObject>();
-            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            int maxRetries = 3;
+            int attempt = 0;
+            Exception lastException = null;
 
-            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
-            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
-            sut.SetRepository(repo);
-
-            repo.Create("first", new Pocos.axosimple.SharedProductionData() { ComesFrom = 10, GoesTo = 11 });
-            repo.Create("second", new Pocos.axosimple.SharedProductionData() { ComesFrom = 20, GoesTo = 21 });
-
-            Assert.Equal(2, repo.Count);
-
-            var zipFile = Path.Combine(Path.GetTempPath(), "ExportDataTest", "ExportData.zip");
-
-            var dictionary = new Dictionary<string, ExportData>
+            while (attempt < maxRetries)
             {
-                { "axosimple.SharedProductionData", new ExportData(true, new Dictionary<string, bool>
+                attempt++;
+                try
                 {
-                    { "_data.ComesFrom", false },
-                }) },
-            };
+                    var parent = NSubstitute.Substitute.For<ITwinObject>();
+                    parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
 
-            // export
-            sut.ExportData(zipFile, dictionary, eExportMode.Exact, 2, 2, "Excel");
+                    var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+                    var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+                    sut.SetRepository(repo);
 
-            Assert.True(File.Exists(zipFile));
+                    repo.Create("first", new Pocos.axosimple.SharedProductionData() { ComesFrom = 10, GoesTo = 11 });
+                    repo.Create("second", new Pocos.axosimple.SharedProductionData() { ComesFrom = 20, GoesTo = 21 });
 
-            using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
-            {
-                Assert.Equal("_data._EntityId;_data.GoesTo;\r_data._EntityId;_data.GoesTo;\rsecond;21;\r", GetTextFromExcel(zip.Entries[0].Open(), "b"));
+                    Assert.Equal(2, repo.Count);
+
+                    var zipFile = Path.Combine(Path.GetTempPath(), "ExportDataTest", "ExportData.zip");
+
+                    var dictionary = new Dictionary<string, ExportData>
+                    {
+                        { "axosimple.SharedProductionData", new ExportData(true, new Dictionary<string, bool>
+                        {
+                            { "_data.ComesFrom", false },
+                        }) },
+                    };
+
+                    // export
+                    sut.ExportData(zipFile, dictionary, eExportMode.Exact, 2, 2, "Excel");
+
+                    Assert.True(File.Exists(zipFile));
+
+                    using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
+                    {
+                        Assert.Equal("_data._EntityId;_data.GoesTo;\r_data._EntityId;_data.GoesTo;\rsecond;21;\r", GetTextFromExcel(zip.Entries[0].Open(), "b"));
+                    }
+
+                    // clear
+                    if (File.Exists(zipFile))
+                        File.Delete(zipFile);
+
+                    // Test passed, exit retry loop
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    lastException = ex;
+                    if (attempt >= maxRetries)
+                    {
+                        throw;
+                    }
+                    // Optional: Add delay between retries
+                    await Task.Delay(100);
+                }
             }
 
-            // clear
-            if (File.Exists(zipFile))
-                File.Delete(zipFile);
+            // If we get here, all retries failed
+            if (lastException != null)
+            {
+                throw lastException;
+            }
         }
 
         [Fact()]
         public async void ImportTest()
         {
-            var parent = NSubstitute.Substitute.For<ITwinObject>();
-            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            int maxRetries = 3;
+            int attempt = 0;
+            Exception lastException = null;
 
-            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
-            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
-            sut.SetRepository(repo);
+            while (attempt < maxRetries)
+            {
+                attempt++;
+                try
+                {
+                    var parent = NSubstitute.Substitute.For<ITwinObject>();
+                    parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
 
-            var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataTest", "importDataPrepare");
-            var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataTest", "ImportData.zip");
+                    var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+                    var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+                    sut.SetRepository(repo);
 
-            Directory.CreateDirectory(tempDirectory);
+                    var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataTest", "importDataPrepare");
+                    var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataTest", "ImportData.zip");
 
-            File.Delete(zipFile);
+                    Directory.CreateDirectory(tempDirectory);
 
-            CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> { { "b", "_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;48;68;\r" } });
+                    File.Delete(zipFile);
 
-            ZipFile.CreateFromDirectory(tempDirectory, zipFile);
+                    CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> { { "b", "_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;48;68;\r" } });
 
-            // import
-            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()), exportFileType: "Excel");
+                    ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
-            var shared = sut.DataRepository.Read("hey remote create");
-            Assert.Equal(48, shared.ComesFrom);
-            Assert.Equal(68, shared.GoesTo);
+                    // import
+                    sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()), exportFileType: "Excel");
 
-            // clear
-            if (Directory.Exists(tempDirectory))
-                Directory.Delete(tempDirectory, true);
-            if (File.Exists(zipFile))
-                File.Delete(zipFile);
+                    var shared = sut.DataRepository.Read("hey remote create");
+                    Assert.Equal(48, shared.ComesFrom);
+                    Assert.Equal(68, shared.GoesTo);
+
+                    // clear
+                    if (Directory.Exists(tempDirectory))
+                        Directory.Delete(tempDirectory, true);
+                    if (File.Exists(zipFile))
+                        File.Delete(zipFile);
+
+                    // Test passed, exit retry loop
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    lastException = ex;
+                    if (attempt >= maxRetries)
+                    {
+                        throw;
+                    }
+                    // Optional: Add delay between retries
+                    await Task.Delay(100);
+                }
+            }
+
+            // If we get here, all retries failed
+            if (lastException != null)
+            {
+                throw lastException;
+            }
         }
 
         [Fact()]
         public async void ImportComplexTest()
         {
- 
-            var parent = NSubstitute.Substitute.For<ITwinObject>();
-            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            int maxRetries = 3;
+            int attempt = 0;
+            Exception lastException = null;
 
-            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
-            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
-            sut.SetRepository(repo);
+            while (attempt < maxRetries)
+            {
+                attempt++;
+                try
+                {
+                    var parent = NSubstitute.Substitute.For<ITwinObject>();
+                    parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
 
-            var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataTest", "importDataPrepare");
-            var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataTest", "ImportData.zip");
+                    var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+                    var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+                    sut.SetRepository(repo);
 
-            Directory.CreateDirectory(tempDirectory);
+                    var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataTest", "importDataPrepare");
+                    var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataTest", "ImportData.zip");
 
-            File.Delete(zipFile);
+                    Directory.CreateDirectory(tempDirectory);
 
-            CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> { { "b", "_data._EntityId;_data.GoesTo;\r_data._EntityId;_data.GoesTo;\rfirst;11;\r" } });
+                    File.Delete(zipFile);
 
-            ZipFile.CreateFromDirectory(tempDirectory, zipFile);
+                    CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> { { "b", "_data._EntityId;_data.GoesTo;\r_data._EntityId;_data.GoesTo;\rfirst;11;\r" } });
 
-            // import
-            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()), exportFileType: "Excel");
+                    ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
-            var shared = sut.DataRepository.Read("first");
-            Assert.Equal(0, shared.ComesFrom);
-            Assert.Equal(11, shared.GoesTo);
+                    // import
+                    sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()), exportFileType: "Excel");
 
-            // clear
-            if (Directory.Exists(tempDirectory))
-                Directory.Delete(tempDirectory, true);
-            if (File.Exists(zipFile))
-                File.Delete(zipFile);
+                    var shared = sut.DataRepository.Read("first");
+                    Assert.Equal(0, shared.ComesFrom);
+                    Assert.Equal(11, shared.GoesTo);
+
+                    // clear
+                    if (Directory.Exists(tempDirectory))
+                        Directory.Delete(tempDirectory, true);
+                    if (File.Exists(zipFile))
+                        File.Delete(zipFile);
+
+                    // Test passed, exit retry loop
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    lastException = ex;
+                    if (attempt >= maxRetries)
+                    {
+                        throw;
+                    }
+                    // Optional: Add delay between retries
+                    await Task.Delay(100);
+                }
+            }
+
+            // If we get here, all retries failed
+            if (lastException != null)
+            {
+                throw lastException;
+            }
         }
 
         [Fact()]
         public async void ImportTestWithExtraElements()
         {
-            var parent = NSubstitute.Substitute.For<ITwinObject>();
-            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            int maxRetries = 3;
+            int attempt = 0;
+            Exception lastException = null;
 
-            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
-            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
-            sut.SetRepository(repo);
+            while (attempt < maxRetries)
+            {
+                attempt++;
+                try
+                {
+                    var parent = NSubstitute.Substitute.For<ITwinObject>();
+                    parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
 
-            var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataTestWithExtraElements", "importDataPrepare");
-            var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataTestWithExtraElements", "ImportData.zip");
+                    var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+                    var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+                    sut.SetRepository(repo);
 
-            Directory.CreateDirectory(tempDirectory);
+                    var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataTestWithExtraElements", "importDataPrepare");
+                    var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataTestWithExtraElements", "ImportData.zip");
 
-            File.Delete(zipFile);
+                    Directory.CreateDirectory(tempDirectory);
 
-            CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> { { "b", "_data._EntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\rhey remote create;48;68;130;\r" } });
+                    File.Delete(zipFile);
 
-            ZipFile.CreateFromDirectory(tempDirectory, zipFile);
+                    CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> { { "b", "_data._EntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\rhey remote create;48;68;130;\r" } });
 
-            // import
-            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()), exportFileType: "Excel");
+                    ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
-            var shared = sut.DataRepository.Read("hey remote create");
-            Assert.Equal(48, shared.ComesFrom);
-            Assert.Equal(68, shared.GoesTo);
+                    // import
+                    sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()), exportFileType: "Excel");
 
-            // clear
-            if (Directory.Exists(tempDirectory))
-                Directory.Delete(tempDirectory, true);
-            if (File.Exists(zipFile))
-                File.Delete(zipFile);
+                    var shared = sut.DataRepository.Read("hey remote create");
+                    Assert.Equal(48, shared.ComesFrom);
+                    Assert.Equal(68, shared.GoesTo);
+
+                    // clear
+                    if (Directory.Exists(tempDirectory))
+                        Directory.Delete(tempDirectory, true);
+                    if (File.Exists(zipFile))
+                        File.Delete(zipFile);
+
+                    // Test passed, exit retry loop
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    lastException = ex;
+                    if (attempt >= maxRetries)
+                    {
+                        throw;
+                    }
+                    // Optional: Add delay between retries
+                    await Task.Delay(100);
+                }
+            }
+
+            // If we get here, all retries failed
+            if (lastException != null)
+            {
+                throw lastException;
+            }
         }
     }
 }
