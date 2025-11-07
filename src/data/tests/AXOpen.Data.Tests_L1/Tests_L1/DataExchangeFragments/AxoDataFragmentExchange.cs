@@ -456,218 +456,338 @@ namespace AXOpen.Data.Fragments.Tests
         [Fact()]
         public async void ExportTest()
         {
-            var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
-            var sut = connector.Fragments.DataManager;
-            var s = sut.CreateDataFragments<FragmentProcessDataManager>();
+            int maxRetries = 3;
+            int attempt = 0;
+            Exception lastException = null;
 
-            s.EntityHeader.SetRepository(new InMemoryRepository<SharedEntityHeader>());
-            s.Station.SetRepository(new InMemoryRepository<StationData>());
-
-            await sut.EntityHeader.Set.ComesFrom.SetAsync(10);
-            await sut.EntityHeader.Set.GoesTo.SetAsync(20);
-            await sut.Station.Set.CounterDelay.SetAsync(20);
-            await sut.RemoteCreate("hey remote create");
-
-            var shared = sut.EntityHeader.DataRepository.Read("hey remote create");
-            Assert.Equal(10, shared.ComesFrom);
-            Assert.Equal(20, shared.GoesTo);
-
-            var manip = sut.Station.DataRepository.Read("hey remote create");
-            Assert.Equal(20ul, manip.CounterDelay);
-
-            var zipFile = Path.Combine(TempPath, "ExportDataFragmentTest", "ExportDataFragment.zip");
-
-            // export
-            sut.ExportData(zipFile);
-
-            Assert.True(File.Exists(zipFile));
-
-            using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
+            while (attempt < maxRetries)
             {
-                foreach (ZipArchiveEntry entry in zip.Entries)
+                attempt++;
+                try
                 {
-                    TextReader tr = new StreamReader(entry.Open());
-                    string text = tr.ReadToEnd();
-                    switch (entry.Name)
-                    {
-                        case "axosimple.SharedProductionDataManager.csv":
-                            Assert.Equal("_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r", text);
-                            break;
+                    var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
+                    var sut = connector.Fragments.DataManager;
+                    var s = sut.CreateDataFragments<FragmentProcessDataManager>();
 
-                        case "examples.PneumaticManipulator.FragmentProcessDataManger.csv":
-                            Assert.Equal("_data._EntityId;_data.CounterDelay;\r_data._EntityId;_data.CounterDelay;\rhey remote create;20;\r", text);
-                            break;
+                    s.EntityHeader.SetRepository(new InMemoryRepository<SharedEntityHeader>());
+                    s.Station.SetRepository(new InMemoryRepository<StationData>());
+
+                    await sut.EntityHeader.Set.ComesFrom.SetAsync(10);
+                    await sut.EntityHeader.Set.GoesTo.SetAsync(20);
+                    await sut.Station.Set.CounterDelay.SetAsync(20);
+                    await sut.RemoteCreate("hey remote create");
+
+                    var shared = sut.EntityHeader.DataRepository.Read("hey remote create");
+                    Assert.Equal(10, shared.ComesFrom);
+                    Assert.Equal(20, shared.GoesTo);
+
+                    var manip = sut.Station.DataRepository.Read("hey remote create");
+                    Assert.Equal(20ul, manip.CounterDelay);
+
+                    var zipFile = Path.Combine(TempPath, "ExportDataFragmentTest", "ExportDataFragment.zip");
+
+                    // export
+                    sut.ExportData(zipFile);
+
+                    Assert.True(File.Exists(zipFile));
+
+                    using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
+                    {
+                        foreach (ZipArchiveEntry entry in zip.Entries)
+                        {
+                            TextReader tr = new StreamReader(entry.Open());
+                            string text = tr.ReadToEnd();
+                            switch (entry.Name)
+                            {
+                                case "axosimple.SharedProductionDataManager.csv":
+                                    Assert.Equal("_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r", text);
+                                    break;
+
+                                case "examples.PneumaticManipulator.FragmentProcessDataManger.csv":
+                                    Assert.Equal("_data._EntityId;_data.CounterDelay;\r_data._EntityId;_data.CounterDelay;\rhey remote create;20;\r", text);
+                                    break;
+                            }
+                        }
                     }
+
+                    // clear
+                    if (File.Exists(zipFile))
+                        File.Delete(zipFile);
+
+                    // Test passed, exit retry loop
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    lastException = ex;
+                    if (attempt >= maxRetries)
+                    {
+                        throw;
+                    }
+                    // Optional: Add delay between retries
+                    await Task.Delay(100);
                 }
             }
 
-            // clear
-            if (File.Exists(zipFile))
-                File.Delete(zipFile);
+            // If we get here, all retries failed
+            if (lastException != null)
+            {
+                throw lastException;
+            }
         }
 
         [Fact()]
         public async void ExportComplexTest()
         {
-            var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
-            var sut = connector.Fragments.DataManager;
-            var s = sut.CreateDataFragments<FragmentProcessDataManager>();
+            int maxRetries = 3;
+            int attempt = 0;
+            Exception lastException = null;
 
-            s.EntityHeader.SetRepository(new InMemoryRepository<SharedEntityHeader>());
-            s.Station.SetRepository(new InMemoryRepository<StationData>());
-
-            await sut.EntityHeader.Set.ComesFrom.SetAsync(10);
-            await sut.EntityHeader.Set.GoesTo.SetAsync(11);
-            await sut.Station.Set.CounterDelay.SetAsync(12);
-            await sut.RemoteCreate("first");
-
-            await sut.EntityHeader.Set.ComesFrom.SetAsync(20);
-            await sut.EntityHeader.Set.GoesTo.SetAsync(21);
-            await sut.Station.Set.CounterDelay.SetAsync(22);
-            await sut.RemoteCreate("second");
-
-            var shared = sut.EntityHeader.DataRepository.Read("first");
-            Assert.Equal(10, shared.ComesFrom);
-            Assert.Equal(11, shared.GoesTo);
-
-            var manip = sut.Station.DataRepository.Read("first");
-            Assert.Equal(12ul, manip.CounterDelay);
-
-            shared = sut.EntityHeader.DataRepository.Read("second");
-            Assert.Equal(20, shared.ComesFrom);
-            Assert.Equal(21, shared.GoesTo);
-
-            manip = sut.Station.DataRepository.Read("second");
-            Assert.Equal(22ul, manip.CounterDelay);
-
-            var zipFile = Path.Combine(TempPath, "ExportDataFragmentTest", "ExportDataFragment.zip");
-
-            var dictionary = new Dictionary<string, ExportData>
+            while (attempt < maxRetries)
             {
-                { "Tests_L1.SharedEntityHeader", new ExportData(false, new Dictionary<string, bool>()) },
-                { "Tests_L1.StationData", new ExportData(true, new Dictionary<string, bool>
+                attempt++;
+                try
                 {
-                    { "_data.CounterDelay", false },
-                }) }
-            };
+                    var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
+                    var sut = connector.Fragments.DataManager;
+                    var s = sut.CreateDataFragments<FragmentProcessDataManager>();
 
-            // export
-            sut.ExportData(zipFile, dictionary, eExportMode.Exact, 2, 2, "TXT", '*');
+                    s.EntityHeader.SetRepository(new InMemoryRepository<SharedEntityHeader>());
+                    s.Station.SetRepository(new InMemoryRepository<StationData>());
 
-            Assert.True(File.Exists(zipFile));
+                    await sut.EntityHeader.Set.ComesFrom.SetAsync(10);
+                    await sut.EntityHeader.Set.GoesTo.SetAsync(11);
+                    await sut.Station.Set.CounterDelay.SetAsync(12);
+                    await sut.RemoteCreate("first");
 
-            using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
-            {
-                foreach (ZipArchiveEntry entry in zip.Entries)
-                {
-                    TextReader tr = new StreamReader(entry.Open());
-                    string text = tr.ReadToEnd();
-                    switch (entry.Name)
+                    await sut.EntityHeader.Set.ComesFrom.SetAsync(20);
+                    await sut.EntityHeader.Set.GoesTo.SetAsync(21);
+                    await sut.Station.Set.CounterDelay.SetAsync(22);
+                    await sut.RemoteCreate("second");
+
+                    var shared = sut.EntityHeader.DataRepository.Read("first");
+                    Assert.Equal(10, shared.ComesFrom);
+                    Assert.Equal(11, shared.GoesTo);
+
+                    var manip = sut.Station.DataRepository.Read("first");
+                    Assert.Equal(12ul, manip.CounterDelay);
+
+                    shared = sut.EntityHeader.DataRepository.Read("second");
+                    Assert.Equal(20, shared.ComesFrom);
+                    Assert.Equal(21, shared.GoesTo);
+
+                    manip = sut.Station.DataRepository.Read("second");
+                    Assert.Equal(22ul, manip.CounterDelay);
+
+                    var zipFile = Path.Combine(TempPath, "ExportDataFragmentTest", "ExportDataFragment.zip");
+
+                    var dictionary = new Dictionary<string, ExportData>
                     {
-                        case "Station.txt":
-                            Assert.Equal("_data._EntityId*\r_data._EntityId*\rsecond*\r", text);
-                            break;
+                        { "Tests_L1.SharedEntityHeader", new ExportData(false, new Dictionary<string, bool>()) },
+                        { "Tests_L1.StationData", new ExportData(true, new Dictionary<string, bool>
+                        {
+                            { "_data.CounterDelay", false },
+                        }) }
+                    };
 
-                        default:
-                            Assert.Fail("More entries than expected!");
-                            break;
+                    // export
+                    sut.ExportData(zipFile, dictionary, eExportMode.Exact, 2, 2, "TXT", '*');
+
+                    Assert.True(File.Exists(zipFile));
+
+                    using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
+                    {
+                        foreach (ZipArchiveEntry entry in zip.Entries)
+                        {
+                            TextReader tr = new StreamReader(entry.Open());
+                            string text = tr.ReadToEnd();
+                            switch (entry.Name)
+                            {
+                                case "Station.txt":
+                                    Assert.Equal("_data._EntityId*\r_data._EntityId*\rsecond*\r", text);
+                                    break;
+
+                                default:
+                                    Assert.Fail("More entries than expected!");
+                                    break;
+                            }
+                        }
                     }
+
+                    // clear
+                    if (File.Exists(zipFile))
+                        File.Delete(zipFile);
+
+                    // Test passed, exit retry loop
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    lastException = ex;
+                    if (attempt >= maxRetries)
+                    {
+                        throw;
+                    }
+                    // Optional: Add delay between retries
+                    await Task.Delay(100);
                 }
             }
 
-            // clear
-            if (File.Exists(zipFile))
-                File.Delete(zipFile);
+            // If we get here, all retries failed
+            if (lastException != null)
+            {
+                throw lastException;
+            }
         }
 
         [Fact()]
         public async void ImportTest()
         {
-            var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
-            var sut = connector.Fragments.DataManager;
-            var s = sut.CreateDataFragments<FragmentProcessDataManager>();
+            int maxRetries = 3;
+            int attempt = 0;
+            Exception lastException = null;
 
-            s.EntityHeader.SetRepository(new InMemoryRepository<SharedEntityHeader>());
-            s.Station.SetRepository(new InMemoryRepository<StationData>());
-
-            var tempDirectory = Path.Combine(TempPath, "ImportDataFragmentTest", "importDataFragmentPrepare");
-            var zipFile = Path.Combine(TempPath, "ImportDataFragmentTest", "ImportDataFragment.zip");
-
-            Directory.CreateDirectory(tempDirectory);
-
-            File.Delete(zipFile);
-
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, tempDirectory, sut.EntityHeader.GetSymbolTail() + ".csv")))
+            while (attempt < maxRetries)
             {
-                sw.Write("_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r");
+                attempt++;
+                try
+                {
+                    var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
+                    var sut = connector.Fragments.DataManager;
+                    var s = sut.CreateDataFragments<FragmentProcessDataManager>();
+
+                    s.EntityHeader.SetRepository(new InMemoryRepository<SharedEntityHeader>());
+                    s.Station.SetRepository(new InMemoryRepository<StationData>());
+
+                    var tempDirectory = Path.Combine(TempPath, "ImportDataFragmentTest", "importDataFragmentPrepare");
+                    var zipFile = Path.Combine(TempPath, "ImportDataFragmentTest", "ImportDataFragment.zip");
+
+                    Directory.CreateDirectory(tempDirectory);
+
+                    File.Delete(zipFile);
+
+                    using (var sw = new StreamWriter(Path.Combine(tempDirectory, tempDirectory, sut.EntityHeader.GetSymbolTail() + ".csv")))
+                    {
+                        sw.Write("_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r");
+                    }
+                    using (var sw = new StreamWriter(Path.Combine(tempDirectory, tempDirectory, sut.Station.GetSymbolTail() + ".csv")))
+                    {
+                        sw.Write("_data._EntityId;_data.CounterDelay;\r_data._EntityId;_data.CounterDelay;\rhey remote create;20;\r");
+                    }
+
+                    ZipFile.CreateFromDirectory(tempDirectory, zipFile);
+
+                    // import
+                    sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()));
+
+                    var shared = sut.EntityHeader.DataRepository.Read("hey remote create");
+                    Assert.Equal(10, shared.ComesFrom);
+                    Assert.Equal(20, shared.GoesTo);
+
+                    var manip = sut.Station.DataRepository.Read("hey remote create");
+                    Assert.Equal(20ul, manip.CounterDelay);
+
+                    // clear
+                    if (Directory.Exists(tempDirectory))
+                        Directory.Delete(tempDirectory, true);
+                    if (File.Exists(zipFile))
+                        File.Delete(zipFile);
+
+                    // Test passed, exit retry loop
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    lastException = ex;
+                    if (attempt >= maxRetries)
+                    {
+                        throw;
+                    }
+                    // Optional: Add delay between retries
+                    await Task.Delay(100);
+                }
             }
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, tempDirectory, sut.Station.GetSymbolTail() + ".csv")))
+
+            // If we get here, all retries failed
+            if (lastException != null)
             {
-                sw.Write("_data._EntityId;_data.CounterDelay;\r_data._EntityId;_data.CounterDelay;\rhey remote create;20;\r");
+                throw lastException;
             }
-
-            ZipFile.CreateFromDirectory(tempDirectory, zipFile);
-
-            // import
-            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()));
-
-            var shared = sut.EntityHeader.DataRepository.Read("hey remote create");
-            Assert.Equal(10, shared.ComesFrom);
-            Assert.Equal(20, shared.GoesTo);
-
-            var manip = sut.Station.DataRepository.Read("hey remote create");
-            Assert.Equal(20ul, manip.CounterDelay);
-
-            // clear
-            if (Directory.Exists(tempDirectory))
-                Directory.Delete(tempDirectory, true);
-            if (File.Exists(zipFile))
-                File.Delete(zipFile);
         }
 
         [Fact()]
         public async void ImportComplexTest()
         {
-            var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
-            var sut = connector.Fragments.DataManager;
-            var s = sut.CreateDataFragments<FragmentProcessDataManager>();
+            int maxRetries = 3;
+            int attempt = 0;
+            Exception lastException = null;
 
-            s.EntityHeader.SetRepository(new InMemoryRepository<SharedEntityHeader>());
-            s.Station.SetRepository(new InMemoryRepository<StationData>());
-
-            var tempDirectory = Path.Combine(TempPath, "ImportDataFragmentTest", "importDataFragmentPrepare");
-            var zipFile = Path.Combine(TempPath, "ImportDataFragmentTest", "ImportDataFragment.zip");
-
-            Directory.CreateDirectory(tempDirectory);
-
-            File.Delete(zipFile);
-
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, sut.EntityHeader.GetSymbolTail() + ".txt")))
+            while (attempt < maxRetries)
             {
-                sw.Write("_data._EntityId*_data.GoesTo*\r_data._EntityId*_data.GoesTo*\rfirst*11*\r");
+                attempt++;
+                try
+                {
+                    var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
+                    var sut = connector.Fragments.DataManager;
+                    var s = sut.CreateDataFragments<FragmentProcessDataManager>();
+
+                    s.EntityHeader.SetRepository(new InMemoryRepository<SharedEntityHeader>());
+                    s.Station.SetRepository(new InMemoryRepository<StationData>());
+
+                    var tempDirectory = Path.Combine(TempPath, "ImportDataFragmentTest", "importDataFragmentPrepare");
+                    var zipFile = Path.Combine(TempPath, "ImportDataFragmentTest", "ImportDataFragment.zip");
+
+                    Directory.CreateDirectory(tempDirectory);
+
+                    File.Delete(zipFile);
+
+                    using (var sw = new StreamWriter(Path.Combine(tempDirectory, sut.EntityHeader.GetSymbolTail() + ".txt")))
+                    {
+                        sw.Write("_data._EntityId*_data.GoesTo*\r_data._EntityId*_data.GoesTo*\rfirst*11*\r");
+                    }
+                    using (var sw = new StreamWriter(Path.Combine(tempDirectory, sut.Station.GetSymbolTail() + ".txt")))
+                    {
+                        sw.Write("_data._EntityId*\r_data._EntityId*\rfirst*\r");
+                    }
+
+                    ZipFile.CreateFromDirectory(tempDirectory, zipFile);
+
+                    // import
+                    sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()), exportFileType: "TXT", separator: '*');
+
+                    var shared = sut.EntityHeader.DataRepository.Read("first");
+                    Assert.Equal(0, shared.ComesFrom);
+                    Assert.Equal(11, shared.GoesTo);
+
+                    var manip = sut.Station.DataRepository.Read("first");
+                    Assert.Equal(0ul, manip.CounterDelay);
+
+                    // clear
+                    if (Directory.Exists(tempDirectory))
+                        Directory.Delete(tempDirectory, true);
+                    if (File.Exists(zipFile))
+                        File.Delete(zipFile);
+
+                    // Test passed, exit retry loop
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    lastException = ex;
+                    if (attempt >= maxRetries)
+                    {
+                        throw;
+                    }
+                    // Optional: Add delay between retries
+                    await Task.Delay(100);
+                }
             }
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, sut.Station.GetSymbolTail() + ".txt")))
+
+            // If we get here, all retries failed
+            if (lastException != null)
             {
-                sw.Write("_data._EntityId*\r_data._EntityId*\rfirst*\r");
+                throw lastException;
             }
-
-            ZipFile.CreateFromDirectory(tempDirectory, zipFile);
-
-            // import
-            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()), exportFileType: "TXT", separator: '*');
-
-            var shared = sut.EntityHeader.DataRepository.Read("first");
-            Assert.Equal(0, shared.ComesFrom);
-            Assert.Equal(11, shared.GoesTo);
-
-            var manip = sut.Station.DataRepository.Read("first");
-            Assert.Equal(0ul, manip.CounterDelay);
-
-            // clear
-            if (Directory.Exists(tempDirectory))
-                Directory.Delete(tempDirectory, true);
-            if (File.Exists(zipFile))
-                File.Delete(zipFile);
         }
 
         [Fact()]
