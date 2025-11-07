@@ -4,15 +4,12 @@
 @using AXSharp.Connector
 @inherits RenderableComplexComponentBase<AxoInspectorData>
 
-<button type="button" 
-        class="flux-inspector-spot @ResultStateCss @Class" 
-        style="@Style"
-        @onclick="SetCurrentObject"
-        title="@Component?.AttributeName - @GetResultText()"
-        aria-label="@Component?.AttributeName inspection status: @GetResultText()">
-    <span class="flux-inspector-spot__indicator @ResultIndicatorCss" aria-hidden="true"></span>
-    <span class="flux-inspector-spot__label">@Component?.AttributeName</span>
-    <span class="flux-inspector-spot__icon @ResultIconCss" aria-hidden="true">@GetResultIcon()</span>
+<button data-axo-inspector-data-spot-view type="button" class="action-btn justify-between @Class" @onclick="SetCurrentObject" title="@Component?.AttributeName - @GetResultText()">
+    <div class="flex flex-wrap flex-row items-center gap-2">
+        <span class="inline flex w-3 h-3 rounded-full @ResultIndicatorCss"></span>
+        <span>@Component?.AttributeName</span>
+    </div>
+    <GenericIconView Result="Data.Result.LastValue" HasLabel="false" />
 </button>
 
 @code {
@@ -29,46 +26,16 @@
 
     private eInspectorResult ResultValue => ((eInspectorResult)Data?.Result.LastValue);
 
-    private string ResultStateCss => ResultValue switch
-    {
-        eInspectorResult.NoAction => "flux-inspector-spot--noaction",
-        eInspectorResult.Running => "flux-inspector-spot--running",
-        eInspectorResult.Passed => "flux-inspector-spot--passed",
-        eInspectorResult.Failed => "flux-inspector-spot--failed",
-        eInspectorResult.Inconclusive => "flux-inspector-spot--inconclusive",
-        eInspectorResult.Excluded => "flux-inspector-spot--excluded",
-        eInspectorResult.Bypassed => "flux-inspector-spot--bypassed",
-        _ => "flux-inspector-spot--unknown"
-    };
-
     private string ResultIndicatorCss => ResultValue switch
     {
-        eInspectorResult.NoAction => "flux-inspector-spot__indicator--noaction",
-        eInspectorResult.Running => "flux-inspector-spot__indicator--running",
-        eInspectorResult.Passed => "flux-inspector-spot__indicator--passed",
-        eInspectorResult.Failed => "flux-inspector-spot__indicator--failed",
-        eInspectorResult.Inconclusive => "flux-inspector-spot__indicator--inconclusive",
-        eInspectorResult.Excluded => "flux-inspector-spot__indicator--excluded",
-        eInspectorResult.Bypassed => "flux-inspector-spot__indicator--bypassed",
-        _ => "flux-inspector-spot__indicator--unknown"
-    };
-
-    private string ResultIconCss => ResultValue switch
-    {
-        eInspectorResult.Passed => "flux-inspector-spot__icon--passed",
-        eInspectorResult.Failed => "flux-inspector-spot__icon--failed",
-        eInspectorResult.Inconclusive => "flux-inspector-spot__icon--inconclusive",
-        _ => ""
-    };
-
-    private string GetResultIcon() => ResultValue switch
-    {
-        eInspectorResult.Running => "▶",
-        eInspectorResult.Passed => "✓",
-        eInspectorResult.Failed => "✕",
-        eInspectorResult.Inconclusive => "!",
-        eInspectorResult.Bypassed => "»",
-        _ => ""
+        eInspectorResult.NoAction => "bg-primary/80",
+        eInspectorResult.Running => "bg-info/80",
+        eInspectorResult.Passed => "bg-success/80",
+        eInspectorResult.Failed => "bg-danger/80",
+        eInspectorResult.Inconclusive => "bg-warning/80",
+        eInspectorResult.Excluded => "bg-warning/70",
+        eInspectorResult.Bypassed => "bg-warning/60",
+        _ => "bg-primary/80"
     };
 
     private string GetResultText() => ResultValue switch
