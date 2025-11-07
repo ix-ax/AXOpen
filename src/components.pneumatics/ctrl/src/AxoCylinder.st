@@ -4,6 +4,10 @@ USING AXOpen.Messaging.Static;
 
 
 NAMESPACE AXOpen.Components.Pneumatics
+    //<summary>
+    /// Represents a pneumatic cylinder with two positions: in and out. It provides tasks to move the cylinder in and out, as well as to stop its movement.
+    /// The component also includes sensors to detect the cylinder's position and signals to control its movement
+    /// </summary>
     {S7.extern=ReadWrite}
     {#ix-prop:public string InLabel}
     {#ix-prop:public string OutLabel}
@@ -61,14 +65,14 @@ NAMESPACE AXOpen.Components.Pneumatics
 
 
         ///<summary>
-        /// Returns 'true' if the movement to the out position is currently suspended.
+        /// Returns 'true' if the movement to the extended position is currently suspended.
         ///</summary>
         METHOD PUBLIC IsMoveToOutSuspended : BOOL
             IsMoveToOutSuspended := _MoveToOutIsSuspended;
         END_METHOD
 
         ///<summary>
-        /// Returns 'true' if the movement to the in position is currently suspended.
+        /// Returns 'true' if the movement to the retracted position is currently suspended.
         /// </summary>
         METHOD PUBLIC IsMoveToInSuspended : BOOL
             IsMoveToInSuspended := _MoveToInIsSuspended;
@@ -167,14 +171,14 @@ NAMESPACE AXOpen.Components.Pneumatics
         END_METHOD        
 
         ///<summary>
-		/// Invokes the movement to the out position and returns the task state. 	
+		/// Invokes the movement to the extended position and returns the task state. 	
         ///</summary>       
         METHOD PUBLIC MoveOut : IAxoTaskState
             MoveOut := _MoveOutTask.Invoke(THIS);
         END_METHOD
 
         ///<summary>
-		/// Invokes the movement to the in position and returns the task state. 	
+		/// Invokes the movement to the retracted position and returns the task state. 	
         ///</summary>       
         METHOD PUBLIC MoveIn : IAxoTaskState
             MoveIn := _MoveInTask.Invoke(THIS);
@@ -186,9 +190,9 @@ NAMESPACE AXOpen.Components.Pneumatics
         METHOD PUBLIC Stop : IAxoTaskState
             Stop := _StopTask.Invoke(THIS);
         END_METHOD
-
+     
         ///<summary>
-        /// Suspends the movement to the out position while the condition is 'true'. Task remains still executing.
+        /// Suspends the movement to the extended position while the condition is 'true'. Task remains still executing.
         ///</summary>
         METHOD PUBLIC SuspendMoveToWorkWhile 
             VAR_INPUT
@@ -219,7 +223,7 @@ NAMESPACE AXOpen.Components.Pneumatics
         END_METHOD        
 
         ///<summary>
-        /// Suspends the movement to the in position while the condition is 'true'. Task remains still executing.
+        /// Suspends the movement to the retracted position while the condition is 'true'. Task remains still executing.
         ///</summary>
         METHOD PUBLIC SuspendMoveToHomeWhile 
             VAR_INPUT
@@ -250,7 +254,7 @@ NAMESPACE AXOpen.Components.Pneumatics
         END_METHOD   
 
         ///<summary>
-        /// Aborts the movement to the out position when the condition is 'true' and restores the respective task.
+        /// Aborts the movement to the extended position when the condition is 'true' and restores the respective task.
         ///</summary>
         METHOD PUBLIC AbortMoveToWorkWhen 
             VAR_INPUT
@@ -266,7 +270,7 @@ NAMESPACE AXOpen.Components.Pneumatics
         END_METHOD        
 
         ///<summary>
-        /// Aborts the movement to the in position when the condition is 'true' and restores the respective task.
+        /// Aborts the movement to the retracted position when the condition is 'true' and restores the respective task.
         ///</summary>
         METHOD PUBLIC AbortMoveToHomeWhen 
             VAR_INPUT
