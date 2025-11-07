@@ -19,10 +19,10 @@ To accomplish this, call the `Run` method cyclically with the proper variables (
 **Example of the initialization and hardware signal assignment**
 [!code-smalltalk[](../../../../src/components.pneumatics/app/src/Documentation/DocumentationContext.st?name=DeclarationAndHWIO_Assignement)]
 
-To trigger the movements, two public methods, `MoveToHome` and `MoveToWork` are present. 
+To trigger the movements, two public methods, `MoveToHome` and `MoveOut` are present. 
 **Example of using MoveToHome method**
 [!code-smalltalk[](../../../../src/components.pneumatics/app/src/Documentation/DocumentationContext.st?name=MoveToHome)]
-**Example of using MoveToWork method**
+**Example of using MoveOut method**
 [!code-smalltalk[](../../../../src/components.pneumatics/app/src/Documentation/DocumentationContext.st?name=MoveToWork)]
 
 To stop the movement, when the cylinder is moving, the public `Stop` method is present. 
@@ -33,15 +33,15 @@ To stop the movement, when the cylinder is moving, the public `Stop` method is p
 
 **Blocking the movement**
 To block the movement, there are four public methods present:
-`SuspendMoveToHomeWhile(Condition)` - Suspends the movement to the home position while the `Condition` is `TRUE`. If the task was already invoked, it remains still executing and, with the falling edge of the `Condition` cylinder, continues its movement to the home position. If the task is invoked when `Condition` is already `TRUE`, the task starts to be executed, but the movement starts also with the falling edge of the `Condition`. 
-`SuspendMoveToWorkWhile(Condition)` - Works exactly the same as `SuspendMoveToHomeWhile(Condition)` but in the opposite direction.
+`SuspendMoveToHomeWhile(Condition)` - Suspends the movement to the in position while the `Condition` is `TRUE`. If the task was already invoked, it remains still executing and, with the falling edge of the `Condition` cylinder, continues its movement to the in position. If the task is invoked when `Condition` is already `TRUE`, the task starts to be executed, but the movement starts also with the falling edge of the `Condition`. 
+`SuspendMoveToWorkWhile(Condition)` - Works exactly the same as `SuspendMoveToHomeWhile(Condition)` but in the opposite direction (to the out position).
 **Example of using SuspendMoveToHomeWhile method**
 [!code-smalltalk[](../../../../src/components.pneumatics/app/src/Documentation/DocumentationContext.st?name=SuspendMoveToHomeWhile)]
 **Example of using SuspendMoveToWorkWhile method**
 [!code-smalltalk[](../../../../src/components.pneumatics/app/src/Documentation/DocumentationContext.st?name=SuspendMoveToWorkWhile)]
 
-`AbortMoveToHomeWhen(Condition)` - Aborts the movement to the home position when the `Condition` is `TRUE`. If the task was already invoked, it is restored and disabled. After the falling edge of the `Condition` cylinder does not continue its movement to the home position. The task needs to be invoked again to start the movement. 
-`AbortMoveToWorkWhen(Condition)` - Works exactly the same as `AbortMoveToHomeWhen(Condition)` but in the opposite direction.
+`AbortMoveToHomeWhen(Condition)` - Aborts the movement to the in position when the `Condition` is `TRUE`. If the task was already invoked, it is restored and disabled. After the falling edge of the `Condition` cylinder does not continue its movement to the in position. The task needs to be invoked again to start the movement. 
+`AbortMoveToWorkWhen(Condition)` - Works exactly the same as `AbortMoveToHomeWhen(Condition)` but in the opposite direction (to the out position).
 **Example of using AbortMoveToHomeWhen method**
 [!code-smalltalk[](../../../../src/components.pneumatics/app/src/Documentation/DocumentationContext.st?name=AbortMoveToHomeWhen)]
 **Example of using AbortMoveToWorkWhen method**
