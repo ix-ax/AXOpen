@@ -4,8 +4,8 @@ namespace AXOpen.Data
 {
     public class PersistentRecord : IBrowsableDataObject
     {
-        private string _DataEntityId = "";
-        public string DataEntityId { get => _DataEntityId; set => _DataEntityId = value; }
+        private string __EntityId = "";
+        public string _EntityId { get => __EntityId; set => __EntityId = value; }
         public dynamic RecordId { set; get; }
 
         public DateTime _Created { set; get; }

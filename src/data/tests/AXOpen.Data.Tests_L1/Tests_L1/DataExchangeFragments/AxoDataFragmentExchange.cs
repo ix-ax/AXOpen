@@ -236,12 +236,12 @@ namespace AXOpen.Data.Fragments.Tests
             { ComesFrom = 185, GoesTo = 398 });
             stationDataRepo.Create("hey remote create", new() { CounterDelay = 898577ul });
 
-            await sut.FromRepositoryToShadowsAsync(new SharedEntityHeader() { DataEntityId = "hey remote create" }, s.DataExchangeTwinObject);
+            await sut.FromRepositoryToShadowsAsync(new SharedEntityHeader() { _EntityId = "hey remote create" }, s.DataExchangeTwinObject);
 
-            Assert.Equal("hey remote create", sut.EntityHeader.Set.DataEntityId.Shadow);
+            Assert.Equal("hey remote create", sut.EntityHeader.Set._EntityId.Shadow);
             Assert.Equal(185, sut.EntityHeader.Set.ComesFrom.Shadow);
             Assert.Equal(398, sut.EntityHeader.Set.GoesTo.Shadow);
-            Assert.Equal("hey remote create", sut.Station.Set.DataEntityId.Shadow);
+            Assert.Equal("hey remote create", sut.Station.Set._EntityId.Shadow);
             Assert.Equal(898577ul, sut.Station.Set.CounterDelay.Shadow);
         }
 
@@ -263,15 +263,15 @@ namespace AXOpen.Data.Fragments.Tests
             { ComesFrom = 485, GoesTo = 898 });
             stationDataRepo.Create(entityId, new() { CounterDelay = 5898577ul });
 
-            await sut.FromRepositoryToControllerAsync(new SharedEntityHeader() { DataEntityId = entityId }, s.DataExchangeTwinObject);
+            await sut.FromRepositoryToControllerAsync(new SharedEntityHeader() { _EntityId = entityId }, s.DataExchangeTwinObject);
 
             // TODO -> not possible to read from dummy connector
 
-            //Assert.Equal(entityId, await sut.EntityHeader.Set.DataEntityId.GetAsync());
+            //Assert.Equal(entityId, await sut.EntityHeader.Set._EntityId.GetAsync());
             //Assert.Equal(485, await sut.EntityHeader.Set.ComesFrom.GetAsync());
             //Assert.Equal(898, await sut.EntityHeader.Set.GoesTo.GetAsync());
 
-            //Assert.Equal(entityId, await sut.Manip.Set.DataEntityId.GetAsync());
+            //Assert.Equal(entityId, await sut.Manip.Set._EntityId.GetAsync());
             //Assert.Equal(5898577ul, await sut.Manip.Set.CounterDelay.GetAsync());
 
             Assert.True(true);
@@ -356,10 +356,10 @@ namespace AXOpen.Data.Fragments.Tests
             await sut.Station.Set.CounterDelay.SetAsync(20);
             await sut.RemoteCreate("hey remote create");
 
-            sut.EntityHeader.Set.DataEntityId.Shadow = "hey remote create";
+            sut.EntityHeader.Set._EntityId.Shadow = "hey remote create";
             sut.EntityHeader.Set.ComesFrom.Shadow = 188;
             sut.EntityHeader.Set.GoesTo.Shadow = 568;
-            sut.Station.Set.DataEntityId.Shadow = "hey remote create";
+            sut.Station.Set._EntityId.Shadow = "hey remote create";
             sut.Station.Set.CounterDelay.Shadow = 8566ul;
 
             await sut.UpdateFromShadowsAsync(sut.DataExchangeTwinObject);
@@ -390,12 +390,12 @@ namespace AXOpen.Data.Fragments.Tests
 
             var shared = sut.EntityHeader.DataRepository.Read("hey remote create");
 
-            Assert.Equal("hey remote create", shared.DataEntityId);
+            Assert.Equal("hey remote create", shared._EntityId);
             Assert.Equal(111, shared.ComesFrom);
             Assert.Equal(222, shared.GoesTo);
 
             var manip = sut.Station.DataRepository.Read("hey remote create");
-            Assert.Equal("hey remote create", manip.DataEntityId);
+            Assert.Equal("hey remote create", manip._EntityId);
             Assert.Equal(4859ul, manip.CounterDelay);
         }
 
@@ -418,12 +418,12 @@ namespace AXOpen.Data.Fragments.Tests
             await sut.CreateCopyCurrentShadowsAsync("hey remote create - copy", sut.DataExchangeTwinObject);
 
             var shared = sut.EntityHeader.DataRepository.Read("hey remote create - copy");
-            Assert.Equal("hey remote create - copy", shared.DataEntityId);
+            Assert.Equal("hey remote create - copy", shared._EntityId);
             Assert.Equal(111, shared.ComesFrom);
             Assert.Equal(222, shared.GoesTo);
 
             var manip = sut.Station.DataRepository.Read("hey remote create - copy");
-            Assert.Equal("hey remote create - copy", manip.DataEntityId);
+            Assert.Equal("hey remote create - copy", manip._EntityId);
             Assert.Equal(4859ul, manip.CounterDelay);
         }
 
@@ -444,12 +444,12 @@ namespace AXOpen.Data.Fragments.Tests
             stationDataRepo.Create("hey remote create", new() { CounterDelay = 898577ul });
             stationDataRepo.Delete("hey remote create");
 
-            await sut.FromRepositoryToShadowsAsync(new SharedEntityHeader() { DataEntityId = "hey remote create" }, s.DataExchangeTwinObject);
+            await sut.FromRepositoryToShadowsAsync(new SharedEntityHeader() { _EntityId = "hey remote create" }, s.DataExchangeTwinObject);
 
-            Assert.Equal("hey remote create", sut.EntityHeader.Set.DataEntityId.Shadow);
+            Assert.Equal("hey remote create", sut.EntityHeader.Set._EntityId.Shadow);
             Assert.Equal(185, sut.EntityHeader.Set.ComesFrom.Shadow);
             Assert.Equal(398, sut.EntityHeader.Set.GoesTo.Shadow);
-            Assert.Equal("", sut.Station.Set.DataEntityId.Shadow);
+            Assert.Equal("", sut.Station.Set._EntityId.Shadow);
             Assert.Equal(0ul, sut.Station.Set.CounterDelay.Shadow);
         }
 
@@ -491,11 +491,11 @@ namespace AXOpen.Data.Fragments.Tests
                     switch (entry.Name)
                     {
                         case "axosimple.SharedProductionDataManager.csv":
-                            Assert.Equal("_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r", text);
+                            Assert.Equal("_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r", text);
                             break;
 
                         case "examples.PneumaticManipulator.FragmentProcessDataManger.csv":
-                            Assert.Equal("_data.DataEntityId;_data.CounterDelay;\r_data.DataEntityId;_data.CounterDelay;\rhey remote create;20;\r", text);
+                            Assert.Equal("_data._EntityId;_data.CounterDelay;\r_data._EntityId;_data.CounterDelay;\rhey remote create;20;\r", text);
                             break;
                     }
                 }
@@ -565,7 +565,7 @@ namespace AXOpen.Data.Fragments.Tests
                     switch (entry.Name)
                     {
                         case "Station.txt":
-                            Assert.Equal("_data.DataEntityId*\r_data.DataEntityId*\rsecond*\r", text);
+                            Assert.Equal("_data._EntityId*\r_data._EntityId*\rsecond*\r", text);
                             break;
 
                         default:
@@ -599,11 +599,11 @@ namespace AXOpen.Data.Fragments.Tests
 
             using (var sw = new StreamWriter(Path.Combine(tempDirectory, tempDirectory, sut.EntityHeader.GetSymbolTail() + ".csv")))
             {
-                sw.Write("_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r");
+                sw.Write("_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r");
             }
             using (var sw = new StreamWriter(Path.Combine(tempDirectory, tempDirectory, sut.Station.GetSymbolTail() + ".csv")))
             {
-                sw.Write("_data.DataEntityId;_data.CounterDelay;\r_data.DataEntityId;_data.CounterDelay;\rhey remote create;20;\r");
+                sw.Write("_data._EntityId;_data.CounterDelay;\r_data._EntityId;_data.CounterDelay;\rhey remote create;20;\r");
             }
 
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
@@ -644,11 +644,11 @@ namespace AXOpen.Data.Fragments.Tests
 
             using (var sw = new StreamWriter(Path.Combine(tempDirectory, sut.EntityHeader.GetSymbolTail() + ".txt")))
             {
-                sw.Write("_data.DataEntityId*_data.GoesTo*\r_data.DataEntityId*_data.GoesTo*\rfirst*11*\r");
+                sw.Write("_data._EntityId*_data.GoesTo*\r_data._EntityId*_data.GoesTo*\rfirst*11*\r");
             }
             using (var sw = new StreamWriter(Path.Combine(tempDirectory, sut.Station.GetSymbolTail() + ".txt")))
             {
-                sw.Write("_data.DataEntityId*\r_data.DataEntityId*\rfirst*\r");
+                sw.Write("_data._EntityId*\r_data._EntityId*\rfirst*\r");
             }
 
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
@@ -690,16 +690,16 @@ namespace AXOpen.Data.Fragments.Tests
             using (var sw = new StreamWriter(Path.Combine(tempDirectory, tempDirectory, sut.EntityHeader.GetSymbolTail() + ".csv")))
             {
                 sw.Write(
-                    "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r" +
-                    "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r" +
+                    "_data._EntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r" +
+                    "_data._EntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r" +
                     "hey remote create;10;20;30;\r"
                     );
             }
             using (var sw = new StreamWriter(Path.Combine(tempDirectory, tempDirectory, sut.Station.GetSymbolTail() + ".csv")))
             {
                 sw.Write(
-                    "_data.DataEntityId;_data.CounterDelay;_data.ExtraElement;\r" +
-                    "_data.DataEntityId;_data.CounterDelay;_data.ExtraElement;\r" +
+                    "_data._EntityId;_data.CounterDelay;_data.ExtraElement;\r" +
+                    "_data._EntityId;_data.CounterDelay;_data.ExtraElement;\r" +
                     "hey remote create;20;30;\r"
                     );
             }

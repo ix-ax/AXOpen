@@ -6,7 +6,7 @@ namespace AXOpen.Data
 {
     public interface ICrudDataObject 
     {       
-        OnlinerString DataEntityId { get; }        
+        OnlinerString _EntityId { get; }        
         ValueChangeTracker ChangeTracker { get; }
         List<ValueChangeItem> Changes { get; set; }
     }

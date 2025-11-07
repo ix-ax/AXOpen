@@ -83,12 +83,12 @@ namespace AxOpen.Security.Tests
 
             foreach (var user in allUsers)
             {
-                _RepoUser.Delete(user.DataEntityId);
+                _RepoUser.Delete(user._EntityId);
             }
 
             foreach (var group in allGroups)
             {
-                _RepoGroup.Delete(group.DataEntityId);
+                _RepoGroup.Delete(group._EntityId);
             }
 
             _roleGroupManager = new RoleGroupManager(_RepoGroup);

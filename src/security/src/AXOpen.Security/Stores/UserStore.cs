@@ -394,13 +394,13 @@ namespace AxOpen.Security.Stores
             if (string.IsNullOrWhiteSpace(normalizedRoleName))
                 throw new ArgumentNullException(nameof(normalizedRoleName));
 
-            var role = _unitOfWork.RoleGroupManager.GetAllGroup().FirstOrDefault(x => x.DataEntityId == normalizedRoleName);
+            var role = _unitOfWork.RoleGroupManager.GetAllGroup().FirstOrDefault(x => x._EntityId == normalizedRoleName);
             if (role == null)
             {
                 throw new InvalidOperationException(string.Format(System.Globalization.CultureInfo.CurrentCulture, $"Role {0} does not exist.", normalizedRoleName));
             }
-            user.Group = role.DataEntityId;
-            user.GroupHash = new PasswordHasher<User>().HashPassword(user, role.DataEntityId);
+            user.Group = role._EntityId;
+            user.GroupHash = new PasswordHasher<User>().HashPassword(user, role._EntityId);
 
             return Task.CompletedTask;
         }
@@ -422,7 +422,7 @@ namespace AxOpen.Security.Stores
             if (string.IsNullOrWhiteSpace(normalizedRoleName))
                 throw new ArgumentNullException(nameof(normalizedRoleName));
 
-            var role = _unitOfWork.RoleGroupManager.GetAllGroup().FirstOrDefault(x => x.DataEntityId == normalizedRoleName);
+            var role = _unitOfWork.RoleGroupManager.GetAllGroup().FirstOrDefault(x => x._EntityId == normalizedRoleName);
             if (role != null)
             {
                 user.Group = String.Empty;

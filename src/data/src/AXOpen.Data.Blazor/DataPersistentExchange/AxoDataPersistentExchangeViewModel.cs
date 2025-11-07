@@ -110,7 +110,7 @@ namespace AXOpen.Data
 
             if (SelectedRecord != null)
             {
-                var recsWithSameId = Records.Where((p) => p.DataEntityId == SelectedRecord.DataEntityId);
+                var recsWithSameId = Records.Where((p) => p._EntityId == SelectedRecord._EntityId);
 
                 if (recsWithSameId.Any())
                 {

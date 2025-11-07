@@ -29,21 +29,21 @@ namespace Tests_L4
         [Fact]
         public void plain_builder_should_ignore_casted_properties()
         {
-            PlainSymbolBuilder.IgnoreProperty(typeof(Pocos.AXOpen.Data.AxoDataEntity), "DataEntityId");
+            PlainSymbolBuilder.IgnoreProperty(typeof(Pocos.AXOpen.Data.AxoDataEntity), "_EntityId");
 
             var builder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.ProcessData));
 
-            Assert.False(builder.GetSymbols().Where(s => s.Contains("DataEntityId")).Any());
+            Assert.False(builder.GetSymbols().Where(s => s.Contains("_EntityId")).Any());
         }
 
         [Fact]
         public void plain_builder_should_ignore_root_properties()
         {
-            PlainSymbolBuilder.IgnoreRootProperty("DataEntityId");
+            PlainSymbolBuilder.IgnoreRootProperty("_EntityId");
 
             var builder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.ProcessData));
 
-            Assert.False(builder.GetSymbols().Where(s => s.Contains("DataEntityId")).Any());
+            Assert.False(builder.GetSymbols().Where(s => s.Contains("_EntityId")).Any());
         }
 
         [Fact]
