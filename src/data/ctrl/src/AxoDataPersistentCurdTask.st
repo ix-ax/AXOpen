@@ -13,7 +13,7 @@ NAMESPACE AXOpen.Data
             /// Gets or sets the type of CRUD operation to be perfomed.            
             /// </summary>
             CrudOperation : ePersistentOperation;
-            DataEntityIdentifier : STRING[254];
+            _EntityId : STRING[254];
             _exist : BOOL;            
         END_VAR
 

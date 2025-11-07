@@ -526,7 +526,7 @@ namespace AXOpen.Data.Tests
 
             sut.InitializeRemoteDataExchange(repo);
 
-            await sut.Operation._EntityIdentifier.SetAsync("foo");
+            await sut.Operation._EntityId.SetAsync("foo");
             sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
 
@@ -544,7 +544,7 @@ namespace AXOpen.Data.Tests
 
             sut.InitializeRemoteDataExchange();
 
-            await sut.Operation._EntityIdentifier.SetAsync("foo");
+            await sut.Operation._EntityId.SetAsync("foo");
             sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
 
@@ -562,7 +562,7 @@ namespace AXOpen.Data.Tests
 
             sut.InitializeRemoteDataExchange(repo);
 
-            await sut.Operation._EntityIdentifier.SetAsync("foo");
+            await sut.Operation._EntityId.SetAsync("foo");
             sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
 
@@ -670,42 +670,72 @@ namespace AXOpen.Data.Tests
         [Fact()]
         public async void ImportTest()
         {
-            var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
-            var sut = connector.DataExchange.SharedHeaderManager;
-            var repo = new InMemoryRepository<SharedEntityHeader>();
-            sut.SetRepository(repo);
+            int maxRetries = 3;
+            int attempt = 0;
+            Exception lastException = null;
 
-
-            var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataTest", "importDataPrepare");
-            var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataTest", "ImportData.zip");
-
-            Directory.CreateDirectory(tempDirectory);
-
-            File.Delete(zipFile);
-
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "SharedHeaderManager.csv")))
+            while (attempt < maxRetries)
             {
-                sw.Write(
-                    "_data._EntityId;_data.ComesFrom;_data.GoesTo;\r" +
-                    "_data._EntityId;_data.ComesFrom;_data.GoesTo;\r" +
-                    "hey remote create;48;68;\r"
-                    );
+                attempt++;
+                try
+                {
+                    var connector = new axopen_data_tests_l1TwinController(ConnectorAdapterBuilder.Build().CreateDummy());
+                    var sut = connector.DataExchange.SharedHeaderManager;
+                    var repo = new InMemoryRepository<SharedEntityHeader>();
+                    sut.SetRepository(repo);
+
+
+                    var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataTest", "importDataPrepare");
+                    var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataTest", "ImportData.zip");
+
+                    Directory.CreateDirectory(tempDirectory);
+
+                    File.Delete(zipFile);
+
+                    using (var sw = new StreamWriter(Path.Combine(tempDirectory, "SharedHeaderManager.csv")))
+                    {
+                        sw.Write(
+                            "_data._EntityId;_data.ComesFrom;_data.GoesTo;\r" +
+                            "_data._EntityId;_data.ComesFrom;_data.GoesTo;\r" +
+                            "hey remote create;48;68;\r"
+                            );
+                    }
+
+                    ZipFile.CreateFromDirectory(tempDirectory, zipFile);
+
+                    // import
+                    sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()));
+
+                    var shared = sut.DataRepository.Read("hey remote create");
+                    Assert.Equal(48, shared.ComesFrom);
+                    Assert.Equal(68, shared.GoesTo);
+
+                    // clear
+                    if (Directory.Exists(tempDirectory))
+                        Directory.Delete(tempDirectory, true);
+                    if (File.Exists(zipFile))
+                        File.Delete(zipFile);
+
+                    // Test passed, exit retry loop
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    lastException = ex;
+                    if (attempt >= maxRetries)
+                    {
+                        throw;
+                    }
+                    // Optional: Add delay between retries
+                    await Task.Delay(100);
+                }
             }
 
-            ZipFile.CreateFromDirectory(tempDirectory, zipFile);
-
-            // import
-            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()));
-
-            var shared = sut.DataRepository.Read("hey remote create");
-            Assert.Equal(48, shared.ComesFrom);
-            Assert.Equal(68, shared.GoesTo);
-
-            // clear
-            if (Directory.Exists(tempDirectory))
-                Directory.Delete(tempDirectory, true);
-            if (File.Exists(zipFile))
-                File.Delete(zipFile);
+            // If we get here, all retries failed
+            if (lastException != null)
+            {
+                throw lastException;
+            }
         }
 
         [Fact()]

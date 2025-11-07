@@ -417,7 +417,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     private async Task Handle()
     {
         var operation = (eCrudOperation)await Operation.CrudOperation.GetAsync();
-        var identifier = await Operation._EntityIdentifier.GetAsync();
+        var identifier = await Operation._EntityId.GetAsync();
 
         switch (operation)
         {
@@ -453,13 +453,13 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
     private async Task<bool> RemoteCreate()
     {
-        var Identifier = await Operation._EntityIdentifier.GetAsync();
+        var Identifier = await Operation._EntityId.GetAsync();
         return await RemoteCreate(Identifier);
     }
 
     private async Task<bool> RemoteRead()
     {
-        var Identifier = await Operation._EntityIdentifier.GetAsync();
+        var Identifier = await Operation._EntityId.GetAsync();
         return await RemoteRead(Identifier);
     }
 

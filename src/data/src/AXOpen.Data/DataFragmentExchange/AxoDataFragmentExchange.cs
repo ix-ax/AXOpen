@@ -103,7 +103,7 @@ public partial class AxoDataFragmentExchange
     {
         //await Operation.ReadAsync();
         var operation = (eCrudOperation)await Operation.CrudOperation.GetAsync();
-        var identifier = await Operation._EntityIdentifier.GetAsync();
+        var identifier = await Operation._EntityId.GetAsync();
 
         switch (operation)
         {

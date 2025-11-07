@@ -294,7 +294,7 @@ namespace AXOpen.Data
         {
             await Operation.ReadAsync();
             var operation = (ePersistentOperation)Operation.CrudOperation.LastValue;
-            var identifier = Operation._EntityIdentifier.LastValue;
+            var identifier = Operation._EntityId.LastValue;
             if (string.IsNullOrEmpty(identifier))
             {
                 identifier = DEFAULT_IDENTIFIER; // default persistent group

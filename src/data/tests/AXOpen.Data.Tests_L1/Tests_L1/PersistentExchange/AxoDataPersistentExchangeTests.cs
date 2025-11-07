@@ -196,7 +196,7 @@ namespace AXOpen.Data.Persistent.Tests
 
             await sut.InitializeRemoteDataExchange(data, repo);
 
-            await sut.Operation._EntityIdentifier.SetAsync(PersistentGroupName);
+            await sut.Operation._EntityId.SetAsync(PersistentGroupName);
             sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
             Assert.True(await sut.Operation.IsInitialized.GetAsync());
@@ -215,7 +215,7 @@ namespace AXOpen.Data.Persistent.Tests
             await sut.InitializeRemoteDataExchange(data, repo); 
 
 
-            await sut.Operation._EntityIdentifier.SetAsync(PersistentGroupName);
+            await sut.Operation._EntityId.SetAsync(PersistentGroupName);
             sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
             Assert.True(await sut.Operation.IsInitialized.GetAsync());
