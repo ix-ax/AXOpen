@@ -44,11 +44,11 @@ NAMESPACE AXOpen.Data
             END_IF;
 
             IF SUPER.IsReady() THEN
-                DataEntityIdentifier := identifier;
+                _EntityId := identifier;
                 CrudOperation := operation;
             END_IF;
 
-            _LastDataEntityIdentifier   := DataEntityIdentifier;
+            _LastDataEntityIdentifier   := _EntityId;
             _LastCrudOperation          := CrudOperation;
 
             Invoke := SUPER.Invoke();

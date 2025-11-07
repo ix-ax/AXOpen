@@ -28,7 +28,7 @@ NAMESPACE AXOpen.Data
                 operation : ePersistentOperation;
             END_VAR
             CrudOperation := operation;
-            DataEntityIdentifier := identifier;
+            _EntityId := identifier;
             Invoke := SUPER.Invoke();
         END_METHOD
       
