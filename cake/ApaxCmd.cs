@@ -583,9 +583,9 @@ public static class ApaxCmd
         {
             if (root.Children.TryGetValue(new YamlScalarNode("catalogs"), out var catalogNode))
             {
-                var apaxArguments = "install --catalog";
+                var apaxArguments = "install --catalog --strict";
                 var folder = Path.GetDirectoryName(yamlFilePath);
-                context.Log.Information($"apax install --catalog started in '{folder}'");
+                context.Log.Information($"apax install --catalog --strict started in '{folder}'");
                 context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
                 {
                     Arguments = apaxArguments,
