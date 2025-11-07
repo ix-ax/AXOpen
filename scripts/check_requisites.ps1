@@ -6,7 +6,7 @@ $dotNetWingetInstall = "Microsoft.DotNet.SDK.9 --version 9.0.306"
 
 $visualStudioRequiredVersionRange = "[17.8.0,18.0)";
 
-$apaxRequiredVersion = "4.1.1"
+$apaxRequiredVersion = "4.2.0"
 $apaxUrl = "https://console.simatic-ax.siemens.io/"
 $axCodeRequiredVersion = "1.94.2"
 
