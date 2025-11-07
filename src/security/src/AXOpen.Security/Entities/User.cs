@@ -9,7 +9,7 @@ namespace AxOpen.Security.Entities
         public string GroupHash { get; set; }
         public bool CanUserChangePassword { get; set; }
         public dynamic RecordId { get; set; }
-        public string DataEntityId { get; set; }
+        public string _EntityId { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
         public bool EnableAutoLogOut { get; set; }

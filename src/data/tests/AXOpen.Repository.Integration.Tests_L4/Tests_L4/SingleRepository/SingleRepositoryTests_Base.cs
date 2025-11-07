@@ -29,9 +29,9 @@
 
             Assert.Equal(3, result.Count());
 
-            Assert.Equal("7", result[0].DataEntityId);
-            Assert.Equal("5", result[1].DataEntityId);
-            Assert.Equal("3", result[2].DataEntityId);
+            Assert.Equal("7", result[0]._EntityId);
+            Assert.Equal("5", result[1]._EntityId);
+            Assert.Equal("3", result[2]._EntityId);
         }
 
         [Fact]
@@ -55,7 +55,7 @@
         public void should_return_entity_ids_in_order()
         {
             var pcAscending = new PredicateContainer();
-            pcAscending.AddSortMember<ProcessData>(p => (p.DataEntityId), isAscending: true);
+            pcAscending.AddSortMember<ProcessData>(p => (p._EntityId), isAscending: true);
 
             List<string> requeestedIds = new() { "1", "9", "3", "7", };
 
@@ -63,22 +63,22 @@
 
             Assert.Equal(4, ascendingRecords.Count());
 
-            Assert.Equal("1", ascendingRecords[0].DataEntityId);
-            Assert.Equal("3", ascendingRecords[1].DataEntityId);
-            Assert.Equal("7", ascendingRecords[2].DataEntityId);
-            Assert.Equal("9", ascendingRecords[3].DataEntityId);
+            Assert.Equal("1", ascendingRecords[0]._EntityId);
+            Assert.Equal("3", ascendingRecords[1]._EntityId);
+            Assert.Equal("7", ascendingRecords[2]._EntityId);
+            Assert.Equal("9", ascendingRecords[3]._EntityId);
 
             var pcDescending = new PredicateContainer();
-            pcDescending.AddSortMember<ProcessData>(p => (p.DataEntityId), isAscending: false);
+            pcDescending.AddSortMember<ProcessData>(p => (p._EntityId), isAscending: false);
 
             List<ProcessData> descendingRecords = Fixture.Repository.GetRecords(requeestedIds, pcDescending).ToList();
 
             Assert.Equal(4, descendingRecords.Count());
 
-            Assert.Equal("9", descendingRecords[0].DataEntityId);
-            Assert.Equal("7", descendingRecords[1].DataEntityId);
-            Assert.Equal("3", descendingRecords[2].DataEntityId);
-            Assert.Equal("1", descendingRecords[3].DataEntityId);
+            Assert.Equal("9", descendingRecords[0]._EntityId);
+            Assert.Equal("7", descendingRecords[1]._EntityId);
+            Assert.Equal("3", descendingRecords[2]._EntityId);
+            Assert.Equal("1", descendingRecords[3]._EntityId);
         }
 
 
@@ -86,7 +86,7 @@
         public void should_return_intersected_ids_in_order()
         {
             var pc = new PredicateContainer();
-            pc.AddSortMember<ProcessData>(p => (p.DataEntityId), isAscending: true);
+            pc.AddSortMember<ProcessData>(p => (p._EntityId), isAscending: true);
             pc.AddPredicates<ProcessData>(p => (p.vInt > 1 && p.vInt < 9));
 
 

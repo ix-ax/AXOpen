@@ -315,15 +315,15 @@ namespace AXOpen.Data
         //        //TODO optimalize -> clone only EntityId
         //        var refdata = exchange.CloneDataObject();
 
-        //        var DataEntityId = (refdata as IAxoDataEntity).DataEntityId;
+        //        var _EntityId = (refdata as IAxoDataEntity)._EntityId;
 
         //        List<ITwinPrimitive> batchRedElements = new();
 
-        //        batchRedElements.Add(DataEntityId);
+        //        batchRedElements.Add(_EntityId);
 
         //        await refdata.GetConnector().ReadBatchAsync(batchRedElements);
 
-        //        if (DataEntityId.Cyclic != identifier)
+        //        if (_EntityId.Cyclic != identifier)
         //        {
         //            notSameIdInPlc.Add(exchange.ManagerDataTypeName);
         //            continue;
@@ -493,7 +493,7 @@ namespace AXOpen.Data
                     if (!exchange.Repository.Exists(newIdentifier))
                     {
                         var newPlain = exchange.Repository.Read(identifier);
-                        (newPlain as dynamic).DataEntityId = newIdentifier;
+                        (newPlain as dynamic)._EntityId = newIdentifier;
                         exchange.Repository.Create(newIdentifier, newPlain);
                         copied.Add(exchange.ManagerDataTypeName);
                     }

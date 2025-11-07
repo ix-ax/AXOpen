@@ -15,7 +15,7 @@ namespace AXOpen.Repository.Integration.Tests
         [Test()]
         public void MongoDbRepositoryCRUDTest()
         {
-            repository.Create("a", new TestStruct { DataEntityId = "a" });
+            repository.Create("a", new TestStruct { _EntityId = "a" });
             Assert.That(1, Is.EqualTo(repository.Count));
 
             var read = repository.Read("a");
@@ -43,7 +43,7 @@ namespace AXOpen.Repository.Integration.Tests
     public class TestStruct : IBrowsableDataObject
     {
         public dynamic RecordId { get; set; }
-        public string DataEntityId { get; set; }
+        public string _EntityId { get; set; }
         public List<ValueChangeItem> Changes { get; set; } = new();
         public DateOnly DateOnly { get; set; }
     }

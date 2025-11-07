@@ -42,7 +42,7 @@
                             <table class="table table-hover table-striped mb-0">
                                 <thead>
                                     <tr>
-                                        <th>DataEntityId</th>
+                                        <th>_EntityId</th>
                                         <th>@Localizer["In DataExchange"]</th>
                                     </tr>
                                 </thead>
@@ -75,7 +75,7 @@
                 <div class="flex flex-wrap align-center gap-3">
                     @if (SelectedEntity != null)
                     {
-                        <span><strong>@SelectedEntity.DataEntityId</strong></span>
+                        <span><strong>@SelectedEntity._EntityId</strong></span>
 
                         @foreach (var col in ExchangeConfig.Collumns)
                         {
@@ -118,7 +118,7 @@
                     <table class="table table-hover table-striped">
                         <thead>
                             <tr>
-                                <th>DataEntityId</th>
+                                <th>_EntityId</th>
                                 @foreach (var col in ExchangeConfig.Collumns)
                                 {
                                     <th>@(string.IsNullOrWhiteSpace(col.ColumnName) ? col.BindingValuePath : col.ColumnName)</th>
@@ -129,7 +129,7 @@
                             @foreach (var rec in DistributedVM.Records)
                             {
                                 <tr @onclick="() => SelectEntity(rec)" style="cursor: pointer;">
-                                    <td>@rec.DataEntityId</td>
+                                    <td>@rec._EntityId</td>
                                     @foreach (var col in ExchangeConfig.Collumns)
                                     {
                                         var val = PropertyHelper.GetPropertyValue(rec, col.BindingValuePath);
@@ -156,7 +156,7 @@
             }
         </div>
         <!-- Send to PLC button -->
-        @if (!string.IsNullOrEmpty(SelectedEntity?.DataEntityId))
+        @if (!string.IsNullOrEmpty(SelectedEntity?._EntityId))
         {
             @if (DisableUserRoles)
             {
@@ -191,12 +191,12 @@ else
             {
                 <button type="button" class="btn btn-warning w-100 px-1 py-1"
                         @onclick="async () => {
-                            await DistributedVM.SendToPlc(SelectedEntity.DataEntityId);
+                            await DistributedVM.SendToPlc(SelectedEntity._EntityId);
                             await DistributedVM.ReadAllCurrentEntityIds();
                             EndBtnOperation();
-                            OnDataSend?.Invoke(SelectedEntity.DataEntityId);}">
+                            OnDataSend?.Invoke(SelectedEntity._EntityId);}">
                     <div class="flex flex-wrap">
-                        <span>@Localizer["Send to the PLC"]: "@SelectedEntity.DataEntityId"</span>
+                        <span>@Localizer["Send to the PLC"]: "@SelectedEntity._EntityId"</span>
                     </div>
                 </button>
             }
@@ -206,12 +206,12 @@ else
                     <Authorized>
                         <button type="button" class="btn btn-warning w-100 px-1 py-1"
                                 @onclick="async () => {
-                            await DistributedVM.SendToPlc(SelectedEntity.DataEntityId);
+                            await DistributedVM.SendToPlc(SelectedEntity._EntityId);
                             await DistributedVM.ReadAllCurrentEntityIds();
                             EndBtnOperation();
-                            OnDataSend?.Invoke(SelectedEntity.DataEntityId);}">
+                            OnDataSend?.Invoke(SelectedEntity._EntityId);}">
                             <div class="flex flex-wrap">
-                                <span>@Localizer["Send"]: "@SelectedEntity.DataEntityId"</span>
+                                <span>@Localizer["Send"]: "@SelectedEntity._EntityId"</span>
                             </div>
                         </button>
                     </Authorized>

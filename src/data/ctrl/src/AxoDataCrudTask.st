@@ -15,7 +15,7 @@ NAMESPACE AXOpen.Data
             /// Gets or sets the type of CRUD operation to be perfomed.            
             /// </summary>
             CrudOperation : eCrudOperation;
-            DataEntityIdentifier : STRING[254];
+            _EntityId : STRING[254];
             _exist : BOOL;            
         END_VAR
 
@@ -44,11 +44,11 @@ NAMESPACE AXOpen.Data
             END_IF;
 
             IF SUPER.IsReady() THEN
-                DataEntityIdentifier := identifier;
+                _EntityId := identifier;
                 CrudOperation := operation;
             END_IF;
 
-            _LastDataEntityIdentifier   := DataEntityIdentifier;
+            _LastDataEntityIdentifier   := _EntityId;
             _LastCrudOperation          := CrudOperation;
 
             Invoke := SUPER.Invoke();

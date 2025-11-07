@@ -6,6 +6,6 @@ namespace AXOpen.Base.Data
     {
         dynamic RecordId { get; set; }
       
-        string DataEntityId { get; set; }        
+        string _EntityId { get; set; }        
     }
 }

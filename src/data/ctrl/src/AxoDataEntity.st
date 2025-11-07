@@ -10,18 +10,18 @@ NAMESPACE AXOpen.Data
             /// Gets or sets data entity identifier.
             /// </summary>
             {#ix-attr:[RenderIgnore()]}            
-            DataEntityId : STRING[254];
+            _EntityId : STRING[254];
         END_VAR 
 
         METHOD PUBLIC SetId
             VAR_INPUT
                 Id : STRING[254];
             END_VAR  
-            DataEntityId := Id;          
+            _EntityId := Id;          
         END_METHOD               
     
         METHOD PUBLIC GetId : STRING[254]
-            GetId := DataEntityId;
+            GetId := _EntityId;
         END_METHOD
     END_CLASS
 END_NAMESPACE    
