@@ -34,13 +34,13 @@ NAMESPACE AXOpen.Components.Pneumatics
 
         METHOD Examples
             //<MoveToHome>
-            IF myAxoCylinder.MoveToHome().IsDone() THEN
+            IF myAxoCylinder.MoveIn().IsDone() THEN
                 ;
             END_IF;
             //</MoveToHome>
 
             //<MoveToWork>
-            IF myAxoCylinder.MoveToWork().IsDone() THEN
+            IF myAxoCylinder.MoveOut().IsDone() THEN
                 ;
             END_IF;
             //</MoveToWork>
