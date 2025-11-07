@@ -69,7 +69,7 @@ scripts:
   ci: | #clean and install dependencies
     START=$(date +%s)
     apax clean
-    apax install
+    apax install 
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ci' Finished in :" $(expr $(date +%s) - $START) "s"
   reset_plc: | #total reset of the PLC including IP and name                                                                                                (apax hwld --reset-plc All)
     START=$(date +%s)
@@ -151,7 +151,7 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ib' Finished in :" $(expr $(date +%s) - $START) "s"
   icb: |
     START=$(date +%s)
-    apax install --catalog
+    apax install --catalog --strict --strict
     apax ib
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax icb' Finished in :" $(expr $(date +%s) - $START) "s"
   cib: |
