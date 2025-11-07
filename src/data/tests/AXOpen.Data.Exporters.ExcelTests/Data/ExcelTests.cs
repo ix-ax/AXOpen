@@ -103,7 +103,7 @@ namespace AXOpen.Data.Tests
 
             using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
             {
-                Assert.Equal("_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;48;68;\r", GetTextFromExcel(zip.Entries[0].Open(), "b"));
+                Assert.Equal("_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;48;68;\r", GetTextFromExcel(zip.Entries[0].Open(), "b"));
             }
 
             // clear
@@ -143,7 +143,7 @@ namespace AXOpen.Data.Tests
 
             using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
             {
-                Assert.Equal("_data.DataEntityId;_data.GoesTo;\r_data.DataEntityId;_data.GoesTo;\rsecond;21;\r", GetTextFromExcel(zip.Entries[0].Open(), "b"));
+                Assert.Equal("_data._EntityId;_data.GoesTo;\r_data._EntityId;_data.GoesTo;\rsecond;21;\r", GetTextFromExcel(zip.Entries[0].Open(), "b"));
             }
 
             // clear
@@ -168,7 +168,7 @@ namespace AXOpen.Data.Tests
 
             File.Delete(zipFile);
 
-            CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> { { "b", "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;48;68;\r" } });
+            CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> { { "b", "_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;48;68;\r" } });
 
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
@@ -204,7 +204,7 @@ namespace AXOpen.Data.Tests
 
             File.Delete(zipFile);
 
-            CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> { { "b", "_data.DataEntityId;_data.GoesTo;\r_data.DataEntityId;_data.GoesTo;\rfirst;11;\r" } });
+            CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> { { "b", "_data._EntityId;_data.GoesTo;\r_data._EntityId;_data.GoesTo;\rfirst;11;\r" } });
 
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
@@ -239,7 +239,7 @@ namespace AXOpen.Data.Tests
 
             File.Delete(zipFile);
 
-            CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> { { "b", "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r_data.DataEntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\rhey remote create;48;68;130;\r" } });
+            CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> { { "b", "_data._EntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\rhey remote create;48;68;130;\r" } });
 
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
