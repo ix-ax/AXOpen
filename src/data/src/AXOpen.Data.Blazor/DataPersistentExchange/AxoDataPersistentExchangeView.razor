@@ -69,7 +69,7 @@ else
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>DataEntityId</th>
+                <th>_EntityId</th>
                 <th>Created</th>
                 <th>Modified</th>
                 <th>Actions</th>
@@ -101,16 +101,16 @@ else
                 @foreach (var record in Vm.Records)
                 {
                     <tr class="cursor-pointer" @onclick="() => Vm.SelectedRecord = record">
-                        <td>@record.DataEntityId</td>
+                        <td>@record._EntityId</td>
                         <td>@record._Created.ToString("yyyy-MM-dd HH:mm:ss.fff")</td>
                         <td>@record._Modified.ToString("yyyy-MM-dd HH:mm:ss.fff")</td>
 
                         <td>
                             <button title="Send To PLC"
                                     @onclick='async () => {
-                                    await Vm.DataExchange.WritePersistentGroupFromRepository(record.DataEntityId);
+                                    await Vm.DataExchange.WritePersistentGroupFromRepository(record._EntityId);
                                      await Vm.FillObservableRecordsAsync();
-                                    _toastService?.AddToast(eToastType.Success, $"Persistent Data", $"Persistent group {record.DataEntityId} was successfully loaded to PLC!", 10);
+                                    _toastService?.AddToast(eToastType.Success, $"Persistent Data", $"Persistent group {record._EntityId} was successfully loaded to PLC!", 10);
                                 }'
                                     type="button" class="btn btn-primary px-3 py-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
@@ -121,9 +121,9 @@ else
                             </button>
 
                             <button title="Read from PLC to repository"
-                                    @onclick='async () => { await Vm.DataExchange.UpdatePersistentGroupFromPlcToRepository(record.DataEntityId);
+                                    @onclick='async () => { await Vm.DataExchange.UpdatePersistentGroupFromPlcToRepository(record._EntityId);
                                      await Vm.FillObservableRecordsAsync();
-                                    _toastService?.AddToast(eToastType.Success, $"Persistent Data", $"Persistent group {record.DataEntityId} was successfully readed from PLC!", 10);
+                                    _toastService?.AddToast(eToastType.Success, $"Persistent Data", $"Persistent group {record._EntityId} was successfully readed from PLC!", 10);
                                 }'
                                     type="button" class="btn btn-primary px-3 py-0">
 

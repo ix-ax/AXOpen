@@ -245,9 +245,9 @@ where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
             dictionary.Add(new ImportItems() { Key = headerItem });
         }
 
-        if (!dictionary.Exists(p => p.Key.Contains("DataEntityId")))
+        if (!dictionary.Exists(p => p.Key.Contains("_EntityId")))
         {
-            throw new Exception("DataEntityId is missing in the import file");
+            throw new Exception("_EntityId is missing in the import file");
         }
 
         // Load values

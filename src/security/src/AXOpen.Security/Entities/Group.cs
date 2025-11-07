@@ -6,7 +6,7 @@ namespace AxOpen.Security
     public class Group : IBrowsableDataObject
     {
         public dynamic RecordId { get; set; }
-        public string DataEntityId { get; set; }
+        public string _EntityId { get; set; }
         public string Name { get; set; }
         public ObservableCollection<string> Roles { get; set; }
         public string RolesHash { get; set; }

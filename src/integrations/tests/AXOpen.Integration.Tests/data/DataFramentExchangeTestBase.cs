@@ -48,8 +48,8 @@ namespace integrations.data.fragments
             await sut.CreateTest.RunTest();
 
             //-- Assert
-            Assert.NotNull(SetRepository.Queryable.FirstOrDefault(p => p.DataEntityId == identifier));
-            Assert.NotNull(ManipRepository.Queryable.FirstOrDefault(p => p.DataEntityId == identifier));
+            Assert.NotNull(SetRepository.Queryable.FirstOrDefault(p => p._EntityId == identifier));
+            Assert.NotNull(ManipRepository.Queryable.FirstOrDefault(p => p._EntityId == identifier));
         }
 
         [Fact]
@@ -67,10 +67,10 @@ namespace integrations.data.fragments
 
             //-- Assert
 
-            //var record = Repository.Queryable.FirstOrDefault(p => p.DataEntityId == identifier1);
+            //var record = Repository.Queryable.FirstOrDefault(p => p._EntityId == identifier1);
 
-            Assert.Equal("hello-id-to-read-1", testContext.PD.Set.Set.DataEntityId.GetAsync().Result);
-            Assert.Equal("hello-id-to-read-1", testContext.PD.Manip.Set.DataEntityId.GetAsync().Result);
+            Assert.Equal("hello-id-to-read-1", testContext.PD.Set.Set._EntityId.GetAsync().Result);
+            Assert.Equal("hello-id-to-read-1", testContext.PD.Manip.Set._EntityId.GetAsync().Result);
         }
 
         [Fact]
@@ -90,8 +90,8 @@ namespace integrations.data.fragments
 
             //-- Assert
 
-            var setRecord = SetRepository.Queryable.FirstOrDefault(p => p.DataEntityId == identifier);
-            var manipRecord = ManipRepository.Queryable.FirstOrDefault(p => p.DataEntityId == identifier);
+            var setRecord = SetRepository.Queryable.FirstOrDefault(p => p._EntityId == identifier);
+            var manipRecord = ManipRepository.Queryable.FirstOrDefault(p => p._EntityId == identifier);
             Assert.Equal(500, setRecord.GoesTo);
             Assert.Equal(800ul, manipRecord.CounterDelay);
         }
@@ -113,10 +113,10 @@ namespace integrations.data.fragments
 
             //-- Assert
 
-            var setRecord = SetRepository.Queryable.FirstOrDefault(p => p.DataEntityId == identifier1);
+            var setRecord = SetRepository.Queryable.FirstOrDefault(p => p._EntityId == identifier1);
             Assert.Null(setRecord);
 
-            var manipRecord = ManipRepository.Queryable.FirstOrDefault(p => p.DataEntityId == identifier1);
+            var manipRecord = ManipRepository.Queryable.FirstOrDefault(p => p._EntityId == identifier1);
             Assert.Null(manipRecord);
         }
     }
@@ -154,14 +154,14 @@ namespace integrations.data.fragments
 
             for (int i = 0; i < setRecords.Count; i++)
             {
-                this.SetRepository.Delete(setRecords[i].DataEntityId);
+                this.SetRepository.Delete(setRecords[i]._EntityId);
             }
 
             var manipRecords = this.ManipRepository.GetRecords().ToList();
 
             for (int i = 0; i < manipRecords.Count; i++)
             {
-                this.ManipRepository.Delete(manipRecords[i].DataEntityId);
+                this.ManipRepository.Delete(manipRecords[i]._EntityId);
             }
 
             testContext.PD.CreateDataFragments<IntegrationAxoDataFramentsExchange.ProcessData>();

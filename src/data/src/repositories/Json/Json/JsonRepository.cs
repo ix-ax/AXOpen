@@ -199,8 +199,8 @@ namespace AXOpen.Data.Json
 
         internal void Save(string identifier, T obj)
         {
-            obj.DataEntityId = MakeValidFileName(identifier);
-            var path = Path.Combine(this.Location, obj.DataEntityId);
+            obj._EntityId = MakeValidFileName(identifier);
+            var path = Path.Combine(this.Location, obj._EntityId);
 
             using (var jw = new Newtonsoft.Json.JsonTextWriter(new System.IO.StreamWriter(path)))
             {
@@ -246,11 +246,11 @@ namespace AXOpen.Data.Json
 
             if (ids != null)
             {
-                return query.Select(p => p.DataEntityId).Intersect(ids).ToList();
+                return query.Select(p => p._EntityId).Intersect(ids).ToList();
             }
             else
             {
-                return query.Select(p => p.DataEntityId).ToList();
+                return query.Select(p => p._EntityId).ToList();
             }
         }
 
@@ -259,7 +259,7 @@ namespace AXOpen.Data.Json
             if (ids == null || !ids.Any())
                 return Enumerable.Empty<T>();
 
-            var query = Queryable.Where(p => ids.Contains(p.DataEntityId));
+            var query = Queryable.Where(p => ids.Contains(p._EntityId));
 
             if (sortingPredicates != null)
             {
@@ -320,14 +320,14 @@ namespace AXOpen.Data.Json
         private IQueryable<T> ApplySorting(IQueryable<T> query, List<SortSettings> sortSettings)
         {
             if (sortSettings == null || !sortSettings.Any())
-                return query.OrderByDescending(p => p.DataEntityId);
+                return query.OrderByDescending(p => p._EntityId);
 
             IOrderedQueryable<T> orderedQuery = null;
 
             if (sortSettings.All(p => string.IsNullOrEmpty(p.MemberName)))
             {
                 var naturalSort = sortSettings.First();
-                return naturalSort.IsAscending ? query.OrderBy(p => p.DataEntityId) : query.OrderByDescending(p => p.DataEntityId);
+                return naturalSort.IsAscending ? query.OrderBy(p => p._EntityId) : query.OrderByDescending(p => p._EntityId);
             }
 
             foreach (var setting in sortSettings)

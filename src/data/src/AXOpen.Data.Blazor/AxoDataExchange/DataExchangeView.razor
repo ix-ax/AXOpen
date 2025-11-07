@@ -117,7 +117,7 @@ else
         <table class="table table-hover table-striped">
             <thead>
                 <tr>
-                    <th>DataEntityId</th>
+                    <th>_EntityId</th>
                     <CascadingValue Value="this" IsFixed>
                         @ChildContent
                     </CascadingValue>
@@ -161,7 +161,7 @@ else
                     @foreach (var item in Vm.Records.ToList())
                     {
                         <tr>
-                            <td class="cursor-pointer" @onclick="() => { _modalView.Toggle(); Vm.SelectedRecord = item; }">@item.DataEntityId</td>
+                            <td class="cursor-pointer" @onclick="() => { _modalView.Toggle(); Vm.SelectedRecord = item; }">@item._EntityId</td>
 
                             @foreach (ColumnData column in Columns.ToList())
                             {
@@ -277,7 +277,7 @@ else
         <div class="modal-body">
             @if (ButtonOperationName.Equals("UpdateFromPlc"))
             {
-                @Localizer["Update item \"{0}\" from PLC", Vm?.SelectedRecord?.DataEntityId]
+                @Localizer["Update item \"{0}\" from PLC", Vm?.SelectedRecord?._EntityId]
             }
             else
             {
@@ -318,7 +318,7 @@ else
                     <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)"
                             @onclick="async () => {
                                  _modalCreate.CloseModal();
-                        await Vm.GlobalActions.Copy(Vm.SelectedRecord.DataEntityId, Vm.CreateItemId);
+                        await Vm.GlobalActions.Copy(Vm.SelectedRecord._EntityId, Vm.CreateItemId);
                         Vm.UpdateObservableRecords();
                         Vm.InvokeStateHasChanged();
                         Vm.UnLocked();
@@ -365,7 +365,7 @@ else
 
     <Modal @ref="_modalView">
         <div class="modal-header">
-            <h4>@Vm.SelectedRecord?.DataEntityId</h4>
+            <h4>@Vm.SelectedRecord?._EntityId</h4>
             <button type="button" class="cursor-pointer ms-auto my-auto" @onclick="() => _modalView.CloseModal()">
                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             </button>
@@ -417,7 +417,7 @@ else
 
     <Modal @ref="_modalChanges">
         <div class="modal-header">
-            <h4>@Vm.SelectedRecord?.DataEntityId</h4>
+            <h4>@Vm.SelectedRecord?._EntityId</h4>
             <button type="button" class="cursor-pointer ms-auto my-auto" @onclick="() => _modalChanges.CloseModal()">
                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             </button>
@@ -468,7 +468,7 @@ else
 
     <Modal @ref="_modalEdit">
         <div class="modal-header">
-            <h4>@Vm.SelectedRecord?.DataEntityId</h4>
+            <h4>@Vm.SelectedRecord?._EntityId</h4>
             <button class="cursor-pointer ms-auto my-auto" @onclick="() => { _modalEdit.CloseModal(); Vm.UnLocked(); }">
                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             </button>
@@ -503,7 +503,7 @@ else
 
     <Modal @ref="_modalDelete">
         <div class="modal-header">
-            <h4>@Localizer["Delete"] @Vm.SelectedRecord?.DataEntityId ?</h4>
+            <h4>@Localizer["Delete"] @Vm.SelectedRecord?._EntityId ?</h4>
             <button class="cursor-pointer ms-auto my-auto" @onclick="() => { _modalDelete.CloseModal(); Vm.UnLocked(); }">
                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             </button>
@@ -527,7 +527,7 @@ else
                 @onclick="async () =>
                 {
                     _modalDelete.CloseModal();
-                    await Vm.GlobalActions.Delete(Vm.SelectedRecord.DataEntityId);
+                    await Vm.GlobalActions.Delete(Vm.SelectedRecord._EntityId);
                     Vm.UnLocked();
                     Vm.UpdateObservableRecords();
                     Vm.InvokeStateHasChanged();
@@ -551,7 +551,7 @@ else
 
     <Modal @ref="_modalAckSendToPlc">
         <div class="modal-header">
-            <h4>@Localizer["Send data to PLC"] : "@Vm.SelectedRecord?.DataEntityId" ?</h4>
+            <h4>@Localizer["Send data to PLC"] : "@Vm.SelectedRecord?._EntityId" ?</h4>
             <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalAckSendToPlc.CloseModal()">
                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             </button>
@@ -562,7 +562,7 @@ else
                 <button type="button" class="btn btn-primary"
                         @onclick="async () => {
                             _modalAckSendToPlc.CloseModal();
-                        await Vm.GlobalActions.SendToPlc(Vm.SelectedRecord.DataEntityId);}">
+                        await Vm.GlobalActions.SendToPlc(Vm.SelectedRecord._EntityId);}">
                     @Localizer["Send data to ALL PLCs"]
                 </button>
 
@@ -582,7 +582,7 @@ else
 
     <Modal @ref="_modalAckEditUpdate">
         <div class="modal-header">
-            <h4>@Localizer["Update"] record : "@Vm.SelectedRecord?.DataEntityId"?</h4>
+            <h4>@Localizer["Update"] record : "@Vm.SelectedRecord?._EntityId"?</h4>
             <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalAckEditUpdate.CloseModal()">
                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
             </button>

@@ -264,7 +264,7 @@ namespace AXOpen.Repository.Integration.Tests
            //-- Arrange
            var entityId = $"nonexisting_record_{Guid.NewGuid()}";
            //-- Assert
-           Assert.Throws(typeof(UnableToUpdateRecord), () => repository.Update(entityId, new DataTestObject() { DataEntityId = entityId }));
+           Assert.Throws(typeof(UnableToUpdateRecord), () => repository.Update(entityId, new DataTestObject() { _EntityId = entityId }));
        }
 
        [Test()]
@@ -281,7 +281,7 @@ namespace AXOpen.Repository.Integration.Tests
            repository.OnUpdateDone = (id, data) => onUpdateDoneCalled = true;
            repository.OnUpdateFailed = (id, data, ex) => onUpdateFailedCalled = ex is UnableToUpdateRecord;
            //-- Assert
-           Assert.Throws(typeof(UnableToUpdateRecord), () => repository.Update(entityId, new DataTestObject() { DataEntityId = entityId }));
+           Assert.Throws(typeof(UnableToUpdateRecord), () => repository.Update(entityId, new DataTestObject() { _EntityId = entityId }));
            Assert.That(onUpdateCalled, Is.True);
            Assert.That(onUpdateDoneCalled, Is.False);
            Assert.That(onUpdateFailedCalled, Is.True);
@@ -388,7 +388,7 @@ namespace AXOpen.Repository.Integration.Tests
 
            var testObject = new DataTestObject() { Name = "Pepo", DateOfBirth = DateTime.Now, Age = 15, _Created = new DateTime() };
 
-           var records = repository.Queryable.Where(p => true).Select(p => p.DataEntityId).ToList();
+           var records = repository.Queryable.Where(p => true).Select(p => p._EntityId).ToList();
            foreach (var id in records)
            {
                repository.Delete(id);

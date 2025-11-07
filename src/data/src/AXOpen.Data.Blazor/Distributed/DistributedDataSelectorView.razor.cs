@@ -81,7 +81,7 @@ namespace AXOpen.Data
 
                     if (DistributedVM.AllExchangesHasTheSameId())
                     {
-                        var id = (DistributedVM.MainExchange.DataExchangeTwinObject as IAxoDataEntity).DataEntityId.Cyclic;
+                        var id = (DistributedVM.MainExchange.DataExchangeTwinObject as IAxoDataEntity)._EntityId.Cyclic;
                         this.SelectedEntity = DistributedVM.MainExchange.GetRecords(id, 1, 0, eSearchMode.Exact, "", false).First();
                     }
 
@@ -106,7 +106,7 @@ namespace AXOpen.Data
 
                 if (entity != null)
                 {
-                    ret = entity.DataEntityId.Cyclic;
+                    ret = entity._EntityId.Cyclic;
                 }
             }
 
@@ -150,7 +150,7 @@ namespace AXOpen.Data
         {
             if (this.SelectedEntity == null) return Task.CompletedTask;
 
-            return DistributedVM.SendToPlc(this.SelectedEntity.DataEntityId);
+            return DistributedVM.SendToPlc(this.SelectedEntity._EntityId);
         }
 
         public int Limit

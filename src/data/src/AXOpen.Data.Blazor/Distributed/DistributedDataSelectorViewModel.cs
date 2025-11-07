@@ -53,7 +53,7 @@ namespace AXOpen.Data
                 if (_DefaulQueryDataEntityId == null)
                 {
                     var poco = MainExchange.GetPlainTypes().First();
-                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}.DataEntityId", typeof(string).FullName, "StartsWith", "", "");
+                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}._EntityId", typeof(string).FullName, "StartsWith", "", "");
                 }
 
                 return _DefaulQueryDataEntityId;
@@ -275,7 +275,7 @@ namespace AXOpen.Data
 
                 foreach (var exchange in ExsOnConnector)
                 {
-                    toRead.Add((exchange.DataExchangeTwinObject as IAxoDataEntity).DataEntityId);
+                    toRead.Add((exchange.DataExchangeTwinObject as IAxoDataEntity)._EntityId);
                 }
 
                 await connector.ReadBatchAsync(toRead);
@@ -287,11 +287,11 @@ namespace AXOpen.Data
             if (MainExchange.DataExchangeTwinObject is not IAxoDataEntity mainEntity)
                 return false;
 
-            var mainId = mainEntity.DataEntityId.Cyclic;
+            var mainId = mainEntity._EntityId.Cyclic;
 
             return !string.IsNullOrEmpty(mainId) &&
                    AllExchanges.All(ex =>
-                       (ex.DataExchangeTwinObject as IAxoDataEntity)?.DataEntityId.Cyclic == mainId);
+                       (ex.DataExchangeTwinObject as IAxoDataEntity)?._EntityId.Cyclic == mainId);
         }
 
     }

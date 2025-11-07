@@ -21,7 +21,7 @@ namespace AXOpen.Repository.Integration.Tests
 
         public DateTime _Created { get; set; }
 
-        public string DataEntityId { get; set; }
+        public string _EntityId { get; set; }
 
         public DateTime _Modified { get; set; }
 
@@ -165,7 +165,7 @@ namespace AXOpen.Repository.Integration.Tests
 
         public DateTime _Created { get; set; }
 
-        public string DataEntityId { get; set; }
+        public string _EntityId { get; set; }
 
         public DateTime _Modified { get; set; }
 
