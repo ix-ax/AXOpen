@@ -1,7 +1,29 @@
 CONFIGURATION HardwareIDs
     VAR_GLOBAL CONSTANT
+        et200sp_1_HwID : UINT := UINT#258;
+        et200sp_1_A100_Server_module_V1_1_0_bytes_HwID : UINT := UINT#263;
+        et200sp_1_A10_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#278;
+        et200sp_1_A11_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#277;
+        et200sp_1_A12_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#276;
+        et200sp_1_A13_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#275;
+        et200sp_1_A14_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#273;
+        et200sp_1_A15_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#272;
+        et200sp_1_A16_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#271;
+        et200sp_1_A17_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#270;
+        et200sp_1_A20_DQ_16x24VDC_0_5A_ST_V0_0_HwID : UINT := UINT#269;
+        et200sp_1_A21_DQ_16x24VDC_0_5A_ST_V0_0_HwID : UINT := UINT#268;
+        et200sp_1_A22_DQ_16x24VDC_0_5A_ST_V0_0_HwID : UINT := UINT#267;
+        et200sp_1_A23_DQ_16x24VDC_0_5A_ST_V0_0_HwID : UINT := UINT#266;
+        et200sp_1_A30_AI_4xU_I_2_wire_ST_V2_0_HwID : UINT := UINT#265;
+        et200sp_1_A40_AQ_4xU_I_ST_V1_0_HwID : UINT := UINT#264;
+        et200sp_1_Rack_HwID : UINT := UINT#261;
+        et200sp_1_et200sp_1_HwID : UINT := UINT#262;
+        et200sp_1_et200sp_1_IM_155_6_PN_ST_V6_3_HwID : UINT := UINT#279;
+        et200sp_1_et200sp_1_PN_IO_HwID : UINT := UINT#257;
+        et200sp_1_et200sp_1_Port_1_HwID : UINT := UINT#259;
+        et200sp_1_et200sp_1_Port_2_HwID : UINT := UINT#260;
         plc_line_HwID : UINT := UINT#32;
-        plc_line_Rail_0_HwID : UINT := UINT#257;
+        plc_line_Rail_0_HwID : UINT := UINT#274;
         plc_line_plc_line_HwID : UINT := UINT#48;
         plc_line_plc_line_CPU_display_1_HwID : UINT := UINT#54;
         plc_line_plc_line_Card_reader_writer_1_HwID : UINT := UINT#51;

@@ -1,0 +1,10 @@
+Templates:
+  Modules:
+  - Name: '6ES7193-6PA00-0AA0_v1_1'
+    Placeholders:
+    - Name: 'NAME'
+    Content:
+      Name: '${NAME}'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.45-SIEMENS-ET200SP-20250606.XML'
+        GsdId: 'Servermodule_without_io'
