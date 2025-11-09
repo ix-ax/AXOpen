@@ -6,7 +6,7 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.36
+  "@inxton/ax.catalog": 0.0.39
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -15,7 +15,7 @@ dependencies:
   "@ax/system-math": 10.2.7
   "@ax/system-serde": 10.2.7
   "@ax/dcp-utility": 1.2.0
-  "@ax/hardware-diagnostics": 0.3.0
+  "@ax/hardware-diagnostics": 1.0.0
   "@ax/simatic-1500-tasks": 10.0.1
 installStrategy: strict
 apaxVersion: 3.5.0
