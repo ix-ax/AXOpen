@@ -18,9 +18,9 @@ namespace AXOpen.Components.Pneumatics
         private bool ShowAnimationPanel { get; set; } = false;
         private bool ShowServiceView { get; set; } = false;
 
-        protected bool IsInInnerPosition => Component._InSensor.Cyclic && !Component._OutSensor.Cyclic;
-        protected bool IsInOuterPosition => Component._OutSensor.Cyclic && !Component._InSensor.Cyclic;
-        protected bool IsMoving => Component._MoveInSignal.Cyclic || Component._MoveOutSignal.Cyclic;
+        protected bool IsInInnerPosition => Component.InSensor.Cyclic && !Component.OutSensor.Cyclic;
+        protected bool IsInOuterPosition => Component.OutSensor.Cyclic && !Component.InSensor.Cyclic;
+        protected bool IsMoving => Component.MoveInSignal.Cyclic || Component.MoveOutSignal.Cyclic;
 
         private bool ShowMessages { get; set; } = false;
         private AxoMessageProvider? _messageProvider { get; set; }
@@ -119,17 +119,17 @@ namespace AXOpen.Components.Pneumatics
         public override void ConfigurePolling()
         {
             // Poll sensor states
-            this.StartPolling(Component._InSensor);
-            this.StartPolling(Component._OutSensor);
+            this.StartPolling(Component.InSensor);
+            this.StartPolling(Component.OutSensor);
 
             // Poll signal states
-            this.StartPolling(Component._MoveInSignal);
-            this.StartPolling(Component._MoveOutSignal);
+            this.StartPolling(Component.MoveInSignal);
+            this.StartPolling(Component.MoveOutSignal);
 
             // Poll task statuses
-            this.StartPolling(Component._MoveOutTask.Status);
-            this.StartPolling(Component._MoveInTask.Status);
-            this.StartPolling(Component._StopTask.Status);
+            this.StartPolling(Component.MoveOutTask.Status);
+            this.StartPolling(Component.MoveInTask.Status);
+            this.StartPolling(Component.StopTask.Status);
 
             // Poll messenger state
             if (Component._Messenger != null)

@@ -82,11 +82,11 @@
             <!-- Pneumatic Cylinder Assembly -->
             <div class="pneumatic-cylinder @(IsMoving && ShowAnimation ? "cylinder-moving" : "") flex-1">
                 <!-- Movement Direction Indicator -->
-                @if (ShowAnimation && Component._MoveInSignal.Cyclic)
+                @if (ShowAnimation && Component.MoveInSignal.Cyclic)
                 {
                     <div class="direction-indicator text-warning">◄</div>
                 }
-                @if (ShowAnimation && Component._MoveOutSignal.Cyclic)
+                @if (ShowAnimation && Component.MoveOutSignal.Cyclic)
                 {
                     <div class="direction-indicator text-warning">►</div>
                 }
@@ -122,9 +122,9 @@
     {
         <div class="flex flex-col gap-2 w-full">
             <div class="flex gap-2 w-full">                
-                <AxoTaskView class="flex-[2]" Text="@Component.InLabel" Component="Component._MoveInTask" HideRestoreButton="false"></AxoTaskView>
-                <AxoTaskView class="flex-1" Text="STOP" Component="Component._StopTask" HideRestoreButton="false"></AxoTaskView>
-                <AxoTaskView class="flex-[2]" Text="@Component.OutLabel" Component="Component._MoveOutTask" HideRestoreButton="false"></AxoTaskView>
+                <AxoTaskView class="flex-[2]" Text="@Component.InLabel" Component="Component.MoveInTask" HideRestoreButton="false"></AxoTaskView>
+                <AxoTaskView class="flex-1" Text="STOP" Component="Component.StopTask" HideRestoreButton="false"></AxoTaskView>
+                <AxoTaskView class="flex-[2]" Text="@Component.OutLabel" Component="Component.MoveOutTask" HideRestoreButton="false"></AxoTaskView>
             </div>          
         </div>
     }

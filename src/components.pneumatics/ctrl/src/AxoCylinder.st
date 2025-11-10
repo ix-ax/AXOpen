@@ -18,37 +18,37 @@ NAMESPACE AXOpen.Components.Pneumatics
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
             {#ix-set:AttributeName = "<#Move in#>"}
-            _MoveInTask : AxoTask; 
+            MoveInTask : AxoTask; 
 
             {#ix-attr:[ComponentHeader()]}            
             {#ix-set:AttributeName = "<#Move out#>"}
-            _MoveOutTask : AxoTask;
+            MoveOutTask : AxoTask;
 
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Stop#>"}
-            _StopTask : AxoTask;
+            StopTask : AxoTask;
 
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#In sensor#>"}
-            _InSensor : BOOL;
+            InSensor : BOOL;
 
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Out sensor#>"}
-            _OutSensor : BOOL;
+            OutSensor : BOOL;
 
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Move in signal#>"}
-            _MoveInSignal : BOOL;
+            MoveInSignal : BOOL;
 
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Move out signal#>"}
-            _MoveOutSignal : BOOL;
+            MoveOutSignal : BOOL;
 
             _Messenger : AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
@@ -104,54 +104,54 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             SUPER.Run(inParent);
 
-            _InSensor := inInSensor;
-            _OutSensor := inOutSensor;
+            InSensor := inInSensor;
+            OutSensor := inOutSensor;
 
 
             _Messenger.Serve(THIS);
 
-            _Messenger.ActivateOnCondition(UINT#3, _OutSensor AND _InSensor, eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(UINT#3, OutSensor AND InSensor, eAxoMessageCategory#Error);
 
-            IF(_StopTask.Execute(THIS)) THEN
-                _MoveInSignal := FALSE;
-                _MoveOutSignal := FALSE;
-                _MoveInTask.Restore();
-                _MoveOutTask.Restore();                
-                _StopTask.DoneWhen(TRUE);
+            IF(StopTask.Execute(THIS)) THEN
+                MoveInSignal := FALSE;
+                MoveOutSignal := FALSE;
+                MoveInTask.Restore();
+                MoveOutTask.Restore();                
+                StopTask.DoneWhen(TRUE);
             END_IF;    
 
-            IF(_MoveOutTask.Execute(THIS)) THEN  
-                IF(_MoveOutTask.IsFirstExecutionCycle()) THEN
-                    _MoveInTask.Restore(); 
+            IF(MoveOutTask.Execute(THIS)) THEN  
+                IF(MoveOutTask.IsFirstExecutionCycle()) THEN
+                    MoveInTask.Restore(); 
                 END_IF;                 
-                _MoveInSignal := FALSE;
-                _MoveOutSignal := TRUE;                
-                _MoveOutTask.DoneWhen(_OutSensor);                               
+                MoveInSignal := FALSE;
+                MoveOutSignal := TRUE;                
+                MoveOutTask.DoneWhen(OutSensor);                               
             END_IF;        
 
-            _MoveToOutIsBusy := _MoveOutTask.IsBusy();
+            _MoveToOutIsBusy := MoveOutTask.IsBusy();
 
-           _Messenger.ActivateOnCondition(UINT#1, (_MoveToOutIsBusy AND NOT _MoveToOutIsSuspended AND _MoveOutTask.Duration >= T#10S), eAxoMessageCategory#Error);   
-           _Messenger.ActivateOnCondition(UINT#9, (_MoveOutTask.IsDone() AND NOT _OutSensor), eAxoMessageCategory#Warning); 
+           _Messenger.ActivateOnCondition(UINT#1, (_MoveToOutIsBusy AND NOT _MoveToOutIsSuspended AND MoveOutTask.Duration >= T#10S), eAxoMessageCategory#Error);   
+           _Messenger.ActivateOnCondition(UINT#9, (MoveOutTask.IsDone() AND NOT OutSensor), eAxoMessageCategory#Warning); 
             
 
-            IF(_MoveInTask.Execute(THIS)) THEN    
-                IF(_MoveInTask.IsFirstExecutionCycle()) THEN
-                    _MoveOutTask.Restore();
+            IF(MoveInTask.Execute(THIS)) THEN    
+                IF(MoveInTask.IsFirstExecutionCycle()) THEN
+                    MoveOutTask.Restore();
                 END_IF;
-                _MoveInSignal := TRUE;
-                _MoveOutSignal := FALSE;
-                _MoveInTask.DoneWhen(_InSensor);                           
+                MoveInSignal := TRUE;
+                MoveOutSignal := FALSE;
+                MoveInTask.DoneWhen(InSensor);                           
             END_IF; 
 
-            _MoveToInIsBusy := _MoveInTask.IsBusy();
+            _MoveToInIsBusy := MoveInTask.IsBusy();
 
-            _Messenger.ActivateOnCondition(UINT#2, (_MoveToInIsBusy AND NOT _MoveToInIsSuspended AND _MoveInTask.Duration >= T#10S), eAxoMessageCategory#Error);
-            _Messenger.ActivateOnCondition(UINT#8, (_MoveInTask.IsDone() AND NOT _InSensor), eAxoMessageCategory#Warning);
+            _Messenger.ActivateOnCondition(UINT#2, (_MoveToInIsBusy AND NOT _MoveToInIsSuspended AND MoveInTask.Duration >= T#10S), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(UINT#8, (MoveInTask.IsDone() AND NOT InSensor), eAxoMessageCategory#Warning);
 
 
-            outMoveInSignal := _MoveInSignal AND NOT _MoveToInIsSuspended;
-            outMoveOutSignal := _MoveOutSignal AND NOT _MoveToOutIsSuspended;
+            outMoveInSignal := MoveInSignal AND NOT _MoveToInIsSuspended;
+            outMoveOutSignal := MoveOutSignal AND NOT _MoveToOutIsSuspended;
 
             _MoveToInIsSuspended := FALSE;
             _MoveToOutIsSuspended := FALSE;
@@ -165,30 +165,30 @@ NAMESPACE AXOpen.Components.Pneumatics
         /// Restores this component into intial state.        
         ///</summary>
         METHOD PUBLIC OVERRIDE Restore 
-            _MoveOutTask.Restore();
-            _MoveInTask.Restore();
-            _StopTask.Restore();
+            MoveOutTask.Restore();
+            MoveInTask.Restore();
+            StopTask.Restore();
         END_METHOD        
 
         ///<summary>
 		/// Invokes the movement to the extended position and returns the task state. 	
         ///</summary>       
         METHOD PUBLIC MoveOut : IAxoTaskState
-            MoveOut := _MoveOutTask.Invoke(THIS);
+            MoveOut := MoveOutTask.Invoke(THIS);
         END_METHOD
 
         ///<summary>
 		/// Invokes the movement to the retracted position and returns the task state. 	
         ///</summary>       
         METHOD PUBLIC MoveIn : IAxoTaskState
-            MoveIn := _MoveInTask.Invoke(THIS);
+            MoveIn := MoveInTask.Invoke(THIS);
         END_METHOD
 
         ///<summary>
 		/// Stops any movement. 	
         ///</summary>       
         METHOD PUBLIC Stop : IAxoTaskState
-            Stop := _StopTask.Invoke(THIS);
+            Stop := StopTask.Invoke(THIS);
         END_METHOD
      
         ///<summary>
@@ -205,8 +205,8 @@ NAMESPACE AXOpen.Components.Pneumatics
                 _messageCondition : BOOL;
             END_VAR
 
-            _suspendCondition := NOT _OutSensor && inCondition;
-            _messageCondition := _suspendCondition && _MoveOutTask.IsEngaged();
+            _suspendCondition := NOT OutSensor && inCondition;
+            _messageCondition := _suspendCondition && MoveOutTask.IsEngaged();
 
             IF(_messageCondition) THEN
                 IF inMessage = '' THEN
@@ -217,7 +217,7 @@ NAMESPACE AXOpen.Components.Pneumatics
             END_IF;  
               
             IF(_suspendCondition) THEN
-                _MoveOutSignal := FALSE;  
+                MoveOutSignal := FALSE;  
                 _MoveToOutIsSuspended := TRUE;
             END_IF;
         END_METHOD        
@@ -236,8 +236,8 @@ NAMESPACE AXOpen.Components.Pneumatics
                 _messageCondition : BOOL;
             END_VAR
 
-            _suspendCondition := NOT _InSensor && inCondition;
-            _messageCondition := _suspendCondition && _MoveInTask.IsEngaged();
+            _suspendCondition := NOT InSensor && inCondition;
+            _messageCondition := _suspendCondition && MoveInTask.IsEngaged();
 
             IF(_messageCondition) THEN
                 IF inMessage = '' THEN
@@ -248,7 +248,7 @@ NAMESPACE AXOpen.Components.Pneumatics
             END_IF;  
               
             IF(_suspendCondition) THEN
-                _MoveInSignal := FALSE;  
+                MoveInSignal := FALSE;  
                 _MoveToInIsSuspended := TRUE;
             END_IF;
         END_METHOD   
@@ -262,11 +262,11 @@ NAMESPACE AXOpen.Components.Pneumatics
             END_VAR
 
             IF(Condition) THEN                        
-                _MoveOutSignal := FALSE;   
-                _MoveOutTask.Abort();
+                MoveOutSignal := FALSE;   
+                MoveOutTask.Abort();
                 _Messenger.Activate(UINT#6, eAxoMessageCategory#Info);
             END_IF;    
-            _MoveOutTask.SetIsDisabled(Condition);
+            MoveOutTask.SetIsDisabled(Condition);
         END_METHOD        
 
         ///<summary>
@@ -278,11 +278,11 @@ NAMESPACE AXOpen.Components.Pneumatics
             END_VAR
 
             IF(Condition) THEN                        
-                _MoveInSignal := FALSE;   
+                MoveInSignal := FALSE;   
                 _Messenger.Activate(UINT#7, eAxoMessageCategory#Info);
-                _MoveInTask.Abort();
+                MoveInTask.Abort();
             END_IF;    
-            _MoveInTask.SetIsDisabled(Condition);
+            MoveInTask.SetIsDisabled(Condition);
         END_METHOD  
     END_CLASS
 END_NAMESPACE
