@@ -113,10 +113,10 @@ NAMESPACE Cylinder.Tests
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveOutSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveOutSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveOutTask.IsBusy());   
             AxUnit.Assert.Equal(FALSE, cylinder.MoveOut().IsBusy());   
-            AxUnit.Assert.Equal(TRUE, cylinder._MoveInSignal);   
+            AxUnit.Assert.Equal(TRUE, cylinder.MoveInSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveInTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveIn().IsBusy());   
         END_METHOD
@@ -131,10 +131,10 @@ NAMESPACE Cylinder.Tests
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
-            AxUnit.Assert.Equal(TRUE, cylinder._MoveOutSignal);   
+            AxUnit.Assert.Equal(TRUE, cylinder.MoveOutSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveOutTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveOut().IsBusy());   
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveInSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveInSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveInTask.IsBusy());   
             AxUnit.Assert.Equal(FALSE, cylinder.MoveIn().IsBusy());   
         END_METHOD  
@@ -155,10 +155,10 @@ NAMESPACE Cylinder.Tests
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
 
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveOutSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveOutSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveOutTask.IsBusy());   
             AxUnit.Assert.Equal(FALSE, cylinder.MoveOut().IsBusy());   
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveInSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveInSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveInTask.IsBusy());   
             AxUnit.Assert.Equal(FALSE, cylinder.MoveIn().IsBusy());   
         END_METHOD
@@ -179,10 +179,10 @@ NAMESPACE Cylinder.Tests
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveOutSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveOutSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveOutTask.IsBusy());   
             AxUnit.Assert.Equal(FALSE, cylinder.MoveOut().IsBusy());   
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveInSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveInSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveInTask.IsBusy());   
             AxUnit.Assert.Equal(FALSE, cylinder.MoveIn().IsBusy());   
         END_METHOD  
@@ -200,8 +200,8 @@ NAMESPACE Cylinder.Tests
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
-            AxUnit.Assert.Equal(TRUE, cylinder._MoveOutSignal);   
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveInSignal);   
+            AxUnit.Assert.Equal(TRUE, cylinder.MoveOutSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveInSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveOutTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveOut().IsBusy());   
             // AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
@@ -209,7 +209,7 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                                          
             context.InitializeRootObject(cylinderParent);
-            cylinder.SuspendMoveToWorkWhile(TRUE);
+            cylinder.SuspendMoveToOutWhile(TRUE);
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -242,14 +242,17 @@ NAMESPACE Cylinder.Tests
             // AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired);
 
-            context.Open();                                                              
+            context.Open();            
+            _homeSensor := FALSE;                                                  
+            _workSensor := FALSE;
             context.InitializeRootObject(cylinderParent);
-            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
-            cylinder.SuspendMoveToWorkWhile(TRUE);
+            cylinder.SuspendMoveToOutWhile(TRUE);
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);              
             context.Close();                          
-                
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveOutSignal);   
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveInSignal);   
+            
+            AxUnit.Assert.Equal(FALSE, _moveWorkSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveOutSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveInSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveOutTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveOut().IsBusy());   
             // AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
@@ -278,7 +281,7 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired);
 
             context.Open();                                                              
-            cylinder.SuspendMoveToHomeWhile(TRUE);
+            cylinder.SuspendMoveToInWhile(TRUE);
             context.InitializeRootObject(cylinderParent);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
@@ -312,13 +315,13 @@ NAMESPACE Cylinder.Tests
             // AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired);
             context.Open();                                                              
-            context.InitializeRootObject(cylinderParent);                                                        
-            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
-            cylinder.SuspendMoveToHomeWhile(TRUE);
+            context.InitializeRootObject(cylinderParent);   
+            cylinder.SuspendMoveToInWhile(TRUE);                                                     
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);              
             context.Close();                          
                 
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveOutSignal);   
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveInSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveOutSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveInSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveInTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveIn().IsBusy());   
             // AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
@@ -345,7 +348,7 @@ NAMESPACE Cylinder.Tests
             context.Open();                                                             
            
             cylinder.MoveOut();    
-            cylinder.SuspendMoveToWorkWhile(TRUE);       
+            cylinder.SuspendMoveToOutWhile(TRUE);       
           
             cylinder.Run(inParent := cylinderParent, 
                         inInSensor := _homeSensor, 
@@ -383,7 +386,7 @@ NAMESPACE Cylinder.Tests
             context.Close();
 
             context.Open();                                                              
-            cylinder.SuspendMoveToHomeWhile(TRUE);
+            cylinder.SuspendMoveToInWhile(TRUE);
             cylinder.MoveIn();                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
@@ -412,8 +415,8 @@ NAMESPACE Cylinder.Tests
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
-            AxUnit.Assert.Equal(TRUE, cylinder._MoveOutSignal);   
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveInSignal);   
+            AxUnit.Assert.Equal(TRUE, cylinder.MoveOutSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveInSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveOutTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveOut().IsBusy());   
 
@@ -423,8 +426,8 @@ NAMESPACE Cylinder.Tests
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveOutSignal);   
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveInSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveOutSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveInSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveOutTask.IsBusy());  
             AxUnit.Assert.Equal(FALSE, cylinder.MoveOut().IsBusy());   
             // AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
@@ -453,13 +456,13 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired);
 
             context.Open();                                                              
-            context.InitializeRootObject(cylinderParent);                                                        
-            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
-            cylinder.AbortMoveToWorkWhen(TRUE);
+            context.InitializeRootObject(cylinderParent);     
+            cylinder.AbortMoveToWorkWhen(TRUE);                                                   
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);              
             context.Close();                          
                 
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveOutSignal);   
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveInSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveOutSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveInSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveOutTask.IsBusy());   
             AxUnit.Assert.Equal(FALSE, cylinder.MoveOut().IsBusy());   
             // AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
@@ -523,13 +526,13 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired);
 
             context.Open();                                                              
-            context.InitializeRootObject(cylinderParent);                                                        
-            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
-            cylinder.AbortMoveToHomeWhen(TRUE);
+            context.InitializeRootObject(cylinderParent);  
+            cylinder.AbortMoveToHomeWhen(TRUE);                                                      
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);             
             context.Close();                          
                 
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveOutSignal);   
-            AxUnit.Assert.Equal(FALSE, cylinder._MoveInSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveOutSignal);   
+            AxUnit.Assert.Equal(FALSE, cylinder.MoveInSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveInTask.IsBusy());   
             AxUnit.Assert.Equal(FALSE, cylinder.MoveIn().IsBusy());   
             // AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
@@ -598,14 +601,14 @@ NAMESPACE Cylinder.Tests
             END_VAR 
             THIS.Init(dt); 
             context.Open();                                                              
-            cylinder.SuspendMoveToHomeWhile(TRUE);
+            cylinder.SuspendMoveToInWhile(TRUE);
             cylinder.MoveIn();
             context.InitializeRootObject(cylinderParent);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             context.Open();                                                              
-            cylinder.SuspendMoveToHomeWhile(TRUE);
+            cylinder.SuspendMoveToInWhile(TRUE);
             // AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
             AxUnit.Assert.Equal(TRUE, cylinder._Messenger.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired);
             context.InitializeRootObject(cylinderParent);                                                        

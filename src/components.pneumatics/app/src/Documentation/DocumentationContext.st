@@ -51,13 +51,13 @@ NAMESPACE AXOpen.Components.Pneumatics
             END_IF;
             //</Stop>
 
-            //<SuspendMoveToHomeWhile>
-            myAxoCylinder.SuspendMoveToHomeWhile(_suspendHomeCondition);
-            //</SuspendMoveToHomeWhile>
+            //<SuspendMoveToInWhile>
+            myAxoCylinder.SuspendMoveToInWhile(_suspendHomeCondition);
+            //</SuspendMoveToInWhile>
 
-            //<SuspendMoveToWorkWhile>
-            myAxoCylinder.SuspendMoveToWorkWhile(_suspendWorkCondition);
-            //</SuspendMoveToWorkWhile>
+            //<SuspendMoveToOutWhile>
+            myAxoCylinder.SuspendMoveToOutWhile(_suspendWorkCondition);
+            //</SuspendMoveToOutWhile>
 
             //<AbortMoveToHomeWhen>
             myAxoCylinder.AbortMoveToHomeWhen(_abortHomeCondition);
