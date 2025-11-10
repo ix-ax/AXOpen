@@ -27,6 +27,8 @@ To accomplish this, call the `Run` method cyclically with the proper variables (
 
 [!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
 
+>[!IMPORTANT]
+>Movement suspension and movement abort methods (`SuspendMoveToInWhile`, `SuspendMoveToOutWhile`, `AbortMoveToHomeWhen`, `AbortMoveToWorkWhen`) must be called cyclically **before** calling the `Run` method to ensure proper operation and safety.
 
 #### Example use
 
