@@ -209,7 +209,7 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                                          
             context.InitializeRootObject(cylinderParent);
-            cylinder.SuspendMoveToWorkWhile(TRUE);
+            cylinder.SuspendMoveToOutWhile(TRUE);
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
@@ -245,7 +245,7 @@ NAMESPACE Cylinder.Tests
             context.Open();                                                              
             context.InitializeRootObject(cylinderParent);
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
-            cylinder.SuspendMoveToWorkWhile(TRUE);
+            cylinder.SuspendMoveToOutWhile(TRUE);
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, cylinder._MoveOutSignal);   
@@ -278,7 +278,7 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired);
 
             context.Open();                                                              
-            cylinder.SuspendMoveToHomeWhile(TRUE);
+            cylinder.SuspendMoveToInWhile(TRUE);
             context.InitializeRootObject(cylinderParent);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
@@ -314,7 +314,7 @@ NAMESPACE Cylinder.Tests
             context.Open();                                                              
             context.InitializeRootObject(cylinderParent);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
-            cylinder.SuspendMoveToHomeWhile(TRUE);
+            cylinder.SuspendMoveToInWhile(TRUE);
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, cylinder._MoveOutSignal);   
@@ -345,7 +345,7 @@ NAMESPACE Cylinder.Tests
             context.Open();                                                             
            
             cylinder.MoveOut();    
-            cylinder.SuspendMoveToWorkWhile(TRUE);       
+            cylinder.SuspendMoveToOutWhile(TRUE);       
           
             cylinder.Run(inParent := cylinderParent, 
                         inInSensor := _homeSensor, 
@@ -383,7 +383,7 @@ NAMESPACE Cylinder.Tests
             context.Close();
 
             context.Open();                                                              
-            cylinder.SuspendMoveToHomeWhile(TRUE);
+            cylinder.SuspendMoveToInWhile(TRUE);
             cylinder.MoveIn();                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
@@ -598,14 +598,14 @@ NAMESPACE Cylinder.Tests
             END_VAR 
             THIS.Init(dt); 
             context.Open();                                                              
-            cylinder.SuspendMoveToHomeWhile(TRUE);
+            cylinder.SuspendMoveToInWhile(TRUE);
             cylinder.MoveIn();
             context.InitializeRootObject(cylinderParent);                                                        
             cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             context.Open();                                                              
-            cylinder.SuspendMoveToHomeWhile(TRUE);
+            cylinder.SuspendMoveToInWhile(TRUE);
             // AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
             AxUnit.Assert.Equal(TRUE, cylinder._Messenger.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired);
             context.InitializeRootObject(cylinderParent);                                                        
