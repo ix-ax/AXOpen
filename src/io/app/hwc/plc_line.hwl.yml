@@ -8,22 +8,9 @@ Devices:
         PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
         ADMIN_NAME: 'admin'
         CYCLE_COMMUNICATION_LOAD: 50
-  - Apply: balluff_bni00l3
-    Arguments:
-      NAME: balluff_bni00l3
-      IP_ADDRESS_X1: 192.168.100.122/24
-      PROFINET_DEVICE_NAME_X1: balluff_bni00l3
-      X01: balluff_bni00l3_port_deactivated
-      # X02: balluff_bni00l3_bni0099_bni0099
-      # X03: balluff_bni00l3_bni00ay
-      # X04: balluff_bni00l3_bni00ay_bni00ay
-      # X05: balluff_bni00l3_port_deactivated
-      # X06: balluff_bni00l3_port_deactivated
-      # X07: balluff_bni00l3_port_deactivated
-      # X08: balluff_bni00l3_port_deactivated
 IoSystems:
 - Name: profinet_plc_line
   ControllerInterfaces:
   - Ref: plc_line/plc_line/PROFINET_interface_1
   DeviceInterfaces:
-  - Ref: balluff_bni00l3/balluff_bni00l3/PN-IO
+  - Ref: bnixg35080b5r067/bnixg35080b5r067/PN-IO
