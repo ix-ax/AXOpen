@@ -194,7 +194,7 @@ NAMESPACE AXOpen.Components.Pneumatics
         ///<summary>
         /// Suspends the movement to the extended position while the condition is 'true'. Task remains still executing.
         ///</summary>
-        METHOD PUBLIC SuspendMoveToWorkWhile 
+        METHOD PUBLIC SuspendMoveToOutWhile 
             VAR_INPUT
                 inCondition : BOOL;
                 inMessage : STRING := ''; 
@@ -225,7 +225,7 @@ NAMESPACE AXOpen.Components.Pneumatics
         ///<summary>
         /// Suspends the movement to the retracted position while the condition is 'true'. Task remains still executing.
         ///</summary>
-        METHOD PUBLIC SuspendMoveToHomeWhile 
+        METHOD PUBLIC SuspendMoveToInWhile 
             VAR_INPUT
                 inCondition : BOOL;
                 inMessage : STRING := '';
