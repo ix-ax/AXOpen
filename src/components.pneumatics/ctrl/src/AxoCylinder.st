@@ -24,35 +24,40 @@ NAMESPACE AXOpen.Components.Pneumatics
             {#ix-set:AttributeName = "<#Move out#>"}
             _MoveOutTask : AxoTask;
 
-            {#ix-attr:[ComponentDetails("Tasks")]}            
-            {#ix-set:AttributeName = "<#Stop#>"}
-            _StopTask : AxoTask;
-
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#In sensor#>"}
-            _InSensor : BOOL;
+            InSensor : BOOL;
 
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Out sensor#>"}
-            _OutSensor : BOOL;
+            OutSensor : BOOL;
 
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Move in signal#>"}
-            _MoveInSignal : BOOL;
+            MoveInSignal : BOOL;
 
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Move out signal#>"}
-            _MoveOutSignal : BOOL;
+            MoveOutSignal : BOOL;
 
+            {#ix-attr:[ComponentDetails("Tasks")]}            
+            {#ix-set:AttributeName = "<#Stop#>"}
+            _StopTask : AxoTask;           
             _Messenger : AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
-
+        
+        VAR PRIVATE            
+            _InSensor : BOOL;            
+            _OutSensor : BOOL;            
+            _MoveInSignal : BOOL;            
+            _MoveOutSignal : BOOL;
+        END_VAR    
         VAR PRIVATE
             _MoveToOutIsSuspended : BOOL;
             _MoveToInIsSuspended : BOOL;
@@ -96,14 +101,14 @@ NAMESPACE AXOpen.Components.Pneumatics
             IF (inParent = NULL) THEN 
                 RETURN; 
             END_IF;
-
+            
             IF _context = NULL THEN
                 SUPER.Run(inParent);
                 _context := THIS.GetContext();
             END_IF;
 
             SUPER.Run(inParent);
-
+          
             _InSensor := inInSensor;
             _OutSensor := inOutSensor;
 
@@ -155,6 +160,11 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             _MoveToInIsSuspended := FALSE;
             _MoveToOutIsSuspended := FALSE;
+
+            InSensor := inInSensor;
+            OutSensor := inOutSensor;
+            MoveInSignal := outMoveInSignal;
+            MoveOutSignal := outMoveOutSignal;
         END_METHOD
 
         METHOD PROTECTED OVERRIDE ManualControl
