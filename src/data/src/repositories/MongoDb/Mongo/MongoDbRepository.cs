@@ -51,7 +51,7 @@ namespace AXOpen.Data.MongoDb
 
         private bool RecordExists(string identifier)
         {
-            return collection.Find(p => p.DataEntityId == identifier).Count() >= 1;
+            return collection.Find(p => p._EntityId == identifier).Count() >= 1;
         }
 
         protected override void CreateNvi(string identifier, T data)
@@ -77,7 +77,7 @@ namespace AXOpen.Data.MongoDb
         }
 
         protected override void DeleteNvi(string identifier)
-        { collection.DeleteOne(p => p.DataEntityId == identifier); }
+        { collection.DeleteOne(p => p._EntityId == identifier); }
 
         protected override long FilteredCountNvi(string id, eSearchMode searchMode)
         {
@@ -89,16 +89,16 @@ namespace AXOpen.Data.MongoDb
             switch (searchMode)
             {
                 case eSearchMode.StartsWith:
-                    filter = Builders<T>.Filter.Regex(p => p.DataEntityId, new BsonRegularExpression($"^{filterExpresion}", ""));
+                    filter = Builders<T>.Filter.Regex(p => p._EntityId, new BsonRegularExpression($"^{filterExpresion}", ""));
                     break;
 
                 case eSearchMode.Contains:
-                    filter = Builders<T>.Filter.Regex(p => p.DataEntityId, new BsonRegularExpression($".*{filterExpresion}", ""));
+                    filter = Builders<T>.Filter.Regex(p => p._EntityId, new BsonRegularExpression($".*{filterExpresion}", ""));
                     break;
 
                 case eSearchMode.Exact:
                 default:
-                    filter = Builders<T>.Filter.Eq(p => p.DataEntityId, id);
+                    filter = Builders<T>.Filter.Eq(p => p._EntityId, id);
                     break;
             }
 
@@ -129,16 +129,16 @@ namespace AXOpen.Data.MongoDb
             switch (searchMode)
             {
                 case eSearchMode.StartsWith:
-                    filter = Builders<T>.Filter.Regex(p => p.DataEntityId, new BsonRegularExpression($"^{filterExpresion}", ""));
+                    filter = Builders<T>.Filter.Regex(p => p._EntityId, new BsonRegularExpression($"^{filterExpresion}", ""));
                     break;
 
                 case eSearchMode.Contains:
-                    filter = Builders<T>.Filter.Regex(p => p.DataEntityId, new BsonRegularExpression($".*{filterExpresion}", ""));
+                    filter = Builders<T>.Filter.Regex(p => p._EntityId, new BsonRegularExpression($".*{filterExpresion}", ""));
                     break;
 
                 case eSearchMode.Exact:
                 default:
-                    filter = Builders<T>.Filter.Eq(p => p.DataEntityId, identifier);
+                    filter = Builders<T>.Filter.Eq(p => p._EntityId, identifier);
                     break;
             }
 
@@ -241,7 +241,7 @@ namespace AXOpen.Data.MongoDb
             else
             {
                 // Start with the ID filter
-                var idFilter = Builders<T>.Filter.In(p => p.DataEntityId, ids);
+                var idFilter = Builders<T>.Filter.In(p => p._EntityId, ids);
 
                 // Default filter
                 filter = idFilter;
@@ -304,7 +304,7 @@ namespace AXOpen.Data.MongoDb
                 return Enumerable.Empty<T>();
             }
 
-            var filter = Builders<T>.Filter.In(p => p.DataEntityId, ids);
+            var filter = Builders<T>.Filter.In(p => p._EntityId, ids);
 
             if (sortingPredicates != null)
             {
@@ -328,7 +328,7 @@ namespace AXOpen.Data.MongoDb
             var results = collection
                 .Find(filter)
                 .Sort(sortDefinition)
-                .Project(Builders<T>.Projection.Expression(x => x.DataEntityId)) // Projection for DataEntityId
+                .Project(Builders<T>.Projection.Expression(x => x._EntityId)) // Projection for _EntityId
                 .ToList();
 
             return results.ToList();
@@ -364,7 +364,7 @@ namespace AXOpen.Data.MongoDb
         {
             try
             {
-                var record = collection.Find(p => p.DataEntityId == identifier).FirstOrDefault();
+                var record = collection.Find(p => p._EntityId == identifier).FirstOrDefault();
                 if (record == null)
                 {
                     throw new UnableToLocateRecordId($"Unable to locate record with ID: '{identifier}' in '{location}'.",
@@ -389,7 +389,7 @@ namespace AXOpen.Data.MongoDb
                                                      null);
                 }
 
-                collection.ReplaceOne(p => p.DataEntityId == identifier, data);
+                collection.ReplaceOne(p => p._EntityId == identifier, data);
             }
             catch (Exception ex)
             {

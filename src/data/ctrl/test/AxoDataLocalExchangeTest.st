@@ -29,7 +29,7 @@ NAMESPACE AXOpen.Data
                      
             tmpSlot :=THIS.GetFreeSlot(); 
             IF(tmpSlot >= 0) THEN 
-                Payload.DataEntityId :=  inIdentifier;      
+                Payload._EntityId :=  inIdentifier;      
                 Storage[tmpSlot] :=  Payload;                                      
                 dataExchangeTask.Status := eAxoTaskState#Done;
             ELSE
@@ -91,7 +91,7 @@ NAMESPACE AXOpen.Data
             dataExchangeTask.Status := eAxoTaskState#Busy;        
             operation := eCrudOperation#Delete;
             
-            Storage[THIS.LocateSlot(inIdentifier)].DataEntityId := '';            
+            Storage[THIS.LocateSlot(inIdentifier)]._EntityId := '';            
             dataExchangeTask.Status := eAxoTaskState#Done;
             Delete := dataExchangeTask;        
         END_METHOD 
@@ -122,7 +122,7 @@ NAMESPACE AXOpen.Data
             END_VAR 
             GetFreeSlot := -1;               
             FOR i := LOWBOUND TO HIGHBOUND DO                                  
-                IF(Storage[i].DataEntityId = '') THEN
+                IF(Storage[i]._EntityId = '') THEN
                      GetFreeSlot := i;
                      RETURN;
                 END_IF;                
@@ -139,7 +139,7 @@ NAMESPACE AXOpen.Data
             END_VAR 
             LocateSlot := -1;   
             FOR i := LOWBOUND TO HIGHBOUND DO                                  
-                IF(Storage[i].DataEntityId = inIdentifier) THEN
+                IF(Storage[i]._EntityId = inIdentifier) THEN
                     LocateSlot := i;
                      RETURN;
                 END_IF;                
@@ -175,13 +175,13 @@ NAMESPACE AXOpen.Data
                 index : INT;
             END_VAR    
                        
-            storageController.Payload.DataEntityId := 'NON-ID';
+            storageController.Payload._EntityId := 'NON-ID';
             storageController.Payload._hello := 'HEY';
             storageController.Payload._someNumber := 1;                                                     
             storageController.Create('ID');
                                            
             
-            storageController.Payload.DataEntityId := 'NON-ID';
+            storageController.Payload._EntityId := 'NON-ID';
             storageController.Payload._hello := 'HEY-2';
             storageController.Payload._someNumber := 2;                                                     
             storageController.Create('ID-2');
@@ -189,7 +189,7 @@ NAMESPACE AXOpen.Data
             storageController.Read('ID');
 
             AxUnit.Assert.Equal(storageController.Payload._hello = 'HEY' , TRUE);
-            AxUnit.Assert.Equal(storageController.Payload.DataEntityId = 'ID' , TRUE);
+            AxUnit.Assert.Equal(storageController.Payload._EntityId = 'ID' , TRUE);
             AxUnit.Assert.Equal(storageController.Payload._someNumber , 1);
         END_METHOD   
         
@@ -200,13 +200,13 @@ NAMESPACE AXOpen.Data
                 index : INT;
             END_VAR    
                        
-            storageController.Payload.DataEntityId := 'NON-ID';
+            storageController.Payload._EntityId := 'NON-ID';
             storageController.Payload._hello := 'HEY';
             storageController.Payload._someNumber := 1;                                                     
             storageController.Create('ID');
                                            
             
-            storageController.Payload.DataEntityId := 'NON-ID';
+            storageController.Payload._EntityId := 'NON-ID';
             storageController.Payload._hello := 'TO_BE_READ';
             storageController.Payload._someNumber := 2;                                                     
             storageController.Create('READ-ID');
@@ -214,7 +214,7 @@ NAMESPACE AXOpen.Data
             storageController.Read('READ-ID');
 
             AxUnit.Assert.Equal(storageController.Payload._hello = 'TO_BE_READ' , TRUE);
-            AxUnit.Assert.Equal(storageController.Payload.DataEntityId = 'READ-ID' , TRUE);
+            AxUnit.Assert.Equal(storageController.Payload._EntityId = 'READ-ID' , TRUE);
             AxUnit.Assert.Equal(storageController.Payload._someNumber , 2);
         END_METHOD
 
@@ -224,13 +224,13 @@ NAMESPACE AXOpen.Data
                 index : INT;
             END_VAR    
                        
-            storageController.Payload.DataEntityId := 'NON-ID';
+            storageController.Payload._EntityId := 'NON-ID';
             storageController.Payload._hello := 'HEY';
             storageController.Payload._someNumber := 1;                                                     
             storageController.Create('ID');
                                            
             
-            storageController.Payload.DataEntityId := 'NON-ID';
+            storageController.Payload._EntityId := 'NON-ID';
             storageController.Payload._hello := 'TO_BE_READ';
             storageController.Payload._someNumber := 2;                                                     
             storageController.Create('DELETE-ID');

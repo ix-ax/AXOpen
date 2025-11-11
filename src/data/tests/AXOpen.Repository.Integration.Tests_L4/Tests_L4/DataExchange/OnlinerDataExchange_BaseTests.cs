@@ -236,16 +236,16 @@
 
             Assert.Equal(10, records.Count());
 
-            Assert.Equal("0", records[0].DataEntityId);
-            Assert.Equal("1", records[1].DataEntityId);
-            Assert.Equal("2", records[2].DataEntityId);
-            Assert.Equal("3", records[3].DataEntityId);
-            Assert.Equal("4", records[4].DataEntityId);
-            Assert.Equal("5", records[5].DataEntityId);
-            Assert.Equal("6", records[6].DataEntityId);
-            Assert.Equal("7", records[7].DataEntityId);
-            Assert.Equal("8", records[8].DataEntityId);
-            Assert.Equal("9", records[9].DataEntityId);
+            Assert.Equal("0", records[0]._EntityId);
+            Assert.Equal("1", records[1]._EntityId);
+            Assert.Equal("2", records[2]._EntityId);
+            Assert.Equal("3", records[3]._EntityId);
+            Assert.Equal("4", records[4]._EntityId);
+            Assert.Equal("5", records[5]._EntityId);
+            Assert.Equal("6", records[6]._EntityId);
+            Assert.Equal("7", records[7]._EntityId);
+            Assert.Equal("8", records[8]._EntityId);
+            Assert.Equal("9", records[9]._EntityId);
         }
 
         [Fact]
@@ -274,16 +274,16 @@
 
             Assert.Equal(10, records.Count());
 
-            Assert.Equal("9", records[0].DataEntityId);
-            Assert.Equal("8", records[1].DataEntityId);
-            Assert.Equal("7", records[2].DataEntityId);
-            Assert.Equal("6", records[3].DataEntityId);
-            Assert.Equal("5", records[4].DataEntityId);
-            Assert.Equal("4", records[5].DataEntityId);
-            Assert.Equal("3", records[6].DataEntityId);
-            Assert.Equal("2", records[7].DataEntityId);
-            Assert.Equal("1", records[8].DataEntityId);
-            Assert.Equal("0", records[9].DataEntityId);
+            Assert.Equal("9", records[0]._EntityId);
+            Assert.Equal("8", records[1]._EntityId);
+            Assert.Equal("7", records[2]._EntityId);
+            Assert.Equal("6", records[3]._EntityId);
+            Assert.Equal("5", records[4]._EntityId);
+            Assert.Equal("4", records[5]._EntityId);
+            Assert.Equal("3", records[6]._EntityId);
+            Assert.Equal("2", records[7]._EntityId);
+            Assert.Equal("1", records[8]._EntityId);
+            Assert.Equal("0", records[9]._EntityId);
         }
 
         [Fact]
@@ -314,16 +314,16 @@
 
             Assert.Equal(10, records.Count());
 
-            Assert.Equal("9", records[0].DataEntityId);
-            Assert.Equal("8", records[1].DataEntityId);
-            Assert.Equal("7", records[2].DataEntityId);
-            Assert.Equal("6", records[3].DataEntityId);
-            Assert.Equal("5", records[4].DataEntityId);
-            Assert.Equal("4", records[5].DataEntityId);
-            Assert.Equal("3", records[6].DataEntityId);
-            Assert.Equal("2", records[7].DataEntityId);
-            Assert.Equal("1", records[8].DataEntityId);
-            Assert.Equal("0", records[9].DataEntityId);
+            Assert.Equal("9", records[0]._EntityId);
+            Assert.Equal("8", records[1]._EntityId);
+            Assert.Equal("7", records[2]._EntityId);
+            Assert.Equal("6", records[3]._EntityId);
+            Assert.Equal("5", records[4]._EntityId);
+            Assert.Equal("4", records[5]._EntityId);
+            Assert.Equal("3", records[6]._EntityId);
+            Assert.Equal("2", records[7]._EntityId);
+            Assert.Equal("1", records[8]._EntityId);
+            Assert.Equal("0", records[9]._EntityId);
         }
 
         [Fact]

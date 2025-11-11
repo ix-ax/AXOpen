@@ -34,13 +34,13 @@ NAMESPACE AXOpen.Components.Pneumatics
 
         METHOD Examples
             //<MoveToHome>
-            IF myAxoCylinder.MoveToHome().IsDone() THEN
+            IF myAxoCylinder.MoveIn().IsDone() THEN
                 ;
             END_IF;
             //</MoveToHome>
 
             //<MoveToWork>
-            IF myAxoCylinder.MoveToWork().IsDone() THEN
+            IF myAxoCylinder.MoveOut().IsDone() THEN
                 ;
             END_IF;
             //</MoveToWork>
@@ -51,13 +51,13 @@ NAMESPACE AXOpen.Components.Pneumatics
             END_IF;
             //</Stop>
 
-            //<SuspendMoveToHomeWhile>
-            myAxoCylinder.SuspendMoveToHomeWhile(_suspendHomeCondition);
-            //</SuspendMoveToHomeWhile>
+            //<SuspendMoveToInWhile>
+            myAxoCylinder.SuspendMoveToInWhile(_suspendHomeCondition);
+            //</SuspendMoveToInWhile>
 
-            //<SuspendMoveToWorkWhile>
-            myAxoCylinder.SuspendMoveToWorkWhile(_suspendWorkCondition);
-            //</SuspendMoveToWorkWhile>
+            //<SuspendMoveToOutWhile>
+            myAxoCylinder.SuspendMoveToOutWhile(_suspendWorkCondition);
+            //</SuspendMoveToOutWhile>
 
             //<AbortMoveToHomeWhen>
             myAxoCylinder.AbortMoveToHomeWhen(_abortHomeCondition);

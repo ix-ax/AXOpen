@@ -10,7 +10,7 @@ namespace AXOpen.Data
 {
     public partial interface IAxoDataEntity
     {
-        OnlinerString DataEntityId { get; }
+        OnlinerString _EntityId { get; }
         string Hash { get; set; }
         object LockedBy { get; set; }
     }

@@ -47,7 +47,7 @@ namespace AXOpen.Repository.Integration.Tests
                 this.repository = AXOpen.Data.MongoDb.Repository.Factory<FloatSerializerObject>(parameters);
                 foreach (var item in this.repository.GetRecords("*"))
                 {
-                    repository.Delete(item.DataEntityId);
+                    repository.Delete(item._EntityId);
                 }
             }
         }

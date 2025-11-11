@@ -49,8 +49,8 @@
 
             Assert.Equal(2, result.Count());
 
-            Assert.Equal("7", result[0].DataEntityId);
-            Assert.Equal("6", result[1].DataEntityId);
+            Assert.Equal("7", result[0]._EntityId);
+            Assert.Equal("6", result[1]._EntityId);
         }
 
         [Fact]
@@ -66,7 +66,7 @@
 
             Assert.Equal(1, result.Count());
 
-            Assert.Equal("4", result[0].DataEntityId);
+            Assert.Equal("4", result[0]._EntityId);
         }
 
         [Fact]
@@ -111,14 +111,14 @@
             Assert.Equal("HeaderData.vString", result[0]);
             Assert.Equal("HeaderData.vInt", result[1]);
             Assert.Equal("HeaderData.vBool", result[2]);
-            Assert.Equal("HeaderData.DataEntityId", result[3]);
+            Assert.Equal("HeaderData._EntityId", result[3]);
             Assert.Equal("StationData.vString", result[4]);
             Assert.Equal("StationData.vInt", result[5]);
             Assert.Equal("StationData.vBool", result[6]);
             Assert.Equal("StationData.NestObj.vString", result[7]);
             Assert.Equal("StationData.NestObj.vInt", result[8]);
             Assert.Equal("StationData.NestObj.vBool", result[9]);
-            Assert.Equal("StationData.DataEntityId", result[10]);
+            Assert.Equal("StationData._EntityId", result[10]);
         }
 
         [Fact]

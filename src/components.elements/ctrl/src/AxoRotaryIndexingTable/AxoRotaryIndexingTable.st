@@ -388,14 +388,14 @@ NAMESPACE AXOpen.Components.Elements
         /// Suspends the movement while the condition is 'true'. Task remains still executing.
         ///</summary>
         METHOD PUBLIC SuspendMovementWhile 
-            VAR_IN_OUT
-                inoCondition : BOOL;
+            VAR_INPUT
+                inCondition : BOOL;
             END_VAR
             VAR_INPUT
                 inMessage : STRING;
             END_VAR
 
-            IF(inoCondition) THEN                        
+            IF(inCondition) THEN                        
                 Outputs.EnableTurn  :=  FALSE;
                 Outputs.StartTurn   :=  FALSE;
                 IF TurnTask.IsBusy() OR InitPositionTask.IsBusy() THEN
@@ -403,7 +403,7 @@ NAMESPACE AXOpen.Components.Elements
                 END_IF;
                 _suspentionCycleCount := THIS.GetContext().OpenCycleCount();
             END_IF;   
-            _movementIsSuspended := _movementIsSuspended OR inoCondition;
+            _movementIsSuspended := _movementIsSuspended OR inCondition;
         END_METHOD      
 
         METHOD PROTECTED OVERRIDE ManualControl

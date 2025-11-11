@@ -8,17 +8,17 @@ devDependencies:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": '0.0.38'
+  "@inxton/ax.catalog": 0.0.39
 dependencies:
-  "@ax/simatic-1500-clocks": ^10.0.6
-  "@ax/system-bitaccess": ^10.2.7
-  "@ax/system-math": ^10.2.7
-  "@ax/system-serde": ^10.2.7
-  "@ax/hwc": ^4.0.0
-  "@ax/hw-s7-1500": ^4.0.0
-  "@ax/hwld": ^3.2.0
-  "@ax/stc": ^11.0.142
-  "@ax/sld": ^3.5.5
+  "@ax/simatic-1500-clocks": 10.0.6
+  "@ax/system-bitaccess": 10.2.7
+  "@ax/system-math": 10.2.7
+  "@ax/system-serde": 10.2.7
+  "@ax/hwc": 4.0.0
+  "@ax/hw-s7-1500": 4.0.0
+  "@ax/hwld": 3.2.0
+  "@ax/stc": 11.0.142
+  "@ax/sld": 3.5.5
 installStrategy: strict
 apaxVersion: 3.5.0
 scripts:
@@ -29,7 +29,7 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ib' Finished in :" $(expr $(date +%s) - $START) "s"
   icb: |
     START=$(date +%s)
-    apax install --catalog
+    apax install --catalog --strict
     apax ib
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax icb' Finished in :" $(expr $(date +%s) - $START) "s"
   cib: |
