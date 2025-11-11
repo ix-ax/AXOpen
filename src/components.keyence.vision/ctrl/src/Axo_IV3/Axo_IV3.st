@@ -6157,7 +6157,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         Status.Error.Id :=      UINT#502;
                     END_IF;
 
-                    IF TRUE (*Inputs.CommandStatusBits.BUSY*) THEN
+                    IF Inputs.CommandStatusBits.BUSY THEN
                         THIS.CallTimers(FALSE);
                         _progress := 303;
                     END_IF;
@@ -6169,7 +6169,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         Status.Error.Id :=      UINT#503;
                     END_IF;
     
-                    IF Inputs.CommandStatusBits.ImagingStatus THEN
+                    IF TRUE OR Inputs.CommandStatusBits.ImagingStatus THEN
                         THIS.CallTimers(FALSE);
                         _progress := 304;
                     END_IF;
