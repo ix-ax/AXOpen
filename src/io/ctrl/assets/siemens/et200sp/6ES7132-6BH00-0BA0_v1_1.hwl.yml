@@ -1,0 +1,117 @@
+Templates:
+  Modules:
+  - Name: '6ES7132-6BH00-0BA0_v1_1'
+    Placeholders:
+    - Name: 'NAME'
+      Value: 'NAME'
+    - Name: 'TERMINAL'
+      Value: 'Use potential group of the left module (dark BaseUnit)'
+      AllowedValues:
+        - 'Use potential group of the left module (dark BaseUnit)'
+        - 'Enable new potential group (light BaseUnit)'
+    Content:
+      Name: "${NAME}"
+      TypeIdentifier:
+        FileName: 'GSDML-V2.45-SIEMENS-ET200SP-20250606.XML'
+        GsdId: 'DQ 16x24VDC/0,5A ST V1.1'
+      IoConfiguration:
+        Outputs:
+          # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
+          ProcessImagePartition: 'Automatic update'
+      Parameters:
+        RecordDataList:
+        - IndexName: 'Outputs'
+          Values:
+          - OffsetName: 'Diagnostics: No supply voltage L+'
+            Value: False
+          - OffsetName: 'Diagnostics: Short circuit to ground'
+            Value: False
+          - OffsetName: 'Diagnostics: Short circuit to L+'
+            Value: False
+          - OffsetName: 'Diagnostics: Wire break'
+            Value: False
+          - OffsetName: 'Channel 0 activated'
+            Value: True
+          - OffsetName: 'Channel 0 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 1 activated'
+            Value: True
+          - OffsetName: 'Channel 1 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 2 activated'
+            Value: True
+          - OffsetName: 'Channel 2 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 3 activated'
+            Value: True
+          - OffsetName: 'Channel 3 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 4 activated'
+            Value: True
+          - OffsetName: 'Channel 4 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 5 activated'
+            Value: True
+          - OffsetName: 'Channel 5 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 6 activated'
+            Value: True
+          - OffsetName: 'Channel 6 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 7 activated'
+            Value: True
+          - OffsetName: 'Channel 7 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 8 activated'
+            Value: True
+          - OffsetName: 'Channel 8 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 9 activated'
+            Value: True
+          - OffsetName: 'Channel 9 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 10 activated'
+            Value: True
+          - OffsetName: 'Channel 10 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 11 activated'
+            Value: True
+          - OffsetName: 'Channel 11 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 12 activated'
+            Value: True
+          - OffsetName: 'Channel 12 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 13 activated'
+            Value: True
+          - OffsetName: 'Channel 13 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 14 activated'
+            Value: True
+          - OffsetName: 'Channel 14 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+          - OffsetName: 'Channel 15 activated'
+            Value: True
+          - OffsetName: 'Channel 15 Reaction to CPU STOP'
+            # Possible ValueNames: Shutdown | Keep last value | Output substitute value 1
+            ValueName: 'Shutdown'
+        - IndexName: 'Potential group'
+          Values:
+          - OffsetName: 'Potential group'
+            # Possible ValueNames: Use potential group of the left module (dark BaseUnit) | Enable new potential group (light BaseUnit)
+            ValueName: '${TERMINAL}'

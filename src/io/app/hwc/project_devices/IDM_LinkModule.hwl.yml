@@ -31,7 +31,7 @@ Templates:
       - Name: 'X01'
         TypeIdentifier:
           FileName: 'GSDML-V2.45-BALLUFF-BNI-XG3-X0X-XB5-X067-20250822.XML'
-          GsdId: 'IDS_IOL_2I_0O_PQI'
+          GsdId: 'IDS_IOL_4I_0O_PQI'
         Slot: 2
         Parameters:
           RecordDataList:
