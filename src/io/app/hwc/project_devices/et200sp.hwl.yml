@@ -5,7 +5,7 @@ Devices:
     Arguments:
       NAME: et200sp
       IP_ADDRESS_X1: '192.168.100.121/24'
-      PROFINET_DEVICE_NAME_X1: et200s
+      PROFINET_DEVICE_NAME_X1: et200sp
   - Apply: '6ES7131-6BH00-0BA0_v1_1'
     Arguments:
       NAME: A10

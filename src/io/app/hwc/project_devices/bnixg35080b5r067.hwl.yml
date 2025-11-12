@@ -43,7 +43,7 @@
               # TransmissionRateAutoNegotiation: True
               # CableName: 0
               # MediumAttachmentType: 'Copper'
-        - Apply: IDM_LinkModule
+        - Apply: IDM_LinkModule_2xBNI00AY_on_Port_X01
           Arguments:
-            NAME: 'IDM_LinkModule'
+            NAME: '2xBNI00AY_on_Port_X01'
           

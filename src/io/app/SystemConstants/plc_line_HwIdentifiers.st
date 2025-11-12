@@ -1,8 +1,8 @@
 CONFIGURATION HardwareIDs
     VAR_GLOBAL CONSTANT
         bnixg35080b5r067_HwID : UINT := UINT#259;
-        bnixg35080b5r067_IDM_LinkModule_HwID : UINT := UINT#264;
-        bnixg35080b5r067_IDM_LinkModule_BALLUFF_8_Port_IO_Link_Master_HwID : UINT := UINT#265;
+        bnixg35080b5r067_2xBNI00AY_on_Port_X01_HwID : UINT := UINT#264;
+        bnixg35080b5r067_2xBNI00AY_on_Port_X01_BALLUFF_8_Port_IO_Link_Master_HwID : UINT := UINT#265;
         bnixg35080b5r067_Port_deactivated_1_HwID : UINT := UINT#266;
         bnixg35080b5r067_Port_deactivated_2_HwID : UINT := UINT#267;
         bnixg35080b5r067_Port_deactivated_3_HwID : UINT := UINT#268;
@@ -18,28 +18,6 @@ CONFIGURATION HardwareIDs
         bnixg35080b5r067_bnixg35080b5r067_PN_IO_Port_1_HwID : UINT := UINT#260;
         bnixg35080b5r067_bnixg35080b5r067_PN_IO_Port_2_HwID : UINT := UINT#261;
         et200sp_HwID : UINT := UINT#298;
-        et200sp_1_HwID : UINT := UINT#276;
-        et200sp_1_A100_Server_module_V1_1_0_bytes_HwID : UINT := UINT#281;
-        et200sp_1_A10_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#295;
-        et200sp_1_A11_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#294;
-        et200sp_1_A12_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#293;
-        et200sp_1_A13_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#292;
-        et200sp_1_A14_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#291;
-        et200sp_1_A15_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#290;
-        et200sp_1_A16_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#289;
-        et200sp_1_A17_DI_16x24VDC_ST_V0_0_HwID : UINT := UINT#288;
-        et200sp_1_A20_DQ_16x24VDC_0_5A_ST_V0_0_HwID : UINT := UINT#287;
-        et200sp_1_A21_DQ_16x24VDC_0_5A_ST_V0_0_HwID : UINT := UINT#286;
-        et200sp_1_A22_DQ_16x24VDC_0_5A_ST_V0_0_HwID : UINT := UINT#285;
-        et200sp_1_A23_DQ_16x24VDC_0_5A_ST_V0_0_HwID : UINT := UINT#284;
-        et200sp_1_A30_AI_4xU_I_2_wire_ST_V2_0_HwID : UINT := UINT#283;
-        et200sp_1_A40_AQ_4xU_I_ST_V1_0_HwID : UINT := UINT#282;
-        et200sp_1_Rack_HwID : UINT := UINT#279;
-        et200sp_1_et200sp_1_HwID : UINT := UINT#280;
-        et200sp_1_et200sp_1_IM_155_6_PN_ST_V6_3_HwID : UINT := UINT#296;
-        et200sp_1_et200sp_1_PN_IO_HwID : UINT := UINT#275;
-        et200sp_1_et200sp_1_Port_1_HwID : UINT := UINT#277;
-        et200sp_1_et200sp_1_Port_2_HwID : UINT := UINT#278;
         et200sp_A100_Server_module_V1_1_0_bytes_HwID : UINT := UINT#303;
         et200sp_A10_DI_16x24VDC_ST_V1_1_HwID : UINT := UINT#306;
         et200sp_A20_DQ_16x24VDC_0_5A_ST_V1_1_HwID : UINT := UINT#305;
