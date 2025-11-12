@@ -6169,7 +6169,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         Status.Error.Id :=      UINT#503;
                     END_IF;
     
-                    IF Inputs.CommandStatusBits.ImagingStatus THEN
+                    IF TRUE OR Inputs.CommandStatusBits.ImagingStatus THEN
                         THIS.CallTimers(FALSE);
                         _progress := 304;
                     END_IF;
