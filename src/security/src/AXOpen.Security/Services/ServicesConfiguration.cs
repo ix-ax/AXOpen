@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using AXOpen;
 using Microsoft.AspNetCore.Components.Authorization;
 using AXOpen.Security.Services;
+using AXOpen.Security;
 
 namespace AxOpen.Security.Services
 {
@@ -22,6 +23,8 @@ namespace AxOpen.Security.Services
         {
             services.AddTransient<IUserStore<User>, UserStore>();
             services.AddTransient<IRoleStore<Role>, RoleStore>();
+
+            services.AddScoped<IdentityRedirectManager>();
 
             services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
 
