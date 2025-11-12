@@ -70,62 +70,26 @@
     <!-- Build & Packaging -->
     <PackageVersion Include="Microsoft.NET.ILLink.Tasks" Version="9.0.8" />
     <PackageVersion Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
-  </ItemGroup>
 
-  <!-- Target Framework Specific Packages -->
-
-  <!-- .NET 10.0 -->
-  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <!-- Target Framework Specific Packages -->
     <!-- AspNetCore -->
-    <PackageVersion Include="Microsoft.AspNetCore.Components" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="10.0.0-rc.2.25502.107" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="10.0.0" />
 
     <!-- Entity Framework -->
-    <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.0-rc.2.25502.107" />
+    <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.0" />
 
     <!-- Identity -->
-    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="Microsoft.Extensions.Identity.Stores" Version="10.0.0-rc.2.25502.107" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Identity.Stores" Version="10.0.0" />
 
     <!-- Extensions -->
-    <PackageVersion Include="Microsoft.Extensions.Localization" Version="10.0.0-rc.2.25502.107" />
+    <PackageVersion Include="Microsoft.Extensions.Localization" Version="10.0.0" />
     <PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="10.0.0-rc.1.25458.5" />
   </ItemGroup>
-
-  <!-- .NET 9.0 -->
-  <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
-    <!-- AspNetCore -->
-    <PackageVersion Include="Microsoft.AspNetCore.Components" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="9.0.0" />
-
-    <!-- Entity Framework -->
-    <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0" />
-
-    <!-- Identity -->
-    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Identity.Stores" Version="9.0.0" />
-
-    <!-- Extensions -->
-    <PackageVersion Include="Microsoft.Extensions.Localization" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
-  </ItemGroup>
 </Project>
-
-
-
-
-
-
-
-
-
