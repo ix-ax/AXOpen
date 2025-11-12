@@ -1,6 +1,6 @@
 Templates:
   Modules:
-  - Name: 'IDM_LinkModule_2xBNI00AY_on_Port_X01'
+  - Name: 'BNI00L3_IDM_LinkModule_2xBNI00AY_on_Port_X01'
     Placeholders:
     - Name: 'NAME'
     Content:
