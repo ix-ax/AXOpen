@@ -13,4 +13,6 @@ IoSystems:
   ControllerInterfaces:
   - Ref: plc_line/plc_line/PROFINET_interface_1
   DeviceInterfaces:
-   - Ref: et200sp_1/et200sp_1/PN-IO
+  - Ref: et200sp/et200sp/PN-IO
+  # - Ref: bnixg35080b5r067/bnixg35080b5r067/PN-IO
+  # - Ref: et200sp_1/et200sp_1/PN-IO

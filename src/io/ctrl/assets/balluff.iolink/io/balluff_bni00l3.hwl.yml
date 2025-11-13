@@ -1,0 +1,168 @@
+Templates:
+  Devices:
+  - Name: 'balluff_bni00l3'
+    Placeholders:
+      - Name: 'NAME'
+      - Name: 'IP_ADDRESS_X1'
+        Value: '192.168.0.1/24'
+      - Name: 'PROFINET_DEVICE_NAME_X1'
+        Value: 'balluff_bni00l3'
+      - Name: 'X01'
+        Value: 'balluff_bni00l3_port_deactivated'
+        AllowedValues:
+          - 'balluff_bni00l3_port_deactivated'
+          - 'balluff_bni00l3_bni0099'
+          - 'balluff_bni00l3_bni0099_bni0099'
+          - 'balluff_bni00l3_bni00ay'
+          - 'balluff_bni00l3_bni00ay_bni00ay'
+      - Name: 'X02'
+        Value: 'balluff_bni00l3_port_deactivated'
+        AllowedValues:
+          - 'balluff_bni00l3_port_deactivated'
+          - 'balluff_bni00l3_bni0099'
+          - 'balluff_bni00l3_bni0099_bni0099'
+          - 'balluff_bni00l3_bni00ay'
+          - 'balluff_bni00l3_bni00ay_bni00ay'
+      - Name: 'X03'
+        Value: 'balluff_bni00l3_port_deactivated'
+        AllowedValues:
+          - 'balluff_bni00l3_port_deactivated'
+          - 'balluff_bni00l3_bni0099'
+          - 'balluff_bni00l3_bni0099_bni0099'
+          - 'balluff_bni00l3_bni00ay'
+          - 'balluff_bni00l3_bni00ay_bni00ay'
+      - Name: 'X04'
+        Value: 'balluff_bni00l3_port_deactivated'
+        AllowedValues:
+          - 'balluff_bni00l3_port_deactivated'
+          - 'balluff_bni00l3_bni0099'
+          - 'balluff_bni00l3_bni0099_bni0099'
+          - 'balluff_bni00l3_bni00ay'
+          - 'balluff_bni00l3_bni00ay_bni00ay'
+      - Name: 'X05'
+        Value: 'balluff_bni00l3_port_deactivated'
+        AllowedValues:
+          - 'balluff_bni00l3_port_deactivated'
+          - 'balluff_bni00l3_bni0099'
+          - 'balluff_bni00l3_bni0099_bni0099'
+          - 'balluff_bni00l3_bni00ay'
+          - 'balluff_bni00l3_bni00ay_bni00ay'
+      - Name: 'X06'
+        Value: 'balluff_bni00l3_port_deactivated'
+        AllowedValues:
+          - 'balluff_bni00l3_port_deactivated'
+          - 'balluff_bni00l3_bni0099'
+          - 'balluff_bni00l3_bni0099_bni0099'
+          - 'balluff_bni00l3_bni00ay'
+          - 'balluff_bni00l3_bni00ay_bni00ay'
+      - Name: 'X07'
+        Value: 'balluff_bni00l3_port_deactivated'
+        AllowedValues:
+          - 'balluff_bni00l3_port_deactivated'
+          - 'balluff_bni00l3_bni0099'
+          - 'balluff_bni00l3_bni0099_bni0099'
+          - 'balluff_bni00l3_bni00ay'
+          - 'balluff_bni00l3_bni00ay_bni00ay'
+      - Name: 'X08'
+        Value: 'balluff_bni00l3_port_deactivated'
+        AllowedValues:
+          - 'balluff_bni00l3_port_deactivated'
+          - 'balluff_bni00l3_bni0099'
+          - 'balluff_bni00l3_bni0099_bni0099'
+          - 'balluff_bni00l3_bni00ay'
+          - 'balluff_bni00l3_bni00ay_bni00ay'
+    Content:
+      Name: '${NAME}'
+      Modules:
+        - Name: '${NAME}'
+          TypeIdentifier:
+            FileName: 'GSDML-V2.45-BALLUFF-BNI-XG3-X0X-XB5-X067-20250822.XML'
+            GsdId: 'BNI XG3-508-0B5-R067'
+          Interfaces:
+          - Name: 'PN-IO'
+            Label: 'X1'
+            Addresses:
+              Configured:
+              - IPv4: '${IP_ADDRESS_X1}'
+              - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+            Parameters:
+              AdditionalInformation: ""
+              LocationIdentifier: ""
+              PlantDesignation: ""
+              IECV22LLDPMode: False
+              # PrioritizedStartup (Boolean)
+          Ports:
+          - Name: 'Port_1'
+            Label: 'X1 P1'
+            Parameters:
+              PortActivation: True
+              # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+              TransmissionRateAndDuplex: 'Automatic'
+              EndOfDetectionOfAccessibleDevices: False
+              EndOfTopologyDiscovery: False
+              PortMonitoring: False
+              # TransmissionRateAutoNegotiation: True
+              # CableName: 0
+              # MediumAttachmentType: 'Copper'
+          - Name: 'Port_2'
+            Label: 'X1 P2'
+            Parameters:
+              PortActivation: True
+              # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+              TransmissionRateAndDuplex: 'Automatic'
+              EndOfDetectionOfAccessibleDevices: False
+              EndOfTopologyDiscovery: False
+              PortMonitoring: False
+              # TransmissionRateAutoNegotiation: True
+              # CableName: 0
+              # MediumAttachmentType: 'Copper'
+        - Name: 'BALLUFF_Link_module'
+          TypeIdentifier:
+            FileName: 'GSDML-V2.45-BALLUFF-BNI-XG3-X0X-XB5-X067-20250822.XML'
+            GsdId: 'IDM_LinkModule'
+          Slot: 1
+          Submodules:
+            - Name: 'BALLUFF_8_Port_IO-Link_Master'
+              TypeIdentifier:
+                FileName: 'GSDML-V2.45-BALLUFF-BNI-XG3-X0X-XB5-X067-20250822.XML'
+                GsdId: 'IDS_IOLM'
+              Slot: 1 
+              IoConfiguration:
+              Inputs:
+                # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
+                ProcessImagePartition: 'Automatic update'
+              Outputs:
+                # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
+                ProcessImagePartition: 'Automatic update'
+            - Apply: ${X01}
+              Arguments:
+                SubmoduleName: 'X01'
+                Slot: 2
+            - Apply: ${X02}
+              Arguments:
+                SubmoduleName: 'X02'
+                Slot: 3
+            - Apply: ${X03}
+              Arguments:
+                SubmoduleName: 'X03'
+                Slot: 4
+            - Apply: ${X04}
+              Arguments:
+                SubmoduleName: 'X04'
+                Slot: 5
+            - Apply: ${X05}
+              Arguments:
+                SubmoduleName: 'X05'
+                Slot: 6
+            - Apply: ${X06}
+              Arguments:
+                SubmoduleName: 'X06'
+                Slot: 7
+            - Apply: ${X07}
+              Arguments:
+                SubmoduleName: 'X07'
+                Slot: 8
+            - Apply: ${X08}
+              Arguments:
+                SubmoduleName: 'X08'
+                Slot: 9

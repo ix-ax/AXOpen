@@ -1,4 +1,4 @@
-﻿name: "app_axopen.io"
+name: "app_axopen.io"
 version: '0.0.0-dev.0'
 type: app
 targets:
@@ -14,12 +14,11 @@ variables:
   AXTARGETPLATFORMINPUT: .\bin\1500\
   AX_USERNAME: "admin"
   AX_TARGET_PWD: "Qwerty123456+"
-  USE_PLC_SIM_ADVANCED: "true"
+  # USE_PLC_SIM_ADVANCED: "true"
+  USE_PLC_SIM_ADVANCED: "false"
   # <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.
 registries:
   "@inxton": "https://npm.pkg.github.com/"
-catalogs:
-  "@inxton/ax.catalog": 0.0.39
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -175,7 +174,7 @@ scripts:
     apax plc-cert --target $AXTARGET --output .\\certs\\$PLC_NAME\\$PLC_NAME.cer
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax gc' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
-    apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer --continuously
+    apax mon --target $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer --continuously
   x: |
     apax swfd
     apax mm

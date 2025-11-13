@@ -6,7 +6,7 @@ USING AXOpen.Components.Abstractions;
 USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Components.Drives;
 USING System.Math;
-USING Siemens.Simatic.S71500.Hardware.Utilities;
+USING Siemens.Simatic.Hardware.Utilities;
 
 NAMESPACE AXOpen.Components.Rexroth.Drives
     
@@ -130,7 +130,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRef.Data.hwIdParamCh_IDN), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRef.Data.hwIdParamCh_IDN), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#10 OR _outputsCount <> UINT#10 THEN
                     Messenger.Activate(     UINT#716,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#716;
@@ -170,7 +170,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRef.Data.hwID_F_ModulNotUsed) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRef.Data.hwID_F_ModulNotUsed) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#726,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#726;
@@ -210,7 +210,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#735;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRef.Data.hwIdInput_9_Words) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRef.Data.hwIdInput_9_Words) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#18 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#736,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#736;
@@ -250,7 +250,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#745;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRef.Data.hwIdOutput_13_Words), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRef.Data.hwIdOutput_13_Words), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#26 THEN
                     Messenger.Activate(     UINT#746,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#746;
@@ -297,7 +297,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             HardwareDiagnosticsTask.Run(THIS,AxisRef.Data.hwIdDevice);
 
             //***********Update inputs **************
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(AxisRef.Data.hwIdParamCh_IDN) ,_Parameter);
+            _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRef.Data.hwIdParamCh_IDN) ,_Parameter);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1201;
@@ -323,7 +323,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             AxisRef.Parameter_In.DataWord_3.%B1                 := _Parameter[8];
 
             
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(AxisRef.Data.hwIdInput_9_Words) ,_Fieldbus);
+            _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRef.Data.hwIdInput_9_Words) ,_Fieldbus);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1202;
@@ -406,7 +406,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _Parameter[9]         := AxisRef.Parameter_Out.DataWord_1.%B0;
             _Parameter[8]         := AxisRef.Parameter_Out.DataWord_1.%B1;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(AxisRef.Data.hwIdParamCh_IDN),_Parameter);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRef.Data.hwIdParamCh_IDN),_Parameter);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1231;
@@ -455,7 +455,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _Fieldbus[25]         := AxisRef.FieldBus_Out.S_0_0193_CommandJerk.%B0;
 
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(AxisRef.Data.hwIdOutput_13_Words),_Fieldbus);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRef.Data.hwIdOutput_13_Words),_Fieldbus);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1232;
@@ -4575,3 +4575,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         END_METHOD
     END_CLASS
 END_NAMESPACE
+
+
+
+
