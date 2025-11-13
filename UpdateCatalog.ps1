@@ -2,13 +2,21 @@
 $oldArray = @(
     "Siemens.Simatic.S71500.Hardware.Utilities",
     "ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD",
-    "Siemens.Simatic.S71500.MemoryAccess"
+    "ReadHardwareIOAddress(hardwareIdentifier := TO_WORD",
+    "Siemens.Simatic.S71500.MemoryAccess",
+    "Siemens.Simatic.S71500.DistributedIO",
+    "Siemens.Simatic.DistributedIO.ReadData(TO_WORD",
+    "Siemens.Simatic.DistributedIO.WriteData(TO_WORD"
 )
 
 $newArray = @(
     "Siemens.Simatic.Hardware.Utilities",
     "ReadHardwareIOAddress(hardwareID := ",
-    "Siemens.Simatic.MemoryAccess"
+    "ReadHardwareIOAddress(hardwareID := ",
+    "Siemens.Simatic.MemoryAccess",
+    "Siemens.Simatic.DistributedIO",
+    "Siemens.Simatic.DistributedIO.ReadData(",
+    "Siemens.Simatic.DistributedIO.WriteData("
 )
 
 # Safety check â€“ arrays must be the same length

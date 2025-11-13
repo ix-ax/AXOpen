@@ -4,7 +4,7 @@ USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 USING System.Strings;
 USING System.Serialization;
-USING Siemens.Simatic.S71500.Hardware.Utilities;
+USING Siemens.Simatic.Hardware.Utilities;
 
 NAMESPACE AXOpen.Components.Balluff.Identification
     {S7.extern=ReadWrite}
@@ -227,7 +227,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                     Status.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_BISM) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_BISM) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#10 OR _outputsCount <> UINT#10 THEN
                     Messenger.Activate(UINT#716,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#716;
@@ -236,7 +236,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
             END_IF;
 
             //***********UPDATE**INPUTS******************
-            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwId_BISM),_data);
+            returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwId_BISM),_data);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(UINT#1201,eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1201;
@@ -1129,7 +1129,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
  
             _data[9]            :=  _data[0];
 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwId_BISM),_data);
+            returnValue := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwId_BISM),_data);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1231;
@@ -1215,3 +1215,6 @@ NAMESPACE AXOpen.Components.Balluff.Identification
         END_METHOD
     END_CLASS
 END_NAMESPACE
+
+
+

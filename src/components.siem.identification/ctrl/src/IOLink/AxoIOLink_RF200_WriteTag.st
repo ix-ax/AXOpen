@@ -1,6 +1,6 @@
 USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Timers;
-USING Siemens.Simatic.S71500.DistributedIO;
+USING Siemens.Simatic.DistributedIO;
 USING System.Timer;
 USING System.Strings;
 USING System.Serialization;
@@ -147,7 +147,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
         
             // Get PII
             // read data from process image
-            tempWord := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(hwID),tempHWData);
+            tempWord := Siemens.Simatic.DistributedIO.ReadData((hwID),tempHWData);
             statIoPartStatus := tempWord;
             statIoPartError := tempWord > WORD#0;
 
@@ -272,7 +272,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         END_FOR;
                         //TODO solve overwriting the outputs in case of several RFID header used with one IOLink master 
                         //when SETIO_PART equivalent function is available in AX
-                        tempWord := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(hwID),tempHWData);
+                        tempWord := Siemens.Simatic.DistributedIO.WriteData((hwID),tempHWData);
                         statIoPartStatus := tempWord;
                         statIoPartError := tempWord > WORD#0;
 
@@ -295,7 +295,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         END_FOR;
                         //TODO solve overwriting the outputs in case of several RFID header used with one IOLink master 
                         //when SETIO_PART equivalent function is available in AX
-                        tempWord := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(hwID),tempHWData);
+                        tempWord := Siemens.Simatic.DistributedIO.WriteData((hwID),tempHWData);
                         statIoPartStatus := tempWord;
                         statIoPartError := tempWord > WORD#0;            
                     END_IF;
@@ -316,7 +316,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_FOR;
                     //TODO solve overwriting the outputs in case of several RFID header used with one IOLink master 
                     //when SETIO_PART equivalent function is available in AX
-                    tempWord := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(hwID),tempHWData);
+                    tempWord := Siemens.Simatic.DistributedIO.WriteData((hwID),tempHWData);
                     statIoPartStatus := tempWord;
                     statIoPartError := tempWord > WORD#0;
                 ELSE
@@ -343,3 +343,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
         END_METHOD
     END_CLASS
 END_NAMESPACE
+
+
+

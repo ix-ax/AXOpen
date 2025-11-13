@@ -1,5 +1,5 @@
 USING AXOpen.Core;
-USING Siemens.Simatic.S71500.DistributedIO;
+USING Siemens.Simatic.DistributedIO;
 
 NAMESPACE AXOpen.Components.Festo.Drives
     {S7.extern=ReadWrite}
@@ -125,7 +125,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _lenght := LenHeader + LenRequest;
                     
                     WriteRecord_(request    :=  StartRW,
-                                id          :=  TO_WORD(Inputs.HardwareId),
+                                hardwareID  :=  Inputs.HardwareId,
                                 index       :=  16#b02e,
                                 length      :=  _lenght,
                                 record      :=  RW_Data,      
@@ -167,7 +167,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _lenght := LenHeader + LenRead;
                     
                     ReadRecord_(request     :=  StartRW,
-                                id          :=  TO_WORD(Inputs.HardwareId),
+                                hardwareID  :=  Inputs.HardwareId,
                                 index       :=  16#b02e,
                                 maxLength   :=  _lenght,
                                 record      :=  RD_Data,      
@@ -358,7 +358,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _lenght := LenHeader + LenRead;
 
                     ReadRecord_(request     :=  StartRW,
-                                id          :=  TO_WORD(Inputs.HardwareId),
+                                hardwareID  :=  Inputs.HardwareId,
                                 index       :=  16#b02e,
                                 maxLength   :=  _lenght,
                                 record      :=  RD_Data,      
@@ -505,7 +505,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _lenght := LenHeader + LenWrite;
 
                     WriteRecord_(request    :=  StartRW,
-                                id          :=  TO_WORD(Inputs.HardwareId),
+                                hardwareID  :=  Inputs.HardwareId,
                                 index       :=  16#b02e,
                                 length      :=  _lenght,
                                 record      :=  WR_Data,      
@@ -539,7 +539,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _lenght := LenHeader + LenRead;
 
                     ReadRecord_(request     :=  StartRW,
-                                id          :=  TO_WORD(Inputs.HardwareId),
+                                hardwareID  :=  Inputs.HardwareId,
                                 index       :=  16#b02e,
                                 maxLength   :=  _lenght,
                                 record      :=  RD_Data,      

@@ -3,7 +3,7 @@ USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 USING System.Strings;
 USING System.Serialization;
-USING Siemens.Simatic.S71500.DistributedIO;
+USING Siemens.Simatic.DistributedIO;
 
 NAMESPACE AXOpen.Components.Siem.Identification
     {S7.extern=ReadWrite}

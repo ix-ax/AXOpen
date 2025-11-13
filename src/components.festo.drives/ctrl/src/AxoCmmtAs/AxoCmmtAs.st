@@ -7,7 +7,7 @@ USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Components.Drives;
 USING System.Math;
 USING System.BitAccess;
-USING Siemens.Simatic.S71500.Hardware.Utilities;
+USING Siemens.Simatic.Hardware.Utilities;
 
 NAMESPACE AXOpen.Components.Festo.Drives
     
@@ -210,7 +210,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_DoServo) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_DoServo) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#716,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#716;
@@ -252,7 +252,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_DoServoSub) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_DoServoSub) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#726,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#726;
@@ -294,7 +294,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#735;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_ModuleAccessPoint) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_ModuleAccessPoint) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#736,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#736;
@@ -336,7 +336,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#745;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_EmptyModule_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_EmptyModule_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#746,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#746;
@@ -378,7 +378,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#755;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_Telegram111) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_Telegram111) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#24 OR _outputsCount <> UINT#24 THEN
                     Messenger.Activate(     UINT#756,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#756;
@@ -420,7 +420,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#765;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_EmptyModule_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_EmptyModule_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#766,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#766;
@@ -462,7 +462,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     DriveStatus.Error.Id := UINT#775;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(AxisRefExt.HWIDs.HW_Telegram750) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_Telegram750) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#8 THEN
                     Messenger.Activate(     UINT#776,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#776;
@@ -799,7 +799,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 RETURN;
             END_IF;
 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(_AxisReference^.HWIDs.HW_Telegram111) ,_Telegram111);
+            returnValue := Siemens.Simatic.DistributedIO.ReadData(_AxisReference^.HWIDs.HW_Telegram111 ,_Telegram111);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(     UINT#1411, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1411;
@@ -871,7 +871,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _AxisReference^.Telegram111_In.Reserved.%B1                               := _Telegram111[22];
             _AxisReference^.Telegram111_In.Reserved.%B0                               := _Telegram111[23];
             //M_Actual 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(_AxisReference^.HWIDs.HW_Telegram750),_Telegram750);
+            returnValue := Siemens.Simatic.DistributedIO.ReadData(_AxisReference^.HWIDs.HW_Telegram750,_Telegram750);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(     UINT#1412, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1412;
@@ -994,7 +994,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _Telegram111[23] := _AxisReference^.Telegram111_Out.reserved11.%B0;
             _Telegram111[22] := _AxisReference^.Telegram111_Out.reserved11.%B1;
 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(_AxisReference^.HWIDs.HW_Telegram111),_Telegram111);
+            returnValue := Siemens.Simatic.DistributedIO.WriteData(_AxisReference^.HWIDs.HW_Telegram111,_Telegram111);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(     UINT#1421, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1421;
@@ -1010,7 +1010,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _Telegram750[7] := _AxisReference^.Telegram750_Out.Reserved.%B0;
             _Telegram750[6] := _AxisReference^.Telegram750_Out.Reserved.%B1;
 
-            returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(_AxisReference^.HWIDs.HW_Telegram750),_Telegram750);
+            returnValue := Siemens.Simatic.DistributedIO.WriteData(_AxisReference^.HWIDs.HW_Telegram750,_Telegram750);
             IF returnValue > WORD#0 THEN
                 Messenger.Activate(     UINT#1422, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1422;
@@ -5592,3 +5592,5 @@ NAMESPACE AXOpen.Components.Festo.Drives
         END_METHOD
     END_CLASS
 END_NAMESPACE
+
+
