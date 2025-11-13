@@ -1,4 +1,4 @@
-﻿name: "apax.traversal"
+name: "apax.traversal"
 version: "0.0.0-dev.0"
 type: "app"
 targets:
@@ -80,4 +80,3 @@ dependencies:
   "@inxton/axopen.utils": "0.0.0-dev.0"
 installStrategy: "overridable"
 ...
-
