@@ -3,7 +3,7 @@ USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 USING AXOpen.Components.Robotics;
 USING AXOpen.Components.Abstractions.Robotics;
-USING Siemens.Simatic.S71500.Hardware.Utilities;
+USING Siemens.Simatic.Hardware.Utilities;
 
 NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
     {S7.extern=ReadWrite}
@@ -233,7 +233,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     Status.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_512_DI_DO) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwID_512_DI_DO) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#726,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#726;
@@ -266,7 +266,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
 
             //***********UPDATE**INPUTS******************
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwID_512_DI_DO) ,_data);
+            _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_512_DI_DO) ,_data);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1201;
@@ -1669,7 +1669,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             _data[42]            := _dword.%B1;
             _data[43]            := _dword.%B0;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_512_DI_DO),_data);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_512_DI_DO),_data);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1231;
@@ -1768,3 +1768,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
         END_METHOD
     END_CLASS
 END_NAMESPACE
+
+
+
+

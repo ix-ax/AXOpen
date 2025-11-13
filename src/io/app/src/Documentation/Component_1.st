@@ -8,7 +8,10 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
     //</ComponentDeclaration>                          
 
     //<InitializationArgumentsDeclaration>
-    VAR PUBLIC                
+    VAR PUBLIC        
+        {#ix-set:AttributeName = "<#Activate manual control#>"}
+        ActivateManualControl : BOOL;         
+        {#ix-set:AttributeName = "<#Hardware ID#>"}
         _hwID : UINT;
     END_VAR
     //</InitializationArgumentsDeclaration>            
@@ -19,6 +22,10 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         END_VAR     
 
         SUPER.Run(inParent);
+        
+        IF ActivateManualControl THEN
+            ExampleComponent.ActivateManualControl();
+        END_IF;
 
         //<Initialization>        
         ExampleComponent.Run(THIS, _hwID);        

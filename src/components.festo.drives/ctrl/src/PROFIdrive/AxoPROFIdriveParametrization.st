@@ -1,5 +1,5 @@
 USING AXOpen.Core;
-USING Siemens.Simatic.S71500.DistributedIO;
+USING Siemens.Simatic.DistributedIO;
 
 NAMESPACE AXOpen.Components.Festo.Drives
     {S7.extern=ReadWrite}

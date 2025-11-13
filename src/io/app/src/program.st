@@ -1,8 +1,12 @@
+USING AXOpen.Io;
+
 PROGRAM MyProgram
     VAR_EXTERNAL
         sandbox : SandboxContext;
         documentation : DocumentationContext;
         _rtc : AXOpen.S71500.Rtc;
+        Inputs : Inputs;
+		Outputs : Outputs;
     END_VAR
 
     VAR

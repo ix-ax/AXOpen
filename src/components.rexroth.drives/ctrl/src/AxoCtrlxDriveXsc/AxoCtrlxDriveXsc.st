@@ -6,8 +6,8 @@ USING AXOpen.Components.Abstractions;
 USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Components.Drives;
 USING System.Math;
-USING Siemens.Simatic.S71500.Hardware.Utilities;
-USING Siemens.Simatic.S71500.DistributedIO;
+USING Siemens.Simatic.Hardware.Utilities;
+USING Siemens.Simatic.DistributedIO;
 
 NAMESPACE AXOpen.Components.Rexroth.Drives
     {S7.extern=ReadWrite}
@@ -217,7 +217,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_Outputs), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_Outputs), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#716,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#716;
@@ -257,7 +257,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_Inputs), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_Inputs), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#726,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#726;
@@ -298,7 +298,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#735;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0134_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
                     Messenger.Activate(     UINT#736,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#736;
@@ -339,7 +339,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#745;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0145_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0145_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
                     Messenger.Activate(     UINT#746,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#746;
@@ -380,7 +380,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#755;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0282_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0282_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
                     Messenger.Activate(     UINT#756,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#756;
@@ -421,7 +421,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#765;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0259_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0259_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
                     Messenger.Activate(     UINT#766,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#766;
@@ -462,7 +462,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#775;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0260_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0260_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
                     Messenger.Activate(     UINT#776,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#776;
@@ -503,7 +503,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#785;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0359_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0359_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
                     Messenger.Activate(     UINT#786,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#786;
@@ -544,7 +544,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#795;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_1720_0_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_1720_0_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
                     Messenger.Activate(     UINT#796,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#796;
@@ -585,7 +585,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#805;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0092_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0092_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
                     Messenger.Activate(     UINT#806,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#806;
@@ -626,7 +626,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#815;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0080_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0080_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#2 THEN
                     Messenger.Activate(     UINT#816,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#816;
@@ -667,7 +667,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#825;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0193_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0193_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#4 THEN
                     Messenger.Activate(     UINT#826,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#826;
@@ -708,7 +708,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#835;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0135_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0135_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#836,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#836;
@@ -749,7 +749,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#845;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0144_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0144_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#846,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#846;
@@ -790,7 +790,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#855;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0386_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0386_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#4 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#856,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#856;
@@ -831,7 +831,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#865;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0535_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0535_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#4 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#866,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#866;
@@ -872,7 +872,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#875;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0390_0_0), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0390_0_0), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#4 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#876,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#876;
@@ -913,7 +913,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#885;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_1720_0_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_1720_0_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#886,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#886;
@@ -954,7 +954,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#895;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_S_0_0084_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_S_0_0084_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#896,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#896;
@@ -995,7 +995,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id := UINT#905;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier := TO_WORD(AxisRefExt.HWIDs.HW_P_0_0106_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (AxisRefExt.HWIDs.HW_P_0_0106_0_0) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(     UINT#906,eAxoMessageCategory#Error);
                     DriveStatus.Error.Id := UINT#906;
@@ -1125,7 +1125,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Position data scaling: Type (0x2900:01 / S-0-0076 / --) 2byte, binary
                 IF _State = UINT#1 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#76,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1145,7 +1145,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Position data scaling: Factor (0x2900:02 / S-0-0077 / --) 2byte, 0 decimal places
                 IF _State = UINT#3 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#77,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1165,7 +1165,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Position data scaling: Exponent (0x2900:03 / S-0-0078 / --) 2byte, 0 decimal places
                 IF _State = UINT#5 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#78,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1185,7 +1185,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Velocity data scaling: Type (0x2902:01 / S-0-0044 / --) 2byte, binary
                 IF _State = UINT#7 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#44,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1205,7 +1205,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Velocity data scaling: Factor (0x2902:02 / S-0-0045 / --) 2byte, 0 decimal places
                 IF _State = UINT#9 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#45,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1225,7 +1225,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Velocity data scaling: Exponent (0x2902:03 / S-0-0046 / --) 2byte, 0 decimal places
                 IF _State = UINT#11 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#46,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1245,7 +1245,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Acceleration data scaling: Type (0x2904:01 / S-0-0160 / --) 2byte, binary
                 IF _State = UINT#13 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#160,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1265,7 +1265,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Acceleration data scaling: Factor (0x2904:02 / S-0-0161 / --) 2byte, 0 decimal places
                 IF _State = UINT#15 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#161,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1285,7 +1285,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Acceleration data scaling: Exponent (0x2904:03 / S-0-0162 / --) 2byte, 0 decimal places
                 IF _State = UINT#17 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#162,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1305,7 +1305,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Torque/force data scaling: Type (0x2906:01 / S-0-0086 / --) 2byte, binary
                 IF _State = UINT#19 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#86,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1325,7 +1325,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Torque/force data scaling: Factor (0x2906:02 / S-0-0093 / --) 2byte, 0 decimal places
                 IF _State = UINT#21 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#93,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1345,7 +1345,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Torque/force data scaling: Exponent (0x2906:03 / S-0-0094 / --) 2byte, 0 decimal places
                 IF _State = UINT#23 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#94,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1365,7 +1365,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Inverter type data: Nominal current (0x2314:01 / S-0-0112 / --) 4bytes, 3decimal places
                 IF _State = UINT#25 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#112,
                                     maxLength   :=  UINT#4,
                                     record      :=  _data4);
@@ -1387,7 +1387,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //Reading Motor torque model: Current constant (0x2018:01 / P-0-0450 / --) 2bytes, 2decimal places
                 IF _State = UINT#27 THEN
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#4546,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -1544,7 +1544,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                RETURN;
            END_IF;
 
-           _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0135_0_0) ,_data2);
+           _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRefExt.HWIDs.HW_S_0_0135_0_0) ,_data2);
            IF _retVal > WORD#0 THEN
                Messenger.Activate(     UINT#1201, eAxoMessageCategory#ProgrammingError);
                DriveStatus.Error.Id := UINT#1201;
@@ -1568,7 +1568,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit0     :=  _data2[0].%X6;     //  14
            AxisRefExt.Inputs.DriveStatusWord_S_0_0135_0_0.ReadyForOperationBit1     :=  _data2[0].%X7;     //  15
 
-           _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0144_0_0) ,_data2);
+           _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRefExt.HWIDs.HW_S_0_0144_0_0) ,_data2);
            IF _retVal > WORD#0 THEN
                Messenger.Activate(     UINT#1202, eAxoMessageCategory#ProgrammingError);
                DriveStatus.Error.Id := UINT#1202;
@@ -1592,7 +1592,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit14_Reserve           :=  _data2[0].%X6;     //  14
            AxisRefExt.Inputs.SignalStatusWord_S_0_0144_0_0._bit15_Reserve           :=  _data2[0].%X7;     //  15
 
-           _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0386_0_0) ,_data4);
+           _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRefExt.HWIDs.HW_S_0_0386_0_0) ,_data4);
            IF _retVal > WORD#0 THEN
                Messenger.Activate(     UINT#1203, eAxoMessageCategory#ProgrammingError);
                DriveStatus.Error.Id := UINT#1203;
@@ -1604,7 +1604,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
            _dword.%B0  :=  _data4[3];
            AxisRefExt.Inputs.ActualPosition_S_0_0386_0_0 := TO_DINT(_dword);
 
-           _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0535_0_0) ,_data4);
+           _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRefExt.HWIDs.HW_S_0_0535_0_0) ,_data4);
            IF _retVal > WORD#0 THEN
                Messenger.Activate(     UINT#1204, eAxoMessageCategory#ProgrammingError);
                DriveStatus.Error.Id := UINT#1204;
@@ -1616,7 +1616,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
            _dword.%B0  :=  _data4[3];
            AxisRefExt.Inputs.ActualVelocity_S_0_0535_0_0 := TO_DINT(_dword);
 
-           _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0390_0_0) ,_data4);
+           _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRefExt.HWIDs.HW_S_0_0390_0_0) ,_data4);
            IF _retVal > WORD#0 THEN
                Messenger.Activate(     UINT#1205, eAxoMessageCategory#ProgrammingError);
                DriveStatus.Error.Id := UINT#1205;
@@ -1628,7 +1628,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
            _dword.%B0  :=  _data4[3];
            AxisRefExt.Inputs.DiagnosticMessage_S_0_0390_0_0 := _dword;
 
-           _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_1720_0_2) ,_data2);
+           _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRefExt.HWIDs.HW_S_0_1720_0_2) ,_data2);
            IF _retVal > WORD#0 THEN
                Messenger.Activate(     UINT#1206, eAxoMessageCategory#ProgrammingError);
                DriveStatus.Error.Id := UINT#1206;
@@ -1651,7 +1651,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.ReadyForEnabling                     := _data2[0].%X6;	
            AxisRefExt.Inputs.SupplyUnitStatusWord_S_0_1720_0_2.Enabling                             := _data2[0].%X7;	
 
-           _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0084_0_0) ,_data2);
+           _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRefExt.HWIDs.HW_S_0_0084_0_0) ,_data2);
            IF _retVal > WORD#0 THEN
                Messenger.Activate(     UINT#1207, eAxoMessageCategory#ProgrammingError);
                DriveStatus.Error.Id := UINT#1207;
@@ -1697,7 +1697,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data2[0].%X6   :=  AxisRefExt.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable;
             _data2[0].%X7   :=  AxisRefExt.Outputs.DriveControlWord_S_0_0134_0_0.DriveOn;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),_data2);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0134_0_0),_data2);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(     UINT#1231, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1231;
@@ -1720,7 +1720,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data2[0].%X6   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0._bit14_Reserve;
             _data2[0].%X7   :=  AxisRefExt.Outputs.SignalControlWord_S_0_0145_0_0.SetAbsPositionFunction;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0145_0_0),_data2);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0145_0_0),_data2);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(     UINT#1232, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1232;
@@ -1732,7 +1732,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data4[1]   :=  AxisRefExt.Outputs.CommandPosition_S_0_0282_0_0.%B2;
             _data4[0]   :=  AxisRefExt.Outputs.CommandPosition_S_0_0282_0_0.%B3;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0282_0_0),_data4);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0282_0_0),_data4);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(     UINT#1233, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1233;
@@ -1744,7 +1744,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data4[1]   :=  AxisRefExt.Outputs.CommandVelocity_S_0_0259_0_0.%B2;
             _data4[0]   :=  AxisRefExt.Outputs.CommandVelocity_S_0_0259_0_0.%B3;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0259_0_0),_data4);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0259_0_0),_data4);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(     UINT#1234, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1234;
@@ -1756,7 +1756,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data4[1]   :=  AxisRefExt.Outputs.CommandAcceleration_S_0_0260_0_0.%B2;
             _data4[0]   :=  AxisRefExt.Outputs.CommandAcceleration_S_0_0260_0_0.%B3;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0260_0_0),_data4);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0260_0_0),_data4);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(     UINT#1235, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1235;
@@ -1768,7 +1768,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data4[1]   :=  AxisRefExt.Outputs.CommandDecceleration_S_0_0359_0_0.%B2;
             _data4[0]   :=  AxisRefExt.Outputs.CommandDecceleration_S_0_0359_0_0.%B3;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0359_0_0),_data4);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0359_0_0),_data4);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(     UINT#1236, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1236;
@@ -1792,7 +1792,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data2[0].%X6   :=  AxisRefExt.Outputs.SupplyUnitControlWord_S_0_1720_0_1.ControllingDCbusChargingAndMainsContactor;
             _data2[0].%X7   :=  AxisRefExt.Outputs.SupplyUnitControlWord_S_0_1720_0_1.Enabling;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_1720_0_1),_data2);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_1720_0_1),_data2);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(     UINT#1237, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1237;
@@ -1802,7 +1802,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data2[1]   :=  AxisRefExt.Outputs.BipolarTorqueLimitation_S_0_0092_0_0.%B0;
             _data2[0]   :=  AxisRefExt.Outputs.BipolarTorqueLimitation_S_0_0092_0_0.%B1;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0092_0_0),_data2);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0092_0_0),_data2);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(     UINT#1238, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1238;
@@ -1812,7 +1812,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data2[1]   :=  AxisRefExt.Outputs.CommandTorque_S_0_0080_0_0.%B0;
             _data2[0]   :=  AxisRefExt.Outputs.CommandTorque_S_0_0080_0_0.%B1;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0080_0_0),_data2);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0080_0_0),_data2);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(     UINT#1239, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1239;
@@ -1824,7 +1824,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _data4[1]   :=  AxisRefExt.Outputs.CommandJerk_S_0_0193_0_0.%B2;
             _data4[0]   :=  AxisRefExt.Outputs.CommandJerk_S_0_0193_0_0.%B3;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(AxisRefExt.HWIDs.HW_S_0_0193_0_0),_data4);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRefExt.HWIDs.HW_S_0_0193_0_0),_data4);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(     UINT#1240, eAxoMessageCategory#ProgrammingError);
                 DriveStatus.Error.Id := UINT#1240;
@@ -1998,7 +1998,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#52,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -2031,7 +2031,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data2[0] := _word.%B0;
                     _data2[1] := _word.%B1;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#147,
                                     length      :=  UINT#2,
                                     record      :=  _data2);
@@ -2066,7 +2066,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#41,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -2092,7 +2092,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#542,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -2118,7 +2118,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#42,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -3737,7 +3737,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data2[0] := _word.%B0;
                     _data2[1] := _word.%B1;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#822,
                                     length      :=  UINT#2,
                                     record      :=  _data2);
@@ -3763,7 +3763,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data2[0] := _word.%B0;
                     _data2[1] := _word.%B1;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#823,
                                     length      :=  UINT#2,
                                     record      :=  _data2);
@@ -3791,7 +3791,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#6345,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -3819,7 +3819,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#6346,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -4046,7 +4046,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#52,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -4269,7 +4269,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  ParameterNumber,
                                     maxLength   :=  UINT#8,
                                     record      :=  _data8);
@@ -4385,7 +4385,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                    
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  ParameterNumber,
                                     maxLength   :=  UINT#4,
                                     record      :=  _data4);
@@ -4498,7 +4498,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                    
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  ParameterNumber,
                                     maxLength   :=  UINT#2,
                                     record      :=  _data2);
@@ -4620,7 +4620,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data8[6] := _lword.%B6;
                     _data8[7] := _lword.%B7;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  ParameterNumber,
                                     length      :=  UINT#8,
                                     record      :=  _data8);
@@ -4734,7 +4734,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := _dword.%B2;
                     _data4[3] := _dword.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  ParameterNumber,
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -4850,7 +4850,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _dword :=  TO_DWORD(TO_DINT(Value));
                     _data2[0].%X0 := Value;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  ParameterNumber,
                                     length      :=  UINT#2,
                                     record      :=  _data2);
@@ -4970,7 +4970,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                    
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#4403, //P-0-0307.0.0  16#1000 + 307 = 4096+307=4403
                                     maxLength   :=  UINT#4,
                                     record      :=  _data4);
@@ -5089,7 +5089,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                    
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#4409, //P-0-0313.0.0  16#1000 + 313 = 4096+313=4409
                                     maxLength   :=  UINT#4,
                                     record      :=  _data4);
@@ -5212,7 +5212,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;                    
                     Busy := TRUE;            
                     _ReadRecord(    request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID          :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#4409, //P-0-0313.0.0  16#1000 + 313 = 4096+313=4409
                                     maxLength   :=  UINT#4,
                                     record      :=  _data4);
@@ -5256,7 +5256,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     _data4[2] := MC_WriteDigitalOutputParameterPV.%B2;
                     _data4[3] := MC_WriteDigitalOutputParameterPV.%B3;
                     _WriteRecord(   request     :=  TRUE,
-                                    id          :=  TO_WORD(AxisRefExt.HWIDs.HW_S_0_0134_0_0),
+                                    hardwareID  :=  (AxisRefExt.HWIDs.HW_S_0_0134_0_0),
                                     index       :=  DINT#4409, //P-0-0313.0.0  16#1000 + 313 = 4096+313=4409
                                     length      :=  UINT#4,
                                     record      :=  _data4);
@@ -5990,4 +5990,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         END_METHOD
     END_CLASS
 END_NAMESPACE
+
+
+
+
 
