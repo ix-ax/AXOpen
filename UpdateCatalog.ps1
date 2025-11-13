@@ -1,17 +1,17 @@
-# Define your arrays: old values and new values
+﻿# Define your arrays: old values and new values
 $oldArray = @(
     "Siemens.Simatic.S71500.Hardware.Utilities",
     "ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD",
-    "OLD_TEXT_3"
+    "Siemens.Simatic.S71500.MemoryAccess"
 )
 
 $newArray = @(
     "Siemens.Simatic.Hardware.Utilities",
     "ReadHardwareIOAddress(hardwareID := ",
-    "NEW_TEXT_3"
+    "Siemens.Simatic.MemoryAccess"
 )
 
-# Safety check – arrays must be the same length
+# Safety check â€“ arrays must be the same length
 if ($oldArray.Count -ne $newArray.Count) {
     throw "oldArray and newArray must have the same number of elements."
 }
@@ -24,16 +24,24 @@ Get-ChildItem -Path . -Recurse -Filter '*.st' -File | ForEach-Object {
     # Read entire file as one string
     $content = Get-Content -LiteralPath $filePath -Raw
 
-    # Replace each old substring with the corresponding new substring
+    # Keep original content to detect changes
+    $original = $content
+
+    # Perform replacements
     for ($i = 0; $i -lt $oldArray.Count; $i++) {
         $old = $oldArray[$i]
         $new = $newArray[$i]
 
         if (![string]::IsNullOrEmpty($old)) {
-            $content = $content.Replace($old, $new)  # literal, not regex
+            $content = $content.Replace($old, $new)
         }
     }
 
-    # Write modified content back to file
-    Set-Content -LiteralPath $filePath -Value $content
+    # Write back only if changed
+    if ($content -ne $original) {
+        Write-Host " → Changes detected. Updating file."
+        Set-Content -LiteralPath $filePath -Value $content
+    } else {
+        Write-Host " → No changes. File: $filePath left untouched."
+    }
 }
