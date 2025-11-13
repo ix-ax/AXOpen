@@ -1,20 +1,18 @@
 USING AXOpen.Core;
 {S7.extern=ReadWrite}
-CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
+CLASS Component_3 EXTENDS AXOpen.Core.AxoObject
     //<ComponentDeclaration>
     VAR PUBLIC                
-        ExampleComponent : ComponentWithDiagnostics;      
+        ExampleComponent : AXOpen.Io.AxoRecordAccessTool;      
     END_VAR
     //</ComponentDeclaration>                          
 
     //<InitializationArgumentsDeclaration>
-    VAR PUBLIC                
+    VAR PUBLIC              
         {#ix-set:AttributeName = "<#Activate manual control#>"}
         ActivateManualControl : BOOL;         
-        {#ix-set:AttributeName = "<#Hardware ID#>"}
-        _hwID : UINT;
     END_VAR
-    //</InitializationArgumentsDeclaration>            
+    //</InitializationArgumentsDeclaration>    
 
     METHOD PUBLIC OVERRIDE Run
         VAR_INPUT
@@ -26,9 +24,9 @@ CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
         IF ActivateManualControl THEN
             ExampleComponent.ActivateManualControl();
         END_IF;
-
+        
         //<Initialization>        
-        ExampleComponent.Run(THIS, _hwID);        
+        ExampleComponent.Run(THIS);        
         //</Initialization>
 
     END_METHOD

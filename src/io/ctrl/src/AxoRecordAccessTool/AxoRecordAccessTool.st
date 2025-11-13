@@ -9,47 +9,37 @@ NAMESPACE AXOpen.Io
     CLASS AxoRecordAccessTool EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Records")]}
             {#ix-set:AttributeName = "<#Hardware ID#>"}
             hardwareID	                :   UINT;	                
-
-            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Records")]}
-            {#ix-set:AttributeName = "<#Read index#>"}
-            rdIndex	                :   UINT;	                
+            {#ix-set:AttributeName = "<#Index#>"}
+            index	                :   DINT;	                
             {#ix-attr:[ComponentDetails("Records")]}
-            {#ix-set:AttributeName = "<#Read subindex#>"}
-            rdSubIndex	                :   UINT;	                
+            {#ix-set:AttributeName = "<#Length#>"}
+            length	                :   UINT;	                
             {#ix-attr:[ComponentDetails("Records")]}
-            {#ix-set:AttributeName = "<#Read length#>"}
-            rdLength	                :   UINT;	                
+            {#ix-set:AttributeName = "<#Status#>"}
+            status	                :   DWORD;	                
             {#ix-attr:[ComponentDetails("Records")]}
-            {#ix-set:AttributeName = "<#Data read#>"}
-            rdData	                :   AxoRecordAccessData;	                
+            {#ix-set:AttributeName = "<#Data#>"}
+            Data	                :   AxoRecordAccessData;	                
             {#ix-attr:[ComponentDetails("Records")]}
             {#ix-set:AttributeName = "<#Read record#>"}
             ReadRecordTask : AXOpen.Core.AxoTask;
-
-            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Records")]}
-            {#ix-set:AttributeName = "<#Write index#>"}
-            wrIndex	                :   UINT;	                
-            {#ix-attr:[ComponentDetails("Records")]}
-            {#ix-set:AttributeName = "<#Write subindex#>"}
-            wrSubIndex	                :   UINT;	                
-            {#ix-attr:[ComponentDetails("Records")]}
-            {#ix-set:AttributeName = "<#Write length#>"}
-            wrLenght	                :   UINT;	                
-            {#ix-attr:[ComponentDetails("Records")]}
-            {#ix-set:AttributeName = "<#Data read#>"}
-            wrData	                :   AxoRecordAccessData;	                
             {#ix-attr:[ComponentDetails("Records")]}
             {#ix-set:AttributeName = "<#Write record#>"}
             WriteRecordTask : AXOpen.Core.AxoTask;
+            {#ix-attr:[ComponentDetails("Records")]}
+            {#ix-set:AttributeName = "<#Restore#>"}
+            RestoreTask : AXOpen.Core.AxoTask;
         END_VAR
 
         VAR PRIVATE
-            writeRecord : WriteRecord;
+            _writeRecord : WriteRecord;
+            _readRecord : ReadRecord;
+            _data : ARRAY[0..1] OF BYTE;
         END_VAR
 
         ///<summary>
@@ -64,58 +54,47 @@ NAMESPACE AXOpen.Io
                 RETURN; 
             END_IF;
             SUPER.Run(inParent);    
+
+            RestoreTask.Run(THIS);
+            ReadRecordTask.Run(THIS);
+            WriteRecordTask.Run(THIS);
+
+            IF RestoreTask.Execute() THEN
+                THIS.Restore();
+            END_IF;
+
+            ReadRecordTask.SetIsDisabled(WriteRecordTask.IsBusy());
+            IF ReadRecordTask.Execute() THEN
+                _readRecord(TRUE, hardwareID, index , UINT#255 , Data.Data);
+                IF _readRecord.valid THEN
+                    Data.ToggleDataChangedFlag();
+                    ReadRecordTask.DoneWhen(TRUE);
+                END_IF;
+                ReadRecordTask.ThrowWhen(_readRecord.error);
+                length := _readRecord.length;
+                status := _readRecord.status;
+            ELSE
+                _readRecord(FALSE, hardwareID, index , length , _data);
+            END_IF;
+            IF ReadRecordTask.RestoreTriggered() THEN
+                status := DWORD#0;
+            END_IF;
+
+            WriteRecordTask.SetIsDisabled(ReadRecordTask.IsBusy());
+            IF WriteRecordTask.Execute() THEN
+                _writeRecord(TRUE, hardwareID, index , length , Data.Data);
+                WriteRecordTask.DoneWhen(_writeRecord.done);
+                WriteRecordTask.ThrowWhen(_writeRecord.error);
+                status := _writeRecord.status;
+            ELSE
+                _writeRecord(FALSE, hardwareID, index , length , _data);
+            END_IF;
+            IF WriteRecordTask.RestoreTriggered() THEN
+                status := DWORD#0;
+            END_IF;
+
         END_METHOD
 
-        METHOD PRIVATE Execute
-            VAR_INPUT
-                hwID    :   UINT;
-            END_VAR
-            // VAR
-            //     diagInfo : Siemens.Simatic.S71500.Diagnostics.Hardware.DiagnosticDetails;            
-            // END_VAR
-;
-
-            // IF UpdateHardwareDiagnosticsTask.Execute(THIS) THEN
-            //     GetDiagnosticsReturnCode := GetDiagnostics(hwID, diagInfo);
-            //     UpdateHardwareDiagnosticsTask.DoneWhen(UpdateHardwareDiagnosticsTask.Duration >= T#250ms AND GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError);
-            //     UpdateHardwareDiagnosticsTask.ThrowWhen(UpdateHardwareDiagnosticsTask.Duration >= T#250ms AND GetDiagnosticsReturnCode<>GetDiagnosticsReturnCode#NoError);
-            // END_IF;
-
-            // IF UpdateHardwareDiagnosticsTask.DoneReached() THEN
-            //     diagnosticDetails.ComponentStateDetail.HardwareComponentState.NoAdditionalInformation   :=  diagInfo.ComponentStateDetail.HardwareComponentState.NoAdditionalInformation;    
-            //     diagnosticDetails.ComponentStateDetail.HardwareComponentState.TransferNotPermitted      :=  diagInfo.ComponentStateDetail.HardwareComponentState.TransferNotPermitted;       
-            //     diagnosticDetails.ComponentStateDetail.HardwareComponentState.DiagnosticsAvailable      :=  diagInfo.ComponentStateDetail.HardwareComponentState.DiagnosticsAvailable;       
-            //     diagnosticDetails.ComponentStateDetail.HardwareComponentState.MaintenanceRequired       :=  diagInfo.ComponentStateDetail.HardwareComponentState.MaintenanceRequired;        
-            //     diagnosticDetails.ComponentStateDetail.HardwareComponentState.MaintenanceDemanded       :=  diagInfo.ComponentStateDetail.HardwareComponentState.MaintenanceDemanded;        
-            //     diagnosticDetails.ComponentStateDetail.HardwareComponentState.Error                     :=  diagInfo.ComponentStateDetail.HardwareComponentState.Error;                      
-            //     diagnosticDetails.ComponentStateDetail.HardwareComponentState.ComponentAvailability     :=  diagInfo.ComponentStateDetail.HardwareComponentState.ComponentAvailability;
-            //     diagnosticDetails.ComponentStateDetail.HardwareComponentState.ReplacementState          :=  diagInfo.ComponentStateDetail.HardwareComponentState.ReplacementState;
-
-            //     diagnosticDetails.ComponentStateDetail.PlcState.ModuleDisabled                          :=  diagInfo.ComponentStateDetail.PlcState.ModuleDisabled;             
-            //     diagnosticDetails.ComponentStateDetail.PlcState.ConfigurationInRunActive                :=  diagInfo.ComponentStateDetail.PlcState.ConfigurationInRunActive;   
-            //     diagnosticDetails.ComponentStateDetail.PlcState.InputNotAvailable                       :=  diagInfo.ComponentStateDetail.PlcState.InputNotAvailable;          
-            //     diagnosticDetails.ComponentStateDetail.PlcState.OutputNotAvailable                      :=  diagInfo.ComponentStateDetail.PlcState.OutputNotAvailable;         
-            //     diagnosticDetails.ComponentStateDetail.PlcState.DiagnosticsBufferOverflow               :=  diagInfo.ComponentStateDetail.PlcState.DiagnosticsBufferOverflow;  
-            //     diagnosticDetails.ComponentStateDetail.PlcState.DiagnosticsNotAvailable                 :=  diagInfo.ComponentStateDetail.PlcState.DiagnosticsNotAvailable;    
-            //     diagnosticDetails.ComponentStateDetail.PlcState.PartialDeviceFailure                    :=  diagInfo.ComponentStateDetail.PlcState.PartialDeviceFailure;       
-
-            //     diagnosticDetails.ComponentState                                                        :=  diagInfo.ComponentState;
-                
-            //     diagnosticDetails.IoState.Good                                                          :=  diagInfo.IoState.Good;                     
-            //     diagnosticDetails.IoState.Disabled                                                      :=  diagInfo.IoState.Disabled;                 
-            //     diagnosticDetails.IoState.MaintenanceRequired                                           :=  diagInfo.IoState.MaintenanceRequired;      
-            //     diagnosticDetails.IoState.MaintenanceDemanded                                           :=  diagInfo.IoState.MaintenanceDemanded;      
-            //     diagnosticDetails.IoState.Error                                                         :=  diagInfo.IoState.Error;                    
-            //     diagnosticDetails.IoState.NotAccessible                                                 :=  diagInfo.IoState.NotAccessible;            
-            //     diagnosticDetails.IoState.DiagnosticsAvailable                                          :=  diagInfo.IoState.DiagnosticsAvailable;     
-            //     diagnosticDetails.IoState.IODataNotAvailable                                            :=  diagInfo.IoState.IODataNotAvailable;       
-            //     diagnosticDetails.IoState.NetworkError                                                  :=  diagInfo.IoState.NetworkError;             
-            //     diagnosticDetails.IoState.HardwareError                                                 :=  diagInfo.IoState.HardwareError;            
-
-            //     diagnosticDetails.OperatingState                                                        :=  diagInfo.OperatingState;
-            // END_IF;
-        END_METHOD
-        
         METHOD PROTECTED OVERRIDE ManualControl
             THIS._isManuallyControllable := true;
         END_METHOD
@@ -124,8 +103,10 @@ NAMESPACE AXOpen.Io
         /// Restores this component into intial state.        
         ///</summary>
         METHOD PUBLIC OVERRIDE Restore
+            status := DWORD#0;
             ReadRecordTask.Restore();
             WriteRecordTask.Restore();
+            RestoreTask.DoneWhen(TRUE);
         END_METHOD        
     END_CLASS
 END_NAMESPACE
