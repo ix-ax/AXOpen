@@ -1,34 +1,39 @@
-param (
-    [string]$newVersion = '0.0.20'
+# Define your arrays: old values and new values
+$oldArray = @(
+    "Siemens.Simatic.S71500.Hardware.Utilities",
+    "ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD",
+    "OLD_TEXT_3"
 )
 
-$namePattern = "apax.yml"
-$allYamls = Get-ChildItem -Path $PSScriptRoot -Recurse -File -Filter $namePattern
-$allYamlsCount = 0
-$matchedYamlsCount = 0
+$newArray = @(
+    "Siemens.Simatic.Hardware.Utilities",
+    "ReadHardwareIOAddress(hardwareID := ",
+    "NEW_TEXT_3"
+)
 
-foreach ($file in $allYamls) {
-    $allYamlsCount++
-    $filePath = $file.FullName
-    $fileContent = Get-Content -Path $filePath -Raw
-
-    # Define the regex pattern
-    $pattern = '("@inxton/ax\.catalog":\s*)([0-9]+\.[0-9]+\.[0-9]+)'
-
-    if ($fileContent -match $pattern) {
-        $matchedYamlsCount++
-
-        # Prepare the replacement string with proper escaping
-        $replacement = '${1}' + $newVersion
-
-        # Perform regex replacement correctly
-        $updatedContent = [regex]::Replace($fileContent, $pattern, $replacement)
-
-        # Save the modified file
-        Set-Content -Path $filePath -Value $updatedContent -Encoding UTF8
-
-        Write-Output "Updated file: $filePath"
-    }
+# Safety check – arrays must be the same length
+if ($oldArray.Count -ne $newArray.Count) {
+    throw "oldArray and newArray must have the same number of elements."
 }
 
-Write-Output "Processed $allYamlsCount file(s). Updated $matchedYamlsCount file(s)."
+# Process all *.st files in current folder and subfolders
+Get-ChildItem -Path . -Recurse -Filter '*.st' -File | ForEach-Object {
+    $filePath = $_.FullName
+    Write-Host "Processing $filePath"
+
+    # Read entire file as one string
+    $content = Get-Content -LiteralPath $filePath -Raw
+
+    # Replace each old substring with the corresponding new substring
+    for ($i = 0; $i -lt $oldArray.Count; $i++) {
+        $old = $oldArray[$i]
+        $new = $newArray[$i]
+
+        if (![string]::IsNullOrEmpty($old)) {
+            $content = $content.Replace($old, $new)  # literal, not regex
+        }
+    }
+
+    # Write modified content back to file
+    Set-Content -LiteralPath $filePath -Value $content
+}
