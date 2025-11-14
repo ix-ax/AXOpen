@@ -18,8 +18,6 @@ dependencies:
 installStrategy: strict
 apaxVersion: 3.5.0
 scripts:
-  postbuild:
-    - dotnet ixc
   ib: |
     START=$(date +%s)
     apax install
