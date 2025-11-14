@@ -984,7 +984,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
         END_METHOD
 
         {Test}
-        METHOD PUBLIC message_of_error_category_shouldrequire_acknowledgement_by_default
+        METHOD PUBLIC message_of_error_category_should_not_require_acknowledgement_by_default
             VAR
                 expMessage : TestMessage;
             END_VAR
@@ -1006,7 +1006,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
 
             //--Assert
             Assert.Equal(FALSE, _suti._object._messenger.IsActive());
-            Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
+            Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
 
@@ -1038,7 +1038,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
         END_METHOD
 
         {Test}
-        METHOD PUBLIC message_of_programming_error_category_shouldrequire_acknowledgement_by_default
+        METHOD PUBLIC message_of_programming_error_category_should_not_require_acknowledgement_by_default
             VAR
                 expMessage : TestMessage;
             END_VAR
@@ -1060,7 +1060,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
 
             //--Assert
             Assert.Equal(FALSE, _suti._object._messenger.IsActive());
-            Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
+            Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
 
@@ -1092,7 +1092,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
         END_METHOD
 
         {Test}
-        METHOD PUBLIC message_of_critical_category_shouldrequire_acknowledgement_by_default
+        METHOD PUBLIC message_of_critical_category_should_not_require_acknowledgement_by_default
             VAR
                 expMessage : TestMessage;
             END_VAR
@@ -1114,7 +1114,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
 
             //--Assert
             Assert.Equal(FALSE, _suti._object._messenger.IsActive());
-            Assert.Equal(TRUE, _suti._object._messenger.AcknowledgementRequired);
+            Assert.Equal(FALSE, _suti._object._messenger.AcknowledgementRequired);
 
         END_METHOD
 

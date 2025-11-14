@@ -126,7 +126,7 @@ NAMESPACE AXOpen.Core
             _cyclicExecuteIsNotCalled := FALSE;
             Invoke := SUPER.Invoke();
             _messenger.Serve(THIS);            
-            _messenger.ActivateOnCondition(ULINT#1,_cyclicExecuteIsNotCalled,eAxoMessageCategory#ProgrammingError);
+            _messenger.ActivateOnCondition(ULINT#1,_cyclicExecuteIsNotCalled,eAxoMessageCategory#ProgrammingError).RequireAcknowledgement();
             Invoke := THIS;
         END_METHOD    
 
@@ -184,7 +184,7 @@ NAMESPACE AXOpen.Core
             _multipleExecuteIsCalled := FALSE;
             Execute := SUPER.Execute(inParent);
 
-            _messenger.ActivateOnCondition(ULINT#2,_multipleExecuteIsCalled,eAxoMessageCategory#ProgrammingError);       
+            _messenger.ActivateOnCondition(ULINT#2,_multipleExecuteIsCalled,eAxoMessageCategory#ProgrammingError).RequireAcknowledgement();
         END_METHOD    
         
        
