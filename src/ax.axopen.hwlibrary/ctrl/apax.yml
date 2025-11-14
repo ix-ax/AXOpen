@@ -11,14 +11,14 @@ devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
   "@inxton/ax.axopen.min": '0.0.0-dev.0'
-  "@ax/simatic-1500-distributedio": 10.0.1
-  "@ax/simatic-1500-diagnostics-hardware": 10.0.0
-  "@ax/simatic-1500-clocks": 10.0.6
+  "@ax/simatic-distributedio": 11.0.14
+  "@ax/simatic-diagnostics-hardware": 11.0.0
+  "@ax/simatic-clocks": 11.0.14
   "@ax/system-timer": 10.2.7
   "@ax/system-serde": 10.2.7
   "@ax/system-bitaccess": 10.2.7
-  "@ax/simatic-1500-memoryaccess": 5.0.5
-  "@ax/simatic-1500-hardware-utilities": 5.0.5
+  "@ax/simatic-memoryaccess": 6.0.19
+  "@ax/simatic-hardware-utilities": 6.0.19
 installStrategy: strict
 apaxVersion: 3.5.0
 scripts:

@@ -2,8 +2,8 @@ USING AXOpen.Core;
 USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 USING AXOpen.Components.Abstractions;
-USING Siemens.Simatic.S71500.Hardware.Utilities;
-USING Siemens.Simatic.S71500.MemoryAccess;
+USING Siemens.Simatic.Hardware.Utilities;
+USING Siemens.Simatic.MemoryAccess;
 USING AXOpen.Timers;
 
 NAMESPACE AXOpen.Components.Cognex.Vision
@@ -182,12 +182,12 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 CameraNo    :   BYTE;
             END_VAR
 			VAR_TEMP 
-                SeparatorPos : Int;
-                inputsAddress : UDInt;
-                inputsCount : UInt;
-                outputsAddress : UDInt;
-                outputsCount : UInt;
-                retValRdAddr : Int;
+                SeparatorPos : INT;
+                inputsAddress : UDINT;
+                inputsCount : UINT;
+                outputsAddress : UDINT;
+                outputsCount : UINT;
+                retValRdAddr : WORD;
                 i : Int;
                 BitOffset : Int;
                 LogGeoData_retval : WORD;
@@ -257,7 +257,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#16 OR _outputsCount <> UINT#16 THEN
                     Messenger.Activate(UINT#716,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#716;
@@ -297,7 +297,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_EngineControl_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_EngineControl_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#1 THEN
                     Messenger.Activate(UINT#726,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#726;
@@ -337,7 +337,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#735;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_EngineControl_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_EngineControl_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#1 THEN
                     Messenger.Activate(UINT#736,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#736;
@@ -377,7 +377,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#745;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_EngineControl_3) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_EngineControl_3) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#1 THEN
                     Messenger.Activate(UINT#746,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#746;
@@ -417,7 +417,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#755;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_EngineControl_4) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_EngineControl_4) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#1 THEN
                     Messenger.Activate(UINT#756,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#756;
@@ -457,7 +457,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#765;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#240 THEN
                     Messenger.Activate(UINT#766,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#766;
@@ -497,7 +497,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#775;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#240 THEN
                     Messenger.Activate(UINT#776,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#776;
@@ -537,7 +537,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#785;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_3) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_3) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#240 THEN
                     Messenger.Activate(UINT#786,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#786;
@@ -577,7 +577,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#795;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_4) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_4) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#240 THEN
                     Messenger.Activate(UINT#796,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#796;
@@ -617,7 +617,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#805;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_5) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_5) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#240 THEN
                     Messenger.Activate(UINT#806,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#806;
@@ -657,7 +657,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#815;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_64B_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_64B_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#64 THEN
                     Messenger.Activate(UINT#816,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#816;
@@ -697,7 +697,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#825;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#826,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#826;
@@ -737,7 +737,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#835;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#836,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#836;
@@ -777,7 +777,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#845;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_3) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_3) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#846,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#846;
@@ -817,7 +817,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#855;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_4) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_4) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#856,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#856;
@@ -857,7 +857,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#865;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_5) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_5) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#240 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#866,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#866;
@@ -897,7 +897,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Status.Error.Id := UINT#875;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_64B_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_64B_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#64 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#876,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#876;
@@ -1037,7 +1037,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 RETURN;
             END_IF;
 
-			retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount);//(LADDR := Component.HW.HW_SystemControl, PIADDR => inputsAddress, PICount => inputsCount, PQADDR => outputsAddress, PQCount => outputsCount);
+			retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount);//(LADDR := Component.HW.HW_SystemControl, PIADDR => inputsAddress, PICount => inputsCount, PQADDR => outputsAddress, PQCount => outputsCount);
 			
 			IF CameraNo = BYTE#1 THEN
 					inputsAddress := inputsAddress + UDINT#8;
@@ -1070,7 +1070,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress), bitOffset := (BitOffset + INT#2),value => Inputs.Status.SoftEvent.TriggerAck);		
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress), bitOffset := (BitOffset + INT#3),value => Inputs.Status.SoftEvent.Reserve);		
 
-            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress), bitOffset := INT#0, value => Inputs.Status.SystemReady);
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress), bitOffset := INT#1, value => Inputs.Status.SystemBusy); 
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress), bitOffset := INT#7, value => Inputs.Status.Online); 
@@ -1079,13 +1079,13 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 			ReadMemory(area := ReadArea#Input, byteOffset := TO_DINT(inputsAddress) + DINT#4, value => Inputs.Status.CurentJobID ); 
 			Inputs.Status.ReadDataLockerJobID := TO_BYTE(TO_INT(Inputs.Status.CurentJobID) / INT#10);
 			
-			retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+			retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress), bitOffset := INT#5, value => Inputs.Status.ResultValid); 
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + DINT#4, value => Inputs.Status.ID_Inspection);
 			ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + DINT#1, bitOffset := INT#0, value => Inputs.Status.SetUserDataAck); 
 			
 			//nacitanie user dat pre kontrolu.. ci a ako to nastavili ine kamery. 
-			retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+			retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
     		ReadMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress), value => Inputs.Status.UserDataJobID); 
             Inputs.Status.UserDataLockerJobID := TO_BYTE(TO_UINT(Inputs.Status.UserDataJobID) / UINT#10);  
             ReadMemory(area := ReadArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#1, value => Inputs.Status.UserDataLockerIdOperation);
@@ -1145,23 +1145,23 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Outputs.Control.InitiateJobLoad := FALSE;
                     Outputs.Control.InspectionResultsAck := FALSE;
                
-                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress),value:= BYTE#0);
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#1,value:= BYTE#0);
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= BYTE#0);
                     Outputs.Control.JobLoadID := WORD#0; 
                     
-                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#4, value:= FALSE);
 
                     
-                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= WORD#0);
                     
-                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#1, value:= FALSE);                    
 
@@ -1347,7 +1347,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         Status.Error.Id :=      UINT#511;
                     END_IF;
     
-                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress),value:= BYTE#0);
 
                     //zapisovanie dat pre kameru, ]: typ spracovania dat (0 = Undefined, 1 = Zmena jobu/referencie, 2=Nacitanie parametrov0, 3=Nacitanie paramterov1,…)
@@ -1384,11 +1384,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     Inputs.Status.ReadDataLockerJobID   := BYTE#0;  
                     Outputs.Control.JobLoadID           := WORD#0;  
                     
-                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress),bitOffset := INT#4,value:= FALSE);
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= WORD#0);
                     
-                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress),bitOffset := INT#1,value:= FALSE);
                          
                     IF TRUE THEN
@@ -2173,7 +2173,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         AND (NOT Inputs.Status.JobLoadComplete) THEN
                         
                         Outputs.Control.JobLoadID := TO_BYTE(TO_UINT(_readResultsJobID) + (TO_UINT(Config.CameraNo) * UINT#10)); //nastavenie ID podla jobuID 50-59 pre kameru 5
-                        retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                        retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                         WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= Outputs.Control.JobLoadID);  
                         _progress := 364;
                     END_IF;
@@ -2200,7 +2200,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
                     Outputs.Control.InitiateJobLoad := TRUE;
                     _Clock_1Hz.Blink(THIS,TIME#500MS,TIME#500MS);
-                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress),bitOffset := INT#4,value:= _Clock_1Hz.output);  
                     IF (Inputs.Status.CurentJobID = Outputs.Control.JobLoadID) AND Outputs.Control.JobLoadID > WORD#0 AND 
                         Inputs.Status.CurentJobID > BYTE#0 AND Inputs.Status.JobLoadComplete THEN 
@@ -2260,7 +2260,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
                     CASE THIS._readResultsLength OF
         	            UINT#1..UINT#240:  // Statement section case 1
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
                             END_FOR;
@@ -2270,12 +2270,12 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                             END_FOR;
                 
                         UINT#241..UINT#480:
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := 240 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
                             END_FOR;
@@ -2285,17 +2285,17 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                             END_FOR;
 	                
                         UINT#481..UINT#720:
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#240 TO UINT#479 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#480 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
@@ -2305,22 +2305,22 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                             END_FOR;
 	                
                         UINT#721..UINT#960:
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#240 TO UINT#479 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#480 TO UINT#719 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#720 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
@@ -2330,27 +2330,27 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                             END_FOR;
 
                         UINT#961..UINT#1200:
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#240 TO UINT#479 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#480 TO UINT#719 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#720 TO UINT#960 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
                         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#961 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
@@ -2360,32 +2360,32 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                             END_FOR;
 	                
                         UINT#1201..UINT#1264:
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#239 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index]);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#240 TO UINT#479 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#240]);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#480 TO UINT#719 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#720 TO UINT#960 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
                         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#961 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_Results_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_Results_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#1201 TO _readResultsLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
                                 ReadMemory(area := ReadArea#Input,byteOffset := TO_DINT(inputsAddress) + TO_DINT(index), value => _data_in_1301[index - UINT#480]);
                             END_FOR;
@@ -2443,7 +2443,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
     
                     Outputs.Control.JobLoadID := BYTE#0; 
-                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2, value:= Outputs.Control.JobLoadID);  
 
                     IF TRUE  THEN
@@ -2459,12 +2459,12 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                     END_IF;
     
                     Outputs.Control.InitiateJobLoad := TRUE;
-                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := 4, value:=  Outputs.Control.InitiateJobLoad);
                     
                     IF (Inputs.Status.CurentJobID = WORD#0) AND Inputs.Status.JobLoadComplete THEN
                         Outputs.Control.InitiateJobLoad := FALSE;
-                        retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                        retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                         WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := 4, value:=  Outputs.Control.InitiateJobLoad);
                         THIS.CallTimers(FALSE);
                         _progress := 374;
@@ -2626,7 +2626,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         Status.Error.Id :=      UINT#583; 
                     END_IF;
 	    
-                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress + UDINT#0), value:= Outputs.Control.WriteDataID);
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress + UDINT#1),value:= _sendDataInspectionType);      
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress + UDINT#2),value:= _sendDataJobID);               
@@ -2675,7 +2675,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
                     CASE _sendDataLength OF
                         UINT#1..UINT#235:  // Statement section case 1
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
@@ -2684,38 +2684,38 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#1196 TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;                            
 
                         UINT#236..UINT#475:  // Statement section case 1
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
        
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#236 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
@@ -2724,38 +2724,38 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#1196 TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;                            
 
                         UINT#476..UINT#715:
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#476 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
@@ -2763,38 +2763,38 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#1196 TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
                             
                         UINT#716..UINT#955:
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#716 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
@@ -2802,38 +2802,38 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;     
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#1196 TO UINT#1263 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;                            
 
                         UINT#956..UINT#1195:
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#956 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
@@ -2842,38 +2842,38 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
 
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#1196 TO UINT#1259 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= BYTE#0);
                             END_FOR;
 
                         UINT#1196..UINT#1260:
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#0 TO UINT#235 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#4 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_2),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#236 TO UINT#475 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#236 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_3),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#476 TO UINT#715 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#476 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_4),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#716 TO UINT#955 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#716 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_5),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#956 TO UINT#1195 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#956 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
         
-                            retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                            retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_64B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                             FOR index := UINT#1196 TO _sendDataLength - UINT#1 DO //nacitavanie tolko dat kolko treba do buffra.
                                 WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) - DINT#1196 + TO_DINT(index),value:= _data_out_1301[index]);
                             END_FOR;
@@ -2938,7 +2938,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         Status.Error.Id :=      UINT#590;
                     END_IF;
 
-                    retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                    retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_UserData_240B_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#0,value:= BYTE#0);
                     WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#1,value:= BYTE#0);
                     
@@ -4171,7 +4171,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
             //***********Update outputs ****************
 			
-			retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+			retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
 			
 			IF    CameraNo = BYTE#1 THEN
 					outputsAddress := outputsAddress + UDINT#4;
@@ -4205,18 +4205,18 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 			WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := BitOffset + INT#3, value:= Outputs.Control.SoftEvent.Reserve);
 			
 			IF (Inputs.Status.ReadDataLockerJobID = Config.CameraNo) THEN  
-				retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+				retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_SystemControl),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
 				WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#4, value:= Outputs.Control.InitiateJobLoad );
 				
 				WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2, value:= Outputs.Control.JobLoadID);
 
-                retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+                retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
 		        WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#1, value:= Outputs.Control.InspectionResultsAck);
 			END_IF;
 
 
 			IF  (Inputs.Status.UserDataLockerJobID = Config.CameraNo) THEN
-				retValRdAddr := ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
+				retValRdAddr := ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HW_EngineControl_1),inputStartAddress=> inputsAddress,inputCount => inputsCount,outputStartAddress => outputsAddress,outputCount=> outputsCount); 
 				WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress), bitOffset := INT#3, value:= Outputs.Control.SetUserdata);
 			END_IF;
 
@@ -4367,3 +4367,4 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
     END_CLASS
 END_NAMESPACE
+

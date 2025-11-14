@@ -1,0 +1,24 @@
+Devices:
+- Name: et200sp
+  Modules:
+  - Apply: '6ES7155-6AU01-0BN0_v4_2'
+    Arguments:
+      NAME: et200sp
+      IP_ADDRESS_X1: '192.168.100.121/24'
+      PROFINET_DEVICE_NAME_X1: et200sp
+  - Apply: '6ES7131-6BH00-0BA0_v1_1'
+    Arguments:
+      NAME: A10
+      TERMINAL: 'Enable new potential group (light BaseUnit)'   # Possible values:  'Use potential group of the left module (dark BaseUnit)'
+                                                                #                   'Enable new potential group (light BaseUnit)'
+                                                                # Default value:    'Use potential group of the left module (dark BaseUnit)'
+                                                                # So this parameter need to be specified only in the case of 'Enable new potential group (light BaseUnit)' is used
+  - Apply: '6ES7132-6BH00-0BA0_v1_1'
+    Arguments:
+      NAME: A20
+  - Apply: '6ES7137-6BD00-0BA0_v2_2_2xBNI00AY_on_Port_C3'
+    Arguments:
+      NAME: A30
+  - Apply: '6ES7193-6PA00-0AA0_v1_1'
+    Arguments:
+      NAME: A100

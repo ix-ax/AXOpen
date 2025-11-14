@@ -1,6 +1,6 @@
 USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Timers;
-USING Siemens.Simatic.S71500.DistributedIO;
+USING Siemens.Simatic.DistributedIO;
 USING System.Timer;
 
 NAMESPACE AXOpen.Components.Siem.Identification
@@ -259,7 +259,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                                 IF instRdRec.request = FALSE THEN
                                     // call read record with Index 16#B000
                                     instRdRec.request := true;
-                                    instRdRec.ID := TO_WORD(statHwID);
+                                    instRdRec.hardwareID := statHwID;
                                     instRdRec.INDEX := TO_UINT(INDEX_CAP_IOLINK);
                                     instRdRec.maxLength := UINT#0;
                                     statFBState := FB_STATE_READ_CAP;
@@ -298,11 +298,11 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         // to send at first a request via write data record (header, 8 byte). As response the IO-Link master module will 
                         // send the required data record.
                         
-                        instWrRec(request := TRUE,
-                                   id := TO_WORD(statHwID),
-                                   index := statCap,
-                                   length := statLen,
-                                   record := statWrite);
+                        instWrRec(  request     := TRUE,
+                                    hardwareId  := statHwID,
+                                    index       := statCap,
+                                    length      := statLen,
+                                    record      := statWrite);
                         
                         IF instWrRec.ERROR THEN
                             IF (instWrRec.STATUS AND STATUS_MASK) = STATUS_RESOURCE_BUSY THEN
@@ -323,11 +323,11 @@ NAMESPACE AXOpen.Components.Siem.Identification
                                   duration := statPollingPeriod);
                         
                         // read data record on falling edge
-                        instRdRec(request := NOT instPoll.output,
-                                   id := TO_WORD(statHwID),
-                                   index := statCap,
-                                   maxLength := UINT#0, // read all data available,
-                                   record := statRead);
+                        instRdRec(  request     := NOT instPoll.output,
+                                    hardwareId  := statHwID,
+                                    index := statCap,
+                                    maxLength := UINT#0, // read all data available,
+                                    record := statRead);
                         
                         IF instRdRec.ERROR = TRUE THEN
                             IF (instRdRec.STATUS AND STATUS_MASK) = STATUS_RESOURCE_BUSY THEN
@@ -431,3 +431,4 @@ NAMESPACE AXOpen.Components.Siem.Identification
         END_METHOD
     END_CLASS
 END_NAMESPACE
+

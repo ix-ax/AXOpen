@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "../../temp/Operon/operon.css";
 @source "../../temp";
+@source "../../../../../../../axopen/src/core/src/AXOpen.Core.Blazor";
 /*@import "../../../../../../../operon/src/Operon/wwwroot/css/operon.css";
 @source "../../../../../../../operon/src/Operon/Components";
 @source "../../../../../../../operon/src/Operon/Icons";
