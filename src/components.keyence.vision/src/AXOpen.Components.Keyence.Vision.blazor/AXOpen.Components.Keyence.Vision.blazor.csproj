@@ -60,7 +60,6 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\..\..\io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj" />
     <ProjectReference Include="..\AXOpen.Components.Keyence.Vision\inxton_axopen_components_keyence_vision.csproj" />
   </ItemGroup>
