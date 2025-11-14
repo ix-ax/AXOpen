@@ -1,3 +1,4 @@
+using AxOpen.Security.Entities;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -49,7 +50,7 @@ namespace AXOpen.Security
         public void RedirectToCurrentPageWithStatus(string message, HttpContext context)
             => RedirectToWithStatus(CurrentPath, message, context);
 
-        public void RedirectToInvalidUser(UserManager<IdentityUser> userManager, HttpContext context)
+        public void RedirectToInvalidUser(UserManager<User> userManager, HttpContext context)
             => RedirectToWithStatus("Account/InvalidUser", $"Error: Unable to load user with ID '{userManager.GetUserId(context.User)}'.", context);
     }
 }

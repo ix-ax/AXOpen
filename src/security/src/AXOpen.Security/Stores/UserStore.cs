@@ -20,6 +20,8 @@ namespace AxOpen.Security.Stores
         IUserRoleStore<User>,
         IUserSecurityStampStore<User>,
         IUserClaimStore<User>,
+        IUserEmailStore<User>,
+        IUserPhoneNumberStore<User>,
         IQueryableUserStore<User>
     {
         private readonly IRepositoryService _unitOfWork;
@@ -64,7 +66,7 @@ namespace AxOpen.Security.Stores
             if (!Users.Any())
             {
                 //create default admin user
-                var user = new User("admin", null, "AdminGroup", false, false, 0);
+                var user = new User("admin", null, null, "AdminGroup", true, null, false, 0);
                 user.SecurityStamp = Guid.NewGuid().ToString();
                 user.PasswordHash = new PasswordHasher<User>().HashPassword(user, "admin");
                 user.Group = "AdminGroup";
@@ -188,7 +190,8 @@ namespace AxOpen.Security.Stores
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
-            user.GroupHash = new PasswordHasher<User>().HashPassword(user, user.Group);
+            if(!string.IsNullOrEmpty(user.Group))
+                user.GroupHash = new PasswordHasher<User>().HashPassword(user, user.Group);
 
             try
             {
@@ -221,6 +224,7 @@ namespace AxOpen.Security.Stores
                 {
                     userData.UserName = user.UserName;
                     userData.Email = user.Email;
+                    userData.PhoneNumber = user.PhoneNumber;
                     userData.PasswordHash = user.PasswordHash;
                     userData.SecurityStamp = user.SecurityStamp;
                     userData.Group = user.Group;
@@ -563,6 +567,139 @@ namespace AxOpen.Security.Stores
         public Task<IList<User>> GetUsersForClaimAsync(Claim claim, CancellationToken cancellationToken = default)
         {
             return Task.FromResult((IList<User>)new List<User>());
+        }
+
+        public Task SetEmailAsync(User user, string? email, CancellationToken cancellationToken)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            user.Email = email;
+
+            return Task.CompletedTask;
+        }
+
+        public Task<string?> GetEmailAsync(User user, CancellationToken cancellationToken)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            return Task.FromResult(user.Email);
+        }
+
+        public Task<bool> GetEmailConfirmedAsync(User user, CancellationToken cancellationToken)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            return Task.FromResult(user.EmailConfirmed);
+        }
+
+        public Task SetEmailConfirmedAsync(User user, bool confirmed, CancellationToken cancellationToken)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            user.EmailConfirmed = confirmed;
+
+            return Task.CompletedTask;
+        }
+
+        public Task<User?> FindByEmailAsync(string normalizedEmail, CancellationToken cancellationToken)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            if (string.IsNullOrWhiteSpace(normalizedEmail))
+                throw new ArgumentNullException(nameof(normalizedEmail));
+
+            User? user;
+            try
+            {
+                user = _unitOfWork.UserRepository.Read(normalizedEmail);
+
+                if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
+                    user = null;
+            }
+            catch (UnableToLocateRecordId)
+            {
+                user = null;
+            }
+
+            return Task.FromResult(user);
+        }
+
+        public Task<string?> GetNormalizedEmailAsync(User user, CancellationToken cancellationToken)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            return Task.FromResult(user.NormalizedEmail);
+        }
+
+        public Task SetNormalizedEmailAsync(User user, string? normalizedEmail, CancellationToken cancellationToken)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            user.NormalizedEmail = normalizedEmail;
+
+            return Task.CompletedTask;
+        }
+
+        public Task SetPhoneNumberAsync(User user, string? phoneNumber, CancellationToken cancellationToken)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            user.PhoneNumber = phoneNumber;
+
+            return Task.CompletedTask;
+        }
+
+        public Task<string?> GetPhoneNumberAsync(User user, CancellationToken cancellationToken)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            return Task.FromResult(user.PhoneNumber);
+        }
+
+        public Task<bool> GetPhoneNumberConfirmedAsync(User user, CancellationToken cancellationToken)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            return Task.FromResult(user.PhoneNumberConfirmed);
+        }
+
+        public Task SetPhoneNumberConfirmedAsync(User user, bool confirmed, CancellationToken cancellationToken)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
+            user.PhoneNumberConfirmed = confirmed;
+
+            return Task.CompletedTask;
         }
     }
 }

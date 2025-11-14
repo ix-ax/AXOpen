@@ -24,6 +24,8 @@ namespace AxOpen.Security.Services
             services.AddTransient<IUserStore<User>, UserStore>();
             services.AddTransient<IRoleStore<Role>, RoleStore>();
 
+            services.AddCascadingAuthenticationState();
+
             services.AddScoped<IdentityRedirectManager>();
 
             services.AddScoped<AuthenticationStateProvider, IdentityRevalidatingAuthenticationStateProvider>();
