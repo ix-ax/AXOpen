@@ -645,9 +645,10 @@ namespace AXOpen.VisualComposer.Components
             await Task.Run(() => { 
                 DetailsContext = element;
                 DetailsPresentationType = presentationType;
-                DetailsModalWindow.Toggle();
-                this.StateHasChanged();
+                DetailsModalWindow.Toggle();                
             });
+
+            this.StateHasChanged();
 
         }
 
