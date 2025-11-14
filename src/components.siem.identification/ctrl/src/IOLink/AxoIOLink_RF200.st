@@ -1,6 +1,6 @@
 USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Timers;
-USING Siemens.Simatic.S71500.DistributedIO;
+USING Siemens.Simatic.DistributedIO;
 USING System.Timer;
 USING System.Strings;
 USING System.Serialization;
@@ -621,3 +621,4 @@ NAMESPACE AXOpen.Components.Siem.Identification
         END_METHOD
     END_CLASS
 END_NAMESPACE
+

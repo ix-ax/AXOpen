@@ -1,6 +1,6 @@
 USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Timers;
-USING Siemens.Simatic.S71500.DistributedIO;
+USING Siemens.Simatic.DistributedIO;
 USING System.Timer;
 USING System.Strings;
 USING System.Serialization;
@@ -112,7 +112,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
         
             // Get PII
 
-            tempWord := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(hwID),tempData);
+            tempWord := Siemens.Simatic.DistributedIO.ReadData((hwID),tempData);
             FOR tempIndex := 0 TO statIOsize - INT#1 DO
                 statAnt[tempIndex]   :=  tempData[tempIndex + portAddr];
             END_FOR;
@@ -168,7 +168,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_FOR;
                     //TODO solve overwriting the outputs in case of several RFID header used with one IOLink master 
                     //when SETIO_PART equivalent function is available in AX
-                    tempWord := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(hwID),tempData);
+                    tempWord := Siemens.Simatic.DistributedIO.WriteData((hwID),tempData);
 
                     IF NOT statIoPartError AND statAnt[INDEX_RFID_ERROR] = BYTE#0 THEN
                         statState := STATE_READY;
@@ -190,7 +190,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     END_FOR;
                     //TODO solve overwriting the outputs in case of several RFID header used with one IOLink master 
                     //when SETIO_PART equivalent function is available in AX
-                    tempWord := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(hwID),tempData);
+                    tempWord := Siemens.Simatic.DistributedIO.WriteData((hwID),tempData);
 
                     IF NOT statIoPartError AND statAnt[INDEX_RFID_ERROR] = BYTE#0 THEN
                         IF statAntStatus = CMD_ANTENNA_OFF THEN    //if status_byte=1610 then antenna off
@@ -221,3 +221,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
         END_METHOD
     END_CLASS
 END_NAMESPACE
+
+
+

@@ -111,7 +111,7 @@ NAMESPACE AXOpen.Messaging.Static
                 _context.GetLogger().Log('Risen', THIS.ToLogLevel(_category), THIS);
                 MessageCode := _messageCode;
                 Category := _category;
-                AcknowledgementRequired := Category >= eAxoMessageCategory#Error;
+                //  AcknowledgementRequired := Category >= eAxoMessageCategory#Error;
             END_IF;
 
             // "Reactivation" in case of acknowledgable alarm rised, falled and rised again without acknowledgement
@@ -290,6 +290,9 @@ NAMESPACE AXOpen.Messaging.Static
         ///</summary>
         METHOD PUBLIC RequireAcknowledgement : AXOpen.Messaging.Static.IAxoMessageProperties
             AcknowledgementRequired := TRUE;
+            IF THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired THEN
+                THIS.MessengerState := eAxoMessengerState#ActiveAcknowledgeRequired;
+            END_IF;            
             RequireAcknowledgement := THIS;
         END_METHOD
 
@@ -298,6 +301,9 @@ NAMESPACE AXOpen.Messaging.Static
         ///</summary>
         METHOD PUBLIC DoNotRequireAcknowledgement : AXOpen.Messaging.Static.IAxoMessageProperties
             AcknowledgementRequired := FALSE;
+            IF THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeRequired THEN
+                THIS.MessengerState := eAxoMessengerState#ActiveAcknowledgeNotRequired;
+            END_IF;            
             DoNotRequireAcknowledgement := THIS;
         END_METHOD
 

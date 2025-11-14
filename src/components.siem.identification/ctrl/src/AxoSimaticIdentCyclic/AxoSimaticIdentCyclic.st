@@ -2,7 +2,7 @@ USING AXOpen.Core;
 USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 USING AXOpen.Components.Abstractions;
-USING Siemens.Simatic.S71500.Hardware.Utilities;
+USING Siemens.Simatic.Hardware.Utilities;
 
 NAMESPACE AXOpen.Components.Siem.Identification
     {S7.extern=ReadWrite}
@@ -253,7 +253,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     Status.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_CM) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwID_CM) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#2 THEN
                     Messenger.Activate(UINT#716,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#716;
@@ -294,7 +294,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id := UINT#725;
                         RETURN;
                     END_IF;
-                    ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_Reader) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                    ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwID_Reader) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                     IF _inputsCount = UINT#32 AND _outputsCount = UINT#32 THEN
                         Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_32;
                     ELSIF _inputsCount = UINT#116 AND _outputsCount = UINT#116 THEN
@@ -342,7 +342,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id := UINT#735;
                         RETURN;
                     END_IF;
-                    ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_Reader) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                    ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwID_Reader) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                     IF _inputsCount = UINT#32 AND _outputsCount = UINT#32 THEN
                         Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_32;
                     ELSIF _inputsCount = UINT#116 AND _outputsCount = UINT#116 THEN
@@ -390,7 +390,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id := UINT#745;
                         RETURN;
                     END_IF;
-                    ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_Reader) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                    ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwID_Reader) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                     IF _inputsCount = UINT#32 AND _outputsCount = UINT#32 THEN
                         Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_32;
                     ELSIF _inputsCount = UINT#116 AND _outputsCount = UINT#116 THEN
@@ -438,7 +438,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         Status.Error.Id := UINT#755;
                         RETURN;
                     END_IF;
-                    ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_Reader) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                    ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwID_Reader) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                     IF _inputsCount = UINT#32 AND _outputsCount = UINT#32 THEN
                         Config.IOsize := eAxoSimaticIdentCyclic_IOsize#BYTES_32;
                     ELSIF _inputsCount = UINT#116 AND _outputsCount = UINT#116 THEN
@@ -493,14 +493,14 @@ NAMESPACE AXOpen.Components.Siem.Identification
             END_IF;            
 
             //***********Update inputs **************
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwID_CM) ,_data_in);
+            _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_CM) ,_data_in);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1201;
                 RETURN;
             END_IF;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwID_Reader) ,_data_in);
+            _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Reader) ,_data_in);
 
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
@@ -3339,7 +3339,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             // _data_out_1[0].%X3                  :=      AxoSimaticIdentCyclicOutputStructure_hwID_out_1.Item1;
             // _data_out_1[0].%X4                  :=      AxoSimaticIdentCyclicOutputStructure_hwID_out_1.Item2;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_CM),_data_out_2);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_CM),_data_out_2);
             IF _retVal > WORD#0 THEN
                 Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1231;
@@ -3360,7 +3360,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 END_FOR;
 
 
-                _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_Reader),_data_out_32);
+                _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Reader),_data_out_32);
                 IF _retVal > WORD#0 THEN
                     Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1232;
@@ -3379,7 +3379,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     _data_out_116[_index] :=      Outputs.Data[_index - INT#4];
                 END_FOR;
 
-                _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_Reader),_data_out_116);
+                _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Reader),_data_out_116);
                 IF _retVal > WORD#0 THEN
                     Messenger.Activate(UINT#1233, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1233;
@@ -3400,7 +3400,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                     _data_out_128[_index] :=      Outputs.Data[_index - INT#4];
                 END_FOR;
 
-                _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_Reader),_data_out_128);
+                _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Reader),_data_out_128);
                 IF _retVal > WORD#0 THEN
                     Messenger.Activate(UINT#1234, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#1234;
@@ -3580,3 +3580,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
     END_CLASS
 END_NAMESPACE
+
+
+
+

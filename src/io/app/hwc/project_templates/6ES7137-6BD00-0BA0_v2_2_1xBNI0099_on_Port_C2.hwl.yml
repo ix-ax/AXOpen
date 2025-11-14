@@ -1,0 +1,126 @@
+Templates:
+  Modules:
+  - Name: '6ES7137-6BD00-0BA0_v2_2_1xBNI0099_on_Port_C2'
+    Placeholders:
+    - Name: 'NAME'
+      Value: 'NAME'
+    - Name: 'TERMINAL'
+      Value: 'Use potential group of the left module (dark BaseUnit)'
+      AllowedValues:
+        - 'Use potential group of the left module (dark BaseUnit)'
+        - 'Enable new potential group (light BaseUnit)'
+    Content:
+      Name: '${NAME}'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.45-SIEMENS-ET200SP-20250606.XML'
+        GsdId: 'CM 4xIO-Link V2.2 32I/32O'
+      IoConfiguration:
+        Inputs:
+          # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
+          ProcessImagePartition: 'Automatic update'
+        Outputs:
+          # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
+          ProcessImagePartition: 'Automatic update'
+      Parameters:
+        RecordDataList:
+        - IndexName: 'General parameters'
+          Values:
+          - OffsetName: 'Diagnostics: No supply voltage L+'
+            Value: True
+          - OffsetName: 'Port Qualifier Information (PQI)'
+            Value: True
+          - OffsetName: 'Port Configuration without S7-PCT'
+            Value: True
+          - OffsetName: 'Port 1'
+            Value: True
+          - Offset: '7.2'
+            # Possible ValueNames: IO-Link Autostart | IO-Link Manual | DI | DQ | Deactivated
+            ValueName: 'Deactivated'
+          - Offset: '8'
+            # Possible ValueNames: 0 Byte | 1 Byte (PQI) | 2 Byte (1 Byte + PQI) | 3 Byte (2 Byte + PQI) | 4 Byte (3 Byte + PQI) | 5 Byte (4 Byte + PQI) | 8 Byte (7 Byte + PQI) | 9 Byte (8 Byte + PQI) | 16 Byte (15 Byte + PQI)
+            ValueName: '5 Byte (4 Byte + PQI)'
+          - Offset: '9'
+            # Possible ValueNames: 0 Byte | 1 Byte | 2 Byte | 4 Byte | 8 Byte | 16 Byte
+            ValueName: '0 Byte'
+          - Offset: '10'
+            # Possible ValueNames: Same Type (V1.0) without Backup&Restore | Type compatible (V1.1) without Backup&Restore | Type compatible (V1.1) with Backup&Restore | Type compatible (V1.1) with Restore
+            ValueName: 'Type compatible (V1.1) with Backup&Restore'
+          - Offset: '11'
+            # Possible value range: [0, 65535]
+            Value: 0
+          - Offset: '13'
+            # Possible value range: [0, 4294967295]
+            Value: 0
+          # - OffsetName: 'Port Cycle Time Port 1'
+          #   ValueName: 'as fast as possible'
+          - OffsetName: 'Port 2'
+            Value: True
+          - Offset: '19.2'
+            # Possible ValueNames: IO-Link Autostart | IO-Link Manual | DI | DQ | Deactivated
+            ValueName: 'IO-Link Autostart'
+          - Offset: '20'
+            # Possible ValueNames: 0 Byte | 1 Byte (PQI) | 2 Byte (1 Byte + PQI) | 3 Byte (2 Byte + PQI) | 4 Byte (3 Byte + PQI) | 5 Byte (4 Byte + PQI) | 8 Byte (7 Byte + PQI) | 9 Byte (8 Byte + PQI) | 16 Byte (15 Byte + PQI)
+            ValueName: '5 Byte (4 Byte + PQI)'
+          - Offset: '21'
+            # Possible ValueNames: 0 Byte | 1 Byte | 2 Byte | 4 Byte | 8 Byte | 16 Byte
+            ValueName: '0 Byte'
+          - Offset: '22'
+            # Possible ValueNames: Same Type (V1.0) without Backup&Restore | Type compatible (V1.1) without Backup&Restore | Type compatible (V1.1) with Backup&Restore | Type compatible (V1.1) with Restore
+            ValueName: 'Type compatible (V1.1) with Backup&Restore'
+          - Offset: '23'
+            # Possible value range: [0, 65535]
+            Value: 888
+          - Offset: '25'
+            # Possible value range: [0, 4294967295]
+            Value: 330592
+          # - OffsetName: 'Port Cycle Time Port 2'
+          #   ValueName: 'as fast as possible'
+          - OffsetName: 'Port 3'
+            Value: True
+          - Offset: '31.2'
+            # Possible ValueNames: IO-Link Autostart | IO-Link Manual | DI | DQ | Deactivated
+            ValueName: 'Deactivated'
+          - Offset: '32'
+            # Possible ValueNames: 0 Byte | 1 Byte (PQI) | 2 Byte (1 Byte + PQI) | 3 Byte (2 Byte + PQI) | 4 Byte (3 Byte + PQI) | 5 Byte (4 Byte + PQI) | 8 Byte (7 Byte + PQI) | 9 Byte (8 Byte + PQI) | 16 Byte (15 Byte + PQI)
+            ValueName: '5 Byte (4 Byte + PQI)'
+          - Offset: '33'
+            # Possible ValueNames: 0 Byte | 1 Byte | 2 Byte | 4 Byte | 8 Byte | 16 Byte
+            ValueName: '0 Byte'
+          - Offset: '34'
+            # Possible ValueNames: Same Type (V1.0) without Backup&Restore | Type compatible (V1.1) without Backup&Restore | Type compatible (V1.1) with Backup&Restore | Type compatible (V1.1) with Restore
+            ValueName: 'Type compatible (V1.1) with Backup&Restore'
+          - Offset: '35'
+            # Possible value range: [0, 65535]
+            Value: 0
+          - Offset: '37'
+            # Possible value range: [0, 4294967295]
+            Value: 0
+          # - OffsetName: 'Port Cycle Time Port 3'
+          #   ValueName: 'as fast as possible'
+          - OffsetName: 'Port 4'
+            Value: True
+          - Offset: '43.2'
+            # Possible ValueNames: IO-Link Autostart | IO-Link Manual | DI | DQ | Deactivated
+            ValueName: 'Deactivated'
+          - Offset: '44'
+            # Possible ValueNames: 0 Byte | 1 Byte (PQI) | 2 Byte (1 Byte + PQI) | 3 Byte (2 Byte + PQI) | 4 Byte (3 Byte + PQI) | 5 Byte (4 Byte + PQI) | 8 Byte (7 Byte + PQI) | 9 Byte (8 Byte + PQI) | 16 Byte (15 Byte + PQI)
+            ValueName: '5 Byte (4 Byte + PQI)'
+          - Offset: '45'
+            # Possible ValueNames: 0 Byte | 1 Byte | 2 Byte | 4 Byte | 8 Byte | 16 Byte
+            ValueName: '0 Byte'
+          - Offset: '46'
+            # Possible ValueNames: Same Type (V1.0) without Backup&Restore | Type compatible (V1.1) without Backup&Restore | Type compatible (V1.1) with Backup&Restore | Type compatible (V1.1) with Restore
+            ValueName: 'Type compatible (V1.1) with Backup&Restore'
+          - Offset: '47'
+            # Possible value range: [0, 65535]
+            Value: 0
+          - Offset: '49'
+            # Possible value range: [0, 4294967295]
+            Value: 0
+          # - OffsetName: 'Port Cycle Time Port 4'
+          #   ValueName: 'as fast as possible'
+        - IndexName: 'Potential group'
+          Values:
+          - OffsetName: 'Potential group'
+            # Possible ValueNames: Use potential group of the left module (dark BaseUnit) | Enable new potential group (light BaseUnit)
+            ValueName: '${TERMINAL}'

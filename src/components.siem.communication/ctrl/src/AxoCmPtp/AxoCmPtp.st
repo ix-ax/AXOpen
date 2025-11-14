@@ -2,7 +2,7 @@ USING AXOpen.Core;
 USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 USING AXOpen.Components.Abstractions;
-USING Siemens.Simatic.S71500.Hardware.Utilities;
+USING Siemens.Simatic.Hardware.Utilities;
 USING Siemens.Simatic.CommunicationsProcessor.PointToPoint;
 
 NAMESPACE AXOpen.Components.Siem.Communication
@@ -197,7 +197,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                     RETURN;
                 END_IF;
 
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(hwID) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (hwID) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#716,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#716;
@@ -3030,3 +3030,4 @@ NAMESPACE AXOpen.Components.Siem.Communication
 
     END_CLASS
 END_NAMESPACE
+

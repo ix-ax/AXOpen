@@ -1,7 +1,7 @@
 USING AXOpen.Core;
 USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
-USING Siemens.Simatic.S71500.Diagnostics.Hardware;
+USING Siemens.Simatic.Diagnostics.Hardware;
 
 NAMESPACE AXOpen.Io
     {S7.extern=ReadWrite}
@@ -46,7 +46,7 @@ NAMESPACE AXOpen.Io
                 hwID    :   UINT;
             END_VAR
             VAR
-                diagInfo : Siemens.Simatic.S71500.Diagnostics.Hardware.DiagnosticDetails;            
+                diagInfo : Siemens.Simatic.Diagnostics.Hardware.DiagnosticDetails;            
             END_VAR
 
 

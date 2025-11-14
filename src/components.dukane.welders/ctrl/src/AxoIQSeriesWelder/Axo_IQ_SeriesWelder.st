@@ -2,8 +2,8 @@ USING AXOpen.Core;
 USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 USING AXOpen.Components.Abstractions;
-USING Siemens.Simatic.S71500.Hardware.Utilities;
-USING Siemens.Simatic.S71500.DistributedIO;
+USING Siemens.Simatic.Hardware.Utilities;
+USING Siemens.Simatic.DistributedIO;
 USING System.Timer;
 USING System.Serialization;
 
@@ -239,7 +239,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     Status.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwID_iQ_to_PLC_Inputs) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#140 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#716,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#716;
@@ -279,7 +279,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                     Status.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwID_PLC_to_iQ_Outputs) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwID_PLC_to_iQ_Outputs) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _outputsCount <> UINT#20 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#916,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#916;
@@ -312,7 +312,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             END_IF;            
 
             //***********Update inputs **************
-            _retval := ReadData(LADDR := TO_WORD(Config.HWIDs.HwID_iQ_to_PLC_Inputs),RECORD => _data_in);
+            _retval := ReadData(Config.HWIDs.HwID_iQ_to_PLC_Inputs, _data_in);
             IF _retval > WORD#0 THEN
                 Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1201;
@@ -3433,7 +3433,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             _data_out[18]       :=  _dword.%B1;
             _data_out[19]       :=  _dword.%B0;
 
-            _retval := WriteData(LADDR := TO_WORD(Config.HWIDs.HwID_PLC_to_iQ_Outputs),RECORD := _data_out);
+            _retval := WriteData(Config.HWIDs.HwID_PLC_to_iQ_Outputs,_data_out);
             IF _retval > WORD#0 THEN
                 Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1231;
@@ -3589,4 +3589,6 @@ NAMESPACE AXOpen.Components.Dukane.Welders
 
     END_CLASS
 END_NAMESPACE
+
+
 

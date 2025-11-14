@@ -1,0 +1,49 @@
+  Devices:
+    - Name: 'bnixg35080b5r067'
+      Modules:
+        - Name: 'bnixg35080b5r067'
+          TypeIdentifier:
+            FileName: 'GSDML-V2.45-BALLUFF-BNI-XG3-X0X-XB5-X067-20250822.XML'
+            GsdId: 'BNI XG3-508-0B5-R067'
+          Interfaces:
+          - Name: 'PN-IO'
+            Label: 'X1'
+            Addresses:
+              Configured:
+              - IPv4: '192.168.100.122/24'
+              - ProfinetDeviceName: 'bnixg35080b5r067'
+            Parameters:
+              AdditionalInformation: ""
+              LocationIdentifier: ""
+              PlantDesignation: ""
+              IECV22LLDPMode: False
+              # PrioritizedStartup (Boolean)
+          Ports:
+          - Name: 'Port_1'
+            Label: 'X1 P1'
+            Parameters:
+              PortActivation: True
+              # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+              TransmissionRateAndDuplex: 'Automatic'
+              EndOfDetectionOfAccessibleDevices: False
+              EndOfTopologyDiscovery: False
+              PortMonitoring: False
+              # TransmissionRateAutoNegotiation: True
+              # CableName: 0
+              # MediumAttachmentType: 'Copper'
+          - Name: 'Port_2'
+            Label: 'X1 P2'
+            Parameters:
+              PortActivation: True
+              # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex
+              TransmissionRateAndDuplex: 'Automatic'
+              EndOfDetectionOfAccessibleDevices: False
+              EndOfTopologyDiscovery: False
+              PortMonitoring: False
+              # TransmissionRateAutoNegotiation: True
+              # CableName: 0
+              # MediumAttachmentType: 'Copper'
+        - Apply: BNI00L3_IDM_LinkModule_1xBNI0099_on_Port_X04
+          Arguments:
+            NAME: '1xBNI0099_on_Port_X04'
+          

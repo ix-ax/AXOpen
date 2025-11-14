@@ -9,7 +9,7 @@ variables:
   #   - "--debug" # Generate debug information for target "1500"
   # Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build. =>
   PLC_NAME: "plc_line"
-  DEFAULT_NAMESPACE: "AXOpen.Abstractions"
+  DEFAULT_NAMESPACE: "AXOpen.Components.Abstractions"
   AXTARGET: 192.168.100.120
   AXTARGETPLATFORMINPUT: .\bin\1500\
   AX_USERNAME: "admin"
@@ -18,8 +18,6 @@ variables:
   # <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.
 registries:
   "@inxton": "https://npm.pkg.github.com/"
-catalogs:
-  "@inxton/ax.catalog": 0.0.39
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -188,6 +186,8 @@ scripts:
     apax hwid
     apax hwadr
     apax build
+
+
   tt: |
     START=$(date +%s)
     apax install
