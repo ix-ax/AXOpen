@@ -58,6 +58,11 @@ namespace AXOpen.VisualComposer.Components
         private double _optionsMoveRight { get; set; } = 15;
         private bool _customPresentation { get; set; } = false;
 
+        public bool IsDesign 
+        {
+            get { return _inDesignMode; }
+        }
+
         protected override void OnInitialized()
         {
             if (Id is null || Id == "")
@@ -641,6 +646,7 @@ namespace AXOpen.VisualComposer.Components
                 DetailsContext = element;
                 DetailsPresentationType = presentationType;
                 DetailsModalWindow.Toggle();
+                this.StateHasChanged();
             });
 
         }
