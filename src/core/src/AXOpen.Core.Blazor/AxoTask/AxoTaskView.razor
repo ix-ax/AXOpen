@@ -8,7 +8,7 @@
         class="btn btn-primary text-sm! font-semibold! uppercase gap-4 justify-between @Class"
         style="@Style"
         @onclick="this.InvokeTask"
-        disabled="@(this.Disable || this.Component.IsDisabled.LastValue)">
+        disabled="@IsDisabled">
     <span class="flex flex-wrap items-center justify-center w-5 h-5" aria-hidden="true">
         @if (State == eAxoTaskState.Ready)
         {
