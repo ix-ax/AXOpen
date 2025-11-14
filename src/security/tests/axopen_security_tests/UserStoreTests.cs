@@ -864,7 +864,7 @@ namespace AxOpen.Security.Tests
 
             var userData = _fixture.Repository.UserRepository.Read(_fixture.SeedData.UpdateUser.UserName);
             
-            var user = new User(userData.UserName,userData.Email, "4219O8919138", userData.Group, userData.CanUserChangePassword, "TAG-000" ,  false, 0);
+            var user = new User(userData.UserName, userData.Email, userData.Group, "4219O8919138", userData.CanUserChangePassword, "TAG-000", false, 0);
             user.Email = "newupdate@newupdate.com";
             user.PasswordHash = "password";
             user.SecurityStamp = Guid.NewGuid().ToString();
