@@ -147,6 +147,7 @@ scripts:
     START=$(date +%s)
     apax install
     apax build
+    dotnet ixc
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ib' Finished in :" $(expr $(date +%s) - $START) "s"
   icb: |
     START=$(date +%s)
@@ -167,6 +168,7 @@ scripts:
     START=$(date +%s)
     apax install
     apax build
+    dotnet ixc
     apax test
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
   gc: |
@@ -187,6 +189,7 @@ scripts:
     apax hwid
     apax hwadr
     apax build
+    dotnet ixc
   tt: |
     START=$(date +%s)
     apax install
@@ -198,12 +201,14 @@ scripts:
     apax hwadr
     apax hwdo
     apax build
+    dotnet ixc
     apax swfdo
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax tx' Finished in :" $(expr $(date +%s) - $START) "s"
   ttx: |
     START=$(date +%s)
     apax install
     apax build
+    dotnet ixc
     apax gc
     apax swfdo
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ttx' Finished in :" $(expr $(date +%s) - $START) "s"

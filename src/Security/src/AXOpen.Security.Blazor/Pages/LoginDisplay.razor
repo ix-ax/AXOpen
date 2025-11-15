@@ -3,7 +3,8 @@
 @using AxOpen.Security.Entities
 @using Operon.Components.Dropdown
 @attribute [IgnoreAntiforgeryToken]
-@namespace AxOpen.Security.Views
+@implements IDisposable
+@inject NavigationManager NavigationManager
 @inject IServiceProvider _serviceProvider
 
 <div class="flex flex-wrap">
@@ -12,21 +13,22 @@
             <Dropdown @ref="_dropdownLogin">
                 <DropdownButton>
                     <button type="button" class="btn btn-primary" @onclick="_dropdownLogin.Toggle">
-                        @context.User.Identity.Name
+                        @context.User.Identity?.Name
                         <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownLogin?.Open ?? false ? "rotated" : null))" />
                     </button>
                 </DropdownButton>
                 <DropdownBody>
-                    <a class="dropdown-item" href="Identity/Account/Manage">@Localizer["Profile"]</a>
-                    <form asp-area="Identity" action="Identity/Account/Logout" asp-route-returnUrl="/" method="post">
+                    <a class="dropdown-item" href="Security/Manage">@Localizer["Profile"]</a>
+                    <form action="/Logout" method="post">
                         <AntiforgeryToken />
-                        <button class="dropdown-item cursor-pointer" type="submit">@Localizer["Log out"]</button>
+                        <input type="hidden" name="ReturnUrl" value="@currentUrl" />
+                        <button type="submit" class="dropdown-item cursor-pointer">@Localizer["Log out"]</button>
                     </form>
                 </DropdownBody>
             </Dropdown>
         </Authorized>
         <NotAuthorized>
-            <a class="btn btn-primary" href="Identity/Account/Login" role="button">@Localizer["Log in"]</a>
+            <a class="btn btn-primary" href="@($"Security/Login?returnUrl={Uri.EscapeDataString(currentUrl ?? "/")}")" role="button">@Localizer["Log in"]</a>
         </NotAuthorized>
     </AuthorizeView>
 
@@ -37,6 +39,8 @@
 </div>
 
 @code {
+    private string? currentUrl;
+
     private Dropdown _dropdownLogin { get; set; }
 
     private bool _showConnectButton { get; set; } = false;
@@ -45,12 +49,26 @@
 
     protected override async Task OnInitializedAsync()
     {
+        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        NavigationManager.LocationChanged += OnLocationChanged;
+
         _serialService = (ISerialService?)_serviceProvider.GetService(typeof(ISerialService));
         if (_serialService != null)
         {
             _serialService.AfterOpenPort += StateHasChanged;
             await ChangeAfterDelayAsync();
         }
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
     }
 
     private async Task ChangeAfterDelayAsync()
