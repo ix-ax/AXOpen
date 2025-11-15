@@ -42,9 +42,9 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<None Include="Areas\**\*.*" Exclude="Areas\**\*.js;Areas\**\*.css" Pack="true" PackagePath="contentFiles\Areas\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
 		<None Include="Views\**\*.*" Exclude="Views\**\*.js;Views\**\*.css" Pack="true" PackagePath="contentFiles\Views\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
 		<None Include="build\AXOpen.Security.Blazor.targets" Pack="true" PackagePath="build\AXOpen.Security.Blazor.targets" CopyToOutputDirectory="PreserveNewest" />
+		<None Include="Pages\LoginDisplay.razor" />
 	</ItemGroup>
 
 	<PropertyGroup>

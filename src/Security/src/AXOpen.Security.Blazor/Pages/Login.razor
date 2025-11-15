@@ -1,0 +1,78 @@
+﻿@page "/Security/Login"
+@using System.ComponentModel.DataAnnotations
+@using AXOpen.Security.Blazor.Shared
+@using AxOpen.Security.Entities
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Identity
+@using System.Security.Principal
+@using Microsoft.AspNetCore.Antiforgery
+
+@inject NavigationManager NavigationManager
+@inject IAntiforgery Antiforgery
+
+<PageTitle>Log in</PageTitle>
+
+<div class="flex justify-center">
+    <div class="w-md">
+        <h4>Log in</h4>
+        <hr class="mb-2" />
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="alert alert-danger" role="alert">
+                @errorMessage
+            </div>
+        }
+        <form method="post" action="/Login">
+            @if (antiforgeryToken != null)
+            {
+                <input type="hidden" name="@antiforgeryToken.FormFieldName" value="@antiforgeryToken.RequestToken" />
+            }
+            <input type="hidden" name="returnUrl" value="@ReturnUrl" />
+            <div class="input-group">
+                <label for="username">@Localizer["Username"]</label>
+                <input type="text" name="username" id="username" autocomplete="username" required placeholder="username" />
+            </div>
+            <div class="input-group">
+                <label for="password">@Localizer["Password"]</label>
+                <input type="password" name="password" id="password" autocomplete="password" required placeholder="password" />
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" name="rememberMe" id="rememberMe" value="true" />
+                <label for="rememberMe">@Localizer["Remember me?"]</label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2 w-full">@Localizer["Log in"]</button>
+        </form>
+    </div>
+</div>
+
+@code {
+    private string? errorMessage;
+    private AntiforgeryTokenSet? antiforgeryToken;
+
+    [CascadingParameter]
+    private HttpContext? HttpContext { get; set; }
+
+    [SupplyParameterFromQuery]
+    private string? ReturnUrl { get; set; }
+
+    [SupplyParameterFromQuery]
+    private string? Error { get; set; }
+
+    protected override void OnInitialized()
+    {
+        // Set default returnUrl to root if not provided
+        ReturnUrl ??= "/";
+
+        if (Error == "invalid")
+        {
+            errorMessage = "Error: Invalid login attempt.";
+        }
+
+        if (HttpContext != null)
+        {
+            antiforgeryToken = Antiforgery.GetAndStoreTokens(HttpContext);
+        }
+    }
+}
