@@ -1,16 +1,16 @@
-﻿@using Microsoft.AspNetCore.Components.Authorization;
+﻿@page "/Security/SecurityManagement"
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
+@using Microsoft.AspNetCore.Components.Authorization;
 @using Operon.Components.Tab
-
-@namespace AxOpen.Security.Views
 
 <AuthorizeView Roles="Administrator">
     <Authorized>
         <Tab Class="m-2">
             <TabPage Title="@Localizer["User Management"]">
-                <UserManagementView @ref="@userManagementView"></UserManagementView>
+                <UserManagement @ref="@userManagement"></UserManagement>
             </TabPage>
             <TabPage Title="@Localizer["Group Management"]">
-                <GroupManagementView @ref="@groupManagementView"></GroupManagementView>
+                <GroupManagement @ref="@groupManagement"></GroupManagement>
             </TabPage>
         </Tab>
     </Authorized>
@@ -20,6 +20,6 @@
 </AuthorizeView>
 
 @code {
-    private UserManagementView userManagementView { get; set; }
-    private GroupManagementView groupManagementView { get; set; }
+    private UserManagement? userManagement { get; set; }
+    private GroupManagement? groupManagement { get; set; }
 }
