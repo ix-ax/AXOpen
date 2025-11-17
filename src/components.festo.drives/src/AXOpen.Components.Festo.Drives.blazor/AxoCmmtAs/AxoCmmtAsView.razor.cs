@@ -17,6 +17,13 @@ namespace AXOpen.Components.Festo.Drives;
 
 public partial class AxoCmmtAsView : RenderableComplexComponentBase<AxoCmmtAs>
 {
+    internal const string StatusPillBaseClass = "inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] transition-all duration-200";
+    private const string PillSuccessState = "border-emerald-400/70 text-emerald-100 bg-emerald-500/10 shadow-[0_0_18px_rgba(16,185,129,0.25)]";
+    private const string PillDangerState = "border-red-500/70 text-red-100 bg-red-500/10 shadow-[0_0_18px_rgba(248,113,113,0.25)]";
+    private const string PillWarningState = "border-amber-400/70 text-amber-100 bg-amber-500/10 shadow-[0_0_18px_rgba(251,191,36,0.22)]";
+    private const string PillPrimaryState = "border-sky-400/70 text-sky-100 bg-sky-500/10 shadow-[0_0_18px_rgba(14,165,233,0.25)]";
+    private const string PillMutedState = "border-border/50 text-text/70 bg-background/30 shadow-none";
+
     public enum eDisplayMode
     {
         Spot,
@@ -141,8 +148,8 @@ public partial class AxoCmmtAsView : RenderableComplexComponentBase<AxoCmmtAs>
             return messengers.Count(m => m.State != eAxoMessengerState.Idle);
         }
     }
-    private bool HasActiveMessages => _alarmCount > 0;
-    private int ActiveAlarmCount => _alarmCount;
+    internal bool HasActiveMessages => _alarmCount > 0;
+    internal int ActiveAlarmCount => _alarmCount;
 
     private eAlarmLevel AlarmLevel
     {
@@ -175,60 +182,91 @@ public partial class AxoCmmtAsView : RenderableComplexComponentBase<AxoCmmtAs>
         }
     }
 
-    private string AlarmBadgeClass => AlarmLevel switch
-    {
-        eAlarmLevel.ActiveErrors => "animate-pulse-danger badge-danger",
-        eAlarmLevel.ActiveWarnings => "badge-warning",
-        eAlarmLevel.ActiveInfo => "badge-primary",
-        eAlarmLevel.Unacknowledged => "badge-warning",
-        _ => "badge-primary"
-    };
+    private static string BuildStatusPill(string variantClass) => $"{StatusPillBaseClass} {variantClass}";
+    private string StatefulPill(bool condition, string activeVariant) => BuildStatusPill(condition ? activeVariant : PillMutedState);
 
-    private string AlarmBorderClass => AlarmLevel switch
+    internal string AlarmBadgeClass => AlarmLevel switch
     {
-        eAlarmLevel.ActiveErrors => "border-danger/30! shadow-glow-danger",
-        eAlarmLevel.ActiveWarnings => "border-warning/40! shadow-glow-warning",
-        eAlarmLevel.ActiveInfo => "border-info",
-        eAlarmLevel.Unacknowledged => "border-warning",
+        eAlarmLevel.ActiveErrors => "border-red-500/70 text-red-100 bg-red-500/10",
+        eAlarmLevel.ActiveWarnings => "border-amber-400/70 text-amber-100 bg-amber-500/10",
+        eAlarmLevel.ActiveInfo => "border-sky-400/70 text-sky-100 bg-sky-500/10",
+        eAlarmLevel.Unacknowledged => "border-amber-400/70 text-amber-100 bg-amber-500/10",
+        _ => "border-slate-500/60 text-slate-200 bg-slate-800/30"
+    };
+    internal string AlarmBadgePillClass => BuildStatusPill(AlarmBadgeClass);
+
+    internal string AlarmBorderClass => AlarmLevel switch
+    {
+        eAlarmLevel.ActiveErrors => "ring-1 ring-red-500/40 shadow-[0_0_35px_rgba(248,113,113,0.35)]",
+        eAlarmLevel.ActiveWarnings => "ring-1 ring-amber-400/40 shadow-[0_0_35px_rgba(251,191,36,0.25)]",
+        eAlarmLevel.ActiveInfo => "ring-1 ring-sky-400/40 shadow-[0_0_30px_rgba(56,189,248,0.25)]",
+        eAlarmLevel.Unacknowledged => "ring-1 ring-amber-400/50 shadow-[0_0_25px_rgba(251,191,36,0.3)]",
         _ => string.Empty
     };
 
-    private string AlarmBackgroundClass => AlarmLevel switch
+    internal string AlarmBackgroundClass => AlarmLevel switch
     {
-        eAlarmLevel.ActiveErrors => "bg-danger/10",
-        eAlarmLevel.ActiveWarnings => "bg-warning/10",
-        eAlarmLevel.ActiveInfo => "bg-info/10",
-        eAlarmLevel.Unacknowledged => "bg-warning/20",
+        eAlarmLevel.ActiveErrors => "bg-red-500/10",
+        eAlarmLevel.ActiveWarnings => "bg-amber-400/10",
+        eAlarmLevel.ActiveInfo => "bg-sky-400/10",
+        eAlarmLevel.Unacknowledged => "bg-amber-500/15",
         _ => string.Empty
     };
 
-    private bool IsPowered => Component.AxisRefExt.Telegram111_In.ZSW1.operationEnabled.Cyclic;
-    private bool HasFault => Component.AxisRefExt.Telegram111_In.ZSW1.faultPresent.Cyclic;
-    private bool HasWarning => Component.AxisRefExt.Telegram111_In.ZSW1.warningActive.Cyclic;
-    private bool AxisReady => Component.AxisRefExt.Telegram111_In.ZSW1.ready.Cyclic;
-    private bool AxisFault => HasFault;
-    private bool DriveStopped => Component.AxisRefExt.Telegram111_In.ZSW1.driveStopped.Cyclic;
-    private bool AxisFollowing => Component.AxisRefExt.Telegram111_In.ZSW1.followingErrorInTolerance.Cyclic;
+    internal bool IsPowered => Component.AxisRefExt.Telegram111_In.ZSW1.operationEnabled.Cyclic;
+    internal bool HasFault => Component.AxisRefExt.Telegram111_In.ZSW1.faultPresent.Cyclic;
+    internal bool HasWarning => Component.AxisRefExt.Telegram111_In.ZSW1.warningActive.Cyclic;
+    internal bool AxisReady => Component.AxisRefExt.Telegram111_In.ZSW1.ready.Cyclic;
+    internal bool AxisFault => HasFault;
+    internal bool DriveStopped => Component.AxisRefExt.Telegram111_In.ZSW1.driveStopped.Cyclic;
+    internal bool AxisFollowing => Component.AxisRefExt.Telegram111_In.ZSW1.followingErrorInTolerance.Cyclic;
 
     private eAxoDriveState DriveStateEnum => (eAxoDriveState)Component.DriveState.Cyclic;
-    private string DriveStateLabel => DriveStateEnum.Humanize();
-    private bool IsStopping => DriveStateEnum == eAxoDriveState.Stopping;
+    internal string DriveStateLabel => DriveStateEnum.Humanize();
+    internal bool IsStopping => DriveStateEnum == eAxoDriveState.Stopping;
     private bool IsHoming => Component.AxoHome_Task.Status.Cyclic == (ushort)eAxoTaskState.Busy;
 
     private double ActualPosition => Component.ActualPosition.Cyclic;
     private double ActualVelocity => Component.ActualVelocity.Cyclic;
     private double ActualTorque => Component.ActualTorque.Cyclic;
 
-    private string PositionText => string.Format(CultureInfo.InvariantCulture, "{0:F2} mm", ActualPosition);
-    private string VelocityText => string.Format(CultureInfo.InvariantCulture, "{0:F2} mm/s", ActualVelocity);
-    private string TorqueText => string.Format(CultureInfo.InvariantCulture, "{0:F2} Nm", ActualTorque);
+    internal string PositionText => string.Format(CultureInfo.InvariantCulture, "{0:F2} mm", ActualPosition);
+    internal string VelocityText => string.Format(CultureInfo.InvariantCulture, "{0:F2} mm/s", ActualVelocity);
+    internal string TorqueText => string.Format(CultureInfo.InvariantCulture, "{0:F2} Nm", ActualTorque);
 
     private double ReferenceVelocity => Math.Max(Math.Abs(Component.AxoMoveVelocity_Velocity.Cyclic), 1.0);
     private double NormalizedVelocity => Clamp(ReferenceVelocity == 0 ? 0 : ActualVelocity / ReferenceVelocity, -1.0, 1.0);
-    private string NeedleRotationdeg => (NormalizedVelocity * 135.0).ToString("F1", CultureInfo.InvariantCulture) + "deg";
-    private string HeroMotionClass => !IsPowered
-        ? "idle"
-        : Math.Abs(NormalizedVelocity) < 0.05 ? "steady" : NormalizedVelocity > 0 ? "forward" : "reverse";
+    internal string NeedleRotationdeg => (NormalizedVelocity * 135.0).ToString("F1", CultureInfo.InvariantCulture) + "deg";
+    internal string HeroStateClasses
+    {
+        get
+        {
+            var opacityClass = IsPowered ? "opacity-100" : "opacity-70";
+
+            if (HasFault)
+            {
+                return opacityClass + " border-red-500/70 shadow-[0_0_30px_rgba(248,113,113,0.35)]";
+            }
+
+            if (HasWarning)
+            {
+                return opacityClass + " border-amber-400/70 shadow-[0_0_30px_rgba(251,191,36,0.25)]";
+            }
+
+            return opacityClass + " border-slate-600/40 shadow-none";
+        }
+    }
+
+    internal string PoweredStatePill => StatefulPill(IsPowered, PillSuccessState);
+    internal string FaultStatePill => StatefulPill(HasFault, PillDangerState);
+    internal string StoppingStatePill => StatefulPill(IsStopping, PillWarningState);
+    internal string DriveStatePillClass => BuildStatusPill(PillPrimaryState);
+    internal string ServiceTogglePillClass => BuildStatusPill(DisplayMode >= eDisplayMode.Raw ? PillWarningState : PillPrimaryState);
+
+    internal string AxisReadyPillClass => StatefulPill(AxisReady, PillSuccessState);
+    internal string AxisFaultPillClass => StatefulPill(AxisFault, PillDangerState);
+    internal string DriveStoppedPillClass => StatefulPill(DriveStopped, PillPrimaryState);
+    internal string AxisFollowingPillClass => StatefulPill(AxisFollowing, PillSuccessState);
 
     private string FaultCodeText => FormatWord(Component.AxisRefExt.Telegram111_In.Fault_Code.Cyclic);
 
@@ -249,9 +287,9 @@ public partial class AxoCmmtAsView : RenderableComplexComponentBase<AxoCmmtAs>
         return value;
     }
 
-    private void ToggleMessages() => ShowMessages = !ShowMessages;
+    internal void ToggleMessages() => ShowMessages = !ShowMessages;
 
-    private void ToggleSpotMode()
+    internal void ToggleSpotMode()
     {
         if (GetVisualItemContainer() == null)
         {
@@ -259,9 +297,9 @@ public partial class AxoCmmtAsView : RenderableComplexComponentBase<AxoCmmtAs>
         }
     }
 
-    private void ToggleAdvancedMode() => DisplayMode = DisplayMode == eDisplayMode.Advanced ? eDisplayMode.Basic : eDisplayMode.Advanced;
+    internal void ToggleAdvancedMode() => DisplayMode = DisplayMode == eDisplayMode.Advanced ? eDisplayMode.Basic : eDisplayMode.Advanced;
 
-    private void ToggleServiceView() => DisplayMode = DisplayMode == eDisplayMode.Raw ? eDisplayMode.Basic : eDisplayMode.Raw;
+    internal void ToggleServiceView() => DisplayMode = DisplayMode == eDisplayMode.Raw ? eDisplayMode.Basic : eDisplayMode.Raw;
 
     private void BringToForeGround()
     {
@@ -301,7 +339,7 @@ public partial class AxoCmmtAsView : RenderableComplexComponentBase<AxoCmmtAs>
         return null;
     }
 
-    protected Task OpenDetails(string presentationType = "Status-Display")
+    internal Task OpenDetails(string presentationType = "Status-Display")
     {
         if (RccContainer is RenderableContentControl rccContainer)
         {

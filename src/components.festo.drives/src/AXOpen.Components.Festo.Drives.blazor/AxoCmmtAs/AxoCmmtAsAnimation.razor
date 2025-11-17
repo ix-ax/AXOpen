@@ -1,0 +1,63 @@
+@namespace AXOpen.Components.Festo.Drives
+@using Microsoft.AspNetCore.Components
+@using System
+
+<div class="rounded-3xl border border-border/50 bg-background/70 p-3 text-text shadow-[0_20px_60px_rgba(2,6,23,0.65)] transition hover:border-border/70 @Context.AlarmBorderClass @Context.AlarmBackgroundClass"
+     @onclick="HandleOpenDetails">
+    <button type="button" @onclick="Context.ToggleSpotMode" class="w-full text-left focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-sky-400/60">
+        <div class="flex flex-col gap-6 rounded-2xl border border-border/40 bg-background/80 px-6 py-5 backdrop-blur @Context.HeroStateClasses">
+            <div class="flex flex-wrap items-center gap-6">
+                <div class="relative h-32 w-32 shrink-0">
+                    <div class="absolute inset-0 rounded-full border border-border/50 bg-black/30"></div>
+                    <div class="absolute inset-3 rounded-full border border-border/30 bg-background/70"></div>
+                    <div class="absolute left-1/2 bottom-1/2 h-16 w-0.5 origin-bottom -translate-x-1/2 rounded-full bg-emerald-400 shadow-lg transition-[transform] duration-500 ease-out"
+                         style="transform: rotate(@Context.NeedleRotationdeg);"></div>
+                    <div class="relative flex h-full w-full flex-col items-center justify-center gap-1 text-center">
+                        <span class="text-[0.65rem] uppercase tracking-[0.4em] text-text/50">Vel</span>
+                        <strong class="text-2xl font-semibold">@Context.VelocityText</strong>
+                    </div>
+                </div>
+
+                <dl class="grid flex-1 min-w-[14rem] grid-cols-3 gap-3 text-sm">
+                    <div class="rounded-xl border border-border/30 bg-background/40 p-3">
+                        <dt class="text-xs uppercase tracking-wide text-text/60">Position</dt>
+                        <dd class="text-base font-semibold text-text">@Context.PositionText</dd>
+                    </div>
+                    <div class="rounded-xl border border-border/30 bg-background/40 p-3">
+                        <dt class="text-xs uppercase tracking-wide text-text/60">Torque</dt>
+                        <dd class="text-base font-semibold text-text">@Context.TorqueText</dd>
+                    </div>
+                    <div class="rounded-xl border border-border/30 bg-background/40 p-3">
+                        <dt class="text-xs uppercase tracking-wide text-text/60">State</dt>
+                        <dd class="text-base font-semibold text-text">@Context.DriveStateLabel</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2">
+                <span class="@Context.PoweredStatePill">Ready</span>
+                <span class="@Context.FaultStatePill">Fault</span>
+                <span class="@Context.StoppingStatePill">Stopping</span>
+            </div>
+        </div>
+    </button>
+</div>
+
+@code {
+    [Parameter]
+    public AxoCmmtAsView Context { get; set; } = default!;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        if (Context == null)
+        {
+            throw new InvalidOperationException("AxoCmmtAsAnimation requires a non-null Context.");
+        }
+    }
+
+    private async Task HandleOpenDetails()
+    {
+        await Context.OpenDetails();
+    }
+}
