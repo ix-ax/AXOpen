@@ -1,17 +1,53 @@
-@namespace AXOpen.Components.Pneumatics
-@using AXOpen.Core
-@using AXOpen.Messaging
-@using AXOpen.Messaging.Static
-@inherits RenderableComplexComponentBase<AXOpen.Components.Pneumatics.AxoCylinder>
+﻿@namespace AXOpen.Components.Pneumatics
+@using AXOpen.Core.Blazor
+@inherits AxoComponentViewBase<AxoCylinder>
 
-<div @onmouseenter="BringToForeGround"
-     @onmouseleave="BringToZIndexBack">
-@if (this.DisplayMode >= eDisplayMode.Spot)
-{    
-    <div data-axo-cylinder-view class="flex flex-col gap-2 p-0 @AlarmBackgroundClass rounded-lg @AlarmBorderClass" @onclick="async () => await OpenDetails()">
-        <div class="self-center">
-            <button @onclick="ToggleSpotMode">
-                <div class="flex flex-col gap-4 p-4 rounded-lg w-full">
+<AxoComponentContainerView Component="@Component" ParentReference="this">
+    <HeaderContent>
+        <div class="flex items-center gap-2" @onclick:stopPropagation="true">
+            @if (IsInInnerPosition)
+            {
+                <span class="badge badge-success">@Component.InLabel</span>
+            }
+            else if (IsInOuterPosition)
+            {
+                <span class="badge badge-info">@Component.OutLabel</span>
+            }
+            else if (IsMoving)
+            {
+                <span class="badge badge-warning">Moving</span>
+            }
+            else
+            {
+                <span class="badge badge-primary">---</span>
+            }
+        </div>
+    </HeaderContent>
+    <CommandsContent>
+        <div class="flex flex-col gap-2 w-full">
+            <div class="flex gap-2 w-full">
+                <AxoTaskCommandView class="flex-[2]" Text="@Component.InLabel" Component="Component._MoveInTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1" Text="STOP" Component="Component._StopTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-[2]" Text="@Component.OutLabel" Component="Component._MoveOutTask" HideRestoreButton="false"></AxoTaskCommandView>
+            </div>
+        </div>
+    </CommandsContent>
+
+    <StatusContent>
+        <div class="flex flex-col gap-2 w-full">
+            <div class="flex gap-2 w-full">
+                <AxoTaskStatusView class="flex-[2]" Text="@Component.InLabel" Component="Component._MoveInTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1" Text="STOP" Component="Component._StopTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-[2]" Text="@Component.OutLabel" Component="Component._MoveOutTask" HideRestoreButton="false"></AxoTaskStatusView>
+            </div>
+        </div>
+    </StatusContent>
+    <StateContent>  
+    </StateContent>
+    <SpotContent>        
+          <div class="self-center">
+                <button>
+                    <div class="flex flex-col gap-4 p-4 rounded-lg w-full">
                         <!-- Cylinder Visual -->
                         <div class="flex items-center gap-4 w-full">
                             <!-- Inner Position with Label on Left -->
@@ -21,13 +57,13 @@
                             </div>
 
                             <!-- Pneumatic Cylinder Assembly -->
-                            <div class="pneumatic-cylinder @(IsMoving && ShowAnimation ? "cylinder-moving" : "") flex-1">
+                            <div class="pneumatic-cylinder @(IsMoving ? "cylinder-moving" : "") flex-1">
                                 <!-- Movement Direction Indicator -->
-                                @if (ShowAnimation && Component.MoveInSignal.Cyclic)
+                                @if (Component.MoveInSignal.Cyclic)
                                 {
                                     <div class="direction-indicator text-warning">◄</div>
                                 }
-                                @if (ShowAnimation && Component.MoveOutSignal.Cyclic)
+                                @if (Component.MoveOutSignal.Cyclic)
                                 {
                                     <div class="direction-indicator text-warning">►</div>
                                 }
@@ -55,104 +91,31 @@
                                 <span class="text-xs font-medium text-text/70">@Component.OutLabel</span>
                             </div>
                         </div>
-                    </div>      
-            </button>
-        </div>
-    </div>
-}
-
-@if (this.DisplayMode != eDisplayMode.Spot)
-{
-    <div data-axo-cylinder-view class="flex flex-col gap-4 p-4 border rounded-lg bg-background/70 @AlarmBorderClass">
-    @if(this.DisplayMode >= eDisplayMode.Basic)
-    {
-        <!-- Component Header -->
-        <div @onclick="ToggleAdvancedMode" class="flex items-center justify-between border-b border-border pb-2 cursor-pointer hover:bg-background/20 transition-colors rounded px-2 -mx-2">
-            <div class="flex items-center gap-2">
-                <span class="text-xs">@(ShowAnimationPanel ? "▼" : "▶")</span>
-                <h4 class="text-lg font-semibold text-text">@Component.AttributeName</h4>
-            </div>
-            <div class="flex items-center gap-2" @onclick:stopPropagation="true">
-                @if (IsInInnerPosition)
-                {
-                    <span class="badge badge-success">@Component.InLabel</span>
-                }
-                else if (IsInOuterPosition)
-                {
-                    <span class="badge badge-info">@Component.OutLabel</span>
-                }
-                else if (IsMoving)
-                {
-                    <span class="badge badge-warning">Moving</span>
-                }
-                else
-                {
-                    <span class="badge badge-primary">---</span>
-                }
-
-                @if (HasActiveMessages)
-                {
-                    <button @onclick="ToggleMessages"
-                            class="badge @AlarmBadgeClass"
-                            title="@ActiveAlarmCount @(ActiveAlarmCount != 1 ? "alarms" : "alarm") active">
-                        @ActiveAlarmCount Active Alarm@(ActiveAlarmCount != 1 ? "s" : "")
-                    </button>
-                }
-
-                <button @onclick="ToggleServiceView"
-                        class="badge badge-primary"
-                        title="Toggle service view">
-                    @(this.DisplayMode >= eDisplayMode.Raw ? "Normal" : "Service")
+                    </div>
                 </button>
             </div>
-        </div>
-        <!-- Alarms Display -->
-        @if (ShowMessages && _alarmCount > 0 && _messageProvider?.Messengers != null)
-        {
-            <div class="flex flex-col gap-2 border-t border-border pt-2">
-                @foreach (var alarm in _messageProvider.Messengers)
-                {
-                    if (alarm.State != eAxoMessengerState.Idle)
-                    {
-                        <AxoMessengerView Component="alarm" />
-                    }
-                }
-            </div>
-        }
+    </SpotContent>
+</AxoComponentContainerView>
 
+@code
+{    
+    protected bool IsInInnerPosition => Component.InSensor.Cyclic && !Component.OutSensor.Cyclic;
+    protected bool IsInOuterPosition => Component.OutSensor.Cyclic && !Component.InSensor.Cyclic;
+    protected bool IsMoving => Component.MoveInSignal.Cyclic || Component.MoveOutSignal.Cyclic;
+
+    public override async void ConfigurePolling()
+    {        
+        // Poll sensor states
+        this.StartPolling(Component.InSensor);
+        this.StartPolling(Component.OutSensor);
+
+        // Poll signal states
+        this.StartPolling(Component.MoveInSignal);
+        this.StartPolling(Component.MoveOutSignal);
+
+        // Poll task statuses
+        this.StartPolling(Component._MoveOutTask.Status);
+        this.StartPolling(Component._MoveInTask.Status);
+        this.StartPolling(Component._StopTask.Status);                
     }
-
-    @if (this.DisplayMode == eDisplayMode.Advanced)
-    {
-        <!-- Control Tasks -->                
-        <div class="flex flex-col gap-2 w-full">
-            <div class="flex gap-2 w-full">
-                @if(Component._isManuallyControllable.Cyclic)
-                {
-                    // Task that are allowed to be controlled manually ONLY WHEN MANUAL MODE IS ACTIVE
-                    <AxoTaskCommandView class="flex-[2]" Text="@Component.InLabel" Component="Component._MoveInTask" HideRestoreButton="false"></AxoTaskCommandView>
-                    <AxoTaskCommandView class="flex-1" Text="STOP" Component="Component._StopTask" HideRestoreButton="false"></AxoTaskCommandView>
-                    <AxoTaskCommandView class="flex-[2]" Text="@Component.OutLabel" Component="Component._MoveOutTask" HideRestoreButton="false"></AxoTaskCommandView>
-                }
-                else
-                {
-                    // Status view of tasks when manual mode is NOT ACTIVE
-                    <AxoTaskStatusView class="flex-[2]" Text="@Component.InLabel" Component="Component._MoveInTask" HideRestoreButton="false"></AxoTaskStatusView>
-                    <AxoTaskStatusView class="flex-1" Text="STOP" Component="Component._StopTask" HideRestoreButton="false"></AxoTaskStatusView>
-                    <AxoTaskStatusView class="flex-[2]" Text="@Component.OutLabel" Component="Component._MoveOutTask" HideRestoreButton="false"></AxoTaskStatusView>
-                }
-
-            </div>
-        </div>        
-    }
-
-    @if (this.DisplayMode == eDisplayMode.Raw)
-    {            
-        <!-- Service View -->
-        <AxoComponentView Component="@this.Component" HideHeader="true" IsControllable="Component._isManuallyControllable.Cyclic" />      
-    }
-   
-</div> <!--MAIN DIV-->
 }
-</div>
-

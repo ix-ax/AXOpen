@@ -1,12 +1,11 @@
-﻿using AXOpen.Core.Blazor;
-using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+﻿using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace AXOpen.Components.Pneumatics
 {
-    public partial class AxoCylinderView : AxoComponentViewBase<AxoCylinder>
+    public partial class AxoCylinderView : RenderableComplexComponentBase<AXOpen.Components.Pneumatics.AxoCylinder>
     {
        
     }
@@ -15,15 +14,15 @@ namespace AXOpen.Components.Pneumatics
     {
         public AxoCylinderStatusView()
         {
-            this.ViewType = eViewType.Status;
-        }                
+         
+        }
     }
 
     public class AxoCylinderCommandView : AxoCylinderView
     {
         public AxoCylinderCommandView()
         {
-            this.ViewType = eViewType.Command;
+            
         }
     }
 
@@ -31,7 +30,7 @@ namespace AXOpen.Components.Pneumatics
     {
         public AxoCylinderSpotView()
         {
-            this.ViewType = eViewType.Spot;
+           
         }
     }
 }

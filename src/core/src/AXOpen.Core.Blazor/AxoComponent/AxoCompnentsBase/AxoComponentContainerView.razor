@@ -1,0 +1,106 @@
+﻿@namespace AXOpen.Core.Blazor
+@using AXOpen.Messaging
+@using AXOpen.Messaging.Static
+@inherits RenderableComponentBase
+
+<div @onmouseenter="BringToForeGround"
+     @onmouseleave="BringToZIndexBack"
+     class="flex flex-col gap-4 p-4 border rounded-lg bg-background/70 @AlarmBorderClass">
+
+    <!--Header-->
+    @if(HeaderActive)
+    {
+        <div @onclick="ToggleDetails"
+         class="flex items-center justify-between border-b border-border p-2 cursor-pointer
+                hover:bg-background/20 transition-colors rounded px-2 -mx-2 select-none">
+        <div class="flex items-center gap-2">
+            <span class="text-xs">@(DetailsActive ? "▼" : "▶")</span>
+            <h5 class="text-lg font-semibold text-text">@Component.AttributeName</h5>
+        </div>
+            @HeaderContent
+        <div class="flex items-center gap-2" @onclick:stopPropagation="true">
+            @if (HasActiveMessages)
+            {
+                <button @onclick="ToggleMessages"
+                        class="badge @AlarmBadgeClass"
+                        title="@ActiveAlarmCount @(ActiveAlarmCount != 1 ? "alarms" : "alarm") active">
+                    @ActiveAlarmCount Active Alarm@(ActiveAlarmCount != 1 ? "s" : "")
+                </button>
+            }
+                <button @onclick="ToggleServiceView"
+                        class="badge badge-primary"
+                        title="Toggle service view">
+                    @(this.ServiceViewActive ? "Normal" : "Service")
+                </button>
+        </div>
+    </div>
+    }
+
+    @if (!ServiceViewActive)
+    {
+        <!--Alarms-->
+        @if (AlarmsActive == true)
+        {
+            <div class="flex flex-col gap-2 border-t border-border pt-2">
+                @foreach (var msg in MessageProvider.Messengers.Where(m => m.State != eAxoMessengerState.Idle))
+                {
+                    <AxoMessengerView Component="msg" />
+                }
+            </div>
+    
+        }
+
+        <!--Manual Commands / Status-->
+        @if (CommandsActive == true)
+        {
+            if (CommandsContent is not null && Component._isManuallyControllable.Cyclic == true)
+            {
+                @CommandsContent
+            }
+            else
+            {
+                @StatusContent
+            }
+        }
+
+        <!--State view-->
+        @if (StateActive == true)
+        {    
+            @StateContent    
+        }
+
+        <!--Spot view-->
+        @if (SpotActive == true)
+        {
+            <button @onclick="OpenModal">
+                <div class="flex flex-col gap-2 p-0 @AlarmBackgroundClass rounded-lg">
+                    @SpotContent
+                </div>
+            </button>
+        }
+    }
+    else
+    {
+        <RenderableContentControl Context="Component" Presentation="Command-Control" ParentContainer="@this" HideLabel="true" />
+    }
+</div>
+@code
+{
+    [Parameter]
+    public IAxoComponentViewBase? ParentReference { get; set; }
+
+    [Parameter]
+    public RenderFragment? HeaderContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? CommandsContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? StatusContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? StateContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? SpotContent { get; set; }
+}
