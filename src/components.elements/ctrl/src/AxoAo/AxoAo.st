@@ -62,12 +62,9 @@ NAMESPACE AXOpen.Components.Elements
             IF (inParent = NULL) THEN 
                 RETURN; 
             END_IF;
-
-            IF _context = NULL THEN
-                SUPER.Run(inParent);
-                _context := THIS.GetContext();
-            END_IF;
-
+           
+            SUPER.Run(inParent);
+           
             _messengerInfo.Serve(THIS); 
     
             //unscaling

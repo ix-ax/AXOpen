@@ -7,7 +7,7 @@ using AXOpen.Core.Blazor;
 
 namespace AXOpen.Core
 {
-    public partial class AxoComponentTemplate : AxoComponentViewBase<AxoComponent>
+    public partial class AxoComponentTemplate : AxoComponentViewBase<AxoComponent> //TODO: Replace AxoComponent with the actual component type
     {
         
     }

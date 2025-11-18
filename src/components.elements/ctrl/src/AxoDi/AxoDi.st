@@ -59,13 +59,10 @@ NAMESPACE AXOpen.Components.Elements
                 RETURN; 
             END_IF;
 
-            IF _context = NULL THEN
-                SUPER.Run(inParent);
-                _isTrueTask.Run(THIS);
-                _isFalseTask.Run(THIS);
-                _context := THIS.GetContext();
-            END_IF;
-
+            SUPER.Run(inParent);            
+            _isTrueTask.Run(THIS);
+            _isFalseTask.Run(THIS);
+                       
             _messengerInfo.Serve(THIS); 
 
             _signal := inSignal;
