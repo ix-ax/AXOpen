@@ -1,35 +1,23 @@
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 using AXOpen.Components.Keyence.Vision;
 using AXOpen.Core;
+using AXOpen.Core.Blazor;
 using AXOpen.Messaging;
 using AXOpen.Messaging.Static;
 using AXOpen.VisualComposer.Components.VisualComposerItem;
 using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using Microsoft.AspNetCore.Components;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Threading.Tasks;
 #pragma warning disable CS1591
 
 namespace AXOpen.Components.Keyence.Vision
 {
-    public partial class Axo_IV3View : RenderableComplexComponentBase<Axo_IV3>
-    {
-        public enum eDisplayMode
-        {
-            Spot,
-            Basic,
-            Advanced,
-            Raw
-        }
-
-        [Parameter]
-        public eDisplayMode DisplayMode { get; set; } = eDisplayMode.Spot;
-
-        private bool ShowAnimationPanel { get; set; } = true;
-
+    public partial class Axo_IV3View : AxoComponentViewBase<Axo_IV3>
+    {            
         protected bool IsReady => Component.Inputs.CommandStatusBits.Ready.Cyclic;
         protected bool IsBusy => Component.Inputs.CommandStatusBits.BUSY.Cyclic;
         protected bool IsImaging => Component.Inputs.CommandStatusBits.ImagingStatus.Cyclic;
@@ -45,166 +33,7 @@ namespace AXOpen.Components.Keyence.Vision
         protected string AlertText => HasError ? "ERROR" : HasWarning ? "WARNING" : "STABLE";
 
         protected int CurrentProgramNumber => Component.Inputs.DeviceStatusWords.CurrentProgramNo.Cyclic;
-        protected int ProgressPercentage => Math.Clamp((int)Component.Progress.Cyclic, 0, 100);
-
-        private bool ShowMessages { get; set; }
-        private AxoMessageProvider? _messageProvider { get; set; }
-        private int _previousAlarmCount { get; set; }
-
-        private bool HasActiveMessages => _alarmCount > 0;
-        private int _alarmCount => _messageProvider?.Messengers?.Count(a => a.State != eAxoMessengerState.Idle) ?? 0;
-        private int ActiveAlarmCount => _alarmCount;
-
-        private eAlarmLevel _alarmLevel
-        {
-            get
-            {
-                var messengers = _messageProvider?.Messengers;
-                if (messengers == null)
-                {
-                    return eAlarmLevel.NoAlarms;
-                }
-
-                if (messengers.Any(p => p.State > eAxoMessengerState.Idle))
-                {
-                    var seriousness = (eAxoMessageCategory)messengers.Max(p => p.Category.LastValue);
-
-                    return seriousness switch
-                    {
-                        eAxoMessageCategory.Info => eAlarmLevel.ActiveInfo,
-                        eAxoMessageCategory.Warning => eAlarmLevel.ActiveWarnings,
-                        eAxoMessageCategory.Error or eAxoMessageCategory.ProgrammingError or eAxoMessageCategory.Critical => eAlarmLevel.ActiveErrors,
-                        _ => eAlarmLevel.NoAlarms
-                    };
-                }
-
-                if (messengers.Any(p => p.State > eAxoMessengerState.InactiveWaitingForAcknowledge))
-                {
-                    return eAlarmLevel.Unacknowledged;
-                }
-
-                return eAlarmLevel.NoAlarms;
-            }
-        }
-
-        private string AlarmBadgeClass =>
-            _alarmLevel switch
-            {
-                eAlarmLevel.ActiveErrors => "animate-pulse-danger badge-danger",
-                eAlarmLevel.ActiveWarnings => "badge-warning",
-                eAlarmLevel.ActiveInfo => "badge-primary",
-                eAlarmLevel.Unacknowledged => "badge-warning",
-                _ => "badge-primary"
-            };
-
-        private string AlarmBorderClass =>
-            _alarmLevel switch
-            {
-                eAlarmLevel.NoAlarms => string.Empty,
-                eAlarmLevel.Unacknowledged => "border-warning",
-                eAlarmLevel.ActiveInfo => "border-info",
-                eAlarmLevel.ActiveWarnings => "border-warning/20! shadow-glow-warning",
-                eAlarmLevel.ActiveErrors => "border-danger/20! shadow-glow-danger",
-                _ => string.Empty
-            };
-
-        private string AlarmBackgroundClass =>
-            _alarmLevel switch
-            {
-                eAlarmLevel.NoAlarms => string.Empty,
-                eAlarmLevel.Unacknowledged => "bg-warning",
-                eAlarmLevel.ActiveInfo => "bg-info",
-                eAlarmLevel.ActiveWarnings => "bg-warning/20! shadow-glow-warning",
-                eAlarmLevel.ActiveErrors => "bg-danger/20! shadow-glow-danger",
-                _ => string.Empty
-            };
-
-        private void ToggleMessages() => ShowMessages = !ShowMessages;
-
-        private void ToggleSpotMode()
-        {
-            if (GetVisualItemContainer() == null)
-            {
-                DisplayMode = DisplayMode == eDisplayMode.Spot ? eDisplayMode.Advanced : eDisplayMode.Spot;
-            }
-        }
-
-        private void ToggleAdvancedMode() => DisplayMode = DisplayMode == eDisplayMode.Advanced ? eDisplayMode.Basic : eDisplayMode.Advanced;
-
-        private void ToggleServiceView() => DisplayMode = DisplayMode == eDisplayMode.Raw ? eDisplayMode.Basic : eDisplayMode.Raw;
-
-        protected override void OnInitialized()
-        {
-            base.OnInitialized();
-            _messageProvider = AxoMessageProvider.Create(new ITwinObject[] { Component });
-        }
-
-        protected override void OnAfterRender(bool firstRender)
-        {
-            base.OnAfterRender(firstRender);
-
-            if (_previousAlarmCount > 0 && _alarmCount == 0 && ShowMessages)
-            {
-                ShowMessages = false;
-                StateHasChanged();
-            }
-
-            _previousAlarmCount = _alarmCount;
-        }
-
-        private int? OriginalZIndex;
-
-        private void BringToForeGround()
-        {
-            var visualItem = GetVisualItemContainer();
-            if (visualItem?.Origin != null)
-            {
-                var container = visualItem.Parent;
-                if (container != null && !container.IsDesign)
-                {
-                    OriginalZIndex = visualItem.Origin.ZIndex;
-                    visualItem.Origin.ZIndex = int.MaxValue;
-                }
-            }
-        }
-
-        private void BringToZIndexBack()
-        {
-            var visualItem = GetVisualItemContainer();
-            if (visualItem?.Origin != null && OriginalZIndex != null)
-            {
-                var container = visualItem.Parent;
-                if (container != null && !container.IsDesign)
-                {
-                    visualItem.Origin.ZIndex = OriginalZIndex.Value;
-                    OriginalZIndex = null;
-                }
-            }
-        }
-
-        private VisualComposerItem? GetVisualItemContainer()
-        {
-            var rcc = RccContainer as RenderableContentControl;
-            var retVal = rcc?.ParentContainer as VisualComposerItem;
-            return retVal;
-        }
-
-        protected async Task OpenDetails(string presentationType = "Status-Display")
-        {
-            if (RccContainer is RenderableContentControl rccContainer)
-            {
-                if (rccContainer.ParentContainer is VisualComposerItem composerItem)
-                {
-                    if (!composerItem.InDesign)
-                    {
-                        if (composerItem.Parent is { } parent)
-                        {
-                            await parent.OpenDetails(Component, presentationType);
-                        }
-                    }
-                }
-            }
-        }
+        protected int ProgressPercentage => Math.Clamp((int)Component.Progress.Cyclic, 0, 100);             
 
         /// <inheritdoc />
         public override async void ConfigurePolling()
@@ -244,22 +73,7 @@ namespace AXOpen.Components.Keyence.Vision
             foreach (var templateTask in TemplateTasks)
             {
                 StartPolling(templateTask.Task.Status);
-            }
-
-            if (_messageProvider != null)
-            {
-                await _messageProvider.InitializeUpdate(StartPolling);
-            }
-
-            if (Component.Messenger != null)
-            {
-                StartPolling(Component.Messenger.MessengerState, 1500);
-            }
-
-            if (Component.TaskMessenger != null)
-            {
-                StartPolling(Component.TaskMessenger.MessengerState, 1500);
-            }
+            }           
         }
 
         /// <summary>
@@ -319,45 +133,27 @@ namespace AXOpen.Components.Keyence.Vision
         };
     }
 
-    /// <summary>
-    /// Read-only view variant pinned to advanced mode.
-    /// </summary>
     public class Axo_IV3StatusView : Axo_IV3View
     {
-        /// <summary>
-        /// Initializes the status view with the advanced layout.
-        /// </summary>
         public Axo_IV3StatusView()
         {
-            DisplayMode = eDisplayMode.Advanced;
+            this.ViewType = eViewType.Status;
         }
     }
 
-    /// <summary>
-    /// Command-capable view variant pinned to advanced mode.
-    /// </summary>
     public class Axo_IV3CommandView : Axo_IV3View
     {
-        /// <summary>
-        /// Initializes the command view with the advanced layout.
-        /// </summary>
         public Axo_IV3CommandView()
         {
-            DisplayMode = eDisplayMode.Advanced;
+            this.ViewType = eViewType.Command;
         }
     }
 
-    /// <summary>
-    /// Compact visualization variant used in dashboards.
-    /// </summary>
     public class Axo_IV3SpotView : Axo_IV3View
     {
-        /// <summary>
-        /// Initializes the spot view with the spot layout.
-        /// </summary>
         public Axo_IV3SpotView()
         {
-            DisplayMode = eDisplayMode.Spot;
+            this.ViewType = eViewType.Spot;
         }
     }
 }

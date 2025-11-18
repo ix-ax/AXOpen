@@ -31,9 +31,6 @@
 	  </PackageReleaseNotes>
 	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
   </PropertyGroup>
-
- 
-
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>

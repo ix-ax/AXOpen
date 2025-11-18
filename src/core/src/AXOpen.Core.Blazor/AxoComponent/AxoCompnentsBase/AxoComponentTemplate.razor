@@ -1,0 +1,53 @@
+﻿@namespace AXOpen.Core
+@using AXOpen.Core.Blazor
+@inherits AxoComponentViewBase<AxoComponent>
+
+<AxoComponentContainerView Component="@Component" ParentReference="this">
+    <HeaderContent>
+        <!-- TODO: Here add basic information about the state and activity of the component -->        
+    </HeaderContent>
+    <CommandsContent>
+        <!-- 
+            TODO: Here add `Commands` (AxoTaskCommandView) and settings for the component to operate if.
+            These commands will be visible only if the component is manually controllable.
+            The commands and relative settings/data should be grouped in separate tabs if necessary.
+    
+        -->        
+    </CommandsContent>
+
+    <StatusContent>
+        <!--
+            TODO: Here add `Commands` (AxoTaskStatusView) and settings for the component to operate if.
+            These command will be visible when the component is not manually controllable.
+            The commands and relative settings/data should be grouped in separate tabs if necessary.
+            In general, this section is similar to the `CommandsContent` section.
+        -->        
+    </StatusContent>
+
+    <StateContent>  
+        <!--
+            TODO: Here add `State` details consider this as an expanded version of the header.            
+        -->    
+    </StateContent>
+    <SpotContent>        
+         <!--
+            TODO: Here add `Spot` and animations to represent the component in its minimal form.
+        -->
+    </SpotContent>
+</AxoComponentContainerView>
+
+@code
+{      
+    public override async void ConfigurePolling()
+    {        
+        // Used PLC variable should be polled here.
+        // Example:
+        //     this.StartPolling(Component.InSensor);
+        //     this.StartPolling(Component.OutSensor);
+        //     this.StartPolling(Component.MoveInSignal);
+        //     this.StartPolling(Component.MoveOutSignal);
+        //     this.StartPolling(Component._MoveOutTask.Status);
+        //     this.StartPolling(Component._MoveInTask.Status);
+        //     this.StartPolling(Component._StopTask.Status);        
+    }
+}

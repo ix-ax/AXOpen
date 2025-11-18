@@ -250,7 +250,7 @@ namespace AXOpen.Core.Blazor
         /// </summary>
         private VisualComposerItem? GetVisualItemContainer()
         {
-            var rcc = this.RccContainer as RenderableContentControl;
+            var rcc = this.ParentReference?.RccContainer as RenderableContentControl;
             var retVal = rcc?.ParentContainer as VisualComposerItem;
             return retVal;
         }
