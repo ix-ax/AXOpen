@@ -115,9 +115,12 @@ namespace AXOpen.Core
         public bool Disable { get; set; }
 
         [Parameter]
+        public bool Enabled { get; set; } = true;
+
+        [Parameter]
         public bool HideRestoreButton { get; set; }
 
-        public bool IsDisabled => Disable || Component.IsDisabled.Cyclic;
+        public bool IsDisabled => Disable || Component.IsDisabled.Cyclic || !Enabled;
 
         public string Description => string.IsNullOrEmpty(Text) ? string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.GetAttributeName(CultureInfo.CurrentUICulture) : Text;
     }

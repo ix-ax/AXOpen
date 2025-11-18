@@ -564,13 +564,15 @@
     </NotAuthorized>
 </AuthorizeView>
 
-<Modal @ref="DetailsModalWindow">
+<Modal @ref="DetailsModalWindow" Static="true">
     <div class="modal-header">
+        @ModalHeaderContent
         <button class="cursor-pointer ms-auto my-auto" @onclick="() => { DetailsModalWindow.Toggle(); }">
             <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
         </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body p-4">
+        @ModalBodyContent
         @RenderableContentControlFragment
     </div>
 </Modal>

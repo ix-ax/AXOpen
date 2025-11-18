@@ -31,6 +31,21 @@
 	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="AxoCmmtAs\AxoCmmtAsView - Copy.razor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="AxoCmmtAs\AxoCmmtAsAnimation.razor" />
+    <Content Remove="AxoCmmtAs\AxoCmmtAsContent.razor" />
+    <Content Remove="AxoCmmtAs\AxoCmmtAsHeader.razor" />
+    <Content Remove="AxoCmmtAs\AxoCmmtAsView - Copy.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="AxoCmmtAs\AxoCmmtAsAnimation.razor.css" />
+  </ItemGroup>
+
  
 
   <ItemGroup>

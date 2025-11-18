@@ -58,6 +58,11 @@ namespace AXOpen.VisualComposer.Components
         private double _optionsMoveRight { get; set; } = 15;
         private bool _customPresentation { get; set; } = false;
 
+        public bool IsDesign 
+        {
+            get { return _inDesignMode; }
+        }
+
         protected override void OnInitialized()
         {
             if (Id is null || Id == "")
@@ -618,6 +623,10 @@ namespace AXOpen.VisualComposer.Components
 
         public Modal DetailsModalWindow { get; set; }
 
+        public RenderFragment ModalHeaderContent { get; set; }
+
+        public RenderFragment ModalBodyContent { get; set; }
+        
         private RenderFragment RenderableContentControlFragment => builder =>
         {
             builder.OpenComponent<RenderableContentControl>(0);
@@ -637,12 +646,24 @@ namespace AXOpen.VisualComposer.Components
         /// <returns></returns>
         public async Task OpenDetails(ITwinElement element, string presentationType = "Status-Display")
         {
-            await Task.Run(() => { 
+            await Task.Run(() => {                
                 DetailsContext = element;
                 DetailsPresentationType = presentationType;
+                DetailsModalWindow.Toggle();                
+            });
+
+            this.StateHasChanged();
+        }
+
+        public async Task OpenDetails(RenderFragment headerContent, RenderFragment bodyContent)
+        {
+            await Task.Run(() => {
+                ModalHeaderContent = headerContent;
+                ModalBodyContent = bodyContent;
                 DetailsModalWindow.Toggle();
             });
 
+            this.StateHasChanged();
         }
 
         private void Move(PointerEventArgs eventArgs)
