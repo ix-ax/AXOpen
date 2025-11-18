@@ -38,7 +38,7 @@ namespace AxOpen.Security.Tests
         {
             //Arrange
             var user = _fixture.SeedData.ExistUser;
-            var x = new User(user.UserName, user.Email, user.Group, false, false, 0);
+            var x = new User(user.UserName, user.Email, user.Group, "+4219O8919138", false, "TAG - 000", false, 0);
             //Act
             var result = await _fixture.UserStore.CreateAsync(x);
             //Assert
@@ -857,13 +857,14 @@ namespace AxOpen.Security.Tests
         {
             //Arrange
             if (!_fixture.Repository.UserRepository.Exists(_fixture.SeedData.UpdateUser.UserName))
-            {
-                var u = new User(_fixture.SeedData.UpdateUser.UserName, "", "", false, false, 0);
+            {                
+                var u = new User(_fixture.SeedData.UpdateUser.UserName, "", "+4219O8919138", "a-group", false, "TAG - 000", false, 0);
                 _fixture.Repository.UserRepository.Create(_fixture.SeedData.UpdateUser.UserName, u);
             }
 
             var userData = _fixture.Repository.UserRepository.Read(_fixture.SeedData.UpdateUser.UserName);
-            var user = new User(userData.UserName,userData.Email,userData.Group,userData.CanUserChangePassword, false, 0);
+            
+            var user = new User(userData.UserName, userData.Email, userData.Group, "4219O8919138", userData.CanUserChangePassword, "TAG-000", false, 0);
             user.Email = "newupdate@newupdate.com";
             user.PasswordHash = "password";
             user.SecurityStamp = Guid.NewGuid().ToString();

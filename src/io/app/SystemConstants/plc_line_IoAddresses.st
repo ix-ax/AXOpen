@@ -1,52 +1,20 @@
 CONFIGURATION IoAddresses
     VAR_GLOBAL
 
-        // Module et200sp_1/A10
-        et200sp_1_A10_Input AT %IB22 : et200sp_1_A10_Input_Layout;
+        // Module et200sp/A10
+        et200sp_A10_Input AT %IB36 : et200sp_A10_Input_Layout;
 
-        // Module et200sp_1/A11
-        et200sp_1_A11_Input AT %IB20 : et200sp_1_A11_Input_Layout;
+        // Module et200sp/A20
+        et200sp_A20_Output AT %QB33 : et200sp_A20_Output_Layout;
 
-        // Module et200sp_1/A12
-        et200sp_1_A12_Input AT %IB18 : et200sp_1_A12_Input_Layout;
-
-        // Module et200sp_1/A13
-        et200sp_1_A13_Input AT %IB16 : et200sp_1_A13_Input_Layout;
-
-        // Module et200sp_1/A14
-        et200sp_1_A14_Input AT %IB14 : et200sp_1_A14_Input_Layout;
-
-        // Module et200sp_1/A15
-        et200sp_1_A15_Input AT %IB12 : et200sp_1_A15_Input_Layout;
-
-        // Module et200sp_1/A16
-        et200sp_1_A16_Input AT %IB10 : et200sp_1_A16_Input_Layout;
-
-        // Module et200sp_1/A17
-        et200sp_1_A17_Input AT %IB8 : et200sp_1_A17_Input_Layout;
-
-        // Module et200sp_1/A20
-        et200sp_1_A20_Output AT %QB14 : et200sp_1_A20_Output_Layout;
-
-        // Module et200sp_1/A21
-        et200sp_1_A21_Output AT %QB12 : et200sp_1_A21_Output_Layout;
-
-        // Module et200sp_1/A22
-        et200sp_1_A22_Output AT %QB10 : et200sp_1_A22_Output_Layout;
-
-        // Module et200sp_1/A23
-        et200sp_1_A23_Output AT %QB8 : et200sp_1_A23_Output_Layout;
-
-        // Module et200sp_1/A30
-        et200sp_1_A30_Input AT %IB0 : et200sp_1_A30_Input_Layout;
-
-        // Module et200sp_1/A40
-        et200sp_1_A40_Output AT %QB0 : et200sp_1_A40_Output_Layout;
+        // Module et200sp/A30
+        et200sp_A30_Input AT %IB0 : et200sp_A30_Input_Layout;
+        et200sp_A30_Output AT %QB0 : et200sp_A30_Output_Layout;
     END_VAR
 END_CONFIGURATION
 
 TYPE
-    et200sp_1_A10_Input_Layout : STRUCT
+    et200sp_A10_Input_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -67,7 +35,7 @@ TYPE
 END_TYPE
 
 TYPE
-    et200sp_1_A11_Input_Layout : STRUCT
+    et200sp_A20_Output_Layout : STRUCT
         Signals_0 AT %X0.0 : BOOL;
         Signals_1 AT %X0.1 : BOOL;
         Signals_2 AT %X0.2 : BOOL;
@@ -88,229 +56,75 @@ TYPE
 END_TYPE
 
 TYPE
-    et200sp_1_A12_Input_Layout : STRUCT
-        Signals_0 AT %X0.0 : BOOL;
-        Signals_1 AT %X0.1 : BOOL;
-        Signals_2 AT %X0.2 : BOOL;
-        Signals_3 AT %X0.3 : BOOL;
-        Signals_4 AT %X0.4 : BOOL;
-        Signals_5 AT %X0.5 : BOOL;
-        Signals_6 AT %X0.6 : BOOL;
-        Signals_7 AT %X0.7 : BOOL;
-        Signals_8 AT %X1.0 : BOOL;
-        Signals_9 AT %X1.1 : BOOL;
-        Signals_10 AT %X1.2 : BOOL;
-        Signals_11 AT %X1.3 : BOOL;
-        Signals_12 AT %X1.4 : BOOL;
-        Signals_13 AT %X1.5 : BOOL;
-        Signals_14 AT %X1.6 : BOOL;
-        Signals_15 AT %X1.7 : BOOL;
+    et200sp_A30_Input_Layout : STRUCT
+        Signals_0 AT %B0 : BYTE;
+        Signals_1 AT %B1 : BYTE;
+        Signals_2 AT %B2 : BYTE;
+        Signals_3 AT %B3 : BYTE;
+        Signals_4 AT %B4 : BYTE;
+        Signals_5 AT %B5 : BYTE;
+        Signals_6 AT %B6 : BYTE;
+        Signals_7 AT %B7 : BYTE;
+        Signals_8 AT %B8 : BYTE;
+        Signals_9 AT %B9 : BYTE;
+        Signals_10 AT %B10 : BYTE;
+        Signals_11 AT %B11 : BYTE;
+        Signals_12 AT %B12 : BYTE;
+        Signals_13 AT %B13 : BYTE;
+        Signals_14 AT %B14 : BYTE;
+        Signals_15 AT %B15 : BYTE;
+        Signals_16 AT %B16 : BYTE;
+        Signals_17 AT %B17 : BYTE;
+        Signals_18 AT %B18 : BYTE;
+        Signals_19 AT %B19 : BYTE;
+        Signals_20 AT %B20 : BYTE;
+        Signals_21 AT %B21 : BYTE;
+        Signals_22 AT %B22 : BYTE;
+        Signals_23 AT %B23 : BYTE;
+        Signals_24 AT %B24 : BYTE;
+        Signals_25 AT %B25 : BYTE;
+        Signals_26 AT %B26 : BYTE;
+        Signals_27 AT %B27 : BYTE;
+        Signals_28 AT %B28 : BYTE;
+        Signals_29 AT %B29 : BYTE;
+        Signals_30 AT %B30 : BYTE;
+        Signals_31 AT %B31 : BYTE;
     END_STRUCT;
 END_TYPE
 
 TYPE
-    et200sp_1_A13_Input_Layout : STRUCT
-        Signals_0 AT %X0.0 : BOOL;
-        Signals_1 AT %X0.1 : BOOL;
-        Signals_2 AT %X0.2 : BOOL;
-        Signals_3 AT %X0.3 : BOOL;
-        Signals_4 AT %X0.4 : BOOL;
-        Signals_5 AT %X0.5 : BOOL;
-        Signals_6 AT %X0.6 : BOOL;
-        Signals_7 AT %X0.7 : BOOL;
-        Signals_8 AT %X1.0 : BOOL;
-        Signals_9 AT %X1.1 : BOOL;
-        Signals_10 AT %X1.2 : BOOL;
-        Signals_11 AT %X1.3 : BOOL;
-        Signals_12 AT %X1.4 : BOOL;
-        Signals_13 AT %X1.5 : BOOL;
-        Signals_14 AT %X1.6 : BOOL;
-        Signals_15 AT %X1.7 : BOOL;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    et200sp_1_A14_Input_Layout : STRUCT
-        Signals_0 AT %X0.0 : BOOL;
-        Signals_1 AT %X0.1 : BOOL;
-        Signals_2 AT %X0.2 : BOOL;
-        Signals_3 AT %X0.3 : BOOL;
-        Signals_4 AT %X0.4 : BOOL;
-        Signals_5 AT %X0.5 : BOOL;
-        Signals_6 AT %X0.6 : BOOL;
-        Signals_7 AT %X0.7 : BOOL;
-        Signals_8 AT %X1.0 : BOOL;
-        Signals_9 AT %X1.1 : BOOL;
-        Signals_10 AT %X1.2 : BOOL;
-        Signals_11 AT %X1.3 : BOOL;
-        Signals_12 AT %X1.4 : BOOL;
-        Signals_13 AT %X1.5 : BOOL;
-        Signals_14 AT %X1.6 : BOOL;
-        Signals_15 AT %X1.7 : BOOL;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    et200sp_1_A15_Input_Layout : STRUCT
-        Signals_0 AT %X0.0 : BOOL;
-        Signals_1 AT %X0.1 : BOOL;
-        Signals_2 AT %X0.2 : BOOL;
-        Signals_3 AT %X0.3 : BOOL;
-        Signals_4 AT %X0.4 : BOOL;
-        Signals_5 AT %X0.5 : BOOL;
-        Signals_6 AT %X0.6 : BOOL;
-        Signals_7 AT %X0.7 : BOOL;
-        Signals_8 AT %X1.0 : BOOL;
-        Signals_9 AT %X1.1 : BOOL;
-        Signals_10 AT %X1.2 : BOOL;
-        Signals_11 AT %X1.3 : BOOL;
-        Signals_12 AT %X1.4 : BOOL;
-        Signals_13 AT %X1.5 : BOOL;
-        Signals_14 AT %X1.6 : BOOL;
-        Signals_15 AT %X1.7 : BOOL;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    et200sp_1_A16_Input_Layout : STRUCT
-        Signals_0 AT %X0.0 : BOOL;
-        Signals_1 AT %X0.1 : BOOL;
-        Signals_2 AT %X0.2 : BOOL;
-        Signals_3 AT %X0.3 : BOOL;
-        Signals_4 AT %X0.4 : BOOL;
-        Signals_5 AT %X0.5 : BOOL;
-        Signals_6 AT %X0.6 : BOOL;
-        Signals_7 AT %X0.7 : BOOL;
-        Signals_8 AT %X1.0 : BOOL;
-        Signals_9 AT %X1.1 : BOOL;
-        Signals_10 AT %X1.2 : BOOL;
-        Signals_11 AT %X1.3 : BOOL;
-        Signals_12 AT %X1.4 : BOOL;
-        Signals_13 AT %X1.5 : BOOL;
-        Signals_14 AT %X1.6 : BOOL;
-        Signals_15 AT %X1.7 : BOOL;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    et200sp_1_A17_Input_Layout : STRUCT
-        Signals_0 AT %X0.0 : BOOL;
-        Signals_1 AT %X0.1 : BOOL;
-        Signals_2 AT %X0.2 : BOOL;
-        Signals_3 AT %X0.3 : BOOL;
-        Signals_4 AT %X0.4 : BOOL;
-        Signals_5 AT %X0.5 : BOOL;
-        Signals_6 AT %X0.6 : BOOL;
-        Signals_7 AT %X0.7 : BOOL;
-        Signals_8 AT %X1.0 : BOOL;
-        Signals_9 AT %X1.1 : BOOL;
-        Signals_10 AT %X1.2 : BOOL;
-        Signals_11 AT %X1.3 : BOOL;
-        Signals_12 AT %X1.4 : BOOL;
-        Signals_13 AT %X1.5 : BOOL;
-        Signals_14 AT %X1.6 : BOOL;
-        Signals_15 AT %X1.7 : BOOL;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    et200sp_1_A20_Output_Layout : STRUCT
-        Signals_0 AT %X0.0 : BOOL;
-        Signals_1 AT %X0.1 : BOOL;
-        Signals_2 AT %X0.2 : BOOL;
-        Signals_3 AT %X0.3 : BOOL;
-        Signals_4 AT %X0.4 : BOOL;
-        Signals_5 AT %X0.5 : BOOL;
-        Signals_6 AT %X0.6 : BOOL;
-        Signals_7 AT %X0.7 : BOOL;
-        Signals_8 AT %X1.0 : BOOL;
-        Signals_9 AT %X1.1 : BOOL;
-        Signals_10 AT %X1.2 : BOOL;
-        Signals_11 AT %X1.3 : BOOL;
-        Signals_12 AT %X1.4 : BOOL;
-        Signals_13 AT %X1.5 : BOOL;
-        Signals_14 AT %X1.6 : BOOL;
-        Signals_15 AT %X1.7 : BOOL;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    et200sp_1_A21_Output_Layout : STRUCT
-        Signals_0 AT %X0.0 : BOOL;
-        Signals_1 AT %X0.1 : BOOL;
-        Signals_2 AT %X0.2 : BOOL;
-        Signals_3 AT %X0.3 : BOOL;
-        Signals_4 AT %X0.4 : BOOL;
-        Signals_5 AT %X0.5 : BOOL;
-        Signals_6 AT %X0.6 : BOOL;
-        Signals_7 AT %X0.7 : BOOL;
-        Signals_8 AT %X1.0 : BOOL;
-        Signals_9 AT %X1.1 : BOOL;
-        Signals_10 AT %X1.2 : BOOL;
-        Signals_11 AT %X1.3 : BOOL;
-        Signals_12 AT %X1.4 : BOOL;
-        Signals_13 AT %X1.5 : BOOL;
-        Signals_14 AT %X1.6 : BOOL;
-        Signals_15 AT %X1.7 : BOOL;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    et200sp_1_A22_Output_Layout : STRUCT
-        Signals_0 AT %X0.0 : BOOL;
-        Signals_1 AT %X0.1 : BOOL;
-        Signals_2 AT %X0.2 : BOOL;
-        Signals_3 AT %X0.3 : BOOL;
-        Signals_4 AT %X0.4 : BOOL;
-        Signals_5 AT %X0.5 : BOOL;
-        Signals_6 AT %X0.6 : BOOL;
-        Signals_7 AT %X0.7 : BOOL;
-        Signals_8 AT %X1.0 : BOOL;
-        Signals_9 AT %X1.1 : BOOL;
-        Signals_10 AT %X1.2 : BOOL;
-        Signals_11 AT %X1.3 : BOOL;
-        Signals_12 AT %X1.4 : BOOL;
-        Signals_13 AT %X1.5 : BOOL;
-        Signals_14 AT %X1.6 : BOOL;
-        Signals_15 AT %X1.7 : BOOL;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    et200sp_1_A23_Output_Layout : STRUCT
-        Signals_0 AT %X0.0 : BOOL;
-        Signals_1 AT %X0.1 : BOOL;
-        Signals_2 AT %X0.2 : BOOL;
-        Signals_3 AT %X0.3 : BOOL;
-        Signals_4 AT %X0.4 : BOOL;
-        Signals_5 AT %X0.5 : BOOL;
-        Signals_6 AT %X0.6 : BOOL;
-        Signals_7 AT %X0.7 : BOOL;
-        Signals_8 AT %X1.0 : BOOL;
-        Signals_9 AT %X1.1 : BOOL;
-        Signals_10 AT %X1.2 : BOOL;
-        Signals_11 AT %X1.3 : BOOL;
-        Signals_12 AT %X1.4 : BOOL;
-        Signals_13 AT %X1.5 : BOOL;
-        Signals_14 AT %X1.6 : BOOL;
-        Signals_15 AT %X1.7 : BOOL;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    et200sp_1_A30_Input_Layout : STRUCT
-        Signals_0 AT %B0 : INT;
-        Signals_1 AT %B2 : INT;
-        Signals_2 AT %B4 : INT;
-        Signals_3 AT %B6 : INT;
-    END_STRUCT;
-END_TYPE
-
-TYPE
-    et200sp_1_A40_Output_Layout : STRUCT
-        Signals_0 AT %B0 : INT;
-        Signals_1 AT %B2 : INT;
-        Signals_2 AT %B4 : INT;
-        Signals_3 AT %B6 : INT;
+    et200sp_A30_Output_Layout : STRUCT
+        Signals_32 AT %B0 : BYTE;
+        Signals_33 AT %B1 : BYTE;
+        Signals_34 AT %B2 : BYTE;
+        Signals_35 AT %B3 : BYTE;
+        Signals_36 AT %B4 : BYTE;
+        Signals_37 AT %B5 : BYTE;
+        Signals_38 AT %B6 : BYTE;
+        Signals_39 AT %B7 : BYTE;
+        Signals_40 AT %B8 : BYTE;
+        Signals_41 AT %B9 : BYTE;
+        Signals_42 AT %B10 : BYTE;
+        Signals_43 AT %B11 : BYTE;
+        Signals_44 AT %B12 : BYTE;
+        Signals_45 AT %B13 : BYTE;
+        Signals_46 AT %B14 : BYTE;
+        Signals_47 AT %B15 : BYTE;
+        Signals_48 AT %B16 : BYTE;
+        Signals_49 AT %B17 : BYTE;
+        Signals_50 AT %B18 : BYTE;
+        Signals_51 AT %B19 : BYTE;
+        Signals_52 AT %B20 : BYTE;
+        Signals_53 AT %B21 : BYTE;
+        Signals_54 AT %B22 : BYTE;
+        Signals_55 AT %B23 : BYTE;
+        Signals_56 AT %B24 : BYTE;
+        Signals_57 AT %B25 : BYTE;
+        Signals_58 AT %B26 : BYTE;
+        Signals_59 AT %B27 : BYTE;
+        Signals_60 AT %B28 : BYTE;
+        Signals_61 AT %B29 : BYTE;
+        Signals_62 AT %B30 : BYTE;
+        Signals_63 AT %B31 : BYTE;
     END_STRUCT;
 END_TYPE

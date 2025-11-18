@@ -190,7 +190,7 @@ namespace AxOpen.Security.Stores
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
-            if(!string.IsNullOrEmpty(user.Group))
+            if (!string.IsNullOrEmpty(user.Group))
                 user.GroupHash = new PasswordHasher<User>().HashPassword(user, user.Group);
 
             try

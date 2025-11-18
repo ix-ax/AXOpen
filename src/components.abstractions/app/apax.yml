@@ -9,7 +9,7 @@ variables:
   #   - "--debug" # Generate debug information for target "1500"
   # Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build. =>
   PLC_NAME: "plc_line"
-  DEFAULT_NAMESPACE: "AXOpen.Abstractions"
+  DEFAULT_NAMESPACE: "AXOpen.Components.Abstractions"
   AXTARGET: 192.168.100.120
   AXTARGETPLATFORMINPUT: .\bin\1500\
   AX_USERNAME: "admin"
@@ -18,8 +18,6 @@ variables:
   # <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.
 registries:
   "@inxton": "https://npm.pkg.github.com/"
-catalogs:
-  "@inxton/ax.catalog": 0.0.39
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -148,6 +146,7 @@ scripts:
     START=$(date +%s)
     apax install
     apax build
+    dotnet ixc
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ib' Finished in :" $(expr $(date +%s) - $START) "s"
   icb: |
     START=$(date +%s)
@@ -168,6 +167,7 @@ scripts:
     START=$(date +%s)
     apax install
     apax build
+    dotnet ixc
     apax test
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
   gc: |
@@ -188,6 +188,9 @@ scripts:
     apax hwid
     apax hwadr
     apax build
+    dotnet ixc
+
+
   tt: |
     START=$(date +%s)
     apax install
@@ -199,12 +202,14 @@ scripts:
     apax hwadr
     apax hwdo
     apax build
+    dotnet ixc
     apax swfdo
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax tx' Finished in :" $(expr $(date +%s) - $START) "s"
   ttx: |
     START=$(date +%s)
     apax install
     apax build
+    dotnet ixc
     apax gc
     apax swfdo
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ttx' Finished in :" $(expr $(date +%s) - $START) "s"

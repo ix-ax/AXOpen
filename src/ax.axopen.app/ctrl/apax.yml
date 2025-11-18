@@ -10,13 +10,13 @@ catalogs:
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
-  "@ax/simatic-1500-clocks": 10.0.6
+  "@ax/simatic-clocks": 11.0.14
   "@ax/system-bitaccess": 10.2.7
   "@ax/system-math": 10.2.7
   "@ax/system-serde": 10.2.7
   "@ax/dcp-utility": 1.2.0
   "@ax/hardware-diagnostics": 1.0.0
-  "@ax/simatic-1500-tasks": 10.0.1
+  "@ax/simatic-tasks": 11.0.2
 installStrategy: strict
 apaxVersion: 3.5.0
 scripts:
@@ -24,6 +24,7 @@ scripts:
     START=$(date +%s)
     apax install
     apax build
+    dotnet ixc
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ib' Finished in :" $(expr $(date +%s) - $START) "s"
   icb: |
     START=$(date +%s)

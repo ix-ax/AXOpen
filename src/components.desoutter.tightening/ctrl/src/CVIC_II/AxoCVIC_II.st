@@ -7,7 +7,7 @@ USING AXOpen.Components.Abstractions;
 USING AXOpen.Components.Abstractions.Drives;
 USING System.Math;
 USING System.BitAccess;
-USING Siemens.Simatic.S71500.Hardware.Utilities;
+USING Siemens.Simatic.Hardware.Utilities;
 
 NAMESPACE AXOpen.Components.Desoutter.Tightening
     {S7.extern=ReadWrite}
@@ -211,7 +211,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     Status.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_Input_1_byte_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_Input_1_byte_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#1 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#716,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#716;
@@ -251,7 +251,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     Status.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_Input_1_byte_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_Input_1_byte_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#1 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#726,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#726;
@@ -291,7 +291,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     Status.Error.Id := UINT#735;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_Input_2_word_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_Input_2_word_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#4 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#736,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#736;
@@ -331,7 +331,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     Status.Error.Id := UINT#745;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_Input_1_word_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_Input_1_word_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#746,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#746;
@@ -371,7 +371,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     Status.Error.Id := UINT#755;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_Input_2_word_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_Input_2_word_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#4 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#756,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#756;
@@ -411,7 +411,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     Status.Error.Id := UINT#765;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_Input_1_word_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_Input_1_word_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#2 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#766,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#766;
@@ -451,7 +451,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     Status.Error.Id := UINT#775;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_Output_1_byte_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_Output_1_byte_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _outputsCount <> UINT#1 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#776,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#776;
@@ -491,7 +491,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     Status.Error.Id := UINT#785;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  TO_WORD(Config.HWIDs.HwId_Output_1_byte_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_Output_1_byte_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _outputsCount <> UINT#1 OR _inputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#786,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#786;
@@ -563,7 +563,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             END_IF;            
 
             //*****************************************
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwID_Input_1_byte_1) ,_data_1);
+            _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Input_1_byte_1) ,_data_1);
             IF _returnValue > WORD#0 THEN
                 Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1201;
@@ -579,7 +579,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             Inputs.Status.Failed            := _data_1[0].%X6;
             Inputs.Status.NumberOfCyclesOk  := _data_1[0].%X7;
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwID_Input_1_byte_2) ,_data_1);
+            _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Input_1_byte_2) ,_data_1);
             IF _returnValue > WORD#0 THEN
                 Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1202;
@@ -588,7 +588,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
             Inputs.ScrewingProgram          := _data_1[0];
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwID_Input_2_word_1) ,_data_4);
+            _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Input_2_word_1) ,_data_4);
             IF _returnValue > WORD#0 THEN
                 Messenger.Activate(UINT#1203, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1203;
@@ -597,7 +597,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
             System.Serialization.Deserialize(UINT#0,_data_4,Inputs.Torque);
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwID_Input_1_word_1) ,_data_2);
+            _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Input_1_word_1) ,_data_2);
             IF _returnValue > WORD#0 THEN
                 Messenger.Activate(UINT#1204, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1204;
@@ -606,7 +606,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
             System.Serialization.Deserialize(UINT#0,_data_2,Inputs.TorqueTrend);
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwID_Input_2_word_2),_data_4);
+            _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Input_2_word_2),_data_4);
             IF _returnValue > WORD#0 THEN
                 Messenger.Activate(UINT#1205, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1205;
@@ -615,7 +615,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
             System.Serialization.Deserialize(UINT#0,_data_4,Inputs.Angle);
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.ReadData(TO_WORD(Config.HWIDs.HwID_Input_1_word_2) ,_data_2);
+            _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Input_1_word_2) ,_data_2);
             IF _returnValue > WORD#0 THEN
                 Messenger.Activate(UINT#1206, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1206;
@@ -981,7 +981,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             _data_1[0].%X6         :=  Outputs.Control.Direction;      
             _data_1[0].%X7         :=  Outputs.Control.Reset;      
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_Output_1_byte_1),_data_1);
+            _returnValue := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Output_1_byte_1),_data_1);
             IF _returnValue > WORD#0 THEN
                 Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1231;
@@ -990,7 +990,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
             _data_1[0]  :=  Outputs.ScrewingProgram;             
 
-            _returnValue := Siemens.Simatic.S71500.DistributedIO.WriteData(TO_WORD(Config.HWIDs.HwID_Output_1_byte_2),_data_1);
+            _returnValue := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Output_1_byte_2),_data_1);
             IF _returnValue > WORD#0 THEN
                 Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
                 Status.Error.Id := UINT#1232;
@@ -1061,3 +1061,6 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
     END_CLASS
 END_NAMESPACE
+
+
+

@@ -8,6 +8,8 @@ files:
   - axsharp.companion.json
 registries:
   "@inxton": "https://npm.pkg.github.com/"
+catalogs:
+  "@inxton/ax.catalog": 0.0.39
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -16,12 +18,11 @@ dependencies:
 installStrategy: strict
 apaxVersion: 3.5.0
 scripts:
-  postbuild:
-    - dotnet ixc
   ib: |
     START=$(date +%s)
     apax install
     apax build
+    dotnet ixc
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ib' Finished in :" $(expr $(date +%s) - $START) "s"
   icb: |
     START=$(date +%s)
@@ -41,7 +42,8 @@ scripts:
   ibt: |
     START=$(date +%s)
     apax install
-    apax build    
+    apax build
+    dotnet ixc    
     apax test    
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
 publicKeys:

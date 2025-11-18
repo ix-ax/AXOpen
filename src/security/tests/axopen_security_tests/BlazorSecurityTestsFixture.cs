@@ -1,4 +1,4 @@
-﻿using AxOpen.Security;
+using AxOpen.Security;
 using AxOpen.Security.Entities;
 using AxOpen.Security.Services;
 using AxOpen.Security.Stores;
@@ -20,75 +20,80 @@ namespace AxOpen.Security.Tests
         private RoleGroupManager _roleGroupManager;
 
         /// <summary>
-        ///User name must be in CAPITAL letters because MS user manager stores all users with CAPITAL Ids in the database.
+  ///User name must be in CAPITAL letters because MS user manager stores all users with CAPITAL Ids in the database.
         /// </summary>
-        public BlazorSecurityTestsFixture()
+  public BlazorSecurityTestsFixture()
         {
-            #region mongoDB
-            //var MongoConnectionString = "mongodb://localhost:27017";
+     #region mongoDB
+  //var MongoConnectionString = "mongodb://localhost:27017";
             //var MongoDatabaseName = "TestingSecurity";
 
-            //// initialize factory - store connection and credentials
-            //AXOpen.Data.MongoDb.Repository.InitializeFactory(MongoConnectionString, MongoDatabaseName, "user", "userpwd");
+          //// initialize factory - store connection and credentials
+ //AXOpen.Data.MongoDb.Repository.InitializeFactory(MongoConnectionString, MongoDatabaseName, "user", "userpwd");
+
+    //_RepoUser = AXOpen.Data.MongoDb.Repository.Factory<User>("Users", t => t.Id);
+         //_RepoGroup = AXOpen.Data.MongoDb.Repository.Factory<Group>("UsersGroups");
+
 
             //_RepoUser = AXOpen.Data.MongoDb.Repository.Factory<User>("Users", t => t.Id);
             //_RepoGroup = AXOpen.Data.MongoDb.Repository.Factory<Group>("UsersGroups");
-
-
-            //_RepoUser = AXOpen.Data.MongoDb.Repository.Factory<User>("Users", t => t.Id);
-            //_RepoGroup = AXOpen.Data.MongoDb.Repository.Factory<Group>("UsersGroups");
-            #endregion
+#endregion
 
             #region InMemory
-            _RepoUser = new AXOpen.Data.InMemory.InMemoryRepository<User>();
-            _RepoGroup = new AXOpen.Data.InMemory.InMemoryRepository<Group>();
-            #endregion
+     _RepoUser = new AXOpen.Data.InMemory.InMemoryRepository<User>();
+    _RepoGroup = new AXOpen.Data.InMemory.InMemoryRepository<Group>();
+    #endregion
 
-            _roleGroupManager = new RoleGroupManager(_RepoGroup);
-            //Repository = new RepositoryService(_inMemoryRepoUser, _roleGroupManager);
+     _roleGroupManager = new RoleGroupManager(_RepoGroup);
+            // RoleGroupManager constructor already calls CreateDefaultRoleAndGroup() which:
+        // - Creates "Administrator" role
+    // - Creates "AdminGroup" if no groups exist
+            // - Adds "Administrator" to "AdminGroup"
 
-            SeedData = new Seed(new PasswordHasher<User>());
+       SeedData = new Seed(new PasswordHasher<User>());
 
-            _RepoUser.Create(SeedData.ExistUser.UserName, SeedData.ExistUser);
-            _RepoUser.Create(SeedData.RemoveUser.UserName, SeedData.RemoveUser);
+         _RepoUser.Create(SeedData.ExistUser.UserName, SeedData.ExistUser);
+        _RepoUser.Create(SeedData.RemoveUser.UserName, SeedData.RemoveUser);
             _RepoUser.Create(SeedData.UpdateUser.UserName, SeedData.UpdateUser);
-            _RepoUser.Create(SeedData.AdminUser.UserName, SeedData.AdminUser);
-            _RepoUser.Create(SeedData.DefaultUser.UserName, SeedData.DefaultUser);
+     _RepoUser.Create(SeedData.AdminUser.UserName, SeedData.AdminUser);
+    _RepoUser.Create(SeedData.DefaultUser.UserName, SeedData.DefaultUser);
 
             _roleGroupManager.CreateRole(new Role("RemoveRole"));
-            _roleGroupManager.CreateRole(new Role("UpdateRole"));
-            _roleGroupManager.CreateRole(new Role("Administrator"));
+     _roleGroupManager.CreateRole(new Role("UpdateRole"));
+            // Note: "Administrator" role already created by CreateDefaultRoleAndGroup()
             _roleGroupManager.CreateRole(new Role("Default"));
 
-            _roleGroupManager.CreateGroup("RemoveGroup");
-            _roleGroupManager.CreateGroup("RemoveRolesGroup");
+         _roleGroupManager.CreateGroup("RemoveGroup");
+     _roleGroupManager.CreateGroup("RemoveRolesGroup");
             _roleGroupManager.CreateGroup("UpdateGroup");
-            _roleGroupManager.CreateGroup("DefaultGroup");
+     // Note: "AdminGroup" already created by CreateDefaultRoleAndGroup() with "Administrator" role
+       _roleGroupManager.CreateGroup("DefaultGroup");
 
-            _roleGroupManager.AddRolesToGroup("DefaultGroup", new string[] { "Administrator", "Default" });
-            _roleGroupManager.AddRolesToGroup("RemoveRolesGroup", new string[] { "Administrator", "Default" });
+     // AdminGroup already has "Administrator", don't add it again to avoid duplicates
+       _roleGroupManager.AddRolesToGroup("DefaultGroup", new string[] { "Administrator", "Default" });
+   _roleGroupManager.AddRolesToGroup("RemoveRolesGroup", new string[] { "Administrator", "Default" });
 
-            Repository = new RepositoryService(_RepoUser, _roleGroupManager);
+     Repository = new RepositoryService(_RepoUser, _roleGroupManager);
             UserStore = new UserStore(Repository);
         }
+
         public IRepositoryService Repository { get; set; }
         public UserStore UserStore { get; set; }
         public Seed SeedData { get; set; }
 
-        public void Dispose()
+    public void Dispose()
         {
+      var allUsers = _RepoUser.GetRecords();
+        var allGroups = _RepoGroup.GetRecords();
 
-            var allUsers = _RepoUser.GetRecords();
-            var allGroups = _RepoGroup.GetRecords();
-
-            foreach (var user in allUsers)
-            {
-                _RepoUser.Delete(user._EntityId);
+foreach (var user in allUsers)
+       {
+   _RepoUser.Delete(user._EntityId);
             }
 
-            foreach (var group in allGroups)
-            {
-                _RepoGroup.Delete(group._EntityId);
+        foreach (var group in allGroups)
+     {
+      _RepoGroup.Delete(group._EntityId);
             }
 
             _roleGroupManager = new RoleGroupManager(_RepoGroup);
