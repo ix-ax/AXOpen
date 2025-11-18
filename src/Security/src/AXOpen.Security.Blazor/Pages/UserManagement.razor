@@ -1,14 +1,18 @@
-﻿@using AxOpen.Security.Entities
+﻿@using AXOpen.Security.Services
+@using AxOpen.Security.Entities
 @using System.Collections.ObjectModel
 @using AxOpen.Security.Services
 @using Operon.Components
 @using System.ComponentModel.DataAnnotations
 @using Operon.Components.Toast
 @using System.Security.Principal
+@using System.Text
+@implements IDisposable
 @inject AuthenticationStateProvider _authenticationStateProvider
 @inject IRepositoryService _repositoryService
 @inject UserManager<User> _userManager
 @inject IToastService _toastService
+@inject ISerialService? _serialService
 
 <div class="flex flex-wrap">
     <a role="button" class="btn btn-primary m-2" href="/Security/CreateUser">
@@ -88,7 +92,7 @@
             @if (!string.IsNullOrEmpty(Input.ExternalAuthId))
             {
                 <p>@Localizer["External Auth is set"]</p>
-                <button class="btn btn-secondary" @onclick="ClearExternalAuthId">@Localizer["Clear External Auth"]</button>
+                <button type="button" class="btn btn-primary" @onclick="ClearExternalAuthId">@Localizer["Clear External Auth"]</button>
             }
 
             <div class="checkbox-group">
@@ -367,5 +371,38 @@
 
         [Display(Name = "External Auth Id")]
         public string? ExternalAuthId { get; set; }
+    }
+
+    protected override void OnInitialized()
+    {
+        if (_serialService != null)
+        {
+            _serialService.SerialError += OnSerialError;
+            _serialService.DataReceived += OnSerialDataReceived;
+        }
+    }
+
+    private void OnSerialError()
+    {
+        _serialService.DataReceived -= OnSerialDataReceived;
+        Console.WriteLine("Serial port error");
+    }
+
+    private void OnSerialDataReceived(byte[] data)
+    {
+        if (SelectedUser != null)
+            Input.ExternalAuthId = Encoding.ASCII.GetString(System.Security.Cryptography.SHA512.HashData(Encoding.ASCII.GetBytes(Encoding.ASCII.GetString(data).Trim())));
+
+        _toastService?.AddToast(eToastType.Success, Localizer["Identified!"], "The external token identified", 10);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        if (_serialService != null)
+        {
+            _serialService.DataReceived -= OnSerialDataReceived;
+            _serialService.SerialError -= OnSerialError;
+        }
     }
 }

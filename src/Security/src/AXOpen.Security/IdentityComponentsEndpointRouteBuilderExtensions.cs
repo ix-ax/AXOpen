@@ -1,6 +1,5 @@
-using System.Security.Claims;
-using System.Text.Json;
 using AxOpen.Security.Entities;
+using AXOpen.Security.Services;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
@@ -9,7 +8,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Primitives;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.Json;
 
 namespace Microsoft.AspNetCore.Routing
 {
@@ -88,6 +92,87 @@ namespace Microsoft.AspNetCore.Routing
                 
                 await signInManager.SignOutAsync();
                 return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : $"/{returnUrl}");
+            });
+
+            endpoints.MapPost("/ExternalLogin", async (
+                HttpContext context,
+                [FromServices] SignInManager<User> signInManager,
+                [FromServices] UserManager<User> userManager) =>
+            {
+                try
+                {
+                    var formCollection = await context.Request.ReadFormAsync();
+                    var externalAuthId = formCollection["externalAuthId"].ToString();
+                    var returnUrl = formCollection["returnUrl"].ToString();
+
+                    if (string.IsNullOrEmpty(externalAuthId))
+                    {
+                        return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : returnUrl);
+                    }
+
+                    // Check if there's a currently logged-in user
+                    var currentUser = await userManager.GetUserAsync(context.User);
+
+                    if (currentUser != null)
+                    {
+                        // User is already logged in
+                        if (TokenHasher.VerifyToken(externalAuthId, currentUser.ExternalAuthId))
+                        {
+                            // Same user - log out
+                            await signInManager.SignOutAsync();
+                            return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : returnUrl);
+                        }
+                        else
+                        {
+                            // Different user - log out current and log in new
+                            await signInManager.SignOutAsync();
+                        }
+                    }
+
+                    // Find user by hashed external auth ID
+                    var users = userManager.Users.Where(u => TokenHasher.VerifyToken(externalAuthId, u.ExternalAuthId)).ToList();
+
+                    if (!users.Any())
+                    {
+                        return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : returnUrl);
+                    }
+
+                    if (users.Count > 1)
+                    {
+                        return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : returnUrl);
+                    }
+
+                    var user = users.First();
+
+                    // Sign in the user
+                    await signInManager.SignInAsync(user, isPersistent: false);
+
+                    // Sanitize returnUrl
+                    if (string.IsNullOrEmpty(returnUrl))
+                    {
+                        returnUrl = "/";
+                    }
+                    else if (Uri.TryCreate(returnUrl, UriKind.Absolute, out var absoluteUri))
+                    {
+                        returnUrl = absoluteUri.PathAndQuery;
+                    }
+
+                    if (!returnUrl.StartsWith("/"))
+                    {
+                        returnUrl = "/" + returnUrl;
+                    }
+                    else if (returnUrl.StartsWith("//"))
+                    {
+                        returnUrl = "/" + returnUrl.TrimStart('/');
+                    }
+
+                    return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : returnUrl);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"External login error: {ex.Message}");
+                    return TypedResults.LocalRedirect("/");
+                }
             });
 
             return endpoints;

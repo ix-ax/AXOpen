@@ -1,18 +1,23 @@
 ﻿@page "/Security/Manage"
 @attribute [Microsoft.AspNetCore.Authorization.Authorize]
 @using System.ComponentModel.DataAnnotations
+@using AXOpen.Security.Services
 @using AxOpen.Security.Entities
 @using AxOpen.Security.Services
 @using Microsoft.AspNetCore.Http
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Components.Authorization
-
+@using Operon.Components.Toast
+@using System.Text
+@implements IDisposable
 @inject UserManager<User> UserManager
 @inject SignInManager<User> SignInManager
 @inject IdentityRedirectManager RedirectManager
 @inject IRepositoryService RepositoryService
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
+@inject IToastService _toastService
+@inject ISerialService? _serialService
 
 <PageTitle>Profile</PageTitle>
 
@@ -188,6 +193,39 @@
         else
         {
             // Show error message
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        if (_serialService != null)
+        {
+            _serialService.SerialError += OnSerialError;
+            _serialService.DataReceived += OnSerialDataReceived;
+        }
+    }
+
+    private void OnSerialError()
+    {
+        _serialService.DataReceived -= OnSerialDataReceived;
+        Console.WriteLine("Serial port error");
+    }
+
+    private void OnSerialDataReceived(byte[] data)
+    {
+        if (Input != null)
+            Input.ExternalAuthId = Encoding.ASCII.GetString(System.Security.Cryptography.SHA512.HashData(Encoding.ASCII.GetBytes(Encoding.ASCII.GetString(data).Trim())));
+
+        _toastService?.AddToast(eToastType.Success, Localizer["Identified!"], "The external token identified", 10);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        if (_serialService != null)
+        {
+            _serialService.DataReceived -= OnSerialDataReceived;
+            _serialService.SerialError -= OnSerialError;
         }
     }
 
