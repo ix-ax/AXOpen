@@ -1,213 +1,295 @@
 @namespace AXOpen.Components.Festo.Drives
+@using AXOpen.Core
 @using AXOpen.Core.Blazor
+@using AXOpen.Components.Drives
 @inherits AxoComponentViewBase<AxoCmmtAs>
 
 <AxoComponentContainerView Component="@Component" ParentReference="this">
-    <HeaderContent>       
-        <div class="flex flex-wrap items-center gap-2" @onclick:stopPropagation="true">
-            <span class="@PoweredStatePill">Powered</span>
-            <span class="@FaultStatePill">Fault</span>
-            <span class="@DriveStatePillClass">@DriveStateLabel</span>          
+    <HeaderContent>
+        <div class="flex flex-wrap items-center gap-3 text-xs md:text-sm" @onclick:stopPropagation="true">
+            <span class="badge @DriveStateBadgeClass">@DriveStateLabel</span>
+            <span class="badge badge-soft">@CurrentMotionTaskLabel</span>
+            <div class="metric-pill">
+                <span>Position</span>
+                <strong>@FormattedPosition</strong>
+            </div>
+            <div class="metric-pill">
+                <span>Velocity</span>
+                <strong>@FormattedVelocity</strong>
+            </div>
+            <div class="metric-pill">
+                <span>Torque</span>
+                <strong>@FormattedTorque</strong>
+            </div>
         </div>
     </HeaderContent>
+
     <CommandsContent>
-        <div class="grid gap-3 md:grid-cols-2">
-            <div class="flex flex-col gap-3 rounded-2xl border border-border/50 bg-background/60 p-4">
-                <h5 class="text-base font-semibold text-text">Key telemetry</h5>
-                <div class="grid grid-cols-2 gap-3 text-sm">
-                    <div class="rounded-xl border border-border/30 bg-background/40 p-3">
-                        <span class="text-xs uppercase tracking-wide text-text/60">Actual position</span>
-                        <strong class="block text-base font-semibold text-text">@PositionText</strong>
-                    </div>
-                    <div class="rounded-xl border border-border/30 bg-background/40 p-3">
-                        <span class="text-xs uppercase tracking-wide text-text/60">Actual velocity</span>
-                        <strong class="block text-base font-semibold text-text">@VelocityText</strong>
-                    </div>
-                    <div class="rounded-xl border border-border/30 bg-background/40 p-3">
-                        <span class="text-xs uppercase tracking-wide text-text/60">Actual torque</span>
-                        <strong class="block text-base font-semibold text-text">@TorqueText</strong>
-                    </div>
-                    <div class="rounded-xl border border-border/30 bg-background/40 p-3">
-                        <span class="text-xs uppercase tracking-wide text-text/60">Drive status</span>
-                        <strong class="block text-base font-semibold text-text">@DriveStateLabel</strong>
-                    </div>
+        <div class="flex flex-col gap-4 w-full" @onclick:stopPropagation="true">
+            <section class="drive-section">
+                <div class="section-header">
+                    <h6>Power &amp; safety</h6>
+                    <p>Enable the power stage, toggle brakes and trigger controlled stops.</p>
                 </div>
-            </div>
-            <div class="flex flex-col gap-3 rounded-2xl border border-border/50 bg-background/60 p-4">
-                <h5 class="text-base font-semibold text-text">Axis reference bits</h5>
-                <div class="grid grid-cols-2 gap-2 text-xs">
-                    <span class="@AxisReadyPillClass">Operation enabled</span>
-                    <span class="@AxisFaultPillClass">Fault present</span>
-                    <span class="@DriveStoppedPillClass">Drive stopped</span>
-                    <span class="@AxisFollowingPillClass">Following OK</span>
+                <div class="tasks-grid">
+                    <AxoToggleTaskCommandView Text="Power stage" Component="Component.AxoPower_Task" HideRestoreButton="false" />
+                    <AxoTaskCommandView Text="Controlled stop" Component="Component.AxoStop_Task" HideRestoreButton="false" />
+                    <AxoTaskCommandView Text="Halt" Component="Component.AxoHalt_Task" HideRestoreButton="false" />
                 </div>
-            </div>
-        </div>
-
-        <div class="mt-4 flex flex-col gap-3">
-            <h5 class="text-base font-semibold text-text">Motion tasks</h5>
-            <div class="grid gap-3 md:grid-cols-3">
-                <AxoTaskCommandView Component="Component.AxoStop_Task" Text="Stop" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-                <AxoTaskCommandView Component="Component.AxoHalt_Task" Text="Halt" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-                <AxoTaskCommandView Component="Component.AxoHome_Task" Text="Home" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-                <AxoTaskCommandView Component="Component.AxoMoveAbsolute_Task" Text="Move abs" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-                <AxoTaskCommandView Component="Component.AxoMoveRelative_Task" Text="Move rel" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-            </div>
-            <div class="grid gap-3 md:grid-cols-4">
-                <AxoTaskCommandView Component="Component.AxoMoveAdditive_Task" Text="Move additive" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-                <AxoTaskCommandView Component="Component.AxoMoveVelocity_Task" Text="Move velocity" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-                <AxoTaskCommandView Component="Component.AxoTorqueControl_Task" Text="Torque" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-                <AxoTaskCommandView Component="Component.RestoreTask" Text="Restore" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-            </div>
-        </div>
-
-        <details class="rounded-2xl border border-border/50 bg-background/60 p-4 text-text transition open:shadow-xl">
-            <summary class="cursor-pointer text-base font-semibold text-text">Setpoints and configuration</summary>
-            <div class="mt-4 flex flex-col gap-4">
                 <div class="grid gap-3 md:grid-cols-2">
+                    <RenderableContentControl Context="Component.AxoPower_Status" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoPower_ErrorID" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoStop_Deceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoStop_Jerk" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoHalt_Deceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoHalt_Jerk" Presentation="Control" />
+                </div>
+            </section>
+
+            <section class="drive-section">
+                <div class="section-header">
+                    <h6>Homing &amp; referencing</h6>
+                    <p>Align the axis, set offsets and manage override factors.</p>
+                </div>
+                <div class="tasks-grid">
+                    <AxoTaskCommandView Text="Home" Component="Component.AxoHome_Task" HideRestoreButton="false" />
+                    <AxoTaskCommandView Text="Set position" Component="Component.AxoSetPosition_Task" HideRestoreButton="false" />
+                    <AxoToggleTaskCommandView Text="Override" Component="Component.AxoSetOverride_Task" HideRestoreButton="false" />
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
+                    <RenderableContentControl Context="Component.AxoHome_Position" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoHome_HommingMode" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoHome_Velocity" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoHome_Acceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoHome_Deceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoSetPosition_Position" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoSetPosition_Relative" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoSetOverride_VelFactor" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoSetOverride_AccFactor" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoSetOverride_JerkFactor" Presentation="Control" />
+                </div>
+            </section>
+
+            <section class="drive-section">
+                <div class="section-header">
+                    <h6>Discrete motion</h6>
+                    <p>Execute absolute, relative or additive positioning moves.</p>
+                </div>
+                <div class="tasks-grid">
+                    <AxoTaskCommandView Text="Move absolute" Component="Component.AxoMoveAbsolute_Task" HideRestoreButton="false" />
+                    <AxoTaskCommandView Text="Move relative" Component="Component.AxoMoveRelative_Task" HideRestoreButton="false" />
+                    <AxoTaskCommandView Text="Move additive" Component="Component.AxoMoveAdditive_Task" HideRestoreButton="false" />
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
                     <RenderableContentControl Context="Component.AxoMoveAbsolute_Position" Presentation="Control" />
                     <RenderableContentControl Context="Component.AxoMoveAbsolute_Velocity" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Acceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Deceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Jerk" Presentation="Control" />
                     <RenderableContentControl Context="Component.AxoMoveRelative_Distance" Presentation="Control" />
                     <RenderableContentControl Context="Component.AxoMoveRelative_Velocity" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveRelative_Acceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveRelative_Deceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveAdditive_Distance" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveAdditive_Velocity" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveAdditive_Acceleration" Presentation="Control" />
+                </div>
+            </section>
+
+            <section class="drive-section">
+                <div class="section-header">
+                    <h6>Continuous motion &amp; torque</h6>
+                    <p>Manage velocity mode and torque-controlled moves.</p>
+                </div>
+                <div class="tasks-grid">
+                    <AxoTaskCommandView Text="Velocity" Component="Component.AxoMoveVelocity_Task" HideRestoreButton="false" />
+                    <AxoTaskCommandView Text="Torque control" Component="Component.AxoTorqueControl_Task" HideRestoreButton="false" />
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
                     <RenderableContentControl Context="Component.AxoMoveVelocity_Velocity" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Acceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Deceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Jerk" Presentation="Control" />
                     <RenderableContentControl Context="Component.AxoTorqueControl_Torque" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_TorqueRamp" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Velocity" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Acceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Deceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Jerk" Presentation="Control" />
                 </div>
-                <div class="mt-3 grid gap-3 md:grid-cols-2">
-                    <RenderableContentControl Context="Component.DriveStatus" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxisRefExt.Config" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxisRefExt.Status" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxisRefExt.Telegram111_In" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxisRefExt.Telegram111_Out" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxisRefExt.Data" Presentation="Display" />
-                </div>
-                <RenderableContentControl class="mt-3"
-                                          Context="Component.HardwareDiagnosticsTask"
-                                          Presentation="Display" />
-            </div>
-        </details>
+            </section>
+        </div>
     </CommandsContent>
 
     <StatusContent>
-        <div class="grid gap-3 md:grid-cols-2">
-            <div class="flex flex-col gap-3 rounded-2xl border border-border/50 bg-background/60 p-4">
-                <h5 class="text-base font-semibold text-text">Key telemetry</h5>
-                <div class="grid grid-cols-2 gap-3 text-sm">
-                    <div class="rounded-xl border border-border/30 bg-background/40 p-3">
-                        <span class="text-xs uppercase tracking-wide text-text/60">Actual position</span>
-                        <strong class="block text-base font-semibold text-text">@PositionText</strong>
-                    </div>
-                    <div class="rounded-xl border border-border/30 bg-background/40 p-3">
-                        <span class="text-xs uppercase tracking-wide text-text/60">Actual velocity</span>
-                        <strong class="block text-base font-semibold text-text">@VelocityText</strong>
-                    </div>
-                    <div class="rounded-xl border border-border/30 bg-background/40 p-3">
-                        <span class="text-xs uppercase tracking-wide text-text/60">Actual torque</span>
-                        <strong class="block text-base font-semibold text-text">@TorqueText</strong>
-                    </div>
-                    <div class="rounded-xl border border-border/30 bg-background/40 p-3">
-                        <span class="text-xs uppercase tracking-wide text-text/60">Drive status</span>
-                        <strong class="block text-base font-semibold text-text">@DriveStateLabel</strong>
-                    </div>
+        <div class="flex flex-col gap-4 w-full" @onclick:stopPropagation="true">
+            <section class="drive-section">
+                <div class="section-header">
+                    <h6>Power &amp; safety</h6>
+                    <p>Live feedback when manual control is disabled.</p>
                 </div>
-            </div>
-            <div class="flex flex-col gap-3 rounded-2xl border border-border/50 bg-background/60 p-4">
-                <h5 class="text-base font-semibold text-text">Axis reference bits</h5>
-                <div class="grid grid-cols-2 gap-2 text-xs">
-                    <span class="@AxisReadyPillClass">Operation enabled</span>
-                    <span class="@AxisFaultPillClass">Fault present</span>
-                    <span class="@DriveStoppedPillClass">Drive stopped</span>
-                    <span class="@AxisFollowingPillClass">Following OK</span>
+                <div class="tasks-grid">
+                    <AxoToggleTaskStatusView Text="Power stage" Component="Component.AxoPower_Task" HideRestoreButton="false" />
+                    <AxoTaskStatusView Text="Controlled stop" Component="Component.AxoStop_Task" HideRestoreButton="false" />
+                    <AxoTaskStatusView Text="Halt" Component="Component.AxoHalt_Task" HideRestoreButton="false" />
                 </div>
-            </div>
-        </div>
-
-        <div class="mt-4 flex flex-col gap-3">
-            <h5 class="text-base font-semibold text-text">Motion tasks</h5>
-            <div class="grid gap-3 md:grid-cols-3">
-                <AxoTaskCommandView Component="Component.AxoStop_Task" Text="Stop" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-                <AxoTaskCommandView Component="Component.AxoHalt_Task" Text="Halt" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-                <AxoTaskCommandView Component="Component.AxoHome_Task" Text="Home" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-                <AxoTaskCommandView Component="Component.AxoMoveAbsolute_Task" Text="Move abs" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-                <AxoTaskCommandView Component="Component.AxoMoveRelative_Task" Text="Move rel" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-            </div>
-            <div class="grid gap-3 md:grid-cols-4">
-                <AxoTaskCommandView Component="Component.AxoMoveAdditive_Task" Text="Move additive" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-                <AxoTaskCommandView Component="Component.AxoMoveVelocity_Task" Text="Move velocity" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-                <AxoTaskCommandView Component="Component.AxoTorqueControl_Task" Text="Torque" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-                <AxoTaskCommandView Component="Component.RestoreTask" Text="Restore" HideRestoreButton="false" Enabled="@Component._isManuallyControllable.Cyclic" />
-            </div>
-        </div>
-
-        <details class="rounded-2xl border border-border/50 bg-background/60 p-4 text-text transition open:shadow-xl">
-            <summary class="cursor-pointer text-base font-semibold text-text">Setpoints and configuration</summary>
-            <div class="mt-4 flex flex-col gap-4">
                 <div class="grid gap-3 md:grid-cols-2">
-                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Position" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Velocity" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveRelative_Distance" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveRelative_Velocity" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoMoveVelocity_Velocity" Presentation="Control" />
-                    <RenderableContentControl Context="Component.AxoTorqueControl_Torque" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoPower_Status" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoPower_ErrorID" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoStop_Deceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoStop_Jerk" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoHalt_Deceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoHalt_Jerk" Presentation="Display" />
                 </div>
-                <div class="mt-3 grid gap-3 md:grid-cols-2">
-                    <RenderableContentControl Context="Component.DriveStatus" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxisRefExt.Config" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxisRefExt.Status" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxisRefExt.Telegram111_In" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxisRefExt.Telegram111_Out" Presentation="Display" />
-                    <RenderableContentControl Context="Component.AxisRefExt.Data" Presentation="Display" />
+            </section>
+
+            <section class="drive-section">
+                <div class="section-header">
+                    <h6>Homing &amp; referencing</h6>
+                    <p>Monitor reference tasks, offsets and override factors.</p>
                 </div>
-                <RenderableContentControl class="mt-3"
-                                          Context="Component.HardwareDiagnosticsTask"
-                                          Presentation="Display" />
-            </div>
-        </details>
+                <div class="tasks-grid">
+                    <AxoTaskStatusView Text="Home" Component="Component.AxoHome_Task" HideRestoreButton="false" />
+                    <AxoTaskStatusView Text="Set position" Component="Component.AxoSetPosition_Task" HideRestoreButton="false" />
+                    <AxoToggleTaskStatusView Text="Override" Component="Component.AxoSetOverride_Task" HideRestoreButton="false" />
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
+                    <RenderableContentControl Context="Component.AxoHome_Position" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoHome_HommingMode" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoHome_Velocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoHome_Acceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoHome_Deceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoSetPosition_Position" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoSetPosition_Relative" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoSetOverride_VelFactor" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoSetOverride_AccFactor" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoSetOverride_JerkFactor" Presentation="Display" />
+                </div>
+            </section>
+
+            <section class="drive-section">
+                <div class="section-header">
+                    <h6>Discrete motion</h6>
+                    <p>Command queues, feed rates and progress of traversing moves.</p>
+                </div>
+                <div class="tasks-grid">
+                    <AxoTaskStatusView Text="Move absolute" Component="Component.AxoMoveAbsolute_Task" HideRestoreButton="false" />
+                    <AxoTaskStatusView Text="Move relative" Component="Component.AxoMoveRelative_Task" HideRestoreButton="false" />
+                    <AxoTaskStatusView Text="Move additive" Component="Component.AxoMoveAdditive_Task" HideRestoreButton="false" />
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Position" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Velocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Acceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Deceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Jerk" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveRelative_Distance" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveRelative_Velocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveRelative_Acceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveRelative_Deceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveAdditive_Distance" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveAdditive_Velocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveAdditive_Acceleration" Presentation="Display" />
+                </div>
+            </section>
+
+            <section class="drive-section">
+                <div class="section-header">
+                    <h6>Continuous motion &amp; torque</h6>
+                    <p>Observe velocity and torque control loops.</p>
+                </div>
+                <div class="tasks-grid">
+                    <AxoTaskStatusView Text="Velocity" Component="Component.AxoMoveVelocity_Task" HideRestoreButton="false" />
+                    <AxoTaskStatusView Text="Torque control" Component="Component.AxoTorqueControl_Task" HideRestoreButton="false" />
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Velocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Acceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Deceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Jerk" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Torque" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_TorqueRamp" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Velocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Acceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Deceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Jerk" Presentation="Display" />
+                </div>
+            </section>
+        </div>
     </StatusContent>
 
     <StateContent>
-        <!--
-            TODO: Here add `State` details consider this as an expanded version of the header.
-        -->
-    </StateContent>
-    <SpotContent>
-        <div class="flex flex-col gap-6 rounded-2xl border border-border/40 bg-background/80 px-6 py-5 backdrop-blur @HeroStateClasses">
-            <div class="flex flex-wrap items-center gap-6">
-                <div class="relative h-32 w-32 shrink-0">
-                    <div class="absolute inset-0 rounded-full border border-border/50 bg-black/30"></div>
-                    <div class="absolute inset-3 rounded-full border border-border/30 bg-background/70"></div>
-                    <div class="absolute left-1/2 bottom-1/2 h-16 w-0.5 origin-bottom -translate-x-1/2 rounded-full bg-emerald-400 shadow-lg transition-[transform] duration-500 ease-out"
-                         style="transform: rotate(@NeedleRotationdeg);"></div>
-                    <div class="relative flex h-full w-full flex-col items-center justify-center gap-1 text-center">
-                        <span class="text-[0.65rem] uppercase tracking-[0.4em] text-text/50">Vel</span>
-                        <strong class="text-2xl font-semibold">@VelocityText</strong>
-                    </div>
+        <div class="grid gap-4 w-full" @onclick:stopPropagation="true">
+            <section class="drive-section">
+                <div class="section-header">
+                    <h6>Drive feedback</h6>
+                    <p>Status bits, active tasks and current diagnostics.</p>
                 </div>
+                <div class="grid gap-3 md:grid-cols-2">
+                    <RenderableContentControl Context="Component.DriveStatus" Presentation="Status-Display" />
+                    <RenderableContentControl Context="Component.AxisRefExt.Status" Presentation="Status-Display" />
+                    <RenderableContentControl Context="Component.Messenger" Presentation="Status-Display" />
+                    <RenderableContentControl Context="Component.TaskMessenger" Presentation="Status-Display" />
+                    <RenderableContentControl Context="Component.HardwareDiagnosticsTask" Presentation="Status-Display" />
+                </div>
+            </section>
 
-                <dl class="grid flex-1 min-w-[14rem] grid-cols-3 gap-3 text-sm">
-                    <div class="rounded-xl border border-border/30 bg-background/40 p-3">
-                        <dt class="text-xs uppercase tracking-wide text-text/60">Position</dt>
-                        <dd class="text-base font-semibold text-text">@PositionText</dd>
-                    </div>
-                    <div class="rounded-xl border border-border/30 bg-background/40 p-3">
-                        <dt class="text-xs uppercase tracking-wide text-text/60">Torque</dt>
-                        <dd class="text-base font-semibold text-text">@TorqueText</dd>
-                    </div>
-                    <div class="rounded-xl border border-border/30 bg-background/40 p-3">
-                        <dt class="text-xs uppercase tracking-wide text-text/60">State</dt>
-                        <dd class="text-base font-semibold text-text">@DriveStateLabel</dd>
-                    </div>
-                </dl>
+            <section class="drive-section">
+                <div class="section-header">
+                    <h6>Scaling constants</h6>
+                    <p>Realtime factors calculated from PROFIdrive parameters.</p>
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
+                    <RenderableContentControl Context="Component.ScalingConstantRequiredPosition" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantActualPosition" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantRequiredVelocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantActualVelocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantRequiredAcceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantActualAcceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantRequiredDeceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantActualDeceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantRequiredTorque" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantActualTorque" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantRequiredJerk" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantActualJerk" Presentation="Display" />
+                </div>
+            </section>
+
+            <section class="drive-section">
+                <div class="section-header">
+                    <h6>Axis reference</h6>
+                    <p>Inspect telegrams, hardware IDs and cached axis data.</p>
+                </div>
+                <div class="grid gap-3 md:grid-cols-2">
+                    <RenderableContentControl Context="Component.AxisRefExt.Telegram111_In" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxisRefExt.Telegram111_Out" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxisRefExt.Telegram750_In" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxisRefExt.Telegram750_Out" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxisRefExt.HWIDs" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxisRefExt.Data" Presentation="Display" />
+                </div>
+            </section>
+        </div>
+    </StateContent>
+
+    <SpotContent>
+        <div class="drive-spot">
+            <div class="drive-spot__state">
+                <span>@DriveStateLabel</span>
+                <span>@CurrentMotionTaskLabel</span>
             </div>
-
-            <div class="flex flex-wrap items-center gap-2">
-                <span class="@PoweredStatePill">Ready</span>
-                <span class="@FaultStatePill">Fault</span>
-                <span class="@StoppingStatePill">Stopping</span>
+            <div class="drive-spot__metric">
+                <p>Position</p>
+                <strong>@FormattedPosition</strong>
+            </div>
+            <div class="drive-spot__metric">
+                <p>Velocity</p>
+                <strong>@FormattedVelocity</strong>
+            </div>
+            <div class="drive-spot__metric">
+                <p>Torque</p>
+                <strong>@FormattedTorque</strong>
             </div>
         </div>
     </SpotContent>
 </AxoComponentContainerView>
-
-@code
-{    
-}
