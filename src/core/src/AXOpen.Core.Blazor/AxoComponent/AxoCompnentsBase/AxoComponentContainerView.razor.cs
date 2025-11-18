@@ -227,6 +227,8 @@ namespace AXOpen.Core.Blazor
             }
         }
 
+        public string MainContainerClasses => this.SpotActive ? "" : $"flex flex-col gap-4 p-4 border rounded-lg bg-background/70 {AlarmBorderClass}";
+
         /// <summary>
         /// Restores the original z-index of the component.
         /// Called on mouse leave.
