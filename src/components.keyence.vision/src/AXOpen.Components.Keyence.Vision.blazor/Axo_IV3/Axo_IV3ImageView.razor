@@ -1,0 +1,23 @@
+﻿@namespace AXOpen.Components.Keyence.Vision
+@using AXOpen.Core
+@using AXOpen.Core.Blazor
+@inherits AxoComponentViewBase<Axo_IV3>
+
+<div class="flex flex-col gap-4 p-4 border rounded-lg bg-background/70">
+    <iframe src="@GetLiveViewUrl"
+            class="self-center"
+            style="width:100%; height:80vh; border:none;"
+            loading="lazy"
+            title="External site">
+    </iframe>
+</div>
+
+@code
+{
+    private string GetLiveViewUrl => $"http://{Component.DeviceIpAddress}/iv3-wm-i.html";
+
+    public override void ConfigurePolling()
+    {
+        
+    }
+}

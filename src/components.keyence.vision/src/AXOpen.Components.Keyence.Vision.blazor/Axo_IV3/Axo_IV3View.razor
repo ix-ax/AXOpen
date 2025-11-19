@@ -33,45 +33,69 @@
                 <span class="@GetStatusChipClass(HasResult, "success")">Result available</span>
             </div>
         </div>
-
-        <div class="grid gap-3 md:grid-cols-2">
-            <AxoTaskView class="w-full"
-                         Text="Trigger"
-                         Component="Component.TriggerTask"
-                         HideRestoreButton="false"
-                         Enabled="@(Component._isManuallyControllable.Cyclic)" />
-            <AxoTaskView class="w-full"
-                         Text="Restore"
-                         Component="Component.RestoreTask"
-                         HideRestoreButton="false"
-                         Enabled="@(Component._isManuallyControllable.Cyclic)" />
-        </div>
-
-        <div class="grid gap-4 md:grid-cols-1">
-            <div class="p-4 rounded-lg border border-border flex flex-col gap-3">
-                <div class="flex items-center justify-between">
-                    <h5 class="text-base font-semibold text-text">Program control</h5>
-                    <span class="text-xs text-text/60">Current @CurrentProgramNumber</span>
+        <Operon.Components.Tab.Tab>
+            <Operon.Components.Tab.TabPage Title="Controls">
+                <div class="grid gap-3 md:grid-cols-2">
+                    <AxoTaskView class="w-full"
+                                 Text="Trigger"
+                                 Component="Component.TriggerTask"
+                                 HideRestoreButton="false"
+                                 Enabled="@(Component._isManuallyControllable.Cyclic)" />
+                    <AxoTaskView class="w-full"
+                                 Text="Restore"
+                                 Component="Component.RestoreTask"
+                                 HideRestoreButton="false"
+                                 Enabled="@(Component._isManuallyControllable.Cyclic)" />
                 </div>
-                <RenderableContentControl Context="Component.RequiredProgramNumber"
-                                          Presentation="Control" />
-                <AxoTaskView class="w-full"
-                             Text="Change Program"
-                             Component="Component.ChangeProgramTask"
-                             HideRestoreButton="false"
-                             Enabled="@(Component._isManuallyControllable.Cyclic)" />
-                <div class="grid grid-cols-2 gap-2 text-sm">
-                    <div>
-                        <span class="text-text/60">Result No.</span>
-                        <div class="font-semibold text-text">@Component.Inputs.DeviceStatusWords.ResultNo.Cyclic</div>
+
+                <div class="grid gap-4 md:grid-cols-1">
+                    <div class="p-4 rounded-lg border border-border flex flex-col gap-3">
+                        <div class="flex items-center justify-between">
+                            <h5 class="text-base font-semibold text-text">Program control</h5>
+                            <span class="text-xs text-text/60">Current @CurrentProgramNumber</span>
+                        </div>
+                        <RenderableContentControl Context="Component.RequiredProgramNumber"
+                                                  Presentation="Control" />
+                        <AxoTaskView class="w-full"
+                                     Text="Change Program"
+                                     Component="Component.ChangeProgramTask"
+                                     HideRestoreButton="false"
+                                     Enabled="@(Component._isManuallyControllable.Cyclic)" />
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <div>
+                                <span class="text-text/60">Result No.</span>
+                                <div class="font-semibold text-text">@Component.Inputs.DeviceStatusWords.ResultNo.Cyclic</div>
+                            </div>
+                            <div>
+                                <span class="text-text/60">Program during shot</span>
+                                <div class="font-semibold text-text">@Component.Inputs.DeviceStatusWords.ProgramNoDuringJudgment.Cyclic</div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <span class="text-text/60">Program during shot</span>
-                        <div class="font-semibold text-text">@Component.Inputs.DeviceStatusWords.ProgramNoDuringJudgment.Cyclic</div>
-                    </div>
+                </div>       
+            </Operon.Components.Tab.TabPage>
+            <Operon.Components.Tab.TabPage Title="Image">
+                 <div class="grid gap-3 md:grid-cols-2">
+                    <AxoTaskView class="w-full"
+                                 Text="Trigger"
+                                 Component="Component.TriggerTask"
+                                 HideRestoreButton="false"
+                                 Enabled="@(Component._isManuallyControllable.Cyclic)" />
+                    <AxoTaskView class="w-full"
+                                 Text="Restore"
+                                 Component="Component.RestoreTask"
+                                 HideRestoreButton="false"
+                                 Enabled="@(Component._isManuallyControllable.Cyclic)" />
                 </div>
-            </div>
-        </div>
+
+                <iframe src="@GetLiveViewUrl"
+                        style="width:100%; height:80vh; border:none;"
+                        loading="lazy"
+                        title="External site">
+                </iframe>
+            </Operon.Components.Tab.TabPage>
+        </Operon.Components.Tab.Tab>
+        
     </CommandsContent>
 
     <StatusContent>
@@ -96,19 +120,12 @@
             </div>
         </div>
 
-        <div class="grid gap-3 md:grid-cols-2">
-            <AxoTaskView class="w-full"
-                         Text="Trigger"
-                         Component="Component.TriggerTask"
-                         HideRestoreButton="false"
-                         Enabled="@(Component._isManuallyControllable.Cyclic)" />
-            <AxoTaskView class="w-full"
-                         Text="Restore"
-                         Component="Component.RestoreTask"
-                         HideRestoreButton="false"
-                         Enabled="@(Component._isManuallyControllable.Cyclic)" />
-        </div>
-
+        <iframe src="@GetLiveViewUrl"
+                style="width:100%; height:80vh; border:none;"
+                loading="lazy"
+                title="External site">
+        </iframe>
+        
         <div class="grid gap-4 md:grid-cols-1">
             <div class="p-4 rounded-lg border border-border flex flex-col gap-3">
                 <div class="flex items-center justify-between">
@@ -116,12 +133,7 @@
                     <span class="text-xs text-text/60">Current @CurrentProgramNumber</span>
                 </div>
                 <RenderableContentControl Context="Component.RequiredProgramNumber"
-                                          Presentation="Display" />
-                <AxoTaskView class="w-full"
-                             Text="Change Program"
-                             Component="Component.ChangeProgramTask"
-                             HideRestoreButton="false"
-                             Enabled="@(Component._isManuallyControllable.Cyclic)" />
+                                          Presentation="Display" />                
                 <div class="grid grid-cols-2 gap-2 text-sm">
                     <div>
                         <span class="text-text/60">Result No.</span>
