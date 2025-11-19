@@ -1,6 +1,6 @@
 ﻿@namespace AXOpen.Inspectors
 
-<div class="flex flex-col items-center">
+<div class="flex flex-col items-center flex-shrink-0 @Class">
     @switch (@Result)
     {
         case 0:
@@ -61,5 +61,9 @@
     [Parameter]
     public short Result { get; set; }
 
-    [Parameter] public bool HasLabel { get; set; } = true;
+    [Parameter]
+    public bool HasLabel { get; set; } = true;
+
+    [Parameter]
+    public string Class { get; set; }
 }
