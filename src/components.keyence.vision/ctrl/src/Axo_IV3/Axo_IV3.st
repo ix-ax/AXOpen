@@ -6,6 +6,7 @@ USING Siemens.Simatic.Hardware.Utilities;
 
 NAMESPACE AXOpen.Components.Keyence.Vision
     {S7.extern=ReadWrite}
+    {#ix-prop: public string DeviceIpAddress}
     CLASS Axo_IV3 EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC // HEADER
             {#ix-attr:[Container(Layout.Wrap)]}
