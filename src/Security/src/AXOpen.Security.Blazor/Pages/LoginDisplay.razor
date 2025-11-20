@@ -1,0 +1,96 @@
+﻿@using AXOpen.Security.Services
+@using Microsoft.AspNetCore.Mvc
+@using AxOpen.Security.Entities
+@using Operon.Components.Dropdown
+@attribute [IgnoreAntiforgeryToken]
+@implements IDisposable
+@inject NavigationManager NavigationManager
+@inject IServiceProvider _serviceProvider
+
+<div class="flex flex-wrap">
+    <AuthorizeView>
+        <Authorized>
+            <Dropdown @ref="_dropdownLogin">
+                <DropdownButton>
+                    <button type="button" class="btn btn-primary" @onclick="_dropdownLogin.Toggle">
+                        @context.User.Identity?.Name
+                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownLogin?.Open ?? false ? "rotated" : null))" />
+                    </button>
+                </DropdownButton>
+                <DropdownBody>
+                    <a class="dropdown-item" href="Security/Manage">@Localizer["Profile"]</a>
+                    <form action="/Logout" method="post">
+                        <AntiforgeryToken />
+                        <input type="hidden" name="ReturnUrl" value="@currentUrl" />
+                        <button type="submit" class="dropdown-item cursor-pointer">@Localizer["Log out"]</button>
+                    </form>
+                </DropdownBody>
+            </Dropdown>
+        </Authorized>
+        <NotAuthorized>
+            <a class="btn btn-primary" href="@($"Security/Login?returnUrl={Uri.EscapeDataString(currentUrl ?? "/")}")" role="button">@Localizer["Log in"]</a>
+        </NotAuthorized>
+    </AuthorizeView>
+
+    @if (_serialService != null && !_serialService.PortOpen && _showConnectButton)
+    {
+        <button class="btn btn-primary" @onclick="ConnectAsync">Connect to Serial Port</button>
+    }
+</div>
+
+@code {
+    private string? currentUrl;
+
+    private Dropdown _dropdownLogin { get; set; }
+
+    private bool _showConnectButton { get; set; } = false;
+
+    private ISerialService? _serialService { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        NavigationManager.LocationChanged += OnLocationChanged;
+
+        _serialService = (ISerialService?)_serviceProvider.GetService(typeof(ISerialService));
+        if (_serialService != null)
+        {
+            _serialService.AfterOpenPort += StateHasChanged;
+            await ChangeAfterDelayAsync();
+        }
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
+
+    private async Task ChangeAfterDelayAsync()
+    {
+        await Task.Delay(2000);
+        _showConnectButton = true;
+        StateHasChanged();
+    }
+
+    private async Task ConnectAsync()
+    {
+        try
+        {
+            bool portSelected = await _serialService.OpenPortAsync(9600);
+            if (portSelected)
+            {
+                Console.WriteLine("Connected to serial port.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+        }
+    }
+}

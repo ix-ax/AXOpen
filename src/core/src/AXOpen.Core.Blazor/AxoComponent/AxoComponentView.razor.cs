@@ -25,6 +25,9 @@ namespace AXOpen.Core
         [Parameter]
         public bool IsControllable { get; set; }
 
+        [Parameter]
+        public bool HideHeader { get; set; }
+
         private string _currentPresentation = "Status-Display";
         private bool _containsHeaderAttribute { get; set; } = false;
         private bool _containsDetailsAttribute { get; set; } = false;

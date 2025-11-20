@@ -12,56 +12,56 @@
 
 <AuthorizeView Roles="Administrator">
     <Authorized>
-    <div class="flex flex-wrap items-center">
-        <nav class="tab m-2 grow">
-            @foreach (var item in _serverStorageAllViews)
-            {
+        <div class="flex flex-wrap items-center">
+            <nav class="tab m-2 grow">
+                @foreach (var item in _serverStorageAllViews)
+                {
                     <button class="btn tab-btn @(_currentViewName == item ? "active" : null) @GetBgColor(SaveLocationType.Server)" @onclick="() => LoadAsync(item)">@item</button>
-            }
-            @foreach (var item in _localStorageData.Keys)
-            {
+                }
+                @foreach (var item in _localStorageData.Keys)
+                {
                     <button class="btn tab-btn @(_currentViewName == item ? "active" : null) @GetBgColor(SaveLocationType.Local)" @onclick="() => LoadAsync(item)">@item</button>
-            }
-        </nav>
+                }
+            </nav>
 
-        <div class="flex items-center ms-auto">
-            @if (_inDesignMode)
-            {
-                <Dropdown @ref="_dropdownOption">
-                    <DropdownButton>
-                        <button class="btn btn-primary" @onclick="_dropdownOption.Toggle">
-                            Options
-                                    <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownOption?.Open ?? false ? "rotated" : null))" />
-                        </button>
-                    </DropdownButton>
-                    <DropdownBody Class="end">
-                        @if (!string.IsNullOrEmpty(_currentViewName))
-                        {
-                            <a class="dropdown-item" @onclick="() => { _modalControllerObjects.Toggle(); _dropdownOption.CloseDropdown(); }">Controller objects</a>
-                            <a class="dropdown-item" @onclick="() => { _modalUsedObject.Toggle(); _dropdownOption.CloseDropdown(); }">Used objects</a>
-                        }
-                        <a class="dropdown-item" @onclick="() => { _modalViews.Toggle(); _dropdownOption.CloseDropdown(); }">Views</a>
-                        <a class="dropdown-item" @onclick="() => { _modalCreateNew.Toggle(); _dropdownOption.CloseDropdown(); }">Create new</a>
-                        @if (!string.IsNullOrEmpty(_currentViewName))
-                        {
-                            <a class="dropdown-item" @onclick="() => { _modalCreateCopy.Toggle(); _dropdownOption.CloseDropdown(); }">Create copy</a>
-                            <a class="dropdown-item" @onclick="() => { _modalBackground.Toggle(); _dropdownOption.CloseDropdown(); }">Background</a>
-                            <a class="dropdown-item" @onclick="() => { _editSVG = !_editSVG; _dropdownOption.CloseDropdown(); }">Toggle Edit SVG</a>
-                            @if (_editSVG)
+            <div class="flex items-center ms-auto">
+                @if (_inDesignMode)
+                {
+                    <Dropdown @ref="_dropdownOption">
+                        <DropdownButton>
+                            <button class="btn btn-primary" @onclick="_dropdownOption.Toggle">
+                                Options
+                                <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownOption?.Open ?? false ? "rotated" : null))" />
+                            </button>
+                        </DropdownButton>
+                        <DropdownBody Class="end">
+                            @if (!string.IsNullOrEmpty(_currentViewName))
                             {
-                                <a class="dropdown-item" @onclick="() => { _modalBackgroundSVGInput.Toggle(); _dropdownOption.CloseDropdown(); }">Background SVG Input</a>
+                                <a class="dropdown-item" @onclick="() => { _modalControllerObjects.Toggle(); _dropdownOption.CloseDropdown(); }">Controller objects</a>
+                                <a class="dropdown-item" @onclick="() => { _modalUsedObject.Toggle(); _dropdownOption.CloseDropdown(); }">Used objects</a>
                             }
-                            <a class="dropdown-item" @onclick="async () => { await ChangeThemeAsync(); _dropdownOption.CloseDropdown(); }">Change theme</a>
-                        }
-                    </DropdownBody>
-                </Dropdown>
-            }
+                            <a class="dropdown-item" @onclick="() => { _modalViews.Toggle(); _dropdownOption.CloseDropdown(); }">Views</a>
+                            <a class="dropdown-item" @onclick="() => { _modalCreateNew.Toggle(); _dropdownOption.CloseDropdown(); }">Create new</a>
+                            @if (!string.IsNullOrEmpty(_currentViewName))
+                            {
+                                <a class="dropdown-item" @onclick="() => { _modalCreateCopy.Toggle(); _dropdownOption.CloseDropdown(); }">Create copy</a>
+                                <a class="dropdown-item" @onclick="() => { _modalBackground.Toggle(); _dropdownOption.CloseDropdown(); }">Background</a>
+                                <a class="dropdown-item" @onclick="() => { _editSVG = !_editSVG; _dropdownOption.CloseDropdown(); }">Toggle Edit SVG</a>
+                                @if (_editSVG)
+                                {
+                                    <a class="dropdown-item" @onclick="() => { _modalBackgroundSVGInput.Toggle(); _dropdownOption.CloseDropdown(); }">Background SVG Input</a>
+                                }
+                                <a class="dropdown-item" @onclick="async () => { await ChangeThemeAsync(); _dropdownOption.CloseDropdown(); }">Change theme</a>
+                            }
+                        </DropdownBody>
+                    </Dropdown>
+                }
 
-            <button class="btn btn-no-bg-secondary p-1" @onclick="() => _inDesignMode = !_inDesignMode">
+                <button class="btn btn-no-bg-secondary p-1" @onclick="() => _inDesignMode = !_inDesignMode">
                     <Operon.Icons.HeroIcon Icon="adjustments-horizontal" Type="Operon.Icons.IconType.Outline" Class="size-6" />
-            </button>
+                </button>
+            </div>
         </div>
-    </div>
 
         @if (CurrentView.IsWatchTable)
         {
@@ -69,12 +69,31 @@
                 <table class="table table-striped table-hover w-full">
                     <thead>
                         <tr>
-                            <th>Symbol</th>
+                            <th class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <span class="cursor-pointer" @onclick="ToggleSort">Symbol</span>
+                                    @if (_watchTableSortAscending != null)
+                                    {
+                                        <div class="mx-2 cursor-pointer" @onclick="ToggleSort">
+                                            <Operon.Icons.HeroIcon Icon="@(_watchTableSortAscending == true ? "chevron-up" : "chevron-down")" Type="Operon.Icons.IconType.Outline" Class="size-4" />
+                                        </div>
+                                    }
+                                </div>
+                                <div class="flex items-center">
+                                    @if (_watchTableFilter != null)
+                                    {
+                                        <input type="text" class="input w-full min-w-20 m-0 px-2 py-1" value="@_watchTableFilter" @oninput="@((ChangeEventArgs args) => _watchTableFilter = args.Value.ToString())" placeholder="Filter" />
+                                    }
+                                    <div class="ms-2 cursor-pointer" @onclick="() => _watchTableFilter = _watchTableFilter == null ? _watchTableFilter = string.Empty : _watchTableFilter = null">
+                                        <Operon.Icons.HeroIcon Icon="magnifying-glass" Type="Operon.Icons.IconType.Outline" Class="size-4" />
+                                    </div>
+                                </div>
+                            </th>
                             <th>Data</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (VisualComposerItemData item in _items)
+                        @foreach (VisualComposerItemData item in GetFilteredAndSortedItems())
                         {
                             <tr>
                                 <td>@item.TwinElement.Symbol</td>
@@ -175,24 +194,24 @@
                             @if (!CurrentView.IsWatchTable || item is ITwinPrimitive)
                             {
                                 <div class="flex flex-wrap items-center mx-4 gap-2">
-                                @if(item is ITwinObject)
-                                {
-                                    <Operon.Icons.HeroIcon Icon="cube" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                }
-                                else if(item is ITwinPrimitive)
-                                {
-                                    <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                }
+                                    @if (item is ITwinObject)
+                                    {
+                                        <Operon.Icons.HeroIcon Icon="cube" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                    }
+                                    else if (item is ITwinPrimitive)
+                                    {
+                                        <Operon.Icons.HeroIcon Icon="credit-card" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                    }
 
-                                <p class="truncate me-auto">@item.Symbol</p>
-                                @if(item is ITwinPrimitive)
-                                {
-                                    <p>@(((dynamic)item).Cyclic)</p>
-                                }
-                                <a @onclick="() => AddItemAsync(item)">
-                                    <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                </a>
-                            </div>
+                                    <p class="truncate me-auto">@item.Symbol</p>
+                                    @if (item is ITwinPrimitive)
+                                    {
+                                        <p>@(((dynamic)item).Cyclic)</p>
+                                    }
+                                    <a @onclick="() => AddItemAsync(item)">
+                                        <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                    </a>
+                                </div>
                             }
                         }
                     }
@@ -214,18 +233,18 @@
                                 {
                                     <BaseInput @bind-Value="_optionsMoveRight" Label="Move right" />
                                     <button type="button" class="btn btn-no-bg-primary" @onclick="() => _optionsMoveDirection = (_optionsMoveDirection + 1) % 3">
-                                    @if(_optionsMoveDirection == 0)
-                                    {
-                                        <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                    }
-                                    else if (_optionsMoveDirection == 1)
-                                    {
-                                        <Operon.Icons.HeroIcon Icon="arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                    }
-                                    else if(_optionsMoveDirection == 2)
-                                    {
-                                        <Operon.Icons.HeroIcon Icon="arrow-right" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                    }
+                                        @if (_optionsMoveDirection == 0)
+                                        {
+                                            <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                        }
+                                        else if (_optionsMoveDirection == 1)
+                                        {
+                                            <Operon.Icons.HeroIcon Icon="arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                        }
+                                        else if (_optionsMoveDirection == 2)
+                                        {
+                                            <Operon.Icons.HeroIcon Icon="arrow-right" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                        }
                                     </button>
                                 }
                             </div>
@@ -311,15 +330,14 @@
                                 <a @onclick="() => RemoveItemAsync(item)">
                                     <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                 </a>
-                                @if(CurrentView.IsWatchTable){
-                                    <div class="flex flex-nowrap flex-col">
-                                        <a @onclick="() => MoveObjectUp(item)">
-                                            <Operon.Icons.HeroIcon Icon="chevron-up" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                        </a>
-                                        <a @onclick="() => MoveObjectDown(item)">
-                                            <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                        </a>
-                                    </div>
+                                @if (CurrentView.IsWatchTable)
+                                {
+                                    <a @onclick="() => MoveObjectUp(item)">
+                                        <Operon.Icons.HeroIcon Icon="arrow-up" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                    </a>
+                                    <a @onclick="() => MoveObjectDown(item)">
+                                        <Operon.Icons.HeroIcon Icon="arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                    </a>
                                 }
                             </li>
                         }
@@ -394,7 +412,7 @@
                                         <option value="@saveLocation">@saveLocation</option>
                                     }
                                 </select>
-                                @if(_currentViewName == item)
+                                @if (_currentViewName == item)
                                 {
                                     <a @onclick="() => ClearScaleAndTranslateAsync()" title="Clear scale and translate">
                                         <Operon.Icons.HeroIcon Icon="arrow-uturn-left" Type="Operon.Icons.IconType.Outline" Class="size-5" />
@@ -421,7 +439,7 @@
                                         <option value="@saveLocation">@saveLocation</option>
                                     }
                                 </select>
-                                @if(_currentViewName == item)
+                                @if (_currentViewName == item)
                                 {
                                     <a @onclick="() => ClearScaleAndTranslateAsync()" title="Clear scale and translate">
                                         <Operon.Icons.HeroIcon Icon="arrow-uturn-left" Type="Operon.Icons.IconType.Outline" Class="size-5" />
@@ -503,7 +521,7 @@
         }
     </Authorized>
     <NotAuthorized>
-        @if(_serverStorageConfiguration != null)
+        @if (_serverStorageConfiguration != null)
         {
             <nav class="tab m-2">
                 @foreach (var item in _serverStorageConfiguration.Views)
@@ -516,15 +534,28 @@
         @if (CurrentView.IsWatchTable)
         {
             <div class="overflow-x-auto">
+                <div class="flex items-center gap-2 mb-2">
+                    <BaseInput @bind-Value="_watchTableFilter" Placeholder="Filter by symbol..." Class="flex-1" />
+                    @if (!string.IsNullOrEmpty(_watchTableFilter))
+                    {
+                        <button class="btn btn-outline-secondary" @onclick="() => _watchTableFilter = string.Empty">Clear</button>
+                    }
+                </div>
                 <table class="table table-striped table-hover w-full">
                     <thead>
                         <tr>
-                            <th>Symbol</th>
+                            <th class="cursor-pointer" @onclick="ToggleSort">
+                                Symbol
+                                @if (_watchTableSortAscending != null)
+                                {
+                                    <Operon.Icons.HeroIcon Icon="@(_watchTableSortAscending == true ? "chevron-up" : "chevron-down")" Type="Operon.Icons.IconType.Outline" Class="size-4 inline" />
+                                }
+                            </th>
                             <th>Data</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (VisualComposerItemData item in _items)
+                        @foreach (VisualComposerItemData item in GetFilteredAndSortedItems())
                         {
                             <tr>
                                 <td>@item.TwinElement.Symbol</td>
@@ -564,13 +595,15 @@
     </NotAuthorized>
 </AuthorizeView>
 
-<Modal @ref="DetailsModalWindow">
+<Modal @ref="DetailsModalWindow" Static="true">
     <div class="modal-header">
+        @ModalHeaderContent
         <button class="cursor-pointer ms-auto my-auto" @onclick="() => { DetailsModalWindow.Toggle(); }">
             <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
         </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body p-4">
+        @ModalBodyContent
         @RenderableContentControlFragment
     </div>
 </Modal>

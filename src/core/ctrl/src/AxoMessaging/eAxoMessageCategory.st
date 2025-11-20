@@ -21,7 +21,7 @@ NAMESPACE AXOpen.Messaging
 
             ///<summary>
             /// Error message.
-            /// Use this categoty when there is a failure that cannot be immediately recovered and an intervention is needed. This is typically a situation when a device fails
+            /// Use this category when there is a failure that cannot be immediately recovered and an intervention is needed. This is typically a situation when a device fails
             /// to deliver expected result. 
             /// Do not use this category to report information about failed process like measurement or detection.
             ///</summary>

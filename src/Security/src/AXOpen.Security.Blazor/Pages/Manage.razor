@@ -1,0 +1,219 @@
+﻿@page "/Security/Manage"
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
+@using System.ComponentModel.DataAnnotations
+@using AxOpen.Security.Entities
+@using AxOpen.Security.Services
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Components.Authorization
+
+@inject UserManager<User> UserManager
+@inject SignInManager<User> SignInManager
+@inject IdentityRedirectManager RedirectManager
+@inject IRepositoryService RepositoryService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+
+<PageTitle>Profile</PageTitle>
+
+<div class="flex justify-center">
+    <div class="w-md">
+        <h4>Profile</h4>
+        <hr class="mb-2" />
+        <StatusMessage />
+        <EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert" />
+            <div class="input-group">
+                <label for="username">@Localizer["Username"]</label>
+                <input type="text" value="@username" id="username" disabled />
+            </div>
+            <div class="input-group">
+                <label for="group">@Localizer["Group"]</label>
+                <input type="text" value="@group" id="group" disabled />
+            </div>
+            <div class="input-group">
+                <label for="Input.Email">@Localizer["Email"]</label>
+                <InputText type="email" @bind-Value="Input.Email" id="Input.Email" autocomplete="email" placeholder="Email" />
+                <ValidationMessage For="() => Input.Email" class="text-danger" />
+            </div>
+            <div class="input-group">
+                <label for="Input.PhoneNumber">@Localizer["Phone number"]</label>
+                <InputText type="text" @bind-Value="Input.PhoneNumber" id="Input.PhoneNumber" autocomplete="phone number" placeholder="Phone number" />
+                <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
+            </div>
+
+            @if (!string.IsNullOrEmpty(externalAuthId))
+            {
+                <p>@Localizer["External Auth is set"]</p>
+                <button class="btn btn-secondary" @onclick="ClearExternalAuthId">@Localizer["Clear External Auth"]</button>
+            }
+
+            @if (canUserChangePassword)
+            {
+                <div class="input-group">
+                    <label for="Input.OldPassword">@Localizer["Old password"]</label>
+                    <InputText type="password" @bind-Value="Input.OldPassword" id="Input.OldPassword" aria-required="true" placeholder="Old password" />
+                    <ValidationMessage For="@(() => Input.OldPassword)" class="text-danger" />
+                </div>
+                <div class="input-group">
+                    <label for="Input.NewPassword">@Localizer["New password"]</label>
+                    <InputText type="password" @bind-Value="Input.NewPassword" id="Input.NewPassword" aria-required="true" placeholder="New password" />
+                    <ValidationMessage For="@(() => Input.NewPassword)" class="text-danger" />
+                </div>
+                <div class="input-group">
+                    <label for="Input.ConfirmPassword">@Localizer["Confirm new password"]</label>
+                    <InputText type="password" @bind-Value="Input.ConfirmPassword" id="Input.ConfirmPassword" aria-required="true" placeholder="Confirm password" />
+                    <ValidationMessage For="@(() => Input.ConfirmPassword)" class="text-danger" />
+                </div>
+            }
+
+            <button type="submit" class="btn btn-primary mt-2 w-full">@Localizer["Save"]</button>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private User? user;
+    private string? username;
+    private string? group;
+    private string? email;
+    private string? phoneNumber;
+    private string? externalAuthId;
+    private bool canUserChangePassword;
+
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Input ??= new();
+
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var currentUser = authState.User;
+
+        if (currentUser?.Identity?.IsAuthenticated != true)
+        {
+            NavigationManager.NavigateTo("/Security/Login");
+            return;
+        }
+
+        user = await UserManager.FindByNameAsync(currentUser.Identity.Name);
+        if (user is null)
+        {
+            NavigationManager.NavigateTo("/Security/Login");
+            return;
+        }
+
+        username = await UserManager.GetUserNameAsync(user); //user.UserName
+        group = user.Group;
+        email = await UserManager.GetEmailAsync(user);
+        phoneNumber = await UserManager.GetPhoneNumberAsync(user);
+        externalAuthId = user.ExternalAuthId;
+        canUserChangePassword = user.CanUserChangePassword;
+
+        Input.Email ??= email;
+        Input.PhoneNumber ??= phoneNumber;
+        Input.ExternalAuthId ??= externalAuthId;
+    }
+
+    private void ClearExternalAuthId()
+    {
+        Input.ExternalAuthId = null;
+    }
+
+    private async Task OnValidSubmitAsync()
+    {
+        if (user is null)
+        {
+            NavigationManager.NavigateTo("/Security/Login");
+            return;
+        }
+
+        if (Input.Email != email)
+        {
+            var setEmailResult = await UserManager.SetEmailAsync(user, Input.Email);
+            if (!setEmailResult.Succeeded)
+            {
+                // Show error message
+                return;
+            }
+        }
+
+        if (Input.PhoneNumber != phoneNumber)
+        {
+            var setPhoneResult = await UserManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
+            if (!setPhoneResult.Succeeded)
+            {
+                // Show error message
+                return;
+            }
+        }
+
+        if (Input.ExternalAuthId != externalAuthId)
+        {
+            if (!string.IsNullOrEmpty(Input.ExternalAuthId))
+            {
+                List<User> users = RepositoryService.UserRepository.GetRecords().Where(user => user.ExternalAuthId != null && user.ExternalAuthId.Equals(Input.ExternalAuthId)).ToList();
+                if (users.Any())
+                {
+                    // Show error message
+                    return;
+                }
+
+                user.ExternalAuthId = Input.ExternalAuthId;
+            }
+            else
+            {
+                user.ExternalAuthId = null;
+            }
+        }
+
+        if (canUserChangePassword && !string.IsNullOrEmpty(Input.OldPassword) && !string.IsNullOrEmpty(Input.NewPassword) && !string.IsNullOrEmpty(Input.ConfirmPassword) && Input.NewPassword.Equals(Input.ConfirmPassword))
+        {
+            var setPasswordResult = await UserManager.ChangePasswordAsync(user, Input.OldPassword, Input.NewPassword);
+            if (!setPasswordResult.Succeeded)
+            {
+                // Show error message
+                return;
+            }
+        }
+
+        var result = await UserManager.UpdateAsync(user);
+        if (result.Succeeded)
+        {
+            //await SignInManager.RefreshSignInAsync(user);
+            // Show success message
+        }
+        else
+        {
+            // Show error message
+        }
+    }
+
+    private sealed class InputModel
+    {
+        [Display(Name = "Email")]
+        public string? Email { get; set; }
+
+        [Display(Name = "Phone number")]
+        public string? PhoneNumber { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Current password")]
+        public string? OldPassword { get; set; }
+
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 1)]
+        [DataType(DataType.Password)]
+        [Display(Name = "New password")]
+        public string? NewPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm new password")]
+        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        public string? ConfirmPassword { get; set; }
+
+        [Display(Name = "External Auth Id")]
+        public string? ExternalAuthId { get; set; }
+    }
+}
