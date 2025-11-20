@@ -5,35 +5,31 @@
 <div data-inspector-view-template class="accordion my-3">
     <div class="accordion-item flux-inspector @GetStateClass()">
         <button class="accordion-button @(_accordionOpen ? "active" : null)" type="button" @onclick="() => _accordionOpen = !_accordionOpen">
-            <p class="overflow-visible my-auto">@NameWithUnit</p>
+            <p class="my-auto flex-shrink-0">@NameWithUnit</p>
 
             <div class="flex flex-row items-center justify-end w-full mx-2 gap-2">
-                @if (!_accordionOpen)
+                @if (IsAnalogInspectorData())
                 {
-                    @if (IsAnalogInspectorData())
-                    {
-                        <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMin" Presentation="@Presentation" />
-                        <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
-                        <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMax" Presentation="@Presentation" />
-                    }
-                    else if (IsDigitalInspectorData())
-                    {
-                        <RenderableContentControl Context="((AxoDigitalInspectorData)Data).RequiredStatus" Presentation="@Presentation" />
-                        <RenderableContentControl Context="((AxoDigitalInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
-                    }
-                    else if (IsDataInspectorData())
-                    {
-                        <RenderableContentControl Context="((AxoDataInspectorData)Data).RequiredStatus" Presentation="@Presentation" />
-                        <RenderableContentControl Context="((AxoDataInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
-                        <RenderableContentControl Context="((AxoDataInspectorData)Data).StarNotationEnabled" Presentation="@Presentation" />
-                    }
-                    else
-                    {
-                        <p>Cannot render, unspecified inspector type</p>
-                    }
+                    <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMin" Presentation="@Presentation" />
+                    <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
+                    <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMax" Presentation="@Presentation" />
                 }
-
-                <GenericIconView Result="@Result" />
+                else if (IsDigitalInspectorData())
+                {
+                    <RenderableContentControl Context="((AxoDigitalInspectorData)Data).RequiredStatus" Presentation="@Presentation" />
+                    <RenderableContentControl Context="((AxoDigitalInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
+                }
+                else if (IsDataInspectorData())
+                {
+                    <RenderableContentControl Context="((AxoDataInspectorData)Data).RequiredStatus" Presentation="@Presentation" />
+                    <RenderableContentControl Context="((AxoDataInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
+                    <RenderableContentControl Context="((AxoDataInspectorData)Data).StarNotationEnabled" Presentation="@Presentation" />
+                }
+                else
+                {
+                    <p>Cannot render, unspecified inspector type</p>
+                }
+                <GenericIconView Result="@Result" Class="my-2" />
             </div>
 
             <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-auto my-auto icon-button-rotate " + (_accordionOpen ? "rotated" : null))" />
@@ -47,37 +43,14 @@
         @if (_accordionOpen)
         {
             <div class="accordion-body">
-                <div class="flex flex-row my-1 gap-4">
-                    @if (IsAnalogInspectorData())
-                    {
-                        <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMin" Presentation="@Presentation" Class="w-1/3" />
-                        <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).DetectedStatus" Presentation="@Presentation" Class="w-1/3" />
-                        <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMax" Presentation="@Presentation" Class="w-1/3" />
-                    }
-                    else if (IsDigitalInspectorData())
-                    {
-                        <RenderableContentControl Context="((AxoDigitalInspectorData)Data).RequiredStatus" Presentation="@Presentation" Class="w-1/2" />
-                        <RenderableContentControl Context="((AxoDigitalInspectorData)Data).DetectedStatus" Presentation="@Presentation" Class="w-1/2" />
-                    }
-                    else if (IsDataInspectorData())
-                    {
-                        <RenderableContentControl Context="((AxoDataInspectorData)Data).RequiredStatus" Presentation="@Presentation" Class="w-1/3" />
-                        <RenderableContentControl Context="((AxoDataInspectorData)Data).DetectedStatus" Presentation="@Presentation" Class="w-1/3" />
-                        <RenderableContentControl Context="((AxoDataInspectorData)Data).StarNotationEnabled" Presentation="@Presentation" Class="w-1/3" />
-                    }
-                    else
-                    {
-                        <p>Cannot render, unspecified inspector type</p>
-                    }
-                </div>
-                <div class="my-2">
-                    <GenericInspectorDataView Data="@Data" Presentation="@Presentation" />
-                </div>
-                <div class="flex flex-row items-center justify-end my-1 gap-4">
-                    <RenderableContentControl Context="@Data.IsByPassed" Presentation="@Presentation" />
-                    <RenderableContentControl Context="@Data.IsExcluded" Presentation="@Presentation" />
-                    <RenderableContentControl Context="@Data.Failure" Presentation="@Presentation" />
-                    <RenderableContentControl Context="@Data.ErrorCode" Presentation="@Presentation" />
+                <GenericInspectorDataView Data="@Data" Presentation="@Presentation" />
+                <div class="flex flex-row items-center mt-2 gap-4">
+                    <div class="flex flex-wrap flex-row w-1/3">
+                        <RenderableContentControl Context="@Data.IsByPassed" Presentation="@Presentation" Class="grow" />
+                        <RenderableContentControl Context="@Data.IsExcluded" Presentation="@Presentation" Class="grow" />
+                    </div>
+                    <RenderableContentControl Context="@Data.Failure" Presentation="@Presentation" Class="w-1/3 card p-2" />
+                    <RenderableContentControl Context="@Data.ErrorCode" Presentation="@Presentation" Class="w-1/3 card p-2" />
                 </div>
             </div>
         }

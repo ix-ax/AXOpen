@@ -1,48 +1,53 @@
 ﻿@namespace AXOpen.Core
 @using AXSharp.Connector;
-@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Authorization;
+@using Microsoft.AspNetCore.Components.Web;
+@using Operon.Icons;
 @inherits RenderableComplexComponentBase<AxoTask>
 @implements IDisposable;
 
 <button data-axo-task-view type="button"
-        class="btn btn-primary text-sm! font-semibold! uppercase gap-4 justify-between @Class"
+        aria-disabled="@IsDisabled"
+        class="btn btn-primary text-sm! font-semibold! uppercase gap-4 flex items-center transition-all duration-200 disabled:bg-slate-300 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none disabled:saturate-50 disabled:contrast-75 disabled:cursor-not-allowed disabled:ring-0 disabled:ring-offset-0 disabled:opacity-100 @Class"
         style="@Style"
         @onclick="this.InvokeTask"
-        disabled="@(this.Disable || this.Component.IsDisabled.LastValue)">
-    <span class="flex flex-wrap items-center justify-center w-5 h-5" aria-hidden="true">
+        disabled="@IsDisabled">
+    <span class="flex items-center justify-center w-5 h-5 shrink-0 @((IsDisabled ? "text-slate-500/80" : "text-current"))" aria-hidden="true">
         @if (State == eAxoTaskState.Ready)
         {
-            <span class="inline-flex items-center justify-center w-full h-full rounded-full border-2 border-border"></span>
+            <span class="inline-flex items-center justify-center w-full h-full rounded-full border-2 border-current @((IsDisabled ? "border-dashed opacity-70" : "border-solid"))"></span>
         }
         else if (State == eAxoTaskState.Kicking)
         {
-            <span class="inline-flex items-center justify-center w-full h-full rounded-full border-2 border-border border-dashed animate-pulse"></span>
+            <span class="inline-flex items-center justify-center w-full h-full rounded-full border-2 border-current border-dashed animate-pulse @((IsDisabled ? "opacity-70" : string.Empty))"></span>
         }
         else if (State == eAxoTaskState.Busy)
         {
-            <span class="inline-flex items-center justify-center w-full h-full rounded-full border-t-2 border-text animate-spin"></span>
+            <span class="inline-flex items-center justify-center w-full h-full rounded-full border-t-2 border-current animate-spin @((IsDisabled ? "animate-none border-dashed opacity-70" : string.Empty))"></span>
         }
         else if (State == eAxoTaskState.Done)
         {
-            <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+            <HeroIcon Icon="check" Type="IconType.Outline" Class="@StatusHeroIconClass" />
         }
         else if (State == eAxoTaskState.Error)
         {
-            <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+            <HeroIcon Icon="x-mark" Type="IconType.Outline" Class="@StatusHeroIconClass" />
         }
     </span>
-    @Description
+    <span class="flex-1 text-center px-2">@Description</span>
     
     @if (!HideRestoreButton)
     {
-        <button type="button"
-                class="justify-center items-center ps-4 cursor-pointer"
-                title="Reset task"
-                @onclick="@OnRestoreClick"
-                @onclick:stopPropagation="true">
-            <span class="hidden">Restore</span>
-            <Operon.Icons.HeroIcon Icon="arrow-path" Type="Operon.Icons.IconType.Solid" Class="size-5 text-text/60 hover:text-text" />
-        </button>
+          <span role="button"
+              tabindex="0"
+              class="flex items-center justify-center w-5 h-5 shrink-0 text-text/60 hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary @((IsDisabled ? "opacity-60 text-slate-500 pointer-events-none" : string.Empty))"
+              title="Reset task"
+              @onclick="@OnRestoreClick"
+              @onclick:stopPropagation="true"
+              @onkeydown="OnRestoreKeyDown">
+            <span class="sr-only">Restore</span>
+            <HeroIcon Icon="arrow-path" Type="IconType.Solid" Class="size-5" />
+        </span>
     }
 </button>
 
@@ -63,4 +68,14 @@
         // Stop propagation is handled in the markup with @onclick:stopPropagation
         this.RestoreTask();
     }
+
+    private void OnRestoreKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" || e.Key == " ")
+        {
+            RestoreTask();
+        }
+    }
+
+    private string StatusHeroIconClass => $"size-5 {(IsDisabled ? "opacity-60" : string.Empty)}";
 }

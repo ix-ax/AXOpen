@@ -9,18 +9,20 @@
 @inherits RenderableComplexComponentBase<AxoComponent>
 
 <div data-axo-component-view class="card m-2 @AlarmBorderClass">
-    <!-- Header Section -->
-    <div class="card-title w-full flex flex-row justify-between">
-        <h5>@Component.AttributeName</h5>
+    @if(!HideHeader)
+    {
+        <!-- Header Section -->
+        <div class="card-title w-full flex flex-row justify-between">
+            <h5>@Component.AttributeName</h5>
 
-        @if (_alarmCount > 0)
-        {
-            <button class="badge @AlarmBadgeClass" @onclick="() => { _showAlarms = !_showAlarms; }" title="@_alarmCount @(_alarmCount != 1 ? "s" : "") active">
-                @(_alarmCount > 0 ? $"{_alarmCount} Active Alarm{(_alarmCount != 1 ? "s" : "")}" : "No Alarms")
-            </button>
-        }
-    </div>
-
+            @if (_alarmCount > 0)
+            {
+                <button class="badge @AlarmBadgeClass" @onclick="() => { _showAlarms = !_showAlarms; }" title="@_alarmCount @(_alarmCount != 1 ? "s" : "") active">
+                    @(_alarmCount > 0 ? $"{_alarmCount} Active Alarm{(_alarmCount != 1 ? "s" : "")}" : "No Alarms")
+                </button>
+            }
+        </div>
+    }
     <!-- Alarms Panel (Collapsible) -->
     @if (_showAlarms && _alarmCount > 0 && _messageProvider?.Messengers != null)
     {
