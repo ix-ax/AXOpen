@@ -186,8 +186,8 @@ namespace AXOpen.Core.Blazor
         {
             HeaderActive = true;
             DetailsActive = false;
-            CommandsActive = false;           
-            StateActive = false;
+            CommandsActive = true;           
+            StateActive = true;
             ServiceViewActive = false;
             StateHasChanged();
         }
