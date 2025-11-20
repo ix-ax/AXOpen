@@ -2,6 +2,8 @@ Templates:
   Modules:
   - Name: 'Cognex_Insight2800_empty_slot'
     Placeholders:
+      - Name: 'ModuleName'
+        Optional: TRUE    
       - Name: 'SLOT'
         Value: 8
         AllowedValues:
