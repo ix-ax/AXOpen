@@ -5,7 +5,7 @@
             <div @onpointerdown="Down"
                  @onpointerup="Up"
                  @onwheel="Wheel"
-                 style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale)); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex; @(Origin.Width == -1 ? "max-width:50rem;" : "") @(Origin.Height == -1 ? "max-height:30rem;" : "")">
+                 style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale)) rotate(@(Origin.Rotate)deg); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex; @(Origin.Width == -1 ? "max-width:50rem;" : "") @(Origin.Height == -1 ? "max-height:30rem;" : "")">
                 <div class="@(Origin.Background ? "simple-border" : null)" style="@(Origin.Background ? "background-color: " + @Origin.BackgroundColor + "; border-color: " + @Origin.BackgroundColor + " !important;" : null)">
                     <RenderableContentControl @ref="renderableContentControlRcc"
                                               Context="@Origin.TwinElement"
@@ -21,7 +21,7 @@
         }
         else
         {
-            <div style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale)); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex; @(Origin.Width == -1 ? "max-width:50rem;" : "") @(Origin.Height == -1 ? "max-height:30rem;" : "")">
+            <div style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale)) rotate(@(Origin.Rotate)deg); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex; @(Origin.Width == -1 ? "max-width:50rem;" : "") @(Origin.Height == -1 ? "max-height:30rem;" : "")">
                 <div class="@(Origin.Background ? "simple-border" : null)" style="@(Origin.Background ? "background-color: " + @Origin.BackgroundColor + "; border-color: " + @Origin.BackgroundColor + " !important;" : null)">
                     <RenderableContentControl Context="@Origin.TwinElement"
                                               Presentation="@Origin.Presentation.ToString()"
@@ -36,7 +36,7 @@
         @if (Origin.Roles != null && Origin.Roles != "")
         {
             <AuthorizeView Roles="@Origin.Roles" Context="SecondAuthorizeView">
-                <div style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale)); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex; @(Origin.Width == -1 ? "max-width:50rem;" : "") @(Origin.Height == -1 ? "max-height:30rem;" : "")">
+                <div style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale)) rotate(@(Origin.Rotate)deg); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex; @(Origin.Width == -1 ? "max-width:50rem;" : "") @(Origin.Height == -1 ? "max-height:30rem;" : "")">
                     <div class="@(Origin.Background ? "simple-border" : null)" style="@(Origin.Background ? "background-color: " + @Origin.BackgroundColor + "; border-color: " + @Origin.BackgroundColor + " !important;" : null)">
                         <RenderableContentControl Context="@Origin.TwinElement"
                                                   Presentation="@Origin.Presentation.ToString()"
@@ -49,7 +49,7 @@
         }
         else
         {
-            <div style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale)); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex; @(Origin.Width == -1 ? "max-width:50rem;" : "") @(Origin.Height == -1 ? "max-height:30rem;" : "")">
+            <div style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale)) rotate(@(Origin.Rotate)deg); translate: @(Origin.Transform.X)% @(Origin.Transform.Y)%; width: @(Origin.Width != -1 ? Origin.Width + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height + "rem" : "max-content"); z-index: @Origin.ZIndex; @(Origin.Width == -1 ? "max-width:50rem;" : "") @(Origin.Height == -1 ? "max-height:30rem;" : "")">
                 <div class="@(Origin.Background ? "simple-border" : null)" style="@(Origin.Background ? "background-color: " + @Origin.BackgroundColor + "; border-color: " + @Origin.BackgroundColor + " !important;" : null)">
                     <RenderableContentControl Context="@Origin.TwinElement"
                                               Presentation="@Origin.Presentation.ToString()"
