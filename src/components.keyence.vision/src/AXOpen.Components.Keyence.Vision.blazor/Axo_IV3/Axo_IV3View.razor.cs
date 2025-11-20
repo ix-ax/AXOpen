@@ -17,7 +17,9 @@ using System.Threading.Tasks;
 namespace AXOpen.Components.Keyence.Vision
 {
     public partial class Axo_IV3View : AxoComponentViewBase<Axo_IV3>
-    {            
+    {
+
+        private string GetLiveViewUrl => $"http://{Component.DeviceIpAddress}/iv3-wm-i.html";
         protected bool IsReady => Component.Inputs.CommandStatusBits.Ready.Cyclic;
         protected bool IsBusy => Component.Inputs.CommandStatusBits.BUSY.Cyclic;
         protected bool IsImaging => Component.Inputs.CommandStatusBits.ImagingStatus.Cyclic;
