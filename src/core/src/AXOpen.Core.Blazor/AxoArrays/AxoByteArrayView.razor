@@ -51,7 +51,7 @@
                         {
                             <div class="input-group">
                                 <label>@item.Index</label>
-                                <input type="text" @bind="item.Data" maxlength="@MaxLen" class="w-20!" />
+                                <input type="text" @bind="item.Data" maxlength="@MaxLen" style="width: calc(var(--spacing) * 9 + var(--spacing) * 2 * @MaxLen) !important;" />
                             </div>
                         }
                     }
