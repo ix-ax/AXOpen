@@ -538,6 +538,24 @@ namespace AXOpen.VisualComposer.Components
             //}
         }
 
+        private bool? _controllerObjectsSortAscending { get; set; } = null;
+
+        private void ToggleControllerObjectsSort()
+        {
+            if (_controllerObjectsSortAscending == null)
+                _controllerObjectsSortAscending = true;
+            else if (_controllerObjectsSortAscending == true)
+                _controllerObjectsSortAscending = false;
+            else if (_controllerObjectsSortAscending == false)
+                _controllerObjectsSortAscending = null;
+
+            // Apply sorting
+            if (_controllerObjectsSortAscending != null)
+            {
+                _searchResult = _controllerObjectsSortAscending == true ? _searchResult.OrderBy(item => item.Symbol ?? string.Empty).ToList() : _searchResult.OrderByDescending(item => item.Symbol ?? string.Empty).ToList();
+            }
+        }
+
         private bool _isFileImported { get; set; } = false;
         private bool _isFileImporting { get; set; } = false;
 
