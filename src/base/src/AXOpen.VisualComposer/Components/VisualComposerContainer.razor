@@ -174,8 +174,14 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="flex flex-wrap">
+                    <div class="flex flex-wrap items-center">
                         <BaseInput @bind-Value="_searchValue" Placeholder="Search" Class="flex-1" />
+                        @if (!string.IsNullOrEmpty(_searchValue))
+                        {
+                            <div class="mx-2 cursor-pointer" @onclick="ToggleControllerObjectsSort">
+                                <Operon.Icons.HeroIcon Icon="@(_controllerObjectsSortAscending == null ? "minus" : _controllerObjectsSortAscending == true ? "chevron-up" : "chevron-down")" Type="Operon.Icons.IconType.Outline" Class="size-4" />
+                            </div>
+                        }
                         <button type="button" class="btn btn-primary" @onclick="Search">Search</button>
                     </div>
                     @if (_searchValue is null || _searchResult is null)
