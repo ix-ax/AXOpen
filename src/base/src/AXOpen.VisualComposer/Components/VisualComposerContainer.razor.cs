@@ -144,7 +144,7 @@ namespace AXOpen.VisualComposer.Components
         {
             if (_useOption)
             {
-                _items.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), item, _options.Left, _options.Top, _options.Transform, _options.Presentation, _options.Width, _options.Height, _options.ZIndex, _options.Scale, _options.Roles, _options.PresentationTemplate, _options.Background, _options.BackgroundColor, _options.PollingInterval));
+                _items.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), item, _options.Left, _options.Top, _options.Transform, _options.Presentation, _options.Width, _options.Height, _options.ZIndex, _options.Scale, _options.Rotate, _options.Roles, _options.PresentationTemplate, _options.Background, _options.BackgroundColor, _options.PollingInterval));
 
                 if (_optionsMove)
                 {

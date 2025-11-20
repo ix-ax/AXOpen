@@ -14,6 +14,7 @@ namespace AXOpen.VisualComposer.Serializing
         public double Height { get; set; }
         public int ZIndex { get; set; }
         public double Scale { get; set; }
+        public double Rotate { get; set; }
         public string Roles { get; set; }
         public string PresentationTemplate { get; set; }
         public bool Background { get; set; }
@@ -33,7 +34,8 @@ namespace AXOpen.VisualComposer.Serializing
             double width, 
             double height, 
             int zIndex, 
-            double scale, 
+            double scale,
+            double rotate,
             string roles, 
             string presentationTemplate, 
             bool background, 
@@ -49,6 +51,7 @@ namespace AXOpen.VisualComposer.Serializing
             Height = height;
             ZIndex = zIndex;
             Scale = scale;
+            Rotate = rotate;
             Roles = roles;
             PresentationTemplate = presentationTemplate;
             Background = background;
@@ -67,6 +70,7 @@ namespace AXOpen.VisualComposer.Serializing
             Height = item.Height;
             ZIndex = item.ZIndex;
             Scale = item.Scale;
+            Rotate = item.Rotate;
             Roles = item.Roles;
             PresentationTemplate = item.PresentationTemplate;
             Background = item.Background;
