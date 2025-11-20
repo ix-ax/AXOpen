@@ -58,6 +58,10 @@ namespace AXOpen.VisualComposer.Components
         private double _optionsMoveRight { get; set; } = 15;
         private bool _customPresentation { get; set; } = false;
 
+        // Watch table filtering and sorting
+        private string? _watchTableFilter { get; set; } = null;
+        private bool? _watchTableSortAscending { get; set; } = null;
+
         public bool IsDesign 
         {
             get { return _inDesignMode; }
@@ -691,6 +695,35 @@ namespace AXOpen.VisualComposer.Components
             else if (location == SaveLocationType.Local)
                 return "bg-cyan-50";
             return "";
+        }
+
+        private void ToggleSort()
+        {
+            if (_watchTableSortAscending == null)
+                _watchTableSortAscending = true;
+            else if (_watchTableSortAscending == true)
+                _watchTableSortAscending = false;
+            else if(_watchTableSortAscending == false)
+                _watchTableSortAscending = null;
+        }
+
+        private IEnumerable<VisualComposerItemData> GetFilteredAndSortedItems()
+        {
+            var filtered = _items.AsEnumerable();
+
+            // Apply filter
+            if (!string.IsNullOrEmpty(_watchTableFilter))
+            {
+                filtered = filtered.Where(item => item.TwinElement?.Symbol?.Contains(_watchTableFilter, StringComparison.OrdinalIgnoreCase) == true);
+            }
+
+            // Apply sorting
+            if (_watchTableSortAscending != null)
+            {
+                filtered = _watchTableSortAscending == true ? filtered.OrderBy(item => item.TwinElement?.Symbol ?? string.Empty) : filtered.OrderByDescending(item => item.TwinElement?.Symbol ?? string.Empty);
+            }
+
+            return filtered;
         }
 
         public class Size
