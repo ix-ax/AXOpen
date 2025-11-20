@@ -43,19 +43,19 @@
         </button>
     </div>
     <div class="modal-body flex flex-wrap flex-row justify-center">
-        <div class="grow-1 min-vh-40 me-4">
+        <div class="grow-1 me-4">
             <h5>@Localizer["Available roles:"]</h5>
             <BaseInput @bind-Value="SelectAllAvailable" Label="@Localizer["Select all"]" />
 
-            <div class="">
+            <div class="flex flex-wrap flex-col simple-border p-2 mt-1 min-h-40 gap-1" @ondrop="@(() => HandleDrop(false))" @ondragover:preventDefault="true" @ondragenter:preventDefault="true">
                 @if (AvailableRoles != null)
                 {
-                    <div class="p-2">
-                        @foreach (var role in AvailableRoles)
-                        {
+                    @foreach (var role in AvailableRoles)
+                    {
+                        <div class="card px-2 py-1 cursor-move hover:bg-background/40!" draggable="true" @ondragstart="@(() => HandleDragStart(role))">
                             <BaseInput @bind-Value="role.IsSelected" Label="@role.Role.Name" />
-                        }
-                    </div>
+                        </div>
+                    }
                 }
             </div>
         </div>
@@ -67,19 +67,19 @@
                 <Operon.Icons.HeroIcon Icon="arrow-left" Type="Operon.Icons.IconType.Outline" Class="size-4" />
             </button>
         </div>
-        <div class="grow-1 min-vh-40 ms-4">
+        <div class="grow-1 ms-4">
             <h5>@Localizer["Assigned roles:"]</h5>
             <BaseInput @bind-Value="SelectAllAssigned" Label="@Localizer["Select all"]" />
 
-            <div class="">
+            <div class="flex flex-wrap flex-col simple-border p-2 mt-1 min-h-40 gap-1" @ondrop="@(() => HandleDrop(true))" @ondragover:preventDefault="true" @ondragenter:preventDefault="true">
                 @if (AssignedRoles != null)
                 {
-                    <div class="p-2">
-                        @foreach (var role in AssignedRoles)
-                        {
+                    @foreach (var role in AssignedRoles)
+                    {
+                        <div class="card px-2 py-1 cursor-move hover:bg-background/40!" draggable="true" @ondragstart="@(() => HandleDragStart(role))">
                             <BaseInput @bind-Value="role.IsSelected" Label="@role.Role.Name" />
-                        }
-                    </div>
+                        </div>
+                    }
                 }
             </div>
         </div>
@@ -290,6 +290,74 @@
             }
             else return new GenericIdentity("Unknown");
         }
+    }
+
+    private RoleData? _draggedRole;
+
+    private void HandleDragStart(RoleData role)
+    {
+        _draggedRole = role;
+    }
+
+    private async void HandleDrop(bool isAssignedList)
+    {
+        if (_draggedRole == null)
+            return;
+
+        bool isCurrentlyAssigned = AssignedRoles.Contains(_draggedRole);
+
+        // If dropping in the same list, do nothing
+        if (isCurrentlyAssigned == isAssignedList)
+        {
+            _draggedRole = null;
+            return;
+        }
+
+        if (isAssignedList)
+        {
+            // Moving from Available to Assigned
+            var result = _roleGroupManager.AddRolesToGroup(SelectedGroup.Name, new[] { _draggedRole.Role.Name });
+            if (result.Succeeded)
+            {
+                AvailableRoles.Remove(_draggedRole);
+                AssignedRoles.Add(_draggedRole);
+                _draggedRole.IsSelected = false;
+
+                string msg = Localizer["Group \"{0}\" successfully updated.", SelectedGroup.Name];
+                _toastService?.AddToast(eToastType.Success, Localizer["Updated!"], msg, 10);
+                AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
+            }
+            else
+            {
+                string msg = Localizer["Group \"{0}\" was not updated!", SelectedGroup.Name] + $" {result.ToString()}";
+                _toastService?.AddToast(eToastType.Warning, Localizer["Not updated!"], msg, 10);
+                AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
+            }
+        }
+        else
+        {
+            // Moving from Assigned to Available
+            var result = _roleGroupManager.RemoveRolesFromGroup(SelectedGroup.Name, new[] { _draggedRole.Role.Name });
+            if (result.Succeeded)
+            {
+                AssignedRoles.Remove(_draggedRole);
+                AvailableRoles.Add(_draggedRole);
+                _draggedRole.IsSelected = false;
+
+                string msg = Localizer["Group \"{0}\" successfully updated.", SelectedGroup.Name];
+                _toastService?.AddToast(eToastType.Success, Localizer["Updated!"], msg, 10);
+                AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
+            }
+            else
+            {
+                string msg = Localizer["Group \"{0}\" was not updated!", SelectedGroup.Name] + $" {result.ToString()}";
+                _toastService?.AddToast(eToastType.Warning, Localizer["Not updated!"], msg, 10);
+                AxoApplication.Current.Logger.Warning(msg, await GetCurrentIdentity());
+            }
+        }
+
+        _draggedRole = null;
+        StateHasChanged();
     }
 
     private class RoleData
