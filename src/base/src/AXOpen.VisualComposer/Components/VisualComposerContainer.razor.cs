@@ -45,7 +45,6 @@ namespace AXOpen.VisualComposer.Components
         public SerializableView CurrentView { get; set; } = new SerializableView();
         private SerializableConfiguration? _serverStorageConfiguration { get; set; }
         private List<string> _serverStorageAllViews { get; set; } = new List<string>();
-        public const string SERVER_STORAGE_MAIN_DIR = "VisualComposerSerialize";
 
         public Size ElementSize { get; set; } = new Size();
         private Size _windowSize { get; set; } = new Size();
@@ -57,6 +56,15 @@ namespace AXOpen.VisualComposer.Components
         private double _optionsMoveBottom { get; set; } = 10;
         private double _optionsMoveRight { get; set; } = 15;
         private bool _customPresentation { get; set; } = false;
+
+        // Watch table filtering and sorting
+        private string? _watchTableFilter { get; set; } = null;
+        private bool? _watchTableSortAscending { get; set; } = null;
+
+        public bool IsDesign 
+        {
+            get { return _inDesignMode; }
+        }
 
         protected override void OnInitialized()
         {
@@ -248,8 +256,8 @@ namespace AXOpen.VisualComposer.Components
             {
                 _serverStorageAllViews.Remove(name);
 
-                if (File.Exists(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), name.CorrectFilePath() + ".json")))
-                    File.Delete(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), name.CorrectFilePath() + ".json"));
+                if (File.Exists(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath(), name.CorrectFilePath() + ".json")))
+                    File.Delete(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath(), name.CorrectFilePath() + ".json"));
             }
             else if (_localStorageData.ContainsKey(name))
             {
@@ -265,7 +273,7 @@ namespace AXOpen.VisualComposer.Components
                 if (_serverStorageConfiguration.DefaultView == name)
                     _serverStorageConfiguration.DefaultView = null;
 
-                await Serializing<SerializableConfiguration>.SerializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath() + ".json"), _serverStorageConfiguration);
+                await Serializing<SerializableConfiguration>.SerializeAsync(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath() + ".json"), _serverStorageConfiguration);
             }
 
             if (_currentViewName == name)
@@ -290,10 +298,10 @@ namespace AXOpen.VisualComposer.Components
 
             if (_serverStorageAllViews.Contains(_currentViewName))
             {
-                if (!Directory.Exists(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath())))
-                    Directory.CreateDirectory(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath()));
+                if (!Directory.Exists(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath())))
+                    Directory.CreateDirectory(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath()));
 
-                await Serializing<SerializableView>.SerializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), _currentViewName.CorrectFilePath() + ".json"), CurrentView);
+                await Serializing<SerializableView>.SerializeAsync(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath(), _currentViewName.CorrectFilePath() + ".json"), CurrentView);
             }
             else if(_localStorageData.ContainsKey(_currentViewName))
             {
@@ -303,7 +311,7 @@ namespace AXOpen.VisualComposer.Components
 
         private async Task LoadMainAsync()
         {
-            _serverStorageConfiguration = await Serializing<SerializableConfiguration>.DeserializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath() + ".json"));
+            _serverStorageConfiguration = await Serializing<SerializableConfiguration>.DeserializeAsync(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath() + ".json"));
             if (_serverStorageConfiguration == null)
                 _serverStorageConfiguration = new SerializableConfiguration(new List<string>(), null);
 
@@ -324,12 +332,12 @@ namespace AXOpen.VisualComposer.Components
         {
             List<string> files = new();
 
-            if (!Directory.Exists(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath())))
+            if (!Directory.Exists(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath())))
                 return files;
 
             try
             {
-                Directory.GetFiles(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath()), "*.json").ToList().ForEach(p => files.Add(Path.GetFileNameWithoutExtension(p)));
+                Directory.GetFiles(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath()), "*.json").ToList().ForEach(p => files.Add(Path.GetFileNameWithoutExtension(p)));
             }
             catch (Exception ex)
             {
@@ -348,7 +356,7 @@ namespace AXOpen.VisualComposer.Components
 
             SerializableView? deserializedData = null;
             if (_serverStorageAllViews.Contains(view))
-                deserializedData = await Serializing<SerializableView>.DeserializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), view.CorrectFilePath() + ".json"));
+                deserializedData = await Serializing<SerializableView>.DeserializeAsync(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath(), view.CorrectFilePath() + ".json"));
             else if (_localStorageData.ContainsKey(view))
                 deserializedData = _localStorageData[view];
 
@@ -385,13 +393,13 @@ namespace AXOpen.VisualComposer.Components
             if (oldType == SaveLocationType.Server && _serverStorageAllViews.Contains(view) && newSaveLocation == "Local")
             {
                 // Read
-                var deserializedData = await Serializing<SerializableView>.DeserializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), view.CorrectFilePath() + ".json"));
+                var deserializedData = await Serializing<SerializableView>.DeserializeAsync(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath(), view.CorrectFilePath() + ".json"));
 
                 // Remove
                 _serverStorageAllViews.Remove(view);
 
-                if (File.Exists(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), view.CorrectFilePath() + ".json")))
-                    File.Delete(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), view.CorrectFilePath() + ".json"));
+                if (File.Exists(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath(), view.CorrectFilePath() + ".json")))
+                    File.Delete(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath(), view.CorrectFilePath() + ".json"));
 
                 if(deserializedData != null)
                 {
@@ -417,10 +425,10 @@ namespace AXOpen.VisualComposer.Components
                     _serverStorageAllViews.Add(view);
 
                     // Save
-                    if (!Directory.Exists(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath())))
-                        Directory.CreateDirectory(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath()));
+                    if (!Directory.Exists(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath())))
+                        Directory.CreateDirectory(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath()));
 
-                    await Serializing<SerializableView>.SerializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath(), view.CorrectFilePath() + ".json"), data);
+                    await Serializing<SerializableView>.SerializeAsync(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath(), view.CorrectFilePath() + ".json"), data);
                 }
             }
 
@@ -450,7 +458,7 @@ namespace AXOpen.VisualComposer.Components
             else
                 _serverStorageConfiguration.Views.Add(view);
 
-            await Serializing<SerializableConfiguration>.SerializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath() + ".json"), _serverStorageConfiguration);
+            await Serializing<SerializableConfiguration>.SerializeAsync(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath() + ".json"), _serverStorageConfiguration);
         }
 
         private async Task ChangeDefaultViewAsync(string view)
@@ -460,7 +468,7 @@ namespace AXOpen.VisualComposer.Components
             if (!_serverStorageConfiguration.Views.Contains(view))
                 _serverStorageConfiguration.Views.Add(view);
 
-            await Serializing<SerializableConfiguration>.SerializeAsync(Path.Combine(SERVER_STORAGE_MAIN_DIR, Id.CorrectFilePath() + ".json"), _serverStorageConfiguration);
+            await Serializing<SerializableConfiguration>.SerializeAsync(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath() + ".json"), _serverStorageConfiguration);
         }
 
         private string? _searchValue { get; set; } = null;
@@ -530,6 +538,24 @@ namespace AXOpen.VisualComposer.Components
             //}
         }
 
+        private bool? _controllerObjectsSortAscending { get; set; } = null;
+
+        private void ToggleControllerObjectsSort()
+        {
+            if (_controllerObjectsSortAscending == null)
+                _controllerObjectsSortAscending = true;
+            else if (_controllerObjectsSortAscending == true)
+                _controllerObjectsSortAscending = false;
+            else if (_controllerObjectsSortAscending == false)
+                _controllerObjectsSortAscending = null;
+
+            // Apply sorting
+            if (_controllerObjectsSortAscending != null)
+            {
+                _searchResult = _controllerObjectsSortAscending == true ? _searchResult.OrderBy(item => item.Symbol ?? string.Empty).ToList() : _searchResult.OrderByDescending(item => item.Symbol ?? string.Empty).ToList();
+            }
+        }
+
         private bool _isFileImported { get; set; } = false;
         private bool _isFileImporting { get; set; } = false;
 
@@ -540,18 +566,18 @@ namespace AXOpen.VisualComposer.Components
 
             try
             {
-                if (!Directory.Exists("wwwroot/Images/"))
-                    Directory.CreateDirectory("wwwroot/Images/");
+                if (!Directory.Exists(Settings.VisualComposerImagesSerializeFolderPath))
+                    Directory.CreateDirectory(Settings.VisualComposerImagesSerializeFolderPath);
 
                 string newName = _currentViewName + Path.GetExtension(e.File.Name);
 
-                if (!Directory.Exists("wwwroot/Images/VisualComposerSerialize/" + Id.CorrectFilePath()))
-                    Directory.CreateDirectory("wwwroot/Images/VisualComposerSerialize/" + Id.CorrectFilePath());
+                if (!Directory.Exists(Settings.VisualComposerImagesSerializeFolderPath + "/" + Id.CorrectFilePath()))
+                    Directory.CreateDirectory(Settings.VisualComposerImagesSerializeFolderPath + "/" + Id.CorrectFilePath());
 
-                await using FileStream fs = new("wwwroot/Images/VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + newName.CorrectFilePath(), FileMode.Create);
+                await using FileStream fs = new(Settings.VisualComposerImagesSerializeFolderPath + "/" + Id.CorrectFilePath() + "/" + newName.CorrectFilePath(), FileMode.Create);
                 await e.File.OpenReadStream().CopyToAsync(fs);
 
-                CurrentView.ImgSrc = "Images/VisualComposerSerialize/" + Id.CorrectFilePath() + "/" + newName.CorrectFilePath();
+                CurrentView.ImgSrc = Settings.VisualComposerImagesSerializeName + "/" + Id.CorrectFilePath() + "/" + newName.CorrectFilePath();
 
                 var dimensions = await GetImageDimensions(CurrentView.ImgSrc);
                 CurrentView.BackgroundWidth = dimensions.Width;
@@ -618,6 +644,10 @@ namespace AXOpen.VisualComposer.Components
 
         public Modal DetailsModalWindow { get; set; }
 
+        public RenderFragment ModalHeaderContent { get; set; }
+
+        public RenderFragment ModalBodyContent { get; set; }
+        
         private RenderFragment RenderableContentControlFragment => builder =>
         {
             builder.OpenComponent<RenderableContentControl>(0);
@@ -637,12 +667,24 @@ namespace AXOpen.VisualComposer.Components
         /// <returns></returns>
         public async Task OpenDetails(ITwinElement element, string presentationType = "Status-Display")
         {
-            await Task.Run(() => { 
+            await Task.Run(() => {                
                 DetailsContext = element;
                 DetailsPresentationType = presentationType;
+                DetailsModalWindow.Toggle();                
+            });
+
+            this.StateHasChanged();
+        }
+
+        public async Task OpenDetails(RenderFragment headerContent, RenderFragment bodyContent)
+        {
+            await Task.Run(() => {
+                ModalHeaderContent = headerContent;
+                ModalBodyContent = bodyContent;
                 DetailsModalWindow.Toggle();
             });
 
+            this.StateHasChanged();
         }
 
         private void Move(PointerEventArgs eventArgs)
@@ -670,6 +712,35 @@ namespace AXOpen.VisualComposer.Components
             else if (location == SaveLocationType.Local)
                 return "bg-cyan-50";
             return "";
+        }
+
+        private void ToggleSort()
+        {
+            if (_watchTableSortAscending == null)
+                _watchTableSortAscending = true;
+            else if (_watchTableSortAscending == true)
+                _watchTableSortAscending = false;
+            else if(_watchTableSortAscending == false)
+                _watchTableSortAscending = null;
+        }
+
+        private IEnumerable<VisualComposerItemData> GetFilteredAndSortedItems()
+        {
+            var filtered = _items.AsEnumerable();
+
+            // Apply filter
+            if (!string.IsNullOrEmpty(_watchTableFilter))
+            {
+                filtered = filtered.Where(item => item.TwinElement?.Symbol?.Contains(_watchTableFilter, StringComparison.OrdinalIgnoreCase) == true);
+            }
+
+            // Apply sorting
+            if (_watchTableSortAscending != null)
+            {
+                filtered = _watchTableSortAscending == true ? filtered.OrderBy(item => item.TwinElement?.Symbol ?? string.Empty) : filtered.OrderByDescending(item => item.TwinElement?.Symbol ?? string.Empty);
+            }
+
+            return filtered;
         }
 
         public class Size

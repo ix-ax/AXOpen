@@ -1,0 +1,89 @@
+.drive-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background-color: rgba(15, 23, 42, 0.35);
+    backdrop-filter: blur(6px);
+}
+
+.section-header h6 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: rgba(241, 245, 249, 0.95);
+}
+
+.section-header p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: rgba(148, 163, 184, 0.9);
+}
+
+.tasks-grid {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.metric-pill {
+    display: flex;
+    flex-direction: column;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    background-color: rgba(148, 163, 184, 0.2);
+    color: rgba(15, 23, 42, 0.85);
+    font-weight: 500;
+}
+
+.metric-pill span {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(15, 23, 42, 0.7);
+}
+
+.metric-pill strong {
+    font-size: 0.85rem;
+    color: rgba(15, 23, 42, 0.9);
+}
+
+.drive-spot {
+    width: 100%;
+    border-radius: 0.85rem;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    padding: 0.85rem 1rem;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.15));
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.drive-spot__state {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(248, 250, 252, 0.85);
+}
+
+.drive-spot__metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.drive-spot__metric p {
+    margin: 0;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: rgba(226, 232, 240, 0.85);
+}
+
+.drive-spot__metric strong {
+    font-size: 1rem;
+    color: rgba(248, 250, 252, 0.95);
+}

@@ -41,9 +41,15 @@ namespace AXOpen.Core
         [Parameter]
         public bool Disable { get; set; }
 
+        [Parameter]
+        public string? Text { get; set; }
+
+        [Parameter]
+        public bool HideRestoreButton { get; set; } = false;
+
         public bool IsDisabled => Disable || Component.IsDisabled.Cyclic;
 
-        public string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
+        public string Description => !string.IsNullOrEmpty(Text) ? Text : (string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName);
         public override void ConfigurePolling()
         {
             this.StartPolling(Component.IsDisabled);

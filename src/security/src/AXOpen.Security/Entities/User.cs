@@ -16,15 +16,17 @@ namespace AxOpen.Security.Entities
         public uint AutoLogOutTimeOutMinutes { get; set; }
         public string? ExternalAuthId { get; set; }
 
-        public User(string username, string email, string group, bool canUserChangePassword, bool enableAutoLogOut, uint autoLogOutTimeOutMinutes)
+        public User(string username, string email, string phoneNumber, string group, bool canUserChangePassword, string externalAuthId, bool enableAutoLogOut, uint autoLogOutTimeOutMinutes)
         {
             var normalizer = new UpperInvariantLookupNormalizer();
             UserName = username;
             NormalizedUserName = normalizer.NormalizeName(UserName);
             Email = email;
+            PhoneNumber = phoneNumber;
             NormalizedEmail = normalizer.NormalizeEmail(email);
             Group = group;
             CanUserChangePassword = canUserChangePassword;
+            ExternalAuthId = externalAuthId;
             Id = Guid.NewGuid().ToString();
             Created = DateTime.Now;
             Modified = DateTime.Now;
