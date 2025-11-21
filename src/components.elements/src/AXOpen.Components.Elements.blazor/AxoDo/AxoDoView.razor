@@ -1,0 +1,82 @@
+@namespace AXOpen.Components.Elements
+@using AXOpen.Core
+@using AXOpen.Core.Blazor
+@using AXSharp.Presentation.Blazor.Controls
+@using AXSharp.Presentation.Blazor.Controls.RenderableContent
+@inherits AxoComponentViewBase<AxoDo>
+
+<AxoComponentContainerView Component="@Component" ParentReference="this">
+    <HeaderContent>
+        <div class="flex items-center gap-3" @onclick:stopPropagation="true">
+            <span class="@SignalBadgeClass">@SignalStateLabel</span>
+            <span class="text-xs uppercase tracking-wide text-text/70">@SignalHint</span>
+        </div>
+    </HeaderContent>
+    <CommandsContent>
+        <div class="flex flex-col gap-3 w-full" @onclick:stopPropagation="true">
+            <div class="flex flex-wrap gap-3">
+                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="Switch ON" Component="Component._setTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="Switch OFF" Component="Component._resetTask" HideRestoreButton="false"></AxoTaskCommandView>
+            </div>            
+        </div>
+    </CommandsContent>
+
+    <StatusContent>
+        <div class="flex flex-col gap-3 w-full" @onclick:stopPropagation="true">
+            <div class="flex flex-wrap gap-3">
+                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="Switch ON" Component="Component._setTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="Switch OFF" Component="Component._resetTask" HideRestoreButton="false"></AxoTaskStatusView>
+            </div>           
+        </div>
+    </StatusContent>
+    <StateContent>  
+        <div class="flex flex-col gap-3" @onclick:stopPropagation="true">
+            <div class="axo-do-state-card">
+                <div>
+                    <p class="text-xs uppercase tracking-wide text-text/60">Signal</p>
+                    <p class="text-lg font-semibold">@SignalStateLabel</p>
+                    <p class="text-sm text-text/70">@SignalDetail</p>
+                </div>
+                <span class="@SignalIndicatorClass" aria-hidden="true"></span>
+            </div>                  
+        </div>
+    </StateContent>
+    <SpotContent>        
+        <button type="button" class="axo-do-spot">           
+            <span class="@SpotIndicatorClass" aria-hidden="true"></span>            
+        </button>
+    </SpotContent>
+</AxoComponentContainerView>
+
+@code
+{      
+    protected bool IsSignalHigh => Component?._signal?.Cyclic ?? false;
+
+    protected string SignalStateLabel => IsSignalHigh ? "Signal ON" : "Signal OFF";
+
+    protected string SignalHint => IsSignalHigh
+        ? "Output is active"
+        : "Output is inactive";
+
+    protected string SignalDetail => IsSignalHigh
+        ? "Output is energized"
+        : "Output is de-energized";
+
+    protected string SignalBadgeClass => $"badge text-xs font-semibold tracking-wide {(IsSignalHigh ? "badge-success" : "badge-ghost text-slate-400 bg-slate-700/40 border border-slate-500/40")}";
+
+    protected string SignalIndicatorClass => $"axo-do-signal-indicator {(IsSignalHigh ? "axo-do-signal-indicator--on" : "axo-do-signal-indicator--off")}";
+
+    protected string SpotIndicatorClass => $"axo-do-spot-indicator {(IsSignalHigh ? "axo-do-spot-indicator--on" : "axo-do-spot-indicator--off")}";
+
+    public override async void ConfigurePolling()
+    {        
+        if (Component is null)
+        {
+            return;
+        }
+
+        this.StartPolling(Component._signal);
+        this.StartPolling(Component._setTask.Status);
+        this.StartPolling(Component._resetTask.Status);
+    }
+}
