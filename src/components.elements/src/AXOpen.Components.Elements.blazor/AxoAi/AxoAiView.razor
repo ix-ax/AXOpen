@@ -36,6 +36,7 @@
             <div class="bg-background/80 rounded-xl p-4">
                 <div class="flex-1">                    
                     <p class="text-lg font-semibold">@ScaledValue.ToString("F2")</p>
+                <p class="text-lg font-semibold">[@Component.Units]</p>
                 </div>
                 <div class="flex-1 flex flex-col justify-center">
                     <progress class="progress progress-primary w-full" value="@((ScaledValue - RealLow))" max="@((RealHigh - RealLow))"></progress>
