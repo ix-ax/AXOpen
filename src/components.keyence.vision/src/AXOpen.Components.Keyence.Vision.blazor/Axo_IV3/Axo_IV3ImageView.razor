@@ -10,13 +10,22 @@
     @if (!string.IsNullOrEmpty(_modifiedHtml))
     {
         <div style="width: 100%; aspect-ratio: 4/3; overflow: hidden; pointer-events: none;">
-            <iframe srcdoc="@_modifiedHtml"
+            <iframe src="@GetLiveViewUrl"
                     style="width:100%; height:100%; border:none; pointer-events: none;"
                     scrolling="no"
                     loading="lazy"
                     title="External site">
             </iframe>
         </div>
+
+        @* <div style="width: 100%; aspect-ratio: 4/3; overflow: hidden; pointer-events: none;">
+            <iframe srcdoc="@_modifiedHtml"
+                    style="width:100%; height:100%; border:none; pointer-events: none;"
+                    scrolling="no"
+                    loading="lazy"
+                    title="External site">
+            </iframe>
+        </div> *@
     }
     else if (_isLoading)
     {
@@ -55,8 +64,7 @@
             httpClient.Timeout = TimeSpan.FromSeconds(10);
             
             var html = await httpClient.GetStringAsync(GetLiveViewUrl);
-            
-            // Remove copyright paragraph
+                       
             var modifiedHtml = Regex.Replace(html, 
                 @"<p>\s*Copyright\s*\(c\)\s*\d{4}\s*KEYENCE\s*CORPORATION\.\s*All\s*rights\s*reserved\.\s*</p>", 
                 string.Empty, 

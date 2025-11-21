@@ -183,6 +183,22 @@ namespace AXOpen.VisualComposer.Components.VisualComposerItem
             }
         }
 
+        internal double _rotate = 0;
+        public double Rotate
+        {
+            get => _rotate;
+            set
+            {
+                _rotate = value;
+
+                if (EventCallbackStateHasChanged.HasDelegate)
+                    EventCallbackStateHasChanged.InvokeAsync();
+
+                if (EventCallbackSave.HasDelegate)
+                    EventCallbackSave.InvokeAsync();
+            }
+        }
+
         internal string _roles = "";
         public string Roles
         {
@@ -289,6 +305,7 @@ namespace AXOpen.VisualComposer.Components.VisualComposerItem
             double height,
             int zIndex,
             double scale,
+            double rotate,
             string roles,
             string? presentationTemplate,
             bool background,
@@ -308,6 +325,7 @@ namespace AXOpen.VisualComposer.Components.VisualComposerItem
             _height = height;
             _zIndex = zIndex;
             _scale = scale;
+            _rotate = rotate;
             _roles = roles;
             _presentationTemplate = presentationTemplate;
             _background = background;
@@ -344,6 +362,7 @@ namespace AXOpen.VisualComposer.Components.VisualComposerItem
             _height = item.Height;
             _zIndex = item.ZIndex;
             _scale = item.Scale;
+            _rotate = item.Rotate;
             _roles = item.Roles;
             _presentationTemplate = item.PresentationTemplate;
             _background = item.Background;
