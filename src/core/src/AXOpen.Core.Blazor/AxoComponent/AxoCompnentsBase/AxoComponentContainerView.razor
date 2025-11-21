@@ -52,24 +52,40 @@
         }
 
         <!--Manual Commands / Status-->
-        @if (CommandsActive == true)
+        @if (CommandsActive)
         {
-            if (CommandsContent is not null && Component._isManuallyControllable.Cyclic == true)
+            if (CommandsOperateContent is not null && Component._isManuallyControllable.Cyclic == true)
             {
-                @CommandsContent
+                @CommandsOperateContent
             }
             else
             {
-                @StatusContent
+                @CommandsMonitorContent
             }
         }
 
-        <!--State view-->
-        @if (StateActive == true)
-        {    
-            @StateContent    
+        @if (DetailsActive)
+        {
+            if (Component._isManuallyControllable.Cyclic == true)
+            {               
+                <div class="card p-4" @onclick:stopPropagation="true"> 
+                    <p class="text-sm font-bold text-text/70 mt-2 mx-2">CONFIGURATION</p>
+                    <div class="m-2">
+                        @ConfigContent
+                    </div>
+                </div>
+            }
+            else
+            {      
+                <div class="card p-4" @onclick:stopPropagation="true">
+                    <p class="text-sm font-bold text-text/70 mt-2 mx-2">STATE</p>
+                    <div class="m-2">
+                        @ConfigAndStateViewContent
+                    </div>
+                </div>                
+            }
         }
-
+               
         <!--Spot view-->
         @if (SpotActive == true)
         {
@@ -91,7 +107,6 @@
         {
             <AxoComponentStatusView Component="Component" />
         }
-
     }
 </div>
 @code
@@ -103,14 +118,19 @@
     public RenderFragment? HeaderContent { get; set; }
 
     [Parameter]
-    public RenderFragment? CommandsContent { get; set; }
+    public RenderFragment? CommandsOperateContent { get; set; }
 
     [Parameter]
-    public RenderFragment? StatusContent { get; set; }
+    public RenderFragment? CommandsMonitorContent { get; set; }
 
     [Parameter]
-    public RenderFragment? StateContent { get; set; }
+    public RenderFragment? ConfigContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? ConfigAndStateViewContent { get; set; }
 
     [Parameter]
     public RenderFragment? SpotContent { get; set; }
+
+   
 }

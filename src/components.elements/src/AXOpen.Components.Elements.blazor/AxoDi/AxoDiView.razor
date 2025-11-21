@@ -12,24 +12,24 @@
             <span class="text-xs uppercase tracking-wide text-text/70">@SignalHint</span>
         </div>
     </HeaderContent>
-    <CommandsContent>
+    <CommandsOperateContent>
         <div class="flex flex-col gap-3 w-full" @onclick:stopPropagation="true">
             <div class="flex flex-wrap gap-3">
                 <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="Expect HIGH" Component="Component._isTrueTask" HideRestoreButton="false"></AxoTaskCommandView>
                 <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="Expect LOW" Component="Component._isFalseTask" HideRestoreButton="false"></AxoTaskCommandView>
             </div>            
         </div>
-    </CommandsContent>
+    </CommandsOperateContent>
 
-    <StatusContent>
+    <CommandsMonitorContent>
         <div class="flex flex-col gap-3 w-full" @onclick:stopPropagation="true">
             <div class="flex flex-wrap gap-3">
                 <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="HIGH check" Component="Component._isTrueTask" HideRestoreButton="false"></AxoTaskStatusView>
                 <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="LOW check" Component="Component._isFalseTask" HideRestoreButton="false"></AxoTaskStatusView>
             </div>           
         </div>
-    </StatusContent>
-    <StateContent>  
+    </CommandsMonitorContent>
+    <ConfigAndStateViewContent>
         <div class="flex flex-col gap-3" @onclick:stopPropagation="true">
             <div class="axo-di-state-card">
                 <div>
@@ -40,7 +40,7 @@
                 <span class="@SignalIndicatorClass" aria-hidden="true"></span>
             </div>                  
         </div>
-    </StateContent>
+    </ConfigAndStateViewContent>
     <SpotContent>        
         <button type="button" class="axo-di-spot">           
             <span class="@SpotIndicatorClass" aria-hidden="true"></span>            

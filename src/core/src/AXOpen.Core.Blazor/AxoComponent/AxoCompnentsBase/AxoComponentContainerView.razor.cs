@@ -52,7 +52,7 @@ namespace AXOpen.Core.Blazor
         public bool SpotActive { get; set; }
 
         public bool ServiceViewActive { get; set; }
-
+        
         // Properties referenced in the markup        
         public int ActiveAlarmCount { get { return _alarmCount; } }
         public string AlarmBadgeClass => _alarmLevel switch
