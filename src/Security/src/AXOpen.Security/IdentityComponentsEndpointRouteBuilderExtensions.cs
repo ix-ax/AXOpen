@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Primitives;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 using System.Text.Json;
 
@@ -33,47 +34,17 @@ namespace Microsoft.AspNetCore.Routing
                     var formCollection = await context.Request.ReadFormAsync();
                     var username = formCollection["username"].ToString();
                     var password = formCollection["password"].ToString();
-                    var rememberMe = formCollection["rememberMe"].ToString() == "true";
                     var returnUrl = formCollection["returnUrl"].ToString();
                     
                     if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-                    {
                         return TypedResults.LocalRedirect($"/Security/Login?error=invalid&returnUrl={Uri.EscapeDataString(returnUrl ?? "/")}");
-                    }
                     
-                    var result = await signInManager.PasswordSignInAsync(username, password, rememberMe, lockoutOnFailure: false);
+                    var result = await signInManager.PasswordSignInAsync(username, password, false, lockoutOnFailure: false);
 
                     if (result.Succeeded)
-                    {
-                        // Sanitize returnUrl to ensure it's a local relative path
-                        if (string.IsNullOrEmpty(returnUrl))
-                        {
-                            return TypedResults.LocalRedirect("/");
-                        }
-                        
-                        // If it's an absolute URL, extract just the path
-                        if (Uri.TryCreate(returnUrl, UriKind.Absolute, out var absoluteUri))
-                        {
-                            returnUrl = absoluteUri.PathAndQuery;
-                        }
-                        
-                        // Ensure it starts with / and doesn't start with //
-                        if (!returnUrl.StartsWith("/"))
-                        {
-                            returnUrl = "/" + returnUrl;
-                        }
-                        else if (returnUrl.StartsWith("//"))
-                        {
-                            returnUrl = "/" + returnUrl.TrimStart('/');
-                        }
-                        
-                        return TypedResults.LocalRedirect(returnUrl);
-                    }
-                    else
-                    {
-                        // Redirect back to login with error
+                        return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : !returnUrl.StartsWith("/") ? "/" + returnUrl : returnUrl.StartsWith("//") ? "/" + returnUrl.TrimStart('/') : returnUrl);
+                    else // Redirect back to login with error
                         return TypedResults.LocalRedirect($"/Security/Login?error=invalid&returnUrl={Uri.EscapeDataString(returnUrl ?? "/")}");
-                    }
                 }
                 catch (Exception ex)
                 {
@@ -91,7 +62,7 @@ namespace Microsoft.AspNetCore.Routing
                 var returnUrl = formCollection["ReturnUrl"].ToString();
                 
                 await signInManager.SignOutAsync();
-                return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : $"/{returnUrl}");
+                return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : !returnUrl.StartsWith("/") ? "/" + returnUrl : returnUrl.StartsWith("//") ? "/" + returnUrl.TrimStart('/') : returnUrl);
             });
 
             endpoints.MapPost("/ExternalLogin", async (
@@ -106,12 +77,19 @@ namespace Microsoft.AspNetCore.Routing
                     var returnUrl = formCollection["returnUrl"].ToString();
 
                     if (string.IsNullOrEmpty(externalAuthId))
-                    {
-                        return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : returnUrl);
-                    }
+                        return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : !returnUrl.StartsWith("/") ? "/" + returnUrl : returnUrl.StartsWith("//") ? "/" + returnUrl.TrimStart('/') : returnUrl);
 
                     // Check if there's a currently logged-in user
-                    var currentUser = await userManager.GetUserAsync(context.User);
+                    User? currentUser = null;
+                    if (context.User.Identity?.Name != null)
+                        currentUser = await userManager.FindByNameAsync(context.User.Identity.Name);
+
+                    // Find user by hashed external auth ID
+                    var users = userManager.Users.Where(u => TokenHasher.VerifyToken(externalAuthId, u.ExternalAuthId)).ToList();
+                    if (!users.Any() || users.Count > 1)
+                        return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : !returnUrl.StartsWith("/") ? "/" + returnUrl : returnUrl.StartsWith("//") ? "/" + returnUrl.TrimStart('/') : returnUrl);
+
+                    var user = users.First();
 
                     if (currentUser != null)
                     {
@@ -120,7 +98,7 @@ namespace Microsoft.AspNetCore.Routing
                         {
                             // Same user - log out
                             await signInManager.SignOutAsync();
-                            return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : returnUrl);
+                            return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : !returnUrl.StartsWith("/") ? "/" + returnUrl : returnUrl.StartsWith("//") ? "/" + returnUrl.TrimStart('/') : returnUrl);
                         }
                         else
                         {
@@ -129,44 +107,21 @@ namespace Microsoft.AspNetCore.Routing
                         }
                     }
 
-                    // Find user by hashed external auth ID
-                    var users = userManager.Users.Where(u => TokenHasher.VerifyToken(externalAuthId, u.ExternalAuthId)).ToList();
-
-                    if (!users.Any())
-                    {
-                        return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : returnUrl);
-                    }
-
-                    if (users.Count > 1)
-                    {
-                        return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : returnUrl);
-                    }
-
-                    var user = users.First();
-
                     // Sign in the user
                     await signInManager.SignInAsync(user, isPersistent: false);
 
-                    // Sanitize returnUrl
-                    if (string.IsNullOrEmpty(returnUrl))
+                    if (!string.IsNullOrEmpty(returnUrl))
                     {
-                        returnUrl = "/";
-                    }
-                    else if (Uri.TryCreate(returnUrl, UriKind.Absolute, out var absoluteUri))
-                    {
-                        returnUrl = absoluteUri.PathAndQuery;
-                    }
-
-                    if (!returnUrl.StartsWith("/"))
-                    {
-                        returnUrl = "/" + returnUrl;
-                    }
-                    else if (returnUrl.StartsWith("//"))
-                    {
-                        returnUrl = "/" + returnUrl.TrimStart('/');
+                        string[] split = returnUrl.Split('?');
+                        if (split.Length > 1)
+                        {
+                            int returnUrlIndex = split[1].IndexOf("returnUrl=", StringComparison.OrdinalIgnoreCase);
+                            if (returnUrlIndex >= 0)
+                                returnUrl = Uri.UnescapeDataString(split[1].Substring(returnUrlIndex + "returnUrl=".Length));
+                        }
                     }
 
-                    return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : returnUrl);
+                    return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : !returnUrl.StartsWith("/") ? "/" + returnUrl : returnUrl.StartsWith("//") ? "/" + returnUrl.TrimStart('/') : returnUrl);
                 }
                 catch (Exception ex)
                 {

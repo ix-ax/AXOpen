@@ -76,11 +76,6 @@
                 <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
             </div>
 
-            <div class="input-group">
-                <label for="Input.ExternalAuthId">@Localizer["External Auth Id"]</label>
-                <input type="text" value="@Input.ExternalAuthId" id="Input.ExternalAuthId" placeholder="External Auth Id" />
-            </div>
-
             @if (!string.IsNullOrEmpty(Input.ExternalAuthId))
             {
                 <p>@Localizer["External Auth is set"]</p>

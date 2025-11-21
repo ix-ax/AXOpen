@@ -25,7 +25,7 @@
     <div class="w-md">
         <h4>Profile</h4>
         <hr class="mb-2" />
-        <StatusMessage />
+        <StatusMessage Message="@message" />
         <EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
             <DataAnnotationsValidator />
             <ValidationSummary class="text-danger" role="alert" />
@@ -48,7 +48,7 @@
                 <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
             </div>
 
-            @if (!string.IsNullOrEmpty(externalAuthId))
+            @if (!string.IsNullOrEmpty(Input.ExternalAuthId))
             {
                 <p>@Localizer["External Auth is set"]</p>
                 <button class="btn btn-secondary" @onclick="ClearExternalAuthId">@Localizer["Clear External Auth"]</button>
@@ -79,12 +79,12 @@
 </div>
 
 @code {
+    private string? message;
+
     private User? user;
+
     private string? username;
     private string? group;
-    private string? email;
-    private string? phoneNumber;
-    private string? externalAuthId;
     private bool canUserChangePassword;
 
     [SupplyParameterFromForm]
@@ -112,14 +112,10 @@
 
         username = await UserManager.GetUserNameAsync(user); //user.UserName
         group = user.Group;
-        email = await UserManager.GetEmailAsync(user);
-        phoneNumber = await UserManager.GetPhoneNumberAsync(user);
-        externalAuthId = user.ExternalAuthId;
+        Input.Email = await UserManager.GetEmailAsync(user);
+        Input.PhoneNumber = await UserManager.GetPhoneNumberAsync(user);
+        Input.ExternalAuthId = user.ExternalAuthId;
         canUserChangePassword = user.CanUserChangePassword;
-
-        Input.Email ??= email;
-        Input.PhoneNumber ??= phoneNumber;
-        Input.ExternalAuthId ??= externalAuthId;
     }
 
     private void ClearExternalAuthId()
@@ -135,34 +131,34 @@
             return;
         }
 
-        if (Input.Email != email)
+        if (Input.Email != user.Email)
         {
             var setEmailResult = await UserManager.SetEmailAsync(user, Input.Email);
             if (!setEmailResult.Succeeded)
             {
-                // Show error message
+                message = "Error: Failed to set email.";
                 return;
             }
         }
 
-        if (Input.PhoneNumber != phoneNumber)
+        if (Input.PhoneNumber != user.PhoneNumber)
         {
             var setPhoneResult = await UserManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
             if (!setPhoneResult.Succeeded)
             {
-                // Show error message
+                message = "Error: Failed to set phone number.";
                 return;
             }
         }
 
-        if (Input.ExternalAuthId != externalAuthId)
+        if (Input.ExternalAuthId != user.ExternalAuthId)
         {
             if (!string.IsNullOrEmpty(Input.ExternalAuthId))
             {
                 List<User> users = RepositoryService.UserRepository.GetRecords().Where(user => user.ExternalAuthId != null && user.ExternalAuthId.Equals(Input.ExternalAuthId)).ToList();
                 if (users.Any())
                 {
-                    // Show error message
+                    message = "Error: External Auth Id is already in use by another user.";
                     return;
                 }
 
@@ -174,12 +170,20 @@
             }
         }
 
-        if (canUserChangePassword && !string.IsNullOrEmpty(Input.OldPassword) && !string.IsNullOrEmpty(Input.NewPassword) && !string.IsNullOrEmpty(Input.ConfirmPassword) && Input.NewPassword.Equals(Input.ConfirmPassword))
+        if (canUserChangePassword && !string.IsNullOrEmpty(Input.OldPassword) && !string.IsNullOrEmpty(Input.NewPassword) && !string.IsNullOrEmpty(Input.ConfirmPassword))
         {
-            var setPasswordResult = await UserManager.ChangePasswordAsync(user, Input.OldPassword, Input.NewPassword);
-            if (!setPasswordResult.Succeeded)
+            if (Input.NewPassword.Equals(Input.ConfirmPassword))
             {
-                // Show error message
+                var setPasswordResult = await UserManager.ChangePasswordAsync(user, Input.OldPassword, Input.NewPassword);
+                if (!setPasswordResult.Succeeded)
+                {
+                    message = "Error: Password has not been changed.";
+                    return;
+                }
+            }
+            else
+            {
+                message = "Error: Passwords do not match.";
                 return;
             }
         }
@@ -188,11 +192,11 @@
         if (result.Succeeded)
         {
             //await SignInManager.RefreshSignInAsync(user);
-            // Show success message
+            message = "Success: User succesfully updateded.";
         }
         else
         {
-            // Show error message
+            message = "Error: User was not updated.";
         }
     }
 
