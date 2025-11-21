@@ -287,8 +287,9 @@ namespace AxOpen.Security.Stores
             {
                 user = _unitOfWork.UserRepository.Read(entityId);
 
-                if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
-                    user = null;
+                if (user.GroupHash != null)
+                    if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
+                        user = null;
             }
             catch (UnableToLocateRecordId)
             {
@@ -318,8 +319,9 @@ namespace AxOpen.Security.Stores
             {
                 user = _unitOfWork.UserRepository.Read(normalizedUserName);
 
-                if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
-                    user = null;
+                if (user.GroupHash != null)
+                    if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
+                        user = null;
             }
             catch (UnableToLocateRecordId)
             {
@@ -449,7 +451,7 @@ namespace AxOpen.Security.Stores
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
-            if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
+            if (user.GroupHash == null || new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
                 return Task.FromResult((IList<string>)new List<string>());
 
             IList<string> roleNames = _unitOfWork.RoleGroupManager.GetRolesFromGroup(user.Group);
@@ -478,7 +480,7 @@ namespace AxOpen.Security.Stores
             if (string.IsNullOrWhiteSpace(normalizedRoleName))
                 throw new ArgumentNullException(nameof(normalizedRoleName));
 
-            if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
+            if (user.GroupHash == null || new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
                 return Task.FromResult(false);
 
             var blazorRole = _roleCollection.FirstOrDefault(x => x.NormalizedName == normalizedRoleName);
@@ -625,8 +627,9 @@ namespace AxOpen.Security.Stores
             {
                 user = _unitOfWork.UserRepository.Read(normalizedEmail);
 
-                if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
-                    user = null;
+                if (user.GroupHash != null)
+                    if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
+                        user = null;
             }
             catch (UnableToLocateRecordId)
             {
