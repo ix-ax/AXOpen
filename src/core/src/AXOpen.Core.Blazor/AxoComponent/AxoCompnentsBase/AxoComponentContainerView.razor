@@ -70,8 +70,17 @@
             {               
                 <div class="card p-4" @onclick:stopPropagation="true"> 
                     <p class="text-sm font-bold text-text/70 mt-2 mx-2">CONFIGURATION</p>
-                    <div class="m-2">
-                        @ConfigContent
+                    <div class="m-2 w-full">
+                        @if(ConfigContent is not null)
+                        {
+                            @ConfigContent
+                        }
+                        else
+                        {
+                            <div class="w-full">
+                                @ConfigAndStateViewContent
+                            </div>
+                        }
                     </div>
                 </div>
             }
@@ -79,7 +88,7 @@
             {      
                 <div class="card p-4" @onclick:stopPropagation="true">
                     <p class="text-sm font-bold text-text/70 mt-2 mx-2">STATE</p>
-                    <div class="m-2">
+                    <div class="m-2 w-full">
                         @ConfigAndStateViewContent
                     </div>
                 </div>                
