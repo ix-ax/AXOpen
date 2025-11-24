@@ -61,6 +61,8 @@ namespace AxOpen.Security.Services
             //services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddScoped<IRepositoryService, RepositoryService>(provider => new RepositoryService(repos.userRepo, roleGroupManager));
 
+            //services.AddScoped<ExternalLoginService>();
+
             if (usingExternalLogin)
                 services.AddScoped<ISerialService, SerialService>();
         }
