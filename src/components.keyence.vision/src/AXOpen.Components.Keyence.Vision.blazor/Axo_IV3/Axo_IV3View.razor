@@ -12,7 +12,7 @@
             @(LastResultOk ? "OK" : LastResultNg ? "NG" : "---")
         </span>
     </HeaderContent>
-    <CommandsContent>
+    <CommandsOperateContent>
         <div class="grid gap-4 md:grid-rows-2">
             <div class="space-y-2 self-center">
                 <div class="flex items-center justify-between text-sm text-text/80">
@@ -94,9 +94,9 @@
             </Operon.Components.Tab.TabPage>
         </Operon.Components.Tab.Tab>
         
-    </CommandsContent>
+    </CommandsOperateContent>
 
-    <StatusContent>
+    <CommandsMonitorContent>
         <div class="grid gap-4 md:grid-rows-2">
             <div class="space-y-2 self-center">
                 <div class="flex items-center justify-between text-sm text-text/80">
@@ -142,13 +142,13 @@
                 </div>
             </div>
         </div>
-    </StatusContent>
+    </CommandsMonitorContent>
 
-    <StateContent>
+    <ConfigAndStateViewContent>
         <!--
             TODO: Here add `State` details consider this as an expanded version of the header.
         -->
-    </StateContent>
+    </ConfigAndStateViewContent>
     <SpotContent>
        @*  <div class="self-center w-full">            
                 <div class="flex flex-col gap-4 p-4 rounded-lg w-full"> *@

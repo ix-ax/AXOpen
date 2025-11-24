@@ -1,0 +1,251 @@
+/* Scoped styles for AxoCr800View component - Robot Spot View */
+
+/* Tab overflow handling */
+::deep .tab-container {
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+}
+
+::deep .tab-header {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    scrollbar-width: thin;
+}
+
+::deep .tab-header::-webkit-scrollbar {
+    height: 4px;
+}
+
+::deep .tab-header::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+::deep .tab-header::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+}
+
+::deep .tab-header::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Robot spot view container */
+.robot-spot-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.robot-spot-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.robot-spot-container:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Robot icon container */
+.robot-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.robot-arm-svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Robot part states - Base */
+.robot-part-offline {
+    fill: #94a3b8;
+    stroke: #64748b;
+    stroke-width: 1;
+}
+
+.robot-part-ready {
+    fill: #3b82f6;
+    stroke: #1e40af;
+    stroke-width: 1;
+    filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.3));
+}
+
+.robot-part-running {
+    fill: #10b981;
+    stroke: #059669;
+    stroke-width: 1;
+    filter: drop-shadow(0 0 3px rgba(16, 185, 129, 0.4));
+    animation: pulse-ready 2s ease-in-out infinite;
+}
+
+.robot-part-error {
+    fill: #ef4444;
+    stroke: #b91c1c;
+    stroke-width: 1;
+    filter: drop-shadow(0 0 3px rgba(239, 68, 68, 0.5));
+    animation: pulse-error 1s ease-in-out infinite;
+}
+
+/* Robot joint states */
+.robot-joint-offline {
+    fill: #71717a;
+    stroke: #52525b;
+    stroke-width: 1;
+}
+
+.robot-joint-ready {
+    fill: #60a5fa;
+    stroke: #2563eb;
+    stroke-width: 1;
+}
+
+.robot-joint-running {
+    fill: #34d399;
+    stroke: #10b981;
+    stroke-width: 1;
+    filter: drop-shadow(0 0 2px rgba(52, 211, 153, 0.4));
+}
+
+.robot-joint-error {
+    fill: #f87171;
+    stroke: #dc2626;
+    stroke-width: 1;
+}
+
+/* Robot arm states */
+.robot-arm-offline {
+    stroke: #94a3b8;
+}
+
+.robot-arm-ready {
+    stroke: #3b82f6;
+    filter: drop-shadow(0 0 1px rgba(59, 130, 246, 0.3));
+}
+
+.robot-arm-running {
+    stroke: #10b981;
+    filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.4));
+}
+
+.robot-arm-error {
+    stroke: #ef4444;
+    filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.5));
+}
+
+/* Robot tool/end effector states */
+.robot-tool-offline {
+    fill: #a1a1aa;
+    stroke: #71717a;
+    stroke-width: 1;
+}
+
+.robot-tool-ready {
+    fill: #93c5fd;
+    stroke: #3b82f6;
+    stroke-width: 1;
+}
+
+.robot-tool-active {
+    fill: #fbbf24;
+    stroke: #f59e0b;
+    stroke-width: 1;
+    filter: drop-shadow(0 0 2px rgba(251, 191, 36, 0.4));
+}
+
+.robot-tool-error {
+    fill: #fca5a5;
+    stroke: #ef4444;
+    stroke-width: 1;
+}
+
+/* Status indicators */
+.robot-status-indicators {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-indicator {
+    font-size: 0.875rem;
+    font-weight: bold;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+}
+
+.status-indicator.offline {
+    color: #64748b;
+    background: rgba(148, 163, 184, 0.1);
+}
+
+.status-indicator.ready {
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.status-indicator.running {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    animation: pulse-indicator 2s ease-in-out infinite;
+}
+
+.status-indicator.error {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    animation: pulse-error-indicator 1s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes pulse-ready {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes pulse-error {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes pulse-indicator {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes pulse-error-indicator {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}

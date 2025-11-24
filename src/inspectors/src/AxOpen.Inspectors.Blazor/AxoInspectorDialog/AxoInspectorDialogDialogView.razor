@@ -27,9 +27,21 @@
         }
 
         <div class="flex flex-row items-center justify-center space-x-4">
-            <button type="button" class="btn btn-secondary m-2" disabled="@RetryDisabled" @onclick="Retry">Retry</button>
-            <button type="button" class="btn btn-secondary m-2" @onclick="Terminate">Terminate</button>
-            <button type="button" class="btn btn-secondary m-2" @onclick="Override">Override</button>
+            <AuthorizeView Roles="can_retry_inspection">
+                <Authorized>
+                    <button type="button" class="btn btn-primary m-2" disabled="@RetryDisabled" @onclick="Retry">Retry</button>
+                </Authorized>
+            </AuthorizeView>
+            <AuthorizeView Roles="can_terminate_inspection">
+                <Authorized>
+                    <button type="button" class="btn btn-primary m-2" @onclick="Terminate">Terminate</button>
+                </Authorized>   
+            </AuthorizeView>
+            <AuthorizeView Roles="can_override_inspection">
+                <Authorized>
+                    <button type="button" class="btn btn-primary m-2" @onclick="Override">Override</button>
+                </Authorized>
+            </AuthorizeView>            
         </div>
     </div>
 

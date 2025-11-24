@@ -5,6 +5,8 @@ NAMESPACE AXOpen.Components.Elements
     /// Class representing Analog output
     /// </summary>
     {S7.extern=ReadWrite}
+    {#ix-prop:public string Units}
+    {#ix-set:Units = ".#"}
     CLASS AxoAo EXTENDS AXOpen.Core.AxoComponent
         
         VAR PUBLIC
