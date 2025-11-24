@@ -9,29 +9,29 @@
         <div class="flex flex-wrap items-center gap-3 text-xs md:text-sm" @onclick:stopPropagation="true">
             <span class="badge @DriveStateBadgeClass">@DriveStateLabel</span>
             <span class="badge badge-soft">@CurrentMotionTaskLabel</span>
-            <div class="metric-pill">
-                <span>Position</span>
-                <strong>@FormattedPosition</strong>
+            <div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
+                <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">Position</span>
+                <strong class="text-[0.85rem] text-slate-900/90">@FormattedPosition</strong>
             </div>
-            <div class="metric-pill">
-                <span>Velocity</span>
-                <strong>@FormattedVelocity</strong>
+            <div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
+                <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">Velocity</span>
+                <strong class="text-[0.85rem] text-slate-900/90">@FormattedVelocity</strong>
             </div>
-            <div class="metric-pill">
-                <span>Torque</span>
-                <strong>@FormattedTorque</strong>
+            <div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
+                <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">Torque</span>
+                <strong class="text-[0.85rem] text-slate-900/90">@FormattedTorque</strong>
             </div>
         </div>
     </HeaderContent>
 
     <CommandsOperateContent>
         <div class="flex flex-col gap-4 w-full" @onclick:stopPropagation="true">
-            <section class="drive-section">
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
                 <div class="section-header">
-                    <h6>Power &amp; safety</h6>
-                    <p>Enable the power stage, toggle brakes and trigger controlled stops.</p>
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">Power &amp; safety</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">Enable the power stage, toggle brakes and trigger controlled stops.</p>
                 </div>
-                <div class="tasks-grid">
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
                     <AxoToggleTaskCommandView Text="Power stage" Component="Component.AxoPower_Task" HideRestoreButton="false" />
                     <AxoTaskCommandView Text="Controlled stop" Component="Component.AxoStop_Task" HideRestoreButton="false" />
                     <AxoTaskCommandView Text="Halt" Component="Component.AxoHalt_Task" HideRestoreButton="false" />
@@ -46,12 +46,12 @@
                 </div>
             </section>
 
-            <section class="drive-section">
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
                 <div class="section-header">
-                    <h6>Homing &amp; referencing</h6>
-                    <p>Align the axis, set offsets and manage override factors.</p>
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">Homing &amp; referencing</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">Align the axis, set offsets and manage override factors.</p>
                 </div>
-                <div class="tasks-grid">
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
                     <AxoTaskCommandView Text="Home" Component="Component.AxoHome_Task" HideRestoreButton="false" />
                     <AxoTaskCommandView Text="Set position" Component="Component.AxoSetPosition_Task" HideRestoreButton="false" />
                     <AxoToggleTaskCommandView Text="Override" Component="Component.AxoSetOverride_Task" HideRestoreButton="false" />
@@ -70,12 +70,12 @@
                 </div>
             </section>
 
-            <section class="drive-section">
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
                 <div class="section-header">
-                    <h6>Discrete motion</h6>
-                    <p>Execute absolute, relative or additive positioning moves.</p>
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">Discrete motion</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">Execute absolute, relative or additive positioning moves.</p>
                 </div>
-                <div class="tasks-grid">
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
                     <AxoTaskCommandView Text="Move absolute" Component="Component.AxoMoveAbsolute_Task" HideRestoreButton="false" />
                     <AxoTaskCommandView Text="Move relative" Component="Component.AxoMoveRelative_Task" HideRestoreButton="false" />
                     <AxoTaskCommandView Text="Move additive" Component="Component.AxoMoveAdditive_Task" HideRestoreButton="false" />
@@ -96,12 +96,12 @@
                 </div>
             </section>
 
-            <section class="drive-section">
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
                 <div class="section-header">
-                    <h6>Continuous motion &amp; torque</h6>
-                    <p>Manage velocity mode and torque-controlled moves.</p>
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">Continuous motion &amp; torque</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">Manage velocity mode and torque-controlled moves.</p>
                 </div>
-                <div class="tasks-grid">
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
                     <AxoTaskCommandView Text="Velocity" Component="Component.AxoMoveVelocity_Task" HideRestoreButton="false" />
                     <AxoTaskCommandView Text="Torque control" Component="Component.AxoTorqueControl_Task" HideRestoreButton="false" />
                 </div>
@@ -123,12 +123,12 @@
 
     <CommandsMonitorContent>
         <div class="flex flex-col gap-4 w-full" @onclick:stopPropagation="true">
-            <section class="drive-section">
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
                 <div class="section-header">
-                    <h6>Power &amp; safety</h6>
-                    <p>Live feedback when manual control is disabled.</p>
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">Power &amp; safety</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">Live feedback when manual control is disabled.</p>
                 </div>
-                <div class="tasks-grid">
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
                     <AxoToggleTaskStatusView Text="Power stage" Component="Component.AxoPower_Task" HideRestoreButton="false" />
                     <AxoTaskStatusView Text="Controlled stop" Component="Component.AxoStop_Task" HideRestoreButton="false" />
                     <AxoTaskStatusView Text="Halt" Component="Component.AxoHalt_Task" HideRestoreButton="false" />
@@ -143,12 +143,12 @@
                 </div>
             </section>
 
-            <section class="drive-section">
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
                 <div class="section-header">
-                    <h6>Homing &amp; referencing</h6>
-                    <p>Monitor reference tasks, offsets and override factors.</p>
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">Homing &amp; referencing</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">Monitor reference tasks, offsets and override factors.</p>
                 </div>
-                <div class="tasks-grid">
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
                     <AxoTaskStatusView Text="Home" Component="Component.AxoHome_Task" HideRestoreButton="false" />
                     <AxoTaskStatusView Text="Set position" Component="Component.AxoSetPosition_Task" HideRestoreButton="false" />
                     <AxoToggleTaskStatusView Text="Override" Component="Component.AxoSetOverride_Task" HideRestoreButton="false" />
@@ -167,12 +167,12 @@
                 </div>
             </section>
 
-            <section class="drive-section">
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
                 <div class="section-header">
-                    <h6>Discrete motion</h6>
-                    <p>Command queues, feed rates and progress of traversing moves.</p>
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">Discrete motion</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">Command queues, feed rates and progress of traversing moves.</p>
                 </div>
-                <div class="tasks-grid">
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
                     <AxoTaskStatusView Text="Move absolute" Component="Component.AxoMoveAbsolute_Task" HideRestoreButton="false" />
                     <AxoTaskStatusView Text="Move relative" Component="Component.AxoMoveRelative_Task" HideRestoreButton="false" />
                     <AxoTaskStatusView Text="Move additive" Component="Component.AxoMoveAdditive_Task" HideRestoreButton="false" />
@@ -193,12 +193,12 @@
                 </div>
             </section>
 
-            <section class="drive-section">
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
                 <div class="section-header">
-                    <h6>Continuous motion &amp; torque</h6>
-                    <p>Observe velocity and torque control loops.</p>
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">Continuous motion &amp; torque</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">Observe velocity and torque control loops.</p>
                 </div>
-                <div class="tasks-grid">
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
                     <AxoTaskStatusView Text="Velocity" Component="Component.AxoMoveVelocity_Task" HideRestoreButton="false" />
                     <AxoTaskStatusView Text="Torque control" Component="Component.AxoTorqueControl_Task" HideRestoreButton="false" />
                 </div>
@@ -220,10 +220,10 @@
 
     <ConfigAndStateViewContent>
         <div class="grid gap-4 w-full" @onclick:stopPropagation="true">
-            <section class="drive-section">
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
                 <div class="section-header">
-                    <h6>Drive feedback</h6>
-                    <p>Status bits, active tasks and current diagnostics.</p>
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">Drive feedback</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">Status bits, active tasks and current diagnostics.</p>
                 </div>
                 <div class="grid gap-3 md:grid-cols-2">
                     <RenderableContentControl Context="Component.DriveStatus" Presentation="Status-Display" />
@@ -234,10 +234,10 @@
                 </div>
             </section>
 
-            <section class="drive-section">
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
                 <div class="section-header">
-                    <h6>Scaling constants</h6>
-                    <p>Realtime factors calculated from PROFIdrive parameters.</p>
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">Scaling constants</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">Realtime factors calculated from PROFIdrive parameters.</p>
                 </div>
                 <div class="grid gap-3 md:grid-cols-3">
                     <RenderableContentControl Context="Component.ScalingConstantRequiredPosition" Presentation="Display" />
@@ -255,10 +255,10 @@
                 </div>
             </section>
 
-            <section class="drive-section">
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
                 <div class="section-header">
-                    <h6>Axis reference</h6>
-                    <p>Inspect telegrams, hardware IDs and cached axis data.</p>
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">Axis reference</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">Inspect telegrams, hardware IDs and cached axis data.</p>
                 </div>
                 <div class="grid gap-3 md:grid-cols-2">
                     <RenderableContentControl Context="Component.AxisRefExt.Telegram111_In" Presentation="Display" />
@@ -275,7 +275,8 @@
     <SpotContent>
         <div class="drive-spot">
             <div class="drive-spot__state">
-                <span>@DriveStateLabel</span>
+                @* <span>@DriveStateLabel</span> *@
+                
                 <span>@CurrentMotionTaskLabel</span>
             </div>
             <div class="drive-spot__metric">

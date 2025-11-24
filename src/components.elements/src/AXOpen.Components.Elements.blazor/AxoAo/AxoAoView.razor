@@ -10,16 +10,17 @@
         <div class="flex items-center gap-3" @onclick:stopPropagation="true">
             <span class="text-lg font-semibold">@RequiredValue.ToString("F2")</span>
             <span class="text-lg font-semibold">[@Component.Units]</span>
+            <span class="text-lg font-semibold">{@Component._status.Unscaled.Cyclic}</span>
         </div>        
     </HeaderContent>
     <CommandsOperateContent>
-        <div class="axo-ao-control-card" @onclick:stopPropagation="true">
+        <div class="card p-4" @onclick:stopPropagation="true">
             <RenderableContentControl Context="@Component._requiredValue" Presentation="Control" />
         </div>
     </CommandsOperateContent>
     <CommandsMonitorContent>
         <div class="flex flex-col gap-3" @onclick:stopPropagation="true">
-            <div class="axo-ao-state-card">
+            <div class="card p-4">
                 <div class="flex-1">
                     <p class="text-xs uppercase tracking-wide text-text/60">Required Value</p>
                     <p class="text-lg font-semibold">@RequiredValue.ToString("F2")</p>
