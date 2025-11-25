@@ -1,4 +1,5 @@
 ﻿using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,7 +11,7 @@ namespace AXOpen.Core.Blazor
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public abstract class AxoComponentViewBase<T> : RenderableComplexComponentBase<T>, IAxoComponentViewBase where T : AXOpen.Core.AxoComponent
-    {
+    {      
         public eViewType ViewType { get; set; } = eViewType.Status;
     }
 
