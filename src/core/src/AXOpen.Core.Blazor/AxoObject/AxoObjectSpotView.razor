@@ -9,17 +9,35 @@
 @using Operon.Icons
 @inject IJSRuntime JSRuntime
 
-<button data-axo-object-spot-sm-view type="button" class="action-btn gap-2 @(observer?.ActiveMessagesCount > 0 ? "shadow-glow-danger" : null)" @onclick="() => SetCurrentObject()">
-    <div class="action-btn-icon-primary">
-        <HeroIcon Icon="@(observer?.ActiveMessagesCount > 0 ? "exclamation-circle" : "cube")" Type="IconType.Solid" Class="size-4" />
-    </div>
-    <span class="">@Component.AttributeName</span>
-    @if (observer?.ActiveMessagesCount > 0)
-    {
-        <div class="badge badge-danger">
-            @observer.ActiveMessagesCount
+<button data-axo-object-spot-view 
+        type="button" 
+        class="flex flex-col w-full min-w-32 rounded-lg border transition-all duration-200 overflow-hidden hover:-translate-y-0.5 @(observer?.ActiveMessagesCount > 0 ? "border-danger/40 bg-danger/10 hover:bg-danger/20 shadow-glow-danger" : "border-border bg-background/40 hover:bg-background/60")" 
+        @onclick="() => SetCurrentObject()">
+    <!-- Header -->
+    <div class="flex items-center justify-between gap-2 p-2 border-b border-border/40">
+        <div class="flex items-center gap-2">
+            <HeroIcon Icon="cube" Type="IconType.Outline" Class="size-4 text-text/70" />
+            <span class="text-sm font-semibold text-text truncate">@Component.AttributeName</span>
         </div>
-    }
+    </div>
+    
+    <!-- Status -->
+    <div class="flex items-center justify-center p-3 gap-2">
+        @if (observer?.ActiveMessagesCount > 0)
+        {
+            <div class="flex items-center gap-2 text-danger">
+                <HeroIcon Icon="exclamation-triangle" Type="IconType.Solid" Class="size-4" />
+                <span class="badge badge-danger">@observer.ActiveMessagesCount</span>
+            </div>
+        }
+        else
+        {
+            <div class="flex items-center gap-2 text-success">
+                <HeroIcon Icon="check-circle" Type="IconType.Solid" Class="size-4" />
+                <span class="text-xs font-semibold uppercase">OK</span>
+            </div>
+        }
+    </div>
 </button>
 
 @code
