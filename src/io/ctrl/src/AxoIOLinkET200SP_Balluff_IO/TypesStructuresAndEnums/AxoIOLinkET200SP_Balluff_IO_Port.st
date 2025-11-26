@@ -1,7 +1,7 @@
 NAMESPACE AXOpen.Io
     {S7.extern=ReadWrite}
-    {#ix-attr:[Container(Layout.Wrap)]}
-    CLASS PUBLIC AxoIOLinkET200SP_Balluff_IO_Port
+    {#ix-attr:[Container(Layout.Tabs)]}
+        CLASS PUBLIC AxoIOLinkET200SP_Balluff_IO_Port
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Box1#>"}
             {#ix-attr:[ReadOnly()]}

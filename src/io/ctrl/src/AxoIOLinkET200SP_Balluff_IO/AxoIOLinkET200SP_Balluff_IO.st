@@ -8,12 +8,6 @@ USING Siemens.Simatic.DistributedIO;
 NAMESPACE AXOpen.Io
     {S7.extern=ReadWrite}
     CLASS AxoIOLinkET200SP_Balluff_IO EXTENDS AXOpen.Core.AxoComponent
-        VAR PUBLIC // HEADER
-            {#ix-attr:[ComponentHeader()]}
-            {#ix-attr:[ReadOnly()]}
-            Progress       :   INT;
-        END_VAR
-
         VAR PUBLIC // TASKS
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Tasks")]}
@@ -23,31 +17,7 @@ NAMESPACE AXOpen.Io
             {#ix-set:AttributeName = "<#Config#>"}
             ConfigTask : AXOpen.Core.AxoTask;            
         END_VAR
-
-        VAR PUBLIC // TEMPLATE TASKS
-            // {#ix-attr:[Container(Layout.Wrap)]}
-            // {#ix-attr:[ComponentDetails("Template tasks")]}
-            // {#ix-set:AttributeName = "<#TemplateTask_20steps_2#>"}
-            // TemplateTask_20steps_2 : AXOpen.Core.AxoTask;
-            // {#ix-attr:[Container(Layout.Wrap)]}
-            // {#ix-attr:[ComponentDetails("Template tasks")]}
-            // {#ix-set:AttributeName = "<#TemplateTask_20steps_3#>"}
-            // TemplateTask_20steps_3 : AXOpen.Core.AxoTask;
-            // {#ix-attr:[Container(Layout.Wrap)]}
-            // {#ix-attr:[ComponentDetails("Template tasks")]}
-            // {#ix-set:AttributeName = "<#TemplateTask_20steps_4#>"}
-            // TemplateTask_20steps_4 : AXOpen.Core.AxoTask;
-            // {#ix-attr:[Container(Layout.Wrap)]}
-            // {#ix-attr:[ComponentDetails("Template tasks")]}
-            // {#ix-set:AttributeName = "<#TemplateTask_20steps_5#>"}
-            // TemplateTask_20steps_5 : AXOpen.Core.AxoTask;
-            // {#ix-attr:[Container(Layout.Wrap)]}
-            // {#ix-attr:[ComponentDetails("Template tasks")]}
-            // {#ix-set:AttributeName = "<#TemplateTask_20steps_6#>"}
-            // TemplateTask_20steps_6 : AXOpen.Core.AxoTask;
-            
-        END_VAR
-        
+      
         VAR PUBLIC // CONFIG
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
@@ -62,21 +32,18 @@ NAMESPACE AXOpen.Io
             Status              :   AxoIOLinkET200SP_Balluff_IO_Component_Status;
             Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-attr:[ReadOnly()]}
+            Progress       :   INT;            
         END_VAR    
 
         VAR PUBLIC // HARDWARE SIGNALS
             {#ix-attr:[ComponentDetails("HARDWARE SIGNALS")]}
-            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Container(Layout.Tabs)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Inputs#>"}
             {#ix-attr:[ReadOnly()]}
             Inputs              :  AxoIOLinkET200SP_Balluff_IO_In;
-            {#ix-attr:[ComponentDetails("HARDWARE SIGNALS")]}
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
-            {#ix-set:AttributeName = "<#Outputs#>"}
-            {#ix-attr:[ReadOnly()]}
-            Outputs              :   AxoIOLinkET200SP_Balluff_IO_Out;
         END_VAR    
 
         VAR PUBLIC // HARDWARE DIAGNOSTICS TASK
@@ -91,10 +58,7 @@ NAMESPACE AXOpen.Io
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
             _data_in_32             :   ARRAY[0..31] OF BYTE;
-            _data_out_32            :   ARRAY[0..31] OF BYTE;
             _data_config_54         :   ARRAY[0..53] OF BYTE;
-            _word                   :   WORD;
-            _dword                  :   DWORD;
 
             _initHwCheckDone        :   BOOL;
             _initHwCheckDonePV      :   BOOL;
@@ -108,19 +72,8 @@ NAMESPACE AXOpen.Io
             _outputsCount           :   UINT; 
   
             _writeRecord            :   WriteRecord;  
-            // _writeRecordRequest     :   BOOL;
-            // _writeRecordIndex	    :   DINT;
-            // _writeRecordLength	    :   UINT;
             _readRecord             :   ReadRecord;  
-            // _readRecordRequest      :   BOOL;
-            // _readRecordIndex	    :   DINT;
-            // _readRecordMaxLength    :   UINT;
             _readRecordLastLength    :   UINT;
-
-            data          :   ARRAY[0..11] OF BYTE := [BYTE#16#8,BYTE#16#00,BYTE#16#FE,BYTE#16#4A,8(BYTE#16#00)];
-            _arrayOfFalse : ARRAY[0..15] OF BOOL := [16(FALSE)];
-
-
         END_VAR
 
         ///<summary>
@@ -208,13 +161,6 @@ NAMESPACE AXOpen.Io
                     RETURN;
                 END_IF;
  
-                IF inParent = NULL THEN
-                    Messenger.Activate(UINT#1130,eAxoMessageCategory#Error);
-                    Status.Error.Id := UINT#1130;
-                    RETURN;
-                END_IF;
-
-                    
                 _initHwCheckDone    := TRUE;
             END_IF;            
 
@@ -758,8 +704,9 @@ NAMESPACE AXOpen.Io
                             Config.Port_1 := Port_1;
                             _progress := 312;
                         ELSE
-                            ; // TODO: Error message
-                        END_IF;
+                            TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Error);
+                            Status.Error.Id :=      UINT#511;
+                            END_IF;
                     END_IF;
                 END_IF;
                 // ConfigTask running: Port 2 
@@ -1701,15 +1648,11 @@ NAMESPACE AXOpen.Io
 
             FOR _index := 0 TO 31 DO
                 _data_in_32[_index] := BYTE#0;
-                _data_out_32[_index] := BYTE#0;
                 _data_config_54[_index] := BYTE#0;
             END_FOR;
             FOR _index := 32 TO 53 DO
                 _data_config_54[_index] := BYTE#0;
             END_FOR;
-
-            _word           :=   WORD#0;
-            _dword          :=   DWORD#0;
 
             ConfigTask.Restore();
 

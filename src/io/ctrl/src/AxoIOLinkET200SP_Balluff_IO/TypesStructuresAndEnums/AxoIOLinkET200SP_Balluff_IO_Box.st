@@ -1,3 +1,4 @@
+USING AXOpen.Core;
 NAMESPACE AXOpen.Io
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Wrap)]}
