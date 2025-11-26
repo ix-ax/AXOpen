@@ -16,7 +16,7 @@ Devices:
   - Apply: '6ES7132-6BH00-0BA0_v1_1'
     Arguments:
       NAME: A20
-  - Apply: '6ES7137-6BD00-0BA0_v2_2_2xBNI00AY_on_Port_C3'
+  - Apply: '6ES7137-6BD00-0BA0_v2_2_4xBalluff_IO_box'
     Arguments:
       NAME: A30
   - Apply: '6ES7193-6PA00-0AA0_v1_1'
