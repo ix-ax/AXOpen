@@ -26,16 +26,16 @@ Templates:
         - IndexName: 'General parameters'
           Values:
           - OffsetName: 'Diagnostics: No supply voltage L+'
-            Value: False
+            Value: True
           - OffsetName: 'Port Qualifier Information (PQI)'
             Value: True
           - OffsetName: 'Port Configuration without S7-PCT'
-            Value: False
+            Value: True
           - OffsetName: 'Port 1'
-            Value: False
+            Value: True
           - Offset: '7.2'
             # Possible ValueNames: IO-Link Autostart | IO-Link Manual | DI | DQ | Deactivated
-            ValueName: 'IO-Link Autostart'
+            ValueName: 'IO-Link Manual'
           - Offset: '8'
             # Possible ValueNames: 0 Byte | 1 Byte (PQI) | 2 Byte (1 Byte + PQI) | 3 Byte (2 Byte + PQI) | 4 Byte (3 Byte + PQI) | 5 Byte (4 Byte + PQI) | 8 Byte (7 Byte + PQI) | 9 Byte (8 Byte + PQI) | 16 Byte (15 Byte + PQI) | 17 Byte (16 Byte + PQI) | 32 Byte (31 Byte + PQI)
             ValueName: '8 Byte (7 Byte + PQI)'

@@ -1,0 +1,30 @@
+Templates:
+  Modules:
+  - Name: '6ES7137-6BD00-0BA0_v2_2_4xBalluff_IO_box'
+    Placeholders:
+    - Name: 'NAME'
+      Value: 'NAME'
+    - Name: 'TERMINAL'
+      Value: 'Use potential group of the left module (dark BaseUnit)'
+      AllowedValues:
+        - 'Use potential group of the left module (dark BaseUnit)'
+        - 'Enable new potential group (light BaseUnit)'
+    Content:
+      Name: '${NAME}'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.45-SIEMENS-ET200SP-20250606.XML'
+        GsdId: 'CM 4xIO-Link V2.2 32I/32O'
+      IoConfiguration:
+        Inputs:
+          # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
+          ProcessImagePartition: 'Automatic update'
+        Outputs:
+          # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
+          ProcessImagePartition: 'Automatic update'
+      Parameters:
+        RecordDataList:
+        - IndexName: 'Potential group'
+          Values:
+          - OffsetName: 'Potential group'
+            # Possible ValueNames: Use potential group of the left module (dark BaseUnit) | Enable new potential group (light BaseUnit)
+            ValueName: '${TERMINAL}'
