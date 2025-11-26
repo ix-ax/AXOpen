@@ -12,7 +12,7 @@
 <button data-axo-object-spot-view 
         type="button" 
         class="flex flex-col w-full min-w-32 rounded-lg border transition-all duration-200 overflow-hidden hover:-translate-y-0.5 @(observer?.ActiveMessagesCount > 0 ? "border-danger/40 bg-danger/10 hover:bg-danger/20 shadow-glow-danger" : "border-border bg-background/40 hover:bg-background/60")" 
-        @onclick="() => SetCurrentObject()">
+        @onclick="() => OpenDetails()">
     <!-- Header -->
     <div class="flex items-center justify-between gap-2 p-2 border-b border-border/40">
         <div class="flex items-center gap-2">
@@ -73,13 +73,18 @@
 
     private readonly Timer updateTimer = new Timer();
 
-    protected virtual void SetCurrentObject(string presentationType = "Status-Display")
+
+
+    protected virtual void OpenDetails(string presentationType = "Status-Display")
     {
         if (RccContainer is RenderableContentControl rccContainer)
         {
             if (rccContainer.ParentContainer is VisualComposerItem composerItem)
             {
-                composerItem.Parent.OpenDetails(this.Component, presentationType); // Updated to use presentationType
+                if (!composerItem.InDesign)
+                {                    
+                    composerItem.Parent.OpenDetails(this.Component, presentationType); // Updated to use presentationType
+                }
             }
         }
     }

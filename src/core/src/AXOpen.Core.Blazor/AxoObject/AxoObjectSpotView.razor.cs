@@ -11,17 +11,17 @@ namespace AXOpen.Core
 
     public class AxoObjectSpotControlView : AxoObjectSpotView
     {
-        protected override void SetCurrentObject(string presentationType = "Status-Display")
+        protected override void OpenDetails(string presentationType = "Status-Display")
         {
-            base.SetCurrentObject("Command-Control"); 
+            base.OpenDetails("Command-Control"); 
         }
     }
 
     public class AxoObjectSpotDisplayView : AxoObjectSpotView
     {
-        protected override void SetCurrentObject(string presentationType = "Status-Display")
+        protected override void OpenDetails(string presentationType = "Status-Display")
         {
-            base.SetCurrentObject("Status-Display");
+            base.OpenDetails("Status-Display");
         }
     }
 }
