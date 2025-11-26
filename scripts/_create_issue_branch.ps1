@@ -22,8 +22,6 @@ $_is_on_dev_nothing_to_commit = Join-Path -Path $scriptDir -ChildPath "_is_on_de
 # Call _is_on_dev_nothing_to_commit.ps1 
 $is_on_dev_nothing_to_commit = & $_is_on_dev_nothing_to_commit
 
-# Force conversion to boolean
-$is_on_dev_nothing_to_commit = Parse($is_on_dev_nothing_to_commit.ToString().ToLower())
 if($is_on_dev_nothing_to_commit -ne 1)
 {
     Write-Host "You are not currently on the 'dev' branch, or you have some uncommited changes " -ForegroundColor Red
