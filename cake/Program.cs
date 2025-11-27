@@ -206,11 +206,13 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.proj"), context.DotNetBuildSettings);
         }
 
-        if (!context.BuildParameters.NoBuild && !context.BuildParameters.DoTest && !context.BuildParameters.DoPack)
-        {
-            context.ApaxBuild(new[] { traversalProjectFolder });
-        }
+        //if (!context.BuildParameters.NoBuild && !context.BuildParameters.DoTest && !context.BuildParameters.DoPack)
+        //{
+        //    context.Log.Information("Creating apax traversal.");
+        //    context.ApaxBuild(new[] { traversalProjectFolder });
+        //}
 
+        //throw new NotImplementedException("BuildTask is deprecated. Use CreateArtifactsTask instead.");
         // Clean up travversal files after build remove apax.yml and .apax folder
         context.DeleteFile(Path.Combine(traversalProjectFolder, "apax.yml"));
         System.IO.Directory.Delete(Path.Combine(traversalProjectFolder, ".apax"), true);
