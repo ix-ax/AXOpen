@@ -196,6 +196,7 @@ public partial class BuildContext : FrostingContext
         ("components.keyence.vision", "axopen.components.keyence.vision", true, true),
         ("components.rexroth.tightening", "axopen.components.rexroth.tightening", true, true),
         ("components.dukane.welders", "axopen.components.dukane.welders", true, true),
+        ("components.zebra.vision", "axopen.components.zebra.vision", true, true),
         ("integrations", "ix.integrations", false,false),
         ("template.axolibrary", "template.axolibrary", false, true)
     };
