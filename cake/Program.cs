@@ -172,11 +172,13 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 
         if (context.BuildParameters.DoPack)
         {
+            var apaxFiles = new List<string>();
+            context.Log.Information("Collecting .apax files.");
+            ApaxTraversal.CollectApaxFileInfoRecursively(context.RootDir, new List<string>() { ".apax", "traversals" }, apaxFiles);
+
             context.Libraries.ToList().ForEach(lib =>
             {
-                //foreach (var apaxfile in context.GetApaxFiles(lib))
-                var apaxFiles = new List<string>();
-                ApaxTraversal.CollectApaxFileInfoRecursively(context.RootDir, new List<string>() { ".apax", "traversals" }, apaxFiles);
+                //foreach (var apaxfile in context.GetApaxFiles(lib))               
                 foreach (var apaxfile in apaxFiles)
                 {
                     context.UpdateApaxVersion(apaxfile, GitVersionInformation.SemVer);
@@ -188,9 +190,10 @@ public sealed class BuildTask : FrostingTask<BuildContext>
        // context.DotnetIxr(context.Libraries.Where(p => p.pack && Directory.Exists(Path.Combine(context.RootDir, p.folder, "ctrl", "src"))).Select(p => Path.Combine(context.RootDir, p.folder, "ctrl")));
 
         var traversalProjectFolder = Path.Combine(context.RootDir, "traversals", "apax");
-        if (!context.BuildParameters.NoBuild)
+        if (!context.BuildParameters.NoBuild || context.BuildParameters.DoPack)
         {
             var traversalProject = Path.Combine(traversalProjectFolder, "apax.yml");
+            context.Log.Information("Creating apax traversal.");
             context.CreateApaxTraversal(context.RootDir, traversalProject);
             context.ApaxInstall(new[] { traversalProjectFolder });
             context.DotnetIxc(new[] { traversalProjectFolder });
@@ -208,6 +211,9 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             context.ApaxBuild(new[] { traversalProjectFolder });
         }
 
+        // Clean up travversal files after build remove apax.yml and .apax folder
+        context.DeleteFile(Path.Combine(traversalProjectFolder, "apax.yml"));
+        System.IO.Directory.Delete(Path.Combine(traversalProjectFolder, ".apax"), true);
 
     }
 }
@@ -480,8 +486,7 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
                 context.ApaxPack(lib);
-                context.ApaxCopyArtifacts(lib);    
-                System.Threading.Thread.Sleep(10000);        
+                context.ApaxCopyArtifacts(lib);                   
             });
 
         }
@@ -496,8 +501,7 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
                 context.ApaxPack(lib);
-                context.ApaxCopyArtifacts(lib);  
-                System.Threading.Thread.Sleep(10000);        
+                context.ApaxCopyArtifacts(lib);                  
             });
         }
     }
