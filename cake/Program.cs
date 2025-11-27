@@ -477,8 +477,7 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
                 context.ApaxPack(lib);
-                context.ApaxCopyArtifacts(lib);
-                context.ApaxClean(lib);
+                context.ApaxCopyArtifacts(lib);                
             });
 
         }
@@ -493,8 +492,7 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
                 context.ApaxPack(lib);
-                context.ApaxCopyArtifacts(lib);
-                context.ApaxClean(lib);
+                context.ApaxCopyArtifacts(lib);                
             });
         }
     }
