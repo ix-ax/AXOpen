@@ -29,7 +29,7 @@ for part in "${PARTS[@]}"; do
 done
 # Step 3: Remove trailing dot
 COMPONENT_NAMESPACE=${COMPONENT_NAMESPACE%.}
-printf "${GREEN}The NAMESPACE is: $COMPONENT_NAMESPACE.${NC}"
+printf "${GREEN}The NAMESPACE is: $COMPONENT_NAMESPACE ${NC}"
 
 if [ -z "$2" ]; then
   while [[ ! "$component_name" =~ ^[A-Z][a-zA-Z0-9_]*$ ]]; do

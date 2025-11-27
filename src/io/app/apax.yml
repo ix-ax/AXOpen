@@ -212,3 +212,4 @@ scripts:
     apax gc
     apax swfdo
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ttx' Finished in :" $(expr $(date +%s) - $START) "s"
+  
