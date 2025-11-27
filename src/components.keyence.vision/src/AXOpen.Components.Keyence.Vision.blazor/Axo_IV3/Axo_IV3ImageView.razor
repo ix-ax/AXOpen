@@ -7,7 +7,7 @@
 @inherits AxoComponentViewBase<Axo_IV3>
 
 <div class="flex flex-col gap-4 p-4 border rounded-lg bg-background/70" style="width: 100%;">
-    @if (!string.IsNullOrEmpty(_modifiedHtml))
+    @if (!string.IsNullOrEmpty(@GetLiveViewUrl))
     {
         <div style="width: 100%; aspect-ratio: 4/3; overflow: hidden; pointer-events: none;">
             <iframe src="@GetLiveViewUrl"
@@ -16,16 +16,7 @@
                     loading="lazy"
                     title="External site">
             </iframe>
-        </div>
-
-        @* <div style="width: 100%; aspect-ratio: 4/3; overflow: hidden; pointer-events: none;">
-            <iframe srcdoc="@_modifiedHtml"
-                    style="width:100%; height:100%; border:none; pointer-events: none;"
-                    scrolling="no"
-                    loading="lazy"
-                    title="External site">
-            </iframe>
-        </div> *@
+        </div>     
     }
     else if (_isLoading)
     {
@@ -43,58 +34,11 @@
 
 @code
 {
-    private string _modifiedHtml = string.Empty;
     private bool _isLoading = true;
-    private string GetLiveViewUrl => $"http://{Component.DeviceIpAddress}/iv3-wm-i.html";
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await LoadAndModifyHtml();
-        }
-        await base.OnAfterRenderAsync(firstRender);
-    }
-
-    private async Task LoadAndModifyHtml()
-    {
-        try
-        {
-            using var httpClient = HttpClientFactory.CreateClient();
-            httpClient.Timeout = TimeSpan.FromSeconds(10);
-            
-            var html = await httpClient.GetStringAsync(GetLiveViewUrl);
-                       
-            var modifiedHtml = Regex.Replace(html, 
-                @"<p>\s*Copyright\s*\(c\)\s*\d{4}\s*KEYENCE\s*CORPORATION\.\s*All\s*rights\s*reserved\.\s*</p>", 
-                string.Empty, 
-                RegexOptions.IgnoreCase);
-            
-            // Add base tag to resolve relative URLs and CSS to fit content
-            var baseUrl = $"http://{Component.DeviceIpAddress}/";
-            if (!modifiedHtml.Contains("<base"))
-            {
-                modifiedHtml = modifiedHtml.Replace("<head>", $"<head><base href=\"{baseUrl}\">");
-            }
-            
-            // Add CSS to make content fit without scrolling
-            var fitStyle = "<style>body { margin: 0; padding: 0; overflow: hidden; display: flex; align-items: center; justify-content: center; height: 100vh; width: 100vw; } body > * { max-width: 100%; max-height: 100%; object-fit: contain; }</style>";
-            modifiedHtml = modifiedHtml.Replace("</head>", $"{fitStyle}</head>");
-            
-            _modifiedHtml = modifiedHtml;
-            _isLoading = false;
-            StateHasChanged();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error loading HTML: {ex.Message}");
-            _isLoading = false;
-            StateHasChanged();
-        }
-    }
+    private string GetLiveViewUrl => $"/{Component.Proxy}/iv3-wm-i.html";
 
     public override void ConfigurePolling()
     {
-
+        
     }
 }
