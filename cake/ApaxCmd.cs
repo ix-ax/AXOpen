@@ -27,6 +27,21 @@ using Path = System.IO.Path;
 
 public static class ApaxCmd
 {
+
+    public static void ApaxSelfUpdate(this BuildContext context, string version)
+    {
+        var apaxArguments = $"self-update {version}";
+
+        context.Log.Information($"apax self-update to version '{version}'");
+        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        {
+            Arguments = apaxArguments,            
+            RedirectStandardOutput = false,
+            RedirectStandardError = false,
+            Silent = false
+        }).WaitForExit();
+    }
+
     public static void ApaxInstall(this BuildContext context, IEnumerable<string> folders)
     {
         foreach (var folder in folders)

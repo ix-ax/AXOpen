@@ -122,6 +122,10 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
         {
             context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/*.*"), Path.Combine(context.RootDir, library.folder));
         }
+
+        // with this we will enforce use of specific apax version at least temporarily 
+        // due to issues with apax versions in some environments.
+        context.ApaxSelfUpdate("4.0.0");
     }
 
     private static void ProvisionTools(BuildContext context)
