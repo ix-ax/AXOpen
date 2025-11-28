@@ -125,7 +125,7 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
 
         // with this we will enforce use of specific apax version at least temporarily 
         // due to issues with apax versions in some environments.
-        context.ApaxSelfUpdate("4.0.0");
+        context.ApaxSelfUpdate("4.1.1");
     }
 
     private static void ProvisionTools(BuildContext context)
