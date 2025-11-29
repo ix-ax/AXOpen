@@ -468,7 +468,7 @@ public static class ApaxCmd
         {
             var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
-                Arguments = $"publish -p {apaxPackageFile} -r  https://npm.pkg.github.com",
+                Arguments = $"publish --package {apaxPackageFile} --registry  https://npm.pkg.github.com",
                 WorkingDirectory = context.ArtifactsApax,
                 RedirectStandardOutput = false,
                 RedirectStandardError = false,
