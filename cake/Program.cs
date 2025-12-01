@@ -247,7 +247,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
 
         if (context.BuildParameters.Paralellize)
         {
-            context.Libraries.ToList().ForEach(lib =>
+            context.Libraries.Where(p => p.test).ToList().ForEach(lib =>
             {
                 context.Log.Information($"---------------------------------");
                 context.Log.Information($"Testing {lib.folder}");
@@ -262,7 +262,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         }
         else
         {
-            context.Libraries.ToList().ForEach(lib =>
+            context.Libraries.Where(p => p.test).ToList().ForEach(lib =>
             {
                 context.Log.Information($"---------------------------------");
                 context.Log.Information($"Testing {lib.folder}");
