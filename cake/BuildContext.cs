@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using Cake.Common.Build;
 using Cake.Common;
@@ -336,5 +337,98 @@ public partial class BuildContext : FrostingContext
         }
 
         return path;
+    }
+
+    internal void ProvisionNodeJs()
+    {
+        // Check if node is available
+        var nodeCommand = RuntimeInformation.IsOSPlatform(OSPlatform.Linux) ? "node" : "node.exe";
+        var npmCommand = RuntimeInformation.IsOSPlatform(OSPlatform.Linux) ? "npm" : "npm.cmd";
+
+        try
+        {
+            var nodeProcess = ProcessRunner.Start(nodeCommand, new ProcessSettings()
+            {
+                Arguments = "--version",
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                Silent = true
+            });
+
+            nodeProcess.WaitForExit();
+
+            if (nodeProcess.GetExitCode() == 0)
+            {
+                var version = string.Join("", nodeProcess.GetStandardOutput());
+                Log.Information($"Node.js is already installed: {version.Trim()}");
+                return;
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Warning($"Node.js not found or failed to execute: {ex.Message}");
+        }
+
+        // Node.js is not available, provision it
+        Log.Information("Node.js not found. Provisioning Node.js...");
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            // Use winget to install Node.js on Windows
+            Log.Information("Attempting to install Node.js using winget...");
+            var wingetProcess = ProcessRunner.Start("winget", new ProcessSettings()
+            {
+                Arguments = "install OpenJS.NodeJS.LTS --accept-source-agreements --accept-package-agreements",
+                RedirectStandardOutput = false,
+                RedirectStandardError = false,
+                Silent = false
+            });
+
+            wingetProcess.WaitForExit();
+
+            if (wingetProcess.GetExitCode() != 0)
+            {
+                Log.Warning("winget installation failed. Trying Chocolatey...");
+                
+                // Fallback to Chocolatey
+                var chocoProcess = ProcessRunner.Start("choco", new ProcessSettings()
+                {
+                    Arguments = "install nodejs-lts -y",
+                    RedirectStandardOutput = false,
+                    RedirectStandardError = false,
+                    Silent = false
+                });
+
+                chocoProcess.WaitForExit();
+
+                if (chocoProcess.GetExitCode() != 0)
+                {
+                    throw new Exception("Failed to provision Node.js. Please install Node.js manually from https://nodejs.org/");
+                }
+            }
+        }
+        else
+        {
+            // Linux - use package manager or nvm
+            Log.Information("Attempting to install Node.js on Linux...");
+            
+            // Try using apt (Debian/Ubuntu)
+            var aptProcess = ProcessRunner.Start("bash", new ProcessSettings()
+            {
+                Arguments = "-c \"curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && sudo apt-get install -y nodejs\"",
+                RedirectStandardOutput = false,
+                RedirectStandardError = false,
+                Silent = false
+            });
+
+            aptProcess.WaitForExit();
+
+            if (aptProcess.GetExitCode() != 0)
+            {
+                throw new Exception("Failed to provision Node.js on Linux. Please install Node.js manually.");
+            }
+        }
+
+        Log.Information("Node.js provisioning completed.");
     }
 }
