@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "../temp/Operon/operon.css";
 /* Scan all Blazor/Razor files in the src folder */
-@source "../../**/*.{razor,html,cshtml,cs}"; 
+@source "../../../**/*.{razor,html,cshtml,cs}"; 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {

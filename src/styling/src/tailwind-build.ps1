@@ -1,1 +1,1 @@
-npx @tailwindcss/cli -i ./wwwroot/tailwind.css -o ./wwwroot/css/axopenstyling.css --minify
+npx @tailwindcss/cli -i ./wwwroot/tailwind.css -o ./wwwroot/css/axopenstyling.css --minify --content "..\..\..\**\*.{html,js,jsx,ts,tsx,vue,razor}"

@@ -38,8 +38,6 @@
     </EmbeddedResource>
   </ItemGroup>
 
-	<PropertyGroup>
-		<DefaultItemExcludes>$(DefaultItemExcludes);temp\**\*</DefaultItemExcludes>
-	</PropertyGroup>
+
 
 </Project>
