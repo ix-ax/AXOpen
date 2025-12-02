@@ -12,7 +12,7 @@
 @inject IRepositoryService _repositoryService
 @inject UserManager<User> _userManager
 @inject IToastService _toastService
-@inject ISerialService? _serialService
+@inject IServiceProvider _serviceProvider
 
 <div class="flex flex-wrap">
     <a role="button" class="btn btn-primary m-2" href="/Security/CreateUser">
@@ -147,6 +147,8 @@
 </Modal>
 
 @code{
+    private ISerialService? _serialService { get; set; }
+
     private Modal? _modalEdit { get; set; }
 
     private Modal? _modalDelete { get; set; }
@@ -370,10 +372,18 @@
 
     protected override void OnInitialized()
     {
-        if (_serialService != null)
+        _serialService = (ISerialService?)_serviceProvider.GetService(typeof(ISerialService));
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
         {
-            _serialService.SerialError += OnSerialError;
-            _serialService.DataReceived += OnSerialDataReceived;
+            if (_serialService != null)
+            {
+                _serialService.SerialError += OnSerialError;
+                _serialService.DataReceived += OnSerialDataReceived;
+            }
         }
     }
 

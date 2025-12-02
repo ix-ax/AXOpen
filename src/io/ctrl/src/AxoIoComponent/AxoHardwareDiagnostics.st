@@ -76,8 +76,8 @@ NAMESPACE AXOpen.Io
                 SUPER.ThrowWhen(Duration >= T#2s OR GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
             END_IF;
 
-            IF SUPER.StartTriggered() THEN
-                hardwareID := hwID;
+            IF SUPER.StartTriggered() OR SUPER.RestoreTriggered() THEN
+                hardwareID                                                                              :=  hwID;
                 GetDiagnosticsReturnCode                                                                :=  GetDiagnosticsReturnCode#Unknown;
 
                 diagnosticDetails.ComponentStateDetail.HardwareComponentState.NoAdditionalInformation   :=  FALSE;    

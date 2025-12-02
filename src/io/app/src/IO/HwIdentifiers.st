@@ -2,6 +2,23 @@ NAMESPACE AXOpen.Io
     TYPE
         HwIdentifiers : UINT
         (
+            bni00l3_2_HwID :=UINT#260,
+            bni00l3_2_16_DI_HwID :=UINT#265,
+            bni00l3_2_16_DI_BALLUFF_8_Port_IO_Link_Master_HwID :=UINT#266,
+            bni00l3_2_Rack_HwID :=UINT#263,
+            bni00l3_2_X01_HwID :=UINT#267,
+            bni00l3_2_X02_HwID :=UINT#268,
+            bni00l3_2_X03_HwID :=UINT#269,
+            bni00l3_2_X04_HwID :=UINT#270,
+            bni00l3_2_X05_HwID :=UINT#271,
+            bni00l3_2_X06_HwID :=UINT#272,
+            bni00l3_2_X07_HwID :=UINT#273,
+            bni00l3_2_X08_HwID :=UINT#281,
+            bni00l3_2_bni00l3_2_HwID :=UINT#264,
+            bni00l3_2_bni00l3_2_BNI_XG3_508_0B5_R067_HwID :=UINT#286,
+            bni00l3_2_bni00l3_2_PN_IO_HwID :=UINT#259,
+            bni00l3_2_bni00l3_2_PN_IO_Port_1_HwID :=UINT#261,
+            bni00l3_2_bni00l3_2_PN_IO_Port_2_HwID :=UINT#262,
             et200sp_HwID :=UINT#275,
             et200sp_A100_Server_module_V1_1_0_bytes_HwID :=UINT#280,
             et200sp_A10_DI_16x24VDC_ST_V1_1_HwID :=UINT#283,
@@ -26,6 +43,7 @@ NAMESPACE AXOpen.Io
             plc_line_plc_line_PROFINET_interface_2_HwID :=UINT#72,
             plc_line_plc_line_PROFINET_interface_2_Port_3_HwID :=UINT#73,
             plc_line_plc_line_Virtual_communication_interface_HwID :=UINT#135,
+            profinet2_plc_line_HwID :=UINT#258,
             profinet_plc_line_HwID :=UINT#256,
     
             NONE := UINT#0

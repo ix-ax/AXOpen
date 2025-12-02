@@ -35,10 +35,17 @@ CLASS Component_4 EXTENDS AXOpen.Core.AxoObject
         //<Initialization>        
         ExampleComponent.Run(inParent   :=  THIS, 
                              hwID       :=  HwIdentifiers#et200sp_A30_CM_4xIO_Link_V2_2_32I_32O_HwID,       // Enter the hardware ID of your correctly wired IO-Link master module based on your error-free, already-compiled hardware configuration
-                             Port_1     :=  AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig#BNI0099,         // Enter the configuration of the correctly wired boxes connected to Port 1
-                             Port_2     :=  AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig#BNI0099_BNI0099, // Enter the configuration of the correctly wired boxes connected to Port 2
-                             Port_3     :=  AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig#BNI00AY,         // Enter the configuration of the correctly wired boxes connected to Port 3
+                             Port_1     :=  AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig#BNI0099_BNI0099, // Enter the configuration of the correctly wired boxes connected to Port 1
+                             Port_2     :=  AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig#NONE,            // Enter the configuration of the correctly wired boxes connected to Port 2
+                             Port_3     :=  AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig#NONE,            // Enter the configuration of the correctly wired boxes connected to Port 3
                              Port_4     :=  AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig#BNI00AY_BNI00AY);// Enter the configuration of the correctly wired boxes connected to Port 4
+
+        // ExampleComponent.Run(inParent   :=  THIS, 
+        //                      hwID       :=  HwIdentifiers#et200sp_A30_CM_4xIO_Link_V2_2_32I_32O_HwID,       // Enter the hardware ID of your correctly wired IO-Link master module based on your error-free, already-compiled hardware configuration
+        //                      Port_1     :=  AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig#BNI0099,         // Enter the configuration of the correctly wired boxes connected to Port 1
+        //                      Port_2     :=  AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig#BNI0099_BNI0099, // Enter the configuration of the correctly wired boxes connected to Port 2
+        //                      Port_3     :=  AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig#BNI00AY,         // Enter the configuration of the correctly wired boxes connected to Port 3
+        //                      Port_4     :=  AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig#BNI00AY_BNI00AY);// Enter the configuration of the correctly wired boxes connected to Port 4
         // Possible values for port configuration are:
         // AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig#NONE              -   Port not used; nothing must be connected 
         // AXOpen.Io.eAxoIOLinkET200SP_Balluff_PortConfig#BNI0099           -   One BNI0099 box is connected to the port of the IOLink master

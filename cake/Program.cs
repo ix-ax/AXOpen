@@ -174,7 +174,10 @@ public sealed class BuildTask : FrostingTask<BuildContext>
         {
             context.Libraries.ToList().ForEach(lib =>
             {
-                foreach (var apaxfile in context.GetApaxFiles(lib))
+                //foreach (var apaxfile in context.GetApaxFiles(lib))
+                var apaxFiles = new List<string>();
+                ApaxTraversal.CollectApaxFileInfoRecursively(context.RootDir, new List<string>() { ".apax", "traversals" }, apaxFiles);
+                foreach (var apaxfile in apaxFiles)
                 {
                     context.UpdateApaxVersion(apaxfile, GitVersionInformation.SemVer);
                     context.UpdateApaxDependencies(apaxfile, GitVersionInformation.SemVer);
@@ -477,7 +480,7 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
                 context.ApaxPack(lib);
-                context.ApaxCopyArtifacts(lib);
+                context.ApaxCopyArtifacts(lib);                
             });
 
         }
@@ -492,7 +495,7 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
                 context.ApaxInstall(context.GetLibraryAxFolders(lib));
                 context.ApaxBuild(context.GetLibraryAxFolders(lib));
                 context.ApaxPack(lib);
-                context.ApaxCopyArtifacts(lib);
+                context.ApaxCopyArtifacts(lib);                
             });
         }
     }

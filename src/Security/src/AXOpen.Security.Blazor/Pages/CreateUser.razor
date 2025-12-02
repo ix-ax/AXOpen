@@ -18,7 +18,7 @@
 @inject IdentityRedirectManager RedirectManager
 @inject IRepositoryService RepositoryService
 @inject IToastService _toastService
-@inject ISerialService? _serialService
+@inject IServiceProvider _serviceProvider
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
 <PageTitle>Create user</PageTitle>
@@ -103,6 +103,8 @@
 </div>
 
 @code {
+    private ISerialService? _serialService { get; set; }
+
     private IEnumerable<IdentityError>? identityErrors;
 
     [SupplyParameterFromForm]
@@ -117,11 +119,7 @@
     {
         Input ??= new();
 
-        if (_serialService != null)
-        {
-            _serialService.SerialError += OnSerialError;
-            _serialService.DataReceived += OnSerialDataReceived;
-        }
+        _serialService = (ISerialService?)_serviceProvider.GetService(typeof(ISerialService));
     }
 
     private void ClearExternalAuthId()
@@ -170,6 +168,18 @@
                 return context.User.Identity;
             }
             else return new GenericIdentity("Unknown");
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (_serialService != null)
+            {
+                _serialService.SerialError += OnSerialError;
+                _serialService.DataReceived += OnSerialDataReceived;
+            }
         }
     }
 
