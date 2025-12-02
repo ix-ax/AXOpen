@@ -177,9 +177,7 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             return;
         }
 
-        // Build Tailwind CSS
-        BuildTailwindCss(context);
-
+   
         if (context.BuildParameters.DoPack)
         {
             var apaxFiles = new List<string>();
@@ -215,6 +213,10 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             });
             context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.proj"), context.DotNetBuildSettings);
         }
+
+        // Build Tailwind CSS
+        BuildTailwindCss(context);
+
 
         if (!context.BuildParameters.NoBuild && !context.BuildParameters.DoTest && !context.BuildParameters.DoPack)
         {
