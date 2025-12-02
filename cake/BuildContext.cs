@@ -191,10 +191,12 @@ public partial class BuildContext : FrostingContext
         ("components.ur.robotics", "axopen.components.ur.robotics", true, true),
         ("components.kuka.robotics", "axopen.components.kuka.robotics", true, true),
         ("components.siem.identification", "axopen.components.siem.identification", true, true),
+        ("components.siem.communication", "axopen.components.siem.communication", true, true),
         ("components.balluff.identification", "axopen.components.balluff.identification", true, true),
         ("components.keyence.vision", "axopen.components.keyence.vision", true, true),
         ("components.rexroth.tightening", "axopen.components.rexroth.tightening", true, true),
         ("components.dukane.welders", "axopen.components.dukane.welders", true, true),
+        ("components.zebra.vision", "axopen.components.zebra.vision", true, true),
         ("integrations", "ix.integrations", false,false),
         ("template.axolibrary", "template.axolibrary", false, true)
     };
