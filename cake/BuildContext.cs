@@ -160,45 +160,45 @@ public partial class BuildContext : FrostingContext
     }
 
     #region Libraries
-    public IEnumerable<(string folder, string name, bool pack, bool app_run)> Libraries { get; } = new[]
+    public IEnumerable<(string folder, string name, bool pack, bool app_run, bool test)> Libraries { get; } = new[]
     {
-        ("ax.latest.packages", "ax.latest.packages", true, false),
-        ("ax.axopen.min", "ax.axopen.min", true, false),
-        ("ax.axopen.hwlibrary", "ax.axopen.hwlibrary", true, false),
-        ("ax.axopen.app", "ax.axopen.app", true, false),
-        ("sdk-ax", "ax-sdk", true, false),
-        ("abstractions", "axopen.abstractions", true, true),
-        ("timers", "axopen.timers", true, false),
-        ("simatic1500", "axopen.simatic1500", true, false),
-        ("utils", "axopen.utils", true, false),
-        ("core", "axopen.core", true, true),
-        ("data", "axopen.data", true, true),
-        ("probers", "axopen.probers", true, true),
-        ("inspectors", "axopen.inspectors", true, true),
-        ("components.abstractions", "axopen.components.abstractions", true, true),
-        ("components.elements", "axopen.components.elements", true, true),
-        ("io", "axopen.io", true, true),
-        ("components.cognex.vision", "axopen.components.cognex.vision", true, true),
-        ("components.pneumatics", "axopen.components.pneumatics", true, true),
-        ("components.drives", "axopen.components.drives", true, true),
-        ("components.rexroth.drives", "axopen.components.rexroth.drives", true, true),
-        ("components.rexroth.press", "axopen.components.rexroth.press", true, true),
-        ("components.festo.drives", "axopen.components.festo.drives", true, true),
-        ("components.desoutter.tightening", "axopen.components.desoutter.tightening", true, true),
-        ("components.robotics", "axopen.components.robotics", true, true),
-        ("components.abb.robotics", "axopen.components.abb.robotics", true, true),
-        ("components.mitsubishi.robotics", "axopen.components.mitsubishi.robotics", true, true),
-        ("components.ur.robotics", "axopen.components.ur.robotics", true, true),
-        ("components.kuka.robotics", "axopen.components.kuka.robotics", true, true),
-        ("components.siem.identification", "axopen.components.siem.identification", true, true),
-        ("components.siem.communication", "axopen.components.siem.communication", true, true),
-        ("components.balluff.identification", "axopen.components.balluff.identification", true, true),
-        ("components.keyence.vision", "axopen.components.keyence.vision", true, true),
-        ("components.rexroth.tightening", "axopen.components.rexroth.tightening", true, true),
-        ("components.dukane.welders", "axopen.components.dukane.welders", true, true),
-        ("components.zebra.vision", "axopen.components.zebra.vision", true, true),
-        ("integrations", "ix.integrations", false,false),
-        ("template.axolibrary", "template.axolibrary", false, true)
+        ("ax.latest.packages", "ax.latest.packages", true, false, false),
+        ("ax.axopen.min", "ax.axopen.min", true, false, false),
+        ("ax.axopen.hwlibrary", "ax.axopen.hwlibrary", true, false, false),
+        ("ax.axopen.app", "ax.axopen.app", true, false, false),
+        ("sdk-ax", "ax-sdk", true, false, false),
+        ("abstractions", "axopen.abstractions", true, true, true),
+        ("timers", "axopen.timers", true, false, true),
+        ("simatic1500", "axopen.simatic1500", true, false, true),
+        ("utils", "axopen.utils", true, false, true),
+        ("core", "axopen.core", true, true, true),
+        ("data", "axopen.data", true, true, true),
+        ("probers", "axopen.probers", true, true, false),
+        ("inspectors", "axopen.inspectors", true, true, true),
+        ("components.abstractions", "axopen.components.abstractions", true, true, true),
+        ("components.elements", "axopen.components.elements", true, true, true),
+        ("io", "axopen.io", true, true, false),
+        ("components.cognex.vision", "axopen.components.cognex.vision", true, true, true),
+        ("components.pneumatics", "axopen.components.pneumatics", true, true, true),
+        ("components.drives", "axopen.components.drives", true, true, true),
+        ("components.rexroth.drives", "axopen.components.rexroth.drives", true, true, true),
+        ("components.rexroth.press", "axopen.components.rexroth.press", true, true, true),
+        ("components.festo.drives", "axopen.components.festo.drives", true, true, true),
+        ("components.desoutter.tightening", "axopen.components.desoutter.tightening", true, true, true),
+        ("components.robotics", "axopen.components.robotics", true, true, true),
+        ("components.abb.robotics", "axopen.components.abb.robotics", true, true, true),
+        ("components.mitsubishi.robotics", "axopen.components.mitsubishi.robotics", true, true, true),
+        ("components.ur.robotics", "axopen.components.ur.robotics", true, true, true),
+        ("components.kuka.robotics", "axopen.components.kuka.robotics", true, true, true),
+        ("components.siem.identification", "axopen.components.siem.identification", true, true, true),
+        ("components.siem.communication", "axopen.components.siem.communication", true, true, true),
+        ("components.balluff.identification", "axopen.components.balluff.identification", true, true, true),
+        ("components.keyence.vision", "axopen.components.keyence.vision", true, true, true),
+        ("components.rexroth.tightening", "axopen.components.rexroth.tightening", true, true, true),
+        ("components.dukane.welders", "axopen.components.dukane.welders", true, true, true),
+        ("components.zebra.vision", "axopen.components.zebra.vision", true, true, true),
+        ("integrations", "ix.integrations", false,false, false),
+        ("template.axolibrary", "template.axolibrary", false, true, false)
     };
     #endregion
     
@@ -208,7 +208,7 @@ public partial class BuildContext : FrostingContext
 
     public string ApaxSignKey { get; } = System.Environment.GetEnvironmentVariable("APAX_KEY");
 
-    public IEnumerable<string> GetAxFolders((string folder, string name, bool pack, bool app_run) library)
+    public IEnumerable<string> GetAxFolders((string folder, string name, bool pack, bool app_run, bool test) library)
     {
         var paths = new string[]
         {
@@ -231,7 +231,7 @@ public partial class BuildContext : FrostingContext
         return paths.Where(p => File.Exists(Path.Combine(p, "apax.yml")));
     }
 
-    public IEnumerable<string> GetLibraryAxFolders((string folder, string name, bool pack, bool app_run) library)
+    public IEnumerable<string> GetLibraryAxFolders((string folder, string name, bool pack, bool app_run, bool test) library)
     {
         var paths = new string[]
         {
@@ -251,7 +251,7 @@ public partial class BuildContext : FrostingContext
         return paths.Where(p => File.Exists(Path.Combine(p, "apax.yml")) && Directory.Exists(Path.Combine(p, "tests"))).ToList();
     }
 
-    public string GetLibFolder((string folder, string name, bool pack, bool app_run) library)
+    public string GetLibFolder((string folder, string name, bool pack, bool app_run, bool test) library)
     {
         return Path.Combine(Path.Combine(RootDir, library.folder), "ctrl");
     }
@@ -261,7 +261,7 @@ public partial class BuildContext : FrostingContext
         return Path.Combine(Path.Combine(RootDir, library.folder), "app");
     }
 
-    public string GetAppFolder((string folder, string name, bool pack, bool app_run) library)
+    public string GetAppFolder((string folder, string name, bool pack, bool app_run, bool test) library)
     {
         return Path.Combine(Path.Combine(RootDir, library.folder), "app");
     }
@@ -277,7 +277,7 @@ public partial class BuildContext : FrostingContext
     }
 
     
-    public IEnumerable<string> GetApaxFiles((string folder, string name, bool pack, bool app_run) library)
+    public IEnumerable<string> GetApaxFiles((string folder, string name, bool pack, bool app_run, bool test) library)
     {
         var paths = new string[]
         {

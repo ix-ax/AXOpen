@@ -96,22 +96,7 @@ namespace AXOpen.Data
 
             List<ITwinPrimitive> tagsToWrite = new List<ITwinPrimitive>();
 
-            foreach (var tagFromRepo in recordFromRepo.Tags)
-            {
-                var ConnectedTags = allTags.Where(p => p.Symbol == tagFromRepo.Symbol);
-
-                if (!ConnectedTags.Any()) continue;
-
-                var ConnectedTag = ConnectedTags.First();
-
-                if (ConnectedTag == null) continue;
-
-#pragma warning disable CS0612
-                ConnectedTag.SetTagCyclicValueUsingLethargicWrite(tagFromRepo);
-#pragma warning restore CS0612
-
-                tagsToWrite.Add(ConnectedTag);
-            }
+            AddTagsFromRecordToWrittenList(tagsToWrite, recordFromRepo);
 
             await WriteTags(tagsToWrite);
             return true;
@@ -136,18 +121,20 @@ namespace AXOpen.Data
 
         private void AddTagsFromRecordToWrittenList(List<ITwinPrimitive> tagsToWrite, PersistentRecord recordFromRepo)
         {
+            var groupTags = tagsInGroups[recordFromRepo._EntityId];
+
             foreach (var tagFromRepo in recordFromRepo.Tags)
             {
-                var ConnectedTags = allTags.Where(p => p.Symbol == tagFromRepo.Symbol);
+                var ConnectedTags = groupTags.Where(p => p.Symbol == tagFromRepo.Symbol);
 
                 if (!ConnectedTags.Any()) continue;
 
                 var ConnectedTag = ConnectedTags.First();
 
                 if (ConnectedTag == null) continue;
-
+#pragma warning disable CS0612
                 ConnectedTag.SetTagCyclicValueUsingLethargicWrite(tagFromRepo);
-
+#pragma warning restore CS0612
                 tagsToWrite.Add(ConnectedTag);
             }
         }
@@ -278,7 +265,7 @@ namespace AXOpen.Data
         public async Task InitializeRemoteDataExchange()
         {
             Operation.InitializeExclusively(Handle);
-            //await this.WriteAsync();
+            await this.Operation.WriteAsync();
         }
 
         /// <summary>
@@ -287,7 +274,7 @@ namespace AXOpen.Data
         public async Task DeInitializeRemoteDataExchange()
         {
             Operation.DeInitialize();
-            //await this.WriteAsync();
+            await this.Operation.WriteAsync();
         }
 
         private async Task Handle()
