@@ -28,6 +28,7 @@ using Path = System.IO.Path;
 using Cake.Core.IO;
 using System;
 using YamlDotNet.RepresentationModel;
+using Cake.Core.Diagnostics;
 
 
 public partial class BuildContext : FrostingContext

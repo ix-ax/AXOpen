@@ -2,8 +2,8 @@
   <PropertyGroup>    
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <PackageId>AXOpen.Styling.Blazor</PackageId>
-    <RootNamespace>AXOpen.Styling.Blazor</RootNamespace>
+    <PackageId>AXOpen.Operon.Blazor</PackageId>
+    <RootNamespace>AXOpen.Operon.Blazor</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

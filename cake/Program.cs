@@ -177,6 +177,9 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             return;
         }
 
+        // Build Tailwind CSS
+        BuildTailwindCss(context);
+
         if (context.BuildParameters.DoPack)
         {
             var apaxFiles = new List<string>();
@@ -225,6 +228,73 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 
         //System.IO.Directory.Delete(Path.Combine(traversalProjectFolder, ".apax"), true);
 
+    }
+
+    private void BuildTailwindCss(BuildContext context)
+    {
+        var stylingFolder = Path.Combine(context.RootDir, "styling", "src");
+        var nodeModulesFolder = Path.Combine(stylingFolder, "node_modules");
+
+        context.Log.Information($"Building Tailwind CSS in folder: {stylingFolder}");
+
+        // Check if node_modules exists, if not install packages
+        if (!Directory.Exists(nodeModulesFolder))
+        {
+            context.Log.Information("node_modules not found. Installing npm packages...");
+            var npmInstall = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "cmd.exe",
+                    Arguments = "/c npm install",
+                    WorkingDirectory = stylingFolder,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    CreateNoWindow = true
+                }
+            };
+            npmInstall.OutputDataReceived += (sender, e) => { if (e.Data != null) Console.WriteLine(e.Data); };
+            npmInstall.ErrorDataReceived += (sender, e) => { if (e.Data != null) Console.Error.WriteLine(e.Data); };
+            npmInstall.Start();
+            npmInstall.BeginOutputReadLine();
+            npmInstall.BeginErrorReadLine();
+            npmInstall.WaitForExit();
+
+            if (npmInstall.ExitCode != 0)
+            {
+                throw new Exception($"npm install failed with exit code {npmInstall.ExitCode}");
+            }
+        }
+
+        // Run the tailwind build using npx
+        context.Log.Information("Running Tailwind build...");
+        var npxBuild = new Process
+        {
+            StartInfo = new ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                Arguments = "/c npx @tailwindcss/cli -i ./wwwroot/tailwind.css -o ./wwwroot/css/axopenstyling.css --minify",
+                WorkingDirectory = stylingFolder,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                CreateNoWindow = true
+            }
+        };
+        npxBuild.OutputDataReceived += (sender, e) => { if (e.Data != null) Console.WriteLine(e.Data); };
+        npxBuild.ErrorDataReceived += (sender, e) => { if (e.Data != null) Console.Error.WriteLine(e.Data); };
+        npxBuild.Start();
+        npxBuild.BeginOutputReadLine();
+        npxBuild.BeginErrorReadLine();
+        npxBuild.WaitForExit();
+
+        if (npxBuild.ExitCode != 0)
+        {
+            throw new Exception($"Tailwind CSS build failed with exit code {npxBuild.ExitCode}");
+        }
+
+        context.Log.Information("Tailwind CSS build completed.");
     }
 }
 
