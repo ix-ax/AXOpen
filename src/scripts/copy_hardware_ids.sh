@@ -41,40 +41,56 @@ fi
 
 mkdir -p "$output_dir"
 
-# ---- Inline AWK transformation ----
-awk -v ns="$NAMESPACE" "
+# ---- Parse, sort, and transform using AWK ----
+awk -v ns="$NAMESPACE" '
 BEGIN {
-    print \"NAMESPACE \" ns
-    print \"    TYPE\"
-    print \"        HwIdentifiers : UINT\"
-    print \"        (\"
+    in_block = 0;
 }
 {
-    line = \$0
-    gsub(/\\r/, \"\", line)
+    line = $0
+    gsub(/\r/, "", line)
 
-    if (line ~ /CONFIGURATION HardwareIDs|VAR_GLOBAL CONSTANT|END_VAR|END_CONFIGURATION/) next
+    # Detect start/end of the relevant block
+    if (line ~ /VAR_GLOBAL CONSTANT/) { in_block = 1; next }
+    if (line ~ /END_VAR/) { in_block = 0; next }
 
-    gsub(/:_/, \"__\", line)
-    gsub(/: UINT := UINT/, \":=\\UINT\", line)
-    gsub(/;/, \",\", line)
+    if (!in_block) next
 
-    match(line, /^[[:space:]]*/)
-    prefix = substr(line, 1, RLENGTH)
-    rest = substr(line, RLENGTH + 1)
-    first = substr(rest, 1, 1)
-    if (first !~ /[a-zA-Z_]/ && first != \"\") {
-        rest = \"_\" rest
+    # We are inside the constant block
+    # Expected format:  NAME : UINT := UINT#123;
+    if (match(line, /^[[:space:]]*([A-Za-z0-9_]+)[[:space:]]*:[[:space:]]*UINT[[:space:]]*:=[[:space:]]*UINT#([0-9]+)[[:space:]]*;/, m)) {
+        name = m[1]
+        val  = m[2]
+        items[name] = val
+    }
+}
+
+END {
+    print "NAMESPACE " ns
+    print "    TYPE"
+    print "        HwIdentifiers : UINT"
+    print "        ("
+
+    n = asorti(items, sorted, "@val_num_asc")   # numeric ascending sort
+
+    if (n == 0) {
+        # No items found → output NONE only
+        print "            NONE := UINT#0"
+    } else {
+        # Print sorted items without final trailing comma
+        for (i = 1; i <= n; i++) {
+            key = sorted[i]
+            val = items[key]
+
+            last = (i == n) ? "" : ","
+            print "            " key " := UINT#" val last
+        }
     }
 
-    print \"    \" prefix rest
+    print "        );"
+    print "    END_TYPE"
+    print "END_NAMESPACE"
 }
-END {
-    print \"            NONE := UINT#0\"
-    print \"        );\"
-    print \"    END_TYPE\"
-    print \"END_NAMESPACE\"
-}
-" "$input_file" > "$output_file"
+' "$input_file" > "$output_file"
 
 echo -e "${GREEN}Generation complete. Output written to $output_file${NC}"
