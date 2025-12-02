@@ -1,17 +1,53 @@
 # AxoDataPersistentExchange
 
-Persistent data exchange allows the grouping of multiple primitive variables or properties assigned by an attribute into tag lists, on which repository operations can be performed.
+Persistent data exchange enables the grouping of multiple primitive variables or properties marked with an attribute into tag lists, allowing repository operations to be performed on them.
 
 > [!IMPORTANT]
-> The main goal is to store the values of selected variables that are not on the same level in the program structure. It is important to retain them in case of a program restart. Therefore, this storage is suitable for scenarios such as remembering "only the Identifier" of process data settings or technology data, which can be loaded from another repository or source at startup.
+> The primary purpose is to persist values of selected variables across different levels of the program structure. This ensures data retention during program restarts or memory resets. This approach is ideal for scenarios such as storing identifiers for process data settings or technology parameters that can be reloaded from external repositories or sources at PLC startup.
 
 ## Getting started
 
-### Label the requested variable as Persistent
+### Mark the variable as persistent
 
 Anywhere in the structured code, use the persistent attribute `AXOpen.Data.PersistentAttribute("PersistentGroupName")` to mark a variable as persistent.
 
 [!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=PersistentAttribute)]
+
+
+### Create an instance of the exchange manager
+Create an instance of the manager and call its `.Run()` method within the Context.
+
+[!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=ContextDeclaration)]
+
+> [!NOTE]
+> You can use multiple instances of the persistent manager, each operating on different root objects initialized on the .NET side. In this case, they can operate independently on both PLC and .NET sides.
+
+### Usage in the controller
+
+To save variables to a repository, call the `InvokeUpdate()` method. It returns `true` if the invocation is successful. To wait for completion, use the `IsUpdateDone()` method.
+
+Other operations such as `InvokeRead`, `InvokeUpdateAll`, `InvokeReadAll`, and `InvokeEntityExist` follow the same pattern. These methods accept an `IAxoObject` parameter, which uses the object's identity to prevent concurrent calls. The object that initiates the first call is prioritized, and subsequent calls from different callers will wait until the first caller completes.
+
+> [!WARNING]
+> If the record does not exist, the read operation will fail. Ensure the record exists by either saving it manually or generating a new record before attempting to read.
+
+[!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=ConcurrentUsage)]
+
+### Data exchange initialization in .NET
+
+At this point, we have everything ready in the PLC.
+
+The Persistent Manager instance requires additional initialization parameters. You must configure a repository for data storage and specify the root object of the PLC tree from which persistent variables are collected.
+
+[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=SetUpAxoDataPersistentExchange)]
+
+### Data view 
+The DataExchange view is connected to an instance. Therefore, you need to pass the instance through the Context property.
+
+Usage: 
+```
+<AxoDataPersistentExchangeView Context="@Entry.Plc.Context.Glob.Persits"></AxoDataPersistentExchangeView>
+```
 
 ### AX Snippet for attribute
 
@@ -24,42 +60,6 @@ Anywhere in the structured code, use the persistent attribute `AXOpen.Data.Persi
         "{#ix-attr:[AXOpen.Data.PersistentAttribute(\"\")]}",
         "$0"
         ],
-    "description": "The variable will be flagged as persistent, and the persistent data exchange will handle CRUD operations."
+    "description": "Marks the variable as persistent, enabling CRUD operations through the persistent data exchange manager."
     }
-```
-### Create an instance of the exchange manager
-
-Create an instance of the manager and call it in the Context.
-
-[!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=ContextDeclaration)]
-
-> [!NOTE]
-> Note that you can use multiple instances of the persistent manager, which can operate on different root objects that are initialized on the .NET side.
-
-### Usage in the controller
-
-In the case of saving variables to a repository, call the `InvokeUpdate()` method, which returns `true` if the invocation is successful. To monitor the completion status, use the `IsUpdateDone()` method.
-
-Other operations like `InvokeRead`, `InvokeUpdateAll`, `InvokeReadAll`, and `InvokeEntityExist` follow the same principle. These methods accept an `IAxoObject`, which uses the identity of the object to prevent concurrent calls. The object executing the first call is prioritized, and subsequent calls with a different caller will wait until the first caller has finished.
-
-
-> [!WARNING]
-> If the record does not exist, the loading task will end with an error. Therefore, it is necessary to ensure that the record exists, either by manual saving or by generating a new record.
-
-[!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=ConcurrentUsage)]
-
-### Data exchange initialization in .NET
-
-At this point, we have everything ready in the PLC.
-
-An instance of the Persistent Manager requires additional parameters for initialization. It needs to set up a repository where the data will be saved. The next parameter is the root object of the PLC tree from which it begins collecting persistent variables.
-
-[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=SetUpAxoDataPersistentExchange)]
-
-### Data view 
-The DataExchange view is connected to an instance. Therefore, you need to pass the instance through the Context property.
-
-Usage: 
-```
-<AxoDataPersistentExchangeView Context="@Entry.Plc.Context.Glob.Persits"></AxoDataPersistentExchangeView>
 ```

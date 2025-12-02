@@ -1,5 +1,6 @@
 ﻿using AXOpen.Messaging.Static;
 using AXSharp.Connector;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -1136,6 +1137,34 @@ namespace AXOpen.Components.Keyence.Vision
         };
 
             TaskMessenger.DotNetMessengerTextList = messengerTextList;
+        }
+
+
+        /// <summary>
+        /// Configures proxying requests to the camera's internal web server.
+        /// This method intercepts HTTP requests starting with the specified proxy path
+        /// and forwards them to the camera's internal IP address. Settings are provided by pragmas in the PLC code
+        /// (Proxy, DeviceIpAddress).
+        /// </summary>
+        public async Task ConfigureProxy(HttpContext httpContext, Func<Task> func)
+        {
+            if (httpContext.Request.Path.StartsWithSegments($"/{Proxy}"))
+            {
+                // Internal IP of the camera
+                var cameraUrl = $"http://{DeviceIpAddress}" + httpContext.Request.Path.Value.Replace($"/{Proxy}", "");
+
+                using var httpClient = new HttpClient();
+                var response = await httpClient.GetAsync(cameraUrl, HttpCompletionOption.ResponseHeadersRead);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    httpContext.Response.ContentType = response.Content.Headers.ContentType?.ToString() ?? "application/octet-stream";
+                    await response.Content.CopyToAsync(httpContext.Response.Body);
+                    return;
+                }
+            }
+
+            await func(); // Continue to Blazor handling
         }
     }
 
