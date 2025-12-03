@@ -17,7 +17,10 @@ CONFIGURATION MyConfiguration
         Inputs  AT %IB0 : Inputs;
         {S7.extern=ReadWrite}
 		Outputs  AT %QB0 : Outputs;
-    END_VAR            
+        {S7.extern=ReadWrite}
+        HwIDs : HwIDs;
+    END_VAR   
+    
 END_CONFIGURATION
 
 
