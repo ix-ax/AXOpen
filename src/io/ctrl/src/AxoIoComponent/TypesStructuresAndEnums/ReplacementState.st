@@ -1,5 +1,5 @@
 NAMESPACE AXOpen.Io
-    TYPE ReplacementState  : UINT (
+    TYPE ReplacementState : UINT (
         Unknown         :=	UINT#255, 
         OK              :=	UINT#0, //	The correct element exists.
         Substitute      :=	UINT#1, //	The element was replaced by a compatible element.
