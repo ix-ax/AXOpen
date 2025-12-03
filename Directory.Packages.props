@@ -16,16 +16,16 @@
   <ItemGroup>
     
     <!-- AX# Libraries -->
-    <PackageVersion Include="AXSharp.Abstractions" Version="0.45.0-alpha.323" />
-    <PackageVersion Include="AXSharp.Connector" Version="0.45.0-alpha.323" />
-    <PackageVersion Include="AXSharp.Connector.S71500.WebAPI" Version="0.45.0-alpha.323" />
-    <PackageVersion Include="AXSharp.Presentation.Blazor" Version="0.45.0-alpha.323" />
-    <PackageVersion Include="AXSharp.Presentation.Blazor.Controls" Version="0.45.0-alpha.323" />
-    <PackageVersion Include="Inxton.Operon" Version="0.2.0-alpha.94" />
+    <PackageVersion Include="AXSharp.Abstractions" Version="0.46.0-alpha.349" />
+    <PackageVersion Include="AXSharp.Connector" Version="0.46.0-alpha.349" />
+    <PackageVersion Include="AXSharp.Connector.S71500.WebAPI" Version="0.46.0-alpha.349" />
+    <PackageVersion Include="AXSharp.Presentation.Blazor" Version="0.46.0-alpha.349" />
+    <PackageVersion Include="AXSharp.Presentation.Blazor.Controls" Version="0.46.0-alpha.349" />
+    <PackageVersion Include="Inxton.Operon" Version="0.3.0-alpha.100" />
 
     <!-- Data & Serialization -->
     <PackageVersion Include="ClosedXML" Version="0.104.2" />
-    <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageVersion Include="MongoDB.Bson" Version="3.0.0" />
     <PackageVersion Include="MongoDB.Driver" Version="3.0.0" />
     <PackageVersion Include="MongoDB.Driver.Core" Version="2.30.0" />
@@ -48,7 +48,7 @@
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
 
     <!-- Hardware & Devices -->
-    <PackageVersion Include="Siemens.Simatic.S7.Webserver.API" Version="3.2.1" />
+    <PackageVersion Include="Siemens.Simatic.S7.Webserver.API" Version="3.3.3" />
 
     <!-- Testing - Core -->
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />

@@ -281,7 +281,7 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             StartInfo = new ProcessStartInfo
             {
                 FileName = "cmd.exe",
-                Arguments = "/c npx @tailwindcss/cli -i ./wwwroot/tailwind.css -o ./wwwroot/css/axopenstyling.css --minify",
+                Arguments = "/c npx @tailwindcss/cli -i ./wwwroot/css/tailwind.css -o ./wwwroot/css/momentum.css --minify",
                 WorkingDirectory = stylingFolder,
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
