@@ -25,14 +25,7 @@
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="Components\**\*.*" Exclude="Components\**\*.js;Components\**\*.css" Pack="true" PackagePath="contentFiles\Components\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="build\AXOpen.VisualComposer.targets" Pack="true" PackagePath="build\AXOpen.VisualComposer.targets" CopyToOutputDirectory="PreserveNewest" />
-	</ItemGroup>
-
-	<PropertyGroup>
-		<DefaultItemExcludes>$(DefaultItemExcludes);temp\**\*</DefaultItemExcludes>
-	</PropertyGroup>
+	
+	
 
 </Project>
