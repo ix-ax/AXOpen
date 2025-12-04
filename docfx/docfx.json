@@ -30,7 +30,7 @@
       "disableDefaultFilter": false,
       "noRestore" : true,
       "properties": {
-        "TargetFramework": "net7.0"
+        "TargetFramework": "net10.0"
       }            
     }
   ],

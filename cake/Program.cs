@@ -123,6 +123,9 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
             context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/*.*"), Path.Combine(context.RootDir, library.folder));
         }
 
+        // provision nodejs
+        context.ProvisionNodeJs();
+
         // with this we will enforce use of specific apax version at least temporarily 
         // due to issues with apax versions in some environments.
         context.ApaxSelfUpdate("4.1.1");
@@ -174,6 +177,7 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             return;
         }
 
+   
         if (context.BuildParameters.DoPack)
         {
             var apaxFiles = new List<string>();
@@ -202,13 +206,22 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             context.ApaxInstall(new[] { traversalProjectFolder });
             context.DotnetIxc(new[] { traversalProjectFolder });
             context.DotNetBuildSettings.Verbosity = DotNetVerbosity.Quiet;
+            context.DotNetBuildSettings.NoRestore = true;
             context.DotNetBuildSettings.MSBuildSettings.Properties.Add("NoWarn", new List<string>()
             { "1234;2345;8602;10012;8618;0162;8605;1416;3270;1504;8600;8618;" +
                 "CS0618;CS1591;BL0007;BL0005;CA1416;CA2200;CS0105;CS0108;CS0109;CS0162;CS0168;CS0169;CS219;CS0414;CS0436;CS0472;CS0618;CS1591;CS1998;CS8604;" +
                 "CS8601;SYSLIB0051;SYSLIB0014;CS8625;CS0219;CS8625;CS8625;CS8620;RZ2012;RZ10012;CS4014;CS8981;CS8603;CS8766;CS8619;CS0649;CS8321"
             });
+            
+            
+            context.DotNetRestore(Path.Combine(context.RootDir, "AXOpen.proj"));            
+            BuildTailwindCss(context);
+
             context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.proj"), context.DotNetBuildSettings);
         }
+
+        
+
 
         if (!context.BuildParameters.NoBuild && !context.BuildParameters.DoTest && !context.BuildParameters.DoPack)
         {
@@ -222,6 +235,73 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 
         //System.IO.Directory.Delete(Path.Combine(traversalProjectFolder, ".apax"), true);
 
+    }
+
+    private void BuildTailwindCss(BuildContext context)
+    {
+        var stylingFolder = Path.Combine(context.RootDir, "styling", "src");
+        var nodeModulesFolder = Path.Combine(stylingFolder, "node_modules");
+
+        context.Log.Information($"Building Tailwind CSS in folder: {stylingFolder}");
+
+        // Check if node_modules exists, if not install packages
+        if (!Directory.Exists(nodeModulesFolder))
+        {
+            context.Log.Information("node_modules not found. Installing npm packages...");
+            var npmInstall = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "cmd.exe",
+                    Arguments = "/c npm install",
+                    WorkingDirectory = stylingFolder,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    CreateNoWindow = true
+                }
+            };
+            npmInstall.OutputDataReceived += (sender, e) => { if (e.Data != null) Console.WriteLine(e.Data); };
+            npmInstall.ErrorDataReceived += (sender, e) => { if (e.Data != null) Console.Error.WriteLine(e.Data); };
+            npmInstall.Start();
+            npmInstall.BeginOutputReadLine();
+            npmInstall.BeginErrorReadLine();
+            npmInstall.WaitForExit();
+
+            if (npmInstall.ExitCode != 0)
+            {
+                throw new Exception($"npm install failed with exit code {npmInstall.ExitCode}");
+            }
+        }
+
+        // Run the tailwind build using npx
+        context.Log.Information("Running Tailwind build...");
+        var npxBuild = new Process
+        {
+            StartInfo = new ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                Arguments = "/c npx @tailwindcss/cli -i ./wwwroot/css/tailwind.css -o ./wwwroot/css/momentum.css --minify",
+                WorkingDirectory = stylingFolder,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                CreateNoWindow = true
+            }
+        };
+        npxBuild.OutputDataReceived += (sender, e) => { if (e.Data != null) Console.WriteLine(e.Data); };
+        npxBuild.ErrorDataReceived += (sender, e) => { if (e.Data != null) Console.Error.WriteLine(e.Data); };
+        npxBuild.Start();
+        npxBuild.BeginOutputReadLine();
+        npxBuild.BeginErrorReadLine();
+        npxBuild.WaitForExit();
+
+        if (npxBuild.ExitCode != 0)
+        {
+            throw new Exception($"Tailwind CSS build failed with exit code {npxBuild.ExitCode}");
+        }
+
+        context.Log.Information("Tailwind CSS build completed.");
     }
 }
 

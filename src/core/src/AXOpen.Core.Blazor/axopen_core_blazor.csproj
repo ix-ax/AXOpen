@@ -23,9 +23,9 @@
 	    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
   </ItemGroup>
 
-  <ItemGroup>
-    <!-- <ProjectReference Include="..\..\..\..\..\..\..\operon\src\Operon\Operon.csproj" /> -->
+  <ItemGroup>   
 	  <ProjectReference Include="..\..\..\base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj" />
+	  <ProjectReference Include="..\..\..\styling\src\AXOpen.Operon.Blazor.csproj" />
 	  <ProjectReference Include="..\AXOpen.Core\inxton_axopen_core.csproj" />
   </ItemGroup>
 
@@ -52,25 +52,6 @@
       <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+	
 
-	<ItemGroup>
-		<None Include="AxoAlert\**\*.*" Exclude="AxoAlert\**\*.js;AxoAlert\**\*.css" Pack="true" PackagePath="contentFiles\AxoAlert\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="AxoArrays\**\*.*" Exclude="AxoArrays\**\*.js;AxoArrays\**\*.css" Pack="true" PackagePath="contentFiles\AxoArrays\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="AxoComponent\**\*.*" Exclude="AxoComponent\**\*.js;AxoComponent\**\*.css" Pack="true" PackagePath="contentFiles\AxoComponent\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="AxoCoordination\**\*.*" Exclude="AxoCoordination\**\*.js;AxoCoordination\**\*.css" Pack="true" PackagePath="contentFiles\AxoCoordination\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="AxoDialogContainer\**\*.*" Exclude="AxoDialogContainer\**\*.js;AxoDialogContainer\**\*.css" Pack="true" PackagePath="contentFiles\AxoDialogContainer\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="AxoDialogs\**\*.*" Exclude="AxoDialogs\**\*.js;AxoDialogs\**\*.css" Pack="true" PackagePath="contentFiles\AxoDialogs\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="AxoLocator\**\*.*" Exclude="AxoLocator\**\*.js;AxoLocator\**\*.css" Pack="true" PackagePath="contentFiles\AxoLocator\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="AxoMessenger\**\*.*" Exclude="AxoMessenger\**\*.js;AxoMessenger\**\*.css" Pack="true" PackagePath="contentFiles\AxoMessenger\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="AxoMomentaryTask\**\*.*" Exclude="AxoMomentaryTask\**\*.js;AxoMomentaryTask\**\*.css" Pack="true" PackagePath="contentFiles\AxoMomentaryTask\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="AxoObject\**\*.*" Exclude="AxoObject\**\*.js;AxoObject\**\*.css" Pack="true" PackagePath="contentFiles\AxoObject\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="AxoTask\**\*.*" Exclude="AxoTask\**\*.js;AxoTask\**\*.css" Pack="true" PackagePath="contentFiles\AxoTask\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="AxoTextList\**\*.*" Exclude="AxoTextList\**\*.js;AxoTextList\**\*.css" Pack="true" PackagePath="contentFiles\AxoTextList\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="AxoToggleTask\**\*.*" Exclude="AxoToggleTask\**\*.js;AxoToggleTask\**\*.css" Pack="true" PackagePath="contentFiles\AxoToggleTask\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="build\AXOpen.Core.Blazor.targets" Pack="true" PackagePath="build\AXOpen.Core.Blazor.targets" CopyToOutputDirectory="PreserveNewest" />
-	</ItemGroup>
-
-	<PropertyGroup>
-		<DefaultItemExcludes>$(DefaultItemExcludes);temp\**\*</DefaultItemExcludes>
-	</PropertyGroup>
 </Project>

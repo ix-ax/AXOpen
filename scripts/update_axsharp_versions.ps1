@@ -52,7 +52,7 @@ function Write-Err ($msg){ Write-Host "[ERROR] $msg" -ForegroundColor Red }
 $scriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $repoRoot = Split-Path -Parent $scriptRoot
 $toolsJsonPath = Join-Path $repoRoot '.config/dotnet-tools.json'
-$propsPath = Join-Path $repoRoot 'src/Directory.Packages.props'
+$propsPath = Join-Path $repoRoot 'Directory.Packages.props'
 
 if(-not (Test-Path $toolsJsonPath)){ Write-Err ".config/dotnet-tools.json not found at $toolsJsonPath"; exit 1 }
 if(-not (Test-Path $propsPath)){ Write-Err "Directory.Packages.props not found at $propsPath"; exit 1 }
