@@ -1,0 +1,98 @@
+﻿@namespace AXOpen.Core
+@inherits RenderableComplexComponentBase<AxoObject>
+@using System.Timers
+@using AXOpen.Messaging.Static
+@using AXOpen.VisualComposer
+@using AXOpen.VisualComposer.Components.VisualComposerItem
+@using AXSharp.Connector
+@using Microsoft.JSInterop
+@using Operon.Icons
+@inject IJSRuntime JSRuntime
+
+<button data-axo-object-spot-view 
+        type="button" 
+        class="flex flex-col w-full min-w-32 rounded-lg border transition-all duration-200 overflow-hidden hover:-translate-y-0.5 @(observer?.ActiveMessagesCount > 0 ? "border-danger/40 bg-danger/10 hover:bg-danger/20 shadow-glow-danger" : "border-border bg-background/40 hover:bg-background/60")" 
+        @onclick="() => OpenDetails()">
+    <!-- Header -->
+    <div class="flex items-center justify-between gap-2 p-2 border-b border-border/40">
+        <div class="flex items-center gap-2">
+            <HeroIcon Icon="cube" Type="IconType.Outline" Class="size-4 text-text/70" />
+            <span class="text-sm font-semibold text-text truncate">@Component.AttributeName</span>
+        </div>
+    </div>
+    
+    <!-- Status -->
+    <div class="flex items-center justify-center p-3 gap-2">
+        @if (observer?.ActiveMessagesCount > 0)
+        {
+            <div class="flex items-center gap-2 text-danger">
+                <HeroIcon Icon="exclamation-triangle" Type="IconType.Solid" Class="size-4" />
+                <span class="badge badge-danger">@observer.ActiveMessagesCount</span>
+            </div>
+        }
+        else
+        {
+            <div class="flex items-center gap-2 text-success">
+                <HeroIcon Icon="check-circle" Type="IconType.Solid" Class="size-4" />
+                <span class="text-xs font-semibold uppercase">OK</span>
+            </div>
+        }
+    </div>
+</button>
+
+@code
+{
+    private AxoMessageProvider? observer;
+
+    public override void ConfigurePolling()
+    {
+        if (this.Component is AxoObject o)
+        {
+            this.StartPolling(o.MsgCnt,2500);
+        }
+    }
+
+    /// <summary>
+    /// This method is called when a component is changed.
+    /// It creates a new instance of AxoMessageObserver using the changed component and assigns it to the observer variable.
+    /// </summary>
+    public override void OnComponentChanged()
+    {
+        observer = AxoMessageProvider.Create(new[] { this.Component });
+        
+        updateTimer.Interval = this.PollingInterval;
+        updateTimer.Enabled = true;
+        updateTimer.Elapsed += (sender, args) =>
+        {
+            InvokeAsync(this.StateHasChanged);
+
+        };
+        updateTimer.Start();
+        
+    }
+
+    private readonly Timer updateTimer = new Timer();
+
+
+
+    protected virtual void OpenDetails(string presentationType = "Status-Display")
+    {
+        if (RccContainer is RenderableContentControl rccContainer)
+        {
+            if (rccContainer.ParentContainer is VisualComposerItem composerItem)
+            {
+                if (!composerItem.InDesign)
+                {                    
+                    composerItem.Parent.OpenDetails(this.Component, presentationType); // Updated to use presentationType
+                }
+            }
+        }
+    }
+
+    ///<inheritdoc/>
+    protected override async Task OnInitializedAsync()
+    {
+        if (observer != null) await observer.InitializeLightUpdate(this.StartPolling);
+        await base.OnInitializedAsync();
+    }
+}

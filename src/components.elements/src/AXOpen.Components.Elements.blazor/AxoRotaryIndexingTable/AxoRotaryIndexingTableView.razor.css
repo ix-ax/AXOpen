@@ -1,0 +1,81 @@
+/* Scoped styles for AxoRotaryIndexingTableView */
+
+/* Spot view - rotary table visualization */
+.axo-rotary-spot {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+.axo-rotary-spot-table {
+    position: relative;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 9999px;
+    border: 3px solid #64748b;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.axo-rotary-spot-table--moving {
+    border-color: #f59e0b;
+    animation: rotary-spin 1.5s linear infinite;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.4), inset 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes rotary-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.axo-rotary-spot-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
+}
+
+.axo-rotary-spot-indicator--positioned {
+    background-color: #22c55e;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.8);
+}
+
+.axo-rotary-spot-indicator--moving {
+    background-color: #f59e0b;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.8);
+}
+
+.axo-rotary-spot-position {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    z-index: 1;
+}
+
+/* Position display in detail view */
+.axo-rotary-position-display {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 9999px;
+    border: 3px solid #3b82f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+}
