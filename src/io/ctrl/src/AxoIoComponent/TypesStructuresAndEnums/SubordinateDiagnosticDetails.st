@@ -1,6 +1,6 @@
 NAMESPACE AXOpen.Io
     {S7.extern=ReadWrite}
-    CLASS SubordinateDiagnosticDetails          
+    CLASS SubordinateDiagnosticDetails
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-set:AttributeName = "<#Subordinate state#>"}
