@@ -7,6 +7,7 @@ CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
         componentTwo : Component_2;
         componentThree : Component_3;
         componentFour : Component_4;
+        componentFive : Component_5;
     END_VAR
    
     METHOD PROTECTED OVERRIDE Main
@@ -15,5 +16,6 @@ CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
         componentTwo.Run(_rootObject);
         componentThree.Run(_rootObject);
         componentFour.Run(_rootObject);
+        componentFive.Run(_rootObject);
     END_METHOD
 END_CLASS

@@ -4,11 +4,11 @@ NAMESPACE AXOpen.Io
     CLASS PUBLIC AxoHwDiag_Config
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Info time#>"}
-            InfoTime : LTIME := LT#5S;
+            InfoTime : LTIME := LT#0S;
             {#ix-set:AttributeName = "<#Error time#>"}
-            ErrorTime : LTIME := LT#10S;
+            ErrorTime : LTIME := LT#0S;
             {#ix-set:AttributeName = "<#Task timeout#>"}
-            TaskTimeout : LTIME := LT#50S;
+            TaskTimeout : LTIME := LT#0S;
             {#ix-set:AttributeName = "<#Hardware IDs#>"}
             HWIDs : AxoHwDiag_HWIDs;
         END_VAR 
