@@ -11,12 +11,9 @@ NAMESPACE AXOpen.Io
             {#ix-attr:[ComponentHeader("")]}
             {#ix-attr:[ReadOnly()]}
             Progress       :   INT;
-<<<<<<< HEAD
-=======
             {#ix-attr:[ComponentHeader("")]}
             {#ix-attr:[ReadOnly()]}
             Debug       :   ULINT;
->>>>>>> 878
         END_VAR
 
         VAR PUBLIC // TASKS
@@ -121,17 +118,6 @@ NAMESPACE AXOpen.Io
             _progress       :   INT;
             _infoTimer      :   AXOpen.Timers.OnDelayTimer;
             _errorTimer     :   AXOpen.Timers.OnDelayTimer;
-<<<<<<< HEAD
-            // _data_in        :   ARRAY[0..254] OF BYTE;
-            // _data_out_1     :   ARRAY[0..0] OF BYTE;
-            // _data_out_2     :   ARRAY[0..1] OF BYTE;
-            // _data_out_4     :   ARRAY[0..3] OF BYTE;
-            // _data_out_8     :   ARRAY[0..7] OF BYTE;
-            // _data_out_255   :   ARRAY[0..254] OF BYTE;
-            // _word           :   WORD;
-            // _dword          :   DWORD;
-=======
->>>>>>> 878
 
             _initCheckDone          :   BOOL;
             _retval                 :   WORD;
@@ -258,17 +244,6 @@ NAMESPACE AXOpen.Io
                         Status.Error.Id :=      UINT#501;
                     END_IF;
                     _currenthwID    := hwIDsList[_currentIndex];                                                      
-<<<<<<< HEAD
-                    _retval := ReadSlotFromHardwareID(hardwareID := _currenthwID, geoAddr :=_geoAddr);   
-                    IF _retval = WORD#8090 THEN
-                        _currentIndex := _currentIndex + 1;
-                        THIS.CallTimers(FALSE);
-                        _progress := 303;
-                    END_IF;
-                    IF _retval = WORD#0 THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 302;
-=======
                     _retval := ReadSlotFromHardwareID(hardwareID := _currenthwID, geoAddr :=_geoAddr);  
                     IF _retval = WORD#0 THEN
                         THIS.CallTimers(FALSE);
@@ -277,7 +252,6 @@ NAMESPACE AXOpen.Io
                         _progress := 303;
                         _currentIndex := _currentIndex + 1;
                         THIS.CallTimers(FALSE);
->>>>>>> 878
                     END_IF;
                 END_IF;
     
@@ -312,11 +286,7 @@ NAMESPACE AXOpen.Io
                         _currentIndex := -1;
                     ELSE
                         THIS.CallTimers(FALSE);
-<<<<<<< HEAD
-                        _progress := 304;
-=======
                         _progress := 301;
->>>>>>> 878
                     END_IF;
                 END_IF;
     
@@ -342,10 +312,7 @@ NAMESPACE AXOpen.Io
             IF DiscoverPlcTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
                 _progress := 0;
-<<<<<<< HEAD
-=======
                 _currentIndex := -1;
->>>>>>> 878
             END_IF;
             //**************************************************
     
@@ -2837,10 +2804,7 @@ NAMESPACE AXOpen.Io
             Status.Action.Id := UINT#50;
             RestoreTask.DoneWhen(TRUE);
 
-<<<<<<< HEAD
-=======
             _currentIndex := -1;
->>>>>>> 878
         END_METHOD        
 
         METHOD PRIVATE CallTimers
