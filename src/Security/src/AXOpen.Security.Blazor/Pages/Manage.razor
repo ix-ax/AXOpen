@@ -17,7 +17,7 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
 @inject IToastService _toastService
-@inject ISerialService? _serialService
+@inject IServiceProvider _serviceProvider
 
 <PageTitle>Profile</PageTitle>
 
@@ -79,6 +79,8 @@
 </div>
 
 @code {
+    private ISerialService? _serialService { get; set; }
+
     private string? message;
 
     private User? user;
@@ -202,10 +204,18 @@
 
     protected override void OnInitialized()
     {
-        if (_serialService != null)
+        _serialService = (ISerialService?)_serviceProvider.GetService(typeof(ISerialService));
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
         {
-            _serialService.SerialError += OnSerialError;
-            _serialService.DataReceived += OnSerialDataReceived;
+            if (_serialService != null)
+            {
+                _serialService.SerialError += OnSerialError;
+                _serialService.DataReceived += OnSerialDataReceived;
+            }
         }
     }
 

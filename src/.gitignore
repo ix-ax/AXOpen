@@ -21,3 +21,5 @@ sandbox/**
 .sandbox/**
 
 .runtime
+
+src/**/node_modules
