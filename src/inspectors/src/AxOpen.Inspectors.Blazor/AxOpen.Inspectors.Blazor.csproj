@@ -39,10 +39,8 @@
 
   <ItemGroup>
 	<FrameworkReference Include="Microsoft.AspNetCore.App" />   
-    <PackageReference Include="Humanizer" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
-	  
+    <PackageReference Include="Humanizer" />    
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />	  
   </ItemGroup>
 
 	<ItemGroup>
