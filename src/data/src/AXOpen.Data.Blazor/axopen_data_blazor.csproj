@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Mvvm" />    
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" /> 
+    <PackageReference Include="CommunityToolkit.Mvvm" />        
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,170 @@
+@namespace AXOpen.Components.Elements
+@using AXOpen.Core
+@using AXOpen.Core.Blazor
+@using AXSharp.Presentation.Blazor.Controls
+@using AXSharp.Presentation.Blazor.Controls.RenderableContent
+@inherits AxoComponentViewBase<AxoRotaryIndexingTable>
+
+<AxoComponentContainerView Component="@Component" ParentReference="this">
+    <HeaderContent>
+        <div class="flex items-center gap-3" @onclick:stopPropagation="true">
+            <span class="@PositionBadgeClass">Position @CurrentPosition</span>
+            @* <span class="text-xs uppercase tracking-wide text-text/70">@StatusHint</span> *@
+            <span class="badge badge-info">@StatusHint</span>
+        </div>
+    </HeaderContent>
+    <CommandsOperateContent>
+        <div class="flex flex-col gap-3 w-full" @onclick:stopPropagation="true">
+            <div class="flex flex-wrap gap-3">
+                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="Turn" Component="Component.TurnTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="Init Position" Component="Component.InitPositionTask" HideRestoreButton="false"></AxoTaskCommandView>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="Restore" Component="Component.RestoreTask" HideRestoreButton="true"></AxoTaskCommandView>
+            </div>
+        </div>
+    </CommandsOperateContent>
+
+    <CommandsMonitorContent>
+        <div class="flex flex-col gap-3 w-full" @onclick:stopPropagation="true">
+            <div class="flex flex-wrap gap-3">
+                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="Turn" Component="Component.TurnTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="Init Position" Component="Component.InitPositionTask" HideRestoreButton="false"></AxoTaskStatusView>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="Restore" Component="Component.RestoreTask" HideRestoreButton="true"></AxoTaskStatusView>
+            </div>
+        </div>
+    </CommandsMonitorContent>
+
+    <ConfigAndStateViewContent>
+        <div class="flex flex-col gap-4" @onclick:stopPropagation="true">
+            <!-- Current Position Display -->
+            <div class="card p-4">
+                <p class="text-xs uppercase tracking-wide text-text/60 mb-2">Current Position</p>
+                <div class="flex items-center gap-4">
+                    <div class="axo-rotary-position-display">
+                        <span class="text-3xl font-bold text-primary">@CurrentPosition</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <p class="text-sm text-text/70">Start: @(Component?.Status?.StartPosition?.Cyclic ?? 0)</p>
+                        <p class="text-sm text-text/70">End: @(Component?.Status?.EndPosition?.Cyclic ?? 0)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inputs Section -->
+            <div class="card p-4">
+                <p class="text-xs uppercase tracking-wide text-text/60 mb-2">Inputs</p>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="flex items-center gap-2">
+                        <span class="@GetSignalClass(IsSafetyCondition)"></span>
+                        <span class="text-sm">Safety Condition</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="@GetSignalClass(IsInPosition)"></span>
+                        <span class="text-sm">In Position</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="@GetSignalClass(IsInPrecisePosition)"></span>
+                        <span class="text-sm">In Precise Position</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm text-text/70">Coding Position: @(Component?.Inputs?.CodingPosition?.Cyclic ?? 0)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outputs Section -->
+            <div class="card p-4">
+                <p class="text-xs uppercase tracking-wide text-text/60 mb-2">Outputs</p>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="flex items-center gap-2">
+                        <span class="@GetSignalClass(IsEnableTurn)"></span>
+                        <span class="text-sm">Enable Turn</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="@GetSignalClass(IsStartTurn)"></span>
+                        <span class="text-sm">Start Turn</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ConfigAndStateViewContent>
+
+    <SpotHeader></SpotHeader>
+    <SpotContent>        
+        <button type="button" class="axo-rotary-spot">
+            <div class="axo-rotary-spot-table @SpotTableClass">
+                <div class="axo-rotary-spot-indicator @SpotIndicatorClass"></div>
+                @* <span class="axo-rotary-spot-position">@CurrentPosition</span> *@
+            </div>
+        </button>
+    </SpotContent>
+</AxoComponentContainerView>
+
+@code
+{
+    protected ushort CurrentPosition => Component?.CurrentPosition?.Cyclic ?? 0;
+
+    protected bool IsSafetyCondition => Component?.Inputs?.SafetyCondition?.Cyclic ?? false;
+    protected bool IsInPosition => Component?.Inputs?.InPosition?.Cyclic ?? false;
+    protected bool IsInPrecisePosition => Component?.Inputs?.InPrecisePosition?.Cyclic ?? false;
+    protected bool IsEnableTurn => Component?.Outputs?.EnableTurn?.Cyclic ?? false;
+    protected bool IsStartTurn => Component?.Outputs?.StartTurn?.Cyclic ?? false;
+
+    protected bool IsTurning => Component?.TurnTask?.Status?.Cyclic == (ushort)AXOpen.Core.eAxoTaskState.Busy;
+    protected bool IsInitializing => Component?.InitPositionTask?.Status?.Cyclic == (ushort)AXOpen.Core.eAxoTaskState.Busy;
+    protected bool IsMoving => IsTurning || IsInitializing;
+
+    protected string StatusHint
+    {
+        get
+        {
+            if (!IsSafetyCondition) return "Safety not OK";
+            if (IsTurning) return "Turning...";
+            if (IsInitializing) return "Initializing...";
+            if (IsInPosition && IsInPrecisePosition) return "In precise position";
+            if (IsInPosition) return "In position";
+            return "Ready";
+        }
+    }
+
+    protected string PositionBadgeClass => $"badge text-xs font-semibold tracking-wide {(IsInPosition ? "badge-success" : IsMoving ? "badge-warning" : "badge-ghost text-slate-400 bg-slate-700/40 border border-slate-500/40")}";
+
+    protected string GetSignalClass(bool isActive) =>
+        $"w-3 h-3 rounded-full transition-all {(isActive ? "bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" : "bg-slate-500 opacity-60")}";
+
+    protected string SpotTableClass => IsMoving ? "axo-rotary-spot-table--moving" : "";
+    protected string SpotIndicatorClass => IsInPosition ? "axo-rotary-spot-indicator--positioned" : "axo-rotary-spot-indicator--moving";
+
+    public override async void ConfigurePolling()
+    {
+        if (Component is null)
+        {
+            return;
+        }
+       
+        // Poll current position
+        this.StartPolling(Component.CurrentPosition);
+
+        // Poll task statuses
+        this.StartPolling(Component.TurnTask.Status);
+        this.StartPolling(Component.InitPositionTask.Status);
+        this.StartPolling(Component.RestoreTask.Status);
+
+        // Poll inputs
+        this.StartPolling(Component.Inputs.SafetyCondition);
+        this.StartPolling(Component.Inputs.InPosition);
+        this.StartPolling(Component.Inputs.InPrecisePosition);
+        this.StartPolling(Component.Inputs.CodingPosition);
+
+        // Poll outputs
+        this.StartPolling(Component.Outputs.EnableTurn);
+        this.StartPolling(Component.Outputs.StartTurn);
+
+        // Poll status
+        this.StartPolling(Component.Status.StartPosition);
+        this.StartPolling(Component.Status.EndPosition);
+    }
+}

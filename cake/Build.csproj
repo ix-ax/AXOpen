@@ -7,11 +7,13 @@
   <ItemGroup>
 	  <PackageReference Include="CliWrap" />
 	  <PackageReference Include="CommandLineParser" />
+	  <PackageReference Include="NuGet.Packaging" />
 	  <PackageReference Include="Octokit" />
 	  <PackageReference Include="Octokit.Extensions" />
 	  <PackageReference Include="Cake.Frosting" />
 	  <PackageReference Include="Cake.Powershell" />
-	  <PackageReference Include="Polly" />  
+	  <PackageReference Include="Polly" />
+	  <PackageReference Include="System.IO.Packaging" />  
     <PackageReference Include="YamlDotNet" />
   </ItemGroup>
   <ItemGroup>

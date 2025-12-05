@@ -12,27 +12,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Inxton.Operon" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" />
+		<FrameworkReference Include="Microsoft.AspNetCore.App" /> 
+		<PackageReference Include="Inxton.Operon" />				
 		<PackageReference Include="AXSharp.Abstractions" />
 		<PackageReference Include="AXSharp.Connector" />
 		<PackageReference Include="AXSharp.Presentation.Blazor" />
 		<PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
 		<PackageReference Include="AXOpen.KristofferStrube.Blazor.SVGEditor" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<FrameworkReference Include="Microsoft.AspNetCore.App" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="Components\**\*.*" Exclude="Components\**\*.js;Components\**\*.css" Pack="true" PackagePath="contentFiles\Components\%(RecursiveDir)%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
-		<None Include="build\AXOpen.VisualComposer.targets" Pack="true" PackagePath="build\AXOpen.VisualComposer.targets" CopyToOutputDirectory="PreserveNewest" />
-	</ItemGroup>
-
-	<PropertyGroup>
-		<DefaultItemExcludes>$(DefaultItemExcludes);temp\**\*</DefaultItemExcludes>
-	</PropertyGroup>
-
+	</ItemGroup>			
 </Project>
