@@ -9,8 +9,6 @@ NAMESPACE AXOpen.Io
             ErrorTime : LTIME := LT#0S;
             {#ix-set:AttributeName = "<#Task timeout#>"}
             TaskTimeout : LTIME := LT#0S;
-            {#ix-set:AttributeName = "<#Hardware IDs#>"}
-            HWIDs : AxoHwDiag_HWIDs;
         END_VAR 
     END_CLASS    
 END_NAMESPACE
