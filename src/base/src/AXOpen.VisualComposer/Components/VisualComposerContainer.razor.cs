@@ -575,7 +575,7 @@ namespace AXOpen.VisualComposer.Components
                     Directory.CreateDirectory(Settings.VisualComposerImagesSerializeFolderPath + "/" + Id.CorrectFilePath());
 
                 await using FileStream fs = new(Settings.VisualComposerImagesSerializeFolderPath + "/" + Id.CorrectFilePath() + "/" + newName.CorrectFilePath(), FileMode.Create);
-                await e.File.OpenReadStream().CopyToAsync(fs);
+                await e.File.OpenReadStream(25 * 1024 * 1024).CopyToAsync(fs);
 
                 CurrentView.ImgSrc = Settings.VisualComposerImagesSerializeName + "/" + Id.CorrectFilePath() + "/" + newName.CorrectFilePath();
 
@@ -588,6 +588,7 @@ namespace AXOpen.VisualComposer.Components
             catch (Exception ex)
             {
                 CurrentView.ImgSrc = null;
+                Console.WriteLine($"VisualComposer Error: {ex.Message}");
             }
 
             _isFileImporting = false;
