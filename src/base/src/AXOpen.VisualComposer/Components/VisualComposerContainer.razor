@@ -501,8 +501,8 @@
                         </AccordionItem>
                     </Accordion>
                     <div class="mt-2">
-                        <BaseInput @bind-Value="CurrentView.BackgroundWidth" Label="Width" />
-                        <BaseInput @bind-Value="CurrentView.BackgroundHeight" Label="Height" />
+                        <BaseInput @bind-Value="CurrentView.BackgroundWidth" OnFocusOut="SaveAsync" Label="Width" />
+                        <BaseInput @bind-Value="CurrentView.BackgroundHeight" OnFocusOut="SaveAsync" Label="Height" />
                     </div>
                 </div>
                 <div class="modal-footer flex justify-end gap-1">
