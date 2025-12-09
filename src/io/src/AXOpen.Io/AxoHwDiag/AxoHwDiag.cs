@@ -1,5 +1,6 @@
 ﻿using AXOpen.Messaging.Static;
 using AXSharp.Connector;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -734,6 +735,27 @@ namespace AXOpen.Io
         };
 
             TaskMessenger.DotNetMessengerTextList = messengerTextList;
+        }
+
+        private Type _hwIdEnumType;
+
+        public void UseHwIdEnum<TEnum>() where TEnum : Enum
+        {
+            _hwIdEnumType = typeof(TEnum);
+        }
+
+        public string GetHwIdAsString(ushort hardwareId)
+        {
+            if (_hwIdEnumType == null)
+                return $"0x{hardwareId:X4} (enum not assigned)";
+
+            if (Enum.IsDefined(_hwIdEnumType, hardwareId))
+            {
+                var name = Enum.GetName(_hwIdEnumType, hardwareId).Replace("_HwID", "");
+                return name ?? hardwareId.ToString();
+            }
+
+            return $"0x{hardwareId:X4} (unknown)";
         }
     }
 
