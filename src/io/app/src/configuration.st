@@ -18,7 +18,7 @@ CONFIGURATION MyConfiguration
         {S7.extern=ReadWrite}
 		Outputs  AT %QB0 : Outputs;
         {S7.extern=ReadWrite}
-        HwIDs : HwIDs;
+        HwIdentifierList : HwIdentifierList;
     END_VAR   
     
 END_CONFIGURATION

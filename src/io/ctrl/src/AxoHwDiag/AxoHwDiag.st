@@ -21,12 +21,11 @@ NAMESPACE AXOpen.Io
             Progress       :   INT;
         END_VAR
 
-        VAR PUBLIC // DIAGNOSTIC SUBSYSTEM
-            {#ix-attr:[ComponentDetails("Diagnostics")]}
+        VAR PUBLIC // DIAGNOSTICS DETAILS
+            {#ix-attr:[ComponentDetails("Diagnostics details")]}
             {#ix-attr:[ReadOnly()]}
             AxoHwDiagDetails : AxoHwDiagDetails;
         END_VAR
-
 
         VAR PUBLIC // CONFIG
             {#ix-attr:[Container(Layout.Stack)]}
@@ -119,20 +118,18 @@ NAMESPACE AXOpen.Io
                 _initCheckDone    := TRUE;
             END_IF;            
           
-            //*************INITIALIZATION*************
+            //*************INITIALIZATION*********************
             RestoreTask.Run(THIS);
             UpdateDiagnosticTask.Run(THIS);
-
-            //****************************************
+            //************************************************
     
    
-            //*************RESTORE********************
+            //*************RESTORE****************************
             RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
-            //****************************************
-            
+            //************************************************
 
             //*************UpdateDiagnosticTask***************
             UpdateDiagnosticTask.SetIsDisabled(FALSE);
@@ -148,118 +145,41 @@ NAMESPACE AXOpen.Io
                     THIS.CallTimers(FALSE);
                     _progress := 300;
                 END_IF;
-                // UpdateDiagnosticTask running: , waiting for the accessibility to the HwIdList
+                // UpdateDiagnosticTask running: , cleaning all diagnostics results
                 IF _progress = 300 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
                         
-                    _plcIndex               :=   INT#-1;
-                    _plcHwId                :=   UINT#0;
-                    _ioSystemIndex          :=   INT#-1;
-                    _ioSystemHwId           :=   UINT#0;
-                    _ioSystemNumber         :=   UINT#0;
-                    _stationIndex           :=   INT#-1;
-                    _stationHwId            :=   UINT#0;
-                    _stationNumber          :=   UINT#0;
-                    _moduleIndex            :=   INT#-1;
-                    _moduleHwId             :=   UINT#0;
-                    _slotNumber             :=   UINT#0;
-                    _subModuleIndex         :=   INT#-1;
-                    _subModuleHwId          :=   UINT#0;
-                    _subSlotNumber          :=   UINT#0;
+                    THIS.ClearDiagResult();
 
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.HardwareID                                   :=  UINT#0;
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.GetDiagnosticsReturnCode                     :=  GetDiagnosticsReturnCode#Unknown;
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateState                             :=  ComponentState#Unknown;
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.Good                      :=  FALSE;
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.Disabled                  :=  FALSE;
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired       :=  FALSE;
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded       :=  FALSE;
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.Error                     :=  FALSE;
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible             :=  FALSE;
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable      :=  FALSE;
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable        :=  FALSE;
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.NetworkError              :=  FALSE;
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.HardwareError             :=  FALSE;
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.DiagnosticsEnabled                           :=  FALSE;    
-    
-                    AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.HardwareID                              :=  UINT#0;
-                    AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.GetDiagnosticsReturnCode                :=  GetDiagnosticsReturnCode#Unknown;
-                    AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateState                        :=  ComponentState#Unknown;
-                    AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.Good                 :=  FALSE;
-                    AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.Disabled             :=  FALSE;
-                    AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired  :=  FALSE;
-                    AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded  :=  FALSE;
-                    AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.Error                :=  FALSE;
-                    AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible        :=  FALSE;
-                    AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable :=  FALSE;
-                    AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable   :=  FALSE;
-                    AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.NetworkError         :=  FALSE;
-                    AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.HardwareError        :=  FALSE;
-                    AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.DiagnosticsEnabled                      :=  FALSE;    
-
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.HardwareID                               :=  UINT#0;
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.GetDiagnosticsReturnCode                 :=  GetDiagnosticsReturnCode#Unknown;
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateState                         :=  ComponentState#Unknown;
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.Good                  :=  FALSE;
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.Disabled              :=  FALSE;
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired   :=  FALSE;
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded   :=  FALSE;
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.Error                 :=  FALSE;
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible         :=  FALSE;
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable  :=  FALSE;
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable    :=  FALSE;
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.NetworkError          :=  FALSE;
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.HardwareError         :=  FALSE;
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.DiagnosticsEnabled                       :=  FALSE;    
-
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.HardwareID                                :=  UINT#0;
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode                  :=  GetDiagnosticsReturnCode#Unknown;
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateState                          :=  ComponentState#Unknown;
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  FALSE;
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  FALSE;
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  FALSE;
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  FALSE;
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  FALSE;
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  FALSE;
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  FALSE;
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  FALSE;
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  FALSE;
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  FALSE;
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  FALSE;    
-
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.HardwareID                             :=  UINT#0;
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode               :=  GetDiagnosticsReturnCode#Unknown;
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateState                       :=  ComponentState#Unknown;
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.Good                :=  FALSE;
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.Disabled            :=  FALSE;
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired :=  FALSE;
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded :=  FALSE;
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.Error               :=  FALSE;
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible       :=  FALSE;
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable:=  FALSE;
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable  :=  FALSE;
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.NetworkError        :=  FALSE;
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.HardwareError       :=  FALSE;
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.DiagnosticsEnabled                     :=  FALSE;    
-
-                    IF _currentIndex = -1 THEN
-                        _currentIndex := 0;
+                    IF TRUE THEN
                         THIS.CallTimers(FALSE);
                         _progress := 301;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering PLC-ReadSlotFromHardwareID running
+                // UpdateDiagnosticTask running: , waiting for the accessibility to the HwIdList
                 IF _progress = 301 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
+                    IF _currentIndex = -1 THEN
+                        _currentIndex := 0;                        
+                        THIS.CallTimers(FALSE);
+                        _progress := 302;
+                    END_IF;
+                END_IF;
+                // UpdateDiagnosticTask running: , discovering PLC-ReadSlotFromHardwareID running
+                IF _progress = 302 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#502;
+                    END_IF;
     
-                    _currenthwID    := hwIDsList[_currentIndex];                                                      
-                    _retval := ReadSlotFromHardwareID(hardwareID := _currenthwID, geoAddr :=_geoAddr);  
+                    _currenthwID    :=  hwIDsList[_currentIndex];                                                      
+                    _retval         :=  ReadSlotFromHardwareID(hardwareID := _currenthwID, geoAddr :=_geoAddr);  
                     IF _retval = WORD#0 THEN
                         THIS.CallTimers(FALSE);
                         _progress := _progress + 1;
@@ -269,10 +189,10 @@ NAMESPACE AXOpen.Io
                     END_IF;
                 END_IF;
                 // UpdateDiagnosticTask running: , discovering PLC-comparing GeoAddr details
-                IF _progress = 302 THEN
+                IF _progress = 303 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#502;
+                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#503;
                     END_IF;
     
                     IF _geoAddr.HardwareType = UINT#2 AND _geoAddr.AreaID = UINT#0 AND _geoAddr.IOSystem = UINT#0 AND
@@ -288,10 +208,10 @@ NAMESPACE AXOpen.Io
                     END_IF;
                 END_IF;
                 // UpdateDiagnosticTask running: , discovering PLC-check maximal index
-                IF _progress = 303 THEN
+                IF _progress = 304 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#503;
+                        TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#504;
                     END_IF;
 
                     _currentIndex := _currentIndex + 1;
@@ -304,17 +224,6 @@ NAMESPACE AXOpen.Io
                         _progress := _progress - 2;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , cleaning all diagnostics results
-                IF _progress = 304 THEN
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#504;
-                    END_IF;
-                   IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 305;
-                    END_IF;
-                END_IF;
                 // UpdateDiagnosticTask running: , get diagnostics of the PLC system
                 IF _progress = 305 THEN
                     IF _infoTimer.output THEN
@@ -322,26 +231,26 @@ NAMESPACE AXOpen.Io
                         Status.Error.Id :=      UINT#505;
                     END_IF;
 
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_plcHwId, diagInfo);
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.HardwareID                :=  _plcHwId;
+                    AxoHwDiagDetails.PLCDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_plcHwId, diagInfo);
+                    AxoHwDiagDetails.PLCDiagnosticDetails.HardwareID                :=  _plcHwId;
 
-                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
+                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.PLCDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.PLCDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
 
-                    IF AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateState                          :=  diagInfo.ComponentState;      
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  diagInfo.IOState.Good;                     
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  diagInfo.IOState.Disabled;                 
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  diagInfo.IOState.MaintenanceRequired;      
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  diagInfo.IOState.MaintenanceDemanded;      
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  diagInfo.IOState.Error;                    
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  diagInfo.IOState.NotAccessible;            
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  diagInfo.IOState.DiagnosticsAvailable;     
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  diagInfo.IOState.IODataNotAvailable;       
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  diagInfo.IOState.NetworkError;             
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  diagInfo.IOState.HardwareError;            
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  FALSE;
+                    IF AxoHwDiagDetails.PLCDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
+                        AxoHwDiagDetails.PLCDiagnosticDetails.State                                    :=  diagInfo.ComponentState;      
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.Good                  :=  diagInfo.IOState.Good;                     
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.Disabled              :=  diagInfo.IOState.Disabled;                 
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.MaintenanceRequired   :=  diagInfo.IOState.MaintenanceRequired;      
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.MaintenanceDemanded   :=  diagInfo.IOState.MaintenanceDemanded;      
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.Error                 :=  diagInfo.IOState.Error;                    
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.NotAccessible         :=  diagInfo.IOState.NotAccessible;            
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.DiagnosticsAvailable  :=  diagInfo.IOState.DiagnosticsAvailable;     
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.IODataNotAvailable    :=  diagInfo.IOState.IODataNotAvailable;       
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.NetworkError          :=  diagInfo.IOState.NetworkError;             
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.HardwareError         :=  diagInfo.IOState.HardwareError;            
+                        AxoHwDiagDetails.PLCDiagnosticDetails.DiagnosticsEnabled                       :=  FALSE;
                         THIS.CallTimers(FALSE);
-                        IF AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateState = ComponentState#Good THEN
+                        IF AxoHwDiagDetails.PLCDiagnosticDetails.State = ComponentState#Good THEN
                             _progress := _progress + 1; // Continue checking subordinary system  
                         ELSE     
                             _progress := 330;           // Jump to the end as the PLC itself has an issue
@@ -355,26 +264,26 @@ NAMESPACE AXOpen.Io
                         Status.Error.Id :=      UINT#506;
                     END_IF;
 
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_plcHwId, diagSubInfo);
-                    AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.HardwareID                :=  _plcHwId;
+                    AxoHwDiagDetails.PLCDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_plcHwId, diagSubInfo);
+                    AxoHwDiagDetails.PLCDiagnosticDetails.HardwareID                :=  _plcHwId;
 
-                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
+                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.PLCDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.PLCDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
 
-                    IF AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateState                          :=  diagSubInfo.SubordinateState;      
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  diagSubInfo.SubordinateIOState.Good;                     
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  diagSubInfo.SubordinateIOState.Disabled;                 
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  diagSubInfo.SubordinateIOState.MaintenanceRequired;      
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  diagSubInfo.SubordinateIOState.MaintenanceDemanded;      
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  diagSubInfo.SubordinateIOState.Error;                    
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  diagSubInfo.SubordinateIOState.NotAccessible;            
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  diagSubInfo.SubordinateIOState.DiagnosticsAvailable;     
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  diagSubInfo.SubordinateIOState.IODataNotAvailable;       
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  diagSubInfo.SubordinateIOState.NetworkError;             
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  diagSubInfo.SubordinateIOState.HardwareError;            
-                        AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  diagSubInfo.DiagnosticsEnabled;
+                    IF AxoHwDiagDetails.PLCDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
+                        AxoHwDiagDetails.PLCDiagnosticDetails.SubordinateState                          :=  diagSubInfo.SubordinateState;      
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.Good                   :=  diagSubInfo.SubordinateIOState.Good;                     
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.Disabled               :=  diagSubInfo.SubordinateIOState.Disabled;                 
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.MaintenanceRequired    :=  diagSubInfo.SubordinateIOState.MaintenanceRequired;      
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.MaintenanceDemanded    :=  diagSubInfo.SubordinateIOState.MaintenanceDemanded;      
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.Error                  :=  diagSubInfo.SubordinateIOState.Error;                    
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.NotAccessible          :=  diagSubInfo.SubordinateIOState.NotAccessible;            
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.DiagnosticsAvailable   :=  diagSubInfo.SubordinateIOState.DiagnosticsAvailable;     
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.IODataNotAvailable     :=  diagSubInfo.SubordinateIOState.IODataNotAvailable;       
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.NetworkError           :=  diagSubInfo.SubordinateIOState.NetworkError;             
+                        AxoHwDiagDetails.PLCDiagnosticDetails.IOState.HardwareError          :=  diagSubInfo.SubordinateIOState.HardwareError;            
+                        AxoHwDiagDetails.PLCDiagnosticDetails.DiagnosticsEnabled                        :=  diagSubInfo.DiagnosticsEnabled;
                         THIS.CallTimers(FALSE);
-                        IF AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateState = ComponentState#Good THEN
+                        IF AxoHwDiagDetails.PLCDiagnosticDetails.SubordinateState = ComponentState#Good THEN
                             _progress := 340;   // TODO jump to the end, as no error is present on PLC itself nor in lower level component
                         ELSE     
                             _progress := 307;
@@ -442,26 +351,26 @@ NAMESPACE AXOpen.Io
                         Status.Error.Id :=      UINT#510;
                     END_IF;
     
-                    AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_ioSystemHwId, diagInfo);
-                    AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.HardwareID                :=  _ioSystemHwId;
+                    AxoHwDiagDetails.IoSystemDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_ioSystemHwId, diagInfo);
+                    AxoHwDiagDetails.IoSystemDiagnosticDetails.HardwareID                :=  _ioSystemHwId;
 
-                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
+                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.IoSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.IoSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
 
-                    IF AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateState                          :=  diagInfo.ComponentState;      
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  diagInfo.IOState.Good;                     
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  diagInfo.IOState.Disabled;                 
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  diagInfo.IOState.MaintenanceRequired;      
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  diagInfo.IOState.MaintenanceDemanded;      
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  diagInfo.IOState.Error;                    
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  diagInfo.IOState.NotAccessible;            
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  diagInfo.IOState.DiagnosticsAvailable;     
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  diagInfo.IOState.IODataNotAvailable;       
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  diagInfo.IOState.NetworkError;             
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  diagInfo.IOState.HardwareError;            
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  FALSE;
+                    IF AxoHwDiagDetails.IoSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.State                                   :=  diagInfo.ComponentState;      
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.Good                 :=  diagInfo.IOState.Good;                     
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.Disabled             :=  diagInfo.IOState.Disabled;                 
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.MaintenanceRequired  :=  diagInfo.IOState.MaintenanceRequired;      
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.MaintenanceDemanded  :=  diagInfo.IOState.MaintenanceDemanded;      
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.Error                :=  diagInfo.IOState.Error;                    
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.NotAccessible        :=  diagInfo.IOState.NotAccessible;            
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.DiagnosticsAvailable :=  diagInfo.IOState.DiagnosticsAvailable;     
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.IODataNotAvailable   :=  diagInfo.IOState.IODataNotAvailable;       
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.NetworkError         :=  diagInfo.IOState.NetworkError;             
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.HardwareError        :=  diagInfo.IOState.HardwareError;            
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.DiagnosticsEnabled                      :=  FALSE;
                         THIS.CallTimers(FALSE);
-                        IF AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateState = ComponentState#Good THEN
+                        IF AxoHwDiagDetails.IoSystemDiagnosticDetails.State = ComponentState#Good THEN
                             _progress := _progress + 1; // Continue checking subordinary system  
                         ELSE     
                             _progress := 330;           // Jump to the end as the IoSystem itself has an issue
@@ -475,26 +384,27 @@ NAMESPACE AXOpen.Io
                         Status.Error.Id :=      UINT#511;
                     END_IF;
     
-                    AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_ioSystemHwId, diagSubInfo);
-                    AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.HardwareID                :=  _ioSystemHwId;
+                    AxoHwDiagDetails.IoSystemDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_ioSystemHwId, diagSubInfo);
+                    AxoHwDiagDetails.IoSystemDiagnosticDetails.HardwareID                :=  _ioSystemHwId;
 
-                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
+                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.IoSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.IoSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
 
-                    IF AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateState                          :=  diagSubInfo.SubordinateState;      
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  diagSubInfo.SubordinateIOState.Good;                     
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  diagSubInfo.SubordinateIOState.Disabled;                 
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  diagSubInfo.SubordinateIOState.MaintenanceRequired;      
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  diagSubInfo.SubordinateIOState.MaintenanceDemanded;      
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  diagSubInfo.SubordinateIOState.Error;                    
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  diagSubInfo.SubordinateIOState.NotAccessible;            
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  diagSubInfo.SubordinateIOState.DiagnosticsAvailable;     
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  diagSubInfo.SubordinateIOState.IODataNotAvailable;       
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  diagSubInfo.SubordinateIOState.NetworkError;             
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  diagSubInfo.SubordinateIOState.HardwareError;            
-                        AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  diagSubInfo.DiagnosticsEnabled;
+                    IF AxoHwDiagDetails.IoSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.SubordinateState                        :=  diagSubInfo.SubordinateState;      
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.Good                 :=  diagSubInfo.SubordinateIOState.Good;                     
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.Disabled             :=  diagSubInfo.SubordinateIOState.Disabled;                 
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.MaintenanceRequired  :=  diagSubInfo.SubordinateIOState.MaintenanceRequired;      
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.MaintenanceDemanded  :=  diagSubInfo.SubordinateIOState.MaintenanceDemanded;      
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.Error                :=  diagSubInfo.SubordinateIOState.Error;                    
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.NotAccessible        :=  diagSubInfo.SubordinateIOState.NotAccessible;            
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.DiagnosticsAvailable :=  diagSubInfo.SubordinateIOState.DiagnosticsAvailable;     
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.IODataNotAvailable   :=  diagSubInfo.SubordinateIOState.IODataNotAvailable;       
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.NetworkError         :=  diagSubInfo.SubordinateIOState.NetworkError;             
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.HardwareError        :=  diagSubInfo.SubordinateIOState.HardwareError;            
+                        AxoHwDiagDetails.IoSystemDiagnosticDetails.DiagnosticsEnabled                      :=  diagSubInfo.DiagnosticsEnabled;
                         THIS.CallTimers(FALSE);
-                        IF AxoHwDiagDetails.IoSystemSubSystemDiagnosticDetails.SubordinateState = ComponentState#Good THEN
+                        IF AxoHwDiagDetails.IoSystemDiagnosticDetails.SubordinateState = ComponentState#Good THEN
+                            AxoHwDiagDetails.IoSystemDiagnosticDetails.SubordinateState :=  ComponentState#Unknown;      
                             _progress := _progress - 4;   // Continue searching the next IOsystem as current one does not contain any error nor any of its subordinary items
                         ELSE     
                             _progress := _progress + 1;
@@ -562,26 +472,26 @@ NAMESPACE AXOpen.Io
                         Status.Error.Id :=      UINT#515;
                     END_IF;
     
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_stationHwId, diagInfo);
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.HardwareID                :=  _stationHwId;
+                    AxoHwDiagDetails.StationDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_stationHwId, diagInfo);
+                    AxoHwDiagDetails.StationDiagnosticDetails.HardwareID                :=  _stationHwId;
 
-                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.StationSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.StationSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
+                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.StationDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.StationDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
 
-                    IF AxoHwDiagDetails.StationSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateState                          :=  diagInfo.ComponentState;      
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  diagInfo.IOState.Good;                     
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  diagInfo.IOState.Disabled;                 
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  diagInfo.IOState.MaintenanceRequired;      
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  diagInfo.IOState.MaintenanceDemanded;      
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  diagInfo.IOState.Error;                    
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  diagInfo.IOState.NotAccessible;            
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  diagInfo.IOState.DiagnosticsAvailable;     
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  diagInfo.IOState.IODataNotAvailable;       
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  diagInfo.IOState.NetworkError;             
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  diagInfo.IOState.HardwareError;            
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  FALSE;
+                    IF AxoHwDiagDetails.StationDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
+                        AxoHwDiagDetails.StationDiagnosticDetails.State                                    :=  diagInfo.ComponentState;      
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.Good                  :=  diagInfo.IOState.Good;                     
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.Disabled              :=  diagInfo.IOState.Disabled;                 
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.MaintenanceRequired   :=  diagInfo.IOState.MaintenanceRequired;      
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.MaintenanceDemanded   :=  diagInfo.IOState.MaintenanceDemanded;      
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.Error                 :=  diagInfo.IOState.Error;                    
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.NotAccessible         :=  diagInfo.IOState.NotAccessible;            
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.DiagnosticsAvailable  :=  diagInfo.IOState.DiagnosticsAvailable;     
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.IODataNotAvailable    :=  diagInfo.IOState.IODataNotAvailable;       
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.NetworkError          :=  diagInfo.IOState.NetworkError;             
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.HardwareError         :=  diagInfo.IOState.HardwareError;            
+                        AxoHwDiagDetails.StationDiagnosticDetails.DiagnosticsEnabled                       :=  FALSE;
                         THIS.CallTimers(FALSE);
-                        IF AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateState = ComponentState#Good THEN
+                        IF AxoHwDiagDetails.StationDiagnosticDetails.State = ComponentState#Good THEN
                             _progress := _progress + 1; // Continue checking subordinary system  
                         ELSE     
                             _progress := 330;           // Jump to the end as the Station itself has an issue
@@ -595,26 +505,27 @@ NAMESPACE AXOpen.Io
                         Status.Error.Id :=      UINT#516;
                     END_IF;
     
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_stationHwId, diagSubInfo);
-                    AxoHwDiagDetails.StationSubSystemDiagnosticDetails.HardwareID                :=  _stationHwId;
+                    AxoHwDiagDetails.StationDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_stationHwId, diagSubInfo);
+                    AxoHwDiagDetails.StationDiagnosticDetails.HardwareID                :=  _stationHwId;
 
-                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.StationSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.StationSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
+                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.StationDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.StationDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
 
-                    IF AxoHwDiagDetails.StationSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateState                          :=  diagSubInfo.SubordinateState;      
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  diagSubInfo.SubordinateIOState.Good;                     
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  diagSubInfo.SubordinateIOState.Disabled;                 
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  diagSubInfo.SubordinateIOState.MaintenanceRequired;      
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  diagSubInfo.SubordinateIOState.MaintenanceDemanded;      
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  diagSubInfo.SubordinateIOState.Error;                    
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  diagSubInfo.SubordinateIOState.NotAccessible;            
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  diagSubInfo.SubordinateIOState.DiagnosticsAvailable;     
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  diagSubInfo.SubordinateIOState.IODataNotAvailable;       
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  diagSubInfo.SubordinateIOState.NetworkError;             
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  diagSubInfo.SubordinateIOState.HardwareError;            
-                        AxoHwDiagDetails.StationSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  diagSubInfo.DiagnosticsEnabled;
+                    IF AxoHwDiagDetails.StationDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
+                        AxoHwDiagDetails.StationDiagnosticDetails.SubordinateState                          :=  diagSubInfo.SubordinateState;      
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.Good                   :=  diagSubInfo.SubordinateIOState.Good;                     
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.Disabled               :=  diagSubInfo.SubordinateIOState.Disabled;                 
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.MaintenanceRequired    :=  diagSubInfo.SubordinateIOState.MaintenanceRequired;      
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.MaintenanceDemanded    :=  diagSubInfo.SubordinateIOState.MaintenanceDemanded;      
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.Error                  :=  diagSubInfo.SubordinateIOState.Error;                    
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.NotAccessible          :=  diagSubInfo.SubordinateIOState.NotAccessible;            
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.DiagnosticsAvailable   :=  diagSubInfo.SubordinateIOState.DiagnosticsAvailable;     
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.IODataNotAvailable     :=  diagSubInfo.SubordinateIOState.IODataNotAvailable;       
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.NetworkError           :=  diagSubInfo.SubordinateIOState.NetworkError;             
+                        AxoHwDiagDetails.StationDiagnosticDetails.IOState.HardwareError          :=  diagSubInfo.SubordinateIOState.HardwareError;            
+                        AxoHwDiagDetails.StationDiagnosticDetails.DiagnosticsEnabled                        :=  diagSubInfo.DiagnosticsEnabled;
                         THIS.CallTimers(FALSE);
-                        IF AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateState = ComponentState#Good THEN
+                        IF AxoHwDiagDetails.StationDiagnosticDetails.SubordinateState = ComponentState#Good THEN
+                            AxoHwDiagDetails.StationDiagnosticDetails.SubordinateState :=  ComponentState#Unknown;      
                             _progress := _progress - 4;   // Continue searching the next Station as current one does not contain any error nor any of its subordinary items
                         ELSE     
                             _progress := _progress + 1;
@@ -682,26 +593,26 @@ NAMESPACE AXOpen.Io
                         Status.Error.Id :=      UINT#520;
                     END_IF;
     
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_moduleHwId, diagInfo);
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.HardwareID                :=  _moduleHwId;
+                    AxoHwDiagDetails.ModuleDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_moduleHwId, diagInfo);
+                    AxoHwDiagDetails.ModuleDiagnosticDetails.HardwareID                :=  _moduleHwId;
 
-                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
+                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.ModuleDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.ModuleDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
 
-                    IF AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateState                          :=  diagInfo.ComponentState;      
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  diagInfo.IOState.Good;                     
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  diagInfo.IOState.Disabled;                 
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  diagInfo.IOState.MaintenanceRequired;      
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  diagInfo.IOState.MaintenanceDemanded;      
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  diagInfo.IOState.Error;                    
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  diagInfo.IOState.NotAccessible;            
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  diagInfo.IOState.DiagnosticsAvailable;     
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  diagInfo.IOState.IODataNotAvailable;       
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  diagInfo.IOState.NetworkError;             
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  diagInfo.IOState.HardwareError;            
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  false;
+                    IF AxoHwDiagDetails.ModuleDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.State                                     :=  diagInfo.ComponentState;      
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.Good                   :=  diagInfo.IOState.Good;                     
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.Disabled               :=  diagInfo.IOState.Disabled;                 
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.MaintenanceRequired    :=  diagInfo.IOState.MaintenanceRequired;      
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.MaintenanceDemanded    :=  diagInfo.IOState.MaintenanceDemanded;      
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.Error                  :=  diagInfo.IOState.Error;                    
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.NotAccessible          :=  diagInfo.IOState.NotAccessible;            
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.DiagnosticsAvailable   :=  diagInfo.IOState.DiagnosticsAvailable;     
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.IODataNotAvailable     :=  diagInfo.IOState.IODataNotAvailable;       
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.NetworkError           :=  diagInfo.IOState.NetworkError;             
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.HardwareError          :=  diagInfo.IOState.HardwareError;            
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.DiagnosticsEnabled                        :=  false;
                         THIS.CallTimers(FALSE);
-                        IF AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateState = ComponentState#Good THEN
+                        IF AxoHwDiagDetails.ModuleDiagnosticDetails.State = ComponentState#Good THEN
                             _progress := _progress + 1; // Continue checking subordinary system  
                         ELSE     
                             _progress := 330;           // Jump to the end as the Module itself has an issue
@@ -715,26 +626,27 @@ NAMESPACE AXOpen.Io
                         Status.Error.Id :=      UINT#521;
                     END_IF;
     
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_moduleHwId, diagSubInfo);
-                    AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.HardwareID                :=  _moduleHwId;
+                    AxoHwDiagDetails.ModuleDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_moduleHwId, diagSubInfo);
+                    AxoHwDiagDetails.ModuleDiagnosticDetails.HardwareID                :=  _moduleHwId;
 
-                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
+                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.ModuleDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.ModuleDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
 
-                    IF AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateState                          :=  diagSubInfo.SubordinateState;      
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  diagSubInfo.SubordinateIOState.Good;                     
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  diagSubInfo.SubordinateIOState.Disabled;                 
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  diagSubInfo.SubordinateIOState.MaintenanceRequired;      
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  diagSubInfo.SubordinateIOState.MaintenanceDemanded;      
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  diagSubInfo.SubordinateIOState.Error;                    
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  diagSubInfo.SubordinateIOState.NotAccessible;            
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  diagSubInfo.SubordinateIOState.DiagnosticsAvailable;     
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  diagSubInfo.SubordinateIOState.IODataNotAvailable;       
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  diagSubInfo.SubordinateIOState.NetworkError;             
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  diagSubInfo.SubordinateIOState.HardwareError;            
-                        AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  diagSubInfo.DiagnosticsEnabled;
+                    IF AxoHwDiagDetails.ModuleDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.SubordinateState                          :=  diagSubInfo.SubordinateState;      
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.Good                   :=  diagSubInfo.SubordinateIOState.Good;                     
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.Disabled               :=  diagSubInfo.SubordinateIOState.Disabled;                 
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.MaintenanceRequired    :=  diagSubInfo.SubordinateIOState.MaintenanceRequired;      
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.MaintenanceDemanded    :=  diagSubInfo.SubordinateIOState.MaintenanceDemanded;      
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.Error                  :=  diagSubInfo.SubordinateIOState.Error;                    
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.NotAccessible          :=  diagSubInfo.SubordinateIOState.NotAccessible;            
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.DiagnosticsAvailable   :=  diagSubInfo.SubordinateIOState.DiagnosticsAvailable;     
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.IODataNotAvailable     :=  diagSubInfo.SubordinateIOState.IODataNotAvailable;       
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.NetworkError           :=  diagSubInfo.SubordinateIOState.NetworkError;             
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.HardwareError          :=  diagSubInfo.SubordinateIOState.HardwareError;            
+                        AxoHwDiagDetails.ModuleDiagnosticDetails.DiagnosticsEnabled                        :=  diagSubInfo.DiagnosticsEnabled;
                         THIS.CallTimers(FALSE);
-                        IF AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateState = ComponentState#Good THEN
+                        IF AxoHwDiagDetails.ModuleDiagnosticDetails.SubordinateState = ComponentState#Good THEN
+                            AxoHwDiagDetails.ModuleDiagnosticDetails.SubordinateState :=  ComponentState#Unknown;      
                             _progress := _progress - 4;   // Continue searching the next Module as current one does not contain any error nor any of its subordinary items
                         ELSE     
                             _progress := _progress + 1;
@@ -803,26 +715,26 @@ NAMESPACE AXOpen.Io
                         Status.Error.Id :=      UINT#525;
                     END_IF;
     
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_moduleHwId, diagInfo);
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.HardwareID                :=  _submoduleHwId;
+                    AxoHwDiagDetails.SubModuleDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_moduleHwId, diagInfo);
+                    AxoHwDiagDetails.SubModuleDiagnosticDetails.HardwareID                :=  _submoduleHwId;
 
-                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
+                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.SubModuleDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.SubModuleDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
 
-                    IF AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateState                          :=  diagInfo.ComponentState;      
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  diagInfo.IOState.Good;                     
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  diagInfo.IOState.Disabled;                 
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  diagInfo.IOState.MaintenanceRequired;      
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  diagInfo.IOState.MaintenanceDemanded;      
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  diagInfo.IOState.Error;                    
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  diagInfo.IOState.NotAccessible;            
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  diagInfo.IOState.DiagnosticsAvailable;     
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  diagInfo.IOState.IODataNotAvailable;       
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  diagInfo.IOState.NetworkError;             
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  diagInfo.IOState.HardwareError;            
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  false;
+                    IF AxoHwDiagDetails.SubModuleDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.State                                  :=  diagInfo.ComponentState;      
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.Good                :=  diagInfo.IOState.Good;                     
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.Disabled            :=  diagInfo.IOState.Disabled;                 
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.MaintenanceRequired :=  diagInfo.IOState.MaintenanceRequired;      
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.MaintenanceDemanded :=  diagInfo.IOState.MaintenanceDemanded;      
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.Error               :=  diagInfo.IOState.Error;                    
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.NotAccessible       :=  diagInfo.IOState.NotAccessible;            
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.DiagnosticsAvailable:=  diagInfo.IOState.DiagnosticsAvailable;     
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.IODataNotAvailable  :=  diagInfo.IOState.IODataNotAvailable;       
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.NetworkError        :=  diagInfo.IOState.NetworkError;             
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.HardwareError       :=  diagInfo.IOState.HardwareError;            
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.DiagnosticsEnabled                     :=  false;
                         THIS.CallTimers(FALSE);
-                        IF AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateState = ComponentState#Good THEN
+                        IF AxoHwDiagDetails.SubModuleDiagnosticDetails.State = ComponentState#Good THEN
                             _progress := _progress + 1; // Continue checking subordinary system  
                         ELSE     
                             _progress := 330;           // Jump to the end as the SubModule itself has an issue
@@ -836,53 +748,112 @@ NAMESPACE AXOpen.Io
                         Status.Error.Id :=      UINT#526;
                     END_IF;
     
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_moduleHwId, diagSubInfo);
-                    AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.HardwareID                :=  _submoduleHwId;
+                    AxoHwDiagDetails.SubModuleDiagnosticDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(_moduleHwId, diagSubInfo);
+                    AxoHwDiagDetails.SubModuleDiagnosticDetails.HardwareID                :=  _submoduleHwId;
 
-                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
+                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.SubModuleDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.SubModuleDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
 
-                    IF AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateState                          :=  diagSubInfo.SubordinateState;      
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  diagSubInfo.SubordinateIOState.Good;                     
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  diagSubInfo.SubordinateIOState.Disabled;                 
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  diagSubInfo.SubordinateIOState.MaintenanceRequired;      
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  diagSubInfo.SubordinateIOState.MaintenanceDemanded;      
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  diagSubInfo.SubordinateIOState.Error;                    
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  diagSubInfo.SubordinateIOState.NotAccessible;            
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  diagSubInfo.SubordinateIOState.DiagnosticsAvailable;     
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  diagSubInfo.SubordinateIOState.IODataNotAvailable;       
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  diagSubInfo.SubordinateIOState.NetworkError;             
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  diagSubInfo.SubordinateIOState.HardwareError;            
-                        AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  diagSubInfo.DiagnosticsEnabled;
+                    IF AxoHwDiagDetails.SubModuleDiagnosticDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.SubordinateState                          :=  diagSubInfo.SubordinateState;      
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.Good                   :=  diagSubInfo.SubordinateIOState.Good;                     
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.Disabled               :=  diagSubInfo.SubordinateIOState.Disabled;                 
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.MaintenanceRequired    :=  diagSubInfo.SubordinateIOState.MaintenanceRequired;      
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.MaintenanceDemanded    :=  diagSubInfo.SubordinateIOState.MaintenanceDemanded;      
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.Error                  :=  diagSubInfo.SubordinateIOState.Error;                    
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.NotAccessible          :=  diagSubInfo.SubordinateIOState.NotAccessible;            
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.DiagnosticsAvailable   :=  diagSubInfo.SubordinateIOState.DiagnosticsAvailable;     
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.IODataNotAvailable     :=  diagSubInfo.SubordinateIOState.IODataNotAvailable;       
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.NetworkError           :=  diagSubInfo.SubordinateIOState.NetworkError;             
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.HardwareError          :=  diagSubInfo.SubordinateIOState.HardwareError;            
+                        AxoHwDiagDetails.SubModuleDiagnosticDetails.DiagnosticsEnabled                        :=  diagSubInfo.DiagnosticsEnabled;
                         THIS.CallTimers(FALSE);
-                        IF AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateState = ComponentState#Good THEN
+                        IF AxoHwDiagDetails.SubModuleDiagnosticDetails.SubordinateState = ComponentState#Good THEN
+                            AxoHwDiagDetails.SubModuleDiagnosticDetails.SubordinateState :=  ComponentState#Unknown;      
                             _progress := _progress - 4;   // Continue searching the next SubModule as current one does not contain any error nor any of its subordinary items
                         ELSE     
                             _progress := _progress + 1;
                         END_IF;
                     END_IF;
                 END_IF;
-
+                // UpdateDiagnosticTask running: , should never get into this step             
                 IF _progress = 327 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#527;
                     END_IF;
-                    // Should never get into this step
                 END_IF;
-                
+                // UpdateDiagnosticTask running: , at least one error present              
                 IF _progress = 330 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#530;
                     END_IF;
+                    //Error present on submodule
+                    IF _subModuleIndex >INT#-1 AND _subModuleHwId > UINT#0 THEN
+                        AxoHwDiagDetails.FaultyItemDetails.HardwareID := _subModuleHwId;
+                    //Error present on module
+                    ELSIF _moduleIndex >INT#-1 AND _moduleHwId > UINT#0 THEN
+                        AxoHwDiagDetails.FaultyItemDetails.HardwareID := _moduleHwId;
+                    //Error present on station
+                    ELSIF _stationIndex >INT#-1 AND _stationHwId > UINT#0 THEN
+                        AxoHwDiagDetails.FaultyItemDetails.HardwareID := _stationHwId;
+                    //Error present on iosystem
+                    ELSIF _ioSystemIndex >INT#-1 AND _ioSystemHwId > UINT#0 THEN
+                        AxoHwDiagDetails.FaultyItemDetails.HardwareID := _ioSystemHwId;
+                    //Error present on plc
+                    ELSIF _plcIndex >INT#-1 AND _plcHwId > UINT#0 THEN
+                        AxoHwDiagDetails.FaultyItemDetails.HardwareID := _plcHwId;
+                    END_IF;
     
-                    IF TRUE THEN
+                    IF AxoHwDiagDetails.FaultyItemDetails.HardwareID > UINT#0 THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 340;
+                        _progress := 331;
                     END_IF;
                 END_IF;
-                
+                // UpdateDiagnosticTask running: , get diagnostics of the faulty item               
+                IF _progress = 331 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#531;
+                    END_IF;
+    
+                    AxoHwDiagDetails.FaultyItemDetails.GetDiagnosticsReturnCode  :=  GetDiagnostics(AxoHwDiagDetails.FaultyItemDetails.HardwareID, diagInfo);
+
+                    UpdateDiagnosticTask.ThrowWhen( AxoHwDiagDetails.FaultyItemDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#HardwareIDInvalid OR AxoHwDiagDetails.FaultyItemDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#OutOfResources);
+
+                    IF AxoHwDiagDetails.FaultyItemDetails.GetDiagnosticsReturnCode=GetDiagnosticsReturnCode#NoError THEN
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.NoAdditionalInformation      :=  diagInfo.ComponentStateDetail.HardwareComponentState.NoAdditionalInformation;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.TransferNotPermitted         :=  diagInfo.ComponentStateDetail.HardwareComponentState.TransferNotPermitted;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.DiagnosticsAvailable         :=  diagInfo.ComponentStateDetail.HardwareComponentState.DiagnosticsAvailable;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.MaintenanceRequired          :=  diagInfo.ComponentStateDetail.HardwareComponentState.MaintenanceRequired;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.MaintenanceDemanded          :=  diagInfo.ComponentStateDetail.HardwareComponentState.MaintenanceDemanded;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.Error                        :=  diagInfo.ComponentStateDetail.HardwareComponentState.Error;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.ComponentAvailability        :=  diagInfo.ComponentStateDetail.HardwareComponentState.ComponentAvailability;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.ReplacementState	            :=  diagInfo.ComponentStateDetail.HardwareComponentState.ReplacementState;  
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.Good                                        :=  diagInfo.IOState.Good;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.Disabled                                    :=  diagInfo.IOState.Disabled;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.MaintenanceRequired                         :=  diagInfo.IOState.MaintenanceRequired;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.MaintenanceDemanded                         :=  diagInfo.IOState.MaintenanceDemanded;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.Error                                       :=  diagInfo.IOState.Error;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.NotAccessible                               :=  diagInfo.IOState.NotAccessible;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.DiagnosticsAvailable                        :=  diagInfo.IOState.DiagnosticsAvailable;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.IODataNotAvailable                          :=  diagInfo.IOState.IODataNotAvailable;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.NetworkError                                :=  diagInfo.IOState.NetworkError;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.HardwareError                               :=  diagInfo.IOState.HardwareError;
+                        AxoHwDiagDetails.FaultyItemDetails.ComponentState                                                           :=  diagInfo.ComponentState;
+                        AxoHwDiagDetails.FaultyItemDetails.OperatingState                                                           :=	diagInfo.OperatingState;	
+                        THIS.CallTimers(FALSE);
+                        IF TRUE THEN
+                            _progress := _progress + 1;
+                        END_IF;
+                    END_IF;
+                END_IF;
+                // UpdateDiagnosticTask done: , error present                              
+                IF _progress = 332 THEN
+                    UpdateDiagnosticTask.DoneWhen(TRUE);
+                    _progress := 0;
+                END_IF;                
+                // UpdateDiagnosticTask done: , none error present                              
                 IF _progress = 340 THEN
                     UpdateDiagnosticTask.DoneWhen(TRUE);
                     _progress := 0;
@@ -930,21 +901,20 @@ NAMESPACE AXOpen.Io
         /// Restores this component into intial state.        
         ///</summary>
         METHOD PUBLIC OVERRIDE Restore
-            VAR
-                _index : INT;
-            END_VAR
-            Status.Action.Id := UINT#0;
-            Status.Error.Id  := UINT#0;
-
-            _progress       :=   INT#0;
-            _retVal    :=   WORD#0;
+            Status.Action.Id    :=  UINT#0;
+            Status.Error.Id     :=  UINT#0;
+            _progress           :=  INT#0;
+            _retVal             :=  WORD#0;
+            _currentIndex       :=  -1;
 
             UpdateDiagnosticTask.Restore();
 
-            // HardwareDiagnosticsTask.Restore();
-
             Status.Action.Id := UINT#50;
             RestoreTask.DoneWhen(TRUE);
+            THIS.ClearDiagResult();
+        END_METHOD        
+
+        METHOD PRIVATE ClearDiagResult
             _plcIndex               :=   INT#-1;
             _plcHwId                :=   UINT#0;
             _ioSystemIndex          :=   INT#-1;
@@ -960,82 +930,108 @@ NAMESPACE AXOpen.Io
             _subModuleHwId          :=   UINT#0;
             _subSlotNumber          :=   UINT#0;
 
-            AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.HardwareID                                :=  UINT#0;
-            AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.GetDiagnosticsReturnCode                  :=  GetDiagnosticsReturnCode#Unknown;
-            AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateState                          :=  ComponentState#Unknown;
-            AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  FALSE;
-            AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  FALSE;
-            AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  FALSE;
-            AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  FALSE;
-            AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  FALSE;
-            AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  FALSE;
-            AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  FALSE;
-            AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  FALSE;
-            AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  FALSE;
-            AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  FALSE;
-            AxoHwDiagDetails.PLCSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  FALSE;    
+            AxoHwDiagDetails.PLCDiagnosticDetails.HardwareID                                    :=  UINT#0;
+            AxoHwDiagDetails.PLCDiagnosticDetails.GetDiagnosticsReturnCode                      :=  GetDiagnosticsReturnCode#Unknown;
+            AxoHwDiagDetails.PLCDiagnosticDetails.State                                         :=  AxoHwDiagComponentState#Unknown;
+            AxoHwDiagDetails.PLCDiagnosticDetails.SubordinateState                              :=  AxoHwDiagComponentState#Unknown;
+            AxoHwDiagDetails.PLCDiagnosticDetails.IOState.Good                                  :=  FALSE;
+            AxoHwDiagDetails.PLCDiagnosticDetails.IOState.Disabled                              :=  FALSE;
+            AxoHwDiagDetails.PLCDiagnosticDetails.IOState.MaintenanceRequired                   :=  FALSE;
+            AxoHwDiagDetails.PLCDiagnosticDetails.IOState.MaintenanceDemanded                   :=  FALSE;
+            AxoHwDiagDetails.PLCDiagnosticDetails.IOState.Error                                 :=  FALSE;
+            AxoHwDiagDetails.PLCDiagnosticDetails.IOState.NotAccessible                         :=  FALSE;
+            AxoHwDiagDetails.PLCDiagnosticDetails.IOState.DiagnosticsAvailable                  :=  FALSE;
+            AxoHwDiagDetails.PLCDiagnosticDetails.IOState.IODataNotAvailable                    :=  FALSE;
+            AxoHwDiagDetails.PLCDiagnosticDetails.IOState.NetworkError                          :=  FALSE;
+            AxoHwDiagDetails.PLCDiagnosticDetails.IOState.HardwareError                         :=  FALSE;
+            AxoHwDiagDetails.PLCDiagnosticDetails.DiagnosticsEnabled                            :=  FALSE;    
 
-            AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.HardwareID                                :=  UINT#0;
-            AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.GetDiagnosticsReturnCode                  :=  GetDiagnosticsReturnCode#Unknown;
-            AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateState                          :=  ComponentState#Unknown;
-            AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  FALSE;
-            AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  FALSE;
-            AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  FALSE;
-            AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  FALSE;
-            AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  FALSE;
-            AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  FALSE;
-            AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  FALSE;
-            AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  FALSE;
-            AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  FALSE;
-            AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  FALSE;
-            AxoHwDiagDetails.IOSystemSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  FALSE;    
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.HardwareID                               :=  UINT#0;
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.GetDiagnosticsReturnCode                 :=  GetDiagnosticsReturnCode#Unknown;
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.State                                    :=  AxoHwDiagComponentState#Unknown;
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.SubordinateState                         :=  AxoHwDiagComponentState#Unknown;
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.Good                             :=  FALSE;
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.Disabled                         :=  FALSE;
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.MaintenanceRequired              :=  FALSE;
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.MaintenanceDemanded              :=  FALSE;
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.Error                            :=  FALSE;
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.NotAccessible                    :=  FALSE;
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.DiagnosticsAvailable             :=  FALSE;
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.IODataNotAvailable               :=  FALSE;
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.NetworkError                     :=  FALSE;
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.HardwareError                    :=  FALSE;
+            AxoHwDiagDetails.IoSystemDiagnosticDetails.DiagnosticsEnabled                       :=  FALSE;    
 
-            AxoHwDiagDetails.StationSubSystemDiagnosticDetails.HardwareID                                :=  UINT#0;
-            AxoHwDiagDetails.StationSubSystemDiagnosticDetails.GetDiagnosticsReturnCode                  :=  GetDiagnosticsReturnCode#Unknown;
-            AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateState                          :=  ComponentState#Unknown;
-            AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  FALSE;
-            AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  FALSE;
-            AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  FALSE;
-            AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  FALSE;
-            AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  FALSE;
-            AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  FALSE;
-            AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  FALSE;
-            AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  FALSE;
-            AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  FALSE;
-            AxoHwDiagDetails.StationSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  FALSE;
-            AxoHwDiagDetails.StationSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  FALSE;    
+            AxoHwDiagDetails.StationDiagnosticDetails.HardwareID                                :=  UINT#0;
+            AxoHwDiagDetails.StationDiagnosticDetails.GetDiagnosticsReturnCode                  :=  GetDiagnosticsReturnCode#Unknown;
+            AxoHwDiagDetails.StationDiagnosticDetails.State                                     :=  AxoHwDiagComponentState#Unknown;
+            AxoHwDiagDetails.StationDiagnosticDetails.SubordinateState                          :=  AxoHwDiagComponentState#Unknown;
+            AxoHwDiagDetails.StationDiagnosticDetails.IOState.Good                              :=  FALSE;
+            AxoHwDiagDetails.StationDiagnosticDetails.IOState.Disabled                          :=  FALSE;
+            AxoHwDiagDetails.StationDiagnosticDetails.IOState.MaintenanceRequired               :=  FALSE;
+            AxoHwDiagDetails.StationDiagnosticDetails.IOState.MaintenanceDemanded               :=  FALSE;
+            AxoHwDiagDetails.StationDiagnosticDetails.IOState.Error                             :=  FALSE;
+            AxoHwDiagDetails.StationDiagnosticDetails.IOState.NotAccessible                     :=  FALSE;
+            AxoHwDiagDetails.StationDiagnosticDetails.IOState.DiagnosticsAvailable              :=  FALSE;
+            AxoHwDiagDetails.StationDiagnosticDetails.IOState.IODataNotAvailable                :=  FALSE;
+            AxoHwDiagDetails.StationDiagnosticDetails.IOState.NetworkError                      :=  FALSE;
+            AxoHwDiagDetails.StationDiagnosticDetails.IOState.HardwareError                     :=  FALSE;
+            AxoHwDiagDetails.StationDiagnosticDetails.DiagnosticsEnabled                        :=  FALSE;    
 
-            AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.HardwareID                                :=  UINT#0;
-            AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode                  :=  GetDiagnosticsReturnCode#Unknown;
-            AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateState                          :=  ComponentState#Unknown;
-            AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.Good                   :=  FALSE;
-            AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.Disabled               :=  FALSE;
-            AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired    :=  FALSE;
-            AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded    :=  FALSE;
-            AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.Error                  :=  FALSE;
-            AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible          :=  FALSE;
-            AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable   :=  FALSE;
-            AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable     :=  FALSE;
-            AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.NetworkError           :=  FALSE;
-            AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.SubordinateIOState.HardwareError          :=  FALSE;
-            AxoHwDiagDetails.ModuleSubSystemDiagnosticDetails.DiagnosticsEnabled                        :=  FALSE;    
+            AxoHwDiagDetails.ModuleDiagnosticDetails.HardwareID                                 :=  UINT#0;
+            AxoHwDiagDetails.ModuleDiagnosticDetails.GetDiagnosticsReturnCode                   :=  GetDiagnosticsReturnCode#Unknown;
+            AxoHwDiagDetails.ModuleDiagnosticDetails.State                                      :=  AxoHwDiagComponentState#Unknown;
+            AxoHwDiagDetails.ModuleDiagnosticDetails.SubordinateState                           :=  AxoHwDiagComponentState#Unknown;
+            AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.Good                               :=  FALSE;
+            AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.Disabled                           :=  FALSE;
+            AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.MaintenanceRequired                :=  FALSE;
+            AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.MaintenanceDemanded                :=  FALSE;
+            AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.Error                              :=  FALSE;
+            AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.NotAccessible                      :=  FALSE;
+            AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.DiagnosticsAvailable               :=  FALSE;
+            AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.IODataNotAvailable                 :=  FALSE;
+            AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.NetworkError                       :=  FALSE;
+            AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.HardwareError                      :=  FALSE;
+            AxoHwDiagDetails.ModuleDiagnosticDetails.DiagnosticsEnabled                         :=  FALSE;    
 
-            AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.HardwareID                             :=  UINT#0;
-            AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.GetDiagnosticsReturnCode               :=  GetDiagnosticsReturnCode#Unknown;
-            AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateState                       :=  ComponentState#Unknown;
-            AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.Good                :=  FALSE;
-            AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.Disabled            :=  FALSE;
-            AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceRequired :=  FALSE;
-            AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.MaintenanceDemanded :=  FALSE;
-            AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.Error               :=  FALSE;
-            AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.NotAccessible       :=  FALSE;
-            AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.DiagnosticsAvailable:=  FALSE;
-            AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.IODataNotAvailable  :=  FALSE;
-            AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.NetworkError        :=  FALSE;
-            AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.SubordinateIOState.HardwareError       :=  FALSE;
-            AxoHwDiagDetails.SubModuleSubSystemDiagnosticDetails.DiagnosticsEnabled                     :=  FALSE;    
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.HardwareID                              :=  UINT#0;
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.GetDiagnosticsReturnCode                :=  GetDiagnosticsReturnCode#Unknown;
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.State                                   :=  AxoHwDiagComponentState#Unknown;
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.SubordinateState                        :=  AxoHwDiagComponentState#Unknown;
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.Good                            :=  FALSE;
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.Disabled                        :=  FALSE;
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.MaintenanceRequired             :=  FALSE;
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.MaintenanceDemanded             :=  FALSE;
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.Error                           :=  FALSE;
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.NotAccessible                   :=  FALSE;
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.DiagnosticsAvailable            :=  FALSE;
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.IODataNotAvailable              :=  FALSE;
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.NetworkError                    :=  FALSE;
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.HardwareError                   :=  FALSE;
+            AxoHwDiagDetails.SubModuleDiagnosticDetails.DiagnosticsEnabled                      :=  FALSE;    
 
-            _currentIndex := -1;
+            AxoHwDiagDetails.FaultyItemDetails.HardwareID                                                               :=	UINT#0;
+            AxoHwDiagDetails.FaultyItemDetails.GetDiagnosticsReturnCode                                                 :=  GetDiagnosticsReturnCode#Unknown;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.NoAdditionalInformation      :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.TransferNotPermitted         :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.DiagnosticsAvailable         :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.MaintenanceRequired          :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.MaintenanceDemanded          :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.Error                        :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.ComponentAvailability        :=  AxoHwDiagComponentAvailability#Unknown;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.HardwareComponentState.ReplacementState	            :=  AxoHwDiagReplacementState#Unknown;  
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.Good                                        :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.Disabled                                    :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.MaintenanceRequired                         :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.MaintenanceDemanded                         :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.Error                                       :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.NotAccessible                               :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.DiagnosticsAvailable                        :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.IODataNotAvailable                          :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.NetworkError                                :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentStateDetail.IOState.HardwareError                               :=  FALSE;
+            AxoHwDiagDetails.FaultyItemDetails.ComponentState                                                           :=  AxoHwDiagComponentState#Unknown;
+            AxoHwDiagDetails.FaultyItemDetails.OperatingState                                                           :=	AxoHwDiagOperatingState#Unknown;	
         END_METHOD        
 
         METHOD PRIVATE CallTimers

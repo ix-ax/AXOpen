@@ -8,7 +8,6 @@ PROGRAM MyProgram
         _rtm : AXOpen.S71500.Rtm;
         Inputs : Inputs;
 		Outputs : Outputs;
-        // HwIDs : HwIDs;
     END_VAR
 
     VAR

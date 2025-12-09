@@ -8,4 +8,3 @@ NAMESPACE AXOpen.Io
             ) := Unknown;
     END_TYPE
 END_NAMESPACE
-

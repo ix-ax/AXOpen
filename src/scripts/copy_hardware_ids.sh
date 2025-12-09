@@ -32,7 +32,8 @@ fi
 
 input_file="SystemConstants/${PLC_NAME}_HwIdentifiers.st"
 output_dir="src/IO"
-output_file="${output_dir}/HwIdentifiers.st"
+output_file1="${output_dir}/HwIdentifiers.st"
+output_file2="${output_dir}/HwIdentifierList.st"
 
 if ! [[ -e "$input_file" ]]; then
     printf "${RED}File $input_file does not exist!!!${NC}"
@@ -41,8 +42,13 @@ fi
 
 mkdir -p "$output_dir"
 
-# ---- Parse, sort, and transform using AWK ----
-awk -v ns="$NAMESPACE" '
+
+# ============================================================
+#  AWK: read constants once, then output two files:
+#    1) HwIdentifiers.st (existing behavior)
+#    2) HwIDs.st (new — simple constant declarations)
+# ============================================================
+awk -v ns="$NAMESPACE" -v OUT1="$output_file1" -v OUT2="$output_file2" '
 BEGIN {
     in_block = 0;
 }
@@ -50,13 +56,12 @@ BEGIN {
     line = $0
     gsub(/\r/, "", line)
 
-    # Detect start/end of the relevant block
+    # Detect block
     if (line ~ /VAR_GLOBAL CONSTANT/) { in_block = 1; next }
-    if (line ~ /END_VAR/) { in_block = 0; next }
+    if (line ~ /END_VAR/)             { in_block = 0; next }
 
     if (!in_block) next
 
-    # We are inside the constant block
     # Expected format:  NAME : UINT := UINT#123;
     if (match(line, /^[[:space:]]*([A-Za-z0-9_]+)[[:space:]]*:[[:space:]]*UINT[[:space:]]*:=[[:space:]]*UINT#([0-9]+)[[:space:]]*;/, m)) {
         name = m[1]
@@ -66,31 +71,61 @@ BEGIN {
 }
 
 END {
-    print "NAMESPACE " ns
-    print "    TYPE"
-    print "        HwIdentifiers : UINT"
-    print "        ("
+    ####################################################################
+    #  ------- 1) Generate HwIdentifiers.st (ENUM style) --------------
+    ####################################################################
+    out = ""
+    out = out "NAMESPACE " ns "\n"
+    out = out "    TYPE\n"
+    out = out "        HwIdentifiers : UINT\n"
+    out = out "        (\n"
 
-    n = asorti(items, sorted, "@val_num_asc")   # numeric ascending sort
+    n = asorti(items, sorted, "@val_num_asc")
 
     if (n == 0) {
-        # No items found → output NONE only
-        print "            NONE := UINT#0"
+        out = out "            NONE := UINT#0\n"
     } else {
-        # Print sorted items without final trailing comma
         for (i = 1; i <= n; i++) {
             key = sorted[i]
             val = items[key]
-
-            last = (i == n) ? "" : ","
-            print "            " key " := UINT#" val last
+            last = (i == n ? "" : ",")
+            out = out "            " key " := UINT#" val last "\n"
         }
     }
 
-    print "        );"
-    print "    END_TYPE"
-    print "END_NAMESPACE"
-}
-' "$input_file" > "$output_file"
+    out = out "        );\n"
+    out = out "    END_TYPE\n"
+    out = out "END_NAMESPACE\n"
 
-echo -e "${GREEN}Generation complete. Output written to $output_file${NC}"
+    # Write file 1
+    print out > OUT1
+
+
+    ####################################################################
+    #  ------- 2) Generate HwIdentifierList.st ----------------
+    ####################################################################
+    out2 = ""
+    out2 = out2 "NAMESPACE " ns "\n"
+    out2 = out2 "    TYPE HwIdentifierList : ARRAY[0.." n - 1 "] OF UINT :=\n"
+    out2 = out2 "            [\n"
+
+    for (i = 1; i <= n; i++) {
+        val = items[sorted[i]]
+        last = (i == n ? "" : ",")
+        out2 = out2 "                UINT#" val last "\n"
+    }
+
+
+    out2 = out2 "    ];\n"
+    out2 = out2 "END_TYPE\n"
+    out2 = out2 "END_NAMESPACE\n"
+
+    # Write file 2
+    print out2 > OUT2
+}
+' "$input_file"
+
+
+echo -e "${GREEN}Generation complete.${NC}"
+echo -e "${GREEN} - ${output_file1}${NC}"
+echo -e "${GREEN} - ${output_file2}${NC}"

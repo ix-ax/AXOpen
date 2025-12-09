@@ -19,7 +19,7 @@ CLASS Component_5 EXTENDS AXOpen.Core.AxoObject
 
     METHOD PUBLIC OVERRIDE Run
         VAR_EXTERNAL
-            HwIDs : HwIDs;
+            HwIdentifierList : HwIdentifierList;
         END_VAR  
         VAR_INPUT
             inParent : IAxoObject;
@@ -33,7 +33,7 @@ CLASS Component_5 EXTENDS AXOpen.Core.AxoObject
         
         //<Initialization>        
         ExampleComponent.Run(inParent   :=  THIS, 
-                            hwIDsList   :=  HwIDs);
+                            hwIDsList   :=  HwIdentifierList);
 
         //</Initialization>
     END_METHOD

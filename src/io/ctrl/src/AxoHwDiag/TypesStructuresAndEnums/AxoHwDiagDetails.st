@@ -7,38 +7,37 @@ NAMESPACE AXOpen.Io
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#PLC#>"}
             {#ix-attr:[ReadOnly()]}
-            PLCSubSystemDiagnosticDetails	        :   AxoHwDiagSubSystemDetails;	  
+            PLCDiagnosticDetails	                    :   AxoHwDiagCommonDetails;	  
 
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#IOSystem#>"}
             {#ix-attr:[ReadOnly()]}
-            IoSystemSubSystemDiagnosticDetails	        :   AxoHwDiagSubSystemDetails;	  
+            IoSystemDiagnosticDetails	                :   AxoHwDiagCommonDetails;	  
 
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Station#>"}
             {#ix-attr:[ReadOnly()]}
-            StationSubSystemDiagnosticDetails	        :   AxoHwDiagSubSystemDetails;	  
+            StationDiagnosticDetails	                :   AxoHwDiagCommonDetails;	  
             
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Module#>"}
             {#ix-attr:[ReadOnly()]}
-            ModuleSubSystemDiagnosticDetails	        :   AxoHwDiagSubSystemDetails;	  
+            ModuleDiagnosticDetails	                    :   AxoHwDiagCommonDetails;	  
  
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Sub module#>"}
             {#ix-attr:[ReadOnly()]}
-            SubModuleSubSystemDiagnosticDetails	        :   AxoHwDiagSubSystemDetails;	  
+            SubModuleDiagnosticDetails	                :   AxoHwDiagCommonDetails;	  
  
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
-            {#ix-set:AttributeName = "<#Details#>"}
+            {#ix-set:AttributeName = "<#Faulty item details#>"}
             {#ix-attr:[ReadOnly()]}
-            SystemDiagnosticDetails	                    :   AxoHwDiagSystemDetails;	  
- 
+            FaultyItemDetails	                        :   AxoHwDiagSystemDetails;	  
         END_VAR
     END_CLASS
 END_NAMESPACE

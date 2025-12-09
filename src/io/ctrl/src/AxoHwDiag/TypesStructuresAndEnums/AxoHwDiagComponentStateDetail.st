@@ -6,10 +6,6 @@ NAMESPACE AXOpen.Io
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-set:AttributeName = "<#Hardware component state#>"}
             HardwareComponentState  :   AxoHwDiagHardwareComponentState;
-            // {#ix-attr:[Container(Layout.Wrap)]}
-            // {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            // {#ix-set:AttributeName = "<#PlcState#>"}
-            // PlcState                :	AxoHwDiagPlcState;     
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-set:AttributeName = "<#IO state#>"}
