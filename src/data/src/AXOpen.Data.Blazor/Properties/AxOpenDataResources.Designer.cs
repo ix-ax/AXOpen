@@ -707,5 +707,50 @@ namespace AXOpen.Data.Blazor.Properties {
                 return ResourceManager.GetString("Create record from PLC", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Persistent group {0} was successfully loaded to PLC!.
+        /// </summary>
+        internal static string Persistent_group_loaded_to_PLC {
+            get {
+                return ResourceManager.GetString("Persistent_group_loaded_to_PLC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Persistent group {0} was successfully read from PLC!.
+        /// </summary>
+        internal static string Persistent_group_read_from_PLC {
+            get {
+                return ResourceManager.GetString("Persistent_group_read_from_PLC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data with ID: "{0}" was created for: {1}!.
+        /// </summary>
+        internal static string Data_with_ID_was_created_for {
+            get {
+                return ResourceManager.GetString("Data_with_ID_was_created_for", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Record already exist for: {0}!.
+        /// </summary>
+        internal static string Record_already_exist_for {
+            get {
+                return ResourceManager.GetString("Record already exist for", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source Record not exist for: {0}!.
+        /// </summary>
+        internal static string Source_Record_not_exist_for {
+            get {
+                return ResourceManager.GetString("Source Record not exist for", resourceCulture);
+            }
+        }
     }
 }

@@ -289,4 +289,13 @@
   <data name="Create record from PLC" xml:space="preserve">
     <value>Create record from PLC</value>
   </data>
+  <data name="Persistent_group_loaded_to_PLC" xml:space="preserve">
+    <value>Persistent group {0} was successfully loaded to PLC!</value>
+  </data>
+  <data name="Persistent_group_read_from_PLC" xml:space="preserve">
+    <value>Persistent group {0} was successfully read from PLC!</value>
+  </data>
+  <data name="Data_with_ID_was_created_for" xml:space="preserve">
+    <value>Data with ID: "{0}" was created for: {1}!</value>
+  </data>
 </root>

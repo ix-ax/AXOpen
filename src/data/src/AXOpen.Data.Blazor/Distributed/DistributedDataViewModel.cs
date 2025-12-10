@@ -512,21 +512,21 @@ namespace AXOpen.Data
             if (copied.Count > 0)
             {
                 string createdRecords = string.Join(", ", copied);
-                ToastService?.AddToast(eToastType.Info, Properties.AxOpenDataResources.Copied_record, $"Data with ID: \"{identifier}\" was created for: {createdRecords}!", 7);
+                ToastService?.AddToast(eToastType.Info, Properties.AxOpenDataResources.Copied_record, string.Format(Properties.AxOpenDataResources.Data_with_ID_was_created_for, identifier, createdRecords), 7);
                 AxoApplication.Current.Logger.Information($"Copying record \"{identifier}\" with new ID \"{newIdentifier}\" into repositories {createdRecords} by user action was successful.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
 
             if (alreadyExist.Count > 0)
             {
                 string alreadyExistRecords = string.Join(", ", alreadyExist);
-                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Copied_error, $"Record already exist for: {alreadyExistRecords}!", 14);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Copied_error, string.Format(Properties.AxOpenDataResources.Record_already_exist_for, alreadyExistRecords), 14);
                 AxoApplication.Current.Logger.Warning($"Copying record \"{identifier}\" into repositories {alreadyExistRecords} by user action failed – record already exist.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
 
             if (notExist.Count > 0)
             {
                 string notExistRecords = string.Join(", ", notExist);
-                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Copied_error, $"Source Record not exist for: {notExistRecords}!", 14);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Copied_error, string.Format(Properties.AxOpenDataResources.Source_Record_not_exist_for, notExistRecords), 14);
                 AxoApplication.Current.Logger.Warning($"Copying record \"{identifier}\" into repositories {notExistRecords} by user action failed – record does not exist.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
         }
