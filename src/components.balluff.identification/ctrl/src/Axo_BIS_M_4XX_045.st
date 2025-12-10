@@ -486,7 +486,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 THIS.CallTimers(TRUE);
                 ReadTask.ThrowWhen(_errorTimer.output );
                 Status.Action.Id := TO_UINT(_progress);
-                ReadTask.ThrowWhen(ReadTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ReadTask timeout.');
+                ReadTask.ThrowWhen(ReadTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ReadTask timeout.#>');
             END_IF;
             IF ReadTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -723,7 +723,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 THIS.CallTimers(TRUE);
                 WriteTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
-                WriteTask.ThrowWhen(WriteTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'WriteTask timeout.');
+                WriteTask.ThrowWhen(WriteTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#WriteTask timeout.#>');
             END_IF;
             IF WriteTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -806,7 +806,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
 	            THIS.CallTimers(TRUE);
                 ResetCommunicationTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
-                ResetCommunicationTask.ThrowWhen(ResetCommunicationTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ResetCommunicationTask timeout.');
+                ResetCommunicationTask.ThrowWhen(ResetCommunicationTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ResetCommunicationTask timeout.#>');
             END_IF;
             IF ResetCommunicationTask.IsFirstExecutionCycle() THEN
                 ;
@@ -909,7 +909,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 THIS.CallTimers(TRUE);
                 ResetReaderTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
-                ResetReaderTask.ThrowWhen(ResetReaderTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ResetReaderTask timeout.');
+                ResetReaderTask.ThrowWhen(ResetReaderTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ResetReaderTask timeout.#>');
             END_IF;
             IF ResetReaderTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#141;
@@ -1064,7 +1064,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 
                 WriteCharToMemoryTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
-                WriteCharToMemoryTask.ThrowWhen(WriteCharToMemoryTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'WriteCharToMemoryTask timeout.');
+                WriteCharToMemoryTask.ThrowWhen(WriteCharToMemoryTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#WriteCharToMemoryTask timeout.#>');
             END_IF;
             IF WriteCharToMemoryTask.IsFirstExecutionCycle() THEN
                 ;

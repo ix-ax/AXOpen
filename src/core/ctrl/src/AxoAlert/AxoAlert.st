@@ -43,7 +43,7 @@ NAMESPACE AXOpen.Core
                     THIS.Restore(); 
                 END_IF;
 
-                ErrorDetails := 'THE REMOTE TASK IS NOT INITIALIZED';
+                ErrorDetails := '<#THE REMOTE TASK IS NOT INITIALIZED#>';
                 RETURN; // if it continue  .Execute() call ThrowWhen() and task go to ErrorState  
             END_IF;
             

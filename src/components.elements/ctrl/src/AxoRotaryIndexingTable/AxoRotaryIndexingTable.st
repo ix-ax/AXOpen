@@ -149,7 +149,7 @@ NAMESPACE AXOpen.Components.Elements
             //****************************************
     
             //*************TurnTask**************
-            TurnTask.ThrowWhen(TurnTask.IsBusy() AND NOT inSafetyCondition, 'The safety condition is lost during movement.');
+            TurnTask.ThrowWhen(TurnTask.IsBusy() AND NOT inSafetyCondition,'<#The safety condition is lost during movement.#>');
             TurnTask.SetIsDisabled(NOT inSafetyCondition OR RestoreTask.IsBusy() OR InitPositionTask.IsBusy());
             IF TurnTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
@@ -249,7 +249,7 @@ NAMESPACE AXOpen.Components.Elements
                 
                 TurnTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TurnTask.ThrowWhen(_timeoutTimer.output,'TurnTask timeout.');
+                TurnTask.ThrowWhen(_timeoutTimer.output,'<#TurnTask timeout.#>');
             END_IF;
             IF TurnTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -275,7 +275,7 @@ NAMESPACE AXOpen.Components.Elements
             //**************************************************
     
             //*************InitPositionTask***************
-            InitPositionTask.ThrowWhen(InitPositionTask.IsBusy() AND NOT inSafetyCondition, 'The safety condition is lost during movement.');
+            InitPositionTask.ThrowWhen(InitPositionTask.IsBusy() AND NOT inSafetyCondition,'<#The safety condition is lost during movement.#>');
             InitPositionTask.SetIsDisabled(NOT inSafetyCondition OR RestoreTask.IsBusy() OR TurnTask.IsBusy());
             IF InitPositionTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
@@ -331,7 +331,7 @@ NAMESPACE AXOpen.Components.Elements
                 
                 InitPositionTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                InitPositionTask.ThrowWhen(_timeoutTimer.output ,'InitPositionTask timeout.');
+                InitPositionTask.ThrowWhen(_timeoutTimer.output ,'<#InitPositionTask timeout.#>');
             END_IF;
             IF InitPositionTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;

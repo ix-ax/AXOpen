@@ -1377,7 +1377,7 @@ NAMESPACE AXOpen.Io
                 
                 ConfigTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ConfigTask.ThrowWhen(ConfigTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ConfigTask timeout.');                
+                ConfigTask.ThrowWhen(ConfigTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ConfigTask timeout.#>');                
             END_IF;
             IF ConfigTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;

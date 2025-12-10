@@ -379,8 +379,8 @@ NAMESPACE AXOpen.Inspectors
                     _inspectorTask.DoneWhen(TRUE);
                     IF (inData^.Result = eInspectorResult#Failed) THEN
                         inData^.DetectedStatus := _lastOutValue;
-                        _DL._inspectionDetails := System.Strings.Concat('min:', ToString(inData^.RequiredMin), ' max: ', ToString(inData^.RequiredMax));
-                        _DL._inspectionDetails := System.Strings.Concat(_DL._inspectionDetails, ' but was: ', ToString(inData^.DetectedStatus));                        
+                        _DL._inspectionDetails := System.Strings.Concat('<#min:#>', ToString(inData^.RequiredMin), '<# max: #>', ToString(inData^.RequiredMax));
+                        _DL._inspectionDetails := System.Strings.Concat(_DL._inspectionDetails, '<# but was: #>', ToString(inData^.DetectedStatus));                        
                     END_IF;
                     THIS.OnDone();
                     THIS.UpdateDialogInfo();
@@ -468,8 +468,8 @@ NAMESPACE AXOpen.Inspectors
                     _inspectorTask.DoneWhen(TRUE);
                     IF (inData^.Result = eInspectorResult#Failed) THEN
                         inData^.DetectedStatus := _lastOutValue;
-                        _DL._inspectionDetails := System.Strings.Concat('Req: ', inData^.RequiredStatus);
-                        _DL._inspectionDetails := System.Strings.Concat(_DL._inspectionDetails, 'Actual: ', inData^.RequiredStatus); 
+                        _DL._inspectionDetails := System.Strings.Concat('<#Req: #>', inData^.RequiredStatus);
+                        _DL._inspectionDetails := System.Strings.Concat(_DL._inspectionDetails, '<#Actual: #>', inData^.RequiredStatus); 
                     END_IF;
                     THIS.OnDone();
                     THIS.UpdateDialogInfo();
@@ -522,8 +522,8 @@ NAMESPACE AXOpen.Inspectors
                     _inspectorTask.DoneWhen(TRUE);
                     IF (inData^.Result = eInspectorResult#Failed) THEN
                         inData^.DetectedStatus := NOT inData^.RequiredStatus;
-                        _DL._inspectionDetails := System.Strings.Concat('Req: ', ToString(inData^.RequiredStatus));
-                        _DL._inspectionDetails := System.Strings.Concat(_DL._inspectionDetails, 'Actual: ', ToString(inData^.RequiredStatus)); 
+                        _DL._inspectionDetails := System.Strings.Concat('<#Req: #>', ToString(inData^.RequiredStatus));
+                        _DL._inspectionDetails := System.Strings.Concat(_DL._inspectionDetails, '<#Actual: #>', ToString(inData^.RequiredStatus)); 
                     END_IF;
                     THIS.OnDone();
                     THIS.UpdateDialogInfo();
