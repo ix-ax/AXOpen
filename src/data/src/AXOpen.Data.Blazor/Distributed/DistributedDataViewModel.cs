@@ -4,6 +4,7 @@ using AXOpen.Base.Dialogs;
 using AXOpen.Data.Interfaces;
 using Microsoft.AspNetCore.Components.Authorization;
 using Operon.Components.Toast;
+using Properties = AXOpen.Data.Blazor.Properties;
 
 namespace AXOpen.Data
 {
@@ -177,7 +178,7 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                ToastService?.AddToast(eToastType.Warning, "Create error", "Please enter valid source identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Create_error, Properties.AxOpenDataResources.Please_enter_valid_source_identifier, 20);
                 return;
             }
 
@@ -203,7 +204,7 @@ namespace AXOpen.Data
                 // Alert
                 ToastService?.AddToast(
                     eToastType.Info,
-                    "Create new record",
+                    Properties.AxOpenDataResources.Create_new_record,
                     $"Record \"{identifier}\" was created in repositories: {createdRecords}.",
                     7
                 );
@@ -222,7 +223,7 @@ namespace AXOpen.Data
                 // Alert
                 ToastService?.AddToast(
                     eToastType.Warning,
-                    "Create record error",
+                    Properties.AxOpenDataResources.Create_record_error,
                     $"Record \"{identifier}\" already exists in repositories: {notCreatedRecords}.",
                     14
                 );
@@ -239,7 +240,7 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                ToastService?.AddToast(eToastType.Warning, "Create data error", "Please enter valid identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Create_data_error, Properties.AxOpenDataResources.Please_enter_valid_identifier, 20);
                 return;
             }
 
@@ -266,7 +267,7 @@ namespace AXOpen.Data
                 // Alert
                 ToastService?.AddToast(
                     eToastType.Info,
-                    "Create record from PLC",
+                    Properties.AxOpenDataResources.Create_record_from_PLC,
                     $"Record \"{identifier}\" was created in repositories: {createdRecords}.",
                     7
                 );
@@ -285,7 +286,7 @@ namespace AXOpen.Data
                 // Alert
                 ToastService?.AddToast(
                     eToastType.Warning,
-                    "Create record error",
+                    Properties.AxOpenDataResources.Create_record_error,
                     $"Record \"{identifier}\" already exists in repositories: {notCreatedRecords}.",
                     14
                 );
@@ -404,7 +405,7 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                ToastService?.AddToast(eToastType.Warning, "Update data error", "Please enter valid identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Update_data_error, Properties.AxOpenDataResources.Please_enter_valid_identifier, 20);
                 return;
             }
 
@@ -436,7 +437,7 @@ namespace AXOpen.Data
                 // Alert message
                 ToastService?.AddToast(
                     eToastType.Info,
-                    "Send record",
+                    Properties.AxOpenDataResources.Send_record,
                     $"Record \"{identifier}\" was sent to exchanges: {sentExchanges} by user action.",
                     7
                 );
@@ -455,7 +456,7 @@ namespace AXOpen.Data
                 // Alert message
                 ToastService?.AddToast(
                     eToastType.Warning,
-                    "Send error",
+                    Properties.AxOpenDataResources.Send_error,
                     $"Record \"{identifier}\" does not exist in the database for: {notExistInRepos}.",
                     14
                 );
@@ -472,13 +473,13 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                ToastService?.AddToast(eToastType.Warning, "Copy error", "Please enter valid source identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Copy_error, Properties.AxOpenDataResources.Please_enter_valid_source_identifier, 20);
                 return;
             }
 
             if (string.IsNullOrEmpty(newIdentifier))
             {
-                ToastService?.AddToast(eToastType.Warning, "Copy record error", "Data cannot be deleted. Please enter valid new identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Copy_record_error, Properties.AxOpenDataResources.Data_cannot_be_deleted_please_enter_valid_new_identifier, 20);
                 return;
             }
 
@@ -511,21 +512,21 @@ namespace AXOpen.Data
             if (copied.Count > 0)
             {
                 string createdRecords = string.Join(", ", copied);
-                ToastService?.AddToast(eToastType.Info, "Copied record", $"Data with ID: \"{identifier}\" was created for: {createdRecords}!", 7);
+                ToastService?.AddToast(eToastType.Info, Properties.AxOpenDataResources.Copied_record, $"Data with ID: \"{identifier}\" was created for: {createdRecords}!", 7);
                 AxoApplication.Current.Logger.Information($"Copying record \"{identifier}\" with new ID \"{newIdentifier}\" into repositories {createdRecords} by user action was successful.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
 
             if (alreadyExist.Count > 0)
             {
                 string alreadyExistRecords = string.Join(", ", alreadyExist);
-                ToastService?.AddToast(eToastType.Warning, "Copied error", $"Record already exist for: {alreadyExistRecords}!", 14);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Copied_error, $"Record already exist for: {alreadyExistRecords}!", 14);
                 AxoApplication.Current.Logger.Warning($"Copying record \"{identifier}\" into repositories {alreadyExistRecords} by user action failed – record already exist.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
 
             if (notExist.Count > 0)
             {
                 string notExistRecords = string.Join(", ", notExist);
-                ToastService?.AddToast(eToastType.Warning, "Copied error", $"Source Record not exist for: {notExistRecords}!", 14);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Copied_error, $"Source Record not exist for: {notExistRecords}!", 14);
                 AxoApplication.Current.Logger.Warning($"Copying record \"{identifier}\" into repositories {notExistRecords} by user action failed – record does not exist.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
         }
@@ -534,7 +535,7 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                ToastService?.AddToast(eToastType.Warning, "Delete error", "Please enter valid source identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Delete_error, Properties.AxOpenDataResources.Please_enter_valid_source_identifier, 20);
                 return;
             }
 
@@ -561,7 +562,7 @@ namespace AXOpen.Data
                 // Alert message
                 ToastService?.AddToast(
                     eToastType.Info,
-                    "Delete record",
+                    Properties.AxOpenDataResources.Delete_record,
                     $"Record \"{identifier}\" was deleted from repositories: {deletedInRepos}.",
                     7
                 );
@@ -579,7 +580,7 @@ namespace AXOpen.Data
                 // Alert message
                 ToastService?.AddToast(
                     eToastType.Warning,
-                    "Delete error",
+                    Properties.AxOpenDataResources.Delete_error,
                     $"Source record does not exist in repositories: {notExistInRepos}.",
                     14
                 );
