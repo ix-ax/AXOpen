@@ -1,0 +1,449 @@
+/* Scoped styles for AxoHwDiagView component - Sophisticated PLC Rack SpotView */
+
+/* ========================================
+   Main Container
+   ======================================== */
+.hw-diag-spot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    min-width: 140px;
+}
+
+/* ========================================
+   PLC Rack Container
+   ======================================== */
+.plc-rack {
+    position: relative;
+    display: flex;
+    gap: 3px;
+    padding: 8px 6px;
+    background: linear-gradient(180deg, 
+        #1e293b 0%, 
+        #0f172a 50%,
+        #1e293b 100%);
+    border-radius: 6px;
+    border: 2px solid #334155;
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Rack mounting rails effect */
+.plc-rack::before,
+.plc-rack::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        #475569 10%,
+        #64748b 50%,
+        #475569 90%,
+        transparent 100%);
+}
+
+.plc-rack::before { top: 2px; }
+.plc-rack::after { bottom: 2px; }
+
+/* Rack states */
+.plc-rack.rack-ok {
+    border-color: rgba(34, 197, 94, 0.4);
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(34, 197, 94, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.plc-rack.rack-error {
+    border-color: rgba(239, 68, 68, 0.5);
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(239, 68, 68, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    animation: rack-error-pulse 1.5s ease-in-out infinite;
+}
+
+.plc-rack.rack-scanning {
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(59, 130, 246, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ========================================
+   Individual Module Styling
+   ======================================== */
+.rack-module {
+    position: relative;
+    width: 22px;
+    height: 56px;
+    background: linear-gradient(180deg,
+        #374151 0%,
+        #1f2937 20%,
+        #111827 80%,
+        #1f2937 100%);
+    border-radius: 3px;
+    border: 1px solid #4b5563;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px 2px;
+    gap: 2px;
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+/* CPU Module special styling */
+.cpu-module {
+    width: 26px;
+    background: linear-gradient(180deg,
+        #1e3a5f 0%,
+        #0f172a 50%,
+        #1e3a5f 100%);
+    border-color: #3b82f6;
+}
+
+/* Module states */
+.rack-module.module-ok {
+    border-color: rgba(34, 197, 94, 0.6);
+}
+
+.rack-module.module-ok .module-led.status-led,
+.rack-module.module-ok .module-led.run-led {
+    background: #22c55e;
+    box-shadow: 0 0 6px #22c55e, 0 0 12px rgba(34, 197, 94, 0.5);
+}
+
+.rack-module.module-warning {
+    border-color: rgba(245, 158, 11, 0.6);
+}
+
+.rack-module.module-warning .module-led.status-led {
+    background: #f59e0b;
+    box-shadow: 0 0 6px #f59e0b;
+    animation: led-blink-slow 2s ease-in-out infinite;
+}
+
+.rack-module.module-error {
+    border-color: rgba(239, 68, 68, 0.7);
+}
+
+.rack-module.module-error .module-led.error-led {
+    background: #ef4444;
+    box-shadow: 0 0 8px #ef4444, 0 0 16px rgba(239, 68, 68, 0.6);
+    animation: led-blink-fast 0.5s ease-in-out infinite;
+}
+
+.rack-module.module-idle {
+    opacity: 0.7;
+}
+
+/* ========================================
+   Module LEDs
+   ======================================== */
+.module-led {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #374151;
+    border: 1px solid #1f2937;
+    transition: all 0.3s ease;
+}
+
+.module-led.run-led {
+    background: #22c55e;
+    box-shadow: 0 0 4px #22c55e;
+}
+
+.module-led.comm-led {
+    background: #3b82f6;
+    box-shadow: 0 0 4px #3b82f6;
+    animation: comm-blink 0.3s ease-in-out infinite;
+}
+
+.module-led.error-led {
+    background: #374151;
+}
+
+/* ========================================
+   Module Labels
+   ======================================== */
+.module-label {
+    font-size: 5px;
+    font-weight: 700;
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+/* ========================================
+   CPU Activity Indicator
+   ======================================== */
+.module-activity {
+    width: 14px;
+    height: 8px;
+    margin-top: auto;
+    background: #0f172a;
+    border-radius: 2px;
+    border: 1px solid #334155;
+    overflow: hidden;
+    position: relative;
+}
+
+.module-activity.active::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    right: 1px;
+    bottom: 1px;
+    background: linear-gradient(90deg,
+        #3b82f6 0%,
+        #60a5fa 50%,
+        #3b82f6 100%);
+    animation: activity-wave 0.8s linear infinite;
+}
+
+/* ========================================
+   Network Activity
+   ======================================== */
+.network-activity {
+    width: 14px;
+    height: 12px;
+    margin-top: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.data-packet {
+    width: 6px;
+    height: 3px;
+    background: #3b82f6;
+    border-radius: 1px;
+    opacity: 0;
+}
+
+.data-packet.transmitting {
+    animation: packet-flow 0.6s ease-in-out infinite;
+}
+
+/* ========================================
+   IO Channels
+   ======================================== */
+.io-channels {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: auto;
+    padding: 2px;
+    background: #0f172a;
+    border-radius: 2px;
+}
+
+.io-channel {
+    width: 6px;
+    height: 4px;
+    border-radius: 1px;
+    background: #1f2937;
+    border: 1px solid #374151;
+    transition: all 0.2s ease;
+}
+
+.io-channel.channel-active {
+    background: #22c55e;
+    border-color: #16a34a;
+    box-shadow: 0 0 3px rgba(34, 197, 94, 0.5);
+    animation: channel-pulse 1.5s ease-in-out infinite;
+}
+
+.io-channel.channel-idle {
+    background: #374151;
+    border-color: #4b5563;
+}
+
+.io-channel.channel-error {
+    background: #ef4444;
+    border-color: #dc2626;
+    box-shadow: 0 0 4px rgba(239, 68, 68, 0.6);
+    animation: led-blink-fast 0.5s ease-in-out infinite;
+}
+
+/* ========================================
+   Scan Overlay
+   ======================================== */
+.scan-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(180deg,
+        transparent 0%,
+        transparent 45%,
+        rgba(59, 130, 246, 0.3) 48%,
+        rgba(59, 130, 246, 0.6) 50%,
+        rgba(59, 130, 246, 0.3) 52%,
+        transparent 55%,
+        transparent 100%);
+    animation: scan-sweep 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Status Bar
+   ======================================== */
+.status-bar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.status-indicator.status-ok {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.status-indicator.status-error {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    animation: status-pulse-error 1s ease-in-out infinite;
+}
+
+.status-indicator.status-idle {
+    background: rgba(148, 163, 184, 0.1);
+    color: #94a3b8;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 6px currentColor;
+}
+
+.status-indicator.status-error .status-dot {
+    animation: led-blink-fast 0.5s ease-in-out infinite;
+}
+
+.status-text {
+    min-width: 28px;
+    text-align: center;
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+@keyframes rack-error-pulse {
+    0%, 100% {
+        box-shadow: 
+            0 4px 12px rgba(0, 0, 0, 0.4),
+            0 0 25px rgba(239, 68, 68, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 4px 12px rgba(0, 0, 0, 0.4),
+            0 0 35px rgba(239, 68, 68, 0.4);
+    }
+}
+
+@keyframes led-blink-fast {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes led-blink-slow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes comm-blink {
+    0%, 100% { 
+        opacity: 1;
+        box-shadow: 0 0 4px #3b82f6;
+    }
+    50% { 
+        opacity: 0.5;
+        box-shadow: 0 0 8px #3b82f6;
+    }
+}
+
+@keyframes activity-wave {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes packet-flow {
+    0% { 
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% { 
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
+@keyframes channel-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@keyframes scan-sweep {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+@keyframes status-pulse-error {
+    0%, 100% {
+        background: rgba(239, 68, 68, 0.15);
+    }
+    50% {
+        background: rgba(239, 68, 68, 0.25);
+    }
+}

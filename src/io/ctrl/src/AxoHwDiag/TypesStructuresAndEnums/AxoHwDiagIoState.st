@@ -1,6 +1,6 @@
 NAMESPACE AXOpen.Io
     {S7.extern=ReadWrite}
-    CLASS IOState 
+    CLASS AxoHwDiagIoState
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Stack)]}
             Good                    :	BOOL;   //	No problems detected.

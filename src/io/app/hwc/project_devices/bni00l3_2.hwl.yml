@@ -1,7 +1,7 @@
   Devices:
-    - Name: 'bnixg35080b5r067'
+    - Name: 'bni00l3_2'
       Modules:
-        - Name: 'bnixg35080b5r067'
+        - Name: 'bni00l3_2'
           TypeIdentifier:
             FileName: 'GSDML-V2.45-BALLUFF-BNI-XG3-X0X-XB5-X067-20250822.XML'
             GsdId: 'BNI XG3-508-0B5-R067'
@@ -10,8 +10,8 @@
             Label: 'X1'
             Addresses:
               Configured:
-              - IPv4: '192.168.100.122/24'
-              - ProfinetDeviceName: 'bnixg35080b5r067'
+              - IPv4: '192.168.101.122/24'
+              - ProfinetDeviceName: 'bni00l3_2'
             Parameters:
               AdditionalInformation: ""
               LocationIdentifier: ""
@@ -43,7 +43,7 @@
               # TransmissionRateAutoNegotiation: True
               # CableName: 0
               # MediumAttachmentType: 'Copper'
-        - Apply: BNI00L3_IDM_LinkModule_1xBNI0099_on_Port_X04
+        - Apply: BNI00L3_IDM_LinkModule_16_DI
           Arguments:
-            NAME: '1xBNI0099_on_Port_X04'
+            NAME: '16_DI'
           
