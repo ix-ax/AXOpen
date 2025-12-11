@@ -1,4 +1,4 @@
-# Component_1
+# Axo_IQ_SeriesWelder
 
 # [CONTROLLER](#tab/controller)
 
@@ -7,7 +7,7 @@
 
 ## Declare initialization variables
 
-*Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.*
+*Most of the initialization variable will come from the I/O system. This example is only for demonstrational purposes.*
 
 [!code-pascal[](../app/src/Documentation/Component_1.st?name=InitializationArgumentsDeclaration)]
 

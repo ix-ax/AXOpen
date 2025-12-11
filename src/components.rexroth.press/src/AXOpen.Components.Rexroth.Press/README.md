@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Rexroth.Press --version {axopen-version}
 ~~~xml
 <PackageReference Include="AXOpen.Components.Rexroth.Press" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->

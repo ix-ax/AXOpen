@@ -1,7 +1,7 @@
 NAMESPACE AXOpen.Io
     {S7.extern=ReadWrite}
     CLASS HardwareComponentState
-        VAR PUBLIC
+	VAR PUBLIC
             {#ix-attr:[Container(Layout.Stack)]}
             NoAdditionalInformation     :	BOOL;	//  No additional information available.
             TransferNotPermitted        :	BOOL;	//  Transfer not permitted.

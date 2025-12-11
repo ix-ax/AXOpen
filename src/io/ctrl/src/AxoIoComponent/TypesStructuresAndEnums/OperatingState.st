@@ -1,5 +1,5 @@
 NAMESPACE AXOpen.Io
-    TYPE OperatingState   : UINT (
+    TYPE OperatingState : UINT (
         Unknown                     :=  UINT#255,
         NotSupported                :=	UINT#0,     //	Not Supported; for I/O modules OperatingState always has this value.
         StopFirmwareUpdate          :=	UINT#1,     //	STOP; firmware update.

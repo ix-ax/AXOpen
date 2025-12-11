@@ -1,15 +1,15 @@
 NAMESPACE AXOpen.Io
     {S7.extern=ReadWrite}
-    CLASS ComponentStateDetail
-        VAR PUBLIC
+    CLASS AxoHwDiagComponentStateDetail
+		VAR PUBLIC
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-set:AttributeName = "<#Hardware component state#>"}
-            HardwareComponentState  :   HardwareComponentState;  //	Represents detailed state information about the hardware component.
+            HardwareComponentState  :   AxoHwDiagHardwareComponentState;
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-set:AttributeName = "<#PlcState#>"}
-            PlcState                :	PlcState;                //	Represents detailed state information about the PLC.
+            {#ix-set:AttributeName = "<#IO state#>"}
+            IOState                 :	AxoHwDiagIOState;	         
         END_VAR
     END_CLASS
 END_NAMESPACE

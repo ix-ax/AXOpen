@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Drives --version {axopen-version}
 ~~~xml
 <PackageReference Include="AXOpen.Components.Drives" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->

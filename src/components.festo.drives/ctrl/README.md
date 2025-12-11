@@ -5,7 +5,7 @@
 [!INCLUDE [General](../../../docfx/articles/notes/APAX_PACAKGE_GENERAL.md)]
 
 
-## Adding package to your project
+## Adding the package to your project
 ~~~bash
 apax add "@inxton/axopen.components.festo.drives"
 ~~~
@@ -14,5 +14,5 @@ apax add "@inxton/axopen.components.festo.drives"
 
 ~~~yml
 dependencies:
-  "@inxton/axlibname": '{axopen-version}'  
+  "@inxton/axopen.components.festo.drives": '{axopen-version}'  
 ~~~

@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Desoutter.Tightening --version {axopen-vers
 ~~~xml
 <PackageReference Include="AXOpen.Components.Desoutter.Tightening" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->
