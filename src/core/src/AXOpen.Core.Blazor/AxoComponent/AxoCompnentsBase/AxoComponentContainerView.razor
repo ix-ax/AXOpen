@@ -99,7 +99,7 @@
         @if (SpotActive == true)
         {
             <button @onclick="OpenModal">
-                <div class="flex flex-col gap-2 p-0 @AlarmBackgroundClass rounded-lg">
+                <div class="flex flex-col gap-0 p-0 @AlarmBackgroundClass rounded-lg">
                     @if (SpotHeader is null)
                     {
                         <p class="text-sm font-semibold text-text/70 px-1 pt-1 pb-1 @LabelBackgroundClass rounded-t">@Component?.AttributeName</p>                    

@@ -1,6 +1,6 @@
 NAMESPACE AXOpen.Io
     {S7.extern=ReadWrite}
-    CLASS DiagnosticDetails 
+    CLASS DiagnosticDetails
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
