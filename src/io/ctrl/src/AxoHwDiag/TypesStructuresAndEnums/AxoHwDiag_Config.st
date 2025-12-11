@@ -1,4 +1,7 @@
 NAMESPACE AXOpen.Io
+    //<summary>
+    // Configuration class for hardware diagnostics.
+    //</summary>
     {S7.extern=ReadWrite}
     {#ix-attr:[Container(Layout.Stack)]}
     CLASS PUBLIC AxoHwDiag_Config
