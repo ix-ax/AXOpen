@@ -9,9 +9,27 @@
             "core/src/**.csproj",
             "data/src/**.csproj",
             "inspectors/src/**.csproj",
+            "components.abb.robotics/src/**.csproj",
+            "components.abstractions/src/**.csproj",
+            "components.balluff.identification/src/**.csproj",
             "components.cognex.vision/src/**.csproj",
-            "components.pneumatics/src/**.csproj",
+            "components.desoutter.tightening/src/**.csproj",
+            "components.drives/src/**.csproj",
+            "components.dukane.welders/src/**.csproj",
             "components.elements/src/**.csproj",
+            "components.festo.drives/src/**.csproj",
+            "components.keyence.vision/src/**.csproj",
+            "components.kuka.robotics/src/**.csproj",
+            "components.mitsubishi.robotics/src/**.csproj",
+            "components.pneumatics/src/**.csproj",
+            "components.rexroth.drives/src/**.csproj",
+            "components.rexroth.press/src/**.csproj",
+            "components.rexroth.tightening/src/**.csproj",
+            "components.robotics/src/**.csproj",
+            "components.siem.communication/src/**.csproj",
+            "components.siem.identification/src/**.csproj",
+            "components.ur.robotics/src/**.csproj",
+            "components.zebra.vision/src/**.csproj",
             "template.axolibrary/src/**.csproj"
           ],
           "exclude": [
@@ -20,7 +38,8 @@
             "**/obj/**",
             "*.Properties",
             "*.Resx",
-            "*.g.cs"
+            "*.g.cs",
+            "**/node_modules/**"
           ],
           "src": "../src/"
         }

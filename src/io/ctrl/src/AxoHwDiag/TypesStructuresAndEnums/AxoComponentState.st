@@ -1,4 +1,7 @@
 NAMESPACE AXOpen.Io
+    //<summary>
+    // Defines the state of a hardware component.
+    //</summary>
     TYPE AxoComponentState : UINT (
         Good                    :=	UINT#0, //	No problems detected.
         Disabled                :=	UINT#1, //	The hardware component is disabled.

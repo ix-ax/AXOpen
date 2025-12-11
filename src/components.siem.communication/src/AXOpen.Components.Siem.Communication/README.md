@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Siem.Communication --version {axopen-versio
 ~~~xml
 <PackageReference Include="AXOpen.Components.Siem.Communication" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->

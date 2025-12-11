@@ -739,11 +739,20 @@ namespace AXOpen.Io
 
         private Type _hwIdEnumType;
 
+        /// <summary>
+        /// Assigns an enum type to be used for hardware ID interpretation.
+        /// </summary>
+        /// <typeparam name="TEnum">Enum type to be used for the HW ID interpretation.</typeparam>
         public void UseHwIdEnum<TEnum>() where TEnum : Enum
         {
             _hwIdEnumType = typeof(TEnum);
         }
 
+        /// <summary>
+        /// Gets the hardware ID as a string, using the assigned enum type if available.
+        /// </summary>
+        /// <param name="hardwareId">Hardware id (numerical value)</param>
+        /// <returns></returns>
         public string GetHwIdAsString(ushort hardwareId)
         {
             if (_hwIdEnumType == null)
