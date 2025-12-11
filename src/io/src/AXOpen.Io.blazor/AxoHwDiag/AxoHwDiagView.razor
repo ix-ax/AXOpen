@@ -1,0 +1,466 @@
+@namespace AXOpen.Io
+@using AXOpen.Core.Blazor
+@using AXOpen.Core
+@using Operon.Icons
+@inherits AxoComponentViewBase<AxoHwDiag>
+@typeparam THwIdEnum where THwIdEnum : struct, Enum
+
+<AxoComponentContainerView Component="@Component" ParentReference="this">
+    <HeaderContent>
+        <div class="flex items-center gap-2" @onclick:stopPropagation="true">
+            @if (HasError)
+            {
+                <span class="badge badge-danger">
+                    <HeroIcon Icon="exclamation-triangle" Type="IconType.Solid" Class="size-4 mr-1" />
+                    Error
+                </span>
+            }
+            else if (IsDiagnosticsBusy)
+            {
+                <span class="badge badge-warning">
+                    <HeroIcon Icon="arrow-path" Type="IconType.Outline" Class="size-4 mr-1 animate-spin" />
+                    Scanning...
+                </span>
+            }
+            else if (IsAllGood)
+            {
+                <span class="badge badge-success">
+                    <HeroIcon Icon="check-circle" Type="IconType.Solid" Class="size-4 mr-1" />
+                    All Good
+                </span>
+            }
+            else
+            {
+                <span class="badge badge-primary">
+                    <HeroIcon Icon="cpu-chip" Type="IconType.Solid" Class="size-4 mr-1" />
+                    Ready
+                </span>
+            }
+        </div>
+    </HeaderContent>
+
+    <CommandsOperateContent>
+        <div class="flex flex-col gap-4 w-full p-2">
+            <!-- Tasks -->
+            <div class="flex gap-2 w-full">
+                <AxoTaskCommandView class="flex-1" Text="Update Diagnostics" Component="Component.UpdateDiagnosticTask" HideRestoreButton="false" />
+                <AxoTaskCommandView class="flex-1" Text="Restore" Component="Component.RestoreTask" HideRestoreButton="false" />
+            </div>
+
+            <!-- Progress Indicator -->
+            @if (IsDiagnosticsBusy)
+            {
+                <div class="flex flex-col gap-1 w-full">
+                    <div class="flex justify-between text-sm text-text/70">
+                        <span>Progress</span>
+                        <span>@Component.Progress.Cyclic</span>
+                    </div>
+                    <div class="w-full bg-border/30 rounded-full h-2">
+                        <div class="bg-primary h-2 rounded-full transition-all duration-300" 
+                             style="width: @(Math.Min(100, Math.Abs(Component.Progress.Cyclic / 3.4)))%">
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <!-- Diagnostics Overview -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
+                <DiagnosticCard Title="PLC" State="@GetComponentState(Component.AxoHwDiagDetails.PLCDiagnosticDetails)" />
+                <DiagnosticCard Title="IO System" State="@GetComponentState(Component.AxoHwDiagDetails.IoSystemDiagnosticDetails)" />
+                <DiagnosticCard Title="Station" State="@GetComponentState(Component.AxoHwDiagDetails.StationDiagnosticDetails)" />
+                <DiagnosticCard Title="Module" State="@GetComponentState(Component.AxoHwDiagDetails.ModuleDiagnosticDetails)" />
+                <DiagnosticCard Title="Sub Module" State="@GetComponentState(Component.AxoHwDiagDetails.SubModuleDiagnosticDetails)" />
+            </div>
+        </div>
+    </CommandsOperateContent>
+
+    <CommandsMonitorContent>
+        <div class="flex flex-col gap-4 w-full p-2">
+            <!-- Tasks (Status View) -->
+            <div class="flex gap-2 w-full">
+                <AxoTaskStatusView class="flex-1" Text="Update Diagnostics" Component="Component.UpdateDiagnosticTask" HideRestoreButton="false" />
+                <AxoTaskStatusView class="flex-1" Text="Restore" Component="Component.RestoreTask" HideRestoreButton="false" />
+            </div>
+
+            <!-- Progress Indicator -->
+            @if (IsDiagnosticsBusy)
+            {
+                <div class="flex flex-col gap-1 w-full">
+                    <div class="flex justify-between text-sm text-text/70">
+                        <span>Progress</span>
+                        <span>@Component.Progress.Cyclic</span>
+                    </div>
+                    <div class="w-full bg-border/30 rounded-full h-2">
+                        <div class="bg-primary h-2 rounded-full transition-all duration-300" 
+                             style="width: @(Math.Min(100, Math.Abs(Component.Progress.Cyclic / 3.4)))%">
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <!-- Diagnostics Overview -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
+                <DiagnosticCard Title="PLC" State="@GetComponentState(Component.AxoHwDiagDetails.PLCDiagnosticDetails)" />
+                <DiagnosticCard Title="IO System" State="@GetComponentState(Component.AxoHwDiagDetails.IoSystemDiagnosticDetails)" />
+                <DiagnosticCard Title="Station" State="@GetComponentState(Component.AxoHwDiagDetails.StationDiagnosticDetails)" />
+                <DiagnosticCard Title="Module" State="@GetComponentState(Component.AxoHwDiagDetails.ModuleDiagnosticDetails)" />
+                <DiagnosticCard Title="Sub Module" State="@GetComponentState(Component.AxoHwDiagDetails.SubModuleDiagnosticDetails)" />
+            </div>
+        </div>
+    </CommandsMonitorContent>
+
+    <ConfigAndStateViewContent>
+        <div class="flex flex-col gap-4 w-full">
+            <!-- Detailed Diagnostics -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <!-- PLC Details -->
+                <DiagnosticDetailsCard Title="PLC Diagnostics" Details="@Component.AxoHwDiagDetails.PLCDiagnosticDetails" />
+                
+                <!-- IO System Details -->
+                <DiagnosticDetailsCard Title="IO System Diagnostics" Details="@Component.AxoHwDiagDetails.IoSystemDiagnosticDetails" />
+                
+                <!-- Station Details -->
+                <DiagnosticDetailsCard Title="Station Diagnostics" Details="@Component.AxoHwDiagDetails.StationDiagnosticDetails" />
+                
+                <!-- Module Details -->
+                <DiagnosticDetailsCard Title="Module Diagnostics" Details="@Component.AxoHwDiagDetails.ModuleDiagnosticDetails" />
+                
+                <!-- Sub Module Details -->
+                <DiagnosticDetailsCard Title="Sub Module Diagnostics" Details="@Component.AxoHwDiagDetails.SubModuleDiagnosticDetails" />
+            </div>
+
+            <!-- Faulty Item Details -->
+            @if (HasFaultyItem)
+            {
+                <div class="border border-danger/30 rounded-lg p-4 bg-danger/5">
+                    <h4 class="text-lg font-semibold text-danger mb-2">
+                        <HeroIcon Icon="exclamation-triangle" Type="IconType.Solid" Class="size-5 inline mr-2" />
+                        Faulty Item Details: @GetHardwareIdName(Component.AxoHwDiagDetails.FaultyItemDetails.HardwareID.Cyclic)
+                    </h4>
+                    <RenderableContentControl Presentation="Display" Context="Component.AxoHwDiagDetails.FaultyItemDetails" />
+                </div>
+            }
+        </div>
+    </ConfigAndStateViewContent>
+
+    <SpotContent>
+        <div class="hw-diag-spot">
+            <!-- Animated PLC Rack Visualization -->
+            <div class="plc-rack @(HasError ? "rack-error" : IsDiagnosticsBusy ? "rack-scanning" : IsAllGood ? "rack-ok" : "")">
+                
+                <!-- PLC CPU Module -->
+                <div class="rack-module cpu-module @(GetModuleStateClass(Component.AxoHwDiagDetails.PLCDiagnosticDetails))">
+                    <div class="module-led run-led"></div>
+                    <div class="module-led error-led"></div>
+                    <div class="module-label">CPU</div>
+                    <div class="module-activity @(IsDiagnosticsBusy ? "active" : "")"></div>
+                </div>
+
+                <!-- Network/IO System Module -->
+                <div class="rack-module io-module @(GetModuleStateClass(Component.AxoHwDiagDetails.IoSystemDiagnosticDetails))">
+                    <div class="module-led comm-led"></div>
+                    <div class="module-led error-led"></div>
+                    <div class="module-label">NET</div>
+                    <div class="network-activity">
+                        <div class="data-packet @(IsDiagnosticsBusy ? "transmitting" : "")"></div>
+                    </div>
+                </div>
+
+                <!-- Station Module -->
+                <div class="rack-module station-module @(GetModuleStateClass(Component.AxoHwDiagDetails.StationDiagnosticDetails))">
+                    <div class="module-led status-led"></div>
+                    <div class="module-led error-led"></div>
+                    <div class="module-label">STA</div>
+                    <div class="io-channels">
+                        @for (int i = 0; i < 4; i++)
+                        {
+                            <div class="io-channel @(GetRandomChannelState(i))"></div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Module -->
+                <div class="rack-module slot-module @(GetModuleStateClass(Component.AxoHwDiagDetails.ModuleDiagnosticDetails))">
+                    <div class="module-led status-led"></div>
+                    <div class="module-led error-led"></div>
+                    <div class="module-label">MOD</div>
+                    <div class="io-channels">
+                        @for (int i = 0; i < 4; i++)
+                        {
+                            <div class="io-channel @(GetRandomChannelState(i + 4))"></div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Sub Module -->
+                <div class="rack-module sub-module @(GetModuleStateClass(Component.AxoHwDiagDetails.SubModuleDiagnosticDetails))">
+                    <div class="module-led status-led"></div>
+                    <div class="module-led error-led"></div>
+                    <div class="module-label">SUB</div>
+                    <div class="io-channels">
+                        @for (int i = 0; i < 4; i++)
+                        {
+                            <div class="io-channel @(GetRandomChannelState(i + 8))"></div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Scanning overlay -->
+                @if (IsDiagnosticsBusy)
+                {
+                    <div class="scan-overlay">
+                        <div class="scan-line"></div>
+                    </div>
+                }
+            </div>
+
+            <!-- Status Bar -->
+            <div class="status-bar">
+                <div class="status-indicator @(HasError ? "status-error" : IsAllGood ? "status-ok" : "status-idle")">
+                    <span class="status-dot"></span>
+                    <span class="status-text">
+                        @if (HasError) { <text>ERROR</text> }
+                        else if (IsDiagnosticsBusy) { <text>SCAN</text> }
+                        else if (IsAllGood) { <text>OK</text> }
+                        else { <text>---</text> }
+                    </span>
+                </div>
+            </div>
+        </div>
+    </SpotContent>
+</AxoComponentContainerView>
+
+@* Inline Diagnostic Card Component *@
+@code {
+    private RenderFragment DiagnosticCard(string Title, eDiagState State) => __builder =>
+    {
+        <div class="flex flex-col items-center p-2 rounded-lg border @GetDiagCardClass(State)">
+            <HeroIcon Icon="@GetDiagIcon(State)" Type="IconType.Solid" Class="@GetDiagIconClass(State)" />
+            <span class="text-xs font-medium mt-1">@Title</span>
+            <span class="text-xs text-text/60">@GetDiagStateText(State)</span>
+        </div>
+    };
+
+    private RenderFragment DiagnosticDetailsCard(string Title, AxoHwDiagCommonDetails Details) => __builder =>
+    {
+        <div class="border border-border/50 rounded-lg p-3 bg-background/50">
+            <h5 class="text-sm font-semibold text-text/80 mb-2">@Title</h5>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+                <div class="flex flex-col gap-1 col-span-2">
+                    <div class="flex justify-between">
+                        <span class="text-text/60">Hardware ID:</span>
+                        <span class="font-semibold text-primary">@GetHardwareIdName(Details.HardwareID.Cyclic)</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-text/60">HW ID (numeric):</span>
+                        <span class="font-mono text-text/70">@Details.HardwareID.Cyclic</span>
+                    </div>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-text/60">State:</span>
+                    <span class="@GetStateTextClass((ushort)Details.State.Cyclic)">@GetStateText((ushort)Details.State.Cyclic)</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-text/60">Subordinate:</span>
+                    <span class="@GetStateTextClass((ushort)Details.SubordinateState.Cyclic)">@GetStateText((ushort)Details.SubordinateState.Cyclic)</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-text/60">Diag Enabled:</span>
+                    <span>@(Details.DiagnosticsEnabled.Cyclic ? "Yes" : "No")</span>
+                </div>
+            </div>
+            
+            <!-- IO State Details -->
+            <div class="mt-2 pt-2 border-t border-border/30">
+                <span class="text-xs font-medium text-text/70">IO State:</span>
+                <div class="flex flex-wrap gap-1 mt-1">
+                    @if (Details.IOState.Good.Cyclic) { <span class="badge badge-success text-xs">Good</span> }
+                    @if (Details.IOState.Error.Cyclic) { <span class="badge badge-danger text-xs">Error</span> }
+                    @if (Details.IOState.Disabled.Cyclic) { <span class="badge badge-warning text-xs">Disabled</span> }
+                    @if (Details.IOState.MaintenanceRequired.Cyclic) { <span class="badge badge-warning text-xs">Maint. Required</span> }
+                    @if (Details.IOState.MaintenanceDemanded.Cyclic) { <span class="badge badge-warning text-xs">Maint. Demanded</span> }
+                    @if (Details.IOState.NotAccessible.Cyclic) { <span class="badge badge-danger text-xs">Not Accessible</span> }
+                    @if (Details.IOState.NetworkError.Cyclic) { <span class="badge badge-danger text-xs">Network Error</span> }
+                    @if (Details.IOState.HardwareError.Cyclic) { <span class="badge badge-danger text-xs">HW Error</span> }
+                    @if (Details.IOState.IODataNotAvailable.Cyclic) { <span class="badge badge-warning text-xs">IO N/A</span> }
+                    @if (Details.IOState.DiagnosticsAvailable.Cyclic) { <span class="badge badge-info text-xs">Diag Available</span> }
+                </div>
+            </div>
+        </div>
+    };
+}
+
+@code {
+    // Component State properties
+    protected bool IsDiagnosticsBusy => Component.UpdateDiagnosticTask.Status.Cyclic == (short)eAxoTaskState.Busy;
+
+    protected bool HasError => 
+        GetComponentState(Component.AxoHwDiagDetails.PLCDiagnosticDetails) == eDiagState.Error ||
+        GetComponentState(Component.AxoHwDiagDetails.IoSystemDiagnosticDetails) == eDiagState.Error ||
+        GetComponentState(Component.AxoHwDiagDetails.StationDiagnosticDetails) == eDiagState.Error ||
+        GetComponentState(Component.AxoHwDiagDetails.ModuleDiagnosticDetails) == eDiagState.Error ||
+        GetComponentState(Component.AxoHwDiagDetails.SubModuleDiagnosticDetails) == eDiagState.Error;
+
+    protected bool IsAllGood =>
+        GetComponentState(Component.AxoHwDiagDetails.PLCDiagnosticDetails) == eDiagState.Good &&
+        (GetComponentState(Component.AxoHwDiagDetails.IoSystemDiagnosticDetails) == eDiagState.Good ||
+         GetComponentState(Component.AxoHwDiagDetails.IoSystemDiagnosticDetails) == eDiagState.Unknown);
+
+    protected bool HasFaultyItem => Component.AxoHwDiagDetails.FaultyItemDetails.HardwareID.Cyclic != 0;
+
+    // Enum for diagnostic state
+    protected enum eDiagState { Unknown, Good, Warning, Error }
+
+    protected eDiagState GetComponentState(AxoHwDiagCommonDetails details)
+    {
+        var state = (ushort)details.State.Cyclic;
+        return state switch
+        {
+            0 => eDiagState.Good,                    // Good
+            1 => eDiagState.Warning,                 // Disabled
+            2 => eDiagState.Warning,                 // MaintenanceRequired
+            3 => eDiagState.Warning,                 // MaintenanceDemanded
+            4 => eDiagState.Error,                   // Error
+            5 => eDiagState.Error,                   // NotAccessible
+            6 => eDiagState.Unknown,                 // Unknown
+            7 => eDiagState.Error,                   // IONotAvailable
+            _ => eDiagState.Unknown
+        };
+    }
+
+    // Helper methods for UI
+    protected string GetDiagCardClass(eDiagState state) => state switch
+    {
+        eDiagState.Good => "border-success/50 bg-success/5",
+        eDiagState.Warning => "border-warning/50 bg-warning/5",
+        eDiagState.Error => "border-danger/50 bg-danger/5",
+        _ => "border-border/50 bg-background/50"
+    };
+
+    protected string GetDiagIcon(eDiagState state) => state switch
+    {
+        eDiagState.Good => "check-circle",
+        eDiagState.Warning => "exclamation-circle",
+        eDiagState.Error => "x-circle",
+        _ => "question-mark-circle"
+    };
+
+    protected string GetDiagIconClass(eDiagState state) => state switch
+    {
+        eDiagState.Good => "text-success",
+        eDiagState.Warning => "text-warning",
+        eDiagState.Error => "text-danger",
+        _ => "text-text/40"
+    };
+
+    protected string GetDiagStateText(eDiagState state) => state switch
+    {
+        eDiagState.Good => "OK",
+        eDiagState.Warning => "Warning",
+        eDiagState.Error => "Error",
+        _ => "---"
+    };
+
+    protected string GetHealthClass() => HasError ? "health-error" : IsAllGood ? "health-good" : "health-unknown";
+
+    protected string GetModuleStateClass(AxoHwDiagCommonDetails details)
+    {
+        var state = GetComponentState(details);
+        return state switch
+        {
+            eDiagState.Good => "module-ok",
+            eDiagState.Warning => "module-warning",
+            eDiagState.Error => "module-error",
+            _ => "module-idle"
+        };
+    }
+
+    protected string GetRandomChannelState(int index)
+    {
+        if (HasError && index % 3 == 0) return "channel-error";
+        if (IsAllGood) return "channel-active";
+        return index % 2 == 0 ? "channel-active" : "channel-idle";
+    }
+
+    protected string GetSegmentClass(AxoHwDiagCommonDetails details)
+    {
+        var state = GetComponentState(details);
+        return state switch
+        {
+            eDiagState.Good => "segment-good",
+            eDiagState.Warning => "segment-warning",
+            eDiagState.Error => "segment-error",
+            _ => "segment-unknown"
+        };
+    }
+
+    protected string GetStateText(ushort state) => state switch
+    {
+        0 => "Good",
+        1 => "Disabled",
+        2 => "Maint. Required",
+        3 => "Maint. Demanded",
+        4 => "Error",
+        5 => "Not Accessible",
+        6 => "Unknown",
+        7 => "IO N/A",
+        _ => "---"
+    };
+
+    protected string GetStateTextClass(ushort state) => state switch
+    {
+        0 => "text-success",
+        1 or 2 or 3 => "text-warning",
+        4 or 5 or 7 => "text-danger",
+        _ => "text-text/60"
+    };
+
+
+    protected string GetHardwareIdName(ushort hardwareId)
+    {
+        return this.Component.GetHwIdAsString(hardwareId);
+    }
+
+
+    public override void ConfigurePolling()
+    {
+        // Poll task status
+        this.StartPolling(Component.UpdateDiagnosticTask.Status);
+        this.StartPolling(Component.RestoreTask.Status);
+        this.StartPolling(Component.Progress);
+
+        // Poll PLC diagnostics
+        this.StartPolling(Component.AxoHwDiagDetails.PLCDiagnosticDetails.State);
+        this.StartPolling(Component.AxoHwDiagDetails.PLCDiagnosticDetails.SubordinateState);
+        this.StartPolling(Component.AxoHwDiagDetails.PLCDiagnosticDetails.HardwareID);
+        this.StartPolling(Component.AxoHwDiagDetails.PLCDiagnosticDetails.IOState.Good);
+        this.StartPolling(Component.AxoHwDiagDetails.PLCDiagnosticDetails.IOState.Error);
+
+        // Poll IO System diagnostics
+        this.StartPolling(Component.AxoHwDiagDetails.IoSystemDiagnosticDetails.State);
+        this.StartPolling(Component.AxoHwDiagDetails.IoSystemDiagnosticDetails.SubordinateState);
+        this.StartPolling(Component.AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.Good);
+        this.StartPolling(Component.AxoHwDiagDetails.IoSystemDiagnosticDetails.IOState.Error);
+
+        // Poll Station diagnostics
+        this.StartPolling(Component.AxoHwDiagDetails.StationDiagnosticDetails.State);
+        this.StartPolling(Component.AxoHwDiagDetails.StationDiagnosticDetails.SubordinateState);
+        this.StartPolling(Component.AxoHwDiagDetails.StationDiagnosticDetails.IOState.Good);
+        this.StartPolling(Component.AxoHwDiagDetails.StationDiagnosticDetails.IOState.Error);
+
+        // Poll Module diagnostics
+        this.StartPolling(Component.AxoHwDiagDetails.ModuleDiagnosticDetails.State);
+        this.StartPolling(Component.AxoHwDiagDetails.ModuleDiagnosticDetails.SubordinateState);
+        this.StartPolling(Component.AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.Good);
+        this.StartPolling(Component.AxoHwDiagDetails.ModuleDiagnosticDetails.IOState.Error);
+
+        // Poll Sub Module diagnostics
+        this.StartPolling(Component.AxoHwDiagDetails.SubModuleDiagnosticDetails.State);
+        this.StartPolling(Component.AxoHwDiagDetails.SubModuleDiagnosticDetails.SubordinateState);
+        this.StartPolling(Component.AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.Good);
+        this.StartPolling(Component.AxoHwDiagDetails.SubModuleDiagnosticDetails.IOState.Error);
+
+        // Poll Faulty Item details
+        this.StartPolling(Component.AxoHwDiagDetails.FaultyItemDetails.HardwareID);
+    }
+}

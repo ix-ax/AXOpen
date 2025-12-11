@@ -44,10 +44,10 @@ scripts:
     dotnet ixc    
     apax test    
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
-  ccc: 
+  ccc: |
     START=$(date +%s)
-      ..\\..\\scripts\\create_complex_component.sh "AXOpen.Io"
-    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax all' Finished in :" $(expr $(date +%s) - $START) "s"
+      ..\\..\\scripts\\create_complex_component.sh "AXOpen.Io" 
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ccc' Finished in :" $(expr $(date +%s) - $START) "s"
 publicKeys:
   "@inxton": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17
 ...

@@ -1,17 +1,159 @@
 CONFIGURATION IoAddresses
     VAR_GLOBAL
 
+        // Module bni00l3_2/16_DI
+        bni00l3_2_16_DI_BALLUFF_8_Port_IO_Link_Master_Input AT %IB0 : bni00l3_2_16_DI_BALLUFF_8_Port_IO_Link_Master_Input_Layout;
+        bni00l3_2_16_DI_BALLUFF_8_Port_IO_Link_Master_Output AT %QB0 : bni00l3_2_16_DI_BALLUFF_8_Port_IO_Link_Master_Output_Layout;
+        bni00l3_2_16_DI_X01_Input AT %IB1 : bni00l3_2_16_DI_X01_Input_Layout;
+        bni00l3_2_16_DI_X02_Input AT %IB2 : bni00l3_2_16_DI_X02_Input_Layout;
+        bni00l3_2_16_DI_X03_Input AT %IB3 : bni00l3_2_16_DI_X03_Input_Layout;
+        bni00l3_2_16_DI_X04_Input AT %IB4 : bni00l3_2_16_DI_X04_Input_Layout;
+        bni00l3_2_16_DI_X05_Input AT %IB5 : bni00l3_2_16_DI_X05_Input_Layout;
+        bni00l3_2_16_DI_X06_Input AT %IB6 : bni00l3_2_16_DI_X06_Input_Layout;
+        bni00l3_2_16_DI_X07_Input AT %IB7 : bni00l3_2_16_DI_X07_Input_Layout;
+        bni00l3_2_16_DI_X08_Input AT %IB8 : bni00l3_2_16_DI_X08_Input_Layout;
+
         // Module et200sp/A10
-        et200sp_A10_Input AT %IB36 : et200sp_A10_Input_Layout;
+        et200sp_A10_Input AT %IB41 : et200sp_A10_Input_Layout;
 
         // Module et200sp/A20
         et200sp_A20_Output AT %QB33 : et200sp_A20_Output_Layout;
 
         // Module et200sp/A30
-        et200sp_A30_Input AT %IB0 : et200sp_A30_Input_Layout;
-        et200sp_A30_Output AT %QB0 : et200sp_A30_Output_Layout;
+        et200sp_A30_Input AT %IB9 : et200sp_A30_Input_Layout;
+        et200sp_A30_Output AT %QB1 : et200sp_A30_Output_Layout;
     END_VAR
 END_CONFIGURATION
+
+TYPE
+    bni00l3_2_16_DI_BALLUFF_8_Port_IO_Link_Master_Input_Layout : STRUCT
+        Signals_0 AT %X0.0 : BOOL;
+        Signals_1 AT %X0.1 : BOOL;
+        Signals_2 AT %X0.2 : BOOL;
+        Signals_3 AT %X0.3 : BOOL;
+        Signals_4 AT %X0.4 : BOOL;
+        Signals_5 AT %X0.5 : BOOL;
+        Signals_6 AT %X0.6 : BOOL;
+        Signals_7 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    bni00l3_2_16_DI_BALLUFF_8_Port_IO_Link_Master_Output_Layout : STRUCT
+        Signals_8 AT %X0.0 : BOOL;
+        Signals_9 AT %X0.1 : BOOL;
+        Signals_10 AT %X0.2 : BOOL;
+        Signals_11 AT %X0.3 : BOOL;
+        Signals_12 AT %X0.4 : BOOL;
+        Signals_13 AT %X0.5 : BOOL;
+        Signals_14 AT %X0.6 : BOOL;
+        Signals_15 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    bni00l3_2_16_DI_X01_Input_Layout : STRUCT
+        Signals_0_0 AT %X0.0 : BOOL;
+        Signals_0_1 AT %X0.1 : BOOL;
+        Signals_0_2 AT %X0.2 : BOOL;
+        Signals_0_3 AT %X0.3 : BOOL;
+        Signals_0_4 AT %X0.4 : BOOL;
+        Signals_0_5 AT %X0.5 : BOOL;
+        Signals_0_6 AT %X0.6 : BOOL;
+        Signals_0_7 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    bni00l3_2_16_DI_X02_Input_Layout : STRUCT
+        Signals_0_0 AT %X0.0 : BOOL;
+        Signals_0_1 AT %X0.1 : BOOL;
+        Signals_0_2 AT %X0.2 : BOOL;
+        Signals_0_3 AT %X0.3 : BOOL;
+        Signals_0_4 AT %X0.4 : BOOL;
+        Signals_0_5 AT %X0.5 : BOOL;
+        Signals_0_6 AT %X0.6 : BOOL;
+        Signals_0_7 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    bni00l3_2_16_DI_X03_Input_Layout : STRUCT
+        Signals_0_0 AT %X0.0 : BOOL;
+        Signals_0_1 AT %X0.1 : BOOL;
+        Signals_0_2 AT %X0.2 : BOOL;
+        Signals_0_3 AT %X0.3 : BOOL;
+        Signals_0_4 AT %X0.4 : BOOL;
+        Signals_0_5 AT %X0.5 : BOOL;
+        Signals_0_6 AT %X0.6 : BOOL;
+        Signals_0_7 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    bni00l3_2_16_DI_X04_Input_Layout : STRUCT
+        Signals_0_0 AT %X0.0 : BOOL;
+        Signals_0_1 AT %X0.1 : BOOL;
+        Signals_0_2 AT %X0.2 : BOOL;
+        Signals_0_3 AT %X0.3 : BOOL;
+        Signals_0_4 AT %X0.4 : BOOL;
+        Signals_0_5 AT %X0.5 : BOOL;
+        Signals_0_6 AT %X0.6 : BOOL;
+        Signals_0_7 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    bni00l3_2_16_DI_X05_Input_Layout : STRUCT
+        Signals_0_0 AT %X0.0 : BOOL;
+        Signals_0_1 AT %X0.1 : BOOL;
+        Signals_0_2 AT %X0.2 : BOOL;
+        Signals_0_3 AT %X0.3 : BOOL;
+        Signals_0_4 AT %X0.4 : BOOL;
+        Signals_0_5 AT %X0.5 : BOOL;
+        Signals_0_6 AT %X0.6 : BOOL;
+        Signals_0_7 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    bni00l3_2_16_DI_X06_Input_Layout : STRUCT
+        Signals_0_0 AT %X0.0 : BOOL;
+        Signals_0_1 AT %X0.1 : BOOL;
+        Signals_0_2 AT %X0.2 : BOOL;
+        Signals_0_3 AT %X0.3 : BOOL;
+        Signals_0_4 AT %X0.4 : BOOL;
+        Signals_0_5 AT %X0.5 : BOOL;
+        Signals_0_6 AT %X0.6 : BOOL;
+        Signals_0_7 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    bni00l3_2_16_DI_X07_Input_Layout : STRUCT
+        Signals_0_0 AT %X0.0 : BOOL;
+        Signals_0_1 AT %X0.1 : BOOL;
+        Signals_0_2 AT %X0.2 : BOOL;
+        Signals_0_3 AT %X0.3 : BOOL;
+        Signals_0_4 AT %X0.4 : BOOL;
+        Signals_0_5 AT %X0.5 : BOOL;
+        Signals_0_6 AT %X0.6 : BOOL;
+        Signals_0_7 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
+
+TYPE
+    bni00l3_2_16_DI_X08_Input_Layout : STRUCT
+        Signals_0_0 AT %X0.0 : BOOL;
+        Signals_0_1 AT %X0.1 : BOOL;
+        Signals_0_2 AT %X0.2 : BOOL;
+        Signals_0_3 AT %X0.3 : BOOL;
+        Signals_0_4 AT %X0.4 : BOOL;
+        Signals_0_5 AT %X0.5 : BOOL;
+        Signals_0_6 AT %X0.6 : BOOL;
+        Signals_0_7 AT %X0.7 : BOOL;
+    END_STRUCT;
+END_TYPE
 
 TYPE
     et200sp_A10_Input_Layout : STRUCT

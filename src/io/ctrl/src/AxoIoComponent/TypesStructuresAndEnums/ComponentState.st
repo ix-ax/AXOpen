@@ -1,5 +1,5 @@
 NAMESPACE AXOpen.Io
-    TYPE ComponentState  : UINT (
+    TYPE ComponentState : UINT (
         Good                    :=	UINT#0, //	No problems detected.
         Disabled                :=	UINT#1, //	The hardware component is disabled.
         MaintenanceRequired     :=	UINT#2, //	Maintenance required.
