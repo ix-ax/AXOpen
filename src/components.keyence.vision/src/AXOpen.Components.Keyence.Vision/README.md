@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Keyence.Vision --version {axopen-version}
 ~~~xml
 <PackageReference Include="AXOpen.Components.Keyence.Vision" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->
