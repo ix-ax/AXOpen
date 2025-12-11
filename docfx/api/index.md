@@ -1,3 +1,3 @@
-# IX API Documentation
+# .NET API Documentation
 
 ![](~/images/banner.png)

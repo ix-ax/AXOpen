@@ -12,7 +12,7 @@
       - name: Components
         href: README.md
         items:
-          - name: Component 1
+          - name: Axo_IQ_SeriesWelder
             href: Component_1.md
           - name: Component 2
             href: Component_2.md

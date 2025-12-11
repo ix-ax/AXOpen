@@ -12,10 +12,16 @@
       - name: Components
         href: README.md
         items:
-          - name: Component 1
+          - name: Base I/O component
             href: Component_1.md
-          - name: Component 2
+          - name: Component hardware diagnostics
             href: Component_2.md
+          - name: Record access tool
+            href: Component_3.md  
+          - name: IOLinkET200SP & Balluff I/O
+            href: Component_4.md  
+          - name: Hardware diagnostics
+            href: Component_5.md  
       - name: Changes
         href: CHANGELOG.md      
       - name: Troubleshooting

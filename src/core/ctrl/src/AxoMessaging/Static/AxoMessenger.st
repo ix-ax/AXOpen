@@ -72,7 +72,7 @@ NAMESPACE AXOpen.Messaging.Static
                 THIS.Acknowledge(MessageCode);
             END_IF;
             
-            IF(THIS.MessengerState <> eAxoMessengerState#Idle) THEN
+            IF(THIS.MessengerState <> eAxoMessengerState#Idle && Category >= eAxoMessageCategory#Error) THEN
                 THIS.AggregateMessage(LINT#1); 
             ELSE
                 THIS.AggregateMessage(LINT#0); 
