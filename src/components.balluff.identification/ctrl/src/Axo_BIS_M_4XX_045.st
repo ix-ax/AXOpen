@@ -163,7 +163,6 @@ NAMESPACE AXOpen.Components.Balluff.Identification
             VAR_INPUT
                 inParent      : IAxoObject;
                 hwID        :   UINT;   
-                // hwId_BISM   :   WORD;   //  Hardware Id of the reader 
             END_VAR
             
             VAR 
@@ -323,7 +322,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                     THIS.CallTimers(FALSE);
                     _progress := 300;
                 END_IF;
-                
+                // Read running: waiting for the presention of the tag.
                 IF _progress = 300 THEN  
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
@@ -335,7 +334,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress:=301;                    
                     END_IF;
                 END_IF;
-
+                // Read running: waiting for the job header to be cleared.
                 IF _progress = 301 THEN  
                     IF _infoTimer.output THEN
                         IF Inputs.BitHeader1_JobAccepted THEN
@@ -374,7 +373,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                          //--------------------------------------
                      END_IF;   
                 END_IF;
-                
+                // Read running: waiting for the job header to be set.
                 IF _progress = 304 THEN  
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
@@ -392,7 +391,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress:=305;                    
                     END_IF;
                 END_IF;
-                
+                // Read running: waiting for the job to be accepted.
                 IF _progress = 305 THEN  
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Warning);
@@ -405,7 +404,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress:=306;                    
                     END_IF;
                 END_IF;
-                
+                // Read running: processing partial segment of the data.
                 IF _progress = 306 THEN  
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#506, eAxoMessageCategory#Warning);
@@ -423,7 +422,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress:=307;                    
                     END_IF;             
                 END_IF;
-                
+                // Read running: trigger processing the following segment of the data.
                 IF _progress = 307 THEN  
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#507, eAxoMessageCategory#Warning);
@@ -438,7 +437,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                     END_IF;             
 
                 END_IF;
-                
+                // Read running: waiting for the data of the following data segment.
                 IF _progress = 308 THEN  
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#508, eAxoMessageCategory#Warning);
@@ -451,14 +450,13 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                     
                     IF(_readedBuffersCount  >= _buffersCountToRead ) THEN	
                         IF _lenghtInLastReadedBuffer <> INT#0 THEN
-                            //_ReadWriteData :=	StartOf(_ReadWriteData, _buffersCountToRead * INT#8 - INT#8 + _lenghtInLastReadedBuffer);
                             _ReadWriteData :=	StartOf(_ReadWriteData, TO_INT(_readNumberOfBytes));
                         END_IF;
                         THIS.CallTimers(FALSE);
                         _progress:=309; 
                     END_IF;
                 END_IF;
-                
+                // Read running: processing the last segment of the data.
                 IF _progress = 309 THEN  
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#509, eAxoMessageCategory#Warning);
@@ -476,7 +474,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                     END_IF;             
                   
                 END_IF;
-                
+                // Read finished.
                 IF _progress = 310 THEN  
                     ReadTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
@@ -531,7 +529,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                     THIS.CallTimers(FALSE);
                     _progress := 320;
                 END_IF;
-
+                // Write running: waiting for the presention of the tag.
                 IF _progress = 320 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
@@ -543,7 +541,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress := 321;
                     END_IF;
                 END_IF;
-
+                // Write running: processing data to send.
                 IF _progress = 321 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
@@ -570,7 +568,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress:=322;                    
                     END_IF;             
                 END_IF;
-              
+                // Write running: waiting for the job header to be cleared.
                 IF _progress = 322 THEN	
                     IF _infoTimer.output THEN
                         IF Inputs.BitHeader1_JobAccepted THEN
@@ -600,7 +598,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress := 325;
                     END_IF;
                 END_IF;
-
+                // Write running: trigger sending the job header.
                 IF _progress = 325 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
@@ -621,7 +619,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                     END_IF;             
 
                 END_IF;	
-
+                // Write running: waiting for the job to be accepted.
                 IF _progress = 326 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Warning);
@@ -637,7 +635,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                          _progress := 327;
                     END_IF;
                 END_IF;	
-	
+                // Write running: processing partial segment of the data.
                 IF _progress = 327 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Warning);
@@ -664,7 +662,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress:=328;                    
                     END_IF;             
                 END_IF;
-
+                // Write running: trigger sending the current segment of the data.
                 IF _progress = 328 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#528, eAxoMessageCategory#Warning);
@@ -678,7 +676,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress:=329;                    
                     END_IF;             
                 END_IF;
-
+                // Write running: processing the last segment of the data.
                 IF _progress = 329 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#529, eAxoMessageCategory#Warning);
@@ -694,7 +692,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress := 330;
                     END_IF;
                 END_IF;
-
+                // Write running: waiting for the job to be accepted.
                 IF _progress = 330 THEN
                     IF _infoTimer.output THEN
                         IF Inputs.BitHeader1_JobAccepted THEN
@@ -713,7 +711,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress := 332;
                     END_IF;
                 END_IF;
-
+                // Write finished.
                 IF _progress = 332 THEN	
                     WriteTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
@@ -760,7 +758,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                     THIS.CallTimers(FALSE);
                     _progress := 340;
                 END_IF;
-
+                // Reset communication running: restoring tasks.
                 IF _progress = 340 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Warning);
@@ -777,7 +775,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress := 341;
                     END_IF;
                 END_IF;
-
+                // Reset communication running: clearing data and flags.
                 IF _progress = 341 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
@@ -846,7 +844,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                     THIS.CallTimers(FALSE);
                     _progress := 350;
                 END_IF;
-              
+                // Reset reader running: clearing of the data and flags.
                 IF _progress = 350 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Warning);
@@ -871,7 +869,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress := 351;
                     END_IF;
                 END_IF;
-
+                // Reset reader running: waiting for the device to be powered off.
                 IF _progress = 351 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Warning);
@@ -885,7 +883,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress := 352;
                     END_IF;
                 END_IF;
-              
+                // Reset reader running: waiting for the device to be powered on.
                 IF _progress = 352 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#552, eAxoMessageCategory#Warning);
@@ -899,7 +897,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress := 353;
                     END_IF;
                 END_IF;
-              
+                // Reset reader finished.
                 IF _progress = 353 THEN	
                     ResetReaderTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
@@ -944,7 +942,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                     THIS.CallTimers(FALSE);
                     _progress := 360;
                 END_IF;
-                
+                // Write char to memory running: waiting for the presention of the tag.
                 IF _progress = 360 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#560, eAxoMessageCategory#Warning);
@@ -956,7 +954,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress := 361;
                     END_IF;
                 END_IF;
-                
+                // Write char to memory running: processing the data to be sent.
                 IF _progress = 361 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#561, eAxoMessageCategory#Warning);
@@ -979,7 +977,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress := 362;
                     END_IF;
                 END_IF;
-
+                // Write char to memory: waiting for the job to be accepted.
                 IF _progress = 362 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#562, eAxoMessageCategory#Warning);
@@ -996,7 +994,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress := 366;
                     END_IF;
                 END_IF;
-
+                // Write char to memory: waiting for the job to be finished.
                 IF _progress = 363 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#563, eAxoMessageCategory#Warning);
@@ -1009,12 +1007,12 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress := 364;
                     END_IF;
                 END_IF;
-                
+                // Write char to memory finished.
                 IF _progress = 364 THEN
                     _progress := 0;
                     WriteCharToMemoryTask.DoneWhen(TRUE);
                 END_IF;		
-
+                // Write char to memory running: cleaning the header data.
                 IF _progress = 366 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#566, eAxoMessageCategory#Warning);
@@ -1030,7 +1028,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress:=367;
                     END_IF;
                 END_IF;	
-                
+                // Write char to memory running: cleaning the header data.
                 IF _progress = 367 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#567, eAxoMessageCategory#Warning);
@@ -1042,7 +1040,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress:=368;
                     END_IF;
                 END_IF;	
-
+                // Write char to memory running: cleaning the header data.
                 IF _progress = 368 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#568, eAxoMessageCategory#Warning);
@@ -1054,7 +1052,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                         _progress:=369;
                     END_IF;
                 END_IF;	
-
+                // Write char to memory finished with an error.
                 IF _progress = 369 THEN
                     _progress := 0;
                     WriteCharToMemoryTask.ThrowWhen(TRUE);
