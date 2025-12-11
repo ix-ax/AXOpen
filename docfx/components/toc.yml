@@ -11,10 +11,14 @@
       href: ../components.desoutter.tightening/docs/index.html
     - name: Drives
       href: ../components.drives/docs/index.html
+    - name: Dukane Welders
+      href: ../components.dukane.welders/docs/index.html
     - name: Elements
       href: ../components.elements/docs/index.html
     - name: Festo Drives
       href: ../components.festo.drives/docs/index.html
+    - name: Keyence Vision
+      href: ../components.keyence.vision/docs/index.html
     - name: Kuka Robotics
       href: ../components.kuka.robotics/docs/index.html
     - name: Mitsubishi Robotics
@@ -24,12 +28,18 @@
     - name: Rexroth Drives
       href: ../components.rexroth.drives/docs/index.html  
     - name: Rexroth Press
-      href: ../components.rexroth.press/docs/index.html  
+      href: ../components.rexroth.press/docs/index.html
+    - name: Rexroth Tightening
+      href: ../components.rexroth.tightening/docs/index.html
     - name: Robotics
       href: ../components.robotics/docs/index.html
-    - name: Siemens Identification
-      href: ../components.siemens.identification/docs/index.html
+    - name: Siem Communication
+      href: ../components.siem.communication/docs/index.html
+    - name: Siem Identification
+      href: ../components.siem.identification/docs/index.html
     - name: Ur Robotics
       href: ../components.ur.robotics/docs/index.html
+    - name: Zebra Vision
+      href: ../components.zebra.vision/docs/index.html
     - name: Library template
       href: ../template.axolibrary/docs/index.html
