@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Festo.Drives --version {axopen-version}
 ~~~xml
 <PackageReference Include="AXOpen.Components.Festo.Drives" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->

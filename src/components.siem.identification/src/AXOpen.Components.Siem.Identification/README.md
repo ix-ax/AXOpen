@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Siem.Identification --version {axopen-versi
 ~~~xml
 <PackageReference Include="AXOpen.Components.Siem.Identification" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->

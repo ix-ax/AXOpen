@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Balluff.Identification --version {axopen-ve
 ~~~xml
 <PackageReference Include="AXOpen.Components.Balluff.Identification" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->
