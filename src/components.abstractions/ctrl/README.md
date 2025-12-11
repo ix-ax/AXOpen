@@ -1,4 +1,4 @@
-# @inxton/axopen.components.festo.drives
+# @inxton/axopen.components.abstractions
 
 [!INCLUDE [General](../docs/README.md)]
 
@@ -7,12 +7,12 @@
 
 ## Adding the package to your project
 ~~~bash
-apax add "@inxton/axopen.components.festo.drives"
+apax add "@inxton/axopen.components.abstractions"
 ~~~
 
 ## Modifying your `apax.yml`
 
 ~~~yml
 dependencies:
-  "@inxton/axopen.components.festo.drives": '{axopen-version}'  
+  "@inxton/axopen.components.abstractions": '{axopen-version}'  
 ~~~

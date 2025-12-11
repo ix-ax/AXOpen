@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Robotics --version {axopen-version}
 ~~~xml
 <PackageReference Include="AXOpen.Components.Robotics" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->
