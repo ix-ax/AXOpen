@@ -20,7 +20,8 @@
             "**/obj/**",
             "*.Properties",
             "*.Resx",
-            "*.g.cs"
+            "*.g.cs",
+            "**/node_modules/**"
           ],
           "src": "../src/"
         }

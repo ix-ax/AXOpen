@@ -11,7 +11,6 @@ dotnet ixd `
 .\src\components.festo.drives\ctrl `
 .\src\components.kuka.robotics\ctrl `
 .\src\components.mitsubishi.robotics\ctrl `
-.\src\template.axolibrary\ctrl `
 -o .\docfx\apictrl\
 
 if ((Test-Path .\docs-test\)) {
