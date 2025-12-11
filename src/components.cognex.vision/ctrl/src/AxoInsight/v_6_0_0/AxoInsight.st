@@ -979,7 +979,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     _progress := 0;
                 END_IF;               
 
-
                 THIS.CallTimers(TRUE);
                 
                 TriggerTask.ThrowWhen(_errorTimer.output);

@@ -1164,7 +1164,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                     THIS.CallTimers(FALSE);
                     _progress := 300;
                 END_IF;
-                
+                // Clearing of the inspection results running: reseting the inspection result buffer.
                 IF _progress = 300 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
@@ -1185,7 +1185,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                     THIS.CallTimers(FALSE);
                     _progress := 301;
                 END_IF;
-                
+                // Clearing of the inspection results running: waiting for the result data is cleared on device side.
                 IF _progress = 301 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
@@ -1197,7 +1197,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 302;
                     END_IF;
                 END_IF;
-                
+                // Clearing of the inspection results finished.
                 IF _progress = 302 THEN
                     InspectionControl.AcknowledgeInspectionResults := TRUE;
                     ClearInspectionResultsTask.DoneWhen(TRUE);
@@ -1243,7 +1243,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                     THIS.CallTimers(FALSE);
                     _progress := 310;
                 END_IF;
-
+                // Trigger running: enabling trigger.
                 IF _progress = 310 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
@@ -1264,7 +1264,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                     CommandControl.Command:= UINT#0;
                     _progress := 311;
                 END_IF;
-
+                // Trigger running: waiting for the device to be ready.
                 IF _progress = 311 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
@@ -1277,7 +1277,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress :=312;
                     END_IF;
                 END_IF;
-                
+                // Trigger running: waiting for the previous data is cleared.
                 IF _progress = 312 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
@@ -1290,7 +1290,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 313;
                     END_IF;
                 END_IF;
-                
+                // Trigger running: waiting for the reseting the previous cycle error state.
                 IF _progress = 313 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
@@ -1303,7 +1303,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 314;
                     END_IF;
                 END_IF;
-                
+                // Trigger running: waiting for the device to be ready for the new inspection cycle.
                 IF _progress = 314 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
@@ -1316,7 +1316,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 315;
                     END_IF;
                 END_IF;
-                
+                // Trigger running: waiting for the trigger to be enabled.
                 IF _progress = 315 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
@@ -1329,7 +1329,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 316;
                     END_IF;
                 END_IF;
-                
+                // Trigger running: waiting for the inspection to be completed.
                 IF _progress = 316 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
@@ -1342,7 +1342,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 317;
                     END_IF;
                 END_IF;
-            
+                // Trigger running: waiting for the inspection to be valid.
                 IF _progress = 317 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Warning);
@@ -1354,7 +1354,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 318;
                     END_IF;
                 END_IF;
-                
+                // Trigger running: parsing the inspection results.
                 IF _progress = 318 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#518, eAxoMessageCategory#Warning);
@@ -1435,7 +1435,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                     InspectionResults.DataChanged := NOT InspectionResults.DataChanged ;
                     _progress := 319;
                 END_IF;
-
+                // Trigger finished.
                 IF _progress = 319 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#519, eAxoMessageCategory#Warning);
@@ -1449,7 +1449,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                     TriggerTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;               
-
 
                 THIS.CallTimers(TRUE);
                 
@@ -1492,7 +1491,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                     THIS.CallTimers(FALSE);
                     _progress := 320;
                 END_IF;
-
+                // Change job by name running: checking the job name.
                 IF _progress = 320 THEN
                     THIS.CallTimers(FALSE);
                     IF _jobName='' THEN
@@ -1503,7 +1502,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 321;
                     END_IF;
                 END_IF;
-
+                // Change job by name running: waiting for the previous action is finished.
                 IF _progress = 321 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
@@ -1518,7 +1517,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 322;
                     END_IF;
                 END_IF;
-                
+                // Change job by name running: waiting for the device to be ready.
                 IF _progress = 322 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
@@ -1531,7 +1530,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 323;
                     END_IF;
                 END_IF;
-                
+                // Change job by name running: reseting the error.
                 IF _progress = 323 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
@@ -1546,7 +1545,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 324;
                     END_IF;
                 END_IF;
-                
+                // Change job by name running: filling the user data with the job name.
                 IF _progress = 324 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Warning);
@@ -1568,7 +1567,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 325;
                     END_IF;
                 END_IF;
-                
+                // Change job by name running: writing the job name to the device.
                 IF _progress = 325 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
@@ -1587,7 +1586,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 326;
                     END_IF;            
                 END_IF;
-                
+                // Change job by name running: waiting for the job name is received.
                 IF _progress = 326 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Warning);
@@ -1604,7 +1603,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 327;
                     END_IF;
                 END_IF;
-            
+                // Change job by name running: waiting for the command is completed.
                 IF _progress = 327 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Warning);
@@ -1622,7 +1621,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 339;
                     END_IF;
                 END_IF;
-                
+                // Change job by name running: waiting for the command complete acknowledged.
                 IF _progress = 328 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#528, eAxoMessageCategory#Warning);
@@ -1637,7 +1636,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 329;
                     END_IF;
                 END_IF;
-                
+                // Change job by name running: waiting for the device to be online.
                 IF _progress = 329 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#529, eAxoMessageCategory#Warning);
@@ -1651,7 +1650,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 330;
                     END_IF;
                 END_IF;               
-
+                // Change job by name finished.
                 IF _progress = 330 THEN
                     Status.CurrentJobName := _jobName;
                     InspectionControl.ExecuteCommand := FALSE;
@@ -1661,7 +1660,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                     ChangeJobByNameTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;               
-
+                // Change job by name finished with an error.
                 IF _progress = 339 THEN
                     InspectionControl.ExecuteCommand := FALSE;
                     AcquisitionControl.SetOffline := FALSE;
@@ -1709,7 +1708,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                     THIS.CallTimers(FALSE);
                     _progress := 340;
                 END_IF;
-
+                // Change job by number running: checking the job number.
                 IF _progress = 340 THEN
                     THIS.CallTimers(FALSE);
                     
@@ -1723,7 +1722,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 341;
                     END_IF;
                 END_IF;
-
+                // Change job by number running: waiting for the previous action is finished.
                 IF _progress = 341 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
@@ -1738,7 +1737,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 342;
                     END_IF;
                 END_IF;
-                
+                // Change job by number running: waiting for the device to be offline.
                 IF _progress = 342 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#542, eAxoMessageCategory#Warning);
@@ -1751,7 +1750,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 343;
                     END_IF;
                 END_IF;
-                
+                // Change job by number running: reseting the error.
                 IF _progress = 343 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#543, eAxoMessageCategory#Warning);
@@ -1766,7 +1765,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 344;
                     END_IF;
                 END_IF;
-                
+                // Change job by number runningg: waiting for the command is completed.
                 IF _progress = 344 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#544, eAxoMessageCategory#Warning);
@@ -1784,7 +1783,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 349;
                     END_IF;
                 END_IF;
-                
+                // Change job by number running: waiting for the command complete acknowledged.
                 IF _progress = 345 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#545, eAxoMessageCategory#Warning);
@@ -1799,7 +1798,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 346;
                     END_IF;
                 END_IF;
-                
+                // Change job by number running: waiting for the device to be online.
                 IF _progress = 346 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#546, eAxoMessageCategory#Warning);
@@ -1812,7 +1811,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 347;
                     END_IF;
                 END_IF;
-
+                // Change job by number finished.
                 IF _progress = 347 THEN
                     Status.CurrentJobNumber := _jobNumber;
                     InspectionControl.ExecuteCommand := FALSE;
@@ -1822,7 +1821,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                     ChangeJobByNumberTask.DoneWhen(TRUE);
                     _progress := 0;            
                 END_IF;               
-
+                // Change job by number finished with an error.
                 IF _progress = 349 THEN
                     InspectionControl.ExecuteCommand := FALSE;
                     AcquisitionControl.SetOffline := FALSE;
@@ -1868,7 +1867,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                     THIS.CallTimers(FALSE);
                     _progress := 350;
                 END_IF;
-
+                // SoftEvent running: checking the soft event number.
                 IF _progress = 350 THEN
                     THIS.CallTimers(FALSE);
                     IF _softEventNumber > UINT#7 THEN
@@ -1879,7 +1878,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 351;
                     END_IF;
                 END_IF;
-
+                // SoftEvent running: checking the soft event number.
                 IF _progress = 351 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Warning);
@@ -1887,7 +1886,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                     END_IF;
                     _progress := 352;
                 END_IF;
-                
+                // SoftEvent running: waiting for the soft event is finished.
                 IF _progress = 352 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#552, eAxoMessageCategory#Warning);
@@ -1902,7 +1901,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 353;
                     END_IF;
                 END_IF;
-                
+                // SoftEvent running: waiting for the soft event is acknowledged.
                 IF _progress = 353 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#553, eAxoMessageCategory#Warning);
@@ -1917,7 +1916,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 354;
                     END_IF;
                 END_IF;
-                
+                // SoftEvent finished.
                 IF _progress = 354 THEN
                     SoftEventTask.DoneWhen(TRUE);
                     _progress := 0;            
@@ -1961,7 +1960,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                     THIS.CallTimers(FALSE);
                     _progress := 360;
                 END_IF;
-
+                // SendData running: filling the user data buffer.
                 IF _progress = 360 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#560, eAxoMessageCategory#Warning);
@@ -1977,7 +1976,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 361;
                     END_IF;
                 END_IF;
-                
+                // SendData running: sending the user data to the device.
                 IF _progress = 361 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#561, eAxoMessageCategory#Warning);
@@ -1991,7 +1990,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 362;
                     END_IF;
                 END_IF;
-
+                // SendData running: waiting for the user is acknowledged.
                 IF _progress = 362 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#562, eAxoMessageCategory#Warning);
@@ -2005,56 +2004,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_24_0_0
                         _progress := 363;
                     END_IF;
                 END_IF;
-
+                // SendData finished.
                 IF _progress = 363 THEN
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#563, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#563;
-                    END_IF;
-
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 364;
-                    END_IF;
-                END_IF;
-
-                IF _progress = 364 THEN
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#564, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#564;
-                    END_IF;
-
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 365;
-                    END_IF;
-                END_IF;
-
-                IF _progress = 365 THEN
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#565, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#565;
-                    END_IF;
-
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 366;
-                    END_IF;
-                END_IF;
-
-                IF _progress = 366 THEN
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#566, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#566;
-                    END_IF;
-
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 367;
-                    END_IF;
-                END_IF;
-
-                IF _progress = 367 THEN
                     SendUserDataTask.DoneWhen(TRUE);
                     _progress := 0;            
                 END_IF;               
