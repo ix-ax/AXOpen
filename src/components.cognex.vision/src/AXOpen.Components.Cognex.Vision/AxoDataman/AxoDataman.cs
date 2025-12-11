@@ -397,43 +397,25 @@ namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     actionDescriptionDict.Add(50, "Restore has been executed.");
 
                     actionDescriptionDict.Add(100,"Clear reasult data started.");
-                    actionDescriptionDict.Add(300, "Clear reasult data running.");
-                    actionDescriptionDict.Add(301, "Clear reasult data running.");
-                    actionDescriptionDict.Add(302, "Clear reasult data running.");
-                    actionDescriptionDict.Add(303, "Clear reasult data running.");
-                    actionDescriptionDict.Add(304, "Clear reasult data running.");
-                    actionDescriptionDict.Add(305, "Clear reasult data running.");
-                    actionDescriptionDict.Add(306, "Clear reasult data running.");
-                    actionDescriptionDict.Add(307, "Clear reasult data running.");
-                    actionDescriptionDict.Add(308, "Clear reasult data running.");
-                    actionDescriptionDict.Add(309, "Clear reasult data running.");
+                    actionDescriptionDict.Add(300, "Clear reasult data running: reseting the result data.");
+                    actionDescriptionDict.Add(301, "Clear reasult data running: reseting the result data.");
+                    actionDescriptionDict.Add(302, "Clear reasult data finished.");
                     actionDescriptionDict.Add(101,"Clear reasult data finished succesfully.");
                     actionDescriptionDict.Add(102,"Clear reasult data restored.");
 
                     actionDescriptionDict.Add(110, "Reading started.");
-                    actionDescriptionDict.Add(310, "Reading running.");
-                    actionDescriptionDict.Add(311, "Reading running.");
-                    actionDescriptionDict.Add(312, "Reading running.");
-                    actionDescriptionDict.Add(313, "Reading running.");
-                    actionDescriptionDict.Add(314, "Reading running.");
-                    actionDescriptionDict.Add(315, "Reading running.");
-                    actionDescriptionDict.Add(316, "Reading running.");
-                    actionDescriptionDict.Add(317, "Reading running.");
-                    actionDescriptionDict.Add(318, "Reading running.");
-                    actionDescriptionDict.Add(319, "Reading running.");
-                    actionDescriptionDict.Add(320, "Reading running.");
-                    actionDescriptionDict.Add(321, "Reading running.");
-                    actionDescriptionDict.Add(322, "Reading running.");
-                    actionDescriptionDict.Add(323, "Reading running.");
-                    actionDescriptionDict.Add(324, "Reading running.");
-                    actionDescriptionDict.Add(325, "Reading running.");
-                    actionDescriptionDict.Add(326, "Reading running.");
-                    actionDescriptionDict.Add(327, "Reading running.");
-                    actionDescriptionDict.Add(328, "Reading running.");
-                    actionDescriptionDict.Add(329, "Reading running.");
-
-                    actionDescriptionDict.Add(111,"Reading finished succesfully.");
-                    actionDescriptionDict.Add(112,"Reading restored.");
+                    actionDescriptionDict.Add(310, "Reading running: enabling triger.");
+                    actionDescriptionDict.Add(311, "Reading running: waiting for the triger to be ready.");
+                    actionDescriptionDict.Add(312, "Reading running: waiting for the triger to be acknowledged.");
+                    actionDescriptionDict.Add(313, "Reading running: waiting for the results available.");
+                    actionDescriptionDict.Add(314, "Reading running: evaluating the result data.");
+                    actionDescriptionDict.Add(315, "Reading running: processing the result data.");
+                    actionDescriptionDict.Add(316, "Reading finished.");
+                    actionDescriptionDict.Add(319, "Reading running: error detected, reseting trigger.");
+                    actionDescriptionDict.Add(320, "Reading running: error detected, reseting error.");
+                    actionDescriptionDict.Add(321, "Reading running: error detected, reseting error.");
+                    actionDescriptionDict.Add(111, "Reading finished succesfully.");
+                    actionDescriptionDict.Add(112, "Reading restored.");
 
 
                     actionDescriptionDict.Add(120, "Continous reading active: New data read.");
