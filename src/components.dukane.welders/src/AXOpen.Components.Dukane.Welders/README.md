@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Dukane.Welders --version {axopen-version}
 ~~~xml
 <PackageReference Include="AXOpen.Components.Dukane.Welders" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->

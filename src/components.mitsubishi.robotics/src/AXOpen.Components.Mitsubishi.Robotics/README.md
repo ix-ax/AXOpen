@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Mitsubishi.Robotics --version {axopen-versi
 ~~~xml
 <PackageReference Include="AXOpen.Components.Mitsubishi.Robotics" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->

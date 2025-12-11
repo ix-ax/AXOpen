@@ -1,18 +1,18 @@
-# @inxton/axlibname
+# @inxton/axopen.components.drives
 
 [!INCLUDE [General](../docs/README.md)]
 
 [!INCLUDE [General](../../../docfx/articles/notes/APAX_PACAKGE_GENERAL.md)]
 
 
-## Adding package to your project
+## Adding the package to your project
 ~~~bash
-apax add "@inxton/axlibname"
+apax add "@inxton/axopen.components.drives"
 ~~~
 
 ## Modifying your `apax.yml`
 
 ~~~yml
 dependencies:
-  "@inxton/axlibname": '{axopen-version}'  
+  "@inxton/axopen.components.drives": '{axopen-version}'  
 ~~~
