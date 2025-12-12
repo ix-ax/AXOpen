@@ -22,8 +22,7 @@ NAMESPACE AXOpen.Core
         END_VAR   
         
         VAR PRIVATE
-            _configurationFlowOrder : ULINT;   
-              
+            _configurationFlowOrder : ULINT;                 
             _coordinatorState : AxoCoordinatorStates;
             _step : IAxoStep;
             _openCycleCounter : ULINT;    
