@@ -15,12 +15,15 @@ NAMESPACE AXOpen.Core
             {#ix-set:AttributeName = "<<"}
             StepBackwardCommand : AxoTask;            
             CurrentStep : AxoStep;            
-            MaxSequenceDuration : LTIME;                  
+            MaxSequenceDuration : LTIME;   
+            {S7.extern=Read}
+            {#ix-attr:[ReadOnly()]}
+            NumberOfConfiguredSteps : ULINT;               
         END_VAR   
         
         VAR PRIVATE
             _configurationFlowOrder : ULINT;   
-            _numberOfConfiguredSteps : ULINT;   
+              
             _coordinatorState : AxoCoordinatorStates;
             _step : IAxoStep;
             _openCycleCounter : ULINT;    
@@ -62,7 +65,7 @@ NAMESPACE AXOpen.Core
                 CASE _coordinatorState OF
                     AxoCoordinatorStates#Idle :
                         _configurationFlowOrder := ULINT#0;
-                        _numberOfConfiguredSteps := ULINT#0;
+                        NumberOfConfiguredSteps := ULINT#0;
                         _coordinatorState := AxoCoordinatorStates#Configuring;
  
                         StepForwardCommand.Run(THIS);
@@ -108,13 +111,13 @@ NAMESPACE AXOpen.Core
                         // Stepping Forwards and Backwards commands cannot be executed simultaneously
                         StepForwardCommand.SetIsDisabled(StepBackwardCommand.IsBusy() 
                                                             // Stepping Forwards disabled from last step
-                                                            OR CurrentOrder >= _numberOfConfiguredSteps);
+                                                            OR CurrentOrder >= NumberOfConfiguredSteps);
                         StepBackwardCommand.SetIsDisabled(StepForwardCommand.IsBusy() 
                                                             // Stepping Backwards disabled from first step
                                                             OR CurrentOrder <= ULINT#1);
                         // StepForward command increments the CurrentOrder just to a maximum value of _numberOfConfiguredSteps 
                         IF StepForwardCommand.Execute() THEN
-                            IF CurrentOrder < _numberOfConfiguredSteps THEN
+                            IF CurrentOrder < NumberOfConfiguredSteps THEN
                                 THIS.AbortCurrentStep();
                                 CurrentOrder := CurrentOrder + ULINT#1;
                             END_IF;
@@ -324,7 +327,7 @@ NAMESPACE AXOpen.Core
                 step.Restore();
                 _step := step;
                 _configurationFlowOrder := _configurationFlowOrder + ULINT#1;
-                _numberOfConfiguredSteps := _configurationFlowOrder;
+                NumberOfConfiguredSteps := _configurationFlowOrder;
 
                 step.SetStepOrder(THIS,_configurationFlowOrder);
                 IF NOT step.IsCalledJustOnceInThisPlcCycle() THEN 
@@ -341,8 +344,8 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PUBLIC GetNumberOfConfiguredSteps : ULINT
             IF _coordinatorState = AxoCoordinatorStates#Running THEN
-                _numberOfConfiguredSteps := _configurationFlowOrder;
-                GetNumberOfConfiguredSteps := _numberOfConfiguredSteps;
+                NumberOfConfiguredSteps := _configurationFlowOrder;
+                GetNumberOfConfiguredSteps := NumberOfConfiguredSteps;
             ELSE
                 GetNumberOfConfiguredSteps := ULINT#0;
             END_IF;
@@ -370,7 +373,7 @@ NAMESPACE AXOpen.Core
     
         METHOD PROTECTED OVERRIDE OnRestore 
             _configurationFlowOrder := ULINT#0;
-            _numberOfConfiguredSteps := ULINT#0;
+            NumberOfConfiguredSteps := ULINT#0;
             _coordinatorState := AxoCoordinatorStates#Idle;
         END_METHOD
 

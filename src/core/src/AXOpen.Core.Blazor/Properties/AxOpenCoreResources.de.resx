@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -60,115 +60,115 @@
   </resheader>
   <!-- Task/Sequencer Status -->
   <data name="Running" xml:space="preserve">
-    <value>Running</value>
+    <value>Läuft</value>
   </data>
   <data name="Idle" xml:space="preserve">
-    <value>Idle</value>
+    <value>Leerlauf</value>
   </data>
   <data name="Error" xml:space="preserve">
-    <value>Error</value>
+    <value>Fehler</value>
   </data>
   <data name="Timeout" xml:space="preserve">
-    <value>Timeout</value>
+    <value>Zeitüberschreitung</value>
   </data>
   <data name="StepMode" xml:space="preserve">
-    <value>STEP MODE</value>
+    <value>SCHRITTMODUS</value>
   </data>
   <data name="StepModeActiveControlledByMaster" xml:space="preserve">
-    <value>STEP MODE ACTIVE - CONTROLLED BY MASTER SEQUENCE</value>
+    <value>SCHRITTMODUS AKTIV - GESTEUERT VON MASTERSEQUENZ</value>
   </data>
   <data name="StepModeControlledByMaster" xml:space="preserve">
-    <value>STEP MODE CONTROLLED BY MASTER SEQUENCE</value>
+    <value>SCHRITTMODUS GESTEUERT VON MASTERSEQUENZ</value>
   </data>
   <data name="EnterStepMode" xml:space="preserve">
-    <value>Enter step mode</value>
+    <value>Schrittmodus aktivieren</value>
   </data>
   <data name="ExitStepMode" xml:space="preserve">
-    <value>Exit step mode</value>
+    <value>Schrittmodus beenden</value>
   </data>
   <!-- Messenger/Alarm Labels -->
   <data name="Equipment" xml:space="preserve">
-    <value>Equipment</value>
+    <value>Ausrüstung</value>
   </data>
   <data name="Raised" xml:space="preserve">
-    <value>Raised</value>
+    <value>Ausgelöst</value>
   </data>
   <data name="Acknowledged" xml:space="preserve">
-    <value>Acknowledged</value>
+    <value>Quittiert</value>
   </data>
   <data name="Duration" xml:space="preserve">
-    <value>Duration</value>
+    <value>Dauer</value>
   </data>
   <data name="Symbol" xml:space="preserve">
     <value>Symbol</value>
   </data>
   <data name="HumanReadable" xml:space="preserve">
-    <value>Human Readable</value>
+    <value>Lesbar</value>
   </data>
   <data name="AlarmId" xml:space="preserve">
-    <value>Alarm ID</value>
+    <value>Alarm-ID</value>
   </data>
   <data name="Suggestion" xml:space="preserve">
-    <value>Suggestion</value>
+    <value>Vorschlag</value>
   </data>
   <data name="Restore" xml:space="preserve">
-    <value>RESTORE</value>
+    <value>WIEDERHERSTELLEN</value>
   </data>
   <data name="RestoreButton" xml:space="preserve">
-    <value>Restore</value>
+    <value>Wiederherstellen</value>
   </data>
   <data name="Acknowledge" xml:space="preserve">
-    <value>Acknowledge</value>
+    <value>Quittieren</value>
   </data>
   <data name="HideDetails" xml:space="preserve">
-    <value>HIDE DETAILS</value>
+    <value>DETAILS AUSBLENDEN</value>
   </data>
   <data name="ShowDetails" xml:space="preserve">
-    <value>SHOW DETAILS</value>
+    <value>DETAILS ANZEIGEN</value>
   </data>
   <data name="ViewDetails" xml:space="preserve">
-    <value>View Details</value>
+    <value>Details anzeigen</value>
   </data>
   <data name="ResetTask" xml:space="preserve">
-    <value>Reset task</value>
+    <value>Aufgabe zurücksetzen</value>
   </data>
   <!-- Severity Names -->
   <data name="SeverityInfo" xml:space="preserve">
     <value>Info</value>
   </data>
   <data name="SeverityWarning" xml:space="preserve">
-    <value>Warning</value>
+    <value>Warnung</value>
   </data>
   <data name="SeverityMinorFault" xml:space="preserve">
-    <value>Minor Fault</value>
+    <value>Kleiner Fehler</value>
   </data>
   <data name="SeverityMajorFault" xml:space="preserve">
-    <value>Major Fault</value>
+    <value>Großer Fehler</value>
   </data>
   <data name="SeverityCritical" xml:space="preserve">
-    <value>Critical</value>
+    <value>Kritisch</value>
   </data>
   <!-- State Labels -->
   <data name="ActiveAcknowledged" xml:space="preserve">
-    <value>Active · Acknowledged</value>
+    <value>Aktiv · Quittiert</value>
   </data>
   <data name="ActiveUnacknowledged" xml:space="preserve">
-    <value>Active · Unacknowledged</value>
+    <value>Aktiv · Nicht quittiert</value>
   </data>
   <data name="Cleared" xml:space="preserve">
-    <value>Cleared</value>
+    <value>Behoben</value>
   </data>
   <!-- Component View -->
   <data name="ActiveAlarms" xml:space="preserve">
-    <value>Active Alarm</value>
+    <value>Aktiver Alarm</value>
   </data>
   <data name="ActiveAlarmsPlural" xml:space="preserve">
-    <value>Active Alarms</value>
+    <value>Aktive Alarme</value>
   </data>
   <data name="NoAlarms" xml:space="preserve">
-    <value>No Alarms</value>
+    <value>Keine Alarme</value>
   </data>
   <data name="Active" xml:space="preserve">
-    <value>active</value>
+    <value>aktiv</value>
   </data>
 </root>
