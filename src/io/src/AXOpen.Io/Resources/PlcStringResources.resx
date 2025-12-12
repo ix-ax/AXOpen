@@ -58,4 +58,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ConfigTask_timeout_DOT_" xml:space="preserve">
+    <value>ConfigTask timeout.</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st,1379</comment>
+  </data>
 </root>

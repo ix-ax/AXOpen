@@ -59,5 +59,50 @@ namespace AXOpen.Inspectors.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  but was: .
+        /// </summary>
+        public static string _but_was_COLON__ {
+            get {
+                return ResourceManager.GetString("_but_was_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  max: .
+        /// </summary>
+        public static string _max_COLON__ {
+            get {
+                return ResourceManager.GetString("_max_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actual: .
+        /// </summary>
+        public static string Actual_COLON__ {
+            get {
+                return ResourceManager.GetString("Actual_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to min:.
+        /// </summary>
+        public static string min_COLON_ {
+            get {
+                return ResourceManager.GetString("min_COLON_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Req: .
+        /// </summary>
+        public static string Req_COLON__ {
+            get {
+                return ResourceManager.GetString("Req_COLON__", resourceCulture);
+            }
+        }
     }
 }

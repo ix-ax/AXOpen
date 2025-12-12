@@ -58,19 +58,84 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Is_manually_controllable" xml:space="preserve">
-    <value>Manually Controllable</value>
+  <data name="THE_REMOTE_TASK_IS_NOT_INITIALIZED" xml:space="preserve">
+    <value>THE REMOTE TASK IS NOT INITIALIZED</value>
+    <comment>src\AxoAlert\AxoAlert.st,45</comment>
   </data>
-  <data name="Command_state" xml:space="preserve">
-    <value>Command state</value>
+  <data name="NULL_CONTEXT" xml:space="preserve">
+    <value>NULL CONTEXT</value>
+    <comment>src\AxoTask\AxoTaskLight.st,247</comment>
   </data>
-  <data name="Stepping_mode" xml:space="preserve">
-    <value>Stepping mode</value>
+  <data name="Task_invoked" xml:space="preserve">
+    <value>Task invoked</value>
+    <comment>src\AxoTask\AxoTaskLight.st,262</comment>
   </data>
-  <data name="Sequence_mode" xml:space="preserve">
-    <value>Sequence mode</value>
+  <data name="Attempt_to_invoke_disabled_task" xml:space="preserve">
+    <value>Attempt to invoke disabled task</value>
+    <comment>src\AxoTask\AxoTaskLight.st,264</comment>
   </data>
-  <data name="Run_step" xml:space="preserve">
-    <value>Run step</value>
+  <data name="CyclicExecuteIsNotCalled" xml:space="preserve">
+    <value>CyclicExecuteIsNotCalled</value>
+    <comment>src\AxoTask\AxoTaskLight.st,270</comment>
+  </data>
+  <data name="Task_restored" xml:space="preserve">
+    <value>Task restored</value>
+    <comment>src\AxoTask\AxoTaskLight.st,290</comment>
+  </data>
+  <data name="Task_done_DOT_" xml:space="preserve">
+    <value>Task done.</value>
+    <comment>src\AxoTask\AxoTaskLight.st,316</comment>
+  </data>
+  <data name="MultipleExecuteIsCalled" xml:space="preserve">
+    <value>MultipleExecuteIsCalled</value>
+    <comment>src\AxoTask\AxoTaskLight.st,348</comment>
+  </data>
+  <data name="Task_started_DOT_" xml:space="preserve">
+    <value>Task started.</value>
+    <comment>src\AxoTask\AxoTaskLight.st,387</comment>
+  </data>
+  <data name="Task_failed" xml:space="preserve">
+    <value>Task failed</value>
+    <comment>src\AxoTask\AxoTaskLight.st,432</comment>
+  </data>
+  <data name="Sequence_in_config_state__COLON_" xml:space="preserve">
+    <value>Sequence in config state :</value>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,77</comment>
+  </data>
+  <data name="Starts_step__COLON_" xml:space="preserve">
+    <value>Starts step :</value>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,182</comment>
+  </data>
+  <data name="Check_that_steps_are_unique_and_properly_configured_DOT_" xml:space="preserve">
+    <value>Check that steps are unique and properly configured.</value>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,197</comment>
+  </data>
+  <data name="Step_done__COLON_" xml:space="preserve">
+    <value>Step done :</value>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,233</comment>
+  </data>
+  <data name="Step_request_to_step__COLON_" xml:space="preserve">
+    <value>Step request to step :</value>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,260</comment>
+  </data>
+  <data name="Sequence_completed__COLON_" xml:space="preserve">
+    <value>Sequence completed :</value>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,292</comment>
+  </data>
+  <data name="At_step_COLON_" xml:space="preserve">
+    <value>At step:</value>
+    <comment>src\AxoCoordination\AxoStep\AxoStep.st,173</comment>
+  </data>
+  <data name="Risen" xml:space="preserve">
+    <value>Risen</value>
+    <comment>src\AxoMessaging\Static\AxoMessenger.st,110</comment>
+  </data>
+  <data name="Risen_again_before_acknowledgement" xml:space="preserve">
+    <value>Risen again before acknowledgement</value>
+    <comment>src\AxoMessaging\Static\AxoMessenger.st,121</comment>
+  </data>
+  <data name="Fallen" xml:space="preserve">
+    <value>Fallen</value>
+    <comment>src\AxoMessaging\Static\AxoMessenger.st,200</comment>
   </data>
 </root>

@@ -58,4 +58,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ResetTask_timeout_DOT_" xml:space="preserve">
+    <value>ResetTask timeout.</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,711</comment>
+  </data>
+  <data name="Unable_to_change_the_screwing_program_DOT_" xml:space="preserve">
+    <value>Unable to change the screwing program.</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,778</comment>
+  </data>
+  <data name="Screwing_cycle_takes_too_long_DOT_" xml:space="preserve">
+    <value>Screwing cycle takes too long.</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,950</comment>
+  </data>
 </root>

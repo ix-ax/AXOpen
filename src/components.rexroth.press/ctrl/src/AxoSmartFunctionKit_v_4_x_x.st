@@ -581,7 +581,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
                 THIS.CallTimers(TRUE);
                 RunCommandTask.ThrowWhen(_errorTimer.output );
                 Status.Action.Id := TO_UINT(_progress);
-                RunCommandTask.ThrowWhen(RunCommandTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'RunCommandTask timeout.');                
+                RunCommandTask.ThrowWhen(RunCommandTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#RunCommandTask timeout.#>');                
             END_IF;
             IF RunCommandTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;

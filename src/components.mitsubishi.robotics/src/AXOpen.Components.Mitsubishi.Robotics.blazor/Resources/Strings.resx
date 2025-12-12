@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <!-- AxoCr800View - Status badges -->
+  <data name="ServoOn" xml:space="preserve">
+    <value>Servo On</value>
+  </data>
+  <data name="ServoOff" xml:space="preserve">
+    <value>Servo Off</value>
+  </data>
+  <data name="Running" xml:space="preserve">
+    <value>Running</value>
+  </data>
+  <data name="Stopped" xml:space="preserve">
+    <value>Stopped</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Emergency" xml:space="preserve">
+    <value>Emergency</value>
+  </data>
+  <!-- AxoCr800View - Commands -->
+  <data name="StartAtMain" xml:space="preserve">
+    <value>Start at Main</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="StartMotorsAndProgram" xml:space="preserve">
+    <value>Start Motors &amp; Program</value>
+  </data>
+  <data name="StopMovementsAndProgram" xml:space="preserve">
+    <value>Stop Movements &amp; Program</value>
+  </data>
+  <data name="StartMovements" xml:space="preserve">
+    <value>Start Movements</value>
+  </data>
+  <data name="StopMovements" xml:space="preserve">
+    <value>Stop Movements</value>
+  </data>
+  <data name="MovementParameters" xml:space="preserve">
+    <value>Movement Parameters</value>
+  </data>
+  <data name="Coordinates" xml:space="preserve">
+    <value>Coordinates</value>
+  </data>
+  <!-- AxoCr800View - Robot Status Tab -->
+  <data name="RobotStatus" xml:space="preserve">
+    <value>Robot Status</value>
+  </data>
+  <data name="OperationEnable" xml:space="preserve">
+    <value>Operation Enable</value>
+  </data>
+  <data name="AutoEnable" xml:space="preserve">
+    <value>Auto Enable</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="RcReady" xml:space="preserve">
+    <value>RC Ready</value>
+  </data>
+  <!-- AxoCr800View - Error Status Tab -->
+  <data name="ErrorStatus" xml:space="preserve">
+    <value>Error Status</value>
+  </data>
+  <data name="HighLevelError" xml:space="preserve">
+    <value>High Level Error</value>
+  </data>
+  <data name="LowLevelError" xml:space="preserve">
+    <value>Low Level Error</value>
+  </data>
+  <data name="CautionLevel" xml:space="preserve">
+    <value>Caution Level</value>
+  </data>
+  <data name="EmergencyError" xml:space="preserve">
+    <value>Emergency Error</value>
+  </data>
+  <data name="BatteryLow" xml:space="preserve">
+    <value>Battery Low</value>
+  </data>
+  <!-- AxoCr800View - Position & Zone Status Tab -->
+  <data name="PositionAndZoneStatus" xml:space="preserve">
+    <value>Position &amp; Zone Status</value>
+  </data>
+  <data name="InArea1" xml:space="preserve">
+    <value>In Area 1</value>
+  </data>
+  <data name="InArea2" xml:space="preserve">
+    <value>In Area 2</value>
+  </data>
+  <data name="InPosition1" xml:space="preserve">
+    <value>In Position 1</value>
+  </data>
+  <data name="InPosition2" xml:space="preserve">
+    <value>In Position 2</value>
+  </data>
+  <!-- AxoCr800View - Current Coordinates Tab -->
+  <data name="CurrentCoordinates" xml:space="preserve">
+    <value>Current Coordinates</value>
+  </data>
+  <!-- AxoCr800View - Tool Status Tab -->
+  <data name="ToolStatus" xml:space="preserve">
+    <value>Tool Status</value>
+  </data>
+  <data name="Tool1" xml:space="preserve">
+    <value>Tool 1</value>
+  </data>
+  <data name="Tool2" xml:space="preserve">
+    <value>Tool 2</value>
+  </data>
+  <data name="Tool3" xml:space="preserve">
+    <value>Tool 3</value>
+  </data>
+  <data name="Tool4" xml:space="preserve">
+    <value>Tool 4</value>
+  </data>
+  <data name="Extended" xml:space="preserve">
+    <value>Extended</value>
+  </data>
+  <data name="Retracted" xml:space="preserve">
+    <value>Retracted</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <!-- AxoCr800View - Configuration Tab -->
+  <data name="Configuration" xml:space="preserve">
+    <value>Configuration</value>
+  </data>
+  <!-- AxoCr800View - Hardware Diagnostics Tab -->
+  <data name="HardwareDiagnostics" xml:space="preserve">
+    <value>Hardware Diagnostics</value>
+  </data>
+</root>

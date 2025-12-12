@@ -92,6 +92,8 @@ namespace AXOpen.Data
         /// <returns>Returns true if the write operation is successful; otherwise, false.</returns>
         public async Task<bool> WritePersistentGroupFromRepository(string group)
         {
+            if (!tagsInGroups.ContainsKey(group)) return false; // group not exist 
+
             var recordFromRepo = _Repository.Read(group);
 
             List<ITwinPrimitive> tagsToWrite = new List<ITwinPrimitive>();
@@ -153,10 +155,11 @@ namespace AXOpen.Data
 
         private bool UpdateReadedTagsToRepository(string persistentGroupName)
         {
+            if (!tagsInGroups.ContainsKey(persistentGroupName)) return false; // group not exist 
+
             var primitivesTagsInGroup = tagsInGroups[persistentGroupName];
 
-            if (primitivesTagsInGroup == null)
-                return false;
+            if (primitivesTagsInGroup == null) return false;
 
             List<TagObject> NewTagValues = new List<TagObject>();
 

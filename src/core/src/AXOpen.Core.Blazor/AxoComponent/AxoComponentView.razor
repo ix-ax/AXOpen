@@ -17,8 +17,8 @@
 
             @if (_alarmCount > 0)
             {
-                <button class="badge @AlarmBadgeClass" @onclick="() => { _showAlarms = !_showAlarms; }" title="@_alarmCount @(_alarmCount != 1 ? "s" : "") active">
-                    @(_alarmCount > 0 ? $"{_alarmCount} Active Alarm{(_alarmCount != 1 ? "s" : "")}" : "No Alarms")
+                <button class="badge @AlarmBadgeClass" @onclick="() => { _showAlarms = !_showAlarms; }" title="@_alarmCount @Localizer["Active"]">
+                    @(_alarmCount > 0 ? $"{_alarmCount} {(_alarmCount != 1 ? Localizer["ActiveAlarmsPlural"] : Localizer["ActiveAlarms"])}" : Localizer["NoAlarms"])
                 </button>
             }
         </div>
@@ -64,7 +64,7 @@
     {
         <div class="w-full mt-4">
             <Accordion>
-                <AccordionItem Title="View Details">
+                <AccordionItem Title="@Localizer["ViewDetails"]">
                     <Tab>
                         @foreach (var detailsTab in DetailsTabs)
                         {

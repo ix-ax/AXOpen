@@ -110,7 +110,7 @@ else
                                     @onclick='async () => {
                                     await Vm.DataExchange.WritePersistentGroupFromRepository(record._EntityId);
                                      await Vm.FillObservableRecordsAsync();
-                                    _toastService?.AddToast(eToastType.Success, $"Persistent Data", $"Persistent group {record._EntityId} was successfully loaded to PLC!", 10);
+                                    _toastService?.AddToast(eToastType.Success, Localizer["Persistent_Data"], string.Format(Localizer["Persistent_group_loaded_to_PLC"], record._EntityId), 10);
                                 }'
                                     type="button" class="btn btn-primary px-3 py-0">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
@@ -123,7 +123,7 @@ else
                             <button title="Read from PLC to repository"
                                     @onclick='async () => { await Vm.DataExchange.UpdatePersistentGroupFromPlcToRepository(record._EntityId);
                                      await Vm.FillObservableRecordsAsync();
-                                    _toastService?.AddToast(eToastType.Success, $"Persistent Data", $"Persistent group {record._EntityId} was successfully readed from PLC!", 10);
+                                    _toastService?.AddToast(eToastType.Success, Localizer["Persistent_Data"], string.Format(Localizer["Persistent_group_read_from_PLC"], record._EntityId), 10);
                                 }'
                                     type="button" class="btn btn-primary px-3 py-0">
 

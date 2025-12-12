@@ -41,11 +41,11 @@
           <span role="button"
               tabindex="0"
               class="flex items-center justify-center w-5 h-5 shrink-0 text-text/60 hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary @((IsDisabled ? "opacity-60 text-slate-500 pointer-events-none" : string.Empty))"
-              title="Reset task"
+              title="@Localizer["ResetTask"]"
               @onclick="@OnRestoreClick"
               @onclick:stopPropagation="true"
               @onkeydown="OnRestoreKeyDown">
-            <span class="sr-only">Restore</span>
+            <span class="sr-only">@Localizer["RestoreButton"]</span>
             <HeroIcon Icon="arrow-path" Type="IconType.Solid" Class="size-5" />
         </span>
     }

@@ -59,5 +59,50 @@ namespace AXOpen.Components.Balluff.Identification.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReadTask timeout..
+        /// </summary>
+        public static string ReadTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ReadTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ResetCommunicationTask timeout..
+        /// </summary>
+        public static string ResetCommunicationTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ResetCommunicationTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ResetReaderTask timeout..
+        /// </summary>
+        public static string ResetReaderTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ResetReaderTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WriteCharToMemoryTask timeout..
+        /// </summary>
+        public static string WriteCharToMemoryTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("WriteCharToMemoryTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WriteTask timeout..
+        /// </summary>
+        public static string WriteTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("WriteTask_timeout_DOT_", resourceCulture);
+            }
+        }
     }
 }

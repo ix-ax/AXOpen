@@ -1156,7 +1156,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
                 HardResetAllCamerasTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                HardResetAllCamerasTask.ThrowWhen(HardResetAllCamerasTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'HardResetAllCamerasTask timeout.');
+                HardResetAllCamerasTask.ThrowWhen(HardResetAllCamerasTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#HardResetAllCamerasTask timeout.#>');
             END_IF;
             IF HardResetAllCamerasTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -1280,7 +1280,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
                 ResetTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ResetTask.ThrowWhen(ResetTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ResetTask timeout.');
+                ResetTask.ThrowWhen(ResetTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ResetTask timeout.#>');
             END_IF;
             IF ResetTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -1406,7 +1406,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
                 TriggerTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TriggerTask.ThrowWhen(TriggerTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TriggerTask timeout.');
+                TriggerTask.ThrowWhen(TriggerTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TriggerTask timeout.#>');
             END_IF;
             IF TriggerTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -1496,7 +1496,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                         WriteMemory(area := WriteArea#Output,byteOffset := TO_DINT(outputsAddress) + DINT#2,value:= Outputs.Control.JobLoadID);  
                         _progress := 364;
                     END_IF;
-
                 END_IF;
                 // ReadResultsTask running: locking the data buffer.
                 IF _progress = 364 THEN
@@ -1786,7 +1785,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 THIS.CallTimers(TRUE);
                 ReadResultsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ReadResultsTask.ThrowWhen(ReadResultsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ReadResultsTask timeout.');
+                ReadResultsTask.ThrowWhen(ReadResultsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ReadResultsTask timeout.#>');
             END_IF;
             IF ReadResultsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#161;
@@ -2230,7 +2229,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
                 SendDataTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                SendDataTask.ThrowWhen(SendDataTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'SendDataTask timeout.');
+                SendDataTask.ThrowWhen(SendDataTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#SendDataTask timeout.#>');
             END_IF;
             IF SendDataTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -2324,17 +2323,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             Trigger := TriggerTask.Invoke(THIS);
         END_METHOD
 
-        // METHOD PUBLIC TemplateMethod_10steps_4 : IAxoTaskState
-        //     TemplateMethod_10steps_4 := TemplateTask_10steps_4.Invoke(THIS);
-        // END_METHOD
-
-        // METHOD PUBLIC TemplateMethod_10steps_5 : IAxoTaskState
-        //     TemplateMethod_10steps_5 := TemplateTask_10steps_5.Invoke(THIS);
-        // END_METHOD
-
-        // METHOD PUBLIC TemplateMethod_10steps_6 : IAxoTaskState
-        //     TemplateMethod_10steps_6 := TemplateTask_10steps_6.Invoke(THIS);
-        // END_METHOD
 
         METHOD PUBLIC ReadResults : IAxoTaskState
             VAR_INPUT
@@ -2367,22 +2355,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             _data_out_1301          :=  Data;          
             SendData                :=  SendDataTask.Invoke(THIS);
         END_METHOD
-
-        // METHOD PUBLIC TemplateMethod_20steps_3 : IAxoTaskState
-        //     TemplateMethod_20steps_3 := TemplateTask_20steps_3.Invoke(THIS);
-        // END_METHOD
-
-        // METHOD PUBLIC TemplateMethod_20steps_4 : IAxoTaskState
-        //     TemplateMethod_20steps_4 := TemplateTask_20steps_4.Invoke(THIS);
-        // END_METHOD
-
-        // METHOD PUBLIC TemplateMethod_20steps_5 : IAxoTaskState
-        //     TemplateMethod_20steps_5 := TemplateTask_20steps_5.Invoke(THIS);
-        // END_METHOD
-
-        // METHOD PUBLIC TemplateMethod_20steps_6 : IAxoTaskState
-        //     TemplateMethod_20steps_6 := TemplateTask_20steps_6.Invoke(THIS);
-        // END_METHOD
 
 
         METHOD PROTECTED OVERRIDE ManualControl
@@ -2422,15 +2394,8 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             HardResetAllCamerasTask.Restore();
             ResetTask.Restore();
             TriggerTask.Restore();
-            // TemplateTask_10steps_4.Restore();
-            // TemplateTask_10steps_5.Restore();
-            // TemplateTask_10steps_6.Restore();
             ReadResultsTask.Restore();
             SendDataTask.Restore();
-            // TemplateTask_20steps_3.Restore();
-            // TemplateTask_20steps_4.Restore();
-            // TemplateTask_20steps_5.Restore();
-            // TemplateTask_20steps_6.Restore();
             HardwareDiagnosticsTask.Restore();
 
             Status.Action.Id := UINT#50;
