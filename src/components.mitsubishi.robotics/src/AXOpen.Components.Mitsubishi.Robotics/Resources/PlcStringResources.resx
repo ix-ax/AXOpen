@@ -58,4 +58,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="StartAtMainTask_timeout_DOT_" xml:space="preserve">
+    <value>StartAtMainTask timeout.</value>
+    <comment>src\AxoCr800_v_1_x_x.st,440</comment>
+  </data>
+  <data name="StartMotorsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMotorsAndProgramTask timeout.</value>
+    <comment>src\AxoCr800_v_1_x_x.st,624</comment>
+  </data>
+  <data name="StopMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsTask timeout.</value>
+    <comment>src\AxoCr800_v_1_x_x.st,712</comment>
+  </data>
+  <data name="StopMovementsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsAndProgramTask timeout.</value>
+    <comment>src\AxoCr800_v_1_x_x.st,802</comment>
+  </data>
+  <data name="StartMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMovementsTask timeout.</value>
+    <comment>src\AxoCr800_v_1_x_x.st,980</comment>
+  </data>
 </root>

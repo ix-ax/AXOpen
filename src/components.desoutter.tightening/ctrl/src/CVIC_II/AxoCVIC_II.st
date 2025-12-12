@@ -709,7 +709,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 
                 ResetTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ResetTask.ThrowWhen(ResetTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ResetTask timeout.');
+                ResetTask.ThrowWhen(ResetTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ResetTask timeout.#>');
             END_IF;
             IF ResetTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -776,7 +776,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     _progress := 0;
                 END_IF;
 
-                SetScrewingProgramTask.ThrowWhen(SetScrewingProgramTask.Duration > Config.ProgramChangeTimeout, 'Unable to change the screwing program.');
+                SetScrewingProgramTask.ThrowWhen(SetScrewingProgramTask.Duration > Config.ProgramChangeTimeout,'<#Unable to change the screwing program.#>');
                 THIS.CallTimers(TRUE);
                 Status.Action.Id := TO_UINT(_progress);
             END_IF;
@@ -948,7 +948,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     StartScrewingTask.DoneWhen(TRUE);
                 END_IF;
 
-                StartScrewingTask.ThrowWhen(StartScrewingTask.Duration > Config.ScrewingCycleTimeout, 'Screwing cycle takes too long.');
+                StartScrewingTask.ThrowWhen(StartScrewingTask.Duration > Config.ScrewingCycleTimeout,'<#Screwing cycle takes too long.#>');
                 Status.Action.Id := TO_UINT(_progress);
                 THIS.CallTimers(TRUE);
             END_IF;

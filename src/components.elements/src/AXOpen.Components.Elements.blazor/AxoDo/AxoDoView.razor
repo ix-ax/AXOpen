@@ -15,8 +15,8 @@
     <CommandsOperateContent>
         <div class="flex flex-col gap-3 w-full" @onclick:stopPropagation="true">
             <div class="flex flex-wrap gap-3">
-                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="Switch ON" Component="Component._setTask" HideRestoreButton="false"></AxoTaskCommandView>
-                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="Switch OFF" Component="Component._resetTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="@Localizer["SwitchOn"]" Component="Component._setTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="@Localizer["SwitchOff"]" Component="Component._resetTask" HideRestoreButton="false"></AxoTaskCommandView>
             </div>            
         </div>
     </CommandsOperateContent>
@@ -24,8 +24,8 @@
     <CommandsMonitorContent>
         <div class="flex flex-col gap-3 w-full" @onclick:stopPropagation="true">
             <div class="flex flex-wrap gap-3">
-                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="Switch ON" Component="Component._setTask" HideRestoreButton="false"></AxoTaskStatusView>
-                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="Switch OFF" Component="Component._resetTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="@Localizer["SwitchOn"]" Component="Component._setTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="@Localizer["SwitchOff"]" Component="Component._resetTask" HideRestoreButton="false"></AxoTaskStatusView>
             </div>           
         </div>
     </CommandsMonitorContent>
@@ -33,7 +33,7 @@
         <div class="flex flex-col gap-3" @onclick:stopPropagation="true">
             <div class="card p-4">
                 <div>
-                    <p class="text-xs uppercase tracking-wide text-text/60">Signal</p>
+                    <p class="text-xs uppercase tracking-wide text-text/60">@Localizer["Signal"]</p>
                     <p class="text-lg font-semibold">@SignalStateLabel</p>
                     <p class="text-sm text-text/70">@SignalDetail</p>
                 </div>
@@ -52,15 +52,15 @@
 {      
     protected bool IsSignalHigh => Component?._signal?.Cyclic ?? false;
 
-    protected string SignalStateLabel => IsSignalHigh ? "Signal ON" : "Signal OFF";
+    protected string SignalStateLabel => IsSignalHigh ? Localizer["SignalOn"] : Localizer["SignalOff"];
 
     protected string SignalHint => IsSignalHigh
-        ? "Output is active"
-        : "Output is inactive";
+        ? Localizer["OutputIsActive"]
+        : Localizer["OutputIsInactive"];
 
     protected string SignalDetail => IsSignalHigh
-        ? "Output is energized"
-        : "Output is de-energized";
+        ? Localizer["OutputIsEnergized"]
+        : Localizer["OutputIsDeEnergized"];
 
     protected string SignalBadgeClass => $"badge text-xs font-semibold tracking-wide {(IsSignalHigh ? "badge-success" : "badge-ghost text-slate-400 bg-slate-700/40 border border-slate-500/40")}";
 

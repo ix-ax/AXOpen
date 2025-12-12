@@ -22,7 +22,7 @@
         <div class="flex flex-col gap-3" @onclick:stopPropagation="true">
             <div class="card p-4">
                 <div class="flex-1">
-                    <p class="text-xs uppercase tracking-wide text-text/60">Required Value</p>
+                    <p class="text-xs uppercase tracking-wide text-text/60">@Localizer["RequiredValue"]</p>
                     <p class="text-lg font-semibold">@RequiredValue.ToString("F2")</p>
                     <p class="text-lg font-semibold">[@Component.Units]</p>
                 </div>

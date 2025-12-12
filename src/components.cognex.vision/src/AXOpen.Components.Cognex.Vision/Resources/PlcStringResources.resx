@@ -58,4 +58,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="HardResetAllCamerasTask_timeout_DOT_" xml:space="preserve">
+    <value>HardResetAllCamerasTask timeout.</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,1284</comment>
+  </data>
+  <data name="ResetTask_timeout_DOT_" xml:space="preserve">
+    <value>ResetTask timeout.</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,1468</comment>
+  </data>
+  <data name="TriggerTask_timeout_DOT_" xml:space="preserve">
+    <value>TriggerTask timeout.</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,1630</comment>
+  </data>
+  <data name="ReadResultsTask_timeout_DOT_" xml:space="preserve">
+    <value>ReadResultsTask timeout.</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,2541</comment>
+  </data>
+  <data name="SendDataTask_timeout_DOT_" xml:space="preserve">
+    <value>SendDataTask timeout.</value>
+    <comment>src\AxoVisionPro\AxoVisionPro.st,3057</comment>
+  </data>
+  <data name="ClearResultDataTask_timeout_DOT_" xml:space="preserve">
+    <value>ClearResultDataTask timeout.</value>
+    <comment>src\AxoDataman\v_6_0_0\AxoDataman.st,681</comment>
+  </data>
+  <data name="ReadTask_timeout_DOT_" xml:space="preserve">
+    <value>ReadTask timeout.</value>
+    <comment>src\AxoDataman\v_6_0_0\AxoDataman.st,871</comment>
+  </data>
+  <data name="ClearInspectionResultsTask_timeout_DOT_" xml:space="preserve">
+    <value>ClearInspectionResultsTask timeout.</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,1211</comment>
+  </data>
+  <data name="ChangeJobByNameTask_timeout_DOT_" xml:space="preserve">
+    <value>ChangeJobByNameTask timeout.</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,1674</comment>
+  </data>
+  <data name="ChangeJobByNumberTask_timeout_DOT_" xml:space="preserve">
+    <value>ChangeJobByNumberTask timeout.</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,1835</comment>
+  </data>
+  <data name="SoftEventTask_timeout_DOT_" xml:space="preserve">
+    <value>SoftEventTask timeout.</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,1928</comment>
+  </data>
+  <data name="SendUserDataTask_timeout_DOT_" xml:space="preserve">
+    <value>SendUserDataTask timeout.</value>
+    <comment>src\AxoInsight\v_24_0_0\AxoInsight.st,2064</comment>
+  </data>
 </root>

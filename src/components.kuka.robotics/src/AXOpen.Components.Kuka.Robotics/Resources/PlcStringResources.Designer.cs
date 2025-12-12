@@ -59,5 +59,86 @@ namespace AXOpen.Components.Kuka.Robotics.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StartAtMainTask timeout..
+        /// </summary>
+        public static string StartAtMainTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("StartAtMainTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StartMotorsAndProgramTask timeout..
+        /// </summary>
+        public static string StartMotorsAndProgramTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("StartMotorsAndProgramTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StartMotorsProgramAndMovementsTask timeout..
+        /// </summary>
+        public static string StartMotorsProgramAndMovementsTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("StartMotorsProgramAndMovementsTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StartMovementsTask timeout..
+        /// </summary>
+        public static string StartMovementsTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("StartMovementsTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StartProgramTask timeout..
+        /// </summary>
+        public static string StartProgramTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("StartProgramTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StopMotorsTask timeout..
+        /// </summary>
+        public static string StopMotorsTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("StopMotorsTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StopMovementsAndProgramTask timeout..
+        /// </summary>
+        public static string StopMovementsAndProgramTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("StopMovementsAndProgramTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StopMovementsTask timeout..
+        /// </summary>
+        public static string StopMovementsTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("StopMovementsTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StopProgramTask timeout..
+        /// </summary>
+        public static string StopProgramTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("StopProgramTask_timeout_DOT_", resourceCulture);
+            }
+        }
     }
 }

@@ -13,6 +13,7 @@ using System.Collections.Frozen;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using Properties = AXOpen.Data.Blazor.Properties;
 
 namespace AXOpen.Data
 {
@@ -197,7 +198,7 @@ namespace AXOpen.Data
         {
             if (string.IsNullOrEmpty(identifier))
             {
-                ToastService?.AddToast(eToastType.Warning, "Update data error", "Please enter valid identifier!", 20);
+                ToastService?.AddToast(eToastType.Warning, Properties.AxOpenDataResources.Update_data_error, Properties.AxOpenDataResources.Please_enter_valid_identifier, 20);
                 return;
             }
 
@@ -230,7 +231,7 @@ namespace AXOpen.Data
                 // Alert
                 ToastService?.AddToast(
                     eToastType.Info,
-                    "Send record",
+                    Properties.AxOpenDataResources.Send_record,
                     $"Record \"{identifier}\" was sent to: {sentExchanges}.",
                     7
                 );
@@ -249,7 +250,7 @@ namespace AXOpen.Data
                 // Alert
                 ToastService?.AddToast(
                     eToastType.Warning,
-                    "Send error",
+                    Properties.AxOpenDataResources.Send_error,
                     $"Record does not exist in the database for: {notEqualEntityIds}.",
                     14
                 );

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <!-- AxoCmmtAsView - Header -->
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Velocity" xml:space="preserve">
+    <value>Velocity</value>
+  </data>
+  <data name="Torque" xml:space="preserve">
+    <value>Torque</value>
+  </data>
+  <!-- AxoCmmtAsView - Power & Safety Section -->
+  <data name="PowerAndSafety" xml:space="preserve">
+    <value>Power &amp; safety</value>
+  </data>
+  <data name="PowerAndSafetyDescription" xml:space="preserve">
+    <value>Enable the power stage, toggle brakes and trigger controlled stops.</value>
+  </data>
+  <data name="PowerStage" xml:space="preserve">
+    <value>Power stage</value>
+  </data>
+  <data name="ControlledStop" xml:space="preserve">
+    <value>Controlled stop</value>
+  </data>
+  <data name="Halt" xml:space="preserve">
+    <value>Halt</value>
+  </data>
+  <!-- AxoCmmtAsView - Homing & Referencing Section -->
+  <data name="HomingAndReferencing" xml:space="preserve">
+    <value>Homing &amp; referencing</value>
+  </data>
+  <data name="HomingAndReferencingDescription" xml:space="preserve">
+    <value>Align the axis, set offsets and manage override factors.</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="SetPosition" xml:space="preserve">
+    <value>Set position</value>
+  </data>
+  <data name="Override" xml:space="preserve">
+    <value>Override</value>
+  </data>
+  <!-- AxoCmmtAsView - Discrete Motion Section -->
+  <data name="DiscreteMotion" xml:space="preserve">
+    <value>Discrete motion</value>
+  </data>
+  <data name="DiscreteMotionDescription" xml:space="preserve">
+    <value>Execute absolute, relative or additive positioning moves.</value>
+  </data>
+  <data name="MoveAbsolute" xml:space="preserve">
+    <value>Move absolute</value>
+  </data>
+  <data name="MoveRelative" xml:space="preserve">
+    <value>Move relative</value>
+  </data>
+  <data name="MoveAdditive" xml:space="preserve">
+    <value>Move additive</value>
+  </data>
+  <!-- AxoCmmtAsView - Continuous Motion & Torque Section -->
+  <data name="ContinuousMotionAndTorque" xml:space="preserve">
+    <value>Continuous motion &amp; torque</value>
+  </data>
+  <data name="ContinuousMotionDescription" xml:space="preserve">
+    <value>Manage velocity mode and torque-controlled moves.</value>
+  </data>
+  <data name="VelocityButton" xml:space="preserve">
+    <value>Velocity</value>
+  </data>
+  <data name="TorqueControl" xml:space="preserve">
+    <value>Torque control</value>
+  </data>
+  <!-- AxoCmmtAsView - Monitor Descriptions -->
+  <data name="LiveFeedbackDescription" xml:space="preserve">
+    <value>Live feedback when manual control is disabled.</value>
+  </data>
+  <data name="MonitorReferencingDescription" xml:space="preserve">
+    <value>Monitor reference tasks, offsets and override factors.</value>
+  </data>
+  <data name="DiscreteMotionMonitorDescription" xml:space="preserve">
+    <value>Command queues, feed rates and progress of traversing moves.</value>
+  </data>
+  <data name="ContinuousMotionMonitorDescription" xml:space="preserve">
+    <value>Observe velocity and torque control loops.</value>
+  </data>
+  <!-- AxoCmmtAsView - Drive Feedback Section -->
+  <data name="DriveFeedback" xml:space="preserve">
+    <value>Drive feedback</value>
+  </data>
+  <data name="DriveFeedbackDescription" xml:space="preserve">
+    <value>Status bits, active tasks and current diagnostics.</value>
+  </data>
+  <!-- AxoCmmtAsView - Scaling Constants Section -->
+  <data name="ScalingConstants" xml:space="preserve">
+    <value>Scaling constants</value>
+  </data>
+  <data name="ScalingConstantsDescription" xml:space="preserve">
+    <value>Realtime factors calculated from PROFIdrive parameters.</value>
+  </data>
+  <!-- AxoCmmtAsView - Axis Reference Section -->
+  <data name="AxisReference" xml:space="preserve">
+    <value>Axis reference</value>
+  </data>
+  <data name="AxisReferenceDescription" xml:space="preserve">
+    <value>Inspect telegrams, hardware IDs and cached axis data.</value>
+  </data>
+  <!-- AxoCmmtAsView - Code-behind strings -->
+  <data name="Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="NoTask" xml:space="preserve">
+    <value>No task</value>
+  </data>
+  <!-- Units -->
+  <data name="MillimetersUnit" xml:space="preserve">
+    <value>mm</value>
+  </data>
+  <data name="MillimetersPerSecondUnit" xml:space="preserve">
+    <value>mm/s</value>
+  </data>
+  <data name="NewtonMetersUnit" xml:space="preserve">
+    <value>Nm</value>
+  </data>
+</root>

@@ -58,4 +58,56 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="MC_UNDERSCORE_Halt_has_thrown_an_error_COLON__" xml:space="preserve">
+    <value>MC_Halt has thrown an error: </value>
+    <comment>src\AxoDrives\AxoDrive.st,1313</comment>
+  </data>
+  <data name="MC_UNDERSCORE_Home_has_thrown_an_error_COLON__" xml:space="preserve">
+    <value>MC_Home has thrown an error: </value>
+    <comment>src\AxoDrives\AxoDrive.st,1368</comment>
+  </data>
+  <data name="MC_UNDERSCORE_MoveAbsolute_has_thrown_an_error_COLON__" xml:space="preserve">
+    <value>MC_MoveAbsolute has thrown an error: </value>
+    <comment>src\AxoDrives\AxoDrive.st,1412</comment>
+  </data>
+  <data name="MC_UNDERSCORE_MoveRelative_has_thrown_an_error_COLON__" xml:space="preserve">
+    <value>MC_MoveRelative has thrown an error: </value>
+    <comment>src\AxoDrives\AxoDrive.st,1454</comment>
+  </data>
+  <data name="MC_UNDERSCORE_MoveAdditive_has_thrown_an_error_COLON__" xml:space="preserve">
+    <value>MC_MoveAdditive has thrown an error: </value>
+    <comment>src\AxoDrives\AxoDrive.st,1496</comment>
+  </data>
+  <data name="MC_UNDERSCORE_MoveVelocity_has_thrown_an_error_COLON__" xml:space="preserve">
+    <value>MC_MoveVelocity has thrown an error: </value>
+    <comment>src\AxoDrives\AxoDrive.st,1540</comment>
+  </data>
+  <data name="MC_UNDERSCORE_TorqueControl_has_thrown_an_error_COLON__" xml:space="preserve">
+    <value>MC_TorqueControl has thrown an error: </value>
+    <comment>src\AxoDrives\AxoDrive.st,1587</comment>
+  </data>
+  <data name="MC_UNDERSCORE_SetPosition_has_thrown_an_error_COLON__" xml:space="preserve">
+    <value>MC_SetPosition has thrown an error: </value>
+    <comment>src\AxoDrives\AxoDrive.st,1619</comment>
+  </data>
+  <data name="MC_UNDERSCORE_WriteParameter_has_thrown_an_error_COLON__" xml:space="preserve">
+    <value>MC_WriteParameter has thrown an error: </value>
+    <comment>src\AxoDrives\AxoDrive.st,1701</comment>
+  </data>
+  <data name="MC_UNDERSCORE_WriteRealParameter_has_thrown_an_error_COLON__" xml:space="preserve">
+    <value>MC_WriteRealParameter has thrown an error: </value>
+    <comment>src\AxoDrives\AxoDrive.st,1718</comment>
+  </data>
+  <data name="MC_UNDERSCORE_WriteBoolParameter_has_thrown_an_error_COLON__" xml:space="preserve">
+    <value>MC_WriteBoolParameter has thrown an error: </value>
+    <comment>src\AxoDrives\AxoDrive.st,1735</comment>
+  </data>
+  <data name="MC_UNDERSCORE_WriteDigitalOutput_has_thrown_an_error_COLON__" xml:space="preserve">
+    <value>MC_WriteDigitalOutput has thrown an error: </value>
+    <comment>src\AxoDrives\AxoDrive.st,1786</comment>
+  </data>
+  <data name="MC_UNDERSCORE_Reset_has_thrown_an_error_COLON__" xml:space="preserve">
+    <value>MC_Reset has thrown an error: </value>
+    <comment>src\AxoDrives\AxoDrive.st,1952</comment>
+  </data>
 </root>

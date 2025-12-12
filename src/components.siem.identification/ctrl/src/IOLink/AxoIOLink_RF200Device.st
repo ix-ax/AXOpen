@@ -305,7 +305,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         THIS.CallTimers(FALSE);
                         _progress:=301;                    
                     END_IF;
-                    ReadTagTask.ThrowWhen(_switchAntenna_error,'Error when switching the antena On' );
+                    ReadTagTask.ThrowWhen(_switchAntenna_error,'<#Error when switching the antena On#>');
                 END_IF;
 
                 IF _progress = 301 THEN  
@@ -346,7 +346,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         THIS.CallTimers(FALSE);
                         _progress:=304;                           
                      END_IF;   
-                     ReadTagTask.ThrowWhen(_readTag_error,'Error reading tag');
+                     ReadTagTask.ThrowWhen(_readTag_error,'<#Error reading tag#>');
                     END_IF;
 
                 IF _progress = 304 THEN  
@@ -434,7 +434,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         THIS.CallTimers(FALSE);
                         _progress:=321;                    
                     END_IF;
-                    WriteTagTask.ThrowWhen(_switchAntenna_error,'Error when switching the antena On' );
+                    WriteTagTask.ThrowWhen(_switchAntenna_error,'<#Error when switching the antena On#>');
                 END_IF;
 
                 IF _progress = 321 THEN  
@@ -475,7 +475,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                         THIS.CallTimers(FALSE);
                         _progress:=324;                           
                      END_IF;   
-                     WriteTagTask.ThrowWhen(_writeTag_error,'Error writing tag');
+                     WriteTagTask.ThrowWhen(_writeTag_error,'<#Error writing tag#>');
                     END_IF;
 
                 IF _progress = 324 THEN  

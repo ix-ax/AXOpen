@@ -1358,7 +1358,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             _context.Close();
 
            //Assert 
-            Assert.Equal(TRUE, THIS.AreEqual('CyclicExecuteIsNotCalled', myTask.ErrorDetails));           
+            Assert.Equal(TRUE, THIS.AreEqual('<#CyclicExecuteIsNotCalled#>', myTask.ErrorDetails));           
         END_METHOD     
         
         {Test}
@@ -1417,7 +1417,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             _context.Close();
 
            //Assert 
-            Assert.Equal(TRUE, THIS.AreEqual('MultipleExecuteIsCalled', myTask.ErrorDetails));           
+            Assert.Equal(TRUE, THIS.AreEqual('<#MultipleExecuteIsCalled#>', myTask.ErrorDetails));           
         END_METHOD     
         
         {Test}

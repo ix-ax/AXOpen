@@ -58,4 +58,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ReadTask_timeout_DOT_" xml:space="preserve">
+    <value>ReadTask timeout.</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,488</comment>
+  </data>
+  <data name="WriteTask_timeout_DOT_" xml:space="preserve">
+    <value>WriteTask timeout.</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,725</comment>
+  </data>
+  <data name="ResetCommunicationTask_timeout_DOT_" xml:space="preserve">
+    <value>ResetCommunicationTask timeout.</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,808</comment>
+  </data>
+  <data name="ResetReaderTask_timeout_DOT_" xml:space="preserve">
+    <value>ResetReaderTask timeout.</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,911</comment>
+  </data>
+  <data name="WriteCharToMemoryTask_timeout_DOT_" xml:space="preserve">
+    <value>WriteCharToMemoryTask timeout.</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,1066</comment>
+  </data>
 </root>

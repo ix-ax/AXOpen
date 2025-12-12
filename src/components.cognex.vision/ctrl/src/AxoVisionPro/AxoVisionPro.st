@@ -1282,7 +1282,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
                 HardResetAllCamerasTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                HardResetAllCamerasTask.ThrowWhen(HardResetAllCamerasTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'HardResetAllCamerasTask timeout.');
+                HardResetAllCamerasTask.ThrowWhen(HardResetAllCamerasTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#HardResetAllCamerasTask timeout.#>');
             END_IF;
             IF HardResetAllCamerasTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -1466,7 +1466,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
                 ResetTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ResetTask.ThrowWhen(ResetTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ResetTask timeout.');
+                ResetTask.ThrowWhen(ResetTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ResetTask timeout.#>');
             END_IF;
             IF ResetTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -1628,7 +1628,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
                 TriggerTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TriggerTask.ThrowWhen(TriggerTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TriggerTask timeout.');
+                TriggerTask.ThrowWhen(TriggerTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TriggerTask timeout.#>');
             END_IF;
             IF TriggerTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -1781,7 +1781,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
             //     TemplateTask_10steps_4.ThrowWhen(_errorTimer.output);
             //     Status.Action.Id := TO_UINT(_progress);  
-            //     TemplateTask_10steps_4.ThrowWhen(TemplateTask_10steps_4.Duration >= Config.ErrorTime ,'TemplateTask_10steps_4 error.');
+            //     TemplateTask_10steps_4.ThrowWhen(TemplateTask_10steps_4.Duration >= Config.ErrorTime ,'<#TemplateTask_10steps_4 error.#>');
             // END_IF;
             // IF TemplateTask_10steps_4.DoneReached() THEN
             //     Status.Action.Id :=  UINT#131;
@@ -1934,7 +1934,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
             //     TemplateTask_10steps_5.ThrowWhen(_errorTimer.output);
             //     Status.Action.Id := TO_UINT(_progress);  
-            //     TemplateTask_10steps_5.ThrowWhen(TemplateTask_10steps_5.Duration >= Config.ErrorTime ,'TemplateTask_10steps_5 error.');
+            //     TemplateTask_10steps_5.ThrowWhen(TemplateTask_10steps_5.Duration >= Config.ErrorTime ,'<#TemplateTask_10steps_5 error.#>');
             // END_IF;
             // IF TemplateTask_10steps_5.DoneReached() THEN
             //     Status.Action.Id :=  UINT#141;
@@ -2087,7 +2087,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
             //     TemplateTask_10steps_6.ThrowWhen(_errorTimer.output);
             //     Status.Action.Id := TO_UINT(_progress);  
-            //     TemplateTask_10steps_6.ThrowWhen(TemplateTask_10steps_6.Duration >= Config.ErrorTime ,'TemplateTask_10steps_6 error.');
+            //     TemplateTask_10steps_6.ThrowWhen(TemplateTask_10steps_6.Duration >= Config.ErrorTime ,'<#TemplateTask_10steps_6 error.#>');
             // END_IF;
             // IF TemplateTask_10steps_6.DoneReached() THEN
             //     Status.Action.Id :=  UINT#151;
@@ -2539,7 +2539,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 THIS.CallTimers(TRUE);
                 ReadResultsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ReadResultsTask.ThrowWhen(ReadResultsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ReadResultsTask timeout.');
+                ReadResultsTask.ThrowWhen(ReadResultsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ReadResultsTask timeout.#>');
             END_IF;
             IF ReadResultsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#161;
@@ -3055,7 +3055,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
                 SendDataTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                SendDataTask.ThrowWhen(SendDataTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'SendDataTask timeout.');
+                SendDataTask.ThrowWhen(SendDataTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#SendDataTask timeout.#>');
             END_IF;
             IF SendDataTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -3328,7 +3328,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
             //     TemplateTask_20steps_3.ThrowWhen(_errorTimer.output);
             //     Status.Action.Id := TO_UINT(_progress);  
-            //     TemplateTask_20steps_3.ThrowWhen(TemplateTask_20steps_3.Duration >= Config.ErrorTime ,'TemplateTask_20steps_3 error.');
+            //     TemplateTask_20steps_3.ThrowWhen(TemplateTask_20steps_3.Duration >= Config.ErrorTime ,'<#TemplateTask_20steps_3 error.#>');
             // END_IF;
             // IF TemplateTask_20steps_3.DoneReached() THEN
             //     Status.Action.Id :=  UINT#201;
@@ -3601,7 +3601,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
             //     TemplateTask_20steps_4.ThrowWhen(_errorTimer.output);
             //     Status.Action.Id := TO_UINT(_progress);  
-            //     TemplateTask_20steps_4.ThrowWhen(TemplateTask_20steps_4.Duration >= Config.ErrorTime ,'TemplateTask_20steps_4 error');
+            //     TemplateTask_20steps_4.ThrowWhen(TemplateTask_20steps_4.Duration >= Config.ErrorTime ,'<#TemplateTask_20steps_4 error#>');
             // END_IF;
             // IF TemplateTask_20steps_4.DoneReached() THEN
             //     Status.Action.Id :=  UINT#221;
@@ -3874,7 +3874,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
             //     TemplateTask_20steps_5.ThrowWhen(_errorTimer.output);
             //     Status.Action.Id := TO_UINT(_progress);  
-            //     TemplateTask_20steps_5.ThrowWhen(TemplateTask_20steps_5.Duration >= Config.ErrorTime ,'TemplateTask_20steps_5 error.');
+            //     TemplateTask_20steps_5.ThrowWhen(TemplateTask_20steps_5.Duration >= Config.ErrorTime ,'<#TemplateTask_20steps_5 error.#>');
             // END_IF;
             // IF TemplateTask_20steps_5.DoneReached() THEN
             //     Status.Action.Id :=  UINT#241;
@@ -4147,7 +4147,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 
             //     TemplateTask_20steps_6.ThrowWhen(_errorTimer.output);
             //     Status.Action.Id := TO_UINT(_progress);  
-            //     TemplateTask_20steps_6.ThrowWhen(TemplateTask_20steps_6.Duration >= Config.ErrorTime ,'TemplateTask_20steps_6 error.');
+            //     TemplateTask_20steps_6.ThrowWhen(TemplateTask_20steps_6.Duration >= Config.ErrorTime ,'<#TemplateTask_20steps_6 error.#>');
             // END_IF;
             // IF TemplateTask_20steps_6.DoneReached() THEN
             //     Status.Action.Id :=  UINT#261;

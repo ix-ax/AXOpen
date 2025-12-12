@@ -1284,7 +1284,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 
                 ClearResultDataTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ClearResultDataTask.ThrowWhen(ClearResultDataTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ClearResultDataTask timeout.');
+                ClearResultDataTask.ThrowWhen(ClearResultDataTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ClearResultDataTask timeout.#>');
             END_IF;
             IF ClearResultDataTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#131;
@@ -1475,7 +1475,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                             THIS.CallTimers(FALSE);
                             _progress := 390;
                         ELSE
-                            ReadTask.ThrowWhen(TRUE,'ErrorStatus.ReadFailure');
+                            ReadTask.ThrowWhen(TRUE,'<#ErrorStatus.ReadFailure#>');
                         END_IF;
                     END_IF;
                 END_IF;
@@ -1591,7 +1591,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 
                 ReadTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ReadTask.ThrowWhen(ReadTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ReadTask timeout.');
+                ReadTask.ThrowWhen(ReadTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ReadTask timeout.#>');
             END_IF;
             IF ReadTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -1781,7 +1781,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         IF NOT ErrorStatus.TuneFailure THEN
                             _progress := 410;
                         ELSE
-                            TuneTask.ThrowWhen(TRUE,'ErrorStatus.TuneFailure');
+                            TuneTask.ThrowWhen(TRUE,'<#ErrorStatus.TuneFailure#>');
                         END_IF;
                     END_IF;
                 END_IF;
@@ -1896,7 +1896,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 
                 TuneTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TuneTask.ThrowWhen(TuneTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TuneTask timeout.');
+                TuneTask.ThrowWhen(TuneTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TuneTask timeout.#>');
             END_IF;
             IF TuneTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#201;

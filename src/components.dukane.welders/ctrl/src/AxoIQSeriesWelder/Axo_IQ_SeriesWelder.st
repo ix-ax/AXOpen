@@ -910,7 +910,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 
                 ClearErrorTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ClearErrorTask.ThrowWhen(ClearErrorTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ClearErrorTask timeout.');                
+                ClearErrorTask.ThrowWhen(ClearErrorTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ClearErrorTask timeout.#>');                
             END_IF;
             IF ClearErrorTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -1072,7 +1072,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 
                 ChangeWeldingSetupTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ChangeWeldingSetupTask.ThrowWhen(ChangeWeldingSetupTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ChangeWeldingSetupTask timeout.');                
+                ChangeWeldingSetupTask.ThrowWhen(ChangeWeldingSetupTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ChangeWeldingSetupTask timeout.#>');                
             END_IF;
             IF ChangeWeldingSetupTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -1230,7 +1230,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 
                 ChangeWeldingProbeTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ChangeWeldingProbeTask.ThrowWhen(ChangeWeldingProbeTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ChangeWeldingProbeTask timeout.');                
+                ChangeWeldingProbeTask.ThrowWhen(ChangeWeldingProbeTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ChangeWeldingProbeTask timeout.#>');                
             END_IF;
             IF ChangeWeldingProbeTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -1386,7 +1386,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 
                 CycleStopTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                CycleStopTask.ThrowWhen(CycleStopTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'CycleStopTask timeout.');                
+                CycleStopTask.ThrowWhen(CycleStopTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#CycleStopTask timeout.#>');                
             END_IF;
             IF CycleStopTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#131;
@@ -1563,7 +1563,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 
                 RunWeldingWithTimeTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                RunWeldingWithTimeTask.ThrowWhen(RunWeldingWithTimeTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'RunWeldingWithTimeTask timeout.');                
+                RunWeldingWithTimeTask.ThrowWhen(RunWeldingWithTimeTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#RunWeldingWithTimeTask timeout.#>');                
             END_IF;
             IF RunWeldingWithTimeTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#141;
@@ -1716,7 +1716,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 
                 TemplateTask_10steps_6.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_6.ThrowWhen(TemplateTask_10steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_6 timeout.');                
+                TemplateTask_10steps_6.ThrowWhen(TemplateTask_10steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_10steps_6 timeout.#>');                
             END_IF;
             IF TemplateTask_10steps_6.DoneReached() THEN
                 Status.Action.Id :=  UINT#151;
@@ -1990,7 +1990,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 
                 TemplateTask_20steps_1.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_1.ThrowWhen(TemplateTask_20steps_1.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_1 timeout.');                
+                TemplateTask_20steps_1.ThrowWhen(TemplateTask_20steps_1.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_1 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_1.DoneReached() THEN
                 Status.Action.Id :=  UINT#161;
@@ -2262,7 +2262,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 THIS.CallTimers(TRUE);
                 TemplateTask_20steps_2.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_2.ThrowWhen(TemplateTask_20steps_2.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_2 timeout.');                
+                TemplateTask_20steps_2.ThrowWhen(TemplateTask_20steps_2.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_2 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_2.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -2535,7 +2535,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 
                 TemplateTask_20steps_3.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_3.ThrowWhen(TemplateTask_20steps_3.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_3 timeout.');                
+                TemplateTask_20steps_3.ThrowWhen(TemplateTask_20steps_3.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_3 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_3.DoneReached() THEN
                 Status.Action.Id :=  UINT#201;
@@ -2808,7 +2808,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 
                 TemplateTask_20steps_4.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_4.ThrowWhen(TemplateTask_20steps_4.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_4 timeout.');                
+                TemplateTask_20steps_4.ThrowWhen(TemplateTask_20steps_4.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_4 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_4.DoneReached() THEN
                 Status.Action.Id :=  UINT#221;
@@ -3081,7 +3081,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 
                 TemplateTask_20steps_5.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_5.ThrowWhen(TemplateTask_20steps_5.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_5 timeout.');                
+                TemplateTask_20steps_5.ThrowWhen(TemplateTask_20steps_5.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_5 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_5.DoneReached() THEN
                 Status.Action.Id :=  UINT#241;
@@ -3354,7 +3354,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 
                 TemplateTask_20steps_6.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_6.ThrowWhen(TemplateTask_20steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_6 timeout.');                
+                TemplateTask_20steps_6.ThrowWhen(TemplateTask_20steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_6 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_6.DoneReached() THEN
                 Status.Action.Id :=  UINT#261;
