@@ -58,4 +58,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="min_COLON_" xml:space="preserve">
+    <value>min:</value>
+    <comment>src\AxoInspector.st,381</comment>
+  </data>
+  <data name="_max_COLON__" xml:space="preserve">
+    <value> max: </value>
+    <comment>src\AxoInspector.st,381</comment>
+  </data>
+  <data name="_but_was_COLON__" xml:space="preserve">
+    <value> but was: </value>
+    <comment>src\AxoInspector.st,382</comment>
+  </data>
+  <data name="Req_COLON__" xml:space="preserve">
+    <value>Req: </value>
+    <comment>src\AxoInspector.st,470</comment>
+  </data>
+  <data name="Actual_COLON__" xml:space="preserve">
+    <value>Actual: </value>
+    <comment>src\AxoInspector.st,471</comment>
+  </data>
 </root>

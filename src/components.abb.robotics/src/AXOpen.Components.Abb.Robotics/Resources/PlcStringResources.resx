@@ -58,4 +58,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="StartAtMainTask_timeout_DOT_" xml:space="preserve">
+    <value>StartAtMainTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,458</comment>
+  </data>
+  <data name="StartMotorsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMotorsAndProgramTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,605</comment>
+  </data>
+  <data name="StartMotorsProgramAndMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMotorsProgramAndMovementsTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,852</comment>
+  </data>
+  <data name="StartMotorsTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMotorsTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,983</comment>
+  </data>
+  <data name="StartMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMovementsTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,1168</comment>
+  </data>
+  <data name="StartProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StartProgramTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,1247</comment>
+  </data>
+  <data name="StopMotorsTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMotorsTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,1323</comment>
+  </data>
+  <data name="StopMovementsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsAndProgramTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,1405</comment>
+  </data>
+  <data name="StopMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,1474</comment>
+  </data>
+  <data name="StopProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StopProgramTask timeout.</value>
+    <comment>src\AxoIrc5_v_1_x_x.st,1534</comment>
+  </data>
 </root>

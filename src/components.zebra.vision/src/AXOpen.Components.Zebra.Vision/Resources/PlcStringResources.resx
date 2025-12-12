@@ -58,4 +58,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ReadTask_timeout_DOT_" xml:space="preserve">
+    <value>ReadTask timeout.</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,552</comment>
+  </data>
+  <data name="ClearDataTask_timeout_DOT_" xml:space="preserve">
+    <value>ClearDataTask timeout.</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,726</comment>
+  </data>
+  <data name="ClearErrorTask_timeout_DOT_" xml:space="preserve">
+    <value>ClearErrorTask timeout.</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,881</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask_10steps_4 timeout.</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,1034</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask_10steps_5 timeout.</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,1187</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask_10steps_6 timeout.</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,1340</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask_20steps_1 timeout.</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,1614</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask_20steps_2 timeout.</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,1886</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask_20steps_3 timeout.</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,2159</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask_20steps_4 timeout.</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,2432</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask_20steps_5 timeout.</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,2705</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask_20steps_6 timeout.</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,2978</comment>
+  </data>
 </root>

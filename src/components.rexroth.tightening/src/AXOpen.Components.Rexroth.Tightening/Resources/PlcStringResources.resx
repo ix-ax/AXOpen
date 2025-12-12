@@ -58,4 +58,56 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DisableTask_timeout_DOT_" xml:space="preserve">
+    <value>DisableTask timeout.</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,1768</comment>
+  </data>
+  <data name="EnableTask_timeout_DOT_" xml:space="preserve">
+    <value>EnableTask timeout.</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,1827</comment>
+  </data>
+  <data name="DisableClockwiseTask_timeout_DOT_" xml:space="preserve">
+    <value>DisableClockwiseTask timeout.</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,1887</comment>
+  </data>
+  <data name="EnableClockwiseTask_timeout_DOT_" xml:space="preserve">
+    <value>EnableClockwiseTask timeout.</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,1947</comment>
+  </data>
+  <data name="DisableCounterClockwiseTask_timeout_DOT_" xml:space="preserve">
+    <value>DisableCounterClockwiseTask timeout.</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2007</comment>
+  </data>
+  <data name="EnableCounterClockwiseTask_timeout_DOT_" xml:space="preserve">
+    <value>EnableCounterClockwiseTask timeout.</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2067</comment>
+  </data>
+  <data name="ResetFaultTask_timeout_DOT_" xml:space="preserve">
+    <value>ResetFaultTask timeout.</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2162</comment>
+  </data>
+  <data name="ResetResultsTask_timeout_DOT_" xml:space="preserve">
+    <value>ResetResultsTask timeout.</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2221</comment>
+  </data>
+  <data name="SetScrewingProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>SetScrewingProgramTask timeout.</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2321</comment>
+  </data>
+  <data name="GetScrewingResultsTask_timeout_DOT_" xml:space="preserve">
+    <value>GetScrewingResultsTask timeout.</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2393</comment>
+  </data>
+  <data name="ScrewClockwiseTask_timeout_DOT_" xml:space="preserve">
+    <value>ScrewClockwiseTask timeout.</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2611</comment>
+  </data>
+  <data name="ScrewCounterClockwiseTask_timeout_DOT_" xml:space="preserve">
+    <value>ScrewCounterClockwiseTask timeout.</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2824</comment>
+  </data>
+  <data name="RunAutomatTask_timeout_DOT_" xml:space="preserve">
+    <value>RunAutomatTask timeout.</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,3196</comment>
+  </data>
 </root>
