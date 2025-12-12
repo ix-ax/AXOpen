@@ -117,28 +117,115 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancelar</value>
+  <data name="Position" xml:space="preserve">
+    <value>Posición</value>
   </data>
-  <data name="Close" xml:space="preserve">
-    <value>¡Cierra!</value>
+  <data name="Velocity" xml:space="preserve">
+    <value>Velocidad</value>
   </data>
-  <data name="Close all" xml:space="preserve">
-    <value>Cerrar todo</value>
+  <data name="Torque" xml:space="preserve">
+    <value>Par motor</value>
   </data>
-  <data name="Log in" xml:space="preserve">
-    <value>¡Iniciar sesión!</value>
+  <data name="PowerAndSafety" xml:space="preserve">
+    <value>Potencia y seguridad</value>
   </data>
-  <data name="Make a Choice" xml:space="preserve">
-    <value>Tomar una decisión</value>
+  <data name="PowerAndSafetyDescription" xml:space="preserve">
+    <value>Activa la etapa de potencia, acciona los frenos y activa las paradas controladas.</value>
   </data>
-  <data name="No" xml:space="preserve">
-    <value>No</value>
+  <data name="PowerStage" xml:space="preserve">
+    <value>Etapa de potencia</value>
   </data>
-  <data name="Ok" xml:space="preserve">
-    <value>De acuerdo</value>
+  <data name="ControlledStop" xml:space="preserve">
+    <value>Parada controlada</value>
   </data>
-  <data name="Yes" xml:space="preserve">
-    <value>Sí</value>
+  <data name="Halt" xml:space="preserve">
+    <value>Alto</value>
+  </data>
+  <data name="HomingAndReferencing" xml:space="preserve">
+    <value>Orientación y referencia</value>
+  </data>
+  <data name="HomingAndReferencingDescription" xml:space="preserve">
+    <value>Alinee el eje, establezca compensaciones y gestione los factores de anulación.</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="SetPosition" xml:space="preserve">
+    <value>Posición establecida</value>
+  </data>
+  <data name="Override" xml:space="preserve">
+    <value>Anular</value>
+  </data>
+  <data name="DiscreteMotion" xml:space="preserve">
+    <value>Movimiento discreto</value>
+  </data>
+  <data name="DiscreteMotionDescription" xml:space="preserve">
+    <value>Ejecutar movimientos de posicionamiento absolutos, relativos o aditivos.</value>
+  </data>
+  <data name="MoveAbsolute" xml:space="preserve">
+    <value>Movimiento absoluto</value>
+  </data>
+  <data name="MoveRelative" xml:space="preserve">
+    <value>Mover relativo</value>
+  </data>
+  <data name="MoveAdditive" xml:space="preserve">
+    <value>Mover aditivo</value>
+  </data>
+  <data name="ContinuousMotionAndTorque" xml:space="preserve">
+    <value>Movimiento continuo y par motor</value>
+  </data>
+  <data name="ContinuousMotionDescription" xml:space="preserve">
+    <value>Gestiona el modo de velocidad y los movimientos controlados por par.</value>
+  </data>
+  <data name="VelocityButton" xml:space="preserve">
+    <value>Velocidad</value>
+  </data>
+  <data name="TorqueControl" xml:space="preserve">
+    <value>Control del par motor</value>
+  </data>
+  <data name="LiveFeedbackDescription" xml:space="preserve">
+    <value>Retroalimentación en vivo cuando el control manual está desactivado.</value>
+  </data>
+  <data name="MonitorReferencingDescription" xml:space="preserve">
+    <value>Supervisar las tareas de referencia, las compensaciones y los factores de anulación.</value>
+  </data>
+  <data name="DiscreteMotionMonitorDescription" xml:space="preserve">
+    <value>Colas de comandos, velocidades de avance y progreso de los movimientos transversales.</value>
+  </data>
+  <data name="ContinuousMotionMonitorDescription" xml:space="preserve">
+    <value>Observe los bucles de control de velocidad y par.</value>
+  </data>
+  <data name="DriveFeedback" xml:space="preserve">
+    <value>Retroalimentación de la unidad</value>
+  </data>
+  <data name="DriveFeedbackDescription" xml:space="preserve">
+    <value>Bits de estado, tareas activas y diagnósticos actuales.</value>
+  </data>
+  <data name="ScalingConstants" xml:space="preserve">
+    <value>Constantes de escala</value>
+  </data>
+  <data name="ScalingConstantsDescription" xml:space="preserve">
+    <value>Factores en tiempo real calculados a partir de los parámetros PROFIdrive.</value>
+  </data>
+  <data name="AxisReference" xml:space="preserve">
+    <value>Referencia del eje</value>
+  </data>
+  <data name="AxisReferenceDescription" xml:space="preserve">
+    <value>Inspeccione telegramas, identificadores de hardware y datos de ejes almacenados en caché.</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Desconocido</value>
+  </data>
+  <data name="NoTask" xml:space="preserve">
+    <value>Sin tarea</value>
+  </data>
+  <data name="MillimetersUnit" xml:space="preserve">
+    <value>mm</value>
+  </data>
+  <data name="MillimetersPerSecondUnit" xml:space="preserve">
+    <value>mm/s</value>
+  </data>
+  <data name="NewtonMetersUnit" xml:space="preserve">
+    <value>Nm</value>
   </data>
 </root>

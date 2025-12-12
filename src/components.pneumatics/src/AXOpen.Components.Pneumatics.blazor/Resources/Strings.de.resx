@@ -117,28 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancelar</value>
+  <data name="Moving" xml:space="preserve">
+    <value>Umzug</value>
   </data>
-  <data name="Close" xml:space="preserve">
-    <value>¡Cierra!</value>
-  </data>
-  <data name="Close all" xml:space="preserve">
-    <value>Cerrar todo</value>
-  </data>
-  <data name="Log in" xml:space="preserve">
-    <value>¡Iniciar sesión!</value>
-  </data>
-  <data name="Make a Choice" xml:space="preserve">
-    <value>Tomar una decisión</value>
-  </data>
-  <data name="No" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="Ok" xml:space="preserve">
-    <value>De acuerdo</value>
-  </data>
-  <data name="Yes" xml:space="preserve">
-    <value>Sí</value>
+  <data name="Stop" xml:space="preserve">
+    <value>STOPP</value>
   </data>
 </root>

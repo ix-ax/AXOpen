@@ -117,28 +117,133 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancelar</value>
+  <data name="ServoOn" xml:space="preserve">
+    <value>Servo ein</value>
   </data>
-  <data name="Close" xml:space="preserve">
-    <value>¡Cierra!</value>
+  <data name="ServoOff" xml:space="preserve">
+    <value>Servo aus</value>
   </data>
-  <data name="Close all" xml:space="preserve">
-    <value>Cerrar todo</value>
+  <data name="Running" xml:space="preserve">
+    <value>Laufen</value>
   </data>
-  <data name="Log in" xml:space="preserve">
-    <value>¡Iniciar sesión!</value>
+  <data name="Stopped" xml:space="preserve">
+    <value>Angehalten</value>
   </data>
-  <data name="Make a Choice" xml:space="preserve">
-    <value>Tomar una decisión</value>
+  <data name="Error" xml:space="preserve">
+    <value>Fehler</value>
   </data>
-  <data name="No" xml:space="preserve">
-    <value>No</value>
+  <data name="Warning" xml:space="preserve">
+    <value>Warnung</value>
   </data>
-  <data name="Ok" xml:space="preserve">
-    <value>De acuerdo</value>
+  <data name="Emergency" xml:space="preserve">
+    <value>Notfall</value>
   </data>
-  <data name="Yes" xml:space="preserve">
-    <value>Sí</value>
+  <data name="StartAtMain" xml:space="preserve">
+    <value>Beginnen Sie bei Main</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Wiederherstellen</value>
+  </data>
+  <data name="StartMotorsAndProgram" xml:space="preserve">
+    <value>Startmotoren &amp; Programm</value>
+  </data>
+  <data name="StopMovementsAndProgram" xml:space="preserve">
+    <value>Bewegungen &amp; Programm stoppen</value>
+  </data>
+  <data name="StartMovements" xml:space="preserve">
+    <value>Bewegungen starten</value>
+  </data>
+  <data name="StopMovements" xml:space="preserve">
+    <value>Bewegungen stoppen</value>
+  </data>
+  <data name="MovementParameters" xml:space="preserve">
+    <value>Bewegungsparameter</value>
+  </data>
+  <data name="Coordinates" xml:space="preserve">
+    <value>Koordinaten</value>
+  </data>
+  <data name="RobotStatus" xml:space="preserve">
+    <value>Roboterstatus</value>
+  </data>
+  <data name="OperationEnable" xml:space="preserve">
+    <value>Operation Aktivieren</value>
+  </data>
+  <data name="AutoEnable" xml:space="preserve">
+    <value>Automatisch aktivieren</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Halt</value>
+  </data>
+  <data name="RcReady" xml:space="preserve">
+    <value>RC-fähig</value>
+  </data>
+  <data name="ErrorStatus" xml:space="preserve">
+    <value>Fehlerstatus</value>
+  </data>
+  <data name="HighLevelError" xml:space="preserve">
+    <value>Fehler auf hoher Ebene</value>
+  </data>
+  <data name="LowLevelError" xml:space="preserve">
+    <value>Fehler niedriger Stufe</value>
+  </data>
+  <data name="CautionLevel" xml:space="preserve">
+    <value>Vorsichtsstufe</value>
+  </data>
+  <data name="EmergencyError" xml:space="preserve">
+    <value>Notfallfehler</value>
+  </data>
+  <data name="BatteryLow" xml:space="preserve">
+    <value>Batterie schwach</value>
+  </data>
+  <data name="PositionAndZoneStatus" xml:space="preserve">
+    <value>Position &amp; Zonenstatus</value>
+  </data>
+  <data name="InArea1" xml:space="preserve">
+    <value>In Bereich 1</value>
+  </data>
+  <data name="InArea2" xml:space="preserve">
+    <value>In Bereich 2</value>
+  </data>
+  <data name="InPosition1" xml:space="preserve">
+    <value>In Position 1</value>
+  </data>
+  <data name="InPosition2" xml:space="preserve">
+    <value>In Position 2</value>
+  </data>
+  <data name="CurrentCoordinates" xml:space="preserve">
+    <value>Aktuelle Koordinaten</value>
+  </data>
+  <data name="ToolStatus" xml:space="preserve">
+    <value>Werkzeugstatus</value>
+  </data>
+  <data name="Tool1" xml:space="preserve">
+    <value>Werkzeug 1</value>
+  </data>
+  <data name="Tool2" xml:space="preserve">
+    <value>Werkzeug 2</value>
+  </data>
+  <data name="Tool3" xml:space="preserve">
+    <value>Werkzeug 3</value>
+  </data>
+  <data name="Tool4" xml:space="preserve">
+    <value>Werkzeug 4</value>
+  </data>
+  <data name="Extended" xml:space="preserve">
+    <value>Erweitert</value>
+  </data>
+  <data name="Retracted" xml:space="preserve">
+    <value>Zurückgezogen</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Unbekannt</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Konfiguration</value>
+  </data>
+  <data name="HardwareDiagnostics" xml:space="preserve">
+    <value>Hardware-Diagnose</value>
   </data>
 </root>

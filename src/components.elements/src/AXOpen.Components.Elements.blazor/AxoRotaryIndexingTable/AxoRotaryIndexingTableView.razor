@@ -8,7 +8,7 @@
 <AxoComponentContainerView Component="@Component" ParentReference="this">
     <HeaderContent>
         <div class="flex items-center gap-3" @onclick:stopPropagation="true">
-            <span class="@PositionBadgeClass">Position @CurrentPosition</span>
+            <span class="@PositionBadgeClass">@Localizer["Position"] @CurrentPosition</span>
             @* <span class="text-xs uppercase tracking-wide text-text/70">@StatusHint</span> *@
             <span class="badge badge-info">@StatusHint</span>
         </div>
@@ -16,11 +16,11 @@
     <CommandsOperateContent>
         <div class="flex flex-col gap-3 w-full" @onclick:stopPropagation="true">
             <div class="flex flex-wrap gap-3">
-                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="Turn" Component="Component.TurnTask" HideRestoreButton="false"></AxoTaskCommandView>
-                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="Init Position" Component="Component.InitPositionTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="@Localizer["Turn"]" Component="Component.TurnTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="@Localizer["InitPosition"]" Component="Component.InitPositionTask" HideRestoreButton="false"></AxoTaskCommandView>
             </div>
             <div class="flex flex-wrap gap-3">
-                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="Restore" Component="Component.RestoreTask" HideRestoreButton="true"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="@Localizer["Restore"]" Component="Component.RestoreTask" HideRestoreButton="true"></AxoTaskCommandView>
             </div>
         </div>
     </CommandsOperateContent>
@@ -28,11 +28,11 @@
     <CommandsMonitorContent>
         <div class="flex flex-col gap-3 w-full" @onclick:stopPropagation="true">
             <div class="flex flex-wrap gap-3">
-                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="Turn" Component="Component.TurnTask" HideRestoreButton="false"></AxoTaskStatusView>
-                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="Init Position" Component="Component.InitPositionTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="@Localizer["Turn"]" Component="Component.TurnTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="@Localizer["InitPosition"]" Component="Component.InitPositionTask" HideRestoreButton="false"></AxoTaskStatusView>
             </div>
             <div class="flex flex-wrap gap-3">
-                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="Restore" Component="Component.RestoreTask" HideRestoreButton="true"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="@Localizer["Restore"]" Component="Component.RestoreTask" HideRestoreButton="true"></AxoTaskStatusView>
             </div>
         </div>
     </CommandsMonitorContent>
@@ -41,51 +41,51 @@
         <div class="flex flex-col gap-4" @onclick:stopPropagation="true">
             <!-- Current Position Display -->
             <div class="card p-4">
-                <p class="text-xs uppercase tracking-wide text-text/60 mb-2">Current Position</p>
+                <p class="text-xs uppercase tracking-wide text-text/60 mb-2">@Localizer["CurrentPosition"]</p>
                 <div class="flex items-center gap-4">
                     <div class="axo-rotary-position-display">
                         <span class="text-3xl font-bold text-primary">@CurrentPosition</span>
                     </div>
                     <div class="flex flex-col gap-1">
-                        <p class="text-sm text-text/70">Start: @(Component?.Status?.StartPosition?.Cyclic ?? 0)</p>
-                        <p class="text-sm text-text/70">End: @(Component?.Status?.EndPosition?.Cyclic ?? 0)</p>
+                        <p class="text-sm text-text/70">@Localizer["Start"]: @(Component?.Status?.StartPosition?.Cyclic ?? 0)</p>
+                        <p class="text-sm text-text/70">@Localizer["End"]: @(Component?.Status?.EndPosition?.Cyclic ?? 0)</p>
                     </div>
                 </div>
             </div>
 
             <!-- Inputs Section -->
             <div class="card p-4">
-                <p class="text-xs uppercase tracking-wide text-text/60 mb-2">Inputs</p>
+                <p class="text-xs uppercase tracking-wide text-text/60 mb-2">@Localizer["Inputs"]</p>
                 <div class="grid grid-cols-2 gap-3">
                     <div class="flex items-center gap-2">
                         <span class="@GetSignalClass(IsSafetyCondition)"></span>
-                        <span class="text-sm">Safety Condition</span>
+                        <span class="text-sm">@Localizer["SafetyCondition"]</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <span class="@GetSignalClass(IsInPosition)"></span>
-                        <span class="text-sm">In Position</span>
+                        <span class="text-sm">@Localizer["InPosition"]</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <span class="@GetSignalClass(IsInPrecisePosition)"></span>
-                        <span class="text-sm">In Precise Position</span>
+                        <span class="text-sm">@Localizer["InPrecisePosition"]</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="text-sm text-text/70">Coding Position: @(Component?.Inputs?.CodingPosition?.Cyclic ?? 0)</span>
+                        <span class="text-sm text-text/70">@Localizer["CodingPosition"]: @(Component?.Inputs?.CodingPosition?.Cyclic ?? 0)</span>
                     </div>
                 </div>
             </div>
 
             <!-- Outputs Section -->
             <div class="card p-4">
-                <p class="text-xs uppercase tracking-wide text-text/60 mb-2">Outputs</p>
+                <p class="text-xs uppercase tracking-wide text-text/60 mb-2">@Localizer["Outputs"]</p>
                 <div class="grid grid-cols-2 gap-3">
                     <div class="flex items-center gap-2">
                         <span class="@GetSignalClass(IsEnableTurn)"></span>
-                        <span class="text-sm">Enable Turn</span>
+                        <span class="text-sm">@Localizer["EnableTurn"]</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <span class="@GetSignalClass(IsStartTurn)"></span>
-                        <span class="text-sm">Start Turn</span>
+                        <span class="text-sm">@Localizer["StartTurn"]</span>
                     </div>
                 </div>
             </div>
@@ -121,12 +121,12 @@
     {
         get
         {
-            if (!IsSafetyCondition) return "Safety not OK";
-            if (IsTurning) return "Turning...";
-            if (IsInitializing) return "Initializing...";
-            if (IsInPosition && IsInPrecisePosition) return "In precise position";
-            if (IsInPosition) return "In position";
-            return "Ready";
+            if (!IsSafetyCondition) return Localizer["SafetyNotOk"];
+            if (IsTurning) return Localizer["Turning"];
+            if (IsInitializing) return Localizer["Initializing"];
+            if (IsInPosition && IsInPrecisePosition) return Localizer["InPrecisePositionStatus"];
+            if (IsInPosition) return Localizer["InPositionStatus"];
+            return Localizer["Ready"];
         }
     }
 

@@ -70,7 +70,7 @@ namespace AXOpen.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manually Controllable.
+        ///   Looks up a localized string similar to Is manually controllable.
         /// </summary>
         public static string Is_manually_controllable {
             get {
@@ -79,7 +79,7 @@ namespace AXOpen.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Run step.
+        ///   Looks up a localized string similar to Execute ste.
         /// </summary>
         public static string Run_step {
             get {

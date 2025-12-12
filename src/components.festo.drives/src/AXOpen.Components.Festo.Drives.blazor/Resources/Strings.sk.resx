@@ -117,28 +117,115 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancelar</value>
+  <data name="PowerAndSafetyDescription" xml:space="preserve">
+    <value>Aktivujte výkonovú fázu, prepínajte brzdy a spúšťajte kontrolované zastavenia.</value>
   </data>
-  <data name="Close" xml:space="preserve">
-    <value>¡Cierra!</value>
+  <data name="Position" xml:space="preserve">
+    <value>Pozícia</value>
   </data>
-  <data name="Close all" xml:space="preserve">
-    <value>Cerrar todo</value>
+  <data name="Velocity" xml:space="preserve">
+    <value>Rýchlosť</value>
   </data>
-  <data name="Log in" xml:space="preserve">
-    <value>¡Iniciar sesión!</value>
+  <data name="Torque" xml:space="preserve">
+    <value>Krútiaci moment</value>
   </data>
-  <data name="Make a Choice" xml:space="preserve">
-    <value>Tomar una decisión</value>
+  <data name="PowerAndSafety" xml:space="preserve">
+    <value>Výkon a bezpečnosť</value>
   </data>
-  <data name="No" xml:space="preserve">
-    <value>No</value>
+  <data name="PowerStage" xml:space="preserve">
+    <value>Výkonová fáza</value>
   </data>
-  <data name="Ok" xml:space="preserve">
-    <value>De acuerdo</value>
+  <data name="ControlledStop" xml:space="preserve">
+    <value>Kontrolované zastavenie</value>
   </data>
-  <data name="Yes" xml:space="preserve">
-    <value>Sí</value>
+  <data name="Halt" xml:space="preserve">
+    <value>Zastaviť</value>
+  </data>
+  <data name="HomingAndReferencing" xml:space="preserve">
+    <value>Navádzanie a referencovanie</value>
+  </data>
+  <data name="HomingAndReferencingDescription" xml:space="preserve">
+    <value>Vyrovnajte os, nastavte posuny a spravujte faktory prepisovania.</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Domov</value>
+  </data>
+  <data name="SetPosition" xml:space="preserve">
+    <value>Nastaviť polohu</value>
+  </data>
+  <data name="Override" xml:space="preserve">
+    <value>Prepísať</value>
+  </data>
+  <data name="DiscreteMotion" xml:space="preserve">
+    <value>Diskrétny pohyb</value>
+  </data>
+  <data name="DiscreteMotionDescription" xml:space="preserve">
+    <value>Vykonávajte absolútne, relatívne alebo aditívne polohovacie pohyby.</value>
+  </data>
+  <data name="MoveAbsolute" xml:space="preserve">
+    <value>Absolútny pohyb</value>
+  </data>
+  <data name="MoveRelative" xml:space="preserve">
+    <value>Presun relatívny</value>
+  </data>
+  <data name="MoveAdditive" xml:space="preserve">
+    <value>Presun prísady</value>
+  </data>
+  <data name="ContinuousMotionAndTorque" xml:space="preserve">
+    <value>Neustály pohyb a krútiaci moment</value>
+  </data>
+  <data name="ContinuousMotionDescription" xml:space="preserve">
+    <value>Riadenie režimu rýchlosti a pohybov riadených krútiacim momentom.</value>
+  </data>
+  <data name="VelocityButton" xml:space="preserve">
+    <value>Rýchlosť</value>
+  </data>
+  <data name="TorqueControl" xml:space="preserve">
+    <value>Kontrola krútiaceho momentu</value>
+  </data>
+  <data name="LiveFeedbackDescription" xml:space="preserve">
+    <value>Živá spätná väzba, keď je manuálne ovládanie vypnuté.</value>
+  </data>
+  <data name="MonitorReferencingDescription" xml:space="preserve">
+    <value>Monitorujte referenčné úlohy, kompenzácie a faktory prepisovania.</value>
+  </data>
+  <data name="DiscreteMotionMonitorDescription" xml:space="preserve">
+    <value>Odosielanie príkazov, rýchlosť posuvu a priebeh pohybov.</value>
+  </data>
+  <data name="ContinuousMotionMonitorDescription" xml:space="preserve">
+    <value>Sledujte regulačné slučky rýchlosti a krútiaceho momentu.</value>
+  </data>
+  <data name="DriveFeedback" xml:space="preserve">
+    <value>Spätná väzba od vodiča</value>
+  </data>
+  <data name="DriveFeedbackDescription" xml:space="preserve">
+    <value>Stavové bity, aktívne úlohy a aktuálna diagnostika.</value>
+  </data>
+  <data name="ScalingConstants" xml:space="preserve">
+    <value>Konštanty škálovania</value>
+  </data>
+  <data name="ScalingConstantsDescription" xml:space="preserve">
+    <value>Faktory v reálnom čase vypočítané z parametrov PROFIdrive.</value>
+  </data>
+  <data name="AxisReference" xml:space="preserve">
+    <value>Referenčná os</value>
+  </data>
+  <data name="AxisReferenceDescription" xml:space="preserve">
+    <value>Skontrolujte telegramy, identifikátory hardvéru a údaje o osiach uložené v pamäti cache.</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Neznámy</value>
+  </data>
+  <data name="NoTask" xml:space="preserve">
+    <value>Žiadna úloha</value>
+  </data>
+  <data name="MillimetersUnit" xml:space="preserve">
+    <value>mm</value>
+  </data>
+  <data name="MillimetersPerSecondUnit" xml:space="preserve">
+    <value>mm/s</value>
+  </data>
+  <data name="NewtonMetersUnit" xml:space="preserve">
+    <value>Nm</value>
   </data>
 </root>

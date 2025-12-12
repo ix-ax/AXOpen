@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <!-- AxoAoView -->
+  <data name="RequiredValue" xml:space="preserve">
+    <value>Required Value</value>
+  </data>
+  <!-- AxoDiView -->
+  <data name="ExpectHigh" xml:space="preserve">
+    <value>Expect HIGH</value>
+  </data>
+  <data name="ExpectLow" xml:space="preserve">
+    <value>Expect LOW</value>
+  </data>
+  <data name="HighCheck" xml:space="preserve">
+    <value>HIGH check</value>
+  </data>
+  <data name="LowCheck" xml:space="preserve">
+    <value>LOW check</value>
+  </data>
+  <data name="Signal" xml:space="preserve">
+    <value>Signal</value>
+  </data>
+  <data name="SignalHigh" xml:space="preserve">
+    <value>Signal HIGH</value>
+  </data>
+  <data name="SignalLow" xml:space="preserve">
+    <value>Signal LOW</value>
+  </data>
+  <data name="PositiveFeedbackPresent" xml:space="preserve">
+    <value>Positive feedback present</value>
+  </data>
+  <data name="WaitingForPositiveFeedback" xml:space="preserve">
+    <value>Waiting for positive feedback</value>
+  </data>
+  <data name="InputIsEnergizedAndReady" xml:space="preserve">
+    <value>Input is energized and ready</value>
+  </data>
+  <data name="InputIsDeEnergized" xml:space="preserve">
+    <value>Input is de-energized</value>
+  </data>
+  <!-- AxoDoView -->
+  <data name="SwitchOn" xml:space="preserve">
+    <value>Switch ON</value>
+  </data>
+  <data name="SwitchOff" xml:space="preserve">
+    <value>Switch OFF</value>
+  </data>
+  <data name="SignalOn" xml:space="preserve">
+    <value>Signal ON</value>
+  </data>
+  <data name="SignalOff" xml:space="preserve">
+    <value>Signal OFF</value>
+  </data>
+  <data name="OutputIsActive" xml:space="preserve">
+    <value>Output is active</value>
+  </data>
+  <data name="OutputIsInactive" xml:space="preserve">
+    <value>Output is inactive</value>
+  </data>
+  <data name="OutputIsEnergized" xml:space="preserve">
+    <value>Output is energized</value>
+  </data>
+  <data name="OutputIsDeEnergized" xml:space="preserve">
+    <value>Output is de-energized</value>
+  </data>
+  <!-- AxoRotaryIndexingTableView -->
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Turn" xml:space="preserve">
+    <value>Turn</value>
+  </data>
+  <data name="InitPosition" xml:space="preserve">
+    <value>Init Position</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="CurrentPosition" xml:space="preserve">
+    <value>Current Position</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+  </data>
+  <data name="SafetyCondition" xml:space="preserve">
+    <value>Safety Condition</value>
+  </data>
+  <data name="InPosition" xml:space="preserve">
+    <value>In Position</value>
+  </data>
+  <data name="InPrecisePosition" xml:space="preserve">
+    <value>In Precise Position</value>
+  </data>
+  <data name="CodingPosition" xml:space="preserve">
+    <value>Coding Position</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+  </data>
+  <data name="EnableTurn" xml:space="preserve">
+    <value>Enable Turn</value>
+  </data>
+  <data name="StartTurn" xml:space="preserve">
+    <value>Start Turn</value>
+  </data>
+  <data name="SafetyNotOk" xml:space="preserve">
+    <value>Safety not OK</value>
+  </data>
+  <data name="Turning" xml:space="preserve">
+    <value>Turning...</value>
+  </data>
+  <data name="Initializing" xml:space="preserve">
+    <value>Initializing...</value>
+  </data>
+  <data name="InPrecisePositionStatus" xml:space="preserve">
+    <value>In precise position</value>
+  </data>
+  <data name="InPositionStatus" xml:space="preserve">
+    <value>In position</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+</root>

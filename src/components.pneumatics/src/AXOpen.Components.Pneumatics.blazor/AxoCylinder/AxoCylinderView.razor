@@ -15,7 +15,7 @@
             }
             else if (IsMoving)
             {
-                <span class="badge badge-warning">Moving</span>
+                <span class="badge badge-warning">@Localizer["Moving"]</span>
             }
             else
             {
@@ -27,7 +27,7 @@
         <div class="flex flex-col gap-2 w-full">
             <div class="flex gap-2 w-full">
                 <AxoTaskCommandView class="flex-[2]" Text="@Component.InLabel" Component="Component._MoveInTask" HideRestoreButton="false"></AxoTaskCommandView>
-                <AxoTaskCommandView class="flex-1" Text="STOP" Component="Component._StopTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1" Text="@Localizer["Stop"]" Component="Component._StopTask" HideRestoreButton="false"></AxoTaskCommandView>
                 <AxoTaskCommandView class="flex-[2]" Text="@Component.OutLabel" Component="Component._MoveOutTask" HideRestoreButton="false"></AxoTaskCommandView>
             </div>
         </div>
@@ -37,7 +37,7 @@
         <div class="flex flex-col gap-2 w-full">
             <div class="flex gap-2 w-full">
                 <AxoTaskStatusView class="flex-[2]" Text="@Component.InLabel" Component="Component._MoveInTask" HideRestoreButton="false"></AxoTaskStatusView>
-                <AxoTaskStatusView class="flex-1" Text="STOP" Component="Component._StopTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1" Text="@Localizer["Stop"]" Component="Component._StopTask" HideRestoreButton="false"></AxoTaskStatusView>
                 <AxoTaskStatusView class="flex-[2]" Text="@Component.OutLabel" Component="Component._MoveOutTask" HideRestoreButton="false"></AxoTaskStatusView>
             </div>
         </div>

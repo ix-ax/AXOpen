@@ -117,28 +117,127 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancelar</value>
+  <data name="RequiredValue" xml:space="preserve">
+    <value>Erforderlicher Wert</value>
   </data>
-  <data name="Close" xml:space="preserve">
-    <value>¡Cierra!</value>
+  <data name="ExpectHigh" xml:space="preserve">
+    <value>Erwarten Sie HOCH</value>
   </data>
-  <data name="Close all" xml:space="preserve">
-    <value>Cerrar todo</value>
+  <data name="ExpectLow" xml:space="preserve">
+    <value>Erwarten Sie NIEDRIG</value>
   </data>
-  <data name="Log in" xml:space="preserve">
-    <value>¡Iniciar sesión!</value>
+  <data name="HighCheck" xml:space="preserve">
+    <value>HIGH-Prüfung</value>
   </data>
-  <data name="Make a Choice" xml:space="preserve">
-    <value>Tomar una decisión</value>
+  <data name="LowCheck" xml:space="preserve">
+    <value>LOW-Prüfung</value>
   </data>
-  <data name="No" xml:space="preserve">
-    <value>No</value>
+  <data name="Signal" xml:space="preserve">
+    <value>Signal</value>
   </data>
-  <data name="Ok" xml:space="preserve">
-    <value>De acuerdo</value>
+  <data name="SignalHigh" xml:space="preserve">
+    <value>Signal HIGH</value>
   </data>
-  <data name="Yes" xml:space="preserve">
-    <value>Sí</value>
+  <data name="SignalLow" xml:space="preserve">
+    <value>Signal NIEDRIG</value>
+  </data>
+  <data name="PositiveFeedbackPresent" xml:space="preserve">
+    <value>Positives Feedback vorhanden</value>
+  </data>
+  <data name="WaitingForPositiveFeedback" xml:space="preserve">
+    <value>Warten auf positives Feedback</value>
+  </data>
+  <data name="InputIsEnergizedAndReady" xml:space="preserve">
+    <value>Eingang ist unter Spannung und bereit</value>
+  </data>
+  <data name="InputIsDeEnergized" xml:space="preserve">
+    <value>Eingang ist stromlos</value>
+  </data>
+  <data name="SwitchOn" xml:space="preserve">
+    <value>Einschalten</value>
+  </data>
+  <data name="SwitchOff" xml:space="preserve">
+    <value>Ausschalten</value>
+  </data>
+  <data name="SignalOn" xml:space="preserve">
+    <value>Signal EIN</value>
+  </data>
+  <data name="SignalOff" xml:space="preserve">
+    <value>Signal AUS</value>
+  </data>
+  <data name="OutputIsActive" xml:space="preserve">
+    <value>Ausgang ist aktiv</value>
+  </data>
+  <data name="OutputIsInactive" xml:space="preserve">
+    <value>Ausgang ist inaktiv</value>
+  </data>
+  <data name="OutputIsEnergized" xml:space="preserve">
+    <value>Ausgang ist unter Spannung</value>
+  </data>
+  <data name="OutputIsDeEnergized" xml:space="preserve">
+    <value>Ausgang ist stromlos</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Turn" xml:space="preserve">
+    <value>Drehen</value>
+  </data>
+  <data name="InitPosition" xml:space="preserve">
+    <value>Startposition</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Wiederherstellen</value>
+  </data>
+  <data name="CurrentPosition" xml:space="preserve">
+    <value>Aktuelle Position</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>Ende</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Eingaben</value>
+  </data>
+  <data name="SafetyCondition" xml:space="preserve">
+    <value>Sicherheitszustand</value>
+  </data>
+  <data name="InPosition" xml:space="preserve">
+    <value>In Position</value>
+  </data>
+  <data name="InPrecisePosition" xml:space="preserve">
+    <value>In präziser Position</value>
+  </data>
+  <data name="CodingPosition" xml:space="preserve">
+    <value>Codierungsposition</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Ausgaben</value>
+  </data>
+  <data name="EnableTurn" xml:space="preserve">
+    <value>Aktivieren</value>
+  </data>
+  <data name="StartTurn" xml:space="preserve">
+    <value>Start Runde</value>
+  </data>
+  <data name="SafetyNotOk" xml:space="preserve">
+    <value>Sicherheit nicht in Ordnung</value>
+  </data>
+  <data name="Turning" xml:space="preserve">
+    <value>Drehen...</value>
+  </data>
+  <data name="Initializing" xml:space="preserve">
+    <value>Initialisierung...</value>
+  </data>
+  <data name="InPrecisePositionStatus" xml:space="preserve">
+    <value>In präziser Position</value>
+  </data>
+  <data name="InPositionStatus" xml:space="preserve">
+    <value>In Position</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Bereit</value>
   </data>
 </root>

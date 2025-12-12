@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -58,16 +58,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Command_state" xml:space="preserve">
-    <value>Command state</value>
+  <!-- AxoCylinderView -->
+  <data name="Moving" xml:space="preserve">
+    <value>Moving</value>
   </data>
-  <data name="Stepping_mode" xml:space="preserve">
-    <value>Stepping mode</value>
-  </data>
-  <data name="Sequence_mode" xml:space="preserve">
-    <value>Sequence mode</value>
-  </data>
-  <data name="Run_step" xml:space="preserve">
-    <value>Execute step</value>
+  <data name="Stop" xml:space="preserve">
+    <value>STOP</value>
   </data>
 </root>

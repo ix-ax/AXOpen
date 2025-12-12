@@ -31,7 +31,9 @@ namespace AXOpen.Data.Blazor.Properties {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal AxOpenDataResources() {
         }
-        
+
+        public static IFormatProvider Data_with_ID_was_created_for { get; internal set; }
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -79,6 +81,15 @@ namespace AXOpen.Data.Blazor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot create!.
+        /// </summary>
+        internal static string Cannot_create {
+            get {
+                return ResourceManager.GetString("Cannot create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         internal static string Close {
@@ -106,11 +117,47 @@ namespace AXOpen.Data.Blazor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copied!.
+        /// </summary>
+        internal static string Copied {
+            get {
+                return ResourceManager.GetString("Copied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copied error.
+        /// </summary>
+        internal static string Copied_error {
+            get {
+                return ResourceManager.GetString("Copied error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copied record.
+        /// </summary>
+        internal static string Copied_record {
+            get {
+                return ResourceManager.GetString("Copied record", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copy.
         /// </summary>
         internal static string Copy {
             get {
                 return ResourceManager.GetString("Copy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy error.
+        /// </summary>
+        internal static string Copy_error {
+            get {
+                return ResourceManager.GetString("Copy error", resourceCulture);
             }
         }
         
@@ -124,11 +171,38 @@ namespace AXOpen.Data.Blazor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copy record error.
+        /// </summary>
+        internal static string Copy_record_error {
+            get {
+                return ResourceManager.GetString("Copy record error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create.
         /// </summary>
         internal static string Create {
             get {
                 return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create data error.
+        /// </summary>
+        internal static string Create_data_error {
+            get {
+                return ResourceManager.GetString("Create data error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create error.
+        /// </summary>
+        internal static string Create_error {
+            get {
+                return ResourceManager.GetString("Create error", resourceCulture);
             }
         }
         
@@ -142,6 +216,42 @@ namespace AXOpen.Data.Blazor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create new record.
+        /// </summary>
+        internal static string Create_new_record {
+            get {
+                return ResourceManager.GetString("Create new record", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create record error.
+        /// </summary>
+        internal static string Create_record_error {
+            get {
+                return ResourceManager.GetString("Create record error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create record from PLC.
+        /// </summary>
+        internal static string Create_record_from_PLC {
+            get {
+                return ResourceManager.GetString("Create record from PLC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Created!.
+        /// </summary>
+        internal static string Created {
+            get {
+                return ResourceManager.GetString("Created", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Customize.
         /// </summary>
         internal static string Customize {
@@ -151,11 +261,65 @@ namespace AXOpen.Data.Blazor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data cannot be deleted. Please enter valid new identifier!.
+        /// </summary>
+        internal static string Data_cannot_be_deleted_please_enter_valid_new_identifier {
+            get {
+                return ResourceManager.GetString("Data cannot be deleted please enter valid new identifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data was successfully exported!.
+        /// </summary>
+        internal static string Data_was_successfully_exported {
+            get {
+                return ResourceManager.GetString("Data was successfully exported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data were successfully imported!.
+        /// </summary>
+        internal static string Data_were_successfully_imported {
+            get {
+                return ResourceManager.GetString("Data were successfully imported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete error.
+        /// </summary>
+        internal static string Delete_error {
+            get {
+                return ResourceManager.GetString("Delete error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete record.
+        /// </summary>
+        internal static string Delete_record {
+            get {
+                return ResourceManager.GetString("Delete record", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deleted!.
+        /// </summary>
+        internal static string Deleted {
+            get {
+                return ResourceManager.GetString("Deleted", resourceCulture);
             }
         }
         
@@ -174,6 +338,24 @@ namespace AXOpen.Data.Blazor.Properties {
         internal static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edited!.
+        /// </summary>
+        internal static string Edited {
+            get {
+                return ResourceManager.GetString("Edited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error!.
+        /// </summary>
+        internal static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
             }
         }
         
@@ -201,6 +383,51 @@ namespace AXOpen.Data.Blazor.Properties {
         internal static string Export_data {
             get {
                 return ResourceManager.GetString("Export data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exported!.
+        /// </summary>
+        internal static string Exported {
+            get {
+                return ResourceManager.GetString("Exported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to copy!.
+        /// </summary>
+        internal static string Failed_to_copy {
+            get {
+                return ResourceManager.GetString("Failed to copy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to create new record!.
+        /// </summary>
+        internal static string Failed_to_create_new_record {
+            get {
+                return ResourceManager.GetString("Failed to create new record", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to create new record from the controller.
+        /// </summary>
+        internal static string Failed_to_create_new_record_from_the_controller {
+            get {
+                return ResourceManager.GetString("Failed to create new record from the controller", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to delete.
+        /// </summary>
+        internal static string Failed_to_delete {
+            get {
+                return ResourceManager.GetString("Failed to delete", resourceCulture);
             }
         }
         
@@ -241,6 +468,69 @@ namespace AXOpen.Data.Blazor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Imported!.
+        /// </summary>
+        internal static string Imported {
+            get {
+                return ResourceManager.GetString("Imported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item was successfully copied!.
+        /// </summary>
+        internal static string Item_was_successfully_copied {
+            get {
+                return ResourceManager.GetString("Item was successfully copied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item was successfully created!.
+        /// </summary>
+        internal static string Item_was_successfully_created {
+            get {
+                return ResourceManager.GetString("Item was successfully created", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item was successfully deleted!.
+        /// </summary>
+        internal static string Item_was_successfully_deleted {
+            get {
+                return ResourceManager.GetString("Item was successfully deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item was successfully edited!.
+        /// </summary>
+        internal static string Item_was_successfully_edited {
+            get {
+                return ResourceManager.GetString("Item was successfully edited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item was successfully loaded from PLC!.
+        /// </summary>
+        internal static string Item_was_successfully_loaded_from_PLC {
+            get {
+                return ResourceManager.GetString("Item was successfully loaded from PLC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item was successfully sent to PLC!.
+        /// </summary>
+        internal static string Item_was_successfully_sent_to_PLC {
+            get {
+                return ResourceManager.GetString("Item was successfully sent to PLC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last.
         /// </summary>
         internal static string Last {
@@ -268,65 +558,11 @@ namespace AXOpen.Data.Blazor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Save.
+        ///   Looks up a localized string similar to Loaded from PLC!.
         /// </summary>
-        internal static string Save {
+        internal static string Loaded_from_PLC {
             get {
-                return ResourceManager.GetString("Save", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Send to PLC.
-        /// </summary>
-        internal static string Send_to_PLC {
-            get {
-                return ResourceManager.GetString("Send to PLC", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Separator.
-        /// </summary>
-        internal static string Separator {
-            get {
-                return ResourceManager.GetString("Separator", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to StartsWith.
-        /// </summary>
-        internal static string StartsWith {
-            get {
-                return ResourceManager.GetString("StartsWith", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This file may not be able to be imported!.
-        /// </summary>
-        internal static string This_file_may_not_be_able_to_be_imported_ {
-            get {
-                return ResourceManager.GetString("This file may not be able to be imported!", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Error!.
-        /// </summary>
-        internal static string Error {
-            get {
-                return ResourceManager.GetString("Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cannot create!.
-        /// </summary>
-        internal static string Cannot_create {
-            get {
-                return ResourceManager.GetString("Cannot create", resourceCulture);
+                return ResourceManager.GetString("Loaded from PLC", resourceCulture);
             }
         }
         
@@ -340,371 +576,11 @@ namespace AXOpen.Data.Blazor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Created!.
-        /// </summary>
-        internal static string Created {
-            get {
-                return ResourceManager.GetString("Created", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Item was successfully created!.
-        /// </summary>
-        internal static string Item_was_successfully_created {
-            get {
-                return ResourceManager.GetString("Item was successfully created", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Failed to create new record!.
-        /// </summary>
-        internal static string Failed_to_create_new_record {
-            get {
-                return ResourceManager.GetString("Failed to create new record", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Deleted!.
-        /// </summary>
-        internal static string Deleted {
-            get {
-                return ResourceManager.GetString("Deleted", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Item was successfully deleted!.
-        /// </summary>
-        internal static string Item_was_successfully_deleted {
-            get {
-                return ResourceManager.GetString("Item was successfully deleted", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Failed to delete.
-        /// </summary>
-        internal static string Failed_to_delete {
-            get {
-                return ResourceManager.GetString("Failed to delete", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Copied!.
-        /// </summary>
-        internal static string Copied {
-            get {
-                return ResourceManager.GetString("Copied", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Item was successfully copied!.
-        /// </summary>
-        internal static string Item_was_successfully_copied {
-            get {
-                return ResourceManager.GetString("Item was successfully copied", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Failed to copy!.
-        /// </summary>
-        internal static string Failed_to_copy {
-            get {
-                return ResourceManager.GetString("Failed to copy", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edited!.
-        /// </summary>
-        internal static string Edited {
-            get {
-                return ResourceManager.GetString("Edited", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Item was successfully edited!.
-        /// </summary>
-        internal static string Item_was_successfully_edited {
-            get {
-                return ResourceManager.GetString("Item was successfully edited", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sent to PLC!.
-        /// </summary>
-        internal static string Sent_to_PLC {
-            get {
-                return ResourceManager.GetString("Sent to PLC", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Item was successfully sent to PLC!.
-        /// </summary>
-        internal static string Item_was_successfully_sent_to_PLC {
-            get {
-                return ResourceManager.GetString("Item was successfully sent to PLC", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Loaded from PLC!.
-        /// </summary>
-        internal static string Loaded_from_PLC {
-            get {
-                return ResourceManager.GetString("Loaded from PLC", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Item was successfully loaded from PLC!.
-        /// </summary>
-        internal static string Item_was_successfully_loaded_from_PLC {
-            get {
-                return ResourceManager.GetString("Item was successfully loaded from PLC", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Failed to create new record from the controller.
-        /// </summary>
-        internal static string Failed_to_create_new_record_from_the_controller {
-            get {
-                return ResourceManager.GetString("Failed to create new record from the controller", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Exported!.
-        /// </summary>
-        internal static string Exported {
-            get {
-                return ResourceManager.GetString("Exported", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Data was successfully exported!.
-        /// </summary>
-        internal static string Data_was_successfully_exported {
-            get {
-                return ResourceManager.GetString("Data was successfully exported", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Imported!.
-        /// </summary>
-        internal static string Imported {
-            get {
-                return ResourceManager.GetString("Imported", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Data were successfully imported!.
-        /// </summary>
-        internal static string Data_were_successfully_imported {
-            get {
-                return ResourceManager.GetString("Data were successfully imported", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Update data error.
-        /// </summary>
-        internal static string Update_data_error {
-            get {
-                return ResourceManager.GetString("Update data error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please enter valid identifier!.
-        /// </summary>
-        internal static string Please_enter_valid_identifier {
-            get {
-                return ResourceManager.GetString("Please enter valid identifier", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create error.
-        /// </summary>
-        internal static string Create_error {
-            get {
-                return ResourceManager.GetString("Create error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please enter valid source identifier!.
-        /// </summary>
-        internal static string Please_enter_valid_source_identifier {
-            get {
-                return ResourceManager.GetString("Please enter valid source identifier", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create data error.
-        /// </summary>
-        internal static string Create_data_error {
-            get {
-                return ResourceManager.GetString("Create data error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Copy error.
-        /// </summary>
-        internal static string Copy_error {
-            get {
-                return ResourceManager.GetString("Copy error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Copy record error.
-        /// </summary>
-        internal static string Copy_record_error {
-            get {
-                return ResourceManager.GetString("Copy record error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Data cannot be deleted. Please enter valid new identifier!.
-        /// </summary>
-        internal static string Data_cannot_be_deleted_please_enter_valid_new_identifier {
-            get {
-                return ResourceManager.GetString("Data cannot be deleted please enter valid new identifier", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Copied record.
-        /// </summary>
-        internal static string Copied_record {
-            get {
-                return ResourceManager.GetString("Copied record", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Copied error.
-        /// </summary>
-        internal static string Copied_error {
-            get {
-                return ResourceManager.GetString("Copied error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Delete error.
-        /// </summary>
-        internal static string Delete_error {
-            get {
-                return ResourceManager.GetString("Delete error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Send record.
-        /// </summary>
-        internal static string Send_record {
-            get {
-                return ResourceManager.GetString("Send record", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Send error.
-        /// </summary>
-        internal static string Send_error {
-            get {
-                return ResourceManager.GetString("Send error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Delete record.
-        /// </summary>
-        internal static string Delete_record {
-            get {
-                return ResourceManager.GetString("Delete record", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Persistent Data.
         /// </summary>
         internal static string Persistent_Data {
             get {
                 return ResourceManager.GetString("Persistent Data", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Whole persistent data was successfully send to PLC!.
-        /// </summary>
-        internal static string Whole_persistent_data_was_successfully_sent_to_PLC {
-            get {
-                return ResourceManager.GetString("Whole persistent data was successfully sent to PLC", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Whole persistent data was successfully read from PLC!.
-        /// </summary>
-        internal static string Whole_persistent_data_was_successfully_read_from_PLC {
-            get {
-                return ResourceManager.GetString("Whole persistent data was successfully read from PLC", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Persistent group {0} was successfully read from PLC!.
-        /// </summary>
-        internal static string Persistent_group_was_successfully_read_from_PLC {
-            get {
-                return ResourceManager.GetString("Persistent group was successfully read from PLC", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create new record.
-        /// </summary>
-        internal static string Create_new_record {
-            get {
-                return ResourceManager.GetString("Create new record", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create record error.
-        /// </summary>
-        internal static string Create_record_error {
-            get {
-                return ResourceManager.GetString("Create record error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Create record from PLC.
-        /// </summary>
-        internal static string Create_record_from_PLC {
-            get {
-                return ResourceManager.GetString("Create record from PLC", resourceCulture);
             }
         }
         
@@ -727,11 +603,29 @@ namespace AXOpen.Data.Blazor.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data with ID: "{0}" was created for: {1}!.
+        ///   Looks up a localized string similar to Persistent group {0} was successfully read from PLC!.
         /// </summary>
-        internal static string Data_with_ID_was_created_for {
+        internal static string Persistent_group_was_successfully_read_from_PLC {
             get {
-                return ResourceManager.GetString("Data_with_ID_was_created_for", resourceCulture);
+                return ResourceManager.GetString("Persistent group was successfully read from PLC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter valid identifier!.
+        /// </summary>
+        internal static string Please_enter_valid_identifier {
+            get {
+                return ResourceManager.GetString("Please enter valid identifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter valid source identifier!.
+        /// </summary>
+        internal static string Please_enter_valid_source_identifier {
+            get {
+                return ResourceManager.GetString("Please enter valid source identifier", resourceCulture);
             }
         }
         
@@ -745,11 +639,128 @@ namespace AXOpen.Data.Blazor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Record &quot;{0}&quot; was deleted from repositories: {1}..
+        /// </summary>
+        internal static string Record_was_deleted_from_repositories {
+            get {
+                return ResourceManager.GetString("Record was deleted from repositories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send error.
+        /// </summary>
+        internal static string Send_error {
+            get {
+                return ResourceManager.GetString("Send error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send record.
+        /// </summary>
+        internal static string Send_record {
+            get {
+                return ResourceManager.GetString("Send record", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send to PLC.
+        /// </summary>
+        internal static string Send_to_PLC {
+            get {
+                return ResourceManager.GetString("Send to PLC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sent to PLC!.
+        /// </summary>
+        internal static string Sent_to_PLC {
+            get {
+                return ResourceManager.GetString("Sent to PLC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Separator.
+        /// </summary>
+        internal static string Separator {
+            get {
+                return ResourceManager.GetString("Separator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source record does not exist in repositories: {0}..
+        /// </summary>
+        internal static string Source_record_does_not_exist_in_repositories {
+            get {
+                return ResourceManager.GetString("Source record does not exist in repositories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Source Record not exist for: {0}!.
         /// </summary>
         internal static string Source_Record_not_exist_for {
             get {
                 return ResourceManager.GetString("Source Record not exist for", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StartsWith.
+        /// </summary>
+        internal static string StartsWith {
+            get {
+                return ResourceManager.GetString("StartsWith", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This file may not be able to be imported!.
+        /// </summary>
+        internal static string This_file_may_not_be_able_to_be_imported_ {
+            get {
+                return ResourceManager.GetString("This file may not be able to be imported!", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update data error.
+        /// </summary>
+        internal static string Update_data_error {
+            get {
+                return ResourceManager.GetString("Update data error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Whole persistent data was successfully read from PLC!.
+        /// </summary>
+        internal static string Whole_persistent_data_was_successfully_read_from_PLC {
+            get {
+                return ResourceManager.GetString("Whole persistent data was successfully read from PLC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Whole persistent data was successfully send to PLC!.
+        /// </summary>
+        internal static string Whole_persistent_data_was_successfully_sent_to_PLC {
+            get {
+                return ResourceManager.GetString("Whole persistent data was successfully sent to PLC", resourceCulture);
             }
         }
     }

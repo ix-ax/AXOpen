@@ -117,28 +117,133 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancelar</value>
+  <data name="ServoOn" xml:space="preserve">
+    <value>Servo zapnuté</value>
   </data>
-  <data name="Close" xml:space="preserve">
-    <value>¡Cierra!</value>
+  <data name="ServoOff" xml:space="preserve">
+    <value>Servo vypnuté</value>
   </data>
-  <data name="Close all" xml:space="preserve">
-    <value>Cerrar todo</value>
+  <data name="Running" xml:space="preserve">
+    <value>Beh</value>
   </data>
-  <data name="Log in" xml:space="preserve">
-    <value>¡Iniciar sesión!</value>
+  <data name="Stopped" xml:space="preserve">
+    <value>Zastavené</value>
   </data>
-  <data name="Make a Choice" xml:space="preserve">
-    <value>Tomar una decisión</value>
+  <data name="Error" xml:space="preserve">
+    <value>Chyba</value>
   </data>
-  <data name="No" xml:space="preserve">
-    <value>No</value>
+  <data name="Warning" xml:space="preserve">
+    <value>Upozornenie</value>
   </data>
-  <data name="Ok" xml:space="preserve">
-    <value>De acuerdo</value>
+  <data name="Emergency" xml:space="preserve">
+    <value>Núdzový stav</value>
   </data>
-  <data name="Yes" xml:space="preserve">
-    <value>Sí</value>
+  <data name="StartAtMain" xml:space="preserve">
+    <value>Začnite na hlavnej stránke</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnoviť</value>
+  </data>
+  <data name="StartMotorsAndProgram" xml:space="preserve">
+    <value>Štartovacie motory a program</value>
+  </data>
+  <data name="StopMovementsAndProgram" xml:space="preserve">
+    <value>Zastavte pohyby a program</value>
+  </data>
+  <data name="StartMovements" xml:space="preserve">
+    <value>Začať pohyby</value>
+  </data>
+  <data name="StopMovements" xml:space="preserve">
+    <value>Zastavte pohyby</value>
+  </data>
+  <data name="MovementParameters" xml:space="preserve">
+    <value>Parametre pohybu</value>
+  </data>
+  <data name="Coordinates" xml:space="preserve">
+    <value>Súradnice</value>
+  </data>
+  <data name="RobotStatus" xml:space="preserve">
+    <value>Stav robota</value>
+  </data>
+  <data name="OperationEnable" xml:space="preserve">
+    <value>Operácia Povoliť</value>
+  </data>
+  <data name="AutoEnable" xml:space="preserve">
+    <value>Automatické zapnutie</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Začať</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Zastaviť</value>
+  </data>
+  <data name="RcReady" xml:space="preserve">
+    <value>RC pripravené</value>
+  </data>
+  <data name="ErrorStatus" xml:space="preserve">
+    <value>Stav chyby</value>
+  </data>
+  <data name="HighLevelError" xml:space="preserve">
+    <value>Chyba vysokej úrovne</value>
+  </data>
+  <data name="LowLevelError" xml:space="preserve">
+    <value>Chyba nízkej úrovne</value>
+  </data>
+  <data name="CautionLevel" xml:space="preserve">
+    <value>Úroveň opatrnosti</value>
+  </data>
+  <data name="EmergencyError" xml:space="preserve">
+    <value>Núdzová chyba</value>
+  </data>
+  <data name="BatteryLow" xml:space="preserve">
+    <value>Nízky stav batérie</value>
+  </data>
+  <data name="PositionAndZoneStatus" xml:space="preserve">
+    <value>Poloha a stav zóny</value>
+  </data>
+  <data name="InArea1" xml:space="preserve">
+    <value>V oblasti 1</value>
+  </data>
+  <data name="InArea2" xml:space="preserve">
+    <value>V oblasti 2</value>
+  </data>
+  <data name="InPosition1" xml:space="preserve">
+    <value>V pozícii 1</value>
+  </data>
+  <data name="InPosition2" xml:space="preserve">
+    <value>V pozícii 2</value>
+  </data>
+  <data name="CurrentCoordinates" xml:space="preserve">
+    <value>Aktuálne súradnice</value>
+  </data>
+  <data name="ToolStatus" xml:space="preserve">
+    <value>Stav nástroja</value>
+  </data>
+  <data name="Tool1" xml:space="preserve">
+    <value>Nástroj 1</value>
+  </data>
+  <data name="Tool2" xml:space="preserve">
+    <value>Nástroj 2</value>
+  </data>
+  <data name="Tool3" xml:space="preserve">
+    <value>Nástroj 3</value>
+  </data>
+  <data name="Tool4" xml:space="preserve">
+    <value>Nástroj 4</value>
+  </data>
+  <data name="Extended" xml:space="preserve">
+    <value>Rozšírené</value>
+  </data>
+  <data name="Retracted" xml:space="preserve">
+    <value>Stiahnuté</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Neznámy</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Konfigurácia</value>
+  </data>
+  <data name="HardwareDiagnostics" xml:space="preserve">
+    <value>Diagnostika hardvéru</value>
   </data>
 </root>
