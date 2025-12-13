@@ -634,7 +634,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     THIS.CallTimers(FALSE);
                     _progress := 300;
                 END_IF;
-                
+                // Clear reasult data running: reseting the result data.
                 IF _progress = 300 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
@@ -655,7 +655,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     THIS.CallTimers(FALSE);
                     _progress := 301;
                 END_IF;
-                
+                // Clear reasult data running: reseting the result data.
                 IF _progress = 301 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
@@ -667,7 +667,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         _progress := 302;
                     END_IF;
                 END_IF;
-                
+                // Clear reasult data finished.
                 IF _progress = 302 THEN
                     ResultsControl.ResultsAcknowledge := FALSE;
                     ClearResultDataTask.DoneWhen(TRUE);
@@ -679,7 +679,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 
                 ClearResultDataTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);                
-                ClearResultDataTask.ThrowWhen(ClearResultDataTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ClearResultDataTask timeout.');
+                ClearResultDataTask.ThrowWhen(ClearResultDataTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ClearResultDataTask timeout.#>');
             END_IF;
             IF ClearResultDataTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -718,7 +718,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         _progress := 310;
                     END_IF;
                 END_IF;
-
+                // Reading running: enabling triger.
                 IF _progress = 310 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
@@ -735,7 +735,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         _progress := 311;
                     END_IF;
                 END_IF;
-                
+                // Reading running: waiting for the triger ready.
                 IF _progress = 311 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
@@ -747,7 +747,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         _progress := 312;
                     END_IF;
                 END_IF;
-                
+                // Reading running: waiting for the triger acknowledged.
                 IF _progress = 312 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
@@ -761,7 +761,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         _progress := 313;
                     END_IF;
                 END_IF;
-                
+                // Reading running: waiting for the results available.
                 IF _progress = 313 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
@@ -773,7 +773,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         _progress := 314;
                     END_IF;
                 END_IF;
-                
+                // Reading running: evaluating the result data.
                 IF _progress = 314 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
@@ -793,7 +793,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         _progress := 315;
                     END_IF;
                 END_IF;
-                
+                // Reading running: processing the result data.
                 IF _progress = 315 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
@@ -809,7 +809,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     ResultData.DataChanged := NOT ResultData.DataChanged ;
                     _progress := 316;
                 END_IF;
-                
+                // Reading finished.
                 IF _progress = 316 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
@@ -822,7 +822,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                     ReadTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
-                
+                // Reading running: error detected, reseting trigger.
                 IF _progress = 319 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#519, eAxoMessageCategory#Warning);
@@ -838,7 +838,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         _progress := 320;
                     END_IF;
                 END_IF;
-
+                // Reading running: error detected, reseting error.
                 IF _progress = 320 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
@@ -851,7 +851,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                         _progress := 321;
                     END_IF;
                 END_IF;
-
+                // Reading running: error detected, reseting error.
                 IF _progress = 321 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
@@ -869,7 +869,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 
                 ReadTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);
-                ReadTask.ThrowWhen(ReadTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ReadTask timeout.');
+                ReadTask.ThrowWhen(ReadTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ReadTask timeout.#>');
             END_IF;
             IF ReadTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;

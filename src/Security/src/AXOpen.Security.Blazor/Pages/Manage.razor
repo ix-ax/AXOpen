@@ -230,7 +230,7 @@
         if (Input != null)
             Input.ExternalAuthId = Encoding.ASCII.GetString(System.Security.Cryptography.SHA512.HashData(Encoding.ASCII.GetBytes(Encoding.ASCII.GetString(data).Trim())));
 
-        _toastService?.AddToast(eToastType.Success, Localizer["Identified!"], "The external token identified", 10);
+        _toastService?.AddToast(eToastType.Success, Localizer["Identified!"], Localizer["The external token identified"], 10);
         StateHasChanged();
     }
 

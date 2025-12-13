@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <!-- Task/Sequencer Status -->
+  <data name="Running" xml:space="preserve">
+    <value>Beží</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>Nečinný</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>Vypršal čas</value>
+  </data>
+  <data name="StepMode" xml:space="preserve">
+    <value>KROKOVÝ MÓD</value>
+  </data>
+  <data name="StepModeActiveControlledByMaster" xml:space="preserve">
+    <value>KROKOVÝ MÓD AKTÍVNY - RIADENÝ HLAVNOU SEKVENCIOU</value>
+  </data>
+  <data name="StepModeControlledByMaster" xml:space="preserve">
+    <value>KROKOVÝ MÓD RIADENÝ HLAVNOU SEKVENCIOU</value>
+  </data>
+  <data name="EnterStepMode" xml:space="preserve">
+    <value>Zapnúť krokový mód</value>
+  </data>
+  <data name="ExitStepMode" xml:space="preserve">
+    <value>Vypnúť krokový mód</value>
+  </data>
+  <!-- Messenger/Alarm Labels -->
+  <data name="Equipment" xml:space="preserve">
+    <value>Zariadenie</value>
+  </data>
+  <data name="Raised" xml:space="preserve">
+    <value>Vyvolaný</value>
+  </data>
+  <data name="Acknowledged" xml:space="preserve">
+    <value>Potvrdený</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Trvanie</value>
+  </data>
+  <data name="Symbol" xml:space="preserve">
+    <value>Symbol</value>
+  </data>
+  <data name="HumanReadable" xml:space="preserve">
+    <value>Čitateľný názov</value>
+  </data>
+  <data name="AlarmId" xml:space="preserve">
+    <value>ID alarmu</value>
+  </data>
+  <data name="Suggestion" xml:space="preserve">
+    <value>Návrh</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>OBNOVIŤ</value>
+  </data>
+  <data name="RestoreButton" xml:space="preserve">
+    <value>Obnoviť</value>
+  </data>
+  <data name="Acknowledge" xml:space="preserve">
+    <value>Potvrdiť</value>
+  </data>
+  <data name="HideDetails" xml:space="preserve">
+    <value>SKRYŤ DETAILY</value>
+  </data>
+  <data name="ShowDetails" xml:space="preserve">
+    <value>ZOBRAZIŤ DETAILY</value>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>Zobraziť detaily</value>
+  </data>
+  <data name="ResetTask" xml:space="preserve">
+    <value>Resetovať úlohu</value>
+  </data>
+  <!-- Severity Names -->
+  <data name="SeverityInfo" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="SeverityWarning" xml:space="preserve">
+    <value>Varovanie</value>
+  </data>
+  <data name="SeverityMinorFault" xml:space="preserve">
+    <value>Menšia chyba</value>
+  </data>
+  <data name="SeverityMajorFault" xml:space="preserve">
+    <value>Väčšia chyba</value>
+  </data>
+  <data name="SeverityCritical" xml:space="preserve">
+    <value>Kritický</value>
+  </data>
+  <!-- State Labels -->
+  <data name="ActiveAcknowledged" xml:space="preserve">
+    <value>Aktívny · Potvrdený</value>
+  </data>
+  <data name="ActiveUnacknowledged" xml:space="preserve">
+    <value>Aktívny · Nepotvrdený</value>
+  </data>
+  <data name="Cleared" xml:space="preserve">
+    <value>Vymazaný</value>
+  </data>
+  <!-- Component View -->
+  <data name="ActiveAlarms" xml:space="preserve">
+    <value>Aktívny alarm</value>
+  </data>
+  <data name="ActiveAlarmsPlural" xml:space="preserve">
+    <value>Aktívne alarmy</value>
+  </data>
+  <data name="NoAlarms" xml:space="preserve">
+    <value>Žiadne alarmy</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>aktívny</value>
+  </data>
+</root>

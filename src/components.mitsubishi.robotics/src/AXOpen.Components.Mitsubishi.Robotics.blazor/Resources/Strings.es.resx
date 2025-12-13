@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ServoOn" xml:space="preserve">
+    <value>Servo activado</value>
+  </data>
+  <data name="ServoOff" xml:space="preserve">
+    <value>Servo desactivado</value>
+  </data>
+  <data name="Running" xml:space="preserve">
+    <value>Correr</value>
+  </data>
+  <data name="Stopped" xml:space="preserve">
+    <value>Detenido</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Advertencia</value>
+  </data>
+  <data name="Emergency" xml:space="preserve">
+    <value>Emergencia</value>
+  </data>
+  <data name="StartAtMain" xml:space="preserve">
+    <value>Comience en Main</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restaurar</value>
+  </data>
+  <data name="StartMotorsAndProgram" xml:space="preserve">
+    <value>Arranque motores y programa</value>
+  </data>
+  <data name="StopMovementsAndProgram" xml:space="preserve">
+    <value>Detener movimientos y programa</value>
+  </data>
+  <data name="StartMovements" xml:space="preserve">
+    <value>Iniciar movimientos</value>
+  </data>
+  <data name="StopMovements" xml:space="preserve">
+    <value>Detener movimientos</value>
+  </data>
+  <data name="MovementParameters" xml:space="preserve">
+    <value>Parámetros de movimiento</value>
+  </data>
+  <data name="Coordinates" xml:space="preserve">
+    <value>Coordenadas</value>
+  </data>
+  <data name="RobotStatus" xml:space="preserve">
+    <value>Estado del robot</value>
+  </data>
+  <data name="OperationEnable" xml:space="preserve">
+    <value>Operación Habilitar</value>
+  </data>
+  <data name="AutoEnable" xml:space="preserve">
+    <value>Habilitar automáticamente</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Detener</value>
+  </data>
+  <data name="RcReady" xml:space="preserve">
+    <value>Listo para RC</value>
+  </data>
+  <data name="ErrorStatus" xml:space="preserve">
+    <value>Estado del error</value>
+  </data>
+  <data name="HighLevelError" xml:space="preserve">
+    <value>Error de alto nivel</value>
+  </data>
+  <data name="LowLevelError" xml:space="preserve">
+    <value>Error de bajo nivel</value>
+  </data>
+  <data name="CautionLevel" xml:space="preserve">
+    <value>Nivel de precaución</value>
+  </data>
+  <data name="EmergencyError" xml:space="preserve">
+    <value>Error de emergencia</value>
+  </data>
+  <data name="BatteryLow" xml:space="preserve">
+    <value>Batería baja</value>
+  </data>
+  <data name="PositionAndZoneStatus" xml:space="preserve">
+    <value>Posición y estado de la zona</value>
+  </data>
+  <data name="InArea1" xml:space="preserve">
+    <value>En el Área 1</value>
+  </data>
+  <data name="InArea2" xml:space="preserve">
+    <value>En el Área 2</value>
+  </data>
+  <data name="InPosition1" xml:space="preserve">
+    <value>En la posición 1</value>
+  </data>
+  <data name="InPosition2" xml:space="preserve">
+    <value>En la posición 2</value>
+  </data>
+  <data name="CurrentCoordinates" xml:space="preserve">
+    <value>Coordenadas actuales</value>
+  </data>
+  <data name="ToolStatus" xml:space="preserve">
+    <value>Estado de la herramienta</value>
+  </data>
+  <data name="Tool1" xml:space="preserve">
+    <value>Herramienta 1</value>
+  </data>
+  <data name="Tool2" xml:space="preserve">
+    <value>Herramienta 2</value>
+  </data>
+  <data name="Tool3" xml:space="preserve">
+    <value>Herramienta 3</value>
+  </data>
+  <data name="Tool4" xml:space="preserve">
+    <value>Herramienta 4</value>
+  </data>
+  <data name="Extended" xml:space="preserve">
+    <value>Ampliado</value>
+  </data>
+  <data name="Retracted" xml:space="preserve">
+    <value>Retractado</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Desconocido</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="HardwareDiagnostics" xml:space="preserve">
+    <value>Diagnóstico de hardware</value>
+  </data>
+</root>

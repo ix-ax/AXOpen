@@ -40,12 +40,12 @@ This document tracks the maturity state of all AXOpen components across differen
 | [Festo Drives](src/components.festo.drives/)                    | Motion        | 🟢          | 🟡     | 🔴            | TBD       | Festo drive integration                            |
 | **Manufacturing**                                               |               |             |        |               |           |                                                    |
 | [Rexroth Smart Function Kit](src/components.rexroth.press/)     | Manufacturing | 🟢          | 🟡     | 🔴            | v_4_x_x   | Smart Function Kit press control                   |
-| [Desoutter Tightening](src/components.desoutter.tightening/)    | Manufacturing | 🟡          | 🟡     | 🔴            | TBD       | Desoutter tightening tools                         |
+| [Desoutter Tightening](src/components.desoutter.tightening/)    | Manufacturing | 🟢          | 🟡     | 🔴            | TBD       | Desoutter tightening tools                         |
 | [Rexroth Tightening](src/components.rexroth.tightening/)        | Manufacturing | 🟢          | 🟡     | 🔴            | Latest    | Rexroth tightening systems                         |
-| [Dukane Welders](src/components.dukane.welders/)                | Manufacturing | 🟡          | 🟡     | 🔴            | TBD       | Ultrasonic welding systems                         |
+| [Dukane Welders](src/components.dukane.welders/)                | Manufacturing | 🟢          | 🟡     | 🔴            | TBD       | Ultrasonic welding systems                         |
 | **Identification**                                              |               |             |        |               |           |                                                    |
-| [Balluff ID](src/components.balluff.identification/)            | RFID/ID       | 🟡          | 🔴     | 🔴            | Latest    | Balluff RFID systems                               |
-| [Siemens ID](src/components.siem.identification/)               | RFID/ID       | 🟡          | 🔴     | 🔴            | TBD       | Siemens identification                             |
+| [Balluff ID](src/components.balluff.identification/)            | RFID/ID       | 🟢          | 🔴     | 🔴            | Latest    | Balluff RFID systems                               |
+| [Siemens ID](src/components.siem.identification/)               | RFID/ID       | 🟢          | 🟡     | 🔴            | TBD       | Siemens identification                             |
 | **Data & Persistence**                                          |               |             |        |               |           |                                                    |
 | [Data](src/data/)                                               | Data          | 🟢          | 🟢     | 🔴            | Latest    | Data repository & CRUD                             |
 | [Inspectors](src/inspectors/)                                   | Quality       | 🟢          | 🟢     | 🔴            | Latest    | Data inspection framework                          |
