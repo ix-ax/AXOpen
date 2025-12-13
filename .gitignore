@@ -435,3 +435,5 @@ temp/
 
 #JSONREPOS
 **/JSONREPOS/
+
+.cursor

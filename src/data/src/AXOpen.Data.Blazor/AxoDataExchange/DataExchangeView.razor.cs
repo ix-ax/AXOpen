@@ -30,6 +30,7 @@ using System.Data.Common;
 using System.IO;
 using System.Security.Cryptography;
 using static AXOpen.Data.DataExchangeViewModel;
+using Properties = AXOpen.Data.Blazor.Properties;
 
 namespace AXOpen.Data;
 
@@ -229,7 +230,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         }
         catch (Exception ex)
         {
-            _toastService.AddToast(eToastType.Danger, "Error!", ex.Message, 10);
+            _toastService.AddToast(eToastType.Danger, Properties.AxOpenDataResources.Error, ex.Message, 10);
             _fileLoadingStatus = eOperationStatus.Failed;
         }
     }

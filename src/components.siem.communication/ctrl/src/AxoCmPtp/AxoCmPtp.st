@@ -298,7 +298,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                     IF  _portConfig.error THEN 
                         TaskMessenger.Activate( TO_UINT(_portConfig.status), eAxoMessageCategory#Error);
                         Status.Error.Id :=      TO_UINT(_portConfig.status);
-                        PortConfigTask.ThrowWhen(TRUE,'PortConfigTask error.');
+                        PortConfigTask.ThrowWhen(TRUE,'<#PortConfigTask error.#>');
                     END_IF;
                 END_IF;
     
@@ -409,7 +409,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 
                 PortConfigTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                PortConfigTask.ThrowWhen(PortConfigTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'PortConfigTask timeout.');                
+                PortConfigTask.ThrowWhen(PortConfigTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#PortConfigTask timeout.#>');                
             END_IF;
             IF PortConfigTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -461,7 +461,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                     IF _receiveReset.error THEN
                         TaskMessenger.Activate( TO_UINT(_receiveReset.status), eAxoMessageCategory#Error);
                         Status.Error.Id :=      TO_UINT(_receiveReset.status);
-                        ReceiveResetTask.ThrowWhen(TRUE,'ReceiveResetTask error.');
+                        ReceiveResetTask.ThrowWhen(TRUE,'<#ReceiveResetTask error.#>');
                     END_IF;
                 END_IF;
     
@@ -572,7 +572,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 
                 ReceiveResetTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ReceiveResetTask.ThrowWhen(ReceiveResetTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ReceiveResetTask timeout.');                
+                ReceiveResetTask.ThrowWhen(ReceiveResetTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ReceiveResetTask timeout.#>');                
             END_IF;
             IF ReceiveResetTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -628,7 +628,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                     IF _sendP2P.error THEN
                         TaskMessenger.Activate( TO_UINT(_sendP2P.status), eAxoMessageCategory#Error);
                         Status.Error.Id :=      TO_UINT(_sendP2P.status);
-                        SendDataTask.ThrowWhen(TRUE,'SendDataTask error.');
+                        SendDataTask.ThrowWhen(TRUE,'<#SendDataTask error.#>');
                     END_IF;
                 END_IF;
     
@@ -739,7 +739,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 
                 SendDataTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                SendDataTask.ThrowWhen(SendDataTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'SendDataTask timeout.');                
+                SendDataTask.ThrowWhen(SendDataTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#SendDataTask timeout.#>');                
             END_IF;
             IF SendDataTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -901,7 +901,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 
                 TemplateTask_10steps_4.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_4.ThrowWhen(TemplateTask_10steps_4.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_4 timeout.');                
+                TemplateTask_10steps_4.ThrowWhen(TemplateTask_10steps_4.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_10steps_4 timeout.#>');                
             END_IF;
             IF TemplateTask_10steps_4.DoneReached() THEN
                 Status.Action.Id :=  UINT#131;
@@ -1054,7 +1054,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 
                 TemplateTask_10steps_5.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_5.ThrowWhen(TemplateTask_10steps_5.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_5 timeout.');                
+                TemplateTask_10steps_5.ThrowWhen(TemplateTask_10steps_5.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_10steps_5 timeout.#>');                
             END_IF;
             IF TemplateTask_10steps_5.DoneReached() THEN
                 Status.Action.Id :=  UINT#141;
@@ -1207,7 +1207,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 
                 TemplateTask_10steps_6.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_6.ThrowWhen(TemplateTask_10steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_6 timeout.');                
+                TemplateTask_10steps_6.ThrowWhen(TemplateTask_10steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_10steps_6 timeout.#>');                
             END_IF;
             IF TemplateTask_10steps_6.DoneReached() THEN
                 Status.Action.Id :=  UINT#151;
@@ -1481,7 +1481,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 
                 TemplateTask_20steps_1.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_1.ThrowWhen(TemplateTask_20steps_1.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_1 timeout.');                
+                TemplateTask_20steps_1.ThrowWhen(TemplateTask_20steps_1.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_1 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_1.DoneReached() THEN
                 Status.Action.Id :=  UINT#161;
@@ -1753,7 +1753,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 THIS.CallTimers(TRUE);
                 TemplateTask_20steps_2.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_2.ThrowWhen(TemplateTask_20steps_2.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_2 timeout.');                
+                TemplateTask_20steps_2.ThrowWhen(TemplateTask_20steps_2.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_2 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_2.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -2026,7 +2026,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 
                 TemplateTask_20steps_3.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_3.ThrowWhen(TemplateTask_20steps_3.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_3 timeout.');                
+                TemplateTask_20steps_3.ThrowWhen(TemplateTask_20steps_3.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_3 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_3.DoneReached() THEN
                 Status.Action.Id :=  UINT#201;
@@ -2299,7 +2299,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 
                 TemplateTask_20steps_4.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_4.ThrowWhen(TemplateTask_20steps_4.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_4 timeout.');                
+                TemplateTask_20steps_4.ThrowWhen(TemplateTask_20steps_4.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_4 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_4.DoneReached() THEN
                 Status.Action.Id :=  UINT#221;
@@ -2572,7 +2572,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 
                 TemplateTask_20steps_5.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_5.ThrowWhen(TemplateTask_20steps_5.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_5 timeout.');                
+                TemplateTask_20steps_5.ThrowWhen(TemplateTask_20steps_5.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_5 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_5.DoneReached() THEN
                 Status.Action.Id :=  UINT#241;
@@ -2845,7 +2845,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 
                 TemplateTask_20steps_6.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_6.ThrowWhen(TemplateTask_20steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_6 timeout.');                
+                TemplateTask_20steps_6.ThrowWhen(TemplateTask_20steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_6 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_6.DoneReached() THEN
                 Status.Action.Id :=  UINT#261;

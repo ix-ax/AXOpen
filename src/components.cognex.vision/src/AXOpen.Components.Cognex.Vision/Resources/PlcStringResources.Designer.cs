@@ -59,5 +59,113 @@ namespace AXOpen.Components.Cognex.Vision.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ChangeJobByNameTask timeout..
+        /// </summary>
+        public static string ChangeJobByNameTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ChangeJobByNameTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ChangeJobByNumberTask timeout..
+        /// </summary>
+        public static string ChangeJobByNumberTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ChangeJobByNumberTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ClearInspectionResultsTask timeout..
+        /// </summary>
+        public static string ClearInspectionResultsTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ClearInspectionResultsTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ClearResultDataTask timeout..
+        /// </summary>
+        public static string ClearResultDataTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ClearResultDataTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HardResetAllCamerasTask timeout..
+        /// </summary>
+        public static string HardResetAllCamerasTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("HardResetAllCamerasTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReadResultsTask timeout..
+        /// </summary>
+        public static string ReadResultsTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ReadResultsTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReadTask timeout..
+        /// </summary>
+        public static string ReadTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ReadTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ResetTask timeout..
+        /// </summary>
+        public static string ResetTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ResetTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SendDataTask timeout..
+        /// </summary>
+        public static string SendDataTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("SendDataTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SendUserDataTask timeout..
+        /// </summary>
+        public static string SendUserDataTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("SendUserDataTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SoftEventTask timeout..
+        /// </summary>
+        public static string SoftEventTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("SoftEventTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TriggerTask timeout..
+        /// </summary>
+        public static string TriggerTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("TriggerTask_timeout_DOT_", resourceCulture);
+            }
+        }
     }
 }

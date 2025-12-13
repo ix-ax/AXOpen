@@ -1766,7 +1766,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 DisableTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                DisableTask.ThrowWhen(DisableTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'DisableTask timeout.');                
+                DisableTask.ThrowWhen(DisableTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#DisableTask timeout.#>');                
             END_IF;
             IF DisableTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -1825,7 +1825,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 EnableTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                EnableTask.ThrowWhen(EnableTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'EnableTask timeout.');                
+                EnableTask.ThrowWhen(EnableTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#EnableTask timeout.#>');                
             END_IF;
             IF EnableTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#106;
@@ -1885,7 +1885,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 DisableClockwiseTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                DisableClockwiseTask.ThrowWhen(DisableClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'DisableClockwiseTask timeout.');                
+                DisableClockwiseTask.ThrowWhen(DisableClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#DisableClockwiseTask timeout.#>');                
             END_IF;
             IF DisableClockwiseTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -1945,7 +1945,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 EnableClockwiseTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                EnableClockwiseTask.ThrowWhen(EnableClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'EnableClockwiseTask timeout.');                
+                EnableClockwiseTask.ThrowWhen(EnableClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#EnableClockwiseTask timeout.#>');                
             END_IF;
             IF EnableClockwiseTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#116;
@@ -2005,7 +2005,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 DisableCounterClockwiseTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                DisableCounterClockwiseTask.ThrowWhen(DisableCounterClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'DisableCounterClockwiseTask timeout.');                
+                DisableCounterClockwiseTask.ThrowWhen(DisableCounterClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#DisableCounterClockwiseTask timeout.#>');                
             END_IF;
             IF DisableCounterClockwiseTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -2065,7 +2065,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 EnableCounterClockwiseTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                EnableCounterClockwiseTask.ThrowWhen(EnableCounterClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'EnableCounterClockwiseTask timeout.');                
+                EnableCounterClockwiseTask.ThrowWhen(EnableCounterClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#EnableCounterClockwiseTask timeout.#>');                
             END_IF;
             IF EnableCounterClockwiseTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#126;
@@ -2160,7 +2160,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 ResetFaultTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ResetFaultTask.ThrowWhen(ResetFaultTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ResetFaultTask timeout.');                
+                ResetFaultTask.ThrowWhen(ResetFaultTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ResetFaultTask timeout.#>');                
             END_IF;
             IF ResetFaultTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#131;
@@ -2219,7 +2219,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 ResetResultsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ResetResultsTask.ThrowWhen(ResetResultsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ResetResultsTask timeout.');                
+                ResetResultsTask.ThrowWhen(ResetResultsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ResetResultsTask timeout.#>');                
             END_IF;
             IF ResetResultsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#136;
@@ -2319,7 +2319,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 SetScrewingProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                SetScrewingProgramTask.ThrowWhen(SetScrewingProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'SetScrewingProgramTask timeout.');                
+                SetScrewingProgramTask.ThrowWhen(SetScrewingProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#SetScrewingProgramTask timeout.#>');                
             END_IF;
             IF SetScrewingProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#141;
@@ -2391,7 +2391,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 GetScrewingResultsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                GetScrewingResultsTask.ThrowWhen(GetScrewingResultsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'GetScrewingResultsTask timeout.');                
+                GetScrewingResultsTask.ThrowWhen(GetScrewingResultsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#GetScrewingResultsTask timeout.#>');                
             END_IF;
             IF GetScrewingResultsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#151;
@@ -2609,7 +2609,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 ScrewClockwiseTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ScrewClockwiseTask.ThrowWhen(ScrewClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ScrewClockwiseTask timeout.');                
+                ScrewClockwiseTask.ThrowWhen(ScrewClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ScrewClockwiseTask timeout.#>');                
             END_IF;
             IF ScrewClockwiseTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#161;
@@ -2822,7 +2822,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 ScrewCounterClockwiseTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ScrewCounterClockwiseTask.ThrowWhen(ScrewCounterClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ScrewCounterClockwiseTask timeout.');                
+                ScrewCounterClockwiseTask.ThrowWhen(ScrewCounterClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ScrewCounterClockwiseTask timeout.#>');                
             END_IF;
             IF ScrewCounterClockwiseTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -3194,7 +3194,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 RunAutomatTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                RunAutomatTask.ThrowWhen(RunAutomatTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'RunAutomatTask timeout.');                
+                RunAutomatTask.ThrowWhen(RunAutomatTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#RunAutomatTask timeout.#>');                
             END_IF;
             IF RunAutomatTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#201;

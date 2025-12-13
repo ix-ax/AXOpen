@@ -59,5 +59,32 @@ namespace AXOpen.Components.Desoutter.Tightening.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ResetTask timeout..
+        /// </summary>
+        public static string ResetTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ResetTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screwing cycle takes too long..
+        /// </summary>
+        public static string Screwing_cycle_takes_too_long_DOT_ {
+            get {
+                return ResourceManager.GetString("Screwing_cycle_takes_too_long_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to change the screwing program..
+        /// </summary>
+        public static string Unable_to_change_the_screwing_program_DOT_ {
+            get {
+                return ResourceManager.GetString("Unable_to_change_the_screwing_program_DOT_", resourceCulture);
+            }
+        }
     }
 }

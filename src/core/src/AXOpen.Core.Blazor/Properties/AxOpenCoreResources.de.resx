@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <!-- Task/Sequencer Status -->
+  <data name="Running" xml:space="preserve">
+    <value>Läuft</value>
+  </data>
+  <data name="Idle" xml:space="preserve">
+    <value>Leerlauf</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>Zeitüberschreitung</value>
+  </data>
+  <data name="StepMode" xml:space="preserve">
+    <value>SCHRITTMODUS</value>
+  </data>
+  <data name="StepModeActiveControlledByMaster" xml:space="preserve">
+    <value>SCHRITTMODUS AKTIV - GESTEUERT VON MASTERSEQUENZ</value>
+  </data>
+  <data name="StepModeControlledByMaster" xml:space="preserve">
+    <value>SCHRITTMODUS GESTEUERT VON MASTERSEQUENZ</value>
+  </data>
+  <data name="EnterStepMode" xml:space="preserve">
+    <value>Schrittmodus aktivieren</value>
+  </data>
+  <data name="ExitStepMode" xml:space="preserve">
+    <value>Schrittmodus beenden</value>
+  </data>
+  <!-- Messenger/Alarm Labels -->
+  <data name="Equipment" xml:space="preserve">
+    <value>Ausrüstung</value>
+  </data>
+  <data name="Raised" xml:space="preserve">
+    <value>Ausgelöst</value>
+  </data>
+  <data name="Acknowledged" xml:space="preserve">
+    <value>Quittiert</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Dauer</value>
+  </data>
+  <data name="Symbol" xml:space="preserve">
+    <value>Symbol</value>
+  </data>
+  <data name="HumanReadable" xml:space="preserve">
+    <value>Lesbar</value>
+  </data>
+  <data name="AlarmId" xml:space="preserve">
+    <value>Alarm-ID</value>
+  </data>
+  <data name="Suggestion" xml:space="preserve">
+    <value>Vorschlag</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>WIEDERHERSTELLEN</value>
+  </data>
+  <data name="RestoreButton" xml:space="preserve">
+    <value>Wiederherstellen</value>
+  </data>
+  <data name="Acknowledge" xml:space="preserve">
+    <value>Quittieren</value>
+  </data>
+  <data name="HideDetails" xml:space="preserve">
+    <value>DETAILS AUSBLENDEN</value>
+  </data>
+  <data name="ShowDetails" xml:space="preserve">
+    <value>DETAILS ANZEIGEN</value>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>Details anzeigen</value>
+  </data>
+  <data name="ResetTask" xml:space="preserve">
+    <value>Aufgabe zurücksetzen</value>
+  </data>
+  <!-- Severity Names -->
+  <data name="SeverityInfo" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="SeverityWarning" xml:space="preserve">
+    <value>Warnung</value>
+  </data>
+  <data name="SeverityMinorFault" xml:space="preserve">
+    <value>Kleiner Fehler</value>
+  </data>
+  <data name="SeverityMajorFault" xml:space="preserve">
+    <value>Großer Fehler</value>
+  </data>
+  <data name="SeverityCritical" xml:space="preserve">
+    <value>Kritisch</value>
+  </data>
+  <!-- State Labels -->
+  <data name="ActiveAcknowledged" xml:space="preserve">
+    <value>Aktiv · Quittiert</value>
+  </data>
+  <data name="ActiveUnacknowledged" xml:space="preserve">
+    <value>Aktiv · Nicht quittiert</value>
+  </data>
+  <data name="Cleared" xml:space="preserve">
+    <value>Behoben</value>
+  </data>
+  <!-- Component View -->
+  <data name="ActiveAlarms" xml:space="preserve">
+    <value>Aktiver Alarm</value>
+  </data>
+  <data name="ActiveAlarmsPlural" xml:space="preserve">
+    <value>Aktive Alarme</value>
+  </data>
+  <data name="NoAlarms" xml:space="preserve">
+    <value>Keine Alarme</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>aktiv</value>
+  </data>
+</root>

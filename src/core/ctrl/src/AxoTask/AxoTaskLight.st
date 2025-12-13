@@ -245,7 +245,7 @@ NAMESPACE AXOpen.Core
 
             IF _context = NULL THEN
                 Status := eAxoTaskState#Error;
-                ErrorDetails := 'NULL CONTEXT'; 
+                ErrorDetails := '<#NULL CONTEXT#>'; 
                 RETURN;               
             END_IF;
           
@@ -260,15 +260,15 @@ NAMESPACE AXOpen.Core
                 IF (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) THEN
                     IF(NOT IsDisabled) THEN
                         Status := eAxoTaskState#Kicking;      
-                        _context.GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
+                        _context.GetLogger().Log('<#Task invoked#>', eLogLevel#Verbose, THIS);
                     ELSE
-                        _context.GetLogger().Log('Attempt to invoke disabled task', eLogLevel#Information, THIS);    
+                        _context.GetLogger().Log('<#Attempt to invoke disabled task#>', eLogLevel#Information, THIS);    
                     END_IF;    
                 ELSE
                     IF(NOT _suspendCyclicExecuteIsNotCalledCheck) THEN                                                               
                         _cyclicExecuteIsNotCalled := TRUE;                    
                         Status := eAxoTaskState#Error;
-                        ErrorDetails := 'CyclicExecuteIsNotCalled';                     
+                        ErrorDetails := '<#CyclicExecuteIsNotCalled#>';                     
                     END_IF;                                         
                 END_IF;     
             END_IF;     
@@ -288,7 +288,7 @@ NAMESPACE AXOpen.Core
                 IF(_context = NULL) THEN
                     _context := THIS.GetContext();
                 END_IF;      
-                _context.GetLogger().Log('Task restored', eLogLevel#Verbose, THIS);
+                _context.GetLogger().Log('<#Task restored#>', eLogLevel#Verbose, THIS);
                 _restoreCycleCount :=  _context.OpenCycleCount();
             END_IF;    
             Status := eAxoTaskState#Ready; 
@@ -314,7 +314,7 @@ NAMESPACE AXOpen.Core
                 IF(_context = NULL) THEN
                     _context := THIS.GetContext();
                 END_IF;        
-                _context.GetLogger().Log('Task done.', eLogLevel#Verbose, THIS);
+                _context.GetLogger().Log('<#Task done.#>', eLogLevel#Verbose, THIS);
                 Status := eAxoTaskState#Done;
                 THIS.OnDone();
                 _doneCycleCount :=  _context.OpenCycleCount();
@@ -346,7 +346,7 @@ NAMESPACE AXOpen.Core
                 IF _openCycleCountExecute = _openCycleCount && _openCycleCount > ULINT#0 THEN
                     _multipleExecuteIsCalled := TRUE;                
                     Status := eAxoTaskState#Error;
-                    ErrorDetails := 'MultipleExecuteIsCalled';   
+                    ErrorDetails := '<#MultipleExecuteIsCalled#>';   
                 END_IF;                
             END_IF;
                        
@@ -385,7 +385,7 @@ NAMESPACE AXOpen.Core
                   
                 // Don't touch this, it is used for remote execs.
                 StartSignature := _openCycleCountExecute;//_context.OpenCycleCount();    
-                _context.GetLogger().Log('Task started.', eLogLevel#Verbose, THIS);                       
+                _context.GetLogger().Log('<#Task started.#>', eLogLevel#Verbose, THIS);                       
                 THIS.OnStart();
                 _isFirstExecutionCycle := TRUE; 
                 _startCycleCount :=  _context.OpenCycleCount();
@@ -430,7 +430,7 @@ NAMESPACE AXOpen.Core
                     _context := THIS.GetContext();
                 END_IF;      
                 Status := eAxoTaskState#Error;  
-                _context.GetLogger().Log('Task failed', eLogLevel#Error, THIS);             
+                _context.GetLogger().Log('<#Task failed#>', eLogLevel#Error, THIS);             
                 THIS.OnError();  
                 THIS.WhileError();   
                 _errorCycleCount :=  _context.OpenCycleCount();

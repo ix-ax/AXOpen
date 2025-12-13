@@ -226,7 +226,7 @@
             var setEmailResult = await _userManager.SetEmailAsync(SelectedUser, Input.Email);
             if (!setEmailResult.Succeeded)
             {
-                _toastService?.AddToast(eToastType.Danger, Localizer["Not updated!"], "Failed to set email.", 10);
+                _toastService?.AddToast(eToastType.Danger, Localizer["Not updated!"], Localizer["Failed to set email."], 10);
                 return;
             }
         }
@@ -236,7 +236,7 @@
             var setPhoneResult = await _userManager.SetPhoneNumberAsync(SelectedUser, Input.PhoneNumber);
             if (!setPhoneResult.Succeeded)
             {
-                _toastService?.AddToast(eToastType.Danger, Localizer["Not updated!"], "Failed to set phone number.", 10);
+                _toastService?.AddToast(eToastType.Danger, Localizer["Not updated!"], Localizer["Failed to set phone number."], 10);
                 return;
             }
         }
@@ -248,7 +248,7 @@
                 List<User> users = _repositoryService.UserRepository.GetRecords().Where(user => user.ExternalAuthId != null && user.ExternalAuthId.Equals(Input.ExternalAuthId)).ToList();
                 if (users.Any())
                 {
-                    _toastService?.AddToast(eToastType.Danger, Localizer["Not updated!"], "Failed to set externalId, because it is being used by another user.", 10);
+                    _toastService?.AddToast(eToastType.Danger, Localizer["Not updated!"], Localizer["Failed to set externalId, because it is being used by another user."], 10);
                     return;
                 }
 
@@ -398,7 +398,7 @@
         if (SelectedUser != null)
             Input.ExternalAuthId = Encoding.ASCII.GetString(System.Security.Cryptography.SHA512.HashData(Encoding.ASCII.GetBytes(Encoding.ASCII.GetString(data).Trim())));
 
-        _toastService?.AddToast(eToastType.Success, Localizer["Identified!"], "The external token identified", 10);
+        _toastService?.AddToast(eToastType.Success, Localizer["Identified!"], Localizer["The external token identified"], 10);
         StateHasChanged();
     }
 

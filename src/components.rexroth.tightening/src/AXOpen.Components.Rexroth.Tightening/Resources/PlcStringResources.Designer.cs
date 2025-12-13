@@ -19,7 +19,7 @@ namespace AXOpen.Components.Rexroth.Tightening.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class PlcStringResources {
@@ -57,6 +57,123 @@ namespace AXOpen.Components.Rexroth.Tightening.Resources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DisableClockwiseTask timeout..
+        /// </summary>
+        public static string DisableClockwiseTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("DisableClockwiseTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DisableCounterClockwiseTask timeout..
+        /// </summary>
+        public static string DisableCounterClockwiseTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("DisableCounterClockwiseTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DisableTask timeout..
+        /// </summary>
+        public static string DisableTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("DisableTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EnableClockwiseTask timeout..
+        /// </summary>
+        public static string EnableClockwiseTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("EnableClockwiseTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EnableCounterClockwiseTask timeout..
+        /// </summary>
+        public static string EnableCounterClockwiseTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("EnableCounterClockwiseTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EnableTask timeout..
+        /// </summary>
+        public static string EnableTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("EnableTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GetScrewingResultsTask timeout..
+        /// </summary>
+        public static string GetScrewingResultsTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("GetScrewingResultsTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ResetFaultTask timeout..
+        /// </summary>
+        public static string ResetFaultTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ResetFaultTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ResetResultsTask timeout..
+        /// </summary>
+        public static string ResetResultsTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ResetResultsTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RunAutomatTask timeout..
+        /// </summary>
+        public static string RunAutomatTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("RunAutomatTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ScrewClockwiseTask timeout..
+        /// </summary>
+        public static string ScrewClockwiseTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ScrewClockwiseTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ScrewCounterClockwiseTask timeout..
+        /// </summary>
+        public static string ScrewCounterClockwiseTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ScrewCounterClockwiseTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SetScrewingProgramTask timeout..
+        /// </summary>
+        public static string SetScrewingProgramTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("SetScrewingProgramTask_timeout_DOT_", resourceCulture);
             }
         }
     }

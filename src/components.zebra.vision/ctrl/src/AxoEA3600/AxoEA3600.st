@@ -550,7 +550,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision
                 
                 ReadTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ReadTask.ThrowWhen(ReadTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ReadTask timeout.');                
+                ReadTask.ThrowWhen(ReadTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ReadTask timeout.#>');                
             END_IF;
             IF ReadTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -724,7 +724,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision
                 
                 ClearDataTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ClearDataTask.ThrowWhen(ClearDataTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ClearDataTask timeout.');                
+                ClearDataTask.ThrowWhen(ClearDataTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ClearDataTask timeout.#>');                
             END_IF;
             IF ClearDataTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -879,7 +879,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision
                 
                 ClearErrorTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ClearErrorTask.ThrowWhen(ClearErrorTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ClearErrorTask timeout.');                
+                ClearErrorTask.ThrowWhen(ClearErrorTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ClearErrorTask timeout.#>');                
             END_IF;
             IF ClearErrorTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -1032,7 +1032,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision
                 
                 TemplateTask_10steps_4.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_4.ThrowWhen(TemplateTask_10steps_4.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_4 timeout.');                
+                TemplateTask_10steps_4.ThrowWhen(TemplateTask_10steps_4.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_10steps_4 timeout.#>');                
             END_IF;
             IF TemplateTask_10steps_4.DoneReached() THEN
                 Status.Action.Id :=  UINT#131;
@@ -1185,7 +1185,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision
                 
                 TemplateTask_10steps_5.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_5.ThrowWhen(TemplateTask_10steps_5.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_5 timeout.');                
+                TemplateTask_10steps_5.ThrowWhen(TemplateTask_10steps_5.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_10steps_5 timeout.#>');                
             END_IF;
             IF TemplateTask_10steps_5.DoneReached() THEN
                 Status.Action.Id :=  UINT#141;
@@ -1338,7 +1338,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision
                 
                 TemplateTask_10steps_6.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_10steps_6.ThrowWhen(TemplateTask_10steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_10steps_6 timeout.');                
+                TemplateTask_10steps_6.ThrowWhen(TemplateTask_10steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_10steps_6 timeout.#>');                
             END_IF;
             IF TemplateTask_10steps_6.DoneReached() THEN
                 Status.Action.Id :=  UINT#151;
@@ -1612,7 +1612,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision
                 
                 TemplateTask_20steps_1.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_1.ThrowWhen(TemplateTask_20steps_1.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_1 timeout.');                
+                TemplateTask_20steps_1.ThrowWhen(TemplateTask_20steps_1.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_1 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_1.DoneReached() THEN
                 Status.Action.Id :=  UINT#161;
@@ -1884,7 +1884,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision
                 THIS.CallTimers(TRUE);
                 TemplateTask_20steps_2.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_2.ThrowWhen(TemplateTask_20steps_2.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_2 timeout.');                
+                TemplateTask_20steps_2.ThrowWhen(TemplateTask_20steps_2.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_2 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_2.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -2157,7 +2157,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision
                 
                 TemplateTask_20steps_3.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_3.ThrowWhen(TemplateTask_20steps_3.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_3 timeout.');                
+                TemplateTask_20steps_3.ThrowWhen(TemplateTask_20steps_3.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_3 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_3.DoneReached() THEN
                 Status.Action.Id :=  UINT#201;
@@ -2430,7 +2430,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision
                 
                 TemplateTask_20steps_4.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_4.ThrowWhen(TemplateTask_20steps_4.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_4 timeout.');                
+                TemplateTask_20steps_4.ThrowWhen(TemplateTask_20steps_4.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_4 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_4.DoneReached() THEN
                 Status.Action.Id :=  UINT#221;
@@ -2703,7 +2703,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision
                 
                 TemplateTask_20steps_5.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_5.ThrowWhen(TemplateTask_20steps_5.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_5 timeout.');                
+                TemplateTask_20steps_5.ThrowWhen(TemplateTask_20steps_5.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_5 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_5.DoneReached() THEN
                 Status.Action.Id :=  UINT#241;
@@ -2976,7 +2976,7 @@ NAMESPACE AXOpen.Components.Zebra.Vision
                 
                 TemplateTask_20steps_6.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                TemplateTask_20steps_6.ThrowWhen(TemplateTask_20steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'TemplateTask_20steps_6 timeout.');                
+                TemplateTask_20steps_6.ThrowWhen(TemplateTask_20steps_6.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#TemplateTask_20steps_6 timeout.#>');                
             END_IF;
             IF TemplateTask_20steps_6.DoneReached() THEN
                 Status.Action.Id :=  UINT#261;

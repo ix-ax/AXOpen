@@ -58,4 +58,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="The_safety_condition_is_lost_during_movement_DOT_" xml:space="preserve">
+    <value>The safety condition is lost during movement.</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,151</comment>
+  </data>
+  <data name="TurnTask_timeout_DOT_" xml:space="preserve">
+    <value>TurnTask timeout.</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,251</comment>
+  </data>
+  <data name="InitPositionTask_timeout_DOT_" xml:space="preserve">
+    <value>InitPositionTask timeout.</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,333</comment>
+  </data>
 </root>

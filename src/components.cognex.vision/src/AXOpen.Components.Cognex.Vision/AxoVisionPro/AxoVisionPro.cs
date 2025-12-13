@@ -750,39 +750,6 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(527, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
                     errorDescriptionDict.Add(528, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
                     errorDescriptionDict.Add(529, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    //TemplateTask_10steps_4
-                    errorDescriptionDict.Add(530, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(531, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(532, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(533, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(534, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(535, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(536, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(537, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(538, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(539, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    //TemplateTask_10steps_5
-                    errorDescriptionDict.Add(540, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(541, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(542, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(543, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(544, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(545, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(546, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(547, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(548, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(549, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    //TemplateTask_10steps_6
-                    errorDescriptionDict.Add(550, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(551, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(552, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(553, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(554, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(555, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(556, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(557, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(558, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(559, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
                     //ReadResultsTask
                     errorDescriptionDict.Add(560, "Waiting for the signal/variable `Waiting for system ready` to be set!"                                                                    );
                     errorDescriptionDict.Add(561, "Waiting for the signal/variable `Waiting for online` to be set!"                                                                          );
@@ -804,7 +771,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(577, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
                     errorDescriptionDict.Add(578, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
                     errorDescriptionDict.Add(579, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                //SendDataTask
+                    //SendDataTask
                     errorDescriptionDict.Add(580, "Waiting for the signal/variable `Waiting for system ready` to be set!"                                                                    );
                     errorDescriptionDict.Add(581, "Waiting for the signal/variable `Waiting for online` to be set!"                                                                          );
                     errorDescriptionDict.Add(582, "Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         );
@@ -825,90 +792,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(597, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
                     errorDescriptionDict.Add(598, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
                     errorDescriptionDict.Add(599, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    //TemplateTask_20steps_3
-                    errorDescriptionDict.Add(600, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(601, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(602, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(603, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(604, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(605, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(606, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(607, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(608, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(609, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(610, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(611, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(612, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(613, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(614, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(615, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(616, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(617, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(618, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(619, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                //TemplateTask_20steps_4
-                    errorDescriptionDict.Add(620, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(621, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(622, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(623, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(624, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(625, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(626, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(627, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(628, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(629, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(630, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(631, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(632, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(633, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(634, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(635, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(636, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(637, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(638, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(639, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    //TemplateTask_20steps_5
-                    errorDescriptionDict.Add(640, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(641, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(642, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(643, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(644, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(645, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(646, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(647, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(648, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(649, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(650, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(651, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(652, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(653, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(654, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(655, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(656, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(657, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(658, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(659, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    //TemplateTask_20steps_6
-                    errorDescriptionDict.Add(660, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(661, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(662, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(663, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(664, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(665, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(666, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(667, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(668, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(669, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(670, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(671, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(672, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(673, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(674, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(675, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(676, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(677, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(678, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
-                    errorDescriptionDict.Add(679, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+
                     //  General alarms
                     errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
                     errorDescriptionDict.Add(701, "Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!");
@@ -1287,44 +1171,22 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(1306, "User data size oversized!");
 
 
-                // HardResetAllCamerasTask
+                    // HardResetAllCamerasTask
                     errorDescriptionDict.Add(10000, "HardResetAllCamerasTask finished with error!");
                     errorDescriptionDict.Add(10001, "HardResetAllCamerasTask was aborted, while not yet completed!");
-                // ResetTask
+                    // ResetTask
                     errorDescriptionDict.Add(10010, "ResetTask finished with error!");
                     errorDescriptionDict.Add(10011, "ResetTask was aborted, while not yet completed!");                                                                         
-                // TriggerTask
+                    // TriggerTask
                     errorDescriptionDict.Add(10020, "TriggerTask finished with error!");
                     errorDescriptionDict.Add(10021, "TriggerTask was aborted, while not yet completed!");                                                                                       
-                // TemplateTask_10steps_4
-                    errorDescriptionDict.Add(10030, "TemplateTask_10steps_4 task finished with error!");
-                    errorDescriptionDict.Add(10031, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
-                // TemplateTask_10steps_5
-                    errorDescriptionDict.Add(10040, "TemplateTask_10steps_5 task finished with error!");
-                    errorDescriptionDict.Add(10041, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
-                // TemplateTask_10steps_6
-                    errorDescriptionDict.Add(10050, "TemplateTask_10steps_6 task finished with error!");
-                    errorDescriptionDict.Add(10051, "TemplateTask_10steps_6 task was aborted, while not yet completed!");
 
-                // ReadResultsTask
+                    // ReadResultsTask
                     errorDescriptionDict.Add(10060, "ReadResultsTask task finished with error!");
                     errorDescriptionDict.Add(10061, "ReadResultsTask task was aborted, while not yet completed!");
                     // SendDataTask
                     errorDescriptionDict.Add(10080, "SendDataTask task finished with error!");
                     errorDescriptionDict.Add(10081, "SendDataTask task was aborted, while not yet completed!");                                                                            
-                // TemplateTask_20steps_3
-                    errorDescriptionDict.Add(10100,"TemplateTask_20steps_3 task finished with error!");
-                    errorDescriptionDict.Add(10101, "TemplateTask_20steps_3 task was aborted, while not yet completed!");
-                // TemplateTask_20steps_4
-                    errorDescriptionDict.Add(10120,"TemplateTask_20steps_4 task finished with error!");
-                    errorDescriptionDict.Add(10121, "TemplateTask_20steps_4 task was aborted, while not yet completed!");
-                // TemplateTask_20steps_5
-                    errorDescriptionDict.Add(10140,"TemplateTask_20steps_5 task finished with error!");
-                    errorDescriptionDict.Add(10141, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
-                // TemplateTask_20steps_6
-                    errorDescriptionDict.Add(10160,"TemplateTask_20steps_6 task finished with error!");
-                    errorDescriptionDict.Add(10161, "TemplateTask_20steps_6 task was aborted, while not yet completed!");
-
                 }
                 string errorDescription = "   ";
 
@@ -1354,233 +1216,67 @@ namespace AXOpen.Components.Cognex.Vision
                     actionDescriptionDict.Add(50, "Restore has been executed.");
                     // HardResetAllCamerasTask
                     actionDescriptionDict.Add(100, "HardResetAllCamerasTask started.");
-                    actionDescriptionDict.Add(300, "HardResetAllCamerasTask running.");
-                    actionDescriptionDict.Add(301, "HardResetAllCamerasTask running.");
-                    actionDescriptionDict.Add(302, "HardResetAllCamerasTask running.");
-                    actionDescriptionDict.Add(303, "HardResetAllCamerasTask running.");
-                    actionDescriptionDict.Add(304, "HardResetAllCamerasTask running.");
-                    actionDescriptionDict.Add(305, "HardResetAllCamerasTask running.");
-                    actionDescriptionDict.Add(306, "HardResetAllCamerasTask running.");
-                    actionDescriptionDict.Add(307, "HardResetAllCamerasTask running.");
-                    actionDescriptionDict.Add(308, "HardResetAllCamerasTask running.");
-                    actionDescriptionDict.Add(309, "HardResetAllCamerasTask running.");
+                    actionDescriptionDict.Add(300, "HardResetAllCamerasTask running: waiting for the job id set.");
+                    actionDescriptionDict.Add(301, "HardResetAllCamerasTask running: waiting for the job id cleared.");
+                    actionDescriptionDict.Add(302, "HardResetAllCamerasTask finished.");
                     actionDescriptionDict.Add(101, "HardResetAllCamerasTask finished succesfully.");
                     actionDescriptionDict.Add(102, "HardResetAllCamerasTask restored.");
                     // ResetTask
                     actionDescriptionDict.Add(110, "ResetTask started.");
-                    actionDescriptionDict.Add(310, "ResetTask running.");
-                    actionDescriptionDict.Add(311, "ResetTask running.");
-                    actionDescriptionDict.Add(312, "ResetTask running.");
-                    actionDescriptionDict.Add(313, "ResetTask running.");
-                    actionDescriptionDict.Add(314, "ResetTask running.");
-                    actionDescriptionDict.Add(315, "ResetTask running.");
-                    actionDescriptionDict.Add(316, "ResetTask running.");
-                    actionDescriptionDict.Add(317, "ResetTask running.");
-                    actionDescriptionDict.Add(318, "ResetTask running.");
-                    actionDescriptionDict.Add(319, "ResetTask running.");
+                    actionDescriptionDict.Add(310, "ResetTask running: checking if the data buffer is free.");
+                    actionDescriptionDict.Add(311, "ResetTask running: writing the user data.");
+                    actionDescriptionDict.Add(312, "ResetTask running: checking if the data buffer is free.");
+                    actionDescriptionDict.Add(313, "ResetTask running: releasing the data buffer.");
+                    actionDescriptionDict.Add(314, "ResetTask finished.");
                     actionDescriptionDict.Add(111, "ResetTask finished succesfully.");
                     actionDescriptionDict.Add(112, "ResetTask restored.");
                     // TriggerTask
                     actionDescriptionDict.Add(120, "TriggerTask started.");
-                    actionDescriptionDict.Add(320, "TriggerTask running, Waiting for system ready");
-                    actionDescriptionDict.Add(321, "TriggerTask running, Waiting for online");
-                    actionDescriptionDict.Add(322, "TriggerTask running, camera reset before trigger");
-                    actionDescriptionDict.Add(323, "TriggerTask running, trigger set");
-                    actionDescriptionDict.Add(324, "TriggerTask running, wait for trigger ack");
-                    actionDescriptionDict.Add(325, "TriggerTask running, wait for trigger ack false>");
-                    actionDescriptionDict.Add(326, "TriggerTask running, trigger done>");
-                    actionDescriptionDict.Add(327, "TriggerTask running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(328, "TriggerTask running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(329, "TriggerTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(320, "TriggerTask running: waiting for the system to be ready.");
+                    actionDescriptionDict.Add(321, "TriggerTask running: waiting for the system to be online.");
+                    actionDescriptionDict.Add(322, "TriggerTask running: reseting camera before trigger started.");
+                    actionDescriptionDict.Add(323, "TriggerTask running: reseting the trigger.");
+                    actionDescriptionDict.Add(324, "TriggerTask running: setting the trigger and waiting for acknowledgement.");
+                    actionDescriptionDict.Add(325, "TriggerTask running: resetting the trigger and waiting for acknowledgment to fall.");
+                    actionDescriptionDict.Add(326, "TriggerTask finished.");
                     actionDescriptionDict.Add(121, "TriggerTask finished succesfully.");
                     actionDescriptionDict.Add(122, "TriggerTask restored.");
-                    // TemplateTask_10steps_4
-                    actionDescriptionDict.Add(130, "TemplateTask_10steps_4 started.");
-                    actionDescriptionDict.Add(330, "TemplateTask_10steps_4 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(331, "TemplateTask_10steps_4 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(332, "TemplateTask_10steps_4 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(333, "TemplateTask_10steps_4 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(334, "TemplateTask_10steps_4 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(335, "TemplateTask_10steps_4 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(336, "TemplateTask_10steps_4 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(337, "TemplateTask_10steps_4 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(338, "TemplateTask_10steps_4 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(339, "TemplateTask_10steps_4 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(131, "TemplateTask_10steps_4 finished succesfully.");
-                    actionDescriptionDict.Add(132, "TemplateTask_10steps_4 restored.");
-                    // TemplateTask_10steps_5
-                    actionDescriptionDict.Add(140, "TemplateTask_10steps_5 started.");
-                    actionDescriptionDict.Add(340, "TemplateTask_10steps_5 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(341, "TemplateTask_10steps_5 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(342, "TemplateTask_10steps_5 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(343, "TemplateTask_10steps_5 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(344, "TemplateTask_10steps_5 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(345, "TemplateTask_10steps_5 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(346, "TemplateTask_10steps_5 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(347, "TemplateTask_10steps_5 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(348, "TemplateTask_10steps_5 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(349, "TemplateTask_10steps_5 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(141, "TemplateTask_10steps_5 finished succesfully.");
-                    actionDescriptionDict.Add(142, "TemplateTask_10steps_5 restored.");
-                    // TemplateTask_10steps_6
-                    actionDescriptionDict.Add(150, "TemplateTask_10steps_6 started.");
-                    actionDescriptionDict.Add(350, "TemplateTask_10steps_6 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(351, "TemplateTask_10steps_6 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(352, "TemplateTask_10steps_6 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(353, "TemplateTask_10steps_6 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(354, "TemplateTask_10steps_6 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(355, "TemplateTask_10steps_6 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(356, "TemplateTask_10steps_6 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(357, "TemplateTask_10steps_6 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(358, "TemplateTask_10steps_6 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(359, "TemplateTask_10steps_6 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(151, "TemplateTask_10steps_6 finished succesfully.");
-                    actionDescriptionDict.Add(152, "TemplateTask_10steps_6 restored.");
-
                     // ReadResultsTask
                     actionDescriptionDict.Add(160, "ReadResultsTask started.");
-                    actionDescriptionDict.Add(360, "ReadResultsTask running, Waiting for system ready");
-                    actionDescriptionDict.Add(361, "ReadResultsTask running, Waiting for online");
-                    actionDescriptionDict.Add(362, "ReadResultsTask running, check correct JOBID");
-                    actionDescriptionDict.Add(363, "ReadResultsTask running, Wait for free Data Buffer");
-                    actionDescriptionDict.Add(364, "ReadResultsTask running, Lock Data Buffer");
-                    actionDescriptionDict.Add(365, "ReadResultsTask running, set bit user data");
-                    actionDescriptionDict.Add(366, "ReadResultsTask running, wait for result valid");
-                    actionDescriptionDict.Add(367, "ReadResultsTask running, calculate size variant data");
-                    actionDescriptionDict.Add(368, "ReadResultsTask running, check HW correct config");
-                    actionDescriptionDict.Add(369, "ReadResultsTask running, move data from HW to byte buffer");
-                    actionDescriptionDict.Add(370, "ReadResultsTask running, Read Data");
-                    actionDescriptionDict.Add(371, "ReadResultsTask running, set release result data ack");
-                    actionDescriptionDict.Add(372, "ReadResultsTask running, set for free Data Buffer");
-                    actionDescriptionDict.Add(373, "ReadResultsTask running, set bit user data");
-                    actionDescriptionDict.Add(374, "ReadResultsTask running, set release Locker");
-                    actionDescriptionDict.Add(375, "ReadResultsTask running, Result ack>");
-                    actionDescriptionDict.Add(376, "ReadResultsTask running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(377, "ReadResultsTask running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(378, "ReadResultsTask running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(379, "ReadResultsTask running, <add the detailed description of the current action 20>");
+                    actionDescriptionDict.Add(360, "ReadResultsTask running: waiting for the system to be ready.");
+                    actionDescriptionDict.Add(361, "ReadResultsTask running: waiting for the system to be online.");
+                    actionDescriptionDict.Add(362, "ReadResultsTask running: checking the correct JobId.");
+                    actionDescriptionDict.Add(363, "ReadResultsTask running: waiting for the data buffer is free.");
+                    actionDescriptionDict.Add(364, "ReadResultsTask running: locking the data buffer.");
+                    actionDescriptionDict.Add(365, "ReadResultsTask running: setting the user data.");
+                    actionDescriptionDict.Add(366, "ReadResultsTask running: waiting for the results to be valid.");
+                    actionDescriptionDict.Add(367, "ReadResultsTask running: calculating the size of the data.");
+                    actionDescriptionDict.Add(369, "ReadResultsTask running: copying the data from hardware to the buffer.");
+                    actionDescriptionDict.Add(370, "ReadResultsTask running: reading the data.");
+                    actionDescriptionDict.Add(371, "ReadResultsTask running: acknowledging the result data.");
+                    actionDescriptionDict.Add(372, "ReadResultsTask running: reseting the job load Id.");
+                    actionDescriptionDict.Add(373, "ReadResultsTask running: loading the job.");
+                    actionDescriptionDict.Add(374, "ReadResultsTask finished.");
                     actionDescriptionDict.Add(161, "ReadResultsTask finished succesfully.");
                     actionDescriptionDict.Add(162, "ReadResultsTask restored.");
                     // SendDataTask
                     actionDescriptionDict.Add(180, "SendDataTask started.");
-                    actionDescriptionDict.Add(380, "SendDataTask running, Waiting for system ready");
-                    actionDescriptionDict.Add(381, "SendDataTask running, Waiting for online");
-                    actionDescriptionDict.Add(382, "SendDataTask running, Wait for free Data Buffer");
-                    actionDescriptionDict.Add(383, "SendDataTask running, Lock Data Buffer");
-                    actionDescriptionDict.Add(384, "SendDataTask running, serialize User data DATA");
-                    actionDescriptionDict.Add(385, "SendDataTask running, check HW correct config");
-                    actionDescriptionDict.Add(386, "SendDataTask running, Fill User DATA");
-                    actionDescriptionDict.Add(387, "SendDataTask running, set bit user data");
-                    actionDescriptionDict.Add(388, "SendDataTask running, wait for confirm user data ack");
-                    actionDescriptionDict.Add(389, "SendDataTask running, wait for release user data ack");
+                    actionDescriptionDict.Add(380, "SendDataTask running: waiting for the system to be ready.");
+                    actionDescriptionDict.Add(381, "SendDataTask running: waiting for the system to be online.");
+                    actionDescriptionDict.Add(382, "SendDataTask running: waiting for the data buffer is free.");
+                    actionDescriptionDict.Add(383, "SendDataTask running: locking the data buffer.");
+                    actionDescriptionDict.Add(384, "SendDataTask running: setting the length of the data to sent.");
+                    actionDescriptionDict.Add(386, "SendDataTask running: filling the user data to be sent.");
+                    actionDescriptionDict.Add(387, "SendDataTask running: waiting for falling of the set user data acknowledge.");
+                    actionDescriptionDict.Add(388, "SendDataTask running: waiting for the confirmation of the user data.");
+                    actionDescriptionDict.Add(389, "SendDataTask running: waiting for falling of the set user data acknowledge.");
                     actionDescriptionDict.Add(390, "SendDataTask running, wait for release user data ack");
-                    actionDescriptionDict.Add(391, "SendDataTask running, data handler set");
-                    actionDescriptionDict.Add(392, "SendDataTask running, wait for data handler ack");
-                    actionDescriptionDict.Add(393, "SendDataTask running, wait for data handler ack false");
-                    actionDescriptionDict.Add(394, "SendDataTask running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(395, "SendDataTask running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(396, "SendDataTask running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(397, "SendDataTask running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(398, "SendDataTask running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(399, "SendDataTask running, <add the detailed description of the current action 20>");
+                    actionDescriptionDict.Add(391, "SendDataTask running: data handler set.");
+                    actionDescriptionDict.Add(392, "SendDataTask running: waiting for data handler ack.");
+                    actionDescriptionDict.Add(393, "SendDataTask running: waiting for data handler ack false.");
+                    actionDescriptionDict.Add(394, "SendDataTask finished.");
                     actionDescriptionDict.Add(181, "SendDataTask finished succesfully.");
                     actionDescriptionDict.Add(182, "SendDataTask restored.");
-                    // TemplateTask_20steps_3
-                    actionDescriptionDict.Add(200, "TemplateTask_20steps_3 started.");
-                    actionDescriptionDict.Add(400, "TemplateTask_20steps_3 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(401, "TemplateTask_20steps_3 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(402, "TemplateTask_20steps_3 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(403, "TemplateTask_20steps_3 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(404, "TemplateTask_20steps_3 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(405, "TemplateTask_20steps_3 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(406, "TemplateTask_20steps_3 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(407, "TemplateTask_20steps_3 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(408, "TemplateTask_20steps_3 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(409, "TemplateTask_20steps_3 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(410, "TemplateTask_20steps_3 running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(411, "TemplateTask_20steps_3 running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(412, "TemplateTask_20steps_3 running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(413, "TemplateTask_20steps_3 running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(414, "TemplateTask_20steps_3 running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(415, "TemplateTask_20steps_3 running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(416, "TemplateTask_20steps_3 running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(417, "TemplateTask_20steps_3 running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(418, "TemplateTask_20steps_3 running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(419, "TemplateTask_20steps_3 running, <add the detailed description of the current action 20>");
-                    actionDescriptionDict.Add(201, "TemplateTask_20steps_3 finished succesfully.");
-                    actionDescriptionDict.Add(202, "TemplateTask_20steps_3 restored.");
-                    // TemplateTask_20steps_4
-                    actionDescriptionDict.Add(220, "TemplateTask_20steps_4 started.");
-                    actionDescriptionDict.Add(420, "TemplateTask_20steps_4 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(421, "TemplateTask_20steps_4 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(422, "TemplateTask_20steps_4 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(423, "TemplateTask_20steps_4 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(424, "TemplateTask_20steps_4 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(425, "TemplateTask_20steps_4 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(426, "TemplateTask_20steps_4 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(427, "TemplateTask_20steps_4 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(428, "TemplateTask_20steps_4 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(429, "TemplateTask_20steps_4 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(430, "TemplateTask_20steps_4 running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(431, "TemplateTask_20steps_4 running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(432, "TemplateTask_20steps_4 running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(433, "TemplateTask_20steps_4 running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(434, "TemplateTask_20steps_4 running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(435, "TemplateTask_20steps_4 running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(436, "TemplateTask_20steps_4 running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(437, "TemplateTask_20steps_4 running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(438, "TemplateTask_20steps_4 running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(439, "TemplateTask_20steps_4 running, <add the detailed description of the current action 20>");
-                    actionDescriptionDict.Add(221, "TemplateTask_20steps_4 finished succesfully.");
-                    actionDescriptionDict.Add(222, "TemplateTask_20steps_4 restored.");
-                    // TemplateTask_20steps_5
-                    actionDescriptionDict.Add(240, "TemplateTask_20steps_5 started.");
-                    actionDescriptionDict.Add(440, "TemplateTask_20steps_5 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(441, "TemplateTask_20steps_5 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(442, "TemplateTask_20steps_5 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(443, "TemplateTask_20steps_5 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(444, "TemplateTask_20steps_5 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(445, "TemplateTask_20steps_5 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(446, "TemplateTask_20steps_5 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(447, "TemplateTask_20steps_5 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(448, "TemplateTask_20steps_5 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(449, "TemplateTask_20steps_5 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(450, "TemplateTask_20steps_5 running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(451, "TemplateTask_20steps_5 running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(452, "TemplateTask_20steps_5 running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(453, "TemplateTask_20steps_5 running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(454, "TemplateTask_20steps_5 running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(455, "TemplateTask_20steps_5 running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(456, "TemplateTask_20steps_5 running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(457, "TemplateTask_20steps_5 running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(458, "TemplateTask_20steps_5 running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(459, "TemplateTask_20steps_5 running, <add the detailed description of the current action 20>");
-                    actionDescriptionDict.Add(241, "TemplateTask_20steps_5 finished succesfully.");
-                    actionDescriptionDict.Add(242, "TemplateTask_20steps_5 restored.");
-                    // TemplateTask_20steps_6
-                    actionDescriptionDict.Add(260, "TemplateTask_20steps_6 started.");
-                    actionDescriptionDict.Add(460, "TemplateTask_20steps_6 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(461, "TemplateTask_20steps_6 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(462, "TemplateTask_20steps_6 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(463, "TemplateTask_20steps_6 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(464, "TemplateTask_20steps_6 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(465, "TemplateTask_20steps_6 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(466, "TemplateTask_20steps_6 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(467, "TemplateTask_20steps_6 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(468, "TemplateTask_20steps_6 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(469, "TemplateTask_20steps_6 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(470, "TemplateTask_20steps_6 running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(471, "TemplateTask_20steps_6 running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(472, "TemplateTask_20steps_6 running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(473, "TemplateTask_20steps_6 running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(474, "TemplateTask_20steps_6 running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(475, "TemplateTask_20steps_6 running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(476, "TemplateTask_20steps_6 running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(477, "TemplateTask_20steps_6 running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(478, "TemplateTask_20steps_6 running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(479, "TemplateTask_20steps_6 running, <add the detailed description of the current action 20>");
-                    actionDescriptionDict.Add(261, "TemplateTask_20steps_6 finished succesfully.");
-                    actionDescriptionDict.Add(262, "TemplateTask_20steps_6 restored.");
                     // General alarms
                     actionDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
                     actionDescriptionDict.Add(701, "Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!");
@@ -1627,7 +1323,6 @@ namespace AXOpen.Components.Cognex.Vision
                     actionDescriptionDict.Add(741, "Error writing the AxoVisionProOutputStructure_hwID_19!");
                     actionDescriptionDict.Add(742, "Error writing the AxoVisionProOutputStructure_hwID_20!");
 
-
                     // HardResetAllCamerasTask
                     actionDescriptionDict.Add(10000, "HardResetAllCamerasTask finished with error!");
                     actionDescriptionDict.Add(10001, "HardResetAllCamerasTask was aborted, while not yet completed!");
@@ -1637,15 +1332,6 @@ namespace AXOpen.Components.Cognex.Vision
                     // TriggerTask
                     actionDescriptionDict.Add(10020, "TriggerTask finished with error!");
                     actionDescriptionDict.Add(10021, "TriggerTask was aborted, while not yet completed!");
-                    // TemplateTask_10steps_4
-                    actionDescriptionDict.Add(10030, "TemplateTask_10steps_4 task finished with error!");
-                    actionDescriptionDict.Add(10031, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
-                    // TemplateTask_10steps_5
-                    actionDescriptionDict.Add(10040, "TemplateTask_10steps_5 task finished with error!");
-                    actionDescriptionDict.Add(10041, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
-                    // TemplateTask_10steps_6
-                    actionDescriptionDict.Add(10050, "TemplateTask_10steps_6 task finished with error!");
-                    actionDescriptionDict.Add(10051, "TemplateTask_10steps_6 task was aborted, while not yet completed!");
 
                     // ReadResultsTask
                     actionDescriptionDict.Add(10060, "ReadResultsTask task finished with error!");
@@ -1653,19 +1339,6 @@ namespace AXOpen.Components.Cognex.Vision
                     // SendDataTask
                     actionDescriptionDict.Add(10080, "SendDataTask task finished with error!");
                     actionDescriptionDict.Add(10081, "SendDataTask task was aborted, while not yet completed!");
-                    // TemplateTask_20steps_3       
-                    actionDescriptionDict.Add(10100, "TemplateTask_20steps_3 task finished with error!");
-                    actionDescriptionDict.Add(10101, "TemplateTask_20steps_3 task was aborted, while not yet completed!");
-                    // TemplateTask_20steps_4
-                    actionDescriptionDict.Add(10120, "TemplateTask_20steps_4 task finished with error!");
-                    actionDescriptionDict.Add(10121, "TemplateTask_20steps_4 task was aborted, while not yet completed!");
-                    // TemplateTask_20steps_5
-                    actionDescriptionDict.Add(10140, "TemplateTask_20steps_5 task finished with error!");
-                    actionDescriptionDict.Add(10141, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
-                    // TemplateTask_20steps_6
-                    actionDescriptionDict.Add(10160, "TemplateTask_20steps_6 task finished with error!");
-                    actionDescriptionDict.Add(10161, "TemplateTask_20steps_6 task was aborted, while not yet completed!");
-
                 }
 
                 string actionDescription = "   ";
@@ -1681,9 +1354,7 @@ namespace AXOpen.Components.Cognex.Vision
                 {
                     return "   ";
                 }
-
             }
         }
     }
-
 }

@@ -59,5 +59,77 @@ namespace AXOpen.Components.Rexroth.Drives.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AxoHalt_Task timeout..
+        /// </summary>
+        public static string AxoHalt_UNDERSCORE_Task_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("AxoHalt_UNDERSCORE_Task_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AxoHome_Task timeout..
+        /// </summary>
+        public static string AxoHome_UNDERSCORE_Task_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("AxoHome_UNDERSCORE_Task_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AxoMoveAbsolute_Task timeout..
+        /// </summary>
+        public static string AxoMoveAbsolute_UNDERSCORE_Task_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("AxoMoveAbsolute_UNDERSCORE_Task_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AxoMoveAdditive_Task timeout..
+        /// </summary>
+        public static string AxoMoveAdditive_UNDERSCORE_Task_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("AxoMoveAdditive_UNDERSCORE_Task_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AxoMoveRelative_Task timeout..
+        /// </summary>
+        public static string AxoMoveRelative_UNDERSCORE_Task_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("AxoMoveRelative_UNDERSCORE_Task_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AxoMoveVelocity_Task timeout..
+        /// </summary>
+        public static string AxoMoveVelocity_UNDERSCORE_Task_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("AxoMoveVelocity_UNDERSCORE_Task_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AxoSetPosition_Task timeout..
+        /// </summary>
+        public static string AxoSetPosition_UNDERSCORE_Task_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("AxoSetPosition_UNDERSCORE_Task_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AxoStop_Task timeout..
+        /// </summary>
+        public static string AxoStop_UNDERSCORE_Task_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("AxoStop_UNDERSCORE_Task_timeout_DOT_", resourceCulture);
+            }
+        }
     }
 }

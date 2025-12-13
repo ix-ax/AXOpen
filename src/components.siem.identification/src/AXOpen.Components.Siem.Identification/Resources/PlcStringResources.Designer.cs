@@ -59,5 +59,140 @@ namespace AXOpen.Components.Siem.Identification.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error reading tag.
+        /// </summary>
+        public static string Error_reading_tag {
+            get {
+                return ResourceManager.GetString("Error_reading_tag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error when switching the antena On.
+        /// </summary>
+        public static string Error_when_switching_the_antena_On {
+            get {
+                return ResourceManager.GetString("Error_when_switching_the_antena_On", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error writing tag.
+        /// </summary>
+        public static string Error_writing_tag {
+            get {
+                return ResourceManager.GetString("Error_writing_tag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReadTagFieldTask timeout..
+        /// </summary>
+        public static string ReadTagFieldTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ReadTagFieldTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReadTask timeout..
+        /// </summary>
+        public static string ReadTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ReadTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReadUID_Task timeout..
+        /// </summary>
+        public static string ReadUID_UNDERSCORE_Task_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ReadUID_UNDERSCORE_Task_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ResetTask timeout..
+        /// </summary>
+        public static string ResetTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ResetTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_5 timeout..
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_4 timeout..
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_1 timeout..
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_6 timeout..
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_3 timeout..
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_2 timeout..
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WriteTagFieldTask timeout..
+        /// </summary>
+        public static string WriteTagFieldTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("WriteTagFieldTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WriteTask timeout..
+        /// </summary>
+        public static string WriteTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("WriteTask_timeout_DOT_", resourceCulture);
+            }
+        }
     }
 }

@@ -59,5 +59,14 @@ namespace AXOpen.Components.Rexroth.Press.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RunCommandTask timeout..
+        /// </summary>
+        public static string RunCommandTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("RunCommandTask_timeout_DOT_", resourceCulture);
+            }
+        }
     }
 }

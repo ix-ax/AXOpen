@@ -58,16 +58,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Command_state" xml:space="preserve">
-    <value>Command state</value>
-  </data>
-  <data name="Stepping_mode" xml:space="preserve">
-    <value>Stepping mode</value>
-  </data>
-  <data name="Sequence_mode" xml:space="preserve">
-    <value>Sequence mode</value>
-  </data>
-  <data name="Run_step" xml:space="preserve">
-    <value>Run step</value>
-  </data>
 </root>
