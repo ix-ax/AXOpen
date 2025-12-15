@@ -50,7 +50,6 @@ namespace AXOpen.Components.Keyence.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(200, new AxoMessengerTextItem("TuneTask started.","")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(201, new AxoMessengerTextItem("TuneTask finished succesfully.","")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(202, new AxoMessengerTextItem("TuneTask restored.","")),
-                //// TemplateTask_20steps_3
                 //  General alarms
                 new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                                                   ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `Config.HWIDS.HwID_Device` has invalid value in `Run` method!"                                                                                  ,"Check the call of the `Run` method, if the `Config.HWIDS.HwID_Device` parameter is assigned.")),
