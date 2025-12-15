@@ -356,8 +356,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                     THIS.CallTimers(FALSE);
                     _power_progress := 300;
                 END_IF;
-                
-                IF _power_progress = 300 THEN     //Switching to auto mode
+                // Start at main running: switching to auto mode.
+                IF _power_progress = 300 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#500;
@@ -370,8 +370,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 301;
                     END_IF;
                 END_IF;
-                
-                IF _power_progress = 301 THEN //Enabling operations
+                // Start at main running: enabling the operations.
+                IF _power_progress = 301 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#501;
@@ -384,8 +384,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 302;
                     END_IF;
                 END_IF;
-                
-                IF _power_progress = 302 THEN //Reseting error
+                // Start at main running: reseting the error.
+                IF _power_progress = 302 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#502;
@@ -399,8 +399,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 303;
                     END_IF;
                 END_IF;
-                
-                IF _power_progress = 303 THEN //<#Robot Emergency Stop Reset#>
+                // Start at main running: reseting the emergency stop.
+                IF _power_progress = 303 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#503;
@@ -414,8 +414,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 304;
                     END_IF;
                 END_IF;
-
-                IF _power_progress = 304 THEN //Reseting program
+                // Start at main running: reseting the program.
+                IF _power_progress = 304 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#504;
@@ -429,8 +429,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         Outputs.ProgramReset :=FALSE;
                     END_IF;
                 END_IF;
-
-                IF _power_progress = 305 THEN //Done
+                // Start at main finished. 
+                IF _power_progress = 305 THEN
                     _power_progress := 0;
                     StartAtMainTask.DoneWhen(TRUE);
                 END_IF;
@@ -474,8 +474,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                     THIS.CallTimers(FALSE);
                     _power_progress := 310;
                 END_IF;
-              
-                IF _power_progress = 310 THEN //Switching to auto mode
+                // Start motors and program running: switching to auto mode.
+                IF _power_progress = 310 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#510;
@@ -488,8 +488,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 311;
                     END_IF;
                 END_IF;
-              
-                IF _power_progress = 311 THEN //Enabling operations
+                // Start motors and program running: enabling the operations.
+                IF _power_progress = 311 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#511;
@@ -502,8 +502,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 312;
                     END_IF;
                 END_IF;
-              
-                IF _power_progress = 312 THEN //Reseting error
+                // Start motors and program running: reseting the error.
+                IF _power_progress = 312 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#512;
@@ -517,8 +517,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 313;
                     END_IF;
                 END_IF;
-
-                IF _power_progress = 313 THEN //<#Robot Emergency Stop Reset#>
+                // Start motors and program running: reseting the emergency stop.
+                IF _power_progress = 313 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#513;
@@ -532,8 +532,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 314;
                     END_IF;
                 END_IF;
-              
-                IF _power_progress = 314 THEN	//Start servomotors
+                // Start motors and program running: starting the servomotors.
+                IF _power_progress = 314 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#514;
@@ -552,8 +552,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                          _power_progress := 315;
                     END_IF;
                 END_IF;		
-
-                IF _power_progress = 315 THEN	//Start servomotors
+                // Start motors and program running: starting the servomotors.
+                IF _power_progress = 315 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#515;
@@ -573,8 +573,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                          _power_progress := 316;
                     END_IF;
                 END_IF;		
-                
-                IF _power_progress = 316 THEN	//Start program
+                // Start motors and program running: starting the program.
+                IF _power_progress = 316 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#516;
@@ -593,8 +593,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 317;
                     END_IF;
                 END_IF;		
-
-                IF _power_progress = 317 THEN	//Start program
+                // Start motors and program running: starting the program.
+                IF _power_progress = 317 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#517;
@@ -613,8 +613,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 318;
                     END_IF;
                 END_IF;		
-                
-                IF _power_progress = 318 THEN	//Done
+                // Start motors and program finished.
+                IF _power_progress = 318 THEN
                     _power_progress := 0;
                     StartMotorsAndProgramTask.DoneWhen(TRUE);               
                 END_IF;		
@@ -657,8 +657,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                     THIS.CallTimers(FALSE);
                     _power_progress := 320;
                 END_IF;
-                
-                IF _power_progress = 320 THEN // Switching to auto
+                // Stop movements running: switching to auto mode.
+                IF _power_progress = 320 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#520;
@@ -671,7 +671,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 321;
                     END_IF;
                 END_IF;
-                
+                // Stop movements running: enabling the operations.
                 IF _power_progress = 321 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
@@ -685,7 +685,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 322;
                     END_IF;
                 END_IF;
-
+                // Stop movements running: stopping the movement.
                 IF _power_progress = 322 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
@@ -701,8 +701,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 323;
                     END_IF;
                 END_IF;		
-
-                IF _power_progress = 323 THEN // Done
+                // Stop movements finished.
+                IF _power_progress = 323 THEN 
                     _power_progress := 0;
                     StopMovementsTask.DoneWhen(TRUE);
                 END_IF;	
@@ -747,7 +747,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                     THIS.CallTimers(FALSE);
                     _power_progress := 330;
                 END_IF;
-                
+                // Stop movements and program running: switching to auto mode.
                 IF _power_progress = 330 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Warning);
@@ -761,7 +761,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 331;
                     END_IF;
                 END_IF;
-                
+                // Stop movements and program running: enabling the operations.
                 IF _power_progress = 331 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
@@ -775,7 +775,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 332;
                     END_IF;
                 END_IF;
-                
+                // Stop movements and program running: stopping the movement.
                 IF _power_progress = 332 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Warning);
@@ -791,8 +791,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _power_progress := 333;                        
                     END_IF;
                 END_IF;		
-                                
-                IF _power_progress = 333 THEN // Done
+                // Stop movements and program finished.
+                IF _power_progress = 333 THEN 
                     _power_progress := 0;
                     StopMovementsAndProgramTask.DoneWhen(TRUE);
                 END_IF;		
@@ -835,7 +835,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                     THIS.CallTimers(FALSE);
                     _movement_progress := 340;
                 END_IF;
-                
+                // Start movements running: waiting for all movement conditions to be fulfilled.
                 IF _movement_progress = 340 THEN
                     IF _infoTimer.output THEN
                         IF NOT Inputs.AutoEnable THEN   //<#Waiting for AutoEnable!
@@ -863,7 +863,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _movement_progress := 344;
                     END_IF;
                 END_IF;
-                
+                // Start movements running: sending parameters of the movement to the controller.
                 IF _movement_progress = 344 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#544, eAxoMessageCategory#Warning);
@@ -887,7 +887,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _movement_progress := 345;
                     END_IF;
                 END_IF;
-                
+                // Start movements running: waiting for the movement parameters sent to the controller to be mirrored back.
                 IF _movement_progress = 345 THEN
                     IF _infoTimer.output THEN
                         IF Inputs.GlobalSpeed <> Status.CurrentMovementParameters.GlobalSpeed THEN
@@ -928,7 +928,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _movement_progress:=351;
                     END_IF;
                 END_IF;		
-
+                // Start movements running: acknowleadging of the movement parameters.
                 IF _movement_progress = 351 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Warning);
@@ -942,7 +942,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _movement_progress:=352;
                     END_IF;
                 END_IF;	
-                
+                // Start movements running: waiting for the movement is finished.
                 IF _movement_progress = 352 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#552, eAxoMessageCategory#Warning);
@@ -956,7 +956,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _movement_progress:=353;
                     END_IF;
                 END_IF;	
-
+                // Start movements running: acknowleadging of the finished movement.
                 IF _movement_progress = 353 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#553, eAxoMessageCategory#Warning);
@@ -969,7 +969,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                         _movement_progress := 354;
                     END_IF;
                 END_IF;	
-
+                // Start movements finished.
                 IF _movement_progress = 354 THEN
                     _movement_progress := 0;
                     StartMovementsTask.DoneWhen(TRUE);
