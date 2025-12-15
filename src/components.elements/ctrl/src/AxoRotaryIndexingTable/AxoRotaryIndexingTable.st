@@ -163,9 +163,10 @@ NAMESPACE AXOpen.Components.Elements
                     THIS.CallTimers(FALSE);
                     _progress := 300;
                 END_IF;
-    
-                IF _progress = 300 THEN                                                                                     // TurnTask running: checking the initial position
-                    IF NOT Inputs.InPosition THEN                                                                           // Turn table is not in the initial position
+                // TurnTask running: checking the initial position.
+                IF _progress = 300 THEN
+                    // Turn table is not in the initial position!
+                    IF NOT Inputs.InPosition THEN
                         Messenger.Activate(     UINT#703, eAxoMessageCategory#Error);                                       
                         TaskMessenger.Activate( UINT#703, eAxoMessageCategory#Error);                                       
                         Status.Error.Id :=      UINT#703;
@@ -176,14 +177,16 @@ NAMESPACE AXOpen.Components.Elements
                         _progress := 301;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 301 THEN                                                                                     // TurnTask running: evaluating start index
-                    IF CurrentPosition = UINT#0 THEN                                                                        // Invalid coding, no signal from any coding sensor
+                // TurnTask running: evaluating start index.
+                IF _progress = 301 THEN
+                    // Invalid coding, no signal from any coding sensor!
+                    IF CurrentPosition = UINT#0 THEN
                         Messenger.Activate(     UINT#704, eAxoMessageCategory#Error);                                       
                         TaskMessenger.Activate( UINT#704, eAxoMessageCategory#Error);
                         Status.Error.Id :=      UINT#704;                                       
                      END_IF;
-                    IF CurrentPosition > Config.NumberOfPositions THEN                                                      // Invalid coding, current position is greather then maximum
+                    // Invalid coding, current position is greather then maximum!
+                    IF CurrentPosition > Config.NumberOfPositions THEN                                                      
                         Messenger.Activate(     UINT#705, eAxoMessageCategory#Error);                                       
                         TaskMessenger.Activate( UINT#705, eAxoMessageCategory#Error);
                         Status.Error.Id :=      UINT#705;                                       
@@ -196,8 +199,8 @@ NAMESPACE AXOpen.Components.Elements
                         _progress := 302;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 302 THEN                                                                                     // TurnTask running: turn table moving, waiting for 'Inputs.InPosition' to be reseted.
+                // TurnTask running: turn table moving, waiting for 'Inputs.InPosition' to be reseted.
+                IF _progress = 302 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#502;
@@ -212,8 +215,8 @@ NAMESPACE AXOpen.Components.Elements
                         _progress := 303;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 303 THEN                                                                                     // TurnTask running: turn table moving, waiting for 'Inputs.InPosition' to be set.
+                // TurnTask running: turn table moving, waiting for 'Inputs.InPosition' to be set.
+                IF _progress = 303 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#503;
@@ -229,9 +232,10 @@ NAMESPACE AXOpen.Components.Elements
                         _progress := 304;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 304 THEN                                                                                     // TurnTask running: evaluating end index
-                    IF Status.EndPosition = Status.Positions[UINT#0] THEN
+                // TurnTask running: evaluating end index.
+                IF _progress = 304 THEN
+                    // Invalid coding, unexpected value of coding sensors!
+                    IF Status.EndPosition = Status.Positions[UINT#0] THEN 
                         THIS.CallTimers(FALSE);
                         _progress := 309;
                     ELSE
@@ -240,8 +244,8 @@ NAMESPACE AXOpen.Components.Elements
                         Status.Error.Id :=      UINT#706;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 309 THEN                                                                                     // TurnTask running: , <add the detailed description of the current action 10>
+                // TurnTask finished.
+                IF _progress = 309 THEN 
                     TurnTask.DoneWhen(TRUE);
                 END_IF;
     
@@ -289,8 +293,8 @@ NAMESPACE AXOpen.Components.Elements
                     THIS.CallTimers(FALSE);
                     _progress := 312;
                 END_IF;
-    
-                IF _progress = 312 THEN                                                                                     // InitPositionTask running: turn table moving, waiting for 'Inputs.InPosition' to be reseted.
+                // InitPositionTask running: turn table moving, waiting for 'Inputs.InPosition' to be reseted.
+                IF _progress = 312 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#512;
@@ -305,8 +309,8 @@ NAMESPACE AXOpen.Components.Elements
                         _progress := 313;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 313 THEN                                                                                     // InitPositionTask running: turn table moving, waiting for 'Inputs.InPosition' to be set.
+                // InitPositionTask running: turn table moving, waiting for 'Inputs.InPosition' to be set.
+                IF _progress = 313 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#513;
@@ -322,8 +326,8 @@ NAMESPACE AXOpen.Components.Elements
                         _progress := 319;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 319 THEN                                                                                     // InitPositionTask running: , <add the detailed description of the current action 10>
+                // InitPositionTask finished.
+                IF _progress = 319 THEN
                     InitPositionTask.DoneWhen(TRUE);
                 END_IF;
     
