@@ -657,7 +657,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 300;
                 END_IF;
-
+                // Reset running: waiting for 'Failed' flag to be reseted.
                 IF _progress = 300 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
@@ -673,7 +673,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                         _progress := 301;
                     END_IF;
                 END_IF;
-
+                // Reset running: waiting for 'InCycle' flag to be reseted.
                 IF _progress = 301 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
@@ -684,7 +684,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                         _progress := 302;
                     END_IF;
                 END_IF;
-                
+                // Reset running: waiting for the device to be Ready.
                 IF _progress = 302 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
@@ -695,7 +695,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                         _progress := 303;
                     END_IF;
                 END_IF;
-                
+                // Reset finished.
                 IF _progress = 303 THEN
                     Outputs.Control.SpindleValidation := FALSE;
                     Outputs.Control.StartCycle := FALSE;
@@ -754,8 +754,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     THIS.CallTimers(FALSE);      
                     _progress := 310;
                 END_IF; 
-
-                //Set program
+                // Set screwing program running: waiting for the program number is mirrored back. 
                 IF _progress = 310 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
@@ -770,7 +769,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                         _progress := 311;
                     END_IF;
                 END_IF;
-
+                // Set screwing program finished. 
                 IF _progress = 311 THEN
                     SetScrewingProgramTask.DoneWhen(TRUE);
                     _progress := 0;
@@ -821,7 +820,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     _progress := 320;
                 END_IF; 
 
-                //Reset results
+                // Screwing running: reseting the previous results.
                 IF _progress = 320 THEN
                     Outputs.Control.SpindleValidation := FALSE;
                     Outputs.Control.Reset := FALSE;
@@ -835,8 +834,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 321;
                 END_IF;
-
-                //Check if program already set 
+                // Screwing running: checking if the program is already set.
                 IF _progress = 321 THEN
                     IF _RequiredScrewingProgram = Inputs.ScrewingProgram THEN
                         ScrewingProgram	:= _RequiredScrewingProgram;
@@ -846,8 +844,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                         _progress := 322;
                     END_IF;
                 END_IF;
-
-                //Set program
+                // Screwing running: waiting for the program number is mirrored back.
                 IF _progress = 322 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
@@ -862,9 +859,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                         _progress := 323;
                     END_IF;
                 END_IF;
-
-                
-                // wait for screwdriver ready
+                // Screwing running: waiting for 'InCycle' flag to be reseted.
                 IF _progress = 323 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
@@ -876,8 +871,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                         _progress := 324;
                     END_IF;
                 END_IF;
-
-                // wait for screwdriver ready
+                // Screwing running: waiting for the device to be Ready.
                 IF _progress = 324 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Warning);
@@ -889,8 +883,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                         _progress := 325;
                     END_IF;
                 END_IF;
-
-                // start screwing cycle 
+                // Screwing running: waiting for the screwing cycle is started.
                 IF _progress = 325 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
@@ -905,8 +898,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                         _progress := 326;
                     END_IF;
                 END_IF;
-
-                // wait for screwing cycle end
+                // Screwing running: waiting for the screwing cycle is finished.
                 IF _progress = 326 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Warning);
@@ -918,9 +910,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                         _progress := 327;
                     END_IF;
                 END_IF;
-
-                
-                // wait for screwing cycle end
+                // Screwing running: waiting for the overall screwing results are ready.
                 IF _progress = 327 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Warning);
@@ -941,8 +931,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                         _progress := 328;
                     END_IF;
                 END_IF;
-
-                // finished
+                // Screwing finished.
                 IF _progress = 328 THEN
                     _progress := 0;
                     StartScrewingTask.DoneWhen(TRUE);
@@ -996,7 +985,6 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 Status.Error.Id := UINT#1232;
                 RETURN;
             END_IF;
-
         END_METHOD   
 
         ///<summary>
@@ -1018,7 +1006,6 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
             SetScrewingProgram    := SetScrewingProgramTask.Invoke(THIS);
         END_METHOD
-
 
         ///<summary>
         /// This method starts the screwing process
@@ -1046,7 +1033,6 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
     
         METHOD PROTECTED OVERRIDE ManualControl
             _RequiredScrewingProgram := RequiredScrewingProgram;
-            
         END_METHOD
 
         METHOD PRIVATE CallTimers
@@ -1057,8 +1043,6 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             _infoTimer.OnDelay(THIS, signal AND Config.InfoTime > LT#0S ,Config.InfoTime);
             _errorTimer.OnDelay(THIS, signal AND Config.ErrorTime > LT#0S , Config.ErrorTime);
         END_METHOD
-
-
     END_CLASS
 END_NAMESPACE
 
