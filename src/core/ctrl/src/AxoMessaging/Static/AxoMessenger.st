@@ -72,10 +72,16 @@ NAMESPACE AXOpen.Messaging.Static
                 THIS.Acknowledge(MessageCode);
             END_IF;
             
-            IF(THIS.MessengerState <> eAxoMessengerState#Idle && Category >= eAxoMessageCategory#Error) THEN
-                THIS.AggregateMessage(LINT#1); 
-            ELSE
-                THIS.AggregateMessage(LINT#0); 
+            
+            IF(_lastMessageAggregationCycle <> _context.OpenCycleCount()) THEN
+                THIS.MsgCnt := LINT#0;
+            END_IF;   
+
+            IF((THIS.MessengerState = eAxoMessengerState#ActiveAlreadyAcknowledged ||
+                THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeRequired ||
+                THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired) 
+                && Category >= eAxoMessageCategory#Error) THEN
+                THIS.AggregateMessage(LINT#1);            
             END_IF;    
  
         END_METHOD
