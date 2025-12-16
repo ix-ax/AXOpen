@@ -72,10 +72,7 @@ namespace AXOpen.Components.Keyence.Vision
             StartPolling(Component.Inputs.DeviceStatistics.ProcessingTimeMin, 750);
             StartPolling(Component._isManuallyControllable, 500);
             
-            foreach (var templateTask in TemplateTasks)
-            {
-                StartPolling(templateTask.Task.Status);
-            }           
+       
         }
 
         /// <summary>
@@ -116,23 +113,6 @@ namespace AXOpen.Components.Keyence.Vision
                 return taskState == eAxoTaskState.Busy || taskState == eAxoTaskState.Error;
             }
         }
-
-        /// <summary>
-        /// Describes the set of optional template tasks exposed by the PLC component.
-        /// </summary>
-        protected IEnumerable<(string Label, AxoTask Task)> TemplateTasks => new List<(string, AxoTask)>
-        {
-            ("10 steps · 3", Component.TemplateTask_10steps_3),
-            ("10 steps · 4", Component.TemplateTask_10steps_4),
-            ("10 steps · 5", Component.TemplateTask_10steps_5),
-            ("10 steps · 6", Component.TemplateTask_10steps_6),
-            ("20 steps · 1", Component.TemplateTask_20steps_1),
-            ("20 steps · 2", Component.TemplateTask_20steps_2),
-            ("20 steps · 3", Component.TemplateTask_20steps_3),
-            ("20 steps · 4", Component.TemplateTask_20steps_4),
-            ("20 steps · 5", Component.TemplateTask_20steps_5),
-            ("20 steps · 6", Component.TemplateTask_20steps_6)
-        };
     }
 
     public class Axo_IV3StatusView : Axo_IV3View
