@@ -145,7 +145,7 @@ NAMESPACE AXOpen.Io
                     THIS.CallTimers(FALSE);
                     _progress := 300;
                 END_IF;
-                // UpdateDiagnosticTask running: , cleaning all diagnostics results
+                // UpdateDiagnosticTask running: cleaning all diagnostics results.
                 IF _progress = 300 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
@@ -159,7 +159,7 @@ NAMESPACE AXOpen.Io
                         _progress := 301;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , waiting for the accessibility to the HwIdList
+                // UpdateDiagnosticTask running: waiting for the accessibility to the HwIdList.
                 IF _progress = 301 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
@@ -171,7 +171,7 @@ NAMESPACE AXOpen.Io
                         _progress := 302;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering PLC-ReadSlotFromHardwareID running
+                // UpdateDiagnosticTask running: discovering PLC-ReadSlotFromHardwareID running.
                 IF _progress = 302 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
@@ -188,7 +188,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress + 2;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering PLC-comparing GeoAddr details
+                // UpdateDiagnosticTask running: discovering PLC-comparing GeoAddr details.
                 IF _progress = 303 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
@@ -207,7 +207,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress + 1;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering PLC-check maximal index
+                // UpdateDiagnosticTask running: discovering PLC-check maximal index.
                 IF _progress = 304 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
@@ -224,7 +224,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress - 2;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , get diagnostics of the PLC system
+                // UpdateDiagnosticTask running: get diagnostics of the PLC system.
                 IF _progress = 305 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Warning);
@@ -257,7 +257,7 @@ NAMESPACE AXOpen.Io
                         END_IF;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , get diagnostics of the PLC sub system
+                // UpdateDiagnosticTask running: get diagnostics of the PLC sub system.
                 IF _progress = 306 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#506, eAxoMessageCategory#Warning);
@@ -290,7 +290,7 @@ NAMESPACE AXOpen.Io
                         END_IF;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering IoSystem-ReadSlotFromHardwareID running
+                // UpdateDiagnosticTask running: discovering IoSystem-ReadSlotFromHardwareID running.
                 IF _progress = 307 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#507, eAxoMessageCategory#Warning);
@@ -307,7 +307,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress + 2;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering IoSystem-comparing GeoAddr details
+                // UpdateDiagnosticTask running: discovering IoSystem-comparing GeoAddr details.
                 IF _progress = 308 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#508, eAxoMessageCategory#Warning);
@@ -327,7 +327,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress + 1;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering IoSystem-check maximal index
+                // UpdateDiagnosticTask running: discovering IoSystem-check maximal index.
                 IF _progress = 309 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#509, eAxoMessageCategory#Warning);
@@ -344,7 +344,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress - 2;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , get diagnostics of the IoSystem system
+                // UpdateDiagnosticTask running: get diagnostics of the IoSystem system.
                 IF _progress = 310 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
@@ -377,7 +377,7 @@ NAMESPACE AXOpen.Io
                         END_IF;
                     END_IF;
                 END_IF;                
-                // UpdateDiagnosticTask running: , get diagnostics of the IoSystem sub system
+                // UpdateDiagnosticTask running: get diagnostics of the IoSystem sub system.
                 IF _progress = 311 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
@@ -411,7 +411,7 @@ NAMESPACE AXOpen.Io
                         END_IF;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering Station-ReadSlotFromHardwareID running
+                // UpdateDiagnosticTask running: discovering Station-ReadSlotFromHardwareID running.
                 IF _progress = 312 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
@@ -428,7 +428,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress + 2;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering Station-comparing GeoAddr details
+                // UpdateDiagnosticTask running: discovering Station-comparing GeoAddr details.
                 IF _progress = 313 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
@@ -448,7 +448,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress + 1;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering Station-check maximal index
+                // UpdateDiagnosticTask running: discovering Station-check maximal index.
                 IF _progress = 314 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
@@ -465,7 +465,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress - 2;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , get diagnostics of the Station system               
+                // UpdateDiagnosticTask running: get diagnostics of the Station system.
                 IF _progress = 315 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
@@ -498,7 +498,7 @@ NAMESPACE AXOpen.Io
                         END_IF;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , get diagnostics of the Station sub system               
+                // UpdateDiagnosticTask running: get diagnostics of the Station sub system.
                 IF _progress = 316 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
@@ -532,7 +532,7 @@ NAMESPACE AXOpen.Io
                         END_IF;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering Module-ReadSlotFromHardwareID running
+                // UpdateDiagnosticTask running: discovering Module-ReadSlotFromHardwareID running.
                 IF _progress = 317 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Warning);
@@ -549,7 +549,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress + 2;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering Module-comparing GeoAddr details
+                // UpdateDiagnosticTask running: discovering Module-comparing GeoAddr details.
                 IF _progress = 318 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#518, eAxoMessageCategory#Warning);
@@ -569,7 +569,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress + 1;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering Module-check maximal index
+                // UpdateDiagnosticTask running: discovering Module-check maximal index.
                 IF _progress = 319 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#519, eAxoMessageCategory#Warning);
@@ -586,7 +586,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress - 2;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , get diagnostics of the Module system               
+                // UpdateDiagnosticTask running: get diagnostics of the Module system.
                 IF _progress = 320 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
@@ -619,7 +619,7 @@ NAMESPACE AXOpen.Io
                         END_IF;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , get diagnostics of the Module sub system               
+                // UpdateDiagnosticTask running: get diagnostics of the Module sub system.
                 IF _progress = 321 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
@@ -653,7 +653,7 @@ NAMESPACE AXOpen.Io
                         END_IF;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering Submodule-ReadSlotFromHardwareID running
+                // UpdateDiagnosticTask running: discovering Submodule-ReadSlotFromHardwareID running.
                 IF _progress = 322 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
@@ -670,7 +670,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress + 2;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering Submodule-comparing GeoAddr details
+                // UpdateDiagnosticTask running: discovering Submodule-comparing GeoAddr details.
                 IF _progress = 323 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
@@ -690,7 +690,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress + 1;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , discovering Submodule-check maximal index
+                // UpdateDiagnosticTask running: discovering Submodule-check maximal index.
                 IF _progress = 324 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Warning);
@@ -708,7 +708,7 @@ NAMESPACE AXOpen.Io
                         _progress := _progress - 2;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , get diagnostics of the Submodule system               
+                // UpdateDiagnosticTask running: get diagnostics of the Submodule system.
                 IF _progress = 325 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
@@ -741,7 +741,7 @@ NAMESPACE AXOpen.Io
                         END_IF;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , get diagnostics of the SubModule sub system               
+                // UpdateDiagnosticTask running: get diagnostics of the SubModule sub system.
                 IF _progress = 326 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Warning);
@@ -775,14 +775,14 @@ NAMESPACE AXOpen.Io
                         END_IF;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , should never get into this step             
+                // UpdateDiagnosticTask running: should never get into this step.
                 IF _progress = 327 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#527;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , at least one error present              
+                // UpdateDiagnosticTask running: at least one error present.
                 IF _progress = 330 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Warning);
@@ -810,7 +810,7 @@ NAMESPACE AXOpen.Io
                         _progress := 331;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask running: , get diagnostics of the faulty item               
+                // UpdateDiagnosticTask running: get diagnostics of the faulty item.
                 IF _progress = 331 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
@@ -848,12 +848,12 @@ NAMESPACE AXOpen.Io
                         END_IF;
                     END_IF;
                 END_IF;
-                // UpdateDiagnosticTask done: , error present                              
+                // UpdateDiagnosticTask done: error present.
                 IF _progress = 332 THEN
                     UpdateDiagnosticTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;                
-                // UpdateDiagnosticTask done: , none error present                              
+                // UpdateDiagnosticTask done:  none error present.
                 IF _progress = 340 THEN
                     UpdateDiagnosticTask.DoneWhen(TRUE);
                     _progress := 0;

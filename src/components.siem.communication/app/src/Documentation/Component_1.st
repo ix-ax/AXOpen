@@ -37,7 +37,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
         VAR PUBLIC                       
             {#ix-set:AttributeName = "<#Start test sequence#>"}
             Sequencer : AxoSequencer;       
-            Steps : ARRAY[0..30] OF AXOpen.Core.AxoStep;
+            Steps : ARRAY[0..5] OF AXOpen.Core.AxoStep;
         END_VAR
 
         VAR PRIVATE
@@ -92,61 +92,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 END_IF;    
             END_IF;       
 
-            IF(Steps[5].Execute(Sequencer, 'TemplateMethod_10steps_4')) THEN
-                IF(ExampleComponent.TemplateMethod_10steps_4().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[6].Execute(Sequencer, 'TemplateMethod_10steps_5')) THEN
-                IF(ExampleComponent.TemplateMethod_10steps_5().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[7].Execute(Sequencer, 'TemplateMethod_10steps_6')) THEN
-                IF(ExampleComponent.TemplateMethod_10steps_6().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[8].Execute(Sequencer, 'TemplateMethod_20steps_1')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_1().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[9].Execute(Sequencer, 'TemplateMethod_20steps_2')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_2().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[10].Execute(Sequencer, 'TemplateMethod_20steps_3')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_3().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[11].Execute(Sequencer, 'TemplateMethod_20steps_4')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_4().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[12].Execute(Sequencer, 'TemplateMethod_20steps_5')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_5().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[13].Execute(Sequencer, 'TemplateMethod_20steps_6')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_6().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[14].Execute(Sequencer, 'Restore')) THEN
+            IF(Steps[5].Execute(Sequencer, 'Restore')) THEN
                 ExampleComponent.Restore();
                 Sequencer.CompleteSequence();    
             END_IF;       

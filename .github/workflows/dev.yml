@@ -1,4 +1,6 @@
 name: dev
+permissions:
+  contents: read
 
 on:
 #  push:
