@@ -1134,8 +1134,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     THIS.CallTimers(FALSE);
                     _progress := 330;
                 END_IF;
-    
-                IF _progress = 330 THEN                 // ClearResultDataTask running, reset outputs
+                // ClearResultDataTask running: reseting the outputs.
+                IF _progress = 330 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#530;
@@ -1166,8 +1166,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     THIS.CallTimers(FALSE);
                     _progress := 331;
                 END_IF;
-    
-                IF _progress = 331 THEN                 // ClearResultDataTask running, clear error flag
+                // ClearResultDataTask running: reseting the error flag.
+                IF _progress = 331 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#531;
@@ -1180,8 +1180,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 332;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 332 THEN                 // ClearResultDataTask running, clear read complete flag
+                // ClearResultDataTask running: reseting the read complete flag.
+                IF _progress = 332 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#532;
@@ -1194,8 +1194,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 333;
                     END_IF;
                 END_IF;
-
-                IF _progress = 333 THEN                 //ClearResultDataTask running, clear preset complete flag
+                // ClearResultDataTask running: reseting the preset complete flag.
+                IF _progress = 333 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#533, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#533;
@@ -1208,8 +1208,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 334;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 334 THEN                 // ClearResultDataTask running, clear register preset data complete flag
+                // ClearResultDataTask running: reseting the register preset data complete flag.
+                IF _progress = 334 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#534, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#534;
@@ -1222,8 +1222,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 335;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 335 THEN                 // ClearResultDataTask running, clear tune complete flag
+                // ClearResultDataTask running: reseting the tune complete flag.
+                IF _progress = 335 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#535, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#535;
@@ -1236,8 +1236,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 336;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 336 THEN                 // ClearResultDataTask running, clear external request complete flag
+                // ClearResultDataTask running: reseting the external request complete flag.
+                IF _progress = 336 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#536, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#536;
@@ -1250,8 +1250,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 337;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 337 THEN                 // ClearResultDataTask running, waiting for general error flag is reseted
+                // ClearResultDataTask running: waiting for the general error flag is reseted.
+                IF _progress = 337 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#537, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#537;
@@ -1262,20 +1262,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 338;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 338 THEN                 // ClearResultDataTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#538, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#538;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 339;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 339 THEN                  // ClearResultDataTask finished
+                // ClearResultDataTask finished.
+                IF _progress = 338 THEN                  
                     ClearResultDataTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -1319,8 +1307,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     THIS.CallTimers(FALSE);
                     _progress := 380;
                 END_IF;
-    
-                IF _progress = 380 THEN             // ReadTask running, reset outputs
+                // ReadTask running: reseting the outputs.
+                IF _progress = 380 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#580, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#580;
@@ -1351,8 +1339,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     THIS.CallTimers(FALSE);
                     _progress := 381;
                 END_IF;
-    
-                IF _progress = 381 THEN             // ReadTask running, clear error flag
+                // ReadTask running: reseting the error flag.
+                IF _progress = 381 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#581, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#581;
@@ -1365,8 +1353,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 382;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 382 THEN             // ReadTask running, clear read complete flag
+                // ReadTask running: reseting the read complete flag.
+                IF _progress = 382 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#582, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#582;
@@ -1379,8 +1367,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 383;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 383 THEN             // ReadTask running, clear preset complete flag
+                // ReadTask running: reseting the preset complete flag.
+                IF _progress = 383 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#583, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#583;
@@ -1393,8 +1381,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 384;
                     END_IF;
                 END_IF;                
-
-                IF _progress = 384 THEN             // ReadTask running, clear register preset data complete flag
+                // ReadTask running: reseting the register preset data complete flag.
+                IF _progress = 384 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#584, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#584;
@@ -1407,8 +1395,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 385;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 385 THEN             // ReadTask running, clear tune complete flag
+                // ReadTask running: reseting the tune complete flag.
+                IF _progress = 385 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#585, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#585;
@@ -1421,8 +1409,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 386;
                     END_IF;
                 END_IF;
-
-                IF _progress = 386 THEN             // ReadTask running, clear external request complete flag
+                // ReadTask running: reseting the external request complete flag.
+                IF _progress = 386 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#586, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#586;
@@ -1435,8 +1423,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 387;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 387 THEN             // ReadTask running, waiting for general error flag is reseted
+                // ReadTask running: waiting for the general error flag is reseted.
+                IF _progress = 387 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#587, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#587;
@@ -1447,8 +1435,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 388;
                     END_IF;
                 END_IF;
-                               
-                IF _progress = 388 THEN             // ReadTask running, setting bank number
+                // ReadTask running: setting bank number.
+                IF _progress = 388 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#588, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#588;
@@ -1460,8 +1448,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 389;
                     END_IF;
                 END_IF;
-             
-                IF _progress = 389 THEN             // ReadTask running, starting trigger
+                // ReadTask running: starting trigger.
+                IF _progress = 389 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#589, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#589;
@@ -1479,8 +1467,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         END_IF;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 390 THEN             // ReadTask running, waiting for data
+                // ReadTask running: waiting for the result data.
+                IF _progress = 390 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#590, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#590;
@@ -1491,8 +1479,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 391;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 391 THEN             // ReadTask running, acknowledging results
+                // ReadTask running: acknowledging results.
+                IF _progress = 391 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#591, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#591;
@@ -1504,85 +1492,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 392;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 392 THEN             // ReadTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#592, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#592;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 393;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 393 THEN             // ReadTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#593, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#593;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 394;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 394 THEN             // ReadTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#594, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#594;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 395;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 395 THEN             // ReadTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#595, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#595;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 396;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 396 THEN             // ReadTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#596, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#596;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 397;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 397 THEN             // ReadTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#597, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#597;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 398;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 398 THEN             // ReadTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#598, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#598;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 399;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 399 THEN             // ReadTask finished 
+                // ReadTask finished.
+                IF _progress = 392 THEN             
                     ReadTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -1620,14 +1531,14 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             Messenger.ActivateOnCondition(ULINT#200,TuneTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#201,TuneTask.IsDone(), eAxoMessageCategory#Info);
             IF TuneTask.Execute(THIS) THEN
-                IF _progress = 0 THEN               // TuneTask started
+                IF _progress = 0 THEN 
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
                     _progress := 400;
                 END_IF;
-    
-                IF _progress = 400 THEN             // TuneTask running, reset outputs
+                // TuneTask running: reseting the outputs.
+                IF _progress = 400 THEN  
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#600, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#600;
@@ -1658,8 +1569,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     THIS.CallTimers(FALSE);
                     _progress := 401;
                 END_IF;
-    
-                IF _progress = 401 THEN             // TuneTask running, clear error flag
+                // TuneTask running: reseting the error flag.
+                IF _progress = 401 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#601, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#601;
@@ -1672,8 +1583,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 402;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 402 THEN             // TuneTask running, clear read complete flag
+                // TuneTask running: reseting the read complete flag.
+                IF _progress = 402 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#602, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#602;
@@ -1686,8 +1597,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 403;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 403 THEN             // TuneTask running, clear preset complete flag
+                // TuneTask running: reseting the preset complete flag.
+                IF _progress = 403 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#603, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#603;
@@ -1700,8 +1611,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 404;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 404 THEN             // TuneTask running, clear register preset data complete flag
+                // TuneTask running: reseting the register preset data complete flag.
+                IF _progress = 404 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#604, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#604;
@@ -1714,8 +1625,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 405;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 405 THEN             // TuneTask running, clear tune complete flag
+                // TuneTask running: reseting the tune complete flag.
+                IF _progress = 405 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#605, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#605;
@@ -1728,8 +1639,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 406;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 406 THEN             // TuneTask running, clear external request complete flag
+                // TuneTask running: reseting the external request complete flag.
+                IF _progress = 406 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#606, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#606;
@@ -1742,8 +1653,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 407;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 407 THEN             // TuneTask running, waiting for general error flag is reseted
+                // TuneTask running: waiting for the general error flag is reseted.
+                IF _progress = 407 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#607, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#607;
@@ -1754,8 +1665,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 408;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 408 THEN             // TuneTask running, setting bank number
+                // TuneTask running: setting bank number.
+                IF _progress = 408 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#608, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#608;
@@ -1767,8 +1678,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 409;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 409 THEN             // TuneTask running, starting tune process
+                // TuneTask running: starting the tunning process.
+                IF _progress = 409 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#609, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#609;
@@ -1785,8 +1696,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         END_IF;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 410 THEN             // TuneTask running, acknowledging tunning process
+                // TuneTask running: acknowledging the tunning process.
+                IF _progress = 410 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#610, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#610;
@@ -1798,96 +1709,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 411;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 411 THEN             // TuneTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#611, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#611;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 412;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 412 THEN             // TuneTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#612, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#612;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 413;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 413 THEN             // TuneTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#613, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#613;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 414;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 414 THEN             // TuneTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#614, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#614;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 415;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 415 THEN             // TuneTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#615, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#615;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 416;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 416 THEN             // TuneTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#616, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#616;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 417;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 417 THEN             // TuneTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#617, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#617;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 418;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 418 THEN             // TuneTask running, 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#618, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#618;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        _progress := 419;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 419 THEN             // TuneTask finished
+                // TuneTask finished.
+                IF _progress = 411 THEN
                     TuneTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;

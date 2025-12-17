@@ -631,16 +631,16 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             _context := THIS.GetContext();
 
             //*************INITIALIZATION*************
-            // RestoreTask.Run(THIS);
-            // PowerOnTask.Run(THIS);
-            // StopMovementsTask.Run(THIS);
-            // StopMovementsAndProgramTask.Run(THIS);
+            RestoreTask.Run(THIS);
+            PowerOnTask.Run(THIS);
+            StopMovementsTask.Run(THIS);
+            StopMovementsAndProgramTask.Run(THIS);
             
-            // StartAtMainTask.Run(THIS);
-            // StartMotorsAndProgramTask.Run(THIS);
-            // StartMovementsTask.Run(THIS);
-            // HardwareDiagnosticsTask.Run(THIS);
-            // RebootControllerTask.Run(THIS);
+            StartAtMainTask.Run(THIS);
+            StartMotorsAndProgramTask.Run(THIS);
+            StartMovementsTask.Run(THIS);
+            HardwareDiagnosticsTask.Run(THIS);
+            RebootControllerTask.Run(THIS);
 
             _stopTasksAreActive := StopMovementsTask.IsBusy() OR StopMovementsAndProgramTask.IsBusy();
             //****************************************
@@ -1568,7 +1568,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 300;
                 END_IF;
-                
+                // Start at main running: waiting for 'NORMAL' or 'REDUCED' mode is choosen.
                 IF _power_progress = 300 THEN  
                     IF _infoTimer.output THEN
                         IF NOT Inputs.Inputs.Safety.NO_IsNormalMode THEN
@@ -1586,7 +1586,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=302;                    
                     END_IF;
                 END_IF;
-
+                // Start at main running: waiting for the program to start running.
                 IF _power_progress = 302 THEN  
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
@@ -1601,7 +1601,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=303;                    
                     END_IF;
                 END_IF;
-
+                // Start at main finished.
                 IF _power_progress = 303 THEN  
                     StartAtMainTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
@@ -1648,7 +1648,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 310;
                 END_IF;
-              
+                // Start motors and program running: waiting for 'NORMAL' or 'REDUCED' mode is choosen.
                 IF _power_progress = 310 THEN  
                     IF _infoTimer.output THEN
                         IF NOT Inputs.Inputs.Safety.NO_IsNormalMode THEN
@@ -1666,8 +1666,8 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=312;                    
                     END_IF;
                 END_IF;
-
-                IF _power_progress = 312 THEN	//Reseting error
+                // Start motors and program running: waiting for the error to be reset (on the robot teach pendant).
+                IF _power_progress = 312 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#512;
@@ -1678,8 +1678,8 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress := 313;
                     END_IF;
                 END_IF;
-              
-                IF _power_progress = 313 THEN	//Reseting emergency stop error
+                // Start motors and program running: waiting for the emergency stop error to be reset (on the robot teach pendant).
+                IF _power_progress = 313 THEN
                     IF _infoTimer.output THEN
                         IF Inputs.Inputs.Safety.ES_IsEmergencyStopped  THEN
                             TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
@@ -1717,7 +1717,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress := 319;
                     END_IF;
                 END_IF;
-              
+                // Start motors and program running: waiting for the motors to be powered on.
                 IF _power_progress = 319 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#519, eAxoMessageCategory#Warning);
@@ -1737,7 +1737,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                          _power_progress := 320;
                     END_IF;
                 END_IF;		
-
+                // Start motors and program running: waiting for the motors to be powered on.
                 IF _power_progress = 320 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
@@ -1757,7 +1757,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                          _power_progress := 321;
                     END_IF;
                 END_IF;		
-
+                // Start motors and program running: waiting for the program to start running.
                 IF _power_progress = 321 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
@@ -1777,7 +1777,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                          _power_progress := 322;
                     END_IF;
                 END_IF;		
-              
+                // Start motors and program finished.
                 IF _power_progress = 322 THEN	
                     StartMotorsAndProgramTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
@@ -1822,7 +1822,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     THIS.CallTimers(FALSE);
                     _movement_progress := 380;
                 END_IF;
-                
+                // Start movements running: waiting for the program to start running.
                 IF _movement_progress = 380 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#580, eAxoMessageCategory#Warning);
@@ -1834,7 +1834,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _movement_progress := 381;
                     END_IF;
                 END_IF;
-                
+                // Start movements running: waiting for the motors to be powered on.
                 IF _movement_progress = 381 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#581, eAxoMessageCategory#Warning);
@@ -1846,7 +1846,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _movement_progress := 382;
                     END_IF;
                 END_IF;
-                
+                // Start movements running: waiting for the error to be reset (on the robot teach pendant).
                 IF _movement_progress = 382 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#582, eAxoMessageCategory#Warning);
@@ -1858,7 +1858,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _movement_progress := 383;
                     END_IF;
                 END_IF;
-                
+                // Start movements running: sending parameters of the movement to the controller.
                 IF _movement_progress = 383 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#583, eAxoMessageCategory#Warning);
@@ -1880,7 +1880,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _movement_progress := 384;
                     END_IF;
                 END_IF;
-                
+                // Start movements running: waiting for the movement parameters sent to the controller to be mirrored back.
                 IF _movement_progress = 384 THEN
                     IF _infoTimer.output THEN
                         IF Inputs.GlobalSpeed <> TO_DINT(Status.CurrentMovementParameters.GlobalSpeed) THEN
@@ -1920,7 +1920,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _movement_progress:=390;
                     END_IF;
                 END_IF;		
-
+                // Start movements running: acknowleadging of the movement parameters.
                 IF _movement_progress = 390 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#590, eAxoMessageCategory#Warning);
@@ -1934,7 +1934,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _movement_progress:=391;
                     END_IF;
                 END_IF;	
-                
+                // Start movements running: waiting for the movement is finished.
                 IF _movement_progress = 391 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#591, eAxoMessageCategory#Warning);
@@ -1948,7 +1948,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _movement_progress:=392;
                     END_IF;
                 END_IF;	
-
+                // Start movements running: acknowleadging of the finished movement.
                 IF _movement_progress = 392 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#592, eAxoMessageCategory#Warning);
@@ -2002,7 +2002,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 410;
                 END_IF;
-                
+                // Stop movements and program running: waiting for 'NORMAL' or 'REDUCED' mode is choosen.
                 IF _power_progress = 410 THEN  
                     IF _infoTimer.output THEN
                         IF NOT Inputs.Inputs.Safety.NO_IsNormalMode THEN
@@ -2020,7 +2020,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=412;                    
                     END_IF;
                 END_IF;
-
+                // Stop movements and program running: waiting for the program to be stopped."
                 IF _power_progress = 412 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#612, eAxoMessageCategory#Warning);
@@ -2035,7 +2035,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=413;                    
                     END_IF;                    
                 END_IF;                    
-
+                // Stop movements and program finished.
                 IF _power_progress = 413 THEN
                     Outputs.Stop := FALSE ;
                     StopMovementsAndProgramTask.DoneWhen(TRUE);
@@ -2080,7 +2080,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 420;
                 END_IF;
-               
+                // Stop movements running: waiting for 'NORMAL' or 'REDUCED' mode is choosen.
                 IF _power_progress = 420 THEN 
                     IF _infoTimer.output THEN
                         IF NOT Inputs.Inputs.Safety.NO_IsNormalMode THEN
@@ -2098,7 +2098,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=422;                    
                     END_IF;
                 END_IF;
-
+                // Stop movements running: waiting for the program to be stopped.
                 IF _power_progress = 422 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#622, eAxoMessageCategory#Warning);
@@ -2113,7 +2113,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=423;                    
                     END_IF;                    
                 END_IF;                    
-
+                // Stop movements finished.
                 IF _power_progress = 423 THEN
                     Outputs.Pause := FALSE ;
                     StopMovementsTask.DoneWhen(TRUE);

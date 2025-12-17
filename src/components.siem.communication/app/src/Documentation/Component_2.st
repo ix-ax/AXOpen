@@ -37,7 +37,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
         VAR PUBLIC                       
             {#ix-set:AttributeName = "<#Start test sequence#>"}
             Sequencer : AxoSequencer;       
-            Steps : ARRAY[0..30] OF AXOpen.Core.AxoStep;
+            Steps : ARRAY[0..5] OF AXOpen.Core.AxoStep;
         END_VAR
 
         VAR PRIVATE
@@ -56,7 +56,12 @@ NAMESPACE AXOpen.Components.Siem.Communication
             Sequencer.Run(THIS);
             Sequencer.Open();
 
-            IF(Steps[0].Execute(Sequencer, 'Port config')) THEN
+            IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+                ExampleComponent.Restore();
+                Sequencer.MoveNext();    
+            END_IF;       
+
+            IF(Steps[1].Execute(Sequencer, 'Port config')) THEN
                 ActivateManualControl := FALSE;
                 IF(ExampleComponent.PortConfig( Protocol    := eAxoCmPtp_Protocol#Freeport,
                                                 BaudRate    := eAxoCmPtp_Baud#_9600,
@@ -68,80 +73,26 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 END_IF;    
             END_IF;
 
-            IF(Steps[1].Execute(Sequencer, 'Prepare data')) THEN
+            IF(Steps[2].Execute(Sequencer, 'Prepare data')) THEN
                 FOR i := 0 TO 1023 DO
                     _dataToSend.Data[i] := TO_BYTE((i MOD 40 ) + 40) ;
                 END_FOR;
                 Sequencer.MoveNext();                
             END_IF;  
 
-            IF(Steps[2].Execute(Sequencer, 'Send data')) THEN
+            IF(Steps[3].Execute(Sequencer, 'Send data')) THEN
                 IF(ExampleComponent.SendData(_dataToSend).IsDone()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[3].Execute(Sequencer, 'Receive data')) THEN
+            IF(Steps[4].Execute(Sequencer, 'Receive data')) THEN
                 IF(ExampleComponent.NewDataReceived()) THEN     
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;       
 
-            IF(Steps[4].Execute(Sequencer, 'TemplateMethod_10steps_4')) THEN
-                IF(ExampleComponent.TemplateMethod_10steps_4().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[5].Execute(Sequencer, 'TemplateMethod_10steps_5')) THEN
-                IF(ExampleComponent.TemplateMethod_10steps_5().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[6].Execute(Sequencer, 'TemplateMethod_10steps_6')) THEN
-                IF(ExampleComponent.TemplateMethod_10steps_6().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[7].Execute(Sequencer, 'TemplateMethod_20steps_1')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_1().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[8].Execute(Sequencer, 'TemplateMethod_20steps_2')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_2().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[9].Execute(Sequencer, 'TemplateMethod_20steps_3')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_3().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[10].Execute(Sequencer, 'TemplateMethod_20steps_4')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_4().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[11].Execute(Sequencer, 'TemplateMethod_20steps_5')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_5().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[12].Execute(Sequencer, 'TemplateMethod_20steps_6')) THEN
-                IF(ExampleComponent.TemplateMethod_20steps_6().IsDone()) THEN     
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-
-            IF(Steps[13].Execute(Sequencer, 'Restore')) THEN
+            IF(Steps[5].Execute(Sequencer, 'Restore')) THEN
                 ExampleComponent.Restore();
                 Sequencer.CompleteSequence();    
             END_IF;       
