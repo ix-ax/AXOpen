@@ -23,6 +23,7 @@ using System.Security.Claims;
 using AXOpen.Base;
 using System.Collections;
 using Operon.Components.Toast;
+using Properties = AXOpen.Data.Blazor.Properties;
 
 namespace AXOpen.Data
 {
@@ -167,14 +168,14 @@ namespace AXOpen.Data
         {
             await DataExchange.WriteAllPersistentGroupsFromRepositoryToPlc();
             await FillObservableRecordsAsync();
-            ToastService?.AddToast(eToastType.Success, "Persistent Data", $"Whole persistent data  was successfully send to PLC!", 10);
+            ToastService?.AddToast(eToastType.Success, Properties.AxOpenDataResources.Persistent_Data, Properties.AxOpenDataResources.Whole_persistent_data_was_successfully_sent_to_PLC, 10);
         }
 
         public async Task ReadAllFromPlc()
         {
             await DataExchange.UpdateAllPersistentGroupsToRepository();
             await FillObservableRecordsAsync();
-            ToastService?.AddToast(eToastType.Success, $"Persistent Data", $"Whole persistent data  was successfully readed from PLC!", 10);
+            ToastService?.AddToast(eToastType.Success, Properties.AxOpenDataResources.Persistent_Data, Properties.AxOpenDataResources.Whole_persistent_data_was_successfully_read_from_PLC, 10);
         }
 
 
@@ -186,7 +187,7 @@ namespace AXOpen.Data
                 {
                     await DataExchange.UpdatePersistentGroupFromPlcToRepository(groupName);
 
-                    ToastService?.AddToast(eToastType.Success, $"Persistent Data", $"Persistent group {groupName} was successfully readed from PLC!", 10);
+                    ToastService?.AddToast(eToastType.Success, Properties.AxOpenDataResources.Persistent_Data, string.Format(Properties.AxOpenDataResources.Persistent_group_was_successfully_read_from_PLC, groupName), 10);
                 }
             }
 

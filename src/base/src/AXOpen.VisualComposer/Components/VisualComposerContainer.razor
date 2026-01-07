@@ -174,8 +174,14 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="flex flex-wrap">
+                    <div class="flex flex-wrap items-center">
                         <BaseInput @bind-Value="_searchValue" Placeholder="Search" Class="flex-1" />
+                        @if (!string.IsNullOrEmpty(_searchValue))
+                        {
+                            <div class="mx-2 cursor-pointer" @onclick="ToggleControllerObjectsSort">
+                                <Operon.Icons.HeroIcon Icon="@(_controllerObjectsSortAscending == null ? "minus" : _controllerObjectsSortAscending == true ? "chevron-up" : "chevron-down")" Type="Operon.Icons.IconType.Outline" Class="size-4" />
+                            </div>
+                        }
                         <button type="button" class="btn btn-primary" @onclick="Search">Search</button>
                     </div>
                     @if (_searchValue is null || _searchResult is null)
@@ -217,97 +223,100 @@
                     }
                 </div>
                 <div class="modal-footer flex justify-end gap-1 items-center">
-                    <Collapse @ref="_collapseOptions">
-                        <div class="simple-border">
-                            <div class="flex flex-wrap flex-row items-center">
-                                <BaseInput @bind-Value="_options.Top" Label="Top" />
-                                @if (_optionsMove)
-                                {
-                                    <BaseInput @bind-Value="_optionsMoveBottom" Label="Move bottom" />
-                                }
-                                <BaseInput @bind-Value="_optionsMove" Label="Move" />
-                            </div>
-                            <div class="flex flex-wrap flex-row items-center">
-                                <BaseInput @bind-Value="_options.Left" Label="Left" />
-                                @if (_optionsMove)
-                                {
-                                    <BaseInput @bind-Value="_optionsMoveRight" Label="Move right" />
-                                    <button type="button" class="btn btn-no-bg-primary" @onclick="() => _optionsMoveDirection = (_optionsMoveDirection + 1) % 3">
-                                        @if (_optionsMoveDirection == 0)
-                                        {
-                                            <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                        }
-                                        else if (_optionsMoveDirection == 1)
-                                        {
-                                            <Operon.Icons.HeroIcon Icon="arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                        }
-                                        else if (_optionsMoveDirection == 2)
-                                        {
-                                            <Operon.Icons.HeroIcon Icon="arrow-right" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                                        }
-                                    </button>
-                                }
-                            </div>
-
-                            <div class="flex flex-wrap flex-row items-center">
-                                <div class="flex flex-nowrap flex-row items-center">
-                                    @if (_customPresentation)
-                                    {
-                                        <BaseInput @bind-Value="_options.Presentation" Label="Presentation" />
-                                    }
-                                    else
-                                    {
-                                        <div class="input-group">
-                                            <label class="me-2">Presentation</label>
-                                            <select class="select min-w-6" value="@_options.Presentation" @onchange="@((args) => @_options.Presentation = (string)args.Value)">
-                                                @foreach (var presentation in PresentationType.AllTypes)
-                                                {
-                                                    <option data value="@presentation.ToString()">@presentation.ToString()</option>
-                                                }
-                                            </select>
-                                        </div>
-                                    }
-                                    <BaseInput @bind-Value="_customPresentation" Label="Custom" Class="ms-4" />
-                                </div>
-
-                                <div class="input-group mx-4">
-                                    <label class="me-2">Transform</label>
-                                    <select class="select min-w-6" value="@_options.Transform.ToString()" @onchange="@((args) => @_options.Transform = TransformType.FromString((string)args.Value))">
-                                        @foreach (var transform in TransformType.AllTypes)
-                                        {
-                                            <option data value="@transform.ToString()">@transform.ToString()</option>
-                                        }
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="flex flex-wrap flex-row items-center">
-                                <BaseInput @bind-Value="_options.Width" Label="Width" />
-                                <BaseInput @bind-Value="_options.Height" Label="Height" />
-                            </div>
-                            <div class="flex flex-wrap flex-row items-center">
-                                <BaseInput @bind-Value="_options.ZIndex" Label="ZIndex" />
-                                <BaseInput @bind-Value="_options.Scale" Label="Scale" />
-                                <BaseInput @bind-Value="_options.Roles" Label="Roles" />
-                            </div>
-                            <div class="flex flex-wrap flex-row items-center">
-                                <BaseInput @bind-Value="_options.PresentationTemplate" Label="PresentationTemplate" />
-
-                                <div class="flex flex-nowrap flex-row items-center">
-                                    <BaseInput @bind-Value="_options.Background" Label="Background" />
-                                    <input type="color" class="ms-4" @bind="_options.BackgroundColor" title="Choose color">
-                                </div>
-
-                                <BaseInput @bind-Value="_options.PollingInterval" Label="PollingInterval [ms]" />
-                            </div>
-                        </div>
-                    </Collapse>
                     <div class="btn-group">
                         <button class="btn @(_useOption ? "btn-primary" : "btn-outline-primary")" @onclick="() => _useOption = !_useOption">Options</button>
-                        <button class="btn btn-outline-primary" @onclick="() => _collapseOptions.Toggle()">
+                        <button class="btn btn-outline-primary" @onclick="() => _modalControllerObjectsOptions.Toggle()">
                             <Operon.Icons.HeroIcon Icon="chevron-left" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                         </button>
                     </div>
                     <button class="btn btn-outline-red" @onclick="() => _modalControllerObjects.CloseModal()">Close</button>
+                </div>
+            </Modal>
+
+            <Modal @ref="_modalControllerObjectsOptions">
+                <div class="modal-header">
+                    <h4>Controller objects options</h4>
+                    <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalControllerObjectsOptions.CloseModal()">
+                        <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+                    </button>
+                </div>
+                <div class="modal-body flex flex-wrap flex-col gap-2">
+                    <div class="flex flex-wrap flex-row items-center gap-2">
+                        <BaseInput @bind-Value="_options.Top" Label="Top" />
+                        @if (_optionsMove)
+                        {
+                            <BaseInput @bind-Value="_optionsMoveBottom" Label="Move bottom" />
+                        }
+                        <BaseInput @bind-Value="_optionsMove" Label="Move" />
+                    </div>
+                    <div class="flex flex-wrap flex-row items-center gap-2">
+                        <BaseInput @bind-Value="_options.Left" Label="Left" />
+                        @if (_optionsMove)
+                        {
+                            <BaseInput @bind-Value="_optionsMoveRight" Label="Move right" />
+                            <button type="button" class="btn btn-no-bg-primary" @onclick="() => _optionsMoveDirection = (_optionsMoveDirection + 1) % 3">
+                                @if (_optionsMoveDirection == 0)
+                                {
+                                    <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                }
+                                else if (_optionsMoveDirection == 1)
+                                {
+                                    <Operon.Icons.HeroIcon Icon="arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                }
+                                else if (_optionsMoveDirection == 2)
+                                {
+                                    <Operon.Icons.HeroIcon Icon="arrow-right" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                }
+                            </button>
+                        }
+                    </div>
+
+                    <div class="flex flex-wrap flex-row items-center gap-2">
+                        @if (_customPresentation)
+                        {
+                            <BaseInput @bind-Value="_options.Presentation" Label="Presentation" />
+                        }
+                        else
+                        {
+                            <div class="select-group">
+                                <label class="me-2">Presentation</label>
+                                <select class="min-w-6" value="@_options.Presentation" @onchange="@((args) => @_options.Presentation = (string)args.Value)">
+                                    @foreach (var presentation in PresentationType.AllTypes)
+                                    {
+                                        <option data value="@presentation.ToString()">@presentation.ToString()</option>
+                                    }
+                                </select>
+                            </div>
+                        }
+                        <BaseInput @bind-Value="_customPresentation" Label="Custom" Class="ms-4" />
+                    </div>
+
+                    <div class="select-group">
+                        <label class="me-2">Transform</label>
+                        <select class="min-w-6" value="@_options.Transform.ToString()" @onchange="@((args) => @_options.Transform = TransformType.FromString((string)args.Value))">
+                            @foreach (var transform in TransformType.AllTypes)
+                            {
+                                <option data value="@transform.ToString()">@transform.ToString()</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="flex flex-wrap flex-row items-center gap-2">
+                        <BaseInput @bind-Value="_options.Width" Label="Width" />
+                        <BaseInput @bind-Value="_options.Height" Label="Height" />
+                    </div>
+                    <BaseInput @bind-Value="_options.ZIndex" Label="ZIndex" />
+                    <BaseInput @bind-Value="_options.Scale" Label="Scale" />
+                    <BaseInput @bind-Value="_options.Rotate" Label="Rotate" Unit="Deg" />
+                    <BaseInput @bind-Value="_options.Roles" Label="Roles" />
+                    <BaseInput @bind-Value="_options.PresentationTemplate" Label="PresentationTemplate" />
+                    <div class="flex flex-nowrap flex-row items-center gap-2">
+                        <BaseInput @bind-Value="_options.Background" Label="Background" />
+                        <input type="color" class="ms-4" @bind="_options.BackgroundColor" title="Choose color">
+                    </div>
+                    <BaseInput @bind-Value="_options.PollingInterval" Label="PollingInterval [ms]" />
+                </div>
+                <div class="modal-footer flex justify-end gap-1 items-center">
+                    <button class="btn btn-outline-red" @onclick="() => _modalControllerObjectsOptions.CloseModal()">Close</button>
                 </div>
             </Modal>
 
@@ -492,8 +501,8 @@
                         </AccordionItem>
                     </Accordion>
                     <div class="mt-2">
-                        <BaseInput @bind-Value="CurrentView.BackgroundWidth" Label="Width" />
-                        <BaseInput @bind-Value="CurrentView.BackgroundHeight" Label="Height" />
+                        <BaseInput @bind-Value="CurrentView.BackgroundWidth" OnFocusOut="SaveAsync" Label="Width" />
+                        <BaseInput @bind-Value="CurrentView.BackgroundHeight" OnFocusOut="SaveAsync" Label="Height" />
                     </div>
                 </div>
                 <div class="modal-footer flex justify-end gap-1">
@@ -544,12 +553,25 @@
                 <table class="table table-striped table-hover w-full">
                     <thead>
                         <tr>
-                            <th class="cursor-pointer" @onclick="ToggleSort">
-                                Symbol
-                                @if (_watchTableSortAscending != null)
-                                {
-                                    <Operon.Icons.HeroIcon Icon="@(_watchTableSortAscending == true ? "chevron-up" : "chevron-down")" Type="Operon.Icons.IconType.Outline" Class="size-4 inline" />
-                                }
+                            <th class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <span class="cursor-pointer" @onclick="ToggleSort">Symbol</span>
+                                    @if (_watchTableSortAscending != null)
+                                    {
+                                        <div class="mx-2 cursor-pointer" @onclick="ToggleSort">
+                                            <Operon.Icons.HeroIcon Icon="@(_watchTableSortAscending == true ? "chevron-up" : "chevron-down")" Type="Operon.Icons.IconType.Outline" Class="size-4" />
+                                        </div>
+                                    }
+                                </div>
+                                <div class="flex items-center">
+                                    @if (_watchTableFilter != null)
+                                    {
+                                        <input type="text" class="input w-full min-w-20 m-0 px-2 py-1" value="@_watchTableFilter" @oninput="@((ChangeEventArgs args) => _watchTableFilter = args.Value.ToString())" placeholder="Filter" />
+                                    }
+                                    <div class="ms-2 cursor-pointer" @onclick="() => _watchTableFilter = _watchTableFilter == null ? _watchTableFilter = string.Empty : _watchTableFilter = null">
+                                        <Operon.Icons.HeroIcon Icon="magnifying-glass" Type="Operon.Icons.IconType.Outline" Class="size-4" />
+                                    </div>
+                                </div>
                             </th>
                             <th>Data</th>
                         </tr>
@@ -615,12 +637,11 @@
     private Dropdown _dropdownPresentation { get; set; }
 
     private Modal _modalControllerObjects { get; set; }
+    private Modal _modalControllerObjectsOptions { get; set; }
     private Modal _modalUsedObject { get; set; }
     private Modal _modalCreateNew { get; set; }
     private Modal _modalCreateCopy { get; set; }
     private Modal _modalViews { get; set; }
     private Modal _modalBackground { get; set; }
     private Modal _modalBackgroundSVGInput { get; set; }
-
-    private Collapse _collapseOptions { get; set; }
 }

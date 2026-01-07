@@ -4,6 +4,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
     CLASS Component_3 EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
+            {#ix-set:DeviceIpAddress = "192.168.1.106"} // Needed for live view
             Component : AXOpen.Components.Keyence.Vision.Axo_IV3;             
         END_VAR
         //</ComponentDeclaration>                          

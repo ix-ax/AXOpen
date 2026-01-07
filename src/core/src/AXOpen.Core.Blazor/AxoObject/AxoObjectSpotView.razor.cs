@@ -1,0 +1,27 @@
+﻿using AXOpen.VisualComposer;
+using AXSharp.Connector;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+
+namespace AXOpen.Core
+{
+    public partial class AxoObjectSpotView
+    {
+        
+    }
+
+    public class AxoObjectSpotControlView : AxoObjectSpotView
+    {
+        protected override void OpenDetails(string presentationType = "Status-Display")
+        {
+            base.OpenDetails("Command-Control"); 
+        }
+    }
+
+    public class AxoObjectSpotDisplayView : AxoObjectSpotView
+    {
+        protected override void OpenDetails(string presentationType = "Status-Display")
+        {
+            base.OpenDetails("Status-Display");
+        }
+    }
+}

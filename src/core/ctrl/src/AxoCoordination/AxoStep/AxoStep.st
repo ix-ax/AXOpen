@@ -171,7 +171,7 @@ NAMESPACE AXOpen.Core
                 _context := THIS.GetContext();
             END_IF;
             IF(NOT THIS.IsActive AND Active) THEN 
-                _context.GetLogger().Log('At step:', AXOpen.Logging.eLogLevel#Verbose, THIS); 
+                _context.GetLogger().Log('<#At step:#>', AXOpen.Logging.eLogLevel#Verbose, THIS); 
             END_IF;
             IsActive := Active;
         END_METHOD

@@ -3,20 +3,22 @@
 @using System.ComponentModel.DataAnnotations
 @using System.Text
 @using System.Text.Encodings.Web
+@using AXOpen.Security.Services
 @using AxOpen.Security.Entities
 @using AxOpen.Security.Services
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.WebUtilities
 @using Operon.Components.Toast
 @using System.Security.Principal
-
+@implements IDisposable
 @inject UserManager<User> UserManager
 @inject IUserStore<User> UserStore
 @inject SignInManager<User> SignInManager
 @inject NavigationManager NavigationManager
 @inject IdentityRedirectManager RedirectManager
 @inject IRepositoryService RepositoryService
-@inject IToastService ToastService
+@inject IToastService _toastService
+@inject IServiceProvider _serviceProvider
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
 <PageTitle>Create user</PageTitle>
@@ -74,11 +76,6 @@
                 <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
             </div>
 
-            <div class="input-group">
-                <label for="Input.ExternalAuthId">@Localizer["External Auth Id"]</label>
-                <input type="text" value="@Input.ExternalAuthId" id="Input.ExternalAuthId" placeholder="External Auth Id" />
-            </div>
-
             @if (!string.IsNullOrEmpty(Input.ExternalAuthId))
             {
                 <p>@Localizer["External Auth is set"]</p>
@@ -106,6 +103,8 @@
 </div>
 
 @code {
+    private ISerialService? _serialService { get; set; }
+
     private IEnumerable<IdentityError>? identityErrors;
 
     [SupplyParameterFromForm]
@@ -119,6 +118,8 @@
     protected override void OnInitialized()
     {
         Input ??= new();
+
+        _serialService = (ISerialService?)_serviceProvider.GetService(typeof(ISerialService));
     }
 
     private void ClearExternalAuthId()
@@ -137,7 +138,7 @@
         if (result.Succeeded)
         {
             var msg = Localizer["User \"{0}\" successfully created.", Input.Username];
-            ToastService?.AddToast(eToastType.Success, Localizer["Created!"], msg, 10);
+            _toastService?.AddToast(eToastType.Success, Localizer["Created!"], msg, 10);
             AxoApplication.Current.Logger.Information(msg, await GetCurrentIdentity());
 
             if (!string.IsNullOrEmpty(ReturnUrl))
@@ -167,6 +168,42 @@
                 return context.User.Identity;
             }
             else return new GenericIdentity("Unknown");
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (_serialService != null)
+            {
+                _serialService.SerialError += OnSerialError;
+                _serialService.DataReceived += OnSerialDataReceived;
+            }
+        }
+    }
+
+    private void OnSerialError()
+    {
+        _serialService.DataReceived -= OnSerialDataReceived;
+        Console.WriteLine("Serial port error");
+    }
+
+    private void OnSerialDataReceived(byte[] data)
+    {
+        if (Input != null)
+            Input.ExternalAuthId = Encoding.ASCII.GetString(System.Security.Cryptography.SHA512.HashData(Encoding.ASCII.GetBytes(Encoding.ASCII.GetString(data).Trim())));
+
+        _toastService?.AddToast(eToastType.Success, Localizer["Identified!"], Localizer["The external token identified"], 10);
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        if (_serialService != null)
+        {
+            _serialService.DataReceived -= OnSerialDataReceived;
+            _serialService.SerialError -= OnSerialError;
         }
     }
 

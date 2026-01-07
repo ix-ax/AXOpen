@@ -132,4 +132,64 @@
   <data name="Run_step" xml:space="preserve">
     <value>Schritt ausführen</value>
   </data>
+  <data name="THE_REMOTE_TASK_IS_NOT_INITIALIZED" xml:space="preserve">
+    <value>DIE ENTFERNTE AUFGABE IST NICHT INITIALISIERT</value>
+  </data>
+  <data name="NULL_CONTEXT" xml:space="preserve">
+    <value>NULL KONTEXT</value>
+  </data>
+  <data name="Task_invoked" xml:space="preserve">
+    <value>Aufgerufene Aufgabe</value>
+  </data>
+  <data name="Attempt_to_invoke_disabled_task" xml:space="preserve">
+    <value>Versuch, eine deaktivierte Aufgabe aufzurufen</value>
+  </data>
+  <data name="CyclicExecuteIsNotCalled" xml:space="preserve">
+    <value>CyclicExecuteIsNotCalled</value>
+  </data>
+  <data name="Task_restored" xml:space="preserve">
+    <value>Aufgabe wiederhergestellt</value>
+  </data>
+  <data name="Task_done_DOT_" xml:space="preserve">
+    <value>Aufgabe erledigt.</value>
+  </data>
+  <data name="MultipleExecuteIsCalled" xml:space="preserve">
+    <value>MultipleExecuteIsCalled</value>
+  </data>
+  <data name="Task_started_DOT_" xml:space="preserve">
+    <value>Aufgabe gestartet.</value>
+  </data>
+  <data name="Task_failed" xml:space="preserve">
+    <value>Aufgabe fehlgeschlagen</value>
+  </data>
+  <data name="Sequence_in_config_state__COLON_" xml:space="preserve">
+    <value>Sequenz im Konfigurationszustand :</value>
+  </data>
+  <data name="Starts_step__COLON_" xml:space="preserve">
+    <value>Startet Schritt :</value>
+  </data>
+  <data name="Check_that_steps_are_unique_and_properly_configured_DOT_" xml:space="preserve">
+    <value>Überprüfen Sie, ob die Schritte eindeutig und richtig konfiguriert sind.</value>
+  </data>
+  <data name="Step_done__COLON_" xml:space="preserve">
+    <value>Schritt erledigt:</value>
+  </data>
+  <data name="Step_request_to_step__COLON_" xml:space="preserve">
+    <value>Schritt Anfrage zu Schritt :</value>
+  </data>
+  <data name="Sequence_completed__COLON_" xml:space="preserve">
+    <value>Sequenz abgeschlossen:</value>
+  </data>
+  <data name="At_step_COLON_" xml:space="preserve">
+    <value>Auf Schritt und Tritt:</value>
+  </data>
+  <data name="Risen" xml:space="preserve">
+    <value>Auferstanden</value>
+  </data>
+  <data name="Risen_again_before_acknowledgement" xml:space="preserve">
+    <value>Vor der Anerkennung wieder auferstanden</value>
+  </data>
+  <data name="Fallen" xml:space="preserve">
+    <value>Gefallen</value>
+  </data>
 </root>

@@ -40,7 +40,7 @@ Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
     .File($"connector.log",
         outputTemplate: "{Timestamp:yyyy-MMM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}",
         fileSizeLimitBytes: 100000)
-    .MinimumLevel.Information()
+    .MinimumLevel.Debug()
     .CreateLogger());
 
 _ = Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
@@ -60,6 +60,9 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+var hwids = Entry.Plc.documentation.componentFive.ExampleComponent;
+hwids.UseHwIdEnum<HwIdentifiers>();
 
 app.UseStaticFiles();
 

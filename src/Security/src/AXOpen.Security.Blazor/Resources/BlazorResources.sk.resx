@@ -265,4 +265,19 @@
   <data name="Group Management" xml:space="preserve">
     <value>Skupiny</value>
   </data>
+  <data name="Identified!" xml:space="preserve">
+    <value>Identifikované!</value>
+  </data>
+  <data name="The external token identified" xml:space="preserve">
+    <value>Identifikovaný externý token</value>
+  </data>
+  <data name="Failed to set email." xml:space="preserve">
+    <value>Nastavenie e-mailu sa nepodarilo.</value>
+  </data>
+  <data name="Failed to set phone number." xml:space="preserve">
+    <value>Nepodarilo sa nastaviť telefónne číslo.</value>
+  </data>
+  <data name="Failed to set externalId, because it is being used by another user." xml:space="preserve">
+    <value>Nepodarilo sa nastaviť externalId, pretože ho používa iný používateľ.</value>
+  </data>
 </root>

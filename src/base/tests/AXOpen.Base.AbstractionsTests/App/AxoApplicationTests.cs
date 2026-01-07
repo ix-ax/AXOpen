@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Logging;
+using Assert = Xunit.Assert;
 
 namespace AXOpen.Tests
 {

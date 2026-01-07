@@ -36,7 +36,7 @@
 
                 @if (IsCurrentIdsDropdownOpen)
                 {
-                    <div class="simple-border p-2 bg-gray-50" style="position: absolute; z-index: 1000;">
+                    <div class="simple-border p-2 bg-background" style="position: absolute; z-index: 1000;">
                         <div class="flex flex-wrap gap-2">
                             <button class="btn btn-primary w-100" @onclick="DistributedVM.ReadAllCurrentEntityIds">Reload All</button>
                             <table class="table table-hover table-striped mb-0">
@@ -102,7 +102,7 @@
 
             @if (IsDropdownOpen)
             {
-                <div class="simple-border p-2 bg-gray-50" style="position: absolute; z-index: 1000;">
+                <div class="simple-border p-2 bg-background" style="position: absolute; z-index: 1000;">
                     <div class="flex flex-wrap gap-2">
                         <QuerySymbolConfigurationView SymbolConfiguration="@DistributedVM.DefaulQueryDataEntityId"
                                                       HideDescripion="true"
@@ -118,7 +118,7 @@
                     <table class="table table-hover table-striped">
                         <thead>
                             <tr>
-                                <th>_EntityId</th>
+                                <th>ID</th>
                                 @foreach (var col in ExchangeConfig.Collumns)
                                 {
                                     <th>@(string.IsNullOrWhiteSpace(col.ColumnName) ? col.BindingValuePath : col.ColumnName)</th>

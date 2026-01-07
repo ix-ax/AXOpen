@@ -58,4 +58,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="StartAtMainTask_timeout_DOT_" xml:space="preserve">
+    <value>StartAtMainTask timeout.</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,454</comment>
+  </data>
+  <data name="StartMotorsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMotorsAndProgramTask timeout.</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,603</comment>
+  </data>
+  <data name="StartMotorsProgramAndMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMotorsProgramAndMovementsTask timeout.</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,849</comment>
+  </data>
+  <data name="StartMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMovementsTask timeout.</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,1122</comment>
+  </data>
+  <data name="StartProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StartProgramTask timeout.</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,1273</comment>
+  </data>
+  <data name="StopMotorsTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMotorsTask timeout.</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,1336</comment>
+  </data>
+  <data name="StopMovementsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsAndProgramTask timeout.</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,1407</comment>
+  </data>
+  <data name="StopMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsTask timeout.</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,1467</comment>
+  </data>
+  <data name="StopProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StopProgramTask timeout.</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,1526</comment>
+  </data>
 </root>

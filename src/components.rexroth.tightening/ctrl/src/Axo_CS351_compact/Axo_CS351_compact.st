@@ -1742,8 +1742,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 300;
                 END_IF;
-    
-                IF _progress = 300 THEN                                                                                     // DisableTask running
+                // DisableTask running: waiting for 'Inputs.EnableAck' to be off. 
+                IF _progress = 300 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#500;
@@ -1756,8 +1756,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 301;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 301 THEN                                                                                     // DisableTask finished
+                // DisableTask finished.
+                IF _progress = 301 THEN 
                     DisableTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -1766,7 +1766,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 DisableTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                DisableTask.ThrowWhen(DisableTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'DisableTask timeout.');                
+                DisableTask.ThrowWhen(DisableTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#DisableTask timeout.#>');                
             END_IF;
             IF DisableTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -1801,8 +1801,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 305;
                 END_IF;
-                
-                IF _progress = 305 THEN                                                                                     // EnableTask running
+                // EnableTask running: waiting for 'Inputs.EnableAck' to be on.
+                IF _progress = 305 THEN                                    
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#505;
@@ -1815,8 +1815,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 306;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 306 THEN                                                                                     // EnableTask finished
+                // EnableTask finished.
+                IF _progress = 306 THEN  
                     EnableTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -1825,7 +1825,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 EnableTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                EnableTask.ThrowWhen(EnableTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'EnableTask timeout.');                
+                EnableTask.ThrowWhen(EnableTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#EnableTask timeout.#>');                
             END_IF;
             IF EnableTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#106;
@@ -1860,8 +1860,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 310;
                 END_IF;
-    
-                IF _progress = 310 THEN                                                                                     // DisableClockwiseTask running
+                // DisableClockwiseTask running: waiting for 'Inputs.CwLockAck' to be on.
+                IF _progress = 310 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#510;
@@ -1875,8 +1875,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 311;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 311 THEN                                                                                     // DisableClockwiseTask finished
+                // DisableClockwiseTask finished.
+                IF _progress = 311 THEN          
                     DisableClockwiseTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -1885,7 +1885,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 DisableClockwiseTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                DisableClockwiseTask.ThrowWhen(DisableClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'DisableClockwiseTask timeout.');                
+                DisableClockwiseTask.ThrowWhen(DisableClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#DisableClockwiseTask timeout.#>');                
             END_IF;
             IF DisableClockwiseTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -1920,8 +1920,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 315;
                 END_IF;
-                
-                IF _progress = 315 THEN                                                                                     // EnableClockwiseTask running: , <add the detailed description of the current action 6>
+                // EnableClockwiseTask running: waiting for 'Inputs.CwLockAck' to be off.
+                IF _progress = 315 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#515;
@@ -1935,8 +1935,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 316;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 316 THEN                                                                                     // EnableClockwiseTask running: , <add the detailed description of the current action 10>
+                // EnableClockwiseTask finished.
+                IF _progress = 316 THEN    
                     EnableClockwiseTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -1945,7 +1945,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 EnableClockwiseTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                EnableClockwiseTask.ThrowWhen(EnableClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'EnableClockwiseTask timeout.');                
+                EnableClockwiseTask.ThrowWhen(EnableClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#EnableClockwiseTask timeout.#>');                
             END_IF;
             IF EnableClockwiseTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#116;
@@ -1980,8 +1980,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 320;
                 END_IF;
-    
-                IF _progress = 320 THEN                                                                                     // DisableCounterClockwiseTask running
+                // DisableCounterClockwiseTask running: waiting for 'Inputs.CcwLockAck' to be on.
+                IF _progress = 320 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#520;
@@ -1995,8 +1995,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 321;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 321 THEN                                                                                     // DisableCounterClockwiseTask finished
+                // DisableCounterClockwiseTask  finished.
+                IF _progress = 321 THEN
                     DisableCounterClockwiseTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -2005,7 +2005,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 DisableCounterClockwiseTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                DisableCounterClockwiseTask.ThrowWhen(DisableCounterClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'DisableCounterClockwiseTask timeout.');                
+                DisableCounterClockwiseTask.ThrowWhen(DisableCounterClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#DisableCounterClockwiseTask timeout.#>');                
             END_IF;
             IF DisableCounterClockwiseTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#121;
@@ -2040,8 +2040,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 325;
                 END_IF;
-    
-                IF _progress = 325 THEN                                                                                     // EnableCounterClockwiseTask running
+                // EnableCounterClockwiseTask running: waiting for 'Inputs.CcwLockAck' to be off.
+                IF _progress = 325 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#525;
@@ -2055,8 +2055,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 326;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 326 THEN                                                                                     // EnableCounterClockwiseTask finished
+                // EnableCounterClockwiseTask finished.
+                IF _progress = 326 THEN
                     EnableCounterClockwiseTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -2065,7 +2065,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 EnableCounterClockwiseTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                EnableCounterClockwiseTask.ThrowWhen(EnableCounterClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'EnableCounterClockwiseTask timeout.');                
+                EnableCounterClockwiseTask.ThrowWhen(EnableCounterClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#EnableCounterClockwiseTask timeout.#>');                
             END_IF;
             IF EnableCounterClockwiseTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#126;
@@ -2100,8 +2100,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 330;
                 END_IF;
-    
-                IF _progress = 330 THEN                                                                                     // ResetFaultTask running
+                // ResetFaultTask running: waiting for 'Inputs.NoFault' to be on.
+                IF _progress = 330 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#530;
@@ -2114,8 +2114,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 331;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 331 THEN                                                                                     // ResetFaultTask finished
+                // ResetFaultTask running: waiting for 'Inputs.Ready' to be on.
+                IF _progress = 331 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#531;
@@ -2126,32 +2126,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 332;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 332 THEN                                                                                     // ResetFaultTask running: , <add the detailed description of the current action 3>
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#532;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 333;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 333 THEN                                                                                     // ResetFaultTask running: , <add the detailed description of the current action 4>
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#533, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#533;
-                    END_IF;
-    
-                    IF TRUE THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 334;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 334 THEN                                                                                     // ResetFaultTask running: , <add the detailed description of the current action 5>
+                // ResetFaultTask finished.
+                IF _progress = 332 THEN 
                     ResetFaultTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -2160,7 +2136,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 ResetFaultTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ResetFaultTask.ThrowWhen(ResetFaultTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ResetFaultTask timeout.');                
+                ResetFaultTask.ThrowWhen(ResetFaultTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ResetFaultTask timeout.#>');                
             END_IF;
             IF ResetFaultTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#131;
@@ -2195,8 +2171,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 335;
                 END_IF;
-    
-                IF _progress = 335 THEN                                                                                     // ResetResultsTask running
+                // ResetResultsTask running: waiting for 'Inputs.CycleComplete' to be off.
+                IF _progress = 335 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#535, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#535;
@@ -2209,8 +2185,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 336;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 336 THEN                                                                                     // ResetResultsTask finished
+                // ResetResultsTask finished.
+                IF _progress = 336 THEN
                     ResetResultsTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -2219,7 +2195,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 ResetResultsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ResetResultsTask.ThrowWhen(ResetResultsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ResetResultsTask timeout.');                
+                ResetResultsTask.ThrowWhen(ResetResultsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ResetResultsTask timeout.#>');                
             END_IF;
             IF ResetResultsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#136;
@@ -2254,8 +2230,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 340;
                 END_IF;
-    
-                IF _progress = 340 THEN                                                                                     // SetScrewingProgramTask running: checking actual screwing program number
+                // SetScrewingProgramTask running: checking actual screwing program number.
+                IF _progress = 340 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#540;
@@ -2269,8 +2245,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 344;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 341 THEN                                                                                     // SetScrewingProgramTask running: checking required screwing program number
+                // SetScrewingProgramTask running: checking required screwing program number.
+                IF _progress = 341 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#541;
@@ -2283,8 +2259,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         Messenger.Activate(ULINT#2000,eAxoMessageCategory#ProgrammingError);
                     END_IF;
                 END_IF;
-                
-                IF _progress = 342 THEN                                                                                     // SetScrewingProgramTask running: waiting for the device to be ready
+                // SetScrewingProgramTask running: waiting for 'Inputs.Ready' to be on.
+                IF _progress = 342 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#542, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#542;
@@ -2295,8 +2271,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 343;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 343 THEN                                                                                     // SetScrewingProgramTask running: waiting for the program to be set
+                // SetScrewingProgramTask running: waiting for the program to be set.
+                IF _progress = 343 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#543, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#543;
@@ -2309,8 +2285,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 344;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 344 THEN                                                                                     // SetScrewingProgramTask finished
+                // SetScrewingProgramTask finished.
+                IF _progress = 344 THEN
                     SetScrewingProgramTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -2319,7 +2295,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 SetScrewingProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                SetScrewingProgramTask.ThrowWhen(SetScrewingProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'SetScrewingProgramTask timeout.');                
+                SetScrewingProgramTask.ThrowWhen(SetScrewingProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#SetScrewingProgramTask timeout.#>');                
             END_IF;
             IF SetScrewingProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#141;
@@ -2354,8 +2330,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 350;
                 END_IF;
-    
-                IF _progress = 350 THEN                                                                                     // GetScrewingResultsTask running
+                // GetScrewingResultsTask running.
+                IF _progress = 350 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#550;
@@ -2381,8 +2357,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 351;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 351 THEN                                                                                     // GetScrewingResultsTask finished
+                // GetScrewingResultsTask finished.
+                IF _progress = 351 THEN
                     GetScrewingResultsTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -2391,7 +2367,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 GetScrewingResultsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                GetScrewingResultsTask.ThrowWhen(GetScrewingResultsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'GetScrewingResultsTask timeout.');                
+                GetScrewingResultsTask.ThrowWhen(GetScrewingResultsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#GetScrewingResultsTask timeout.#>');                
             END_IF;
             IF GetScrewingResultsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#151;
@@ -2426,8 +2402,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 360;
                 END_IF;
-    
-                IF _progress = 360 THEN                                                                                     // ScrewClockwiseTask running: waiting for the device to be ready
+                // ScrewClockwiseTask running: waiting for 'Inputs.Ready' to be on.
+                IF _progress = 360 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#560, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#560;
@@ -2438,8 +2414,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 361;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 361 THEN                                                                                     // ScrewClockwiseTask running: enabling device
+                // ScrewClockwiseTask running: waiting for 'Inputs.EnableAck' to be on.
+                IF _progress = 361 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#561, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#561;
@@ -2452,8 +2428,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 362;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 362 THEN                                                                                     // ScrewClockwiseTask running: enabling device
+                // ScrewClockwiseTask running: waiting for 'Inputs.ActiveEnableAck' to be on.
+                IF _progress = 362 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#562, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#562;
@@ -2467,8 +2443,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 363;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 363 THEN                                                                                     // ScrewClockwiseTask running: enabling screwing clockwise
+                // ScrewClockwiseTask running: waiting for 'Inputs.CwLockAck' to be off.
+                IF _progress = 363 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#563, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#563;
@@ -2482,8 +2458,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 364;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 364 THEN                                                                                     // ScrewClockwiseTask running: starting screwing clockwise
+                // ScrewClockwiseTask running: waiting for 'Inputs.InCycle' to be on.
+                IF _progress = 364 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#564, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#564;
@@ -2496,8 +2472,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 365;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 365 THEN                                                                                     // ScrewClockwiseTask running: screwing clockwise
+                // ScrewClockwiseTask running: waiting for 'Inputs.InCycle' to be on.
+                IF _progress = 365 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#565, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#565;
@@ -2510,8 +2486,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 366;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 366 THEN                                                                                     // ScrewClockwiseTask running: screwing clockwise
+                // ScrewClockwiseTask running: waiting for 'Inputs.CycleComplete' to be on.
+                IF _progress = 366 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#566, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#566;
@@ -2524,8 +2500,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 367;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 367 THEN                                                                                     // ScrewClockwiseTask running: screwing clockwise finished
+                // ScrewClockwiseTask running: waiting for 'Inputs.InCycle' to be off.
+                IF _progress = 367 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#567, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#567;
@@ -2539,8 +2515,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 368;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 368 THEN                                                                                     // ScrewClockwiseTask running: screwing clockwise finished
+                // ScrewClockwiseTask running: waiting for 'Inputs.ActiveEnableAck' to be off.
+                IF _progress = 368 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#568, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#568;
@@ -2554,8 +2530,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 369;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 369 THEN                                                                                     // ScrewClockwiseTask running: screwing clockwise finished
+                // ScrewClockwiseTask running: waiting for 'Inputs.CycleComplete' to be on.
+                IF _progress = 369 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#569, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#569;
@@ -2569,8 +2545,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 370;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 370 THEN                                                                                     // ScrewClockwiseTask running: disabling screwing clockwise
+                // ScrewClockwiseTask running: waiting for 'Inputs.CwLockAck' to be on.
+                IF _progress = 370 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#570, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#570;
@@ -2584,8 +2560,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 371;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 371 THEN                                                                                     // ScrewClockwiseTask running: disabling screwing counterclockwise
+                // ScrewClockwiseTask running: waiting for 'Inputs.CcwLockAck' to be on.
+                IF _progress = 371 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#571, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#571;
@@ -2599,8 +2575,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 372;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 372 THEN                                                                                     // ScrewClockwiseTask finished
+                // ScrewClockwiseTask finished.
+                IF _progress = 372 THEN
                     ScrewClockwiseTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -2609,7 +2585,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 ScrewClockwiseTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ScrewClockwiseTask.ThrowWhen(ScrewClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ScrewClockwiseTask timeout.');                
+                ScrewClockwiseTask.ThrowWhen(ScrewClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ScrewClockwiseTask timeout.#>');                
             END_IF;
             IF ScrewClockwiseTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#161;
@@ -2644,8 +2620,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 380;
                 END_IF;
-    
-                IF _progress = 380 THEN                                                                                     // ScrewCounterClockwiseTask running: waiting for the device to be ready
+                // ScrewCounterClockwiseTask running: waiting for 'Inputs.Ready' to be on.
+                IF _progress = 380 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#580, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#580;
@@ -2656,8 +2632,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 381;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 381 THEN                                                                                     // ScrewCounterClockwiseTask running: enabling device
+                // ScrewCounterClockwiseTask running: waiting for 'Inputs.EnableAck' to be on.
+                IF _progress = 381 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#581, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#581;
@@ -2670,8 +2646,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 382;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 382 THEN                                                                                     // ScrewCounterClockwiseTask running: enabling device
+                // ScrewCounterClockwiseTask running: waiting for 'Inputs.ActiveEnableAck' to be on.
+                IF _progress = 382 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#582, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#582;
@@ -2684,8 +2660,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 383;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 383 THEN                                                                                     // ScrewCounterClockwiseTask running: enabling screwing counterclockwise
+                // ScrewCounterClockwiseTask running: waiting for 'Inputs.CcwLockAck' to be off.
+                IF _progress = 383 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#583, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#583;
@@ -2698,8 +2674,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 384;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 384 THEN                                                                                     // ScrewCounterClockwiseTask running: enabling screwing counterclockwise
+                // ScrewCounterClockwiseTask running: waiting for 'Inputs.InCycleCcw' to be on.
+                IF _progress = 384 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#584, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#584;
@@ -2713,8 +2689,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 385;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 385 THEN                                                                                     // ScrewCounterClockwiseTask running: screwing counterclockwise
+                // ScrewCounterClockwiseTask running: waiting for 'Inputs.InCycleCcw' to be on.
+                IF _progress = 385 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#585, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#585;
@@ -2726,8 +2702,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 386;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 386 THEN                                                                                     // ScrewCounterClockwiseTask running: screwing counterclockwise
+                // ScrewCounterClockwiseTask running: waiting for 'Inputs.CycleComplete' to be on.
+                IF _progress = 386 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#586, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#586;
@@ -2739,8 +2715,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 387;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 387 THEN                                                                                     // ScrewCounterClockwiseTask running: screwing counterclockwise finished
+                // ScrewCounterClockwiseTask running: waiting for 'Inputs.InCycleCcw' to be off.
+                IF _progress = 387 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#587, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#587;
@@ -2754,8 +2730,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 388;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 388 THEN                                                                                     // ScrewCounterClockwiseTask running: screwing counterclockwise finished
+                // ScrewCounterClockwiseTask running: waiting for 'Inputs.ActiveEnableAck' to be off.
+                IF _progress = 388 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#588, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#588;
@@ -2769,8 +2745,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 389;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 389 THEN                                                                                     // ScrewCounterClockwiseTask running: screwing counterclockwise finished
+                // ScrewCounterClockwiseTask running: waiting for 'Inputs.CycleComplete' to be on.
+                IF _progress = 389 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#589, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#589;
@@ -2784,8 +2760,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 390;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 390 THEN                                                                                     // ScrewCounterClockwiseTask running: disabling screwing counterclockwise
+                // ScrewCounterClockwiseTask running: waiting for 'Inputs.CcwLockAck' to be on.
+                IF _progress = 390 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#590, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#590;
@@ -2798,8 +2774,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 391;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 391 THEN                                                                                     // ScrewCounterClockwiseTask running: disabling screwing clockwise
+                // ScrewCounterClockwiseTask running: waiting for 'Inputs.CwLockAck' to be on.
+                IF _progress = 391 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#591, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#591;
@@ -2812,8 +2788,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 392;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 392 THEN                                                                                     // ScrewCounterClockwiseTask finished
+                // ScrewCounterClockwiseTask finished.
+                IF _progress = 392 THEN
                     ScrewCounterClockwiseTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -2822,7 +2798,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 ScrewCounterClockwiseTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                ScrewCounterClockwiseTask.ThrowWhen(ScrewCounterClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'ScrewCounterClockwiseTask timeout.');                
+                ScrewCounterClockwiseTask.ThrowWhen(ScrewCounterClockwiseTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ScrewCounterClockwiseTask timeout.#>');                
             END_IF;
             IF ScrewCounterClockwiseTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -2857,8 +2833,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                     THIS.CallTimers(FALSE);
                     _progress := 400;
                 END_IF;
-    
-                IF _progress = 400 THEN                                                                                     // RunAutomatTask running: initialization
+                // RunAutomatTask running: setting ID code.
+                IF _progress = 400 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#600, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#600;
@@ -2874,8 +2850,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 401;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 401 THEN                                                                                     // RunAutomatTask running: reseting fault
+                // RunAutomatTask running: waiting for 'Inputs.NoFault' to be on.
+                IF _progress = 401 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#601, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#601;
@@ -2888,8 +2864,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 402;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 402 THEN                                                                                     // RunAutomatTask running: reseting fault
+                // RunAutomatTask running: waiting for 'Inputs.Ready' to be on.
+                IF _progress = 402 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#602, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#602;
@@ -2902,8 +2878,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 403;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 403 THEN                                                                                     // RunAutomatTask running: checking the actual screwing program number
+                // RunAutomatTask running: checking the actual screwing program number.
+                IF _progress = 403 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#603, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#603;
@@ -2917,8 +2893,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 407;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 404 THEN                                                                                     // RunAutomatTask running: checking the required screwing program number
+                // RunAutomatTask running: checking the required screwing program number
+                IF _progress = 404 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#604, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#604;
@@ -2931,8 +2907,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         Messenger.Activate(ULINT#1100,eAxoMessageCategory#ProgrammingError);
                     END_IF;
                 END_IF;
-                
-                IF _progress = 405 THEN                                                                                     // RunAutomatTask running: waiting for the device to be ready
+                // RunAutomatTask running: waiting for 'Inputs.Ready' to be on.
+                IF _progress = 405 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#605, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#605;
@@ -2943,8 +2919,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 406;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 406 THEN                                                                                     // RunAutomatTask running: waiting for the screwing program to be set
+                // RunAutomatTask running: waiting for the screwing program to be set.
+                IF _progress = 406 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#606, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#606;
@@ -2957,8 +2933,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 407;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 407 THEN                                                                                     // RunAutomatTask running: enabling device
+                // RunAutomatTask running: waiting for 'Inputs.EnableAck' to be on.
+                IF _progress = 407 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#607, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#607;
@@ -2971,8 +2947,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 408;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 408 THEN                                                                                     // RunAutomatTask running: reseting previous results
+                // RunAutomatTask running: waiting for 'Inputs.CycleComplete' to be off.
+                IF _progress = 408 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#608, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#608;
@@ -2985,8 +2961,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 409;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 409 THEN                                                                                     // RunAutomatTask running: enabling device
+                // RunAutomatTask running: waiting for 'Inputs.ActiveEnableAck' to be on.
+                IF _progress = 409 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#609, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#609;
@@ -2998,8 +2974,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 410;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 410 THEN                                                                                     // RunAutomatTask running: enabling screwing clockwise
+                // RunAutomatTask running: waiting for 'Inputs.CwLockAck' to be off.
+                IF _progress = 410 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#610, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#610;
@@ -3012,8 +2988,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 411;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 411 THEN                                                                                     // RunAutomatTask running: starting screwing clockwise
+                // RunAutomatTask running: waiting for 'Inputs.InCycle' to be on.
+                IF _progress = 411 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#611, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#611;
@@ -3025,8 +3001,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 412;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 412 THEN                                                                                     // RunAutomatTask running: screwing clockwise
+                // RunAutomatTask running: waiting for 'Inputs.InCycle' to be on.
+                IF _progress = 412 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#612, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#612;
@@ -3040,8 +3016,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 413;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 413 THEN                                                                                     // RunAutomatTask running: screwing clockwise
+                // RunAutomatTask running: waiting for 'Inputs.CycleComplete' to be on.
+                IF _progress = 413 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#613, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#613;
@@ -3055,8 +3031,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 414;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 414 THEN                                                                                     // RunAutomatTask running: screwing clockwise finished
+                // RunAutomatTask running: waiting for 'Inputs.InCycle' to be off.
+                IF _progress = 414 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#614, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#614;
@@ -3069,8 +3045,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 415;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 415 THEN                                                                                     // RunAutomatTask running: screwing clockwise finished
+                // RunAutomatTask running: waiting for 'Inputs.ActiveEnableAck' to be off.
+                IF _progress = 415 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#615, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#615;
@@ -3084,8 +3060,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 416;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 416 THEN                                                                                     // RunAutomatTask running: screwing clockwise finished
+                // RunAutomatTask running: waiting for 'Inputs.CycleComplete' to be on.
+                IF _progress = 416 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#616, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#616;
@@ -3099,8 +3075,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 417;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 417 THEN                                                                                     // RunAutomatTask running: disabling screwing clockwise
+                // RunAutomatTask running: waiting for 'Inputs.CwLockAck' to be on.
+                IF _progress = 417 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#617, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#617;
@@ -3114,8 +3090,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 418;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 418 THEN                                                                                     // RunAutomatTask running: disabling screwing counterclockwise
+                // RunAutomatTask running: waiting for 'Inputs.CcwLockAck' to be on.
+                IF _progress = 418 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#618, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#618;
@@ -3129,8 +3105,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 419;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 419 THEN                                                                                     // RunAutomatTask running: getting results
+                // RunAutomatTask running: saving screwing results.
+                IF _progress = 419 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#619, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#619;
@@ -3156,8 +3132,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 420;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 420 THEN                                                                                     // RunAutomatTask running: evaluating results
+                // RunAutomatTask running: evaluating screwing results.
+                IF _progress = 420 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#620, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#620;
@@ -3170,8 +3146,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 421;
                     END_IF;
                 END_IF;
-    
-                IF _progress = 421 THEN                                                                                     // RunAutomatTask running: disabling
+                // RunAutomatTask running: waiting for 'Inputs.EnableAck' to be off.
+                IF _progress = 421 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#621, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#621;
@@ -3184,8 +3160,8 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                         _progress := 422;
                     END_IF;
                 END_IF;
-                
-                IF _progress = 422 THEN                                                                                     // RunAutomatTask finished
+                // RunAutomatTask finished.
+                IF _progress = 422 THEN
                     RunAutomatTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
@@ -3194,7 +3170,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
                 
                 RunAutomatTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_progress);  
-                RunAutomatTask.ThrowWhen(RunAutomatTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'RunAutomatTask timeout.');                
+                RunAutomatTask.ThrowWhen(RunAutomatTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#RunAutomatTask timeout.#>');                
             END_IF;
             IF RunAutomatTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#201;

@@ -35,7 +35,7 @@ namespace AXOpen.Core
             }
         }
 
-        private string _runStepButtonText => string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic()) ? "-" : this.Component.CurrentStep.Descr.GetCyclic();
+        private string _runStepButtonText => string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic(Thread.CurrentThread.CurrentUICulture)) ? "-" : this.Component.CurrentStep.Descr.GetCyclic(Thread.CurrentThread.CurrentUICulture);
 
         private IEnumerable<AxoObject> _associatedComponents => this.Component.Associates.Where(p => p is AxoObject).Cast<AxoObject>();
 

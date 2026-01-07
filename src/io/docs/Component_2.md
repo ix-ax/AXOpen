@@ -1,14 +1,15 @@
-# Component_2
+# Component Hardware Diagnostics
 
 # [CONTROLLER](#tab/controller)
 
+## How to use component in controller
 
 ## Declare component
 [!code-pascal[](../app/src/Documentation/Component_2.st?name=ComponentDeclaration)]
 
 ## Declare initialization variables
 
-*Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.*
+*Most of the initialization variables will come from the I/O system. This example is only for demonstrational purposes.*
 
 [!code-pascal[](../app/src/Documentation/Component_2.st?name=InitializationArgumentsDeclaration)]
 

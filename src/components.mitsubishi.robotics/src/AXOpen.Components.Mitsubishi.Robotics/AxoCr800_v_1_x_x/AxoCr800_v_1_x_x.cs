@@ -128,7 +128,7 @@ namespace AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 new KeyValuePair<ulong, AxoMessengerTextItem>(548,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.PointNo` to be the same as the value of the `CurrentMovementParameters.PointNo `.",                  "Check the value of the Inputs.PointNosignal")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(549,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.UserSpecSpeed1` to be the same as the value of the `CurrentMovementParameters.UserSpecSpeed1 `.",    "Check the value of the Inputs.UserSpecSpeed1signal")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(550,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.UserSpecSpeed2` to be the same as the value of the `CurrentMovementParameters.UserSpecSpeed2 `.",    "Check the value of the Inputs.UserSpecSpeed2signal")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(551,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.ActionNo` to be the same as the value of the `Outputs.ActionNo`.",                                   "Check the value of the Inputs.ActionNosignal")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(551,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.ActionNo` to be the same as the value of the `Outputs.ActionNo`.",                                   "Check the value of the Inputs.ActionNo signal")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(552,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.ActionNo` to be the same as the value of the `Outputs.ActionNo`.",                                   "Check the value of the Inputs.ActionNo signal")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(553,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.ActionNo` to be the same as the value of the `Outputs.ActionNo`.",                                   "Check the value of the Inputs.ActionNo signal")),
 
@@ -239,82 +239,52 @@ namespace AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                     actionDescriptionDict.Add(50, "Restore has been executed.");
 
                     actionDescriptionDict.Add(100, "Start at main started.");
-                    actionDescriptionDict.Add(300, "Start at main running.");
-                    actionDescriptionDict.Add(301, "Start at main running.");
-                    actionDescriptionDict.Add(302, "Start at main running.");
-                    actionDescriptionDict.Add(303, "Start at main running.");
-                    actionDescriptionDict.Add(304, "Start at main running.");
-                    actionDescriptionDict.Add(305, "Start at main running.");
-                    actionDescriptionDict.Add(306, "Start at main running.");
-                    actionDescriptionDict.Add(307, "Start at main running.");
-                    actionDescriptionDict.Add(308, "Start at main running.");
-                    actionDescriptionDict.Add(309, "Start at main running.");
+                    actionDescriptionDict.Add(300, "Start at main running: switching to auto mode.");
+                    actionDescriptionDict.Add(301, "Start at main running: enabling the operations.");
+                    actionDescriptionDict.Add(302, "Start at main running: reseting the error.");
+                    actionDescriptionDict.Add(303, "Start at main running: reseting the emergency stop.");
+                    actionDescriptionDict.Add(304, "Start at main running: reseting the program.");
+                    actionDescriptionDict.Add(305, "Start at main finished.");
                     actionDescriptionDict.Add(101, "Start at main finished succesfully.");
                     actionDescriptionDict.Add(102, "Start at main restored.");
 
                     actionDescriptionDict.Add(110, "Start motors and program started.");
-                    actionDescriptionDict.Add(310, "Start motors and program running.");
-                    actionDescriptionDict.Add(311, "Start motors and program running.");
-                    actionDescriptionDict.Add(312, "Start motors and program running.");
-                    actionDescriptionDict.Add(313, "Start motors and program running.");
-                    actionDescriptionDict.Add(314, "Start motors and program running.");
-                    actionDescriptionDict.Add(315, "Start motors and program running.");
-                    actionDescriptionDict.Add(316, "Start motors and program running.");
-                    actionDescriptionDict.Add(317, "Start motors and program running.");
-                    actionDescriptionDict.Add(318, "Start motors and program running.");
-                    actionDescriptionDict.Add(319, "Start motors and program running.");
+                    actionDescriptionDict.Add(310, "Start motors and program running: switching to auto mode.");
+                    actionDescriptionDict.Add(311, "Start motors and program running: enabling the operations.");
+                    actionDescriptionDict.Add(312, "Start motors and program running: reseting the error.");
+                    actionDescriptionDict.Add(313, "Start motors and program running: reseting the emergency stop.");
+                    actionDescriptionDict.Add(314, "Start motors and program running: starting the servomotors.");
+                    actionDescriptionDict.Add(315, "Start motors and program running: starting the servomotors.");
+                    actionDescriptionDict.Add(316, "Start motors and program running: starting the program.");
+                    actionDescriptionDict.Add(317, "Start motors and program running: starting the program.");
+                    actionDescriptionDict.Add(318, "Start motors and program finished.");
                     actionDescriptionDict.Add(111, "Start motors and program finished succesfully.");
                     actionDescriptionDict.Add(112, "Start motors and program restored.");
 
                     actionDescriptionDict.Add(120, "Stop movements started.");
-                    actionDescriptionDict.Add(320, "Stop movements running.");
-                    actionDescriptionDict.Add(321, "Stop movements running.");
-                    actionDescriptionDict.Add(322, "Stop movements running.");
-                    actionDescriptionDict.Add(323, "Stop movements running.");
-                    actionDescriptionDict.Add(324, "Stop movements running.");
-                    actionDescriptionDict.Add(325, "Stop movements running.");
-                    actionDescriptionDict.Add(326, "Stop movements running.");
-                    actionDescriptionDict.Add(327, "Stop movements running.");
-                    actionDescriptionDict.Add(328, "Stop movements running.");
-                    actionDescriptionDict.Add(329, "Stop movements running.");
+                    actionDescriptionDict.Add(320, "Stop movements running: switching to auto mode.");
+                    actionDescriptionDict.Add(321, "Stop movements running: enabling the operations.");
+                    actionDescriptionDict.Add(322, "Stop movements running: stopping the movement.");
+                    actionDescriptionDict.Add(323, "Stop movements finished.");
                     actionDescriptionDict.Add(121, "Stop movements finished succesfully.");
                     actionDescriptionDict.Add(122, "Stop movements restored.");
 
                     actionDescriptionDict.Add(130, "Stop movements and program started.");
-                    actionDescriptionDict.Add(330, "Stop movements and program running.");
-                    actionDescriptionDict.Add(331, "Stop movements and program running.");
-                    actionDescriptionDict.Add(332, "Stop movements and program running.");
-                    actionDescriptionDict.Add(333, "Stop movements and program running.");
-                    actionDescriptionDict.Add(334, "Stop movements and program running.");
-                    actionDescriptionDict.Add(335, "Stop movements and program running.");
-                    actionDescriptionDict.Add(336, "Stop movements and program running.");
-                    actionDescriptionDict.Add(337, "Stop movements and program running.");
-                    actionDescriptionDict.Add(338, "Stop movements and program running.");
-                    actionDescriptionDict.Add(339, "Stop movements and program running.");
+                    actionDescriptionDict.Add(330, "Stop movements and program running: switching to auto mode.");
+                    actionDescriptionDict.Add(331, "Stop movements and program running: enabling the operations.");
+                    actionDescriptionDict.Add(332, "Stop movements and program running: stopping the movement.");
+                    actionDescriptionDict.Add(333, "Stop movements and program finished.");
                     actionDescriptionDict.Add(131, "Stop movements and program finished succesfully.");
                     actionDescriptionDict.Add(132, "Stop movements and program restored.");
 
                     actionDescriptionDict.Add(140, "Start movements started.");
-                    actionDescriptionDict.Add(340, "Start movements running.");
-                    actionDescriptionDict.Add(341, "Start movements running.");
-                    actionDescriptionDict.Add(342, "Start movements running.");
-                    actionDescriptionDict.Add(343, "Start movements running.");
-                    actionDescriptionDict.Add(344, "Start movements running.");
-                    actionDescriptionDict.Add(345, "Start movements running.");
-                    actionDescriptionDict.Add(346, "Start movements running.");
-                    actionDescriptionDict.Add(347, "Start movements running.");
-                    actionDescriptionDict.Add(348, "Start movements running.");
-                    actionDescriptionDict.Add(349, "Start movements running.");
-                    actionDescriptionDict.Add(350, "Start movements running.");
-                    actionDescriptionDict.Add(351, "Start movements running.");
-                    actionDescriptionDict.Add(352, "Start movements running.");
-                    actionDescriptionDict.Add(353, "Start movements running.");
-                    actionDescriptionDict.Add(354, "Start movements running.");
-                    actionDescriptionDict.Add(355, "Start movements running.");
-                    actionDescriptionDict.Add(356, "Start movements running.");
-                    actionDescriptionDict.Add(357, "Start movements running.");
-                    actionDescriptionDict.Add(358, "Start movements running.");
-                    actionDescriptionDict.Add(359, "Start movements running.");
+                    actionDescriptionDict.Add(340, "Start movements running: waiting for all movement conditions to be fulfilled.");
+                    actionDescriptionDict.Add(344, "Start movements running: sending parameters of the movement to the controller.");
+                    actionDescriptionDict.Add(345, "Start movements running: waiting for the movement parameters sent to the controller to be mirrored back.");
+                    actionDescriptionDict.Add(351, "Start movements running: acknowleadging of the movement parameters.");
+                    actionDescriptionDict.Add(352, "Start movements running: waiting for the movement is finished.");
+                    actionDescriptionDict.Add(353, "Start movements running: acknowleadging of the finished movement.");
+                    actionDescriptionDict.Add(354, "Start movements finished.");
                     actionDescriptionDict.Add(141, "Start movements finished succesfully.");
                     actionDescriptionDict.Add(142, "Start movements restored.");
 

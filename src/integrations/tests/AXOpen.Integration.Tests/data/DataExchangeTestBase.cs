@@ -41,8 +41,7 @@ namespace integrations.data.single
                     {
                         DataDirectory =
                             Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).Directory.FullName,
-                                "tmp", "data"),
-                        AcceptEula = true,
+                                "tmp", "data"),                                                
                         ServerUrl = "http://127.0.0.1:8080",
                     });
 

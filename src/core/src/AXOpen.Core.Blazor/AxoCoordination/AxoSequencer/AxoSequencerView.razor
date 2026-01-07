@@ -17,28 +17,28 @@
         <div class="flex flex-wrap">
             <button type="button" class="btn gap-2 @(_currentSteppingMode == eAxoSteppingMode.StepByStep ? "btn-warning" : "btn-outline-primary")"
                 @onclick="ToggleStepMode"
-                title="@(_currentSteppingMode == eAxoSteppingMode.StepByStep ? "Exit step mode" : "Enter step mode")">
+                title="@(_currentSteppingMode == eAxoSteppingMode.StepByStep ? Localizer["ExitStepMode"] : Localizer["EnterStepMode"])">
                 <span class="inline-flex w-5 h-5 rounded-full @(_currentSteppingMode == eAxoSteppingMode.StepByStep ? "bg-warning/40 shadow-glow-warning animate-pulse" : "border border-primary/40 shadow-glow-primary")"></span>
                 @if(!HasExternalStepModeControl)
                 {
                     if (_currentSteppingMode == eAxoSteppingMode.StepByStep)
                     {
-                        <text>STEP MODE</text>
+                        <text>@Localizer["StepMode"]</text>
                     }   
                     else
                     {
-                       <text>STEP MODE</text>
+                       <text>@Localizer["StepMode"]</text>
                     }
                 }
                 else
                 {
                     if (_currentSteppingMode == eAxoSteppingMode.StepByStep)
                     {
-                        <text>STEP MODE ACTIVE - CONTROLLED BY MASTER SEQUENCE</text>
+                        <text>@Localizer["StepModeActiveControlledByMaster"]</text>
                     }   
                     else
                     {
-                       <text>STEP MODE CONTROLLED BY MASTER SEQUENCE</text>
+                       <text>@Localizer["StepModeControlledByMaster"]</text>
                     }
                 
                 }
@@ -114,11 +114,11 @@
         {
             return _currentStatus switch
             {
-                eSequenceStatus.Active => "Running",
-                eSequenceStatus.SequenceTimeOutError => "Timeout",
-                eSequenceStatus.SequencerError => "Error",                
-                eSequenceStatus.ExternalComponentError => "Error",
-                _ => "Idle"
+                eSequenceStatus.Active => Localizer["Running"],
+                eSequenceStatus.SequenceTimeOutError => Localizer["Timeout"],
+                eSequenceStatus.SequencerError => Localizer["Error"],                
+                eSequenceStatus.ExternalComponentError => Localizer["Error"],
+                _ => Localizer["Idle"]
             };
         }
     }

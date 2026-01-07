@@ -53,6 +53,8 @@ namespace AXOpen.Core.Blazor
 
         public bool ServiceViewActive { get; set; }
 
+        
+
         // Properties referenced in the markup        
         public int ActiveAlarmCount { get { return _alarmCount; } }
         public string AlarmBadgeClass => _alarmLevel switch
@@ -140,6 +142,17 @@ namespace AXOpen.Core.Blazor
                _ => ""
            };
 
+        public string LabelBackgroundClass =>
+           _alarmLevel switch
+           {
+               eAlarmLevel.NoAlarms => "bg-background/80",
+               eAlarmLevel.Unacknowledged => "bg-warning",
+               eAlarmLevel.ActiveInfo => "bg-info",
+               eAlarmLevel.ActiveWarnings => "bg-warning/20! shadow-glow-warning",
+               eAlarmLevel.ActiveErrors => "bg-danger/20! shadow-glow-danger",
+               _ => "bg-background/80"
+           };
+
         public bool AlarmsActive { get; private set; }
 
         public void SetView(eViewType? viewType)
@@ -186,8 +199,8 @@ namespace AXOpen.Core.Blazor
         {
             HeaderActive = true;
             DetailsActive = false;
-            CommandsActive = true;
-            StateActive = false;
+            CommandsActive = true;           
+            StateActive = true;
             ServiceViewActive = false;
             StateHasChanged();
         }

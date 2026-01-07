@@ -59,5 +59,32 @@ namespace AXOpen.Components.Elements.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InitPositionTask timeout..
+        /// </summary>
+        public static string InitPositionTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("InitPositionTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The safety condition is lost during movement..
+        /// </summary>
+        public static string The_safety_condition_is_lost_during_movement_DOT_ {
+            get {
+                return ResourceManager.GetString("The_safety_condition_is_lost_during_movement_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TurnTask timeout..
+        /// </summary>
+        public static string TurnTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("TurnTask_timeout_DOT_", resourceCulture);
+            }
+        }
     }
 }

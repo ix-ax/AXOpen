@@ -59,5 +59,122 @@ namespace AXOpen.Components.Drives.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MC_Halt has thrown an error: .
+        /// </summary>
+        public static string MC_UNDERSCORE_Halt_has_thrown_an_error_COLON__ {
+            get {
+                return ResourceManager.GetString("MC_UNDERSCORE_Halt_has_thrown_an_error_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MC_Home has thrown an error: .
+        /// </summary>
+        public static string MC_UNDERSCORE_Home_has_thrown_an_error_COLON__ {
+            get {
+                return ResourceManager.GetString("MC_UNDERSCORE_Home_has_thrown_an_error_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MC_MoveAbsolute has thrown an error: .
+        /// </summary>
+        public static string MC_UNDERSCORE_MoveAbsolute_has_thrown_an_error_COLON__ {
+            get {
+                return ResourceManager.GetString("MC_UNDERSCORE_MoveAbsolute_has_thrown_an_error_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MC_MoveAdditive has thrown an error: .
+        /// </summary>
+        public static string MC_UNDERSCORE_MoveAdditive_has_thrown_an_error_COLON__ {
+            get {
+                return ResourceManager.GetString("MC_UNDERSCORE_MoveAdditive_has_thrown_an_error_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MC_MoveRelative has thrown an error: .
+        /// </summary>
+        public static string MC_UNDERSCORE_MoveRelative_has_thrown_an_error_COLON__ {
+            get {
+                return ResourceManager.GetString("MC_UNDERSCORE_MoveRelative_has_thrown_an_error_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MC_MoveVelocity has thrown an error: .
+        /// </summary>
+        public static string MC_UNDERSCORE_MoveVelocity_has_thrown_an_error_COLON__ {
+            get {
+                return ResourceManager.GetString("MC_UNDERSCORE_MoveVelocity_has_thrown_an_error_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MC_Reset has thrown an error: .
+        /// </summary>
+        public static string MC_UNDERSCORE_Reset_has_thrown_an_error_COLON__ {
+            get {
+                return ResourceManager.GetString("MC_UNDERSCORE_Reset_has_thrown_an_error_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MC_SetPosition has thrown an error: .
+        /// </summary>
+        public static string MC_UNDERSCORE_SetPosition_has_thrown_an_error_COLON__ {
+            get {
+                return ResourceManager.GetString("MC_UNDERSCORE_SetPosition_has_thrown_an_error_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MC_TorqueControl has thrown an error: .
+        /// </summary>
+        public static string MC_UNDERSCORE_TorqueControl_has_thrown_an_error_COLON__ {
+            get {
+                return ResourceManager.GetString("MC_UNDERSCORE_TorqueControl_has_thrown_an_error_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MC_WriteBoolParameter has thrown an error: .
+        /// </summary>
+        public static string MC_UNDERSCORE_WriteBoolParameter_has_thrown_an_error_COLON__ {
+            get {
+                return ResourceManager.GetString("MC_UNDERSCORE_WriteBoolParameter_has_thrown_an_error_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MC_WriteDigitalOutput has thrown an error: .
+        /// </summary>
+        public static string MC_UNDERSCORE_WriteDigitalOutput_has_thrown_an_error_COLON__ {
+            get {
+                return ResourceManager.GetString("MC_UNDERSCORE_WriteDigitalOutput_has_thrown_an_error_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MC_WriteParameter has thrown an error: .
+        /// </summary>
+        public static string MC_UNDERSCORE_WriteParameter_has_thrown_an_error_COLON__ {
+            get {
+                return ResourceManager.GetString("MC_UNDERSCORE_WriteParameter_has_thrown_an_error_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MC_WriteRealParameter has thrown an error: .
+        /// </summary>
+        public static string MC_UNDERSCORE_WriteRealParameter_has_thrown_an_error_COLON__ {
+            get {
+                return ResourceManager.GetString("MC_UNDERSCORE_WriteRealParameter_has_thrown_an_error_COLON__", resourceCulture);
+            }
+        }
     }
 }

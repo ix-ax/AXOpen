@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Cognex.Vision --version {axopen-version}
 ~~~xml
 <PackageReference Include="AXOpen.Components.Cognex.Vision" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->

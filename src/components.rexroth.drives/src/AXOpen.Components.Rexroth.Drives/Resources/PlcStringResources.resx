@@ -58,4 +58,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AxoHome_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>AxoHome_Task timeout.</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,2223</comment>
+  </data>
+  <data name="AxoStop_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>AxoStop_Task timeout.</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,2396</comment>
+  </data>
+  <data name="AxoHalt_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>AxoHalt_Task timeout.</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,2561</comment>
+  </data>
+  <data name="AxoMoveAbsolute_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>AxoMoveAbsolute_Task timeout.</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,2794</comment>
+  </data>
+  <data name="AxoMoveRelative_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>AxoMoveRelative_Task timeout.</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,3035</comment>
+  </data>
+  <data name="AxoMoveAdditive_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>AxoMoveAdditive_Task timeout.</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,3286</comment>
+  </data>
+  <data name="AxoMoveVelocity_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>AxoMoveVelocity_Task timeout.</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,3560</comment>
+  </data>
+  <data name="AxoSetPosition_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>AxoSetPosition_Task timeout.</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,4139</comment>
+  </data>
 </root>

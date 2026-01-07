@@ -12,35 +12,35 @@
             <span class="text-xs uppercase tracking-wide text-text/70">@SignalHint</span>
         </div>
     </HeaderContent>
-    <CommandsContent>
+    <CommandsOperateContent>
         <div class="flex flex-col gap-3 w-full" @onclick:stopPropagation="true">
             <div class="flex flex-wrap gap-3">
-                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="Expect HIGH" Component="Component._isTrueTask" HideRestoreButton="false"></AxoTaskCommandView>
-                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="Expect LOW" Component="Component._isFalseTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="@Localizer["ExpectHigh"]" Component="Component._isTrueTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="@Localizer["ExpectLow"]" Component="Component._isFalseTask" HideRestoreButton="false"></AxoTaskCommandView>
             </div>            
         </div>
-    </CommandsContent>
+    </CommandsOperateContent>
 
-    <StatusContent>
+    <CommandsMonitorContent>
         <div class="flex flex-col gap-3 w-full" @onclick:stopPropagation="true">
             <div class="flex flex-wrap gap-3">
-                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="HIGH check" Component="Component._isTrueTask" HideRestoreButton="false"></AxoTaskStatusView>
-                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="LOW check" Component="Component._isFalseTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="@Localizer["HighCheck"]" Component="Component._isTrueTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="@Localizer["LowCheck"]" Component="Component._isFalseTask" HideRestoreButton="false"></AxoTaskStatusView>
             </div>           
         </div>
-    </StatusContent>
-    <StateContent>  
+    </CommandsMonitorContent>
+    <ConfigAndStateViewContent>
         <div class="flex flex-col gap-3" @onclick:stopPropagation="true">
-            <div class="axo-di-state-card">
+            <div class="card p-4">
                 <div>
-                    <p class="text-xs uppercase tracking-wide text-text/60">Signal</p>
+                    <p class="text-xs uppercase tracking-wide text-text/60">@Localizer["Signal"]</p>
                     <p class="text-lg font-semibold">@SignalStateLabel</p>
                     <p class="text-sm text-text/70">@SignalDetail</p>
                 </div>
                 <span class="@SignalIndicatorClass" aria-hidden="true"></span>
             </div>                  
         </div>
-    </StateContent>
+    </ConfigAndStateViewContent>
     <SpotContent>        
         <button type="button" class="axo-di-spot">           
             <span class="@SpotIndicatorClass" aria-hidden="true"></span>            
@@ -52,15 +52,15 @@
 {      
     protected bool IsSignalHigh => Component?._signal?.Cyclic ?? false;
 
-    protected string SignalStateLabel => IsSignalHigh ? "Signal HIGH" : "Signal LOW";
+    protected string SignalStateLabel => IsSignalHigh ? Localizer["SignalHigh"] : Localizer["SignalLow"];
 
     protected string SignalHint => IsSignalHigh
-        ? "Positive feedback present"
-        : "Waiting for positive feedback";
+        ? Localizer["PositiveFeedbackPresent"]
+        : Localizer["WaitingForPositiveFeedback"];
 
     protected string SignalDetail => IsSignalHigh
-        ? "Input is energized and ready"
-        : "Input is de-energized";
+        ? Localizer["InputIsEnergizedAndReady"]
+        : Localizer["InputIsDeEnergized"];
 
     protected string SignalBadgeClass => $"badge text-xs font-semibold tracking-wide {(IsSignalHigh ? "badge-success" : "badge-ghost text-slate-400 bg-slate-700/40 border border-slate-500/40")}";
 

@@ -3,42 +3,42 @@
   "isRoot": true,
   "tools": {
     "AXSharp.ixc": {
-      "version": "0.45.0-alpha.323",
+      "version": "0.46.0-alpha.366",
       "commands": [
         "ixc"
       ],
       "rollForward": false
     },
     "docfx": {
-      "version": "2.70.4",
+      "version": "2.78.4",
       "commands": [
         "docfx"
       ],
       "rollForward": false
     },
     "AXSharp.ixd": {
-      "version": "0.45.0-alpha.323",
+      "version": "0.46.0-alpha.366",
       "commands": [
         "ixd"
       ],
       "rollForward": false
     },
     "AXSharp.ixr": {
-      "version": "0.45.0-alpha.323",
+      "version": "0.46.0-alpha.366",
       "commands": [
         "ixr"
       ],
       "rollForward": false
     },
     "microsoft.visualstudio.slngen.tool": {
-      "version": "12.0.19",
+      "version": "12.0.32",
       "commands": [
         "slngen"
       ],
       "rollForward": false
     },
     "docfxtocgenerator": {
-      "version": "1.10.0",
+      "version": "1.38.0",
       "commands": [
         "DocFxTocGenerator"
       ],
@@ -53,13 +53,3 @@
     }
   }
 }
-
-
-
-
-
-
-
-
-
-

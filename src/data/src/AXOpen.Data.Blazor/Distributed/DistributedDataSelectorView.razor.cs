@@ -1,7 +1,6 @@
 ﻿using AXOpen.Base.Data;
 using AXOpen.Base.Data.Query;
 using AXOpen.Base.Dialogs;
-using Humanizer.DateTimeHumanizeStrategy;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
@@ -82,7 +81,13 @@ namespace AXOpen.Data
                     if (DistributedVM.AllExchangesHasTheSameId())
                     {
                         var id = (DistributedVM.MainExchange.DataExchangeTwinObject as IAxoDataEntity)._EntityId.Cyclic;
-                        this.SelectedEntity = DistributedVM.MainExchange.GetRecords(id, 1, 0, eSearchMode.Exact, "", false).First();
+
+                        var recs = DistributedVM.MainExchange.GetRecords(id, 1, 0, eSearchMode.Exact, "", false);
+
+                        if (recs != null && recs.Any())
+                        {
+                            this.SelectedEntity = recs.First();
+                        }
                     }
 
                     ConfigSuffix = string.IsNullOrEmpty(ConfigSuffix) ? string.Empty : ConfigSuffix;

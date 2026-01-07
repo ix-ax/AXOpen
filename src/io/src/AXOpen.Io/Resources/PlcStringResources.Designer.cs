@@ -59,5 +59,14 @@ namespace AXOpen.Io.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ConfigTask timeout..
+        /// </summary>
+        public static string ConfigTask_timeout_DOT_ {
+            get {
+                return ResourceManager.GetString("ConfigTask_timeout_DOT_", resourceCulture);
+            }
+        }
     }
 }

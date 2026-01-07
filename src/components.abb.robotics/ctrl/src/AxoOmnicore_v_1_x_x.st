@@ -448,8 +448,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 300;
                 END_IF;
-                
-
+                // Start at main running: starting program at main.
                 IF _power_progress = 300 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#500, eAxoMessageCategory#Warning);
@@ -464,7 +463,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 301;
                     END_IF;
                 END_IF;
-                
+                // Start at main running: starting program at main.
                 IF _power_progress = 301 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#501, eAxoMessageCategory#Warning);
@@ -479,7 +478,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 302;
                     END_IF;
                 END_IF;
-
+                // Start at main running: program started.
                 IF _power_progress = 302 THEN  
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#502, eAxoMessageCategory#Warning);
@@ -496,7 +495,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress:=303;                    
                     END_IF;
                 END_IF;
-
+                // Start at main finished.
                 IF _power_progress = 303 THEN  
                     StartAtMainTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
@@ -506,7 +505,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 THIS.CallTimers(TRUE);
                 StartAtMainTask.ThrowWhen(_errorTimer.output );
                 Status.Action.Id := TO_UINT(_power_progress);
-                StartAtMainTask.ThrowWhen(StartAtMainTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartAtMainTask timeout.');
+                StartAtMainTask.ThrowWhen(StartAtMainTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartAtMainTask timeout.#>');
             END_IF;
             IF StartAtMainTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -543,8 +542,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 310;
                 END_IF;
-
-                IF _power_progress = 310 THEN //Switching to auto
+                // Start motors and program running: switching to auto.
+                IF _power_progress = 310 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#510, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#510;
@@ -555,8 +554,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 311;
                     END_IF;
                 END_IF;
-
-                IF _power_progress = 311 THEN	//Reseting error
+                // Start motors and program running: reseting error.
+                IF _power_progress = 311 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#511, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#511;
@@ -570,8 +569,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 312;
                     END_IF;
                 END_IF;
-              
-                IF _power_progress = 312 THEN	//Reseting emergency stop error
+                // Start motors and program running: reseting emergency stop error.
+                IF _power_progress = 312 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#512, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#512;
@@ -585,7 +584,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 313;
                     END_IF;
                 END_IF;
-              
+                // Start motors and program running: switching motors on.
                 IF _power_progress = 313 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#513, eAxoMessageCategory#Warning);
@@ -604,7 +603,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                          _power_progress := 314;
                     END_IF;
                 END_IF;		
-              
+                // Start motors and program running: starting program.
                 IF _power_progress = 314 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#514, eAxoMessageCategory#Warning);
@@ -623,7 +622,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                          _power_progress := 315;
                     END_IF;
                 END_IF;	
-
+                // Start motors and program running: checking controller error.
                 IF _power_progress = 315 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#515, eAxoMessageCategory#Warning);
@@ -632,7 +631,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
 
                     Outputs.MotorOnAndStart:=_blink.output;	
 
-                    IF NOT Inputs.Error THEN 
+                    IF Inputs.Error THEN 
                         THIS.CallTimers(FALSE);
                         _power_progress := 310;
                     END_IF;
@@ -643,7 +642,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                          _power_progress := 316;
                     END_IF;
                 END_IF;	
-
+                // Start motors and program finished.
                 IF _power_progress = 316 THEN	
                     StartMotorsAndProgramTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
@@ -653,7 +652,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 THIS.CallTimers(TRUE);
                 StartMotorsAndProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StartMotorsAndProgramTask.ThrowWhen(StartMotorsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartMotorsAndProgramTask timeout.');
+                StartMotorsAndProgramTask.ThrowWhen(StartMotorsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMotorsAndProgramTask timeout.#>');
             END_IF;
             IF StartMotorsAndProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -690,8 +689,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 320;
                 END_IF;
-
-                IF _power_progress = 320 THEN //Switching to auto
+                // Start motors program and movements running: switching to auto.
+                IF _power_progress = 320 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#520, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#520;
@@ -702,8 +701,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 321;
                     END_IF;
                 END_IF;
-
-                IF _power_progress = 321 THEN	//Reseting error
+                // Start motors program and movements running: reseting error.
+                IF _power_progress = 321 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#521, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#521;
@@ -717,8 +716,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 322;
                     END_IF;
                 END_IF;
-              
-                IF _power_progress = 322 THEN	//Reseting emergency stop error
+                // Start motors program and movements running: reseting emergency stop error.
+                IF _power_progress = 322 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#522, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#522;
@@ -732,8 +731,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 323;
                     END_IF;
                 END_IF;
-              
-                IF _power_progress = 323 THEN	//Switching on the motors
+                // Start motors program and movements running: switching motors on.             
+                IF _power_progress = 323 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#523, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#523;
@@ -751,8 +750,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                          _power_progress := 324;
                     END_IF;
                 END_IF;		
-              
-                IF _power_progress = 324 THEN	//Switching on the motors	
+                // Start motors program and movements running: starting program.             
+                IF _power_progress = 324 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#524, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#524;
@@ -770,8 +769,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                          _power_progress := 325;
                     END_IF;
                 END_IF;	
-
-                IF _power_progress = 325 THEN	//Switching on the motors	
+                // Start motors program and movements running: checking controller error.   
+                IF _power_progress = 325 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#525, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#525;
@@ -779,7 +778,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
 
                     Outputs.MotorOnAndStart:=_blink.output;	
 
-                    IF NOT Inputs.Error THEN 
+                    IF Inputs.Error THEN 
                         THIS.CallTimers(FALSE);
                         _power_progress := 320;
                     END_IF;
@@ -790,8 +789,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                          _power_progress := 326;
                     END_IF;
                 END_IF;	
-	
-                IF _power_progress = 326 THEN //Setting the movement parameters
+                // Start motors program and movements running: sending parameters of the movement to the controller.   
+                IF _power_progress = 326 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#526, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#526;
@@ -812,8 +811,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 327;
                     END_IF;
                 END_IF;
-                
-                IF _power_progress = 327 THEN //Waiting for confirmation of the movement parameters
+                // Start motors program and movements running: waiting for the movement parameters sent to the controller to be mirrored back.   
+                IF _power_progress = 327 THEN 
                     IF _infoTimer.output THEN
                         IF Inputs.GlobalSpeed <> Status.CurrentMovementParameters.GlobalSpeed THEN
                             TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Warning);
@@ -852,8 +851,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress:=333;
                     END_IF;
                 END_IF;		
-
-                IF _power_progress = 333 THEN //Acknowledging that the mirrored data are valid
+                // Start motors program and movements running: acknowleadging of the movement parameters.
+                IF _power_progress = 333 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#533, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#533;
@@ -866,8 +865,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress:=334;
                     END_IF;
                 END_IF;	
-                
-                IF _power_progress = 334 THEN //Waiting for the movement finished
+                // Start motors program and movements running: waiting for the movement is finished.
+                IF _power_progress = 334 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#534, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#534;
@@ -883,8 +882,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress:=335;
                     END_IF;
                 END_IF;	
-
-                IF _power_progress = 335 THEN //Movement finished acknoledgement
+                // Start motors program and movements running: acknowleadging of the finished movement.
+                IF _power_progress = 335 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#535, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#535;
@@ -901,7 +900,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
 	            THIS.CallTimers(TRUE);
                 StartMotorsProgramAndMovementsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StartMotorsProgramAndMovementsTask.ThrowWhen(StartMotorsProgramAndMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartMotorsProgramAndMovementsTask timeout.');
+                StartMotorsProgramAndMovementsTask.ThrowWhen(StartMotorsProgramAndMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMotorsProgramAndMovementsTask timeout.#>');
             END_IF;
             IF StartMotorsProgramAndMovementsTask.IsFirstExecutionCycle() THEN
                 MovementParameters := Status.CurrentMovementParameters;
@@ -941,8 +940,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 340;
                 END_IF;
-              
-                IF _power_progress = 340 THEN //Switching to auto
+                // Start motors running: switching to auto.
+                IF _power_progress = 340 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#540, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#540;
@@ -953,8 +952,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 341;
                     END_IF;
                 END_IF;
-
-                IF _power_progress = 341 THEN	//Reseting error
+                // Start motors running: reseting error.
+                IF _power_progress = 341 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#541, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#541;
@@ -968,8 +967,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 342;
                     END_IF;
                 END_IF;
-              
-                IF _power_progress = 342 THEN	//Reseting emergency stop error
+                // Start motors running: reseting emergency stop error.
+                IF _power_progress = 342 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#542, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#542;
@@ -983,8 +982,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 343;
                     END_IF;
                 END_IF;
-              
-                IF _power_progress = 343 THEN	//Switching on the motors
+                // Start motors running: switching motors on.
+                IF _power_progress = 343 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#543, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#543;
@@ -1002,8 +1001,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                          _power_progress := 344;
                     END_IF;
                 END_IF;		
-
-                IF _power_progress = 344 THEN	//Switching on the motors
+                // Start motors running: checking controller error.
+                IF _power_progress = 344 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#544, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#544;
@@ -1022,8 +1021,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                          _power_progress := 345;
                     END_IF;
                 END_IF;		
-              
-                IF _power_progress = 345 THEN	//Switching on the motors
+                // Start motors finished.
+                IF _power_progress = 345 THEN
                     StartMotorsTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
                     _power_progress := 0;
@@ -1032,7 +1031,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 THIS.CallTimers(TRUE);
                 StartMotorsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StartMotorsTask.ThrowWhen(StartMotorsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartMotorsTask timeout.');
+                StartMotorsTask.ThrowWhen(StartMotorsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMotorsTask timeout.#>');
             END_IF;
             IF StartMotorsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#141;
@@ -1067,7 +1066,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     THIS.CallTimers(FALSE);
                     _movement_progress := 350;
                 END_IF;
-                
+                // Start movements running: waiting for the program is running.
                 IF _movement_progress = 350 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#550, eAxoMessageCategory#Warning);
@@ -1079,8 +1078,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _movement_progress := 351;
                     END_IF;
                 END_IF;
-                
-                IF _movement_progress = 351 THEN //Wating for the motors to be switched on
+                // Start movements running: waiting for the motors are on.
+                IF _movement_progress = 351 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#551, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#551;
@@ -1091,8 +1090,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _movement_progress := 352;
                     END_IF;
                 END_IF;
-
-                IF _movement_progress = 352 THEN //Waiting for the error reset
+                // Start movements running: waiting for the error is cleared.
+                IF _movement_progress = 352 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#552, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#552;
@@ -1103,8 +1102,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _movement_progress := 353;
                     END_IF;
                 END_IF;
-
-                IF _movement_progress = 353 THEN //Setting the movement parameters
+                // Start movements running: sending parameters of the movement to the controller.
+                IF _movement_progress = 353 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#553, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#553;
@@ -1125,8 +1124,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _movement_progress := 354;
                     END_IF;
                 END_IF;
-                
-                IF _movement_progress = 354 THEN //Waiting for confirmation of the movement parameters
+                // Start movements running: waiting for the movement parameters sent to the controller to be mirrored back.
+                IF _movement_progress = 354 THEN
                     IF _infoTimer.output THEN
                         IF Inputs.GlobalSpeed <> Status.CurrentMovementParameters.GlobalSpeed THEN
                             TaskMessenger.Activate( UINT#554, eAxoMessageCategory#Warning);
@@ -1165,8 +1164,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _movement_progress:=360;
                     END_IF;
                 END_IF;		
-
-                IF _movement_progress = 360 THEN //Acknowledging that the mirrored data are valid
+                // Start movements running: acknowleadging of the movement parameters.
+                IF _movement_progress = 360 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#560, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#560;
@@ -1179,8 +1178,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _movement_progress:=361;
                     END_IF;
                 END_IF;	
-                
-                IF _movement_progress = 361 THEN  //Waiting for the movement finished
+                // Start movements running: waiting for the movement is finished.
+                IF _movement_progress = 361 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#561, eAxoMessageCategory#Warning);
                         Status.Error.Id     := UINT#561;
@@ -1196,7 +1195,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _movement_progress:=362;
                     END_IF;
                 END_IF;	
-
+                // Start movements running: acknowleadging of the finished movement.
                 IF _movement_progress = 362 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#562, eAxoMessageCategory#Warning);
@@ -1209,7 +1208,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _movement_progress := 363;
                     END_IF;
                 END_IF;	
-                
+                // Start movements finished.
                 IF _movement_progress = 363 THEN
                     _movement_progress := 0;
                     StartMovementsTask.DoneWhen(TRUE);
@@ -1218,7 +1217,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 
                 StartMovementsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_movement_progress);
-                StartMovementsTask.ThrowWhen(StartMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartMovementsTask timeout.');
+                StartMovementsTask.ThrowWhen(StartMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMovementsTask timeout.#>');
             END_IF;
             IF StartMovementsTask.IsFirstExecutionCycle() THEN
                 MovementParameters := Status.CurrentMovementParameters;
@@ -1258,7 +1257,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 370;
                 END_IF;
-              
+                // Start program running: starting program.
                 IF _power_progress = 370 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#570, eAxoMessageCategory#Warning);
@@ -1272,7 +1271,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 371;
                     END_IF;
                 END_IF;
-
+                // Start program running: starting program.
                 IF _power_progress = 371 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#571, eAxoMessageCategory#Warning);
@@ -1287,7 +1286,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 372;
                     END_IF;
                 END_IF;
-
+                // Start program finished.
                 IF _power_progress = 372 THEN	
                     StartProgramTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
@@ -1297,7 +1296,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 THIS.CallTimers(TRUE);
                 StartProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StartProgramTask.ThrowWhen(StartProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StartProgramTask timeout.');
+                StartProgramTask.ThrowWhen(StartProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartProgramTask timeout.#>');
             END_IF;
             IF StartProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#171;
@@ -1334,7 +1333,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 380;
                 END_IF;
-              
+                // Stop motors running: switching the motors off.
                 IF _power_progress = 380 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#580, eAxoMessageCategory#Warning);
@@ -1348,7 +1347,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 381;
                     END_IF;
                 END_IF;
-
+                // Stop motors running: switching the motors off.
                 IF _power_progress = 381 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#581, eAxoMessageCategory#Warning);
@@ -1363,7 +1362,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 382;
                     END_IF;
                 END_IF;
-                
+                // Stop motors finished.
                 IF _power_progress = 382 THEN	
                     StopMotorsTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
@@ -1373,7 +1372,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 THIS.CallTimers(TRUE);
                 StopMotorsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StopMotorsTask.ThrowWhen(StopMotorsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StopMotorsTask timeout.');
+                StopMotorsTask.ThrowWhen(StopMotorsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopMotorsTask timeout.#>');
             END_IF;
             IF StopMotorsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -1410,7 +1409,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 390;
                 END_IF;
-                
+                // Stop movements and program running: stopping the movement.
                 IF _power_progress = 390 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#590, eAxoMessageCategory#Warning);
@@ -1430,7 +1429,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 391;
                     END_IF;
                 END_IF;
-                
+                // Stop movements and program running: stopping the program.
                 IF _power_progress = 391 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#591, eAxoMessageCategory#Warning);
@@ -1444,7 +1443,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 392;
                     END_IF;
                 END_IF;
-                
+                // Stop movements and program finished.
                 IF _power_progress = 392 THEN
                     Outputs.SoftStop := FALSE;
                     Outputs.QuickStop := FALSE;
@@ -1457,7 +1456,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 
                 StopMovementsAndProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StopMovementsAndProgramTask.ThrowWhen(StopMovementsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StopMovementsAndProgramTask timeout.');
+                StopMovementsAndProgramTask.ThrowWhen(StopMovementsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopMovementsAndProgramTask timeout.#>');
             END_IF;
             IF StopMovementsAndProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#191;
@@ -1492,7 +1491,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 400;
                 END_IF;
-                
+                // Stop movements running: stopping the movement.
                 IF _power_progress = 400 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#600, eAxoMessageCategory#Warning);
@@ -1513,7 +1512,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 401;
                     END_IF;
                 END_IF;
-                
+                // Stop movements finished.
                 IF _power_progress = 401 THEN
                     Outputs.SoftStop := FALSE;
                     Outputs.QuickStop := FALSE;
@@ -1526,7 +1525,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 
                 StopMovementsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StopMovementsTask.ThrowWhen(StopMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StopMovementsTask timeout.');
+                StopMovementsTask.ThrowWhen(StopMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopMovementsTask timeout.#>');
             END_IF;
             IF StopMovementsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#201;
@@ -1561,7 +1560,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 410;
                 END_IF;
-                
+                // Stop program running: stopping the program.
                 IF _power_progress = 410 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate(UINT#610, eAxoMessageCategory#Warning);
@@ -1575,7 +1574,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                         _power_progress := 411;
                     END_IF;
                 END_IF;
-                
+                // Stop program finished.
                 IF _power_progress = 411 THEN
                     Outputs.StopProgram:=FALSE;
                     StopProgramTask.DoneWhen(TRUE);
@@ -1586,7 +1585,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 
                 StopProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
-                StopProgramTask.ThrowWhen(StopProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'StopProgramTask timeout.');
+                StopProgramTask.ThrowWhen(StopProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopProgramTask timeout.#>');
             END_IF;
             IF StopProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#211;
