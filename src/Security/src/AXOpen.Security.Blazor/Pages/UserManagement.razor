@@ -336,7 +336,7 @@
         }
     }
 
-    private sealed class InputModel
+    private sealed class InputModel : IValidatableObject
     {
         [Display(Name = "Group")]
         public string? Group { get; set; }
@@ -347,14 +347,13 @@
         [Display(Name = "Phone number")]
         public string? PhoneNumber { get; set; }
 
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 1)]
+        [StringLength(100, ErrorMessage = "The {0} must be max {1} characters long.")]
         [DataType(DataType.Password)]
         [Display(Name = "New password")]
         public string? NewPassword { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string? ConfirmPassword { get; set; }
 
         [Display(Name = "Can User Change Password")]
@@ -368,6 +367,30 @@
 
         [Display(Name = "External Auth Id")]
         public string? ExternalAuthId { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            // Treat empty as null (in case you didn't do Fix 1)
+            var newPw = string.IsNullOrWhiteSpace(NewPassword) ? null : NewPassword;
+            var confirm = string.IsNullOrWhiteSpace(ConfirmPassword) ? null : ConfirmPassword;
+
+            // Only validate Compare when user is actually setting a new password
+            if (newPw is not null)
+            {
+                if (confirm is null)
+                {
+                    yield return new ValidationResult(
+                        "Please confirm the new password.",
+                        new[] { nameof(ConfirmPassword) });
+                }
+                else if (newPw != confirm)
+                {
+                    yield return new ValidationResult(
+                        "The new password and confirmation password do not match.",
+                        new[] { nameof(ConfirmPassword) });
+                }
+            }
+        }
     }
 
     protected override void OnInitialized()
