@@ -490,11 +490,11 @@
                         </AccordionItem>
                         <AccordionItem Title="Color">
                             <div class="color-group">
-                                <input type="color" id="background-color-light" class="" @bind="CurrentView.BackgroundColorLight" title="Choose background color light">
+                                <input type="color" id="background-color-light" class="" @bind="CurrentView.BackgroundColorLight" @onfocusout="async () => await SaveAsync()" title="Choose background color light">
                                 <label for="background-color-light">Background color light</label>
                             </div>
                             <div class="color-group">
-                                <input type="color" id="background-color-dark" class="" @bind="CurrentView.BackgroundColorDark" title="Choose background color dark">
+                                <input type="color" id="background-color-dark" class="" @bind="CurrentView.BackgroundColorDark" @onfocusout="async () => await SaveAsync()" title="Choose background color dark">
                                 <label for="background-color-dark">Background color dark</label>
                             </div>
                             <button type="button" class="btn btn-primary" disabled="@(string.IsNullOrEmpty(CurrentView.ImgSrc) ? "disabled" : null)" @onclick="() => { CurrentView.ImgSrc = null; SaveAsync(); }">Clear image (only background color)</button>
