@@ -1,4 +1,4 @@
-name: "@inxton/ax-sdk"
+﻿name: "@inxton/ax-sdk"
 version: '0.0.0-dev.0'
 type: generic
 files:
@@ -6,7 +6,7 @@ files:
 registries:
   "@inxton": "https://npm.pkg.github.com/"
 catalogs:
-  "@inxton/ax.catalog": 0.0.41
+  "@inxton/ax.catalog": 0.0.42
 dependencies:
   '@ax/apax-build': 2.1.79
   '@ax/axunitst': 8.4.20
@@ -63,3 +63,5 @@ scripts:
 publicKeys:
   "@inxton": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17
 ...
+
+
