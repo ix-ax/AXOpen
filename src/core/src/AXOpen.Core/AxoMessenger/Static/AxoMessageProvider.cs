@@ -23,33 +23,59 @@ namespace AXOpen.Messaging.Static
 
         public IEnumerable<ITwinObject> ObservedObjects { get; }
 
+        private int? _cachedActiveMessagesCount;
+        private DateTime _lastActiveMessagesCountUpdate = DateTime.MinValue;
+        private readonly TimeSpan _activeMessagesCountCacheDuration = TimeSpan.FromMilliseconds(500);
+        private readonly object _activeMessagesCountLock = new object();
+
         /// <summary>
         /// Gets the number of active messages.
         /// </summary>
         /// <remarks>
         /// This property counts the number of messages that are currently active.
         /// An active message is defined as a message belonging to a Messenger that has a state other than Idle or NotActiveWatingAckn.
+        /// The value is cached for a short period to prevent flickering due to asynchronous PLC communication.
         /// </remarks>
         public int? ActiveMessagesCount
         {
             get
             {
-                try
+                lock (_activeMessagesCountLock)
                 {
-                    return ObservedObjects
-                        .OfType<AXOpen.Core.AxoObject>()
-                        .Select(p => Convert.ToInt32(p.MsgCnt.LastValue)) // Convert to appropriate numeric type
-                        .Sum();
+                    var now = DateTime.UtcNow;
+                    
+                    // Return cached value if still valid
+                    if (_cachedActiveMessagesCount.HasValue && 
+                        (now - _lastActiveMessagesCountUpdate) < _activeMessagesCountCacheDuration)
+                    {
+                        return _cachedActiveMessagesCount;
+                    }
+
+                    try
+                    {
+                        var count = ObservedObjects
+                            .OfType<AxoObject>()
+                            .Select(p => Convert.ToInt32(p.MsgCnt.LastValue))
+                            .Sum();
+                        
+                        _cachedActiveMessagesCount = count;
+                        _lastActiveMessagesCountUpdate = now;
+                        
+                        return count;
+                    }
+                    catch (Exception e)
+                    {
+                        return -1;
+                    }
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
-                
-                return 0;
             }
         }
 
+
+        private int? _cachedRelevantMessagesCount;
+        private DateTime _lastRelevantMessagesCountUpdate = DateTime.MinValue;
+        private readonly TimeSpan _relevantMessagesCountCacheDuration = TimeSpan.FromMilliseconds(500);
+        private readonly object _relevantMessagesCountLock = new object();
 
         /// <summary>
         /// Gets the count of relevant messages based on the state of Messengers.
@@ -57,25 +83,42 @@ namespace AXOpen.Messaging.Static
         /// <remarks>
         /// The RelevantMessagesCount property will return the number of messengers that have a state greater than eAxoMessengerState.Idle.
         /// Messengers is a collection of objects that represents messengers.
+        /// The value is cached for a short period to prevent flickering due to asynchronous PLC communication.
         /// </remarks>
         /// <returns>An integer that represents the count of relevant messages.</returns>
         public int? RelevantMessagesCount
         {
             get
             {
-                try
+                lock (_relevantMessagesCountLock)
                 {
-                    return ObservedObjects
-                        .OfType<AXOpen.Core.AxoObject>()
-                        .Select(p => Convert.ToInt32(p.MsgCnt.LastValue)) // Convert to appropriate numeric type
-                        .Sum();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
+                    var now = DateTime.UtcNow;
+                    
+                    // Return cached value if still valid
+                    if (_cachedRelevantMessagesCount.HasValue && 
+                        (now - _lastRelevantMessagesCountUpdate) < _relevantMessagesCountCacheDuration)
+                    {
+                        return _cachedRelevantMessagesCount;
+                    }
 
-                return 0;
+                    try
+                    {
+                        var count = ObservedObjects
+                            .OfType<AXOpen.Core.AxoObject>()
+                            .Select(p => Convert.ToInt32(p.MsgCnt.LastValue))
+                            .Sum();
+                        
+                        _cachedRelevantMessagesCount = count;
+                        _lastRelevantMessagesCountUpdate = now;
+                        
+                        return count;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        return 0;
+                    }
+                }
             }
         }
         
@@ -188,6 +231,25 @@ namespace AXOpen.Messaging.Static
             if (con != null)
             {
                 await con.ReadBatchAsync(r)!;
+            }
+        }
+
+        /// <summary>
+        /// Invalidates the cached message counts, forcing them to be recalculated on next access.
+        /// Use this method if you need to ensure fresh values after a batch read operation.
+        /// </summary>
+        public void InvalidateMessageCountCache()
+        {
+            lock (_activeMessagesCountLock)
+            {
+                _cachedActiveMessagesCount = null;
+                _lastActiveMessagesCountUpdate = DateTime.MinValue;
+            }
+            
+            lock (_relevantMessagesCountLock)
+            {
+                _cachedRelevantMessagesCount = null;
+                _lastRelevantMessagesCountUpdate = DateTime.MinValue;
             }
         }
     }

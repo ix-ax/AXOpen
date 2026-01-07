@@ -92,7 +92,7 @@
     ///<inheritdoc/>
     protected override async Task OnInitializedAsync()
     {
-        if (observer != null) await observer.InitializeLightUpdate(this.StartPolling);
+        if (observer != null) await observer.InitializeUpdate(this.StartPolling);
         await base.OnInitializedAsync();
     }
 }
