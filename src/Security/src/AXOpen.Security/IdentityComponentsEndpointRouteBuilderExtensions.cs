@@ -30,9 +30,10 @@ namespace Microsoft.AspNetCore.Routing
     public static class IdentityComponentsEndpointRouteBuilderExtensions
     {
         public delegate Task LoginHandler(string username, string group, IList<string> roles, ClientIdentification clientInfo);
+        public delegate Task LogoutHandler(string username);
 
         // These endpoints are required by the Identity Razor components defined in the /Components/Account/Pages directory of this project.
-        public static IEndpointRouteBuilder MapAdditionalIdentityEndpoints(this IEndpointRouteBuilder endpoints, LoginHandler? loginHandler = null)
+        public static IEndpointRouteBuilder MapAdditionalIdentityEndpoints(this IEndpointRouteBuilder endpoints, LoginHandler? loginHandler = null, LogoutHandler? logoutHandler = null)
         {
             ArgumentNullException.ThrowIfNull(endpoints);
 
@@ -83,6 +84,14 @@ namespace Microsoft.AspNetCore.Routing
             {
                 var formCollection = await context.Request.ReadFormAsync();
                 var returnUrl = formCollection["ReturnUrl"].ToString();
+
+                // Get username before signing out
+                string? username = context.User.Identity?.Name;
+                
+                if (!string.IsNullOrEmpty(username) && logoutHandler != null)
+                {
+                    await logoutHandler(username);
+                }
                 
                 await signInManager.SignOutAsync();
                 return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : !returnUrl.StartsWith("/") ? "/" + returnUrl : returnUrl.StartsWith("//") ? "/" + returnUrl.TrimStart('/') : returnUrl);
@@ -120,12 +129,22 @@ namespace Microsoft.AspNetCore.Routing
                         if (TokenHasher.VerifyToken(externalAuthId, currentUser.ExternalAuthId))
                         {
                             // Same user - log out
+                            if (logoutHandler != null)
+                            {
+                                var clientInfo = GetClientIdentification(context);
+                                await logoutHandler(currentUser.UserName!);
+                            }
                             await signInManager.SignOutAsync();
                             return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : !returnUrl.StartsWith("/") ? "/" + returnUrl : returnUrl.StartsWith("//") ? "/" + returnUrl.TrimStart('/') : returnUrl);
                         }
                         else
                         {
                             // Different user - log out current and log in new
+                            if (logoutHandler != null)
+                            {
+                                var clientInfo = GetClientIdentification(context);
+                                await logoutHandler(currentUser.UserName!);
+                            }
                             await signInManager.SignOutAsync();
                         }
                     }
