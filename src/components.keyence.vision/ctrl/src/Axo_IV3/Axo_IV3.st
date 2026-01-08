@@ -6244,7 +6244,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     Outputs.CommandControl.ProgramNo := _programNumber;
                     IF Outputs.CommandControl.ProgramNo = Inputs.DeviceStatusWords.CurrentProgramNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 319;
+                        _progress := 314;
                     ELSE
                         THIS.CallTimers(FALSE);
                         _progress := 312;
