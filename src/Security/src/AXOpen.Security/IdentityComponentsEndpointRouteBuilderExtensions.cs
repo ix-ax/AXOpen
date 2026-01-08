@@ -20,14 +20,17 @@ namespace Microsoft.AspNetCore.Routing
 {
     public static class IdentityComponentsEndpointRouteBuilderExtensions
     {
+        public delegate Task LoginHandler(string username, string group, IList<string> roles);
+
         // These endpoints are required by the Identity Razor components defined in the /Components/Account/Pages directory of this project.
-        public static IEndpointRouteBuilder MapAdditionalIdentityEndpoints(this IEndpointRouteBuilder endpoints)
+        public static IEndpointRouteBuilder MapAdditionalIdentityEndpoints(this IEndpointRouteBuilder endpoints, LoginHandler? loginHandler = null)
         {
             ArgumentNullException.ThrowIfNull(endpoints);
 
             endpoints.MapPost("/Login", async (
                 HttpContext context,
-                [FromServices] SignInManager<User> signInManager) =>
+                [FromServices] SignInManager<User> signInManager,
+                [FromServices] UserManager<User> userManager) =>
             {
                 try
                 {
@@ -42,7 +45,17 @@ namespace Microsoft.AspNetCore.Routing
                     var result = await signInManager.PasswordSignInAsync(username, password, false, lockoutOnFailure: false);
 
                     if (result.Succeeded)
+                    {
+                        // Get user details for the login handler
+                        var user = await userManager.FindByNameAsync(username);
+                        if (user != null && loginHandler != null)
+                        {
+                            var roles = await userManager.GetRolesAsync(user);
+                            await loginHandler(username, user.Group, roles);
+                        }
+
                         return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : !returnUrl.StartsWith("/") ? "/" + returnUrl : returnUrl.StartsWith("//") ? "/" + returnUrl.TrimStart('/') : returnUrl);
+                    }
                     else // Redirect back to login with error
                         return TypedResults.LocalRedirect($"/Security/Login?error=invalid&returnUrl={Uri.EscapeDataString(returnUrl ?? "/")}");
                 }
@@ -109,6 +122,13 @@ namespace Microsoft.AspNetCore.Routing
 
                     // Sign in the user
                     await signInManager.SignInAsync(user, isPersistent: false);
+
+                    // Invoke the login handler
+                    if (loginHandler != null)
+                    {
+                        var roles = await userManager.GetRolesAsync(user);
+                        await loginHandler(user.UserName!, user.Group, roles);
+                    }
 
                     if (!string.IsNullOrEmpty(returnUrl))
                     {
