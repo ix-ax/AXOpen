@@ -18,19 +18,10 @@ using System.Text.Json;
 
 namespace Microsoft.AspNetCore.Routing
 {
-    public class ClientIdentification
-    {
-        public string IpAddress { get; set; } = string.Empty;
-        public string UserAgent { get; set; } = string.Empty;
-        public string Host { get; set; } = string.Empty;
-        public string Protocol { get; set; } = string.Empty;
-        public Dictionary<string, string> AdditionalHeaders { get; set; } = new();
-    }
-
     public static class IdentityComponentsEndpointRouteBuilderExtensions
     {
-        public delegate Task LoginHandler(string username, string group, IList<string> roles, ClientIdentification clientInfo);
-        public delegate Task LogoutHandler(string username);
+        public delegate Task LoginHandler(string username, string group, IList<string> roles, string ipAddress);
+        public delegate Task LogoutHandler(string username, string ipAddress);
 
         // These endpoints are required by the Identity Razor components defined in the /Components/Account/Pages directory of this project.
         public static IEndpointRouteBuilder MapAdditionalIdentityEndpoints(this IEndpointRouteBuilder endpoints, LoginHandler? loginHandler = null, LogoutHandler? logoutHandler = null)
@@ -61,8 +52,8 @@ namespace Microsoft.AspNetCore.Routing
                         if (user != null && loginHandler != null)
                         {
                             var roles = await userManager.GetRolesAsync(user);
-                            var clientInfo = GetClientIdentification(context);
-                            await loginHandler(username, user.Group, roles, clientInfo);
+                            string ipAddress = GetClientIpAddress(context);
+                            await loginHandler(username, user.Group, roles, ipAddress);
                         }
 
                         return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : !returnUrl.StartsWith("/") ? "/" + returnUrl : returnUrl.StartsWith("//") ? "/" + returnUrl.TrimStart('/') : returnUrl);
@@ -90,7 +81,8 @@ namespace Microsoft.AspNetCore.Routing
                 
                 if (!string.IsNullOrEmpty(username) && logoutHandler != null)
                 {
-                    await logoutHandler(username);
+                    string ipAddress = GetClientIpAddress(context);
+                    await logoutHandler(username, ipAddress);
                 }
                 
                 await signInManager.SignOutAsync();
@@ -131,8 +123,8 @@ namespace Microsoft.AspNetCore.Routing
                             // Same user - log out
                             if (logoutHandler != null)
                             {
-                                var clientInfo = GetClientIdentification(context);
-                                await logoutHandler(currentUser.UserName!);
+                                string ipAddress = GetClientIpAddress(context);
+                                await logoutHandler(currentUser.UserName!, ipAddress);
                             }
                             await signInManager.SignOutAsync();
                             return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : !returnUrl.StartsWith("/") ? "/" + returnUrl : returnUrl.StartsWith("//") ? "/" + returnUrl.TrimStart('/') : returnUrl);
@@ -142,8 +134,8 @@ namespace Microsoft.AspNetCore.Routing
                             // Different user - log out current and log in new
                             if (logoutHandler != null)
                             {
-                                var clientInfo = GetClientIdentification(context);
-                                await logoutHandler(currentUser.UserName!);
+                                string ipAddress = GetClientIpAddress(context);
+                                await logoutHandler(currentUser.UserName!, ipAddress);
                             }
                             await signInManager.SignOutAsync();
                         }
@@ -156,8 +148,8 @@ namespace Microsoft.AspNetCore.Routing
                     if (loginHandler != null)
                     {
                         var roles = await userManager.GetRolesAsync(user);
-                        var clientInfo = GetClientIdentification(context);
-                        await loginHandler(user.UserName!, user.Group, roles, clientInfo);
+                        string ipAddress = GetClientIpAddress(context);
+                        await loginHandler(user.UserName!, user.Group, roles, ipAddress);
                     }
 
                     if (!string.IsNullOrEmpty(returnUrl))
@@ -181,30 +173,6 @@ namespace Microsoft.AspNetCore.Routing
             });
 
             return endpoints;
-        }
-
-        private static ClientIdentification GetClientIdentification(HttpContext context)
-        {
-            var clientInfo = new ClientIdentification
-            {
-                IpAddress = GetClientIpAddress(context),
-                UserAgent = context.Request.Headers["User-Agent"].FirstOrDefault() ?? "Unknown",
-                Host = context.Request.Host.ToString(),
-                Protocol = context.Request.Protocol
-            };
-
-            // Add additional headers that might be useful for client identification
-            var headersToCapture = new[] { "Referer", "Accept-Language", "X-Requested-With", "Origin" };
-            foreach (var header in headersToCapture)
-            {
-                var value = context.Request.Headers[header].FirstOrDefault();
-                if (!string.IsNullOrEmpty(value))
-                {
-                    clientInfo.AdditionalHeaders[header] = value;
-                }
-            }
-
-            return clientInfo;
         }
 
         private static string GetClientIpAddress(HttpContext context)
