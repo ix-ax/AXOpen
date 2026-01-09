@@ -79,7 +79,7 @@ try
     else 
     {
         Write-Host "Apax version mismatch. Expected $apaxRequiredVersion but found $apaxVersion." -ForegroundColor Red
-        Write-Host "Run apax self-update $apaxVersion." -ForegroundColor Red
+        Write-Host "Run apax self-update $apaxRequiredVersion." -ForegroundColor Red
     }
 } 
 catch 
