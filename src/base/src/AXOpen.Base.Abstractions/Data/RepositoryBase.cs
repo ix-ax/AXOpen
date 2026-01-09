@@ -351,6 +351,7 @@ namespace AXOpen.Base.Data
                 }
                 try
                 {
+                    data.ModifiedAt = DateTime.UtcNow;
                     CreateNvi(identifier, data);
                 }
                 catch (Exception e)
@@ -409,12 +410,13 @@ namespace AXOpen.Base.Data
                 }
                 try
                 {
+                    data.ModifiedAt = DateTime.UtcNow;
                     UpdateNvi(identifier, data);
                 }
                 catch (Exception e)
                 {
                     OnUpdateFailed?.Invoke(identifier, data, e);
-                    throw e;
+                    throw;
                 }
                 OnUpdateDone?.Invoke(identifier, data);
             }
