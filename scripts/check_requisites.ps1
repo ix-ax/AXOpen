@@ -242,7 +242,11 @@ try
 {
     $apaxVersion = (apax --version).Trim()
     # Compare the retrieved version with the expected version
-    if (-not (MajorMinorBuildRevisionEqualOrHigher -Package "APAX" -ActualVersion $apaxVersion -RequiredVersion $apaxRequiredVersion))
+    if ((MajorMinorBuildRevisionEqualOrHigher -Package "APAX" -ActualVersion $apaxVersion -RequiredVersion $apaxRequiredVersion))
+    {
+        $isApaxInstalled = $true
+    }
+    else
     {
         Write-Host "The APAX version does not match the expected version: $apaxRequiredVersion. It's highly recommended to update it." -ForegroundColor Red
         Write-Host "The APAX version does not match the expected version: $apaxRequiredVersion. It's highly recommended to update it." -ForegroundColor Red
