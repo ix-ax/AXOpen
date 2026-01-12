@@ -5,9 +5,10 @@ $dotNetRequiredVersion = "10.0.100"
 
 $visualStudioRequiredVersionRange = "[17.8.0,18.0)";
 
+$axCodeRequiredVersion = "1.94.2"
+
 $apaxRequiredVersion = "4.1.1"
 $apaxUrl = "https://console.simatic-ax.siemens.io/"
-$axCodeRequiredVersion = "1.94.2"
 
 $inxtonRegistryUrl = "https://npm.pkg.github.com/"
 
@@ -19,7 +20,9 @@ $expectedVCToolsInstallDir = "C:\Program Files (x86)\Microsoft Visual Studio\201
 
 $vsBuildToolInstallerDownloadLocation = "https://aka.ms/vs/16/release/vs_buildtools.exe"
 $vsBuildToolRequiredComponents = "--add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK --add Microsoft.VisualStudio.Component.Windows10SDK.18362"
-
+####################################################################################
+#                                       DOT NET                                    #
+####################################################################################
 # Function to check if required version of dotnet is installed
 function VerifyDotNet {
     param(
@@ -135,10 +138,10 @@ if (-not $dotnetInstalled)
         InstallDotNet $dotNetRequiredVersion
     }
 }
-
-exit 0
+####################################################################################
+#                                   VISUAL STUDIO                                  #
+####################################################################################
 # Check for Visual Studio 
-
 if (Test-Path $vsWhereLocation) 
 {
     $vsVersion = & $vsWhereLocation -version $visualStudioRequiredVersionRange -products * -property catalog_productDisplayVersion
@@ -158,6 +161,105 @@ else
     Write-Host "vswhere tool not found. Unable to determine if Visual Studio is installed." -ForegroundColor Yellow
     Write-Host "Visual Studio is optional you can use any editor of your choice like VSCode, Rider, or you can even use AXCode to edit .NET files." -ForegroundColor Yellow
 }
+####################################################################################
+#                                       AX CODE                                    #
+####################################################################################
+# Function to check if the actual version is equal to required version 
+function MajorMinorBuildRevisionEqual {
+    param(
+        [Parameter(Mandatory)][string]$Package,
+        [Parameter(Mandatory)][string]$ActualVersion,
+        [Parameter(Mandatory)][string]$RequiredVersion
+    )
+
+    $retval = $false 
+
+    $Actual = [version]$ActualVersion
+    $Required = [version]$RequiredVersion
+
+    if ($Actual -eq $Required) 
+    {
+        Write-Host "The actual version of the $Package ($ActualVersion) is equal to required ($RequiredVersion)." -ForegroundColor Green 
+        $retval = $true 
+    } 
+    else 
+    { 
+        Write-Host "The actual version of the $Package ($ActualVersion) is different to required ($RequiredVersion)." -ForegroundColor Red 
+    } 
+    return $retval
+}
+# Function to check if the actual version is equal or higher then required version 
+function MajorMinorBuildRevisionEqualOrHigher {
+    param(
+        [Parameter(Mandatory)][string]$Package,
+        [Parameter(Mandatory)][string]$ActualVersion,
+        [Parameter(Mandatory)][string]$RequiredVersion
+    )
+
+    $retval = $false 
+
+    $Actual = [version]$ActualVersion
+    $Required = [version]$RequiredVersion
+
+    if ($Actual -ge $Required) 
+    {
+        Write-Host "The actual version of the $Package ($ActualVersion) is equal or higher then required ($RequiredVersion)." -ForegroundColor Green 
+        $retval = $true 
+    } 
+    else 
+    { 
+        Write-Host "The actual version of the $Package ($ActualVersion) is lower then required ($RequiredVersion)." -ForegroundColor Red 
+    } 
+    return $retval
+}
+# Function to check if the major and minor version  equal or and build and revision version is equal or higher
+function MajorMinorEqualBuildRevisionEqualOrHigher {
+    param(
+        [Parameter(Mandatory)][string]$Package,
+        [Parameter(Mandatory)][string]$ActualVersion,
+        [Parameter(Mandatory)][string]$RequiredVersion
+    )
+
+    $retval = $false 
+
+    $Actual = [version]$ActualVersion
+    $Required = [version]$RequiredVersion
+
+    if ($Actual.Major -eq $Required.Major -and $Actual.Minor -eq $Required.Minor  -and $Actual.Build -ge $Required.Build -and $Actual.Revision -ge $Required.Revision ) 
+    {
+        Write-Host "The actual version of the $Package ($ActualVersion) does fit the required ($RequiredVersion)."  -ForegroundColor Green 
+        $retval = $true 
+    } 
+    else 
+    { 
+        Write-Host "The actual version of the $Package ($ActualVersion) does not fit the required ($RequiredVersion)." -ForegroundColor Red 
+    } 
+    return $retval
+}
+
+
+
+# Define the command to get the version
+$command = "axcode --version"
+# Execute the command and capture the output
+try 
+{
+    $version = Invoke-Expression $command
+    $ActualVersion = $version.Item(0)
+    # Compare the retrieved version with the expected version
+    if (-not (MajorMinorBuildRevisionEqualOrHigher -Package "AX Code" -ActualVersion $ActualVersion -RequiredVersion $axCodeRequiredVersion))
+    {
+        Write-Host "The AXCode version does not match the expected version: $axCodeRequiredVersion. It's highly recommended to update it." -ForegroundColor Red
+    }
+} 
+catch 
+{
+    Write-Host "Error: Unable to determine the AXCode version. Ensure AXCode is correctly installed and accessible from the command line." -ForegroundColor Red
+    exit 1
+}
+
+
+exit 0
 
 # Check for apax
 $isApaxInstalled = $false
@@ -272,27 +374,6 @@ Note: Treat your personal access token like a password. Keep it secure and do no
 }
 
 
-# Define the command to get the version
-$command = "axcode --version"
-# Execute the command and capture the output
-try 
-{
-    $version = Invoke-Expression $command
-    
-    # Compare the retrieved version with the expected version
-    if ($version -eq $axCodeRequiredVersion) 
-    {
-        Write-Host "The AXCode version matches the expected version: $axCodeRequiredVersion" -ForegroundColor Green
-    } 
-    else 
-    {
-        Write-Host "The AXCode version does not match the expected version: $axCodeRequiredVersion" -ForegroundColor Red
-    }
-} 
-catch 
-{
-    Write-Host "Error: Unable to determine the AXCode version. Ensure AXCode is correctly installed and accessible from the command line." -ForegroundColor Red
-}
 
 
 $headers = @{
