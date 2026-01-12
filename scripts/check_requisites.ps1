@@ -528,11 +528,6 @@ if (-not $vsVersion) {
     PromptAndDownload "Visual Studio is not detected." "https://visualstudio.microsoft.com/vs/"
 }
 
-exit 0
-
-
-
-
 # Function to download VS Build Tools
 function Download-VSBuildTools 
 {
@@ -552,6 +547,10 @@ function Download-VSBuildTools
     }
 }
 
+
+####################################################################################
+#                             VISUAL STUDIO BUILD TOOLS                            #
+####################################################################################
 # Function to install VS Build Tools
 function Install-VSBuildTools 
 {
