@@ -237,8 +237,6 @@ function MajorMinorEqualBuildRevisionEqualOrHigher {
     return $retval
 }
 
-
-
 # Define the command to get the version
 $command = "axcode --version"
 # Execute the command and capture the output
@@ -258,10 +256,9 @@ catch
     exit 1
 }
 
-
-exit 0
-
-# Check for apax
+####################################################################################
+#                                        APAX                                      #
+####################################################################################
 $isApaxInstalled = $false
 try 
 {
@@ -280,8 +277,39 @@ try
 catch 
 {
     Write-Host "Apax is not installed or not found in PATH. You need to have valid SIMATIC-AX license." -ForegroundColor Red
+    try
+    {
+        $nodeVersion = (node -v).Trim()
+    }
+    catch
+    {
+        Write-Host "Node.js is not installed or not found in PATH." -ForegroundColor Red
+        Write-Host "Installing Node.js LTS via winget..."
+
+        $packageId = "OpenJS.NodeJS.LTS"
+
+        $winget = Get-Command winget -ErrorAction SilentlyContinue
+        if (-not $winget) {
+            throw "winget is not available on this system."
+        }
+
+        winget install `
+            --id $packageId `
+            --exact `
+            --silent `
+            --accept-package-agreements `
+            --accept-source-agreements
+        
+        $env:Path = "$env:ProgramFiles\nodejs;$env:Path"
+
+        # Verify
+        node -v
+        npm -v
+
+    }
 }
 
+exit 0
 
 $accessToApax = $false;
 if($isApaxInstalled)
