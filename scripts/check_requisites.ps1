@@ -113,6 +113,15 @@ function InstallDotNet {
     finally {
         # cleanup silently
         Remove-Item -Path (Join-Path $PSScriptRoot $dotnetInstall) -Force -ErrorAction SilentlyContinue
+		# Persist PATH for the current user (future shells)
+		$dotnetDir = Join-Path $env:USERPROFILE ".dotnet"
+
+		$existingUserPath = [Environment]::GetEnvironmentVariable("PATH", "User")
+
+		if ($existingUserPath -notlike "*$dotnetDir*") {
+			$newUserPath = "$dotnetDir;$existingUserPath"
+			[Environment]::SetEnvironmentVariable("PATH", $newUserPath, "User")
+		}
     }
 }
 
