@@ -138,29 +138,7 @@ if (-not $dotnetInstalled)
         InstallDotNet $dotNetRequiredVersion
     }
 }
-####################################################################################
-#                                   VISUAL STUDIO                                  #
-####################################################################################
-# Check for Visual Studio 
-if (Test-Path $vsWhereLocation) 
-{
-    $vsVersion = & $vsWhereLocation -version $visualStudioRequiredVersionRange -products * -property catalog_productDisplayVersion
-    if (-not $vsVersion) 
-    {
-        Write-Host "Visual Studio is not detected in required version or update. Required version range is $visualStudioRequiredVersionRange" -ForegroundColor Yellow
-        Write-Host "Visual Studio is optional you can use any editor of your choice like VSCode, Rider, or you can even use AXCode to edit .NET files." -ForegroundColor Yellow
-    } 
-    else 
-    {
-        Write-Host "Visual Studio detected: $vsVersion" -ForegroundColor Green
-        Write-Host "Visual Studio is optional you can use any editor of your choice like VSCode, Rider, or you can even use AXCode to edit .NET files." -ForegroundColor DarkBlue
-    }
-} 
-else 
-{
-    Write-Host "vswhere tool not found. Unable to determine if Visual Studio is installed." -ForegroundColor Yellow
-    Write-Host "Visual Studio is optional you can use any editor of your choice like VSCode, Rider, or you can even use AXCode to edit .NET files." -ForegroundColor Yellow
-}
+
 ####################################################################################
 #                                       AX CODE                                    #
 ####################################################################################
@@ -305,6 +283,19 @@ catch
     }
 }
 
+# Check for Apax - Assuming there's a direct link for Apax
+# (Note: You might want to guide users more specifically since Apax's installation might not be as straightforward as opening a URL.)
+if (-not $isApaxInstalled) {
+    $apaxGuide = @"
+To download Apax:
+1. Visit https://console.simatic-ax.siemens.io/downloads in your browser.
+2. Log in with your credentials.
+3. Follow the on-site instructions to download and install Apax.
+"@
+    Write-Host "Apax is not installed or not found in PATH. You need to have a valid SIMATIC-AX license." $apaxGuide -ForegroundColor Yellow
+}
+
+
 ####################################################################################
 #                                 APAX LOGIN AX                                    #
 ####################################################################################
@@ -349,7 +340,7 @@ catch
 }
 
 ####################################################################################
-#                                 APAX LOGIN AX                                    #
+#                                 APAX LOGIN INXTON                                #
 ####################################################################################
 
 # Check the access to the external @inxton registry
@@ -402,8 +393,6 @@ Note: Treat your personal access token like a password. Keep it secure and do no
 
 }
 
-
-exit 0
 
 $headers = @{
     "Authorization" = "Bearer $userToken"
@@ -479,39 +468,6 @@ if($hasFeedAccess)
 }
 
 
-# Define a function to prompt and download
-function PromptAndDownload {
-    param(
-        [string]$message,
-        [string]$downloadLink
-    )
-
-    $response = Read-Host "$message Would you like to download it now? (Y/N)"
-    if ($response -eq 'Y' -or $response -eq 'y') 
-    {        
-        Start-Process $downloadLink    
-    }
-}
-
-
-
-# Check for Visual Studio
-if (-not $vsVersion) {
-    PromptAndDownload "Visual Studio is not detected." "https://visualstudio.microsoft.com/vs/"
-}
-
-# Check for Apax - Assuming there's a direct link for Apax
-# (Note: You might want to guide users more specifically since Apax's installation might not be as straightforward as opening a URL.)
-if (-not $isApaxInstalled) {
-    $apaxGuide = @"
-To download Apax:
-1. Visit https://console.simatic-ax.siemens.io/downloads in your browser.
-2. Log in with your credentials.
-3. Follow the on-site instructions to download and install Apax.
-"@
-    Write-Host "Apax is not installed or not found in PATH. You need to have a valid SIMATIC-AX license." $apaxGuide -ForegroundColor Yellow
-}
-
 if(-not ($isFeedAlreadyAdded  -and $hasFeedAccess -and $hasFeedAutorization))
 {
 $nugetGuide = @"
@@ -528,6 +484,52 @@ Note: Treat your personal access token like a password. Keep it secure and do no
 "@    
     Write-Host "You need to add the GitHub NuGet feed to your sources manually." $nugetGuide
 }
+
+####################################################################################
+#                                   VISUAL STUDIO                                  #
+####################################################################################
+# Check for Visual Studio 
+if (Test-Path $vsWhereLocation) 
+{
+    $vsVersion = & $vsWhereLocation -version $visualStudioRequiredVersionRange -products * -property catalog_productDisplayVersion
+    if (-not $vsVersion) 
+    {
+        Write-Host "Visual Studio is not detected in required version or update. Required version range is $visualStudioRequiredVersionRange" -ForegroundColor Yellow
+        Write-Host "Visual Studio is optional you can use any editor of your choice like VSCode, Rider, or you can even use AXCode to edit .NET files." -ForegroundColor Yellow
+    } 
+    else 
+    {
+        Write-Host "Visual Studio detected: $vsVersion" -ForegroundColor Green
+        Write-Host "Visual Studio is optional you can use any editor of your choice like VSCode, Rider, or you can even use AXCode to edit .NET files." -ForegroundColor DarkBlue
+    }
+} 
+else 
+{
+    Write-Host "vswhere tool not found. Unable to determine if Visual Studio is installed." -ForegroundColor Yellow
+    Write-Host "Visual Studio is optional you can use any editor of your choice like VSCode, Rider, or you can even use AXCode to edit .NET files." -ForegroundColor Yellow
+}
+
+# Define a function to prompt and download
+function PromptAndDownload {
+    param(
+        [string]$message,
+        [string]$downloadLink
+    )
+
+    $response = Read-Host "$message Would you like to download it now? (Y/N)"
+    if ($response -eq 'Y' -or $response -eq 'y') 
+    {        
+        Start-Process $downloadLink    
+    }
+}
+
+# Check for Visual Studio
+if (-not $vsVersion) {
+    PromptAndDownload "Visual Studio is not detected." "https://visualstudio.microsoft.com/vs/"
+}
+
+exit 0
+
 
 
 
