@@ -3,7 +3,7 @@
 $dotNetInstallationScriptLocation = "https://dot.net/v1/dotnet-install.ps1"
 $dotNetRequiredVersion = "10.0.100"
 
-$visualStudioRequiredVersionRange = "[17.8.0,18.0)";
+$visualStudioRequiredVersionRange = "[17.8.0,19.0)";
 
 $axCodeRequiredVersion = "1.94.2"
 
