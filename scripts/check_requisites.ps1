@@ -257,21 +257,17 @@ catch
 }
 
 ####################################################################################
-#                                        APAX                                      #
+#                                 APAX INSTALATION                                 #
 ####################################################################################
 $isApaxInstalled = $false
 try 
 {
     $apaxVersion = (apax --version).Trim()
-    if ($apaxVersion -eq $apaxRequiredVersion) 
+    # Compare the retrieved version with the expected version
+    if (-not (MajorMinorBuildRevisionEqualOrHigher -Package "APAX" -ActualVersion $apaxVersion -RequiredVersion $apaxRequiredVersion))
     {
-        Write-Host "Apax $apaxRequiredVersion detected." -ForegroundColor Green
-        $isApaxInstalled = $true;
-    } 
-    else 
-    {
-        Write-Host "Apax version mismatch. Expected $apaxRequiredVersion but found $apaxVersion." -ForegroundColor Red
-        Write-Host "Run apax self-update $apaxVersion." -ForegroundColor Red
+        Write-Host "The APAX version does not match the expected version: $apaxRequiredVersion. It's highly recommended to update it." -ForegroundColor Red
+        Write-Host "The APAX version does not match the expected version: $apaxRequiredVersion. It's highly recommended to update it." -ForegroundColor Red
     }
 } 
 catch 
@@ -309,8 +305,9 @@ catch
     }
 }
 
-exit 0
-
+####################################################################################
+#                                 APAX LOGIN AX                                    #
+####################################################################################
 $accessToApax = $false;
 if($isApaxInstalled)
 {
@@ -350,6 +347,10 @@ catch
 {
     Write-Host "Error: Unable to access apax packages. Check your connections, firewall, credentials etc. : $($_.Exception.Message)" -ForegroundColor Red
 }
+
+####################################################################################
+#                                 APAX LOGIN AX                                    #
+####################################################################################
 
 # Check the access to the external @inxton registry
 $jsonData = Get-Content -Raw -Path "$env:USERPROFILE\.apax\auth.json" | ConvertFrom-Json
@@ -402,7 +403,7 @@ Note: Treat your personal access token like a password. Keep it secure and do no
 }
 
 
-
+exit 0
 
 $headers = @{
     "Authorization" = "Bearer $userToken"
