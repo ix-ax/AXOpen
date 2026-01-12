@@ -1,12 +1,11 @@
 ## Check pre-requisites
 # Definition of the requisities and locations
+$dotNetInstallationScriptLocation = "https://dot.net/v1/dotnet-install.ps1"
 $dotNetRequiredVersion = "10.0.100"
-$dotNetWingetInstall = "Microsoft.DotNet.SDK.10 --version 10.0.100"
-
 
 $visualStudioRequiredVersionRange = "[17.8.0,18.0)";
 
-$apaxRequiredVersion = "4.2.0"
+$apaxRequiredVersion = "4.1.1"
 $apaxUrl = "https://console.simatic-ax.siemens.io/"
 $axCodeRequiredVersion = "1.94.2"
 
@@ -21,29 +20,114 @@ $expectedVCToolsInstallDir = "C:\Program Files (x86)\Microsoft Visual Studio\201
 $vsBuildToolInstallerDownloadLocation = "https://aka.ms/vs/16/release/vs_buildtools.exe"
 $vsBuildToolRequiredComponents = "--add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows10SDK --add Microsoft.VisualStudio.Component.Windows10SDK.18362"
 
-# List all installed .NET SDKs
-$dotnetSDKs = (dotnet --list-sdks 2>$null)
-$dotnetInstalled = $false
+# Function to check if required version of dotnet is installed
+function VerifyDotNet {
+    param(
+        [Parameter(Mandatory)][string]$DotNetRequiredVersion,
+        [string]$DotNetExePath
+    )
 
-foreach ($sdk in $dotnetSDKs) 
-{
-    if ($sdk -match [regex]::Escape($dotNetRequiredVersion)) 
-    {
-        $dotnetInstalled = $true
-        break
+    $dotnetInstalled = $false 
+
+    if (-not $DotNetExePath) {
+        # default per-user install path
+        $DotNetExePath = Join-Path $env:USERPROFILE ".dotnet\dotnet.exe"
+    }
+
+    if (-not (Test-Path -LiteralPath $DotNetExePath)) {
+        Write-Host "dotnet.exe not found at '$DotNetExePath' (PATH may not be updated yet)." -ForegroundColor Red
+        $dotnetInstalled = $false
+    }
+
+    $dotnetSDKs = & $DotNetExePath --list-sdks 2>$null
+    foreach ($sdk in $dotnetSDKs) {
+        if ($sdk -match "^$([regex]::Escape($DotNetRequiredVersion))\s") {
+            $dotnetInstalled = $true
+            break
+        }
+    }
+    if ($dotnetInstalled) 
+    { 
+        Write-Host ".NET $dotNetRequiredVersion SDK detected." -ForegroundColor Green 
+    } 
+    else 
+    { 
+        Write-Host ".NET $dotNetRequiredVersion SDK is not installed." -ForegroundColor Red 
+    } 
+    return $dotnetInstalled
+}
+
+# Function to download and install dotnet
+function InstallDotNet {
+    param([Parameter(Mandatory)][string]$DotNetRequiredVersion)
+
+    $dotnetInstall = "dotnet-install.ps1"
+    $installDir = Join-Path $env:USERPROFILE ".dotnet"
+    $dotnetExe  = Join-Path $installDir "dotnet.exe"
+
+    try {
+        Write-Host "Downloading $dotnetInstall..."
+        Invoke-WebRequest -Uri $dotNetInstallationScriptLocation -OutFile $dotnetInstall
+
+        if (-not (Test-Path -LiteralPath $dotnetInstall)) {
+            Write-Host "Failed to download $dotnetInstall." -ForegroundColor Red
+            exit 1
+        }
+
+        $scriptPath = Join-Path $PSScriptRoot $dotnetInstall
+        Write-Host "Installing .NET SDK $DotNetRequiredVersion to $installDir"
+
+        $arguments = @(
+            "-NoProfile"
+            "-ExecutionPolicy Bypass"
+            "-File `"$scriptPath`""
+            "-Version `"$DotNetRequiredVersion`""
+            "-InstallDir `"$installDir`""
+            "-NoPath"   # we'll set PATH ourselves in this session (reliable)
+        )
+
+        $proc = Start-Process powershell.exe -ArgumentList ($arguments -join ' ') -Wait -PassThru
+        if ($proc.ExitCode -ne 0) {
+            Write-Host "dotnet-install.ps1 failed with exit code $($proc.ExitCode)" -ForegroundColor Red
+            exit 1
+        }
+
+        # Make dotnet available in *this* PowerShell session:
+        $env:DOTNET_ROOT = $installDir
+        if ($env:PATH -notlike "*$installDir*") {
+            $env:PATH = "$installDir;$env:PATH"
+        }
+
+        $dotnetInstalled = VerifyDotNet -DotNetRequiredVersion $DotNetRequiredVersion -DotNetExePath $dotnetExe
+        if (-not $dotnetInstalled) {
+            Write-Host "Error installing dotnet (or dotnet not visible in this session)." -ForegroundColor Red
+            exit 1
+        }
+
+        Write-Host ".NET SDK $DotNetRequiredVersion installed successfully." -ForegroundColor Green
+    }
+    catch {
+        Write-Host "Error installing dotnet: $($_.Exception.Message)" -ForegroundColor Red
+        exit 1
+    }
+    finally {
+        # cleanup silently
+        Remove-Item -Path (Join-Path $PSScriptRoot $dotnetInstall) -Force -ErrorAction SilentlyContinue
     }
 }
 
+$dotnetInstalled = VerifyDotNet -DotNetRequiredVersion $dotNetRequiredVersion
 
-if ($dotnetInstalled) 
+# Check .NET SDKs
+if (-not $dotnetInstalled) 
 {
-    Write-Host ".NET $dotNetRequiredVersion SDK detected." -ForegroundColor Green
-} 
-else 
-{
-    Write-Host ".NET $dotNetRequiredVersion SDK is not installed." -ForegroundColor Red
+    $response = Read-Host ".NET $dotNetRequiredVersion SDK is not installed. Would you like to install it now? (Y/N)"
+    if ($response -eq 'Y' -or $response -eq 'y') { 
+        InstallDotNet $dotNetRequiredVersion
+    }
 }
 
+exit 0
 # Check for Visual Studio 
 
 if (Test-Path $vsWhereLocation) 
@@ -79,7 +163,7 @@ try
     else 
     {
         Write-Host "Apax version mismatch. Expected $apaxRequiredVersion but found $apaxVersion." -ForegroundColor Red
-        Write-Host "Run apax self-update $apaxRequiredVersion." -ForegroundColor Red
+        Write-Host "Run apax self-update $apaxVersion." -ForegroundColor Red
     }
 } 
 catch 
@@ -275,6 +359,7 @@ if($hasFeedAccess)
     }
 }
 
+
 # Define a function to prompt and download
 function PromptAndDownload {
     param(
@@ -289,14 +374,7 @@ function PromptAndDownload {
     }
 }
 
-# Check .NET SDKs
-if (-not $dotnetInstalled) 
-{
-    $response = Read-Host ".NET $dotNetRequiredVersion SDK is not installed. Would you like to install it now? (Y/N)"
-    if ($response -eq 'Y' -or $response -eq 'y') {        
-        winget install $dotNetWingetInstall     
-    }
-}
+
 
 # Check for Visual Studio
 if (-not $vsVersion) {
@@ -331,6 +409,8 @@ Note: Treat your personal access token like a password. Keep it secure and do no
 "@    
     Write-Host "You need to add the GitHub NuGet feed to your sources manually." $nugetGuide
 }
+
+
 
 # Function to download VS Build Tools
 function Download-VSBuildTools 
