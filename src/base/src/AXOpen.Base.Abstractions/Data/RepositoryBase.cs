@@ -351,6 +351,7 @@ namespace AXOpen.Base.Data
                 }
                 try
                 {
+                    data.CreatedAt = DateTime.UtcNow;
                     data.ModifiedAt = DateTime.UtcNow;
                     CreateNvi(identifier, data);
                 }
