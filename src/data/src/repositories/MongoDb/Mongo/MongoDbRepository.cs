@@ -40,6 +40,11 @@ namespace AXOpen.Data.MongoDb
         public override long LastFragmentQueryCount { get; protected set; }
 
         /// <summary>
+        /// Gets repository settings.
+        /// </summary>
+        public MongoDbRepositorySettings<T> Settings { get; private set; }
+
+        /// <summary>
         /// Creates new instance of <see cref="MongoDbRepository{T}"/>.
         /// </summary>
         /// <param name="parameters">Repository settings</param>
@@ -47,6 +52,7 @@ namespace AXOpen.Data.MongoDb
         {
             location = parameters.GetConnectionInfo();
             this.collection = parameters.Collection;
+            Settings = parameters;
         }
 
         private bool RecordExists(string identifier)

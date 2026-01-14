@@ -21,7 +21,11 @@ namespace AXOpen.Data.MongoDb
     public class MongoDbRepositorySettings<T> : RepositorySettings where T : IBrowsableDataObject
     {
         private string _databaseName;
-        private string _collectionName;
+
+        /// <summary>
+        /// Gets collection name.
+        /// </summary>
+        public string CollectionName { get; private set; }
 
         /// <summary>
         /// Creates new instance of <see cref="MongoDbRepositorySettings{T}"/> for a <see cref="MongoDbRepository{T}"/> with NON-SECURED access.
@@ -144,7 +148,7 @@ namespace AXOpen.Data.MongoDb
         }
         private IMongoCollection<T> GetCollection(string collectionName)
         {
-            _collectionName = collectionName;
+            CollectionName = collectionName;
             var existingClient = Collections.Where(p => p.Key == collectionName).Select(p => p.Value);
             if (existingClient.Count() >= 1)
             {
@@ -258,7 +262,7 @@ namespace AXOpen.Data.MongoDb
 
         public string GetConnectionInfo()
         {
-            return $"{this.Client.Settings.Server.Host}:{this.Client.Settings.Server.Port} {this._databaseName}.{this._collectionName}";
+            return $"{this.Client.Settings.Server.Host}:{this.Client.Settings.Server.Port} {this._databaseName}.{this.CollectionName}";
         }
 
         public void WaitForMongoServerAvailability()
