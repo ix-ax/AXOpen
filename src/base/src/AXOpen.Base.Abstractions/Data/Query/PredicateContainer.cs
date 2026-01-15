@@ -125,6 +125,16 @@
             this._predicates[typeof(T)].Add(predicate);
         }
 
+        public void AddPredicates(Type type, Expression<Func<IBrowsableDataObject, bool>> expression)
+        {
+            if (!this._predicates.ContainsKey(type))
+            {
+                this._predicates[type] = new List<LambdaExpression>();
+            }
+
+            this._predicates[type].Add(expression);
+        }
+
         public void AddPredicates(Type type, LambdaExpression predicate)
         {
             if (!this._predicates.ContainsKey(type))

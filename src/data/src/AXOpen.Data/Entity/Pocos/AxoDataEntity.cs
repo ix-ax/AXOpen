@@ -22,5 +22,8 @@ namespace Pocos.AXOpen.Data
         }
 
         public string Hash { get; set; }
+
+        public DateTime? ModifiedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
     }
 }

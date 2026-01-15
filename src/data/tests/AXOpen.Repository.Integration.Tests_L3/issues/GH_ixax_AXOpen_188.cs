@@ -42,6 +42,9 @@ namespace AXOpen.Repository.Integration.Tests
 
     public class TestStruct : IBrowsableDataObject
     {
+        public DateTime? ModifiedAt { get; set; } = DateTime.UtcNow;
+        public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
+
         public dynamic RecordId { get; set; }
         public string _EntityId { get; set; }
         public List<ValueChangeItem> Changes { get; set; } = new();
