@@ -1031,7 +1031,7 @@ function Verify-VSBuildTools
         exit 1   
     } 
     # Check if the environment variable exists
-    $vctoolsDir = [System.Environment]::GetEnvironmentVariable("VCToolsInstallDir", [System.EnvironmentVariableTarget]::Machine)
+    $vctoolsDir = [System.Environment]::GetEnvironmentVariable("VCToolsInstallDir", [System.EnvironmentVariableTarget]::User)
 
     if ($vctoolsDir -and $vctoolsDir -eq $expectedVCToolsInstallDir) 
     {
@@ -1042,6 +1042,17 @@ function Verify-VSBuildTools
         Write-Host "VCToolsInstallDir is not set correctly."  -ForegroundColor Red
         $retval = $false
         return $retval
+        try
+        {
+            # Set the environment variable after installation
+            [System.Environment]::SetEnvironmentVariable("VCToolsInstallDir", $expectedVCToolsInstallDir, [System.EnvironmentVariableTarget]::User)
+        }
+        catch
+        {
+            Write-Host "Failed to set VCToolsInstallDir environment variable or path. You will need to set it manually." -ForegroundColor Red
+            Write-Host "VCToolsInstallDir = $expectedVCToolsInstallDir" -ForegroundColor Red
+            exit 1
+        }
         exit 1   
     } 
     return $retval
