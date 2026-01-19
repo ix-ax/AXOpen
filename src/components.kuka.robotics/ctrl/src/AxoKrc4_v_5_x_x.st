@@ -365,7 +365,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
             _dword.%B3                      := _data[36];
             _dword.%B2                      := _data[37];
-            _dword.%B1                      := _data[39];
+            _dword.%B1                      := _data[38];
             _dword.%B0                      := _data[39];
             // Inputs.Coordinates.Ry:= TO_REAL(_dword)/REAL#10000.0-REAL#360.0;
             Inputs.Coordinates.Ry:= TO_REAL(_dword)*REAL#0.0001; //Todo check negative values
