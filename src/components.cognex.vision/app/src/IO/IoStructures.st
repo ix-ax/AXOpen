@@ -190,7 +190,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_Acquisition_Control_Output_Layout : STRUCT
+	    cognex_insight_2800_Slot_1_Output_Layout : STRUCT
 	        Signals_0 AT %X0.0 : BOOL;
 	        Signals_1 AT %X0.1 : BOOL;
 	        Signals_2 AT %X0.2 : BOOL;
@@ -201,7 +201,49 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_Acquisition_Status_Input_Layout : STRUCT
+	    cognex_insight_2800_Slot_10_Output_Layout : STRUCT
+	        Signals_0 AT %B0 : ARRAY[0..253] OF BYTE;
+	    END_STRUCT;
+	END_TYPE
+	
+	TYPE
+        {S7.extern=ReadWrite}
+        {#ix-attr:[Container(Layout.Wrap)]}
+	    cognex_insight_2800_Slot_11_ResultData_250_Input_Layout : STRUCT
+	        Signals_0 AT %B0 : WORD;
+	        Signals_1 AT %B2 : WORD;
+	        Signals_2 AT %B4 : ARRAY[0..249] OF BYTE;
+	    END_STRUCT;
+	END_TYPE
+	
+	TYPE
+        {S7.extern=ReadWrite}
+        {#ix-attr:[Container(Layout.Wrap)]}
+	    cognex_insight_2800_Slot_12_Input_Layout : STRUCT
+	        Signals_0 AT %B0 : ARRAY[0..249] OF BYTE;
+	    END_STRUCT;
+	END_TYPE
+	
+	TYPE
+        {S7.extern=ReadWrite}
+        {#ix-attr:[Container(Layout.Wrap)]}
+	    cognex_insight_2800_Slot_13_Input_Layout : STRUCT
+	        Signals_0 AT %B0 : ARRAY[0..249] OF BYTE;
+	    END_STRUCT;
+	END_TYPE
+	
+	TYPE
+        {S7.extern=ReadWrite}
+        {#ix-attr:[Container(Layout.Wrap)]}
+	    cognex_insight_2800_Slot_14_Input_Layout : STRUCT
+	        Signals_0 AT %B0 : ARRAY[0..249] OF BYTE;
+	    END_STRUCT;
+	END_TYPE
+	
+	TYPE
+        {S7.extern=ReadWrite}
+        {#ix-attr:[Container(Layout.Wrap)]}
+	    cognex_insight_2800_Slot_2_Input_Layout : STRUCT
 	        Signals_0 AT %X0.0 : BOOL;
 	        Signals_1 AT %X0.1 : BOOL;
 	        Signals_2 AT %X0.2 : BOOL;
@@ -218,24 +260,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_Command_Control_Input_Layout : STRUCT
-	        Signals_0 AT %B0 : WORD;
-	        Signals_1 AT %B2 : WORD;
-	    END_STRUCT;
-	END_TYPE
-	
-	TYPE
-        {S7.extern=ReadWrite}
-        {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_Command_Control_Output_Layout : STRUCT
-	        Signals_2 AT %B0 : WORD;
-	    END_STRUCT;
-	END_TYPE
-	
-	TYPE
-        {S7.extern=ReadWrite}
-        {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_Inspection_Control_Output_Layout : STRUCT
+	    cognex_insight_2800_Slot_3_Output_Layout : STRUCT
 	        Signals_0 AT %X0.0 : BOOL;
 	        Signals_1 AT %X0.1 : BOOL;
 	        Signals_2 AT %X0.2 : BOOL;
@@ -247,7 +272,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_Inspection_Status_Input_Layout : STRUCT
+	    cognex_insight_2800_Slot_4_Input_Layout : STRUCT
 	        Signals_0 AT %X0.1 : BOOL;
 	        Signals_1 AT %X0.2 : BOOL;
 	        Signals_2 AT %X0.3 : BOOL;
@@ -265,41 +290,24 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_ResultData_250_Input_Layout : STRUCT
+	    cognex_insight_2800_Slot_5_Input_Layout : STRUCT
 	        Signals_0 AT %B0 : WORD;
 	        Signals_1 AT %B2 : WORD;
-	        Signals_2 AT %B4 : ARRAY[0..249] OF BYTE;
 	    END_STRUCT;
 	END_TYPE
 	
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_ResultDataAdd_128_Input_Layout : STRUCT
-	        Signals_0 AT %B0 : ARRAY[0..127] OF BYTE;
+	    cognex_insight_2800_Slot_5_Output_Layout : STRUCT
+	        Signals_2 AT %B0 : WORD;
 	    END_STRUCT;
 	END_TYPE
 	
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_ResultDataAdd_250_Input_Layout : STRUCT
-	        Signals_0 AT %B0 : ARRAY[0..249] OF BYTE;
-	    END_STRUCT;
-	END_TYPE
-	
-	TYPE
-        {S7.extern=ReadWrite}
-        {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_ResultDataAdd_64_Input_Layout : STRUCT
-	        Signals_0 AT %B0 : ARRAY[0..63] OF BYTE;
-	    END_STRUCT;
-	END_TYPE
-	
-	TYPE
-        {S7.extern=ReadWrite}
-        {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_SoftEvent_Control_Input_Layout : STRUCT
+	    cognex_insight_2800_Slot_6_Input_Layout : STRUCT
 	        Signals_0 AT %X0.0 : BOOL;
 	        Signals_1 AT %X0.1 : BOOL;
 	        Signals_2 AT %X0.2 : BOOL;
@@ -314,7 +322,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_SoftEvent_Control_Output_Layout : STRUCT
+	    cognex_insight_2800_Slot_6_Output_Layout : STRUCT
 	        Signals_8 AT %X0.0 : BOOL;
 	        Signals_9 AT %X0.1 : BOOL;
 	        Signals_10 AT %X0.2 : BOOL;
@@ -329,15 +337,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_UserData_128_Output_Layout : STRUCT
-	        Signals_0 AT %B0 : ARRAY[0..127] OF BYTE;
-	    END_STRUCT;
-	END_TYPE
-	
-	TYPE
-        {S7.extern=ReadWrite}
-        {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_UserData_254_Output_Layout : STRUCT
+	    cognex_insight_2800_Slot_7_Output_Layout : STRUCT
 	        Signals_0 AT %B0 : ARRAY[0..253] OF BYTE;
 	    END_STRUCT;
 	END_TYPE
@@ -345,16 +345,16 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_UserData_32_Output_Layout : STRUCT
-	        Signals_0 AT %B0 : ARRAY[0..31] OF BYTE;
+	    cognex_insight_2800_Slot_8_Output_Layout : STRUCT
+	        Signals_0 AT %B0 : ARRAY[0..253] OF BYTE;
 	    END_STRUCT;
 	END_TYPE
 	
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_UserData_64_Output_Layout : STRUCT
-	        Signals_0 AT %B0 : ARRAY[0..63] OF BYTE;
+	    cognex_insight_2800_Slot_9_Output_Layout : STRUCT
+	        Signals_0 AT %B0 : ARRAY[0..253] OF BYTE;
 	    END_STRUCT;
 	END_TYPE
 	
