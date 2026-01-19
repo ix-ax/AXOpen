@@ -12,6 +12,14 @@ namespace AxOpen.Security
         public string RolesHash { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
+
+        // Added due to IBrowsableDataObject interface and compatibility with Prometheus.
+        public DateTime? ModifiedAt { get { return Modified; } set { Modified = value.Value; } }
+
+        // Added due to IBrowsableDataObject interface and compatibility with Prometheus.
+        public DateTime? CreatedAt { get { return Created; } set { Created = value.Value; } }
+
+
         public List<string> Changes = new List<string>();
 
         public Group(string name)

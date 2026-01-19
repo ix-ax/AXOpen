@@ -351,6 +351,8 @@ namespace AXOpen.Base.Data
                 }
                 try
                 {
+                    data?.CreatedAt = DateTime.Now;
+                    data?.ModifiedAt = DateTime.Now;
                     CreateNvi(identifier, data);
                 }
                 catch (Exception e)
@@ -409,12 +411,13 @@ namespace AXOpen.Base.Data
                 }
                 try
                 {
+                    data?.ModifiedAt = DateTime.Now;
                     UpdateNvi(identifier, data);
                 }
                 catch (Exception e)
                 {
                     OnUpdateFailed?.Invoke(identifier, data, e);
-                    throw e;
+                    throw;
                 }
                 OnUpdateDone?.Invoke(identifier, data);
             }

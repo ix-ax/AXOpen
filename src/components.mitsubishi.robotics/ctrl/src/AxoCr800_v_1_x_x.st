@@ -121,7 +121,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
             SUPER.Run(inParent);
 
             Messenger.Serve(THIS);
-
+            TaskMessenger.Serve(THIS);
+            
             IF NOT _initHwCheckDone THEN
                 IF inParent = NULL THEN
                     Messenger.Activate(UINT#700, eAxoMessageCategory#ProgrammingError);
