@@ -13,8 +13,8 @@ Templates:
         Modules:
           - Name: '${NAME}'
             TypeIdentifier:
-              FileName: GSDML-V2.41-Festo-CMMT-AS-20230601.xml
-              GsdId: IDD_DAP MP 1
+              FileName: 'GSDML-V2.41-FESTO-CMMT-AS-20230601.XML'
+              GsdId: 'IDD_DAP MP 1'
             Interfaces:
             - Name: 'PN-IO_Interface'
               Label: 'X1'
@@ -24,7 +24,6 @@ Templates:
                 - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
               Parameters:
                 IECV22LLDPMode: False
-                IsochronousMode: False
                 # PrioritizedStartup (Boolean)
             Ports:
             - Name: 'Port_1'
@@ -37,7 +36,6 @@ Templates:
                 EndOfTopologyDiscovery: False
                 PortMonitoring: False
                 # TransmissionRateAutoNegotiation: True
-                # CableName: 0
                 # MediumAttachmentType: 'Copper'
             - Name: 'Port_2'
               Label: 'X1 P2'
@@ -49,7 +47,6 @@ Templates:
                 EndOfTopologyDiscovery: False
                 PortMonitoring: False
                 # TransmissionRateAutoNegotiation: True
-                # CableName: 0
                 # MediumAttachmentType: 'Copper'
             Parameters:
               RecordDataList:
