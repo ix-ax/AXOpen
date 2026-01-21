@@ -1125,6 +1125,7 @@ function Verify-VCToolsInstallDirEnvVar
     if ($vctoolsDir -and $vctoolsDir -eq $RequiredValue) 
     {
         Write-Host "VCToolsInstallDir is set to: $vctoolsDir" -ForegroundColor Green
+        $retval = $true
     } 
     else
     {
