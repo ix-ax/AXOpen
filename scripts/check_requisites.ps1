@@ -1162,7 +1162,7 @@ if (-not (Verify-VCToolsInstallDirEnvVar -RequiredValue $expectedVCToolsInstallD
     $response = Read-Host "VCToolsInstallDir environement variable is not properly set to: $expectedVCToolsInstallDir for the current user. Would you like to set it now? (Y/N)"
     if ($response -eq 'Y' -or $response -eq 'y') 
     { 
-        Set-VCToolsInstallDirEnvVar  -RequiredVersion $expectedVCToolsInstallDir
+        Set-VCToolsInstallDirEnvVar  -RequiredValue $expectedVCToolsInstallDir
     }
 }
 
