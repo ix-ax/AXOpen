@@ -42,6 +42,11 @@ Devices:
       RESULT_DATA_SLOT_12: Cognex_Insight2800_ResultDataAdd_250   # Possible values: Cognex_Insight2800_empty_slot,Cognex_Insight2800_ResultDataAdd_16,Cognex_Insight2800_ResultDataAdd_32,Cognex_Insight2800_ResultDataAdd_64,Cognex_Insight2800_ResultDataAdd_128,Cognex_Insight2800_ResultDataAdd_250
       RESULT_DATA_SLOT_13: Cognex_Insight2800_ResultDataAdd_250   # Possible values: Cognex_Insight2800_empty_slot,Cognex_Insight2800_ResultDataAdd_16,Cognex_Insight2800_ResultDataAdd_32,Cognex_Insight2800_ResultDataAdd_64,Cognex_Insight2800_ResultDataAdd_128,Cognex_Insight2800_ResultDataAdd_250
       RESULT_DATA_SLOT_14: Cognex_Insight2800_ResultDataAdd_250   # Possible values: Cognex_Insight2800_empty_slot,Cognex_Insight2800_ResultDataAdd_16,Cognex_Insight2800_ResultDataAdd_32,Cognex_Insight2800_ResultDataAdd_64,Cognex_Insight2800_ResultDataAdd_128,Cognex_Insight2800_ResultDataAdd_250
+  - Apply: cognex_vision_pro
+    Arguments:
+      NAME: vision_pro
+      IP_ADDRESS_X1: 192.168.100.14/24
+      PROFINET_DEVICE_NAME_X1: vision_pro
 IoSystems:
 - Name: profinet_plc_line
   ControllerInterfaces:
@@ -51,4 +56,5 @@ IoSystems:
   - Ref: cognex_dataman_280/cognex_dataman_280/Interface
   - Ref: cognex_dataman_380/cognex_dataman_380/Interface
   - Ref: cognex_insight_2800/cognex_insight_2800/Interface
-  - Ref: vision_pro/vision_pro/profinet
+  - Ref: vision_pro/vision_pro/Interface
+

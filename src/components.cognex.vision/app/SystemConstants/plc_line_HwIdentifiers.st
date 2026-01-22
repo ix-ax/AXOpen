@@ -95,8 +95,8 @@ CONFIGURATION HardwareIDs
         vision_pro_User_Data_64_bytes_1_User_Data_64_bytes_HwID : UINT := UINT#267;
         vision_pro_vision_pro_HwID : UINT := UINT#261;
         vision_pro_vision_pro_Communication_Card_CC24_HwID : UINT := UINT#279;
-        vision_pro_vision_pro_profinet_HwID : UINT := UINT#257;
-        vision_pro_vision_pro_profinet_Port_1_HwID : UINT := UINT#259;
+        vision_pro_vision_pro_Interface_HwID : UINT := UINT#257;
+        vision_pro_vision_pro_Interface_Port_1_HwID : UINT := UINT#259;
 
     END_VAR
 END_CONFIGURATION
