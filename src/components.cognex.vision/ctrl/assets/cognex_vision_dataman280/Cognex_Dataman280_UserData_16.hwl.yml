@@ -4,6 +4,6 @@ Templates:
     Content:
       Name: 'UserData_16'
       TypeIdentifier:
-        FileName: 'GSDML-V2.44-COGNEX-DATAMAN280-20250924.XML'
+        FileName: 'gsdml-v2.42-cognex-datamanclassb-20220124.xml'
         GsdId: '301'
       Slot: 6        
