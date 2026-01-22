@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.44.xsd">
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.42.xsd">
   <ProfileHeader>
     <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
     <ProfileRevision>1.00</ProfileRevision>
@@ -13,22 +13,190 @@
     </ISO15745Reference>
   </ProfileHeader>
   <ProfileBody>
-    <DeviceIdentity VendorID="0x0137" DeviceID="0x052E">
+    <DeviceIdentity VendorID="0x0137" DeviceID="0x0005">
       <InfoText TextId="T_FamilyDescription"/>
-      <VendorName Value="Cognex Corp."/>
+      <VendorName Value="Cognex Corp"/>
     </DeviceIdentity>
     <DeviceFunction>
       <Family MainFamily="Sensors" ProductFamily="Cognex ID Readers"/>
     </DeviceFunction>
     <ApplicationProcess>
       <DeviceAccessPointList>
-        <DeviceAccessPointItem AddressAssignment="DCP;LOCAL" MultipleWriteSupported="true" PhysicalSlots="0..7" ModuleIdentNumber="0x0000002E" MinDeviceInterval="128" DNS_CompatibleName="DataMan" FixedInSlots="0" ObjectUUID_LocalIndex="1" ID="DAP46" RequiredSchemaVersion="V2.25" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.44" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="1 2 4">
+        <DeviceAccessPointItem AddressAssignment="DCP;LOCAL" MultipleWriteSupported="true" PhysicalSlots="0..7" ModuleIdentNumber="0x00000022" MinDeviceInterval="128" DNS_CompatibleName="DataMan" FixedInSlots="0" ObjectUUID_LocalIndex="1" ID="DAP18" RequiredSchemaVersion="V2.25" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.42" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="1 2 4">
+          <ModuleInfo>
+            <Name TextId="T_DataManDM470"/>
+            <InfoText TextId="T_DataManDM470Description"/>
+            <VendorName Value="Cognex"/>
+            <OrderNumber Value="DMR-47x-xx"/>
+            <SoftwareRelease Value="6.1.8"/>
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" NetloadClass="III" ApplicationClass=""/>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_Interface"/>
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_Port1"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="274" MaxOutputLength="274"/>
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="101" AllowedInSlots="1" UsedInSlots="1"/>
+            <ModuleItemRef ModuleItemTarget="201" AllowedInSlots="2" UsedInSlots="2"/>
+            <ModuleItemRef ModuleItemTarget="102" AllowedInSlots="3" UsedInSlots="3"/>
+            <ModuleItemRef ModuleItemTarget="202" AllowedInSlots="4" UsedInSlots="4"/>
+            <ModuleItemRef ModuleItemTarget="105" AllowedInSlots="5" UsedInSlots="5"/>
+            <ModuleItemRef ModuleItemTarget="301" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="302" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="303" AllowedInSlots="6" UsedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="304" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="305" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="401" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="402" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="403" AllowedInSlots="7" UsedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="404" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="405" AllowedInSlots="7"/>
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DIM18" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" Writeable_IM_Records="1 2 3">
+              <IOData/>
+              <ModuleInfo>
+                <Name TextId="T_DataManDM470"/>
+                <InfoText TextId="T_DataManDM470Description"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_DAP18I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="LLDP;SNMP" TextId="T_DAP_InterfaceModule" IsochroneModeSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" Writeable_IM_Records="1 2 3">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+              </ApplicationRelations>
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_DAP18P" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUType="100BASETXFD" TextId="T_Port1">
+              <MAUTypeList>
+              <MAUTypeItem Value="16"/>
+              </MAUTypeList>
+           </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="7"/>
+          </Graphics>
+        </DeviceAccessPointItem>
+        <DeviceAccessPointItem AddressAssignment="DCP;LOCAL" MultipleWriteSupported="true" PhysicalSlots="0..7" ModuleIdentNumber="0x00000026" MinDeviceInterval="128" DNS_CompatibleName="DataMan" FixedInSlots="0" ObjectUUID_LocalIndex="1" ID="DAP22" RequiredSchemaVersion="V2.25" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.42" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="1 2 4">
+          <ModuleInfo>
+            <Name TextId="T_DataManDM370"/>
+            <InfoText TextId="T_DataManDM370Description"/>
+            <VendorName Value="Cognex"/>
+            <OrderNumber Value="DMR-37x-xx"/>
+            <SoftwareRelease Value="6.1.8"/>
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" NetloadClass="III" ApplicationClass=""/>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_Interface"/>
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_Port1"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="274" MaxOutputLength="274"/>
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="101" AllowedInSlots="1" UsedInSlots="1"/>
+            <ModuleItemRef ModuleItemTarget="201" AllowedInSlots="2" UsedInSlots="2"/>
+            <ModuleItemRef ModuleItemTarget="102" AllowedInSlots="3" UsedInSlots="3"/>
+            <ModuleItemRef ModuleItemTarget="202" AllowedInSlots="4" UsedInSlots="4"/>
+            <ModuleItemRef ModuleItemTarget="105" AllowedInSlots="5" UsedInSlots="5"/>
+            <ModuleItemRef ModuleItemTarget="301" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="302" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="303" AllowedInSlots="6" UsedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="304" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="305" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="401" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="402" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="403" AllowedInSlots="7" UsedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="404" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="405" AllowedInSlots="7"/>
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DIM22" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" Writeable_IM_Records="1 2 3">
+              <IOData/>
+              <ModuleInfo>
+                <Name TextId="T_DataManDM370"/>
+                <InfoText TextId="T_DataManDM370Description"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_DAP22I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="LLDP;SNMP" TextId="T_DAP_InterfaceModule" IsochroneModeSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" Writeable_IM_Records="1 2 3">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+              </ApplicationRelations>
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_DAP22P" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUType="100BASETXFD" TextId="T_Port1">
+              <MAUTypeList>
+              <MAUTypeItem Value="16"/>
+              </MAUTypeList>
+           </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="4"/>
+          </Graphics>
+        </DeviceAccessPointItem>
+        <DeviceAccessPointItem AddressAssignment="DCP;LOCAL" MultipleWriteSupported="true" PhysicalSlots="0..7" ModuleIdentNumber="0x0000002F" MinDeviceInterval="256" DNS_CompatibleName="DataMan" FixedInSlots="0" ObjectUUID_LocalIndex="1" ID="DAP47" RequiredSchemaVersion="V2.25" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.42" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="1 2 4">
+          <ModuleInfo>
+            <Name TextId="T_DataManDM8700"/>
+            <InfoText TextId="T_DataManDM8700Description"/>
+            <VendorName Value="Cognex"/>
+            <OrderNumber Value="DMR-87xx-xx"/>
+            <SoftwareRelease Value="6.2.0"/>
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" NetloadClass="III" ApplicationClass=""/>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_Interface"/>
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_Port1"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="274" MaxOutputLength="274"/>
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="101" AllowedInSlots="1" UsedInSlots="1"/>
+            <ModuleItemRef ModuleItemTarget="201" AllowedInSlots="2" UsedInSlots="2"/>
+            <ModuleItemRef ModuleItemTarget="102" AllowedInSlots="3" UsedInSlots="3"/>
+            <ModuleItemRef ModuleItemTarget="202" AllowedInSlots="4" UsedInSlots="4"/>
+            <ModuleItemRef ModuleItemTarget="105" AllowedInSlots="5" UsedInSlots="5"/>
+            <ModuleItemRef ModuleItemTarget="301" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="302" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="303" AllowedInSlots="6" UsedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="304" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="305" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="401" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="402" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="403" AllowedInSlots="7" UsedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="404" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="405" AllowedInSlots="7"/>
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DIM47" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" Writeable_IM_Records="1 2 3">
+              <IOData/>
+              <ModuleInfo>
+                <Name TextId="T_DataManDM8700"/>
+                <InfoText TextId="T_DataManDM8700Description"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_DAP47I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="LLDP;SNMP" TextId="T_DAP_InterfaceModule" IsochroneModeSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" Writeable_IM_Records="1 2 3">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+              </ApplicationRelations>
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_DAP47P" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUType="100BASETXFD" TextId="T_Port1">
+              <MAUTypeList>
+              <MAUTypeItem Value="16"/>
+              </MAUTypeList>
+           </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="8"/>
+          </Graphics>
+        </DeviceAccessPointItem>
+        <DeviceAccessPointItem AddressAssignment="DCP;LOCAL" MultipleWriteSupported="true" PhysicalSlots="0..7" ModuleIdentNumber="0x0000002E" MinDeviceInterval="128" DNS_CompatibleName="DataMan" FixedInSlots="0" ObjectUUID_LocalIndex="1" ID="DAP46" RequiredSchemaVersion="V2.25" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.42" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="1 2 4">
           <ModuleInfo>
             <Name TextId="T_DataManDM280"/>
             <InfoText TextId="T_DataManDM280Description"/>
             <VendorName Value="Cognex"/>
             <OrderNumber Value="DMR-28x-xx"/>
-            <SoftwareRelease Value="6.3.8"/>
+            <SoftwareRelease Value="6.2.0"/>
           </ModuleInfo>
           <CertificationInfo ConformanceClass="B" NetloadClass="III" ApplicationClass=""/>
           <SubslotList>
@@ -73,67 +241,10 @@
               <MAUTypeItem Value="16"/>
               <MAUTypeItem Value="30"/>
               </MAUTypeList>
-          </PortSubmoduleItem>
+           </PortSubmoduleItem>
           </SystemDefinedSubmoduleList>
           <Graphics>
             <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="9"/>
-          </Graphics>
-        </DeviceAccessPointItem>
-        <DeviceAccessPointItem AddressAssignment="DCP;LOCAL" MultipleWriteSupported="true" PhysicalSlots="0..7" ModuleIdentNumber="0x00000035" MinDeviceInterval="128" DNS_CompatibleName="DataMan" FixedInSlots="0" ObjectUUID_LocalIndex="1" ID="DAP53" RequiredSchemaVersion="V2.25" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.44" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="1 2 4">
-          <ModuleInfo>
-            <Name TextId="T_DataManDM180"/>
-            <InfoText TextId="T_DataManDM180Description"/>
-            <VendorName Value="Cognex"/>
-            <OrderNumber Value="DMR-18x-xx"/>
-            <SoftwareRelease Value="6.3.7"/>
-          </ModuleInfo>
-          <CertificationInfo ConformanceClass="B" NetloadClass="III" ApplicationClass=""/>
-          <SubslotList>
-            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_Interface"/>
-            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_Port1"/>
-          </SubslotList>
-          <IOConfigData MaxInputLength="274" MaxOutputLength="274"/>
-          <UseableModules>
-            <ModuleItemRef ModuleItemTarget="101" AllowedInSlots="1" UsedInSlots="1"/>
-            <ModuleItemRef ModuleItemTarget="201" AllowedInSlots="2" UsedInSlots="2"/>
-            <ModuleItemRef ModuleItemTarget="102" AllowedInSlots="3" UsedInSlots="3"/>
-            <ModuleItemRef ModuleItemTarget="202" AllowedInSlots="4" UsedInSlots="4"/>
-            <ModuleItemRef ModuleItemTarget="105" AllowedInSlots="5" UsedInSlots="5"/>
-            <ModuleItemRef ModuleItemTarget="301" AllowedInSlots="6"/>
-            <ModuleItemRef ModuleItemTarget="302" AllowedInSlots="6"/>
-            <ModuleItemRef ModuleItemTarget="303" AllowedInSlots="6" UsedInSlots="6"/>
-            <ModuleItemRef ModuleItemTarget="304" AllowedInSlots="6"/>
-            <ModuleItemRef ModuleItemTarget="305" AllowedInSlots="6"/>
-            <ModuleItemRef ModuleItemTarget="401" AllowedInSlots="7"/>
-            <ModuleItemRef ModuleItemTarget="402" AllowedInSlots="7"/>
-            <ModuleItemRef ModuleItemTarget="403" AllowedInSlots="7" UsedInSlots="7"/>
-            <ModuleItemRef ModuleItemTarget="404" AllowedInSlots="7"/>
-            <ModuleItemRef ModuleItemTarget="405" AllowedInSlots="7"/>
-          </UseableModules>
-          <VirtualSubmoduleList>
-            <VirtualSubmoduleItem ID="DIM53" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" Writeable_IM_Records="1 2 3">
-              <IOData/>
-              <ModuleInfo>
-                <Name TextId="T_DataManDM180"/>
-                <InfoText TextId="T_DataManDM180Description"/>
-              </ModuleInfo>
-            </VirtualSubmoduleItem>
-          </VirtualSubmoduleList>
-          <SystemDefinedSubmoduleList>
-            <InterfaceSubmoduleItem ID="IDS_DAP53I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="LLDP;SNMP" TextId="T_DAP_InterfaceModule" IsochroneModeSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" Writeable_IM_Records="1 2 3">
-              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" StartupMode="Advanced;Legacy">
-                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
-              </ApplicationRelations>
-            </InterfaceSubmoduleItem>
-            <PortSubmoduleItem ID="IDS_DAP53P" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUType="1000BASETFD" TextId="T_Port1">
-              <MAUTypeList>
-              <MAUTypeItem Value="16"/>
-              <MAUTypeItem Value="30"/>
-              </MAUTypeList>
-          </PortSubmoduleItem>
-          </SystemDefinedSubmoduleList>
-          <Graphics>
-            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="13"/>
           </Graphics>
         </DeviceAccessPointItem>
       </DeviceAccessPointList>
@@ -494,8 +605,10 @@
         </ModuleItem>
       </ModuleList>
       <GraphicsList>
+        <GraphicItem ID="4" GraphicFile="GSDML-0137-0005-DataMan300"/>
+        <GraphicItem ID="7" GraphicFile="GSDML-0137-0005-DataMan470"/>
+        <GraphicItem ID="8" GraphicFile="GSDML-0137-0005-DataMan8000"/>
         <GraphicItem ID="9" GraphicFile="GSDML-0137-0005-DataMan280"/>
-        <GraphicItem ID="13" GraphicFile="GSDML-0137-0005-DataMan180"/>
       </GraphicsList>
       <CategoryList>
         <CategoryItem TextId="T_ControlCategory" ID="Control"/>
@@ -506,8 +619,12 @@
         <PrimaryLanguage>
           <!-- General Text -->
           <Text TextId="T_FamilyDescription" Value="DataMan ID Readers"/>
-          <Text TextId="T_DataManDM180" Value="DataMan 180 CC-B"/>
-          <Text TextId="T_DataManDM180Description" Value="DataMan 180 ID Reader CC-B"/>
+          <Text TextId="T_DataManDM470" Value="DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM470Description" Value="DataMan 470 ID Reader CC-B"/>
+          <Text TextId="T_DataManDM370" Value="DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM370Description" Value="DataMan 370 ID Reader CC-B"/>
+          <Text TextId="T_DataManDM8700" Value="DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM8700Description" Value="DataMan 8700 ID Reader CC-B"/>
           <Text TextId="T_DataManDM280" Value="DataMan 280 CC-B"/>
           <Text TextId="T_DataManDM280Description" Value="DataMan 280 ID Reader CC-B"/>
           <Text TextId="IDT_SS_Interface" Value="X1"/>
@@ -596,8 +713,12 @@
         <Language xml:lang="de">
           <!-- General Text -->
           <Text TextId="T_FamilyDescription" Value="DataMan ID-Lesegeräte CC-B"/>
-          <Text TextId="T_DataManDM180" Value="DataMan 180 CC-B"/>
-          <Text TextId="T_DataManDM180Description" Value="DataMan 180 ID-Lesegerät CC-B"/>
+          <Text TextId="T_DataManDM470" Value="DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM470Description" Value="DataMan 470 ID-Lesegerät CC-B"/>
+          <Text TextId="T_DataManDM370" Value="DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM370Description" Value="DataMan 370 ID-Lesegerät CC-B"/>
+          <Text TextId="T_DataManDM8700" Value="DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM8700Description" Value="DataMan 8700 ID-Lesegerät CC-B"/>
           <Text TextId="T_DataManDM280" Value="DataMan 280 CC-B"/>
           <Text TextId="T_DataManDM280Description" Value="DataMan 280 ID-Lesegerät CC-B"/>
           <Text TextId="IDT_SS_Interface" Value="X1"/>
@@ -686,8 +807,12 @@
         <Language xml:lang="fr">
           <!-- General Text -->
           <Text TextId="T_FamilyDescription" Value="Lecteurs ID DataMan CC-B"/>
-          <Text TextId="T_DataManDM180" Value="DataMan 180 CC-B"/>
-          <Text TextId="T_DataManDM180Description" Value="Lecteurs ID DataMan 180 CC-B"/>
+          <Text TextId="T_DataManDM470" Value="DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM470Description" Value="Lecteurs ID DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM370" Value="DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM370Description" Value="Lecteurs ID DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM8700" Value="DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM8700Description" Value="Lecteurs ID DataMan 8700 CC-B"/>
           <Text TextId="T_DataManDM280" Value="DataMan 280 CC-B"/>
           <Text TextId="T_DataManDM280Description" Value="Lecteurs ID DataMan 280 CC-B"/>
           <Text TextId="IDT_SS_Interface" Value="X1"/>
@@ -776,8 +901,12 @@
         <Language xml:lang="es">
           <!-- General Text -->
           <Text TextId="T_FamilyDescription" Value="Lectores de ID DataMan CC-B"/>
-          <Text TextId="T_DataManDM180" Value="DataMan 180 CC-B"/>
-          <Text TextId="T_DataManDM180Description" Value="Lectores de ID DataMan 180 CC-B"/>
+          <Text TextId="T_DataManDM470" Value="DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM470Description" Value="Lectores de ID DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM370" Value="DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM370Description" Value="Lectores de ID DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM8700" Value="DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM8700Description" Value="Lectores de ID DataMan 8700 CC-B"/>
           <Text TextId="T_DataManDM280" Value="DataMan 280 CC-B"/>
           <Text TextId="T_DataManDM280Description" Value="Lectores de ID DataMan 280 CC-B"/>
           <Text TextId="IDT_SS_Interface" Value="X1"/>
@@ -866,8 +995,12 @@
         <Language xml:lang="ja">
           <!-- General Text -->
           <Text TextId="T_FamilyDescription" Value="DataMan ID リーダ CC-B"/>
-          <Text TextId="T_DataManDM180" Value="DataMan 180 CC-B"/>
-          <Text TextId="T_DataManDM180Description" Value="DataMan 180 ID リーダ CC-B"/>
+          <Text TextId="T_DataManDM470" Value="DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM470Description" Value="DataMan 470 ID リーダ CC-B"/>
+          <Text TextId="T_DataManDM370" Value="DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM370Description" Value="DataMan 370 ID リーダ CC-B"/>
+          <Text TextId="T_DataManDM8700" Value="DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM8700Description" Value="DataMan 8700 ID リーダ CC-B"/>
           <Text TextId="T_DataManDM280" Value="DataMan 280 CC-B"/>
           <Text TextId="T_DataManDM280Description" Value="DataMan 280 ID リーダ CC-B"/>
           <Text TextId="IDT_SS_Interface" Value="X1"/>
@@ -956,8 +1089,12 @@
         <Language xml:lang="zh">
           <!-- General Text -->
           <Text TextId="T_FamilyDescription" Value="DataMan ID 读码器"/>
-          <Text TextId="T_DataManDM180" Value="DataMan 180 CC-B"/>
-          <Text TextId="T_DataManDM180Description" Value="DataMan 180 ID 读码器"/>
+          <Text TextId="T_DataManDM470" Value="DataMan 470"/>
+          <Text TextId="T_DataManDM470Description" Value="DataMan 470 ID 读码器"/>
+          <Text TextId="T_DataManDM370" Value="DataMan 370"/>
+          <Text TextId="T_DataManDM370Description" Value="DataMan 370 ID 读码器"/>
+          <Text TextId="T_DataManDM8700" Value="DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM8700Description" Value="DataMan 8700 ID 读码器"/>
           <Text TextId="T_DataManDM280" Value="DataMan 280 CC-B"/>
           <Text TextId="T_DataManDM280Description" Value="DataMan 280 ID 读码器"/>
           <Text TextId="IDT_SS_Interface" Value="X1"/>
@@ -1046,8 +1183,12 @@
         <Language xml:lang="ko">
           <!-- General Text -->
           <Text TextId="T_FamilyDescription" Value="DataMan ID 판독기 CC-B"/>
-          <Text TextId="T_DataManDM180" Value="DataMan 180 CC-B"/>
-          <Text TextId="T_DataManDM180Description" Value="DataMan 180 ID 판독기 CC-B"/>
+          <Text TextId="T_DataManDM470" Value="DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM470Description" Value="DataMan 470 ID 판독기 CC-B"/>
+          <Text TextId="T_DataManDM370" Value="DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM370Description" Value="DataMan 370 ID 판독기 CC-B"/>
+          <Text TextId="T_DataManDM8700" Value="DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM8700Description" Value="DataMan 8700 ID 판독기 CC-B"/>
           <Text TextId="T_DataManDM280" Value="DataMan 280 CC-B"/>
           <Text TextId="T_DataManDM280Description" Value="DataMan 280 ID 판독기 CC-B"/>
           <Text TextId="IDT_SS_Interface" Value="X1"/>
