@@ -1030,31 +1030,6 @@ function Verify-VSBuildTools
         return $retval
         exit 1   
     } 
-    # Check if the environment variable exists
-    $vctoolsDir = [System.Environment]::GetEnvironmentVariable("VCToolsInstallDir", [System.EnvironmentVariableTarget]::User)
-
-    if ($vctoolsDir -and $vctoolsDir -eq $expectedVCToolsInstallDir) 
-    {
-        Write-Host "VCToolsInstallDir is set to: $vctoolsDir" -ForegroundColor Green
-    } 
-    else
-    {
-        Write-Host "VCToolsInstallDir is not set correctly."  -ForegroundColor Red
-        $retval = $false
-        return $retval
-        try
-        {
-            # Set the environment variable after installation
-            [System.Environment]::SetEnvironmentVariable("VCToolsInstallDir", $expectedVCToolsInstallDir, [System.EnvironmentVariableTarget]::User)
-        }
-        catch
-        {
-            Write-Host "Failed to set VCToolsInstallDir environment variable or path. You will need to set it manually." -ForegroundColor Red
-            Write-Host "VCToolsInstallDir = $expectedVCToolsInstallDir" -ForegroundColor Red
-            exit 1
-        }
-        exit 1   
-    } 
     return $retval
 }
 
@@ -1105,7 +1080,90 @@ if (-not (Verify-VSBuildTools -RequiredVersion $vsBuildToolRequiredVersion))
     $response = Read-Host "VSBuildTools $vsBuildToolRequiredVersion is not installed. Would you like to install it now? (Y/N)"
     if ($response -eq 'Y' -or $response -eq 'y') 
     { 
-        Install-VSBuildTools  -RequiredVersion $dotNetDesktopRuntimeRequiredVersion
+        Install-VSBuildTools  -RequiredVersion $vsBuildToolRequiredVersion
+    }
+}
+
+# Check if VCToolsInstallDir env var is set 
+function Verify-VCToolsInstallDirEnvVar 
+{
+    param
+    (
+        [Parameter(Mandatory)][string]$RequiredValue
+    )
+    $retval = $false 
+    
+    $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+
+    if (-not (Test-Path $vswhere)) {
+        Write-Host "vswhere.exe not found. Visual Studio Installer is missing." -ForegroundColor Red
+        return $retval
+        exit 1
+    }
+
+    $vsBuildToolsPath = & $vswhere  -products Microsoft.VisualStudio.Product.BuildTools -property installationPath
+
+    if ($vsBuildToolsPath) 
+    {
+        Write-Host "Visual Studio Build Tools already installed at: $vsBuildToolsPath"  -ForegroundColor Green
+    }
+    # Check if the VSBuildTools default installation path exists
+    if (Test-Path $RequiredValue) 
+    {
+        Write-Host "VSBuildTools default installation path exists: $RequiredValue" -ForegroundColor Green
+    } 
+    else
+    {
+        Write-Host "VSBuildTools default installation path could not be found: $RequiredValue" -ForegroundColor Red
+        $retval = $false
+        return $retval
+        exit 1   
+    } 
+    # Check if the environment variable exists
+    $vctoolsDir = [System.Environment]::GetEnvironmentVariable("VCToolsInstallDir", [System.EnvironmentVariableTarget]::User)
+
+    if ($vctoolsDir -and $vctoolsDir -eq $RequiredValue) 
+    {
+        Write-Host "VCToolsInstallDir is set to: $vctoolsDir" -ForegroundColor Green
+        $retval = $true
+    } 
+    else
+    {
+        Write-Host "VCToolsInstallDir is not set correctly."  -ForegroundColor Red
+        $retval = $false
+        return $retval
+    } 
+    return $retval
+}
+
+# Function to set VS Build Tools env var
+function Set-VCToolsInstallDirEnvVar 
+{
+    param
+    (
+        [Parameter(Mandatory)][string]$RequiredValue
+    )
+
+    try
+    {
+        # Set the environment variable after installation
+        [System.Environment]::SetEnvironmentVariable("VCToolsInstallDir", $RequiredValue, [System.EnvironmentVariableTarget]::User)
+    }
+    catch
+    {
+        Write-Host "Failed to set VCToolsInstallDir environment variable or path. You will need to set it manually." -ForegroundColor Red
+        Write-Host "VCToolsInstallDir = $RequiredValue" -ForegroundColor Red
+        exit 1
+    }
+}
+
+# Check if VSBuildTools is installed
+if (-not (Verify-VCToolsInstallDirEnvVar -RequiredValue $expectedVCToolsInstallDir)) 
+{
+    $response = Read-Host "VCToolsInstallDir environement variable is not properly set to: $expectedVCToolsInstallDir for the current user. Would you like to set it now? (Y/N)"
+    if ($response -eq 'Y' -or $response -eq 'y') 
+    { 
+        Set-VCToolsInstallDirEnvVar  -RequiredValue $expectedVCToolsInstallDir
     }
 }
 
