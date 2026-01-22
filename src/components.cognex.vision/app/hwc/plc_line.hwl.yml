@@ -8,13 +8,14 @@ Devices:
         PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
         ADMIN_NAME: 'admin'
         CYCLE_COMMUNICATION_LOAD: 50
-  - Apply: Cognex_Insight7600
+  - Apply: Cognex_Vision_Insight_V_6_0_0
     Arguments:
       NAME: cognex_insight_7600
-      IP_ADDRESS_X1: 192.168.100.140/24
+      IP_ADDRESS_X1: '192.168.100.140/24'
       PROFINET_DEVICE_NAME_X1: cognex_insight_7600
-      USER_DATA: Cognex_Insight7600_UserData_128     # Possible values: Cognex_Insight7600_UserData_16,Cognex_Insight7600_UserData_32,Cognex_Insight7600_UserData_64,Cognex_Insight7600_UserData_128,Cognex_Insight7600_UserData_254
-      RESULT_DATA: Cognex_Insight7600_ResultData_128 # Possible values: Cognex_Insight7600_ResultData_16,Cognex_Insight7600_ResultData_32,Cognex_Insight7600_ResultData_64,Cognex_Insight7600_ResultData_128,Cognex_Insight7600_ResultData_250
+      DEVICE_FAMILY: Cognex_Vision_Insight_V_6_0_0_IS79XX_IS75XX  #  Possible values: Cognex_Vision_Insight_V_6_0_0_IS2XXX, Cognex_Vision_Insight_V_6_0_0_IS8XXX, Cognex_Vision_Insight_V_6_0_0_IS9XXX, Cognex_Vision_Insight_V_6_0_0_IS79XX_IS75XX, Cognex_Vision_Insight_V_6_0_0_IS85XXP
+      USER_DATA: Cognex_Vision_Insight_V_6_0_0_UserData_128       # Possible values: Cognex_Vision_Insight_V_6_0_0_UserData_16,Cognex_Vision_Insight_V_6_0_0_UserData_32,Cognex_Vision_Insight_V_6_0_0_UserData_64,Cognex_Vision_Insight_V_6_0_0_UserData_128,Cognex_Vision_Insight_V_6_0_0_UserData_254
+      RESULT_DATA: Cognex_Vision_Insight_V_6_0_0_ResultData_128   # Possible values: Cognex_Vision_Insight_V_6_0_0_ResultData_16,Cognex_Vision_Insight_V_6_0_0_ResultData_32,Cognex_Vision_Insight_V_6_0_0_ResultData_64,Cognex_Vision_Insight_V_6_0_0_ResultData_128,Cognex_Vision_Insight_V_6_0_0_ResultData_250
   - Apply: Cognex_Dataman280
     Arguments:
       NAME: cognex_dataman_280
