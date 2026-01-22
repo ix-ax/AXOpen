@@ -1,0 +1,1280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.42.xsd">
+  <ProfileHeader>
+    <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+    <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>4</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>GSDML</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity VendorID="0x0137" DeviceID="0x0005">
+      <InfoText TextId="T_FamilyDescription"/>
+      <VendorName Value="Cognex Corp"/>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Family MainFamily="Sensors" ProductFamily="Cognex ID Readers"/>
+    </DeviceFunction>
+    <ApplicationProcess>
+      <DeviceAccessPointList>
+        <DeviceAccessPointItem AddressAssignment="DCP;LOCAL" MultipleWriteSupported="true" PhysicalSlots="0..7" ModuleIdentNumber="0x00000022" MinDeviceInterval="128" DNS_CompatibleName="DataMan" FixedInSlots="0" ObjectUUID_LocalIndex="1" ID="DAP18" RequiredSchemaVersion="V2.25" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.42" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="1 2 4">
+          <ModuleInfo>
+            <Name TextId="T_DataManDM470"/>
+            <InfoText TextId="T_DataManDM470Description"/>
+            <VendorName Value="Cognex"/>
+            <OrderNumber Value="DMR-47x-xx"/>
+            <SoftwareRelease Value="6.1.8"/>
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" NetloadClass="III" ApplicationClass=""/>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_Interface"/>
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_Port1"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="274" MaxOutputLength="274"/>
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="101" AllowedInSlots="1" UsedInSlots="1"/>
+            <ModuleItemRef ModuleItemTarget="201" AllowedInSlots="2" UsedInSlots="2"/>
+            <ModuleItemRef ModuleItemTarget="102" AllowedInSlots="3" UsedInSlots="3"/>
+            <ModuleItemRef ModuleItemTarget="202" AllowedInSlots="4" UsedInSlots="4"/>
+            <ModuleItemRef ModuleItemTarget="105" AllowedInSlots="5" UsedInSlots="5"/>
+            <ModuleItemRef ModuleItemTarget="301" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="302" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="303" AllowedInSlots="6" UsedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="304" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="305" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="401" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="402" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="403" AllowedInSlots="7" UsedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="404" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="405" AllowedInSlots="7"/>
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DIM18" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" Writeable_IM_Records="1 2 3">
+              <IOData/>
+              <ModuleInfo>
+                <Name TextId="T_DataManDM470"/>
+                <InfoText TextId="T_DataManDM470Description"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_DAP18I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="LLDP;SNMP" TextId="T_DAP_InterfaceModule" IsochroneModeSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" Writeable_IM_Records="1 2 3">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+              </ApplicationRelations>
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_DAP18P" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUType="100BASETXFD" TextId="T_Port1">
+              <MAUTypeList>
+              <MAUTypeItem Value="16"/>
+              </MAUTypeList>
+           </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="7"/>
+          </Graphics>
+        </DeviceAccessPointItem>
+        <DeviceAccessPointItem AddressAssignment="DCP;LOCAL" MultipleWriteSupported="true" PhysicalSlots="0..7" ModuleIdentNumber="0x00000026" MinDeviceInterval="128" DNS_CompatibleName="DataMan" FixedInSlots="0" ObjectUUID_LocalIndex="1" ID="DAP22" RequiredSchemaVersion="V2.25" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.42" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="1 2 4">
+          <ModuleInfo>
+            <Name TextId="T_DataManDM370"/>
+            <InfoText TextId="T_DataManDM370Description"/>
+            <VendorName Value="Cognex"/>
+            <OrderNumber Value="DMR-37x-xx"/>
+            <SoftwareRelease Value="6.1.8"/>
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" NetloadClass="III" ApplicationClass=""/>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_Interface"/>
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_Port1"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="274" MaxOutputLength="274"/>
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="101" AllowedInSlots="1" UsedInSlots="1"/>
+            <ModuleItemRef ModuleItemTarget="201" AllowedInSlots="2" UsedInSlots="2"/>
+            <ModuleItemRef ModuleItemTarget="102" AllowedInSlots="3" UsedInSlots="3"/>
+            <ModuleItemRef ModuleItemTarget="202" AllowedInSlots="4" UsedInSlots="4"/>
+            <ModuleItemRef ModuleItemTarget="105" AllowedInSlots="5" UsedInSlots="5"/>
+            <ModuleItemRef ModuleItemTarget="301" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="302" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="303" AllowedInSlots="6" UsedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="304" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="305" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="401" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="402" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="403" AllowedInSlots="7" UsedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="404" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="405" AllowedInSlots="7"/>
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DIM22" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" Writeable_IM_Records="1 2 3">
+              <IOData/>
+              <ModuleInfo>
+                <Name TextId="T_DataManDM370"/>
+                <InfoText TextId="T_DataManDM370Description"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_DAP22I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="LLDP;SNMP" TextId="T_DAP_InterfaceModule" IsochroneModeSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" Writeable_IM_Records="1 2 3">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+              </ApplicationRelations>
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_DAP22P" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUType="100BASETXFD" TextId="T_Port1">
+              <MAUTypeList>
+              <MAUTypeItem Value="16"/>
+              </MAUTypeList>
+           </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="4"/>
+          </Graphics>
+        </DeviceAccessPointItem>
+        <DeviceAccessPointItem AddressAssignment="DCP;LOCAL" MultipleWriteSupported="true" PhysicalSlots="0..7" ModuleIdentNumber="0x0000002F" MinDeviceInterval="256" DNS_CompatibleName="DataMan" FixedInSlots="0" ObjectUUID_LocalIndex="1" ID="DAP47" RequiredSchemaVersion="V2.25" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.42" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="1 2 4">
+          <ModuleInfo>
+            <Name TextId="T_DataManDM8700"/>
+            <InfoText TextId="T_DataManDM8700Description"/>
+            <VendorName Value="Cognex"/>
+            <OrderNumber Value="DMR-87xx-xx"/>
+            <SoftwareRelease Value="6.2.0"/>
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" NetloadClass="III" ApplicationClass=""/>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_Interface"/>
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_Port1"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="274" MaxOutputLength="274"/>
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="101" AllowedInSlots="1" UsedInSlots="1"/>
+            <ModuleItemRef ModuleItemTarget="201" AllowedInSlots="2" UsedInSlots="2"/>
+            <ModuleItemRef ModuleItemTarget="102" AllowedInSlots="3" UsedInSlots="3"/>
+            <ModuleItemRef ModuleItemTarget="202" AllowedInSlots="4" UsedInSlots="4"/>
+            <ModuleItemRef ModuleItemTarget="105" AllowedInSlots="5" UsedInSlots="5"/>
+            <ModuleItemRef ModuleItemTarget="301" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="302" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="303" AllowedInSlots="6" UsedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="304" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="305" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="401" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="402" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="403" AllowedInSlots="7" UsedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="404" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="405" AllowedInSlots="7"/>
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DIM47" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" Writeable_IM_Records="1 2 3">
+              <IOData/>
+              <ModuleInfo>
+                <Name TextId="T_DataManDM8700"/>
+                <InfoText TextId="T_DataManDM8700Description"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_DAP47I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="LLDP;SNMP" TextId="T_DAP_InterfaceModule" IsochroneModeSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" Writeable_IM_Records="1 2 3">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+              </ApplicationRelations>
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_DAP47P" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUType="100BASETXFD" TextId="T_Port1">
+              <MAUTypeList>
+              <MAUTypeItem Value="16"/>
+              </MAUTypeList>
+           </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="8"/>
+          </Graphics>
+        </DeviceAccessPointItem>
+        <DeviceAccessPointItem AddressAssignment="DCP;LOCAL" MultipleWriteSupported="true" PhysicalSlots="0..7" ModuleIdentNumber="0x0000002E" MinDeviceInterval="128" DNS_CompatibleName="DataMan" FixedInSlots="0" ObjectUUID_LocalIndex="1" ID="DAP46" RequiredSchemaVersion="V2.25" DeviceAccessSupported="true" NumberOfDeviceAccessAR="1" PNIO_Version="V2.42" CheckDeviceID_Allowed="true" NameOfStationNotTransferable="true" LLDP_NoD_Supported="true" ResetToFactoryModes="1 2 4">
+          <ModuleInfo>
+            <Name TextId="T_DataManDM280"/>
+            <InfoText TextId="T_DataManDM280Description"/>
+            <VendorName Value="Cognex"/>
+            <OrderNumber Value="DMR-28x-xx"/>
+            <SoftwareRelease Value="6.2.0"/>
+          </ModuleInfo>
+          <CertificationInfo ConformanceClass="B" NetloadClass="III" ApplicationClass=""/>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="IDT_SS_Interface"/>
+            <SubslotItem SubslotNumber="32769" TextId="IDT_SS_Port1"/>
+          </SubslotList>
+          <IOConfigData MaxInputLength="274" MaxOutputLength="274"/>
+          <UseableModules>
+            <ModuleItemRef ModuleItemTarget="101" AllowedInSlots="1" UsedInSlots="1"/>
+            <ModuleItemRef ModuleItemTarget="201" AllowedInSlots="2" UsedInSlots="2"/>
+            <ModuleItemRef ModuleItemTarget="102" AllowedInSlots="3" UsedInSlots="3"/>
+            <ModuleItemRef ModuleItemTarget="202" AllowedInSlots="4" UsedInSlots="4"/>
+            <ModuleItemRef ModuleItemTarget="105" AllowedInSlots="5" UsedInSlots="5"/>
+            <ModuleItemRef ModuleItemTarget="301" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="302" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="303" AllowedInSlots="6" UsedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="304" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="305" AllowedInSlots="6"/>
+            <ModuleItemRef ModuleItemTarget="401" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="402" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="403" AllowedInSlots="7" UsedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="404" AllowedInSlots="7"/>
+            <ModuleItemRef ModuleItemTarget="405" AllowedInSlots="7"/>
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DIM46" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" Writeable_IM_Records="1 2 3">
+              <IOData/>
+              <ModuleInfo>
+                <Name TextId="T_DataManDM280"/>
+                <InfoText TextId="T_DataManDM280Description"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem ID="IDS_DAP46I" SubslotNumber="32768" SubmoduleIdentNumber="0x8000" SupportedRT_Classes="RT_CLASS_1" SupportedProtocols="LLDP;SNMP" TextId="T_DAP_InterfaceModule" IsochroneModeSupported="false" PTP_BoundarySupported="true" DCP_BoundarySupported="true" Writeable_IM_Records="1 2 3">
+              <ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0" StartupMode="Advanced;Legacy">
+                <TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+              </ApplicationRelations>
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem ID="IDS_DAP46P" SubslotNumber="32769" SubmoduleIdentNumber="0x8001" MAUType="1000BASETFD" TextId="T_Port1">
+              <MAUTypeList>
+              <MAUTypeItem Value="16"/>
+              <MAUTypeItem Value="30"/>
+              </MAUTypeList>
+           </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="9"/>
+          </Graphics>
+        </DeviceAccessPointItem>
+      </DeviceAccessPointList>
+      <ModuleList>
+        <ModuleItem ID="101" ModuleIdentNumber="0x00000101">
+          <ModuleInfo CategoryRef="Control">
+            <Name TextId="T_Acquisition_control_module"/>
+            <InfoText TextId="T_Acquisition_control_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="1" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" SupportedSubstitutionModes="0 1 2">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="T_AcquisitionControl" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="T_AcquisitionTriggerEnable"/>
+                    <BitDataItem BitOffset="1" TextId="T_AcquisitionTrigger"/>
+                  </DataItem>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_Acquisition_control_module"/>
+                <InfoText TextId="T_Acquisition_control_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="201" ModuleIdentNumber="0x00000201">
+          <ModuleInfo CategoryRef="Status">
+            <Name TextId="T_Acquisition_status_module"/>
+            <InfoText TextId="T_Acquisition_status_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="2" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="T_AcquisitionStatus" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="T_TriggerReady"/>
+                    <BitDataItem BitOffset="1" TextId="T_TriggerAcknowledge"/>
+                    <BitDataItem BitOffset="2" TextId="T_Acquiring"/>
+                    <BitDataItem BitOffset="3" TextId="T_MissedAcquisition"/>
+                  </DataItem>
+                  <DataItem DataType="Unsigned16" TextId="T_TriggerID"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_Acquisition_status_module"/>
+                <InfoText TextId="T_Acquisition_status_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="102" ModuleIdentNumber="0x00000102">
+          <ModuleInfo CategoryRef="Control">
+            <Name TextId="T_Results_control_module"/>
+            <InfoText TextId="T_Results_control_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="3" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" SupportedSubstitutionModes="0 1 2">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="T_ResultsControl" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="T_ResultsBufferEnable"/>
+                    <BitDataItem BitOffset="1" TextId="T_ResultsAck"/>
+                  </DataItem>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_Results_control_module"/>
+                <InfoText TextId="T_Results_control_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="202" ModuleIdentNumber="0x00000202">
+          <ModuleInfo CategoryRef="Status">
+            <Name TextId="T_Results_status_module"/>
+            <InfoText TextId="T_Results_status_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="4" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="T_ResultsStatus" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="T_Decoding"/>
+                    <BitDataItem BitOffset="1" TextId="T_DecodeComplete"/>
+                    <BitDataItem BitOffset="2" TextId="T_ResultsBufferOverrun"/>
+                    <BitDataItem BitOffset="3" TextId="T_ResultsAvailable"/>
+                    <BitDataItem BitOffset="7" TextId="T_GeneralFault"/>
+                  </DataItem>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_Results_status_module"/>
+                <InfoText TextId="T_Results_status_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="105" ModuleIdentNumber="0x00000105">
+          <ModuleInfo CategoryRef="Control">
+            <Name TextId="T_Softevents_module"/>
+            <InfoText TextId="T_Softevents_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="5" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="T_SoftEventAckRegister" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="T_SoftEvent0ack"/>
+                    <BitDataItem BitOffset="1" TextId="T_SoftEvent1ack"/>
+                    <BitDataItem BitOffset="2" TextId="T_SoftEvent2ack"/>
+                    <BitDataItem BitOffset="3" TextId="T_SoftEvent3ack"/>
+                    <BitDataItem BitOffset="4" TextId="T_SoftEvent4ack"/>
+                    <BitDataItem BitOffset="5" TextId="T_SoftEvent5ack"/>
+                    <BitDataItem BitOffset="6" TextId="T_SoftEvent6ack"/>
+                    <BitDataItem BitOffset="7" TextId="T_SoftEvent7ack"/>
+                  </DataItem>
+                </Input>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned8" TextId="T_SoftEventRegister" UseAsBits="true">
+                    <BitDataItem BitOffset="0" TextId="T_SoftEvent0"/>
+                    <BitDataItem BitOffset="1" TextId="T_SoftEvent1"/>
+                    <BitDataItem BitOffset="2" TextId="T_SoftEvent2"/>
+                    <BitDataItem BitOffset="3" TextId="T_SoftEvent3"/>
+                    <BitDataItem BitOffset="4" TextId="T_SoftEvent4"/>
+                    <BitDataItem BitOffset="5" TextId="T_SoftEvent5"/>
+                    <BitDataItem BitOffset="6" TextId="T_SoftEvent6"/>
+                    <BitDataItem BitOffset="7" TextId="T_SoftEvent7"/>
+                  </DataItem>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_Softevents_module"/>
+                <InfoText TextId="T_Softevents_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="301" ModuleIdentNumber="0x00000301">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_UserData_16_module"/>
+            <InfoText TextId="T_UserData_16_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="6" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" SupportedSubstitutionModes="0 1 2">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_UserDataOption"/>
+                  <DataItem DataType="Unsigned16" TextId="T_UserDataLength"/>
+                  <DataItem DataType="OctetString" TextId="T_UserData" Length="16"/>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_UserData_16_module"/>
+                <InfoText TextId="T_UserData_16_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="401" ModuleIdentNumber="0x00000401">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_ResultData_16_module"/>
+            <InfoText TextId="T_ResultData_16_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="7" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_ResultID"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultCode"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultExtended"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultLength"/>
+                  <DataItem DataType="OctetString" TextId="T_ResultData" Length="16"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_ResultData_16_module"/>
+                <InfoText TextId="T_ResultData_16_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="302" ModuleIdentNumber="0x00000302">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_UserData_32_module"/>
+            <InfoText TextId="T_UserData_32_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="8" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" SupportedSubstitutionModes="0 1 2">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_UserDataOption"/>
+                  <DataItem DataType="Unsigned16" TextId="T_UserDataLength"/>
+                  <DataItem DataType="OctetString" TextId="T_UserData" Length="32"/>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_UserData_32_module"/>
+                <InfoText TextId="T_UserData_32_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="402" ModuleIdentNumber="0x00000402">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_ResultData_32_module"/>
+            <InfoText TextId="T_ResultData_32_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="9" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_ResultID"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultCode"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultExtended"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultLength"/>
+                  <DataItem DataType="OctetString" TextId="T_ResultData" Length="32"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_ResultData_32_module"/>
+                <InfoText TextId="T_ResultData_32_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="303" ModuleIdentNumber="0x00000303">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_UserData_64_module"/>
+            <InfoText TextId="T_UserData_64_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="10" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" SupportedSubstitutionModes="0 1 2">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_UserDataOption"/>
+                  <DataItem DataType="Unsigned16" TextId="T_UserDataLength"/>
+                  <DataItem DataType="OctetString" TextId="T_UserData" Length="64"/>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_UserData_64_module"/>
+                <InfoText TextId="T_UserData_64_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="403" ModuleIdentNumber="0x00000403">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_ResultData_64_module"/>
+            <InfoText TextId="T_ResultData_64_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="11" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_ResultID"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultCode"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultExtended"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultLength"/>
+                  <DataItem DataType="OctetString" TextId="T_ResultData" Length="64"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_ResultData_64_module"/>
+                <InfoText TextId="T_ResultData_64_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="304" ModuleIdentNumber="0x00000304">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_UserData_128_module"/>
+            <InfoText TextId="T_UserData_128_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="12" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" SupportedSubstitutionModes="0 1 2">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_UserDataOption"/>
+                  <DataItem DataType="Unsigned16" TextId="T_UserDataLength"/>
+                  <DataItem DataType="OctetString" TextId="T_UserData" Length="128"/>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_UserData_128_module"/>
+                <InfoText TextId="T_UserData_128_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="404" ModuleIdentNumber="0x00000404">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_ResultData_128_module"/>
+            <InfoText TextId="T_ResultData_128_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="13" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_ResultID"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultCode"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultExtended"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultLength"/>
+                  <DataItem DataType="OctetString" TextId="T_ResultData" Length="128"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_ResultData_128_module"/>
+                <InfoText TextId="T_ResultData_128_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="305" ModuleIdentNumber="0x00000305">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_userdata_250_module"/>
+            <InfoText TextId="T_UserData_250_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="14" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true" SupportedSubstitutionModes="0 1 2">
+              <IOData>
+                <Output Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_UserDataOption"/>
+                  <DataItem DataType="Unsigned16" TextId="T_UserDataLength"/>
+                  <DataItem DataType="OctetString" TextId="T_UserData" Length="250"/>
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_userdata_250_module"/>
+                <InfoText TextId="T_UserData_250_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="405" ModuleIdentNumber="0x00000405">
+          <ModuleInfo CategoryRef="Data">
+            <Name TextId="T_ResultData_246_module"/>
+            <InfoText TextId="T_ResultData_246_info"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="15" SubmoduleIdentNumber="0x00000001" MayIssueProcessAlarm="true">
+              <IOData>
+                <Input Consistency="All items consistency">
+                  <DataItem DataType="Unsigned16" TextId="T_ResultID"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultCode"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultExtended"/>
+                  <DataItem DataType="Unsigned16" TextId="T_ResultLength"/>
+                  <DataItem DataType="OctetString" TextId="T_ResultData" Length="246"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="T_ResultData_246_module"/>
+                <InfoText TextId="T_ResultData_246_info"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+      </ModuleList>
+      <GraphicsList>
+        <GraphicItem ID="4" GraphicFile="GSDML-0137-0005-DataMan300"/>
+        <GraphicItem ID="7" GraphicFile="GSDML-0137-0005-DataMan470"/>
+        <GraphicItem ID="8" GraphicFile="GSDML-0137-0005-DataMan8000"/>
+        <GraphicItem ID="9" GraphicFile="GSDML-0137-0005-DataMan280"/>
+      </GraphicsList>
+      <CategoryList>
+        <CategoryItem TextId="T_ControlCategory" ID="Control"/>
+        <CategoryItem TextId="T_StatusCategory" ID="Status"/>
+        <CategoryItem TextId="T_DataCategory" ID="Data"/>
+      </CategoryList>
+      <ExternalTextList>
+        <PrimaryLanguage>
+          <!-- General Text -->
+          <Text TextId="T_FamilyDescription" Value="DataMan ID Readers"/>
+          <Text TextId="T_DataManDM470" Value="DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM470Description" Value="DataMan 470 ID Reader CC-B"/>
+          <Text TextId="T_DataManDM370" Value="DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM370Description" Value="DataMan 370 ID Reader CC-B"/>
+          <Text TextId="T_DataManDM8700" Value="DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM8700Description" Value="DataMan 8700 ID Reader CC-B"/>
+          <Text TextId="T_DataManDM280" Value="DataMan 280 CC-B"/>
+          <Text TextId="T_DataManDM280Description" Value="DataMan 280 ID Reader CC-B"/>
+          <Text TextId="IDT_SS_Interface" Value="X1"/>
+          <Text TextId="IDT_SS_Port1" Value="X1 P1"/>
+          <Text TextId="T_DAP_InterfaceModule" Value="Interface"/>
+          <Text TextId="T_Port1" Value="Port 1"/>
+          <!-- Module Info -->
+          <Text TextId="T_ControlCategory" Value="DataMan Control Modules"/>
+          <Text TextId="T_StatusCategory" Value="DataMan Status Modules"/>
+          <Text TextId="T_DataCategory" Value="DataMan Data Modules"/>
+          <Text TextId="T_Acquisition_control_module" Value="Acquisition Control"/>
+          <Text TextId="T_Acquisition_control_info" Value="Controls acquisition"/>
+          <Text TextId="T_AcquisitionControl" Value="Acquisition Control Register"/>
+          <Text TextId="T_AcquisitionTriggerEnable" Value="Trigger Enable"/>
+          <Text TextId="T_AcquisitionTrigger" Value="Trigger"/>
+          <Text TextId="T_Acquisition_status_module" Value="Acquisition Status"/>
+          <Text TextId="T_Acquisition_status_info" Value="Status of acquisition"/>
+          <Text TextId="T_AcquisitionStatus" Value="Acquisition Status Register"/>
+          <Text TextId="T_TriggerReady" Value="Trigger Ready"/>
+          <Text TextId="T_TriggerAcknowledge" Value="Trigger Acknowledge"/>
+          <Text TextId="T_Acquiring" Value="Acquiring"/>
+          <Text TextId="T_MissedAcquisition" Value="Missed Acquisition"/>
+          <Text TextId="T_TriggerID" Value="Trigger ID"/>
+          <Text TextId="T_Results_control_module" Value="Results Control"/>
+          <Text TextId="T_Results_control_info" Value="Controls the results"/>
+          <Text TextId="T_ResultsControl" Value="Results Control Register"/>
+          <Text TextId="T_ResultsBufferEnable" Value="Enable Result Buffering"/>
+          <Text TextId="T_ResultsAck" Value="Results Acknowledge"/>
+          <Text TextId="T_Results_status_module" Value="Results Status"/>
+          <Text TextId="T_Results_status_info" Value="Status of results"/>
+          <Text TextId="T_ResultsStatus" Value="Results Status Register"/>
+          <Text TextId="T_Decoding" Value="Decoding"/>
+          <Text TextId="T_DecodeComplete" Value="Decode Complete"/>
+          <Text TextId="T_ResultsBufferOverrun" Value="Results Buffer Overrun"/>
+          <Text TextId="T_ResultsAvailable" Value="Results Available"/>
+          <Text TextId="T_GeneralFault" Value="Set when reader fault occurs"/>
+          <Text TextId="T_Softevents_module" Value="Soft Event Control"/>
+          <Text TextId="T_Softevents_info" Value="Controls the Soft Events"/>
+          <Text TextId="T_SoftEventRegister" Value="Soft Event Control Register"/>
+          <Text TextId="T_SoftEventAckRegister" Value="Soft Event Acknowledge Register"/>
+          <Text TextId="T_SoftEvent0" Value="Train Code"/>
+          <Text TextId="T_SoftEvent1" Value="Train Match String"/>
+          <Text TextId="T_SoftEvent2" Value="Train Focus"/>
+          <Text TextId="T_SoftEvent3" Value="Train Brightness"/>
+          <Text TextId="T_SoftEvent4" Value="Untrain"/>
+          <Text TextId="T_SoftEvent5" Value="Reserved"/>
+          <Text TextId="T_SoftEvent6" Value="Execute DMCC"/>
+          <Text TextId="T_SoftEvent7" Value="Set Match String"/>
+          <Text TextId="T_SoftEvent0ack" Value="Train Code Acknowledge"/>
+          <Text TextId="T_SoftEvent1ack" Value="Train Match String Acknowledge"/>
+          <Text TextId="T_SoftEvent2ack" Value="Train Focus Acknowledge"/>
+          <Text TextId="T_SoftEvent3ack" Value="Train Brightness Acknowledge"/>
+          <Text TextId="T_SoftEvent4ack" Value="Untrain Acknowledge"/>
+          <Text TextId="T_SoftEvent5ack" Value="Reserved"/>
+          <Text TextId="T_SoftEvent6ack" Value="Execute DMCC Acknowledge"/>
+          <Text TextId="T_SoftEvent7ack" Value="Set Match String Acknowledge"/>
+          <Text TextId="T_UserData_16_module" Value="User Data - 16 bytes"/>
+          <Text TextId="T_UserData_16_info" Value="Writes 16 bytes to DataMan"/>
+          <Text TextId="T_UserData_32_module" Value="User Data - 32 bytes"/>
+          <Text TextId="T_UserData_32_info" Value="Writes 32 bytes to DataMan"/>
+          <Text TextId="T_UserData_64_module" Value="User Data - 64 bytes"/>
+          <Text TextId="T_UserData_64_info" Value="Writes 64 bytes to DataMan"/>
+          <Text TextId="T_UserData_128_module" Value="User Data - 128 bytes"/>
+          <Text TextId="T_UserData_128_info" Value="Writes 128 bytes to DataMan"/>
+          <Text TextId="T_userdata_250_module" Value="User Data - 250 bytes"/>
+          <Text TextId="T_UserData_250_info" Value="Writes 250 bytes to DataMan"/>
+          <Text TextId="T_UserDataOption" Value="User Data Option"/>
+          <Text TextId="T_UserDataLength" Value="User Data Length"/>
+          <Text TextId="T_UserData" Value="User Data"/>
+          <Text TextId="T_ResultData_16_module" Value="Result Data - 16 bytes"/>
+          <Text TextId="T_ResultData_16_info" Value="Reads 16 bytes from DataMan"/>
+          <Text TextId="T_ResultData_32_module" Value="Result Data - 32 bytes"/>
+          <Text TextId="T_ResultData_32_info" Value="Reads 32 bytes from DataMan"/>
+          <Text TextId="T_ResultData_64_module" Value="Result Data - 64 bytes"/>
+          <Text TextId="T_ResultData_64_info" Value="Reads 64 bytes from DataMan"/>
+          <Text TextId="T_ResultData_128_module" Value="Result Data - 128 bytes"/>
+          <Text TextId="T_ResultData_128_info" Value="Reads 128 bytes from DataMan"/>
+          <Text TextId="T_ResultData_246_module" Value="Result Data - 246 bytes"/>
+          <Text TextId="T_ResultData_246_info" Value="Reads 246 bytes from DataMan"/>
+          <Text TextId="T_ResultID" Value="Result ID"/>
+          <Text TextId="T_ResultCode" Value="Result Code"/>
+          <Text TextId="T_ResultExtended" Value="Result Extended"/>
+          <Text TextId="T_ResultLength" Value="Result Length"/>
+          <Text TextId="T_ResultData" Value="Result Data"/>
+        </PrimaryLanguage>
+        <Language xml:lang="de">
+          <!-- General Text -->
+          <Text TextId="T_FamilyDescription" Value="DataMan ID-Lesegeräte CC-B"/>
+          <Text TextId="T_DataManDM470" Value="DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM470Description" Value="DataMan 470 ID-Lesegerät CC-B"/>
+          <Text TextId="T_DataManDM370" Value="DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM370Description" Value="DataMan 370 ID-Lesegerät CC-B"/>
+          <Text TextId="T_DataManDM8700" Value="DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM8700Description" Value="DataMan 8700 ID-Lesegerät CC-B"/>
+          <Text TextId="T_DataManDM280" Value="DataMan 280 CC-B"/>
+          <Text TextId="T_DataManDM280Description" Value="DataMan 280 ID-Lesegerät CC-B"/>
+          <Text TextId="IDT_SS_Interface" Value="X1"/>
+          <Text TextId="IDT_SS_Port1" Value="X1 P1"/>
+          <Text TextId="T_DAP_InterfaceModule" Value="Schnittstelle"/>
+          <Text TextId="T_Port1" Value="Port 1"/>
+          <!-- Module Info -->
+          <Text TextId="T_ControlCategory" Value="DataMan-Steuermodule"/>
+          <Text TextId="T_StatusCategory" Value="DataMan-Statusmodule"/>
+          <Text TextId="T_DataCategory" Value="DataMan-Datenmodule"/>
+          <Text TextId="T_Acquisition_control_module" Value="Aufnahmesteuerung"/>
+          <Text TextId="T_Acquisition_control_info" Value="Steuert die Aufnahme"/>
+          <Text TextId="T_AcquisitionControl" Value="Aufnahmesteuerungsregister"/>
+          <Text TextId="T_AcquisitionTriggerEnable" Value="Auslöser aktivieren"/>
+          <Text TextId="T_AcquisitionTrigger" Value="Auslöser"/>
+          <Text TextId="T_Acquisition_status_module" Value="Aufnahmestatus"/>
+          <Text TextId="T_Acquisition_status_info" Value="Status der Aufnahme"/>
+          <Text TextId="T_AcquisitionStatus" Value="Aufnahmestatusregister"/>
+          <Text TextId="T_TriggerReady" Value="Auslöser bereit"/>
+          <Text TextId="T_TriggerAcknowledge" Value="Auslöserbestätigung"/>
+          <Text TextId="T_Acquiring" Value="Aufnahme läuft"/>
+          <Text TextId="T_MissedAcquisition" Value="Bildaufnahme fehlgeschlagen"/>
+          <Text TextId="T_TriggerID" Value="Auslöser-ID"/>
+          <Text TextId="T_Results_control_module" Value="Ergebnissteuerung"/>
+          <Text TextId="T_Results_control_info" Value="Steuert die Ergebnisse"/>
+          <Text TextId="T_ResultsControl" Value="Ergebnissteuerungsregister"/>
+          <Text TextId="T_ResultsBufferEnable" Value="Ergebnispufferung aktivieren"/>
+          <Text TextId="T_ResultsAck" Value="Ergebnisbestätigung"/>
+          <Text TextId="T_Results_status_module" Value="Ergebnisstatus"/>
+          <Text TextId="T_Results_status_info" Value="Status der Ergebnisse"/>
+          <Text TextId="T_ResultsStatus" Value="Ergebnisstatusregister"/>
+          <Text TextId="T_Decoding" Value="Decodierung läuft"/>
+          <Text TextId="T_DecodeComplete" Value="Decodierung abgeschlossen"/>
+          <Text TextId="T_ResultsBufferOverrun" Value="Ergebnispufferüberlauf"/>
+          <Text TextId="T_ResultsAvailable" Value="Ergebnisse gültig"/>
+          <Text TextId="T_GeneralFault" Value="Festgelegt, wenn Lesegerätfehler auftritt"/>
+          <Text TextId="T_Softevents_module" Value="SoftEvent-Steuerungselement"/>
+          <Text TextId="T_Softevents_info" Value="Steuert die SoftEvents"/>
+          <Text TextId="T_SoftEventRegister" Value="SoftEvent-Steuerungsregister"/>
+          <Text TextId="T_SoftEventAckRegister" Value="SoftEvent-Bestätigungsregister"/>
+          <Text TextId="T_SoftEvent0" Value="Code trainieren"/>
+          <Text TextId="T_SoftEvent1" Value="Suchzeichenkette trainieren"/>
+          <Text TextId="T_SoftEvent2" Value="Fokus trainieren"/>
+          <Text TextId="T_SoftEvent3" Value="Helligkeit trainieren"/>
+          <Text TextId="T_SoftEvent4" Value="Training löschen"/>
+          <Text TextId="T_SoftEvent5" Value="Reserviert"/>
+          <Text TextId="T_SoftEvent6" Value="DMCC ausführen"/>
+          <Text TextId="T_SoftEvent7" Value="Suchzeichenkette festlegen"/>
+          <Text TextId="T_SoftEvent0ack" Value="Codebestätigung trainieren"/>
+          <Text TextId="T_SoftEvent1ack" Value="Suchzeichenkettenbestätigung trainieren"/>
+          <Text TextId="T_SoftEvent2ack" Value="Fokusbestätigung trainieren"/>
+          <Text TextId="T_SoftEvent3ack" Value="Helligkeitsbestätigung trainieren"/>
+          <Text TextId="T_SoftEvent4ack" Value="Training der Bestätigung löschen"/>
+          <Text TextId="T_SoftEvent5ack" Value="Reserviert"/>
+          <Text TextId="T_SoftEvent6ack" Value="DMCC-Bestätigung ausführen"/>
+          <Text TextId="T_SoftEvent7ack" Value="Suchzeichenkettenbestätigung festlegen"/>
+          <Text TextId="T_UserData_16_module" Value="Benutzerdaten – 16 Bytes"/>
+          <Text TextId="T_UserData_16_info" Value="Schreibt 16 Bytes in DataMan"/>
+          <Text TextId="T_UserData_32_module" Value="Benutzerdaten – 32 Bytes"/>
+          <Text TextId="T_UserData_32_info" Value="Schreibt 32 Bytes in DataMan"/>
+          <Text TextId="T_UserData_64_module" Value="Benutzerdaten – 64 Bytes"/>
+          <Text TextId="T_UserData_64_info" Value="Schreibt 64 Bytes in DataMan"/>
+          <Text TextId="T_UserData_128_module" Value="Benutzerdaten – 128 Bytes"/>
+          <Text TextId="T_UserData_128_info" Value="Schreibt 128 Bytes in DataMan"/>
+          <Text TextId="T_userdata_250_module" Value="Benutzerdaten – 250 Bytes"/>
+          <Text TextId="T_UserData_250_info" Value="Schreibt 250 Bytes in DataMan"/>
+          <Text TextId="T_UserDataOption" Value="Option Benutzerdaten"/>
+          <Text TextId="T_UserDataLength" Value="Benutzerdatenlänge"/>
+          <Text TextId="T_UserData" Value="Benutzerdaten"/>
+          <Text TextId="T_ResultData_16_module" Value="Ergebnisse – 16 Bytes"/>
+          <Text TextId="T_ResultData_16_info" Value="Liest 16 Bytes vom DataMan"/>
+          <Text TextId="T_ResultData_32_module" Value="Ergebnisse – 32 Bytes"/>
+          <Text TextId="T_ResultData_32_info" Value="Liest 32 Bytes vom DataMan"/>
+          <Text TextId="T_ResultData_64_module" Value="Ergebnisse – 64 Bytes"/>
+          <Text TextId="T_ResultData_64_info" Value="Liest 64 Bytes vom DataMan"/>
+          <Text TextId="T_ResultData_128_module" Value="Ergebnisse – 128 Bytes"/>
+          <Text TextId="T_ResultData_128_info" Value="Liest 128 Bytes vom DataMan"/>
+          <Text TextId="T_ResultData_246_module" Value="Ergebnisse – 246 Bytes"/>
+          <Text TextId="T_ResultData_246_info" Value="Liest 246 Bytes vom DataMan"/>
+          <Text TextId="T_ResultID" Value="Ergebnis-ID"/>
+          <Text TextId="T_ResultCode" Value="Ergebniscode"/>
+          <Text TextId="T_ResultExtended" Value="Erweitertes Ergebnis"/>
+          <Text TextId="T_ResultLength" Value="Ergebnislänge"/>
+          <Text TextId="T_ResultData" Value="Ergebnisdaten"/>
+        </Language>
+        <Language xml:lang="fr">
+          <!-- General Text -->
+          <Text TextId="T_FamilyDescription" Value="Lecteurs ID DataMan CC-B"/>
+          <Text TextId="T_DataManDM470" Value="DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM470Description" Value="Lecteurs ID DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM370" Value="DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM370Description" Value="Lecteurs ID DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM8700" Value="DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM8700Description" Value="Lecteurs ID DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM280" Value="DataMan 280 CC-B"/>
+          <Text TextId="T_DataManDM280Description" Value="Lecteurs ID DataMan 280 CC-B"/>
+          <Text TextId="IDT_SS_Interface" Value="X1"/>
+          <Text TextId="IDT_SS_Port1" Value="X1 P1"/>
+          <Text TextId="T_DAP_InterfaceModule" Value="Interface"/>
+          <Text TextId="T_Port1" Value="Port 1"/>
+          <!-- Module Info -->
+          <Text TextId="T_ControlCategory" Value="Modules de commande DataMan"/>
+          <Text TextId="T_StatusCategory" Value="Modules d'état DataMan"/>
+          <Text TextId="T_DataCategory" Value="Modules de données DataMan"/>
+          <Text TextId="T_Acquisition_control_module" Value="Contrôle de l'acquisition"/>
+          <Text TextId="T_Acquisition_control_info" Value="Contrôle l'acquisition"/>
+          <Text TextId="T_AcquisitionControl" Value="Registre de contrôle de l'acquisition"/>
+          <Text TextId="T_AcquisitionTriggerEnable" Value="Activer le déclenchement"/>
+          <Text TextId="T_AcquisitionTrigger" Value="Déclenchement"/>
+          <Text TextId="T_Acquisition_status_module" Value="État de l'acquisition"/>
+          <Text TextId="T_Acquisition_status_info" Value="État de l'acquisition"/>
+          <Text TextId="T_AcquisitionStatus" Value="Registre d'état de l'acquisition"/>
+          <Text TextId="T_TriggerReady" Value="Déclenchement prêt"/>
+          <Text TextId="T_TriggerAcknowledge" Value="Confirmation du déclenchement"/>
+          <Text TextId="T_Acquiring" Value="Acquisition"/>
+          <Text TextId="T_MissedAcquisition" Value="Acquisition manquée"/>
+          <Text TextId="T_TriggerID" Value="ID du déclenchement"/>
+          <Text TextId="T_Results_control_module" Value="Contrôle des résultats"/>
+          <Text TextId="T_Results_control_info" Value="Contrôle les résultats"/>
+          <Text TextId="T_ResultsControl" Value="Registre de contrôle des résultats"/>
+          <Text TextId="T_ResultsBufferEnable" Value="Activer la mise en mémoire tampon des résultats"/>
+          <Text TextId="T_ResultsAck" Value="Confirmation des résultats"/>
+          <Text TextId="T_Results_status_module" Value="État des résultats"/>
+          <Text TextId="T_Results_status_info" Value="État des résultats"/>
+          <Text TextId="T_ResultsStatus" Value="Registre d'état des résultats"/>
+          <Text TextId="T_Decoding" Value="Décodage"/>
+          <Text TextId="T_DecodeComplete" Value="Décodage terminé"/>
+          <Text TextId="T_ResultsBufferOverrun" Value="Surcharge du tampon des résultats"/>
+          <Text TextId="T_ResultsAvailable" Value="Résultats disponibles"/>
+          <Text TextId="T_GeneralFault" Value="Déterminer le moment où la défaillance du lecteur a lieu"/>
+          <Text TextId="T_Softevents_module" Value="Contrôle des événements apériodiques"/>
+          <Text TextId="T_Softevents_info" Value="Contrôle les événements apériodiques"/>
+          <Text TextId="T_SoftEventRegister" Value="Registre de contrôle des événements apériodiques"/>
+          <Text TextId="T_SoftEventAckRegister" Value="Registre de confirmation des événements apériodiques"/>
+          <Text TextId="T_SoftEvent0" Value="Apprendre le code"/>
+          <Text TextId="T_SoftEvent1" Value="Apprendre la chaîne de recherche"/>
+          <Text TextId="T_SoftEvent2" Value="Apprendre la mise au point"/>
+          <Text TextId="T_SoftEvent3" Value="Apprendre la luminosité"/>
+          <Text TextId="T_SoftEvent4" Value="Supprimer l'apprentissage"/>
+          <Text TextId="T_SoftEvent5" Value="Réservé"/>
+          <Text TextId="T_SoftEvent6" Value="Exécuter DMCC"/>
+          <Text TextId="T_SoftEvent7" Value="Définir la chaîne de recherche"/>
+          <Text TextId="T_SoftEvent0ack" Value="Confirmation de l'apprentissage du code"/>
+          <Text TextId="T_SoftEvent1ack" Value="Confirmation de l'apprentissage de la chaîne de recherche"/>
+          <Text TextId="T_SoftEvent2ack" Value="Confirmation de l'apprentissage de la mise au point"/>
+          <Text TextId="T_SoftEvent3ack" Value="Confirmation de l'apprentissage de la luminosité"/>
+          <Text TextId="T_SoftEvent4ack" Value="Confirmation de la suppression de l'apprentissage"/>
+          <Text TextId="T_SoftEvent5ack" Value="Réservé"/>
+          <Text TextId="T_SoftEvent6ack" Value="Exécuter la confirmation DMCC"/>
+          <Text TextId="T_SoftEvent7ack" Value="Confirmation de la définition de la chaîne de recherche"/>
+          <Text TextId="T_UserData_16_module" Value="Données utilisateur - 16 octets"/>
+          <Text TextId="T_UserData_16_info" Value="Écrit 16 octets dans DataMan"/>
+          <Text TextId="T_UserData_32_module" Value="Données utilisateur - 32 octets"/>
+          <Text TextId="T_UserData_32_info" Value="Écrit 32 octets dans DataMan"/>
+          <Text TextId="T_UserData_64_module" Value="Données utilisateur - 64 octets"/>
+          <Text TextId="T_UserData_64_info" Value="Écrit 64 octets dans DataMan"/>
+          <Text TextId="T_UserData_128_module" Value="Données utilisateur - 128 octets"/>
+          <Text TextId="T_UserData_128_info" Value="Écrit 128 octets dans DataMan"/>
+          <Text TextId="T_userdata_250_module" Value="Données utilisateur - 250 octets"/>
+          <Text TextId="T_UserData_250_info" Value="Écrit 250 octets dans DataMan"/>
+          <Text TextId="T_UserDataOption" Value="Option Données utilisateur"/>
+          <Text TextId="T_UserDataLength" Value="Longueur des données utilisateur"/>
+          <Text TextId="T_UserData" Value="Données utilisateur"/>
+          <Text TextId="T_ResultData_16_module" Value="Données des résult. - 16 octets"/>
+          <Text TextId="T_ResultData_16_info" Value="Écrit 16 oct. à p. de DataMan"/>
+          <Text TextId="T_ResultData_32_module" Value="Données des résult. - 32 octets"/>
+          <Text TextId="T_ResultData_32_info" Value="Écrit 32 oct. à p. de DataMan"/>
+          <Text TextId="T_ResultData_64_module" Value="Données des résult. - 64 octets"/>
+          <Text TextId="T_ResultData_64_info" Value="Écrit 64 oct. à p. de DataMan"/>
+          <Text TextId="T_ResultData_128_module" Value="Données des résul. - 128 octets"/>
+          <Text TextId="T_ResultData_128_info" Value="Écrit 128 oct. à p. de DataMan"/>
+          <Text TextId="T_ResultData_246_module" Value="Données des résul. - 246 octets"/>
+          <Text TextId="T_ResultData_246_info" Value="Écrit 246 oct. à p. de DataMan"/>
+          <Text TextId="T_ResultID" Value="ID des résultats"/>
+          <Text TextId="T_ResultCode" Value="Code des résultats"/>
+          <Text TextId="T_ResultExtended" Value="Résultats étendus"/>
+          <Text TextId="T_ResultLength" Value="Longueur des résultats"/>
+          <Text TextId="T_ResultData" Value="Données des résultats"/>
+        </Language>
+        <Language xml:lang="es">
+          <!-- General Text -->
+          <Text TextId="T_FamilyDescription" Value="Lectores de ID DataMan CC-B"/>
+          <Text TextId="T_DataManDM470" Value="DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM470Description" Value="Lectores de ID DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM370" Value="DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM370Description" Value="Lectores de ID DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM8700" Value="DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM8700Description" Value="Lectores de ID DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM280" Value="DataMan 280 CC-B"/>
+          <Text TextId="T_DataManDM280Description" Value="Lectores de ID DataMan 280 CC-B"/>
+          <Text TextId="IDT_SS_Interface" Value="X1"/>
+          <Text TextId="IDT_SS_Port1" Value="X1 P1"/>
+          <Text TextId="T_DAP_InterfaceModule" Value="Interfaz"/>
+          <Text TextId="T_Port1" Value="Puerto 1"/>
+          <!-- Module Info -->
+          <Text TextId="T_ControlCategory" Value="Módulos de control de DataMan"/>
+          <Text TextId="T_StatusCategory" Value="Módulos de estado de DataMan"/>
+          <Text TextId="T_DataCategory" Value="Módulos de datos de DataMan"/>
+          <Text TextId="T_Acquisition_control_module" Value="Control de adquisición"/>
+          <Text TextId="T_Acquisition_control_info" Value="Controla la adquisición"/>
+          <Text TextId="T_AcquisitionControl" Value="Registro del control de adquisición"/>
+          <Text TextId="T_AcquisitionTriggerEnable" Value="Disparador activado"/>
+          <Text TextId="T_AcquisitionTrigger" Value="Disparador"/>
+          <Text TextId="T_Acquisition_status_module" Value="Estado de adquisición"/>
+          <Text TextId="T_Acquisition_status_info" Value="Estado de adquisición"/>
+          <Text TextId="T_AcquisitionStatus" Value="Registro del estado de adquisición"/>
+          <Text TextId="T_TriggerReady" Value="Disparador listo"/>
+          <Text TextId="T_TriggerAcknowledge" Value="Confirmación de disparador"/>
+          <Text TextId="T_Acquiring" Value="Adquiriendo"/>
+          <Text TextId="T_MissedAcquisition" Value="Adquisición fallida"/>
+          <Text TextId="T_TriggerID" Value="ID del disparador"/>
+          <Text TextId="T_Results_control_module" Value="Control de resultados"/>
+          <Text TextId="T_Results_control_info" Value="Controla los resultados"/>
+          <Text TextId="T_ResultsControl" Value="Registro de control de resultados"/>
+          <Text TextId="T_ResultsBufferEnable" Value="Activar almacenamiento de resultados"/>
+          <Text TextId="T_ResultsAck" Value="Confirmar resultados"/>
+          <Text TextId="T_Results_status_module" Value="Estado de resultados"/>
+          <Text TextId="T_Results_status_info" Value="Estado de resultados"/>
+          <Text TextId="T_ResultsStatus" Value="Registro de estado de resultados"/>
+          <Text TextId="T_Decoding" Value="Decodificando"/>
+          <Text TextId="T_DecodeComplete" Value="Decodificación completada"/>
+          <Text TextId="T_ResultsBufferOverrun" Value="Saturación del búfer de resultados"/>
+          <Text TextId="T_ResultsAvailable" Value="Resultados disponibles"/>
+          <Text TextId="T_GeneralFault" Value="Establecer cuando se produzca un error del lector"/>
+          <Text TextId="T_Softevents_module" Value="Control de SoftEvent"/>
+          <Text TextId="T_Softevents_info" Value="Controla los Soft Events"/>
+          <Text TextId="T_SoftEventRegister" Value="Registro del control de Soft Event"/>
+          <Text TextId="T_SoftEventAckRegister" Value="Registro de la confirmación de Soft Event"/>
+          <Text TextId="T_SoftEvent0" Value="Aprender código"/>
+          <Text TextId="T_SoftEvent1" Value="Aprender cadena de correspondencia"/>
+          <Text TextId="T_SoftEvent2" Value="Aprender enfoque"/>
+          <Text TextId="T_SoftEvent3" Value="Aprender brillo"/>
+          <Text TextId="T_SoftEvent4" Value="Desaprender"/>
+          <Text TextId="T_SoftEvent5" Value="Reservado"/>
+          <Text TextId="T_SoftEvent6" Value="Ejecutar DMCC"/>
+          <Text TextId="T_SoftEvent7" Value="Definir cadena coincidente"/>
+          <Text TextId="T_SoftEvent0ack" Value="Aprender confirmación de código"/>
+          <Text TextId="T_SoftEvent1ack" Value="Aprender confirmación de cadena de correspondencia"/>
+          <Text TextId="T_SoftEvent2ack" Value="Aprender confirmación de enfoque"/>
+          <Text TextId="T_SoftEvent3ack" Value="Aprender confirmación de brillo"/>
+          <Text TextId="T_SoftEvent4ack" Value="Desaprender confirmación"/>
+          <Text TextId="T_SoftEvent5ack" Value="Reservado"/>
+          <Text TextId="T_SoftEvent6ack" Value="Ejecutar confirmación DMCC"/>
+          <Text TextId="T_SoftEvent7ack" Value="Definir confirmación de cadena coincidente"/>
+          <Text TextId="T_UserData_16_module" Value="Información de usuario - 16 bytes"/>
+          <Text TextId="T_UserData_16_info" Value="Escribe 16 bytes en DataMan"/>
+          <Text TextId="T_UserData_32_module" Value="Información de usuario - 32 bytes"/>
+          <Text TextId="T_UserData_32_info" Value="Escribe 32 bytes en DataMan"/>
+          <Text TextId="T_UserData_64_module" Value="Información de usuario - 64 bytes"/>
+          <Text TextId="T_UserData_64_info" Value="Escribe 64 bytes en DataMan"/>
+          <Text TextId="T_UserData_128_module" Value="Información de usuario - 128 bytes"/>
+          <Text TextId="T_UserData_128_info" Value="Escribe 128 bytes en DataMan"/>
+          <Text TextId="T_userdata_250_module" Value="Información de usuario - 250 bytes"/>
+          <Text TextId="T_UserData_250_info" Value="Escribe 250 bytes en DataMan"/>
+          <Text TextId="T_UserDataOption" Value="Opción de información de usuario"/>
+          <Text TextId="T_UserDataLength" Value="Longitud de información de usuario"/>
+          <Text TextId="T_UserData" Value="Información de usuario"/>
+          <Text TextId="T_ResultData_16_module" Value="Datos de resultados - 16 bytes"/>
+          <Text TextId="T_ResultData_16_info" Value="Lee 16 bytes de DataMan"/>
+          <Text TextId="T_ResultData_32_module" Value="Datos de resultados - 32 bytes"/>
+          <Text TextId="T_ResultData_32_info" Value="Lee 32 bytes de DataMan"/>
+          <Text TextId="T_ResultData_64_module" Value="Datos de resultados - 64 bytes"/>
+          <Text TextId="T_ResultData_64_info" Value="Lee 64 bytes de DataMan"/>
+          <Text TextId="T_ResultData_128_module" Value="Datos de resultados - 128 bytes"/>
+          <Text TextId="T_ResultData_128_info" Value="Lee 128 bytes de DataMan"/>
+          <Text TextId="T_ResultData_246_module" Value="Datos de resultados - 246 bytes"/>
+          <Text TextId="T_ResultData_246_info" Value="Lee 246 bytes de DataMan"/>
+          <Text TextId="T_ResultID" Value="ID de resultados"/>
+          <Text TextId="T_ResultCode" Value="Código de resultados"/>
+          <Text TextId="T_ResultExtended" Value="Resultados extendido"/>
+          <Text TextId="T_ResultLength" Value="Longitud de resultados"/>
+          <Text TextId="T_ResultData" Value="Datos de los resultados"/>
+        </Language>
+        <Language xml:lang="ja">
+          <!-- General Text -->
+          <Text TextId="T_FamilyDescription" Value="DataMan ID リーダ CC-B"/>
+          <Text TextId="T_DataManDM470" Value="DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM470Description" Value="DataMan 470 ID リーダ CC-B"/>
+          <Text TextId="T_DataManDM370" Value="DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM370Description" Value="DataMan 370 ID リーダ CC-B"/>
+          <Text TextId="T_DataManDM8700" Value="DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM8700Description" Value="DataMan 8700 ID リーダ CC-B"/>
+          <Text TextId="T_DataManDM280" Value="DataMan 280 CC-B"/>
+          <Text TextId="T_DataManDM280Description" Value="DataMan 280 ID リーダ CC-B"/>
+          <Text TextId="IDT_SS_Interface" Value="X1"/>
+          <Text TextId="IDT_SS_Port1" Value="X1 P1"/>
+          <Text TextId="T_DAP_InterfaceModule" Value="インターフェース"/>
+          <Text TextId="T_Port1" Value="ポート 1"/>
+          <!-- Module Info -->
+          <Text TextId="T_ControlCategory" Value="DataMan 制御モジュール"/>
+          <Text TextId="T_StatusCategory" Value="DataMan ステータスモジュール"/>
+          <Text TextId="T_DataCategory" Value="DataMan データモジュール"/>
+          <Text TextId="T_Acquisition_control_module" Value="画像取り込み制御"/>
+          <Text TextId="T_Acquisition_control_info" Value="画像取り込みを制御する"/>
+          <Text TextId="T_AcquisitionControl" Value="画像取り込み制御レジスタ"/>
+          <Text TextId="T_AcquisitionTriggerEnable" Value="トリガ有効"/>
+          <Text TextId="T_AcquisitionTrigger" Value="トリガ"/>
+          <Text TextId="T_Acquisition_status_module" Value="画像取り込みステータス"/>
+          <Text TextId="T_Acquisition_status_info" Value="画像取り込みのステータス"/>
+          <Text TextId="T_AcquisitionStatus" Value="画像取り込みステータスレジスタ"/>
+          <Text TextId="T_TriggerReady" Value="画像取り込みトリガ待ち"/>
+          <Text TextId="T_TriggerAcknowledge" Value="画像取り込みトリガ応答"/>
+          <Text TextId="T_Acquiring" Value="画像取り込み中"/>
+          <Text TextId="T_MissedAcquisition" Value="画像取り込みミス"/>
+          <Text TextId="T_TriggerID" Value="トリガ ID"/>
+          <Text TextId="T_Results_control_module" Value="結果制御"/>
+          <Text TextId="T_Results_control_info" Value="結果を制御する"/>
+          <Text TextId="T_ResultsControl" Value="結果制御レジスタ"/>
+          <Text TextId="T_ResultsBufferEnable" Value="結果バッファリングを行う"/>
+          <Text TextId="T_ResultsAck" Value="結果の応答"/>
+          <Text TextId="T_Results_status_module" Value="結果ステータス"/>
+          <Text TextId="T_Results_status_info" Value="結果のステータス"/>
+          <Text TextId="T_ResultsStatus" Value="結果ステータスレジスタ"/>
+          <Text TextId="T_Decoding" Value="デコード中"/>
+          <Text TextId="T_DecodeComplete" Value="デコード完了"/>
+          <Text TextId="T_ResultsBufferOverrun" Value="結果バッファオーバーラン"/>
+          <Text TextId="T_ResultsAvailable" Value="結果確定"/>
+          <Text TextId="T_GeneralFault" Value="リーダエラーが発生したら設定する"/>
+          <Text TextId="T_Softevents_module" Value="ソフトイベント制御"/>
+          <Text TextId="T_Softevents_info" Value="ソフトイベントを制御する"/>
+          <Text TextId="T_SoftEventRegister" Value="ソフトイベント制御レジスタ"/>
+          <Text TextId="T_SoftEventAckRegister" Value="ソフトイベント応答レジスタ"/>
+          <Text TextId="T_SoftEvent0" Value="登録コード"/>
+          <Text TextId="T_SoftEvent1" Value="一致した文字列の登録"/>
+          <Text TextId="T_SoftEvent2" Value="焦点位置の登録"/>
+          <Text TextId="T_SoftEvent3" Value="明るさの登録"/>
+          <Text TextId="T_SoftEvent4" Value="未登録"/>
+          <Text TextId="T_SoftEvent5" Value="予備"/>
+          <Text TextId="T_SoftEvent6" Value="DMCC の実行"/>
+          <Text TextId="T_SoftEvent7" Value="文字列の一致設定"/>
+          <Text TextId="T_SoftEvent0ack" Value="コード応答登録"/>
+          <Text TextId="T_SoftEvent1ack" Value="一致した文字列応答の登録"/>
+          <Text TextId="T_SoftEvent2ack" Value="焦点位置応答登録"/>
+          <Text TextId="T_SoftEvent3ack" Value="明るさ応答登録"/>
+          <Text TextId="T_SoftEvent4ack" Value="応答未登録"/>
+          <Text TextId="T_SoftEvent5ack" Value="予備"/>
+          <Text TextId="T_SoftEvent6ack" Value="DMCC 応答の実行"/>
+          <Text TextId="T_SoftEvent7ack" Value="文字列の一致応答設定"/>
+          <Text TextId="T_UserData_16_module" Value="ユーザデータ - 16バイト"/>
+          <Text TextId="T_UserData_16_info" Value="DataMan に16バイトを書き込む"/>
+          <Text TextId="T_UserData_32_module" Value="ユーザデータ - 32バイト"/>
+          <Text TextId="T_UserData_32_info" Value="DataMan に32バイトを書き込む"/>
+          <Text TextId="T_UserData_64_module" Value="ユーザデータ - 64バイト"/>
+          <Text TextId="T_UserData_64_info" Value="DataMan に64バイトを書き込む"/>
+          <Text TextId="T_UserData_128_module" Value="ユーザデータ - 128バイト"/>
+          <Text TextId="T_UserData_128_info" Value="DataMan に128バイトを書き込む"/>
+          <Text TextId="T_userdata_250_module" Value="ユーザデータ - 250バイト"/>
+          <Text TextId="T_UserData_250_info" Value="DataMan に250バイトを書き込む"/>
+          <Text TextId="T_UserDataOption" Value="ユーザデータオプション"/>
+          <Text TextId="T_UserDataLength" Value="ユーザデータの長さ"/>
+          <Text TextId="T_UserData" Value="ユーザデータ"/>
+          <Text TextId="T_ResultData_16_module" Value="結果 - 16バイト"/>
+          <Text TextId="T_ResultData_16_info" Value="DataMan から16バイトを読み取る"/>
+          <Text TextId="T_ResultData_32_module" Value="結果 - 32バイト"/>
+          <Text TextId="T_ResultData_32_info" Value="DataMan から32バイトを読み取る"/>
+          <Text TextId="T_ResultData_64_module" Value="結果 - 64バイト"/>
+          <Text TextId="T_ResultData_64_info" Value="DataMan から64バイトを読み取る"/>
+          <Text TextId="T_ResultData_128_module" Value="結果 - 128バイト"/>
+          <Text TextId="T_ResultData_128_info" Value="DataMan から128バイトを読み取る"/>
+          <Text TextId="T_ResultData_246_module" Value="結果 - 246バイト"/>
+          <Text TextId="T_ResultData_246_info" Value="DataMan から246バイトを読み取る"/>
+          <Text TextId="T_ResultID" Value="結果ID"/>
+          <Text TextId="T_ResultCode" Value="結果コード"/>
+          <Text TextId="T_ResultExtended" Value="結果拡張"/>
+          <Text TextId="T_ResultLength" Value="結果長さ"/>
+          <Text TextId="T_ResultData" Value="結果データ"/>
+        </Language>
+        <Language xml:lang="zh">
+          <!-- General Text -->
+          <Text TextId="T_FamilyDescription" Value="DataMan ID 读码器"/>
+          <Text TextId="T_DataManDM470" Value="DataMan 470"/>
+          <Text TextId="T_DataManDM470Description" Value="DataMan 470 ID 读码器"/>
+          <Text TextId="T_DataManDM370" Value="DataMan 370"/>
+          <Text TextId="T_DataManDM370Description" Value="DataMan 370 ID 读码器"/>
+          <Text TextId="T_DataManDM8700" Value="DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM8700Description" Value="DataMan 8700 ID 读码器"/>
+          <Text TextId="T_DataManDM280" Value="DataMan 280 CC-B"/>
+          <Text TextId="T_DataManDM280Description" Value="DataMan 280 ID 读码器"/>
+          <Text TextId="IDT_SS_Interface" Value="X1"/>
+          <Text TextId="IDT_SS_Port1" Value="X1 P1"/>
+          <Text TextId="T_DAP_InterfaceModule" Value="接口"/>
+          <Text TextId="T_Port1" Value="端口 1"/>
+          <!-- Module Info -->
+          <Text TextId="T_ControlCategory" Value="DataMan 控制模块"/>
+          <Text TextId="T_StatusCategory" Value="DataMan 状态模块"/>
+          <Text TextId="T_DataCategory" Value="DataMan 数据模块"/>
+          <Text TextId="T_Acquisition_control_module" Value="采集控制"/>
+          <Text TextId="T_Acquisition_control_info" Value="控制采集和联机/脱机"/>
+          <Text TextId="T_AcquisitionControl" Value="采集控制寄存器"/>
+          <Text TextId="T_AcquisitionTriggerEnable" Value="采集触发器启用"/>
+          <Text TextId="T_AcquisitionTrigger" Value="采集触发器"/>
+          <Text TextId="T_Acquisition_status_module" Value="采集状态"/>
+          <Text TextId="T_Acquisition_status_info" Value="采集状态和联机/脱机状态"/>
+          <Text TextId="T_AcquisitionStatus" Value="采集状态寄存器"/>
+          <Text TextId="T_TriggerReady" Value="采集触发器就绪"/>
+          <Text TextId="T_TriggerAcknowledge" Value="采集触发器确认"/>
+          <Text TextId="T_Acquiring" Value="采集"/>
+          <Text TextId="T_MissedAcquisition" Value="错过采集"/>
+          <Text TextId="T_TriggerID" Value="采集计数"/>
+          <Text TextId="T_Results_control_module" Value="检查控件"/>
+          <Text TextId="T_Results_control_info" Value="控制检测"/>
+          <Text TextId="T_ResultsControl" Value="检测控制寄存器"/>
+          <Text TextId="T_ResultsBufferEnable" Value="启用结果缓冲"/>
+          <Text TextId="T_ResultsAck" Value="结果确认"/>
+          <Text TextId="T_Results_status_module" Value="检查状态"/>
+          <Text TextId="T_Results_status_info" Value="检测的状态"/>
+          <Text TextId="T_ResultsStatus" Value="检测状态寄存器"/>
+          <Text TextId="T_Decoding" Value="正在检测"/>
+          <Text TextId="T_DecodeComplete" Value="检测已完成"/>
+          <Text TextId="T_ResultsBufferOverrun" Value="结果缓冲超时运行"/>
+          <Text TextId="T_ResultsAvailable" Value="结果有效"/>
+          <Text TextId="T_GeneralFault" Value="读码器发生故障时设置"/>
+          <Text TextId="T_Softevents_module" Value="SoftEvent 控制"/>
+          <Text TextId="T_Softevents_info" Value="触发器 SoftEvent"/>
+          <Text TextId="T_SoftEventRegister" Value="SoftEvent 控制"/>
+          <Text TextId="T_SoftEventAckRegister" Value="SoftEvent确认寄存器"/>
+          <Text TextId="T_SoftEvent0" Value="触发器 SoftEvent 0"/>
+          <Text TextId="T_SoftEvent1" Value="触发器 SoftEvent 1"/>
+          <Text TextId="T_SoftEvent2" Value="触发器 SoftEvent 2"/>
+          <Text TextId="T_SoftEvent3" Value="触发器 SoftEvent 3"/>
+          <Text TextId="T_SoftEvent4" Value="触发器 SoftEvent 4"/>
+          <Text TextId="T_SoftEvent5" Value="触发器 SoftEvent 5"/>
+          <Text TextId="T_SoftEvent6" Value="触发器 SoftEvent 6"/>
+          <Text TextId="T_SoftEvent7" Value="触发器 SoftEvent 7"/>
+          <Text TextId="T_SoftEvent0ack" Value="训练代码确认"/>
+          <Text TextId="T_SoftEvent1ack" Value="训练匹配字符串确认"/>
+          <Text TextId="T_SoftEvent2ack" Value="训练焦点确认"/>
+          <Text TextId="T_SoftEvent3ack" Value="训练亮度确认"/>
+          <Text TextId="T_SoftEvent4ack" Value="未训练确认"/>
+          <Text TextId="T_SoftEvent5ack" Value="保留"/>
+          <Text TextId="T_SoftEvent6ack" Value="执行 DMCC 确认"/>
+          <Text TextId="T_SoftEvent7ack" Value="设置匹配字符串确认"/>
+          <Text TextId="T_UserData_16_module" Value="用户数据 - 16 个字节"/>
+          <Text TextId="T_UserData_16_info" Value="向 DataMan 电子表格写入 16 个字节"/>
+          <Text TextId="T_UserData_32_module" Value="用户数据 - 32 个字节"/>
+          <Text TextId="T_UserData_32_info" Value="向 DataMan 电子表格写入 32 个字节"/>
+          <Text TextId="T_UserData_64_module" Value="用户数据 - 64 个字节"/>
+          <Text TextId="T_UserData_64_info" Value="向 DataMan 电子表格写入 64 个字节"/>
+          <Text TextId="T_UserData_128_module" Value="用户数据 - 128 个字节"/>
+          <Text TextId="T_UserData_128_info" Value="向 DataMan 电子表格写入 128 个字节"/>
+          <Text TextId="T_userdata_250_module" Value="用户数据 - 250 个字节"/>
+          <Text TextId="T_UserData_250_info" Value="向 DataMan 电子表格写入 250 个字节"/>
+          <Text TextId="T_UserDataOption" Value="用户数据选项"/>
+          <Text TextId="T_UserDataLength" Value="用户数据长度"/>
+          <Text TextId="T_UserData" Value="用户数据"/>
+          <Text TextId="T_ResultData_16_module" Value="结果数据 - 16 个字节"/>
+          <Text TextId="T_ResultData_16_info" Value="从 DataMan 电子表格读取 16 个字节"/>
+          <Text TextId="T_ResultData_32_module" Value="结果数据 - 32 个字节"/>
+          <Text TextId="T_ResultData_32_info" Value="从 DataMan 电子表格读取 32 个字节"/>
+          <Text TextId="T_ResultData_64_module" Value="结果数据 - 64 个字节"/>
+          <Text TextId="T_ResultData_64_info" Value="从 DataMan 电子表格读取 64 个字节"/>
+          <Text TextId="T_ResultData_128_module" Value="结果数据 - 128 个字节"/>
+          <Text TextId="T_ResultData_128_info" Value="从 DataMan 电子表格读取 128 个字节"/>
+          <Text TextId="T_ResultData_246_module" Value="结果数据 - 246 个字节"/>
+          <Text TextId="T_ResultData_246_info" Value="从 DataMan 电子表格读取 246 个字节"/>
+          <Text TextId="T_ResultID" Value="检测计数"/>
+          <Text TextId="T_ResultCode" Value="结果码"/>
+          <Text TextId="T_ResultExtended" Value="结果已扩展"/>
+          <Text TextId="T_ResultLength" Value="检测结果"/>
+          <Text TextId="T_ResultData" Value="当前作业名称"/>
+        </Language>
+        <Language xml:lang="ko">
+          <!-- General Text -->
+          <Text TextId="T_FamilyDescription" Value="DataMan ID 판독기 CC-B"/>
+          <Text TextId="T_DataManDM470" Value="DataMan 470 CC-B"/>
+          <Text TextId="T_DataManDM470Description" Value="DataMan 470 ID 판독기 CC-B"/>
+          <Text TextId="T_DataManDM370" Value="DataMan 370 CC-B"/>
+          <Text TextId="T_DataManDM370Description" Value="DataMan 370 ID 판독기 CC-B"/>
+          <Text TextId="T_DataManDM8700" Value="DataMan 8700 CC-B"/>
+          <Text TextId="T_DataManDM8700Description" Value="DataMan 8700 ID 판독기 CC-B"/>
+          <Text TextId="T_DataManDM280" Value="DataMan 280 CC-B"/>
+          <Text TextId="T_DataManDM280Description" Value="DataMan 280 ID 판독기 CC-B"/>
+          <Text TextId="IDT_SS_Interface" Value="X1"/>
+          <Text TextId="IDT_SS_Port1" Value="X1 P1"/>
+          <Text TextId="T_DAP_InterfaceModule" Value="인터페이스"/>
+          <Text TextId="T_Port1" Value="포트 1"/>
+          <!-- Module Info -->
+          <Text TextId="T_ControlCategory" Value="DataMan 제어 모듈"/>
+          <Text TextId="T_StatusCategory" Value="DataMan 상태 모듈"/>
+          <Text TextId="T_DataCategory" Value="DataMan 데이터 모듈"/>
+          <Text TextId="T_Acquisition_control_module" Value="획득 제어"/>
+          <Text TextId="T_Acquisition_control_info" Value="획득 제어"/>
+          <Text TextId="T_AcquisitionControl" Value="인식 제어 등록"/>
+          <Text TextId="T_AcquisitionTriggerEnable" Value="트리거 활성화"/>
+          <Text TextId="T_AcquisitionTrigger" Value="트리거"/>
+          <Text TextId="T_Acquisition_status_module" Value="획득 상태"/>
+          <Text TextId="T_Acquisition_status_info" Value="획득의 상태"/>
+          <Text TextId="T_AcquisitionStatus" Value="인식 상태 등록"/>
+          <Text TextId="T_TriggerReady" Value="트리거 준비완료"/>
+          <Text TextId="T_TriggerAcknowledge" Value="트리거 확인"/>
+          <Text TextId="T_Acquiring" Value="인식"/>
+          <Text TextId="T_MissedAcquisition" Value="인식 분실"/>
+          <Text TextId="T_TriggerID" Value="트리거 ID"/>
+          <Text TextId="T_Results_control_module" Value="결과 제어"/>
+          <Text TextId="T_Results_control_info" Value="결과 제어"/>
+          <Text TextId="T_ResultsControl" Value="결과 제어 등록"/>
+          <Text TextId="T_ResultsBufferEnable" Value="결과 버퍼링 활성화"/>
+          <Text TextId="T_ResultsAck" Value="결과 확인"/>
+          <Text TextId="T_Results_status_module" Value="결과 상태"/>
+          <Text TextId="T_Results_status_info" Value="결과의 상태"/>
+          <Text TextId="T_ResultsStatus" Value="결과 상태 등록"/>
+          <Text TextId="T_Decoding" Value="디코딩"/>
+          <Text TextId="T_DecodeComplete" Value="디코드 완료"/>
+          <Text TextId="T_ResultsBufferOverrun" Value="결과 버퍼 오버런"/>
+          <Text TextId="T_ResultsAvailable" Value="결과 유효"/>
+          <Text TextId="T_GeneralFault" Value="판독기 오류 발생 시 설정"/>
+          <Text TextId="T_Softevents_module" Value="소프트 이벤트 제어"/>
+          <Text TextId="T_Softevents_info" Value="소프트 이벤트 제어"/>
+          <Text TextId="T_SoftEventRegister" Value="소프트 이벤트 제어 등록"/>
+          <Text TextId="T_SoftEventAckRegister" Value="소프트 이벤트 확인 등록"/>
+          <Text TextId="T_SoftEvent0" Value="코드 트레이닝"/>
+          <Text TextId="T_SoftEvent1" Value="일치 문자열 트레이닝"/>
+          <Text TextId="T_SoftEvent2" Value="포커스 트레이닝"/>
+          <Text TextId="T_SoftEvent3" Value="밝기 트레이닝"/>
+          <Text TextId="T_SoftEvent4" Value="트레이닝하지 않음"/>
+          <Text TextId="T_SoftEvent5" Value="예약됨"/>
+          <Text TextId="T_SoftEvent6" Value="DMCC 실행"/>
+          <Text TextId="T_SoftEvent7" Value="일치 문자열 설정"/>
+          <Text TextId="T_SoftEvent0ack" Value="코드 트레이닝 확인"/>
+          <Text TextId="T_SoftEvent1ack" Value="일치 문자열 트레이닝 확인"/>
+          <Text TextId="T_SoftEvent2ack" Value="포커스 트레이닝 확인"/>
+          <Text TextId="T_SoftEvent3ack" Value="밝기 트레이닝 확인"/>
+          <Text TextId="T_SoftEvent4ack" Value="트레이닝하지 않음 확인"/>
+          <Text TextId="T_SoftEvent5ack" Value="예약됨"/>
+          <Text TextId="T_SoftEvent6ack" Value="DMCC 실행 확인"/>
+          <Text TextId="T_SoftEvent7ack" Value="일치 문자열 설정 확인"/>
+          <Text TextId="T_UserData_16_module" Value="사용자 데이터 - 16바이트"/>
+          <Text TextId="T_UserData_16_info" Value="DataMan으로 16바이트 쓰기"/>
+          <Text TextId="T_UserData_32_module" Value="사용자 데이터 - 32바이트"/>
+          <Text TextId="T_UserData_32_info" Value="DataMan으로 32바이트 쓰기"/>
+          <Text TextId="T_UserData_64_module" Value="사용자 데이터 - 64바이트"/>
+          <Text TextId="T_UserData_64_info" Value="DataMan으로 64바이트 쓰기"/>
+          <Text TextId="T_UserData_128_module" Value="사용자 데이터 - 128바이트"/>
+          <Text TextId="T_UserData_128_info" Value="DataMan으로 128바이트 쓰기"/>
+          <Text TextId="T_userdata_250_module" Value="사용자 데이터 - 250바이트"/>
+          <Text TextId="T_UserData_250_info" Value="DataMan으로 250바이트 쓰기"/>
+          <Text TextId="T_UserDataOption" Value="사용자 데이터 옵션"/>
+          <Text TextId="T_UserDataLength" Value="사용자 데이터 길이"/>
+          <Text TextId="T_UserData" Value="사용자 데이터"/>
+          <Text TextId="T_ResultData_16_module" Value="결과 데이터 - 16바이트"/>
+          <Text TextId="T_ResultData_16_info" Value="DataMan에서 16바이트 읽기"/>
+          <Text TextId="T_ResultData_32_module" Value="결과 데이터 - 32바이트"/>
+          <Text TextId="T_ResultData_32_info" Value="DataMan에서 32바이트 읽기"/>
+          <Text TextId="T_ResultData_64_module" Value="결과 데이터 - 64바이트"/>
+          <Text TextId="T_ResultData_64_info" Value="DataMan에서 64바이트 읽기"/>
+          <Text TextId="T_ResultData_128_module" Value="결과 데이터 - 128바이트"/>
+          <Text TextId="T_ResultData_128_info" Value="DataMan에서 128바이트 읽기"/>
+          <Text TextId="T_ResultData_246_module" Value="결과 데이터 - 246바이트"/>
+          <Text TextId="T_ResultData_246_info" Value="DataMan에서 246바이트 읽기"/>
+          <Text TextId="T_ResultID" Value="결과 ID"/>
+          <Text TextId="T_ResultCode" Value="결과 코드"/>
+          <Text TextId="T_ResultExtended" Value="결과가 확장됨"/>
+          <Text TextId="T_ResultLength" Value="결과 길이"/>
+          <Text TextId="T_ResultData" Value="결과 데이터"/>
+        </Language>
+      </ExternalTextList>
+    </ApplicationProcess>
+  </ProfileBody>
+</ISO15745Profile>
