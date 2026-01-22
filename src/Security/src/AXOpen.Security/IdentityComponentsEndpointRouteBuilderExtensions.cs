@@ -108,6 +108,16 @@ namespace Microsoft.AspNetCore.Routing
                     if (context.User.Identity?.Name != null)
                         currentUser = await userManager.FindByNameAsync(context.User.Identity.Name);
 
+                    if (currentUser != null)
+                    {
+                        if (logoutHandler != null)
+                        {
+                            string ipAddress = GetClientIpAddress(context);
+                            await logoutHandler(currentUser.UserName!, ipAddress);
+                        }
+                        await signInManager.SignOutAsync();
+                    }
+
                     // Find user by hashed external auth ID
                     var users = userManager.Users.Where(u => TokenHasher.VerifyToken(externalAuthId, u.ExternalAuthId)).ToList();
                     if (!users.Any() || users.Count > 1)
@@ -115,31 +125,9 @@ namespace Microsoft.AspNetCore.Routing
 
                     var user = users.First();
 
-                    if (currentUser != null)
-                    {
-                        // User is already logged in
-                        if (TokenHasher.VerifyToken(externalAuthId, currentUser.ExternalAuthId))
-                        {
-                            // Same user - log out
-                            if (logoutHandler != null)
-                            {
-                                string ipAddress = GetClientIpAddress(context);
-                                await logoutHandler(currentUser.UserName!, ipAddress);
-                            }
-                            await signInManager.SignOutAsync();
+                    if (currentUser != null) // User is already logged in
+                        if (TokenHasher.VerifyToken(externalAuthId, currentUser.ExternalAuthId)) // Same user - only log out
                             return TypedResults.LocalRedirect(string.IsNullOrEmpty(returnUrl) ? "/" : !returnUrl.StartsWith("/") ? "/" + returnUrl : returnUrl.StartsWith("//") ? "/" + returnUrl.TrimStart('/') : returnUrl);
-                        }
-                        else
-                        {
-                            // Different user - log out current and log in new
-                            if (logoutHandler != null)
-                            {
-                                string ipAddress = GetClientIpAddress(context);
-                                await logoutHandler(currentUser.UserName!, ipAddress);
-                            }
-                            await signInManager.SignOutAsync();
-                        }
-                    }
 
                     // Sign in the user
                     await signInManager.SignInAsync(user, isPersistent: false);
