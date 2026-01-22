@@ -55,6 +55,10 @@ namespace AXOpen.Data
 
             foreach (PropertyInfo property in @object.GetType().GetProperties())
             {
+                // Skip static properties (infrastructure/repository objects)
+                if (property.GetGetMethod()?.IsStatic == true)
+                    continue;
+
                 object? propValue = property.GetValue(@object, null);
 
                 if (property.Name == "Hash" || property.Name == "RecordId" || propValue == null)
