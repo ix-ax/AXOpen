@@ -1,0 +1,10 @@
+Templates:
+  Modules:
+  - Name: 'AventicsPneumaticsAESValveDriverValvePowerSupply'
+    Placeholders:
+    - Name: 'NAME'
+    Content:
+      Name: '${NAME}'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.34-AVENTICS-02B5-AES2-20240707.XML'
+        GsdId: 'IDM_30'
