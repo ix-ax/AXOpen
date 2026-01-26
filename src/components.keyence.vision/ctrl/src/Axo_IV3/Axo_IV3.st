@@ -63,7 +63,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
-            {#ix-attr:[ReadOnly()]}
+            //{#ix-attr:[ReadOnly()]}
             Outputs              :   Axo_IV3_Out;
         END_VAR    
 
@@ -6247,7 +6247,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 318;
                     ELSE
                         THIS.CallTimers(FALSE);
-                        _progress := 312;
+                        _progress := 316;
                     END_IF;
                 END_IF;
 
