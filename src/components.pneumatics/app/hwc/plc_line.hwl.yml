@@ -8,9 +8,30 @@ Devices:
         PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
         ADMIN_NAME: 'admin'
         CYCLE_COMMUNICATION_LOAD: 50
+  - Apply: AventicsPneumaticsAES
+    Arguments:
+      NAME: aes-d-bc-pnio
+      IP_ADDRESS_X1: '192.168.100.140/24'
+      PROFINET_DEVICE_NAME_X1: aes-d-bc-pnio
+      SLOT_1: AventicsPneumaticsAESValveDriver4Valves   #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_2: AventicsPneumaticsAESEmptySlot            #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_3: AventicsPneumaticsAESEmptySlot            #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_4: AventicsPneumaticsAESEmptySlot            #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_5: AventicsPneumaticsAESEmptySlot            #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_6: AventicsPneumaticsAESEmptySlot            #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_7: AventicsPneumaticsAESEmptySlot            #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_8: AventicsPneumaticsAESEmptySlot            #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_9: AventicsPneumaticsAESEmptySlot            #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_10: AventicsPneumaticsAESEmptySlot           #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_11: AventicsPneumaticsAESEmptySlot           #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_12: AventicsPneumaticsAESEmptySlot           #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_13: AventicsPneumaticsAESEmptySlot           #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_14: AventicsPneumaticsAESEmptySlot           #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_15: AventicsPneumaticsAESEmptySlot           #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
+      SLOT_16: AventicsPneumaticsAESEmptySlot           #  Possible values: AventicsPneumaticsAESEmptySlot, AventicsPneumaticsAESValveDriver2Valves, AventicsPneumaticsAESValveDriver3Valves, AventicsPneumaticsAESValveDriver4Valves, AventicsPneumaticsAESValveDriverValvePowerSupply
 IoSystems:
 - Name: profinet_plc_line
   ControllerInterfaces:
   - Ref: plc_line/plc_line/PROFINET_interface_1
   DeviceInterfaces:
-  # - Ref: device_1/device_1/PROFINET_Interface
+  - Ref: aes-d-bc-pnio/aes-d-bc-pnio/PN-IO

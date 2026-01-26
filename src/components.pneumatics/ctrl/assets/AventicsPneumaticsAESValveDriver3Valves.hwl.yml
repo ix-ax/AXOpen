@@ -3,6 +3,43 @@ Templates:
   - Name: 'AventicsPneumaticsAESValveDriver3Valves'
     Placeholders:
     - Name: 'NAME'
+      Value: 'Slot_1'
+      AllowedValues:
+        - 'Slot_1'
+        - 'Slot_2'
+        - 'Slot_3'    
+        - 'Slot_4'    
+        - 'Slot_5'
+        - 'Slot_6'
+        - 'Slot_7'    
+        - 'Slot_8'    
+        - 'Slot_9'
+        - 'Slot_10'
+        - 'Slot_11'    
+        - 'Slot_12'    
+        - 'Slot_13'
+        - 'Slot_14'
+        - 'Slot_15'    
+        - 'Slot_16'    
+    - Name: 'SLOT'
+      Value: 1
+      AllowedValues:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
     Content:
       Name: '${NAME}'
       TypeIdentifier:
@@ -12,3 +49,4 @@ Templates:
         Outputs:
           # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
           ProcessImagePartition: 'Automatic update'
+      Slot: ${SLOT}        
