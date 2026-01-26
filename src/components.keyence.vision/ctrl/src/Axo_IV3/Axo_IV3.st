@@ -6244,14 +6244,15 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     Outputs.CommandControl.ProgramNo := _programNumber;
                     IF Outputs.CommandControl.ProgramNo = Inputs.DeviceStatusWords.CurrentProgramNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 314;
+                        _progress := 318;
                     ELSE
                         THIS.CallTimers(FALSE);
                         _progress := 312;
                     END_IF;
                 END_IF;
+
                 // ChangeProgramTask running: waiting for the raising of the 'ProgramSwitchingResponse' signal.
-                IF _progress = 312 THEN
+                IF _progress = 316 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#512;
@@ -6261,11 +6262,11 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
                     IF Inputs.CommandStatusBits.ProgramSwitchingResponse THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 313;
+                        _progress := 317;
                     END_IF;
                 END_IF;
                 // ChangeProgramTask running: waiting for the falling of the 'ProgramSwitchingResponse' signal.
-                IF _progress = 313 THEN
+                IF _progress = 317 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#513;
@@ -6275,11 +6276,11 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
                     IF NOT Inputs.CommandStatusBits.ProgramSwitchingResponse THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 314;
+                        _progress := 318;
                     END_IF;
                 END_IF;
                 // ChangeProgramTask finished.
-                IF _progress = 314 THEN
+                IF _progress = 318 THEN
                     ChangeProgramTask.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
