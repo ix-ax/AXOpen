@@ -1,5 +1,5 @@
 NAMESPACE AXOpen.Components.Pneumatics
-    TYPE HwIdentifierList : ARRAY[0..36] OF UINT :=
+    TYPE HwIdentifierList : ARRAY[0..37] OF UINT :=
             [
                 UINT#32,
                 UINT#48,
@@ -37,7 +37,8 @@ NAMESPACE AXOpen.Components.Pneumatics
                 UINT#277,
                 UINT#278,
                 UINT#279,
-                UINT#280
+                UINT#280,
+                UINT#281
     ];
 END_TYPE
 END_NAMESPACE

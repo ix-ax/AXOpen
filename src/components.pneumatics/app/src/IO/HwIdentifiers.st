@@ -38,7 +38,8 @@ NAMESPACE AXOpen.Components.Pneumatics
             aes_d_bc_pnio_Slot_2_empty_slot_HwID := UINT#277,
             aes_d_bc_pnio_Slot_1_Valve_driver_4_valves_4_HwID := UINT#278,
             aes_d_bc_pnio_aes_d_bc_pnio_AES_Modul_HwID := UINT#279,
-            plc_line_Rail_0_HwID := UINT#280
+            plc_line_Rail_0_HwID := UINT#280,
+            plc_line_A1_A1_HwID := UINT#281
         );
     END_TYPE
 END_NAMESPACE

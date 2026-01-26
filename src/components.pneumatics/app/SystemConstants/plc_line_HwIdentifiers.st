@@ -24,6 +24,7 @@ CONFIGURATION HardwareIDs
         aes_d_bc_pnio_aes_d_bc_pnio_PN_IO_Port_1_HwID : UINT := UINT#259;
         aes_d_bc_pnio_aes_d_bc_pnio_PN_IO_Port_2_HwID : UINT := UINT#260;
         plc_line_HwID : UINT := UINT#32;
+        plc_line_A1_A1_HwID : UINT := UINT#281;
         plc_line_Rail_0_HwID : UINT := UINT#280;
         plc_line_plc_line_HwID : UINT := UINT#48;
         plc_line_plc_line_CPU_display_1_HwID : UINT := UINT#54;
