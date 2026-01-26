@@ -20,7 +20,7 @@ Templates:
     - Name: CYCLE_COMMUNICATION_LOAD
       Value: 20
     Content:
-      Name: "${NAME}"
+      Name: '${NAME}'
       TypeIdentifier:
         OrderNumber: '6ES7 517-3AQ10-0AB0'
         Version: 'V4.0'
@@ -37,6 +37,7 @@ Templates:
           - 'NoSecurity'
           - 'Basic256Sha256Sign'
           - 'Basic256Sha256SignEncrypt'
+          AutoAcceptAllClientCertificates: True
           # Possible value range: [1024, 49151]
           Port: 4840
           # AlarmsAndConditionsAcknowledgeActive (Boolean)
@@ -60,7 +61,9 @@ Templates:
           - IPv4: '${IP_ADDRESS_X1}'
           - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
         Parameters:
+          LoadLimitation: True
           OverwriteDeviceNames: False
+          DeviceReplacementWithoutExchangeableMedium: True
           # Possible values: 250000 | 375000 | 500000 | 625000 | 750000 | 875000 | 1000000 | 1125000 | 1250000 | 1375000 | 1500000 | 1625000 | 1750000 | 1875000 | 2000000 | 2125000 | 2250000 | 2375000 | 2500000 | 2625000 | 2750000 | 2875000 | 3000000 | 3125000 | 3250000 | 3375000 | 3500000 | 3625000 | 3750000 | 3875000 | 4000000
           PnSendClock: 1000000
           UseWebServerForInterface: True
@@ -72,7 +75,9 @@ Templates:
           - IPv4: '${IP_ADDRESS_X2}'
           - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X2}'
         Parameters:
+          LoadLimitation: False
           OverwriteDeviceNames: False
+          DeviceReplacementWithoutExchangeableMedium: True
           # Possible values: 250000 | 375000 | 500000 | 625000 | 750000 | 875000 | 1000000 | 1125000 | 1250000 | 1375000 | 1500000 | 1625000 | 1750000 | 1875000 | 2000000 | 2125000 | 2250000 | 2375000 | 2500000 | 2625000 | 2750000 | 2875000 | 3000000 | 3125000 | 3250000 | 3375000 | 3500000 | 3625000 | 3750000 | 3875000 | 4000000
           PnSendClock: 1000000
           UseWebServerForInterface: True
@@ -97,7 +102,6 @@ Templates:
           EndOfTopologyDiscovery: False
           PortMonitoring: False
           # TransmissionRateAutoNegotiation: True
-          # CableName: 0
           # MediumAttachmentType: 'Copper'
       - Name: 'Port_2'
         Label: 'X1 P2'
@@ -109,7 +113,6 @@ Templates:
           EndOfTopologyDiscovery: False
           PortMonitoring: False
           # TransmissionRateAutoNegotiation: True
-          # CableName: 0
           # MediumAttachmentType: 'Copper'
       - Name: 'Port_3'
         Label: 'X2 P1'
@@ -121,7 +124,6 @@ Templates:
           EndOfTopologyDiscovery: False
           PortMonitoring: False
           # TransmissionRateAutoNegotiation: True
-          # CableName: 0
           # MediumAttachmentType: 'Copper'
       - Name: 'Port_4'
         Label: 'X2 P2'
@@ -133,7 +135,6 @@ Templates:
           EndOfTopologyDiscovery: False
           PortMonitoring: False
           # TransmissionRateAutoNegotiation: True
-          # CableName: 0
           # MediumAttachmentType: 'Copper'
       - Name: 'Port_5'
         Label: 'X3 P1'
@@ -141,11 +142,9 @@ Templates:
           PortActivation: True
           # Possible values: 16 - TP 100 Mbps full duplex | 8 - Automatic
           TransmissionRateAndDuplex: 'Automatic'
-          # EndOfDetectionOfAccessibleDevices: False
           EndOfTopologyDiscovery: False
           PortMonitoring: False
           # TransmissionRateAutoNegotiation: True
-          # CableName: 0
           # MediumAttachmentType: 'Copper'
       Parameters:
         # Possible values: 0 - Deactivated | 4 - Device | 1 - Project | 2 - Remotely
@@ -181,7 +180,7 @@ Templates:
         StartupConfigurationTimeout: 60000
         # SystemMemoryByteAddress (Integer)
         SystemMemoryByte: False
-        # Possible values: 0 - NoConnectionToExternal24VSupply | 1 - ConnectionToExternal24VSupply
+        # Possible values: 1 - ConnectionToExternal24VSupply | 0 - NoConnectionToExternal24VSupply
         SystemPowerSupplyExternal: 'ConnectionToExternal24VSupply'
         TimeOfDayActivateDaylightSavingTime: True
         # Possible value range: [0, 120]
@@ -212,7 +211,7 @@ Templates:
         CentralAlarmManagement: True
         # Possible values: 0 - NoLicense | 1 - SimaticOpcUaS71500Small | 2 - SimaticOpcUaS71500Medium | 3 - SimaticOpcUaS71500Large
         OpcUaPurchasedLicense: 'NoLicense'
-        # Possible values: 0 - NoLicense | 1 - Value1X | 2 - Value2X | 3 - Value3X | 4 - Value4X | 5 - Value5X
+        # Possible values: 0 - NoLicense | 5 - Value5X
         ProDiagUsedLicenses: 'NoLicense'
         IPv4ForwardingActive: False
         # MacRtLicensePurchased (Integer)
@@ -224,7 +223,6 @@ Templates:
         # HostnameConfiguration (Integer)
         # HostnameIdenticalToDeviceNameActive (Boolean)
         # Domain (String)
-        # AccessForLegacyHMI (Integer)
       UserManagement:
         Users:
         # UserManagement parameters listed below are intended as a sample. It is essential to adjust these settings according to your specific requirements before using them in your project.
