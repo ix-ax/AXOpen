@@ -4,20 +4,23 @@ NAMESPACE AXOpen.Components.Pneumatics
     CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
     //<DeclarationAndHWIO_Assignement>
         VAR PUBLIC        
-            PlcInputs : REF_TO PlcInputs;
-            PlcOutputs : REF_TO PlcOutputs;          
             CylinderParent : AXOpen.Core.AxoObject;
             myAxoCylinder : AXOpen.Components.Pneumatics.AxoCylinder;        
         END_VAR
+     
     //</DeclarationAndHWIO_Assignement>
     //<Pneumatic_Run>
-        METHOD PROTECTED OVERRIDE Main        
+        METHOD PROTECTED OVERRIDE Main    
+            VAR_EXTERNAL        
+                Inputs : AXOpen.Components.Pneumatics.Inputs;
+                Outputs : AXOpen.Components.Pneumatics.Outputs;          
+            END_VAR                   
             THIS.InitializeRootObject(CylinderParent);
             myAxoCylinder.Run(  CylinderParent, 
-                            PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X0, 
-                            PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X1, 
-                            PlcOutputs^.ET200SP_DQ_8x24VDC_0_5A_ST_V1_1_1.%X0, 
-                            PlcOutputs^.ET200SP_DQ_8x24VDC_0_5A_ST_V1_1_1.%X0); 
+                            Inputs.plc_line_A1_Input.Channel_00DI, 
+                            Inputs.plc_line_A1_Input.Channel_01DI, 
+                            Outputs.aes_d_bc_pnio_Slot_1_Output.Signals_0_0,
+                            Outputs.aes_d_bc_pnio_Slot_1_Output.Signals_0_1);                             
         END_METHOD
     //</Pneumatic_Run>
     END_CLASS
