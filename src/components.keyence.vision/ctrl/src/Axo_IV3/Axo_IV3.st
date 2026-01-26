@@ -6352,6 +6352,13 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             VAR_INPUT
                 inProgramNumber : UINT;
             END_VAR
+
+            IF     (inProgramNumber <> _programNumber ) // last requeste program number different
+                OR (inProgramNumber <> Inputs.DeviceStatusWords.CurrentProgramNo ) // different program loaded
+            THEN
+                ChangeProgramTask.Restore();
+            END_IF;
+
             _programNumber := inProgramNumber;
             ChangeProgram := ChangeProgramTask.Invoke(THIS);
         END_METHOD
