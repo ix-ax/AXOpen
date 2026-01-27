@@ -63,7 +63,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
-            //{#ix-attr:[ReadOnly()]}
+            {#ix-attr:[ReadOnly()]}
             Outputs              :   Axo_IV3_Out;
         END_VAR    
 
