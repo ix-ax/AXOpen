@@ -6249,19 +6249,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         _progress := 314; // Continue to change program
                     END_IF;
                 END_IF;
-                // ChangeProgramTask running: wait for program numbers to be equal.
-                IF _progress = 312 THEN 
-                    IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
-                        Status.Error.Id :=      UINT#513;
-                    END_IF;
-    
-                    Outputs.CommandControl.ProgramSwitchingRequest     := TRUE;
-                    IF Outputs.CommandControl.ProgramNo = Inputs.DeviceStatusWords.CurrentProgramNo THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := 313;
-                    END_IF;
-                END_IF;
+                 // evaluated before 312 => +1 plc cycle
                  // ChangeProgramTask running: wait for falling edge ProgramSwitchingResponse
                 IF _progress = 313 THEN 
                     IF _infoTimer.output THEN
@@ -6270,11 +6258,25 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     END_IF;
     
                     Outputs.CommandControl.ProgramSwitchingRequest     := FALSE;
-                    IF NOT Inputs.CommandStatusBits.ProgramSwitchingResponse  THEN
+                    IF NOT Inputs.CommandStatusBits.BUSY  THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 311;
+                        _progress := 311; // +1 plc cycle to check ProgramSwitchingResponse
                     END_IF;
                 END_IF;
+                // ChangeProgramTask running: wait for program numbers to be equal.
+                IF _progress = 312 THEN 
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#513;
+                    END_IF;
+    
+                    Outputs.CommandControl.ProgramSwitchingRequest     := TRUE;
+                    IF TRUE THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 313; //+1 plc cycle to wait for falling edge
+                    END_IF;
+                END_IF;
+                
                 // ChangeProgramTask running: setting the new program number.
                 IF _progress = 314 THEN
                     IF _infoTimer.output THEN
