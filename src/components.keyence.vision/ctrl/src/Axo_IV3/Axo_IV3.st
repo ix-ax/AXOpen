@@ -6353,11 +6353,11 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 inProgramNumber : UINT;
             END_VAR
 
-            IF     (inProgramNumber <> _programNumber ) // last requeste program number different
-                OR (inProgramNumber <> Inputs.DeviceStatusWords.CurrentProgramNo ) // different program loaded
-            THEN
-                ChangeProgramTask.Restore();
-            END_IF;
+            // different program loaded in HW - restore task to be able to run it again
+            IF ( inProgramNumber <> Inputs.DeviceStatusWords.CurrentProgramNo ) && ChangeProgramTask.IsDone() THEN // not works - unknown reason
+            //IF  ChangeProgramTask.IsDone() && ( inProgramNumber <> _programNumber ) THEN
+            //     ChangeProgramTask.Restore();
+            // END_IF;
 
             _programNumber := inProgramNumber;
             ChangeProgram := ChangeProgramTask.Invoke(THIS);
