@@ -58,16 +58,16 @@ namespace AXOpen.Data
         /// <returns>Returns true if the read operation is successful; otherwise, false.</returns>
         private async Task<bool> ReadTagsFromPlc(string group)
         {
-            var tagsToRead = tagsInGroups[group];
-            if (tagsToRead != null)
+            if (tagsInGroups.ContainsKey(group))
             {
-                await _root.GetConnector().ReadBatchAsync(tagsToRead);
-                return true;
+                var tagsToRead = tagsInGroups[group];
+                if (tagsToRead != null)
+                {
+                    await _root.GetConnector().ReadBatchAsync(tagsToRead);
+                    return true;
+                }
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         /// <summary>
@@ -148,6 +148,8 @@ namespace AXOpen.Data
         /// <returns>Returns true if the update operation is successful; otherwise, false.</returns>
         public async Task<bool> UpdatePersistentGroupFromPlcToRepository(string persistentGroupName)
         {
+            if (!tagsInGroups.ContainsKey(persistentGroupName)) return false; // group not exist 
+
             await ReadTagsFromPlc(persistentGroupName);
 
             return UpdateReadedTagsToRepository(persistentGroupName);

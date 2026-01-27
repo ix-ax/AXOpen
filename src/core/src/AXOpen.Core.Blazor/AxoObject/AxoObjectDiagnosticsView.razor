@@ -26,7 +26,7 @@
                 {
                     <label class="btn btn-sm @(IsSeveritySelected(severity) ? "btn-primary" : "btn-outline-primary")">
                         <input type="checkbox" checked="@IsSeveritySelected(severity)" @onchange="() => ToggleSeverity(severity)" class="checkbox me-1" />
-                        <span>@SeverityLabel(severity)</span>
+                        @SeverityLabel(severity)
                     </label>
                 }
             </div>
@@ -37,11 +37,11 @@
                 <span class="text-sm font-semibold uppercase">State</span>
                 <label class="btn btn-sm @(IncludeActive ? "btn-primary" : "btn-outline-primary")">
                     <input type="checkbox" @bind="IncludeActive" class="checkbox me-1" />
-                    <span>Active</span>
+                    Active
                 </label>
                 <label class="btn btn-sm @(IncludeCleared ? "btn-primary" : "btn-outline-primary")">
                     <input type="checkbox" @bind="IncludeCleared" class="checkbox me-1" />
-                    <span>Cleared</span>
+                    Cleared
                 </label>
             </div>
 
