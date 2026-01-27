@@ -8,7 +8,7 @@
     <!-- Sequencer Header -->
     <div class="flex flex-wrap justify-between gap-2 mx-4 my-2">
         <div class="flex flex-wrap items-center gap-2">
-            <h5 class="text-xl text-text font-semibold">@Component.Translate(Component.AttributeName, CultureInfo.CurrentUICulture)</h5>
+            <h5 class="text-xl text-text font-semibold">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</h5>
             @if (_currentStatus != eSequenceStatus.Inactive)
             {
                 <span class="badge @StatusBadgeClass">

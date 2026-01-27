@@ -113,15 +113,15 @@ namespace AXOpen.Messaging.Static
                     if (_axoComponent != null)
                     {
                         if (!string.IsNullOrEmpty(_axoComponent.Description_raw))
-                            return $"{_axoComponent.Translate(_axoComponent.AttributeName, CultureInfo.CurrentUICulture)} ({_axoComponent.Description_raw}) ";
+                            return $"{_axoComponent.GetAttributeName(CultureInfo.CurrentUICulture)} ({_axoComponent.Description_raw}) ";
                         else
-                            return _axoComponent.Translate(_axoComponent.AttributeName, CultureInfo.CurrentCulture);
+                            return _axoComponent.GetAttributeName(CultureInfo.CurrentCulture);
                     }
                     else
-                        return _parent.Translate(_parent.AttributeName, CultureInfo.CurrentUICulture);
+                        return _parent.GetAttributeName(CultureInfo.CurrentUICulture);
                 }
 
-                return Component.Translate(Component.AttributeName, CultureInfo.CurrentUICulture);
+                return Component.GetAttributeName(CultureInfo.CurrentUICulture);
             }
         }
     }

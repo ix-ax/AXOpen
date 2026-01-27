@@ -30,7 +30,7 @@
         <div class="flex flex-wrap flex-row justify-between w-full max-w-200">
             <div class="flex flex-wrap flex-col p-1 gap-1">
                 <span class="text-xs text-text/50 font-semibold uppercase">@Localizer["Equipment"]</span>
-                <span class="text-base text-text/80">@DisplayOrDash(Component.Component != null ? Component.Component.Translate(Component.Component.AttributeName, CultureInfo.CurrentUICulture) : string.Empty)</span>
+                <span class="text-base text-text/80">@DisplayOrDash(Component.Component != null ? Component.Component.GetAttributeName(CultureInfo.CurrentUICulture) : string.Empty)</span>
             </div>
             <div class="flex flex-wrap flex-col p-1 gap-1">
                 <span class="text-xs text-text/50 font-semibold uppercase">@Localizer["Raised"]</span>

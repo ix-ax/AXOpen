@@ -29,7 +29,7 @@ namespace AXOpen.Core
                     _ => eStepState.Idle
                 };
 
-        private string _description => string.IsNullOrEmpty(Component.Descr?.GetCyclic()) ? Component.Translate(Component.AttributeName, CultureInfo.CurrentUICulture) : Component.Descr?.GetCyclic(CultureInfo.CurrentUICulture);
+        private string _description => string.IsNullOrEmpty(Component.Descr?.GetCyclic()) ? Component.GetAttributeName(CultureInfo.CurrentUICulture) : Component.Descr?.GetCyclic(CultureInfo.CurrentUICulture);
 
         private string _durationText
         {

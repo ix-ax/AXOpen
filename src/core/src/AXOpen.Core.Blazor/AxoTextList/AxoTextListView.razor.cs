@@ -34,7 +34,7 @@ namespace AXOpen.Core
         }
 
         // Attribute name contains interpolation from twin object.
-        private string _text => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.Translate(Component.AttributeName, CultureInfo.CurrentUICulture);
+        private string _text => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.GetAttributeName(CultureInfo.CurrentUICulture);
 
 
     }

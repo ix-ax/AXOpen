@@ -82,7 +82,7 @@ namespace AXOpen.Inspectors
 
         public string Description
         {
-            get => string.IsNullOrEmpty(base.Component.AttributeName) ? base.Component.GetSymbolTail() : base.Component.Translate(base.Component.AttributeName, CultureInfo.CurrentUICulture);
+            get => string.IsNullOrEmpty(base.Component.AttributeName) ? base.Component.GetSymbolTail() : base.Component.GetAttributeName(CultureInfo.CurrentUICulture);
 
         }
 
