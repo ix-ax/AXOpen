@@ -5,6 +5,8 @@ using System.Security.Principal;
 using AXOpen.Core;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using AXSharp.Connector.Localizations;
+using System.Globalization;
 
 
 namespace AXOpen.Messaging.Static
@@ -113,7 +115,7 @@ namespace AXOpen.Messaging.Static
                         if (!string.IsNullOrEmpty(_axoComponent.Description_raw))
                             return $"{_axoComponent.AttributeName} ({_axoComponent.Description_raw}) ";
                         else
-                            return _axoComponent.AttributeName;
+                            return _axoComponent.Translate(_axoComponent.AttributeName, CultureInfo.CurrentCulture);
                     }
                     else
                         return _parent.AttributeName;
