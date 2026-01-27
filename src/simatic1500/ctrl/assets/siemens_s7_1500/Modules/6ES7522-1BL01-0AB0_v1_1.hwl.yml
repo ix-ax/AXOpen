@@ -1,0 +1,348 @@
+Templates:
+  Modules:
+  - Name: '6ES7522-1BL01-0AB0_v1_1'
+    Placeholders:
+    - Name: 'NAME'
+    - Name: 'OUTPUTADDRESS'
+      Optional: True
+    Content:
+      Name: '${NAME}'
+      TypeIdentifier:
+        OrderNumber: '6ES7 522-1BL01-0AB0'
+        Version: 'V1.1'
+      Parameters:
+        AdditionalInformation: ""
+        EnableValueStatus: False
+        LocationIdentifier: ""
+        PlantDesignation: ""
+        # Possible values: 0 - FromCpu | 1 - StartupCpuOnlyIfCompatible | 2 - StartupCpuIfMismatch
+        StartupComparisonPresetToActualModule: 'FromCpu'
+      Submodules:
+      - Name: 'IOModule'
+        Slot: 1
+        IoConfiguration:
+          OutputAddress: '${OUTPUTADDRESS}'
+          Outputs:
+            # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
+            ProcessImagePartition: 'Automatic update'
+            Channels:
+            - Number: 0
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 1
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 2
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 3
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 4
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 5
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 6
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 7
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 8
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 9
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 10
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 11
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 12
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 13
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 14
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 15
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 16
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 17
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 18
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 19
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 20
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 21
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 22
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 23
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 24
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 25
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 26
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 27
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 28
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 29
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 30
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
+            - Number: 31
+              Parameters:
+                DiagnosticsNoSupplyVoltage: False
+                DiagnosticsShortCircuitToGround: False
+                DiagnosticsWireBreak: False
+                # MaintenanceSwitchingCyclesActive (Boolean)
+                # Possible values: 11 - SubstituteValue1 | 6 - Shutdown | 1 - KeepLastValue
+                ReactionToCpuStop: 'Shutdown'
+                SwitchingCycleCounterActive: False
+                # SwitchingCycleLimit (Integer)
