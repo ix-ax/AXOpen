@@ -1,5 +1,7 @@
 ﻿using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using System.Globalization;
+using AXSharp.Connector.Localizations;
 
 namespace AXOpen.Core
 {
@@ -32,7 +34,7 @@ namespace AXOpen.Core
         }
 
         // Attribute name contains interpolation from twin object.
-        private string _text => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
+        private string _text => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.Translate(Component.AttributeName, CultureInfo.CurrentUICulture);
 
 
     }

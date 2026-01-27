@@ -6,13 +6,15 @@
 @using Operon.Components.Accordion
 @using Operon.Components.Dropdown
 @using Operon.Icons
+@using System.Globalization
+@using AXSharp.Connector.Localizations
 @inherits RenderableComplexComponentBase<AxoByteArray>;
 
 <div data-axo-byte-array-view class="flex flex-wrap w-full">
     <Accordion>
         <AccordionItem Title="Data">
             <div class="flex flex-wrap justify-between">
-                <p class="align-middle">@Component.AttributeName</p>
+                <p class="align-middle">@Component.Translate(Component.AttributeName, CultureInfo.CurrentUICulture)</p>
 
                 <div class="flex flex-wrap items-center gap-1">
                     <div class="">

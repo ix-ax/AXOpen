@@ -3,6 +3,8 @@
 @using System.Security.Principal
 @using Operon.Icons
 @implements IDisposable;
+@using System.Globalization
+@using AXSharp.Connector.Localizations
 
 <div data-axo-messenger-view class="card w-full @ConvertToInternalShadowGlowSeverityName((eAxoMessageCategory)Component.Category.LastValue) @ConvertToInternalBgShadowSeverityName((eAxoMessageCategory)Component.Category.LastValue) @Class">
     <div class="card-title flex flex-wrap flex-row justify-between gap-2 bg-background-light/40!">
@@ -28,7 +30,7 @@
         <div class="flex flex-wrap flex-row justify-between w-full max-w-200">
             <div class="flex flex-wrap flex-col p-1 gap-1">
                 <span class="text-xs text-text/50 font-semibold uppercase">@Localizer["Equipment"]</span>
-                <span class="text-base text-text/80">@DisplayOrDash(Component.Component.AttributeName)</span>
+                <span class="text-base text-text/80">@DisplayOrDash(Component.Component != null ? Component.Component.Translate(Component.Component.AttributeName, CultureInfo.CurrentUICulture) : string.Empty)</span>
             </div>
             <div class="flex flex-wrap flex-col p-1 gap-1">
                 <span class="text-xs text-text/50 font-semibold uppercase">@Localizer["Raised"]</span>

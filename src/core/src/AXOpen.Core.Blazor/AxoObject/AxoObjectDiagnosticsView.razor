@@ -11,6 +11,8 @@
 @using AXOpen.Messaging
 @using AXSharp.Connector
 @inject AuthenticationStateProvider AuthenticationStateProvider;
+@using System.Globalization
+@using AXSharp.Connector.Localizations
 
 @if (EnableFiltering)
 {
@@ -98,7 +100,7 @@
                             </span>
                         </td>
                         <td>@DisplayOrDash(@alarm.GetMessageText())</td>
-                        <td>@alarm.GetParent()?.AttributeName</td>
+                        <td>@(alarm.GetParent() != null ? alarm.GetParent().Translate(alarm.GetParent().AttributeName, CultureInfo.CurrentUICulture) : string.Empty)</td>
                         <td class="font-semibold uppercase">@StateLabel(alarm)</td>
                         <td>@FormatTimestamp(alarm.Risen.LastValue)</td>
                         <td>@FormatAcknowledged(alarm)</td>
@@ -356,7 +358,7 @@
     {
         return (alarm.Message.LastValue?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false)
                || (alarm.Component.Symbol?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false)
-               || (alarm.Component.AttributeName?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false)
+               || (alarm.Component.AttributeName != null && alarm.Component.Translate(alarm.Component.AttributeName, CultureInfo.CurrentUICulture)?.Contains(term, StringComparison.OrdinalIgnoreCase) == true)
                || (alarm.Message.LastValue?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false);
     }
 

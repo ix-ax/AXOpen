@@ -1,5 +1,7 @@
 ﻿@namespace AXOpen.Inspectors
 @using AXSharp.Connector
+@using System.Globalization
+@using AXSharp.Connector.Localizations
 @inherits RenderableComplexComponentBase<AxoAnalogueInspectorData>
 
 
@@ -15,7 +17,7 @@
 
     public string getNameOrSymbol()
     {
-        return string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
+        return string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.Translate(Component.AttributeName, CultureInfo.CurrentUICulture);
     }
 
   
