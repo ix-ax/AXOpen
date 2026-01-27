@@ -13,7 +13,7 @@ Templates:
     - Name: CYCLE_COMMUNICATION_LOAD
       Value: 20
     Content:
-      Name: "${NAME}"
+      Name: '${NAME}'
       TypeIdentifier:
         OrderNumber: '6ES7 587-1AP00-0AB0'
         Version: 'V4.0'
@@ -30,6 +30,7 @@ Templates:
           - 'NoSecurity'
           - 'Basic256Sha256Sign'
           - 'Basic256Sha256SignEncrypt'
+          AutoAcceptAllClientCertificates: True
           # Possible value range: [1024, 49151]
           Port: 4840
           # AlarmsAndConditionsAcknowledgeActive (Boolean)
@@ -53,7 +54,9 @@ Templates:
           - IPv4: '${IP_ADDRESS_X1}'
           - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
         Parameters:
+          LoadLimitation: False
           OverwriteDeviceNames: False
+          DeviceReplacementWithoutExchangeableMedium: True
           PnSendClock: 1000000
           UseWebServerForInterface: True
           IECV22LLDPMode: False
@@ -67,7 +70,6 @@ Templates:
           EndOfTopologyDiscovery: False
           PortMonitoring: False
           # TransmissionRateAutoNegotiation: True
-          # CableName: 0
           # MediumAttachmentType: 'Copper'
       Parameters:
         # Possible values: 0 - Deactivated | 4 - Device | 1 - Project | 2 - Remotely
@@ -103,7 +105,7 @@ Templates:
         StartupConfigurationTimeout: 60000
         # SystemMemoryByteAddress (Integer)
         SystemMemoryByte: False
-        # Possible values: 0 - NoConnectionToExternal24VSupply | 1 - ConnectionToExternal24VSupply
+        # Possible values: 1 - ConnectionToExternal24VSupply | 0 - NoConnectionToExternal24VSupply
         SystemPowerSupplyExternal: 'ConnectionToExternal24VSupply'
         TimeOfDayActivateDaylightSavingTime: True
         # Possible value range: [0, 120]
@@ -134,7 +136,7 @@ Templates:
         CentralAlarmManagement: True
         # Possible values: 0 - NoLicense | 1 - SimaticOpcUaS71500Small | 2 - SimaticOpcUaS71500Medium | 3 - SimaticOpcUaS71500Large
         OpcUaPurchasedLicense: 'NoLicense'
-        # Possible values: 0 - NoLicense | 1 - Value1X | 2 - Value2X | 3 - Value3X | 4 - Value4X | 5 - Value5X
+        # Possible values: 0 - NoLicense | 5 - Value5X
         ProDiagUsedLicenses: 'NoLicense'
         IPv4ForwardingActive: False
         # MacRtLicensePurchased (Integer)
@@ -146,7 +148,6 @@ Templates:
         # HostnameConfiguration (Integer)
         # HostnameIdenticalToDeviceNameActive (Boolean)
         # Domain (String)
-        # AccessForLegacyHMI (Integer)
         # AmbientTemperature (Integer)
         # Possible values: 0 - DefaultPerformance | 1 - PerformanceBoost25Percent
         PerformanceBoost: 'DefaultPerformance'
