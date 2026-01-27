@@ -6234,8 +6234,49 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         Status.Error.Id :=      UINT#510;
                     END_IF;
                 END_IF;
-                // ChangeProgramTask running: setting the program number.
-                IF _progress = 311 THEN
+                 // ChangeProgramTask running: if 'ProgramSwitchingResponse' signal is true finish previous change.
+                IF _progress = 311 THEN 
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#511;
+                    END_IF;
+
+                    IF Inputs.CommandStatusBits.ProgramSwitchingResponse THEN
+                        THIS.CallTimers(FALSE);                  
+                        _progress := 312; // ACK PREVIOUS CHANGE
+                    ELSE
+                        THIS.CallTimers(FALSE);
+                        _progress := 314; // Continue to change program
+                    END_IF;
+                END_IF;
+                // ChangeProgramTask running: wait for program numbers to be equal.
+                IF _progress = 312 THEN 
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#513;
+                    END_IF;
+    
+                    Outputs.CommandControl.ProgramSwitchingRequest     := TRUE;
+                    IF Outputs.CommandControl.ProgramNo = Inputs.DeviceStatusWords.CurrentProgramNo THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 313;
+                    END_IF;
+                END_IF;
+                 // ChangeProgramTask running: wait for falling edge ProgramSwitchingResponse
+                IF _progress = 313 THEN 
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#513;
+                    END_IF;
+    
+                    Outputs.CommandControl.ProgramSwitchingRequest     := FALSE;
+                    IF NOT Inputs.CommandStatusBits.ProgramSwitchingResponse  THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 311;
+                    END_IF;
+                END_IF;
+                // ChangeProgramTask running: setting the new program number.
+                IF _progress = 314 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#511;
@@ -6244,41 +6285,56 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     Outputs.CommandControl.ProgramNo := _programNumber;
                     IF Outputs.CommandControl.ProgramNo = Inputs.DeviceStatusWords.CurrentProgramNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 318;
+                        _progress := 317;
                     ELSE
                         THIS.CallTimers(FALSE);
-                        _progress := 316;
+                        _progress := 315;
                     END_IF;
                 END_IF;
-
                 // ChangeProgramTask running: waiting for the raising of the 'ProgramSwitchingResponse' signal.
-                IF _progress = 316 THEN
+                IF _progress = 315 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#512;
                     END_IF;
     
-                    Outputs.CommandControl.ProgramSwitchingRequest                      := TRUE;
+                    Outputs.CommandControl.ProgramSwitchingRequest     := TRUE;
 
                     IF Inputs.CommandStatusBits.ProgramSwitchingResponse THEN
+                        THIS.CallTimers(FALSE);
+                        _progress := 316;
+                    END_IF;
+                END_IF;
+                // ChangeProgramTask running: waiting for the falling of the 'ProgramSwitchingResponse' signal.
+                IF _progress = 316 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#513;
+                    END_IF;
+    
+                    Outputs.CommandControl.ProgramSwitchingRequest  := FALSE;
+
+                    IF NOT Inputs.CommandStatusBits.ProgramSwitchingResponse THEN
                         THIS.CallTimers(FALSE);
                         _progress := 317;
                     END_IF;
                 END_IF;
-                // ChangeProgramTask running: waiting for the falling of the 'ProgramSwitchingResponse' signal.
+
+                // ChangeProgramTask running: waiting for equals program change.
                 IF _progress = 317 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#513;
                     END_IF;
     
-                    Outputs.CommandControl.ProgramSwitchingRequest                      := FALSE;
-
-                    IF NOT Inputs.CommandStatusBits.ProgramSwitchingResponse THEN
+                    IF (_programNumber = Inputs.DeviceStatusWords.CurrentProgramNo) 
+                       AND (Outputs.CommandControl.ProgramNo = Inputs.DeviceStatusWords.CurrentProgramNo) 
+                    THEN
                         THIS.CallTimers(FALSE);
                         _progress := 318;
                     END_IF;
                 END_IF;
+
                 // ChangeProgramTask finished.
                 IF _progress = 318 THEN
                     ChangeProgramTask.DoneWhen(TRUE);
@@ -6354,10 +6410,9 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             END_VAR
 
             // different program loaded in HW - restore task to be able to run it again
-            IF ( inProgramNumber <> Inputs.DeviceStatusWords.CurrentProgramNo ) && ChangeProgramTask.IsDone() THEN // not works - unknown reason
-            //IF  ChangeProgramTask.IsDone() && ( inProgramNumber <> _programNumber ) THEN
-            //     ChangeProgramTask.Restore();
-            // END_IF;
+            IF ( inProgramNumber <> Inputs.DeviceStatusWords.CurrentProgramNo ) && ChangeProgramTask.IsDone() THEN 
+                ChangeProgramTask.Restore();
+            END_IF;
 
             _programNumber := inProgramNumber;
             ChangeProgram := ChangeProgramTask.Invoke(THIS);
@@ -6366,7 +6421,6 @@ NAMESPACE AXOpen.Components.Keyence.Vision
         METHOD PROTECTED OVERRIDE ManualControl
             THIS._isManuallyControllable := true;
             _programNumber := RequiredProgramNumber;
-
         END_METHOD
         
         ///<summary>
