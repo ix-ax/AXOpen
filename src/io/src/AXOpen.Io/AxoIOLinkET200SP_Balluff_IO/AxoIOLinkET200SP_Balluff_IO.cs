@@ -280,9 +280,6 @@ namespace AXOpen.Io
                     // ConfigTask
                     actionDescriptionDict.Add(10000, "ConfigTask finished with error!");
                     actionDescriptionDict.Add(10001, "ConfigTask was aborted, while not yet completed!");
-                    // ConfigTask
-                    actionDescriptionDict.Add(10000, "ConfigTask finished with error!");
-                    actionDescriptionDict.Add(10001, "ConfigTask was aborted, while not yet completed!");
                 }
 
                 string actionDescription = "   ";
