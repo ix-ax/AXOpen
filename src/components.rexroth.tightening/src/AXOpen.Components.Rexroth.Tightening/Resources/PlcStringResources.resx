@@ -84,30 +84,30 @@
   </data>
   <data name="ResetFaultTask_timeout_DOT_" xml:space="preserve">
     <value>ResetFaultTask timeout.</value>
-    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2162</comment>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2138</comment>
   </data>
   <data name="ResetResultsTask_timeout_DOT_" xml:space="preserve">
     <value>ResetResultsTask timeout.</value>
-    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2221</comment>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2197</comment>
   </data>
   <data name="SetScrewingProgramTask_timeout_DOT_" xml:space="preserve">
     <value>SetScrewingProgramTask timeout.</value>
-    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2321</comment>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2297</comment>
   </data>
   <data name="GetScrewingResultsTask_timeout_DOT_" xml:space="preserve">
     <value>GetScrewingResultsTask timeout.</value>
-    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2393</comment>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2369</comment>
   </data>
   <data name="ScrewClockwiseTask_timeout_DOT_" xml:space="preserve">
     <value>ScrewClockwiseTask timeout.</value>
-    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2611</comment>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2587</comment>
   </data>
   <data name="ScrewCounterClockwiseTask_timeout_DOT_" xml:space="preserve">
     <value>ScrewCounterClockwiseTask timeout.</value>
-    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2824</comment>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2800</comment>
   </data>
   <data name="RunAutomatTask_timeout_DOT_" xml:space="preserve">
     <value>RunAutomatTask timeout.</value>
-    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,3196</comment>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,3172</comment>
   </data>
 </root>

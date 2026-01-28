@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Create" xml:space="preserve">
+    <value>Utwórz</value>
+  </data>
+  <data name="Load from PLC" xml:space="preserve">
+    <value>Ładowanie z PLC</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Eksport</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="Exact" xml:space="preserve">
+    <value>Dokładny</value>
+  </data>
+  <data name="Contains" xml:space="preserve">
+    <value>Zawiera</value>
+  </data>
+  <data name="StartsWith" xml:space="preserve">
+    <value>StartsWith</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Działania</value>
+  </data>
+  <data name="Collection is empty" xml:space="preserve">
+    <value>Kolekcja jest pusta</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Kopia</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
+  </data>
+  <data name="Send to PLC" xml:space="preserve">
+    <value>Wyślij do PLC</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="Create new item" xml:space="preserve">
+    <value>Utwórz nowy element</value>
+  </data>
+  <data name="Copy item" xml:space="preserve">
+    <value>Kopiuj element</value>
+  </data>
+  <data name="Load item from PLC" xml:space="preserve">
+    <value>Załaduj element z PLC</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zamknij</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="Export data" xml:space="preserve">
+    <value>Eksport danych</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Pobierz</value>
+  </data>
+  <data name="Customize" xml:space="preserve">
+    <value>Dostosuj</value>
+  </data>
+  <data name="Import data" xml:space="preserve">
+    <value>Import danych</value>
+  </data>
+  <data name="File input" xml:space="preserve">
+    <value>Wprowadzanie plików</value>
+  </data>
+  <data name="Separator" xml:space="preserve">
+    <value>Separator</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>Pierwszy</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Ostatni</value>
+  </data>
+  <data name="This file may not be able to be imported!" xml:space="preserve">
+    <value>Import tego pliku może być niemożliwy!</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Powrót</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Błąd!</value>
+  </data>
+  <data name="Cannot create" xml:space="preserve">
+    <value>Nie można utworzyć!</value>
+  </data>
+  <data name="New entry name cannot be empty" xml:space="preserve">
+    <value>Nazwa nowego wpisu nie może być pusta. Podaj identyfikator</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Stworzony!</value>
+  </data>
+  <data name="Item was successfully created" xml:space="preserve">
+    <value>Element został pomyślnie utworzony!</value>
+  </data>
+  <data name="Failed to create new record" xml:space="preserve">
+    <value>Nie udało się utworzyć nowego rekordu!</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Usunięty!</value>
+  </data>
+  <data name="Item was successfully deleted" xml:space="preserve">
+    <value>Element został pomyślnie usunięty!</value>
+  </data>
+  <data name="Failed to delete" xml:space="preserve">
+    <value>Nie udało się usunąć</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>Skopiowane!</value>
+  </data>
+  <data name="Item was successfully copied" xml:space="preserve">
+    <value>Element został pomyślnie skopiowany!</value>
+  </data>
+  <data name="Failed to copy" xml:space="preserve">
+    <value>Kopiowanie nie powiodło się!</value>
+  </data>
+  <data name="Edited" xml:space="preserve">
+    <value>Edycja!</value>
+  </data>
+  <data name="Item was successfully edited" xml:space="preserve">
+    <value>Artykuł został pomyślnie edytowany!</value>
+  </data>
+  <data name="Sent to PLC" xml:space="preserve">
+    <value>Wysłane do PLC!</value>
+  </data>
+  <data name="Item was successfully sent to PLC" xml:space="preserve">
+    <value>Przedmiot został pomyślnie wysłany do PLC!</value>
+  </data>
+  <data name="Loaded from PLC" xml:space="preserve">
+    <value>Załadowany z PLC!</value>
+  </data>
+  <data name="Item was successfully loaded from PLC" xml:space="preserve">
+    <value>Element został pomyślnie załadowany z PLC!</value>
+  </data>
+  <data name="Failed to create new record from the controller" xml:space="preserve">
+    <value>Nie udało się utworzyć nowego rekordu z poziomu kontrolera</value>
+  </data>
+  <data name="Exported" xml:space="preserve">
+    <value>Eksportowane!</value>
+  </data>
+  <data name="Data was successfully exported" xml:space="preserve">
+    <value>Dane zostały pomyślnie wyeksportowane!</value>
+  </data>
+  <data name="Imported" xml:space="preserve">
+    <value>Importowane!</value>
+  </data>
+  <data name="Data were successfully imported" xml:space="preserve">
+    <value>Dane zostały pomyślnie zaimportowane!</value>
+  </data>
+  <data name="Update data error" xml:space="preserve">
+    <value>Błąd aktualizacji danych</value>
+  </data>
+  <data name="Please enter valid identifier" xml:space="preserve">
+    <value>Wprowadź prawidłowy identyfikator!</value>
+  </data>
+  <data name="Create error" xml:space="preserve">
+    <value>Utwórz błąd</value>
+  </data>
+  <data name="Please enter valid source identifier" xml:space="preserve">
+    <value>Wprowadź prawidłowy identyfikator źródła!</value>
+  </data>
+  <data name="Create data error" xml:space="preserve">
+    <value>Błąd tworzenia danych</value>
+  </data>
+  <data name="Copy error" xml:space="preserve">
+    <value>Błąd kopiowania</value>
+  </data>
+  <data name="Copy record error" xml:space="preserve">
+    <value>Błąd kopiowania rekordu</value>
+  </data>
+  <data name="Data cannot be deleted please enter valid new identifier" xml:space="preserve">
+    <value>Nie można usunąć danych. Wprowadź prawidłowy nowy identyfikator!</value>
+  </data>
+  <data name="Copied record" xml:space="preserve">
+    <value>Skopiowany rekord</value>
+  </data>
+  <data name="Copied error" xml:space="preserve">
+    <value>Skopiowany błąd</value>
+  </data>
+  <data name="Delete error" xml:space="preserve">
+    <value>Usuń błąd</value>
+  </data>
+  <data name="Send record" xml:space="preserve">
+    <value>Wyślij rekord</value>
+  </data>
+  <data name="Send error" xml:space="preserve">
+    <value>Błąd wysyłania</value>
+  </data>
+  <data name="Delete record" xml:space="preserve">
+    <value>Usuń rekord</value>
+  </data>
+  <data name="Persistent Data" xml:space="preserve">
+    <value>Dane trwałe</value>
+  </data>
+  <data name="Whole persistent data was successfully sent to PLC" xml:space="preserve">
+    <value>Wszystkie trwałe dane zostały pomyślnie wysłane do PLC!</value>
+  </data>
+  <data name="Whole persistent data was successfully read from PLC" xml:space="preserve">
+    <value>Wszystkie trwałe dane zostały pomyślnie odczytane z PLC!</value>
+  </data>
+  <data name="Persistent group was successfully read from PLC" xml:space="preserve">
+    <value>Grupa trwała {0} została pomyślnie odczytana z PLC!</value>
+  </data>
+  <data name="Data with ID was created for" xml:space="preserve">
+    <value>Dane o ID: "{0}" zostały utworzone dla: {1}!</value>
+  </data>
+  <data name="Record already exist for" xml:space="preserve">
+    <value>Rekord już istnieje dla: {0}!</value>
+  </data>
+  <data name="Source Record not exist for" xml:space="preserve">
+    <value>Rekord źródła nie istnieje dla: {0}!</value>
+  </data>
+  <data name="Record was deleted from repositories" xml:space="preserve">
+    <value>Rekord "{0}" został usunięty z repozytoriów: {1}.</value>
+  </data>
+  <data name="Source record does not exist in repositories" xml:space="preserve">
+    <value>Rekord źródłowy nie istnieje w repozytoriach: {0}.</value>
+  </data>
+  <data name="Create new record" xml:space="preserve">
+    <value>Utwórz nowy rekord</value>
+  </data>
+  <data name="Create record error" xml:space="preserve">
+    <value>Błąd tworzenia rekordu</value>
+  </data>
+  <data name="Create record from PLC" xml:space="preserve">
+    <value>Utwórz rekord z PLC</value>
+  </data>
+  <data name="Persistent_group_loaded_to_PLC" xml:space="preserve">
+    <value>Grupa trwała {0} została pomyślnie załadowana do PLC!</value>
+  </data>
+  <data name="Persistent_group_read_from_PLC" xml:space="preserve">
+    <value>Grupa trwała {0} została pomyślnie odczytana z PLC!</value>
+  </data>
+  <data name="Data_with_ID_was_created_for" xml:space="preserve">
+    <value>Dane o ID: "{0}" zostały utworzone dla: {1}!</value>
+  </data>
+</root>

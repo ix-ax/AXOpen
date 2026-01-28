@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Principal;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using System.Globalization;
+using AXSharp.Connector.Localizations;
 
 namespace AXOpen.Core
 {
@@ -49,7 +51,7 @@ namespace AXOpen.Core
 
         public bool IsDisabled => Disable || Component.IsDisabled.Cyclic;
 
-        public string Description => !string.IsNullOrEmpty(Text) ? Text : (string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName);
+        public string Description => !string.IsNullOrEmpty(Text) ? Text : (string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.GetAttributeName(CultureInfo.CurrentUICulture));
         public override void ConfigurePolling()
         {
             this.StartPolling(Component.IsDisabled);

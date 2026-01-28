@@ -7,6 +7,7 @@ using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using AXSharp.Connector.Localizations;
 
 namespace AXOpen.Core
 {

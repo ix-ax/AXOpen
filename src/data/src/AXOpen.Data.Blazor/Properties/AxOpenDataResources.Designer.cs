@@ -31,9 +31,7 @@ namespace AXOpen.Data.Blazor.Properties {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal AxOpenDataResources() {
         }
-
-        public static IFormatProvider Data_with_ID_was_created_for { get; internal set; }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>

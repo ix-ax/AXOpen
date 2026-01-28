@@ -1,12 +1,14 @@
 ﻿@using Operon.Components.Accordion
 @inherits RenderableComplexComponentBase<AxoSequencer>
 @namespace AXOpen.Core
+@using System.Globalization
+@using AXSharp.Connector.Localizations
 
 <div data-axo-sequencer-view class="card bg-background-light/80! @(!this.IsControllable ? "opacity-60 cursor-default" : null)">
     <!-- Sequencer Header -->
     <div class="flex flex-wrap justify-between gap-2 mx-4 my-2">
         <div class="flex flex-wrap items-center gap-2">
-            <h5 class="text-xl text-text font-semibold">@Component.AttributeName</h5>
+            <h5 class="text-xl text-text font-semibold">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</h5>
             @if (_currentStatus != eSequenceStatus.Inactive)
             {
                 <span class="badge @StatusBadgeClass">

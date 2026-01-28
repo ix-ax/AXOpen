@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Reflection.Metadata.Ecma335;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using AXOpen.Core.Blazor.Culture;
+using System.Globalization;
+using AXSharp.Connector.Localizations;
 
 namespace AXOpen.Core
 {
@@ -27,7 +29,7 @@ namespace AXOpen.Core
                     _ => eStepState.Idle
                 };
 
-        private string _description => string.IsNullOrEmpty(Component.Descr?.GetCyclic()) ? Component.AttributeName : Component.Descr?.GetCyclic();
+        private string _description => string.IsNullOrEmpty(Component.Descr?.GetCyclic()) ? Component.GetAttributeName(CultureInfo.CurrentUICulture) : Component.Descr?.GetCyclic(CultureInfo.CurrentUICulture);
 
         private string _durationText
         {

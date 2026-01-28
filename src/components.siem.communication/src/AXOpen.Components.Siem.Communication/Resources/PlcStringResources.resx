@@ -60,62 +60,26 @@
   </resheader>
   <data name="PortConfigTask_error_DOT_" xml:space="preserve">
     <value>PortConfigTask error.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,300</comment>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,250</comment>
   </data>
   <data name="PortConfigTask_timeout_DOT_" xml:space="preserve">
     <value>PortConfigTask timeout.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,411</comment>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,277</comment>
   </data>
   <data name="ReceiveResetTask_error_DOT_" xml:space="preserve">
     <value>ReceiveResetTask error.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,463</comment>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,329</comment>
   </data>
   <data name="ReceiveResetTask_timeout_DOT_" xml:space="preserve">
     <value>ReceiveResetTask timeout.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,574</comment>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,356</comment>
   </data>
   <data name="SendDataTask_error_DOT_" xml:space="preserve">
     <value>SendDataTask error.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,630</comment>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,412</comment>
   </data>
   <data name="SendDataTask_timeout_DOT_" xml:space="preserve">
     <value>SendDataTask timeout.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,741</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_10steps_4 timeout.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,903</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_10steps_5 timeout.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,1056</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_10steps_6 timeout.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,1209</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_1 timeout.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,1483</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_2 timeout.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,1755</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_3 timeout.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,2028</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_4 timeout.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,2301</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_5 timeout.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,2574</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_6 timeout.</value>
-    <comment>src\AxoCmPtp\AxoCmPtp.st,2847</comment>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,439</comment>
   </data>
 </root>

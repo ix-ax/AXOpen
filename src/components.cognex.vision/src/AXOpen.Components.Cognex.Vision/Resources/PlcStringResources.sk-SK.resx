@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="HardResetAllCamerasTask_timeout_DOT_" xml:space="preserve">
+    <value>HardResetAllCamerasTask timeout.</value>
+  </data>
+  <data name="ResetTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ResetTask.</value>
+  </data>
+  <data name="TriggerTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit TriggerTask.</value>
+  </data>
+  <data name="ReadResultsTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit úlohy ReadResultsTask.</value>
+  </data>
+  <data name="SendDataTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit SendDataTask.</value>
+  </data>
+  <data name="ClearResultDataTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ClearResultDataTask.</value>
+  </data>
+  <data name="ReadTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ReadTask.</value>
+  </data>
+  <data name="ClearInspectionResultsTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ClearInspectionResultsTask.</value>
+  </data>
+  <data name="ChangeJobByNameTask_timeout_DOT_" xml:space="preserve">
+    <value>ChangeJobByNameTask časový limit.</value>
+  </data>
+  <data name="ChangeJobByNumberTask_timeout_DOT_" xml:space="preserve">
+    <value>ChangeJobByNumberTask časový limit.</value>
+  </data>
+  <data name="SoftEventTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit SoftEventTask.</value>
+  </data>
+  <data name="SendUserDataTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit SendUserDataTask.</value>
+  </data>
+</root>

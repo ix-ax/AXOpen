@@ -5,10 +5,12 @@ using AXSharp.Connector;
 using Pocos.AXOpen.Inspectors;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using AXSharp.Connector.Localizations;
 
 namespace AXOpen.Inspectors
 {
@@ -80,7 +82,7 @@ namespace AXOpen.Inspectors
 
         public string Description
         {
-            get => string.IsNullOrEmpty(base.Component.AttributeName) ? base.Component.GetSymbolTail() : base.Component.AttributeName;
+            get => string.IsNullOrEmpty(base.Component.AttributeName) ? base.Component.GetSymbolTail() : base.Component.GetAttributeName(CultureInfo.CurrentUICulture);
 
         }
 

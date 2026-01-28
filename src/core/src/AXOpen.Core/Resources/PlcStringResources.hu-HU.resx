@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="THE_REMOTE_TASK_IS_NOT_INITIALIZED" xml:space="preserve">
+    <value>A TÁVOLI FELADAT NINCS INICIALIZÁLVA</value>
+  </data>
+  <data name="NULL_CONTEXT" xml:space="preserve">
+    <value>NULL CONTEXT</value>
+  </data>
+  <data name="Task_invoked" xml:space="preserve">
+    <value>Meghívott feladat</value>
+  </data>
+  <data name="Attempt_to_invoke_disabled_task" xml:space="preserve">
+    <value>Kísérlet a letiltott feladat meghívására</value>
+  </data>
+  <data name="CyclicExecuteIsNotCalled" xml:space="preserve">
+    <value>CyclicExecuteIsNotCalled</value>
+  </data>
+  <data name="Task_restored" xml:space="preserve">
+    <value>Feladat helyreállítva</value>
+  </data>
+  <data name="Task_done_DOT_" xml:space="preserve">
+    <value>Feladat elvégezve.</value>
+  </data>
+  <data name="MultipleExecuteIsCalled" xml:space="preserve">
+    <value>MultipleExecuteIsCalled</value>
+  </data>
+  <data name="Task_started_DOT_" xml:space="preserve">
+    <value>A feladat megkezdődött.</value>
+  </data>
+  <data name="Task_failed" xml:space="preserve">
+    <value>A feladat sikertelen</value>
+  </data>
+  <data name="Sequence_in_config_state__COLON_" xml:space="preserve">
+    <value>Szekvencia a konfigurációs állapotban :</value>
+  </data>
+  <data name="Starts_step__COLON_" xml:space="preserve">
+    <value>Elindítja a lépést :</value>
+  </data>
+  <data name="Check_that_steps_are_unique_and_properly_configured_DOT_" xml:space="preserve">
+    <value>Ellenőrizze, hogy a lépések egyediek és megfelelően konfiguráltak-e.</value>
+  </data>
+  <data name="Step_done__COLON_" xml:space="preserve">
+    <value>Lépés megtéve :</value>
+  </data>
+  <data name="Step_request_to_step__COLON_" xml:space="preserve">
+    <value>Lépéskérés lépésről lépésre :</value>
+  </data>
+  <data name="Sequence_completed__COLON_" xml:space="preserve">
+    <value>Befejezett sorozat :</value>
+  </data>
+  <data name="At_step_COLON_" xml:space="preserve">
+    <value>Lépésben:</value>
+  </data>
+  <data name="Risen" xml:space="preserve">
+    <value>Risen</value>
+  </data>
+  <data name="Risen_again_before_acknowledgement" xml:space="preserve">
+    <value>Újra feltámadt a nyugtázás előtt</value>
+  </data>
+  <data name="Fallen" xml:space="preserve">
+    <value>Fallen</value>
+  </data>
+</root>

@@ -6,6 +6,8 @@
 @using Operon.Components.Accordion
 @using Operon.Components.Tab
 @using System.Threading.Tasks
+@using System.Globalization
+@using AXSharp.Connector.Localizations
 @inherits RenderableComplexComponentBase<AxoComponent>
 
 <div data-axo-component-view class="card m-2 @AlarmBorderClass">
@@ -13,7 +15,7 @@
     {
         <!-- Header Section -->
         <div class="card-title w-full flex flex-row justify-between">
-            <h5>@Component.AttributeName</h5>
+            <h5>@Component.GetAttributeName(CultureInfo.CurrentUICulture)</h5>
 
             @if (_alarmCount > 0)
             {

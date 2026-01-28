@@ -60,22 +60,22 @@
   </resheader>
   <data name="StartAtMainTask_timeout_DOT_" xml:space="preserve">
     <value>StartAtMainTask timeout.</value>
-    <comment>src\AxoCr800_v_1_x_x.st,440</comment>
+    <comment>src\AxoCr800_v_1_x_x.st,441</comment>
   </data>
   <data name="StartMotorsAndProgramTask_timeout_DOT_" xml:space="preserve">
     <value>StartMotorsAndProgramTask timeout.</value>
-    <comment>src\AxoCr800_v_1_x_x.st,624</comment>
+    <comment>src\AxoCr800_v_1_x_x.st,625</comment>
   </data>
   <data name="StopMovementsTask_timeout_DOT_" xml:space="preserve">
     <value>StopMovementsTask timeout.</value>
-    <comment>src\AxoCr800_v_1_x_x.st,712</comment>
+    <comment>src\AxoCr800_v_1_x_x.st,713</comment>
   </data>
   <data name="StopMovementsAndProgramTask_timeout_DOT_" xml:space="preserve">
     <value>StopMovementsAndProgramTask timeout.</value>
-    <comment>src\AxoCr800_v_1_x_x.st,802</comment>
+    <comment>src\AxoCr800_v_1_x_x.st,803</comment>
   </data>
   <data name="StartMovementsTask_timeout_DOT_" xml:space="preserve">
     <value>StartMovementsTask timeout.</value>
-    <comment>src\AxoCr800_v_1_x_x.st,980</comment>
+    <comment>src\AxoCr800_v_1_x_x.st,981</comment>
   </data>
 </root>

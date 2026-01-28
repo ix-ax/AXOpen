@@ -124,60 +124,6 @@ namespace AXOpen.Components.Siem.Identification.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_20steps_5 timeout..
-        /// </summary>
-        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_ {
-            get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_20steps_4 timeout..
-        /// </summary>
-        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_ {
-            get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_20steps_1 timeout..
-        /// </summary>
-        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_ {
-            get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_20steps_6 timeout..
-        /// </summary>
-        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_ {
-            get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_20steps_3 timeout..
-        /// </summary>
-        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_ {
-            get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_20steps_2 timeout..
-        /// </summary>
-        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_ {
-            get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to WriteTagFieldTask timeout..
         /// </summary>
         public static string WriteTagFieldTask_timeout_DOT_ {

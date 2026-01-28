@@ -60,51 +60,27 @@
   </resheader>
   <data name="ReadUID_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
     <value>ReadUID_Task timeout.</value>
-    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,715</comment>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,645</comment>
   </data>
   <data name="ReadTagFieldTask_timeout_DOT_" xml:space="preserve">
     <value>ReadTagFieldTask timeout.</value>
-    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,899</comment>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,793</comment>
   </data>
   <data name="WriteTagFieldTask_timeout_DOT_" xml:space="preserve">
     <value>WriteTagFieldTask timeout.</value>
-    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,1104</comment>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,974</comment>
   </data>
   <data name="ReadTask_timeout_DOT_" xml:space="preserve">
     <value>ReadTask timeout.</value>
-    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,1299</comment>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,1133</comment>
   </data>
   <data name="WriteTask_timeout_DOT_" xml:space="preserve">
     <value>WriteTask timeout.</value>
-    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,1512</comment>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,1322</comment>
   </data>
   <data name="ResetTask_timeout_DOT_" xml:space="preserve">
     <value>ResetTask timeout.</value>
-    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,1675</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_1 timeout.</value>
-    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,1949</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_2 timeout.</value>
-    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,2222</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_3 timeout.</value>
-    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,2495</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_4 timeout.</value>
-    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,2768</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_5 timeout.</value>
-    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,3041</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_6 timeout.</value>
-    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,3314</comment>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,1401</comment>
   </data>
   <data name="Error_when_switching_the_antena_On" xml:space="preserve">
     <value>Error when switching the antena On</value>

@@ -64,10 +64,10 @@
   </data>
   <data name="TurnTask_timeout_DOT_" xml:space="preserve">
     <value>TurnTask timeout.</value>
-    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,251</comment>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,255</comment>
   </data>
   <data name="InitPositionTask_timeout_DOT_" xml:space="preserve">
     <value>InitPositionTask timeout.</value>
-    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,333</comment>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,337</comment>
   </data>
 </root>

@@ -1,6 +1,8 @@
 ﻿using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using System.Globalization;
+using AXSharp.Connector.Localizations;
 
 namespace AXOpen.Core
 {
@@ -21,7 +23,7 @@ namespace AXOpen.Core
         }
         private string StateDescription => Component.State.LastValue ? (string.IsNullOrEmpty(Component.AttributeStateOnDesc) ? "<#On#>" : Component.AttributeStateOnDesc) : (string.IsNullOrEmpty(Component.AttributeStateOffDesc) ? "<#Off#>" : Component.AttributeStateOffDesc);
 
-        public string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
+        public string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.GetAttributeName(CultureInfo.CurrentUICulture);
         
         public override void ConfigurePolling()
         {

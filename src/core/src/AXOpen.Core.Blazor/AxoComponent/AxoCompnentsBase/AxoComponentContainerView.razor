@@ -1,6 +1,8 @@
 ﻿@namespace AXOpen.Core.Blazor
 @using AXOpen.Messaging
 @using AXOpen.Messaging.Static
+@using System.Globalization
+@using AXSharp.Connector.Localizations
 @inherits RenderableComponentBase
 
 <div @onmouseenter="BringToForeGround"
@@ -16,7 +18,7 @@
                 hover:bg-background/20 transition-colors rounded px-2 -mx-2 select-none">
         <div class="flex items-center gap-2">
             <span class="text-xs">@(DetailsActive ? "▼" : "▶")</span>
-            <h5 class="text-lg font-semibold text-text">@Component.AttributeName</h5>
+            <h5 class="text-lg font-semibold text-text">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</h5>
         </div>
             @HeaderContent
         <div class="flex items-center gap-2" @onclick:stopPropagation="true">
@@ -102,7 +104,7 @@
                 <div class="flex flex-col gap-0 p-0 @AlarmBackgroundClass rounded-lg">
                     @if (SpotHeader is null)
                     {
-                        <p class="text-sm font-semibold text-text/70 px-1 pt-1 pb-1 @LabelBackgroundClass rounded-t">@Component?.AttributeName</p>                    
+                        <p class="text-sm font-semibold text-text/70 px-1 pt-1 pb-1 @LabelBackgroundClass rounded-t">@(Component != null ? Component.GetAttributeName(CultureInfo.CurrentUICulture) : string.Empty)</p>                    
                     }
                     else
                     {

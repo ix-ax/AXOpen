@@ -2,12 +2,14 @@
 @using AXOpen.VisualComposer
 @using AXOpen.VisualComposer.Components.VisualComposerItem
 @using AXSharp.Connector
+@using System.Globalization
+@using AXSharp.Connector.Localizations
 @inherits RenderableComplexComponentBase<AxoInspectorData>
 
-<button data-axo-inspector-data-spot-view type="button" class="action-btn justify-between @Class" @onclick="SetCurrentObject" title="@Component?.AttributeName - @GetResultText()">
+<button data-axo-inspector-data-spot-view type="button" class="action-btn justify-between @Class" @onclick="SetCurrentObject" title="@(Component != null ? Component.GetAttributeName(CultureInfo.CurrentUICulture) : string.Empty) - @GetResultText()">
     <div class="flex flex-wrap flex-row items-center gap-2">
         <span class="inline flex w-3 h-3 rounded-full @ResultIndicatorCss"></span>
-        <span>@Component?.AttributeName</span>
+        <span>@(Component != null ? Component.GetAttributeName(CultureInfo.CurrentUICulture) : string.Empty)</span>
     </div>
     <GenericIconView Result="Data.Result.LastValue" HasLabel="false" />
 </button>
