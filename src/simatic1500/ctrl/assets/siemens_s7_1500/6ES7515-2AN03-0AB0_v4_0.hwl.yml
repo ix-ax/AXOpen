@@ -6,11 +6,11 @@ Templates:
     - Name: 'IP_ADDRESS_X1'
       Value: '192.168.0.1/24'
     - Name: 'PROFINET_DEVICE_NAME_X1'
-      Value: 'plc_1.profinet interface_1'
+      Value: 'plc_1.profinet_interface_1'
     - Name: 'IP_ADDRESS_X2'
       Value: '192.168.1.1/24'
     - Name: 'PROFINET_DEVICE_NAME_X2'
-      Value: 'plc_1.profinet interface_2'
+      Value: 'plc_1.profinet_interface_2'
     - Name: ADMIN_NAME
       Value: 'admin'
     - Name: CYCLE_COMMUNICATION_LOAD
@@ -21,6 +21,21 @@ Templates:
         OrderNumber: '6ES7 515-2AN03-0AB0'
         Version: 'V4.0'
       Services:
+      - Name: 'IDeviceServiceName'
+        Type: 'IDevice'
+        Enabled: False
+        Parameters:
+          ParameterAssignmentOfPnInterfaceByHigherLevelIoController: False
+          AssetManagementViaUserProgram: False
+        Interfaces:
+        # - Ref: 'Device/PLC_1/PROFINET_interface_1'
+        TransferAreas:
+        # - Name: 'iodata_I_consume'
+        #   Length: 1
+        #   Type: 'Input'
+        # - Name: 'iodata_I_provide'
+        #   Length: 1
+        #   Type: 'Output'
       - Type: 'WebServer'
         Enabled: True
         Parameters:
@@ -210,6 +225,9 @@ Templates:
             - 'AccessProtectionReadAccess'
             - 'OpcUAServerAccess'
             - 'OpcUAManageCertificates'
+            - 'ManageUserDefinedWebPages'
+            - 'OpenUserDefinedWebPages'
+            - 'WriteUserDefinedWebPages'
           - Name: 'WebServerAccessRole'
             FunctionRights:
             - 'ReadPlcVariables'

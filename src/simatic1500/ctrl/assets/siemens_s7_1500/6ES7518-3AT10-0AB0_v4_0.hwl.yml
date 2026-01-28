@@ -14,7 +14,7 @@ Templates:
     - Name: 'IP_ADDRESS_X3'
       Value: '192.168.2.1/24'
     - Name: 'PROFINET_DEVICE_NAME_X3'
-      Value: 'plc_1.profinet_interface gbit_3'
+      Value: 'plc_1.profinet_interface_gbit_3'
     - Name: ADMIN_NAME
       Value: 'admin'
     - Name: CYCLE_COMMUNICATION_LOAD
@@ -264,6 +264,9 @@ Templates:
             - 'AccessProtectionReadAccess'
             - 'OpcUAServerAccess'
             - 'OpcUAManageCertificates'
+            - 'ManageUserDefinedWebPages'
+            - 'OpenUserDefinedWebPages'
+            - 'WriteUserDefinedWebPages'
           - Name: 'WebServerAccessRole'
             FunctionRights:
             - 'ReadPlcVariables'
