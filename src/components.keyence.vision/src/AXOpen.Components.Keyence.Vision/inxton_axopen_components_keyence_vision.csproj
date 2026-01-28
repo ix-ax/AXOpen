@@ -60,6 +60,7 @@
 	  <EmbeddedResource Update="Resources\PlcStringResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>
+	    <ManifestResourceName>inxton_axopen_components_keyence_vision.Resources.PlcStringResources.resources</ManifestResourceName>
 	  </EmbeddedResource>
 	</ItemGroup>
 

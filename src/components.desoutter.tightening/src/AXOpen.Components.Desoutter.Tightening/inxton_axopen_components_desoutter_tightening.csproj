@@ -60,6 +60,7 @@
 	  <EmbeddedResource Update="Resources\PlcStringResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>
+	    <ManifestResourceName>inxton_axopen_components_desoutter_tightening.Resources.PlcStringResources.resources</ManifestResourceName>
 	  </EmbeddedResource>
 	</ItemGroup>
 

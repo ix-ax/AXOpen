@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AXOpen.Components.Abstractions.Resources {
+namespace AXOpen.Timers.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace AXOpen.Components.Abstractions.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AXOpen.Components.Abstractions.Resources.PlcStringResources", typeof(PlcStringResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AXOpen.Timers.Resources.PlcStringResources", typeof(PlcStringResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

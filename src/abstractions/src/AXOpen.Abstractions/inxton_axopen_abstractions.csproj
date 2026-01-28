@@ -20,4 +20,20 @@
     <Folder Include=".meta\" />
     <Content Include=".meta\**" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\PlcStringResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PlcStringResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\PlcStringResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>
+      <ManifestResourceName>inxton_axopen_abstractions.Resources.PlcStringResources.resources</ManifestResourceName>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>
