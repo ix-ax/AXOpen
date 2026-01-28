@@ -60,74 +60,34 @@
   </resheader>
   <data name="ClearResultDataTask_timeout_DOT_" xml:space="preserve">
     <value>ClearResultDataTask timeout.</value>
-    <comment>src\Axo_SR_1000.st,1290</comment>
+    <comment>src\Axo_SR_1000.st,1278</comment>
   </data>
   <data name="ErrorStatus_DOT_ReadFailure" xml:space="preserve">
     <value>ErrorStatus.ReadFailure</value>
-    <comment>src\Axo_SR_1000.st,1481</comment>
+    <comment>src\Axo_SR_1000.st,1469</comment>
   </data>
   <data name="ReadTask_timeout_DOT_" xml:space="preserve">
     <value>ReadTask timeout.</value>
-    <comment>src\Axo_SR_1000.st,1597</comment>
+    <comment>src\Axo_SR_1000.st,1508</comment>
   </data>
   <data name="ErrorStatus_DOT_TuneFailure" xml:space="preserve">
     <value>ErrorStatus.TuneFailure</value>
-    <comment>src\Axo_SR_1000.st,1787</comment>
+    <comment>src\Axo_SR_1000.st,1698</comment>
   </data>
   <data name="TuneTask_timeout_DOT_" xml:space="preserve">
     <value>TuneTask timeout.</value>
-    <comment>src\Axo_SR_1000.st,1902</comment>
+    <comment>src\Axo_SR_1000.st,1725</comment>
   </data>
   <data name="TriggerTask_timeout_DOT_" xml:space="preserve">
     <value>TriggerTask timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,6250</comment>
+    <comment>src\Axo_IV3\Axo_IV3.st,6182</comment>
   </data>
   <data name="Attempt_to_change_the_program_failed_DOT_" xml:space="preserve">
     <value>Attempt to change the program failed.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,6421</comment>
+    <comment>src\Axo_IV3\Axo_IV3.st,6347</comment>
   </data>
   <data name="ChangeProgramTask_timeout_DOT_" xml:space="preserve">
     <value>ChangeProgramTask timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,6424</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_10steps_3 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,6577</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_10steps_4 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,6730</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_10steps_5 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,6883</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_10steps_6 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,7036</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_1 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,7310</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_2 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,7582</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_3 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,7855</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_4 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,8128</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_5 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,8401</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_6 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,8674</comment>
+    <comment>src\Axo_IV3\Axo_IV3.st,6350</comment>
   </data>
 </root>

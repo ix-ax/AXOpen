@@ -60,50 +60,22 @@
   </resheader>
   <data name="ClearErrorTask_timeout_DOT_" xml:space="preserve">
     <value>ClearErrorTask timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,912</comment>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,772</comment>
   </data>
   <data name="ChangeWeldingSetupTask_timeout_DOT_" xml:space="preserve">
     <value>ChangeWeldingSetupTask timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,1074</comment>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,857</comment>
   </data>
   <data name="ChangeWeldingProbeTask_timeout_DOT_" xml:space="preserve">
     <value>ChangeWeldingProbeTask timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,1232</comment>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,926</comment>
   </data>
   <data name="CycleStopTask_timeout_DOT_" xml:space="preserve">
     <value>CycleStopTask timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,1388</comment>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,986</comment>
   </data>
   <data name="RunWeldingWithTimeTask_timeout_DOT_" xml:space="preserve">
     <value>RunWeldingWithTimeTask timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,1565</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_10steps_6 timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,1718</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_1 timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,1992</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_2 timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,2264</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_3 timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,2537</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_4 timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,2810</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_5 timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,3083</comment>
-  </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_6 timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,3356</comment>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,1158</comment>
   </data>
 </root>

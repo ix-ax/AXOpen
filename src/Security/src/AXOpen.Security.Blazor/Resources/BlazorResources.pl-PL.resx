@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account Manage" xml:space="preserve">
+    <value>Zarządzanie kontem</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Nazwa użytkownika</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Grupa</value>
+  </data>
+  <data name="Old password" xml:space="preserve">
+    <value>Stare hasło</value>
+  </data>
+  <data name="New password" xml:space="preserve">
+    <value>Nowe hasło</value>
+  </data>
+  <data name="Confirm new password" xml:space="preserve">
+    <value>Potwierdź nowe hasło</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Aktualizacja</value>
+  </data>
+  <data name="Sorry, you are not logged in. Please log in." xml:space="preserve">
+    <value>Przepraszamy, nie jesteś zalogowany. Zaloguj się.</value>
+  </data>
+  <data name="Updated!" xml:space="preserve">
+    <value>Aktualizacja!</value>
+  </data>
+  <data name="User succesfully updated." xml:space="preserve">
+    <value>Użytkownik został pomyślnie zaktualizowany.</value>
+  </data>
+  <data name="Not updated!" xml:space="preserve">
+    <value>Nie zaktualizowano!</value>
+  </data>
+  <data name="User was not updated." xml:space="preserve">
+    <value>Użytkownik nie został zaktualizowany.</value>
+  </data>
+  <data name="Sorry, you are not authorized to access user management. Please log in as administrator." xml:space="preserve">
+    <value>Przepraszamy, nie masz uprawnień dostępu do zarządzania użytkownikami. Zaloguj się jako administrator.</value>
+  </data>
+  <data name="Create new user" xml:space="preserve">
+    <value>Utwórz nowego użytkownika</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Hasło</value>
+  </data>
+  <data name="Confirm password" xml:space="preserve">
+    <value>Potwierdź hasło</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Utwórz</value>
+  </data>
+  <data name="Sorry, you are not authorized to create new users. Please log in as administrator." xml:space="preserve">
+    <value>Przepraszamy, nie masz uprawnień do tworzenia nowych użytkowników. Zaloguj się jako administrator.</value>
+  </data>
+  <data name="Created!" xml:space="preserve">
+    <value>Stworzony!</value>
+  </data>
+  <data name="User successfully created." xml:space="preserve">
+    <value>Użytkownik został pomyślnie utworzony.</value>
+  </data>
+  <data name="Not created!" xml:space="preserve">
+    <value>Nie został stworzony!</value>
+  </data>
+  <data name="User was not created." xml:space="preserve">
+    <value>Użytkownik nie został utworzony.</value>
+  </data>
+  <data name="List of users:" xml:space="preserve">
+    <value>Lista użytkowników:</value>
+  </data>
+  <data name="Can change password" xml:space="preserve">
+    <value>Możliwość zmiany hasła</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Utworzony</value>
+  </data>
+  <data name="Modified" xml:space="preserve">
+    <value>Zmodyfikowany</value>
+  </data>
+  <data name="Selected user:" xml:space="preserve">
+    <value>Wybrany użytkownik:</value>
+  </data>
+  <data name="Choose group" xml:space="preserve">
+    <value>Wybierz grupę</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="Delete user" xml:space="preserve">
+    <value>Usuń użytkownika</value>
+  </data>
+  <data name="Do you want to delete user" xml:space="preserve">
+    <value>Czy chcesz usunąć użytkownika?</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zamknij</value>
+  </data>
+  <data name="Deleted!" xml:space="preserve">
+    <value>Usunięty!</value>
+  </data>
+  <data name="User succesfully deleted!" xml:space="preserve">
+    <value>Użytkownik został pomyślnie usunięty!</value>
+  </data>
+  <data name="Wrong name!" xml:space="preserve">
+    <value>Zła nazwa!</value>
+  </data>
+  <data name="Not deleted!" xml:space="preserve">
+    <value>Nie usunięto!</value>
+  </data>
+  <data name="Group successfully updated!" xml:space="preserve">
+    <value>Grupa została pomyślnie zaktualizowana!</value>
+  </data>
+  <data name="Group was not updated." xml:space="preserve">
+    <value>Grupa nie została zaktualizowana.</value>
+  </data>
+  <data name="Wrong group name" xml:space="preserve">
+    <value>Nieprawidłowa nazwa grupy</value>
+  </data>
+  <data name="Group successfully created!" xml:space="preserve">
+    <value>Grupa została pomyślnie utworzona!</value>
+  </data>
+  <data name="Group was not created." xml:space="preserve">
+    <value>Grupa nie została utworzona.</value>
+  </data>
+  <data name="Group successfully deleted" xml:space="preserve">
+    <value>Grupa została pomyślnie usunięta</value>
+  </data>
+  <data name="Group was not deleted." xml:space="preserve">
+    <value>Grupa nie została usunięta.</value>
+  </data>
+  <data name="List of groups:" xml:space="preserve">
+    <value>Lista grup:</value>
+  </data>
+  <data name="Group name" xml:space="preserve">
+    <value>Nazwa grupy</value>
+  </data>
+  <data name="Create new group" xml:space="preserve">
+    <value>Utwórz nową grupę</value>
+  </data>
+  <data name="Selected group:" xml:space="preserve">
+    <value>Wybrana grupa:</value>
+  </data>
+  <data name="Available roles:" xml:space="preserve">
+    <value>Dostępne role:</value>
+  </data>
+  <data name="Select all" xml:space="preserve">
+    <value>Wybierz wszystko</value>
+  </data>
+  <data name="Delete group" xml:space="preserve">
+    <value>Usuń grupę</value>
+  </data>
+  <data name="Do you want to delete group" xml:space="preserve">
+    <value>Czy chcesz usunąć grupę?</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Log out" xml:space="preserve">
+    <value>Wylogowanie</value>
+  </data>
+  <data name="Log in" xml:space="preserve">
+    <value>Zaloguj się</value>
+  </data>
+  <data name="User Management" xml:space="preserve">
+    <value>Zarządzanie użytkownikami</value>
+  </data>
+  <data name="Group Management" xml:space="preserve">
+    <value>Zarządzanie grupą</value>
+  </data>
+  <data name="Identified!" xml:space="preserve">
+    <value>Zidentyfikowany!</value>
+  </data>
+  <data name="The external token identified" xml:space="preserve">
+    <value>Zidentyfikowany token zewnętrzny</value>
+  </data>
+  <data name="Failed to set email." xml:space="preserve">
+    <value>Nie udało się ustawić adresu e-mail.</value>
+  </data>
+  <data name="Failed to set phone number." xml:space="preserve">
+    <value>Nie udało się ustawić numeru telefonu.</value>
+  </data>
+  <data name="Failed to set externalId, because it is being used by another user." xml:space="preserve">
+    <value>Nie udało się ustawić externalId, ponieważ jest on używany przez innego użytkownika.</value>
+  </data>
+</root>

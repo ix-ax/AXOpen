@@ -68,30 +68,30 @@
   </data>
   <data name="StartMotorsProgramAndMovementsTask_timeout_DOT_" xml:space="preserve">
     <value>StartMotorsProgramAndMovementsTask timeout.</value>
-    <comment>src\AxoKrc4_v_5_x_x.st,849</comment>
+    <comment>src\AxoKrc4_v_5_x_x.st,854</comment>
   </data>
   <data name="StartMovementsTask_timeout_DOT_" xml:space="preserve">
     <value>StartMovementsTask timeout.</value>
-    <comment>src\AxoKrc4_v_5_x_x.st,1122</comment>
+    <comment>src\AxoKrc4_v_5_x_x.st,1129</comment>
   </data>
   <data name="StartProgramTask_timeout_DOT_" xml:space="preserve">
     <value>StartProgramTask timeout.</value>
-    <comment>src\AxoKrc4_v_5_x_x.st,1273</comment>
+    <comment>src\AxoKrc4_v_5_x_x.st,1280</comment>
   </data>
   <data name="StopMotorsTask_timeout_DOT_" xml:space="preserve">
     <value>StopMotorsTask timeout.</value>
-    <comment>src\AxoKrc4_v_5_x_x.st,1336</comment>
+    <comment>src\AxoKrc4_v_5_x_x.st,1343</comment>
   </data>
   <data name="StopMovementsAndProgramTask_timeout_DOT_" xml:space="preserve">
     <value>StopMovementsAndProgramTask timeout.</value>
-    <comment>src\AxoKrc4_v_5_x_x.st,1407</comment>
+    <comment>src\AxoKrc4_v_5_x_x.st,1414</comment>
   </data>
   <data name="StopMovementsTask_timeout_DOT_" xml:space="preserve">
     <value>StopMovementsTask timeout.</value>
-    <comment>src\AxoKrc4_v_5_x_x.st,1467</comment>
+    <comment>src\AxoKrc4_v_5_x_x.st,1474</comment>
   </data>
   <data name="StopProgramTask_timeout_DOT_" xml:space="preserve">
     <value>StopProgramTask timeout.</value>
-    <comment>src\AxoKrc4_v_5_x_x.st,1526</comment>
+    <comment>src\AxoKrc4_v_5_x_x.st,1533</comment>
   </data>
 </root>

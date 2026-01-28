@@ -512,7 +512,7 @@ namespace AXOpen.Data
             if (copied.Count > 0)
             {
                 string createdRecords = string.Join(", ", copied);
-                ToastService?.AddToast(eToastType.Info, Properties.AxOpenDataResources.Copied_record, string.Format(Properties.AxOpenDataResources.Data_with_ID_was_created_for, identifier, createdRecords), 7);
+                ToastService?.AddToast(eToastType.Info, Properties.AxOpenDataResources.Copied_record, $"Record \"{identifier}\" was copied to \"{newIdentifier}\" in repositories: {createdRecords}.", 7);
                 AxoApplication.Current.Logger.Information($"Copying record \"{identifier}\" with new ID \"{newIdentifier}\" into repositories {createdRecords} by user action was successful.", Authentication.GetAuthenticationStateAsync().Result.User.Identity);
             }
 
