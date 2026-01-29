@@ -1,6 +1,6 @@
 Templates:
   Modules:
-  - Name: '6ES7518-3AT10-0AB0_v4_0'
+  - Name: '6ES7518-3AT10-0AB0_v4_1'
     Placeholders:
     - Name: 'NAME'
     - Name: 'IP_ADDRESS_X1'
@@ -23,7 +23,7 @@ Templates:
       Name: '${NAME}'
       TypeIdentifier:
         OrderNumber: '6ES7 518-3AT10-0AB0'
-        Version: 'V4.0'
+        Version: 'V4.1'
       Services:
       - Name: 'IDeviceServiceName'
         Type: 'IDevice'
@@ -49,8 +49,6 @@ Templates:
         Parameters:
           # Possible values: NoSecurity | Basic256Sha256Sign | Basic256Sha256SignEncrypt
           SecurityPolicies:
-          - 'NoSecurity'
-          - 'Basic256Sha256Sign'
           - 'Basic256Sha256SignEncrypt'
           AutoAcceptAllClientCertificates: True
           # Possible value range: [1024, 49151]
@@ -58,6 +56,7 @@ Templates:
           # AlarmsAndConditionsAcknowledgeActive (Boolean)
           AlarmsAndConditionsEnable: False
           # AlarmsAndConditionsActiveMultilingual (Boolean)
+          ApplicationUri: 'urn:SIMATIC:'
       - Type: 'Syslog'
         Enabled: False
         Parameters:
@@ -163,6 +162,13 @@ Templates:
           # TransmissionRateAutoNegotiation: True
           # MediumAttachmentType: 'Copper'
       Parameters:
+        EnableLockUserAccountAtRunTime: True
+        # Possible value range: [1, 99]
+        NumberOfFailedLoginAttempts: 5
+        # Possible value range: [1, 30]
+        LoginRetryInterval: 2
+        # Possible value range: [1, 60]
+        LockAccountForDuration: 2
         # Possible values: 0 - Deactivated | 4 - Device | 1 - Project | 2 - Remotely
         PnDnsConfigNameResolve: 'Deactivated'
         SNMPActive: False
@@ -242,6 +248,9 @@ Templates:
         # AmbientTemperature (Integer)
         # Possible values: 0 - DefaultPerformance | 1 - PerformanceBoost25Percent
         PerformanceBoost: 'DefaultPerformance'
+        # CirModeIsEnabled (Boolean)
+        # CirProfinetNetworkCalculation (Integer)
+        # CirState (Integer)
       UserManagement:
         Users:
         # UserManagement parameters listed below are intended as a sample. It is essential to adjust these settings according to your specific requirements before using them in your project.

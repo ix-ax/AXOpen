@@ -1,72 +1,72 @@
-Templates:
-  Submodules:
-  - Name: 'balluff_bni00l3_bni0099_bni0099'
-    Placeholders:
-      - Name: 'SubmoduleName'
-        Value: 'X01'
-        AllowedValues:
-          - 'X01'   
-          - 'X02'
-          - 'X03'
-          - 'X04'    
-          - 'X05'   
-          - 'X06'
-          - 'X07'
-          - 'X08'    
-      - Name: 'Slot'
-        Value: 2
-        AllowedValues:
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-    Content:
-      Name: '${SubmoduleName}'
-      Slot: '${Slot}'
-      TypeIdentifier:
-        FileName: 'GSDML-V2.45-BALLUFF-BNI-XG3-X0X-XB5-X067-20250822.XML'
-        GsdId: 'IDS_IOL_2I_0O_PQI'
-      Parameters:
-        RecordDataList:
-        - IndexName: 'Port configuration'
-          Values:
-          - OffsetName: 'Enable port diagnosis'
-            Value: True
-          - OffsetName: 'Enable process alarms (Enable Notifications)'
-            Value: False
-          - OffsetName: 'Enable input fraction (Disable PD size check)'
-            Value: False
-          - OffsetName: 'Enable Pull/Plug'
-            Value: True
-          # - Offset: '4'
-          #   # Possible value range: [0, 255]
-          #   Value: 2
-          # - Offset: '5'
-          #   # Possible value range: [0, 255]
-          #   Value: 0
-          - OffsetName: 'Port mode'
-            # Possible ValueNames: Deactivated | Set port configuration | Autoconfig
-            ValueName: 'Autoconfig'
-          - OffsetName: 'Validation & Backup'
-            # Possible ValueNames: No Device check | Type compatible Device V1.0 | Type compatible Device V1.1 | Type compatible Device V1.1, Backup + Restore | Type compatible Device V1.1, Restore
-            ValueName: 'Type compatible Device V1.1, Backup + Restore'
-          - OffsetName: 'Port Class / Pin2 behavior'
-            # Possible ValueNames: Class A / NC (Not connected) | Class A / DI | Class A / DO | Class A / Power
-            ValueName: 'Class A / NC (Not connected)'
-          - OffsetName: 'Cycle Time'
-            # Possible ValueNames: as fast as possible | 1.6 ms | 3.2 ms | 4.8 ms | 8.0 ms | 10.0 ms | 12.0 ms | 16.0 ms | 20.0 ms | 40.0 ms | 80.0 ms | 120.0 ms
-            ValueName: 'as fast as possible'
-          - OffsetName: 'Vendor ID (dez)'
-            # Possible value range: [0, 65535]
-            Value: 888
-          - OffsetName: 'Device ID (dez)'
-            # Possible value range: [0, 16777215]
-            Value: 330593
-        IoConfiguration:
-          Inputs:
-            # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
-            ProcessImagePartition: 'Automatic update'
+# Templates:
+#   Submodules:
+#   - Name: 'balluff_bni00l3_bni0099_bni0099'
+#     Placeholders:
+#       - Name: 'SubmoduleName'
+#         Value: 'X01'
+#         AllowedValues:
+#           - 'X01'   
+#           - 'X02'
+#           - 'X03'
+#           - 'X04'    
+#           - 'X05'   
+#           - 'X06'
+#           - 'X07'
+#           - 'X08'    
+#       - Name: 'Slot'
+#         Value: 2
+#         AllowedValues:
+#           - 2
+#           - 3
+#           - 4
+#           - 5
+#           - 6
+#           - 7
+#           - 8
+#           - 9
+#     Content:
+#       Name: '${SubmoduleName}'
+#       Slot: '${Slot}'
+#       TypeIdentifier:
+#         FileName: 'GSDML-V2.45-BALLUFF-BNI-XG3-X0X-XB5-X067-20250822.XML'
+#         GsdId: 'IDS_IOL_2I_0O_PQI'
+#       Parameters:
+#         RecordDataList:
+#         - IndexName: 'Port configuration'
+#           Values:
+#           - OffsetName: 'Enable port diagnosis'
+#             Value: True
+#           - OffsetName: 'Enable process alarms (Enable Notifications)'
+#             Value: False
+#           - OffsetName: 'Enable input fraction (Disable PD size check)'
+#             Value: False
+#           - OffsetName: 'Enable Pull/Plug'
+#             Value: True
+#           # - Offset: '4'
+#           #   # Possible value range: [0, 255]
+#           #   Value: 2
+#           # - Offset: '5'
+#           #   # Possible value range: [0, 255]
+#           #   Value: 0
+#           - OffsetName: 'Port mode'
+#             # Possible ValueNames: Deactivated | Set port configuration | Autoconfig
+#             ValueName: 'Autoconfig'
+#           - OffsetName: 'Validation & Backup'
+#             # Possible ValueNames: No Device check | Type compatible Device V1.0 | Type compatible Device V1.1 | Type compatible Device V1.1, Backup + Restore | Type compatible Device V1.1, Restore
+#             ValueName: 'Type compatible Device V1.1, Backup + Restore'
+#           - OffsetName: 'Port Class / Pin2 behavior'
+#             # Possible ValueNames: Class A / NC (Not connected) | Class A / DI | Class A / DO | Class A / Power
+#             ValueName: 'Class A / NC (Not connected)'
+#           - OffsetName: 'Cycle Time'
+#             # Possible ValueNames: as fast as possible | 1.6 ms | 3.2 ms | 4.8 ms | 8.0 ms | 10.0 ms | 12.0 ms | 16.0 ms | 20.0 ms | 40.0 ms | 80.0 ms | 120.0 ms
+#             ValueName: 'as fast as possible'
+#           - OffsetName: 'Vendor ID (dez)'
+#             # Possible value range: [0, 65535]
+#             Value: 888
+#           - OffsetName: 'Device ID (dez)'
+#             # Possible value range: [0, 16777215]
+#             Value: 330593
+#         IoConfiguration:
+#           Inputs:
+#             # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
+#             ProcessImagePartition: 'Automatic update'
