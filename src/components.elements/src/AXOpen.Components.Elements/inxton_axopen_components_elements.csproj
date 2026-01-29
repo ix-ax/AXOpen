@@ -56,8 +56,7 @@
 	<ItemGroup>
 	  <EmbeddedResource Update="Resources\PlcStringResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>
-	    <ManifestResourceName>inxton_axopen_components_elements.Resources.PlcStringResources.resources</ManifestResourceName>
+	    <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>	    
 	  </EmbeddedResource>
 	</ItemGroup>
 

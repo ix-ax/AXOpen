@@ -66,6 +66,30 @@
     <value>MessengerInfo</value>
     <comment>src\AxoAi\AxoAi.st,29</comment>
   </data>
+  <data name="Raw_low" xml:space="preserve">
+    <value>Raw low</value>
+    <comment>src\AxoAi\AxoAiConfig.st,12</comment>
+  </data>
+  <data name="Raw_high" xml:space="preserve">
+    <value>Raw high</value>
+    <comment>src\AxoAi\AxoAiConfig.st,18</comment>
+  </data>
+  <data name="Real_low" xml:space="preserve">
+    <value>Real low</value>
+    <comment>src\AxoAi\AxoAiConfig.st,25</comment>
+  </data>
+  <data name="Real_high" xml:space="preserve">
+    <value>Real high</value>
+    <comment>src\AxoAi\AxoAiConfig.st,32</comment>
+  </data>
+  <data name="Gain" xml:space="preserve">
+    <value>Gain</value>
+    <comment>src\AxoAi\AxoAiConfig.st,38</comment>
+  </data>
+  <data name="Offset" xml:space="preserve">
+    <value>Offset</value>
+    <comment>src\AxoAi\AxoAiConfig.st,43</comment>
+  </data>
   <data name="Raw_range" xml:space="preserve">
     <value>Raw range</value>
     <comment>src\AxoAi\AxoAiStatus.st,11</comment>
@@ -169,10 +193,6 @@
   <data name="Number_of_positions" xml:space="preserve">
     <value>Number of positions</value>
     <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st,13</comment>
-  </data>
-  <data name="Offset" xml:space="preserve">
-    <value>Offset</value>
-    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st,15</comment>
   </data>
   <data name="Enable_turn" xml:space="preserve">
     <value>Enable turn</value>

@@ -163,4 +163,19 @@
   <data name="Coding_position" xml:space="preserve">
     <value>Pozícia kódovania</value>
   </data>
+  <data name="Raw_low" xml:space="preserve">
+    <value>Spodná surová hodnota</value>
+  </data>
+  <data name="Raw_high" xml:space="preserve">
+    <value>Vrchná surová hodnota</value>
+  </data>
+  <data name="Real_low" xml:space="preserve">
+    <value>Spodná reálna hodnota</value>
+  </data>
+  <data name="Real_high" xml:space="preserve">
+    <value>Vrchná reálna hodnota</value>
+  </data>
+  <data name="Gain" xml:space="preserve">
+    <value>Zosilnenie</value>
+  </data>
 </root>

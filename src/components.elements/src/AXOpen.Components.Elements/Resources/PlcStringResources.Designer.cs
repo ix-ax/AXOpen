@@ -133,6 +133,15 @@ namespace AXOpen.Components.Elements.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gain.
+        /// </summary>
+        public static string Gain {
+            get {
+                return ResourceManager.GetString("Gain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to In position.
         /// </summary>
         public static string In_position {
@@ -250,11 +259,47 @@ namespace AXOpen.Components.Elements.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Raw high.
+        /// </summary>
+        public static string Raw_high {
+            get {
+                return ResourceManager.GetString("Raw_high", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Raw low.
+        /// </summary>
+        public static string Raw_low {
+            get {
+                return ResourceManager.GetString("Raw_low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Raw range.
         /// </summary>
         public static string Raw_range {
             get {
                 return ResourceManager.GetString("Raw_range", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Real high.
+        /// </summary>
+        public static string Real_high {
+            get {
+                return ResourceManager.GetString("Real_high", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Real low.
+        /// </summary>
+        public static string Real_low {
+            get {
+                return ResourceManager.GetString("Real_low", resourceCulture);
             }
         }
         
