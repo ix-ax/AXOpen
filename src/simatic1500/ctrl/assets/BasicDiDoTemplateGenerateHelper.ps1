@@ -1,0 +1,2 @@
+apax hwc generate-template-file --order-number "6ES7 521-1BL00-0AB0" --version "V2.2" --output "assets\new\Modules\6ES7521-1BL00-0AB0_v2_2.hwl.yml" --template-name "6ES7521-1BL00-0AB0_v2_2"
+apax hwc generate-template-file --order-number "6ES7 522-1BL01-0AB0" --version "V1.1" --output "assets\new\Modules\6ES7522-1BL01-0AB0_v1_1.hwl.yml" --template-name "6ES7522-1BL01-0AB0_v1_1"

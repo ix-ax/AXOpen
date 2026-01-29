@@ -18,6 +18,21 @@ Templates:
         OrderNumber: '6ES7 587-1AP00-0AB0'
         Version: 'V4.0'
       Services:
+      - Name: 'IDeviceServiceName'
+        Type: 'IDevice'
+        Enabled: False
+        Parameters:
+          ParameterAssignmentOfPnInterfaceByHigherLevelIoController: False
+          AssetManagementViaUserProgram: False
+        Interfaces:
+        # - Ref: 'Device/PLC_1/PROFINET_interface_1'
+        TransferAreas:
+        # - Name: 'iodata_I_consume'
+        #   Length: 1
+        #   Type: 'Input'
+        # - Name: 'iodata_I_provide'
+        #   Length: 1
+        #   Type: 'Output'
       - Type: 'WebServer'
         Enabled: True
         Parameters:
@@ -173,6 +188,9 @@ Templates:
             - 'AccessProtectionReadAccess'
             - 'OpcUAServerAccess'
             - 'OpcUAManageCertificates'
+            - 'ManageUserDefinedWebPages'
+            - 'OpenUserDefinedWebPages'
+            - 'WriteUserDefinedWebPages'
           - Name: 'WebServerAccessRole'
             FunctionRights:
             - 'ReadPlcVariables'

@@ -1,6 +1,6 @@
 Templates:
   Modules:
-  - Name: '6ES7518-3AT10-0AB0_v4_0'
+  - Name: '6ES7515-2AN03-0AB0_v4_1'
     Placeholders:
     - Name: 'NAME'
     - Name: 'IP_ADDRESS_X1'
@@ -11,19 +11,15 @@ Templates:
       Value: '192.168.1.1/24'
     - Name: 'PROFINET_DEVICE_NAME_X2'
       Value: 'plc_1.profinet_interface_2'
-    - Name: 'IP_ADDRESS_X3'
-      Value: '192.168.2.1/24'
-    - Name: 'PROFINET_DEVICE_NAME_X3'
-      Value: 'plc_1.profinet_interface_gbit_3'
     - Name: ADMIN_NAME
       Value: 'admin'
     - Name: CYCLE_COMMUNICATION_LOAD
-      Value: 20
+      Value: 50
     Content:
       Name: '${NAME}'
       TypeIdentifier:
-        OrderNumber: '6ES7 518-3AT10-0AB0'
-        Version: 'V4.0'
+        OrderNumber: '6ES7 515-2AN03-0AB0'
+        Version: 'V4.1'
       Services:
       - Name: 'IDeviceServiceName'
         Type: 'IDevice'
@@ -49,8 +45,6 @@ Templates:
         Parameters:
           # Possible values: NoSecurity | Basic256Sha256Sign | Basic256Sha256SignEncrypt
           SecurityPolicies:
-          - 'NoSecurity'
-          - 'Basic256Sha256Sign'
           - 'Basic256Sha256SignEncrypt'
           AutoAcceptAllClientCertificates: True
           # Possible value range: [1024, 49151]
@@ -58,6 +52,7 @@ Templates:
           # AlarmsAndConditionsAcknowledgeActive (Boolean)
           AlarmsAndConditionsEnable: False
           # AlarmsAndConditionsActiveMultilingual (Boolean)
+          ApplicationUri: 'urn:SIMATIC:'
       - Type: 'Syslog'
         Enabled: False
         Parameters:
@@ -79,7 +74,7 @@ Templates:
           LoadLimitation: True
           OverwriteDeviceNames: False
           DeviceReplacementWithoutExchangeableMedium: True
-          # Possible values: 125000 | 187500 | 250000 | 375000 | 500000 | 625000 | 750000 | 875000 | 1000000 | 1125000 | 1250000 | 1375000 | 1500000 | 1625000 | 1750000 | 1875000 | 2000000 | 2125000 | 2250000 | 2375000 | 2500000 | 2625000 | 2750000 | 2875000 | 3000000 | 3125000 | 3250000 | 3375000 | 3500000 | 3625000 | 3750000 | 3875000 | 4000000
+          # Possible values: 250000 | 375000 | 500000 | 625000 | 750000 | 875000 | 1000000 | 1125000 | 1250000 | 1375000 | 1500000 | 1625000 | 1750000 | 1875000 | 2000000 | 2125000 | 2250000 | 2375000 | 2500000 | 2625000 | 2750000 | 2875000 | 3000000 | 3125000 | 3250000 | 3375000 | 3500000 | 3625000 | 3750000 | 3875000 | 4000000
           PnSendClock: 1000000
           UseWebServerForInterface: True
           IECV22LLDPMode: False
@@ -93,18 +88,7 @@ Templates:
           LoadLimitation: False
           OverwriteDeviceNames: False
           DeviceReplacementWithoutExchangeableMedium: True
-          # Possible values: 250000 | 375000 | 500000 | 625000 | 750000 | 875000 | 1000000 | 1125000 | 1250000 | 1375000 | 1500000 | 1625000 | 1750000 | 1875000 | 2000000 | 2125000 | 2250000 | 2375000 | 2500000 | 2625000 | 2750000 | 2875000 | 3000000 | 3125000 | 3250000 | 3375000 | 3500000 | 3625000 | 3750000 | 3875000 | 4000000
           PnSendClock: 1000000
-          UseWebServerForInterface: True
-          IECV22LLDPMode: False
-      - Name: 'PROFINET_interface_GBIT_3'
-        Label: 'X3'
-        Addresses:
-          Configured:
-          - IPv4: '${IP_ADDRESS_X3}'
-          - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X3}'
-        Parameters:
-          LoadLimitation: False
           UseWebServerForInterface: True
           IECV22LLDPMode: False
       Ports:
@@ -141,28 +125,14 @@ Templates:
           PortMonitoring: False
           # TransmissionRateAutoNegotiation: True
           # MediumAttachmentType: 'Copper'
-      - Name: 'Port_4'
-        Label: 'X2 P2'
-        Parameters:
-          PortActivation: True
-          # Possible values: 16 - TP 100 Mbps full duplex | 8 - Automatic
-          TransmissionRateAndDuplex: 'Automatic'
-          EndOfDetectionOfAccessibleDevices: False
-          EndOfTopologyDiscovery: False
-          PortMonitoring: False
-          # TransmissionRateAutoNegotiation: True
-          # MediumAttachmentType: 'Copper'
-      - Name: 'Port_5'
-        Label: 'X3 P1'
-        Parameters:
-          PortActivation: True
-          # Possible values: 16 - TP 100 Mbps full duplex | 8 - Automatic
-          TransmissionRateAndDuplex: 'Automatic'
-          EndOfTopologyDiscovery: False
-          PortMonitoring: False
-          # TransmissionRateAutoNegotiation: True
-          # MediumAttachmentType: 'Copper'
       Parameters:
+        EnableLockUserAccountAtRunTime: True
+        # Possible value range: [1, 99]
+        NumberOfFailedLoginAttempts: 5
+        # Possible value range: [1, 30]
+        LoginRetryInterval: 2
+        # Possible value range: [1, 60]
+        LockAccountForDuration: 2
         # Possible values: 0 - Deactivated | 4 - Device | 1 - Project | 2 - Remotely
         PnDnsConfigNameResolve: 'Deactivated'
         SNMPActive: False
@@ -172,8 +142,8 @@ Templates:
         AdditionalInformation: ""
         # ClockMemoryByteAddress (Integer)
         ClockMemoryByte: False
-        # Possible value range: [5, 50]
-        CycleCommunicationLoad:  ${CYCLE_COMMUNICATION_LOAD}
+        # Possible value range: [15, 50]
+        CycleCommunicationLoad: ${CYCLE_COMMUNICATION_LOAD}
         CycleEnableMinimumCycleTime: True
         # Possible value range: [1, 6000]
         CycleMaximumCycleTime: 150
@@ -239,9 +209,9 @@ Templates:
         # HostnameConfiguration (Integer)
         # HostnameIdenticalToDeviceNameActive (Boolean)
         # Domain (String)
-        # AmbientTemperature (Integer)
-        # Possible values: 0 - DefaultPerformance | 1 - PerformanceBoost25Percent
-        PerformanceBoost: 'DefaultPerformance'
+        # CirModeIsEnabled (Boolean)
+        # CirProfinetNetworkCalculation (Integer)
+        # CirState (Integer)
       UserManagement:
         Users:
         # UserManagement parameters listed below are intended as a sample. It is essential to adjust these settings according to your specific requirements before using them in your project.
