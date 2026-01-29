@@ -441,6 +441,9 @@
                                     </a>
                                     <input type="checkbox" class="checkbox" checked="@(CurrentView.AllowZoomingAndPanning ? "checked" : null)" @onclick="() => ChangeAllowZoomingAndPanningAsync()" title="Zooming and panning" />
                                 }
+                                <a @onclick="() => ExportViewAsync(item, SaveLocationType.Server)" title="Export">
+                                    <Operon.Icons.HeroIcon Icon="arrow-down-tray" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                </a>
                                 <a @onclick="() => RemoveViewAsync(item)" title="Remove">
                                     <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                 </a>
@@ -468,6 +471,9 @@
                                     </a>
                                     <input type="checkbox" class="checkbox" checked="@(CurrentView.AllowZoomingAndPanning ? "checked" : null)" @onclick="() => ChangeAllowZoomingAndPanningAsync()" title="Zooming and panning" />
                                 }
+                                <a @onclick="() => ExportViewAsync(item, SaveLocationType.Local)" title="Export">
+                                    <Operon.Icons.HeroIcon Icon="arrow-down-tray" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                </a>
                                 <a @onclick="() => RemoveViewAsync(item)" title="Remove">
                                     <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                 </a>
@@ -479,6 +485,22 @@
                             </li>
                         }
                     </ul>
+                    <div class="mt-4 p-3 simple-border">
+                        <h5 class="mb-2">Import View</h5>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <select @bind="_importViewSaveLocation" class="select w-auto">
+                                @foreach (var saveLocation in Enum.GetValues(typeof(SaveLocationType)).Cast<SaveLocationType>())
+                                {
+                                    <option value="@saveLocation">@saveLocation</option>
+                                }
+                            </select>
+                            <label class="btn btn-primary cursor-pointer">
+                                <Operon.Icons.HeroIcon Icon="arrow-up-tray" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2" />
+                                Import
+                                <InputFile style="display: none;" accept=".json" OnChange="@ImportViewAsync" />
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer flex justify-end gap-1">
                     <button class="btn btn-outline-red" @onclick="() => _modalViews.CloseModal()">Close</button>

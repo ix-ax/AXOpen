@@ -443,6 +443,84 @@ namespace AXOpen.VisualComposer.Components
             StateHasChanged();
         }
 
+        private async Task ExportViewAsync(string viewName, SaveLocationType saveLocationType)
+        {
+            SerializableView? viewToExport = null;
+
+            if (saveLocationType == SaveLocationType.Server)
+            {
+                viewToExport = await Serializing<SerializableView>.DeserializeAsync(
+                    Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath(), viewName.CorrectFilePath() + ".json"));
+            }
+            else if (saveLocationType == SaveLocationType.Local && _localStorageData.ContainsKey(viewName))
+            {
+                viewToExport = _localStorageData[viewName];
+            }
+
+            if (viewToExport != null)
+            {
+                var json = System.Text.Json.JsonSerializer.Serialize(viewToExport, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+                var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/Components/VisualComposerContainer.razor.js");
+                await jsObject.InvokeVoidAsync("downloadFile", $"{viewName}.json", "application/json", json);
+            }
+        }
+
+        private async Task ImportViewAsync(InputFileChangeEventArgs e)
+        {
+            try
+            {
+                var file = e.File;
+                if (file == null || !file.Name.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
+                    return;
+
+                using var stream = file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024); // 10MB max
+                var importedView = await System.Text.Json.JsonSerializer.DeserializeAsync<SerializableView>(stream);
+
+                if (importedView == null)
+                    return;
+
+                var viewName = Path.GetFileNameWithoutExtension(file.Name);
+                var originalName = viewName;
+                var counter = 1;
+
+                // Ensure unique name
+                while (_serverStorageAllViews.Contains(viewName) || _localStorageData.ContainsKey(viewName))
+                {
+                    viewName = $"{originalName}_{counter}";
+                    counter++;
+                }
+
+                // Import based on selected location
+                if (_importViewSaveLocation == SaveLocationType.Server)
+                {
+                    _serverStorageAllViews.Add(viewName);
+
+                    if (!Directory.Exists(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath())))
+                        Directory.CreateDirectory(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath()));
+
+                    await Serializing<SerializableView>.SerializeAsync(
+                        Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath(), viewName.CorrectFilePath() + ".json"), 
+                        importedView);
+                }
+                else
+                {
+                    _localStorageData.Add(viewName, importedView);
+                    await LocalStorage<Dictionary<string, SerializableView>>.SaveAsync(_protectedLocalStorage, Id, _localStorageData);
+                }
+
+                // Load the imported view
+                await LoadAsync(viewName);
+
+                StateHasChanged();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error importing view: {ex.Message}");
+            }
+        }
+
+        private SaveLocationType _importViewSaveLocation { get; set; } = SaveLocationType.Server;
+
         private async Task ClearScaleAndTranslateAsync()
         {
             CurrentView.Scale = 1;
