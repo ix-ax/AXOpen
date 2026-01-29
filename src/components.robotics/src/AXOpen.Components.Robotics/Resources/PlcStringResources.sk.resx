@@ -117,58 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Command_state" xml:space="preserve">
-    <value>Befehlszustand</value>
-  </data>
-  <data name="Stepping_mode" xml:space="preserve">
-    <value>Schrittmodus</value>
-  </data>
-  <data name="Sequence_mode" xml:space="preserve">
-    <value>Sequencer -Modus</value>
-  </data>
-  <data name="Run_step" xml:space="preserve">
-    <value>Schritt ausführen</value>
-  </data>
-  <data name="Coordinate_X" xml:space="preserve">
-    <value>Koordinate X</value>
-  </data>
-  <data name="Coordinate_Y" xml:space="preserve">
-    <value>Koordinate Y</value>
-  </data>
-  <data name="Coordinate_Z" xml:space="preserve">
-    <value>Koordinate Z</value>
-  </data>
-  <data name="Coordinate_Rx" xml:space="preserve">
-    <value>Koordinaten Rx</value>
-  </data>
-  <data name="Coordinate_Ry" xml:space="preserve">
-    <value>Koordinate Ry</value>
-  </data>
-  <data name="Coordinate_Rz" xml:space="preserve">
-    <value>Koordinate Rz</value>
-  </data>
-  <data name="ActionNo" xml:space="preserve">
-    <value>AktionNo</value>
-  </data>
-  <data name="GlobalSpeed" xml:space="preserve">
-    <value>GlobalSpeed</value>
-  </data>
-  <data name="ToolNo" xml:space="preserve">
-    <value>WerkzeugNr.</value>
-  </data>
-  <data name="WorkobjectNo" xml:space="preserve">
-    <value>WerkobjektNummer</value>
-  </data>
-  <data name="PointNo" xml:space="preserve">
-    <value>PunktNo</value>
-  </data>
-  <data name="UserSpecSpeed_ONE_" xml:space="preserve">
-    <value>BenutzerSpezifikationGeschwindigkeit1</value>
-  </data>
-  <data name="UserSpecSpeed_TWO_" xml:space="preserve">
-    <value>BenutzerSpezifikationGeschwindigkeit2</value>
-  </data>
-  <data name="Coordinates" xml:space="preserve">
-    <value>Koordinaten</value>
+  <data name="Current_movement_parameters" xml:space="preserve">
+    <value>Aktuálne parametre pohybu</value>
   </data>
 </root>

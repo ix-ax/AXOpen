@@ -88,6 +88,87 @@ namespace AXOpen.Inspectors.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Attempts.
+        /// </summary>
+        public static string Attempts {
+            get {
+                return ResourceManager.GetString("Attempts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bypass.
+        /// </summary>
+        public static string Bypass {
+            get {
+                return ResourceManager.GetString("Bypass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        public static string Data {
+            get {
+                return ResourceManager.GetString("Data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detected.
+        /// </summary>
+        public static string Detected {
+            get {
+                return ResourceManager.GetString("Detected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ErrorCode.
+        /// </summary>
+        public static string ErrorCode {
+            get {
+                return ResourceManager.GetString("ErrorCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Excluded.
+        /// </summary>
+        public static string Excluded {
+            get {
+                return ResourceManager.GetString("Excluded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failure Description.
+        /// </summary>
+        public static string Failure_Description {
+            get {
+                return ResourceManager.GetString("Failure_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max.
+        /// </summary>
+        public static string Max {
+            get {
+                return ResourceManager.GetString("Max", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min.
+        /// </summary>
+        public static string Min {
+            get {
+                return ResourceManager.GetString("Min", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to min:.
         /// </summary>
         public static string min_COLON_ {
@@ -97,11 +178,74 @@ namespace AXOpen.Inspectors.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Re-tries.
+        /// </summary>
+        public static string Re_DASH_tries {
+            get {
+                return ResourceManager.GetString("Re_DASH_tries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Req: .
         /// </summary>
         public static string Req_COLON__ {
             get {
                 return ResourceManager.GetString("Req_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required.
+        /// </summary>
+        public static string Required {
+            get {
+                return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result.
+        /// </summary>
+        public static string Result {
+            get {
+                return ResourceManager.GetString("Result", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stab.Time.
+        /// </summary>
+        public static string Stab_DOT_Time {
+            get {
+                return ResourceManager.GetString("Stab_DOT_Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Star notation.
+        /// </summary>
+        public static string Star_notation {
+            get {
+                return ResourceManager.GetString("Star_notation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timeout.
+        /// </summary>
+        public static string Timeout {
+            get {
+                return ResourceManager.GetString("Timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TimeStamp.
+        /// </summary>
+        public static string TimeStamp {
+            get {
+                return ResourceManager.GetString("TimeStamp", resourceCulture);
             }
         }
     }

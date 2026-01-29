@@ -59,5 +59,131 @@ namespace AXOpen.Components.Abstractions.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActionNo.
+        /// </summary>
+        public static string ActionNo {
+            get {
+                return ResourceManager.GetString("ActionNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coordinate Rx.
+        /// </summary>
+        public static string Coordinate_Rx {
+            get {
+                return ResourceManager.GetString("Coordinate_Rx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coordinate Ry.
+        /// </summary>
+        public static string Coordinate_Ry {
+            get {
+                return ResourceManager.GetString("Coordinate_Ry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coordinate Rz.
+        /// </summary>
+        public static string Coordinate_Rz {
+            get {
+                return ResourceManager.GetString("Coordinate_Rz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coordinate X.
+        /// </summary>
+        public static string Coordinate_X {
+            get {
+                return ResourceManager.GetString("Coordinate_X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coordinate Y.
+        /// </summary>
+        public static string Coordinate_Y {
+            get {
+                return ResourceManager.GetString("Coordinate_Y", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coordinate Z.
+        /// </summary>
+        public static string Coordinate_Z {
+            get {
+                return ResourceManager.GetString("Coordinate_Z", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coordinates.
+        /// </summary>
+        public static string Coordinates {
+            get {
+                return ResourceManager.GetString("Coordinates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GlobalSpeed.
+        /// </summary>
+        public static string GlobalSpeed {
+            get {
+                return ResourceManager.GetString("GlobalSpeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PointNo.
+        /// </summary>
+        public static string PointNo {
+            get {
+                return ResourceManager.GetString("PointNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ToolNo.
+        /// </summary>
+        public static string ToolNo {
+            get {
+                return ResourceManager.GetString("ToolNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserSpecSpeed1.
+        /// </summary>
+        public static string UserSpecSpeed_ONE_ {
+            get {
+                return ResourceManager.GetString("UserSpecSpeed_ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserSpecSpeed2.
+        /// </summary>
+        public static string UserSpecSpeed_TWO_ {
+            get {
+                return ResourceManager.GetString("UserSpecSpeed_TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WorkobjectNo.
+        /// </summary>
+        public static string WorkobjectNo {
+            get {
+                return ResourceManager.GetString("WorkobjectNo", resourceCulture);
+            }
+        }
     }
 }

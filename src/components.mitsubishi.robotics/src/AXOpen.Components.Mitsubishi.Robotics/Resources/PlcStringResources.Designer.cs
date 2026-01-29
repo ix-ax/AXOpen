@@ -61,6 +61,403 @@ namespace AXOpen.Components.Mitsubishi.Robotics.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Action number.
+        /// </summary>
+        public static string Action_number {
+            get {
+                return ResourceManager.GetString("Action_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Automatic operation enabled.
+        /// </summary>
+        public static string Automatic_operation_enabled {
+            get {
+                return ResourceManager.GetString("Automatic_operation_enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battery Low.
+        /// </summary>
+        public static string Battery_Low {
+            get {
+                return ResourceManager.GetString("Battery_Low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cycle Stop.
+        /// </summary>
+        public static string Cycle_Stop {
+            get {
+                return ResourceManager.GetString("Cycle_Stop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Emergency stop.
+        /// </summary>
+        public static string Emergency_stop {
+            get {
+                return ResourceManager.GetString("Emergency_stop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error Reset.
+        /// </summary>
+        public static string Error_Reset {
+            get {
+                return ResourceManager.GetString("Error_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error time.
+        /// </summary>
+        public static string Error_time {
+            get {
+                return ResourceManager.GetString("Error_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General Purpose reset.
+        /// </summary>
+        public static string General_Purpose_reset {
+            get {
+                return ResourceManager.GetString("General_Purpose_reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Global robot speed.
+        /// </summary>
+        public static string Global_robot_speed {
+            get {
+                return ResourceManager.GetString("Global_robot_speed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Global speed.
+        /// </summary>
+        public static string Global_speed {
+            get {
+                return ResourceManager.GetString("Global_speed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;InOut_64_byte&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_InOut_UNDERSCORE__SIX__FOUR__UNDERSCORE_byte_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_InOut_UNDERSCORE__SIX__FOUR__UNDERSCORE_byte_APOST" +
+                        "ROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the device.
+        /// </summary>
+        public static string Hardware_ID_of_the_device {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the_device", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware IDs.
+        /// </summary>
+        public static string Hardware_IDs {
+            get {
+                return ResourceManager.GetString("Hardware_IDs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High level error.
+        /// </summary>
+        public static string High_level_error {
+            get {
+                return ResourceManager.GetString("High_level_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In area 4.
+        /// </summary>
+        public static string In_area__FOUR_ {
+            get {
+                return ResourceManager.GetString("In_area__FOUR_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In area 1.
+        /// </summary>
+        public static string In_area__ONE_ {
+            get {
+                return ResourceManager.GetString("In_area__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In area 3.
+        /// </summary>
+        public static string In_area__THREE_ {
+            get {
+                return ResourceManager.GetString("In_area__THREE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In area 2.
+        /// </summary>
+        public static string In_area__TWO_ {
+            get {
+                return ResourceManager.GetString("In_area__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In position.
+        /// </summary>
+        public static string In_position {
+            get {
+                return ResourceManager.GetString("In_position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In position 4.
+        /// </summary>
+        public static string In_position__FOUR_ {
+            get {
+                return ResourceManager.GetString("In_position__FOUR_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In position 1.
+        /// </summary>
+        public static string In_position__ONE_ {
+            get {
+                return ResourceManager.GetString("In_position__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In position 3.
+        /// </summary>
+        public static string In_position__THREE_ {
+            get {
+                return ResourceManager.GetString("In_position__THREE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In position 2.
+        /// </summary>
+        public static string In_position__TWO_ {
+            get {
+                return ResourceManager.GetString("In_position__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info time.
+        /// </summary>
+        public static string Info_time {
+            get {
+                return ResourceManager.GetString("Info_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inputs.
+        /// </summary>
+        public static string Inputs {
+            get {
+                return ResourceManager.GetString("Inputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low level error.
+        /// </summary>
+        public static string Low_level_error {
+            get {
+                return ResourceManager.GetString("Low_level_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Master mode.
+        /// </summary>
+        public static string Master_mode {
+            get {
+                return ResourceManager.GetString("Master_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Movement progress.
+        /// </summary>
+        public static string Movement_progress {
+            get {
+                return ResourceManager.GetString("Movement_progress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operation enable (rights).
+        /// </summary>
+        public static string Operation_enable__BRACKET_rights_ENDBRACKET_ {
+            get {
+                return ResourceManager.GetString("Operation_enable__BRACKET_rights_ENDBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operation rights.
+        /// </summary>
+        public static string Operation_rights {
+            get {
+                return ResourceManager.GetString("Operation_rights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outputs.
+        /// </summary>
+        public static string Outputs {
+            get {
+                return ResourceManager.GetString("Outputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overide specification.
+        /// </summary>
+        public static string Overide_specification {
+            get {
+                return ResourceManager.GetString("Overide_specification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Point number.
+        /// </summary>
+        public static string Point_number {
+            get {
+                return ResourceManager.GetString("Point_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PointNumber.
+        /// </summary>
+        public static string PointNumber {
+            get {
+                return ResourceManager.GetString("PointNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power progress.
+        /// </summary>
+        public static string Power_progress {
+            get {
+                return ResourceManager.GetString("Power_progress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program reset.
+        /// </summary>
+        public static string Program_reset {
+            get {
+                return ResourceManager.GetString("Program_reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rc Ready.
+        /// </summary>
+        public static string Rc_Ready {
+            get {
+                return ResourceManager.GetString("Rc_Ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Servo Off.
+        /// </summary>
+        public static string Servo_Off {
+            get {
+                return ResourceManager.GetString("Servo_Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Servo On.
+        /// </summary>
+        public static string Servo_On {
+            get {
+                return ResourceManager.GetString("Servo_On", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start.
+        /// </summary>
+        public static string Start {
+            get {
+                return ResourceManager.GetString("Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start at main.
+        /// </summary>
+        public static string Start_at_main {
+            get {
+                return ResourceManager.GetString("Start_at_main", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start motors and program.
+        /// </summary>
+        public static string Start_motors_and_program {
+            get {
+                return ResourceManager.GetString("Start_motors_and_program", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start movements with extended parameters.
+        /// </summary>
+        public static string Start_movements_with_extended_parameters {
+            get {
+                return ResourceManager.GetString("Start_movements_with_extended_parameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to StartAtMainTask timeout..
         /// </summary>
         public static string StartAtMainTask_timeout_DOT_ {
@@ -88,6 +485,33 @@ namespace AXOpen.Components.Mitsubishi.Robotics.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stop.
+        /// </summary>
+        public static string Stop {
+            get {
+                return ResourceManager.GetString("Stop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop movements.
+        /// </summary>
+        public static string Stop_movements {
+            get {
+                return ResourceManager.GetString("Stop_movements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop movements and program.
+        /// </summary>
+        public static string Stop_movements_and_program {
+            get {
+                return ResourceManager.GetString("Stop_movements_and_program", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to StopMovementsAndProgramTask timeout..
         /// </summary>
         public static string StopMovementsAndProgramTask_timeout_DOT_ {
@@ -102,6 +526,150 @@ namespace AXOpen.Components.Mitsubishi.Robotics.Resources {
         public static string StopMovementsTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("StopMovementsTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task timeout.
+        /// </summary>
+        public static string Task_timeout {
+            get {
+                return ResourceManager.GetString("Task_timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 4 extend.
+        /// </summary>
+        public static string Tool__FOUR__extend {
+            get {
+                return ResourceManager.GetString("Tool__FOUR__extend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 4 retract.
+        /// </summary>
+        public static string Tool__FOUR__retract {
+            get {
+                return ResourceManager.GetString("Tool__FOUR__retract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 1 extend.
+        /// </summary>
+        public static string Tool__ONE__extend {
+            get {
+                return ResourceManager.GetString("Tool__ONE__extend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 1 retract.
+        /// </summary>
+        public static string Tool__ONE__retract {
+            get {
+                return ResourceManager.GetString("Tool__ONE__retract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 3 extend.
+        /// </summary>
+        public static string Tool__THREE__extend {
+            get {
+                return ResourceManager.GetString("Tool__THREE__extend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 3 retract.
+        /// </summary>
+        public static string Tool__THREE__retract {
+            get {
+                return ResourceManager.GetString("Tool__THREE__retract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 2 extend.
+        /// </summary>
+        public static string Tool__TWO__extend {
+            get {
+                return ResourceManager.GetString("Tool__TWO__extend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 2 retract.
+        /// </summary>
+        public static string Tool__TWO__retract {
+            get {
+                return ResourceManager.GetString("Tool__TWO__retract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool number.
+        /// </summary>
+        public static string Tool_number {
+            get {
+                return ResourceManager.GetString("Tool_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update diagnostics.
+        /// </summary>
+        public static string Update_diagnostics {
+            get {
+                return ResourceManager.GetString("Update_diagnostics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User specific speed 1.
+        /// </summary>
+        public static string User_specific_speed__ONE_ {
+            get {
+                return ResourceManager.GetString("User_specific_speed__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User specific speed 2.
+        /// </summary>
+        public static string User_specific_speed__TWO_ {
+            get {
+                return ResourceManager.GetString("User_specific_speed__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning level error (caution).
+        /// </summary>
+        public static string Warning_level_error__BRACKET_caution_ENDBRACKET_ {
+            get {
+                return ResourceManager.GetString("Warning_level_error__BRACKET_caution_ENDBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workobject number.
+        /// </summary>
+        public static string Workobject_number {
+            get {
+                return ResourceManager.GetString("Workobject_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zones.
+        /// </summary>
+        public static string Zones {
+            get {
+                return ResourceManager.GetString("Zones", resourceCulture);
             }
         }
     }

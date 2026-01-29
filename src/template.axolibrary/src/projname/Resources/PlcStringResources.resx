@@ -106,4 +106,256 @@
     <value>TemplateTask_20steps_6 timeout.</value>
     <comment>src\TemplateComponent\TemplateComponent.st,4869</comment>
   </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,17</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>TemplateTask_10steps_1</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,24</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__TWO_" xml:space="preserve">
+    <value>TemplateTask_10steps_2</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,28</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__THREE_" xml:space="preserve">
+    <value>TemplateTask_10steps_3</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,32</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR_" xml:space="preserve">
+    <value>TemplateTask_10steps_4</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,36</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE_" xml:space="preserve">
+    <value>TemplateTask_10steps_5</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,40</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX_" xml:space="preserve">
+    <value>TemplateTask_10steps_6</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,44</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>TemplateTask_20steps_1</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,49</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO_" xml:space="preserve">
+    <value>TemplateTask_20steps_2</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,53</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE_" xml:space="preserve">
+    <value>TemplateTask_20steps_3</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,57</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR_" xml:space="preserve">
+    <value>TemplateTask_20steps_4</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,61</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE_" xml:space="preserve">
+    <value>TemplateTask_20steps_5</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,65</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX_" xml:space="preserve">
+    <value>TemplateTask_20steps_6</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,69</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,94</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,100</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\TemplateComponent\TemplateComponent.st,108</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_Config.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_Config.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_Config.st,9</comment>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware IDs</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_Config.st,11</comment>
+  </data>
+  <data name="Hardware_ID__of_the_device" xml:space="preserve">
+    <value>Hardware ID  of the device</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,4</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_1' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,6</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_2' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,8</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_3' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,10</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_4' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,12</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_5' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,14</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_6' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,16</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_7' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,18</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_8' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,20</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_9' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,22</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_10' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,24</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_11' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,26</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_12' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,28</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_13' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,30</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_14' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,32</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_15' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,34</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_16' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,36</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_17' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,38</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_18' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,40</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_19' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,42</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__TWO__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'in_20' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,44</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_1' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,46</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_2' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,48</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_3' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,50</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_4' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,52</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_5' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,54</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_6' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,56</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_7' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,58</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_8' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,60</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_9' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,62</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_10' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,64</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_11' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,66</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_12' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,68</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_13' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,70</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_14' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,72</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_15' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,74</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_16' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,76</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_17' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,78</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_18' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,80</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_19' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,82</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__TWO__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_20' submodule</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_HWIDs.st,84</comment>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_In.st,5</comment>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Control</value>
+    <comment>src\TemplateComponent\TypesStructuresAndEnums\TemplateComponent_Out.st,5</comment>
+  </data>
 </root>

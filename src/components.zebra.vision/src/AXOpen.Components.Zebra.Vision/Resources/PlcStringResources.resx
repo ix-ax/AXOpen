@@ -106,4 +106,192 @@
     <value>TemplateTask_20steps_6 timeout.</value>
     <comment>src\AxoEA3600\AxoEA3600.st,2978</comment>
   </data>
+  <data name="Read" xml:space="preserve">
+    <value>Read</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,12</comment>
+  </data>
+  <data name="Read_data" xml:space="preserve">
+    <value>Read data</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,16</comment>
+  </data>
+  <data name="Barcode_type" xml:space="preserve">
+    <value>Barcode type</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,20</comment>
+  </data>
+  <data name="Barcode_length" xml:space="preserve">
+    <value>Barcode length</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,24</comment>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Progress</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,28</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,36</comment>
+  </data>
+  <data name="Clear_data" xml:space="preserve">
+    <value>Clear data</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,41</comment>
+  </data>
+  <data name="Clear_error" xml:space="preserve">
+    <value>Clear error</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,46</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR_" xml:space="preserve">
+    <value>TemplateTask_10steps_4</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,55</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE_" xml:space="preserve">
+    <value>TemplateTask_10steps_5</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,59</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX_" xml:space="preserve">
+    <value>TemplateTask_10steps_6</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,63</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>TemplateTask_20steps_1</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,68</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO_" xml:space="preserve">
+    <value>TemplateTask_20steps_2</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,72</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE_" xml:space="preserve">
+    <value>TemplateTask_20steps_3</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,76</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR_" xml:space="preserve">
+    <value>TemplateTask_20steps_4</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,80</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE_" xml:space="preserve">
+    <value>TemplateTask_20steps_5</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,84</comment>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX_" xml:space="preserve">
+    <value>TemplateTask_20steps_6</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,88</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,113</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,119</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\AxoEA3600\AxoEA3600.st,127</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st,9</comment>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware IDs</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st,11</comment>
+  </data>
+  <data name="Enable_handshake" xml:space="preserve">
+    <value>Enable handshake</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st,13</comment>
+  </data>
+  <data name="Enable_fragments" xml:space="preserve">
+    <value>Enable fragments</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st,15</comment>
+  </data>
+  <data name="Continous_reading" xml:space="preserve">
+    <value>Continous reading</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_Config.st,17</comment>
+  </data>
+  <data name="Hardware_ID__of_the_device" xml:space="preserve">
+    <value>Hardware ID  of the device</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_HWIDs.st,4</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_BarcodeData_UNDERSCORE_v_TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'BarcodeData_v2' submodule</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_HWIDs.st,6</comment>
+  </data>
+  <data name="Fragmented" xml:space="preserve">
+    <value>Fragmented</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,5</comment>
+  </data>
+  <data name="First_fragment" xml:space="preserve">
+    <value>First fragment</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,7</comment>
+  </data>
+  <data name="Middle_fragment" xml:space="preserve">
+    <value>Middle fragment</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,9</comment>
+  </data>
+  <data name="Last_fragment" xml:space="preserve">
+    <value>Last fragment</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,11</comment>
+  </data>
+  <data name="Transfer_enabled" xml:space="preserve">
+    <value>Transfer enabled</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,21</comment>
+  </data>
+  <data name="Handshake_enabled" xml:space="preserve">
+    <value>Handshake enabled</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,23</comment>
+  </data>
+  <data name="Fragmentation_enabled" xml:space="preserve">
+    <value>Fragmentation enabled</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,25</comment>
+  </data>
+  <data name="Cache_overflow" xml:space="preserve">
+    <value>Cache overflow</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,27</comment>
+  </data>
+  <data name="Input_data_overflow" xml:space="preserve">
+    <value>Input data overflow</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,29</comment>
+  </data>
+  <data name="Waiting_for_handshake" xml:space="preserve">
+    <value>Waiting for handshake</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,31</comment>
+  </data>
+  <data name="Trigger_state" xml:space="preserve">
+    <value>Trigger state</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,33</comment>
+  </data>
+  <data name="Scanner_type" xml:space="preserve">
+    <value>Scanner type</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,35</comment>
+  </data>
+  <data name="Update_counter" xml:space="preserve">
+    <value>Update counter</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,37</comment>
+  </data>
+  <data name="Number_of_scanners" xml:space="preserve">
+    <value>Number of scanners</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,41</comment>
+  </data>
+  <data name="Battery_charge_state" xml:space="preserve">
+    <value>Battery charge state</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,43</comment>
+  </data>
+  <data name="Battery_voltage" xml:space="preserve">
+    <value>Battery voltage</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,45</comment>
+  </data>
+  <data name="Battery_temperature" xml:space="preserve">
+    <value>Battery temperature</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,47</comment>
+  </data>
+  <data name="Length_of_the_data" xml:space="preserve">
+    <value>Length of the data</value>
+    <comment>src\AxoEA3600\TypesStructuresAndEnums\AxoEA3600_In.st,53</comment>
+  </data>
 </root>

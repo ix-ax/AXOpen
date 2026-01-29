@@ -59,5 +59,14 @@ namespace AXOpen.Data.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data operation.
+        /// </summary>
+        public static string Data_operation {
+            get {
+                return ResourceManager.GetString("Data_operation", resourceCulture);
+            }
+        }
     }
 }

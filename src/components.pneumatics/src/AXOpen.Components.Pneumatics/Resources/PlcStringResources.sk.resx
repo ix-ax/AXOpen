@@ -117,58 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Command_state" xml:space="preserve">
-    <value>Befehlszustand</value>
+  <data name="Stop" xml:space="preserve">
+    <value>Zastaviť</value>
   </data>
-  <data name="Stepping_mode" xml:space="preserve">
-    <value>Schrittmodus</value>
+  <data name="Move_in" xml:space="preserve">
+    <value>Nasťahujte sa</value>
   </data>
-  <data name="Sequence_mode" xml:space="preserve">
-    <value>Sequencer -Modus</value>
+  <data name="Move_out" xml:space="preserve">
+    <value>Presťahovať sa</value>
   </data>
-  <data name="Run_step" xml:space="preserve">
-    <value>Schritt ausführen</value>
+  <data name="In_sensor" xml:space="preserve">
+    <value>V senzore</value>
   </data>
-  <data name="Coordinate_X" xml:space="preserve">
-    <value>Koordinate X</value>
+  <data name="Out_sensor" xml:space="preserve">
+    <value>Senzor Out</value>
   </data>
-  <data name="Coordinate_Y" xml:space="preserve">
-    <value>Koordinate Y</value>
+  <data name="Move_in_signal" xml:space="preserve">
+    <value>Signál pohybu</value>
   </data>
-  <data name="Coordinate_Z" xml:space="preserve">
-    <value>Koordinate Z</value>
-  </data>
-  <data name="Coordinate_Rx" xml:space="preserve">
-    <value>Koordinaten Rx</value>
-  </data>
-  <data name="Coordinate_Ry" xml:space="preserve">
-    <value>Koordinate Ry</value>
-  </data>
-  <data name="Coordinate_Rz" xml:space="preserve">
-    <value>Koordinate Rz</value>
-  </data>
-  <data name="ActionNo" xml:space="preserve">
-    <value>AktionNo</value>
-  </data>
-  <data name="GlobalSpeed" xml:space="preserve">
-    <value>GlobalSpeed</value>
-  </data>
-  <data name="ToolNo" xml:space="preserve">
-    <value>WerkzeugNr.</value>
-  </data>
-  <data name="WorkobjectNo" xml:space="preserve">
-    <value>WerkobjektNummer</value>
-  </data>
-  <data name="PointNo" xml:space="preserve">
-    <value>PunktNo</value>
-  </data>
-  <data name="UserSpecSpeed_ONE_" xml:space="preserve">
-    <value>BenutzerSpezifikationGeschwindigkeit1</value>
-  </data>
-  <data name="UserSpecSpeed_TWO_" xml:space="preserve">
-    <value>BenutzerSpezifikationGeschwindigkeit2</value>
-  </data>
-  <data name="Coordinates" xml:space="preserve">
-    <value>Koordinaten</value>
+  <data name="Move_out_signal" xml:space="preserve">
+    <value>Signál na odchod</value>
   </data>
 </root>

@@ -60,7 +60,7 @@
 	  <EmbeddedResource Update="Resources\PlcStringResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>
-	    <ManifestResourceName>inxton_axopen_inspectors.Resources.PlcStringResources.resources</ManifestResourceName>
+	    <!--<ManifestResourceName>inxton_axopen_inspectors.Resources.PlcStringResources.resources</ManifestResourceName>-->
 	  </EmbeddedResource>
 	</ItemGroup>
 
@@ -76,6 +76,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\..\..\..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj" />
 	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\inxton_axopen_core.csproj" />
 	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\inxton_axopen_timers.csproj" />
 	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\inxton_axopen_abstractions.csproj" />

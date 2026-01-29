@@ -82,4 +82,120 @@
     <value>SendDataTask timeout.</value>
     <comment>src\AxoCmPtp\AxoCmPtp.st,439</comment>
   </data>
+  <data name="SendDataTask" xml:space="preserve">
+    <value>SendDataTask</value>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,14</comment>
+  </data>
+  <data name="Send_data_length" xml:space="preserve">
+    <value>Send data length</value>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,17</comment>
+  </data>
+  <data name="Data_to_send" xml:space="preserve">
+    <value>Data to send</value>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,20</comment>
+  </data>
+  <data name="Receive_data_length" xml:space="preserve">
+    <value>Receive data length</value>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,26</comment>
+  </data>
+  <data name="Received_data" xml:space="preserve">
+    <value>Received data</value>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,29</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,40</comment>
+  </data>
+  <data name="Set_port_config" xml:space="preserve">
+    <value>Set port config</value>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,44</comment>
+  </data>
+  <data name="Receive_reset" xml:space="preserve">
+    <value>Receive reset</value>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,48</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,72</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,78</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\AxoCmPtp\AxoCmPtp.st,86</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Config.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Config.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Config.st,9</comment>
+  </data>
+  <data name="Port_config" xml:space="preserve">
+    <value>Port config</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Config.st,11</comment>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_In.st,5</comment>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Control</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_Out.st,5</comment>
+  </data>
+  <data name="Protocol" xml:space="preserve">
+    <value>Protocol</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st,5</comment>
+  </data>
+  <data name="Baudrate" xml:space="preserve">
+    <value>Baudrate</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st,7</comment>
+  </data>
+  <data name="Parity" xml:space="preserve">
+    <value>Parity</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st,9</comment>
+  </data>
+  <data name="Data_bits" xml:space="preserve">
+    <value>Data bits</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st,11</comment>
+  </data>
+  <data name="Stop_bits" xml:space="preserve">
+    <value>Stop bits</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st,13</comment>
+  </data>
+  <data name="Flow_control" xml:space="preserve">
+    <value>Flow control</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st,15</comment>
+  </data>
+  <data name="Xon_char" xml:space="preserve">
+    <value>Xon char</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st,17</comment>
+  </data>
+  <data name="Xoff_char" xml:space="preserve">
+    <value>Xoff char</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st,19</comment>
+  </data>
+  <data name="Wait_time__SQUAREBRACKET_ms_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Wait time [ms]</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st,21</comment>
+  </data>
+  <data name="Mode" xml:space="preserve">
+    <value>Mode</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st,23</comment>
+  </data>
+  <data name="Linepreset" xml:space="preserve">
+    <value>Linepreset</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st,25</comment>
+  </data>
+  <data name="Break_detection" xml:space="preserve">
+    <value>Break detection</value>
+    <comment>src\AxoCmPtp\TypesStructuresAndEnums\AxoCmPtp_PortConfig.st,27</comment>
+  </data>
 </root>

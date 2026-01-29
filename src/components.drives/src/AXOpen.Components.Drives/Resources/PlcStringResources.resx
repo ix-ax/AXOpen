@@ -110,4 +110,1112 @@
     <value>MC_Reset has thrown an error: </value>
     <comment>src\AxoDrives\AxoDrive.st,1952</comment>
   </data>
+  <data name="Drive_state" xml:space="preserve">
+    <value>Drive state</value>
+    <comment>src\AxoDrives\AxoDrive.st,14</comment>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
+    <comment>src\AxoDrives\AxoDrive.st,18</comment>
+  </data>
+  <data name="Velocity" xml:space="preserve">
+    <value>Velocity</value>
+    <comment>src\AxoDrives\AxoDrive.st,22</comment>
+  </data>
+  <data name="Torque" xml:space="preserve">
+    <value>Torque</value>
+    <comment>src\AxoDrives\AxoDrive.st,26</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\AxoDrives\AxoDrive.st,33</comment>
+  </data>
+  <data name="Power_task" xml:space="preserve">
+    <value>Power task</value>
+    <comment>src\AxoDrives\AxoDrive.st,39</comment>
+  </data>
+  <data name="Power_status" xml:space="preserve">
+    <value>Power status</value>
+    <comment>src\AxoDrives\AxoDrive.st,42</comment>
+  </data>
+  <data name="Power_valid" xml:space="preserve">
+    <value>Power valid</value>
+    <comment>src\AxoDrives\AxoDrive.st,46</comment>
+  </data>
+  <data name="Power_error" xml:space="preserve">
+    <value>Power error</value>
+    <comment>src\AxoDrives\AxoDrive.st,50</comment>
+  </data>
+  <data name="Power_error_ID" xml:space="preserve">
+    <value>Power error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,54</comment>
+  </data>
+  <data name="Stop_task" xml:space="preserve">
+    <value>Stop task</value>
+    <comment>src\AxoDrives\AxoDrive.st,61</comment>
+  </data>
+  <data name="Stop_decceleration" xml:space="preserve">
+    <value>Stop decceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,64</comment>
+  </data>
+  <data name="Stop_jerk" xml:space="preserve">
+    <value>Stop jerk</value>
+    <comment>src\AxoDrives\AxoDrive.st,67</comment>
+  </data>
+  <data name="Stop_done" xml:space="preserve">
+    <value>Stop done</value>
+    <comment>src\AxoDrives\AxoDrive.st,70</comment>
+  </data>
+  <data name="Stop_busy" xml:space="preserve">
+    <value>Stop busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,74</comment>
+  </data>
+  <data name="Stop_active" xml:space="preserve">
+    <value>Stop active</value>
+    <comment>src\AxoDrives\AxoDrive.st,78</comment>
+  </data>
+  <data name="Stop_aborted" xml:space="preserve">
+    <value>Stop aborted</value>
+    <comment>src\AxoDrives\AxoDrive.st,82</comment>
+  </data>
+  <data name="Stop_error" xml:space="preserve">
+    <value>Stop error</value>
+    <comment>src\AxoDrives\AxoDrive.st,86</comment>
+  </data>
+  <data name="Stop_error_ID" xml:space="preserve">
+    <value>Stop error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,90</comment>
+  </data>
+  <data name="Halt_task" xml:space="preserve">
+    <value>Halt task</value>
+    <comment>src\AxoDrives\AxoDrive.st,97</comment>
+  </data>
+  <data name="Halt_decceleration" xml:space="preserve">
+    <value>Halt decceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,100</comment>
+  </data>
+  <data name="Halt_jerk" xml:space="preserve">
+    <value>Halt jerk</value>
+    <comment>src\AxoDrives\AxoDrive.st,103</comment>
+  </data>
+  <data name="Halt_done" xml:space="preserve">
+    <value>Halt done</value>
+    <comment>src\AxoDrives\AxoDrive.st,106</comment>
+  </data>
+  <data name="Halt_busy" xml:space="preserve">
+    <value>Halt busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,110</comment>
+  </data>
+  <data name="Halt_active" xml:space="preserve">
+    <value>Halt active</value>
+    <comment>src\AxoDrives\AxoDrive.st,114</comment>
+  </data>
+  <data name="Halt_aborted" xml:space="preserve">
+    <value>Halt aborted</value>
+    <comment>src\AxoDrives\AxoDrive.st,118</comment>
+  </data>
+  <data name="Halt_error" xml:space="preserve">
+    <value>Halt error</value>
+    <comment>src\AxoDrives\AxoDrive.st,122</comment>
+  </data>
+  <data name="Halt_error_ID" xml:space="preserve">
+    <value>Halt error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,126</comment>
+  </data>
+  <data name="Homming_task" xml:space="preserve">
+    <value>Homming task</value>
+    <comment>src\AxoDrives\AxoDrive.st,133</comment>
+  </data>
+  <data name="Homming_position" xml:space="preserve">
+    <value>Homming position</value>
+    <comment>src\AxoDrives\AxoDrive.st,136</comment>
+  </data>
+  <data name="Homming_mode" xml:space="preserve">
+    <value>Homming mode</value>
+    <comment>src\AxoDrives\AxoDrive.st,139</comment>
+  </data>
+  <data name="Homming_velocity" xml:space="preserve">
+    <value>Homming velocity</value>
+    <comment>src\AxoDrives\AxoDrive.st,142</comment>
+  </data>
+  <data name="Homming_acceleration" xml:space="preserve">
+    <value>Homming acceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,145</comment>
+  </data>
+  <data name="Homming_decceleration" xml:space="preserve">
+    <value>Homming decceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,148</comment>
+  </data>
+  <data name="Home_status" xml:space="preserve">
+    <value>Home status</value>
+    <comment>src\AxoDrives\AxoDrive.st,151</comment>
+  </data>
+  <data name="Home_valid" xml:space="preserve">
+    <value>Home valid</value>
+    <comment>src\AxoDrives\AxoDrive.st,155</comment>
+  </data>
+  <data name="Home_error" xml:space="preserve">
+    <value>Home error</value>
+    <comment>src\AxoDrives\AxoDrive.st,159</comment>
+  </data>
+  <data name="Home_error_ID" xml:space="preserve">
+    <value>Home error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,163</comment>
+  </data>
+  <data name="Home_done" xml:space="preserve">
+    <value>Home done</value>
+    <comment>src\AxoDrives\AxoDrive.st,167</comment>
+  </data>
+  <data name="Home_busy" xml:space="preserve">
+    <value>Home busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,171</comment>
+  </data>
+  <data name="Home_active" xml:space="preserve">
+    <value>Home active</value>
+    <comment>src\AxoDrives\AxoDrive.st,175</comment>
+  </data>
+  <data name="Home_aborted" xml:space="preserve">
+    <value>Home aborted</value>
+    <comment>src\AxoDrives\AxoDrive.st,179</comment>
+  </data>
+  <data name="Move_absolute_task" xml:space="preserve">
+    <value>Move absolute task</value>
+    <comment>src\AxoDrives\AxoDrive.st,186</comment>
+  </data>
+  <data name="Move_absolute_continous_update" xml:space="preserve">
+    <value>Move absolute continous update</value>
+    <comment>src\AxoDrives\AxoDrive.st,189</comment>
+  </data>
+  <data name="Move_absolute_position" xml:space="preserve">
+    <value>Move absolute position</value>
+    <comment>src\AxoDrives\AxoDrive.st,192</comment>
+  </data>
+  <data name="Move_absolute_velocity" xml:space="preserve">
+    <value>Move absolute velocity</value>
+    <comment>src\AxoDrives\AxoDrive.st,195</comment>
+  </data>
+  <data name="Move_absolute_acceleration" xml:space="preserve">
+    <value>Move absolute acceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,198</comment>
+  </data>
+  <data name="Move_absolute_decceleration" xml:space="preserve">
+    <value>Move absolute decceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,201</comment>
+  </data>
+  <data name="Move_absolute_jerk" xml:space="preserve">
+    <value>Move absolute jerk</value>
+    <comment>src\AxoDrives\AxoDrive.st,204</comment>
+  </data>
+  <data name="Move_absolute_direction" xml:space="preserve">
+    <value>Move absolute direction</value>
+    <comment>src\AxoDrives\AxoDrive.st,207</comment>
+  </data>
+  <data name="Move_absolute_done" xml:space="preserve">
+    <value>Move absolute done</value>
+    <comment>src\AxoDrives\AxoDrive.st,210</comment>
+  </data>
+  <data name="Move_absolute_busy" xml:space="preserve">
+    <value>Move absolute busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,214</comment>
+  </data>
+  <data name="Move_absolute_active" xml:space="preserve">
+    <value>Move absolute active</value>
+    <comment>src\AxoDrives\AxoDrive.st,218</comment>
+  </data>
+  <data name="Move_absolute_aborted" xml:space="preserve">
+    <value>Move absolute aborted</value>
+    <comment>src\AxoDrives\AxoDrive.st,222</comment>
+  </data>
+  <data name="Move_absolute_error" xml:space="preserve">
+    <value>Move absolute error</value>
+    <comment>src\AxoDrives\AxoDrive.st,226</comment>
+  </data>
+  <data name="Move_absolute_error_ID" xml:space="preserve">
+    <value>Move absolute error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,230</comment>
+  </data>
+  <data name="Move_relative_task" xml:space="preserve">
+    <value>Move relative task</value>
+    <comment>src\AxoDrives\AxoDrive.st,237</comment>
+  </data>
+  <data name="Move_relative_continuous_update" xml:space="preserve">
+    <value>Move relative continuous update</value>
+    <comment>src\AxoDrives\AxoDrive.st,240</comment>
+  </data>
+  <data name="Move_relative_distance" xml:space="preserve">
+    <value>Move relative distance</value>
+    <comment>src\AxoDrives\AxoDrive.st,243</comment>
+  </data>
+  <data name="Move_relative_velocity" xml:space="preserve">
+    <value>Move relative velocity</value>
+    <comment>src\AxoDrives\AxoDrive.st,246</comment>
+  </data>
+  <data name="Move_relative_acceleration" xml:space="preserve">
+    <value>Move relative acceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,249</comment>
+  </data>
+  <data name="Move_relative_deceleration" xml:space="preserve">
+    <value>Move relative deceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,252</comment>
+  </data>
+  <data name="Move_relative_jerk" xml:space="preserve">
+    <value>Move relative jerk</value>
+    <comment>src\AxoDrives\AxoDrive.st,255</comment>
+  </data>
+  <data name="Move_relative_done" xml:space="preserve">
+    <value>Move relative done</value>
+    <comment>src\AxoDrives\AxoDrive.st,258</comment>
+  </data>
+  <data name="Move_relative_busy" xml:space="preserve">
+    <value>Move relative busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,262</comment>
+  </data>
+  <data name="Move_relative_active" xml:space="preserve">
+    <value>Move relative active</value>
+    <comment>src\AxoDrives\AxoDrive.st,266</comment>
+  </data>
+  <data name="Move_relative_aborted" xml:space="preserve">
+    <value>Move relative aborted</value>
+    <comment>src\AxoDrives\AxoDrive.st,270</comment>
+  </data>
+  <data name="Move_relative_error" xml:space="preserve">
+    <value>Move relative error</value>
+    <comment>src\AxoDrives\AxoDrive.st,274</comment>
+  </data>
+  <data name="Move_relative_error_ID" xml:space="preserve">
+    <value>Move relative error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,278</comment>
+  </data>
+  <data name="Move_additive_task" xml:space="preserve">
+    <value>Move additive task</value>
+    <comment>src\AxoDrives\AxoDrive.st,285</comment>
+  </data>
+  <data name="Move_additive_continuous_update" xml:space="preserve">
+    <value>Move additive continuous update</value>
+    <comment>src\AxoDrives\AxoDrive.st,288</comment>
+  </data>
+  <data name="Move_additive_distance" xml:space="preserve">
+    <value>Move additive distance</value>
+    <comment>src\AxoDrives\AxoDrive.st,291</comment>
+  </data>
+  <data name="Move_additive_velocity" xml:space="preserve">
+    <value>Move additive velocity</value>
+    <comment>src\AxoDrives\AxoDrive.st,294</comment>
+  </data>
+  <data name="Move_additive_acceleration" xml:space="preserve">
+    <value>Move additive acceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,297</comment>
+  </data>
+  <data name="Move_additive_deceleration" xml:space="preserve">
+    <value>Move additive deceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,300</comment>
+  </data>
+  <data name="Move_additive_jerk" xml:space="preserve">
+    <value>Move additive jerk</value>
+    <comment>src\AxoDrives\AxoDrive.st,303</comment>
+  </data>
+  <data name="Move_additive_done" xml:space="preserve">
+    <value>Move additive done</value>
+    <comment>src\AxoDrives\AxoDrive.st,306</comment>
+  </data>
+  <data name="Move_additive_busy" xml:space="preserve">
+    <value>Move additive busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,310</comment>
+  </data>
+  <data name="Move_additive_active" xml:space="preserve">
+    <value>Move additive active</value>
+    <comment>src\AxoDrives\AxoDrive.st,314</comment>
+  </data>
+  <data name="Move_additive_aborted" xml:space="preserve">
+    <value>Move additive aborted</value>
+    <comment>src\AxoDrives\AxoDrive.st,318</comment>
+  </data>
+  <data name="Move_additive_error" xml:space="preserve">
+    <value>Move additive error</value>
+    <comment>src\AxoDrives\AxoDrive.st,322</comment>
+  </data>
+  <data name="Move_additive_error_ID" xml:space="preserve">
+    <value>Move additive error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,326</comment>
+  </data>
+  <data name="Move_velocity_task" xml:space="preserve">
+    <value>Move velocity task</value>
+    <comment>src\AxoDrives\AxoDrive.st,333</comment>
+  </data>
+  <data name="Move_velocity_continuous_update" xml:space="preserve">
+    <value>Move velocity continuous update</value>
+    <comment>src\AxoDrives\AxoDrive.st,336</comment>
+  </data>
+  <data name="Move_velocity_velocity" xml:space="preserve">
+    <value>Move velocity velocity</value>
+    <comment>src\AxoDrives\AxoDrive.st,339</comment>
+  </data>
+  <data name="Move_velocity_acceleration" xml:space="preserve">
+    <value>Move velocity acceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,342</comment>
+  </data>
+  <data name="Move_velocity_deceleration" xml:space="preserve">
+    <value>Move velocity deceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,345</comment>
+  </data>
+  <data name="Move_velocity_jerk" xml:space="preserve">
+    <value>Move velocity jerk</value>
+    <comment>src\AxoDrives\AxoDrive.st,348</comment>
+  </data>
+  <data name="Move_velocity_" xml:space="preserve">
+    <value>Move velocity </value>
+    <comment>src\AxoDrives\AxoDrive.st,351</comment>
+  </data>
+  <data name="Move_velocity_in_velocity" xml:space="preserve">
+    <value>Move velocity in velocity</value>
+    <comment>src\AxoDrives\AxoDrive.st,354</comment>
+  </data>
+  <data name="Move_velocity_busy" xml:space="preserve">
+    <value>Move velocity busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,358</comment>
+  </data>
+  <data name="Move_velocity_active" xml:space="preserve">
+    <value>Move velocity active</value>
+    <comment>src\AxoDrives\AxoDrive.st,362</comment>
+  </data>
+  <data name="Move_velocity_aborted" xml:space="preserve">
+    <value>Move velocity aborted</value>
+    <comment>src\AxoDrives\AxoDrive.st,366</comment>
+  </data>
+  <data name="Move_velocity_error" xml:space="preserve">
+    <value>Move velocity error</value>
+    <comment>src\AxoDrives\AxoDrive.st,370</comment>
+  </data>
+  <data name="Move_velocity_error_ID" xml:space="preserve">
+    <value>Move velocity error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,374</comment>
+  </data>
+  <data name="Torque_control_task" xml:space="preserve">
+    <value>Torque control task</value>
+    <comment>src\AxoDrives\AxoDrive.st,381</comment>
+  </data>
+  <data name="Torque_control_continuous_update" xml:space="preserve">
+    <value>Torque control continuous update</value>
+    <comment>src\AxoDrives\AxoDrive.st,384</comment>
+  </data>
+  <data name="Torque_control_torque" xml:space="preserve">
+    <value>Torque control torque</value>
+    <comment>src\AxoDrives\AxoDrive.st,387</comment>
+  </data>
+  <data name="Torque_control_torque_ramp" xml:space="preserve">
+    <value>Torque control torque ramp</value>
+    <comment>src\AxoDrives\AxoDrive.st,390</comment>
+  </data>
+  <data name="Torque_control_position_limit" xml:space="preserve">
+    <value>Torque control position limit</value>
+    <comment>src\AxoDrives\AxoDrive.st,393</comment>
+  </data>
+  <data name="Torque_control_velocity" xml:space="preserve">
+    <value>Torque control velocity</value>
+    <comment>src\AxoDrives\AxoDrive.st,396</comment>
+  </data>
+  <data name="Torque_control_acceleration" xml:space="preserve">
+    <value>Torque control acceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,399</comment>
+  </data>
+  <data name="Torque_control_deceleration" xml:space="preserve">
+    <value>Torque control deceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,402</comment>
+  </data>
+  <data name="Torque_control_jerk" xml:space="preserve">
+    <value>Torque control jerk</value>
+    <comment>src\AxoDrives\AxoDrive.st,405</comment>
+  </data>
+  <data name="Torque_control_direction" xml:space="preserve">
+    <value>Torque control direction</value>
+    <comment>src\AxoDrives\AxoDrive.st,408</comment>
+  </data>
+  <data name="Torque_control_in_torque" xml:space="preserve">
+    <value>Torque control in torque</value>
+    <comment>src\AxoDrives\AxoDrive.st,411</comment>
+  </data>
+  <data name="Torque_control_busy" xml:space="preserve">
+    <value>Torque control busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,415</comment>
+  </data>
+  <data name="Torque_control_active" xml:space="preserve">
+    <value>Torque control active</value>
+    <comment>src\AxoDrives\AxoDrive.st,419</comment>
+  </data>
+  <data name="Torque_control_aborted" xml:space="preserve">
+    <value>Torque control aborted</value>
+    <comment>src\AxoDrives\AxoDrive.st,423</comment>
+  </data>
+  <data name="Torque_control_error" xml:space="preserve">
+    <value>Torque control error</value>
+    <comment>src\AxoDrives\AxoDrive.st,427</comment>
+  </data>
+  <data name="Torque_control_error_ID" xml:space="preserve">
+    <value>Torque control error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,431</comment>
+  </data>
+  <data name="Set_position_task" xml:space="preserve">
+    <value>Set position task</value>
+    <comment>src\AxoDrives\AxoDrive.st,438</comment>
+  </data>
+  <data name="Set_position_position" xml:space="preserve">
+    <value>Set position position</value>
+    <comment>src\AxoDrives\AxoDrive.st,441</comment>
+  </data>
+  <data name="Set_position_relative" xml:space="preserve">
+    <value>Set position relative</value>
+    <comment>src\AxoDrives\AxoDrive.st,444</comment>
+  </data>
+  <data name="Set_position_execution_mode" xml:space="preserve">
+    <value>Set position execution mode</value>
+    <comment>src\AxoDrives\AxoDrive.st,447</comment>
+  </data>
+  <data name="Set_position_done" xml:space="preserve">
+    <value>Set position done</value>
+    <comment>src\AxoDrives\AxoDrive.st,450</comment>
+  </data>
+  <data name="Set_position_busy" xml:space="preserve">
+    <value>Set position busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,454</comment>
+  </data>
+  <data name="Set_position_error" xml:space="preserve">
+    <value>Set position error</value>
+    <comment>src\AxoDrives\AxoDrive.st,458</comment>
+  </data>
+  <data name="Set_position_error_ID" xml:space="preserve">
+    <value>Set position error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,462</comment>
+  </data>
+  <data name="Set_override_task" xml:space="preserve">
+    <value>Set override task</value>
+    <comment>src\AxoDrives\AxoDrive.st,469</comment>
+  </data>
+  <data name="Set_override_velocity_factor" xml:space="preserve">
+    <value>Set override velocity factor</value>
+    <comment>src\AxoDrives\AxoDrive.st,472</comment>
+  </data>
+  <data name="Set_override_acceleration_factor" xml:space="preserve">
+    <value>Set override acceleration factor</value>
+    <comment>src\AxoDrives\AxoDrive.st,475</comment>
+  </data>
+  <data name="Set_override_jerk_factor" xml:space="preserve">
+    <value>Set override jerk factor</value>
+    <comment>src\AxoDrives\AxoDrive.st,478</comment>
+  </data>
+  <data name="Set_override_enabled" xml:space="preserve">
+    <value>Set override enabled</value>
+    <comment>src\AxoDrives\AxoDrive.st,481</comment>
+  </data>
+  <data name="Set_override_busy" xml:space="preserve">
+    <value>Set override busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,485</comment>
+  </data>
+  <data name="Set_override_error" xml:space="preserve">
+    <value>Set override error</value>
+    <comment>src\AxoDrives\AxoDrive.st,489</comment>
+  </data>
+  <data name="Set_override_error_ID" xml:space="preserve">
+    <value>Set override error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,493</comment>
+  </data>
+  <data name="Read_parameter_task" xml:space="preserve">
+    <value>Read parameter task</value>
+    <comment>src\AxoDrives\AxoDrive.st,500</comment>
+  </data>
+  <data name="Read_parameter_number" xml:space="preserve">
+    <value>Read parameter number</value>
+    <comment>src\AxoDrives\AxoDrive.st,503</comment>
+  </data>
+  <data name="Read_parameter_valid" xml:space="preserve">
+    <value>Read parameter valid</value>
+    <comment>src\AxoDrives\AxoDrive.st,506</comment>
+  </data>
+  <data name="Read_parameter_busy" xml:space="preserve">
+    <value>Read parameter busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,510</comment>
+  </data>
+  <data name="Read_parameter_error" xml:space="preserve">
+    <value>Read parameter error</value>
+    <comment>src\AxoDrives\AxoDrive.st,514</comment>
+  </data>
+  <data name="Read_parameter_error_ID" xml:space="preserve">
+    <value>Read parameter error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,518</comment>
+  </data>
+  <data name="Read_parameter_value" xml:space="preserve">
+    <value>Read parameter value</value>
+    <comment>src\AxoDrives\AxoDrive.st,522</comment>
+  </data>
+  <data name="Read_real_parameter_task" xml:space="preserve">
+    <value>Read real parameter task</value>
+    <comment>src\AxoDrives\AxoDrive.st,529</comment>
+  </data>
+  <data name="Read_real_parameter_number" xml:space="preserve">
+    <value>Read real parameter number</value>
+    <comment>src\AxoDrives\AxoDrive.st,532</comment>
+  </data>
+  <data name="Read_real_parameter_valid" xml:space="preserve">
+    <value>Read real parameter valid</value>
+    <comment>src\AxoDrives\AxoDrive.st,535</comment>
+  </data>
+  <data name="Read_real_parameter_busy" xml:space="preserve">
+    <value>Read real parameter busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,539</comment>
+  </data>
+  <data name="Read_real_parameter_error" xml:space="preserve">
+    <value>Read real parameter error</value>
+    <comment>src\AxoDrives\AxoDrive.st,543</comment>
+  </data>
+  <data name="Read_real_parameter_error_ID" xml:space="preserve">
+    <value>Read real parameter error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,547</comment>
+  </data>
+  <data name="Read_real_parameter_value" xml:space="preserve">
+    <value>Read real parameter value</value>
+    <comment>src\AxoDrives\AxoDrive.st,551</comment>
+  </data>
+  <data name="Read_bool_parameter_task" xml:space="preserve">
+    <value>Read bool parameter task</value>
+    <comment>src\AxoDrives\AxoDrive.st,558</comment>
+  </data>
+  <data name="Read_bool_parameter_number" xml:space="preserve">
+    <value>Read bool parameter number</value>
+    <comment>src\AxoDrives\AxoDrive.st,561</comment>
+  </data>
+  <data name="Read_bool_parameter_valid" xml:space="preserve">
+    <value>Read bool parameter valid</value>
+    <comment>src\AxoDrives\AxoDrive.st,564</comment>
+  </data>
+  <data name="Read_bool_parameter_busy" xml:space="preserve">
+    <value>Read bool parameter busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,568</comment>
+  </data>
+  <data name="Read_bool_parameter_error" xml:space="preserve">
+    <value>Read bool parameter error</value>
+    <comment>src\AxoDrives\AxoDrive.st,572</comment>
+  </data>
+  <data name="Read_bool_parameter_error_ID" xml:space="preserve">
+    <value>Read bool parameter error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,576</comment>
+  </data>
+  <data name="Read_bool_parameter_value" xml:space="preserve">
+    <value>Read bool parameter value</value>
+    <comment>src\AxoDrives\AxoDrive.st,580</comment>
+  </data>
+  <data name="Write_parameter_task" xml:space="preserve">
+    <value>Write parameter task</value>
+    <comment>src\AxoDrives\AxoDrive.st,587</comment>
+  </data>
+  <data name="Write_parameter_number" xml:space="preserve">
+    <value>Write parameter number</value>
+    <comment>src\AxoDrives\AxoDrive.st,590</comment>
+  </data>
+  <data name="Write_parameter_value" xml:space="preserve">
+    <value>Write parameter value</value>
+    <comment>src\AxoDrives\AxoDrive.st,593</comment>
+  </data>
+  <data name="Write_parameter_execution_mode" xml:space="preserve">
+    <value>Write parameter execution mode</value>
+    <comment>src\AxoDrives\AxoDrive.st,596</comment>
+  </data>
+  <data name="Write_parameter_done" xml:space="preserve">
+    <value>Write parameter done</value>
+    <comment>src\AxoDrives\AxoDrive.st,599</comment>
+  </data>
+  <data name="Write_parameter_busy" xml:space="preserve">
+    <value>Write parameter busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,603</comment>
+  </data>
+  <data name="Write_parameter_error" xml:space="preserve">
+    <value>Write parameter error</value>
+    <comment>src\AxoDrives\AxoDrive.st,607</comment>
+  </data>
+  <data name="Write_parameter_error_ID" xml:space="preserve">
+    <value>Write parameter error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,611</comment>
+  </data>
+  <data name="Write_real_parameter_task" xml:space="preserve">
+    <value>Write real parameter task</value>
+    <comment>src\AxoDrives\AxoDrive.st,618</comment>
+  </data>
+  <data name="Write_real_parameter_number" xml:space="preserve">
+    <value>Write real parameter number</value>
+    <comment>src\AxoDrives\AxoDrive.st,621</comment>
+  </data>
+  <data name="Write_real_parameter_value" xml:space="preserve">
+    <value>Write real parameter value</value>
+    <comment>src\AxoDrives\AxoDrive.st,624</comment>
+  </data>
+  <data name="Write_real_parameter_execution_mode" xml:space="preserve">
+    <value>Write real parameter execution mode</value>
+    <comment>src\AxoDrives\AxoDrive.st,627</comment>
+  </data>
+  <data name="Write_real_parameter_done" xml:space="preserve">
+    <value>Write real parameter done</value>
+    <comment>src\AxoDrives\AxoDrive.st,630</comment>
+  </data>
+  <data name="Write_real_parameter_busy" xml:space="preserve">
+    <value>Write real parameter busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,634</comment>
+  </data>
+  <data name="Write_real_parameter_error" xml:space="preserve">
+    <value>Write real parameter error</value>
+    <comment>src\AxoDrives\AxoDrive.st,638</comment>
+  </data>
+  <data name="Write_real_parameter_error_ID" xml:space="preserve">
+    <value>Write real parameter error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,642</comment>
+  </data>
+  <data name="Write_bool_parameter_task" xml:space="preserve">
+    <value>Write bool parameter task</value>
+    <comment>src\AxoDrives\AxoDrive.st,649</comment>
+  </data>
+  <data name="Write_bool_parameter_number" xml:space="preserve">
+    <value>Write bool parameter number</value>
+    <comment>src\AxoDrives\AxoDrive.st,652</comment>
+  </data>
+  <data name="Write_bool_parameter_value" xml:space="preserve">
+    <value>Write bool parameter value</value>
+    <comment>src\AxoDrives\AxoDrive.st,655</comment>
+  </data>
+  <data name="Write_bool_parameter_execution_mode" xml:space="preserve">
+    <value>Write bool parameter execution mode</value>
+    <comment>src\AxoDrives\AxoDrive.st,658</comment>
+  </data>
+  <data name="Write_bool_parameter_done" xml:space="preserve">
+    <value>Write bool parameter done</value>
+    <comment>src\AxoDrives\AxoDrive.st,661</comment>
+  </data>
+  <data name="Write_bool_parameter_busy" xml:space="preserve">
+    <value>Write bool parameter busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,665</comment>
+  </data>
+  <data name="Write_bool_parameter_error" xml:space="preserve">
+    <value>Write bool parameter error</value>
+    <comment>src\AxoDrives\AxoDrive.st,669</comment>
+  </data>
+  <data name="Write_bool_parameter_error_ID" xml:space="preserve">
+    <value>Write bool parameter error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,673</comment>
+  </data>
+  <data name="Read_digital_input_task" xml:space="preserve">
+    <value>Read digital input task</value>
+    <comment>src\AxoDrives\AxoDrive.st,680</comment>
+  </data>
+  <data name="Read_digital_input_number" xml:space="preserve">
+    <value>Read digital input number</value>
+    <comment>src\AxoDrives\AxoDrive.st,683</comment>
+  </data>
+  <data name="Read_digital_input_valid" xml:space="preserve">
+    <value>Read digital input valid</value>
+    <comment>src\AxoDrives\AxoDrive.st,686</comment>
+  </data>
+  <data name="Read_digital_input_busy" xml:space="preserve">
+    <value>Read digital input busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,690</comment>
+  </data>
+  <data name="Read_digital_input_error" xml:space="preserve">
+    <value>Read digital input error</value>
+    <comment>src\AxoDrives\AxoDrive.st,694</comment>
+  </data>
+  <data name="Read_digital_input_error_ID" xml:space="preserve">
+    <value>Read digital input error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,698</comment>
+  </data>
+  <data name="Read_digital_input_value" xml:space="preserve">
+    <value>Read digital input value</value>
+    <comment>src\AxoDrives\AxoDrive.st,702</comment>
+  </data>
+  <data name="Read_digital_output_task" xml:space="preserve">
+    <value>Read digital output task</value>
+    <comment>src\AxoDrives\AxoDrive.st,709</comment>
+  </data>
+  <data name="Read_digital_output_number" xml:space="preserve">
+    <value>Read digital output number</value>
+    <comment>src\AxoDrives\AxoDrive.st,712</comment>
+  </data>
+  <data name="Read_digital_output_valid" xml:space="preserve">
+    <value>Read digital output valid</value>
+    <comment>src\AxoDrives\AxoDrive.st,715</comment>
+  </data>
+  <data name="Read_digital_output_busy" xml:space="preserve">
+    <value>Read digital output busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,719</comment>
+  </data>
+  <data name="Read_digital_output_error" xml:space="preserve">
+    <value>Read digital output error</value>
+    <comment>src\AxoDrives\AxoDrive.st,723</comment>
+  </data>
+  <data name="Read_digital_output_error_ID" xml:space="preserve">
+    <value>Read digital output error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,727</comment>
+  </data>
+  <data name="Read_digital_output_value" xml:space="preserve">
+    <value>Read digital output value</value>
+    <comment>src\AxoDrives\AxoDrive.st,731</comment>
+  </data>
+  <data name="Write_digital_output_task" xml:space="preserve">
+    <value>Write digital output task</value>
+    <comment>src\AxoDrives\AxoDrive.st,738</comment>
+  </data>
+  <data name="Write_digital_output_number" xml:space="preserve">
+    <value>Write digital output number</value>
+    <comment>src\AxoDrives\AxoDrive.st,741</comment>
+  </data>
+  <data name="Write_digital_output_value" xml:space="preserve">
+    <value>Write digital output value</value>
+    <comment>src\AxoDrives\AxoDrive.st,744</comment>
+  </data>
+  <data name="Write_digital_output_execution_mode" xml:space="preserve">
+    <value>Write digital output execution mode</value>
+    <comment>src\AxoDrives\AxoDrive.st,747</comment>
+  </data>
+  <data name="Write_digital_output_done" xml:space="preserve">
+    <value>Write digital output done</value>
+    <comment>src\AxoDrives\AxoDrive.st,750</comment>
+  </data>
+  <data name="Write_digital_output_busy" xml:space="preserve">
+    <value>Write digital output busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,754</comment>
+  </data>
+  <data name="Write_digital_output_error" xml:space="preserve">
+    <value>Write digital output error</value>
+    <comment>src\AxoDrives\AxoDrive.st,758</comment>
+  </data>
+  <data name="Write_digital_output_error_ID" xml:space="preserve">
+    <value>Write digital output error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,762</comment>
+  </data>
+  <data name="Read_actual_position_task" xml:space="preserve">
+    <value>Read actual position task</value>
+    <comment>src\AxoDrives\AxoDrive.st,769</comment>
+  </data>
+  <data name="Read_actual_position_valid" xml:space="preserve">
+    <value>Read actual position valid</value>
+    <comment>src\AxoDrives\AxoDrive.st,772</comment>
+  </data>
+  <data name="Read_actual_position_busy" xml:space="preserve">
+    <value>Read actual position busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,776</comment>
+  </data>
+  <data name="Read_actual_position_error" xml:space="preserve">
+    <value>Read actual position error</value>
+    <comment>src\AxoDrives\AxoDrive.st,780</comment>
+  </data>
+  <data name="Read_actual_position_error_ID" xml:space="preserve">
+    <value>Read actual position error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,784</comment>
+  </data>
+  <data name="Read_actual_position_value" xml:space="preserve">
+    <value>Read actual position value</value>
+    <comment>src\AxoDrives\AxoDrive.st,788</comment>
+  </data>
+  <data name="Read_actual_velocity_task" xml:space="preserve">
+    <value>Read actual velocity task</value>
+    <comment>src\AxoDrives\AxoDrive.st,795</comment>
+  </data>
+  <data name="Read_actual_velocity_valid" xml:space="preserve">
+    <value>Read actual velocity valid</value>
+    <comment>src\AxoDrives\AxoDrive.st,798</comment>
+  </data>
+  <data name="Read_actual_velocity_busy" xml:space="preserve">
+    <value>Read actual velocity busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,802</comment>
+  </data>
+  <data name="Read_actual_velocity_error" xml:space="preserve">
+    <value>Read actual velocity error</value>
+    <comment>src\AxoDrives\AxoDrive.st,806</comment>
+  </data>
+  <data name="Read_actual_velocity_error_ID" xml:space="preserve">
+    <value>Read actual velocity error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,810</comment>
+  </data>
+  <data name="Read_actual_velocity_value" xml:space="preserve">
+    <value>Read actual velocity value</value>
+    <comment>src\AxoDrives\AxoDrive.st,814</comment>
+  </data>
+  <data name="Read_actual_torque_task" xml:space="preserve">
+    <value>Read actual torque task</value>
+    <comment>src\AxoDrives\AxoDrive.st,821</comment>
+  </data>
+  <data name="Read_actual_torque_valid" xml:space="preserve">
+    <value>Read actual torque valid</value>
+    <comment>src\AxoDrives\AxoDrive.st,824</comment>
+  </data>
+  <data name="Read_actual_torque_busy" xml:space="preserve">
+    <value>Read actual torque busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,828</comment>
+  </data>
+  <data name="Read_actual_torque_error" xml:space="preserve">
+    <value>Read actual torque error</value>
+    <comment>src\AxoDrives\AxoDrive.st,832</comment>
+  </data>
+  <data name="Read_actual_torque_error_ID" xml:space="preserve">
+    <value>Read actual torque error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,836</comment>
+  </data>
+  <data name="Read_actual_torque_value" xml:space="preserve">
+    <value>Read actual torque value</value>
+    <comment>src\AxoDrives\AxoDrive.st,840</comment>
+  </data>
+  <data name="Read_status_task" xml:space="preserve">
+    <value>Read status task</value>
+    <comment>src\AxoDrives\AxoDrive.st,847</comment>
+  </data>
+  <data name="Read_status_valid" xml:space="preserve">
+    <value>Read status valid</value>
+    <comment>src\AxoDrives\AxoDrive.st,850</comment>
+  </data>
+  <data name="Read_status_busy" xml:space="preserve">
+    <value>Read status busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,854</comment>
+  </data>
+  <data name="Read_status_error" xml:space="preserve">
+    <value>Read status error</value>
+    <comment>src\AxoDrives\AxoDrive.st,858</comment>
+  </data>
+  <data name="Read_status_error_ID" xml:space="preserve">
+    <value>Read status error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,862</comment>
+  </data>
+  <data name="Read_status_error_stop" xml:space="preserve">
+    <value>Read status error stop</value>
+    <comment>src\AxoDrives\AxoDrive.st,866</comment>
+  </data>
+  <data name="Read_status_disabled" xml:space="preserve">
+    <value>Read status disabled</value>
+    <comment>src\AxoDrives\AxoDrive.st,870</comment>
+  </data>
+  <data name="Read_status_stopping" xml:space="preserve">
+    <value>Read status stopping</value>
+    <comment>src\AxoDrives\AxoDrive.st,874</comment>
+  </data>
+  <data name="Read_status_homming" xml:space="preserve">
+    <value>Read status homming</value>
+    <comment>src\AxoDrives\AxoDrive.st,878</comment>
+  </data>
+  <data name="Read_status_standstill" xml:space="preserve">
+    <value>Read status standstill</value>
+    <comment>src\AxoDrives\AxoDrive.st,882</comment>
+  </data>
+  <data name="Read_status_discrete_motion" xml:space="preserve">
+    <value>Read status discrete motion</value>
+    <comment>src\AxoDrives\AxoDrive.st,886</comment>
+  </data>
+  <data name="Read_status_continuous_motion" xml:space="preserve">
+    <value>Read status continuous motion</value>
+    <comment>src\AxoDrives\AxoDrive.st,890</comment>
+  </data>
+  <data name="Read_status_synchronized_motion" xml:space="preserve">
+    <value>Read status synchronized motion</value>
+    <comment>src\AxoDrives\AxoDrive.st,894</comment>
+  </data>
+  <data name="Read_motion_state_task" xml:space="preserve">
+    <value>Read motion state task</value>
+    <comment>src\AxoDrives\AxoDrive.st,901</comment>
+  </data>
+  <data name="Read_motion_state_source" xml:space="preserve">
+    <value>Read motion state source</value>
+    <comment>src\AxoDrives\AxoDrive.st,904</comment>
+  </data>
+  <data name="Read_motion_state_valid" xml:space="preserve">
+    <value>Read motion state valid</value>
+    <comment>src\AxoDrives\AxoDrive.st,907</comment>
+  </data>
+  <data name="Read_motion_state_busy" xml:space="preserve">
+    <value>Read motion state busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,911</comment>
+  </data>
+  <data name="Read_motion_state_error" xml:space="preserve">
+    <value>Read motion state error</value>
+    <comment>src\AxoDrives\AxoDrive.st,915</comment>
+  </data>
+  <data name="Read_motion_state_error_ID" xml:space="preserve">
+    <value>Read motion state error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,919</comment>
+  </data>
+  <data name="Read_motion_state_constant_velocity" xml:space="preserve">
+    <value>Read motion state constant velocity</value>
+    <comment>src\AxoDrives\AxoDrive.st,923</comment>
+  </data>
+  <data name="Read_motion_state_accelerating" xml:space="preserve">
+    <value>Read motion state accelerating</value>
+    <comment>src\AxoDrives\AxoDrive.st,927</comment>
+  </data>
+  <data name="Read_motion_state_decelerating" xml:space="preserve">
+    <value>Read motion state decelerating</value>
+    <comment>src\AxoDrives\AxoDrive.st,931</comment>
+  </data>
+  <data name="Read_motion_state_direction_positive" xml:space="preserve">
+    <value>Read motion state direction positive</value>
+    <comment>src\AxoDrives\AxoDrive.st,935</comment>
+  </data>
+  <data name="Read_motion_state_direction_negative" xml:space="preserve">
+    <value>Read motion state direction negative</value>
+    <comment>src\AxoDrives\AxoDrive.st,939</comment>
+  </data>
+  <data name="Read_axis_info_task" xml:space="preserve">
+    <value>Read axis info task</value>
+    <comment>src\AxoDrives\AxoDrive.st,946</comment>
+  </data>
+  <data name="Read_axis_info_valid" xml:space="preserve">
+    <value>Read axis info valid</value>
+    <comment>src\AxoDrives\AxoDrive.st,949</comment>
+  </data>
+  <data name="Read_axis_info_busy" xml:space="preserve">
+    <value>Read axis info busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,953</comment>
+  </data>
+  <data name="Read_axis_info_error" xml:space="preserve">
+    <value>Read axis info error</value>
+    <comment>src\AxoDrives\AxoDrive.st,957</comment>
+  </data>
+  <data name="Read_axis_info_error_ID" xml:space="preserve">
+    <value>Read axis info error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,961</comment>
+  </data>
+  <data name="Read_axis_info_home_absolute_switch" xml:space="preserve">
+    <value>Read axis info home absolute switch</value>
+    <comment>src\AxoDrives\AxoDrive.st,965</comment>
+  </data>
+  <data name="Read_axis_info_limit_switch_positive" xml:space="preserve">
+    <value>Read axis info limit switch positive</value>
+    <comment>src\AxoDrives\AxoDrive.st,969</comment>
+  </data>
+  <data name="Read_axis_info_limit_switch_negative" xml:space="preserve">
+    <value>Read axis info limit switch negative</value>
+    <comment>src\AxoDrives\AxoDrive.st,974</comment>
+  </data>
+  <data name="Read_axis_info_simulation" xml:space="preserve">
+    <value>Read axis info simulation</value>
+    <comment>src\AxoDrives\AxoDrive.st,978</comment>
+  </data>
+  <data name="Read_axis_info_communication_ready" xml:space="preserve">
+    <value>Read axis info communication ready</value>
+    <comment>src\AxoDrives\AxoDrive.st,982</comment>
+  </data>
+  <data name="Read_axis_info_ready_for_power_on" xml:space="preserve">
+    <value>Read axis info ready for power on</value>
+    <comment>src\AxoDrives\AxoDrive.st,986</comment>
+  </data>
+  <data name="Read_axis_info_power_on" xml:space="preserve">
+    <value>Read axis info power on</value>
+    <comment>src\AxoDrives\AxoDrive.st,990</comment>
+  </data>
+  <data name="Read_axis_info_is_homed" xml:space="preserve">
+    <value>Read axis info is homed</value>
+    <comment>src\AxoDrives\AxoDrive.st,994</comment>
+  </data>
+  <data name="Read_axis_info_warning" xml:space="preserve">
+    <value>Read axis info warning</value>
+    <comment>src\AxoDrives\AxoDrive.st,998</comment>
+  </data>
+  <data name="Read_axis_error_task" xml:space="preserve">
+    <value>Read axis error task</value>
+    <comment>src\AxoDrives\AxoDrive.st,1004</comment>
+  </data>
+  <data name="Read_axis_error_valid" xml:space="preserve">
+    <value>Read axis error valid</value>
+    <comment>src\AxoDrives\AxoDrive.st,1007</comment>
+  </data>
+  <data name="Read_axis_error_busy" xml:space="preserve">
+    <value>Read axis error busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,1011</comment>
+  </data>
+  <data name="Read_axis_error_error" xml:space="preserve">
+    <value>Read axis error error</value>
+    <comment>src\AxoDrives\AxoDrive.st,1015</comment>
+  </data>
+  <data name="Read_axis_error_error_ID" xml:space="preserve">
+    <value>Read axis error error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,1019</comment>
+  </data>
+  <data name="Read_axis_error_axis_error_ID" xml:space="preserve">
+    <value>Read axis error axis error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,1023</comment>
+  </data>
+  <data name="Reset_task" xml:space="preserve">
+    <value>Reset task</value>
+    <comment>src\AxoDrives\AxoDrive.st,1030</comment>
+  </data>
+  <data name="Reset_done" xml:space="preserve">
+    <value>Reset done</value>
+    <comment>src\AxoDrives\AxoDrive.st,1033</comment>
+  </data>
+  <data name="Reset_busy" xml:space="preserve">
+    <value>Reset busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,1037</comment>
+  </data>
+  <data name="Reset_error" xml:space="preserve">
+    <value>Reset error</value>
+    <comment>src\AxoDrives\AxoDrive.st,1041</comment>
+  </data>
+  <data name="Reset_error_ID" xml:space="preserve">
+    <value>Reset error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,1045</comment>
+  </data>
+  <data name="Jog_positive" xml:space="preserve">
+    <value>Jog positive</value>
+    <comment>src\AxoDrives\AxoDrive.st,1052</comment>
+  </data>
+  <data name="Jog_negative" xml:space="preserve">
+    <value>Jog negative</value>
+    <comment>src\AxoDrives\AxoDrive.st,1055</comment>
+  </data>
+  <data name="Jog_velocity" xml:space="preserve">
+    <value>Jog velocity</value>
+    <comment>src\AxoDrives\AxoDrive.st,1058</comment>
+  </data>
+  <data name="Jog_acceleration" xml:space="preserve">
+    <value>Jog acceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,1061</comment>
+  </data>
+  <data name="Jog_deceleration" xml:space="preserve">
+    <value>Jog deceleration</value>
+    <comment>src\AxoDrives\AxoDrive.st,1064</comment>
+  </data>
+  <data name="Jog_jerk" xml:space="preserve">
+    <value>Jog jerk</value>
+    <comment>src\AxoDrives\AxoDrive.st,1067</comment>
+  </data>
+  <data name="Jog_direction" xml:space="preserve">
+    <value>Jog direction</value>
+    <comment>src\AxoDrives\AxoDrive.st,1070</comment>
+  </data>
+  <data name="Jog_active" xml:space="preserve">
+    <value>Jog active</value>
+    <comment>src\AxoDrives\AxoDrive.st,1077</comment>
+  </data>
+  <data name="Jog_done" xml:space="preserve">
+    <value>Jog done</value>
+    <comment>src\AxoDrives\AxoDrive.st,1081</comment>
+  </data>
+  <data name="Jog_busy" xml:space="preserve">
+    <value>Jog busy</value>
+    <comment>src\AxoDrives\AxoDrive.st,1085</comment>
+  </data>
+  <data name="Jog_error" xml:space="preserve">
+    <value>Jog error</value>
+    <comment>src\AxoDrives\AxoDrive.st,1089</comment>
+  </data>
+  <data name="Jog_error_ID" xml:space="preserve">
+    <value>Jog error ID</value>
+    <comment>src\AxoDrives\AxoDrive.st,1093</comment>
+  </data>
+  <data name="Jog_aborted" xml:space="preserve">
+    <value>Jog aborted</value>
+    <comment>src\AxoDrives\AxoDrive.st,1097</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\AxoDrives\AxoDrive_Config.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\AxoDrives\AxoDrive_Config.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\AxoDrives\AxoDrive_Config.st,9</comment>
+  </data>
 </root>

@@ -23,6 +23,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\..\..\..\..\axsharp\src\AXSharp.abstractions\src\AXSharp.Abstractions\AXSharp.Abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\..\..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj" />
 	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\inxton_axopen_abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\inxton_axopen_timers.csproj" />
@@ -44,7 +46,7 @@
 	  <EmbeddedResource Update="Resources\PlcStringResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>
-		<ManifestResourceName>inxton_axopen_core.Resources.PlcStringResources.resources</ManifestResourceName>
+		<!--<ManifestResourceName>inxton_axopen_core.Resources.PlcStringResources.resources</ManifestResourceName>-->
 	  </EmbeddedResource>
 	</ItemGroup>
 </Project>
