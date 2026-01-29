@@ -267,13 +267,29 @@ namespace AXOpen.VisualComposer.Components.VisualComposerItem
             }
         }
 
-        public string _backgroundColor = "#FFFFFF";
-        public string BackgroundColor
+        public string _backgroundColorLight = "var(--color-white)";
+        public string BackgroundColorLight
         {
-            get => _backgroundColor;
+            get => _backgroundColorLight;
             set
             {
-                _backgroundColor = value;
+                _backgroundColorLight = value;
+
+                if (EventCallbackStateHasChanged.HasDelegate)
+                    EventCallbackStateHasChanged.InvokeAsync();
+
+                if (EventCallbackSave.HasDelegate)
+                    EventCallbackSave.InvokeAsync();
+            }
+        }
+
+        public string _backgroundColorDark = "var(--color-white)";
+        public string BackgroundColorDark
+        {
+            get => _backgroundColorDark;
+            set
+            {
+                _backgroundColorDark = value;
 
                 if (EventCallbackStateHasChanged.HasDelegate)
                     EventCallbackStateHasChanged.InvokeAsync();
@@ -309,7 +325,8 @@ namespace AXOpen.VisualComposer.Components.VisualComposerItem
             string roles,
             string? presentationTemplate,
             bool background,
-            string backgroundColor,
+            string backgroundColorLight,
+            string backgroundColorDark,
             int pollingInterval)
         {
             EventCallbackStateHasChanged = eventCallbackStateHasChanged;
@@ -329,7 +346,8 @@ namespace AXOpen.VisualComposer.Components.VisualComposerItem
             _roles = roles;
             _presentationTemplate = presentationTemplate;
             _background = background;
-            _backgroundColor = backgroundColor;
+            _backgroundColorLight = backgroundColorLight;
+            _backgroundColorDark = backgroundColorDark;
             _pollingInterval = pollingInterval;
         }
 
@@ -366,8 +384,21 @@ namespace AXOpen.VisualComposer.Components.VisualComposerItem
             _roles = item.Roles;
             _presentationTemplate = item.PresentationTemplate;
             _background = item.Background;
-            _backgroundColor = item.BackgroundColor;
+            _backgroundColorLight = item.BackgroundColorLight;
+            _backgroundColorDark = item.BackgroundColorDark;
             _pollingInterval = item.PollingInterval;
+        }
+
+        public void SetDefaultBackgroundColors()
+        {
+            BackgroundColorLight = "var(--color-white)";
+            BackgroundColorDark = "var(--color-dark-800)";
+
+            if (EventCallbackStateHasChanged.HasDelegate)
+                EventCallbackStateHasChanged.InvokeAsync();
+
+            if (EventCallbackSave.HasDelegate)
+                EventCallbackSave.InvokeAsync();
         }
     }
 }

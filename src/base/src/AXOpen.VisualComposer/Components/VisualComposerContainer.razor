@@ -311,7 +311,20 @@
                     <BaseInput @bind-Value="_options.PresentationTemplate" Label="PresentationTemplate" />
                     <div class="flex flex-nowrap flex-row items-center gap-2">
                         <BaseInput @bind-Value="_options.Background" Label="Background" />
-                        <input type="color" class="ms-4" @bind="_options.BackgroundColor" title="Choose color">
+                        @if (_options.Background)
+                        {
+                            <div class="flex flex-wrap flex-col ms-4">
+                                <div class="color-group">
+                                    <input type="color" id="background-color-light" class="" @bind="_options.BackgroundColorLight" title="Choose background color light">
+                                    <label for="background-color-light">Background color light</label>
+                                </div>
+                                <div class="color-group">
+                                    <input type="color" id="background-color-dark" class="" @bind="_options.BackgroundColorDark" title="Choose background color dark">
+                                    <label for="background-color-dark">Background color dark</label>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary" @onclick="_options.SetDefaultBackgroundColors">Set default</button>
+                            </div>
+                        }
                     </div>
                     <BaseInput @bind-Value="_options.PollingInterval" Label="PollingInterval [ms]" />
                 </div>
@@ -497,7 +510,10 @@
                                 <input type="color" id="background-color-dark" class="" @bind="CurrentView.BackgroundColorDark" @onfocusout="async () => await SaveAsync()" title="Choose background color dark">
                                 <label for="background-color-dark">Background color dark</label>
                             </div>
-                            <button type="button" class="btn btn-primary" disabled="@(string.IsNullOrEmpty(CurrentView.ImgSrc) ? "disabled" : null)" @onclick="() => { CurrentView.ImgSrc = null; SaveAsync(); }">Clear image (only background color)</button>
+                            <div class="flex flex-wrap flex-row gap-2">
+                                <button type="button" class="btn btn-danger" disabled="@(string.IsNullOrEmpty(CurrentView.ImgSrc) ? "disabled" : null)" @onclick="async () => { CurrentView.ImgSrc = null; await SaveAsync(); }">Clear image (only background color)</button>
+                                <button type="button" class="btn btn-outline-primary" @onclick="async () => { await SetDefaultBackgroundColorsAsync(); }">Set default</button>
+                            </div>
                         </AccordionItem>
                     </Accordion>
                     <div class="mt-2">
