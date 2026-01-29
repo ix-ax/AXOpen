@@ -61,11 +61,479 @@ namespace projname.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Control.
+        /// </summary>
+        public static string Control {
+            get {
+                return ResourceManager.GetString("Control", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error time.
+        /// </summary>
+        public static string Error_time {
+            get {
+                return ResourceManager.GetString("Error_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID  of the device.
+        /// </summary>
+        public static string Hardware_ID__of_the_device {
+            get {
+                return ResourceManager.GetString("Hardware_ID__of_the_device", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_8&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__EIGHT__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__EIGHT__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_5&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__FIVE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__FIVE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_4&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__FOUR__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__FOUR__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_9&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__NINE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__NINE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_1&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_18&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__EIGHT__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__EIGHT__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_15&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__FIVE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__FIVE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_14&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_19&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__NINE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__NINE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_11&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_17&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__SEVEN__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__SEVEN__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_16&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__SIX__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__SIX__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_13&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_12&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_10&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_7&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__SEVEN__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__SEVEN__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_6&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__SIX__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__SIX__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_3&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__THREE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__THREE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_2&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__TWO__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__TWO__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;in_20&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__TWO__ZERO__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__TWO__ZERO__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_8&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__EIGHT__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__EIGHT__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_5&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__FIVE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__FIVE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_4&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__FOUR__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__FOUR__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_9&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__NINE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__NINE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_1&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_18&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__EIGHT__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__EIGHT__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_15&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__FIVE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__FIVE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_14&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_19&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__NINE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__NINE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_11&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_17&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__SEVEN__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__SEVEN__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_16&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__SIX__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__SIX__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_13&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_12&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_10&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_7&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__SEVEN__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__SEVEN__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_6&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__SIX__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__SIX__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_3&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__THREE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__THREE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_2&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__TWO__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__TWO__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_20&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__TWO__ZERO__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__TWO__ZERO__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware IDs.
+        /// </summary>
+        public static string Hardware_IDs {
+            get {
+                return ResourceManager.GetString("Hardware_IDs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info time.
+        /// </summary>
+        public static string Info_time {
+            get {
+                return ResourceManager.GetString("Info_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inputs.
+        /// </summary>
+        public static string Inputs {
+            get {
+                return ResourceManager.GetString("Inputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outputs.
+        /// </summary>
+        public static string Outputs {
+            get {
+                return ResourceManager.GetString("Outputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task timeout.
+        /// </summary>
+        public static string Task_timeout {
+            get {
+                return ResourceManager.GetString("Task_timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_10steps_5.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TemplateTask_10steps_5 timeout..
         /// </summary>
         public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_ {
             get {
                 return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_10steps_4.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR_", resourceCulture);
             }
         }
         
@@ -79,11 +547,29 @@ namespace projname.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_10steps_1.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__ONE_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TemplateTask_10steps_1 timeout..
         /// </summary>
         public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_ {
             get {
                 return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_10steps_6.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX_", resourceCulture);
             }
         }
         
@@ -97,11 +583,29 @@ namespace projname.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_10steps_3.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__THREE_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__THREE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TemplateTask_10steps_3 timeout..
         /// </summary>
         public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_ {
             get {
                 return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_10steps_2.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__TWO_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__TWO_", resourceCulture);
             }
         }
         
@@ -115,11 +619,29 @@ namespace projname.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_5.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TemplateTask_20steps_5 timeout..
         /// </summary>
         public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_ {
             get {
                 return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_4.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR_", resourceCulture);
             }
         }
         
@@ -133,11 +655,29 @@ namespace projname.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_1.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TemplateTask_20steps_1 timeout..
         /// </summary>
         public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_ {
             get {
                 return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_6.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX_", resourceCulture);
             }
         }
         
@@ -151,6 +691,15 @@ namespace projname.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_3.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TemplateTask_20steps_3 timeout..
         /// </summary>
         public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_ {
@@ -160,11 +709,29 @@ namespace projname.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_2.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TemplateTask_20steps_2 timeout..
         /// </summary>
         public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_ {
             get {
                 return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update diagnostics.
+        /// </summary>
+        public static string Update_diagnostics {
+            get {
+                return ResourceManager.GetString("Update_diagnostics", resourceCulture);
             }
         }
     }

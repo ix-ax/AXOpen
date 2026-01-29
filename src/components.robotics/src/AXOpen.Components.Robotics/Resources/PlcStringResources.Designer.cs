@@ -59,5 +59,14 @@ namespace AXOpen.Components.Robotics.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current movement parameters.
+        /// </summary>
+        public static string Current_movement_parameters {
+            get {
+                return ResourceManager.GetString("Current_movement_parameters", resourceCulture);
+            }
+        }
     }
 }

@@ -88,6 +88,15 @@ namespace AXOpen.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Command state.
+        /// </summary>
+        public static string Command_state {
+            get {
+                return ResourceManager.GetString("Command_state", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CyclicExecuteIsNotCalled.
         /// </summary>
         public static string CyclicExecuteIsNotCalled {
@@ -102,6 +111,34 @@ namespace AXOpen.Core.Resources {
         public static string Fallen {
             get {
                 return ResourceManager.GetString("Fallen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is manually controllable.
+        /// </summary>
+        public static string Is_manually_controllable {
+            get {
+                return ResourceManager.GetString("Is_manually_controllable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Messenger.
+        /// </summary>
+        public static string Messenger {
+            get {
+                return ResourceManager.GetString("Messenger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Messenger 1 - activate using &apos;Activate&apos; method called inside the if statement.
+        /// </summary>
+        public static string Messenger__ONE___DASH__activate_using__APOSTROPHE_Activate_APOSTROPHE__method_called_inside_the_if_statement {
+            get {
+                return ResourceManager.GetString("Messenger__ONE___DASH__activate_using__APOSTROPHE_Activate_APOSTROPHE__method_cal" +
+                        "led_inside_the_if_statement", resourceCulture);
             }
         }
         
@@ -124,6 +161,15 @@ namespace AXOpen.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RemoteTaskMessenger.
+        /// </summary>
+        public static string RemoteTaskMessenger {
+            get {
+                return ResourceManager.GetString("RemoteTaskMessenger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Risen.
         /// </summary>
         public static string Risen {
@@ -142,6 +188,15 @@ namespace AXOpen.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Run step.
+        /// </summary>
+        public static string Run_step {
+            get {
+                return ResourceManager.GetString("Run_step", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sequence completed :.
         /// </summary>
         public static string Sequence_completed__COLON_ {
@@ -156,6 +211,15 @@ namespace AXOpen.Core.Resources {
         public static string Sequence_in_config_state__COLON_ {
             get {
                 return ResourceManager.GetString("Sequence_in_config_state__COLON_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sequence mode.
+        /// </summary>
+        public static string Sequence_mode {
+            get {
+                return ResourceManager.GetString("Sequence_mode", resourceCulture);
             }
         }
         
@@ -183,6 +247,15 @@ namespace AXOpen.Core.Resources {
         public static string Step_request_to_step__COLON_ {
             get {
                 return ResourceManager.GetString("Step_request_to_step__COLON_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stepping mode.
+        /// </summary>
+        public static string Stepping_mode {
+            get {
+                return ResourceManager.GetString("Stepping_mode", resourceCulture);
             }
         }
         

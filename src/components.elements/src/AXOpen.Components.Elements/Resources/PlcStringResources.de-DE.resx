@@ -67,4 +67,115 @@
   <data name="InitPositionTask_timeout_DOT_" xml:space="preserve">
     <value>InitPositionTask Zeitüberschreitung.</value>
   </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="MessengerInfo" xml:space="preserve">
+    <value>Messenger-Info</value>
+  </data>
+  <data name="Raw_low" xml:space="preserve">
+    <value>Rohwert niedrig</value>
+  </data>
+  <data name="Raw_high" xml:space="preserve">
+    <value>Rohwert hoch</value>
+  </data>
+  <data name="Real_low" xml:space="preserve">
+    <value>Realwert niedrig</value>
+  </data>
+  <data name="Real_high" xml:space="preserve">
+    <value>Realwert hoch</value>
+  </data>
+  <data name="Gain" xml:space="preserve">
+    <value>Verstärkung</value>
+  </data>
+  <data name="Offset" xml:space="preserve">
+    <value>Offset</value>
+  </data>
+  <data name="Raw_range" xml:space="preserve">
+    <value>Rohwertbereich</value>
+  </data>
+  <data name="Real_range" xml:space="preserve">
+    <value>Realwertbereich</value>
+  </data>
+  <data name="Scale_value" xml:space="preserve">
+    <value>Skalierungswert</value>
+  </data>
+  <data name="SetPoint" xml:space="preserve">
+    <value>Sollwert</value>
+  </data>
+  <data name="Unscaled_value" xml:space="preserve">
+    <value>Unskalierter Wert</value>
+  </data>
+  <data name="Button_Signal" xml:space="preserve">
+    <value>Tastersignal</value>
+  </data>
+  <data name="LED_Indicator" xml:space="preserve">
+    <value>LED-Anzeige</value>
+  </data>
+  <data name="Signal" xml:space="preserve">
+    <value>Signal</value>
+  </data>
+  <data name="Check_on" xml:space="preserve">
+    <value>Ein prüfen</value>
+  </data>
+  <data name="Check_off" xml:space="preserve">
+    <value>Aus prüfen</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>Ein</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Aus</value>
+  </data>
+  <data name="Turn" xml:space="preserve">
+    <value>Drehen</value>
+  </data>
+  <data name="Current_position" xml:space="preserve">
+    <value>Aktuelle Position</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Wiederherstellen</value>
+  </data>
+  <data name="InitPositionTask" xml:space="preserve">
+    <value>Positionsinitialisierung</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Eingänge</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Ausgänge</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informationszeit</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Fehlerzeit</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Aufgaben-Timeout</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Richtung</value>
+  </data>
+  <data name="Number_of_positions" xml:space="preserve">
+    <value>Anzahl der Positionen</value>
+  </data>
+  <data name="Enable_turn" xml:space="preserve">
+    <value>Drehung freigeben</value>
+  </data>
+  <data name="Start_turn" xml:space="preserve">
+    <value>Drehung starten</value>
+  </data>
+  <data name="Safety_condition" xml:space="preserve">
+    <value>Sicherheitsbedingung</value>
+  </data>
+  <data name="In_position" xml:space="preserve">
+    <value>In Position</value>
+  </data>
+  <data name="In_precise_position" xml:space="preserve">
+    <value>In Präzisionsposition</value>
+  </data>
+  <data name="Coding_position" xml:space="preserve">
+    <value>Kodierposition</value>
+  </data>
 </root>

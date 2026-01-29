@@ -61,11 +61,326 @@ namespace AXOpen.Components.Elements.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Button Signal.
+        /// </summary>
+        public static string Button_Signal {
+            get {
+                return ResourceManager.GetString("Button_Signal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check off.
+        /// </summary>
+        public static string Check_off {
+            get {
+                return ResourceManager.GetString("Check_off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check on.
+        /// </summary>
+        public static string Check_on {
+            get {
+                return ResourceManager.GetString("Check_on", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coding position.
+        /// </summary>
+        public static string Coding_position {
+            get {
+                return ResourceManager.GetString("Coding_position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current position.
+        /// </summary>
+        public static string Current_position {
+            get {
+                return ResourceManager.GetString("Current_position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Direction.
+        /// </summary>
+        public static string Direction {
+            get {
+                return ResourceManager.GetString("Direction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable turn.
+        /// </summary>
+        public static string Enable_turn {
+            get {
+                return ResourceManager.GetString("Enable_turn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error time.
+        /// </summary>
+        public static string Error_time {
+            get {
+                return ResourceManager.GetString("Error_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gain.
+        /// </summary>
+        public static string Gain {
+            get {
+                return ResourceManager.GetString("Gain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In position.
+        /// </summary>
+        public static string In_position {
+            get {
+                return ResourceManager.GetString("In_position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In precise position.
+        /// </summary>
+        public static string In_precise_position {
+            get {
+                return ResourceManager.GetString("In_precise_position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info time.
+        /// </summary>
+        public static string Info_time {
+            get {
+                return ResourceManager.GetString("Info_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InitPositionTask.
+        /// </summary>
+        public static string InitPositionTask {
+            get {
+                return ResourceManager.GetString("InitPositionTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to InitPositionTask timeout..
         /// </summary>
         public static string InitPositionTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("InitPositionTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inputs.
+        /// </summary>
+        public static string Inputs {
+            get {
+                return ResourceManager.GetString("Inputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LED Indicator.
+        /// </summary>
+        public static string LED_Indicator {
+            get {
+                return ResourceManager.GetString("LED_Indicator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MessengerInfo.
+        /// </summary>
+        public static string MessengerInfo {
+            get {
+                return ResourceManager.GetString("MessengerInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of positions.
+        /// </summary>
+        public static string Number_of_positions {
+            get {
+                return ResourceManager.GetString("Number_of_positions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
+        public static string Off {
+            get {
+                return ResourceManager.GetString("Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Offset.
+        /// </summary>
+        public static string Offset {
+            get {
+                return ResourceManager.GetString("Offset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On.
+        /// </summary>
+        public static string On {
+            get {
+                return ResourceManager.GetString("On", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outputs.
+        /// </summary>
+        public static string Outputs {
+            get {
+                return ResourceManager.GetString("Outputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Raw high.
+        /// </summary>
+        public static string Raw_high {
+            get {
+                return ResourceManager.GetString("Raw_high", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Raw low.
+        /// </summary>
+        public static string Raw_low {
+            get {
+                return ResourceManager.GetString("Raw_low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Raw range.
+        /// </summary>
+        public static string Raw_range {
+            get {
+                return ResourceManager.GetString("Raw_range", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Real high.
+        /// </summary>
+        public static string Real_high {
+            get {
+                return ResourceManager.GetString("Real_high", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Real low.
+        /// </summary>
+        public static string Real_low {
+            get {
+                return ResourceManager.GetString("Real_low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Real range.
+        /// </summary>
+        public static string Real_range {
+            get {
+                return ResourceManager.GetString("Real_range", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Safety condition.
+        /// </summary>
+        public static string Safety_condition {
+            get {
+                return ResourceManager.GetString("Safety_condition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scale value.
+        /// </summary>
+        public static string Scale_value {
+            get {
+                return ResourceManager.GetString("Scale_value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SetPoint.
+        /// </summary>
+        public static string SetPoint {
+            get {
+                return ResourceManager.GetString("SetPoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Signal.
+        /// </summary>
+        public static string Signal {
+            get {
+                return ResourceManager.GetString("Signal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start turn.
+        /// </summary>
+        public static string Start_turn {
+            get {
+                return ResourceManager.GetString("Start_turn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task timeout.
+        /// </summary>
+        public static string Task_timeout {
+            get {
+                return ResourceManager.GetString("Task_timeout", resourceCulture);
             }
         }
         
@@ -79,11 +394,29 @@ namespace AXOpen.Components.Elements.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Turn.
+        /// </summary>
+        public static string Turn {
+            get {
+                return ResourceManager.GetString("Turn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TurnTask timeout..
         /// </summary>
         public static string TurnTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("TurnTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unscaled value.
+        /// </summary>
+        public static string Unscaled_value {
+            get {
+                return ResourceManager.GetString("Unscaled_value", resourceCulture);
             }
         }
     }

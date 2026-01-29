@@ -61,11 +61,137 @@ namespace AXOpen.Components.Siem.Identification.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Actice command.
+        /// </summary>
+        public static string Actice_command {
+            get {
+                return ResourceManager.GetString("Actice_command", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Antene status.
+        /// </summary>
+        public static string Antene_status {
+            get {
+                return ResourceManager.GetString("Antene_status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Automatic command execution paused.
+        /// </summary>
+        public static string Automatic_command_execution_paused {
+            get {
+                return ResourceManager.GetString("Automatic_command_execution_paused", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Block.
+        /// </summary>
+        public static string Block {
+            get {
+                return ResourceManager.GetString("Block", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Command.
+        /// </summary>
+        public static string Command {
+            get {
+                return ResourceManager.GetString("Command", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control.
+        /// </summary>
+        public static string Control {
+            get {
+                return ResourceManager.GetString("Control", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data buffer high index.
+        /// </summary>
+        public static string Data_buffer_high_index {
+            get {
+                return ResourceManager.GetString("Data_buffer_high_index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data buffer low index.
+        /// </summary>
+        public static string Data_buffer_low_index {
+            get {
+                return ResourceManager.GetString("Data_buffer_low_index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data read.
+        /// </summary>
+        public static string Data_read {
+            get {
+                return ResourceManager.GetString("Data_read", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data read from tag.
+        /// </summary>
+        public static string Data_read_from_tag {
+            get {
+                return ResourceManager.GetString("Data_read_from_tag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data to write.
+        /// </summary>
+        public static string Data_to_write {
+            get {
+                return ResourceManager.GetString("Data_to_write", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data to write to tag.
+        /// </summary>
+        public static string Data_to_write_to_tag {
+            get {
+                return ResourceManager.GetString("Data_to_write_to_tag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error or startup.
+        /// </summary>
+        public static string Error_or_startup {
+            get {
+                return ResourceManager.GetString("Error_or_startup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error reading tag.
         /// </summary>
         public static string Error_reading_tag {
             get {
                 return ResourceManager.GetString("Error_reading_tag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error time.
+        /// </summary>
+        public static string Error_time {
+            get {
+                return ResourceManager.GetString("Error_time", resourceCulture);
             }
         }
         
@@ -88,11 +214,254 @@ namespace AXOpen.Components.Siem.Identification.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hardware config data.
+        /// </summary>
+        public static string Hardware_config_data {
+            get {
+                return ResourceManager.GetString("Hardware_config_data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;CM&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_CM_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_CM_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Head&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Head_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Head_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Reader&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Reader_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Reader_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware IDs.
+        /// </summary>
+        public static string Hardware_IDs {
+            get {
+                return ResourceManager.GetString("Hardware_IDs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info time.
+        /// </summary>
+        public static string Info_time {
+            get {
+                return ResourceManager.GetString("Info_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inputs.
+        /// </summary>
+        public static string Inputs {
+            get {
+                return ResourceManager.GetString("Inputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Length of data to read.
+        /// </summary>
+        public static string Length_of_data_to_read {
+            get {
+                return ResourceManager.GetString("Length_of_data_to_read", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Length of data to write.
+        /// </summary>
+        public static string Length_of_data_to_write {
+            get {
+                return ResourceManager.GetString("Length_of_data_to_write", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Length of the tag field to write.
+        /// </summary>
+        public static string Length_of_the_tag_field_to_write {
+            get {
+                return ResourceManager.GetString("Length_of_the_tag_field_to_write", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Length of user data in.
+        /// </summary>
+        public static string Length_of_user_data_in {
+            get {
+                return ResourceManager.GetString("Length_of_user_data_in", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New data ready.
+        /// </summary>
+        public static string New_data_ready {
+            get {
+                return ResourceManager.GetString("New_data_ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of bytes to read.
+        /// </summary>
+        public static string Number_of_bytes_to_read {
+            get {
+                return ResourceManager.GetString("Number_of_bytes_to_read", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of bytes to write.
+        /// </summary>
+        public static string Number_of_bytes_to_write {
+            get {
+                return ResourceManager.GetString("Number_of_bytes_to_write", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outputs.
+        /// </summary>
+        public static string Outputs {
+            get {
+                return ResourceManager.GetString("Outputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Port.
+        /// </summary>
+        public static string Port {
+            get {
+                return ResourceManager.GetString("Port", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Presence of a transponder.
+        /// </summary>
+        public static string Presence_of_a_transponder {
+            get {
+                return ResourceManager.GetString("Presence_of_a_transponder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Progress.
+        /// </summary>
+        public static string Progress {
+            get {
+                return ResourceManager.GetString("Progress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read.
+        /// </summary>
+        public static string Read {
+            get {
+                return ResourceManager.GetString("Read", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read address.
+        /// </summary>
+        public static string Read_address {
+            get {
+                return ResourceManager.GetString("Read_address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read buffer offset.
+        /// </summary>
+        public static string Read_buffer_offset {
+            get {
+                return ResourceManager.GetString("Read_buffer_offset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read tag.
+        /// </summary>
+        public static string Read_tag {
+            get {
+                return ResourceManager.GetString("Read_tag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read tag address.
+        /// </summary>
+        public static string Read_tag_address {
+            get {
+                return ResourceManager.GetString("Read_tag_address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read tag length.
+        /// </summary>
+        public static string Read_tag_length {
+            get {
+                return ResourceManager.GetString("Read_tag_length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reader IO image size (in bytes).
+        /// </summary>
+        public static string Reader_IO_image_size__BRACKET_in_bytes_ENDBRACKET_ {
+            get {
+                return ResourceManager.GetString("Reader_IO_image_size__BRACKET_in_bytes_ENDBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReadTagFieldTask.
+        /// </summary>
+        public static string ReadTagFieldTask {
+            get {
+                return ResourceManager.GetString("ReadTagFieldTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ReadTagFieldTask timeout..
         /// </summary>
         public static string ReadTagFieldTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("ReadTagFieldTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReadTask.
+        /// </summary>
+        public static string ReadTask {
+            get {
+                return ResourceManager.GetString("ReadTask", resourceCulture);
             }
         }
         
@@ -106,11 +475,56 @@ namespace AXOpen.Components.Siem.Identification.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ReadUID_Task.
+        /// </summary>
+        public static string ReadUID_UNDERSCORE_Task {
+            get {
+                return ResourceManager.GetString("ReadUID_UNDERSCORE_Task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ReadUID_Task timeout..
         /// </summary>
         public static string ReadUID_UNDERSCORE_Task_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("ReadUID_UNDERSCORE_Task_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string Reset {
+            get {
+                return ResourceManager.GetString("Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset command received.
+        /// </summary>
+        public static string Reset_command_received {
+            get {
+                return ResourceManager.GetString("Reset_command_received", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset reader.
+        /// </summary>
+        public static string Reset_reader {
+            get {
+                return ResourceManager.GetString("Reset_reader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ResetTask.
+        /// </summary>
+        public static string ResetTask {
+            get {
+                return ResourceManager.GetString("ResetTask", resourceCulture);
             }
         }
         
@@ -124,11 +538,191 @@ namespace AXOpen.Components.Siem.Identification.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rfid code size.
+        /// </summary>
+        public static string Rfid_code_size {
+            get {
+                return ResourceManager.GetString("Rfid_code_size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soft reset.
+        /// </summary>
+        public static string Soft_reset {
+            get {
+                return ResourceManager.GetString("Soft_reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start.
+        /// </summary>
+        public static string Start {
+            get {
+                return ResourceManager.GetString("Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start address.
+        /// </summary>
+        public static string Start_address {
+            get {
+                return ResourceManager.GetString("Start_address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop.
+        /// </summary>
+        public static string Stop {
+            get {
+                return ResourceManager.GetString("Stop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Switch off antenna.
+        /// </summary>
+        public static string Switch_off_antenna {
+            get {
+                return ResourceManager.GetString("Switch_off_antenna", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tag field to read.
+        /// </summary>
+        public static string Tag_field_to_read {
+            get {
+                return ResourceManager.GetString("Tag_field_to_read", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tag field to write.
+        /// </summary>
+        public static string Tag_field_to_write {
+            get {
+                return ResourceManager.GetString("Tag_field_to_write", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task timeout.
+        /// </summary>
+        public static string Task_timeout {
+            get {
+                return ResourceManager.GetString("Task_timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update diagnostics.
+        /// </summary>
+        public static string Update_diagnostics {
+            get {
+                return ResourceManager.GetString("Update_diagnostics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write.
+        /// </summary>
+        public static string Write {
+            get {
+                return ResourceManager.GetString("Write", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write address.
+        /// </summary>
+        public static string Write_address {
+            get {
+                return ResourceManager.GetString("Write_address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write buffer offset.
+        /// </summary>
+        public static string Write_buffer_offset {
+            get {
+                return ResourceManager.GetString("Write_buffer_offset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write tag.
+        /// </summary>
+        public static string Write_tag {
+            get {
+                return ResourceManager.GetString("Write_tag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write tag address.
+        /// </summary>
+        public static string Write_tag_address {
+            get {
+                return ResourceManager.GetString("Write_tag_address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write tag lenghth.
+        /// </summary>
+        public static string Write_tag_lenghth {
+            get {
+                return ResourceManager.GetString("Write_tag_lenghth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WriteTagFieldTask.
+        /// </summary>
+        public static string WriteTagFieldTask {
+            get {
+                return ResourceManager.GetString("WriteTagFieldTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to WriteTagFieldTask timeout..
         /// </summary>
         public static string WriteTagFieldTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("WriteTagFieldTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WriteTask.
+        /// </summary>
+        public static string WriteTask {
+            get {
+                return ResourceManager.GetString("WriteTask", resourceCulture);
             }
         }
         

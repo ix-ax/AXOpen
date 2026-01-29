@@ -73,4 +73,1048 @@
   <data name="StopMovementsTask_timeout_DOT_" xml:space="preserve">
     <value>StopMovementsTask timeout.</value>
   </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnovenie</value>
+  </data>
+  <data name="Power_On_Task" xml:space="preserve">
+    <value>Úloha zapnutia napájania</value>
+  </data>
+  <data name="Start_at_main" xml:space="preserve">
+    <value>Začnite na hlavnej</value>
+  </data>
+  <data name="Start_motors_and_program" xml:space="preserve">
+    <value>Spustenie motorov a programovanie</value>
+  </data>
+  <data name="Stop_movements" xml:space="preserve">
+    <value>Zastavenie pohybov</value>
+  </data>
+  <data name="Stop_movements_and_program" xml:space="preserve">
+    <value>Zastavenie pohybov a program</value>
+  </data>
+  <data name="Start_movements_with_extended_parameters" xml:space="preserve">
+    <value>Spustenie pohybov s rozšírenými parametrami</value>
+  </data>
+  <data name="Power_progress" xml:space="preserve">
+    <value>Pokrok v oblasti výkonu</value>
+  </data>
+  <data name="Movement_progress" xml:space="preserve">
+    <value>Pokrok v pohybe</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Reboot_controller" xml:space="preserve">
+    <value>Reštart ovládača</value>
+  </data>
+  <data name="Robot" xml:space="preserve">
+    <value>Robot</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Štát</value>
+  </data>
+  <data name="IO_state" xml:space="preserve">
+    <value>Stav IO</value>
+  </data>
+  <data name="Tool_state" xml:space="preserve">
+    <value>Stav nástroja</value>
+  </data>
+  <data name="Joints" xml:space="preserve">
+    <value>Kĺby</value>
+  </data>
+  <data name="TCP" xml:space="preserve">
+    <value>TCP</value>
+  </data>
+  <data name="Bits" xml:space="preserve">
+    <value>Bity</value>
+  </data>
+  <data name="Ints" xml:space="preserve">
+    <value>Inty</value>
+  </data>
+  <data name="Floats" xml:space="preserve">
+    <value>Plaváky</value>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>Rýchlosť</value>
+  </data>
+  <data name="IO" xml:space="preserve">
+    <value>IO</value>
+  </data>
+  <data name="Reg__ONE_" xml:space="preserve">
+    <value>Reg. 1</value>
+  </data>
+  <data name="Reg__TWO_" xml:space="preserve">
+    <value>Nariadenie 2</value>
+  </data>
+  <data name="Bit_register__ZERO_" xml:space="preserve">
+    <value>Bitový register 0</value>
+  </data>
+  <data name="Bit_register__ONE_" xml:space="preserve">
+    <value>Bitový register 1</value>
+  </data>
+  <data name="Bit_register__TWO_" xml:space="preserve">
+    <value>Bitový register 2</value>
+  </data>
+  <data name="Bit_register__THREE_" xml:space="preserve">
+    <value>Bitový register 3</value>
+  </data>
+  <data name="Bit_register__FOUR_" xml:space="preserve">
+    <value>Bitový register 4</value>
+  </data>
+  <data name="Bit_register__FIVE_" xml:space="preserve">
+    <value>Bitový register 5</value>
+  </data>
+  <data name="Bit_register__SIX_" xml:space="preserve">
+    <value>Bitový register 6</value>
+  </data>
+  <data name="Bit_register__SEVEN_" xml:space="preserve">
+    <value>Bitový register 7</value>
+  </data>
+  <data name="Bit_register__EIGHT_" xml:space="preserve">
+    <value>Bitový register 8</value>
+  </data>
+  <data name="Bit_register__NINE_" xml:space="preserve">
+    <value>Bitový register 9</value>
+  </data>
+  <data name="Bit_register__ONE__ZERO_" xml:space="preserve">
+    <value>Bitový register 10</value>
+  </data>
+  <data name="Bit_register__ONE__ONE_" xml:space="preserve">
+    <value>Bitový register 11</value>
+  </data>
+  <data name="Bit_register__ONE__TWO_" xml:space="preserve">
+    <value>Bitový register 12</value>
+  </data>
+  <data name="Bit_register__ONE__THREE_" xml:space="preserve">
+    <value>Bitový register 13</value>
+  </data>
+  <data name="Bit_register__ONE__FOUR_" xml:space="preserve">
+    <value>Bitový register 14</value>
+  </data>
+  <data name="Bit_register__ONE__FIVE_" xml:space="preserve">
+    <value>Bitový register 15</value>
+  </data>
+  <data name="Bit_register__ONE__SIX_" xml:space="preserve">
+    <value>Bitový register 16</value>
+  </data>
+  <data name="Bit_register__ONE__SEVEN_" xml:space="preserve">
+    <value>Bitový register 17</value>
+  </data>
+  <data name="Bit_register__ONE__EIGHT_" xml:space="preserve">
+    <value>Bitový register 18</value>
+  </data>
+  <data name="Bit_register__ONE__NINE_" xml:space="preserve">
+    <value>Bitový register 19</value>
+  </data>
+  <data name="Bit_register__TWO__ZERO_" xml:space="preserve">
+    <value>Bitový register 20</value>
+  </data>
+  <data name="Bit_register__TWO__ONE_" xml:space="preserve">
+    <value>Bitový register 21</value>
+  </data>
+  <data name="Bit_register__TWO__TWO_" xml:space="preserve">
+    <value>Bitový register 22</value>
+  </data>
+  <data name="Bit_register__TWO__THREE_" xml:space="preserve">
+    <value>Bitový register 23</value>
+  </data>
+  <data name="Bit_register__TWO__FOUR_" xml:space="preserve">
+    <value>Bitový register 24</value>
+  </data>
+  <data name="Bit_register__TWO__FIVE_" xml:space="preserve">
+    <value>Bitový register 25</value>
+  </data>
+  <data name="Bit_register__TWO__SIX_" xml:space="preserve">
+    <value>Bitový register 26</value>
+  </data>
+  <data name="Bit_register__TWO__SEVEN_" xml:space="preserve">
+    <value>Bitový register 27</value>
+  </data>
+  <data name="Bit_register__TWO__EIGHT_" xml:space="preserve">
+    <value>Bitový register 28</value>
+  </data>
+  <data name="Bit_register__TWO__NINE_" xml:space="preserve">
+    <value>Bitový register 29</value>
+  </data>
+  <data name="Bit_register__THREE__ZERO_" xml:space="preserve">
+    <value>Bitový register 30</value>
+  </data>
+  <data name="Bit_register__THREE__ONE_" xml:space="preserve">
+    <value>Bitový register 31</value>
+  </data>
+  <data name="Bit_register__THREE__TWO_" xml:space="preserve">
+    <value>Bitový register 32</value>
+  </data>
+  <data name="Bit_register__THREE__THREE_" xml:space="preserve">
+    <value>Bitový register 33</value>
+  </data>
+  <data name="Bit_register__THREE__FOUR_" xml:space="preserve">
+    <value>Bitový register 34</value>
+  </data>
+  <data name="Bit_register__THREE__FIVE_" xml:space="preserve">
+    <value>Bitový register 35</value>
+  </data>
+  <data name="Bit_register__THREE__SIX_" xml:space="preserve">
+    <value>Bitový register 36</value>
+  </data>
+  <data name="Bit_register__THREE__SEVEN_" xml:space="preserve">
+    <value>Bitový register 37</value>
+  </data>
+  <data name="Bit_register__THREE__EIGHT_" xml:space="preserve">
+    <value>Bitový register 38</value>
+  </data>
+  <data name="Bit_register__THREE__NINE_" xml:space="preserve">
+    <value>Bitový register 39</value>
+  </data>
+  <data name="Bit_register__FOUR__ZERO_" xml:space="preserve">
+    <value>Bitový register 40</value>
+  </data>
+  <data name="Bit_register__FOUR__ONE_" xml:space="preserve">
+    <value>Bitový register 41</value>
+  </data>
+  <data name="Bit_register__FOUR__TWO_" xml:space="preserve">
+    <value>Bitový register 42</value>
+  </data>
+  <data name="Bit_register__FOUR__THREE_" xml:space="preserve">
+    <value>Bitový register 43</value>
+  </data>
+  <data name="Bit_register__FOUR__FOUR_" xml:space="preserve">
+    <value>Bitový register 44</value>
+  </data>
+  <data name="Bit_register__FOUR__FIVE_" xml:space="preserve">
+    <value>Bitový register 45</value>
+  </data>
+  <data name="Bit_register__FOUR__SIX_" xml:space="preserve">
+    <value>Bitový register 46</value>
+  </data>
+  <data name="Bit_register__FOUR__SEVEN_" xml:space="preserve">
+    <value>Bitový register 47</value>
+  </data>
+  <data name="Bit_register__FOUR__EIGHT_" xml:space="preserve">
+    <value>Bitový register 48</value>
+  </data>
+  <data name="Bit_register__FOUR__NINE_" xml:space="preserve">
+    <value>Bitový register 49</value>
+  </data>
+  <data name="Bit_register__FIVE__ZERO_" xml:space="preserve">
+    <value>Bitový register 50</value>
+  </data>
+  <data name="Bit_register__FIVE__ONE_" xml:space="preserve">
+    <value>Bitový register 51</value>
+  </data>
+  <data name="Bit_register__FIVE__TWO_" xml:space="preserve">
+    <value>Bitový register 52</value>
+  </data>
+  <data name="Bit_register__FIVE__THREE_" xml:space="preserve">
+    <value>Bitový register 53</value>
+  </data>
+  <data name="Bit_register__FIVE__FOUR_" xml:space="preserve">
+    <value>Bitový register 54</value>
+  </data>
+  <data name="Bit_register__FIVE__FIVE_" xml:space="preserve">
+    <value>Bitový register 55</value>
+  </data>
+  <data name="Bit_register__FIVE__SIX_" xml:space="preserve">
+    <value>Bitový register 56</value>
+  </data>
+  <data name="Bit_register__FIVE__SEVEN_" xml:space="preserve">
+    <value>Bitový register 57</value>
+  </data>
+  <data name="Bit_register__FIVE__EIGHT_" xml:space="preserve">
+    <value>Bitový register 58</value>
+  </data>
+  <data name="Bit_register__FIVE__NINE_" xml:space="preserve">
+    <value>Bitový register 59</value>
+  </data>
+  <data name="In_position" xml:space="preserve">
+    <value>V polohe</value>
+  </data>
+  <data name="Coordinates" xml:space="preserve">
+    <value>Súradnice</value>
+  </data>
+  <data name="Bit_register__SIX__ZERO_" xml:space="preserve">
+    <value>Bitový register 60</value>
+  </data>
+  <data name="Bit_register__SIX__ONE_" xml:space="preserve">
+    <value>Bitový register 61</value>
+  </data>
+  <data name="Bit_register__SIX__TWO_" xml:space="preserve">
+    <value>Bitový register 62</value>
+  </data>
+  <data name="Bit_register__SIX__THREE_" xml:space="preserve">
+    <value>Bitový register 63</value>
+  </data>
+  <data name="Float_register__ZERO_" xml:space="preserve">
+    <value>Plavákový register 0</value>
+  </data>
+  <data name="Float_register__ONE_" xml:space="preserve">
+    <value>Plavákový register 1</value>
+  </data>
+  <data name="Float_register__TWO_" xml:space="preserve">
+    <value>Plávajúci register 2</value>
+  </data>
+  <data name="Float_register__THREE_" xml:space="preserve">
+    <value>Plávajúci register 3</value>
+  </data>
+  <data name="Float_register__FOUR_" xml:space="preserve">
+    <value>Plávajúci register 4</value>
+  </data>
+  <data name="Float_register__FIVE_" xml:space="preserve">
+    <value>Plávajúci register 5</value>
+  </data>
+  <data name="Float_register__SIX_" xml:space="preserve">
+    <value>Plávajúci register 6</value>
+  </data>
+  <data name="Float_register__SEVEN_" xml:space="preserve">
+    <value>Plávajúci register 7</value>
+  </data>
+  <data name="Float_register__EIGHT_" xml:space="preserve">
+    <value>Plávajúci register 8</value>
+  </data>
+  <data name="Float_register__NINE_" xml:space="preserve">
+    <value>Plávajúci register 9</value>
+  </data>
+  <data name="Float_register__ONE__ZERO_" xml:space="preserve">
+    <value>Plávajúci register 10</value>
+  </data>
+  <data name="Float_register__ONE__ONE_" xml:space="preserve">
+    <value>Plávajúci register 11</value>
+  </data>
+  <data name="Float_register__ONE__TWO_" xml:space="preserve">
+    <value>Plávajúci register 12</value>
+  </data>
+  <data name="Float_register__ONE__THREE_" xml:space="preserve">
+    <value>Plávajúci register 13</value>
+  </data>
+  <data name="Float_register__ONE__FOUR_" xml:space="preserve">
+    <value>Plávajúci register 14</value>
+  </data>
+  <data name="Float_register__ONE__FIVE_" xml:space="preserve">
+    <value>Plávajúci register 15</value>
+  </data>
+  <data name="Float_register__ONE__SIX_" xml:space="preserve">
+    <value>Plávajúci register 16</value>
+  </data>
+  <data name="Float_register__ONE__SEVEN_" xml:space="preserve">
+    <value>Plávajúci register 17</value>
+  </data>
+  <data name="Float_register__ONE__EIGHT_" xml:space="preserve">
+    <value>Plávajúci register 18</value>
+  </data>
+  <data name="Float_register__ONE__NINE_" xml:space="preserve">
+    <value>Plávajúci register 19</value>
+  </data>
+  <data name="Float_register__TWO__ZERO_" xml:space="preserve">
+    <value>Plávajúci register 20</value>
+  </data>
+  <data name="Float_register__TWO__ONE_" xml:space="preserve">
+    <value>Plávajúci register 21</value>
+  </data>
+  <data name="Float_register__TWO__TWO_" xml:space="preserve">
+    <value>Plávajúci register 22</value>
+  </data>
+  <data name="Float_register__TWO__THREE_" xml:space="preserve">
+    <value>Plávajúci register 23</value>
+  </data>
+  <data name="Int_register__ZERO_" xml:space="preserve">
+    <value>Register Int 0</value>
+  </data>
+  <data name="Int_register__ONE_" xml:space="preserve">
+    <value>Register Int 1</value>
+  </data>
+  <data name="Int_register__TWO_" xml:space="preserve">
+    <value>Register Int 2</value>
+  </data>
+  <data name="Int_register__THREE_" xml:space="preserve">
+    <value>Register Int 3</value>
+  </data>
+  <data name="Int_register__FOUR_" xml:space="preserve">
+    <value>Register Int 4</value>
+  </data>
+  <data name="Int_register__FIVE_" xml:space="preserve">
+    <value>Register Int 5</value>
+  </data>
+  <data name="Int_register__SIX_" xml:space="preserve">
+    <value>Register Int 6</value>
+  </data>
+  <data name="Int_register__SEVEN_" xml:space="preserve">
+    <value>Register Int 7</value>
+  </data>
+  <data name="Int_register__EIGHT_" xml:space="preserve">
+    <value>Register Int 8</value>
+  </data>
+  <data name="Int_register__NINE_" xml:space="preserve">
+    <value>Register Int 9</value>
+  </data>
+  <data name="Int_register__ONE__ZERO_" xml:space="preserve">
+    <value>Register Int 10</value>
+  </data>
+  <data name="Int_register__ONE__ONE_" xml:space="preserve">
+    <value>Register Int 11</value>
+  </data>
+  <data name="Int_register__ONE__TWO_" xml:space="preserve">
+    <value>Register Int 12</value>
+  </data>
+  <data name="Int_register__ONE__THREE_" xml:space="preserve">
+    <value>Register Int 13</value>
+  </data>
+  <data name="Int_register__ONE__FOUR_" xml:space="preserve">
+    <value>Register Int 14</value>
+  </data>
+  <data name="Int_register__ONE__FIVE_" xml:space="preserve">
+    <value>Register Int 15</value>
+  </data>
+  <data name="Int_register__ONE__SIX_" xml:space="preserve">
+    <value>Register Int 16</value>
+  </data>
+  <data name="Int_register__ONE__SEVEN_" xml:space="preserve">
+    <value>Register Int 17</value>
+  </data>
+  <data name="Int_register__ONE__EIGHT_" xml:space="preserve">
+    <value>Register Int 18</value>
+  </data>
+  <data name="Int_register__ONE__NINE_" xml:space="preserve">
+    <value>Register Int 19</value>
+  </data>
+  <data name="Int_register__TWO__ZERO_" xml:space="preserve">
+    <value>Register Int 20</value>
+  </data>
+  <data name="Int_register__TWO__ONE_" xml:space="preserve">
+    <value>Register Int 21</value>
+  </data>
+  <data name="Int_register__TWO__TWO_" xml:space="preserve">
+    <value>Register Int 22</value>
+  </data>
+  <data name="Int_register__TWO__THREE_" xml:space="preserve">
+    <value>Register Int 23</value>
+  </data>
+  <data name="Standard_digital_inputs" xml:space="preserve">
+    <value>Štandardné digitálne vstupy</value>
+  </data>
+  <data name="Configurable_digital_inputs" xml:space="preserve">
+    <value>Konfigurovateľné digitálne vstupy</value>
+  </data>
+  <data name="Standard_digital_outputs" xml:space="preserve">
+    <value>Štandardné digitálne výstupy</value>
+  </data>
+  <data name="Configurable_digital_outputs" xml:space="preserve">
+    <value>Konfigurovateľné digitálne výstupy</value>
+  </data>
+  <data name="Analog_I_SLASH_O_types" xml:space="preserve">
+    <value>Typy analógových vstupov/výstupov</value>
+  </data>
+  <data name="Standard_analog_input__ZERO___SQUAREBRACKET_A_or_V_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Štandardný analógový vstup 0 [A alebo V]</value>
+  </data>
+  <data name="Standard_analog_input__ONE___SQUAREBRACKET_A_or_V_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Štandardný analógový vstup 1 [A alebo V]</value>
+  </data>
+  <data name="Standard_analog_output__ZERO___SQUAREBRACKET_A_or_V_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Štandardný analógový výstup 0 [A alebo V]</value>
+  </data>
+  <data name="Standard_analog_output__ONE___SQUAREBRACKET_A_or_V_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Štandardný analógový výstup 1 [A alebo V]</value>
+  </data>
+  <data name="I_SLASH_O_current__SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>I/O prúd [A]</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ZERO_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 0</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 1</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 2</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__THREE_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 3</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__FOUR_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 4</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__FIVE_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 5</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__SIX_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 6</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__SEVEN_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 7</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__EIGHT_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 8</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__NINE_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 9</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__ZERO_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 10</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__ONE_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 11</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__TWO_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 12</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__THREE_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 13</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__FOUR_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 14</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__FIVE_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 15</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__SIX_" xml:space="preserve">
+    <value>Euromapa67 vstupný bit 16</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__SEVEN_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 17</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__EIGHT_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 18</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__NINE_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 19</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__ZERO_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 20</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__ONE_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 21</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__TWO_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 22</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__THREE_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 23</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__FOUR_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 24</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__FIVE_" xml:space="preserve">
+    <value>Euromapa67 vstupný bit 25</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__SIX_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 26</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__SEVEN_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 27</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__EIGHT_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 28</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__NINE_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 29</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__THREE__ZERO_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 30</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__THREE__ONE_" xml:space="preserve">
+    <value>Euromap67 vstupný bit 31</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__THREE__TWO_" xml:space="preserve">
+    <value>Euromapa67 vstupný bit 32</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ZERO_" xml:space="preserve">
+    <value>Výstupný bit Euromap67 0</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 1</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 2</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__THREE_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 3</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__FOUR_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 4</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__FIVE_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 5</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__SIX_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 6</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__SEVEN_" xml:space="preserve">
+    <value>Výstupný bit Euromap67 7</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__EIGHT_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 8</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__NINE_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 9</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__ZERO_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 10</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__ONE_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 11</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__TWO_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 12</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__THREE_" xml:space="preserve">
+    <value>Výstupný bit 13 Euromap67</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__FOUR_" xml:space="preserve">
+    <value>Výstupný bit Euromap67 14</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__FIVE_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 15</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__SIX_" xml:space="preserve">
+    <value>Euromapa67 výstupný bit 16</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__SEVEN_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 17</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__EIGHT_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 18</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__NINE_" xml:space="preserve">
+    <value>Výstupný bit Euromap67 19</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__ZERO_" xml:space="preserve">
+    <value>Výstupný bit Euromap67 20</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__ONE_" xml:space="preserve">
+    <value>Výstupný bit Euromap67 21</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__TWO_" xml:space="preserve">
+    <value>Výstupný bit Euromap67 22</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__THREE_" xml:space="preserve">
+    <value>Výstupný bit Euromap67 23</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__FOUR_" xml:space="preserve">
+    <value>Euromapa67 výstupný bit 24</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__FIVE_" xml:space="preserve">
+    <value>Výstupný bit Euromap67 25</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__SIX_" xml:space="preserve">
+    <value>Výstupný bit Euromap67 26</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__SEVEN_" xml:space="preserve">
+    <value>Výstupný bit Euromap67 27</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__EIGHT_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 28</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__NINE_" xml:space="preserve">
+    <value>Výstupný bit Euromap67 29</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__THREE__ZERO_" xml:space="preserve">
+    <value>Euromap67 výstupný bit 30</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__THREE__ONE_" xml:space="preserve">
+    <value>Výstupný bit Euromap67 31</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__THREE__TWO_" xml:space="preserve">
+    <value>Euromapa67 výstupný bit 32</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN___TWO__FOUR_V_voltage" xml:space="preserve">
+    <value>Euromap67 24V napätie</value>
+  </data>
+  <data name="Euromap_SIX__SEVEN___TWO__FOUR_V_current" xml:space="preserve">
+    <value>Euromap67 24V prúd</value>
+  </data>
+  <data name="Joint_position__ZERO___SQUAREBRACKET_rad_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Poloha kĺbu 0 [rad]</value>
+  </data>
+  <data name="Joint_position__ONE___SQUAREBRACKET_rad_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Spoločná poloha 1 [rad]</value>
+  </data>
+  <data name="Joint_position__TWO___SQUAREBRACKET_rad_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Spoločná poloha 2 [rad]</value>
+  </data>
+  <data name="Joint_position__THREE___SQUAREBRACKET_rad_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Spoločná poloha 3 [rad]</value>
+  </data>
+  <data name="Joint_position__FOUR___SQUAREBRACKET_rad_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Spoločná poloha 4 [rad]</value>
+  </data>
+  <data name="Joint_position__FIVE___SQUAREBRACKET_rad_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Spoločná poloha 5 [rad]</value>
+  </data>
+  <data name="Joint_velocity__ZERO___SQUAREBRACKET_rad_SLASH_s_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Kĺbová rýchlosť 0 [rad/s]</value>
+  </data>
+  <data name="Joint_velocity__ONE___SQUAREBRACKET_rad_SLASH_s_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Kĺbová rýchlosť 1 [rad/s]</value>
+  </data>
+  <data name="Joint_velocity__TWO___SQUAREBRACKET_rad_SLASH_s_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Kĺbová rýchlosť 2 [rad/s]</value>
+  </data>
+  <data name="Joint_velocity__THREE___SQUAREBRACKET_rad_SLASH_s_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Kĺbová rýchlosť 3 [rad/s]</value>
+  </data>
+  <data name="Joint_velocity__FOUR___SQUAREBRACKET_rad_SLASH_s_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Kĺbová rýchlosť 4 [rad/s]</value>
+  </data>
+  <data name="Joint_velocity__FIVE___SQUAREBRACKET_rad_SLASH_s_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Kĺbová rýchlosť 5 [rad/s]</value>
+  </data>
+  <data name="Joint_current__ZERO___SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Spoločný prúd 0 [A]</value>
+  </data>
+  <data name="Joint_current__ONE___SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Spoločný prúd 1 [A]</value>
+  </data>
+  <data name="Joint_current__TWO___SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Spoločný prúd 2 [A]</value>
+  </data>
+  <data name="Joint_current__THREE___SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Spoločný prúd 3 [A]</value>
+  </data>
+  <data name="Joint_current__FOUR___SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Spoločný prúd 4 [A]</value>
+  </data>
+  <data name="Joint_current__FIVE___SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Spoločný prúd 5 [A]</value>
+  </data>
+  <data name="Joint_temperature__ZERO___SQUAREBRACKET__C_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Teplota spoja 0 [°C]</value>
+  </data>
+  <data name="Joint_temperature__ONE___SQUAREBRACKET__C_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Teplota spoja 1 [°C]</value>
+  </data>
+  <data name="Joint_temperature__TWO___SQUAREBRACKET__C_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Teplota spoja 2 [°C]</value>
+  </data>
+  <data name="Joint_temperature__THREE___SQUAREBRACKET__C_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Teplota spoja 3 [°C]</value>
+  </data>
+  <data name="Joint_temperature__FOUR___SQUAREBRACKET__C_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Teplota spoja 4 [°C]</value>
+  </data>
+  <data name="Joint_temperature__FIVE___SQUAREBRACKET__C_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Teplota spoja 5 [°C]</value>
+  </data>
+  <data name="Joint_mode__ZERO_" xml:space="preserve">
+    <value>Spoločný režim 0</value>
+  </data>
+  <data name="Joint_mode__ONE_" xml:space="preserve">
+    <value>Spoločný režim 1</value>
+  </data>
+  <data name="Joint_mode__TWO_" xml:space="preserve">
+    <value>Spoločný režim 2</value>
+  </data>
+  <data name="Joint_mode__THREE_" xml:space="preserve">
+    <value>Spoločný režim 3</value>
+  </data>
+  <data name="Joint_mode__FOUR_" xml:space="preserve">
+    <value>Spoločný režim 4</value>
+  </data>
+  <data name="Joint_mode__FIVE_" xml:space="preserve">
+    <value>Spoločný režim 5</value>
+  </data>
+  <data name="Controller_major_version" xml:space="preserve">
+    <value>Hlavná verzia ovládača</value>
+  </data>
+  <data name="Controller_minor_version" xml:space="preserve">
+    <value>Menšia verzia ovládača</value>
+  </data>
+  <data name="Reserved" xml:space="preserve">
+    <value>Rezervované</value>
+  </data>
+  <data name="Robot_mode" xml:space="preserve">
+    <value>Režim robota</value>
+  </data>
+  <data name="Real_time_machine_seconds" xml:space="preserve">
+    <value>Sekundy stroja v reálnom čase</value>
+  </data>
+  <data name="Real_time_machine_milliseconds" xml:space="preserve">
+    <value>Stroj reálneho času v milisekundách</value>
+  </data>
+  <data name="Real_time_machine_minutes" xml:space="preserve">
+    <value>Minúty stroja v reálnom čase</value>
+  </data>
+  <data name="Real_time_machine_hours" xml:space="preserve">
+    <value>Strojové hodiny v reálnom čase</value>
+  </data>
+  <data name="Real_time_machine_days" xml:space="preserve">
+    <value>Strojové dni v reálnom čase</value>
+  </data>
+  <data name="Robot_current__SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Prúd robota [A]</value>
+  </data>
+  <data name="PW_COLON__Is_power_on" xml:space="preserve">
+    <value>PW: Je zapnuté napájanie</value>
+  </data>
+  <data name="PR_COLON__Is_program_running" xml:space="preserve">
+    <value>PR: Je program spustený</value>
+  </data>
+  <data name="TB_COLON__Is_teach_button_pressed" xml:space="preserve">
+    <value>TB: Je stlačené tlačidlo učenia</value>
+  </data>
+  <data name="PB_COLON__Is_power_button_pressed" xml:space="preserve">
+    <value>PB: Je stlačené tlačidlo napájania</value>
+  </data>
+  <data name="Speed_slider_fraction" xml:space="preserve">
+    <value>Frakcia posuvníka rýchlosti</value>
+  </data>
+  <data name="Safety_mode" xml:space="preserve">
+    <value>Bezpečnostný režim</value>
+  </data>
+  <data name="NO_COLON__Is_normal_mode" xml:space="preserve">
+    <value>NIE: Je normálny režim</value>
+  </data>
+  <data name="RD_COLON__Is_reduced_mode" xml:space="preserve">
+    <value>RD: Je redukovaný režim</value>
+  </data>
+  <data name="PS_COLON__Is_protective_stopped" xml:space="preserve">
+    <value>PS: Je ochranný zastavený</value>
+  </data>
+  <data name="RC_COLON__Is_recovery_mode" xml:space="preserve">
+    <value>RC: Je režim obnovy</value>
+  </data>
+  <data name="SS_COLON__Is_safeguard_stopped" xml:space="preserve">
+    <value>SS: Je ochrana zastavená</value>
+  </data>
+  <data name="SES_COLON__Is_system_emergency_stopped" xml:space="preserve">
+    <value>SES: Je systém núdzovo zastavený</value>
+  </data>
+  <data name="RES_COLON__Is_robot_emergency_stopped" xml:space="preserve">
+    <value>RES: Je robot núdzovo zastavený</value>
+  </data>
+  <data name="ES_COLON__Is_emergency_stopped" xml:space="preserve">
+    <value>ES: Je núdzové zastavenie</value>
+  </data>
+  <data name="VL_COLON__Is_violation" xml:space="preserve">
+    <value>VL: Je porušenie</value>
+  </data>
+  <data name="FT_COLON__Is_fault" xml:space="preserve">
+    <value>FT: Je chyba</value>
+  </data>
+  <data name="ST_COLON__Is_stopped_due_TO_safety" xml:space="preserve">
+    <value>ST: Je zastavený kvôli bezpečnosti</value>
+  </data>
+  <data name="Actual_TCP_Position" xml:space="preserve">
+    <value>Skutočná pozícia TCP</value>
+  </data>
+  <data name="Actual_TCP_Velocity" xml:space="preserve">
+    <value>Skutočná rýchlosť TCP</value>
+  </data>
+  <data name="Actual_TCP_Force" xml:space="preserve">
+    <value>Skutočná sila TCP</value>
+  </data>
+  <data name="Actual_TCP_Torque" xml:space="preserve">
+    <value>Skutočný krútiaci moment TCP</value>
+  </data>
+  <data name="TCP_force_scalar__SQUAREBRACKET_N_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Skalár sily TCP [N]</value>
+  </data>
+  <data name="Tool_mode" xml:space="preserve">
+    <value>Režim nástroja</value>
+  </data>
+  <data name="TDI_COLON__Tool_Digital_Inputs" xml:space="preserve">
+    <value>TDI: Digitálne vstupy nástroja</value>
+  </data>
+  <data name="TDO_COLON__Tool_Digital_Outputs" xml:space="preserve">
+    <value>TDO: Digitálne výstupy nástroja</value>
+  </data>
+  <data name="TAIT_COLON__Tool_Analog_Input_Types" xml:space="preserve">
+    <value>TAIT: Typy analógových vstupov nástroja</value>
+  </data>
+  <data name="Tool_analog_input__ZERO___SQUAREBRACKET_A_OR_V_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Analógový vstup nástroja 0 [A alebo V]</value>
+  </data>
+  <data name="Tool_analog_input__ONE___SQUAREBRACKET_A_OR_V_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Analógový vstup 1 [A alebo V]</value>
+  </data>
+  <data name="Tool_output_voltage__SQUAREBRACKET_V_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Výstupné napätie nástroja [V]</value>
+  </data>
+  <data name="Tool_current__SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Prúd nástroja [A]</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Identifikátory hardvéru</value>
+  </data>
+  <data name="Remote_power_on_enabled" xml:space="preserve">
+    <value>Zapnutie na diaľku je povolené</value>
+  </data>
+  <data name="Remote_power_on_pulse_time" xml:space="preserve">
+    <value>Čas pulzu diaľkového napájania</value>
+  </data>
+  <data name="IP_address" xml:space="preserve">
+    <value>IP adresa</value>
+  </data>
+  <data name="Start_program" xml:space="preserve">
+    <value>Spustenie programu</value>
+  </data>
+  <data name="Stop_program" xml:space="preserve">
+    <value>Zastavenie programu</value>
+  </data>
+  <data name="Pause_program" xml:space="preserve">
+    <value>Pozastavenie programu</value>
+  </data>
+  <data name="Set_motor_on" xml:space="preserve">
+    <value>Nastavenie motora na</value>
+  </data>
+  <data name="Run_action" xml:space="preserve">
+    <value>Akcia Run</value>
+  </data>
+  <data name="Master_mode" xml:space="preserve">
+    <value>Hlavný režim</value>
+  </data>
+  <data name="Tool__ONE__retract" xml:space="preserve">
+    <value>Zasunutie nástroja 1</value>
+  </data>
+  <data name="Tool__ONE__extend" xml:space="preserve">
+    <value>Nástroj 1 rozšíriť</value>
+  </data>
+  <data name="Tool__TWO__retract" xml:space="preserve">
+    <value>Zatiahnutie nástroja 2</value>
+  </data>
+  <data name="Tool__TWO__extend" xml:space="preserve">
+    <value>Nástroj 2 rozšíriť</value>
+  </data>
+  <data name="Tool__THREE__retract" xml:space="preserve">
+    <value>Zatiahnutie nástroja 3</value>
+  </data>
+  <data name="Tool__THREE__extend" xml:space="preserve">
+    <value>Nástroj 3 rozšíriť</value>
+  </data>
+  <data name="Tool__FOUR__retract" xml:space="preserve">
+    <value>Zatiahnutie nástroja 4</value>
+  </data>
+  <data name="Tool__FOUR__extend" xml:space="preserve">
+    <value>Nástroj 4 rozšíriť</value>
+  </data>
+  <data name="Zones" xml:space="preserve">
+    <value>Zóny</value>
+  </data>
+  <data name="Action_number" xml:space="preserve">
+    <value>Číslo akcie</value>
+  </data>
+  <data name="Global_robot_speed" xml:space="preserve">
+    <value>Globálna rýchlosť robota</value>
+  </data>
+  <data name="Tool_number" xml:space="preserve">
+    <value>Číslo nástroja</value>
+  </data>
+  <data name="Workobject_number" xml:space="preserve">
+    <value>Číslo pracovného objektu</value>
+  </data>
+  <data name="Point_number" xml:space="preserve">
+    <value>Číslo bodu</value>
+  </data>
+  <data name="User_specific_speed__ONE_" xml:space="preserve">
+    <value>Rýchlosť špecifická pre používateľa 1</value>
+  </data>
+  <data name="User_specific_speed__TWO_" xml:space="preserve">
+    <value>Rýchlosť špecifická pre používateľa 2</value>
+  </data>
+  <data name="UR_Specific" xml:space="preserve">
+    <value>Špecifické UR</value>
+  </data>
+  <data name="Hardware_ID_of_the_Device" xml:space="preserve">
+    <value>ID hardvéru zariadenia</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_T_TWO_O_UNDERSCORE_State_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Podmodul ID hardvéru 'T2OState'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_T_TWO_O_UNDERSCORE_IO_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "T2OIO</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_T_TWO_O_UNDERSCORE_Joints_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Podmodul ID hardvéru "T2OJoints</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_T_TWO_O_UNDERSCORE_TCP_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "T2OTCP</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_T_TWO_O_UNDERSCORE_General_UNDERSCORE_Purpose_UNDERSCORE_Bit_UNDERSCORE_Registers_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'T2OGeneralPurposeBitRegisters' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_T_TWO_O_UNDERSCORE_General_UNDERSCORE_Purpose_UNDERSCORE_Int_UNDERSCORE_Registers_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'T2OGeneralPurposeIntRegisters' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_T_TWO_O_UNDERSCORE_General_UNDERSCORE_Purpose_UNDERSCORE_Float_UNDERSCORE_Registers_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'T2OGeneralPurposeFloatRegisters' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_O_TWO_T_UNDERSCORE_Robot_UNDERSCORE_IO_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu 'O2TRobotIO'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_O_TWO_T_UNDERSCORE_General_UNDERSCORE_Purpose_UNDERSCORE_Registers_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'O2TGeneralPurposeRegisters1' podmodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_O_TWO_T_UNDERSCORE_General_UNDERSCORE_Purpose_UNDERSCORE_Registers_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'O2TGeneralPurposeRegisters2' podmodul</value>
+  </data>
+  <data name="Standard_digital_output_mask" xml:space="preserve">
+    <value>Štandardná maska digitálneho výstupu</value>
+  </data>
+  <data name="Configurable_digital_output_mask" xml:space="preserve">
+    <value>Konfigurovateľná maska digitálneho výstupu</value>
+  </data>
+  <data name="AOM_COLON__Analog_output_mask" xml:space="preserve">
+    <value>AOM: Maska analógového výstupu</value>
+  </data>
+  <data name="AOT_COLON__Analog_output_types" xml:space="preserve">
+    <value>AOT: Typy analógových výstupov</value>
+  </data>
+  <data name="TDOM_COLON__Tool_digital_output_mask" xml:space="preserve">
+    <value>TDOM: Maska digitálneho výstupu nástroja</value>
+  </data>
+  <data name="TDO_COLON__Tool_digital_output" xml:space="preserve">
+    <value>TDO: Digitálny výstup nástroja</value>
+  </data>
+  <data name="Standard_analog_output__ZERO_" xml:space="preserve">
+    <value>Štandardný analógový výstup 0</value>
+  </data>
+  <data name="SSM_COLON__Speed_slider_fraction_mask" xml:space="preserve">
+    <value>SSM: Frakčná maska posuvníka rýchlosti</value>
+  </data>
+  <data name="Robot_Mode" xml:space="preserve">
+    <value>Režim robota</value>
+  </data>
+  <data name="In_area__ONE_" xml:space="preserve">
+    <value>V oblasti 1</value>
+  </data>
+  <data name="In_area__TWO_" xml:space="preserve">
+    <value>V oblasti 2</value>
+  </data>
+  <data name="In_area__THREE_" xml:space="preserve">
+    <value>V oblasti 3</value>
+  </data>
+  <data name="In_area__FOUR_" xml:space="preserve">
+    <value>V oblasti 4</value>
+  </data>
+  <data name="In_position__ONE_" xml:space="preserve">
+    <value>V polohe 1</value>
+  </data>
+  <data name="In_position__TWO_" xml:space="preserve">
+    <value>V polohe 2</value>
+  </data>
+  <data name="In_position__THREE_" xml:space="preserve">
+    <value>V polohe 3</value>
+  </data>
+  <data name="In_position__FOUR_" xml:space="preserve">
+    <value>Na pozícii 4</value>
+  </data>
+  <data name="Global_speed" xml:space="preserve">
+    <value>Globálna rýchlosť</value>
+  </data>
+  <data name="PointNumber" xml:space="preserve">
+    <value>PointNumber</value>
+  </data>
 </root>

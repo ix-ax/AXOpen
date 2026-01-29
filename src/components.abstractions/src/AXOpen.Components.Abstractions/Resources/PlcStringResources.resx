@@ -58,4 +58,60 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Coordinate_X" xml:space="preserve">
+    <value>Coordinate X</value>
+    <comment>src\AxoRobotics\AxoRoboticsBasicCoordinates.st,4</comment>
+  </data>
+  <data name="Coordinate_Y" xml:space="preserve">
+    <value>Coordinate Y</value>
+    <comment>src\AxoRobotics\AxoRoboticsBasicCoordinates.st,6</comment>
+  </data>
+  <data name="Coordinate_Z" xml:space="preserve">
+    <value>Coordinate Z</value>
+    <comment>src\AxoRobotics\AxoRoboticsBasicCoordinates.st,8</comment>
+  </data>
+  <data name="Coordinate_Rx" xml:space="preserve">
+    <value>Coordinate Rx</value>
+    <comment>src\AxoRobotics\AxoRoboticsCoordinates.st,10</comment>
+  </data>
+  <data name="Coordinate_Ry" xml:space="preserve">
+    <value>Coordinate Ry</value>
+    <comment>src\AxoRobotics\AxoRoboticsCoordinates.st,12</comment>
+  </data>
+  <data name="Coordinate_Rz" xml:space="preserve">
+    <value>Coordinate Rz</value>
+    <comment>src\AxoRobotics\AxoRoboticsCoordinates.st,14</comment>
+  </data>
+  <data name="ActionNo" xml:space="preserve">
+    <value>ActionNo</value>
+    <comment>src\AxoRobotics\AxoRoboticsMovementsParams.st,7</comment>
+  </data>
+  <data name="GlobalSpeed" xml:space="preserve">
+    <value>GlobalSpeed</value>
+    <comment>src\AxoRobotics\AxoRoboticsMovementsParams.st,9</comment>
+  </data>
+  <data name="ToolNo" xml:space="preserve">
+    <value>ToolNo</value>
+    <comment>src\AxoRobotics\AxoRoboticsMovementsParams.st,11</comment>
+  </data>
+  <data name="WorkobjectNo" xml:space="preserve">
+    <value>WorkobjectNo</value>
+    <comment>src\AxoRobotics\AxoRoboticsMovementsParams.st,13</comment>
+  </data>
+  <data name="PointNo" xml:space="preserve">
+    <value>PointNo</value>
+    <comment>src\AxoRobotics\AxoRoboticsMovementsParams.st,15</comment>
+  </data>
+  <data name="UserSpecSpeed_ONE_" xml:space="preserve">
+    <value>UserSpecSpeed1</value>
+    <comment>src\AxoRobotics\AxoRoboticsMovementsParams.st,17</comment>
+  </data>
+  <data name="UserSpecSpeed_TWO_" xml:space="preserve">
+    <value>UserSpecSpeed2</value>
+    <comment>src\AxoRobotics\AxoRoboticsMovementsParams.st,19</comment>
+  </data>
+  <data name="Coordinates" xml:space="preserve">
+    <value>Coordinates</value>
+    <comment>src\AxoRobotics\AxoRoboticsMovementsParams.st,21</comment>
+  </data>
 </root>

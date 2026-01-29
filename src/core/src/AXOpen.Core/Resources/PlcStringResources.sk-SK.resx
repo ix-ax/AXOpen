@@ -118,4 +118,28 @@
   <data name="Fallen" xml:space="preserve">
     <value>Fallen</value>
   </data>
+  <data name="Is_manually_controllable" xml:space="preserve">
+    <value>Je manuálne ovládateľný</value>
+  </data>
+  <data name="Messenger__ONE___DASH__activate_using__APOSTROPHE_Activate_APOSTROPHE__method_called_inside_the_if_statement" xml:space="preserve">
+    <value>Messenger 1 - aktivácia pomocou metódy 'Activate' volanej vo vnútri príkazu if</value>
+  </data>
+  <data name="RemoteTaskMessenger" xml:space="preserve">
+    <value>RemoteTaskMessenger</value>
+  </data>
+  <data name="Messenger" xml:space="preserve">
+    <value>Messenger</value>
+  </data>
+  <data name="Command_state" xml:space="preserve">
+    <value>Stav príkazu</value>
+  </data>
+  <data name="Stepping_mode" xml:space="preserve">
+    <value>Režim krokovania</value>
+  </data>
+  <data name="Sequence_mode" xml:space="preserve">
+    <value>Režim sekvencie</value>
+  </data>
+  <data name="Run_step" xml:space="preserve">
+    <value>Krok spustenia</value>
+  </data>
 </root>

@@ -58,4 +58,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Move_in" xml:space="preserve">
+    <value>Nasťahujte sa</value>
+  </data>
+  <data name="Move_out" xml:space="preserve">
+    <value>Presťahovať sa</value>
+  </data>
+  <data name="In_sensor" xml:space="preserve">
+    <value>V senzore</value>
+  </data>
+  <data name="Out_sensor" xml:space="preserve">
+    <value>Snímač Out</value>
+  </data>
+  <data name="Move_in_signal" xml:space="preserve">
+    <value>Signál pohybu</value>
+  </data>
+  <data name="Move_out_signal" xml:space="preserve">
+    <value>Signál na odchod</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Zastavte</value>
+  </data>
 </root>

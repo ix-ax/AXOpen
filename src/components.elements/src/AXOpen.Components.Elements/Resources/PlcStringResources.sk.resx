@@ -126,4 +126,115 @@
   <data name="InitPositionTask_timeout_DOT_" xml:space="preserve">
     <value>Časový limit úlohy InitPositionTask.</value>
   </data>
+  <data name="Signal" xml:space="preserve">
+    <value>Signál</value>
+  </data>
+  <data name="Turn" xml:space="preserve">
+    <value>Otočte</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnoviť</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="In_position" xml:space="preserve">
+    <value>V polohe</value>
+  </data>
+  <data name="In_precise_position" xml:space="preserve">
+    <value>V presnej polohe</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stav</value>
+  </data>
+  <data name="MessengerInfo" xml:space="preserve">
+    <value>MessengerInfo</value>
+  </data>
+  <data name="Raw_range" xml:space="preserve">
+    <value>Surový rozsah</value>
+  </data>
+  <data name="Real_range" xml:space="preserve">
+    <value>Skutočný rozsah</value>
+  </data>
+  <data name="Scale_value" xml:space="preserve">
+    <value>Hodnota stupnice</value>
+  </data>
+  <data name="SetPoint" xml:space="preserve">
+    <value>SetPoint</value>
+  </data>
+  <data name="Unscaled_value" xml:space="preserve">
+    <value>Neškálovaná hodnota</value>
+  </data>
+  <data name="Button_Signal" xml:space="preserve">
+    <value>Signál tlačidla</value>
+  </data>
+  <data name="LED_Indicator" xml:space="preserve">
+    <value>Indikátor LED</value>
+  </data>
+  <data name="Check_on" xml:space="preserve">
+    <value>Skontrolujte, či</value>
+  </data>
+  <data name="Check_off" xml:space="preserve">
+    <value>Zaškrtnite</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>Na stránke</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Vypnuté</value>
+  </data>
+  <data name="Current_position" xml:space="preserve">
+    <value>Súčasná pozícia</value>
+  </data>
+  <data name="InitPositionTask" xml:space="preserve">
+    <value>InitPositionTask</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Smer</value>
+  </data>
+  <data name="Number_of_positions" xml:space="preserve">
+    <value>Počet pozícií</value>
+  </data>
+  <data name="Offset" xml:space="preserve">
+    <value>Ofset</value>
+  </data>
+  <data name="Enable_turn" xml:space="preserve">
+    <value>Povolenie otáčania</value>
+  </data>
+  <data name="Start_turn" xml:space="preserve">
+    <value>Začiatok otáčania</value>
+  </data>
+  <data name="Safety_condition" xml:space="preserve">
+    <value>Bezpečnostný stav</value>
+  </data>
+  <data name="Coding_position" xml:space="preserve">
+    <value>Pozícia kódovania</value>
+  </data>
+  <data name="Raw_low" xml:space="preserve">
+    <value>Spodná surová hodnota</value>
+  </data>
+  <data name="Raw_high" xml:space="preserve">
+    <value>Vrchná surová hodnota</value>
+  </data>
+  <data name="Real_low" xml:space="preserve">
+    <value>Spodná reálna hodnota</value>
+  </data>
+  <data name="Real_high" xml:space="preserve">
+    <value>Vrchná reálna hodnota</value>
+  </data>
+  <data name="Gain" xml:space="preserve">
+    <value>Zosilnenie</value>
+  </data>
 </root>

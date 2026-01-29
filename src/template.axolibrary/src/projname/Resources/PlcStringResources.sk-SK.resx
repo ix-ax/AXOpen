@@ -94,4 +94,193 @@
   <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
     <value>TemplateTask20steps6 timeout.</value>
   </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnovenie</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>ŠablónaTask10steps1</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__TWO_" xml:space="preserve">
+    <value>ŠablónaTask10steps2</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__THREE_" xml:space="preserve">
+    <value>ŠablónaTask10steps3</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR_" xml:space="preserve">
+    <value>ŠablónaTask10steps4</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE_" xml:space="preserve">
+    <value>ŠablónaTask10steps5</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX_" xml:space="preserve">
+    <value>ŠablónaTask10steps6</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>ŠablónaTask20steps1</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO_" xml:space="preserve">
+    <value>ŠablónaTask20steps2</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE_" xml:space="preserve">
+    <value>ŠablónaTask20steps3</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR_" xml:space="preserve">
+    <value>ŠablónaTask20steps4</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE_" xml:space="preserve">
+    <value>ŠablónaTask20steps5</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX_" xml:space="preserve">
+    <value>ŠablónaTask20steps6</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Identifikátory hardvéru</value>
+  </data>
+  <data name="Hardware_ID__of_the_device" xml:space="preserve">
+    <value>ID hardvéru zariadenia</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in1</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in2</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in3</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in4</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in5</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in6</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in7</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in8</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in9</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in10</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in11</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in12</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in13</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in14</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in15</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in16</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in17</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in18</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in19</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__TWO__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "in20</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out1</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out2</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out3</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out4</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out5</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out6</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out7</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out8</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out9</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out10</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out11</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out12</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out13</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out14</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out15</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out16</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out17</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out18</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out19</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__TWO__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "out20</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stav</value>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Kontrola</value>
+  </data>
 </root>
