@@ -41,13 +41,9 @@
 
     @if (!HideRestoreButton)
     {
-        <button type="button" class="btn btn-no-bg-primary py-0" title="@Localizer["ResetTask"]" disabled="@IsDisabled" @onclick="@OnRestoreClick" @onclick:stopPropagation="true" @onkeydown="OnRestoreKeyDown">
-            <HeroIcon Icon="arrow-path" Type="IconType.Solid" Class="size-5 text-inherit" />
+        <button type="button" class="btn btn-no-bg-primary p-0! text-inherit!" title="@Localizer["ResetTask"]" disabled="@IsDisabled" @onclick="@OnRestoreClick" @onclick:stopPropagation="true" @onkeydown="OnRestoreKeyDown">
+            <HeroIcon Icon="arrow-path" Type="IconType.Solid" Class="size-5" />
         </button>
-    }
-    else
-    {
-        <span class="w-5"></span>
     }
 </button>
 
