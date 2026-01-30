@@ -655,6 +655,15 @@ namespace AXOpen.Data.Blazor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select an option.
+        /// </summary>
+        internal static string Select_an_option {
+            get {
+                return ResourceManager.GetString("Select an option", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Send error.
         /// </summary>
         internal static string Send_error {

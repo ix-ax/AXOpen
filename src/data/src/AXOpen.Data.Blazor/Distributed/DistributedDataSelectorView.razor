@@ -95,7 +95,7 @@
                     }
                     else
                     {
-                        <span class="text-muted">Select an option</span>
+                        <span class="text-muted">@Localizer["Select an option"]</span>
                     }
                 </div>
             </button>
@@ -162,7 +162,7 @@
             {
                 <div>
                     <button class="btn btn-primary" @onclick='()=> this.BtnOperation ="SendToPlc-Ack"'>
-                        @Localizer["Send To Plc"]
+                        @Localizer["Send to PLC"]
                     </button>
                 </div>
             }
@@ -196,7 +196,7 @@ else
                             EndBtnOperation();
                             OnDataSend?.Invoke(SelectedEntity._EntityId);}">
                     <div class="flex flex-wrap">
-                        <span>@Localizer["Send to the PLC"]: "@SelectedEntity._EntityId"</span>
+                        <span>@Localizer["Send to PLC"]: "@SelectedEntity._EntityId"</span>
                     </div>
                 </button>
             }
