@@ -82,4 +82,1174 @@
   <data name="ChangeProgramTask_timeout_DOT_" xml:space="preserve">
     <value>Časový limit ChangeProgramTask.</value>
   </data>
+  <data name="Bank" xml:space="preserve">
+    <value>Banka</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Prečítajte si</value>
+  </data>
+  <data name="Inspection_results" xml:space="preserve">
+    <value>Výsledky kontroly</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnovenie</value>
+  </data>
+  <data name="Clear_result_data" xml:space="preserve">
+    <value>Vymazanie údajov o výsledkoch</value>
+  </data>
+  <data name="Tune_data" xml:space="preserve">
+    <value>Údaje o ladení</value>
+  </data>
+  <data name="Read_data" xml:space="preserve">
+    <value>Čítanie údajov</value>
+  </data>
+  <data name="Handshake_and_General_Error" xml:space="preserve">
+    <value>Handshake a všeobecná chyba</value>
+  </data>
+  <data name="BUSY_Status" xml:space="preserve">
+    <value>Stav BUSY</value>
+  </data>
+  <data name="Completion_Status" xml:space="preserve">
+    <value>Stav dokončenia</value>
+  </data>
+  <data name="Error_Status" xml:space="preserve">
+    <value>Stav chyby</value>
+  </data>
+  <data name="Terminal_Status" xml:space="preserve">
+    <value>Stav terminálu</value>
+  </data>
+  <data name="Unstable_Read_Status" xml:space="preserve">
+    <value>Nestabilný stav čítania</value>
+  </data>
+  <data name="Matching_Level_and_Total_Evaluation_Grade_Status" xml:space="preserve">
+    <value>Úroveň zhody a celkový stav hodnotenia</value>
+  </data>
+  <data name="Operation_Result_Status" xml:space="preserve">
+    <value>Stav výsledku operácie</value>
+  </data>
+  <data name="Read_Data" xml:space="preserve">
+    <value>Čítanie údajov</value>
+  </data>
+  <data name="Latch_and_Error_Clear_Control" xml:space="preserve">
+    <value>Kontrola blokovania a vymazávania chýb</value>
+  </data>
+  <data name="Operation_instruction_Control" xml:space="preserve">
+    <value>Prevádzkové pokyny Ovládanie</value>
+  </data>
+  <data name="Completion_Clear_Control" xml:space="preserve">
+    <value>Dokončenie Jasná kontrola</value>
+  </data>
+  <data name="Parameter_Bank_Number" xml:space="preserve">
+    <value>Parameter Číslo banky</value>
+  </data>
+  <data name="User_data" xml:space="preserve">
+    <value>Údaje používateľa</value>
+  </data>
+  <data name="User_Data" xml:space="preserve">
+    <value>Údaje používateľa</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Pokrok</value>
+  </data>
+  <data name="TriggerTask" xml:space="preserve">
+    <value>TriggerTask</value>
+  </data>
+  <data name="Required_program_number" xml:space="preserve">
+    <value>Požadované číslo programu</value>
+  </data>
+  <data name="ChangeProgramTask" xml:space="preserve">
+    <value>ChangeProgramTask</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="BUSY" xml:space="preserve">
+    <value>BUSY</value>
+  </data>
+  <data name="TRG_BUSY" xml:space="preserve">
+    <value>TRG BUSY</value>
+  </data>
+  <data name="LOCK_BUSY" xml:space="preserve">
+    <value>ZÁMOK BUSY</value>
+  </data>
+  <data name="MODE_BUSY" xml:space="preserve">
+    <value>REŽIM BUSY</value>
+  </data>
+  <data name="ERR_BUSY" xml:space="preserve">
+    <value>ERR BUSY</value>
+  </data>
+  <data name="Read_Complete_Clear" xml:space="preserve">
+    <value>Prečítajte si kompletný prehľad</value>
+  </data>
+  <data name="Preset_Complete_Clear" xml:space="preserve">
+    <value>Prednastavené kompletné vymazanie</value>
+  </data>
+  <data name="Register_Preset_Data_Complete_Clear" xml:space="preserve">
+    <value>Register Prednastavené údaje Kompletné vymazanie</value>
+  </data>
+  <data name="Tune_Complete_Clear" xml:space="preserve">
+    <value>Vyladenie Kompletné vyčistenie</value>
+  </data>
+  <data name="EXT_DOT__Request_Complete_Clear" xml:space="preserve">
+    <value>EXT. Žiadosť o úplné vyčistenie</value>
+  </data>
+  <data name="Read_Complete" xml:space="preserve">
+    <value>Prečítajte si celý článok</value>
+  </data>
+  <data name="Preset_Complete" xml:space="preserve">
+    <value>Prednastavenie Kompletné</value>
+  </data>
+  <data name="Register_Preset_Data_Complete" xml:space="preserve">
+    <value>Register Prednastavené údaje Kompletné</value>
+  </data>
+  <data name="Tune_Complete" xml:space="preserve">
+    <value>Vyladenie kompletné</value>
+  </data>
+  <data name="EXT_DOT__Request_Complete" xml:space="preserve">
+    <value>EXT. Žiadosť dokončená</value>
+  </data>
+  <data name="Continous_reading" xml:space="preserve">
+    <value>Kontinuálne čítanie</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Identifikátory hardvéru</value>
+  </data>
+  <data name="Result_data_size" xml:space="preserve">
+    <value>Veľkosť výsledných údajov</value>
+  </data>
+  <data name="User_data_size" xml:space="preserve">
+    <value>Veľkosť používateľských údajov</value>
+  </data>
+  <data name="Read_Failure" xml:space="preserve">
+    <value>Čítanie zlyhania</value>
+  </data>
+  <data name="Preset_Failure" xml:space="preserve">
+    <value>Prednastavené zlyhanie</value>
+  </data>
+  <data name="Register_Preset_Data_Failure_" xml:space="preserve">
+    <value>Zlyhanie prednastavených údajov registra</value>
+  </data>
+  <data name="Tune_Failure_" xml:space="preserve">
+    <value>Zlyhanie ladenia</value>
+  </data>
+  <data name="EXT_DOT__Request_Failure_" xml:space="preserve">
+    <value>EXT. Zlyhanie žiadosti</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="Result_Data_Available" xml:space="preserve">
+    <value>Dostupné údaje o výsledku</value>
+  </data>
+  <data name="Result_Data_Strobe" xml:space="preserve">
+    <value>Výsledok Dátová stroboskopia</value>
+  </data>
+  <data name="Buffer_Overflow_Error" xml:space="preserve">
+    <value>Chyba pretečenia vyrovnávacej pamäte</value>
+  </data>
+  <data name="General_Error" xml:space="preserve">
+    <value>Všeobecná chyba</value>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>ID hardvéru zariadenia</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_HandshakeAndGeneralErrorStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "HandshakeAndGeneralErrorStatus</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_BUSY_UNDERSCORE_Status_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "BUSYStatus</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_CompletionStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "CompletionStatus</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ErrorStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ErrorStatus</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_TerminalStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "TerminalStatus</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_UnstableReadStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "UnstableReadStatus</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_MatchingLevelAndTotalEvaluationGradeStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "MatchingLevelAndTotalEvaluationGradeStatus</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_OperationalResultStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "OperationalResultStatus</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ReadData_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ReadData</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_LatchAndErrorClearControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "LatchAndErrorClearControl</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_OperationInstructionControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "OperationInstructionControl</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_CompletionClearControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "CompletionClearControl</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ParameterBankNumber_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ParameterBankNumber</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_UserData_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "UserData</value>
+  </data>
+  <data name="Result_Data_Latch" xml:space="preserve">
+    <value>Výsledok Data Latch</value>
+  </data>
+  <data name="Error_Clear" xml:space="preserve">
+    <value>Vymazanie chyby</value>
+  </data>
+  <data name="Matching_Level" xml:space="preserve">
+    <value>Úroveň zhody</value>
+  </data>
+  <data name="ISO_SLASH_IEC__ONE__FIVE__FOUR__ONE__FIVE__Grade" xml:space="preserve">
+    <value>Trieda ISO/IEC 15415</value>
+  </data>
+  <data name="ISO_SLASH_IEC_TR__TWO__NINE__ONE__FIVE__EIGHT__BRACKET_AIM_DPM_DASH__ONE__DASH__TWO__ZERO__ZERO__SIX__ENDBRACKET__Grade" xml:space="preserve">
+    <value>ISO/IEC TR 29158(AIM DPM-1-2006) Trieda</value>
+  </data>
+  <data name="_UNDERSCORE_Reserved" xml:space="preserve">
+    <value>Rezervované</value>
+  </data>
+  <data name="Read_Result_Code" xml:space="preserve">
+    <value>Prečítajte si kód výsledku</value>
+  </data>
+  <data name="Preset_Result_Code" xml:space="preserve">
+    <value>Prednastavený kód výsledku</value>
+  </data>
+  <data name="Register_Preset_Data_Result_Code" xml:space="preserve">
+    <value>Register Prednastavené údaje Výsledný kód</value>
+  </data>
+  <data name="Tune_Result_Code" xml:space="preserve">
+    <value>Kód výsledku ladenia</value>
+  </data>
+  <data name="_UNDERSCORE_Reserved_SQUAREBRACKET__ZERO__ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Rezervované[0]</value>
+  </data>
+  <data name="_UNDERSCORE_Reserved_SQUAREBRACKET__ONE__ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Vyhradené[1]</value>
+  </data>
+  <data name="_UNDERSCORE_Reserved_SQUAREBRACKET__TWO__ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Vyhradené[2]</value>
+  </data>
+  <data name="EXT_DOT__Request_Result_Code" xml:space="preserve">
+    <value>EXT. Kód výsledku žiadosti</value>
+  </data>
+  <data name="General_Error_Code" xml:space="preserve">
+    <value>Všeobecný kód chyby</value>
+  </data>
+  <data name="_UNDERSCORE_Reserved_SQUAREBRACKET__THREE__ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Vyhradené[3]</value>
+  </data>
+  <data name="Read_Request" xml:space="preserve">
+    <value>Prečítajte si žiadosť</value>
+  </data>
+  <data name="Preset_Request" xml:space="preserve">
+    <value>Prednastavená požiadavka</value>
+  </data>
+  <data name="Register_Preset_Data_Request" xml:space="preserve">
+    <value>Žiadosť o prednastavené údaje registra</value>
+  </data>
+  <data name="Tune_Request" xml:space="preserve">
+    <value>Žiadosť o naladenie</value>
+  </data>
+  <data name="Bank_Number_Register" xml:space="preserve">
+    <value>Register bankových čísel</value>
+  </data>
+  <data name="Result_Data_Ready_Count" xml:space="preserve">
+    <value>Výsledok Počet pripravených údajov</value>
+  </data>
+  <data name="Result_Data_Update_Count" xml:space="preserve">
+    <value>Výsledok Počet aktualizácií údajov</value>
+  </data>
+  <data name="Result_Data_Size" xml:space="preserve">
+    <value>Výsledok Veľkosť údajov</value>
+  </data>
+  <data name="IN_ONE__Status" xml:space="preserve">
+    <value>IN1 Stav</value>
+  </data>
+  <data name="IN_TWO__Status" xml:space="preserve">
+    <value>Stav IN2</value>
+  </data>
+  <data name="OUT_ONE__Status" xml:space="preserve">
+    <value>Stav OUT1</value>
+  </data>
+  <data name="OUT_TWO__Status" xml:space="preserve">
+    <value>Stav OUT2</value>
+  </data>
+  <data name="OUT_THREE__Status" xml:space="preserve">
+    <value>Stav OUT3</value>
+  </data>
+  <data name="Unstable" xml:space="preserve">
+    <value>Nestabilné</value>
+  </data>
+  <data name="Matching_Level_Unstable" xml:space="preserve">
+    <value>Úroveň zhody Nestabilné</value>
+  </data>
+  <data name="ISO_SLASH_IEC__ONE__FIVE__FOUR__ONE__FIVE__Unstable" xml:space="preserve">
+    <value>ISO/IEC 15415 Nestabilné</value>
+  </data>
+  <data name="ISO_SLASH_IEC_TR__TWO__NINE__ONE__FIVE__EIGHT__BRACKET_AIM_DPM_DASH__ONE__DASH__TWO__ZERO__ZERO__SIX__ENDBRACKET__Unstable" xml:space="preserve">
+    <value>ISO/IEC TR 29158(AIM DPM-1-2006) Nestabilný</value>
+  </data>
+  <data name="SAE_AS_NINE__ONE__THREE__TWO__Unstable" xml:space="preserve">
+    <value>SAE AS9132 Nestabilné</value>
+  </data>
+  <data name="Trigger_request" xml:space="preserve">
+    <value>Spúšťacia požiadavka</value>
+  </data>
+  <data name="Master_registration_request" xml:space="preserve">
+    <value>Hlavná žiadosť o registráciu</value>
+  </data>
+  <data name="Program_switching_request" xml:space="preserve">
+    <value>Žiadosť o prepnutie programu</value>
+  </data>
+  <data name="Warning_clear_request" xml:space="preserve">
+    <value>Výstražná jasná požiadavka</value>
+  </data>
+  <data name="Statistics_reset_request" xml:space="preserve">
+    <value>Žiadosť o obnovenie štatistík</value>
+  </data>
+  <data name="Buffer_clear_request" xml:space="preserve">
+    <value>Žiadosť o vymazanie vyrovnávacej pamäte</value>
+  </data>
+  <data name="SD_card_saving_stop_request" xml:space="preserve">
+    <value>Žiadosť o zastavenie ukladania na kartu SD</value>
+  </data>
+  <data name="Setting_value_change_request" xml:space="preserve">
+    <value>Žiadosť o zmenu hodnoty nastavenia</value>
+  </data>
+  <data name="Result_acquisition_complete_notification" xml:space="preserve">
+    <value>Oznámenie o úplnom získaní výsledku</value>
+  </data>
+  <data name="Program_number" xml:space="preserve">
+    <value>Číslo programu</value>
+  </data>
+  <data name="Function__ONE__COLON__Limit_set_DOT_no_DOT__BRACKET_no_OCR_ENDBRACKET__SLASH_Master_text_set_DOT_no_DOT__BRACKET_OCR_ENDBRACKET__SLASH_FTP_SLASH_SD_DASH_saved_set_DOT_no_DOT__BRACKET_FTP_client_SLASH_SD_card_saving_function_ENDBRACKET_" xml:space="preserve">
+    <value>Funkcia 1: Limit set.no.(bez OCR)/Master text set.no.(OCR)/FTP/SD-saved set.no.(FTP klient/funkcia ukladania na SD kartu)</value>
+  </data>
+  <data name="Function__TWO__COLON__Limit_set_DOT_no_DOT__BRACKET_no_OCR_ENDBRACKET__SLASH_Master_text_SLASH_number_of_letters_BRACKET_OCR_ENDBRACKET__SLASH_FTP_SLASH_SD_DASH_saving_settings_BRACKET_FTP_client_SLASH_SD_card_saving_function_ENDBRACKET_" xml:space="preserve">
+    <value>Funkcia 2: Limit set.no.(bez OCR)/Master text/počet písmen(OCR)/FTP/SD-nastavenia ukladania(FTP klient/funkcia ukladania na SD kartu)</value>
+  </data>
+  <data name="Trigger_response" xml:space="preserve">
+    <value>Spúšťacia reakcia</value>
+  </data>
+  <data name="Master_registration_response" xml:space="preserve">
+    <value>Hlavná registračná odpoveď</value>
+  </data>
+  <data name="Program_switching_response" xml:space="preserve">
+    <value>Reakcia na prepínanie programov</value>
+  </data>
+  <data name="Warning_clear_response" xml:space="preserve">
+    <value>Varovanie jasná odpoveď</value>
+  </data>
+  <data name="Statistics_reset_response" xml:space="preserve">
+    <value>Odozva na resetovanie štatistík</value>
+  </data>
+  <data name="Buffer_clear_response" xml:space="preserve">
+    <value>Odozva na vymazanie vyrovnávacej pamäte</value>
+  </data>
+  <data name="SD_card_saving_stop_response" xml:space="preserve">
+    <value>Reakcia na zastavenie ukladania na kartu SD</value>
+  </data>
+  <data name="Setting_value_change_response" xml:space="preserve">
+    <value>Reakcia na zmenu hodnoty nastavenia</value>
+  </data>
+  <data name="Trigger_failed" xml:space="preserve">
+    <value>Spúšťač zlyhal</value>
+  </data>
+  <data name="Master_registration_failed" xml:space="preserve">
+    <value>Hlavná registrácia zlyhala</value>
+  </data>
+  <data name="Program_switching_failed" xml:space="preserve">
+    <value>Prepínanie programov zlyhalo</value>
+  </data>
+  <data name="SD_card_saving_stop_failed" xml:space="preserve">
+    <value>Zastavenie ukladania na kartu SD zlyhalo</value>
+  </data>
+  <data name="Setting_value_change_failed" xml:space="preserve">
+    <value>Zmena hodnoty nastavenia sa nepodarila</value>
+  </data>
+  <data name="Result_available" xml:space="preserve">
+    <value>Výsledok je k dispozícii</value>
+  </data>
+  <data name="Result_update_complete" xml:space="preserve">
+    <value>Aktualizácia výsledkov dokončená</value>
+  </data>
+  <data name="Imaging_status" xml:space="preserve">
+    <value>Stav zobrazovania</value>
+  </data>
+  <data name="RUN" xml:space="preserve">
+    <value>RUN</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Pripravené</value>
+  </data>
+  <data name="Trigger_ready" xml:space="preserve">
+    <value>Pripravenosť spúšte</value>
+  </data>
+  <data name="SD_card_identification_status" xml:space="preserve">
+    <value>Stav identifikácie karty SD</value>
+  </data>
+  <data name="Sorting_mode_information" xml:space="preserve">
+    <value>Informácie o režime triedenia</value>
+  </data>
+  <data name="Insufficient_free_space_on_SD_card" xml:space="preserve">
+    <value>Nedostatok voľného miesta na karte SD</value>
+  </data>
+  <data name="Buffer_overrun" xml:space="preserve">
+    <value>Prekročenie vyrovnávacej pamäte</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Upozornenie</value>
+  </data>
+  <data name="Maximal_program_number" xml:space="preserve">
+    <value>Maximálny počet programov</value>
+  </data>
+  <data name="Overall_judgment_OK" xml:space="preserve">
+    <value>Celkové hodnotenie OK</value>
+  </data>
+  <data name="Position_correction" xml:space="preserve">
+    <value>Korekcia polohy</value>
+  </data>
+  <data name="LOGIC_ONE_" xml:space="preserve">
+    <value>LOGIC1</value>
+  </data>
+  <data name="LOGIC_TWO_" xml:space="preserve">
+    <value>LOGIC2</value>
+  </data>
+  <data name="LOGIC_THREE_" xml:space="preserve">
+    <value>LOGIC3</value>
+  </data>
+  <data name="LOGIC_FOUR_" xml:space="preserve">
+    <value>LOGIC4</value>
+  </data>
+  <data name="Overall_judgment_NG" xml:space="preserve">
+    <value>Celkové hodnotenie NG</value>
+  </data>
+  <data name="Tool__ONE_" xml:space="preserve">
+    <value>Nástroj 1</value>
+  </data>
+  <data name="Tool__TWO_" xml:space="preserve">
+    <value>Nástroj 2</value>
+  </data>
+  <data name="Tool__THREE_" xml:space="preserve">
+    <value>Nástroj 3</value>
+  </data>
+  <data name="Tool__FOUR_" xml:space="preserve">
+    <value>Nástroj 4</value>
+  </data>
+  <data name="Tool__FIVE_" xml:space="preserve">
+    <value>Nástroj 5</value>
+  </data>
+  <data name="Tool__SIX_" xml:space="preserve">
+    <value>Nástroj 6</value>
+  </data>
+  <data name="Tool__SEVEN_" xml:space="preserve">
+    <value>Nástroj 7</value>
+  </data>
+  <data name="Tool__EIGHT_" xml:space="preserve">
+    <value>Nástroj 8</value>
+  </data>
+  <data name="Tool__NINE_" xml:space="preserve">
+    <value>Nástroj 9</value>
+  </data>
+  <data name="Tool__ONE__ZERO_" xml:space="preserve">
+    <value>Nástroj 10</value>
+  </data>
+  <data name="Tool__ONE__ONE_" xml:space="preserve">
+    <value>Nástroj 11</value>
+  </data>
+  <data name="Tool__ONE__TWO_" xml:space="preserve">
+    <value>Nástroj 12</value>
+  </data>
+  <data name="Tool__ONE__THREE_" xml:space="preserve">
+    <value>Nástroj 13</value>
+  </data>
+  <data name="Tool__ONE__FOUR_" xml:space="preserve">
+    <value>Nástroj 14</value>
+  </data>
+  <data name="Tool__ONE__FIVE_" xml:space="preserve">
+    <value>Nástroj 15</value>
+  </data>
+  <data name="Tool__ONE__SIX_" xml:space="preserve">
+    <value>Nástroj 16</value>
+  </data>
+  <data name="Master_number_SLASH_total_status_product_type" xml:space="preserve">
+    <value>Hlavné číslo/celkový stav typ výrobku</value>
+  </data>
+  <data name="Tool__ONE__SEVEN_" xml:space="preserve">
+    <value>Nástroj 17</value>
+  </data>
+  <data name="Tool__ONE__EIGHT_" xml:space="preserve">
+    <value>Nástroj 18</value>
+  </data>
+  <data name="Tool__ONE__NINE_" xml:space="preserve">
+    <value>Nástroj 19</value>
+  </data>
+  <data name="Tool__TWO__ZERO_" xml:space="preserve">
+    <value>Nástroj 20</value>
+  </data>
+  <data name="Tool__TWO__ONE_" xml:space="preserve">
+    <value>Nástroj 21</value>
+  </data>
+  <data name="Tool__TWO__TWO_" xml:space="preserve">
+    <value>Nástroj 22</value>
+  </data>
+  <data name="Tool__TWO__THREE_" xml:space="preserve">
+    <value>Nástroj 23</value>
+  </data>
+  <data name="Tool__TWO__FOUR_" xml:space="preserve">
+    <value>Nástroj 24</value>
+  </data>
+  <data name="Tool__TWO__FIVE_" xml:space="preserve">
+    <value>Nástroj 25</value>
+  </data>
+  <data name="Tool__TWO__SIX_" xml:space="preserve">
+    <value>Nástroj 26</value>
+  </data>
+  <data name="Tool__TWO__SEVEN_" xml:space="preserve">
+    <value>Nástroj 27</value>
+  </data>
+  <data name="Tool__TWO__EIGHT_" xml:space="preserve">
+    <value>Nástroj 28</value>
+  </data>
+  <data name="Tool__TWO__NINE_" xml:space="preserve">
+    <value>Nástroj 29</value>
+  </data>
+  <data name="Tool__THREE__ZERO_" xml:space="preserve">
+    <value>Nástroj 30</value>
+  </data>
+  <data name="Tool__THREE__ONE_" xml:space="preserve">
+    <value>Nástroj 31</value>
+  </data>
+  <data name="Tool__THREE__TWO_" xml:space="preserve">
+    <value>Nástroj 32</value>
+  </data>
+  <data name="Tool__THREE__THREE_" xml:space="preserve">
+    <value>Nástroj 33</value>
+  </data>
+  <data name="Tool__THREE__FOUR_" xml:space="preserve">
+    <value>Nástroj 34</value>
+  </data>
+  <data name="Tool__THREE__FIVE_" xml:space="preserve">
+    <value>Nástroj 35</value>
+  </data>
+  <data name="Tool__THREE__SIX_" xml:space="preserve">
+    <value>Nástroj 36</value>
+  </data>
+  <data name="Tool__THREE__SEVEN_" xml:space="preserve">
+    <value>Nástroj 37</value>
+  </data>
+  <data name="Tool__THREE__EIGHT_" xml:space="preserve">
+    <value>Nástroj 38</value>
+  </data>
+  <data name="Tool__THREE__NINE_" xml:space="preserve">
+    <value>Nástroj 39</value>
+  </data>
+  <data name="Tool__FOUR__ZERO_" xml:space="preserve">
+    <value>Nástroj 40</value>
+  </data>
+  <data name="Tool__FOUR__ONE_" xml:space="preserve">
+    <value>Nástroj 41</value>
+  </data>
+  <data name="Tool__FOUR__TWO_" xml:space="preserve">
+    <value>Nástroj 42</value>
+  </data>
+  <data name="Tool__FOUR__THREE_" xml:space="preserve">
+    <value>Nástroj 43</value>
+  </data>
+  <data name="Tool__FOUR__FOUR_" xml:space="preserve">
+    <value>Nástroj 44</value>
+  </data>
+  <data name="Tool__FOUR__FIVE_" xml:space="preserve">
+    <value>Nástroj 45</value>
+  </data>
+  <data name="Tool__FOUR__SIX_" xml:space="preserve">
+    <value>Nástroj 46</value>
+  </data>
+  <data name="Tool__FOUR__SEVEN_" xml:space="preserve">
+    <value>Nástroj 47</value>
+  </data>
+  <data name="Tool__FOUR__EIGHT_" xml:space="preserve">
+    <value>Nástroj 48</value>
+  </data>
+  <data name="Tool__FOUR__NINE_" xml:space="preserve">
+    <value>Nástroj 49</value>
+  </data>
+  <data name="Tool__FIVE__ZERO_" xml:space="preserve">
+    <value>Nástroj 50</value>
+  </data>
+  <data name="Tool__FIVE__ONE_" xml:space="preserve">
+    <value>Nástroj 51</value>
+  </data>
+  <data name="Tool__FIVE__TWO_" xml:space="preserve">
+    <value>Nástroj 52</value>
+  </data>
+  <data name="Tool__FIVE__THREE_" xml:space="preserve">
+    <value>Nástroj 53</value>
+  </data>
+  <data name="Tool__FIVE__FOUR_" xml:space="preserve">
+    <value>Nástroj 54</value>
+  </data>
+  <data name="Tool__FIVE__FIVE_" xml:space="preserve">
+    <value>Nástroj 55</value>
+  </data>
+  <data name="Tool__FIVE__SIX_" xml:space="preserve">
+    <value>Nástroj 56</value>
+  </data>
+  <data name="Tool__FIVE__SEVEN_" xml:space="preserve">
+    <value>Nástroj 57</value>
+  </data>
+  <data name="Tool__FIVE__EIGHT_" xml:space="preserve">
+    <value>Nástroj 58</value>
+  </data>
+  <data name="Tool__FIVE__NINE_" xml:space="preserve">
+    <value>Nástroj 59</value>
+  </data>
+  <data name="Tool__SIX__ZERO_" xml:space="preserve">
+    <value>Nástroj 60</value>
+  </data>
+  <data name="Tool__SIX__ONE_" xml:space="preserve">
+    <value>Nástroj 61</value>
+  </data>
+  <data name="Tool__SIX__TWO_" xml:space="preserve">
+    <value>Nástroj 62</value>
+  </data>
+  <data name="Tool__SIX__THREE_" xml:space="preserve">
+    <value>Nástroj 63</value>
+  </data>
+  <data name="Tool__SIX__FOUR_" xml:space="preserve">
+    <value>Nástroj 64</value>
+  </data>
+  <data name="Processing_time_MAX" xml:space="preserve">
+    <value>Čas spracovania MAX</value>
+  </data>
+  <data name="Processing_time_MIN" xml:space="preserve">
+    <value>Čas spracovania MIN</value>
+  </data>
+  <data name="Processing_time_AVE" xml:space="preserve">
+    <value>Čas spracovania AVE</value>
+  </data>
+  <data name="Number_of_triggers" xml:space="preserve">
+    <value>Počet spúšťačov</value>
+  </data>
+  <data name="Number_of_OKs" xml:space="preserve">
+    <value>Počet schválení OK</value>
+  </data>
+  <data name="Number_of_NGs" xml:space="preserve">
+    <value>Počet NG</value>
+  </data>
+  <data name="Number_of_trigger_errors" xml:space="preserve">
+    <value>Počet chýb spúšťania</value>
+  </data>
+  <data name="Error_No_DOT_" xml:space="preserve">
+    <value>Chyba č.</value>
+  </data>
+  <data name="Warning_No_DOT_" xml:space="preserve">
+    <value>Upozornenie č.</value>
+  </data>
+  <data name="Number_of_remaining_buffers" xml:space="preserve">
+    <value>Počet zostávajúcich vyrovnávacích pamätí</value>
+  </data>
+  <data name="Checksum" xml:space="preserve">
+    <value>Kontrolný súčet</value>
+  </data>
+  <data name="Current_program_No_DOT_" xml:space="preserve">
+    <value>Aktuálny program č.</value>
+  </data>
+  <data name="Program_No_DOT__during_judgment" xml:space="preserve">
+    <value>Číslo programu počas rozsudku</value>
+  </data>
+  <data name="Result_No_DOT_" xml:space="preserve">
+    <value>Výsledok č.</value>
+  </data>
+  <data name="Processing_time" xml:space="preserve">
+    <value>Čas spracovania</value>
+  </data>
+  <data name="Hardware_ID__of_the_device" xml:space="preserve">
+    <value>ID hardvéru zariadenia</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_CommandControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "CommandControl</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_CommandStatusBits_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "CommandStatusBits</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_DeviceResultBits_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "DeviceResultBits1</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_DeviceStatusWords_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "DeviceStatusWords</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_DeviceStatistics_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "DeviceStatistics</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_PositionAdjustResult_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "PositionAdjustResult</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult1</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult2</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult3</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult4</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult5</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult6</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult7</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult8</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult9</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult10</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult11</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult12</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult13</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult14</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult15</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult16</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult17</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult18</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult19</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult20</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult21</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult22</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult23</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult24</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult25</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult26</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult27</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult28</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult29</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult30</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult31</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult32</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult33</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult34</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult35</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult36</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult37</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult38</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult39</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult40</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult41</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult42</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult43</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult44</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult45</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult46</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult47</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult48</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult49</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult50</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult51</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult52</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult53</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult54</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult55</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult56</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult57</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult58</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult59</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__SIX__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult60</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__SIX__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult61</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__SIX__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult62</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__SIX__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult63</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__SIX__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "ToolResult64</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_DeviceResultBits_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "DeviceResultBits2</value>
+  </data>
+  <data name="Command_status_bits" xml:space="preserve">
+    <value>Bity stavu príkazu</value>
+  </data>
+  <data name="Device_result_bits__ONE_" xml:space="preserve">
+    <value>Bity výsledku zariadenia 1</value>
+  </data>
+  <data name="Device_status_words" xml:space="preserve">
+    <value>Slová o stave zariadenia</value>
+  </data>
+  <data name="Device_statistics" xml:space="preserve">
+    <value>Štatistiky zariadenia</value>
+  </data>
+  <data name="Position_adjust_result" xml:space="preserve">
+    <value>Výsledok úpravy polohy</value>
+  </data>
+  <data name="Tool_result__ONE_" xml:space="preserve">
+    <value>Výsledok nástroja 1</value>
+  </data>
+  <data name="Tool_result__TWO_" xml:space="preserve">
+    <value>Výsledok nástroja 2</value>
+  </data>
+  <data name="Tool_result__THREE_" xml:space="preserve">
+    <value>Výsledok nástroja 3</value>
+  </data>
+  <data name="Tool_result__FOUR_" xml:space="preserve">
+    <value>Výsledok nástroja 4</value>
+  </data>
+  <data name="Tool_result__FIVE_" xml:space="preserve">
+    <value>Výsledok nástroja 5</value>
+  </data>
+  <data name="Tool_result__SIX_" xml:space="preserve">
+    <value>Výsledok nástroja 6</value>
+  </data>
+  <data name="Tool_result__SEVEN_" xml:space="preserve">
+    <value>Výsledok nástroja 7</value>
+  </data>
+  <data name="Tool_result__EIGHT_" xml:space="preserve">
+    <value>Výsledok nástroja 8</value>
+  </data>
+  <data name="Tool_result__NINE_" xml:space="preserve">
+    <value>Výsledok nástroja 9</value>
+  </data>
+  <data name="Tool_result__ONE__ZERO_" xml:space="preserve">
+    <value>Výsledok nástroja 10</value>
+  </data>
+  <data name="Tool_result__ONE__ONE_" xml:space="preserve">
+    <value>Výsledok nástroja 11</value>
+  </data>
+  <data name="Tool_result__ONE__TWO_" xml:space="preserve">
+    <value>Výsledok nástroja 12</value>
+  </data>
+  <data name="Tool_result__ONE__THREE_" xml:space="preserve">
+    <value>Výsledok nástroja 13</value>
+  </data>
+  <data name="Tool_result__ONE__FOUR_" xml:space="preserve">
+    <value>Výsledok nástroja 14</value>
+  </data>
+  <data name="Tool_result__ONE__FIVE_" xml:space="preserve">
+    <value>Výsledok nástroja 15</value>
+  </data>
+  <data name="Tool_result__ONE__SIX_" xml:space="preserve">
+    <value>Výsledok nástroja 16</value>
+  </data>
+  <data name="Tool_result__ONE__SEVEN_" xml:space="preserve">
+    <value>Výsledok nástroja 17</value>
+  </data>
+  <data name="Tool_result__ONE__EIGHT_" xml:space="preserve">
+    <value>Výsledok nástroja 18</value>
+  </data>
+  <data name="Tool_result__ONE__NINE_" xml:space="preserve">
+    <value>Výsledok nástroja 19</value>
+  </data>
+  <data name="Tool_result__TWO__ZERO_" xml:space="preserve">
+    <value>Výsledok nástroja 20</value>
+  </data>
+  <data name="Tool_result__TWO__ONE_" xml:space="preserve">
+    <value>Výsledok nástroja 21</value>
+  </data>
+  <data name="Tool_result__TWO__TWO_" xml:space="preserve">
+    <value>Výsledok nástroja 22</value>
+  </data>
+  <data name="Tool_result__TWO__THREE_" xml:space="preserve">
+    <value>Výsledok nástroja 23</value>
+  </data>
+  <data name="Tool_result__TWO__FOUR_" xml:space="preserve">
+    <value>Výsledok nástroja 24</value>
+  </data>
+  <data name="Tool_result__TWO__FIVE_" xml:space="preserve">
+    <value>Výsledok nástroja 25</value>
+  </data>
+  <data name="Tool_result__TWO__SIX_" xml:space="preserve">
+    <value>Výsledok nástroja 26</value>
+  </data>
+  <data name="Tool_result__TWO__SEVEN_" xml:space="preserve">
+    <value>Výsledok nástroja 27</value>
+  </data>
+  <data name="Tool_result__TWO__EIGHT_" xml:space="preserve">
+    <value>Výsledok nástroja 28</value>
+  </data>
+  <data name="Tool_result__TWO__NINE_" xml:space="preserve">
+    <value>Výsledok nástroja 29</value>
+  </data>
+  <data name="Tool_result__THREE__ZERO_" xml:space="preserve">
+    <value>Výsledok nástroja 30</value>
+  </data>
+  <data name="Tool_result__THREE__ONE_" xml:space="preserve">
+    <value>Výsledok nástroja 31</value>
+  </data>
+  <data name="Tool_result__THREE__TWO_" xml:space="preserve">
+    <value>Výsledok nástroja 32</value>
+  </data>
+  <data name="Tool_result__THREE__THREE_" xml:space="preserve">
+    <value>Výsledok nástroja 33</value>
+  </data>
+  <data name="Tool_result__THREE__FOUR_" xml:space="preserve">
+    <value>Výsledok nástroja 34</value>
+  </data>
+  <data name="Tool_result__THREE__FIVE_" xml:space="preserve">
+    <value>Výsledok nástroja 35</value>
+  </data>
+  <data name="Tool_result__THREE__SIX_" xml:space="preserve">
+    <value>Výsledok nástroja 36</value>
+  </data>
+  <data name="Tool_result__THREE__SEVEN_" xml:space="preserve">
+    <value>Výsledok nástroja 37</value>
+  </data>
+  <data name="Tool_result__THREE__EIGHT_" xml:space="preserve">
+    <value>Výsledok nástroja 38</value>
+  </data>
+  <data name="Tool_result__THREE__NINE_" xml:space="preserve">
+    <value>Výsledok nástroja 39</value>
+  </data>
+  <data name="Tool_result__FOUR__ZERO_" xml:space="preserve">
+    <value>Výsledok nástroja 40</value>
+  </data>
+  <data name="Tool_result__FOUR__ONE_" xml:space="preserve">
+    <value>Výsledok nástroja 41</value>
+  </data>
+  <data name="Tool_result__FOUR__TWO_" xml:space="preserve">
+    <value>Výsledok nástroja 42</value>
+  </data>
+  <data name="Tool_result__FOUR__THREE_" xml:space="preserve">
+    <value>Výsledok nástroja 43</value>
+  </data>
+  <data name="Tool_result__FOUR__FOUR_" xml:space="preserve">
+    <value>Výsledok nástroja 44</value>
+  </data>
+  <data name="Tool_result__FOUR__FIVE_" xml:space="preserve">
+    <value>Výsledok nástroja 45</value>
+  </data>
+  <data name="Tool_result__FOUR__SIX_" xml:space="preserve">
+    <value>Výsledok nástroja 46</value>
+  </data>
+  <data name="Tool_result__FOUR__SEVEN_" xml:space="preserve">
+    <value>Výsledok nástroja 47</value>
+  </data>
+  <data name="Tool_result__FOUR__EIGHT_" xml:space="preserve">
+    <value>Výsledok nástroja 48</value>
+  </data>
+  <data name="Tool_result__FOUR__NINE_" xml:space="preserve">
+    <value>Výsledok nástroja 49</value>
+  </data>
+  <data name="Tool_result__FIVE__ZERO_" xml:space="preserve">
+    <value>Výsledok nástroja 50</value>
+  </data>
+  <data name="Tool_result__FIVE__ONE_" xml:space="preserve">
+    <value>Výsledok nástroja 51</value>
+  </data>
+  <data name="Tool_result__FIVE__TWO_" xml:space="preserve">
+    <value>Výsledok nástroja 52</value>
+  </data>
+  <data name="Tool_result__FIVE__THREE_" xml:space="preserve">
+    <value>Výsledok nástroja 53</value>
+  </data>
+  <data name="Tool_result__FIVE__FOUR_" xml:space="preserve">
+    <value>Výsledok nástroja 54</value>
+  </data>
+  <data name="Tool_result__FIVE__FIVE_" xml:space="preserve">
+    <value>Výsledok nástroja 55</value>
+  </data>
+  <data name="Tool_result__FIVE__SIX_" xml:space="preserve">
+    <value>Výsledok nástroja 56</value>
+  </data>
+  <data name="Tool_result__FIVE__SEVEN_" xml:space="preserve">
+    <value>Výsledok nástroja 57</value>
+  </data>
+  <data name="Tool_result__FIVE__EIGHT_" xml:space="preserve">
+    <value>Výsledok nástroja 58</value>
+  </data>
+  <data name="Tool_result__FIVE__NINE_" xml:space="preserve">
+    <value>Výsledok nástroja 59</value>
+  </data>
+  <data name="Tool_result__SIX__ZERO_" xml:space="preserve">
+    <value>Výsledok nástroja 60</value>
+  </data>
+  <data name="Tool_result__SIX__ONE_" xml:space="preserve">
+    <value>Výsledok nástroja 61</value>
+  </data>
+  <data name="Tool_result__SIX__TWO_" xml:space="preserve">
+    <value>Výsledok nástroja 62</value>
+  </data>
+  <data name="Tool_result__SIX__THREE_" xml:space="preserve">
+    <value>Výsledok nástroja 63</value>
+  </data>
+  <data name="Tool_result__SIX__FOUR_" xml:space="preserve">
+    <value>Výsledok nástroja 64</value>
+  </data>
+  <data name="Device_result_bits__TWO_" xml:space="preserve">
+    <value>Bity výsledku zariadenia 2</value>
+  </data>
+  <data name="Command_control" xml:space="preserve">
+    <value>Príkazové riadenie</value>
+  </data>
+  <data name="Position_correction_score" xml:space="preserve">
+    <value>Skóre korekcie polohy</value>
+  </data>
+  <data name="Position_correction_score_MAX" xml:space="preserve">
+    <value>Skóre korekcie polohy MAX</value>
+  </data>
+  <data name="Position_correction_score_MIN" xml:space="preserve">
+    <value>Skóre korekcie polohy MIN</value>
+  </data>
+  <data name="Position_correction_score_Lower_threshold" xml:space="preserve">
+    <value>Skóre korekcie polohy Dolný prah</value>
+  </data>
+  <data name="Matching_rate" xml:space="preserve">
+    <value>Miera zhody</value>
+  </data>
+  <data name="Matching_rate_MAX" xml:space="preserve">
+    <value>Miera zhody MAX</value>
+  </data>
+  <data name="Matching_rate_MIN" xml:space="preserve">
+    <value>Miera zhody MIN</value>
+  </data>
+  <data name="Lower_threshold" xml:space="preserve">
+    <value>Spodný prah</value>
+  </data>
+  <data name="Upper_threshold" xml:space="preserve">
+    <value>Horná hranica</value>
+  </data>
+  <data name="Decimal_point_position" xml:space="preserve">
+    <value>Poloha desatinnej čiarky</value>
+  </data>
+  <data name="Pitch_present_value_MAX_SLASH_color_average_H__BRACKET_hue_ENDBRACKET_" xml:space="preserve">
+    <value>Súčasná hodnota výšky MAX/priemer farieb H (odtieň)</value>
+  </data>
+  <data name="Pitch_present_value_MIN_SLASH_color_average_S__BRACKET_saturation_ENDBRACKET_" xml:space="preserve">
+    <value>Súčasná hodnota výšky MIN/farba priemer S (nasýtenie)</value>
+  </data>
+  <data name="Number_of_pitches_SLASH_color_average_V__BRACKET_brightness_ENDBRACKET__SLASH_brightness_average" xml:space="preserve">
+    <value>Počet pitchov/priemer farieb V (jas)/priemer jasu</value>
+  </data>
 </root>

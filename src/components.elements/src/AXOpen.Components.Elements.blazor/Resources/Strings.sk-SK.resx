@@ -240,4 +240,77 @@
   <data name="Ready" xml:space="preserve">
     <value>Pripravené</value>
   </data>
+  <!-- AxoSignalTowerView -->
+  <data name="SignalTower" xml:space="preserve">
+    <value>Signalizačný stĺp</value>
+  </data>
+  <data name="SignalTowerControls" xml:space="preserve">
+    <value>Ovládanie signalizačného stĺpa</value>
+  </data>
+  <data name="SignalTowerStatus" xml:space="preserve">
+    <value>Stav signalizačného stĺpa</value>
+  </data>
+  <data name="Lights" xml:space="preserve">
+    <value>Svetlá</value>
+  </data>
+  <data name="LightOutputs" xml:space="preserve">
+    <value>Výstupy svetiel</value>
+  </data>
+  <data name="LightsActive" xml:space="preserve">
+    <value>Aktívne svetlá</value>
+  </data>
+  <data name="Horn" xml:space="preserve">
+    <value>Siréna</value>
+  </data>
+  <data name="HornControl" xml:space="preserve">
+    <value>Ovládanie sirény</value>
+  </data>
+  <data name="HornToggleHint" xml:space="preserve">
+    <value>Prepínať akustický výstup, keď je požadovaný zvukový alarm.</value>
+  </data>
+  <data name="HornOn" xml:space="preserve">
+    <value>Siréna ZAPNUTÁ</value>
+  </data>
+  <data name="HornOff" xml:space="preserve">
+    <value>Siréna VYPNUTÁ</value>
+  </data>
+  <data name="ManualOverride" xml:space="preserve">
+    <value>Manuálne ovládanie</value>
+  </data>
+  <data name="ManualOverrideHint" xml:space="preserve">
+    <value>Použite tieto ovládacie prvky počas uvádzania do prevádzky alebo údržby. Na automatickú prevádzku sa spoliehajte na sekvencie PLC.</value>
+  </data>
+  <data name="Diagnostics" xml:space="preserve">
+    <value>Diagnostika</value>
+  </data>
+  <data name="MessengerOverview" xml:space="preserve">
+    <value>Prehľad správ</value>
+  </data>
+  <data name="MonitorDiagnostics" xml:space="preserve">
+    <value>Monitorovať diagnostiku</value>
+  </data>
+  <data name="MonitorDiagnosticsHint" xml:space="preserve">
+    <value>Správy pochádzajú z logiky PLC; odstráňte problémy pred návratom do automatického režimu.</value>
+  </data>
+  <data name="CurrentState" xml:space="preserve">
+    <value>Aktuálny stav</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>ZAP</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>VYP</value>
+  </data>
+  <data name="Red" xml:space="preserve">
+    <value>Červená</value>
+  </data>
+  <data name="Yellow" xml:space="preserve">
+    <value>Žltá</value>
+  </data>
+  <data name="Green" xml:space="preserve">
+    <value>Zelená</value>
+  </data>
+  <data name="Blue" xml:space="preserve">
+    <value>Modrá</value>
+  </data>
 </root>

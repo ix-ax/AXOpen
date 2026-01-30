@@ -9,13 +9,13 @@
 <div data-axo-messenger-view class="card w-full @ConvertToInternalShadowGlowSeverityName((eAxoMessageCategory)Component.Category.LastValue) @ConvertToInternalBgShadowSeverityName((eAxoMessageCategory)Component.Category.LastValue) @Class">
     <div class="card-title flex flex-wrap flex-row justify-between gap-2 bg-background-light/40!">
         <div class="flux-flex flex-wrap items-center gap-2">
-            <div class="flux-badge badge-primary gap-2" aria-label="Severity">
+            <div class="flux-badge badge-primary gap-2" aria-label="@Localizer["SeverityLabel"]">
                 <span class="inline-flex w-2 h-2 rounded-full @ConvertToInternalBgSeverityName((eAxoMessageCategory)Component.Category.LastValue)"></span>
                 @ConvertToInternalSeverityName((eAxoMessageCategory)Component.Category.LastValue)
             </div>
             @if (!string.IsNullOrWhiteSpace(Component.GetMessageText()))
             {
-                <span class="text-text/80 font-semibold uppercase" aria-label="Alarm code">@Component.GetMessageText()</span>
+                <span class="text-text/80 font-semibold uppercase" aria-label="@Localizer["AlarmCode"]">@Component.GetMessageText()</span>
             }
         </div>
         <div class="badge badge-primary" role="status">@StateLabel</div>

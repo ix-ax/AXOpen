@@ -129,4 +129,46 @@
   <data name="Stepping_mode" xml:space="preserve">
     <value>Krokový mód</value>
   </data>
+  <data name="Coordinates" xml:space="preserve">
+    <value>Súradnice</value>
+  </data>
+  <data name="Coordinate_X" xml:space="preserve">
+    <value>Súradnica X</value>
+  </data>
+  <data name="Coordinate_Y" xml:space="preserve">
+    <value>Súradnica Y</value>
+  </data>
+  <data name="Coordinate_Z" xml:space="preserve">
+    <value>Súradnica Z</value>
+  </data>
+  <data name="Coordinate_Rx" xml:space="preserve">
+    <value>Súradnice Rx</value>
+  </data>
+  <data name="Coordinate_Ry" xml:space="preserve">
+    <value>Súradnice Ry</value>
+  </data>
+  <data name="Coordinate_Rz" xml:space="preserve">
+    <value>Súradnica Rz</value>
+  </data>
+  <data name="ActionNo" xml:space="preserve">
+    <value>AkciaNie</value>
+  </data>
+  <data name="GlobalSpeed" xml:space="preserve">
+    <value>GlobalSpeed</value>
+  </data>
+  <data name="ToolNo" xml:space="preserve">
+    <value>ToolNo</value>
+  </data>
+  <data name="WorkobjectNo" xml:space="preserve">
+    <value>Číslo pracovného objektu</value>
+  </data>
+  <data name="PointNo" xml:space="preserve">
+    <value>PointNo</value>
+  </data>
+  <data name="UserSpecSpeed_ONE_" xml:space="preserve">
+    <value>UserSpecSpeed1</value>
+  </data>
+  <data name="UserSpecSpeed_TWO_" xml:space="preserve">
+    <value>UserSpecSpeed2</value>
+  </data>
 </root>

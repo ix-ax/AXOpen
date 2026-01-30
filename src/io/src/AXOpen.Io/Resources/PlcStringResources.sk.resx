@@ -120,4 +120,10 @@
   <data name="ConfigTask_timeout_DOT_" xml:space="preserve">
     <value>Časový limit úlohy ConfigTask.</value>
   </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnoviť</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
 </root>

@@ -3,7 +3,7 @@
   "isRoot": true,
   "tools": {
     "AXSharp.ixc": {
-      "version": "0.47.0-alpha.370",
+      "version": "0.47.0-alpha.394",
       "commands": [
         "ixc"
       ],
@@ -17,14 +17,14 @@
       "rollForward": false
     },
     "AXSharp.ixd": {
-      "version": "0.47.0-alpha.370",
+      "version": "0.47.0-alpha.394",
       "commands": [
         "ixd"
       ],
       "rollForward": false
     },
     "AXSharp.ixr": {
-      "version": "0.47.0-alpha.370",
+      "version": "0.47.0-alpha.394",
       "commands": [
         "ixr"
       ],
@@ -53,6 +53,10 @@
     }
   }
 }
+
+
+
+
 
 
 

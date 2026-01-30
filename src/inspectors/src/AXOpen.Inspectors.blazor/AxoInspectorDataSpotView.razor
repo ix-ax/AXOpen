@@ -42,14 +42,14 @@
 
     private string GetResultText() => ResultValue switch
     {
-        eInspectorResult.NoAction => "No Action",
-        eInspectorResult.Running => "Running",
-        eInspectorResult.Passed => "Passed",
-        eInspectorResult.Failed => "Failed",
-        eInspectorResult.Inconclusive => "Inconclusive",
-        eInspectorResult.Excluded => "Excluded",
-        eInspectorResult.Bypassed => "Bypassed",
-        _ => "Unknown"
+        eInspectorResult.NoAction => Localizer["NoAction"],
+        eInspectorResult.Running => Localizer["Running"],
+        eInspectorResult.Passed => Localizer["Passed"],
+        eInspectorResult.Failed => Localizer["Failed"],
+        eInspectorResult.Inconclusive => Localizer["Inconclusive"],
+        eInspectorResult.Excluded => Localizer["Excluded"],
+        eInspectorResult.Bypassed => Localizer["Bypassed"],
+        _ => Localizer["Unknown"]
     };
 
     /// <inheritdoc />

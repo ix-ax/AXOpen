@@ -19,7 +19,7 @@ namespace AXOpen.Components.Abstractions.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class PlcStringResources {
@@ -39,7 +39,7 @@ namespace AXOpen.Components.Abstractions.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AXOpen.Core.Resources.PlcStringResources", typeof(PlcStringResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AXOpen.Components.Abstractions.Resources.PlcStringResources", typeof(PlcStringResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,128 @@ namespace AXOpen.Components.Abstractions.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Command state.
+        ///   Looks up a localized string similar to ActionNo.
         /// </summary>
-        public static string Command_state {
+        public static string ActionNo {
             get {
-                return ResourceManager.GetString("Command_state", resourceCulture);
+                return ResourceManager.GetString("ActionNo", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Run step.
+        ///   Looks up a localized string similar to Coordinate Rx.
         /// </summary>
-        public static string Run_step {
+        public static string Coordinate_Rx {
             get {
-                return ResourceManager.GetString("Run_step", resourceCulture);
+                return ResourceManager.GetString("Coordinate_Rx", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sequence mode.
+        ///   Looks up a localized string similar to Coordinate Ry.
         /// </summary>
-        public static string Sequence_mode {
+        public static string Coordinate_Ry {
             get {
-                return ResourceManager.GetString("Sequence_mode", resourceCulture);
+                return ResourceManager.GetString("Coordinate_Ry", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stepping mode.
+        ///   Looks up a localized string similar to Coordinate Rz.
         /// </summary>
-        public static string Stepping_mode {
+        public static string Coordinate_Rz {
             get {
-                return ResourceManager.GetString("Stepping_mode", resourceCulture);
+                return ResourceManager.GetString("Coordinate_Rz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coordinate X.
+        /// </summary>
+        public static string Coordinate_X {
+            get {
+                return ResourceManager.GetString("Coordinate_X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coordinate Y.
+        /// </summary>
+        public static string Coordinate_Y {
+            get {
+                return ResourceManager.GetString("Coordinate_Y", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coordinate Z.
+        /// </summary>
+        public static string Coordinate_Z {
+            get {
+                return ResourceManager.GetString("Coordinate_Z", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coordinates.
+        /// </summary>
+        public static string Coordinates {
+            get {
+                return ResourceManager.GetString("Coordinates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GlobalSpeed.
+        /// </summary>
+        public static string GlobalSpeed {
+            get {
+                return ResourceManager.GetString("GlobalSpeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PointNo.
+        /// </summary>
+        public static string PointNo {
+            get {
+                return ResourceManager.GetString("PointNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ToolNo.
+        /// </summary>
+        public static string ToolNo {
+            get {
+                return ResourceManager.GetString("ToolNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserSpecSpeed1.
+        /// </summary>
+        public static string UserSpecSpeed_ONE_ {
+            get {
+                return ResourceManager.GetString("UserSpecSpeed_ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserSpecSpeed2.
+        /// </summary>
+        public static string UserSpecSpeed_TWO_ {
+            get {
+                return ResourceManager.GetString("UserSpecSpeed_TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WorkobjectNo.
+        /// </summary>
+        public static string WorkobjectNo {
+            get {
+                return ResourceManager.GetString("WorkobjectNo", resourceCulture);
             }
         }
     }

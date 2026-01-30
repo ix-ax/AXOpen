@@ -58,4 +58,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Current_movement_parameters" xml:space="preserve">
+    <value>Current movement parameters</value>
+    <comment>src\AxoRobotics\AxoRobot_Status.st,6</comment>
+  </data>
 </root>

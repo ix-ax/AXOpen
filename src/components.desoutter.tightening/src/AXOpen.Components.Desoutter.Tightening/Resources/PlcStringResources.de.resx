@@ -126,4 +126,139 @@
   <data name="Screwing_cycle_takes_too_long_DOT_" xml:space="preserve">
     <value>Der Verschraubungszyklus dauert zu lange.</value>
   </data>
+  <data name="_UNDERSCORE_progress" xml:space="preserve">
+    <value>Fortschritte</value>
+  </data>
+  <data name="Screwing_program" xml:space="preserve">
+    <value>Programm schrauben</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>Bestanden</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Gescheitert</value>
+  </data>
+  <data name="Torque" xml:space="preserve">
+    <value>Drehmoment</value>
+  </data>
+  <data name="Torque_trend" xml:space="preserve">
+    <value>Tendenz des Drehmoments</value>
+  </data>
+  <data name="Angle" xml:space="preserve">
+    <value>Winkel</value>
+  </data>
+  <data name="Angle_trend" xml:space="preserve">
+    <value>Tendenz der Winkel</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Wiederherstellen</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Zurücksetzen</value>
+  </data>
+  <data name="Required_screwing_program" xml:space="preserve">
+    <value>Erforderliches Schraubprogramm</value>
+  </data>
+  <data name="Set_screwing_program" xml:space="preserve">
+    <value>Verschraubungsprogramm einstellen</value>
+  </data>
+  <data name="Start_screwing" xml:space="preserve">
+    <value>Beginn der Verschraubung</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Eingaben</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Ausgaben</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Diagnose aktualisieren</value>
+  </data>
+  <data name="Screwing_program_min" xml:space="preserve">
+    <value>Schraubprogramm min</value>
+  </data>
+  <data name="Screwing_program_max" xml:space="preserve">
+    <value>Schraubprogramm max</value>
+  </data>
+  <data name="Program_change_timeout" xml:space="preserve">
+    <value>Zeitüberschreitung beim Programmwechsel</value>
+  </data>
+  <data name="Screwing_cycle_timeout" xml:space="preserve">
+    <value>Zeitüberschreitung des Schraubenzyklus</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info-Zeit</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Fehlerzeit</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Zeitüberschreitung der Aufgabe</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware-IDs</value>
+  </data>
+  <data name="Cycle_bit__ONE_" xml:space="preserve">
+    <value>Zyklus Bit 1</value>
+  </data>
+  <data name="Cycle_bit__TWO_" xml:space="preserve">
+    <value>Zyklus Bit 2</value>
+  </data>
+  <data name="Cycle_bit__FOUR_" xml:space="preserve">
+    <value>Zyklus Bit 4</value>
+  </data>
+  <data name="Spindle_validation" xml:space="preserve">
+    <value>Validierung der Spindel</value>
+  </data>
+  <data name="Error_acknowledge" xml:space="preserve">
+    <value>Fehler quittieren</value>
+  </data>
+  <data name="Start_cycle" xml:space="preserve">
+    <value>Zyklus starten</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Richtung</value>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>Hardware-ID des Geräts</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls "Input1byte1".</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'Input1byte2'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__TWO__UNDERSCORE_word_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'Input2word1'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_word_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'Input1word1'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__TWO__UNDERSCORE_word_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'Input2word2'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_word_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'Input1word2'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Output_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'Output1byte1'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Output_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'Output1byte2'.</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Kontrolle</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Bereit</value>
+  </data>
+  <data name="In_cycle" xml:space="preserve">
+    <value>Im Zyklus</value>
+  </data>
+  <data name="NumberOfCyclesOk" xml:space="preserve">
+    <value>NumberOfCyclesOk</value>
+  </data>
 </root>

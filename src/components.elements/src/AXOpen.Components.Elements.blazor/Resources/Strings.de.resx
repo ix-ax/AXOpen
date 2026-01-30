@@ -240,4 +240,77 @@
   <data name="Ready" xml:space="preserve">
     <value>Bereit</value>
   </data>
+  <!-- AxoSignalTowerView -->
+  <data name="SignalTower" xml:space="preserve">
+    <value>Signalturm</value>
+  </data>
+  <data name="SignalTowerControls" xml:space="preserve">
+    <value>Signalturm-Steuerung</value>
+  </data>
+  <data name="SignalTowerStatus" xml:space="preserve">
+    <value>Signalturm-Status</value>
+  </data>
+  <data name="Lights" xml:space="preserve">
+    <value>Leuchten</value>
+  </data>
+  <data name="LightOutputs" xml:space="preserve">
+    <value>Lichtausgänge</value>
+  </data>
+  <data name="LightsActive" xml:space="preserve">
+    <value>Leuchten aktiv</value>
+  </data>
+  <data name="Horn" xml:space="preserve">
+    <value>Signalhorn</value>
+  </data>
+  <data name="HornControl" xml:space="preserve">
+    <value>Hornsteuerung</value>
+  </data>
+  <data name="HornToggleHint" xml:space="preserve">
+    <value>Schalten Sie das akustische Horn, wenn ein hörbarer Alarm erforderlich ist.</value>
+  </data>
+  <data name="HornOn" xml:space="preserve">
+    <value>Horn EIN</value>
+  </data>
+  <data name="HornOff" xml:space="preserve">
+    <value>Horn AUS</value>
+  </data>
+  <data name="ManualOverride" xml:space="preserve">
+    <value>Manuelle Bedienung</value>
+  </data>
+  <data name="ManualOverrideHint" xml:space="preserve">
+    <value>Verwenden Sie diese Bedienelemente während der Inbetriebnahme oder Wartung. Für den Automatikbetrieb verlassen Sie sich auf SPS-Sequenzen.</value>
+  </data>
+  <data name="Diagnostics" xml:space="preserve">
+    <value>Diagnose</value>
+  </data>
+  <data name="MessengerOverview" xml:space="preserve">
+    <value>Meldungsübersicht</value>
+  </data>
+  <data name="MonitorDiagnostics" xml:space="preserve">
+    <value>Diagnose überwachen</value>
+  </data>
+  <data name="MonitorDiagnosticsHint" xml:space="preserve">
+    <value>Die Meldungen stammen aus der SPS-Logik; beheben Sie die gemeldeten Probleme, bevor Sie in den Automatikmodus zurückkehren.</value>
+  </data>
+  <data name="CurrentState" xml:space="preserve">
+    <value>Aktueller Zustand</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>EIN</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>AUS</value>
+  </data>
+  <data name="Red" xml:space="preserve">
+    <value>Rot</value>
+  </data>
+  <data name="Yellow" xml:space="preserve">
+    <value>Gelb</value>
+  </data>
+  <data name="Green" xml:space="preserve">
+    <value>Grün</value>
+  </data>
+  <data name="Blue" xml:space="preserve">
+    <value>Blau</value>
+  </data>
 </root>
