@@ -18,7 +18,8 @@ namespace AXOpen.VisualComposer.Serializing
         public string Roles { get; set; }
         public string PresentationTemplate { get; set; }
         public bool Background { get; set; }
-        public string BackgroundColor { get; set; }
+        public string BackgroundColorLight { get; set; }
+        public string BackgroundColorDark { get; set; }
         public int PollingInterval { get; set; }
 
         public SerializableItem()
@@ -39,7 +40,8 @@ namespace AXOpen.VisualComposer.Serializing
             string roles, 
             string presentationTemplate, 
             bool background, 
-            string backgroundColor, 
+            string backgroundColorLight,
+            string backgroundColorDark,
             int pollingInterval)
         {
             Id = id;
@@ -55,7 +57,8 @@ namespace AXOpen.VisualComposer.Serializing
             Roles = roles;
             PresentationTemplate = presentationTemplate;
             Background = background;
-            BackgroundColor = backgroundColor;
+            BackgroundColorLight = backgroundColorLight;
+            BackgroundColorDark = backgroundColorDark;
             PollingInterval = pollingInterval;
         }
 
@@ -74,7 +77,8 @@ namespace AXOpen.VisualComposer.Serializing
             Roles = item.Roles;
             PresentationTemplate = item.PresentationTemplate;
             Background = item.Background;
-            BackgroundColor = item.BackgroundColor;
+            BackgroundColorLight = item.BackgroundColorLight;
+            BackgroundColorDark = item.BackgroundColorDark;
             PollingInterval = item.PollingInterval;
         }
     }

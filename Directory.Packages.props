@@ -11,12 +11,12 @@
   <!-- Framework-Agnostic Packages -->
   <ItemGroup>
     <!-- AX# Libraries -->
-    <PackageVersion Include="AXSharp.Abstractions" Version="0.47.0-alpha.394" />
-    <PackageVersion Include="AXSharp.Connector" Version="0.47.0-alpha.394" />
-    <PackageVersion Include="AXSharp.Connector.S71500.WebAPI" Version="0.47.0-alpha.394" />
-    <PackageVersion Include="AXSharp.Presentation.Blazor" Version="0.47.0-alpha.394" />
-    <PackageVersion Include="AXSharp.Presentation.Blazor.Controls" Version="0.47.0-alpha.394" />
-    <PackageVersion Include="Inxton.Operon" Version="0.3.0-alpha.104" />
+    <PackageVersion Include="AXSharp.Abstractions" Version="0.47.0-alpha.396" />
+    <PackageVersion Include="AXSharp.Connector" Version="0.47.0-alpha.396" />
+    <PackageVersion Include="AXSharp.Connector.S71500.WebAPI" Version="0.47.0-alpha.396" />
+    <PackageVersion Include="AXSharp.Presentation.Blazor" Version="0.47.0-alpha.396" />
+    <PackageVersion Include="AXSharp.Presentation.Blazor.Controls" Version="0.47.0-alpha.396" />
+    <PackageVersion Include="Inxton.Operon" Version="0.3.0-alpha.106" />
     <!-- Data & Serialization -->
     <PackageVersion Include="ClosedXML" Version="0.105.0" />
     <PackageVersion Include="Microsoft.Build" Version="18.0.2" />
