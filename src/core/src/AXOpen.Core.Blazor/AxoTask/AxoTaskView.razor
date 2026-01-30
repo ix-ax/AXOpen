@@ -39,7 +39,7 @@
         @Description.ToUpper()
     </span>
 
-    @if (!HideRestoreButton || true)
+    @if (!HideRestoreButton)
     {
         <button type="button" class="btn btn-no-bg-primary p-0! text-inherit!" title="@Localizer["ResetTask"]" disabled="@IsDisabled" @onclick="@OnRestoreClick" @onclick:stopPropagation="true" @onkeydown="OnRestoreKeyDown">
             <HeroIcon Icon="arrow-path" Type="IconType.Solid" Class="size-5" />
