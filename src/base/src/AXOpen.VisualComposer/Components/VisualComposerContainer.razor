@@ -1,14 +1,14 @@
 ﻿@using AXOpen.VisualComposer.Components.VisualComposerItem
 @using AXSharp.Connector;
 @using Microsoft.AspNetCore.Components.Forms;
-@using KristofferStrube.Blazor.SVGEditor
+@* @using KristofferStrube.Blazor.SVGEditor *@
 @using Operon.Components
 @using Operon.Components.Accordion
 @using Operon.Components.Dropdown
 
-<link href="_content/BlazorColorPicker/colorpicker.css" rel="stylesheet" />
+@* <link href="_content/BlazorColorPicker/colorpicker.css" rel="stylesheet" />
 <link href="_content/Blazor.ContextMenu/blazorContextMenu.min.css" rel="stylesheet" />
-<link href="_content/AXOpen.KristofferStrube.Blazor.SVGEditor/kristofferStrubeBlazorSVGEditor.css" rel="stylesheet" />
+<link href="_content/AXOpen.KristofferStrube.Blazor.SVGEditor/kristofferStrubeBlazorSVGEditor.css" rel="stylesheet" /> *@
 
 <AuthorizeView Roles="Administrator">
     <Authorized>
@@ -46,11 +46,11 @@
                             {
                                 <a class="dropdown-item" @onclick="() => { _modalCreateCopy.Toggle(); _dropdownOption.CloseDropdown(); }">Create copy</a>
                                 <a class="dropdown-item" @onclick="() => { _modalBackground.Toggle(); _dropdownOption.CloseDropdown(); }">Background</a>
-                                <a class="dropdown-item" @onclick="() => { _editSVG = !_editSVG; _dropdownOption.CloseDropdown(); }">Toggle Edit SVG</a>
+                                @* <a class="dropdown-item" @onclick="() => { _editSVG = !_editSVG; _dropdownOption.CloseDropdown(); }">Toggle Edit SVG</a>
                                 @if (_editSVG)
                                 {
                                     <a class="dropdown-item" @onclick="() => { _modalBackgroundSVGInput.Toggle(); _dropdownOption.CloseDropdown(); }">Background SVG Input</a>
-                                }
+                                } *@
                                 <a class="dropdown-item" @onclick="async () => { await ChangeThemeAsync(); _dropdownOption.CloseDropdown(); }">Change theme</a>
                             }
                         </DropdownBody>
@@ -109,7 +109,7 @@
                 </table>
             </div>
         }
-        else if (_inDesignMode && _editSVG)
+        @* else if (_inDesignMode && _editSVG)
         {
             <div class="relative overflow-hidden m-0 p-0 w-full h-full">
                 <div id="@_backgroundId" class="w-full h-full">
@@ -129,16 +129,16 @@
                     }
                 </CascadingValue>
             </div>
-        }
+        } *@
         else
         {
             <div onpointermove="event.preventDefault()" onpointerleave="event.preventDefault()" class="w-full h-full">
                 <div @onpointermove="Move"
                      @onpointerleave="Leave" class="w-full h-full">
                     <ZoomableContainer Parent="this" Disable="!CurrentView.AllowZoomingAndPanning">
-                        <div id="@_backgroundId" class="w-full h-full">
+                        @* <div id="@_backgroundId" class="w-full h-full">
                             <svg class="w-full h-full">@(new MarkupString(CurrentView.BackgroundSVGInput))</svg>
-                        </div>
+                        </div> *@
 
                         <CascadingValue Value="@this" Name="Parent" IsFixed="true">
                             @foreach (VisualComposerItemData item in _items)
@@ -547,7 +547,7 @@
                 </div>
             </Modal>
 
-            <Modal @ref="_modalBackgroundSVGInput">
+            @* <Modal @ref="_modalBackgroundSVGInput">
                 <div class="modal-header">
                     <h4>Modal Title</h4>
                     <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalBackgroundSVGInput.CloseModal()">
@@ -563,7 +563,7 @@
                 <div class="modal-footer flex justify-end gap-1">
                     <button class="btn btn-outline-red" @onclick="() => _modalBackgroundSVGInput.CloseModal()">Close</button>
                 </div>
-            </Modal>
+            </Modal> *@
         }
     </Authorized>
     <NotAuthorized>
@@ -633,9 +633,9 @@
         else
         {
             <ZoomableContainer Parent="this" Disable="!CurrentView.AllowZoomingAndPanning">
-                <div id="@_backgroundId" class="w-full h-full">
+                @* <div id="@_backgroundId" class="w-full h-full">
                     <svg width="100%" height="100%">@(new MarkupString(CurrentView.BackgroundSVGInput))</svg>
-                </div>
+                </div> *@
 
                 <CascadingValue Value="@this" Name="Parent" IsFixed="true">
                     @foreach (VisualComposerItemData item in _items)
@@ -680,5 +680,5 @@
     private Modal _modalCreateCopy { get; set; }
     private Modal _modalViews { get; set; }
     private Modal _modalBackground { get; set; }
-    private Modal _modalBackgroundSVGInput { get; set; }
+    // private Modal _modalBackgroundSVGInput { get; set; }
 }

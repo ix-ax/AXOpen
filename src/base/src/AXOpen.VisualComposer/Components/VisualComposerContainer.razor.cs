@@ -27,7 +27,7 @@ namespace AXOpen.VisualComposer.Components
         [Inject]
         private ProtectedLocalStorage _protectedLocalStorage { set; get; }
 
-        private bool _editSVG { get; set; } = false;
+        //private bool _editSVG { get; set; } = false;
         private bool _inDesignMode { get; set; } = false;
         private Guid _backgroundId { get; set; } = Guid.NewGuid();
         public ZoomableContainer ZoomableContainer { get; set; }
