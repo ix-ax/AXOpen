@@ -124,7 +124,7 @@
                     @if (!string.IsNullOrEmpty(CurrentView.ImgSrc))
                     {
                         <div class="absolute left-0 top-0 w-full h-full -z-1" style="transform: scale(@(CurrentView.BackgroundImageScale.ToString().Replace(',', '.')));">
-                            <img src="@CurrentView.ImgSrc" class="w-full h-full" />
+                            <img src="@CurrentView.ImgSrc" class="@(CurrentView.BackgroundImageKeepAspectRatio ? "w-auto h-auto" : "w-full h-full")" />
                         </div>
                     }
                 </CascadingValue>
@@ -135,7 +135,7 @@
             <div onpointermove="event.preventDefault()" onpointerleave="event.preventDefault()" class="w-full h-full">
                 <div @onpointermove="Move"
                      @onpointerleave="Leave" class="w-full h-full">
-                    <ZoomableContainer Parent="this" Disable="!CurrentView.AllowZoomingAndPanning">
+                    <ZoomableContainer Parent="this" Disable="!CurrentView.AllowZoomingAndPanning" Guid="_backgroundId">
                         @* <div id="@_backgroundId" class="w-full h-full">
                             <svg class="w-full h-full">@(new MarkupString(CurrentView.BackgroundSVGInput))</svg>
                         </div> *@
@@ -148,7 +148,7 @@
                             @if (!string.IsNullOrEmpty(CurrentView.ImgSrc))
                             {
                                 <div class="absolute left-0 top-0 w-full h-full -z-1" style="transform: scale(@(CurrentView.BackgroundImageScale.ToString().Replace(',', '.')));">
-                                    <img src="@CurrentView.ImgSrc" class="w-full h-full" />
+                                    <img src="@CurrentView.ImgSrc" class="@(CurrentView.BackgroundImageKeepAspectRatio ? "w-auto h-auto" : "w-full h-full")" />
                                 </div>
                             }
                         </CascadingValue>
@@ -540,6 +540,7 @@
                     </Accordion>
                     <div class="mt-2">
                         <BaseInput @bind-Value="CurrentView.BackgroundImageScale" OnFocusOut="SaveAsync" Label="Background image scale" />
+                        <BaseInput @bind-Value="CurrentView.BackgroundImageKeepAspectRatio" OnFocusOut="SaveAsync" Label="Keep background image aspect ratio" />
                     </div>
                 </div>
                 <div class="modal-footer flex justify-end gap-1">
@@ -632,7 +633,7 @@
         }
         else
         {
-            <ZoomableContainer Parent="this" Disable="!CurrentView.AllowZoomingAndPanning">
+            <ZoomableContainer Parent="this" Disable="!CurrentView.AllowZoomingAndPanning" Guid="_backgroundId">
                 @* <div id="@_backgroundId" class="w-full h-full">
                     <svg width="100%" height="100%">@(new MarkupString(CurrentView.BackgroundSVGInput))</svg>
                 </div> *@
@@ -645,7 +646,7 @@
                     @if (!string.IsNullOrEmpty(CurrentView.ImgSrc))
                     {
                         <div class="absolute left-0 top-0 w-full h-full -z-1" style="transform: scale(@(CurrentView.BackgroundImageScale.ToString().Replace(',', '.')));">
-                            <img src="@CurrentView.ImgSrc" class="w-full h-full" />
+                            <img src="@CurrentView.ImgSrc" class="@(CurrentView.BackgroundImageKeepAspectRatio ? "w-auto h-auto" : "w-full h-full")" />
                         </div>
                     }
                 </CascadingValue>

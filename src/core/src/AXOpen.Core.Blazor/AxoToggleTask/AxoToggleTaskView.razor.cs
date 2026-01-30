@@ -51,7 +51,7 @@ namespace AXOpen.Core
 
         public bool IsDisabled => Disable || Component.IsDisabled.Cyclic;
 
-        public string Description => !string.IsNullOrEmpty(Text) ? Text : (string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.GetAttributeName(CultureInfo.CurrentUICulture));
+        public string Description => Component.GetAttributeName(CultureInfo.CurrentUICulture);
         public override void ConfigurePolling()
         {
             this.StartPolling(Component.IsDisabled);

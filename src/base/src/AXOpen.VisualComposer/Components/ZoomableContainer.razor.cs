@@ -34,6 +34,9 @@ namespace AXOpen.VisualComposer.Components
             }
         }
 
+        [Parameter]
+        public Guid? Guid { get; set; }
+
         public bool CanDragging { get; set; } = true;
         private bool _isDragging = false;
         private double _startX = 0;
