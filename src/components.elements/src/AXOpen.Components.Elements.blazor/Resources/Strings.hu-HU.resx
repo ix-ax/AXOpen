@@ -240,4 +240,77 @@
   <data name="Ready" xml:space="preserve">
     <value>Kész</value>
   </data>
+  <!-- AxoSignalTowerView -->
+  <data name="SignalTower" xml:space="preserve">
+    <value>Jelzőtorony</value>
+  </data>
+  <data name="SignalTowerControls" xml:space="preserve">
+    <value>Jelzőtorony vezérlők</value>
+  </data>
+  <data name="SignalTowerStatus" xml:space="preserve">
+    <value>Jelzőtorony állapot</value>
+  </data>
+  <data name="Lights" xml:space="preserve">
+    <value>Fények</value>
+  </data>
+  <data name="LightOutputs" xml:space="preserve">
+    <value>Fény kimenetek</value>
+  </data>
+  <data name="LightsActive" xml:space="preserve">
+    <value>Aktív fények</value>
+  </data>
+  <data name="Horn" xml:space="preserve">
+    <value>Sziréna</value>
+  </data>
+  <data name="HornControl" xml:space="preserve">
+    <value>Sziréna vezérlés</value>
+  </data>
+  <data name="HornToggleHint" xml:space="preserve">
+    <value>A hangjelző kimenet kapcsolása, ha hallható riasztás szükséges.</value>
+  </data>
+  <data name="HornOn" xml:space="preserve">
+    <value>Sziréna BE</value>
+  </data>
+  <data name="HornOff" xml:space="preserve">
+    <value>Sziréna KI</value>
+  </data>
+  <data name="ManualOverride" xml:space="preserve">
+    <value>Kézi felülvezérlés</value>
+  </data>
+  <data name="ManualOverrideHint" xml:space="preserve">
+    <value>Ezeket a vezérlőket beüzemeléskor vagy karbantartáskor használja. Automatikus működéshez PLC szekvenciákat használjon.</value>
+  </data>
+  <data name="Diagnostics" xml:space="preserve">
+    <value>Diagnosztika</value>
+  </data>
+  <data name="MessengerOverview" xml:space="preserve">
+    <value>Üzenetek áttekintése</value>
+  </data>
+  <data name="MonitorDiagnostics" xml:space="preserve">
+    <value>Diagnosztika monitorozása</value>
+  </data>
+  <data name="MonitorDiagnosticsHint" xml:space="preserve">
+    <value>Az üzenetek a PLC logikából származnak; a problémák elhárítása után térjen vissza automatikus módba.</value>
+  </data>
+  <data name="CurrentState" xml:space="preserve">
+    <value>Aktuális állapot</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>BE</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>KI</value>
+  </data>
+  <data name="Red" xml:space="preserve">
+    <value>Piros</value>
+  </data>
+  <data name="Yellow" xml:space="preserve">
+    <value>Sárga</value>
+  </data>
+  <data name="Green" xml:space="preserve">
+    <value>Zöld</value>
+  </data>
+  <data name="Blue" xml:space="preserve">
+    <value>Kék</value>
+  </data>
 </root>
