@@ -6,10 +6,25 @@ NAMESPACE AXOpen.Components.Elements
     CLASS AxoSignalTower 
         EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC
+            
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Lights")]}
+            {#ix-set:AttributeName = "<#Red Light#>"}
             Red                :   AXOpen.Components.Elements.AxoDo; 
+            {#ix-attr:[ComponentDetails("Lights")]}
+            {#ix-set:AttributeName = "<#Green Light#>"}
             Green              :   AXOpen.Components.Elements.AxoDo; 
+            {#ix-attr:[ComponentDetails("Lights")]}
+            {#ix-set:AttributeName = "<#Blue Light#>"}
             Blue               :   AXOpen.Components.Elements.AxoDo; 
+            {#ix-attr:[ComponentDetails("Lights")]}
+            {#ix-set:AttributeName = "<#Yellow Light#>"}
             Yellow             :   AXOpen.Components.Elements.AxoDo; 
+
+            {#ix-attr:[ComponentDetails("Horn")]}
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
+            {#ix-set:AttributeName = "<#Horn#>"}
             Horn               :   AXOpen.Components.Elements.AxoDo;             
         END_VAR
 

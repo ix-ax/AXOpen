@@ -240,4 +240,77 @@
   <data name="Ready" xml:space="preserve">
     <value>Listo</value>
   </data>
+    <!-- AxoSignalTowerView -->
+    <data name="SignalTower" xml:space="preserve">
+      <value>Torre de señal</value>
+    </data>
+    <data name="SignalTowerControls" xml:space="preserve">
+      <value>Controles de la torre de señal</value>
+    </data>
+    <data name="SignalTowerStatus" xml:space="preserve">
+      <value>Estado de la torre de señal</value>
+    </data>
+    <data name="Lights" xml:space="preserve">
+      <value>Luces</value>
+    </data>
+    <data name="LightOutputs" xml:space="preserve">
+      <value>Salidas de luces</value>
+    </data>
+    <data name="LightsActive" xml:space="preserve">
+      <value>Luces activas</value>
+    </data>
+    <data name="Horn" xml:space="preserve">
+      <value>Sirena</value>
+    </data>
+    <data name="HornControl" xml:space="preserve">
+      <value>Control de la sirena</value>
+    </data>
+    <data name="HornToggleHint" xml:space="preserve">
+      <value>Active la salida acústica cuando se requiera alerta audible.</value>
+    </data>
+    <data name="HornOn" xml:space="preserve">
+      <value>Sirena ENCENDIDA</value>
+    </data>
+    <data name="HornOff" xml:space="preserve">
+      <value>Sirena APAGADA</value>
+    </data>
+    <data name="ManualOverride" xml:space="preserve">
+      <value>Anulación manual</value>
+    </data>
+    <data name="ManualOverrideHint" xml:space="preserve">
+      <value>Use estos controles durante la puesta en marcha o mantenimiento. Para operación automática, confíe en las secuencias del PLC.</value>
+    </data>
+    <data name="Diagnostics" xml:space="preserve">
+      <value>Diagnósticos</value>
+    </data>
+    <data name="MessengerOverview" xml:space="preserve">
+      <value>Resumen de mensajes</value>
+    </data>
+    <data name="MonitorDiagnostics" xml:space="preserve">
+      <value>Supervisar diagnósticos</value>
+    </data>
+    <data name="MonitorDiagnosticsHint" xml:space="preserve">
+      <value>Los mensajes provienen de la lógica del PLC; resuelva los problemas antes de volver al modo automático.</value>
+    </data>
+    <data name="CurrentState" xml:space="preserve">
+      <value>Estado actual</value>
+    </data>
+    <data name="On" xml:space="preserve">
+      <value>ENCENDIDO</value>
+    </data>
+    <data name="Off" xml:space="preserve">
+      <value>APAGADO</value>
+    </data>
+    <data name="Red" xml:space="preserve">
+      <value>Rojo</value>
+    </data>
+    <data name="Yellow" xml:space="preserve">
+      <value>Amarillo</value>
+    </data>
+    <data name="Green" xml:space="preserve">
+      <value>Verde</value>
+    </data>
+    <data name="Blue" xml:space="preserve">
+      <value>Azul</value>
+    </data>
 </root>
