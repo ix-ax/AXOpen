@@ -1,0 +1,7 @@
+.axo-signal-tower-spot{display:flex;gap:.5rem;align-items:center}
+.axo-signal-light{width:.75rem;height:.75rem;border-radius:50%;opacity:.5;transition:all .2s ease}
+.axo-signal-light--on{opacity:1;box-shadow:0 0 8px rgba(255,255,255,.4)}
+.axo-signal-light--off{opacity:.35;filter:grayscale(60%)}
+.axo-signal-horn{width:.75rem;height:.75rem;border-radius:2px;opacity:.5;transition:all .2s ease}
+.axo-signal-horn--on{opacity:1;box-shadow:0 0 8px rgba(255,215,0,.5);background:linear-gradient(180deg,#facc15,#eab308)}
+.axo-signal-horn--off{opacity:.35;background:#64748b}

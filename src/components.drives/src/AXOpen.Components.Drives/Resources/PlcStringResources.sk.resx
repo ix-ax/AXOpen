@@ -156,4 +156,835 @@
   <data name="MC_UNDERSCORE_Reset_has_thrown_an_error_COLON__" xml:space="preserve">
     <value>MCReset vyhodil chybu:</value>
   </data>
+  <data name="Position" xml:space="preserve">
+    <value>Pozícia</value>
+  </data>
+  <data name="Velocity" xml:space="preserve">
+    <value>Rýchlosť</value>
+  </data>
+  <data name="Torque" xml:space="preserve">
+    <value>Krútiaci moment</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnoviť</value>
+  </data>
+  <data name="Reset_task" xml:space="preserve">
+    <value>Resetovať úlohu</value>
+  </data>
+  <data name="Drive_state" xml:space="preserve">
+    <value>Stav pohonu</value>
+  </data>
+  <data name="Power_task" xml:space="preserve">
+    <value>Úloha Power</value>
+  </data>
+  <data name="Power_status" xml:space="preserve">
+    <value>Stav napájania</value>
+  </data>
+  <data name="Power_valid" xml:space="preserve">
+    <value>Platný výkon</value>
+  </data>
+  <data name="Power_error" xml:space="preserve">
+    <value>Chyba napájania</value>
+  </data>
+  <data name="Power_error_ID" xml:space="preserve">
+    <value>ID chyby napájania</value>
+  </data>
+  <data name="Stop_task" xml:space="preserve">
+    <value>Zastaviť úlohu</value>
+  </data>
+  <data name="Stop_decceleration" xml:space="preserve">
+    <value>Zastavenie decelerácie</value>
+  </data>
+  <data name="Stop_jerk" xml:space="preserve">
+    <value>Zastaviť trhnutie</value>
+  </data>
+  <data name="Stop_done" xml:space="preserve">
+    <value>Stop done</value>
+  </data>
+  <data name="Stop_busy" xml:space="preserve">
+    <value>Zastaviť zaneprázdnenosť</value>
+  </data>
+  <data name="Stop_active" xml:space="preserve">
+    <value>Zastaviť aktívne</value>
+  </data>
+  <data name="Stop_aborted" xml:space="preserve">
+    <value>Zastavenie prerušené</value>
+  </data>
+  <data name="Stop_error" xml:space="preserve">
+    <value>Chyba zastavenia</value>
+  </data>
+  <data name="Stop_error_ID" xml:space="preserve">
+    <value>ID chyby zastavenia</value>
+  </data>
+  <data name="Halt_task" xml:space="preserve">
+    <value>Zastavenie úlohy</value>
+  </data>
+  <data name="Halt_decceleration" xml:space="preserve">
+    <value>Zastavenie dekcelerácie</value>
+  </data>
+  <data name="Halt_jerk" xml:space="preserve">
+    <value>Zastaviť trhnutie</value>
+  </data>
+  <data name="Halt_done" xml:space="preserve">
+    <value>Zastaviť hotovo</value>
+  </data>
+  <data name="Halt_busy" xml:space="preserve">
+    <value>Zastaviť zaneprázdnený</value>
+  </data>
+  <data name="Halt_active" xml:space="preserve">
+    <value>Zastaviť aktívne</value>
+  </data>
+  <data name="Halt_aborted" xml:space="preserve">
+    <value>Zastavenie prerušené</value>
+  </data>
+  <data name="Halt_error" xml:space="preserve">
+    <value>Chyba zastavenia</value>
+  </data>
+  <data name="Halt_error_ID" xml:space="preserve">
+    <value>ID chyby zastavenia</value>
+  </data>
+  <data name="Homming_task" xml:space="preserve">
+    <value>Úloha Homming</value>
+  </data>
+  <data name="Homming_position" xml:space="preserve">
+    <value>Pozícia Homming</value>
+  </data>
+  <data name="Homming_mode" xml:space="preserve">
+    <value>Režim Homming</value>
+  </data>
+  <data name="Homming_velocity" xml:space="preserve">
+    <value>Rýchlosť Homming</value>
+  </data>
+  <data name="Homming_acceleration" xml:space="preserve">
+    <value>Zrýchlenie Homming</value>
+  </data>
+  <data name="Homming_decceleration" xml:space="preserve">
+    <value>Homming decelerácia</value>
+  </data>
+  <data name="Home_status" xml:space="preserve">
+    <value>Stav domova</value>
+  </data>
+  <data name="Home_valid" xml:space="preserve">
+    <value>Domov platný</value>
+  </data>
+  <data name="Home_error" xml:space="preserve">
+    <value>Chyba na úvodnej strane</value>
+  </data>
+  <data name="Home_error_ID" xml:space="preserve">
+    <value>ID chyby Home</value>
+  </data>
+  <data name="Home_done" xml:space="preserve">
+    <value>Home hotovo</value>
+  </data>
+  <data name="Home_busy" xml:space="preserve">
+    <value>Home zaneprázdnený</value>
+  </data>
+  <data name="Home_active" xml:space="preserve">
+    <value>Domov aktívne</value>
+  </data>
+  <data name="Home_aborted" xml:space="preserve">
+    <value>Home prerušené</value>
+  </data>
+  <data name="Move_absolute_task" xml:space="preserve">
+    <value>Presunutie absolútnej úlohy</value>
+  </data>
+  <data name="Move_absolute_continous_update" xml:space="preserve">
+    <value>Presun absolútnej kontinuálnej aktualizácie</value>
+  </data>
+  <data name="Move_absolute_position" xml:space="preserve">
+    <value>Presunutie absolútnej polohy</value>
+  </data>
+  <data name="Move_absolute_velocity" xml:space="preserve">
+    <value>Presun absolútnej rýchlosti</value>
+  </data>
+  <data name="Move_absolute_acceleration" xml:space="preserve">
+    <value>Absolútne zrýchlenie pohybu</value>
+  </data>
+  <data name="Move_absolute_decceleration" xml:space="preserve">
+    <value>Absolútna dekcelerácia pohybu</value>
+  </data>
+  <data name="Move_absolute_jerk" xml:space="preserve">
+    <value>Presun absolútneho trhnutia</value>
+  </data>
+  <data name="Move_absolute_direction" xml:space="preserve">
+    <value>Absolútny smer pohybu</value>
+  </data>
+  <data name="Move_absolute_done" xml:space="preserve">
+    <value>Presun absolútne hotový</value>
+  </data>
+  <data name="Move_absolute_busy" xml:space="preserve">
+    <value>Presun absolútne zaneprázdnený</value>
+  </data>
+  <data name="Move_absolute_active" xml:space="preserve">
+    <value>Presunúť absolútne aktívne</value>
+  </data>
+  <data name="Move_absolute_aborted" xml:space="preserve">
+    <value>Presun absolútne prerušený</value>
+  </data>
+  <data name="Move_absolute_error" xml:space="preserve">
+    <value>Presun absolútnej chyby</value>
+  </data>
+  <data name="Move_absolute_error_ID" xml:space="preserve">
+    <value>Presunúť absolútne ID chyby</value>
+  </data>
+  <data name="Move_relative_task" xml:space="preserve">
+    <value>Presunutie relatívnej úlohy</value>
+  </data>
+  <data name="Move_relative_continuous_update" xml:space="preserve">
+    <value>Presun relatívnej priebežnej aktualizácie</value>
+  </data>
+  <data name="Move_relative_distance" xml:space="preserve">
+    <value>Presunutie relatívnej vzdialenosti</value>
+  </data>
+  <data name="Move_relative_velocity" xml:space="preserve">
+    <value>Pohyb relatívnej rýchlosti</value>
+  </data>
+  <data name="Move_relative_acceleration" xml:space="preserve">
+    <value>Relatívne zrýchlenie pohybu</value>
+  </data>
+  <data name="Move_relative_deceleration" xml:space="preserve">
+    <value>Relatívne spomalenie pohybu</value>
+  </data>
+  <data name="Move_relative_jerk" xml:space="preserve">
+    <value>Pohyb relatívneho trhnutia</value>
+  </data>
+  <data name="Move_relative_done" xml:space="preserve">
+    <value>Presun relatívne hotový</value>
+  </data>
+  <data name="Move_relative_busy" xml:space="preserve">
+    <value>Pohyb relatívne zaneprázdnený</value>
+  </data>
+  <data name="Move_relative_active" xml:space="preserve">
+    <value>Presunutie relatívneho aktívneho</value>
+  </data>
+  <data name="Move_relative_aborted" xml:space="preserve">
+    <value>Relatívny presun prerušený</value>
+  </data>
+  <data name="Move_relative_error" xml:space="preserve">
+    <value>Relatívna chyba pohybu</value>
+  </data>
+  <data name="Move_relative_error_ID" xml:space="preserve">
+    <value>ID relatívnej chyby presunu</value>
+  </data>
+  <data name="Move_additive_task" xml:space="preserve">
+    <value>Presunutie aditívnej úlohy</value>
+  </data>
+  <data name="Move_additive_continuous_update" xml:space="preserve">
+    <value>Presunutie aditívnej priebežnej aktualizácie</value>
+  </data>
+  <data name="Move_additive_distance" xml:space="preserve">
+    <value>Presunúť aditívnu vzdialenosť</value>
+  </data>
+  <data name="Move_additive_velocity" xml:space="preserve">
+    <value>Aditívna rýchlosť pohybu</value>
+  </data>
+  <data name="Move_additive_acceleration" xml:space="preserve">
+    <value>Aditívne zrýchlenie pohybu</value>
+  </data>
+  <data name="Move_additive_deceleration" xml:space="preserve">
+    <value>Aditívne spomalenie pohybu</value>
+  </data>
+  <data name="Move_additive_jerk" xml:space="preserve">
+    <value>Presunutie aditívneho trhnutia</value>
+  </data>
+  <data name="Move_additive_done" xml:space="preserve">
+    <value>Presunutie aditíva hotové</value>
+  </data>
+  <data name="Move_additive_busy" xml:space="preserve">
+    <value>Presunúť aditívum obsadené</value>
+  </data>
+  <data name="Move_additive_active" xml:space="preserve">
+    <value>Presunúť aktívnu prísadu</value>
+  </data>
+  <data name="Move_additive_aborted" xml:space="preserve">
+    <value>Prerušenie presunu aditíva</value>
+  </data>
+  <data name="Move_additive_error" xml:space="preserve">
+    <value>Aditívna chyba presunu</value>
+  </data>
+  <data name="Move_additive_error_ID" xml:space="preserve">
+    <value>Presunutie aditívnej chyby ID</value>
+  </data>
+  <data name="Move_velocity_task" xml:space="preserve">
+    <value>Úloha presunu rýchlosti</value>
+  </data>
+  <data name="Move_velocity_continuous_update" xml:space="preserve">
+    <value>Priebežná aktualizácia rýchlosti pohybu</value>
+  </data>
+  <data name="Move_velocity_velocity" xml:space="preserve">
+    <value>Rýchlosť pohybu rýchlosť</value>
+  </data>
+  <data name="Move_velocity_acceleration" xml:space="preserve">
+    <value>Zrýchlenie rýchlosti pohybu</value>
+  </data>
+  <data name="Move_velocity_deceleration" xml:space="preserve">
+    <value>Spomalenie rýchlosti pohybu</value>
+  </data>
+  <data name="Move_velocity_jerk" xml:space="preserve">
+    <value>Rýchlosť pohybu trhnutím</value>
+  </data>
+  <data name="Move_velocity_" xml:space="preserve">
+    <value>Rýchlosť pohybu</value>
+  </data>
+  <data name="Move_velocity_in_velocity" xml:space="preserve">
+    <value>Presunúť rýchlosť v rýchlosti</value>
+  </data>
+  <data name="Move_velocity_busy" xml:space="preserve">
+    <value>Rýchlosť pohybu je zaneprázdnená</value>
+  </data>
+  <data name="Move_velocity_active" xml:space="preserve">
+    <value>Presunutie rýchlosti aktívne</value>
+  </data>
+  <data name="Move_velocity_aborted" xml:space="preserve">
+    <value>Rýchlosť pohybu prerušená</value>
+  </data>
+  <data name="Move_velocity_error" xml:space="preserve">
+    <value>Chyba rýchlosti pohybu</value>
+  </data>
+  <data name="Move_velocity_error_ID" xml:space="preserve">
+    <value>ID chyby rýchlosti pohybu</value>
+  </data>
+  <data name="Torque_control_task" xml:space="preserve">
+    <value>Úloha riadenia krútiaceho momentu</value>
+  </data>
+  <data name="Torque_control_continuous_update" xml:space="preserve">
+    <value>Priebežná aktualizácia riadenia krútiaceho momentu</value>
+  </data>
+  <data name="Torque_control_torque" xml:space="preserve">
+    <value>Krútiaci moment regulácie krútiaceho momentu</value>
+  </data>
+  <data name="Torque_control_torque_ramp" xml:space="preserve">
+    <value>Rampová regulácia krútiaceho momentu</value>
+  </data>
+  <data name="Torque_control_position_limit" xml:space="preserve">
+    <value>Obmedzenie polohy ovládania krútiaceho momentu</value>
+  </data>
+  <data name="Torque_control_velocity" xml:space="preserve">
+    <value>Riadenie rýchlosti krútiaceho momentu</value>
+  </data>
+  <data name="Torque_control_acceleration" xml:space="preserve">
+    <value>Zrýchlenie ovládania krútiaceho momentu</value>
+  </data>
+  <data name="Torque_control_deceleration" xml:space="preserve">
+    <value>Spomalenie riadenia krútiaceho momentu</value>
+  </data>
+  <data name="Torque_control_jerk" xml:space="preserve">
+    <value>Regulácia krútiaceho momentu trhnutím</value>
+  </data>
+  <data name="Torque_control_direction" xml:space="preserve">
+    <value>Smer ovládania krútiaceho momentu</value>
+  </data>
+  <data name="Torque_control_in_torque" xml:space="preserve">
+    <value>Regulácia krútiaceho momentu v krútiacom momente</value>
+  </data>
+  <data name="Torque_control_busy" xml:space="preserve">
+    <value>Ovládanie krútiaceho momentu je obsadené</value>
+  </data>
+  <data name="Torque_control_active" xml:space="preserve">
+    <value>Aktívna regulácia krútiaceho momentu</value>
+  </data>
+  <data name="Torque_control_aborted" xml:space="preserve">
+    <value>Kontrola krútiaceho momentu prerušená</value>
+  </data>
+  <data name="Torque_control_error" xml:space="preserve">
+    <value>Chyba riadenia krútiaceho momentu</value>
+  </data>
+  <data name="Torque_control_error_ID" xml:space="preserve">
+    <value>ID chyby riadenia krútiaceho momentu</value>
+  </data>
+  <data name="Set_position_task" xml:space="preserve">
+    <value>Úloha nastavenia polohy</value>
+  </data>
+  <data name="Set_position_position" xml:space="preserve">
+    <value>Nastavenie polohy</value>
+  </data>
+  <data name="Set_position_relative" xml:space="preserve">
+    <value>Nastavenie relatívnej polohy</value>
+  </data>
+  <data name="Set_position_execution_mode" xml:space="preserve">
+    <value>Nastavenie režimu vykonávania polohy</value>
+  </data>
+  <data name="Set_position_done" xml:space="preserve">
+    <value>Nastavenie polohy hotovo</value>
+  </data>
+  <data name="Set_position_busy" xml:space="preserve">
+    <value>Nastavenie polohy obsadené</value>
+  </data>
+  <data name="Set_position_error" xml:space="preserve">
+    <value>Chyba nastavenia polohy</value>
+  </data>
+  <data name="Set_position_error_ID" xml:space="preserve">
+    <value>Nastavenie ID chyby polohy</value>
+  </data>
+  <data name="Set_override_task" xml:space="preserve">
+    <value>Nastavenie úlohy prepisovania</value>
+  </data>
+  <data name="Set_override_velocity_factor" xml:space="preserve">
+    <value>Nastavenie faktora prekročenia rýchlosti</value>
+  </data>
+  <data name="Set_override_acceleration_factor" xml:space="preserve">
+    <value>Nastavenie faktora zrýchlenia override</value>
+  </data>
+  <data name="Set_override_jerk_factor" xml:space="preserve">
+    <value>Nastavenie faktora preťaženia trhnutím</value>
+  </data>
+  <data name="Set_override_enabled" xml:space="preserve">
+    <value>Nastaviť prepísanie povolené</value>
+  </data>
+  <data name="Set_override_busy" xml:space="preserve">
+    <value>Nastavenie prekročenia obsadenosti</value>
+  </data>
+  <data name="Set_override_error" xml:space="preserve">
+    <value>Nastaviť chybu prepísania</value>
+  </data>
+  <data name="Set_override_error_ID" xml:space="preserve">
+    <value>Nastavenie ID chyby override</value>
+  </data>
+  <data name="Read_parameter_task" xml:space="preserve">
+    <value>Čítanie parametrov úlohy</value>
+  </data>
+  <data name="Read_parameter_number" xml:space="preserve">
+    <value>Čítanie čísla parametra</value>
+  </data>
+  <data name="Read_parameter_valid" xml:space="preserve">
+    <value>Platnosť načítaného parametra</value>
+  </data>
+  <data name="Read_parameter_busy" xml:space="preserve">
+    <value>Čítanie parametra obsadené</value>
+  </data>
+  <data name="Read_parameter_error" xml:space="preserve">
+    <value>Chyba čítania parametrov</value>
+  </data>
+  <data name="Read_parameter_error_ID" xml:space="preserve">
+    <value>ID chyby načítaného parametra</value>
+  </data>
+  <data name="Read_parameter_value" xml:space="preserve">
+    <value>Čítanie hodnoty parametra</value>
+  </data>
+  <data name="Read_real_parameter_task" xml:space="preserve">
+    <value>Čítanie skutočných parametrov úlohy</value>
+  </data>
+  <data name="Read_real_parameter_number" xml:space="preserve">
+    <value>Čítanie reálneho čísla parametra</value>
+  </data>
+  <data name="Read_real_parameter_valid" xml:space="preserve">
+    <value>Čítanie skutočného parametra platné</value>
+  </data>
+  <data name="Read_real_parameter_busy" xml:space="preserve">
+    <value>Čítanie skutočného parametra obsadené</value>
+  </data>
+  <data name="Read_real_parameter_error" xml:space="preserve">
+    <value>Chyba čítania skutočného parametra</value>
+  </data>
+  <data name="Read_real_parameter_error_ID" xml:space="preserve">
+    <value>Čítanie skutočného parametra ID chyby</value>
+  </data>
+  <data name="Read_real_parameter_value" xml:space="preserve">
+    <value>Čítanie skutočnej hodnoty parametra</value>
+  </data>
+  <data name="Read_bool_parameter_task" xml:space="preserve">
+    <value>Čítanie úlohy s parametrom bool</value>
+  </data>
+  <data name="Read_bool_parameter_number" xml:space="preserve">
+    <value>Čítanie čísla parametra bool</value>
+  </data>
+  <data name="Read_bool_parameter_valid" xml:space="preserve">
+    <value>Čítanie parametra bool valid</value>
+  </data>
+  <data name="Read_bool_parameter_busy" xml:space="preserve">
+    <value>Čítanie parametra bool busy</value>
+  </data>
+  <data name="Read_bool_parameter_error" xml:space="preserve">
+    <value>Čítanie parametra bool error</value>
+  </data>
+  <data name="Read_bool_parameter_error_ID" xml:space="preserve">
+    <value>Čítanie parametra bool ID chyby</value>
+  </data>
+  <data name="Read_bool_parameter_value" xml:space="preserve">
+    <value>Čítanie hodnoty parametra bool</value>
+  </data>
+  <data name="Write_parameter_task" xml:space="preserve">
+    <value>Úloha zápisu parametrov</value>
+  </data>
+  <data name="Write_parameter_number" xml:space="preserve">
+    <value>Napíšte číslo parametra</value>
+  </data>
+  <data name="Write_parameter_value" xml:space="preserve">
+    <value>Zápis hodnoty parametra</value>
+  </data>
+  <data name="Write_parameter_execution_mode" xml:space="preserve">
+    <value>Režim vykonávania parametrov zápisu</value>
+  </data>
+  <data name="Write_parameter_done" xml:space="preserve">
+    <value>Parameter zápisu hotovo</value>
+  </data>
+  <data name="Write_parameter_busy" xml:space="preserve">
+    <value>Parameter zápisu je obsadený</value>
+  </data>
+  <data name="Write_parameter_error" xml:space="preserve">
+    <value>Chyba parametra zápisu</value>
+  </data>
+  <data name="Write_parameter_error_ID" xml:space="preserve">
+    <value>ID chyby parametra zápisu</value>
+  </data>
+  <data name="Write_real_parameter_task" xml:space="preserve">
+    <value>Napíšte úlohu s reálnym parametrom</value>
+  </data>
+  <data name="Write_real_parameter_number" xml:space="preserve">
+    <value>Napíšte reálne číslo parametra</value>
+  </data>
+  <data name="Write_real_parameter_value" xml:space="preserve">
+    <value>Napísať skutočnú hodnotu parametra</value>
+  </data>
+  <data name="Write_real_parameter_execution_mode" xml:space="preserve">
+    <value>Režim vykonávania zápisu skutočných parametrov</value>
+  </data>
+  <data name="Write_real_parameter_done" xml:space="preserve">
+    <value>Napísať skutočný parameter hotovo</value>
+  </data>
+  <data name="Write_real_parameter_busy" xml:space="preserve">
+    <value>Napíšte skutočný parameter obsadený</value>
+  </data>
+  <data name="Write_real_parameter_error" xml:space="preserve">
+    <value>Napíšte skutočnú chybu parametra</value>
+  </data>
+  <data name="Write_real_parameter_error_ID" xml:space="preserve">
+    <value>Napísať ID chyby skutočného parametra</value>
+  </data>
+  <data name="Write_bool_parameter_task" xml:space="preserve">
+    <value>Napísať úlohu parametra bool</value>
+  </data>
+  <data name="Write_bool_parameter_number" xml:space="preserve">
+    <value>Napísať číslo parametra bool</value>
+  </data>
+  <data name="Write_bool_parameter_value" xml:space="preserve">
+    <value>Napísať hodnotu parametra bool</value>
+  </data>
+  <data name="Write_bool_parameter_execution_mode" xml:space="preserve">
+    <value>Napísať režim vykonávania parametra bool</value>
+  </data>
+  <data name="Write_bool_parameter_done" xml:space="preserve">
+    <value>Napísať parameter bool done</value>
+  </data>
+  <data name="Write_bool_parameter_busy" xml:space="preserve">
+    <value>Napísať parameter bool busy</value>
+  </data>
+  <data name="Write_bool_parameter_error" xml:space="preserve">
+    <value>Chyba parametra bool pri zápise</value>
+  </data>
+  <data name="Write_bool_parameter_error_ID" xml:space="preserve">
+    <value>Napísať ID chyby parametra bool</value>
+  </data>
+  <data name="Read_digital_input_task" xml:space="preserve">
+    <value>Úloha čítania digitálneho vstupu</value>
+  </data>
+  <data name="Read_digital_input_number" xml:space="preserve">
+    <value>Čítanie čísla digitálneho vstupu</value>
+  </data>
+  <data name="Read_digital_input_valid" xml:space="preserve">
+    <value>Čítanie platného digitálneho vstupu</value>
+  </data>
+  <data name="Read_digital_input_busy" xml:space="preserve">
+    <value>Čítanie digitálneho vstupu obsadené</value>
+  </data>
+  <data name="Read_digital_input_error" xml:space="preserve">
+    <value>Chyba čítania digitálneho vstupu</value>
+  </data>
+  <data name="Read_digital_input_error_ID" xml:space="preserve">
+    <value>Čítanie ID chyby digitálneho vstupu</value>
+  </data>
+  <data name="Read_digital_input_value" xml:space="preserve">
+    <value>Čítanie hodnoty digitálneho vstupu</value>
+  </data>
+  <data name="Read_digital_output_task" xml:space="preserve">
+    <value>Úloha čítania digitálneho výstupu</value>
+  </data>
+  <data name="Read_digital_output_number" xml:space="preserve">
+    <value>Čítanie čísla digitálneho výstupu</value>
+  </data>
+  <data name="Read_digital_output_valid" xml:space="preserve">
+    <value>Čítanie platného digitálneho výstupu</value>
+  </data>
+  <data name="Read_digital_output_busy" xml:space="preserve">
+    <value>Čítanie digitálneho výstupu obsadené</value>
+  </data>
+  <data name="Read_digital_output_error" xml:space="preserve">
+    <value>Chyba čítania digitálneho výstupu</value>
+  </data>
+  <data name="Read_digital_output_error_ID" xml:space="preserve">
+    <value>Čítanie ID chyby digitálneho výstupu</value>
+  </data>
+  <data name="Read_digital_output_value" xml:space="preserve">
+    <value>Čítanie hodnoty digitálneho výstupu</value>
+  </data>
+  <data name="Write_digital_output_task" xml:space="preserve">
+    <value>Úloha zápisu digitálneho výstupu</value>
+  </data>
+  <data name="Write_digital_output_number" xml:space="preserve">
+    <value>Napíšte číslo digitálneho výstupu</value>
+  </data>
+  <data name="Write_digital_output_value" xml:space="preserve">
+    <value>Zápis hodnoty digitálneho výstupu</value>
+  </data>
+  <data name="Write_digital_output_execution_mode" xml:space="preserve">
+    <value>Režim vykonávania zápisu digitálneho výstupu</value>
+  </data>
+  <data name="Write_digital_output_done" xml:space="preserve">
+    <value>Zápis digitálneho výstupu hotovo</value>
+  </data>
+  <data name="Write_digital_output_busy" xml:space="preserve">
+    <value>Zápis digitálneho výstupu obsadený</value>
+  </data>
+  <data name="Write_digital_output_error" xml:space="preserve">
+    <value>Chyba zápisu digitálneho výstupu</value>
+  </data>
+  <data name="Write_digital_output_error_ID" xml:space="preserve">
+    <value>Zapísať ID chyby digitálneho výstupu</value>
+  </data>
+  <data name="Read_actual_position_task" xml:space="preserve">
+    <value>Čítanie aktuálnej polohy úlohy</value>
+  </data>
+  <data name="Read_actual_position_valid" xml:space="preserve">
+    <value>Čítanie aktuálnej platnej polohy</value>
+  </data>
+  <data name="Read_actual_position_busy" xml:space="preserve">
+    <value>Čítanie aktuálnej pozície obsadené</value>
+  </data>
+  <data name="Read_actual_position_error" xml:space="preserve">
+    <value>Odčítanie chyby skutočnej polohy</value>
+  </data>
+  <data name="Read_actual_position_error_ID" xml:space="preserve">
+    <value>Čítanie ID chyby aktuálnej polohy</value>
+  </data>
+  <data name="Read_actual_position_value" xml:space="preserve">
+    <value>Čítanie aktuálnej hodnoty polohy</value>
+  </data>
+  <data name="Read_actual_velocity_task" xml:space="preserve">
+    <value>Čítanie aktuálnej úlohy rýchlosti</value>
+  </data>
+  <data name="Read_actual_velocity_valid" xml:space="preserve">
+    <value>Čítanie aktuálnej rýchlosti platné</value>
+  </data>
+  <data name="Read_actual_velocity_busy" xml:space="preserve">
+    <value>Čítanie skutočnej rýchlosti obsadené</value>
+  </data>
+  <data name="Read_actual_velocity_error" xml:space="preserve">
+    <value>Odčítanie chyby skutočnej rýchlosti</value>
+  </data>
+  <data name="Read_actual_velocity_error_ID" xml:space="preserve">
+    <value>Čítanie skutočnej chyby rýchlosti ID</value>
+  </data>
+  <data name="Read_actual_velocity_value" xml:space="preserve">
+    <value>Čítanie skutočnej hodnoty rýchlosti</value>
+  </data>
+  <data name="Read_actual_torque_task" xml:space="preserve">
+    <value>Prečítajte si aktuálnu úlohu krútiaceho momentu</value>
+  </data>
+  <data name="Read_actual_torque_valid" xml:space="preserve">
+    <value>Čítanie skutočného platného krútiaceho momentu</value>
+  </data>
+  <data name="Read_actual_torque_busy" xml:space="preserve">
+    <value>Prečítajte si skutočný krútiaci moment</value>
+  </data>
+  <data name="Read_actual_torque_error" xml:space="preserve">
+    <value>Odčítanie skutočnej chyby krútiaceho momentu</value>
+  </data>
+  <data name="Read_actual_torque_error_ID" xml:space="preserve">
+    <value>Čítanie skutočnej chyby krútiaceho momentu ID</value>
+  </data>
+  <data name="Read_actual_torque_value" xml:space="preserve">
+    <value>Odčítanie skutočnej hodnoty krútiaceho momentu</value>
+  </data>
+  <data name="Read_status_task" xml:space="preserve">
+    <value>Čítanie stavovej úlohy</value>
+  </data>
+  <data name="Read_status_valid" xml:space="preserve">
+    <value>Platný stav čítania</value>
+  </data>
+  <data name="Read_status_busy" xml:space="preserve">
+    <value>Čítanie stavu obsadené</value>
+  </data>
+  <data name="Read_status_error" xml:space="preserve">
+    <value>Chyba stavu čítania</value>
+  </data>
+  <data name="Read_status_error_ID" xml:space="preserve">
+    <value>ID chyby stavu čítania</value>
+  </data>
+  <data name="Read_status_error_stop" xml:space="preserve">
+    <value>Chybový stav čítania stop</value>
+  </data>
+  <data name="Read_status_disabled" xml:space="preserve">
+    <value>Čítanie stavu zakázané</value>
+  </data>
+  <data name="Read_status_stopping" xml:space="preserve">
+    <value>Čítanie zastavenia stavu</value>
+  </data>
+  <data name="Read_status_homming" xml:space="preserve">
+    <value>Prečítajte si stav homming</value>
+  </data>
+  <data name="Read_status_standstill" xml:space="preserve">
+    <value>Stav zastavenia čítania</value>
+  </data>
+  <data name="Read_status_discrete_motion" xml:space="preserve">
+    <value>Čítanie stavu diskrétneho pohybu</value>
+  </data>
+  <data name="Read_status_continuous_motion" xml:space="preserve">
+    <value>Čítanie stavu nepretržitého pohybu</value>
+  </data>
+  <data name="Read_status_synchronized_motion" xml:space="preserve">
+    <value>Čítanie stavu synchronizovaného pohybu</value>
+  </data>
+  <data name="Read_motion_state_task" xml:space="preserve">
+    <value>Úloha čítania stavu pohybu</value>
+  </data>
+  <data name="Read_motion_state_source" xml:space="preserve">
+    <value>Čítanie zdroja stavu pohybu</value>
+  </data>
+  <data name="Read_motion_state_valid" xml:space="preserve">
+    <value>Platnosť čítania stavu pohybu</value>
+  </data>
+  <data name="Read_motion_state_busy" xml:space="preserve">
+    <value>Čítanie stavu pohybu obsadené</value>
+  </data>
+  <data name="Read_motion_state_error" xml:space="preserve">
+    <value>Chyba čítania stavu pohybu</value>
+  </data>
+  <data name="Read_motion_state_error_ID" xml:space="preserve">
+    <value>Čítanie ID chyby stavu pohybu</value>
+  </data>
+  <data name="Read_motion_state_constant_velocity" xml:space="preserve">
+    <value>Čítanie stavu pohybu konštantnou rýchlosťou</value>
+  </data>
+  <data name="Read_motion_state_accelerating" xml:space="preserve">
+    <value>Čítanie stavu pohybu zrýchľuje</value>
+  </data>
+  <data name="Read_motion_state_decelerating" xml:space="preserve">
+    <value>Čítanie stavu pohybu spomaľovanie</value>
+  </data>
+  <data name="Read_motion_state_direction_positive" xml:space="preserve">
+    <value>Čítanie smeru stavu pohybu pozitívne</value>
+  </data>
+  <data name="Read_motion_state_direction_negative" xml:space="preserve">
+    <value>Čítanie smeru stavu pohybu negatívne</value>
+  </data>
+  <data name="Read_axis_info_task" xml:space="preserve">
+    <value>Čítanie informačnej úlohy osi</value>
+  </data>
+  <data name="Read_axis_info_valid" xml:space="preserve">
+    <value>Čítanie informácií o osi platné</value>
+  </data>
+  <data name="Read_axis_info_busy" xml:space="preserve">
+    <value>Prečítajte si informácie o osi obsadené</value>
+  </data>
+  <data name="Read_axis_info_error" xml:space="preserve">
+    <value>Chyba pri čítaní informácií o osi</value>
+  </data>
+  <data name="Read_axis_info_error_ID" xml:space="preserve">
+    <value>Čítanie informácií o osi ID chyby</value>
+  </data>
+  <data name="Read_axis_info_home_absolute_switch" xml:space="preserve">
+    <value>Čítanie informácií o osi domovský absolútny prepínač</value>
+  </data>
+  <data name="Read_axis_info_limit_switch_positive" xml:space="preserve">
+    <value>Čítanie informácií o osi Koncový spínač kladný</value>
+  </data>
+  <data name="Read_axis_info_limit_switch_negative" xml:space="preserve">
+    <value>Čítanie informácií o koncovom spínači osi negatívne</value>
+  </data>
+  <data name="Read_axis_info_simulation" xml:space="preserve">
+    <value>Čítanie simulácie informácií o osi</value>
+  </data>
+  <data name="Read_axis_info_communication_ready" xml:space="preserve">
+    <value>Čítanie informácií o osi komunikácia pripravená</value>
+  </data>
+  <data name="Read_axis_info_ready_for_power_on" xml:space="preserve">
+    <value>Čítanie informácií o osi pripravené na zapnutie</value>
+  </data>
+  <data name="Read_axis_info_power_on" xml:space="preserve">
+    <value>Čítanie informácií o osi zapnutie</value>
+  </data>
+  <data name="Read_axis_info_is_homed" xml:space="preserve">
+    <value>Čítanie informácií o osi je doma</value>
+  </data>
+  <data name="Read_axis_info_warning" xml:space="preserve">
+    <value>Prečítajte si upozornenie na informácie o osi</value>
+  </data>
+  <data name="Read_axis_error_task" xml:space="preserve">
+    <value>Úloha čítania chyby osi</value>
+  </data>
+  <data name="Read_axis_error_valid" xml:space="preserve">
+    <value>Platnosť chyby čítania osi</value>
+  </data>
+  <data name="Read_axis_error_busy" xml:space="preserve">
+    <value>Chyba čítania osi obsadená</value>
+  </data>
+  <data name="Read_axis_error_error" xml:space="preserve">
+    <value>Chyba čítania osi</value>
+  </data>
+  <data name="Read_axis_error_error_ID" xml:space="preserve">
+    <value>Čítanie chyby osi ID chyby</value>
+  </data>
+  <data name="Read_axis_error_axis_error_ID" xml:space="preserve">
+    <value>Čítanie chyby osi ID chyby osi</value>
+  </data>
+  <data name="Reset_done" xml:space="preserve">
+    <value>Obnovenie vykonané</value>
+  </data>
+  <data name="Reset_busy" xml:space="preserve">
+    <value>Obnoviť obsadenosť</value>
+  </data>
+  <data name="Reset_error" xml:space="preserve">
+    <value>Chyba resetovania</value>
+  </data>
+  <data name="Reset_error_ID" xml:space="preserve">
+    <value>Obnovenie ID chyby</value>
+  </data>
+  <data name="Jog_positive" xml:space="preserve">
+    <value>Jog positive</value>
+  </data>
+  <data name="Jog_negative" xml:space="preserve">
+    <value>Jog negatívny</value>
+  </data>
+  <data name="Jog_velocity" xml:space="preserve">
+    <value>Rýchlosť behu</value>
+  </data>
+  <data name="Jog_acceleration" xml:space="preserve">
+    <value>Zrýchlenie behu</value>
+  </data>
+  <data name="Jog_deceleration" xml:space="preserve">
+    <value>Spomalenie pri behu</value>
+  </data>
+  <data name="Jog_jerk" xml:space="preserve">
+    <value>Jog jerk</value>
+  </data>
+  <data name="Jog_direction" xml:space="preserve">
+    <value>Smer behu</value>
+  </data>
+  <data name="Jog_active" xml:space="preserve">
+    <value>Jog aktívny</value>
+  </data>
+  <data name="Jog_done" xml:space="preserve">
+    <value>Jog hotový</value>
+  </data>
+  <data name="Jog_busy" xml:space="preserve">
+    <value>Jog je zaneprázdnený</value>
+  </data>
+  <data name="Jog_error" xml:space="preserve">
+    <value>Chyba Jog</value>
+  </data>
+  <data name="Jog_error_ID" xml:space="preserve">
+    <value>ID chyby Jog</value>
+  </data>
+  <data name="Jog_aborted" xml:space="preserve">
+    <value>Jog prerušený</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
 </root>

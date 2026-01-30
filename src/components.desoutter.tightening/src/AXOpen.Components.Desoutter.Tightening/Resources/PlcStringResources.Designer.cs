@@ -61,11 +61,307 @@ namespace AXOpen.Components.Desoutter.Tightening.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to _progress.
+        /// </summary>
+        public static string _UNDERSCORE_progress {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_progress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Angle.
+        /// </summary>
+        public static string Angle {
+            get {
+                return ResourceManager.GetString("Angle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Angle trend.
+        /// </summary>
+        public static string Angle_trend {
+            get {
+                return ResourceManager.GetString("Angle_trend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control.
+        /// </summary>
+        public static string Control {
+            get {
+                return ResourceManager.GetString("Control", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cycle bit 4.
+        /// </summary>
+        public static string Cycle_bit__FOUR_ {
+            get {
+                return ResourceManager.GetString("Cycle_bit__FOUR_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cycle bit 1.
+        /// </summary>
+        public static string Cycle_bit__ONE_ {
+            get {
+                return ResourceManager.GetString("Cycle_bit__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cycle bit 2.
+        /// </summary>
+        public static string Cycle_bit__TWO_ {
+            get {
+                return ResourceManager.GetString("Cycle_bit__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Direction.
+        /// </summary>
+        public static string Direction {
+            get {
+                return ResourceManager.GetString("Direction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error acknowledge.
+        /// </summary>
+        public static string Error_acknowledge {
+            get {
+                return ResourceManager.GetString("Error_acknowledge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error time.
+        /// </summary>
+        public static string Error_time {
+            get {
+                return ResourceManager.GetString("Error_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed.
+        /// </summary>
+        public static string Failed {
+            get {
+                return ResourceManager.GetString("Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;Input_1_byte_1&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__ONE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE_" +
+                        "_ONE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;Input_1_byte_2&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__TWO__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE_" +
+                        "_TWO__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;Input_1_word_1&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_word_UNDERSCORE__ONE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_word_UNDERSCORE_" +
+                        "_ONE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;Input_1_word_2&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_word_UNDERSCORE__TWO__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_word_UNDERSCORE_" +
+                        "_TWO__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;Input_2_word_1&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__TWO__UNDERSCORE_word_UNDERSCORE__ONE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__TWO__UNDERSCORE_word_UNDERSCORE_" +
+                        "_ONE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;Input_2_word_2&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__TWO__UNDERSCORE_word_UNDERSCORE__TWO__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__TWO__UNDERSCORE_word_UNDERSCORE_" +
+                        "_TWO__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;Output_1_byte_1&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_Output_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__ONE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_Output_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE" +
+                        "__ONE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;Output_1_byte_2&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_Output_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__TWO__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_Output_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE" +
+                        "__TWO__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the device.
+        /// </summary>
+        public static string Hardware_ID_of_the_device {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the_device", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware IDs.
+        /// </summary>
+        public static string Hardware_IDs {
+            get {
+                return ResourceManager.GetString("Hardware_IDs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In cycle.
+        /// </summary>
+        public static string In_cycle {
+            get {
+                return ResourceManager.GetString("In_cycle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info time.
+        /// </summary>
+        public static string Info_time {
+            get {
+                return ResourceManager.GetString("Info_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inputs.
+        /// </summary>
+        public static string Inputs {
+            get {
+                return ResourceManager.GetString("Inputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NumberOfCyclesOk.
+        /// </summary>
+        public static string NumberOfCyclesOk {
+            get {
+                return ResourceManager.GetString("NumberOfCyclesOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outputs.
+        /// </summary>
+        public static string Outputs {
+            get {
+                return ResourceManager.GetString("Outputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passed.
+        /// </summary>
+        public static string Passed {
+            get {
+                return ResourceManager.GetString("Passed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program change timeout.
+        /// </summary>
+        public static string Program_change_timeout {
+            get {
+                return ResourceManager.GetString("Program_change_timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ready.
+        /// </summary>
+        public static string Ready {
+            get {
+                return ResourceManager.GetString("Ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required screwing program.
+        /// </summary>
+        public static string Required_screwing_program {
+            get {
+                return ResourceManager.GetString("Required_screwing_program", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string Reset {
+            get {
+                return ResourceManager.GetString("Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ResetTask timeout..
         /// </summary>
         public static string ResetTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("ResetTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
             }
         }
         
@@ -79,11 +375,128 @@ namespace AXOpen.Components.Desoutter.Tightening.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Screwing cycle timeout.
+        /// </summary>
+        public static string Screwing_cycle_timeout {
+            get {
+                return ResourceManager.GetString("Screwing_cycle_timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screwing program.
+        /// </summary>
+        public static string Screwing_program {
+            get {
+                return ResourceManager.GetString("Screwing_program", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screwing program max.
+        /// </summary>
+        public static string Screwing_program_max {
+            get {
+                return ResourceManager.GetString("Screwing_program_max", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Screwing program min.
+        /// </summary>
+        public static string Screwing_program_min {
+            get {
+                return ResourceManager.GetString("Screwing_program_min", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set screwing program.
+        /// </summary>
+        public static string Set_screwing_program {
+            get {
+                return ResourceManager.GetString("Set_screwing_program", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spindle validation.
+        /// </summary>
+        public static string Spindle_validation {
+            get {
+                return ResourceManager.GetString("Spindle_validation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start cycle.
+        /// </summary>
+        public static string Start_cycle {
+            get {
+                return ResourceManager.GetString("Start_cycle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start screwing.
+        /// </summary>
+        public static string Start_screwing {
+            get {
+                return ResourceManager.GetString("Start_screwing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        public static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task timeout.
+        /// </summary>
+        public static string Task_timeout {
+            get {
+                return ResourceManager.GetString("Task_timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque.
+        /// </summary>
+        public static string Torque {
+            get {
+                return ResourceManager.GetString("Torque", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque trend.
+        /// </summary>
+        public static string Torque_trend {
+            get {
+                return ResourceManager.GetString("Torque_trend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to change the screwing program..
         /// </summary>
         public static string Unable_to_change_the_screwing_program_DOT_ {
             get {
                 return ResourceManager.GetString("Unable_to_change_the_screwing_program_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update diagnostics.
+        /// </summary>
+        public static string Update_diagnostics {
+            get {
+                return ResourceManager.GetString("Update_diagnostics", resourceCulture);
             }
         }
     }

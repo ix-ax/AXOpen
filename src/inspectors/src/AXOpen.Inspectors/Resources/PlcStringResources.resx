@@ -78,4 +78,68 @@
     <value>Actual: </value>
     <comment>src\AxoInspector.st,471</comment>
   </data>
+  <data name="TimeStamp" xml:space="preserve">
+    <value>TimeStamp</value>
+    <comment>src\AxoInspectorData.st,12</comment>
+  </data>
+  <data name="Stab_DOT_Time" xml:space="preserve">
+    <value>Stab.Time</value>
+    <comment>src\AxoInspectorData.st,16</comment>
+  </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>Timeout</value>
+    <comment>src\AxoInspectorData.st,20</comment>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
+    <comment>src\AxoInspectorData.st,24</comment>
+  </data>
+  <data name="Excluded" xml:space="preserve">
+    <value>Excluded</value>
+    <comment>src\AxoInspectorData.st,28</comment>
+  </data>
+  <data name="Bypass" xml:space="preserve">
+    <value>Bypass</value>
+    <comment>src\AxoInspectorData.st,32</comment>
+  </data>
+  <data name="Re_DASH_tries" xml:space="preserve">
+    <value>Re-tries</value>
+    <comment>src\AxoInspectorData.st,36</comment>
+  </data>
+  <data name="Attempts" xml:space="preserve">
+    <value>Attempts</value>
+    <comment>src\AxoInspectorData.st,40</comment>
+  </data>
+  <data name="ErrorCode" xml:space="preserve">
+    <value>ErrorCode</value>
+    <comment>src\AxoInspectorData.st,43</comment>
+  </data>
+  <data name="Failure_Description" xml:space="preserve">
+    <value>Failure Description</value>
+    <comment>src\AxoInspectorData.st,46</comment>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+    <comment>src\AxoInspectorDialog.st,23</comment>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+    <comment>src\AxoAnalogueInspector\AxoAnalogueInspectorData.st,9</comment>
+  </data>
+  <data name="Detected" xml:space="preserve">
+    <value>Detected</value>
+    <comment>src\AxoAnalogueInspector\AxoAnalogueInspectorData.st,13</comment>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Max</value>
+    <comment>src\AxoAnalogueInspector\AxoAnalogueInspectorData.st,16</comment>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Required</value>
+    <comment>src\AxoDataInspector\AxoDataInspectorData.st,10</comment>
+  </data>
+  <data name="Star_notation" xml:space="preserve">
+    <value>Star notation</value>
+    <comment>src\AxoDataInspector\AxoDataInspectorData.st,17</comment>
+  </data>
 </root>
