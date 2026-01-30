@@ -3,8 +3,7 @@
     public class SerializableView
     {
         public bool IsWatchTable { get; set; } = false;
-        public double BackgroundWidth { get; set; } = 1000;
-        public double BackgroundHeight { get; set; } = 350;
+        public double BackgroundImageScale { get; set; } = 1;
         public string? ImgSrc { get; set; } = null;
 
         public string BackgroundColorLight { get; set; } = "var(--color-background-dark)";

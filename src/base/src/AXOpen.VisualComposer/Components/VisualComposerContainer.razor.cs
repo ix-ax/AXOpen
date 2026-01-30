@@ -665,9 +665,7 @@ namespace AXOpen.VisualComposer.Components
 
                 CurrentView.ImgSrc = Settings.VisualComposerImagesSerializeName + "/" + Id.CorrectFilePath() + "/" + newName.CorrectFilePath();
 
-                var dimensions = await GetImageDimensions(CurrentView.ImgSrc);
-                CurrentView.BackgroundWidth = dimensions.Width;
-                CurrentView.BackgroundHeight = dimensions.Height;
+                CurrentView.BackgroundImageScale = 1;
 
                 _isFileImported = true;
             }
@@ -680,20 +678,6 @@ namespace AXOpen.VisualComposer.Components
             _isFileImporting = false;
 
             await SaveAsync();
-        }
-
-        private async Task<Size> GetImageDimensions(string filePath)
-        {
-            try
-            {
-                var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/Components/VisualComposerContainer.razor.js");
-                return await jsObject.InvokeAsync<Size>("getImageDimensions", filePath);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-                return new Size { Width = 0, Height = 0 };
-            }
         }
 
         private async Task<Size> GetElementSize(string id)

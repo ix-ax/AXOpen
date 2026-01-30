@@ -28,7 +28,7 @@ namespace AXOpen.VisualComposer.Components.VisualComposerItem
             if (_isDragging)
             {
                 double offsetX = ((eventArgs.ClientX - _startX) / Parent!.ElementSize.Width * 100) * (1 / Parent.CurrentView.Scale);
-                double offsetY = ((eventArgs.ClientY - _startY) / ((Parent!.CurrentView.BackgroundHeight / Parent!.CurrentView.BackgroundWidth) * Parent!.ElementSize.Width) * 100) * (1 / Parent.CurrentView.Scale);
+                double offsetY = ((eventArgs.ClientY - _startY) / Parent!.ElementSize.Width * 100) * (1 / Parent.CurrentView.Scale);
 
                 Origin._left += offsetX;
                 Origin._top += offsetY;

@@ -44,7 +44,7 @@ namespace AXOpen.VisualComposer.Components
             if (_isDragging && !Disable && CanDragging)
             {
                 double offsetX = ((eventArgs.ClientX - _startX) / Parent.ElementSize.Width * 100) * (1 / Parent.CurrentView.Scale);
-                double offsetY = ((eventArgs.ClientY - _startY) / ((Parent!.CurrentView.BackgroundHeight / Parent!.CurrentView.BackgroundWidth) * Parent!.ElementSize.Width) * 100) * (1 / Parent.CurrentView.Scale);
+                double offsetY = ((eventArgs.ClientY - _startY) / Parent!.ElementSize.Width * 100) * (1 / Parent.CurrentView.Scale);
 
                 Parent!.CurrentView.TranslateX += offsetX;
                 Parent!.CurrentView.TranslateY += offsetY;
