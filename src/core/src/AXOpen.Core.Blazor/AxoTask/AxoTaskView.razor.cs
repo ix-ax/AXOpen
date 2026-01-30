@@ -123,7 +123,11 @@ namespace AXOpen.Core
 
         public bool IsDisabled => Disable || Component.IsDisabled.Cyclic || !Enabled;
 
-        public string Description => string.IsNullOrEmpty(Text) ? string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.GetAttributeName(CultureInfo.CurrentUICulture) : Text;
+        public string Description => string.IsNullOrEmpty(Text) 
+                                     ? string.IsNullOrEmpty(Component.AttributeName) 
+                                     ? Component.GetSymbolTail()
+                                     : Component.GetAttributeName(CultureInfo.CurrentUICulture) 
+                                     : Text;
     }
 
     public class AxoTaskCommandView : AxoTaskView

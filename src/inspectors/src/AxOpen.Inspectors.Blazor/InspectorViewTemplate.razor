@@ -27,7 +27,7 @@
                 }
                 else
                 {
-                    <p>Cannot render, unspecified inspector type</p>
+                    <p>@Localizer["CannotRenderUnspecifiedInspectorType"]</p>
                 }
                 <GenericIconView Result="@Result" Class="my-2" />
             </div>
@@ -37,7 +37,7 @@
 
         @if (IsOverInspected())
         {
-            <p class="text-danger">Over-inspection detected</p>
+            <p class="text-danger">@Localizer["OverInspectionDetected"]</p>
         }
 
         @if (_accordionOpen)

@@ -3,6 +3,9 @@
 @using AXOpen.Messaging.Static
 @using System.Globalization
 @using AXSharp.Connector.Localizations
+@using Microsoft.Extensions.Localization
+@using AXOpen.Core.Blazor.Properties
+@inject IStringLocalizer<AxOpenCoreResources> Localizer
 @inherits RenderableComponentBase
 
 <div @onmouseenter="BringToForeGround"
@@ -26,14 +29,14 @@
             {
                 <button @onclick="ToggleMessages"
                         class="badge @AlarmBadgeClass"
-                        title="@ActiveAlarmCount @(ActiveAlarmCount != 1 ? "alarms" : "alarm") active">
-                    @ActiveAlarmCount Active Alarm@(ActiveAlarmCount != 1 ? "s" : "")
+                        title="@ActiveAlarmCount @(ActiveAlarmCount != 1 ? Localizer["Alarms"] : Localizer["Alarm"]) @Localizer["Active"]">
+                    @ActiveAlarmCount @Localizer["Active"] @(ActiveAlarmCount != 1 ? Localizer["Alarms"] : Localizer["Alarm"])
                 </button>
             }
                 <button @onclick="ToggleServiceView"
                         class="badge badge-primary"
-                        title="Toggle service view">
-                    @(this.ServiceViewActive ? "Normal" : "Service")
+                        title="@Localizer["ToggleServiceView"]">
+                    @(this.ServiceViewActive ? Localizer["Normal"] : Localizer["Service"])
                 </button>
         </div>
     </div>
@@ -71,7 +74,7 @@
             if (Component._isManuallyControllable.Cyclic == true)
             {               
                 <div class="card p-4" @onclick:stopPropagation="true"> 
-                    <p class="text-sm font-bold text-text/70 mt-2 mx-2">CONFIGURATION</p>
+                    <p class="text-sm font-bold text-text/70 mt-2 mx-2">@Localizer["CONFIGURATION"]</p>
                     <div class="m-2 w-full">
                         @if(ConfigContent is not null)
                         {
@@ -89,7 +92,7 @@
             else
             {      
                 <div class="card p-4" @onclick:stopPropagation="true">
-                    <p class="text-sm font-bold text-text/70 mt-2 mx-2">STATE</p>
+                    <p class="text-sm font-bold text-text/70 mt-2 mx-2">@Localizer["STATE"]</p>
                     <div class="m-2 w-full">
                         @ConfigAndStateViewContent
                     </div>

@@ -8,11 +8,14 @@
 @using Operon.Icons
 @using System.Globalization
 @using AXSharp.Connector.Localizations
+@using Microsoft.Extensions.Localization
+@using AXOpen.Core.Blazor.Properties
+@inject IStringLocalizer<AxOpenCoreResources> Localizer
 @inherits RenderableComplexComponentBase<AxoByteArray>;
 
 <div data-axo-byte-array-view class="flex flex-wrap w-full">
     <Accordion>
-        <AccordionItem Title="Data">
+        <AccordionItem Title="@Localizer["Data"]">
             <div class="flex flex-wrap justify-between">
                 <p class="align-middle">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</p>
 
