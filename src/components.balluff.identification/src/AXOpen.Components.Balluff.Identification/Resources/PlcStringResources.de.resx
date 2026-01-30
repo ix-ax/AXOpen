@@ -132,4 +132,172 @@
   <data name="WriteCharToMemoryTask_timeout_DOT_" xml:space="preserve">
     <value>WriteCharToMemoryTask Zeitüberschreitung.</value>
   </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Wiederherstellen</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Lesen Sie</value>
+  </data>
+  <data name="Read_address" xml:space="preserve">
+    <value>Adresse lesen</value>
+  </data>
+  <data name="Number_of_bytes_to_read" xml:space="preserve">
+    <value>Anzahl der zu lesenden Bytes</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Schreiben Sie</value>
+  </data>
+  <data name="Write_address" xml:space="preserve">
+    <value>Adresse schreiben</value>
+  </data>
+  <data name="Data_to_write" xml:space="preserve">
+    <value>Zu schreibende Daten</value>
+  </data>
+  <data name="Reset_communication" xml:space="preserve">
+    <value>Kommunikation zurücksetzen</value>
+  </data>
+  <data name="Reset_reader" xml:space="preserve">
+    <value>Leser zurücksetzen</value>
+  </data>
+  <data name="Write_char_to_memory" xml:space="preserve">
+    <value>Zeichen in den Speicher schreiben</value>
+  </data>
+  <data name="Character_to_write_to_memory" xml:space="preserve">
+    <value>Zeichen zum Schreiben in den Speicher</value>
+  </data>
+  <data name="Address_to_write" xml:space="preserve">
+    <value>Adresse zum Schreiben</value>
+  </data>
+  <data name="Number_of_bytes_to_write" xml:space="preserve">
+    <value>Anzahl der zu schreibenden Bytes</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Eingaben</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Ausgaben</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Diagnose aktualisieren</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info-Zeit</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Fehlerzeit</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Zeitüberschreitung der Aufgabe</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware-IDs</value>
+  </data>
+  <data name="Start_address" xml:space="preserve">
+    <value>Startadresse</value>
+  </data>
+  <data name="Rfid_code_size" xml:space="preserve">
+    <value>Rfid-Code-Größe</value>
+  </data>
+  <data name="BitHeader_ONE__Job" xml:space="preserve">
+    <value>BitHeader1 Auftrag</value>
+  </data>
+  <data name="BitHeader_ONE__Reserve_ZERO_" xml:space="preserve">
+    <value>BitHeader1 Reserve0</value>
+  </data>
+  <data name="qBitHeader_ONE__GroundState" xml:space="preserve">
+    <value>qBitHeader1 Grundzustand</value>
+  </data>
+  <data name="BitHeader_ONE__Reserve_ONE_" xml:space="preserve">
+    <value>BitHeader1 Reserve1</value>
+  </data>
+  <data name="BitHeader_ONE__Reserve_TWO_" xml:space="preserve">
+    <value>BitHeader1 Reserve2</value>
+  </data>
+  <data name="qBitHeader_ONE__HeadOnOff" xml:space="preserve">
+    <value>qBitKopfzeile1 HeadOnOff</value>
+  </data>
+  <data name="qBitHeader_ONE__ToggleBit" xml:space="preserve">
+    <value>qBitHeader1 ToggleBit</value>
+  </data>
+  <data name="BitHeader_ONE__Reserve_THREE_" xml:space="preserve">
+    <value>BitHeader1 Reserve3</value>
+  </data>
+  <data name="Command_designator" xml:space="preserve">
+    <value>Kommando-Bezeichner</value>
+  </data>
+  <data name="Number__of_bytes" xml:space="preserve">
+    <value>Anzahl der Bytes</value>
+  </data>
+  <data name="BitHeader_TWO__Job" xml:space="preserve">
+    <value>BitHeader2 Auftrag</value>
+  </data>
+  <data name="BitHeader_TWO__Reserve_ZERO_" xml:space="preserve">
+    <value>BitHeader2 Reserve0</value>
+  </data>
+  <data name="qBitHeader_TWO__GroundState" xml:space="preserve">
+    <value>qBitHeader2 Grundzustand</value>
+  </data>
+  <data name="BitHeader_TWO__Reserve_ONE_" xml:space="preserve">
+    <value>BitHeader2 Reserve1</value>
+  </data>
+  <data name="BitHeader_TWO__Reserve_TWO_" xml:space="preserve">
+    <value>BitHeader2 Reserve2</value>
+  </data>
+  <data name="qBitHeader_TWO__HeadOnOff" xml:space="preserve">
+    <value>qBitHeader2 HeadOnOff</value>
+  </data>
+  <data name="qBitHeader_TWO__ToggleBit" xml:space="preserve">
+    <value>qBitHeader2 ToggleBit</value>
+  </data>
+  <data name="BitHeader_TWO__Reserve_THREE_" xml:space="preserve">
+    <value>BitHeader2 Reserve3</value>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>Hardware-ID des Geräts</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_BISM_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des "BISM"-Submoduls</value>
+  </data>
+  <data name="BitHeader_ONE__CodeTagPresent" xml:space="preserve">
+    <value>BitHeader1 CodeTagPresent</value>
+  </data>
+  <data name="BitHeader_ONE__JobAccepted" xml:space="preserve">
+    <value>BitHeader1 JobAccepted</value>
+  </data>
+  <data name="BitHeader_ONE__JobEnd" xml:space="preserve">
+    <value>BitHeader1 JobEnd</value>
+  </data>
+  <data name="BitHeader_ONE__JobError" xml:space="preserve">
+    <value>BitHeader1 JobError</value>
+  </data>
+  <data name="BitHeader_ONE__ToggleBit" xml:space="preserve">
+    <value>BitHeader1 ToggleBit</value>
+  </data>
+  <data name="BitHeader_ONE__HeadFailure" xml:space="preserve">
+    <value>BitHeader1 HeadFailure</value>
+  </data>
+  <data name="BitHeader_ONE__Power" xml:space="preserve">
+    <value>BitHeader1 Leistung</value>
+  </data>
+  <data name="BitHeader_TWO__CodeTagPresent" xml:space="preserve">
+    <value>BitHeader2 CodeTagPresent</value>
+  </data>
+  <data name="BitHeader_TWO__JobAccepted" xml:space="preserve">
+    <value>BitHeader2 JobAccepted</value>
+  </data>
+  <data name="BitHeader_TWO__JobEnd" xml:space="preserve">
+    <value>BitHeader2 JobEnd</value>
+  </data>
+  <data name="BitHeader_TWO__JobError" xml:space="preserve">
+    <value>BitHeader2 JobError</value>
+  </data>
+  <data name="BitHeader_TWO__ToggleBit" xml:space="preserve">
+    <value>BitHeader2 ToggleBit</value>
+  </data>
+  <data name="BitHeader_TWO__HeadFailure" xml:space="preserve">
+    <value>BitHeader2 HeadFailure</value>
+  </data>
+  <data name="BitHeader_TWO__Power" xml:space="preserve">
+    <value>BitHeader2 Leistung</value>
+  </data>
 </root>

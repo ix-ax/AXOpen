@@ -61,6 +61,114 @@ namespace AXOpen.Components.Dukane.Welders.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AbortedPartCount.
+        /// </summary>
+        public static string AbortedPartCount {
+            get {
+                return ResourceManager.GetString("AbortedPartCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActiveSetup.
+        /// </summary>
+        public static string ActiveSetup {
+            get {
+                return ResourceManager.GetString("ActiveSetup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActiveSetupSelection.
+        /// </summary>
+        public static string ActiveSetupSelection {
+            get {
+                return ResourceManager.GetString("ActiveSetupSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Amplitude_Regulation.
+        /// </summary>
+        public static string Amplitude_UNDERSCORE_Regulation {
+            get {
+                return ResourceManager.GetString("Amplitude_UNDERSCORE_Regulation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Any_Fault.
+        /// </summary>
+        public static string Any_UNDERSCORE_Fault {
+            get {
+                return ResourceManager.GetString("Any_UNDERSCORE_Fault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Average_Overload.
+        /// </summary>
+        public static string Average_UNDERSCORE_Overload {
+            get {
+                return ResourceManager.GetString("Average_UNDERSCORE_Overload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AverageSensingVelocity.
+        /// </summary>
+        public static string AverageSensingVelocity {
+            get {
+                return ResourceManager.GetString("AverageSensingVelocity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bad_Part.
+        /// </summary>
+        public static string Bad_UNDERSCORE_Part {
+            get {
+                return ResourceManager.GetString("Bad_UNDERSCORE_Part", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BadPart.
+        /// </summary>
+        public static string BadPart {
+            get {
+                return ResourceManager.GetString("BadPart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BadPartCount.
+        /// </summary>
+        public static string BadPartCount {
+            get {
+                return ResourceManager.GetString("BadPartCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change probe.
+        /// </summary>
+        public static string Change_probe {
+            get {
+                return ResourceManager.GetString("Change_probe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change setup.
+        /// </summary>
+        public static string Change_setup {
+            get {
+                return ResourceManager.GetString("Change_setup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ChangeWeldingProbeTask timeout..
         /// </summary>
         public static string ChangeWeldingProbeTask_timeout_DOT_ {
@@ -79,11 +187,101 @@ namespace AXOpen.Components.Dukane.Welders.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear error.
+        /// </summary>
+        public static string Clear_error {
+            get {
+                return ResourceManager.GetString("Clear_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ClearError.
+        /// </summary>
+        public static string ClearError {
+            get {
+                return ResourceManager.GetString("ClearError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ClearErrorTask timeout..
         /// </summary>
         public static string ClearErrorTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("ClearErrorTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ClearSetup.
+        /// </summary>
+        public static string ClearSetup {
+            get {
+                return ResourceManager.GetString("ClearSetup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Config.
+        /// </summary>
+        public static string Config {
+            get {
+                return ResourceManager.GetString("Config", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current_Loop.
+        /// </summary>
+        public static string Current_UNDERSCORE_Loop {
+            get {
+                return ResourceManager.GetString("Current_UNDERSCORE_Loop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CycleCount.
+        /// </summary>
+        public static string CycleCount {
+            get {
+                return ResourceManager.GetString("CycleCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CyclePartStatus.
+        /// </summary>
+        public static string CyclePartStatus {
+            get {
+                return ResourceManager.GetString("CyclePartStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CycleStartReject.
+        /// </summary>
+        public static string CycleStartReject {
+            get {
+                return ResourceManager.GetString("CycleStartReject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CycleStop.
+        /// </summary>
+        public static string CycleStop {
+            get {
+                return ResourceManager.GetString("CycleStop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CycleStopTask.
+        /// </summary>
+        public static string CycleStopTask {
+            get {
+                return ResourceManager.GetString("CycleStopTask", resourceCulture);
             }
         }
         
@@ -97,11 +295,1281 @@ namespace AXOpen.Components.Dukane.Welders.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CycleTotalTime.
+        /// </summary>
+        public static string CycleTotalTime {
+            get {
+                return ResourceManager.GetString("CycleTotalTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CycleTriggerDelayDistance.
+        /// </summary>
+        public static string CycleTriggerDelayDistance {
+            get {
+                return ResourceManager.GetString("CycleTriggerDelayDistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CycleTriggerDelayTime.
+        /// </summary>
+        public static string CycleTriggerDelayTime {
+            get {
+                return ResourceManager.GetString("CycleTriggerDelayTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CycleTriggerPosition.
+        /// </summary>
+        public static string CycleTriggerPosition {
+            get {
+                return ResourceManager.GetString("CycleTriggerPosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CycleTriggerTime.
+        /// </summary>
+        public static string CycleTriggerTime {
+            get {
+                return ResourceManager.GetString("CycleTriggerTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CycleWeld1Distance.
+        /// </summary>
+        public static string CycleWeld_ONE_Distance {
+            get {
+                return ResourceManager.GetString("CycleWeld_ONE_Distance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CycleWeld1Position.
+        /// </summary>
+        public static string CycleWeld_ONE_Position {
+            get {
+                return ResourceManager.GetString("CycleWeld_ONE_Position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CycleWeldEnergy.
+        /// </summary>
+        public static string CycleWeldEnergy {
+            get {
+                return ResourceManager.GetString("CycleWeldEnergy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CycleWeldPeakPower.
+        /// </summary>
+        public static string CycleWeldPeakPower {
+            get {
+                return ResourceManager.GetString("CycleWeldPeakPower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CycleWeldTime.
+        /// </summary>
+        public static string CycleWeldTime {
+            get {
+                return ResourceManager.GetString("CycleWeldTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error time.
+        /// </summary>
+        public static string Error_time {
+            get {
+                return ResourceManager.GetString("Error_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ErrorStatus.
+        /// </summary>
+        public static string ErrorStatus {
+            get {
+                return ResourceManager.GetString("ErrorStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estop.
+        /// </summary>
+        public static string Estop {
+            get {
+                return ResourceManager.GetString("Estop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FinalHoldPosition.
+        /// </summary>
+        public static string FinalHoldPosition {
+            get {
+                return ResourceManager.GetString("FinalHoldPosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forced_ShutDown.
+        /// </summary>
+        public static string Forced_UNDERSCORE_ShutDown {
+            get {
+                return ResourceManager.GetString("Forced_UNDERSCORE_ShutDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frequency_Overload_3.
+        /// </summary>
+        public static string Frequency_UNDERSCORE_Overload_UNDERSCORE__THREE_ {
+            get {
+                return ResourceManager.GetString("Frequency_UNDERSCORE_Overload_UNDERSCORE__THREE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frequency_Overload_2.
+        /// </summary>
+        public static string Frequency_UNDERSCORE_Overload_UNDERSCORE__TWO_ {
+            get {
+                return ResourceManager.GetString("Frequency_UNDERSCORE_Overload_UNDERSCORE__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FrequencyOverload_1.
+        /// </summary>
+        public static string FrequencyOverload_UNDERSCORE__ONE_ {
+            get {
+                return ResourceManager.GetString("FrequencyOverload_UNDERSCORE__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FrontPanelLockout_1.
+        /// </summary>
+        public static string FrontPanelLockout_UNDERSCORE__ONE_ {
+            get {
+                return ResourceManager.GetString("FrontPanelLockout_UNDERSCORE__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FrontPanelLockout_0.
+        /// </summary>
+        public static string FrontPanelLockout_UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("FrontPanelLockout_UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GeneratorState.
+        /// </summary>
+        public static string GeneratorState {
+            get {
+                return ResourceManager.GetString("GeneratorState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Good_Part.
+        /// </summary>
+        public static string Good_UNDERSCORE_Part {
+            get {
+                return ResourceManager.GetString("Good_UNDERSCORE_Part", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GoodPart.
+        /// </summary>
+        public static string GoodPart {
+            get {
+                return ResourceManager.GetString("GoodPart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GoodPartCount.
+        /// </summary>
+        public static string GoodPartCount {
+            get {
+                return ResourceManager.GetString("GoodPartCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID  of the device.
+        /// </summary>
+        public static string Hardware_ID__of_the_device {
+            get {
+                return ResourceManager.GetString("Hardware_ID__of_the_device", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;iQ_to_PLC_Inputs&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_iQ_UNDERSCORE_to_UNDERSCORE_PLC_UNDERSCORE_Inputs_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_iQ_UNDERSCORE_to_UNDERSCORE_PLC_UNDERSCORE_Inputs_" +
+                        "APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;out_1&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware IDs.
+        /// </summary>
+        public static string Hardware_IDs {
+            get {
+                return ResourceManager.GetString("Hardware_IDs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HoldDistance.
+        /// </summary>
+        public static string HoldDistance {
+            get {
+                return ResourceManager.GetString("HoldDistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HoldTime.
+        /// </summary>
+        public static string HoldTime {
+            get {
+                return ResourceManager.GetString("HoldTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In_AfterBurst.
+        /// </summary>
+        public static string In_UNDERSCORE_AfterBurst {
+            get {
+                return ResourceManager.GetString("In_UNDERSCORE_AfterBurst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In_Hold.
+        /// </summary>
+        public static string In_UNDERSCORE_Hold {
+            get {
+                return ResourceManager.GetString("In_UNDERSCORE_Hold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In_Test.
+        /// </summary>
+        public static string In_UNDERSCORE_Test {
+            get {
+                return ResourceManager.GetString("In_UNDERSCORE_Test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In_TestScan.
+        /// </summary>
+        public static string In_UNDERSCORE_TestScan {
+            get {
+                return ResourceManager.GetString("In_UNDERSCORE_TestScan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InCycle.
+        /// </summary>
+        public static string InCycle {
+            get {
+                return ResourceManager.GetString("InCycle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InCycle_No_AB.
+        /// </summary>
+        public static string InCycle_UNDERSCORE_No_UNDERSCORE_AB {
+            get {
+                return ResourceManager.GetString("InCycle_UNDERSCORE_No_UNDERSCORE_AB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info time.
+        /// </summary>
+        public static string Info_time {
+            get {
+                return ResourceManager.GetString("Info_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inputs.
+        /// </summary>
+        public static string Inputs {
+            get {
+                return ResourceManager.GetString("Inputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InternalError_5.
+        /// </summary>
+        public static string InternalError_UNDERSCORE__FIVE_ {
+            get {
+                return ResourceManager.GetString("InternalError_UNDERSCORE__FIVE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InternalError_4.
+        /// </summary>
+        public static string InternalError_UNDERSCORE__FOUR_ {
+            get {
+                return ResourceManager.GetString("InternalError_UNDERSCORE__FOUR_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InternalError_1.
+        /// </summary>
+        public static string InternalError_UNDERSCORE__ONE_ {
+            get {
+                return ResourceManager.GetString("InternalError_UNDERSCORE__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InternalError_3.
+        /// </summary>
+        public static string InternalError_UNDERSCORE__THREE_ {
+            get {
+                return ResourceManager.GetString("InternalError_UNDERSCORE__THREE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InternalError_2.
+        /// </summary>
+        public static string InternalError_UNDERSCORE__TWO_ {
+            get {
+                return ResourceManager.GetString("InternalError_UNDERSCORE__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Latched_Bad_Part.
+        /// </summary>
+        public static string Latched_UNDERSCORE_Bad_UNDERSCORE_Part {
+            get {
+                return ResourceManager.GetString("Latched_UNDERSCORE_Bad_UNDERSCORE_Part", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LowerBadEnergyLimit.
+        /// </summary>
+        public static string LowerBadEnergyLimit {
+            get {
+                return ResourceManager.GetString("LowerBadEnergyLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LowerBadPowerLimit.
+        /// </summary>
+        public static string LowerBadPowerLimit {
+            get {
+                return ResourceManager.GetString("LowerBadPowerLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LowerBadTimeLimit.
+        /// </summary>
+        public static string LowerBadTimeLimit {
+            get {
+                return ResourceManager.GetString("LowerBadTimeLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LowerSuspectEnergyLimit.
+        /// </summary>
+        public static string LowerSuspectEnergyLimit {
+            get {
+                return ResourceManager.GetString("LowerSuspectEnergyLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LowerSuspectPowerLimit.
+        /// </summary>
+        public static string LowerSuspectPowerLimit {
+            get {
+                return ResourceManager.GetString("LowerSuspectPowerLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LowerSuspectTimeLimit.
+        /// </summary>
+        public static string LowerSuspectTimeLimit {
+            get {
+                return ResourceManager.GetString("LowerSuspectTimeLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MPC_Present.
+        /// </summary>
+        public static string MPC_UNDERSCORE_Present {
+            get {
+                return ResourceManager.GetString("MPC_UNDERSCORE_Present", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MPC_Ready.
+        /// </summary>
+        public static string MPC_UNDERSCORE_Ready {
+            get {
+                return ResourceManager.GetString("MPC_UNDERSCORE_Ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Online.
+        /// </summary>
+        public static string Online {
+            get {
+                return ResourceManager.GetString("Online", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OTF_Amp_Setpoint.
+        /// </summary>
+        public static string OTF_UNDERSCORE_Amp_UNDERSCORE_Setpoint {
+            get {
+                return ResourceManager.GetString("OTF_UNDERSCORE_Amp_UNDERSCORE_Setpoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OTF_AmplitudeEnable.
+        /// </summary>
+        public static string OTF_UNDERSCORE_AmplitudeEnable {
+            get {
+                return ResourceManager.GetString("OTF_UNDERSCORE_AmplitudeEnable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outputs.
+        /// </summary>
+        public static string Outputs {
+            get {
+                return ResourceManager.GetString("Outputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Over_Amplitude_Fault.
+        /// </summary>
+        public static string Over_UNDERSCORE_Amplitude_UNDERSCORE_Fault {
+            get {
+                return ResourceManager.GetString("Over_UNDERSCORE_Amplitude_UNDERSCORE_Fault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Over_Temperature.
+        /// </summary>
+        public static string Over_UNDERSCORE_Temperature {
+            get {
+                return ResourceManager.GetString("Over_UNDERSCORE_Temperature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overload.
+        /// </summary>
+        public static string Overload {
+            get {
+                return ResourceManager.GetString("Overload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OverTemp.
+        /// </summary>
+        public static string OverTemp {
+            get {
+                return ResourceManager.GetString("OverTemp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Part_Detected.
+        /// </summary>
+        public static string Part_UNDERSCORE_Detected {
+            get {
+                return ResourceManager.GetString("Part_UNDERSCORE_Detected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Peak_Overload_Negative.
+        /// </summary>
+        public static string Peak_UNDERSCORE_Overload_UNDERSCORE_Negative {
+            get {
+                return ResourceManager.GetString("Peak_UNDERSCORE_Overload_UNDERSCORE_Negative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Peak_Overload_Positive.
+        /// </summary>
+        public static string Peak_UNDERSCORE_Overload_UNDERSCORE_Positive {
+            get {
+                return ResourceManager.GetString("Peak_UNDERSCORE_Overload_UNDERSCORE_Positive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power_Not_OK.
+        /// </summary>
+        public static string Power_UNDERSCORE_Not_UNDERSCORE_OK {
+            get {
+                return ResourceManager.GetString("Power_UNDERSCORE_Not_UNDERSCORE_OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power_Regulation.
+        /// </summary>
+        public static string Power_UNDERSCORE_Regulation {
+            get {
+                return ResourceManager.GetString("Power_UNDERSCORE_Regulation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PowerOK.
+        /// </summary>
+        public static string PowerOK {
+            get {
+                return ResourceManager.GetString("PowerOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PressPartStatus_Bad_hi.
+        /// </summary>
+        public static string PressPartStatus_UNDERSCORE_Bad_UNDERSCORE_hi {
+            get {
+                return ResourceManager.GetString("PressPartStatus_UNDERSCORE_Bad_UNDERSCORE_hi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PressPartStatus_Bad_lo.
+        /// </summary>
+        public static string PressPartStatus_UNDERSCORE_Bad_UNDERSCORE_lo {
+            get {
+                return ResourceManager.GetString("PressPartStatus_UNDERSCORE_Bad_UNDERSCORE_lo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PressPartStatus_Sus_hi.
+        /// </summary>
+        public static string PressPartStatus_UNDERSCORE_Sus_UNDERSCORE_hi {
+            get {
+                return ResourceManager.GetString("PressPartStatus_UNDERSCORE_Sus_UNDERSCORE_hi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PressPartStatus_Sus_lo.
+        /// </summary>
+        public static string PressPartStatus_UNDERSCORE_Sus_UNDERSCORE_lo {
+            get {
+                return ResourceManager.GetString("PressPartStatus_UNDERSCORE_Sus_UNDERSCORE_lo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PreTrigger_OverTravel.
+        /// </summary>
+        public static string PreTrigger_UNDERSCORE_OverTravel {
+            get {
+                return ResourceManager.GetString("PreTrigger_UNDERSCORE_OverTravel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PreTrigger_Time.
+        /// </summary>
+        public static string PreTrigger_UNDERSCORE_Time {
+            get {
+                return ResourceManager.GetString("PreTrigger_UNDERSCORE_Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Progress.
+        /// </summary>
+        public static string Progress {
+            get {
+                return ResourceManager.GetString("Progress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ready.
+        /// </summary>
+        public static string Ready {
+            get {
+                return ResourceManager.GetString("Ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RealTimeAmplitude.
+        /// </summary>
+        public static string RealTimeAmplitude {
+            get {
+                return ResourceManager.GetString("RealTimeAmplitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RealTimeFrequency.
+        /// </summary>
+        public static string RealTimeFrequency {
+            get {
+                return ResourceManager.GetString("RealTimeFrequency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RealTimePosition.
+        /// </summary>
+        public static string RealTimePosition {
+            get {
+                return ResourceManager.GetString("RealTimePosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RealTimePower.
+        /// </summary>
+        public static string RealTimePower {
+            get {
+                return ResourceManager.GetString("RealTimePower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RealTimeVelocity.
+        /// </summary>
+        public static string RealTimeVelocity {
+            get {
+                return ResourceManager.GetString("RealTimeVelocity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required probe number.
+        /// </summary>
+        public static string Required_probe_number {
+            get {
+                return ResourceManager.GetString("Required_probe_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required setup number.
+        /// </summary>
+        public static string Required_setup_number {
+            get {
+                return ResourceManager.GetString("Required_setup_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required welding time.
+        /// </summary>
+        public static string Required_welding_time {
+            get {
+                return ResourceManager.GetString("Required_welding_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run welding with time.
+        /// </summary>
+        public static string Run_welding_with_time {
+            get {
+                return ResourceManager.GetString("Run_welding_with_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RunContinuously.
+        /// </summary>
+        public static string RunContinuously {
+            get {
+                return ResourceManager.GetString("RunContinuously", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RunningMPCProbe.
+        /// </summary>
+        public static string RunningMPCProbe {
+            get {
+                return ResourceManager.GetString("RunningMPCProbe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RunningMPCProbeSelection.
+        /// </summary>
+        public static string RunningMPCProbeSelection {
+            get {
+                return ResourceManager.GetString("RunningMPCProbeSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RunningSetup.
+        /// </summary>
+        public static string RunningSetup {
+            get {
+                return ResourceManager.GetString("RunningSetup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RunningSetupSelection.
+        /// </summary>
+        public static string RunningSetupSelection {
+            get {
+                return ResourceManager.GetString("RunningSetupSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RunScan.
+        /// </summary>
+        public static string RunScan {
+            get {
+                return ResourceManager.GetString("RunScan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RunTest.
+        /// </summary>
+        public static string RunTest {
+            get {
+                return ResourceManager.GetString("RunTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RunWeld.
+        /// </summary>
+        public static string RunWeld {
+            get {
+                return ResourceManager.GetString("RunWeld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to RunWeldingWithTimeTask timeout..
         /// </summary>
         public static string RunWeldingWithTimeTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("RunWeldingWithTimeTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SelectedInputVoltage.
+        /// </summary>
+        public static string SelectedInputVoltage {
+            get {
+                return ResourceManager.GetString("SelectedInputVoltage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Servo_DN_Limit.
+        /// </summary>
+        public static string Servo_UNDERSCORE_DN_UNDERSCORE_Limit {
+            get {
+                return ResourceManager.GetString("Servo_UNDERSCORE_DN_UNDERSCORE_Limit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Servo_TOS_Position.
+        /// </summary>
+        public static string Servo_UNDERSCORE_TOS_UNDERSCORE_Position {
+            get {
+                return ResourceManager.GetString("Servo_UNDERSCORE_TOS_UNDERSCORE_Position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SetupChanged.
+        /// </summary>
+        public static string SetupChanged {
+            get {
+                return ResourceManager.GetString("SetupChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suspect_Part.
+        /// </summary>
+        public static string Suspect_UNDERSCORE_Part {
+            get {
+                return ResourceManager.GetString("Suspect_UNDERSCORE_Part", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SuspectPart.
+        /// </summary>
+        public static string SuspectPart {
+            get {
+                return ResourceManager.GetString("SuspectPart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SuspectPartCount.
+        /// </summary>
+        public static string SuspectPartCount {
+            get {
+                return ResourceManager.GetString("SuspectPartCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SystemErrorStatus.
+        /// </summary>
+        public static string SystemErrorStatus {
+            get {
+                return ResourceManager.GetString("SystemErrorStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SystemInitiateError.
+        /// </summary>
+        public static string SystemInitiateError {
+            get {
+                return ResourceManager.GetString("SystemInitiateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SystemProcessError.
+        /// </summary>
+        public static string SystemProcessError {
+            get {
+                return ResourceManager.GetString("SystemProcessError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SystemStatus.
+        /// </summary>
+        public static string SystemStatus {
+            get {
+                return ResourceManager.GetString("SystemStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task timeout.
+        /// </summary>
+        public static string Task_timeout {
+            get {
+                return ResourceManager.GetString("Task_timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temperature.
+        /// </summary>
+        public static string Temperature {
+            get {
+                return ResourceManager.GetString("Temperature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TotalCycleTime.
+        /// </summary>
+        public static string TotalCycleTime {
+            get {
+                return ResourceManager.GetString("TotalCycleTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TotalWeldDistance.
+        /// </summary>
+        public static string TotalWeldDistance {
+            get {
+                return ResourceManager.GetString("TotalWeldDistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TotalWeldEnergy.
+        /// </summary>
+        public static string TotalWeldEnergy {
+            get {
+                return ResourceManager.GetString("TotalWeldEnergy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TotalWeldTime.
+        /// </summary>
+        public static string TotalWeldTime {
+            get {
+                return ResourceManager.GetString("TotalWeldTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trigger_Delay.
+        /// </summary>
+        public static string Trigger_UNDERSCORE_Delay {
+            get {
+                return ResourceManager.GetString("Trigger_UNDERSCORE_Delay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trigger_Lost_Early.
+        /// </summary>
+        public static string Trigger_UNDERSCORE_Lost_UNDERSCORE_Early {
+            get {
+                return ResourceManager.GetString("Trigger_UNDERSCORE_Lost_UNDERSCORE_Early", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trigger_Lost_Weld.
+        /// </summary>
+        public static string Trigger_UNDERSCORE_Lost_UNDERSCORE_Weld {
+            get {
+                return ResourceManager.GetString("Trigger_UNDERSCORE_Lost_UNDERSCORE_Weld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trigger_Status.
+        /// </summary>
+        public static string Trigger_UNDERSCORE_Status {
+            get {
+                return ResourceManager.GetString("Trigger_UNDERSCORE_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trigger_Time.
+        /// </summary>
+        public static string Trigger_UNDERSCORE_Time {
+            get {
+                return ResourceManager.GetString("Trigger_UNDERSCORE_Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TriggerDelayDistance.
+        /// </summary>
+        public static string TriggerDelayDistance {
+            get {
+                return ResourceManager.GetString("TriggerDelayDistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TriggerDelayTime.
+        /// </summary>
+        public static string TriggerDelayTime {
+            get {
+                return ResourceManager.GetString("TriggerDelayTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TriggerForce.
+        /// </summary>
+        public static string TriggerForce {
+            get {
+                return ResourceManager.GetString("TriggerForce", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TriggerPosition.
+        /// </summary>
+        public static string TriggerPosition {
+            get {
+                return ResourceManager.GetString("TriggerPosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TriggerPressure.
+        /// </summary>
+        public static string TriggerPressure {
+            get {
+                return ResourceManager.GetString("TriggerPressure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TriggerTime.
+        /// </summary>
+        public static string TriggerTime {
+            get {
+                return ResourceManager.GetString("TriggerTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Under_Voltage_1.
+        /// </summary>
+        public static string Under_UNDERSCORE_Voltage_UNDERSCORE__ONE_ {
+            get {
+                return ResourceManager.GetString("Under_UNDERSCORE_Voltage_UNDERSCORE__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update diagnostics.
+        /// </summary>
+        public static string Update_diagnostics {
+            get {
+                return ResourceManager.GetString("Update_diagnostics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UpperBadEnergyLimit.
+        /// </summary>
+        public static string UpperBadEnergyLimit {
+            get {
+                return ResourceManager.GetString("UpperBadEnergyLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UpperBadPowerLimit.
+        /// </summary>
+        public static string UpperBadPowerLimit {
+            get {
+                return ResourceManager.GetString("UpperBadPowerLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UpperBadTimeLimit.
+        /// </summary>
+        public static string UpperBadTimeLimit {
+            get {
+                return ResourceManager.GetString("UpperBadTimeLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UpperSuspectEnergyLimit.
+        /// </summary>
+        public static string UpperSuspectEnergyLimit {
+            get {
+                return ResourceManager.GetString("UpperSuspectEnergyLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UpperSuspectPowerLimit.
+        /// </summary>
+        public static string UpperSuspectPowerLimit {
+            get {
+                return ResourceManager.GetString("UpperSuspectPowerLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UpperSuspectTimeLimit.
+        /// </summary>
+        public static string UpperSuspectTimeLimit {
+            get {
+                return ResourceManager.GetString("UpperSuspectTimeLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to US_Status.
+        /// </summary>
+        public static string US_UNDERSCORE_Status {
+            get {
+                return ResourceManager.GetString("US_UNDERSCORE_Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to US_Voltage_Overload.
+        /// </summary>
+        public static string US_UNDERSCORE_Voltage_UNDERSCORE_Overload {
+            get {
+                return ResourceManager.GetString("US_UNDERSCORE_Voltage_UNDERSCORE_Overload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weld1Distance.
+        /// </summary>
+        public static string Weld_ONE_Distance {
+            get {
+                return ResourceManager.GetString("Weld_ONE_Distance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weld1Energy.
+        /// </summary>
+        public static string Weld_ONE_Energy {
+            get {
+                return ResourceManager.GetString("Weld_ONE_Energy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weld1PeakForce.
+        /// </summary>
+        public static string Weld_ONE_PeakForce {
+            get {
+                return ResourceManager.GetString("Weld_ONE_PeakForce", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weld1Position.
+        /// </summary>
+        public static string Weld_ONE_Position {
+            get {
+                return ResourceManager.GetString("Weld_ONE_Position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weld1Power.
+        /// </summary>
+        public static string Weld_ONE_Power {
+            get {
+                return ResourceManager.GetString("Weld_ONE_Power", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weld1Time.
+        /// </summary>
+        public static string Weld_ONE_Time {
+            get {
+                return ResourceManager.GetString("Weld_ONE_Time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weld2Distance.
+        /// </summary>
+        public static string Weld_TWO_Distance {
+            get {
+                return ResourceManager.GetString("Weld_TWO_Distance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weld2Energy.
+        /// </summary>
+        public static string Weld_TWO_Energy {
+            get {
+                return ResourceManager.GetString("Weld_TWO_Energy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weld2Position.
+        /// </summary>
+        public static string Weld_TWO_Position {
+            get {
+                return ResourceManager.GetString("Weld_TWO_Position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weld2Power.
+        /// </summary>
+        public static string Weld_TWO_Power {
+            get {
+                return ResourceManager.GetString("Weld_TWO_Power", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weld2Time.
+        /// </summary>
+        public static string Weld_TWO_Time {
+            get {
+                return ResourceManager.GetString("Weld_TWO_Time", resourceCulture);
             }
         }
     }

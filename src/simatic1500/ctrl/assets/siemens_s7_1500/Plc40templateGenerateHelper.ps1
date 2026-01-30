@@ -1,7 +1,0 @@
-apax hwc generate-template-file --order-number "6ES7 511-1AL03-0AB0" --version "V4.0" --output "6ES7511-1AL03-0AB0_v4_0.hwl.yml" --template-name "6ES7511-1AL03-0AB0_v4_0"
-apax hwc generate-template-file --order-number "6ES7 513-1AM03-0AB0" --version "V4.0" --output "6ES7513-1AM03-0AB0_v4_0.hwl.yml" --template-name "6ES7513-1AM03-0AB0_v4_0"
-apax hwc generate-template-file --order-number "6ES7 515-2AN03-0AB0" --version "V4.0" --output "6ES7515-2AN03-0AB0_v4_0.hwl.yml" --template-name "6ES7515-2AN03-0AB0_v4_0"
-apax hwc generate-template-file --order-number "6ES7 516-3AP03-0AB0" --version "V4.0" --output "6ES7516-3AP03-0AB0_v4_0.hwl.yml" --template-name "6ES7516-3AP03-0AB0_v4_0"
-apax hwc generate-template-file --order-number "6ES7 517-3AQ10-0AB0" --version "V4.0" --output "6ES7517-3AQ10-0AB0_v4_0.hwl.yml" --template-name "6ES7517-3AQ10-0AB0_v4_0"
-apax hwc generate-template-file --order-number "6ES7 587-1AP00-0AB0" --version "V4.0" --output "6ES7587-1AP00-0AB0_v4_0.hwl.yml" --template-name "6ES7587-1AP00-0AB0_v4_0"
-apax hwc generate-template-file --order-number "6ES7 518-3AT10-0AB0" --version "V4.0" --output "6ES7518-3AT10-0AB0_v4_0.hwl.yml" --template-name "6ES7518-3AT10-0AB0_v4_0"

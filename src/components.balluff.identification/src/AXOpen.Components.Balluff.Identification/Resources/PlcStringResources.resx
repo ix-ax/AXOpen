@@ -78,4 +78,228 @@
     <value>WriteCharToMemoryTask timeout.</value>
     <comment>src\Axo_BIS_M_4XX_045.st,1064</comment>
   </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,72</comment>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Read</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,77</comment>
+  </data>
+  <data name="Read_address" xml:space="preserve">
+    <value>Read address</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,80</comment>
+  </data>
+  <data name="Number_of_bytes_to_read" xml:space="preserve">
+    <value>Number of bytes to read</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,83</comment>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Write</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,87</comment>
+  </data>
+  <data name="Write_address" xml:space="preserve">
+    <value>Write address</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,90</comment>
+  </data>
+  <data name="Data_to_write" xml:space="preserve">
+    <value>Data to write</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,93</comment>
+  </data>
+  <data name="Reset_communication" xml:space="preserve">
+    <value>Reset communication</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,97</comment>
+  </data>
+  <data name="Reset_reader" xml:space="preserve">
+    <value>Reset reader</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,101</comment>
+  </data>
+  <data name="Write_char_to_memory" xml:space="preserve">
+    <value>Write char to memory</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,105</comment>
+  </data>
+  <data name="Character_to_write_to_memory" xml:space="preserve">
+    <value>Character to write to memory</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,108</comment>
+  </data>
+  <data name="Address_to_write" xml:space="preserve">
+    <value>Address to write</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,111</comment>
+  </data>
+  <data name="Number_of_bytes_to_write" xml:space="preserve">
+    <value>Number of bytes to write</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,114</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,139</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,145</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\Axo_BIS_M_4XX_045.st,153</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st,9</comment>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware IDs</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st,11</comment>
+  </data>
+  <data name="Start_address" xml:space="preserve">
+    <value>Start address</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st,13</comment>
+  </data>
+  <data name="Rfid_code_size" xml:space="preserve">
+    <value>Rfid code size</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Config.st,15</comment>
+  </data>
+  <data name="BitHeader_ONE__Job" xml:space="preserve">
+    <value>BitHeader1 Job</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,7</comment>
+  </data>
+  <data name="BitHeader_ONE__Reserve_ZERO_" xml:space="preserve">
+    <value>BitHeader1 Reserve0</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,9</comment>
+  </data>
+  <data name="qBitHeader_ONE__GroundState" xml:space="preserve">
+    <value>qBitHeader1 GroundState</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,11</comment>
+  </data>
+  <data name="BitHeader_ONE__Reserve_ONE_" xml:space="preserve">
+    <value>BitHeader1 Reserve1</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,13</comment>
+  </data>
+  <data name="BitHeader_ONE__Reserve_TWO_" xml:space="preserve">
+    <value>BitHeader1 Reserve2</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,15</comment>
+  </data>
+  <data name="qBitHeader_ONE__HeadOnOff" xml:space="preserve">
+    <value>qBitHeader1 HeadOnOff</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,17</comment>
+  </data>
+  <data name="qBitHeader_ONE__ToggleBit" xml:space="preserve">
+    <value>qBitHeader1 ToggleBit</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,19</comment>
+  </data>
+  <data name="BitHeader_ONE__Reserve_THREE_" xml:space="preserve">
+    <value>BitHeader1 Reserve3</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,21</comment>
+  </data>
+  <data name="Command_designator" xml:space="preserve">
+    <value>Command designator</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,26</comment>
+  </data>
+  <data name="Number__of_bytes" xml:space="preserve">
+    <value>Number  of bytes</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,30</comment>
+  </data>
+  <data name="BitHeader_TWO__Job" xml:space="preserve">
+    <value>BitHeader2 Job</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,38</comment>
+  </data>
+  <data name="BitHeader_TWO__Reserve_ZERO_" xml:space="preserve">
+    <value>BitHeader2 Reserve0</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,40</comment>
+  </data>
+  <data name="qBitHeader_TWO__GroundState" xml:space="preserve">
+    <value>qBitHeader2 GroundState</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,42</comment>
+  </data>
+  <data name="BitHeader_TWO__Reserve_ONE_" xml:space="preserve">
+    <value>BitHeader2 Reserve1</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,44</comment>
+  </data>
+  <data name="BitHeader_TWO__Reserve_TWO_" xml:space="preserve">
+    <value>BitHeader2 Reserve2</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,46</comment>
+  </data>
+  <data name="qBitHeader_TWO__HeadOnOff" xml:space="preserve">
+    <value>qBitHeader2 HeadOnOff</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,48</comment>
+  </data>
+  <data name="qBitHeader_TWO__ToggleBit" xml:space="preserve">
+    <value>qBitHeader2 ToggleBit</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,50</comment>
+  </data>
+  <data name="BitHeader_TWO__Reserve_THREE_" xml:space="preserve">
+    <value>BitHeader2 Reserve3</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_Control.st,52</comment>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>Hardware ID of the device</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_HWIDs.st,5</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_BISM_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'BISM' submodule</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_HWIDs.st,7</comment>
+  </data>
+  <data name="BitHeader_ONE__CodeTagPresent" xml:space="preserve">
+    <value>BitHeader1 CodeTagPresent</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st,7</comment>
+  </data>
+  <data name="BitHeader_ONE__JobAccepted" xml:space="preserve">
+    <value>BitHeader1 JobAccepted</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st,9</comment>
+  </data>
+  <data name="BitHeader_ONE__JobEnd" xml:space="preserve">
+    <value>BitHeader1 JobEnd</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st,11</comment>
+  </data>
+  <data name="BitHeader_ONE__JobError" xml:space="preserve">
+    <value>BitHeader1 JobError</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st,13</comment>
+  </data>
+  <data name="BitHeader_ONE__ToggleBit" xml:space="preserve">
+    <value>BitHeader1 ToggleBit</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st,17</comment>
+  </data>
+  <data name="BitHeader_ONE__HeadFailure" xml:space="preserve">
+    <value>BitHeader1 HeadFailure</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st,19</comment>
+  </data>
+  <data name="BitHeader_ONE__Power" xml:space="preserve">
+    <value>BitHeader1 Power</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st,21</comment>
+  </data>
+  <data name="BitHeader_TWO__CodeTagPresent" xml:space="preserve">
+    <value>BitHeader2 CodeTagPresent</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st,39</comment>
+  </data>
+  <data name="BitHeader_TWO__JobAccepted" xml:space="preserve">
+    <value>BitHeader2 JobAccepted</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st,41</comment>
+  </data>
+  <data name="BitHeader_TWO__JobEnd" xml:space="preserve">
+    <value>BitHeader2 JobEnd</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st,43</comment>
+  </data>
+  <data name="BitHeader_TWO__JobError" xml:space="preserve">
+    <value>BitHeader2 JobError</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st,45</comment>
+  </data>
+  <data name="BitHeader_TWO__ToggleBit" xml:space="preserve">
+    <value>BitHeader2 ToggleBit</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st,49</comment>
+  </data>
+  <data name="BitHeader_TWO__HeadFailure" xml:space="preserve">
+    <value>BitHeader2 HeadFailure</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st,51</comment>
+  </data>
+  <data name="BitHeader_TWO__Power" xml:space="preserve">
+    <value>BitHeader2 Power</value>
+    <comment>src\Axo_BIS_M_4XX_045_Datatypes\Axo_BIS_M_4XX_045_State.st,53</comment>
+  </data>
 </root>

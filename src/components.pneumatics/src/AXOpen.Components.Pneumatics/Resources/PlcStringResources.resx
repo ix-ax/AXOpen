@@ -58,4 +58,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Move_in" xml:space="preserve">
+    <value>Move in</value>
+    <comment>src\AxoCylinder.st,19</comment>
+  </data>
+  <data name="Move_out" xml:space="preserve">
+    <value>Move out</value>
+    <comment>src\AxoCylinder.st,23</comment>
+  </data>
+  <data name="In_sensor" xml:space="preserve">
+    <value>In sensor</value>
+    <comment>src\AxoCylinder.st,29</comment>
+  </data>
+  <data name="Out_sensor" xml:space="preserve">
+    <value>Out sensor</value>
+    <comment>src\AxoCylinder.st,34</comment>
+  </data>
+  <data name="Move_in_signal" xml:space="preserve">
+    <value>Move in signal</value>
+    <comment>src\AxoCylinder.st,40</comment>
+  </data>
+  <data name="Move_out_signal" xml:space="preserve">
+    <value>Move out signal</value>
+    <comment>src\AxoCylinder.st,45</comment>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stop</value>
+    <comment>src\AxoCylinder.st,49</comment>
+  </data>
 </root>

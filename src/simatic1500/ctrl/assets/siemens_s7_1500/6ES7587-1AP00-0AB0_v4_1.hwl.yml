@@ -1,22 +1,38 @@
 Templates:
   Modules:
-  - Name: '6ES7511-1AL03-0AB0_v4_0'
+  - Name: '6ES7587-1AP00-0AB0_v4_1'
     Placeholders:
     - Name: 'NAME'
+      Value: 'PLC_1'
     - Name: 'IP_ADDRESS_X1'
       Value: '192.168.0.1/24'
     - Name: 'PROFINET_DEVICE_NAME_X1'
-      Value: 'plc_1.profinet interface_1'
+      Value: 'plc_1'
     - Name: ADMIN_NAME
-      Value: 'admin'
+      Value: admin
     - Name: CYCLE_COMMUNICATION_LOAD
-      Value: 50
+      Value: 20
     Content:
       Name: '${NAME}'
       TypeIdentifier:
-        OrderNumber: '6ES7 511-1AL03-0AB0'
-        Version: 'V4.0'
+        OrderNumber: '6ES7 587-1AP00-0AB0'
+        Version: 'V4.1'
       Services:
+      - Name: 'IDeviceServiceName'
+        Type: 'IDevice'
+        Enabled: False
+        Parameters:
+          ParameterAssignmentOfPnInterfaceByHigherLevelIoController: False
+          AssetManagementViaUserProgram: False
+        Interfaces:
+        # - Ref: 'Device/PLC_1/PROFINET_interface_1'
+        TransferAreas:
+        # - Name: 'iodata_I_consume'
+        #   Length: 1
+        #   Type: 'Input'
+        # - Name: 'iodata_I_provide'
+        #   Length: 1
+        #   Type: 'Output'
       - Type: 'WebServer'
         Enabled: True
         Parameters:
@@ -26,8 +42,6 @@ Templates:
         Parameters:
           # Possible values: NoSecurity | Basic256Sha256Sign | Basic256Sha256SignEncrypt
           SecurityPolicies:
-          - 'NoSecurity'
-          - 'Basic256Sha256Sign'
           - 'Basic256Sha256SignEncrypt'
           AutoAcceptAllClientCertificates: True
           # Possible value range: [1024, 49151]
@@ -35,6 +49,7 @@ Templates:
           # AlarmsAndConditionsAcknowledgeActive (Boolean)
           AlarmsAndConditionsEnable: False
           # AlarmsAndConditionsActiveMultilingual (Boolean)
+          ApplicationUri: 'urn:SIMATIC:'
       - Type: 'Syslog'
         Enabled: False
         Parameters:
@@ -53,10 +68,9 @@ Templates:
           - IPv4: '${IP_ADDRESS_X1}'
           - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
         Parameters:
-          LoadLimitation: True
+          LoadLimitation: False
           OverwriteDeviceNames: False
           DeviceReplacementWithoutExchangeableMedium: True
-          # Possible values: 250000 | 375000 | 500000 | 625000 | 750000 | 875000 | 1000000 | 1125000 | 1250000 | 1375000 | 1500000 | 1625000 | 1750000 | 1875000 | 2000000 | 2125000 | 2250000 | 2375000 | 2500000 | 2625000 | 2750000 | 2875000 | 3000000 | 3125000 | 3250000 | 3375000 | 3500000 | 3625000 | 3750000 | 3875000 | 4000000
           PnSendClock: 1000000
           UseWebServerForInterface: True
           IECV22LLDPMode: False
@@ -72,18 +86,14 @@ Templates:
           PortMonitoring: False
           # TransmissionRateAutoNegotiation: True
           # MediumAttachmentType: 'Copper'
-      - Name: 'Port_2'
-        Label: 'X1 P2'
-        Parameters:
-          PortActivation: True
-          # Possible values: 16 - TP 100 Mbps full duplex | 8 - Automatic
-          TransmissionRateAndDuplex: 'Automatic'
-          EndOfDetectionOfAccessibleDevices: False
-          EndOfTopologyDiscovery: False
-          PortMonitoring: False
-          # TransmissionRateAutoNegotiation: True
-          # MediumAttachmentType: 'Copper'
       Parameters:
+        EnableLockUserAccountAtRunTime: True
+        # Possible value range: [1, 99]
+        NumberOfFailedLoginAttempts: 5
+        # Possible value range: [1, 30]
+        LoginRetryInterval: 2
+        # Possible value range: [1, 60]
+        LockAccountForDuration: 2
         # Possible values: 0 - Deactivated | 4 - Device | 1 - Project | 2 - Remotely
         PnDnsConfigNameResolve: 'Deactivated'
         SNMPActive: False
@@ -140,11 +150,11 @@ Templates:
         TimeOfDayStandardTimeStartWeek: 'Last'
         # Possible values: 1 - Sunday | 2 - Monday | 3 - Tuesday | 4 - Wednesday | 5 - Thursday | 6 - Friday | 7 - Saturday
         TimeOfDayStandardTimeStartWeekday: 'Sunday'
-        # TimeSynchronizationServer1 (String)
-        # TimeSynchronizationServer2 (String)
-        # TimeSynchronizationServer3 (String)
-        # TimeSynchronizationServer4 (String)
-        # TimeSynchronizationUpdateInterval (Integer)
+        TimeSynchronizationServer1: ""
+        TimeSynchronizationServer2: ""
+        TimeSynchronizationServer3: ""
+        TimeSynchronizationServer4: ""
+        TimeSynchronizationUpdateInterval: 10
         CentralAlarmManagement: True
         # Possible values: 0 - NoLicense | 1 - SimaticOpcUaS71500Small | 2 - SimaticOpcUaS71500Medium | 3 - SimaticOpcUaS71500Large
         OpcUaPurchasedLicense: 'NoLicense'
@@ -160,6 +170,12 @@ Templates:
         # HostnameConfiguration (Integer)
         # HostnameIdenticalToDeviceNameActive (Boolean)
         # Domain (String)
+        # AmbientTemperature (Integer)
+        # Possible values: 0 - DefaultPerformance | 1 - PerformanceBoost25Percent
+        PerformanceBoost: 'DefaultPerformance'
+        # CirModeIsEnabled (Boolean)
+        # CirProfinetNetworkCalculation (Integer)
+        # CirState (Integer)
       UserManagement:
         Users:
         # UserManagement parameters listed below are intended as a sample. It is essential to adjust these settings according to your specific requirements before using them in your project.
@@ -182,6 +198,9 @@ Templates:
             - 'AccessProtectionReadAccess'
             - 'OpcUAServerAccess'
             - 'OpcUAManageCertificates'
+            - 'ManageUserDefinedWebPages'
+            - 'OpenUserDefinedWebPages'
+            - 'WriteUserDefinedWebPages'
           - Name: 'WebServerAccessRole'
             FunctionRights:
             - 'ReadPlcVariables'
@@ -195,17 +214,3 @@ Templates:
         Parameters:
           DiagnosticsAgingSimaticMemoryCard: False
           # DiagnosticsAgingSimaticMemoryCardThreshold (Integer)
-      - Name: 'CPU_display_1'
-        Slot: 3
-        Parameters:
-          # Possible values: 0 - English | 1 - German | 2 - Italian | 3 - French | 4 - Spanish | 5 - ChineseSimplified | 6 - Japanese | 7 - Korean | 8 - Russian | 9 - Turkish | 10 - PortugueseBrazil
-          DisplayDefaultLanguage: 'English'
-          # Possible values: 0 - Disabled | 30 - Value30Seconds | 60 - Value1Minute | 120 - Value2Minutes | 300 - Value5Minutes | 600 - Value10Minutes | 900 - Value15Minutes | 1800 - Value30Minutes
-          DisplayTimeToEnergySavingMode: 'Value15Minutes'
-          # Possible values: 0 - Disabled | 30 - Value30Seconds | 60 - Value1Minute | 120 - Value2Minutes | 300 - Value5Minutes | 600 - Value10Minutes | 900 - Value15Minutes | 1800 - Value30Minutes
-          DisplayTimeToStandbyMode: 'Value30Minutes'
-          # Possible values: 0 - Disabled | 1 - Value1Second | 2 - Value2Seconds | 3 - Value3Seconds | 4 - Value4Seconds | 5 - Value5Seconds | 10 - Value10Seconds | 15 - Value15Seconds | 30 - Value30Seconds | 60 - Value1Minute | 120 - Value2Minutes | 300 - Value5Minutes
-          DisplayUpdateInterval: 'Value5Seconds'
-          # DisplayAutoLogOffTime (Integer)
-          DisplayProtection: False
-          DisplayWriteAccess: True

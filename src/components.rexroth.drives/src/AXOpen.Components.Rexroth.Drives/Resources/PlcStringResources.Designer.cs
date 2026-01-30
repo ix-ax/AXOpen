@@ -61,6 +61,306 @@ namespace AXOpen.Components.Rexroth.Drives.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to _bit4_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_FOUR__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_FOUR__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit9_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_NINE__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_NINE__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit15_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ONE__FIVE__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ONE__FIVE__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit14_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ONE__FOUR__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ONE__FOUR__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit11_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ONE__ONE__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ONE__ONE__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit13_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ONE__THREE__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ONE__THREE__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit12_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ONE__TWO__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ONE__TWO__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit1_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ONE__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ONE__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit10_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ONE__ZERO__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ONE__ZERO__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit7_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_SEVEN__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_SEVEN__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit6_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_SIX__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_SIX__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit3_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_THREE__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_THREE__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit2_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_TWO__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_TWO__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit05_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ZERO__FIVE__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ZERO__FIVE__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit04_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ZERO__FOUR__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ZERO__FOUR__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit01_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ZERO__ONE__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ZERO__ONE__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit07_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ZERO__SEVEN__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ZERO__SEVEN__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit06_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ZERO__SIX__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ZERO__SIX__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit03_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ZERO__THREE__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ZERO__THREE__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit02_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ZERO__TWO__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ZERO__TWO__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit0_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ZERO__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ZERO__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _bit00_Reserve.
+        /// </summary>
+        public static string _UNDERSCORE_bit_ZERO__ZERO__UNDERSCORE_Reserve {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_bit_ZERO__ZERO__UNDERSCORE_Reserve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _State.
+        /// </summary>
+        public static string _UNDERSCORE_State {
+            get {
+                return ResourceManager.GetString("_UNDERSCORE_State", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Absolute/Relative type of positioning command value.
+        /// </summary>
+        public static string Absolute_SLASH_Relative_type_of_positioning_command_value {
+            get {
+                return ResourceManager.GetString("Absolute_SLASH_Relative_type_of_positioning_command_value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Acceptance of positioning command value.
+        /// </summary>
+        public static string Acceptance_of_positioning_command_value {
+            get {
+                return ResourceManager.GetString("Acceptance_of_positioning_command_value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activate configuration mode.
+        /// </summary>
+        public static string Activate_configuration_mode {
+            get {
+                return ResourceManager.GetString("Activate_configuration_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activate operation mode.
+        /// </summary>
+        public static string Activate_operation_mode {
+            get {
+                return ResourceManager.GetString("Activate_operation_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActualOperatingModeBit1.
+        /// </summary>
+        public static string ActualOperatingModeBit_ONE_ {
+            get {
+                return ResourceManager.GetString("ActualOperatingModeBit_ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActualOperatingModeBit2.
+        /// </summary>
+        public static string ActualOperatingModeBit_TWO_ {
+            get {
+                return ResourceManager.GetString("ActualOperatingModeBit_TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActualOperatingModeBit0.
+        /// </summary>
+        public static string ActualOperatingModeBit_ZERO_ {
+            get {
+                return ResourceManager.GetString("ActualOperatingModeBit_ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActualPosition_S_0_0386_0_0.
+        /// </summary>
+        public static string ActualPosition_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__EIGHT__SIX__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("ActualPosition_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__EIGHT__SIX" +
+                        "__UNDERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActualTorque_S_0_0084_0_0.
+        /// </summary>
+        public static string ActualTorque_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("ActualTorque_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__FOUR__" +
+                        "UNDERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ActualVelocity_S_0_0535_0_0.
+        /// </summary>
+        public static string ActualVelocity_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__FIVE__THREE__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("ActualVelocity_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__FIVE__THREE__FIVE" +
+                        "__UNDERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AxoHalt_Task timeout..
         /// </summary>
         public static string AxoHalt_UNDERSCORE_Task_timeout_DOT_ {
@@ -129,6 +429,958 @@ namespace AXOpen.Components.Rexroth.Drives.Resources {
         public static string AxoStop_UNDERSCORE_Task_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("AxoStop_UNDERSCORE_Task_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bb contact.
+        /// </summary>
+        public static string Bb_contact {
+            get {
+                return ResourceManager.GetString("Bb_contact", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BipolarTorqueLimitation_S_0_0092_0_0.
+        /// </summary>
+        public static string BipolarTorqueLimitation_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__NINE__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("BipolarTorqueLimitation_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__NI" +
+                        "NE__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Braking resistor.
+        /// </summary>
+        public static string Braking_resistor {
+            get {
+                return ResourceManager.GetString("Braking_resistor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CancelReferencePoint.
+        /// </summary>
+        public static string CancelReferencePoint {
+            get {
+                return ResourceManager.GetString("CancelReferencePoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear error.
+        /// </summary>
+        public static string Clear_error {
+            get {
+                return ResourceManager.GetString("Clear_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Command change bit.
+        /// </summary>
+        public static string Command_change_bit {
+            get {
+                return ResourceManager.GetString("Command_change_bit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Command operation mode Bit 1.
+        /// </summary>
+        public static string Command_operation_mode_Bit__ONE_ {
+            get {
+                return ResourceManager.GetString("Command_operation_mode_Bit__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Command operation mode Bit 2.
+        /// </summary>
+        public static string Command_operation_mode_Bit__TWO_ {
+            get {
+                return ResourceManager.GetString("Command_operation_mode_Bit__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Command operation mode Bit 0.
+        /// </summary>
+        public static string Command_operation_mode_Bit__ZERO_ {
+            get {
+                return ResourceManager.GetString("Command_operation_mode_Bit__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CommandAcceleration_S_0_0260_0_0.
+        /// </summary>
+        public static string CommandAcceleration_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__SIX__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("CommandAcceleration_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__SIX__ZE" +
+                        "RO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CommandDecceleration_S_0_0359_0_0.
+        /// </summary>
+        public static string CommandDecceleration_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__FIVE__NINE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("CommandDecceleration_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__FIVE" +
+                        "__NINE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CommandJerk_S_0_0193_0_0.
+        /// </summary>
+        public static string CommandJerk_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__NINE__THREE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("CommandJerk_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__NINE__THREE__UN" +
+                        "DERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CommandPosition_S_0_0282_0_0.
+        /// </summary>
+        public static string CommandPosition_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__EIGHT__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("CommandPosition_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__EIGHT__TWO_" +
+                        "_UNDERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CommandProcessingStatus.
+        /// </summary>
+        public static string CommandProcessingStatus {
+            get {
+                return ResourceManager.GetString("CommandProcessingStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CommandTorque_S_0_0080_0_0.
+        /// </summary>
+        public static string CommandTorque_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("CommandTorque_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__ZERO_" +
+                        "_UNDERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CommandVelocity_S_0_0259_0_0.
+        /// </summary>
+        public static string CommandVelocity_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__FIVE__NINE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("CommandVelocity_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__FIVE__NINE_" +
+                        "_UNDERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configuration/Parametrization/Operation bit 1.
+        /// </summary>
+        public static string Configuration_SLASH_Parametrization_SLASH_Operation_bit__ONE_ {
+            get {
+                return ResourceManager.GetString("Configuration_SLASH_Parametrization_SLASH_Operation_bit__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configuration/Parametrization/Operation bit 0.
+        /// </summary>
+        public static string Configuration_SLASH_Parametrization_SLASH_Operation_bit__ZERO_ {
+            get {
+                return ResourceManager.GetString("Configuration_SLASH_Parametrization_SLASH_Operation_bit__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Controlling DC bus charging and mains contactor.
+        /// </summary>
+        public static string Controlling_DC_bus_charging_and_mains_contactor {
+            get {
+                return ResourceManager.GetString("Controlling_DC_bus_charging_and_mains_contactor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Controlling the mains connection.
+        /// </summary>
+        public static string Controlling_the_mains_connection {
+            get {
+                return ResourceManager.GetString("Controlling_the_mains_connection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Controlling the ready for operation relay.
+        /// </summary>
+        public static string Controlling_the_ready_for_operation_relay {
+            get {
+                return ResourceManager.GetString("Controlling_the_ready_for_operation_relay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DC bus discharge.
+        /// </summary>
+        public static string DC_bus_discharge {
+            get {
+                return ResourceManager.GetString("DC_bus_discharge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DiagnosticMessage_S_0_0390_0_0.
+        /// </summary>
+        public static string DiagnosticMessage_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__NINE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("DiagnosticMessage_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__NINE__Z" +
+                        "ERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drive enable.
+        /// </summary>
+        public static string Drive_enable {
+            get {
+                return ResourceManager.GetString("Drive_enable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drive Halt.
+        /// </summary>
+        public static string Drive_Halt {
+            get {
+                return ResourceManager.GetString("Drive_Halt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drive On.
+        /// </summary>
+        public static string Drive_On {
+            get {
+                return ResourceManager.GetString("Drive_On", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drive standstill.
+        /// </summary>
+        public static string Drive_standstill {
+            get {
+                return ResourceManager.GetString("Drive_standstill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DriveControlWord.
+        /// </summary>
+        public static string DriveControlWord {
+            get {
+                return ResourceManager.GetString("DriveControlWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DriveControlWord_S_0_0134_0_0.
+        /// </summary>
+        public static string DriveControlWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("DriveControlWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FOU" +
+                        "R__UNDERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DriveErrorZKL1.
+        /// </summary>
+        public static string DriveErrorZKL_ONE_ {
+            get {
+                return ResourceManager.GetString("DriveErrorZKL_ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DriveStatusWord.
+        /// </summary>
+        public static string DriveStatusWord {
+            get {
+                return ResourceManager.GetString("DriveStatusWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DriveStatusWord_S_0_0135_0_0.
+        /// </summary>
+        public static string DriveStatusWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("DriveStatusWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FIVE" +
+                        "__UNDERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enabling.
+        /// </summary>
+        public static string Enabling {
+            get {
+                return ResourceManager.GetString("Enabling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error time.
+        /// </summary>
+        public static string Error_time {
+            get {
+                return ResourceManager.GetString("Error_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feedback of the preselected operation modes bit 1.
+        /// </summary>
+        public static string Feedback_of_the_preselected_operation_modes_bit__ONE_ {
+            get {
+                return ResourceManager.GetString("Feedback_of_the_preselected_operation_modes_bit__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feedback of the preselected operation modes bit 0.
+        /// </summary>
+        public static string Feedback_of_the_preselected_operation_modes_bit__ZERO_ {
+            get {
+                return ResourceManager.GetString("Feedback_of_the_preselected_operation_modes_bit__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware enable.
+        /// </summary>
+        public static string Hardware_enable {
+            get {
+                return ResourceManager.GetString("Hardware_enable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Inputs&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Inputs_APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Inputs_APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Outputs&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Outputs_APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Outputs_APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;P_0_0106_0_0__STO_function__Operating_status&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_P_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__ZERO__SIX__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_STO_UNDERSCORE_function_UNDERSCORE__UNDERSCORE_Operating_UNDERSCORE_status_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_P_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__ZERO__SIX__UND" +
+                        "ERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_STO_UNDERSCORE_function_" +
+                        "UNDERSCORE__UNDERSCORE_Operating_UNDERSCORE_status_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_1720_0_1__Power_supply_control__Control_word&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ONE__UNDERSCORE__UNDERSCORE_Power_UNDERSCORE_supply_UNDERSCORE_control_UNDERSCORE__UNDERSCORE_Control_UNDERSCORE_word_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__ZERO__UN" +
+                        "DERSCORE__ZERO__UNDERSCORE__ONE__UNDERSCORE__UNDERSCORE_Power_UNDERSCORE_supply_" +
+                        "UNDERSCORE_control_UNDERSCORE__UNDERSCORE_Control_UNDERSCORE_word_APOSTROPHE__su" +
+                        "bmodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_1720_0_2__Power_supply_control__Status_word&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__ZERO__UNDERSCORE__ZERO__UNDERSCORE__TWO__UNDERSCORE__UNDERSCORE_Power_UNDERSCORE_supply_UNDERSCORE_control_UNDERSCORE__UNDERSCORE_Status_UNDERSCORE_word_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__ZERO__UN" +
+                        "DERSCORE__ZERO__UNDERSCORE__TWO__UNDERSCORE__UNDERSCORE_Power_UNDERSCORE_supply_" +
+                        "UNDERSCORE_control_UNDERSCORE__UNDERSCORE_Status_UNDERSCORE_word_APOSTROPHE__sub" +
+                        "module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0535_0_0__Velocity_controller__Velocity_actual_value&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__FIVE__THREE__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Velocity_UNDERSCORE_controller_UNDERSCORE__UNDERSCORE_Velocity_UNDERSCORE_actual_UNDERSCORE_value_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString(@"Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__FIVE__THREE__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Velocity_UNDERSCORE_controller_UNDERSCORE__UNDERSCORE_Velocity_UNDERSCORE_actual_UNDERSCORE_value_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0145_0_0__Signal_control_word__Value&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Signal_UNDERSCORE_control_UNDERSCORE_word_UNDERSCORE__UNDERSCORE_Value_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FIVE__UN" +
+                        "DERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Signal_UNDERSCORE_contr" +
+                        "ol_UNDERSCORE_word_UNDERSCORE__UNDERSCORE_Value_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0144_0_0__Signal_status_word__Value&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Signal_UNDERSCORE_status_UNDERSCORE_word_UNDERSCORE__UNDERSCORE_Value_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FOUR__UN" +
+                        "DERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Signal_UNDERSCORE_statu" +
+                        "s_UNDERSCORE_word_UNDERSCORE__UNDERSCORE_Value_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0193_0_0__Positioning_jerk&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__NINE__THREE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE_jerk_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__NINE__THREE__U" +
+                        "NDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE" +
+                        "_jerk_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0135_0_0__Servodrive_profile__Status_word&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Servodrive_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Status_UNDERSCORE_word_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FIVE__U" +
+                        "NDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Servodrive_UNDERSCORE_" +
+                        "profile_UNDERSCORE__UNDERSCORE_Status_UNDERSCORE_word_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0134_0_0__Servodrive_profile__Control_word&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Servodrive_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Control_UNDERSCORE_word_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FOUR__U" +
+                        "NDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Servodrive_UNDERSCORE_" +
+                        "profile_UNDERSCORE__UNDERSCORE_Control_UNDERSCORE_word_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0386_0_0__Position_controller__Position_actual_value&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__EIGHT__SIX__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Position_UNDERSCORE_controller_UNDERSCORE__UNDERSCORE_Position_UNDERSCORE_actual_UNDERSCORE_value_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString(@"Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__EIGHT__SIX__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Position_UNDERSCORE_controller_UNDERSCORE__UNDERSCORE_Position_UNDERSCORE_actual_UNDERSCORE_value_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0359_0_0__Positioning_profile__Deceleration&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__FIVE__NINE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Deceleration_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__FIVE__NINE__" +
+                        "UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCOR" +
+                        "E_profile_UNDERSCORE__UNDERSCORE_Deceleration_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0390_0_0__Diagnostic_message__Manufacturer_status_register&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__NINE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Diagnostic_UNDERSCORE_message_UNDERSCORE__UNDERSCORE_Manufacturer_UNDERSCORE_status_UNDERSCORE_register_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString(@"Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__NINE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Diagnostic_UNDERSCORE_message_UNDERSCORE__UNDERSCORE_Manufacturer_UNDERSCORE_status_UNDERSCORE_register_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0282_0_0__Drive_controlled_positioning__Command_value&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__EIGHT__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Drive_UNDERSCORE_controlled_UNDERSCORE_positioning_UNDERSCORE__UNDERSCORE_Command_UNDERSCORE_value_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString(@"Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__EIGHT__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Drive_UNDERSCORE_controlled_UNDERSCORE_positioning_UNDERSCORE__UNDERSCORE_Command_UNDERSCORE_value_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0259_0_0__Positioning_profile__Profile_velocity&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__FIVE__NINE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Profile_UNDERSCORE_velocity_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__FIVE__NINE__UN" +
+                        "DERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE_" +
+                        "profile_UNDERSCORE__UNDERSCORE_Profile_UNDERSCORE_velocity_APOSTROPHE__submodule" +
+                        "", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0260_0_0__Positioning_profile__Acceleration&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__SIX__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Acceleration_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__SIX__ZERO__UND" +
+                        "ERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE_p" +
+                        "rofile_UNDERSCORE__UNDERSCORE_Acceleration_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0084_0_0__Torque_force_feedback_value&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Torque_UNDERSCORE_force_UNDERSCORE_feedback_UNDERSCORE_value_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__FOUR__" +
+                        "UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Torque_UNDERSCORE_for" +
+                        "ce_UNDERSCORE_feedback_UNDERSCORE_value_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0080_0_0__Torque_force_command_value&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Torque_UNDERSCORE_force_UNDERSCORE_command_UNDERSCORE_value_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__ZERO__" +
+                        "UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Torque_UNDERSCORE_for" +
+                        "ce_UNDERSCORE_command_UNDERSCORE_value_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;S_0_0092_0_0__Torque_force_limitation__Limit_value_bipolar&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__NINE__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Torque_UNDERSCORE_force_UNDERSCORE_limitation_UNDERSCORE__UNDERSCORE_Limit_UNDERSCORE_value_UNDERSCORE_bipolar_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString(@"Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__NINE__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Torque_UNDERSCORE_force_UNDERSCORE_limitation_UNDERSCORE__UNDERSCORE_Limit_UNDERSCORE_value_UNDERSCORE_bipolar_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID Device.
+        /// </summary>
+        public static string Hardware_ID_Device {
+            get {
+                return ResourceManager.GetString("Hardware_ID_Device", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HardwareLock.
+        /// </summary>
+        public static string HardwareLock {
+            get {
+                return ResourceManager.GetString("HardwareLock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Homing control.
+        /// </summary>
+        public static string Homing_control {
+            get {
+                return ResourceManager.GetString("Homing_control", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Immediate block change.
+        /// </summary>
+        public static string Immediate_block_change {
+            get {
+                return ResourceManager.GetString("Immediate_block_change", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In target position.
+        /// </summary>
+        public static string In_target_position {
+            get {
+                return ResourceManager.GetString("In_target_position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Infinite travel in negative direction (jog-).
+        /// </summary>
+        public static string Infinite_travel_in_negative_direction__BRACKET_jog_DASH__ENDBRACKET_ {
+            get {
+                return ResourceManager.GetString("Infinite_travel_in_negative_direction__BRACKET_jog_DASH__ENDBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Infinite travel in positive direction (jog+).
+        /// </summary>
+        public static string Infinite_travel_in_positive_direction__BRACKET_jog_PLUS__ENDBRACKET_ {
+            get {
+                return ResourceManager.GetString("Infinite_travel_in_positive_direction__BRACKET_jog_PLUS__ENDBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info time.
+        /// </summary>
+        public static string Info_time {
+            get {
+                return ResourceManager.GetString("Info_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InReference.
+        /// </summary>
+        public static string InReference {
+            get {
+                return ResourceManager.GetString("InReference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InStandstill.
+        /// </summary>
+        public static string InStandstill {
+            get {
+                return ResourceManager.GetString("InStandstill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locked by hardware.
+        /// </summary>
+        public static string Locked_by_hardware {
+            get {
+                return ResourceManager.GetString("Locked_by_hardware", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mains status.
+        /// </summary>
+        public static string Mains_status {
+            get {
+                return ResourceManager.GetString("Mains_status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mode selection bit 1.
+        /// </summary>
+        public static string Mode_selection_bit__ONE_ {
+            get {
+                return ResourceManager.GetString("Mode_selection_bit__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mode selection bit 0.
+        /// </summary>
+        public static string Mode_selection_bit__ZERO_ {
+            get {
+                return ResourceManager.GetString("Mode_selection_bit__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Position command acknowledgment.
+        /// </summary>
+        public static string Position_command_acknowledgment {
+            get {
+                return ResourceManager.GetString("Position_command_acknowledgment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ready for enabling.
+        /// </summary>
+        public static string Ready_for_enabling {
+            get {
+                return ResourceManager.GetString("Ready_for_enabling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReadyForOperation Bit 1.
+        /// </summary>
+        public static string ReadyForOperation_Bit__ONE_ {
+            get {
+                return ResourceManager.GetString("ReadyForOperation_Bit__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ReadyForOperation Bit 0.
+        /// </summary>
+        public static string ReadyForOperation_Bit__ZERO_ {
+            get {
+                return ResourceManager.GetString("ReadyForOperation_Bit__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scaling constant actual acceleration.
+        /// </summary>
+        public static string Scaling_constant_actual_acceleration {
+            get {
+                return ResourceManager.GetString("Scaling_constant_actual_acceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scaling constant actual deceleration.
+        /// </summary>
+        public static string Scaling_constant_actual_deceleration {
+            get {
+                return ResourceManager.GetString("Scaling_constant_actual_deceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scaling constant actual jerk.
+        /// </summary>
+        public static string Scaling_constant_actual_jerk {
+            get {
+                return ResourceManager.GetString("Scaling_constant_actual_jerk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scaling constant actual position.
+        /// </summary>
+        public static string Scaling_constant_actual_position {
+            get {
+                return ResourceManager.GetString("Scaling_constant_actual_position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scaling constant actual torque.
+        /// </summary>
+        public static string Scaling_constant_actual_torque {
+            get {
+                return ResourceManager.GetString("Scaling_constant_actual_torque", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scaling constant actual velocity.
+        /// </summary>
+        public static string Scaling_constant_actual_velocity {
+            get {
+                return ResourceManager.GetString("Scaling_constant_actual_velocity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scaling constant required acceleration.
+        /// </summary>
+        public static string Scaling_constant_required_acceleration {
+            get {
+                return ResourceManager.GetString("Scaling_constant_required_acceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scaling constant required deceleration.
+        /// </summary>
+        public static string Scaling_constant_required_deceleration {
+            get {
+                return ResourceManager.GetString("Scaling_constant_required_deceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scaling constant required jerk.
+        /// </summary>
+        public static string Scaling_constant_required_jerk {
+            get {
+                return ResourceManager.GetString("Scaling_constant_required_jerk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scaling constant required position.
+        /// </summary>
+        public static string Scaling_constant_required_position {
+            get {
+                return ResourceManager.GetString("Scaling_constant_required_position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scaling constant required torque.
+        /// </summary>
+        public static string Scaling_constant_required_torque {
+            get {
+                return ResourceManager.GetString("Scaling_constant_required_torque", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scaling constant required velocity.
+        /// </summary>
+        public static string Scaling_constant_required_velocity {
+            get {
+                return ResourceManager.GetString("Scaling_constant_required_velocity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set absolute position function.
+        /// </summary>
+        public static string Set_absolute_position_function {
+            get {
+                return ResourceManager.GetString("Set_absolute_position_function", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SignalControlWord.
+        /// </summary>
+        public static string SignalControlWord {
+            get {
+                return ResourceManager.GetString("SignalControlWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SignalControlWord_S_0_0145_0_0.
+        /// </summary>
+        public static string SignalControlWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("SignalControlWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FIV" +
+                        "E__UNDERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SignalStatusWord.
+        /// </summary>
+        public static string SignalStatusWord {
+            get {
+                return ResourceManager.GetString("SignalStatusWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SignalStatusWord_S_0_0144_0_0.
+        /// </summary>
+        public static string SignalStatusWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO_ {
+            get {
+                return ResourceManager.GetString("SignalStatusWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FOUR" +
+                        "__UNDERSCORE__ZERO__UNDERSCORE__ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SupplyUnitControlWord.
+        /// </summary>
+        public static string SupplyUnitControlWord {
+            get {
+                return ResourceManager.GetString("SupplyUnitControlWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SupplyUnitControlWord_S_0_1720_0_1.
+        /// </summary>
+        public static string SupplyUnitControlWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ONE_ {
+            get {
+                return ResourceManager.GetString("SupplyUnitControlWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO_" +
+                        "_ZERO__UNDERSCORE__ZERO__UNDERSCORE__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SupplyUnitStatusWord.
+        /// </summary>
+        public static string SupplyUnitStatusWord {
+            get {
+                return ResourceManager.GetString("SupplyUnitStatusWord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SupplyUnitStatusWord_S_0_1720_0_2.
+        /// </summary>
+        public static string SupplyUnitStatusWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__ZERO__UNDERSCORE__ZERO__UNDERSCORE__TWO_ {
+            get {
+                return ResourceManager.GetString("SupplyUnitStatusWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__" +
+                        "ZERO__UNDERSCORE__ZERO__UNDERSCORE__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task timeout.
+        /// </summary>
+        public static string Task_timeout {
+            get {
+                return ResourceManager.GetString("Task_timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update diagnostics.
+        /// </summary>
+        public static string Update_diagnostics {
+            get {
+                return ResourceManager.GetString("Update_diagnostics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string Warning {
+            get {
+                return ResourceManager.GetString("Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WarningZKL2.
+        /// </summary>
+        public static string WarningZKL_TWO_ {
+            get {
+                return ResourceManager.GetString("WarningZKL_TWO_", resourceCulture);
             }
         }
     }

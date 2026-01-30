@@ -153,4 +153,193 @@
   <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
     <value>TemplateTask20steps6 Zeitüberschreitung.</value>
   </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Wiederherstellen</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>VorlageAufgabe10Schritte1</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__TWO_" xml:space="preserve">
+    <value>VorlageAufgabe10Schritte2</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__THREE_" xml:space="preserve">
+    <value>VorlageAufgabe10Schritte3</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR_" xml:space="preserve">
+    <value>VorlageAufgabe10Schritte4</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE_" xml:space="preserve">
+    <value>VorlageAufgabe10Schritte5</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX_" xml:space="preserve">
+    <value>VorlageAufgabe10Schritte6</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>VorlageAufgabe20Schritte1</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO_" xml:space="preserve">
+    <value>VorlageAufgabe20Schritte2</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE_" xml:space="preserve">
+    <value>VorlageAufgabe20Schritte3</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR_" xml:space="preserve">
+    <value>VorlageAufgabe20Schritte4</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE_" xml:space="preserve">
+    <value>VorlageAufgabe20Schritte5</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX_" xml:space="preserve">
+    <value>VorlageAufgabe20Schritte6</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Eingaben</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Ausgaben</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Diagnose aktualisieren</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info-Zeit</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Fehlerzeit</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Zeitüberschreitung der Aufgabe</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware-IDs</value>
+  </data>
+  <data name="Hardware_ID__of_the_device" xml:space="preserve">
+    <value>Hardware-ID des Geräts</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in1'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in2'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in3'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in4'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in5'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in6'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in7'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des 'in8'-Submoduls</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in9'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in10'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des 'in11'-Submoduls</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in12'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in13'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in14'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in15'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des 'in16'-Submoduls</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in17'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in18'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__ONE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in19'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_in_UNDERSCORE__TWO__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'in20'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out1'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out2'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out3'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out4'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out5'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out6'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out7'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out8'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out9'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out10'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out11'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out12'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out13'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out14'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out15'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out16'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out17'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out18'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out19'.</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__TWO__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls 'out20'.</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Kontrolle</value>
+  </data>
 </root>

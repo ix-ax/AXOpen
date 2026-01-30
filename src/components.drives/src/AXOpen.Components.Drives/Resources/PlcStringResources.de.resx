@@ -156,4 +156,835 @@
   <data name="MC_UNDERSCORE_Reset_has_thrown_an_error_COLON__" xml:space="preserve">
     <value>MCReset hat einen Fehler ausgelöst:</value>
   </data>
+  <data name="Drive_state" xml:space="preserve">
+    <value>Zustand des Laufwerks</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Velocity" xml:space="preserve">
+    <value>Geschwindigkeit</value>
+  </data>
+  <data name="Torque" xml:space="preserve">
+    <value>Drehmoment</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Wiederherstellen</value>
+  </data>
+  <data name="Power_task" xml:space="preserve">
+    <value>Leistungsaufgabe</value>
+  </data>
+  <data name="Power_status" xml:space="preserve">
+    <value>Status der Stromversorgung</value>
+  </data>
+  <data name="Power_valid" xml:space="preserve">
+    <value>Leistung gültig</value>
+  </data>
+  <data name="Power_error" xml:space="preserve">
+    <value>Fehler in der Stromversorgung</value>
+  </data>
+  <data name="Power_error_ID" xml:space="preserve">
+    <value>Leistungsfehler-ID</value>
+  </data>
+  <data name="Stop_task" xml:space="preserve">
+    <value>Aufgabe anhalten</value>
+  </data>
+  <data name="Stop_decceleration" xml:space="preserve">
+    <value>Verlangsamung stoppen</value>
+  </data>
+  <data name="Stop_jerk" xml:space="preserve">
+    <value>Ruck stoppen</value>
+  </data>
+  <data name="Stop_done" xml:space="preserve">
+    <value>Stopp erledigt</value>
+  </data>
+  <data name="Stop_busy" xml:space="preserve">
+    <value>Stop beschäftigt</value>
+  </data>
+  <data name="Stop_active" xml:space="preserve">
+    <value>Stopp aktiv</value>
+  </data>
+  <data name="Stop_aborted" xml:space="preserve">
+    <value>Abgebrochener Stopp</value>
+  </data>
+  <data name="Stop_error" xml:space="preserve">
+    <value>Fehler stoppen</value>
+  </data>
+  <data name="Stop_error_ID" xml:space="preserve">
+    <value>Fehler-ID anhalten</value>
+  </data>
+  <data name="Halt_task" xml:space="preserve">
+    <value>Aufgabe anhalten</value>
+  </data>
+  <data name="Halt_decceleration" xml:space="preserve">
+    <value>Abbremsung anhalten</value>
+  </data>
+  <data name="Halt_jerk" xml:space="preserve">
+    <value>Halt Ruck</value>
+  </data>
+  <data name="Halt_done" xml:space="preserve">
+    <value>Halt gemacht</value>
+  </data>
+  <data name="Halt_busy" xml:space="preserve">
+    <value>Halt besetzt</value>
+  </data>
+  <data name="Halt_active" xml:space="preserve">
+    <value>Halt aktiv</value>
+  </data>
+  <data name="Halt_aborted" xml:space="preserve">
+    <value>Halt abgebrochen</value>
+  </data>
+  <data name="Halt_error" xml:space="preserve">
+    <value>Halt-Fehler</value>
+  </data>
+  <data name="Halt_error_ID" xml:space="preserve">
+    <value>Haltefehler-ID</value>
+  </data>
+  <data name="Homming_task" xml:space="preserve">
+    <value>Homming Aufgabe</value>
+  </data>
+  <data name="Homming_position" xml:space="preserve">
+    <value>Homming Position</value>
+  </data>
+  <data name="Homming_mode" xml:space="preserve">
+    <value>Homming-Modus</value>
+  </data>
+  <data name="Homming_velocity" xml:space="preserve">
+    <value>Homming-Geschwindigkeit</value>
+  </data>
+  <data name="Homming_acceleration" xml:space="preserve">
+    <value>Homming-Beschleunigung</value>
+  </data>
+  <data name="Homming_decceleration" xml:space="preserve">
+    <value>Homming Entschleunigung</value>
+  </data>
+  <data name="Home_status" xml:space="preserve">
+    <value>Status zu Hause</value>
+  </data>
+  <data name="Home_valid" xml:space="preserve">
+    <value>Startseite gültig</value>
+  </data>
+  <data name="Home_error" xml:space="preserve">
+    <value>Fehler zu Hause</value>
+  </data>
+  <data name="Home_error_ID" xml:space="preserve">
+    <value>Fehler-ID zu Hause</value>
+  </data>
+  <data name="Home_done" xml:space="preserve">
+    <value>Haus erledigt</value>
+  </data>
+  <data name="Home_busy" xml:space="preserve">
+    <value>Zuhause beschäftigt</value>
+  </data>
+  <data name="Home_active" xml:space="preserve">
+    <value>Startseite aktiv</value>
+  </data>
+  <data name="Home_aborted" xml:space="preserve">
+    <value>Abgebrochenes Haus</value>
+  </data>
+  <data name="Move_absolute_task" xml:space="preserve">
+    <value>Absolute Aufgabe verschieben</value>
+  </data>
+  <data name="Move_absolute_continous_update" xml:space="preserve">
+    <value>Absolute kontinuierliche Aktualisierung verschieben</value>
+  </data>
+  <data name="Move_absolute_position" xml:space="preserve">
+    <value>Absolute Position verschieben</value>
+  </data>
+  <data name="Move_absolute_velocity" xml:space="preserve">
+    <value>Absolute Geschwindigkeit bewegen</value>
+  </data>
+  <data name="Move_absolute_acceleration" xml:space="preserve">
+    <value>Absolute Beschleunigung bewegen</value>
+  </data>
+  <data name="Move_absolute_decceleration" xml:space="preserve">
+    <value>Absolute Verlangsamung bewegen</value>
+  </data>
+  <data name="Move_absolute_jerk" xml:space="preserve">
+    <value>Absolut ruckartig bewegen</value>
+  </data>
+  <data name="Move_absolute_direction" xml:space="preserve">
+    <value>Absolute Richtung verschieben</value>
+  </data>
+  <data name="Move_absolute_done" xml:space="preserve">
+    <value>Umzug absolut erledigt</value>
+  </data>
+  <data name="Move_absolute_busy" xml:space="preserve">
+    <value>Absolut beschäftigt bewegen</value>
+  </data>
+  <data name="Move_absolute_active" xml:space="preserve">
+    <value>Absolut aktiv verschieben</value>
+  </data>
+  <data name="Move_absolute_aborted" xml:space="preserve">
+    <value>Bewegung absolut abgebrochen</value>
+  </data>
+  <data name="Move_absolute_error" xml:space="preserve">
+    <value>Absoluter Fehler verschieben</value>
+  </data>
+  <data name="Move_absolute_error_ID" xml:space="preserve">
+    <value>Absolute Fehler-ID verschieben</value>
+  </data>
+  <data name="Move_relative_task" xml:space="preserve">
+    <value>Relative Aufgabe verschieben</value>
+  </data>
+  <data name="Move_relative_continuous_update" xml:space="preserve">
+    <value>Relative kontinuierliche Aktualisierung verschieben</value>
+  </data>
+  <data name="Move_relative_distance" xml:space="preserve">
+    <value>Relative Entfernung bewegen</value>
+  </data>
+  <data name="Move_relative_velocity" xml:space="preserve">
+    <value>Relative Geschwindigkeit bewegen</value>
+  </data>
+  <data name="Move_relative_acceleration" xml:space="preserve">
+    <value>Relative Beschleunigung bewegen</value>
+  </data>
+  <data name="Move_relative_deceleration" xml:space="preserve">
+    <value>Relative Verlangsamung bewegen</value>
+  </data>
+  <data name="Move_relative_jerk" xml:space="preserve">
+    <value>Relativen Ruck bewegen</value>
+  </data>
+  <data name="Move_relative_done" xml:space="preserve">
+    <value>Relativbewegung erledigt</value>
+  </data>
+  <data name="Move_relative_busy" xml:space="preserve">
+    <value>Relativ beschäftigt bewegen</value>
+  </data>
+  <data name="Move_relative_active" xml:space="preserve">
+    <value>Relativ aktiv verschieben</value>
+  </data>
+  <data name="Move_relative_aborted" xml:space="preserve">
+    <value>Relativbewegung abgebrochen</value>
+  </data>
+  <data name="Move_relative_error" xml:space="preserve">
+    <value>Relativer Fehler verschieben</value>
+  </data>
+  <data name="Move_relative_error_ID" xml:space="preserve">
+    <value>Relative Fehler-ID verschieben</value>
+  </data>
+  <data name="Move_additive_task" xml:space="preserve">
+    <value>Additive Aufgabe verschieben</value>
+  </data>
+  <data name="Move_additive_continuous_update" xml:space="preserve">
+    <value>Additive kontinuierliche Aktualisierung verschieben</value>
+  </data>
+  <data name="Move_additive_distance" xml:space="preserve">
+    <value>Additive Entfernung verschieben</value>
+  </data>
+  <data name="Move_additive_velocity" xml:space="preserve">
+    <value>Additive Geschwindigkeit bewegen</value>
+  </data>
+  <data name="Move_additive_acceleration" xml:space="preserve">
+    <value>Additive Beschleunigung bewegen</value>
+  </data>
+  <data name="Move_additive_deceleration" xml:space="preserve">
+    <value>Additive Verlangsamung bewegen</value>
+  </data>
+  <data name="Move_additive_jerk" xml:space="preserve">
+    <value>Additiven Ruck bewegen</value>
+  </data>
+  <data name="Move_additive_done" xml:space="preserve">
+    <value>Additiv verschieben erledigt</value>
+  </data>
+  <data name="Move_additive_busy" xml:space="preserve">
+    <value>Verschieben von Zusatzstoffen beschäftigt</value>
+  </data>
+  <data name="Move_additive_active" xml:space="preserve">
+    <value>Additiv aktiv bewegen</value>
+  </data>
+  <data name="Move_additive_aborted" xml:space="preserve">
+    <value>Additiv verschieben abgebrochen</value>
+  </data>
+  <data name="Move_additive_error" xml:space="preserve">
+    <value>Additiver Fehler verschieben</value>
+  </data>
+  <data name="Move_additive_error_ID" xml:space="preserve">
+    <value>Additive Fehler-ID verschieben</value>
+  </data>
+  <data name="Move_velocity_task" xml:space="preserve">
+    <value>Geschwindigkeitsaufgabe verschieben</value>
+  </data>
+  <data name="Move_velocity_continuous_update" xml:space="preserve">
+    <value>Kontinuierliche Aktualisierung der Bewegungsgeschwindigkeit</value>
+  </data>
+  <data name="Move_velocity_velocity" xml:space="preserve">
+    <value>Geschwindigkeit bewegen Geschwindigkeit</value>
+  </data>
+  <data name="Move_velocity_acceleration" xml:space="preserve">
+    <value>Bewegung Geschwindigkeit Beschleunigung</value>
+  </data>
+  <data name="Move_velocity_deceleration" xml:space="preserve">
+    <value>Verlangsamung der Bewegungsgeschwindigkeit</value>
+  </data>
+  <data name="Move_velocity_jerk" xml:space="preserve">
+    <value>Geschwindigkeitsruck bewegen</value>
+  </data>
+  <data name="Move_velocity_" xml:space="preserve">
+    <value>Geschwindigkeit bewegen</value>
+  </data>
+  <data name="Move_velocity_in_velocity" xml:space="preserve">
+    <value>Geschwindigkeit in Geschwindigkeit verschieben</value>
+  </data>
+  <data name="Move_velocity_busy" xml:space="preserve">
+    <value>Bewegen Geschwindigkeit beschäftigt</value>
+  </data>
+  <data name="Move_velocity_active" xml:space="preserve">
+    <value>Geschwindigkeit aktiv bewegen</value>
+  </data>
+  <data name="Move_velocity_aborted" xml:space="preserve">
+    <value>Bewegungsgeschwindigkeit abgebrochen</value>
+  </data>
+  <data name="Move_velocity_error" xml:space="preserve">
+    <value>Geschwindigkeitsfehler bewegen</value>
+  </data>
+  <data name="Move_velocity_error_ID" xml:space="preserve">
+    <value>Geschwindigkeitsfehler ID bewegen</value>
+  </data>
+  <data name="Torque_control_task" xml:space="preserve">
+    <value>Aufgabe der Drehmomentkontrolle</value>
+  </data>
+  <data name="Torque_control_continuous_update" xml:space="preserve">
+    <value>Kontinuierliche Aktualisierung der Drehmomentkontrolle</value>
+  </data>
+  <data name="Torque_control_torque" xml:space="preserve">
+    <value>Drehmomentkontrolle Drehmoment</value>
+  </data>
+  <data name="Torque_control_torque_ramp" xml:space="preserve">
+    <value>Drehmomentkontrolle Drehmomentrampe</value>
+  </data>
+  <data name="Torque_control_position_limit" xml:space="preserve">
+    <value>Grenzwert für die Drehmomentregelung</value>
+  </data>
+  <data name="Torque_control_velocity" xml:space="preserve">
+    <value>Drehmomentregelung Geschwindigkeit</value>
+  </data>
+  <data name="Torque_control_acceleration" xml:space="preserve">
+    <value>Drehmomentkontrolle Beschleunigung</value>
+  </data>
+  <data name="Torque_control_deceleration" xml:space="preserve">
+    <value>Drehmomentkontrolle Verzögerung</value>
+  </data>
+  <data name="Torque_control_jerk" xml:space="preserve">
+    <value>Ruck bei der Drehmomentkontrolle</value>
+  </data>
+  <data name="Torque_control_direction" xml:space="preserve">
+    <value>Richtung der Drehmomentsteuerung</value>
+  </data>
+  <data name="Torque_control_in_torque" xml:space="preserve">
+    <value>Drehmomentkontrolle in Drehmoment</value>
+  </data>
+  <data name="Torque_control_busy" xml:space="preserve">
+    <value>Drehmomentkontrolle besetzt</value>
+  </data>
+  <data name="Torque_control_active" xml:space="preserve">
+    <value>Drehmomentkontrolle aktiv</value>
+  </data>
+  <data name="Torque_control_aborted" xml:space="preserve">
+    <value>Drehmomentkontrolle abgebrochen</value>
+  </data>
+  <data name="Torque_control_error" xml:space="preserve">
+    <value>Fehler bei der Drehmomentregelung</value>
+  </data>
+  <data name="Torque_control_error_ID" xml:space="preserve">
+    <value>Drehmomentregelung Fehler-ID</value>
+  </data>
+  <data name="Set_position_task" xml:space="preserve">
+    <value>Aufgabe Position setzen</value>
+  </data>
+  <data name="Set_position_position" xml:space="preserve">
+    <value>Position einstellen Position</value>
+  </data>
+  <data name="Set_position_relative" xml:space="preserve">
+    <value>Position relativ setzen</value>
+  </data>
+  <data name="Set_position_execution_mode" xml:space="preserve">
+    <value>Positionsausführungsmodus einstellen</value>
+  </data>
+  <data name="Set_position_done" xml:space="preserve">
+    <value>Position einstellen erledigt</value>
+  </data>
+  <data name="Set_position_busy" xml:space="preserve">
+    <value>Position besetzt einstellen</value>
+  </data>
+  <data name="Set_position_error" xml:space="preserve">
+    <value>Positionsfehler einstellen</value>
+  </data>
+  <data name="Set_position_error_ID" xml:space="preserve">
+    <value>Positionsfehler-ID einstellen</value>
+  </data>
+  <data name="Set_override_task" xml:space="preserve">
+    <value>Übergreifende Aufgabe einstellen</value>
+  </data>
+  <data name="Set_override_velocity_factor" xml:space="preserve">
+    <value>Geschwindigkeitsfaktor für Übersteuerung einstellen</value>
+  </data>
+  <data name="Set_override_acceleration_factor" xml:space="preserve">
+    <value>Beschleunigungsfaktor für die Übersteuerung einstellen</value>
+  </data>
+  <data name="Set_override_jerk_factor" xml:space="preserve">
+    <value>Override-Ruckfaktor einstellen</value>
+  </data>
+  <data name="Set_override_enabled" xml:space="preserve">
+    <value>Überschreibungsfunktion aktiviert</value>
+  </data>
+  <data name="Set_override_busy" xml:space="preserve">
+    <value>Übersteuerung besetzt einstellen</value>
+  </data>
+  <data name="Set_override_error" xml:space="preserve">
+    <value>Übersteuerungsfehler einstellen</value>
+  </data>
+  <data name="Set_override_error_ID" xml:space="preserve">
+    <value>Übersteuerungsfehler-ID festlegen</value>
+  </data>
+  <data name="Read_parameter_task" xml:space="preserve">
+    <value>Parameter lesen Aufgabe</value>
+  </data>
+  <data name="Read_parameter_number" xml:space="preserve">
+    <value>Parameternummer lesen</value>
+  </data>
+  <data name="Read_parameter_valid" xml:space="preserve">
+    <value>Parameter lesen gültig</value>
+  </data>
+  <data name="Read_parameter_busy" xml:space="preserve">
+    <value>Parameter lesen besetzt</value>
+  </data>
+  <data name="Read_parameter_error" xml:space="preserve">
+    <value>Fehler beim Lesen von Parametern</value>
+  </data>
+  <data name="Read_parameter_error_ID" xml:space="preserve">
+    <value>Parameter-Fehler-ID lesen</value>
+  </data>
+  <data name="Read_parameter_value" xml:space="preserve">
+    <value>Parameterwert lesen</value>
+  </data>
+  <data name="Read_real_parameter_task" xml:space="preserve">
+    <value>Echte Parameteraufgabe lesen</value>
+  </data>
+  <data name="Read_real_parameter_number" xml:space="preserve">
+    <value>Reale Parameternummer lesen</value>
+  </data>
+  <data name="Read_real_parameter_valid" xml:space="preserve">
+    <value>Real-Parameter lesen gültig</value>
+  </data>
+  <data name="Read_real_parameter_busy" xml:space="preserve">
+    <value>Echte Parameter lesen besetzt</value>
+  </data>
+  <data name="Read_real_parameter_error" xml:space="preserve">
+    <value>Fehler beim Lesen der realen Parameter</value>
+  </data>
+  <data name="Read_real_parameter_error_ID" xml:space="preserve">
+    <value>Fehler-ID des realen Parameters lesen</value>
+  </data>
+  <data name="Read_real_parameter_value" xml:space="preserve">
+    <value>Realen Parameterwert lesen</value>
+  </data>
+  <data name="Read_bool_parameter_task" xml:space="preserve">
+    <value>Lesen von boolschen Parametern Aufgabe</value>
+  </data>
+  <data name="Read_bool_parameter_number" xml:space="preserve">
+    <value>Lesen bool Parameter Nummer</value>
+  </data>
+  <data name="Read_bool_parameter_valid" xml:space="preserve">
+    <value>Lesen bool Parameter gültig</value>
+  </data>
+  <data name="Read_bool_parameter_busy" xml:space="preserve">
+    <value>bool-Parameter busy lesen</value>
+  </data>
+  <data name="Read_bool_parameter_error" xml:space="preserve">
+    <value>Bool-Parameter-Fehler lesen</value>
+  </data>
+  <data name="Read_bool_parameter_error_ID" xml:space="preserve">
+    <value>Lesen der boolschen Parameter-Fehler-ID</value>
+  </data>
+  <data name="Read_bool_parameter_value" xml:space="preserve">
+    <value>Parameterwert bool lesen</value>
+  </data>
+  <data name="Write_parameter_task" xml:space="preserve">
+    <value>Parameter schreiben Aufgabe</value>
+  </data>
+  <data name="Write_parameter_number" xml:space="preserve">
+    <value>Parameternummer schreiben</value>
+  </data>
+  <data name="Write_parameter_value" xml:space="preserve">
+    <value>Parameterwert schreiben</value>
+  </data>
+  <data name="Write_parameter_execution_mode" xml:space="preserve">
+    <value>Parameter schreiben Ausführungsmodus</value>
+  </data>
+  <data name="Write_parameter_done" xml:space="preserve">
+    <value>Parameter schreiben erledigt</value>
+  </data>
+  <data name="Write_parameter_busy" xml:space="preserve">
+    <value>Schreibparameter belegt</value>
+  </data>
+  <data name="Write_parameter_error" xml:space="preserve">
+    <value>Fehler beim Schreiben von Parametern</value>
+  </data>
+  <data name="Write_parameter_error_ID" xml:space="preserve">
+    <value>Schreibparameter-Fehler-ID</value>
+  </data>
+  <data name="Write_real_parameter_task" xml:space="preserve">
+    <value>Echte Parameter schreiben Aufgabe</value>
+  </data>
+  <data name="Write_real_parameter_number" xml:space="preserve">
+    <value>Reale Parameternummer schreiben</value>
+  </data>
+  <data name="Write_real_parameter_value" xml:space="preserve">
+    <value>Realen Parameterwert schreiben</value>
+  </data>
+  <data name="Write_real_parameter_execution_mode" xml:space="preserve">
+    <value>Ausführungsmodus "Write real parameter</value>
+  </data>
+  <data name="Write_real_parameter_done" xml:space="preserve">
+    <value>Echte Parameter schreiben erledigt</value>
+  </data>
+  <data name="Write_real_parameter_busy" xml:space="preserve">
+    <value>Echte Parameter schreiben besetzt</value>
+  </data>
+  <data name="Write_real_parameter_error" xml:space="preserve">
+    <value>Echte Parameterfehler schreiben</value>
+  </data>
+  <data name="Write_real_parameter_error_ID" xml:space="preserve">
+    <value>Schreiben der Fehler-ID des realen Parameters</value>
+  </data>
+  <data name="Write_bool_parameter_task" xml:space="preserve">
+    <value>Aufgabe bool-Parameter schreiben</value>
+  </data>
+  <data name="Write_bool_parameter_number" xml:space="preserve">
+    <value>bool-Parameternummer schreiben</value>
+  </data>
+  <data name="Write_bool_parameter_value" xml:space="preserve">
+    <value>boolschen Parameterwert schreiben</value>
+  </data>
+  <data name="Write_bool_parameter_execution_mode" xml:space="preserve">
+    <value>Ausführungsmodus des Parameters bool schreiben</value>
+  </data>
+  <data name="Write_bool_parameter_done" xml:space="preserve">
+    <value>boolschen Parameter schreiben done</value>
+  </data>
+  <data name="Write_bool_parameter_busy" xml:space="preserve">
+    <value>bool-Parameter busy schreiben</value>
+  </data>
+  <data name="Write_bool_parameter_error" xml:space="preserve">
+    <value>Bool-Parameter-Fehler schreiben</value>
+  </data>
+  <data name="Write_bool_parameter_error_ID" xml:space="preserve">
+    <value>Schreiben boolscher Parameter Fehler-ID</value>
+  </data>
+  <data name="Read_digital_input_task" xml:space="preserve">
+    <value>Aufgabe zum Lesen digitaler Eingänge</value>
+  </data>
+  <data name="Read_digital_input_number" xml:space="preserve">
+    <value>Nummer des digitalen Eingangs lesen</value>
+  </data>
+  <data name="Read_digital_input_valid" xml:space="preserve">
+    <value>Digitalen Eingang lesen gültig</value>
+  </data>
+  <data name="Read_digital_input_busy" xml:space="preserve">
+    <value>Lesen des belegten digitalen Eingangs</value>
+  </data>
+  <data name="Read_digital_input_error" xml:space="preserve">
+    <value>Fehler beim Lesen des digitalen Eingangs</value>
+  </data>
+  <data name="Read_digital_input_error_ID" xml:space="preserve">
+    <value>Fehler-ID des digitalen Eingangs lesen</value>
+  </data>
+  <data name="Read_digital_input_value" xml:space="preserve">
+    <value>Digitalen Eingangswert lesen</value>
+  </data>
+  <data name="Read_digital_output_task" xml:space="preserve">
+    <value>Aufgabe zum Lesen des digitalen Ausgangs</value>
+  </data>
+  <data name="Read_digital_output_number" xml:space="preserve">
+    <value>Digitale Ausgangsnummer lesen</value>
+  </data>
+  <data name="Read_digital_output_valid" xml:space="preserve">
+    <value>Digitalen Ausgang lesen gültig</value>
+  </data>
+  <data name="Read_digital_output_busy" xml:space="preserve">
+    <value>Digitalen Ausgang lesen besetzt</value>
+  </data>
+  <data name="Read_digital_output_error" xml:space="preserve">
+    <value>Fehler beim Lesen des digitalen Ausgangs</value>
+  </data>
+  <data name="Read_digital_output_error_ID" xml:space="preserve">
+    <value>Fehler-ID des digitalen Ausgangs lesen</value>
+  </data>
+  <data name="Read_digital_output_value" xml:space="preserve">
+    <value>Digitalen Ausgangswert lesen</value>
+  </data>
+  <data name="Write_digital_output_task" xml:space="preserve">
+    <value>Aufgabe zur digitalen Ausgabe schreiben</value>
+  </data>
+  <data name="Write_digital_output_number" xml:space="preserve">
+    <value>Digitale Ausgangsnummer schreiben</value>
+  </data>
+  <data name="Write_digital_output_value" xml:space="preserve">
+    <value>Digitalen Ausgangswert schreiben</value>
+  </data>
+  <data name="Write_digital_output_execution_mode" xml:space="preserve">
+    <value>Ausführungsmodus des Schreibens des digitalen Ausgangs</value>
+  </data>
+  <data name="Write_digital_output_done" xml:space="preserve">
+    <value>Schreiben des digitalen Ausgangs erledigt</value>
+  </data>
+  <data name="Write_digital_output_busy" xml:space="preserve">
+    <value>Schreiben eines belegten digitalen Ausgangs</value>
+  </data>
+  <data name="Write_digital_output_error" xml:space="preserve">
+    <value>Fehler beim Schreiben des digitalen Ausgangs</value>
+  </data>
+  <data name="Write_digital_output_error_ID" xml:space="preserve">
+    <value>Fehler-ID des digitalen Ausgangs schreiben</value>
+  </data>
+  <data name="Read_actual_position_task" xml:space="preserve">
+    <value>Ist-Position lesen Aufgabe</value>
+  </data>
+  <data name="Read_actual_position_valid" xml:space="preserve">
+    <value>Ist-Position gültig lesen</value>
+  </data>
+  <data name="Read_actual_position_busy" xml:space="preserve">
+    <value>Aktuelle Position lesen besetzt</value>
+  </data>
+  <data name="Read_actual_position_error" xml:space="preserve">
+    <value>Ist-Positionsfehler ablesen</value>
+  </data>
+  <data name="Read_actual_position_error_ID" xml:space="preserve">
+    <value>Ist-Positionsfehler-ID lesen</value>
+  </data>
+  <data name="Read_actual_position_value" xml:space="preserve">
+    <value>Positions-Istwert lesen</value>
+  </data>
+  <data name="Read_actual_velocity_task" xml:space="preserve">
+    <value>Aktuelle Geschwindigkeitsaufgabe lesen</value>
+  </data>
+  <data name="Read_actual_velocity_valid" xml:space="preserve">
+    <value>Ist-Geschwindigkeit gültig lesen</value>
+  </data>
+  <data name="Read_actual_velocity_busy" xml:space="preserve">
+    <value>Aktuelle Geschwindigkeit lesen besetzt</value>
+  </data>
+  <data name="Read_actual_velocity_error" xml:space="preserve">
+    <value>Lesen Sie den aktuellen Geschwindigkeitsfehler</value>
+  </data>
+  <data name="Read_actual_velocity_error_ID" xml:space="preserve">
+    <value>Lesen der aktuellen Geschwindigkeitsfehler-ID</value>
+  </data>
+  <data name="Read_actual_velocity_value" xml:space="preserve">
+    <value>Geschwindigkeits-Istwert lesen</value>
+  </data>
+  <data name="Read_actual_torque_task" xml:space="preserve">
+    <value>Aktuelle Drehmomentaufgabe lesen</value>
+  </data>
+  <data name="Read_actual_torque_valid" xml:space="preserve">
+    <value>Lesen des aktuellen Drehmoments gültig</value>
+  </data>
+  <data name="Read_actual_torque_busy" xml:space="preserve">
+    <value>Aktuelles Drehmoment ablesen</value>
+  </data>
+  <data name="Read_actual_torque_error" xml:space="preserve">
+    <value>Lesen des aktuellen Drehmomentfehlers</value>
+  </data>
+  <data name="Read_actual_torque_error_ID" xml:space="preserve">
+    <value>Lesen der aktuellen Drehmomentfehler-ID</value>
+  </data>
+  <data name="Read_actual_torque_value" xml:space="preserve">
+    <value>Aktuellen Drehmomentwert ablesen</value>
+  </data>
+  <data name="Read_status_task" xml:space="preserve">
+    <value>Statusaufgabe lesen</value>
+  </data>
+  <data name="Read_status_valid" xml:space="preserve">
+    <value>Lesestatus gültig</value>
+  </data>
+  <data name="Read_status_busy" xml:space="preserve">
+    <value>Lesestatus belegt</value>
+  </data>
+  <data name="Read_status_error" xml:space="preserve">
+    <value>Fehler beim Lesen des Status</value>
+  </data>
+  <data name="Read_status_error_ID" xml:space="preserve">
+    <value>Statusfehler-ID lesen</value>
+  </data>
+  <data name="Read_status_error_stop" xml:space="preserve">
+    <value>Lesestatus Fehler Stopp</value>
+  </data>
+  <data name="Read_status_disabled" xml:space="preserve">
+    <value>Lesestatus deaktiviert</value>
+  </data>
+  <data name="Read_status_stopping" xml:space="preserve">
+    <value>Lesestatus Anhalten</value>
+  </data>
+  <data name="Read_status_homming" xml:space="preserve">
+    <value>Status lesen homming</value>
+  </data>
+  <data name="Read_status_standstill" xml:space="preserve">
+    <value>Lesestatus Stillstand</value>
+  </data>
+  <data name="Read_status_discrete_motion" xml:space="preserve">
+    <value>Status lesen diskrete Bewegung</value>
+  </data>
+  <data name="Read_status_continuous_motion" xml:space="preserve">
+    <value>Status der kontinuierlichen Bewegung lesen</value>
+  </data>
+  <data name="Read_status_synchronized_motion" xml:space="preserve">
+    <value>Status der synchronisierten Bewegung lesen</value>
+  </data>
+  <data name="Read_motion_state_task" xml:space="preserve">
+    <value>Aufgabe "Fahrzustand lesen</value>
+  </data>
+  <data name="Read_motion_state_source" xml:space="preserve">
+    <value>Quelle für den Bewegungszustand lesen</value>
+  </data>
+  <data name="Read_motion_state_valid" xml:space="preserve">
+    <value>Bewegungszustand gültig lesen</value>
+  </data>
+  <data name="Read_motion_state_busy" xml:space="preserve">
+    <value>Bewegungsstatus lesen besetzt</value>
+  </data>
+  <data name="Read_motion_state_error" xml:space="preserve">
+    <value>Fehler beim Lesen des Bewegungsstatus</value>
+  </data>
+  <data name="Read_motion_state_error_ID" xml:space="preserve">
+    <value>Fehler-ID des Bewegungszustands lesen</value>
+  </data>
+  <data name="Read_motion_state_constant_velocity" xml:space="preserve">
+    <value>Bewegungszustand konstante Geschwindigkeit lesen</value>
+  </data>
+  <data name="Read_motion_state_accelerating" xml:space="preserve">
+    <value>Bewegungszustand lesen beschleunigt</value>
+  </data>
+  <data name="Read_motion_state_decelerating" xml:space="preserve">
+    <value>Bewegungszustand abbremsend lesen</value>
+  </data>
+  <data name="Read_motion_state_direction_positive" xml:space="preserve">
+    <value>Bewegungszustand lesen Richtung positiv</value>
+  </data>
+  <data name="Read_motion_state_direction_negative" xml:space="preserve">
+    <value>Bewegungszustand lesen Richtung negativ</value>
+  </data>
+  <data name="Read_axis_info_task" xml:space="preserve">
+    <value>Achseninfo-Aufgabe lesen</value>
+  </data>
+  <data name="Read_axis_info_valid" xml:space="preserve">
+    <value>Achseninfo gültig lesen</value>
+  </data>
+  <data name="Read_axis_info_busy" xml:space="preserve">
+    <value>Achseninformationen lesen beschäftigt</value>
+  </data>
+  <data name="Read_axis_info_error" xml:space="preserve">
+    <value>Fehler beim Lesen von Achseninformationen</value>
+  </data>
+  <data name="Read_axis_info_error_ID" xml:space="preserve">
+    <value>Achseninfo Fehler-ID lesen</value>
+  </data>
+  <data name="Read_axis_info_home_absolute_switch" xml:space="preserve">
+    <value>Achsinfos lesen Home Absolutschalter</value>
+  </data>
+  <data name="Read_axis_info_limit_switch_positive" xml:space="preserve">
+    <value>Achsinfos lesen Endschalter positiv</value>
+  </data>
+  <data name="Read_axis_info_limit_switch_negative" xml:space="preserve">
+    <value>Achseninfo Endschalter negativ lesen</value>
+  </data>
+  <data name="Read_axis_info_simulation" xml:space="preserve">
+    <value>Achseninfosimulation lesen</value>
+  </data>
+  <data name="Read_axis_info_communication_ready" xml:space="preserve">
+    <value>Achseninfo lesen Kommunikation bereit</value>
+  </data>
+  <data name="Read_axis_info_ready_for_power_on" xml:space="preserve">
+    <value>Achseninfo lesen, bereit zum Einschalten</value>
+  </data>
+  <data name="Read_axis_info_power_on" xml:space="preserve">
+    <value>Achseninfo lesen einschalten</value>
+  </data>
+  <data name="Read_axis_info_is_homed" xml:space="preserve">
+    <value>Achseninfo lesen ist zu Hause</value>
+  </data>
+  <data name="Read_axis_info_warning" xml:space="preserve">
+    <value>Achseninfo-Warnung lesen</value>
+  </data>
+  <data name="Read_axis_error_task" xml:space="preserve">
+    <value>Achsenfehler-Aufgabe lesen</value>
+  </data>
+  <data name="Read_axis_error_valid" xml:space="preserve">
+    <value>Achsenfehler lesen gültig</value>
+  </data>
+  <data name="Read_axis_error_busy" xml:space="preserve">
+    <value>Achsenfehler lesen besetzt</value>
+  </data>
+  <data name="Read_axis_error_error" xml:space="preserve">
+    <value>Achsenfehler lesen Fehler</value>
+  </data>
+  <data name="Read_axis_error_error_ID" xml:space="preserve">
+    <value>Achsfehler lesen Fehler-ID</value>
+  </data>
+  <data name="Read_axis_error_axis_error_ID" xml:space="preserve">
+    <value>Achsfehler lesen Achsfehler-ID</value>
+  </data>
+  <data name="Reset_task" xml:space="preserve">
+    <value>Aufgabe zurücksetzen</value>
+  </data>
+  <data name="Reset_done" xml:space="preserve">
+    <value>Zurücksetzen erledigt</value>
+  </data>
+  <data name="Reset_busy" xml:space="preserve">
+    <value>Besetzt zurücksetzen</value>
+  </data>
+  <data name="Reset_error" xml:space="preserve">
+    <value>Fehler zurücksetzen</value>
+  </data>
+  <data name="Reset_error_ID" xml:space="preserve">
+    <value>Fehler-ID zurücksetzen</value>
+  </data>
+  <data name="Jog_positive" xml:space="preserve">
+    <value>Joggen positiv</value>
+  </data>
+  <data name="Jog_negative" xml:space="preserve">
+    <value>Joggen negativ</value>
+  </data>
+  <data name="Jog_velocity" xml:space="preserve">
+    <value>Jog-Geschwindigkeit</value>
+  </data>
+  <data name="Jog_acceleration" xml:space="preserve">
+    <value>Jog-Beschleunigung</value>
+  </data>
+  <data name="Jog_deceleration" xml:space="preserve">
+    <value>Verzögerung beim Joggen</value>
+  </data>
+  <data name="Jog_jerk" xml:space="preserve">
+    <value>Ruckeln</value>
+  </data>
+  <data name="Jog_direction" xml:space="preserve">
+    <value>Jog-Richtung</value>
+  </data>
+  <data name="Jog_active" xml:space="preserve">
+    <value>Joggen aktiv</value>
+  </data>
+  <data name="Jog_done" xml:space="preserve">
+    <value>Joggen erledigt</value>
+  </data>
+  <data name="Jog_busy" xml:space="preserve">
+    <value>Joggen beschäftigt</value>
+  </data>
+  <data name="Jog_error" xml:space="preserve">
+    <value>Tippfehler</value>
+  </data>
+  <data name="Jog_error_ID" xml:space="preserve">
+    <value>Jog-Fehler-ID</value>
+  </data>
+  <data name="Jog_aborted" xml:space="preserve">
+    <value>Joggen abgebrochen</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info-Zeit</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Fehlerzeit</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Zeitüberschreitung der Aufgabe</value>
+  </data>
 </root>

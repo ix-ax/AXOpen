@@ -132,4 +132,418 @@
   <data name="StopMovementsTask_timeout_DOT_" xml:space="preserve">
     <value>StopMovementsTask timeout.</value>
   </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnoviť</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="In_position" xml:space="preserve">
+    <value>V polohe</value>
+  </data>
+  <data name="Coordinates" xml:space="preserve">
+    <value>Súradnice</value>
+  </data>
+  <data name="Power_On_Task" xml:space="preserve">
+    <value>Úloha zapnutia napájania</value>
+  </data>
+  <data name="Start_at_main" xml:space="preserve">
+    <value>Začnite na hlavnej</value>
+  </data>
+  <data name="Start_motors_and_program" xml:space="preserve">
+    <value>Spustenie motorov a programovanie</value>
+  </data>
+  <data name="Stop_movements" xml:space="preserve">
+    <value>Zastavenie pohybov</value>
+  </data>
+  <data name="Stop_movements_and_program" xml:space="preserve">
+    <value>Zastavenie pohybov a program</value>
+  </data>
+  <data name="Start_movements_with_extended_parameters" xml:space="preserve">
+    <value>Spustenie pohybov s rozšírenými parametrami</value>
+  </data>
+  <data name="Power_progress" xml:space="preserve">
+    <value>Pokrok v oblasti výkonu</value>
+  </data>
+  <data name="Movement_progress" xml:space="preserve">
+    <value>Pokrok v pohybe</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Reboot_controller" xml:space="preserve">
+    <value>Reštart ovládača</value>
+  </data>
+  <data name="Robot" xml:space="preserve">
+    <value>Robot</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Štát</value>
+  </data>
+  <data name="IO_state" xml:space="preserve">
+    <value>Stav IO</value>
+  </data>
+  <data name="Tool_state" xml:space="preserve">
+    <value>Stav nástroja</value>
+  </data>
+  <data name="Joints" xml:space="preserve">
+    <value>Kĺby</value>
+  </data>
+  <data name="TCP" xml:space="preserve">
+    <value>TCP</value>
+  </data>
+  <data name="Bits" xml:space="preserve">
+    <value>Bity</value>
+  </data>
+  <data name="Ints" xml:space="preserve">
+    <value>Inty</value>
+  </data>
+  <data name="Floats" xml:space="preserve">
+    <value>Plaváky</value>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>Rýchlosť</value>
+  </data>
+  <data name="IO" xml:space="preserve">
+    <value>IO</value>
+  </data>
+  <data name="Reg__ONE_" xml:space="preserve">
+    <value>Reg. 1</value>
+  </data>
+  <data name="Reg__TWO_" xml:space="preserve">
+    <value>Nariadenie 2</value>
+  </data>
+  <data name="Bit_register__ZERO_" xml:space="preserve">
+    <value>Bitový register 0</value>
+  </data>
+  <data name="Bit_register__ONE_" xml:space="preserve">
+    <value>Bitový register 1</value>
+  </data>
+  <data name="Bit_register__TWO_" xml:space="preserve">
+    <value>Bitový register 2</value>
+  </data>
+  <data name="Bit_register__THREE_" xml:space="preserve">
+    <value>Bitový register 3</value>
+  </data>
+  <data name="Bit_register__FOUR_" xml:space="preserve">
+    <value>Bitový register 4</value>
+  </data>
+  <data name="Bit_register__FIVE_" xml:space="preserve">
+    <value>Bitový register 5</value>
+  </data>
+  <data name="Bit_register__SIX_" xml:space="preserve">
+    <value>Bitový register 6</value>
+  </data>
+  <data name="Bit_register__SEVEN_" xml:space="preserve">
+    <value>Bitový register 7</value>
+  </data>
+  <data name="Bit_register__EIGHT_" xml:space="preserve">
+    <value>Bitový register 8</value>
+  </data>
+  <data name="Bit_register__NINE_" xml:space="preserve">
+    <value>Bitový register 9</value>
+  </data>
+  <data name="Bit_register__ONE__ZERO_" xml:space="preserve">
+    <value>Bitový register 10</value>
+  </data>
+  <data name="Bit_register__ONE__ONE_" xml:space="preserve">
+    <value>Bitový register 11</value>
+  </data>
+  <data name="Bit_register__ONE__TWO_" xml:space="preserve">
+    <value>Bitový register 12</value>
+  </data>
+  <data name="Bit_register__ONE__THREE_" xml:space="preserve">
+    <value>Bitový register 13</value>
+  </data>
+  <data name="Bit_register__ONE__FOUR_" xml:space="preserve">
+    <value>Bitový register 14</value>
+  </data>
+  <data name="Bit_register__ONE__FIVE_" xml:space="preserve">
+    <value>Bitový register 15</value>
+  </data>
+  <data name="Bit_register__ONE__SIX_" xml:space="preserve">
+    <value>Bitový register 16</value>
+  </data>
+  <data name="Bit_register__ONE__SEVEN_" xml:space="preserve">
+    <value>Bitový register 17</value>
+  </data>
+  <data name="Bit_register__ONE__EIGHT_" xml:space="preserve">
+    <value>Bitový register 18</value>
+  </data>
+  <data name="Bit_register__ONE__NINE_" xml:space="preserve">
+    <value>Bitový register 19</value>
+  </data>
+  <data name="Bit_register__TWO__ZERO_" xml:space="preserve">
+    <value>Bitový register 20</value>
+  </data>
+  <data name="Bit_register__TWO__ONE_" xml:space="preserve">
+    <value>Bitový register 21</value>
+  </data>
+  <data name="Bit_register__TWO__TWO_" xml:space="preserve">
+    <value>Bitový register 22</value>
+  </data>
+  <data name="Bit_register__TWO__THREE_" xml:space="preserve">
+    <value>Bitový register 23</value>
+  </data>
+  <data name="Bit_register__TWO__FOUR_" xml:space="preserve">
+    <value>Bitový register 24</value>
+  </data>
+  <data name="Bit_register__TWO__FIVE_" xml:space="preserve">
+    <value>Bitový register 25</value>
+  </data>
+  <data name="Bit_register__TWO__SIX_" xml:space="preserve">
+    <value>Bitový register 26</value>
+  </data>
+  <data name="Bit_register__TWO__SEVEN_" xml:space="preserve">
+    <value>Bitový register 27</value>
+  </data>
+  <data name="Bit_register__TWO__EIGHT_" xml:space="preserve">
+    <value>Bitový register 28</value>
+  </data>
+  <data name="Bit_register__TWO__NINE_" xml:space="preserve">
+    <value>Bitový register 29</value>
+  </data>
+  <data name="Bit_register__THREE__ZERO_" xml:space="preserve">
+    <value>Bitový register 30</value>
+  </data>
+  <data name="Bit_register__THREE__ONE_" xml:space="preserve">
+    <value>Bitový register 31</value>
+  </data>
+  <data name="Bit_register__THREE__TWO_" xml:space="preserve">
+    <value>Bitový register 32</value>
+  </data>
+  <data name="Bit_register__THREE__THREE_" xml:space="preserve">
+    <value>Bitový register 33</value>
+  </data>
+  <data name="Bit_register__THREE__FOUR_" xml:space="preserve">
+    <value>Bitový register 34</value>
+  </data>
+  <data name="Bit_register__THREE__FIVE_" xml:space="preserve">
+    <value>Bitový register 35</value>
+  </data>
+  <data name="Bit_register__THREE__SIX_" xml:space="preserve">
+    <value>Bitový register 36</value>
+  </data>
+  <data name="Bit_register__THREE__SEVEN_" xml:space="preserve">
+    <value>Bitový register 37</value>
+  </data>
+  <data name="Bit_register__THREE__EIGHT_" xml:space="preserve">
+    <value>Bitový register 38</value>
+  </data>
+  <data name="Bit_register__THREE__NINE_" xml:space="preserve">
+    <value>Bitový register 39</value>
+  </data>
+  <data name="Bit_register__FOUR__ZERO_" xml:space="preserve">
+    <value>Bitový register 40</value>
+  </data>
+  <data name="Bit_register__FOUR__ONE_" xml:space="preserve">
+    <value>Bitový register 41</value>
+  </data>
+  <data name="Bit_register__FOUR__TWO_" xml:space="preserve">
+    <value>Bitový register 42</value>
+  </data>
+  <data name="Bit_register__FOUR__THREE_" xml:space="preserve">
+    <value>Bitový register 43</value>
+  </data>
+  <data name="Bit_register__FOUR__FOUR_" xml:space="preserve">
+    <value>Bitový register 44</value>
+  </data>
+  <data name="Bit_register__FOUR__FIVE_" xml:space="preserve">
+    <value>Bitový register 45</value>
+  </data>
+  <data name="Bit_register__FOUR__SIX_" xml:space="preserve">
+    <value>Bitový register 46</value>
+  </data>
+  <data name="Bit_register__FOUR__SEVEN_" xml:space="preserve">
+    <value>Bitový register 47</value>
+  </data>
+  <data name="Bit_register__FOUR__EIGHT_" xml:space="preserve">
+    <value>Bitový register 48</value>
+  </data>
+  <data name="Bit_register__FOUR__NINE_" xml:space="preserve">
+    <value>Bitový register 49</value>
+  </data>
+  <data name="Bit_register__FIVE__ZERO_" xml:space="preserve">
+    <value>Bitový register 50</value>
+  </data>
+  <data name="Bit_register__FIVE__ONE_" xml:space="preserve">
+    <value>Bitový register 51</value>
+  </data>
+  <data name="Bit_register__FIVE__TWO_" xml:space="preserve">
+    <value>Bitový register 52</value>
+  </data>
+  <data name="Bit_register__FIVE__THREE_" xml:space="preserve">
+    <value>Bitový register 53</value>
+  </data>
+  <data name="Bit_register__FIVE__FOUR_" xml:space="preserve">
+    <value>Bitový register 54</value>
+  </data>
+  <data name="Bit_register__FIVE__FIVE_" xml:space="preserve">
+    <value>Bitový register 55</value>
+  </data>
+  <data name="Bit_register__FIVE__SIX_" xml:space="preserve">
+    <value>Bitový register 56</value>
+  </data>
+  <data name="Bit_register__FIVE__SEVEN_" xml:space="preserve">
+    <value>Bitový register 57</value>
+  </data>
+  <data name="Bit_register__FIVE__EIGHT_" xml:space="preserve">
+    <value>Bitový register 58</value>
+  </data>
+  <data name="Bit_register__FIVE__NINE_" xml:space="preserve">
+    <value>Bitový register 59</value>
+  </data>
+  <data name="Bit_register__SIX__ZERO_" xml:space="preserve">
+    <value>Bitový register 60</value>
+  </data>
+  <data name="Bit_register__SIX__ONE_" xml:space="preserve">
+    <value>Bitový register 61</value>
+  </data>
+  <data name="Bit_register__SIX__TWO_" xml:space="preserve">
+    <value>Bitový register 62</value>
+  </data>
+  <data name="Bit_register__SIX__THREE_" xml:space="preserve">
+    <value>Bitový register 63</value>
+  </data>
+  <data name="Float_register__ZERO_" xml:space="preserve">
+    <value>Plavákový register 0</value>
+  </data>
+  <data name="Float_register__ONE_" xml:space="preserve">
+    <value>Plavákový register 1</value>
+  </data>
+  <data name="Float_register__TWO_" xml:space="preserve">
+    <value>Plávajúci register 2</value>
+  </data>
+  <data name="Float_register__THREE_" xml:space="preserve">
+    <value>Plávajúci register 3</value>
+  </data>
+  <data name="Float_register__FOUR_" xml:space="preserve">
+    <value>Plávajúci register 4</value>
+  </data>
+  <data name="Float_register__FIVE_" xml:space="preserve">
+    <value>Plávajúci register 5</value>
+  </data>
+  <data name="Float_register__SIX_" xml:space="preserve">
+    <value>Plávajúci register 6</value>
+  </data>
+  <data name="Float_register__SEVEN_" xml:space="preserve">
+    <value>Plávajúci register 7</value>
+  </data>
+  <data name="Float_register__EIGHT_" xml:space="preserve">
+    <value>Plávajúci register 8</value>
+  </data>
+  <data name="Float_register__NINE_" xml:space="preserve">
+    <value>Plávajúci register 9</value>
+  </data>
+  <data name="Float_register__ONE__ZERO_" xml:space="preserve">
+    <value>Plávajúci register 10</value>
+  </data>
+  <data name="Float_register__ONE__ONE_" xml:space="preserve">
+    <value>Plávajúci register 11</value>
+  </data>
+  <data name="Float_register__ONE__TWO_" xml:space="preserve">
+    <value>Plávajúci register 12</value>
+  </data>
+  <data name="Float_register__ONE__THREE_" xml:space="preserve">
+    <value>Plávajúci register 13</value>
+  </data>
+  <data name="Float_register__ONE__FOUR_" xml:space="preserve">
+    <value>Plávajúci register 14</value>
+  </data>
+  <data name="Float_register__ONE__FIVE_" xml:space="preserve">
+    <value>Plávajúci register 15</value>
+  </data>
+  <data name="Float_register__ONE__SIX_" xml:space="preserve">
+    <value>Plávajúci register 16</value>
+  </data>
+  <data name="Float_register__ONE__SEVEN_" xml:space="preserve">
+    <value>Plávajúci register 17</value>
+  </data>
+  <data name="Float_register__ONE__EIGHT_" xml:space="preserve">
+    <value>Plávajúci register 18</value>
+  </data>
+  <data name="Float_register__ONE__NINE_" xml:space="preserve">
+    <value>Plávajúci register 19</value>
+  </data>
+  <data name="Float_register__TWO__ZERO_" xml:space="preserve">
+    <value>Plávajúci register 20</value>
+  </data>
+  <data name="Float_register__TWO__ONE_" xml:space="preserve">
+    <value>Plávajúci register 21</value>
+  </data>
+  <data name="Float_register__TWO__TWO_" xml:space="preserve">
+    <value>Plávajúci register 22</value>
+  </data>
+  <data name="Float_register__TWO__THREE_" xml:space="preserve">
+    <value>Plávajúci register 23</value>
+  </data>
+  <data name="Int_register__ZERO_" xml:space="preserve">
+    <value>Register Int 0</value>
+  </data>
+  <data name="Int_register__ONE_" xml:space="preserve">
+    <value>Register Int 1</value>
+  </data>
+  <data name="Int_register__TWO_" xml:space="preserve">
+    <value>Register Int 2</value>
+  </data>
+  <data name="Int_register__THREE_" xml:space="preserve">
+    <value>Register Int 3</value>
+  </data>
+  <data name="Int_register__FOUR_" xml:space="preserve">
+    <value>Register Int 4</value>
+  </data>
+  <data name="Int_register__FIVE_" xml:space="preserve">
+    <value>Register Int 5</value>
+  </data>
+  <data name="Int_register__SIX_" xml:space="preserve">
+    <value>Register Int 6</value>
+  </data>
+  <data name="Int_register__SEVEN_" xml:space="preserve">
+    <value>Register Int 7</value>
+  </data>
+  <data name="Int_register__EIGHT_" xml:space="preserve">
+    <value>Register Int 8</value>
+  </data>
+  <data name="Int_register__NINE_" xml:space="preserve">
+    <value>Register Int 9</value>
+  </data>
+  <data name="Int_register__ONE__ZERO_" xml:space="preserve">
+    <value>Register Int 10</value>
+  </data>
+  <data name="Int_register__ONE__ONE_" xml:space="preserve">
+    <value>Register Int 11</value>
+  </data>
+  <data name="Int_register__ONE__TWO_" xml:space="preserve">
+    <value>Register Int 12</value>
+  </data>
+  <data name="Int_register__ONE__THREE_" xml:space="preserve">
+    <value>Register Int 13</value>
+  </data>
+  <data name="Int_register__ONE__FOUR_" xml:space="preserve">
+    <value>Register Int 14</value>
+  </data>
+  <data name="Int_register__ONE__FIVE_" xml:space="preserve">
+    <value>Register Int 15</value>
+  </data>
+  <data name="Int_register__ONE__SIX_" xml:space="preserve">
+    <value>Register Int 16</value>
+  </data>
+  <data name="Int_register__ONE__SEVEN_" xml:space="preserve">
+    <value>Register Int 17</value>
+  </data>
+  <data name="Int_register__ONE__EIGHT_" xml:space="preserve">
+    <value>Register Int 18</value>
+  </data>
+  <data name="Int_register__ONE__NINE_" xml:space="preserve">
+    <value>Register Int 19</value>
+  </data>
+  <data name="Int_register__TWO__ZERO_" xml:space="preserve">
+    <value>Register Int 20</value>
+  </data>
+  <data name="Int_register__TWO__ONE_" xml:space="preserve">
+    <value>Register Int 21</value>
+  </data>
 </root>
