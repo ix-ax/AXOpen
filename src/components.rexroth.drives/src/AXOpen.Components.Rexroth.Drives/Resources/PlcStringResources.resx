@@ -90,4 +90,540 @@
     <value>AxoSetPosition_Task timeout.</value>
     <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,4139</comment>
   </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,25</comment>
+  </data>
+  <data name="Scaling_constant_required_position" xml:space="preserve">
+    <value>Scaling constant required position</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,38</comment>
+  </data>
+  <data name="Scaling_constant_actual_position" xml:space="preserve">
+    <value>Scaling constant actual position</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,43</comment>
+  </data>
+  <data name="Scaling_constant_required_velocity" xml:space="preserve">
+    <value>Scaling constant required velocity</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,48</comment>
+  </data>
+  <data name="Scaling_constant_actual_velocity" xml:space="preserve">
+    <value>Scaling constant actual velocity</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,53</comment>
+  </data>
+  <data name="Scaling_constant_required_torque" xml:space="preserve">
+    <value>Scaling constant required torque</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,58</comment>
+  </data>
+  <data name="Scaling_constant_actual_torque" xml:space="preserve">
+    <value>Scaling constant actual torque</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,63</comment>
+  </data>
+  <data name="Scaling_constant_required_acceleration" xml:space="preserve">
+    <value>Scaling constant required acceleration</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,68</comment>
+  </data>
+  <data name="Scaling_constant_actual_acceleration" xml:space="preserve">
+    <value>Scaling constant actual acceleration</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,73</comment>
+  </data>
+  <data name="Scaling_constant_required_deceleration" xml:space="preserve">
+    <value>Scaling constant required deceleration</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,78</comment>
+  </data>
+  <data name="Scaling_constant_actual_deceleration" xml:space="preserve">
+    <value>Scaling constant actual deceleration</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,83</comment>
+  </data>
+  <data name="Scaling_constant_required_jerk" xml:space="preserve">
+    <value>Scaling constant required jerk</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,86</comment>
+  </data>
+  <data name="Scaling_constant_actual_jerk" xml:space="preserve">
+    <value>Scaling constant actual jerk</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,91</comment>
+  </data>
+  <data name="_UNDERSCORE_State" xml:space="preserve">
+    <value>_State</value>
+    <comment>src\AxoCtrlxDriveXsc\AxoCtrlxDriveXsc.st,99</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__ZERO__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit00_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,7</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__ONE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit01_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,9</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__TWO__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit02_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,11</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__THREE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit03_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,13</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__FOUR__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit04_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,15</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__FIVE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit05_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,17</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__SIX__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit06_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,19</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__SEVEN__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit07_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,21</comment>
+  </data>
+  <data name="Command_operation_mode_Bit__ZERO_" xml:space="preserve">
+    <value>Command operation mode Bit 0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,24</comment>
+  </data>
+  <data name="Command_operation_mode_Bit__ONE_" xml:space="preserve">
+    <value>Command operation mode Bit 1</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,27</comment>
+  </data>
+  <data name="Command_operation_mode_Bit__TWO_" xml:space="preserve">
+    <value>Command operation mode Bit 2</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,31</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ONE__ONE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit11_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,35</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ONE__TWO__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit12_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,37</comment>
+  </data>
+  <data name="Drive_Halt" xml:space="preserve">
+    <value>Drive Halt</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,39</comment>
+  </data>
+  <data name="Drive_enable" xml:space="preserve">
+    <value>Drive enable</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,41</comment>
+  </data>
+  <data name="Drive_On" xml:space="preserve">
+    <value>Drive On</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,43</comment>
+  </data>
+  <data name="DriveControlWord" xml:space="preserve">
+    <value>DriveControlWord</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveControlWord_S_0_0134_0_0.st,4</comment>
+  </data>
+  <data name="CommandProcessingStatus" xml:space="preserve">
+    <value>CommandProcessingStatus</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st,13</comment>
+  </data>
+  <data name="InStandstill" xml:space="preserve">
+    <value>InStandstill</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st,15</comment>
+  </data>
+  <data name="InReference" xml:space="preserve">
+    <value>InReference</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st,17</comment>
+  </data>
+  <data name="HardwareLock" xml:space="preserve">
+    <value>HardwareLock</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st,21</comment>
+  </data>
+  <data name="ActualOperatingModeBit_ZERO_" xml:space="preserve">
+    <value>ActualOperatingModeBit0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st,23</comment>
+  </data>
+  <data name="ActualOperatingModeBit_ONE_" xml:space="preserve">
+    <value>ActualOperatingModeBit1</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st,26</comment>
+  </data>
+  <data name="ActualOperatingModeBit_TWO_" xml:space="preserve">
+    <value>ActualOperatingModeBit2</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st,30</comment>
+  </data>
+  <data name="WarningZKL_TWO_" xml:space="preserve">
+    <value>WarningZKL2</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st,36</comment>
+  </data>
+  <data name="DriveErrorZKL_ONE_" xml:space="preserve">
+    <value>DriveErrorZKL1</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st,38</comment>
+  </data>
+  <data name="ReadyForOperation_Bit__ZERO_" xml:space="preserve">
+    <value>ReadyForOperation Bit 0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st,40</comment>
+  </data>
+  <data name="ReadyForOperation_Bit__ONE_" xml:space="preserve">
+    <value>ReadyForOperation Bit 1</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st,43</comment>
+  </data>
+  <data name="DriveStatusWord" xml:space="preserve">
+    <value>DriveStatusWord</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscDriveStatusWord_S_0_0135_0_0.st,4</comment>
+  </data>
+  <data name="Hardware_ID_Device" xml:space="preserve">
+    <value>Hardware ID Device</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,4</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Outputs_APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Outputs' module</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,6</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Inputs_APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Inputs' module</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,8</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Servodrive_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Control_UNDERSCORE_word_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0134_0_0__Servodrive_profile__Control_word' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,10</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Signal_UNDERSCORE_control_UNDERSCORE_word_UNDERSCORE__UNDERSCORE_Value_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0145_0_0__Signal_control_word__Value' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,12</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__EIGHT__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Drive_UNDERSCORE_controlled_UNDERSCORE_positioning_UNDERSCORE__UNDERSCORE_Command_UNDERSCORE_value_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0282_0_0__Drive_controlled_positioning__Command_value' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,14</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__FIVE__NINE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Profile_UNDERSCORE_velocity_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0259_0_0__Positioning_profile__Profile_velocity' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,16</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__SIX__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Acceleration_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0260_0_0__Positioning_profile__Acceleration' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,18</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__FIVE__NINE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Deceleration_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0359_0_0__Positioning_profile__Deceleration' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,20</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ONE__UNDERSCORE__UNDERSCORE_Power_UNDERSCORE_supply_UNDERSCORE_control_UNDERSCORE__UNDERSCORE_Control_UNDERSCORE_word_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_1720_0_1__Power_supply_control__Control_word' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,22</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__NINE__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Torque_UNDERSCORE_force_UNDERSCORE_limitation_UNDERSCORE__UNDERSCORE_Limit_UNDERSCORE_value_UNDERSCORE_bipolar_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0092_0_0__Torque_force_limitation__Limit_value_bipolar' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,24</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Torque_UNDERSCORE_force_UNDERSCORE_command_UNDERSCORE_value_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0080_0_0__Torque_force_command_value' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,26</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__NINE__THREE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Positioning_UNDERSCORE_jerk_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0193_0_0__Positioning_jerk' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,28</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Servodrive_UNDERSCORE_profile_UNDERSCORE__UNDERSCORE_Status_UNDERSCORE_word_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0135_0_0__Servodrive_profile__Status_word' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,30</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Signal_UNDERSCORE_status_UNDERSCORE_word_UNDERSCORE__UNDERSCORE_Value_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0144_0_0__Signal_status_word__Value' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,32</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__EIGHT__SIX__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Position_UNDERSCORE_controller_UNDERSCORE__UNDERSCORE_Position_UNDERSCORE_actual_UNDERSCORE_value_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0386_0_0__Position_controller__Position_actual_value' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,34</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__FIVE__THREE__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Velocity_UNDERSCORE_controller_UNDERSCORE__UNDERSCORE_Velocity_UNDERSCORE_actual_UNDERSCORE_value_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0535_0_0__Velocity_controller__Velocity_actual_value' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,36</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__NINE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Diagnostic_UNDERSCORE_message_UNDERSCORE__UNDERSCORE_Manufacturer_UNDERSCORE_status_UNDERSCORE_register_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0390_0_0__Diagnostic_message__Manufacturer_status_register' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,38</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__ZERO__UNDERSCORE__ZERO__UNDERSCORE__TWO__UNDERSCORE__UNDERSCORE_Power_UNDERSCORE_supply_UNDERSCORE_control_UNDERSCORE__UNDERSCORE_Status_UNDERSCORE_word_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_1720_0_2__Power_supply_control__Status_word' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,40</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_Torque_UNDERSCORE_force_UNDERSCORE_feedback_UNDERSCORE_value_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'S_0_0084_0_0__Torque_force_feedback_value' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,42</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_P_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__ZERO__SIX__UNDERSCORE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__UNDERSCORE_STO_UNDERSCORE_function_UNDERSCORE__UNDERSCORE_Operating_UNDERSCORE_status_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'P_0_0106_0_0__STO_function__Operating_status' submodule</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscHWIDs.st,44</comment>
+  </data>
+  <data name="Acceptance_of_positioning_command_value" xml:space="preserve">
+    <value>Acceptance of positioning command value</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st,7</comment>
+  </data>
+  <data name="Homing_control" xml:space="preserve">
+    <value>Homing control</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st,11</comment>
+  </data>
+  <data name="Absolute_SLASH_Relative_type_of_positioning_command_value" xml:space="preserve">
+    <value>Absolute/Relative type of positioning command value</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st,13</comment>
+  </data>
+  <data name="Immediate_block_change" xml:space="preserve">
+    <value>Immediate block change</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st,15</comment>
+  </data>
+  <data name="Clear_error" xml:space="preserve">
+    <value>Clear error</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st,17</comment>
+  </data>
+  <data name="Infinite_travel_in_positive_direction__BRACKET_jog_PLUS__ENDBRACKET_" xml:space="preserve">
+    <value>Infinite travel in positive direction (jog+)</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st,19</comment>
+  </data>
+  <data name="Infinite_travel_in_negative_direction__BRACKET_jog_DASH__ENDBRACKET_" xml:space="preserve">
+    <value>Infinite travel in negative direction (jog-)</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st,21</comment>
+  </data>
+  <data name="Activate_configuration_mode" xml:space="preserve">
+    <value>Activate configuration mode</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st,23</comment>
+  </data>
+  <data name="Activate_operation_mode" xml:space="preserve">
+    <value>Activate operation mode</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st,25</comment>
+  </data>
+  <data name="CancelReferencePoint" xml:space="preserve">
+    <value>CancelReferencePoint</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st,27</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ONE__THREE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit13_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st,33</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ONE__FOUR__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit14_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st,35</comment>
+  </data>
+  <data name="Set_absolute_position_function" xml:space="preserve">
+    <value>Set absolute position function</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st,37</comment>
+  </data>
+  <data name="SignalControlWord" xml:space="preserve">
+    <value>SignalControlWord</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalControlWord_S_0_0145_0_0.st,4</comment>
+  </data>
+  <data name="Configuration_SLASH_Parametrization_SLASH_Operation_bit__ZERO_" xml:space="preserve">
+    <value>Configuration/Parametrization/Operation bit 0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st,7</comment>
+  </data>
+  <data name="Configuration_SLASH_Parametrization_SLASH_Operation_bit__ONE_" xml:space="preserve">
+    <value>Configuration/Parametrization/Operation bit 1</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st,9</comment>
+  </data>
+  <data name="In_target_position" xml:space="preserve">
+    <value>In target position</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st,11</comment>
+  </data>
+  <data name="Position_command_acknowledgment" xml:space="preserve">
+    <value>Position command acknowledgment</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st,13</comment>
+  </data>
+  <data name="Drive_standstill" xml:space="preserve">
+    <value>Drive standstill</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st,15</comment>
+  </data>
+  <data name="Command_change_bit" xml:space="preserve">
+    <value>Command change bit</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st,17</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_SIX__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit6_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st,19</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_SEVEN__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit7_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st,21</comment>
+  </data>
+  <data name="Locked_by_hardware" xml:space="preserve">
+    <value>Locked by hardware</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st,23</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_NINE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit9_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st,25</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ONE__ZERO__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit10_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st,27</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ONE__FIVE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit15_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st,37</comment>
+  </data>
+  <data name="SignalStatusWord" xml:space="preserve">
+    <value>SignalStatusWord</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSignalStatusWord_S_0_0144_0_0.st,4</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ZERO__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit0_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st,7</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_ONE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit1_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st,9</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_TWO__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit2_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st,11</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_THREE__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit3_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st,13</comment>
+  </data>
+  <data name="_UNDERSCORE_bit_FOUR__UNDERSCORE_Reserve" xml:space="preserve">
+    <value>_bit4_Reserve</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st,15</comment>
+  </data>
+  <data name="Mode_selection_bit__ZERO_" xml:space="preserve">
+    <value>Mode selection bit 0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st,23</comment>
+  </data>
+  <data name="Mode_selection_bit__ONE_" xml:space="preserve">
+    <value>Mode selection bit 1</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st,26</comment>
+  </data>
+  <data name="DC_bus_discharge" xml:space="preserve">
+    <value>DC bus discharge</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st,29</comment>
+  </data>
+  <data name="Controlling_the_ready_for_operation_relay" xml:space="preserve">
+    <value>Controlling the ready for operation relay</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st,34</comment>
+  </data>
+  <data name="Controlling_DC_bus_charging_and_mains_contactor" xml:space="preserve">
+    <value>Controlling DC bus charging and mains contactor</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st,39</comment>
+  </data>
+  <data name="Enabling" xml:space="preserve">
+    <value>Enabling</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st,42</comment>
+  </data>
+  <data name="SupplyUnitControlWord" xml:space="preserve">
+    <value>SupplyUnitControlWord</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitControlWord_S_0_1720_0_1.st,4</comment>
+  </data>
+  <data name="Mains_status" xml:space="preserve">
+    <value>Mains status</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st,15</comment>
+  </data>
+  <data name="Hardware_enable" xml:space="preserve">
+    <value>Hardware enable</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st,17</comment>
+  </data>
+  <data name="Controlling_the_mains_connection" xml:space="preserve">
+    <value>Controlling the mains connection</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st,19</comment>
+  </data>
+  <data name="Bb_contact" xml:space="preserve">
+    <value>Bb contact</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st,21</comment>
+  </data>
+  <data name="Feedback_of_the_preselected_operation_modes_bit__ZERO_" xml:space="preserve">
+    <value>Feedback of the preselected operation modes bit 0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st,23</comment>
+  </data>
+  <data name="Feedback_of_the_preselected_operation_modes_bit__ONE_" xml:space="preserve">
+    <value>Feedback of the preselected operation modes bit 1</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st,25</comment>
+  </data>
+  <data name="Braking_resistor" xml:space="preserve">
+    <value>Braking resistor</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st,29</comment>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st,31</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st,33</comment>
+  </data>
+  <data name="Ready_for_enabling" xml:space="preserve">
+    <value>Ready for enabling</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st,35</comment>
+  </data>
+  <data name="SupplyUnitStatusWord" xml:space="preserve">
+    <value>SupplyUnitStatusWord</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXscSupplyUnitStatusWord_S_0_1720_0_2.st,4</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Config.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Config.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Config.st,9</comment>
+  </data>
+  <data name="DriveControlWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>DriveControlWord_S_0_0134_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st,5</comment>
+  </data>
+  <data name="SignalControlWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>SignalControlWord_S_0_0145_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st,7</comment>
+  </data>
+  <data name="CommandPosition_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__EIGHT__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>CommandPosition_S_0_0282_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st,9</comment>
+  </data>
+  <data name="CommandVelocity_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__FIVE__NINE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>CommandVelocity_S_0_0259_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st,11</comment>
+  </data>
+  <data name="CommandAcceleration_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__TWO__SIX__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>CommandAcceleration_S_0_0260_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st,13</comment>
+  </data>
+  <data name="CommandDecceleration_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__FIVE__NINE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>CommandDecceleration_S_0_0359_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st,15</comment>
+  </data>
+  <data name="SupplyUnitControlWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ONE_" xml:space="preserve">
+    <value>SupplyUnitControlWord_S_0_1720_0_1</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st,17</comment>
+  </data>
+  <data name="BipolarTorqueLimitation_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__NINE__TWO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>BipolarTorqueLimitation_S_0_0092_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st,19</comment>
+  </data>
+  <data name="CommandTorque_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>CommandTorque_S_0_0080_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st,21</comment>
+  </data>
+  <data name="CommandJerk_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__NINE__THREE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>CommandJerk_S_0_0193_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Control.st,23</comment>
+  </data>
+  <data name="DriveStatusWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__THREE__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>DriveStatusWord_S_0_0135_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st,5</comment>
+  </data>
+  <data name="SignalStatusWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ONE__FOUR__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>SignalStatusWord_S_0_0144_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st,7</comment>
+  </data>
+  <data name="ActualPosition_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__EIGHT__SIX__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>ActualPosition_S_0_0386_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st,9</comment>
+  </data>
+  <data name="ActualVelocity_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__FIVE__THREE__FIVE__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>ActualVelocity_S_0_0535_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st,11</comment>
+  </data>
+  <data name="DiagnosticMessage_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__THREE__NINE__ZERO__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>DiagnosticMessage_S_0_0390_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st,13</comment>
+  </data>
+  <data name="SupplyUnitStatusWord_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ONE__SEVEN__TWO__ZERO__UNDERSCORE__ZERO__UNDERSCORE__TWO_" xml:space="preserve">
+    <value>SupplyUnitStatusWord_S_0_1720_0_2</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st,15</comment>
+  </data>
+  <data name="ActualTorque_UNDERSCORE_S_UNDERSCORE__ZERO__UNDERSCORE__ZERO__ZERO__EIGHT__FOUR__UNDERSCORE__ZERO__UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>ActualTorque_S_0_0084_0_0</value>
+    <comment>src\AxoCtrlxDriveXsc\TypesStructuresAndEnums\AxoCtrlxDriveXsc_Status.st,17</comment>
+  </data>
 </root>

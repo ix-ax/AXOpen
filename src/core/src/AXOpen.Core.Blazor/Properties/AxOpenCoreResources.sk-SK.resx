@@ -201,6 +201,12 @@
   <data name="SeverityMajorFault" xml:space="preserve">
     <value>Hlavná porucha</value>
   </data>
+  <data name="SeverityError" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="SeverityProgrammingError" xml:space="preserve">
+    <value>Chyba systému</value>
+  </data>
   <data name="SeverityCritical" xml:space="preserve">
     <value>Kritické</value>
   </data>
@@ -224,5 +230,88 @@
   </data>
   <data name="Active" xml:space="preserve">
     <value>aktívny</value>
+  </data>
+  <!-- Table Headers -->
+  <data name="Severity" xml:space="preserve">
+    <value>Závažnosť</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Názov</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Stav</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Akcie</value>
+  </data>
+  <!-- UI Elements -->
+  <data name="SearchAlarms" xml:space="preserve">
+    <value>Hľadať alarmy</value>
+  </data>
+  <data name="SearchTitleOrEquipment" xml:space="preserve">
+    <value>Hľadať názov alebo zariadenie</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Obnoviť</value>
+  </data>
+  <data name="RefreshMessages" xml:space="preserve">
+    <value>Obnoviť správy</value>
+  </data>
+  <data name="NoAlarmsToDisplay" xml:space="preserve">
+    <value>Žiadne alarmy na zobrazenie.</value>
+  </data>
+  <data name="HideDetails" xml:space="preserve">
+    <value>Skryť podrobnosti</value>
+  </data>
+  <data name="ShowDetails" xml:space="preserve">
+    <value>Zobraziť podrobnosti</value>
+  </data>
+  <data name="AcknowledgeAlarm" xml:space="preserve">
+    <value>Potvrdiť alarm</value>
+  </data>
+  <data name="ACKN" xml:space="preserve">
+    <value>POTV</value>
+  </data>
+  <data name="Ack" xml:space="preserve">
+    <value>Potv</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Čakajúci</value>
+  </data>
+  <data name="ActiveAck" xml:space="preserve">
+    <value>Aktívny · Potv</value>
+  </data>
+  <!-- Component Container -->
+  <data name="Alarms" xml:space="preserve">
+    <value>alarmy</value>
+  </data>
+  <data name="Alarm" xml:space="preserve">
+    <value>alarm</value>
+  </data>
+  <data name="ToggleServiceView" xml:space="preserve">
+    <value>Prepnúť servisné zobrazenie</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normálny</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>Servis</value>
+  </data>
+  <data name="CONFIGURATION" xml:space="preserve">
+    <value>KONFIGURÁCIA</value>
+  </data>
+  <data name="STATE" xml:space="preserve">
+    <value>STAV</value>
+  </data>
+  <!-- Array Views -->
+  <data name="Data" xml:space="preserve">
+    <value>Údaje</value>
+  </data>
+  <!-- Aria Labels -->
+  <data name="SeverityLabel" xml:space="preserve">
+    <value>Závažnosť</value>
+  </data>
+  <data name="AlarmCode" xml:space="preserve">
+    <value>Kód alarmu</value>
   </data>
 </root>

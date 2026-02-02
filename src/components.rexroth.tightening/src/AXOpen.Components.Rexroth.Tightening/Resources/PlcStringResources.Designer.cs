@@ -61,11 +61,218 @@ namespace AXOpen.Components.Rexroth.Tightening.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active enable.
+        /// </summary>
+        public static string Active_enable {
+            get {
+                return ResourceManager.GetString("Active_enable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active enable acknowledge.
+        /// </summary>
+        public static string Active_enable_acknowledge {
+            get {
+                return ResourceManager.GetString("Active_enable_acknowledge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Angle.
+        /// </summary>
+        public static string Angle {
+            get {
+                return ResourceManager.GetString("Angle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Angle max.
+        /// </summary>
+        public static string Angle_max {
+            get {
+                return ResourceManager.GetString("Angle_max", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Angle min.
+        /// </summary>
+        public static string Angle_min {
+            get {
+                return ResourceManager.GetString("Angle_min", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Angle scaling constant (depends on the type of spindle used).
+        /// </summary>
+        public static string Angle_scaling_constant__BRACKET_depends_on_the_type_of_spindle_used_ENDBRACKET_ {
+            get {
+                return ResourceManager.GetString("Angle_scaling_constant__BRACKET_depends_on_the_type_of_spindle_used_ENDBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Angle too high.
+        /// </summary>
+        public static string Angle_too_high {
+            get {
+                return ResourceManager.GetString("Angle_too_high", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Angle too low.
+        /// </summary>
+        public static string Angle_too_low {
+            get {
+                return ResourceManager.GetString("Angle_too_low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Automatic start manual.
+        /// </summary>
+        public static string Automatic_start_manual {
+            get {
+                return ResourceManager.GetString("Automatic_start_manual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clockwise acknowledge.
+        /// </summary>
+        public static string Clockwise_acknowledge {
+            get {
+                return ResourceManager.GetString("Clockwise_acknowledge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clockwise AND.
+        /// </summary>
+        public static string Clockwise_AND {
+            get {
+                return ResourceManager.GetString("Clockwise_AND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clockwise lock.
+        /// </summary>
+        public static string Clockwise_lock {
+            get {
+                return ResourceManager.GetString("Clockwise_lock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clockwise lock acknowledge.
+        /// </summary>
+        public static string Clockwise_lock_acknowledge {
+            get {
+                return ResourceManager.GetString("Clockwise_lock_acknowledge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control.
+        /// </summary>
+        public static string Control {
+            get {
+                return ResourceManager.GetString("Control", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Counter clockwise acknowledge.
+        /// </summary>
+        public static string Counter_clockwise_acknowledge {
+            get {
+                return ResourceManager.GetString("Counter_clockwise_acknowledge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Counter clockwise AND.
+        /// </summary>
+        public static string Counter_clockwise_AND {
+            get {
+                return ResourceManager.GetString("Counter_clockwise_AND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Counter clockwise lock.
+        /// </summary>
+        public static string Counter_clockwise_lock {
+            get {
+                return ResourceManager.GetString("Counter_clockwise_lock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Counter clockwise lock acknowledge.
+        /// </summary>
+        public static string Counter_clockwise_lock_acknowledge {
+            get {
+                return ResourceManager.GetString("Counter_clockwise_lock_acknowledge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Counter clockwise select.
+        /// </summary>
+        public static string Counter_clockwise_select {
+            get {
+                return ResourceManager.GetString("Counter_clockwise_select", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cycle complete.
+        /// </summary>
+        public static string Cycle_complete {
+            get {
+                return ResourceManager.GetString("Cycle_complete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cycle counter.
+        /// </summary>
+        public static string Cycle_counter {
+            get {
+                return ResourceManager.GetString("Cycle_counter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DisableClockwiseTask.
+        /// </summary>
+        public static string DisableClockwiseTask {
+            get {
+                return ResourceManager.GetString("DisableClockwiseTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DisableClockwiseTask timeout..
         /// </summary>
         public static string DisableClockwiseTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("DisableClockwiseTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DisableCounterClockwiseTask.
+        /// </summary>
+        public static string DisableCounterClockwiseTask {
+            get {
+                return ResourceManager.GetString("DisableCounterClockwiseTask", resourceCulture);
             }
         }
         
@@ -79,11 +286,47 @@ namespace AXOpen.Components.Rexroth.Tightening.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DisableTask.
+        /// </summary>
+        public static string DisableTask {
+            get {
+                return ResourceManager.GetString("DisableTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DisableTask timeout..
         /// </summary>
         public static string DisableTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("DisableTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable.
+        /// </summary>
+        public static string Enable {
+            get {
+                return ResourceManager.GetString("Enable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable acknowledge.
+        /// </summary>
+        public static string Enable_acknowledge {
+            get {
+                return ResourceManager.GetString("Enable_acknowledge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EnableClockwiseTask.
+        /// </summary>
+        public static string EnableClockwiseTask {
+            get {
+                return ResourceManager.GetString("EnableClockwiseTask", resourceCulture);
             }
         }
         
@@ -97,11 +340,29 @@ namespace AXOpen.Components.Rexroth.Tightening.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EnableCounterClockwiseTask.
+        /// </summary>
+        public static string EnableCounterClockwiseTask {
+            get {
+                return ResourceManager.GetString("EnableCounterClockwiseTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EnableCounterClockwiseTask timeout..
         /// </summary>
         public static string EnableCounterClockwiseTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("EnableCounterClockwiseTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EnableTask.
+        /// </summary>
+        public static string EnableTask {
+            get {
+                return ResourceManager.GetString("EnableTask", resourceCulture);
             }
         }
         
@@ -115,11 +376,524 @@ namespace AXOpen.Components.Rexroth.Tightening.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ErgoSpin LED Green.
+        /// </summary>
+        public static string ErgoSpin_LED_Green {
+            get {
+                return ResourceManager.GetString("ErgoSpin_LED_Green", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ErgoSpin LED Green acknowledge.
+        /// </summary>
+        public static string ErgoSpin_LED_Green_acknowledge {
+            get {
+                return ResourceManager.GetString("ErgoSpin_LED_Green_acknowledge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ErgoSpin LED Red.
+        /// </summary>
+        public static string ErgoSpin_LED_Red {
+            get {
+                return ResourceManager.GetString("ErgoSpin_LED_Red", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ErgoSpin LED Red acknowledge.
+        /// </summary>
+        public static string ErgoSpin_LED_Red_acknowledge {
+            get {
+                return ResourceManager.GetString("ErgoSpin_LED_Red_acknowledge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ErgoSpin LED Yellow.
+        /// </summary>
+        public static string ErgoSpin_LED_Yellow {
+            get {
+                return ResourceManager.GetString("ErgoSpin_LED_Yellow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ErgoSpin LED Yellow acknowledge.
+        /// </summary>
+        public static string ErgoSpin_LED_Yellow_acknowledge {
+            get {
+                return ResourceManager.GetString("ErgoSpin_LED_Yellow_acknowledge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error class.
+        /// </summary>
+        public static string Error_class {
+            get {
+                return ResourceManager.GetString("Error_class", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error code.
+        /// </summary>
+        public static string Error_code {
+            get {
+                return ResourceManager.GetString("Error_code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error time.
+        /// </summary>
+        public static string Error_time {
+            get {
+                return ResourceManager.GetString("Error_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GetScrewingResultsTask.
+        /// </summary>
+        public static string GetScrewingResultsTask {
+            get {
+                return ResourceManager.GetString("GetScrewingResultsTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GetScrewingResultsTask timeout..
         /// </summary>
         public static string GetScrewingResultsTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("GetScrewingResultsTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 8&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__EIGHT__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__EIGHT__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 5&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__FIVE__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__FIVE__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 4&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__FOUR__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__FOUR__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 9&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__NINE__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__NINE__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 1&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__ONE__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__ONE__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 18&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__ONE__EIGHT__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__ONE__EIGHT__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 15&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__ONE__FIVE__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__ONE__FIVE__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 14&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__ONE__FOUR__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__ONE__FOUR__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 19&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__ONE__NINE__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__ONE__NINE__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 11&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__ONE__ONE__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__ONE__ONE__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 17&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__ONE__SEVEN__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__ONE__SEVEN__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 16&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__ONE__SIX__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__ONE__SIX__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 13&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__ONE__THREE__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__ONE__THREE__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 12&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__ONE__TWO__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__ONE__TWO__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 10&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__ONE__ZERO__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__ONE__ZERO__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 7&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__SEVEN__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__SEVEN__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 6&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__SIX__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__SIX__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 3&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__THREE__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__THREE__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 2&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__TWO__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__TWO__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 25&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__TWO__FIVE__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__TWO__FIVE__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 24&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__TWO__FOUR__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__TWO__FOUR__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 21&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__TWO__ONE__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__TWO__ONE__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 26&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__TWO__SIX__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__TWO__SIX__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 23&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__TWO__THREE__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__TWO__THREE__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 22&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__TWO__TWO__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__TWO__TWO__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID &apos;Slot 20&apos; module.
+        /// </summary>
+        public static string Hardware_ID__APOSTROPHE_Slot__TWO__ZERO__APOSTROPHE__module {
+            get {
+                return ResourceManager.GetString("Hardware_ID__APOSTROPHE_Slot__TWO__ZERO__APOSTROPHE__module", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the device.
+        /// </summary>
+        public static string Hardware_ID_of_the_device {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the_device", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware IDs.
+        /// </summary>
+        public static string Hardware_IDs {
+            get {
+                return ResourceManager.GetString("Hardware_IDs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ID code.
+        /// </summary>
+        public static string ID_code {
+            get {
+                return ResourceManager.GetString("ID_code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IDcode (manual).
+        /// </summary>
+        public static string IDcode__BRACKET_manual_ENDBRACKET_ {
+            get {
+                return ResourceManager.GetString("IDcode__BRACKET_manual_ENDBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In Cycle.
+        /// </summary>
+        public static string In_Cycle {
+            get {
+                return ResourceManager.GetString("In_Cycle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In Cycle counter clockwise.
+        /// </summary>
+        public static string In_Cycle_counter_clockwise {
+            get {
+                return ResourceManager.GetString("In_Cycle_counter_clockwise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info time.
+        /// </summary>
+        public static string Info_time {
+            get {
+                return ResourceManager.GetString("Info_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inputs.
+        /// </summary>
+        public static string Inputs {
+            get {
+                return ResourceManager.GetString("Inputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No fault.
+        /// </summary>
+        public static string No_fault {
+            get {
+                return ResourceManager.GetString("No_fault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NOK.
+        /// </summary>
+        public static string NOK {
+            get {
+                return ResourceManager.GetString("NOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nok acknowledge.
+        /// </summary>
+        public static string Nok_acknowledge {
+            get {
+                return ResourceManager.GetString("Nok_acknowledge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outputs.
+        /// </summary>
+        public static string Outputs {
+            get {
+                return ResourceManager.GetString("Outputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program number.
+        /// </summary>
+        public static string Program_number {
+            get {
+                return ResourceManager.GetString("Program_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program number (manual).
+        /// </summary>
+        public static string Program_number__BRACKET_manual_ENDBRACKET_ {
+            get {
+                return ResourceManager.GetString("Program_number__BRACKET_manual_ENDBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program number ack..
+        /// </summary>
+        public static string Program_number_ack_DOT_ {
+            get {
+                return ResourceManager.GetString("Program_number_ack_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Progress.
+        /// </summary>
+        public static string Progress {
+            get {
+                return ResourceManager.GetString("Progress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ready.
+        /// </summary>
+        public static string Ready {
+            get {
+                return ResourceManager.GetString("Ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset fault.
+        /// </summary>
+        public static string Reset_fault {
+            get {
+                return ResourceManager.GetString("Reset_fault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset results.
+        /// </summary>
+        public static string Reset_results {
+            get {
+                return ResourceManager.GetString("Reset_results", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ResetFaultTask.
+        /// </summary>
+        public static string ResetFaultTask {
+            get {
+                return ResourceManager.GetString("ResetFaultTask", resourceCulture);
             }
         }
         
@@ -133,11 +907,56 @@ namespace AXOpen.Components.Rexroth.Tightening.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ResetResultsTask.
+        /// </summary>
+        public static string ResetResultsTask {
+            get {
+                return ResourceManager.GetString("ResetResultsTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ResetResultsTask timeout..
         /// </summary>
         public static string ResetResultsTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("ResetResultsTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result.
+        /// </summary>
+        public static string Result {
+            get {
+                return ResourceManager.GetString("Result", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Results.
+        /// </summary>
+        public static string Results {
+            get {
+                return ResourceManager.GetString("Results", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RunAutomatTask.
+        /// </summary>
+        public static string RunAutomatTask {
+            get {
+                return ResourceManager.GetString("RunAutomatTask", resourceCulture);
             }
         }
         
@@ -151,11 +970,29 @@ namespace AXOpen.Components.Rexroth.Tightening.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ScrewClockwiseTask.
+        /// </summary>
+        public static string ScrewClockwiseTask {
+            get {
+                return ResourceManager.GetString("ScrewClockwiseTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ScrewClockwiseTask timeout..
         /// </summary>
         public static string ScrewClockwiseTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("ScrewClockwiseTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ScrewCounterClockwiseTask.
+        /// </summary>
+        public static string ScrewCounterClockwiseTask {
+            get {
+                return ResourceManager.GetString("ScrewCounterClockwiseTask", resourceCulture);
             }
         }
         
@@ -169,11 +1006,155 @@ namespace AXOpen.Components.Rexroth.Tightening.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SetScrewingProgramTask.
+        /// </summary>
+        public static string SetScrewingProgramTask {
+            get {
+                return ResourceManager.GetString("SetScrewingProgramTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SetScrewingProgramTask timeout..
         /// </summary>
         public static string SetScrewingProgramTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("SetScrewingProgramTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start button ErgoSpin.
+        /// </summary>
+        public static string Start_button_ErgoSpin {
+            get {
+                return ResourceManager.GetString("Start_button_ErgoSpin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start clockwise.
+        /// </summary>
+        public static string Start_clockwise {
+            get {
+                return ResourceManager.GetString("Start_clockwise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start counter clockwise.
+        /// </summary>
+        public static string Start_counter_clockwise {
+            get {
+                return ResourceManager.GetString("Start_counter_clockwise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task timeout.
+        /// </summary>
+        public static string Task_timeout {
+            get {
+                return ResourceManager.GetString("Task_timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool button.
+        /// </summary>
+        public static string Tool_button {
+            get {
+                return ResourceManager.GetString("Tool_button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque.
+        /// </summary>
+        public static string Torque {
+            get {
+                return ResourceManager.GetString("Torque", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque max.
+        /// </summary>
+        public static string Torque_max {
+            get {
+                return ResourceManager.GetString("Torque_max", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque min.
+        /// </summary>
+        public static string Torque_min {
+            get {
+                return ResourceManager.GetString("Torque_min", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque scaling constant (depends on the type of spindle used).
+        /// </summary>
+        public static string Torque_scaling_constant__BRACKET_depends_on_the_type_of_spindle_used_ENDBRACKET_ {
+            get {
+                return ResourceManager.GetString("Torque_scaling_constant__BRACKET_depends_on_the_type_of_spindle_used_ENDBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque too high.
+        /// </summary>
+        public static string Torque_too_high {
+            get {
+                return ResourceManager.GetString("Torque_too_high", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque too low.
+        /// </summary>
+        public static string Torque_too_low {
+            get {
+                return ResourceManager.GetString("Torque_too_low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Triger Out.
+        /// </summary>
+        public static string Triger_Out {
+            get {
+                return ResourceManager.GetString("Triger_Out", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update diagnostics.
+        /// </summary>
+        public static string Update_diagnostics {
+            get {
+                return ResourceManager.GetString("Update_diagnostics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User In 1.
+        /// </summary>
+        public static string User_In__ONE_ {
+            get {
+                return ResourceManager.GetString("User_In__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User In 2.
+        /// </summary>
+        public static string User_In__TWO_ {
+            get {
+                return ResourceManager.GetString("User_In__TWO_", resourceCulture);
             }
         }
     }

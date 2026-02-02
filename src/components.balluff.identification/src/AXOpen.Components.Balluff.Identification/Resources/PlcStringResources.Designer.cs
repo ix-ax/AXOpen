@@ -61,11 +61,443 @@ namespace AXOpen.Components.Balluff.Identification.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address to write.
+        /// </summary>
+        public static string Address_to_write {
+            get {
+                return ResourceManager.GetString("Address_to_write", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader1 CodeTagPresent.
+        /// </summary>
+        public static string BitHeader_ONE__CodeTagPresent {
+            get {
+                return ResourceManager.GetString("BitHeader_ONE__CodeTagPresent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader1 HeadFailure.
+        /// </summary>
+        public static string BitHeader_ONE__HeadFailure {
+            get {
+                return ResourceManager.GetString("BitHeader_ONE__HeadFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader1 Job.
+        /// </summary>
+        public static string BitHeader_ONE__Job {
+            get {
+                return ResourceManager.GetString("BitHeader_ONE__Job", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader1 JobAccepted.
+        /// </summary>
+        public static string BitHeader_ONE__JobAccepted {
+            get {
+                return ResourceManager.GetString("BitHeader_ONE__JobAccepted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader1 JobEnd.
+        /// </summary>
+        public static string BitHeader_ONE__JobEnd {
+            get {
+                return ResourceManager.GetString("BitHeader_ONE__JobEnd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader1 JobError.
+        /// </summary>
+        public static string BitHeader_ONE__JobError {
+            get {
+                return ResourceManager.GetString("BitHeader_ONE__JobError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader1 Power.
+        /// </summary>
+        public static string BitHeader_ONE__Power {
+            get {
+                return ResourceManager.GetString("BitHeader_ONE__Power", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader1 Reserve1.
+        /// </summary>
+        public static string BitHeader_ONE__Reserve_ONE_ {
+            get {
+                return ResourceManager.GetString("BitHeader_ONE__Reserve_ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader1 Reserve3.
+        /// </summary>
+        public static string BitHeader_ONE__Reserve_THREE_ {
+            get {
+                return ResourceManager.GetString("BitHeader_ONE__Reserve_THREE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader1 Reserve2.
+        /// </summary>
+        public static string BitHeader_ONE__Reserve_TWO_ {
+            get {
+                return ResourceManager.GetString("BitHeader_ONE__Reserve_TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader1 Reserve0.
+        /// </summary>
+        public static string BitHeader_ONE__Reserve_ZERO_ {
+            get {
+                return ResourceManager.GetString("BitHeader_ONE__Reserve_ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader1 ToggleBit.
+        /// </summary>
+        public static string BitHeader_ONE__ToggleBit {
+            get {
+                return ResourceManager.GetString("BitHeader_ONE__ToggleBit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader2 CodeTagPresent.
+        /// </summary>
+        public static string BitHeader_TWO__CodeTagPresent {
+            get {
+                return ResourceManager.GetString("BitHeader_TWO__CodeTagPresent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader2 HeadFailure.
+        /// </summary>
+        public static string BitHeader_TWO__HeadFailure {
+            get {
+                return ResourceManager.GetString("BitHeader_TWO__HeadFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader2 Job.
+        /// </summary>
+        public static string BitHeader_TWO__Job {
+            get {
+                return ResourceManager.GetString("BitHeader_TWO__Job", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader2 JobAccepted.
+        /// </summary>
+        public static string BitHeader_TWO__JobAccepted {
+            get {
+                return ResourceManager.GetString("BitHeader_TWO__JobAccepted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader2 JobEnd.
+        /// </summary>
+        public static string BitHeader_TWO__JobEnd {
+            get {
+                return ResourceManager.GetString("BitHeader_TWO__JobEnd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader2 JobError.
+        /// </summary>
+        public static string BitHeader_TWO__JobError {
+            get {
+                return ResourceManager.GetString("BitHeader_TWO__JobError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader2 Power.
+        /// </summary>
+        public static string BitHeader_TWO__Power {
+            get {
+                return ResourceManager.GetString("BitHeader_TWO__Power", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader2 Reserve1.
+        /// </summary>
+        public static string BitHeader_TWO__Reserve_ONE_ {
+            get {
+                return ResourceManager.GetString("BitHeader_TWO__Reserve_ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader2 Reserve3.
+        /// </summary>
+        public static string BitHeader_TWO__Reserve_THREE_ {
+            get {
+                return ResourceManager.GetString("BitHeader_TWO__Reserve_THREE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader2 Reserve2.
+        /// </summary>
+        public static string BitHeader_TWO__Reserve_TWO_ {
+            get {
+                return ResourceManager.GetString("BitHeader_TWO__Reserve_TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader2 Reserve0.
+        /// </summary>
+        public static string BitHeader_TWO__Reserve_ZERO_ {
+            get {
+                return ResourceManager.GetString("BitHeader_TWO__Reserve_ZERO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BitHeader2 ToggleBit.
+        /// </summary>
+        public static string BitHeader_TWO__ToggleBit {
+            get {
+                return ResourceManager.GetString("BitHeader_TWO__ToggleBit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Character to write to memory.
+        /// </summary>
+        public static string Character_to_write_to_memory {
+            get {
+                return ResourceManager.GetString("Character_to_write_to_memory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Command designator.
+        /// </summary>
+        public static string Command_designator {
+            get {
+                return ResourceManager.GetString("Command_designator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data to write.
+        /// </summary>
+        public static string Data_to_write {
+            get {
+                return ResourceManager.GetString("Data_to_write", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error time.
+        /// </summary>
+        public static string Error_time {
+            get {
+                return ResourceManager.GetString("Error_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;BISM&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_BISM_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_BISM_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the device.
+        /// </summary>
+        public static string Hardware_ID_of_the_device {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the_device", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware IDs.
+        /// </summary>
+        public static string Hardware_IDs {
+            get {
+                return ResourceManager.GetString("Hardware_IDs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info time.
+        /// </summary>
+        public static string Info_time {
+            get {
+                return ResourceManager.GetString("Info_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inputs.
+        /// </summary>
+        public static string Inputs {
+            get {
+                return ResourceManager.GetString("Inputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number  of bytes.
+        /// </summary>
+        public static string Number__of_bytes {
+            get {
+                return ResourceManager.GetString("Number__of_bytes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of bytes to read.
+        /// </summary>
+        public static string Number_of_bytes_to_read {
+            get {
+                return ResourceManager.GetString("Number_of_bytes_to_read", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of bytes to write.
+        /// </summary>
+        public static string Number_of_bytes_to_write {
+            get {
+                return ResourceManager.GetString("Number_of_bytes_to_write", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outputs.
+        /// </summary>
+        public static string Outputs {
+            get {
+                return ResourceManager.GetString("Outputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to qBitHeader1 GroundState.
+        /// </summary>
+        public static string qBitHeader_ONE__GroundState {
+            get {
+                return ResourceManager.GetString("qBitHeader_ONE__GroundState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to qBitHeader1 HeadOnOff.
+        /// </summary>
+        public static string qBitHeader_ONE__HeadOnOff {
+            get {
+                return ResourceManager.GetString("qBitHeader_ONE__HeadOnOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to qBitHeader1 ToggleBit.
+        /// </summary>
+        public static string qBitHeader_ONE__ToggleBit {
+            get {
+                return ResourceManager.GetString("qBitHeader_ONE__ToggleBit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to qBitHeader2 GroundState.
+        /// </summary>
+        public static string qBitHeader_TWO__GroundState {
+            get {
+                return ResourceManager.GetString("qBitHeader_TWO__GroundState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to qBitHeader2 HeadOnOff.
+        /// </summary>
+        public static string qBitHeader_TWO__HeadOnOff {
+            get {
+                return ResourceManager.GetString("qBitHeader_TWO__HeadOnOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to qBitHeader2 ToggleBit.
+        /// </summary>
+        public static string qBitHeader_TWO__ToggleBit {
+            get {
+                return ResourceManager.GetString("qBitHeader_TWO__ToggleBit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read.
+        /// </summary>
+        public static string Read {
+            get {
+                return ResourceManager.GetString("Read", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read address.
+        /// </summary>
+        public static string Read_address {
+            get {
+                return ResourceManager.GetString("Read_address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ReadTask timeout..
         /// </summary>
         public static string ReadTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("ReadTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset communication.
+        /// </summary>
+        public static string Reset_communication {
+            get {
+                return ResourceManager.GetString("Reset_communication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset reader.
+        /// </summary>
+        public static string Reset_reader {
+            get {
+                return ResourceManager.GetString("Reset_reader", resourceCulture);
             }
         }
         
@@ -84,6 +516,78 @@ namespace AXOpen.Components.Balluff.Identification.Resources {
         public static string ResetReaderTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("ResetReaderTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rfid code size.
+        /// </summary>
+        public static string Rfid_code_size {
+            get {
+                return ResourceManager.GetString("Rfid_code_size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start address.
+        /// </summary>
+        public static string Start_address {
+            get {
+                return ResourceManager.GetString("Start_address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task timeout.
+        /// </summary>
+        public static string Task_timeout {
+            get {
+                return ResourceManager.GetString("Task_timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update diagnostics.
+        /// </summary>
+        public static string Update_diagnostics {
+            get {
+                return ResourceManager.GetString("Update_diagnostics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write.
+        /// </summary>
+        public static string Write {
+            get {
+                return ResourceManager.GetString("Write", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write address.
+        /// </summary>
+        public static string Write_address {
+            get {
+                return ResourceManager.GetString("Write_address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write char to memory.
+        /// </summary>
+        public static string Write_char_to_memory {
+            get {
+                return ResourceManager.GetString("Write_char_to_memory", resourceCulture);
             }
         }
         

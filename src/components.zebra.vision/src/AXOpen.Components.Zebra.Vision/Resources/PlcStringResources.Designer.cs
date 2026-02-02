@@ -61,6 +61,78 @@ namespace AXOpen.Components.Zebra.Vision.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Barcode length.
+        /// </summary>
+        public static string Barcode_length {
+            get {
+                return ResourceManager.GetString("Barcode_length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Barcode type.
+        /// </summary>
+        public static string Barcode_type {
+            get {
+                return ResourceManager.GetString("Barcode_type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battery charge state.
+        /// </summary>
+        public static string Battery_charge_state {
+            get {
+                return ResourceManager.GetString("Battery_charge_state", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battery temperature.
+        /// </summary>
+        public static string Battery_temperature {
+            get {
+                return ResourceManager.GetString("Battery_temperature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battery voltage.
+        /// </summary>
+        public static string Battery_voltage {
+            get {
+                return ResourceManager.GetString("Battery_voltage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cache overflow.
+        /// </summary>
+        public static string Cache_overflow {
+            get {
+                return ResourceManager.GetString("Cache_overflow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear data.
+        /// </summary>
+        public static string Clear_data {
+            get {
+                return ResourceManager.GetString("Clear_data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear error.
+        /// </summary>
+        public static string Clear_error {
+            get {
+                return ResourceManager.GetString("Clear_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ClearDataTask timeout..
         /// </summary>
         public static string ClearDataTask_timeout_DOT_ {
@@ -79,11 +151,246 @@ namespace AXOpen.Components.Zebra.Vision.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Continous reading.
+        /// </summary>
+        public static string Continous_reading {
+            get {
+                return ResourceManager.GetString("Continous_reading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable fragments.
+        /// </summary>
+        public static string Enable_fragments {
+            get {
+                return ResourceManager.GetString("Enable_fragments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable handshake.
+        /// </summary>
+        public static string Enable_handshake {
+            get {
+                return ResourceManager.GetString("Enable_handshake", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error time.
+        /// </summary>
+        public static string Error_time {
+            get {
+                return ResourceManager.GetString("Error_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First fragment.
+        /// </summary>
+        public static string First_fragment {
+            get {
+                return ResourceManager.GetString("First_fragment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fragmentation enabled.
+        /// </summary>
+        public static string Fragmentation_enabled {
+            get {
+                return ResourceManager.GetString("Fragmentation_enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fragmented.
+        /// </summary>
+        public static string Fragmented {
+            get {
+                return ResourceManager.GetString("Fragmented", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Handshake enabled.
+        /// </summary>
+        public static string Handshake_enabled {
+            get {
+                return ResourceManager.GetString("Handshake_enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID  of the device.
+        /// </summary>
+        public static string Hardware_ID__of_the_device {
+            get {
+                return ResourceManager.GetString("Hardware_ID__of_the_device", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;BarcodeData_v2&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_BarcodeData_UNDERSCORE_v_TWO__APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_BarcodeData_UNDERSCORE_v_TWO__APOSTROPHE__submodul" +
+                        "e", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware IDs.
+        /// </summary>
+        public static string Hardware_IDs {
+            get {
+                return ResourceManager.GetString("Hardware_IDs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info time.
+        /// </summary>
+        public static string Info_time {
+            get {
+                return ResourceManager.GetString("Info_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input data overflow.
+        /// </summary>
+        public static string Input_data_overflow {
+            get {
+                return ResourceManager.GetString("Input_data_overflow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inputs.
+        /// </summary>
+        public static string Inputs {
+            get {
+                return ResourceManager.GetString("Inputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last fragment.
+        /// </summary>
+        public static string Last_fragment {
+            get {
+                return ResourceManager.GetString("Last_fragment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Length of the data.
+        /// </summary>
+        public static string Length_of_the_data {
+            get {
+                return ResourceManager.GetString("Length_of_the_data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Middle fragment.
+        /// </summary>
+        public static string Middle_fragment {
+            get {
+                return ResourceManager.GetString("Middle_fragment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of scanners.
+        /// </summary>
+        public static string Number_of_scanners {
+            get {
+                return ResourceManager.GetString("Number_of_scanners", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outputs.
+        /// </summary>
+        public static string Outputs {
+            get {
+                return ResourceManager.GetString("Outputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Progress.
+        /// </summary>
+        public static string Progress {
+            get {
+                return ResourceManager.GetString("Progress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read.
+        /// </summary>
+        public static string Read {
+            get {
+                return ResourceManager.GetString("Read", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read data.
+        /// </summary>
+        public static string Read_data {
+            get {
+                return ResourceManager.GetString("Read_data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ReadTask timeout..
         /// </summary>
         public static string ReadTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("ReadTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scanner type.
+        /// </summary>
+        public static string Scanner_type {
+            get {
+                return ResourceManager.GetString("Scanner_type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task timeout.
+        /// </summary>
+        public static string Task_timeout {
+            get {
+                return ResourceManager.GetString("Task_timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_10steps_5.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE_", resourceCulture);
             }
         }
         
@@ -97,11 +404,29 @@ namespace AXOpen.Components.Zebra.Vision.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_10steps_4.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TemplateTask_10steps_4 timeout..
         /// </summary>
         public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_ {
             get {
                 return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_10steps_6.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX_", resourceCulture);
             }
         }
         
@@ -115,11 +440,29 @@ namespace AXOpen.Components.Zebra.Vision.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_5.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TemplateTask_20steps_5 timeout..
         /// </summary>
         public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_ {
             get {
                 return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_4.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR_", resourceCulture);
             }
         }
         
@@ -133,11 +476,29 @@ namespace AXOpen.Components.Zebra.Vision.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_1.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TemplateTask_20steps_1 timeout..
         /// </summary>
         public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_ {
             get {
                 return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_6.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX_", resourceCulture);
             }
         }
         
@@ -151,6 +512,15 @@ namespace AXOpen.Components.Zebra.Vision.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_3.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TemplateTask_20steps_3 timeout..
         /// </summary>
         public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_ {
@@ -160,11 +530,65 @@ namespace AXOpen.Components.Zebra.Vision.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TemplateTask_20steps_2.
+        /// </summary>
+        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO_ {
+            get {
+                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to TemplateTask_20steps_2 timeout..
         /// </summary>
         public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_ {
             get {
                 return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transfer enabled.
+        /// </summary>
+        public static string Transfer_enabled {
+            get {
+                return ResourceManager.GetString("Transfer_enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trigger state.
+        /// </summary>
+        public static string Trigger_state {
+            get {
+                return ResourceManager.GetString("Trigger_state", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update counter.
+        /// </summary>
+        public static string Update_counter {
+            get {
+                return ResourceManager.GetString("Update_counter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update diagnostics.
+        /// </summary>
+        public static string Update_diagnostics {
+            get {
+                return ResourceManager.GetString("Update_diagnostics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waiting for handshake.
+        /// </summary>
+        public static string Waiting_for_handshake {
+            get {
+                return ResourceManager.GetString("Waiting_for_handshake", resourceCulture);
             }
         }
     }

@@ -73,4 +73,52 @@
   <data name="Actual_COLON__" xml:space="preserve">
     <value>Aktuálne:</value>
   </data>
+  <data name="Timeout" xml:space="preserve">
+    <value>Časový limit</value>
+  </data>
+  <data name="TimeStamp" xml:space="preserve">
+    <value>Časová pečiatka</value>
+  </data>
+  <data name="Stab_DOT_Time" xml:space="preserve">
+    <value>Stab.Time</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Výsledok</value>
+  </data>
+  <data name="Excluded" xml:space="preserve">
+    <value>Vylúčené</value>
+  </data>
+  <data name="Bypass" xml:space="preserve">
+    <value>Bypass</value>
+  </data>
+  <data name="Re_DASH_tries" xml:space="preserve">
+    <value>Opakované pokusy</value>
+  </data>
+  <data name="Attempts" xml:space="preserve">
+    <value>Pokusy</value>
+  </data>
+  <data name="ErrorCode" xml:space="preserve">
+    <value>Kód chyby</value>
+  </data>
+  <data name="Failure_Description" xml:space="preserve">
+    <value>Popis zlyhania</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Údaje</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="Detected" xml:space="preserve">
+    <value>Zistené</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Max</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>Požadované</value>
+  </data>
+  <data name="Star_notation" xml:space="preserve">
+    <value>Hviezdičkový zápis</value>
+  </data>
 </root>

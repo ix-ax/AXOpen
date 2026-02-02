@@ -34,6 +34,9 @@ namespace AXOpen.VisualComposer.Components
             }
         }
 
+        [Parameter]
+        public Guid? Guid { get; set; }
+
         public bool CanDragging { get; set; } = true;
         private bool _isDragging = false;
         private double _startX = 0;
@@ -44,7 +47,7 @@ namespace AXOpen.VisualComposer.Components
             if (_isDragging && !Disable && CanDragging)
             {
                 double offsetX = ((eventArgs.ClientX - _startX) / Parent.ElementSize.Width * 100) * (1 / Parent.CurrentView.Scale);
-                double offsetY = ((eventArgs.ClientY - _startY) / ((Parent!.CurrentView.BackgroundHeight / Parent!.CurrentView.BackgroundWidth) * Parent!.ElementSize.Width) * 100) * (1 / Parent.CurrentView.Scale);
+                double offsetY = ((eventArgs.ClientY - _startY) / Parent!.ElementSize.Width * 100) * (1 / Parent.CurrentView.Scale);
 
                 Parent!.CurrentView.TranslateX += offsetX;
                 Parent!.CurrentView.TranslateY += offsetY;
