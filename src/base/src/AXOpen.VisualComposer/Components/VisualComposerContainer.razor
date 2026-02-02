@@ -123,8 +123,8 @@
                     }
                     @if (!string.IsNullOrEmpty(CurrentView.ImgSrc))
                     {
-                        <div style="position: absolute; left: 0; top: 0; width: 100%; z-index: -1;">
-                            <img src="@CurrentView.ImgSrc" style="width: 100%; height: 100%;" />
+                        <div class="absolute left-0 top-0 w-full h-full -z-1" style="left: 50%; top: 50%; transform: scale(@(CurrentView.BackgroundImageScale.ToString().Replace(',', '.')));">
+                            <img src="@CurrentView.ImgSrc" class="@(CurrentView.BackgroundImageKeepAspectRatio ? "w-auto h-auto" : "w-full h-full")" style="translate: -50% -50%;" />
                         </div>
                     }
                 </CascadingValue>
@@ -147,8 +147,8 @@
                             }
                             @if (!string.IsNullOrEmpty(CurrentView.ImgSrc))
                             {
-                                <div style="position: absolute; left: 0; top: 0; width: 100%; z-index: -1;">
-                                    <img src="@CurrentView.ImgSrc" style="width: 100%; height: 100%;" />
+                                <div class="absolute left-0 top-0 w-full h-full -z-1" style="left: 50%; top: 50%; transform: scale(@(CurrentView.BackgroundImageScale.ToString().Replace(',', '.')));">
+                                    <img src="@CurrentView.ImgSrc" class="@(CurrentView.BackgroundImageKeepAspectRatio ? "w-auto h-auto" : "w-full h-full")" style="translate: -50% -50%;" />
                                 </div>
                             }
                         </CascadingValue>
@@ -607,8 +607,8 @@
                     }
                     @if (!string.IsNullOrEmpty(CurrentView.ImgSrc))
                     {
-                        <div style="position: absolute; left: 0; top: 0; width: 100%; z-index: -1;">
-                            <img src="@CurrentView.ImgSrc" style="width: 100%; height: 100%;" />
+                        <div class="absolute left-0 top-0 w-full h-full -z-1" style="left: 50%; top: 50%; transform: scale(@(CurrentView.BackgroundImageScale.ToString().Replace(',', '.')));">
+                            <img src="@CurrentView.ImgSrc" class="@(CurrentView.BackgroundImageKeepAspectRatio ? "w-auto h-auto" : "w-full h-full")" style="translate: -50% -50%;" />
                         </div>
                     }
                 </CascadingValue>
