@@ -779,9 +779,9 @@ namespace AXOpen.VisualComposer.Components
         private string GetBgColor(SaveLocationType location)
         {
             if (location == SaveLocationType.Server)
-                return "bg-purple-50";
+                return "bg-danger/10";
             else if (location == SaveLocationType.Local)
-                return "bg-cyan-50";
+                return "bg-warning/10";
             return "";
         }
 
