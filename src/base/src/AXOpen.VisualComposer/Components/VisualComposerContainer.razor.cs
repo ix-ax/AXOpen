@@ -27,7 +27,7 @@ namespace AXOpen.VisualComposer.Components
         [Inject]
         private ProtectedLocalStorage _protectedLocalStorage { set; get; }
 
-        private bool _editSVG { get; set; } = false;
+        //private bool _editSVG { get; set; } = false;
         private bool _inDesignMode { get; set; } = false;
         private Guid _backgroundId { get; set; } = Guid.NewGuid();
         public ZoomableContainer ZoomableContainer { get; set; }
@@ -144,7 +144,7 @@ namespace AXOpen.VisualComposer.Components
         {
             if (_useOption)
             {
-                _items.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), item, _options.Left, _options.Top, _options.Transform, _options.Presentation, _options.Width, _options.Height, _options.ZIndex, _options.Scale, _options.Rotate, _options.Roles, _options.PresentationTemplate, _options.Background, _options.BackgroundColor, _options.PollingInterval));
+                _items.Add(new VisualComposerItemData(EventCallback.Factory.Create(this, StateHasChanged), EventCallback.Factory.Create(this, SaveAsync), item, _options.Left, _options.Top, _options.Transform, _options.Presentation, _options.Width, _options.Height, _options.ZIndex, _options.Scale, _options.Rotate, _options.Roles, _options.PresentationTemplate, _options.Background, _options.BackgroundColorLight, _options.BackgroundColorDark, _options.PollingInterval));
 
                 if (_optionsMove)
                 {
@@ -387,6 +387,14 @@ namespace AXOpen.VisualComposer.Components
             await SaveAsync();
         }
 
+        private async Task SetDefaultBackgroundColorsAsync()
+        {
+            CurrentView.BackgroundColorLight = "var(--color-background-dark)";
+            CurrentView.BackgroundColorDark = "var(--color-background-dark)";
+
+            await SaveAsync();
+        }
+
         private async Task ChangeSaveLocationAsync(ChangeEventArgs e, SaveLocationType oldType, string view)
         {
             var newSaveLocation = e.Value.ToString();
@@ -434,6 +442,84 @@ namespace AXOpen.VisualComposer.Components
 
             StateHasChanged();
         }
+
+        private async Task ExportViewAsync(string viewName, SaveLocationType saveLocationType)
+        {
+            SerializableView? viewToExport = null;
+
+            if (saveLocationType == SaveLocationType.Server)
+            {
+                viewToExport = await Serializing<SerializableView>.DeserializeAsync(
+                    Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath(), viewName.CorrectFilePath() + ".json"));
+            }
+            else if (saveLocationType == SaveLocationType.Local && _localStorageData.ContainsKey(viewName))
+            {
+                viewToExport = _localStorageData[viewName];
+            }
+
+            if (viewToExport != null)
+            {
+                var json = System.Text.Json.JsonSerializer.Serialize(viewToExport, new System.Text.Json.JsonSerializerOptions { WriteIndented = true });
+                var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/Components/VisualComposerContainer.razor.js");
+                await jsObject.InvokeVoidAsync("downloadFile", $"{viewName}.json", "application/json", json);
+            }
+        }
+
+        private async Task ImportViewAsync(InputFileChangeEventArgs e)
+        {
+            try
+            {
+                var file = e.File;
+                if (file == null || !file.Name.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
+                    return;
+
+                using var stream = file.OpenReadStream(maxAllowedSize: 10 * 1024 * 1024); // 10MB max
+                var importedView = await System.Text.Json.JsonSerializer.DeserializeAsync<SerializableView>(stream);
+
+                if (importedView == null)
+                    return;
+
+                var viewName = Path.GetFileNameWithoutExtension(file.Name);
+                var originalName = viewName;
+                var counter = 1;
+
+                // Ensure unique name
+                while (_serverStorageAllViews.Contains(viewName) || _localStorageData.ContainsKey(viewName))
+                {
+                    viewName = $"{originalName}_{counter}";
+                    counter++;
+                }
+
+                // Import based on selected location
+                if (_importViewSaveLocation == SaveLocationType.Server)
+                {
+                    _serverStorageAllViews.Add(viewName);
+
+                    if (!Directory.Exists(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath())))
+                        Directory.CreateDirectory(Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath()));
+
+                    await Serializing<SerializableView>.SerializeAsync(
+                        Path.Combine(Settings.VisualComposerSerializeFolderPath, Id.CorrectFilePath(), viewName.CorrectFilePath() + ".json"), 
+                        importedView);
+                }
+                else
+                {
+                    _localStorageData.Add(viewName, importedView);
+                    await LocalStorage<Dictionary<string, SerializableView>>.SaveAsync(_protectedLocalStorage, Id, _localStorageData);
+                }
+
+                // Load the imported view
+                await LoadAsync(viewName);
+
+                StateHasChanged();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error importing view: {ex.Message}");
+            }
+        }
+
+        private SaveLocationType _importViewSaveLocation { get; set; } = SaveLocationType.Server;
 
         private async Task ClearScaleAndTranslateAsync()
         {
@@ -579,9 +665,7 @@ namespace AXOpen.VisualComposer.Components
 
                 CurrentView.ImgSrc = Settings.VisualComposerImagesSerializeName + "/" + Id.CorrectFilePath() + "/" + newName.CorrectFilePath();
 
-                var dimensions = await GetImageDimensions(CurrentView.ImgSrc);
-                CurrentView.BackgroundWidth = dimensions.Width;
-                CurrentView.BackgroundHeight = dimensions.Height;
+                CurrentView.BackgroundImageScale = 1;
 
                 _isFileImported = true;
             }
@@ -594,20 +678,6 @@ namespace AXOpen.VisualComposer.Components
             _isFileImporting = false;
 
             await SaveAsync();
-        }
-
-        private async Task<Size> GetImageDimensions(string filePath)
-        {
-            try
-            {
-                var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/Components/VisualComposerContainer.razor.js");
-                return await jsObject.InvokeAsync<Size>("getImageDimensions", filePath);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-                return new Size { Width = 0, Height = 0 };
-            }
         }
 
         private async Task<Size> GetElementSize(string id)

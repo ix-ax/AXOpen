@@ -78,7 +78,20 @@
 
                     <div class="flex flex-nowrap flex-row items-center">
                         <BaseInput @bind-Value="Origin.Background" Label="Background" />
-                        <input type="color" class="ms-4" @bind="Origin.BackgroundColor" title="Choose color">
+                        @if (Origin.Background)
+                        {
+                            <div class="flex flex-wrap flex-col ms-4">
+                                <div class="color-group">
+                                    <input type="color" id="background-color-light" class="" @bind="Origin.BackgroundColorLight" title="Choose background color light">
+                                    <label for="background-color-light">Background color light</label>
+                                </div>
+                                <div class="color-group">
+                                    <input type="color" id="background-color-dark" class="" @bind="Origin.BackgroundColorDark" title="Choose background color dark">
+                                    <label for="background-color-dark">Background color dark</label>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary" @onclick="Origin.SetDefaultBackgroundColors">Set default</button>
+                            </div>
+                        }
                     </div>
 
                     <BaseInput @bind-Value="Origin.PollingInterval" Label="PollingInterval [ms]" />
