@@ -210,9 +210,9 @@ else
                             await DistributedVM.ReadAllCurrentEntityIds();
                             EndBtnOperation();
                             OnDataSend?.Invoke(SelectedEntity._EntityId);}">
-                            <div class="flex flex-wrap">
-                                <span>@Localizer["Send"]: "@SelectedEntity._EntityId"</span>
-                            </div>
+                            
+                              @Localizer["Send"]: "@SelectedEntity._EntityId"
+                            
                         </button>
                     </Authorized>
                 </AuthorizeView>
@@ -221,10 +221,8 @@ else
 
         <div class="">
             <button type="button" class="btn btn-primary w-100"
-                    @onclick='EndBtnOperation'>
-                
-                    <p>@Localizer["Don't send"]</p>
-                
+                    @onclick='EndBtnOperation'>                
+                    @Localizer["Don't send"]                
             </button>
         </div>
     </div>
