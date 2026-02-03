@@ -57,7 +57,7 @@
                     </Dropdown>
                 }
 
-                <button class="btn btn-no-bg-secondary p-1" @onclick="() => _inDesignMode = !_inDesignMode">
+                <button class="btn btn-no-bg-primary p-1" @onclick="() => _inDesignMode = !_inDesignMode">
                     <Operon.Icons.HeroIcon Icon="adjustments-horizontal" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                 </button>
             </div>
@@ -585,7 +585,7 @@
                     <BaseInput @bind-Value="_watchTableFilter" Placeholder="Filter by symbol..." Class="flex-1" />
                     @if (!string.IsNullOrEmpty(_watchTableFilter))
                     {
-                        <button class="btn btn-outline-secondary" @onclick="() => _watchTableFilter = string.Empty">Clear</button>
+                        <button class="btn btn-outline-primary" @onclick="() => _watchTableFilter = string.Empty">Clear</button>
                     }
                 </div>
                 <table class="table table-striped table-hover w-full">
