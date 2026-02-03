@@ -357,4 +357,7 @@
   <data name="Data_with_ID_was_created_for" xml:space="preserve">
     <value>Údaje s ID: „{0}“ boli vytvorené pre: {1}!</value>
   </data>
+  <data name="Select an option" xml:space="preserve">
+    <value>Vybrať možnosť</value>
+  </data>
 </root>

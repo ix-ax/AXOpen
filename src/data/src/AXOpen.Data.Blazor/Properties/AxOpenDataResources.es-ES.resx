@@ -357,4 +357,7 @@
   <data name="Data_with_ID_was_created_for" xml:space="preserve">
     <value>Los datos con ID: "{0}" fue creado para: ¡{1}!</value>
   </data>
+  <data name="Select an option" xml:space="preserve">
+    <value>Eligir</value>
+  </data>
 </root>
