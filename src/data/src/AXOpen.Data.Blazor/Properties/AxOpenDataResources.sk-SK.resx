@@ -360,4 +360,10 @@
   <data name="Select an option" xml:space="preserve">
     <value>Vybrať možnosť</value>
   </data>
+  <data name="Don't send" xml:space="preserve">
+    <value>Neposielať</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Odoslať</value>
+  </data>
 </root>

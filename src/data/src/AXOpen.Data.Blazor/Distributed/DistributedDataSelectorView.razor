@@ -172,7 +172,7 @@
                     <Authorized>
                         <div>
                             <button class="btn btn-primary" @onclick='()=> this.BtnOperation ="SendToPlc-Ack"'>
-                                @Localizer["Send To Plc"]
+                                @Localizer["Send to PLC"]
                             </button>
                         </div>
                     </Authorized>
@@ -222,9 +222,9 @@ else
         <div class="">
             <button type="button" class="btn btn-primary w-100"
                     @onclick='EndBtnOperation'>
-                <div class="flex flex-wrap">
-                    <span>@Localizer["Don't send"]</span>
-                </div>
+                
+                    <p>@Localizer["Don't send"]</p>
+                
             </button>
         </div>
     </div>

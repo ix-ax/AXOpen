@@ -322,6 +322,15 @@ namespace AXOpen.Data.Blazor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Don&apos;t send.
+        /// </summary>
+        internal static string Don_t_send {
+            get {
+                return ResourceManager.GetString("Don\'t send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Download.
         /// </summary>
         internal static string Download {
@@ -660,6 +669,15 @@ namespace AXOpen.Data.Blazor.Properties {
         internal static string Select_an_option {
             get {
                 return ResourceManager.GetString("Select an option", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send error.
+        /// </summary>
+        internal static string Send {
+            get {
+                return ResourceManager.GetString("Send", resourceCulture);
             }
         }
         

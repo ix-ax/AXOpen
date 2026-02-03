@@ -360,4 +360,10 @@
   <data name="Select an option" xml:space="preserve">
     <value>Select an option</value>
   </data>
+  <data name="Don't send" xml:space="preserve">
+    <value>Don't send</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send error</value>
+  </data>
 </root>
