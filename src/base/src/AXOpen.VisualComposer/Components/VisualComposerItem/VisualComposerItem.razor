@@ -1,11 +1,10 @@
-﻿
-<style>
-    .bg-switcher {
+﻿<style>
+    .bg-switcher-@Origin.UniqueGuid {
         background-color: @Origin.BackgroundColorLight;
         border-color: @Origin.BackgroundColorLight !important;
     }
 
-    [data-theme="dark"] .bg-switcher {
+    [data-theme="dark"] .bg-switcher-@Origin.UniqueGuid {
         background-color: @Origin.BackgroundColorDark;
         border-color: @Origin.BackgroundColorLight !important;
     }
@@ -19,7 +18,7 @@
                  @onpointerup="Up"
                  @onwheel="Wheel"
                  style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale.ToString().Replace(',', '.'))) rotate(@(Origin.Rotate.ToString().Replace(',', '.'))deg); translate: @(Origin.Transform.X.ToString().Replace(',', '.'))% @(Origin.Transform.Y.ToString().Replace(',', '.'))%; width: @(Origin.Width != -1 ? Origin.Width.ToString().Replace(',', '.') + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height.ToString().Replace(',', '.') + "rem" : "max-content"); z-index: @Origin.ZIndex; @(Origin.Width == -1 ? "max-width:50rem;" : "") @(Origin.Height == -1 ? "max-height:30rem;" : "")">
-                <div class="@(Origin.Background ? "simple-border" : null) @(Origin.Background ? "bg-switcher" : null)">
+                <div class="@(Origin.Background ? "simple-border" : null) @(Origin.Background ? $"bg-switcher-{Origin.UniqueGuid}" : null)">
                     <RenderableContentControl @ref="renderableContentControlRcc"
                                               Context="@Origin.TwinElement"
                                               Presentation="@Origin.Presentation.ToString()"
@@ -35,7 +34,7 @@
         else
         {
             <div style="position: absolute; left: @(Origin.Left.ToString().Replace(',', '.'))%; top: @(Origin.Top.ToString().Replace(',', '.'))%; transform: scale(@(Origin.Scale.ToString().Replace(',', '.'))) rotate(@(Origin.Rotate.ToString().Replace(',', '.'))deg); translate: @(Origin.Transform.X.ToString().Replace(',', '.'))% @(Origin.Transform.Y.ToString().Replace(',', '.'))%; width: @(Origin.Width != -1 ? Origin.Width.ToString().Replace(',', '.') + "rem" : "max-content"); height: @(Origin.Height != -1 ? Origin.Height.ToString().Replace(',', '.') + "rem" : "max-content"); z-index: @Origin.ZIndex; @(Origin.Width == -1 ? "max-width:50rem;" : "") @(Origin.Height == -1 ? "max-height:30rem;" : "")">
-                <div class="@(Origin.Background ? "simple-border" : null) @(Origin.Background ? "bg-switcher" : null)">
+                <div class="@(Origin.Background ? "simple-border" : null) @(Origin.Background ? $"bg-switcher-{Origin.UniqueGuid}" : null)">
                     <RenderableContentControl Context="@Origin.TwinElement"
                                               Presentation="@Origin.Presentation.ToString()"
                                               ParentContainer="@this"
