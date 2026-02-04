@@ -21,11 +21,14 @@ NAMESPACE AXOpen.Inspectors
             _inspectorIndentity : ULINT; //try display inspector inside dialog.
             _inspectionDetails : STRING[254];
             _inspectorType : eInspectorType;
-            {#ix-set:AttributeName = "<#Data#>"}             
+            {#ix-set:AttributeName = ""}             
+            {#ix-set:Units = ""}             
             _analogInspectorData : AxoAnalogueInspectorData;       
-            {#ix-set:AttributeName = "<#Data#>"} 
+            {#ix-set:AttributeName = ""}             
+            {#ix-set:Units = ""}                         
             _digitalInspectorData : AxoDigitalInspectorData;       
-            {#ix-set:AttributeName = "<#Data#>"} 
+            {#ix-set:AttributeName = ""}             
+            {#ix-set:Units = ""}              
             _dataInspectorData : AxoDataInspectorData;                                                       
         END_VAR
 

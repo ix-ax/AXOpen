@@ -64,10 +64,23 @@
     [Parameter]
     public string Presentation { get; set; }
 
-    [Parameter]
-    public string Name { get; set; }
 
-    private string NameWithUnit => string.IsNullOrEmpty(this.Data?.Units) ? this.Name : $"{Name} [{this.Data.Units}]";
+    private string _name;
+    [Parameter]
+    public string Name
+    {
+        get
+        {
+            return this._name == this.Data.GetSymbolTail() ? string.Empty : this._name;
+        }
+
+        set
+        {
+            this._name = value;
+        }
+    }
+
+    private string NameWithUnit => string.IsNullOrEmpty(this.Data?.Units) || this.Data?.Units == this.Data?.GetSymbolTail() ? this.Name : $"{Name} [{this.Data.Units}]";
 
 
     private short Result
