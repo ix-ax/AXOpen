@@ -114,7 +114,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Outputs#>"}
-            {#ix-attr:[ReadOnly()]}
+            // {#ix-attr:[ReadOnly()]}
             Outputs              :   AxoKukaRobotics_Control;
         END_VAR    
 
@@ -1585,15 +1585,16 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             _data[0].%X4         := Outputs.DrivesOn;   
             _data[0].%X5         := Outputs.ActivateInterface; 
             _data[0].%X6         := Outputs.StartAtMain;    
+            _data[0].%X7         := FALSE;    
  
-            // _data[1].%X0	     := Outputs.StartProgram;    
-            // _data[1].%X1	     := Outputs.StartAtMain;    
-            // _data[1].%X2         := Outputs.StopProgram;     
-            // _data[1].%X3         := Outputs.QuickStop;    
-            // _data[1].%X4         := Outputs.SoftStop;    
-            // _data[1].%X5         := Outputs.StopCycle;    
-            // _data[1].%X6         := Outputs.StopInstruction;    
-            // _data[1].%X7         := Outputs.LimitSpeed;    
+            _data[1].%X0	     := FALSE;    
+            _data[1].%X1	     := FALSE;    
+            _data[1].%X2         := FALSE;     
+            _data[1].%X3         := FALSE;    
+            _data[1].%X4         := FALSE;    
+            _data[1].%X5         := FALSE;    
+            _data[1].%X6         := FALSE;    
+            _data[1].%X7         := FALSE;    
 
             //Tool signals
             _data[2].%X0         := Outputs.Tool_1_Retract;    
