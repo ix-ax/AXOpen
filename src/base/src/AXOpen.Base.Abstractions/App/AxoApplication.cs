@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
+using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Logging;
 using AXSharp.Connector;
@@ -17,19 +18,25 @@ namespace AXOpen
             DiagnosticsFlags.Add(diagnosticsFlag);
         }
         
-        public async Task RunDiagnostics()
+        public string DiagMessages { get; private set; }
+
+        public async Task<string> RunDiagnostics()
         {
             var diagIdentity = new GenericIdentity("Diagnostics");
+            var diags = new StringBuilder();
             AxoApplication.Current.Logger.Information($"System diagnostics requested.", diagIdentity);
             await DiagnosticsFlags.FirstOrDefault()?.GetParent()?.GetConnector().ReadBatchAsync(DiagnosticsFlags)!;
             foreach (dynamic flag in DiagnosticsFlags)
             {
                 if (flag.LastValue > 0)
                 {
+                    diags.AppendLine($"{flag.Symbol} is in error state code '{flag.LastValue}'.");
                     AxoApplication.Current.Logger.Fatal($"{flag.Symbol} is in error state code '{flag.LastValue}'.", diagIdentity);
                 }
             }
             AxoApplication.Current.Logger.Information($"System diagnostics done.", diagIdentity);
+            DiagMessages = diags.ToString();
+            return DiagMessages;
         }
     }
     
