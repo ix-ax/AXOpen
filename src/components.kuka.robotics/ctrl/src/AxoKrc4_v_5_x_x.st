@@ -100,7 +100,14 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Status          :   AxoKukaRobotics_Component_Status;
             Messenger       :   AXOpen.Messaging.Static.AxoMessenger;
             TaskMessenger   :   AXOpen.Messaging.Static.AxoMessenger;
-            _progress       :   INT := 0;
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Power progress#>"}
+            _power_progress     :   INT := 0;
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Movement progress#>"}
+            _movement_progress  :   INT := 0;            
         END_VAR
 
         VAR PUBLIC //Hardware signals
@@ -421,37 +428,40 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#101,StartAtMainTask.IsDone(), eAxoMessageCategory#Info);
             IF StartAtMainTask.Execute(THIS) THEN
                 _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
-                IF _progress = 0 THEN
+                IF _power_progress = 0 THEN
                     Status.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
-                    _progress := 300;
+                    _power_progress := 300;
                 END_IF;
                 // Start at main running: waiting for the program pointer changed.
-                IF _progress = 300 THEN  
+                IF _power_progress = 300 THEN  
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
+
+                    Outputs.MoveEnable := TRUE;
+                    Outputs.DrivesOff := TRUE;
 
                     Outputs.StartAtMain := NOT Inputs.PpMoved  AND _blink.output;
                             
                     IF Inputs.PpMoved  THEN
                         THIS.CallTimers(FALSE);
                         Outputs.StartAtMain :=FALSE;
-                        _progress:=301;                    
+                        _power_progress:=301;                    
                     END_IF;
                 END_IF;
                 // Start at main finished.
-                IF _progress = 301 THEN  
+                IF _power_progress = 301 THEN  
                     StartAtMainTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
-                    _progress := 0;
+                    _power_progress := 0;
                 END_IF;
 
                 THIS.CallTimers(TRUE);
                 StartAtMainTask.ThrowWhen(_errorTimer.output );
-                Status.Action.Id := TO_UINT(_progress);
+                Status.Action.Id := TO_UINT(_power_progress);
                 StartAtMainTask.ThrowWhen(StartAtMainTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartAtMainTask timeout.#>');
             END_IF;
             IF StartAtMainTask.DoneReached() THEN
@@ -467,9 +477,9 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#10000,StartAtMainTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10001,StartAtMainTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#102,StartAtMainTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF StartAtMainTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
+            IF StartAtMainTask.RestoreTriggered() AND _power_progress >= 300 AND _power_progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
-                _progress := 0;
+                _power_progress := 0;
             END_IF;
             //*******************************************
 
@@ -484,26 +494,28 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             IF StartMotorsAndProgramTask.Execute(THIS) THEN
                 _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
 
-                IF _progress = 0 THEN
+                IF _power_progress = 0 THEN
                     Status.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
-                    _progress := 310;
+                    _power_progress := 310;
                 END_IF;
                 // Start motors and program running: waiting for the 'UserSafetySwitchClosed' is on.
-                IF _progress = 310 THEN 
+                IF _power_progress = 310 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#510;
                     END_IF;
+                    Outputs.MoveEnable := TRUE;
+                    Outputs.DrivesOff := TRUE;
 
                     IF Inputs.UserSafetySwitchClosed THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 311;
+                        _power_progress := 311;
                     END_IF;
                 END_IF;
                 // Start motors and program running: waiting for the 'AlarmStopActive' is on.
-                IF _progress = 311 THEN	
+                IF _power_progress = 311 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#511;
@@ -511,11 +523,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Inputs.AlarmStopActive THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 312;
+                        _power_progress := 312;
                     END_IF;
                 END_IF;
                 // Start motors and program running: waiting for the 'DrivesReady' is on.
-                IF _progress = 312 THEN	
+                IF _power_progress = 312 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#512;
@@ -527,11 +539,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     IF Inputs.DrivesReady THEN
                         Outputs.DrivesOn:=FALSE;
                         THIS.CallTimers(FALSE);
-                        _progress := 313;
+                        _power_progress := 313;
                     END_IF;
                 END_IF;
                 // Start motors and program running: waiting for the 'StopMess' is off.
-                IF _progress = 313 THEN	
+                IF _power_progress = 313 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#513;
@@ -541,11 +553,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF NOT Inputs.StopMess THEN
                          THIS.CallTimers(FALSE);
-                         _progress := 314;
+                         _power_progress := 314;
                     END_IF;
                 END_IF;		
                 // Start motors and program running: waiting for the 'RcReady' is on.
-                IF _progress = 314 THEN	
+                IF _power_progress = 314 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#514;
@@ -555,11 +567,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Inputs.RcReady THEN
                          THIS.CallTimers(FALSE);
-                         _progress := 315;
+                         _power_progress := 315;
                     END_IF;
                 END_IF;	
                 // Start motors and program running: waiting for the 'InterfaceActivated' is on.
-                IF _progress = 315 THEN	
+                IF _power_progress = 315 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#515;
@@ -569,18 +581,18 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Inputs.InterfaceActivated THEN
                          THIS.CallTimers(FALSE);
-                         _progress := 316;
+                         _power_progress := 316;
                     END_IF;
                 END_IF;	
                 // Start motors and program running: waiting for the 'ProActive' is on.
-                IF _progress = 316 THEN	
+                IF _power_progress = 316 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#516;
                     END_IF;
 
                     IF Inputs.StopMess OR Inputs.AlarmStopActive OR NOT Inputs.RcReady THEN 
-                        _progress := 310;
+                        _power_progress := 310;
                     END_IF;
 
                     Outputs.ExternalStart:=_blink.output;	
@@ -588,19 +600,19 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     IF Inputs.ProActive THEN
                         Outputs.ExternalStart:=FALSE;	
                         THIS.CallTimers(FALSE);
-                         _progress := 317;
+                         _power_progress := 317;
                     END_IF;
                 END_IF;	
                 // Start motors and program finished.
-                IF _progress = 317 THEN	
+                IF _power_progress = 317 THEN	
                     StartMotorsAndProgramTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
-                    _progress := 0;
+                    _power_progress := 0;
                 END_IF;	              
 
                 THIS.CallTimers(TRUE);
                 StartMotorsAndProgramTask.ThrowWhen(_errorTimer.output);
-                Status.Action.Id := TO_UINT(_progress);
+                Status.Action.Id := TO_UINT(_power_progress);
                 StartMotorsAndProgramTask.ThrowWhen(StartMotorsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMotorsAndProgramTask timeout.#>');
             END_IF;
             IF StartMotorsAndProgramTask.DoneReached() THEN
@@ -616,9 +628,9 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#10010,StartMotorsAndProgramTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10011,StartMotorsAndProgramTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#112,StartMotorsAndProgramTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF StartMotorsAndProgramTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
+            IF StartMotorsAndProgramTask.RestoreTriggered() AND _power_progress >= 310 AND _power_progress <= 319  THEN
                 Status.Action.Id :=  UINT#112;
-                _progress := 0;
+                _power_progress := 0;
             END_IF;   
             //*******************************************
                         
@@ -632,26 +644,29 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             IF StartMotorsProgramAndMovementsTask.Execute(THIS) THEN
                 _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
 
-                IF _progress = 0 THEN
+                IF _power_progress = 0 THEN
                     Status.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
-                    _progress := 320;
+                    _power_progress := 320;
                 END_IF;
                 // Start motors program and movements running: waiting for the 'UserSafetySwitchClosed' is on.
-                IF _progress = 320 THEN 
+                IF _power_progress = 320 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#520;
                     END_IF;
 
+                    Outputs.MoveEnable := TRUE;
+                    Outputs.DrivesOff := TRUE;
+
                     IF Inputs.UserSafetySwitchClosed THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 321;
+                        _power_progress := 321;
                     END_IF;
                 END_IF;
                 // Start motors program and movements running: waiting for the 'AlarmStopActive' is on.
-                IF _progress = 321 THEN	
+                IF _power_progress = 321 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#521;
@@ -659,11 +674,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Inputs.AlarmStopActive THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 322;
+                        _power_progress := 322;
                     END_IF;
                 END_IF;
                 // Start motors program and movements running: waiting for the 'DrivesReady' is on.
-                IF _progress = 322 THEN	
+                IF _power_progress = 322 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#522;
@@ -675,11 +690,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     IF Inputs.DrivesReady THEN
                         Outputs.DrivesOn:=FALSE;
                         THIS.CallTimers(FALSE);
-                        _progress := 323;
+                        _power_progress := 323;
                     END_IF;
                 END_IF;
                 // Start motors program and movements running: waiting for the 'StopMess' is off.
-                IF _progress = 323 THEN	
+                IF _power_progress = 323 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#523;
@@ -689,11 +704,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF NOT Inputs.StopMess THEN
                          THIS.CallTimers(FALSE);
-                         _progress := 324;
+                         _power_progress := 324;
                     END_IF;
                 END_IF;		
                 // Start motors program and movements running: waiting for the 'RcReady' is on.
-                IF _progress = 324 THEN	
+                IF _power_progress = 324 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#524;
@@ -703,11 +718,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Inputs.RcReady THEN
                          THIS.CallTimers(FALSE);
-                         _progress := 325;
+                         _power_progress := 325;
                     END_IF;
                 END_IF;	
                 // Start motors program and movements running: waiting for the 'InterfaceActivated' is on.
-                IF _progress = 325 THEN	
+                IF _power_progress = 325 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#525;
@@ -717,18 +732,18 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Inputs.InterfaceActivated THEN
                          THIS.CallTimers(FALSE);
-                         _progress := 326;
+                         _power_progress := 326;
                     END_IF;
                 END_IF;	
                 // Start motors program and movements running: waiting for the 'ProActive' is on.
-                IF _progress = 326 THEN	
+                IF _power_progress = 326 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#526;
                     END_IF;
 
                     IF Inputs.StopMess OR Inputs.AlarmStopActive OR NOT Inputs.RcReady THEN 
-                        _progress := 320;
+                        _power_progress := 320;
                     END_IF;
 
                     Outputs.ExternalStart:=_blink.output;	
@@ -736,11 +751,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     IF Inputs.ProActive THEN
                         Outputs.ExternalStart:=FALSE;	
                         THIS.CallTimers(FALSE);
-                         _progress := 327;
+                         _power_progress := 327;
                     END_IF;
                 END_IF;
                 // Start motors program and movements running: sending parameters of the movement to the controller.
-                IF _progress = 327 THEN
+                IF _power_progress = 327 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#527;
@@ -758,11 +773,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 328;
+                        _power_progress := 328;
                     END_IF;
                 END_IF;
                 // Start motors program and movements running: waiting for the movement parameters sent to the controller to be mirrored back.
-                IF _progress = 328 THEN
+                IF _power_progress = 328 THEN
                     IF _infoTimer.output THEN
                         IF Inputs.GlobalSpeed <> Status.CurrentMovementParameters.GlobalSpeed THEN
                             TaskMessenger.Activate( UINT#528, eAxoMessageCategory#Warning);
@@ -798,11 +813,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                         Inputs.UserSpecSpeed2   = Status.CurrentMovementParameters.UserSpecSpeed2 AND
                         AXOpen.Components.Robotics.CoordinatesAreNearlyEqual(Inputs.Coordinates,Status.CurrentMovementParameters.Coordinates,REAL#0.01,REAL#0.01,REAL#0.01,REAL#0.01,REAL#0.01,REAL#0.01) THEN
                         THIS.CallTimers(FALSE);
-                        _progress:=334;
+                        _power_progress:=334;
                     END_IF;
                 END_IF;		
                 // Start motors program and movements running: acknowleadging of the movement parameters.
-                IF _progress = 334 THEN
+                IF _power_progress = 334 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#534, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#534;
@@ -812,11 +827,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress:=335;
+                        _power_progress:=335;
                     END_IF;
                 END_IF;	
                 // Start motors program and movements running: waiting for the movement is finished.
-                IF _progress = 335 THEN
+                IF _power_progress = 335 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#535, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#535;
@@ -826,11 +841,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 	
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress:=336;
+                        _power_progress:=336;
                     END_IF;
                 END_IF;	
                 // Start motors program and movements running: acknowleadging of the finished movement.
-                IF _progress = 336 THEN
+                IF _power_progress = 336 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#536, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#536;
@@ -840,18 +855,18 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 337;
+                        _power_progress := 337;
                     END_IF;
                 END_IF;	
                 // Start motors program and movements finished.
-                IF _progress = 337 THEN
-                    _progress := 0;
+                IF _power_progress = 337 THEN
+                    _power_progress := 0;
                     StartMotorsProgramAndMovementsTask.DoneWhen(TRUE);
                 END_IF;	
 
                 THIS.CallTimers(TRUE);
                 StartMotorsProgramAndMovementsTask.ThrowWhen(_errorTimer.output);
-                Status.Action.Id := TO_UINT(_progress);
+                Status.Action.Id := TO_UINT(_power_progress);
                 StartMotorsProgramAndMovementsTask.ThrowWhen(StartMotorsProgramAndMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMotorsProgramAndMovementsTask timeout.#>');
             END_IF;
             IF StartMotorsProgramAndMovementsTask.IsFirstExecutionCycle() THEN
@@ -870,9 +885,9 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#10020,StartMotorsProgramAndMovementsTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10021,StartMotorsProgramAndMovementsTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#122,StartMotorsProgramAndMovementsTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF StartMotorsProgramAndMovementsTask.RestoreTriggered() AND _progress >= 320 AND _progress <= 339  THEN
+            IF StartMotorsProgramAndMovementsTask.RestoreTriggered() AND _power_progress >= 320 AND _power_progress <= 339  THEN
                 Status.Action.Id :=  UINT#122;
-                _progress := 0;
+                _power_progress := 0;
             END_IF;  
             //*******************************************
 
@@ -886,26 +901,28 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             IF StartMotorsTask.Execute(THIS) THEN
                 _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
 
-                IF _progress = 0 THEN
+                IF _power_progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
-                    _progress := 340;
+                    _power_progress := 340;
                 END_IF;
                 // Start motors running: waiting for the 'UserSafetySwitchClosed' is on.
-                IF _progress = 340 THEN 
+                IF _power_progress = 340 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#540;
                     END_IF;
+                    Outputs.MoveEnable := TRUE;
+                    Outputs.DrivesOff := TRUE;
 
                     IF Inputs.UserSafetySwitchClosed THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 341;
+                        _power_progress := 341;
                     END_IF;
                 END_IF;
                 // Start motors running: waiting for the 'AlarmStopActive' is on.
-                IF _progress = 341 THEN	
+                IF _power_progress = 341 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#541;
@@ -913,11 +930,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Inputs.AlarmStopActive THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 342;
+                        _power_progress := 342;
                     END_IF;
                 END_IF;
                 // Start motors running: waiting for the 'DrivesReady' is on.
-                IF _progress = 342 THEN	
+                IF _power_progress = 342 THEN	
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#542, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#542;
@@ -929,19 +946,19 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     IF Inputs.DrivesReady  THEN
                         Outputs.DrivesOn:=FALSE;
                         THIS.CallTimers(FALSE);
-                        _progress := 343;
+                        _power_progress := 343;
                     END_IF;
                 END_IF;
                 // Start motors finished.
-                IF _progress = 343 THEN	
+                IF _power_progress = 343 THEN	
                     StartMotorsTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
-                    _progress := 0;
+                    _power_progress := 0;
                 END_IF;	              
 
                 THIS.CallTimers(TRUE);
                 StartMotorsTask.ThrowWhen(_errorTimer.output);
-                Status.Action.Id := TO_UINT(_progress);
+                Status.Action.Id := TO_UINT(_power_progress);
             END_IF;
             IF StartMotorsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#141;
@@ -956,9 +973,9 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#10040,StartMotorsTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10041,StartMotorsTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#142,StartMotorsTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF StartMotorsTask.RestoreTriggered() AND _progress >= 340 AND _progress <= 349 THEN
+            IF StartMotorsTask.RestoreTriggered() AND _power_progress >= 340 AND _power_progress <= 349 THEN
                 Status.Action.Id :=  UINT#142;
-                _progress := 0;
+                _power_progress := 0;
             END_IF;  
             //*******************************************
   
@@ -970,26 +987,28 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#150,StartMovementsTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#151,StartMovementsTask.IsDone(), eAxoMessageCategory#Info);
             IF StartMovementsTask.Execute(THIS) THEN
-                IF _progress = 0 THEN
+                IF _movement_progress = 0 THEN
                     Status.Error.Id := UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
-                    _progress := 350;
+                    _movement_progress := 350;
                 END_IF;
                 // Start movements running: waiting for the 'ProActive' is on.
-                IF _progress = 350 THEN
+                IF _movement_progress = 350 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#550;
                     END_IF;
+                    Outputs.MoveEnable := TRUE;
+                    Outputs.DrivesOff := TRUE;
 
                     IF Inputs.ProActive THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 351;
+                        _movement_progress := 351;
                     END_IF;
                 END_IF;
                 // Start movements running: waiting for the 'DrivesReady' is on.
-                IF _progress = 351 THEN
+                IF _movement_progress = 351 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#551;
@@ -997,11 +1016,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Inputs.DrivesReady THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 352;
+                        _movement_progress := 352;
                     END_IF;
                 END_IF;
                 // Start movements running: waiting for the 'StopMess' is off.
-                IF _progress = 352 THEN
+                IF _movement_progress = 352 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#552, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#552;
@@ -1009,11 +1028,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                                         
                     IF NOT Inputs.StopMess THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 353;
+                        _movement_progress := 353;
                     END_IF;
                 END_IF;
                 // Start movements running: sending parameters of the movement to the controller.
-                IF _progress = 353 THEN
+                IF _movement_progress = 353 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#553, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#553;
@@ -1031,11 +1050,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 354;
+                        _movement_progress := 354;
                     END_IF;
                 END_IF;
                 // Start movements running: waiting for the movement parameters sent to the controller to be mirrored back.
-                IF _progress = 354 THEN
+                IF _movement_progress = 354 THEN
                     IF _infoTimer.output THEN
                         IF Inputs.GlobalSpeed <> Status.CurrentMovementParameters.GlobalSpeed THEN
                             TaskMessenger.Activate( UINT#554, eAxoMessageCategory#Warning);
@@ -1071,11 +1090,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                         Inputs.UserSpecSpeed2   = Status.CurrentMovementParameters.UserSpecSpeed2 AND
                         AXOpen.Components.Robotics.CoordinatesAreNearlyEqual(Inputs.Coordinates,Status.CurrentMovementParameters.Coordinates,REAL#0.01,REAL#0.01,REAL#0.01,REAL#0.01,REAL#0.01,REAL#0.01) THEN
                         THIS.CallTimers(FALSE);
-                        _progress:=360;
+                        _movement_progress:=360;
                     END_IF;
                 END_IF;		
                 // Start movements running: acknowleadging of the movement parameters.
-                IF _progress = 360 THEN
+                IF _movement_progress = 360 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#560, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#560;
@@ -1085,11 +1104,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress:=361;
+                        _movement_progress:=361;
                     END_IF;
                 END_IF;	
                 // Start movements running: waiting for the movement is finished.
-                IF _progress = 361 THEN
+                IF _movement_progress = 361 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#561, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#561;
@@ -1099,11 +1118,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress:=362;
+                        _movement_progress:=362;
                     END_IF;
                 END_IF;	
                 // Start movements running: acknowleadging of the finished movement.
-                IF _progress = 362 THEN
+                IF _movement_progress = 362 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#562, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#562;
@@ -1113,12 +1132,12 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 363;
+                        _movement_progress := 363;
                     END_IF;
                 END_IF;	
                 // Start movements finished.
-                IF _progress = 363 THEN
-                    _progress := 0;
+                IF _movement_progress = 363 THEN
+                    _movement_progress := 0;
                     THIS.CallTimers(FALSE);
                     StartMovementsTask.DoneWhen(TRUE);
                 END_IF;	
@@ -1126,7 +1145,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 	            THIS.CallTimers(TRUE);
                 
                 StartMovementsTask.ThrowWhen(_errorTimer.output);
-                Status.Action.Id := TO_UINT(_progress);
+                Status.Action.Id := TO_UINT(_movement_progress);
                 StartMovementsTask.ThrowWhen(StartMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMovementsTask timeout.#>');
             END_IF;
             IF StartMovementsTask.IsFirstExecutionCycle() THEN
@@ -1145,9 +1164,9 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#10050,StartMovementsTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10051,StartMovementsTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#152,StartMovementsTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF StartMovementsTask.RestoreTriggered() AND _progress >= 350 AND _progress <= 369 THEN
+            IF StartMovementsTask.RestoreTriggered() AND _movement_progress >= 350 AND _movement_progress <= 369 THEN
                 Status.Action.Id :=  UINT#152;
-                _progress := 0;
+                _movement_progress := 0;
             END_IF;  
             //*******************************************
   
@@ -1161,26 +1180,28 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             IF StartProgramTask.Execute(THIS) THEN
                 _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
 
-                IF _progress = 0 THEN
+                IF _power_progress = 0 THEN
                     Status.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
-                    _progress := 370;
+                    _power_progress := 370;
                 END_IF;
                 // Start program running: waiting for the 'UserSafetySwitchClosed' is on.
-                IF _progress = 370 THEN 
+                IF _power_progress = 370 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#570, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#570;
                     END_IF;
+                    Outputs.MoveEnable := TRUE;
+                    Outputs.DrivesOff := TRUE;
                     
                     IF  Inputs.UserSafetySwitchClosed THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 371;
+                        _power_progress := 371;
                     END_IF;
                 END_IF;
                 // Start program running: waiting for the 'AlarmStopActive' is on.
-                IF _progress = 371 THEN 
+                IF _power_progress = 371 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#571, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#571;
@@ -1188,11 +1209,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Inputs.AlarmStopActive THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 372;
+                        _power_progress := 372;
                     END_IF;
                 END_IF;
                 // Start program running: waiting for the 'DrivesReady' is on.
-                IF _progress = 372 THEN 
+                IF _power_progress = 372 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#572, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#572;
@@ -1203,11 +1224,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     IF Inputs.DrivesReady  THEN
                         Outputs.DrivesOn:=FALSE;
                         THIS.CallTimers(FALSE);
-                        _progress := 373;
+                        _power_progress := 373;
                     END_IF;
                 END_IF;
                 // Start program running: waiting for the 'StopMess' is off.
-                IF _progress = 373 THEN 
+                IF _power_progress = 373 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#573, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#573;
@@ -1218,11 +1239,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     IF NOT Inputs.StopMess THEN
                         Outputs.ErrorConfirmation:=FALSE;
                         THIS.CallTimers(FALSE);
-                        _progress := 374;
+                        _power_progress := 374;
                     END_IF;
                 END_IF;
                 // Start program running: waiting for the 'RcReady' is on.
-                IF _progress = 374 THEN 
+                IF _power_progress = 374 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#574, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#574;
@@ -1232,11 +1253,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     
                     IF Inputs.RcReady THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 375;
+                        _power_progress := 375;
                     END_IF;
                 END_IF;
                 // Start program running: waiting for the 'InterfaceActivated' is on.
-                IF _progress = 375 THEN 
+                IF _power_progress = 375 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#575, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#575;
@@ -1246,18 +1267,18 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     
                     IF Inputs.InterfaceActivated THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 376;
+                        _power_progress := 376;
                     END_IF;
                 END_IF;
                 // Start program running: waiting for the 'ProActive' is on.
-                IF _progress = 376 THEN 
+                IF _power_progress = 376 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#576, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#576;
                     END_IF;
 
                     IF Inputs.StopMess OR Inputs.AlarmStopActive OR NOT Inputs.RcReady THEN 
-                        _progress := 370;
+                        _power_progress := 370;
                     END_IF;
 
                     Outputs.ExternalStart:=_blink.output;
@@ -1265,19 +1286,19 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     IF Inputs.ProActive THEN
                         Outputs.ExternalStart:= FALSE;
                         THIS.CallTimers(FALSE);
-                        _progress := 377;
+                        _power_progress := 377;
                     END_IF;
                 END_IF;
                 // Start program finished.
-                IF _progress = 377 THEN	
+                IF _power_progress = 377 THEN	
                     StartProgramTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
-                    _progress := 0;
+                    _power_progress := 0;
                 END_IF;	              
 
                 THIS.CallTimers(TRUE);
                 StartProgramTask.ThrowWhen(_errorTimer.output);
-                Status.Action.Id := TO_UINT(_progress);
+                Status.Action.Id := TO_UINT(_power_progress);
                 StartProgramTask.ThrowWhen(StartProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartProgramTask timeout.#>');
             END_IF;
             IF StartProgramTask.DoneReached() THEN
@@ -1293,9 +1314,9 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#10070,StartProgramTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10071,StartProgramTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#172,StartProgramTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF StartProgramTask.RestoreTriggered() AND _progress >= 370 AND _progress <= 379  THEN
+            IF StartProgramTask.RestoreTriggered() AND _power_progress >= 370 AND _power_progress <= 379  THEN
                 Status.Action.Id :=  UINT#172;
-                _progress := 0;
+                _power_progress := 0;
             END_IF;
             //*******************************************
  
@@ -1309,14 +1330,14 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             IF StopMotorsTask.Execute(THIS) THEN
                 _blink.Blink(Context := _context, inOnTime:=T#500MS,inOffTime:=T#500MS);
 
-                IF _progress = 0 THEN
+                IF _power_progress = 0 THEN
                     Status.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
-                    _progress := 380;
+                    _power_progress := 380;
                 END_IF;
                 // Stop motors running: waiting for the 'DrivesReady' is off.
-                IF _progress = 380 THEN 
+                IF _power_progress = 380 THEN 
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#580, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#580;
@@ -1328,19 +1349,19 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     IF NOT Inputs.DrivesReady  THEN
                         Outputs.DrivesOff :=FALSE;
                         THIS.CallTimers(FALSE);
-                        _progress := 381;
+                        _power_progress := 381;
                     END_IF;
                 END_IF;
                 // Stop motors finished.
-                IF _progress = 381 THEN	
+                IF _power_progress = 381 THEN	
                     StopMotorsTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
-                    _progress := 0;
+                    _power_progress := 0;
                 END_IF;	              
 
                 THIS.CallTimers(TRUE);
                 StopMotorsTask.ThrowWhen(_errorTimer.output);
-                Status.Action.Id := TO_UINT(_progress);
+                Status.Action.Id := TO_UINT(_power_progress);
                 StopMotorsTask.ThrowWhen(StopMotorsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopMotorsTask timeout.#>');
             END_IF;
             IF StopMotorsTask.DoneReached() THEN
@@ -1356,9 +1377,9 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#10080,StopMotorsTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10081,StopMotorsTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#182,StopMotorsTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF StopMotorsTask.RestoreTriggered() AND _progress >= 380 AND _progress <= 389  THEN
+            IF StopMotorsTask.RestoreTriggered() AND _power_progress >= 380 AND _power_progress <= 389  THEN
                 Status.Action.Id :=  UINT#182;
-                _progress := 0;
+                _power_progress := 0;
             END_IF;
             //*******************************************
 
@@ -1370,14 +1391,15 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#190,StopMovementsAndProgramTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#191,StopMovementsAndProgramTask.IsDone(), eAxoMessageCategory#Info);
             IF StopMovementsAndProgramTask.Execute(THIS) THEN
-                IF _progress = 0 THEN
+                IF _power_progress = 0 THEN
+                    _movement_progress := 0;
                     Status.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
-                    _progress := 390;
+                    _power_progress := 390;
                 END_IF;
                 // Stop movements and program running: waiting for the 'RobotStopped' is on.
-                IF _progress = 390 THEN
+                IF _power_progress = 390 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#590, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#590;
@@ -1387,11 +1409,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Inputs.RobotStopped THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 391;
+                        _power_progress := 391;
                     END_IF;
                 END_IF;
                 // Stop movements and program running: waiting for the 'ProActive' is off.
-                IF _progress = 391 THEN
+                IF _power_progress = 391 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#591, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#591;
@@ -1399,19 +1421,19 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF NOT Inputs.ProActive THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 392;
+                        _power_progress := 392;
                     END_IF;
                 END_IF;
                 // Stop movements and program finished.
-                IF _progress = 392 THEN
+                IF _power_progress = 392 THEN
                     StopMovementsAndProgramTask.DoneWhen(TRUE);
-                    _progress := 0;
+                    _power_progress := 0;
                 END_IF;		
 
                 THIS.CallTimers(TRUE);
                 
                 StopMovementsAndProgramTask.ThrowWhen(_errorTimer.output);
-                Status.Action.Id := TO_UINT(_progress);
+                Status.Action.Id := TO_UINT(_power_progress);
                 StopMovementsAndProgramTask.ThrowWhen(StopMovementsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopMovementsAndProgramTask timeout.#>');
             END_IF;
             IF StopMovementsAndProgramTask.DoneReached() THEN
@@ -1427,9 +1449,9 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#10090,StopMovementsAndProgramTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10091,StopMovementsAndProgramTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#192,StopMovementsAndProgramTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF StopMovementsAndProgramTask.RestoreTriggered() AND _progress >= 390 AND _progress <= 399  THEN
+            IF StopMovementsAndProgramTask.RestoreTriggered() AND _power_progress >= 390 AND _power_progress <= 399  THEN
                 Status.Action.Id :=  UINT#192;
-                _progress := 0;
+                _power_progress := 0;
             END_IF;
             //*******************************************
             
@@ -1441,14 +1463,15 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#200,StopMovementsTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#201,StopMovementsTask.IsDone(), eAxoMessageCategory#Info);
             IF StopMovementsTask.Execute(THIS) THEN
-                IF _progress = 0 THEN
+                IF _power_progress = 0 THEN
+                    _movement_progress := 0;
                     Status.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
-                    _progress := 400;
+                    _power_progress := 400;
                 END_IF;
                 // Stop movements running: waiting for the 'RobotStopped' is on.
-                IF _progress = 400 THEN
+                IF _power_progress = 400 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#600, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#600;
@@ -1458,12 +1481,12 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF Inputs.RobotStopped THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 401;
+                        _power_progress := 401;
                     END_IF;
                 END_IF;
                 // Stop movements finished.
-                IF _progress = 401 THEN
-                    _progress := 0;
+                IF _power_progress = 401 THEN
+                    _power_progress := 0;
                     StopMovementsTask.DoneWhen(TRUE);
                 END_IF;		
 
@@ -1471,7 +1494,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                 THIS.CallTimers(TRUE);
                 
                 StopMovementsTask.ThrowWhen(_errorTimer.output);
-                Status.Action.Id := TO_UINT(_progress);
+                Status.Action.Id := TO_UINT(_power_progress);
                 StopMovementsTask.ThrowWhen(StopMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopMovementsTask timeout.#>');
             END_IF;
             IF StopMovementsTask.DoneReached() THEN
@@ -1487,9 +1510,9 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#10100,StopMovementsTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10101,StopMovementsTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#202,StopMovementsTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF StopMovementsTask.RestoreTriggered() AND _progress >= 400 AND _progress <= 409  THEN
+            IF StopMovementsTask.RestoreTriggered() AND _power_progress >= 400 AND _power_progress <= 409  THEN
                 Status.Action.Id :=  UINT#202;
-                _progress := 0;
+                _power_progress := 0;
             END_IF;
             //*******************************************
 
@@ -1501,14 +1524,14 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#210,StopProgramTask.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#211,StopProgramTask.IsDone(), eAxoMessageCategory#Info);
             IF StopProgramTask.Execute(THIS) THEN
-                IF _progress = 0 THEN
+                IF _power_progress = 0 THEN
                     Status.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
-                    _progress := 410;
+                    _power_progress := 410;
                 END_IF;
                 // Stop program running: waiting for the 'ProActive' is off.
-                IF _progress = 410 THEN
+                IF _power_progress = 410 THEN
                     IF _infoTimer.output THEN
                         TaskMessenger.Activate( UINT#610, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#610;
@@ -1518,19 +1541,19 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     IF NOT Inputs.ProActive THEN
                         THIS.CallTimers(FALSE);
-                        _progress := 411;
+                        _power_progress := 411;
                     END_IF;
                 END_IF;
                 // Stop program finished.
-                IF _progress = 411 THEN
+                IF _power_progress = 411 THEN
                     StopProgramTask.DoneWhen(TRUE);
-                    _progress := 0;
+                    _power_progress := 0;
                 END_IF;		
 
                 THIS.CallTimers(TRUE);
                 
                 StopProgramTask.ThrowWhen(_errorTimer.output);
-                Status.Action.Id := TO_UINT(_progress);
+                Status.Action.Id := TO_UINT(_power_progress);
                 StopProgramTask.ThrowWhen(StopProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopProgramTask timeout.#>');
             END_IF;
             IF StopProgramTask.DoneReached() THEN
@@ -1546,9 +1569,9 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#10110,StopProgramTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10111,StopProgramTask.IsAborted(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#212,StopProgramTask.RestoreTriggered() , eAxoMessageCategory#Error);
-            IF StopProgramTask.RestoreTriggered() AND _progress >= 410 AND _progress <= 419  THEN
+            IF StopProgramTask.RestoreTriggered() AND _power_progress >= 410 AND _power_progress <= 419  THEN
                 Status.Action.Id :=  UINT#912;
-                _progress := 0;
+                _power_progress := 0;
             END_IF;
             //*******************************************
             
@@ -1704,6 +1727,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             StartMotorsTask.Restore();         
             StartMovementsTask.Restore();
             StartMotorsProgramAndMovementsTask.Restore();
+            _power_progress := 0;
+            _movement_progress := 0;                  
             Status.Action.Id :=  UINT#50;
             RestoreTask.DoneWhen(TRUE);
         END_METHOD        
