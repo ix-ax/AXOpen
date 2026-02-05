@@ -234,7 +234,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     RETURN;
                 END_IF;
                 ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwID_512_DI_DO) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
-                IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
+                IF _inputsCount <> UINT#64 OR _outputsCount <> UINT#64 THEN
                     Messenger.Activate(UINT#726,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#726;
                     RETURN;

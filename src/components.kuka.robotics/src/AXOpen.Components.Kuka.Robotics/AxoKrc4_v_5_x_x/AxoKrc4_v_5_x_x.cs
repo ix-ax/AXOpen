@@ -330,12 +330,6 @@ namespace AXOpen.Components.Kuka.Robotics.v_5_x_x
                     errorDescriptionDict.Add(10110, "Stop program task finished with error!");
                     errorDescriptionDict.Add(10111, "Stop program task was aborted, while not yet completed!");
 
-                    errorDescriptionDict.Add(20001, "Stop program task was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(20002, "Stop program task was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(20003, "Stop program task was aborted, while not yet completed!");
-
-
-
                     errorDescriptionDict.Add(20001, "Emergency stop activated!");
                     errorDescriptionDict.Add(20002, "Safety circuit interupted!");
                     errorDescriptionDict.Add(20003, "Program error active!");
