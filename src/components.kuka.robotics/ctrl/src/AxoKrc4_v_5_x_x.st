@@ -41,6 +41,39 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             RestoreTask : AxoTask;            
 
             {#ix-attr:[ComponentDetails("Tasks")]}            
+            {#ix-set:AttributeName = "<#Reset all outputs#>"}
+            ResetAllOutputsTask : AxoTask;
+
+            {#ix-attr:[ComponentDetails("Tasks")]}            
+            {#ix-set:AttributeName = "<#Start motors#>"}
+            StartMotorsTask : AxoTask;            
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Tasks")]}            
+            {#ix-set:AttributeName = "<#Start at main#>"}
+            StartAtMainTask : AxoTask;            
+
+            {#ix-attr:[ComponentDetails("Tasks")]}            
+            {#ix-set:AttributeName = "<#Start motors program and movements#>"}
+            StartMotorsProgramAndMovementsTask : AxoTask;
+
+            {#ix-attr:[ComponentDetails("Tasks")]}            
+            {#ix-set:AttributeName = "<#Start movements with extended parameters#>"}
+            MovementParameters : AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams;
+
+            {#ix-attr:[ComponentDetails("Tasks")]}            
+            {#ix-set:AttributeName = "<#Start program#>"}
+            StartProgramTask : AxoTask;            
+
+            {#ix-attr:[ComponentDetails("Tasks")]}            
+            {#ix-set:AttributeName = "<#Start movements#>"}
+            StartMovementsTask : AxoTask;
+
+            {#ix-attr:[ComponentDetails("Tasks")]}            
+            {#ix-set:AttributeName = "<#Start motors and program#>"}
+            StartMotorsAndProgramTask : AxoTask;
+
+            {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Stop movements#>"}
             StopMovementsTask : AxoTask;
 
@@ -55,35 +88,6 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             {#ix-attr:[ComponentDetails("Tasks")]}            
             {#ix-set:AttributeName = "<#Stop motors#>"}
             StopMotorsTask : AxoTask;
-
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Tasks")]}            
-            {#ix-set:AttributeName = "<#Start at main#>"}
-            StartAtMainTask : AxoTask;            
-
-            {#ix-attr:[ComponentDetails("Tasks")]}            
-            {#ix-set:AttributeName = "<#Start motors and program#>"}
-            StartMotorsAndProgramTask : AxoTask;
-
-            {#ix-attr:[ComponentDetails("Tasks")]}            
-            {#ix-set:AttributeName = "<#Start program#>"}
-            StartProgramTask : AxoTask;            
-
-            {#ix-attr:[ComponentDetails("Tasks")]}            
-            {#ix-set:AttributeName = "<#Start motors#>"}
-            StartMotorsTask : AxoTask;            
-
-            {#ix-attr:[ComponentDetails("Tasks")]}            
-            {#ix-set:AttributeName = "<#Start movements#>"}
-            StartMovementsTask : AxoTask;
-
-            {#ix-attr:[ComponentDetails("Tasks")]}            
-            {#ix-set:AttributeName = "<#Start motors program and movements#>"}
-            StartMotorsProgramAndMovementsTask : AxoTask;
-
-            {#ix-attr:[ComponentDetails("Tasks")]}            
-            {#ix-set:AttributeName = "<#Start movements with extended parameters#>"}
-            MovementParameters : AXOpen.Components.Abstractions.Robotics.AxoRoboticsMovementsParams;
         END_VAR
         
         VAR PUBLIC //CONFIG
@@ -330,64 +334,64 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Inputs.WorkobjectNo             := _data[10];
             Inputs.PointNo                  := _data[11];
 
-            _dword.%B3                      := _data[12];
-            _dword.%B2                      := _data[13];
-            _dword.%B1                      := _data[14];
-            _dword.%B0                      := _data[15];
+            _dword.%B0                      := _data[12];
+            _dword.%B1                      := _data[13];
+            _dword.%B2                      := _data[14];
+            _dword.%B3                      := _data[15];
             Inputs.UserSpecSpeed1           := TO_DINT(_dword);
 
-            _dword.%B3                      := _data[16];
-            _dword.%B2                      := _data[17];
-            _dword.%B1                      := _data[18];
-            _dword.%B0                      := _data[19];
+            _dword.%B0                      := _data[16];
+            _dword.%B1                      := _data[17];
+            _dword.%B2                      := _data[18];
+            _dword.%B3                      := _data[19];
             Inputs.UserSpecSpeed2           := TO_DINT(_dword);
 
-            _dword.%B3                      := _data[20];
-            _dword.%B2                      := _data[21];
-            _dword.%B1                      := _data[22];
-            _dword.%B0                      := _data[23];
+            _dword.%B0                      := _data[20];
+            _dword.%B1                      := _data[21];
+            _dword.%B2                      := _data[22];
+            _dword.%B3                      := _data[23];
             // Inputs.Coordinates.X:= TO_REAL(_dword)/REAL#10000.0-REAL#10000.0;
             Inputs.Coordinates.X:= TO_REAL(_dword)*REAL#0.0001; //Todo check negative values
 
-            _dword.%B3                      := _data[24];
-            _dword.%B2                      := _data[25];
-            _dword.%B1                      := _data[26];
-            _dword.%B0                      := _data[27];
+            _dword.%B0                      := _data[24];
+            _dword.%B1                      := _data[25];
+            _dword.%B2                      := _data[26];
+            _dword.%B3                      := _data[27];
             // Inputs.Coordinates.Y:= TO_REAL(_dword)/REAL#10000.0-REAL#10000.0;
             Inputs.Coordinates.Y:= TO_REAL(_dword)*REAL#0.0001; //Todo check negative values
 
-            _dword.%B3                      := _data[28];
-            _dword.%B2                      := _data[29];
-            _dword.%B1                      := _data[30];
-            _dword.%B0                      := _data[31];
+            _dword.%B0                      := _data[28];
+            _dword.%B1                      := _data[29];
+            _dword.%B2                      := _data[30];
+            _dword.%B3                      := _data[31];
             // Inputs.Coordinates.Z:= TO_REAL(_dword)/REAL#10000.0-REAL#10000.0;
             Inputs.Coordinates.Z:= TO_REAL(_dword)*REAL#0.0001; //Todo check negative values
 
-            _dword.%B3                      := _data[32];
-            _dword.%B2                      := _data[33];
-            _dword.%B1                      := _data[34];
-            _dword.%B0                      := _data[35];
+            _dword.%B0                      := _data[32];
+            _dword.%B1                      := _data[33];
+            _dword.%B2                      := _data[34];
+            _dword.%B3                      := _data[35];
             // Inputs.Coordinates.Rx:= TO_REAL(_dword)/REAL#10000.0-REAL#360.0;
             Inputs.Coordinates.Rx:= TO_REAL(_dword)*REAL#0.0001; //Todo check negative values
 
-            _dword.%B3                      := _data[36];
-            _dword.%B2                      := _data[37];
-            _dword.%B1                      := _data[38];
-            _dword.%B0                      := _data[39];
+            _dword.%B0                      := _data[36];
+            _dword.%B1                      := _data[37];
+            _dword.%B2                      := _data[38];
+            _dword.%B3                      := _data[39];
             // Inputs.Coordinates.Ry:= TO_REAL(_dword)/REAL#10000.0-REAL#360.0;
             Inputs.Coordinates.Ry:= TO_REAL(_dword)*REAL#0.0001; //Todo check negative values
 
-            _dword.%B3                      := _data[40];
-            _dword.%B2                      := _data[41];
-            _dword.%B1                      := _data[42];
-            _dword.%B0                      := _data[43];
+            _dword.%B0                      := _data[40];
+            _dword.%B1                      := _data[41];
+            _dword.%B2                      := _data[42];
+            _dword.%B3                      := _data[43];
             // Inputs.Coordinates.Rz:= TO_REAL(_dword)/REAL#10000.0-REAL#360.0;
             Inputs.Coordinates.Rz:= TO_REAL(_dword)*REAL#0.0001; //Todo check negative values
 
-            _dword.%B3                      := _data[44];
-            _dword.%B2                      := _data[45];
-            _dword.%B1                      := _data[46];
-            _dword.%B0                      := _data[47];
+            _dword.%B0                      := _data[44];
+            _dword.%B1                      := _data[45];
+            _dword.%B2                      := _data[46];
+            _dword.%B3                      := _data[47];
             Inputs.EventId                  := TO_UDINT(_dword);
             //*******************************************
             _context := THIS.GetContext();
@@ -404,6 +408,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             StartMotorsTask.Run(THIS);
             StartMovementsTask.Run(THIS);
             StartMotorsProgramAndMovementsTask.Run(THIS);
+            ResetAllOutputsTask.Run(THIS);
             HardwareDiagnosticsTask.Run(THIS);
 
             _stopTasksAreActive := StopMovementsTask.IsBusy() OR StopMovementsAndProgramTask.IsBusy() OR StopProgramTask.IsBusy() OR StopMotorsTask.IsBusy();
@@ -443,6 +448,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     Outputs.MoveEnable := TRUE;
                     Outputs.DrivesOff := TRUE;
+                    Outputs.ActionNo := BYTE#255;
 
                     Outputs.StartAtMain := NOT Inputs.PpMoved  AND _blink.output;
                             
@@ -508,6 +514,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     END_IF;
                     Outputs.MoveEnable := TRUE;
                     Outputs.DrivesOff := TRUE;
+                    Outputs.ActionNo := BYTE#255;
 
                     IF Inputs.UserSafetySwitchClosed THEN
                         THIS.CallTimers(FALSE);
@@ -591,7 +598,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                         Status.Error.Id :=      UINT#516;
                     END_IF;
 
-                    IF Inputs.StopMess OR Inputs.AlarmStopActive OR NOT Inputs.RcReady THEN 
+                    IF Inputs.StopMess OR NOT Inputs.AlarmStopActive OR NOT Inputs.RcReady THEN 
                         _power_progress := 310;
                     END_IF;
 
@@ -659,6 +666,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                     Outputs.MoveEnable := TRUE;
                     Outputs.DrivesOff := TRUE;
+                    Outputs.ActionNo := BYTE#255;
 
                     IF Inputs.UserSafetySwitchClosed THEN
                         THIS.CallTimers(FALSE);
@@ -742,11 +750,15 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                         Status.Error.Id :=      UINT#526;
                     END_IF;
 
-                    IF Inputs.StopMess OR Inputs.AlarmStopActive OR NOT Inputs.RcReady THEN 
+                    IF Inputs.StopMess OR NOT Inputs.AlarmStopActive OR NOT Inputs.RcReady THEN 
                         _power_progress := 320;
                     END_IF;
-
-                    Outputs.ExternalStart:=_blink.output;	
+                    
+                    IF NOT Inputs.ProActive AND Inputs.Error THEN  
+                        Outputs.StartAtMain := _blink.output AND NOT Inputs.PpMoved;
+                    ELSE
+                        Outputs.ExternalStart:=_blink.output;	
+                    END_IF;                        
 
                     IF Inputs.ProActive THEN
                         Outputs.ExternalStart:=FALSE;	
@@ -1194,6 +1206,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     END_IF;
                     Outputs.MoveEnable := TRUE;
                     Outputs.DrivesOff := TRUE;
+                    Outputs.ActionNo := BYTE#255;
                     
                     IF  Inputs.UserSafetySwitchClosed THEN
                         THIS.CallTimers(FALSE);
@@ -1277,7 +1290,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                         Status.Error.Id :=      UINT#576;
                     END_IF;
 
-                    IF Inputs.StopMess OR Inputs.AlarmStopActive OR NOT Inputs.RcReady THEN 
+                    IF Inputs.StopMess OR NOT Inputs.AlarmStopActive OR NOT Inputs.RcReady THEN 
                         _power_progress := 370;
                     END_IF;
 
@@ -1575,6 +1588,99 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             END_IF;
             //*******************************************
             
+            //***********ResetAllOutputsTask*****************
+            ResetAllOutputsTask.SetIsDisabled(FALSE);
+            IF ResetAllOutputsTask.StartTriggered() THEN
+                Status.Action.Id :=  UINT#220;
+            END_IF;
+            Messenger.ActivateOnCondition(ULINT#220,ResetAllOutputsTask.IsBusy(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#221,ResetAllOutputsTask.IsDone(), eAxoMessageCategory#Info);
+            IF ResetAllOutputsTask.Execute(THIS) THEN
+                IF _power_progress = 0 THEN
+                    Status.Error.Id :=  UINT#0;
+                    TaskMessenger.Restore();
+                    THIS.CallTimers(FALSE);
+                    _power_progress := 420;
+                END_IF;
+                // Reset all outputs running: 
+                IF _power_progress = 420 THEN
+                    IF _infoTimer.output THEN
+                        TaskMessenger.Activate( UINT#620, eAxoMessageCategory#Warning);
+                        Status.Error.Id :=      UINT#620;
+                    END_IF;
+
+                    Outputs.ExternalStart       :=      FALSE;
+                    Outputs.MoveEnable          :=      FALSE;
+                    Outputs.ErrorConfirmation   :=      FALSE;
+                    Outputs.DrivesOff           :=      FALSE;
+                    Outputs.DrivesOn            :=      FALSE;
+                    Outputs.ActivateInterface   :=      FALSE;
+                    Outputs.StartAtMain         :=      FALSE;
+
+                    Outputs.MasterMode          :=      BYTE#0;
+                
+                    Outputs.Tool_1_Retract      :=      FALSE;
+                    Outputs.Tool_1_Extend       :=      FALSE;
+                    Outputs.Tool_2_Retract      :=      FALSE;
+                    Outputs.Tool_2_Extend       :=      FALSE;
+                    Outputs.Tool_3_Retract      :=      FALSE;
+                    Outputs.Tool_3_Extend       :=      FALSE;
+                    Outputs.Tool_4_Retract      :=      FALSE;
+                    Outputs.Tool_4_Extend       :=      FALSE;
+                
+                    Outputs.Zone                :=      BYTE#0;
+                    Outputs.InPosition          :=      BYTE#0;
+                    Outputs.ActionNo            :=      BYTE#0; 
+                    Outputs.GlobalSpeed         :=      BYTE#0; 
+                    Outputs.ToolNo              :=      BYTE#0; 	
+                    Outputs.WorkobjectNo        :=      BYTE#0; 
+                    Outputs.PointNo             :=      BYTE#0; 		
+                    Outputs.UserSpecSpeed1      :=      REAL#0.0; 
+                    Outputs.UserSpecSpeed2      :=      REAL#0.0; 
+            
+                    Outputs.Coordinates.X       :=      REAL#0.0; 
+                    Outputs.Coordinates.Y       :=      REAL#0.0;
+                    Outputs.Coordinates.Z       :=      REAL#0.0;
+                    Outputs.Coordinates.Rx      :=      REAL#0.0;
+                    Outputs.Coordinates.Ry      :=      REAL#0.0;
+                    Outputs.Coordinates.Rz      :=      REAL#0.0;
+
+                    IF TRUE THEN
+                        THIS.CallTimers(FALSE);
+                        _power_progress := 421;
+                    END_IF;
+                END_IF;
+                // Reset all outputs finished.
+                IF _power_progress = 421 THEN
+                    ResetAllOutputsTask.DoneWhen(TRUE);
+                    _power_progress := 0;
+                END_IF;		
+
+                THIS.CallTimers(TRUE);
+                
+                ResetAllOutputsTask.ThrowWhen(_errorTimer.output);
+                Status.Action.Id := TO_UINT(_power_progress);
+                ResetAllOutputsTask.ThrowWhen(ResetAllOutputsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#ResetAllOutputsTask timeout.#>');
+            END_IF;
+            IF ResetAllOutputsTask.DoneReached() THEN
+                Status.Action.Id :=  UINT#921;
+                Status.Error.Id :=  UINT#0;
+            ELSIF ResetAllOutputsTask.ErrorOccured() THEN
+                Status.Action.Id :=  UINT#10120;
+                Status.Error.Id  :=  UINT#10120;
+            ELSIF ResetAllOutputsTask.AbortTriggered()THEN
+                Status.Action.Id :=  UINT#10121;
+                Status.Error.Id  :=  UINT#10121;
+            END_IF;     
+            Messenger.ActivateOnCondition(ULINT#10120,ResetAllOutputsTask.HasError(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10121,ResetAllOutputsTask.IsAborted(), eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#222,ResetAllOutputsTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            IF ResetAllOutputsTask.RestoreTriggered() AND _power_progress >= 420 AND _power_progress <= 429  THEN
+                Status.Action.Id :=  UINT#922;
+                _power_progress := 0;
+            END_IF;
+            //*******************************************
+
             _someTaskIsActive := StartAtMainTask.IsBusy()
                                 OR StartMotorsAndProgramTask.IsBusy()
                                 OR StartMovementsTask.IsBusy()
@@ -1585,17 +1691,25 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             
 
             IF _someTaskIsActive THEN
-                IF(NOT Inputs.AlarmStopActive) THEN
+                IF(Inputs.Manual) THEN
                     Messenger.Activate(UINT#20001,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#20001;
                 END_IF;
-                IF(NOT Inputs.UserSafetySwitchClosed) THEN
+                IF(NOT Inputs.Automatic) THEN
                     Messenger.Activate(UINT#20002,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#20002;
                 END_IF;
-                IF(Inputs.Error) THEN
+                IF(NOT Inputs.AlarmStopActive) THEN
                     Messenger.Activate(UINT#20003,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#20003;
+                END_IF;
+                IF(NOT Inputs.UserSafetySwitchClosed) THEN
+                    Messenger.Activate(UINT#20004,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#20004;
+                END_IF;
+                IF(Inputs.Error) THEN
+                    Messenger.Activate(UINT#20005,eAxoMessageCategory#Error);
+                    Status.Error.Id := UINT#20005;
                 END_IF;
             END_IF;
 
@@ -1645,60 +1759,60 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             _data[10]            := Outputs.WorkobjectNo;
             _data[11]            := Outputs.PointNo;
 
-            _dword               := TO_DWORD(Outputs.UserSpecSpeed1);
-            _data[12]            := _dword.%B3;
-            _data[13]            := _dword.%B2;
-            _data[14]            := _dword.%B1;
-            _data[15]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT(Outputs.UserSpecSpeed1));
+            _data[12]            := _dword.%B0;
+            _data[13]            := _dword.%B1;
+            _data[14]            := _dword.%B2;
+            _data[15]            := _dword.%B3;
 
-            _dword               := TO_DWORD(Outputs.UserSpecSpeed2);
-            _data[16]            := _dword.%B3;
-            _data[17]            := _dword.%B2;
-            _data[18]            := _dword.%B1;
-            _data[19]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT(Outputs.UserSpecSpeed2));
+            _data[16]            := _dword.%B0;
+            _data[17]            := _dword.%B1;
+            _data[18]            := _dword.%B2;
+            _data[19]            := _dword.%B3;
 
             ////Coordinates
             // _dword               := TO_DWORD((Outputs.Coordinates.X +REAL#10000.0)*REAL#10000.0);
-            _dword               := TO_DWORD(Outputs.Coordinates.X * REAL#10000.0); //  Todo check negative values
-            _data[20]            := _dword.%B3;
-            _data[21]            := _dword.%B2;
-            _data[22]            := _dword.%B1;
-            _data[23]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT(Outputs.Coordinates.X * REAL#10000.0)); //  Todo check negative values
+            _data[20]            := _dword.%B0;
+            _data[21]            := _dword.%B1;
+            _data[22]            := _dword.%B2;
+            _data[23]            := _dword.%B3;
 
             // _dword               := TO_DWORD((Outputs.Coordinates.Y +REAL#10000.0)*REAL#10000.0);
-            _dword               := TO_DWORD(Outputs.Coordinates.Y * REAL#10000.0); //  Todo check negative values
-            _data[24]            := _dword.%B3;
-            _data[25]            := _dword.%B2;
-            _data[26]            := _dword.%B1;
-            _data[27]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT(Outputs.Coordinates.Y * REAL#10000.0)); //  Todo check negative values
+            _data[24]            := _dword.%B0;
+            _data[25]            := _dword.%B1;
+            _data[26]            := _dword.%B2;
+            _data[27]            := _dword.%B3;
 
             // _dword               := TO_DWORD((Outputs.Coordinates.Z +REAL#10000.0)*REAL#10000.0);
-            _dword               := TO_DWORD(Outputs.Coordinates.Z * REAL#10000.0); //  Todo check negative values
-            _data[28]            := _dword.%B3;
-            _data[29]            := _dword.%B2;
-            _data[30]            := _dword.%B1;
-            _data[31]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT(Outputs.Coordinates.Z * REAL#10000.0)); //  Todo check negative values
+            _data[28]            := _dword.%B0;
+            _data[29]            := _dword.%B1;
+            _data[30]            := _dword.%B2;
+            _data[31]            := _dword.%B3;
 
             // _dword               := TO_DWORD((Outputs.Coordinates.Rx +REAL#360.0)*REAL#10000.0);
-            _dword               := TO_DWORD(Outputs.Coordinates.Rx * REAL#10000.0); //  Todo check negative values
-            _data[32]            := _dword.%B3;
-            _data[33]            := _dword.%B2;
-            _data[34]            := _dword.%B1;
-            _data[35]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT(Outputs.Coordinates.Rx * REAL#10000.0)); //  Todo check negative values
+            _data[32]            := _dword.%B0;
+            _data[33]            := _dword.%B1;
+            _data[34]            := _dword.%B2;
+            _data[35]            := _dword.%B3;
 
             // _dword               := TO_DWORD((Outputs.Coordinates.Ry +REAL#360.0)*REAL#10000.0);
-            _dword               := TO_DWORD(Outputs.Coordinates.Ry * REAL#10000.0); //  Todo check negative values
-            _data[36]            := _dword.%B3;
-            _data[37]            := _dword.%B2;
-            _data[38]            := _dword.%B1;
-            _data[39]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT(Outputs.Coordinates.Ry * REAL#10000.0)); //  Todo check negative values
+            _data[36]            := _dword.%B0;
+            _data[37]            := _dword.%B1;
+            _data[38]            := _dword.%B2;
+            _data[39]            := _dword.%B3;
 
             // _dword               := TO_DWORD((Outputs.Coordinates.Rz +REAL#360.0)*REAL#10000.0);
-            _dword               := TO_DWORD(Outputs.Coordinates.Rz * REAL#10000.0); //  Todo check negative values
-            _data[40]            := _dword.%B3;
-            _data[41]            := _dword.%B2;
-            _data[42]            := _dword.%B1;
-            _data[43]            := _dword.%B0;
+            _dword               := TO_DWORD(TO_DINT(Outputs.Coordinates.Rz * REAL#10000.0)); //  Todo check negative values
+            _data[40]            := _dword.%B0;
+            _data[41]            := _dword.%B1;
+            _data[42]            := _dword.%B2;
+            _data[43]            := _dword.%B3;
 
             _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_512_DI_DO),_data);
             IF _retVal > WORD#0 THEN
@@ -1717,6 +1831,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
         /// Restores this component into intial state.        
         ///</summary>
         METHOD PUBLIC OVERRIDE Restore
+            //just for test to 
+
             StopMovementsTask.Restore();
             StopMovementsAndProgramTask.Restore();
             StopProgramTask.Restore();
@@ -1727,6 +1843,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             StartMotorsTask.Restore();         
             StartMovementsTask.Restore();
             StartMotorsProgramAndMovementsTask.Restore();
+            ResetAllOutputsTask.Restore();
             _power_progress := 0;
             _movement_progress := 0;                  
             Status.Action.Id :=  UINT#50;
@@ -1789,6 +1906,10 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
     
         METHOD PUBLIC StopProgram : IAxoTaskState
             StopProgram := StopProgramTask.Invoke(THIS);           
+        END_METHOD
+
+        METHOD PUBLIC ResetAllOutputs : IAxoTaskState
+            ResetAllOutputs := ResetAllOutputsTask.Invoke(THIS);           
         END_METHOD
 
         METHOD PRIVATE CallTimers
