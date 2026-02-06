@@ -76,7 +76,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
                 movementParams.PointNo          :=  BYTE#20;  
                 movementParams.UserSpecSpeed1   :=  INT#25;  
                 movementParams.UserSpecSpeed2   :=  INT#30;  
-                movementParams.Coordinates.X    :=  REAL#1.2;
+                movementParams.Coordinates.X    :=  REAL#-1.2;
                 movementParams.Coordinates.Y    :=  REAL#2.3;
                 movementParams.Coordinates.Z    :=  REAL#3.4;
                 movementParams.Coordinates.Rx   :=  REAL#4.5;
