@@ -47,6 +47,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
 
             Sequencer.Run(THIS);
             Sequencer.Open();
+            Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
 
             IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
                 ActivateManualControl := FALSE;
@@ -116,7 +117,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             IF(Steps[7].Execute(Sequencer, '<#Unlocking and opening the robotic cell#>')) THEN
                 //-------------------------------------------------------    
                 ExampleRobot.StartMovements(movementParams); // <- This line just emulates the cyclical call of the movement method 
-                IF (TRUE) THEN                
+                IF (Sequencer.CurrentStep.Duration >= T#1s) THEN    // IF (TRUE) THEN              
                     Sequencer.MoveNext();                
                 END_IF;  
                 //-------------------------------------------------------
@@ -125,7 +126,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             IF (Steps[8].Execute(Sequencer, '<#Closing and locking the robotic cell#>')) THEN
                 //-------------------------------------------------------    
                 ExampleRobot.StartMovements(movementParams); // <- This line just emulates the cyclical call of the movement method 
-                IF (TRUE) THEN                
+                IF (Sequencer.CurrentStep.Duration >= T#1s) THEN    // IF (TRUE) THEN              
                     Sequencer.MoveNext();                
                 END_IF;  
                 //-------------------------------------------------------
@@ -134,12 +135,13 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
 
             IF(Steps[9].Execute(Sequencer, 'Start motors and program')) THEN
                 ExampleRobot.StartMovements(movementParams); // <- This line just emulates the cyclical call of the movement method 
-                IF(ExampleRobot.StartMotorsAndProgram().IsDone()) THEN // <- Starting motor and program after safety circuit has been interupted
+                IF(ExampleRobot.StartMotorsAndProgram().IsDone() AND Sequencer.CurrentStep.Duration >= T#1s) THEN //IF(ExampleRobot.StartMotorsAndProgram().IsDone()) THEN // <- Starting motor and program after safety circuit has been interupted
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;
 
             IF(Steps[10].Execute(Sequencer, 'Continue to position 3')) THEN
+                ExampleRobot.StartMovements(movementParams); // <- This line just emulates the cyclical call of the movement method 
                 IF(ExampleRobot.StartMovementsTask.IsDone()) THEN                
                     ExampleRobot.StartMovementsTask.Restore();           
                     Sequencer.MoveNext();                

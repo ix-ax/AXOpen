@@ -28,6 +28,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             _inputsCount            :   UINT;
             _outputsAddress         :   UDINT;  
             _outputsCount           :   UINT;             
+            _movementExecuting      :   BOOL;
         END_VAR
 
         VAR PUBLIC //HEADER
@@ -412,6 +413,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             HardwareDiagnosticsTask.Run(THIS);
 
             _stopTasksAreActive := StopMovementsTask.IsBusy() OR StopMovementsAndProgramTask.IsBusy() OR StopProgramTask.IsBusy() OR StopMotorsTask.IsBusy();
+            _movementExecuting := FALSE;
             //****************************************
             //********************Diagnostics*********        
             HardwareDiagnosticsTask.Run(THIS,Config.HWIDs.HwID_Device);
@@ -848,6 +850,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                         TaskMessenger.Activate( UINT#535, eAxoMessageCategory#Warning);
                         Status.Error.Id :=      UINT#535;
                     END_IF;
+                    
+                    _movementExecuting := TRUE;
 
                     Outputs.ActionNo := Status.CurrentMovementParameters.ActionNo;
 	
@@ -876,7 +880,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     StartMotorsProgramAndMovementsTask.DoneWhen(TRUE);
                 END_IF;	
 
-                THIS.CallTimers(TRUE);
+                THIS.CallTimers(NOT _movementExecuting);
                 StartMotorsProgramAndMovementsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
                 StartMotorsProgramAndMovementsTask.ThrowWhen(StartMotorsProgramAndMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMotorsProgramAndMovementsTask timeout.#>');
@@ -992,7 +996,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             //*******************************************
   
             //***********StartMovementsTask**************
-            StartMovementsTask.SetIsDisabled(_stopTasksAreActive OR StartMotorsProgramAndMovementsTask.IsBusy());
+            StartMovementsTask.SetIsDisabled(FALSE);
             IF StartMovementsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#150;
             END_IF;
@@ -1126,6 +1130,8 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                         Status.Error.Id :=      UINT#561;
                     END_IF;
 
+                    _movementExecuting := TRUE;
+
                     Outputs.ActionNo := Status.CurrentMovementParameters.ActionNo;
 
                     IF Outputs.ActionNo = Inputs.ActionNo THEN
@@ -1154,7 +1160,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
                     StartMovementsTask.DoneWhen(TRUE);
                 END_IF;	
 
-	            THIS.CallTimers(TRUE);
+	            THIS.CallTimers(NOT _movementExecuting);
                 
                 StartMovementsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_movement_progress);
@@ -1477,7 +1483,6 @@ NAMESPACE AXOpen.Components.Kuka.Robotics.v_5_x_x
             Messenger.ActivateOnCondition(ULINT#201,StopMovementsTask.IsDone(), eAxoMessageCategory#Info);
             IF StopMovementsTask.Execute(THIS) THEN
                 IF _power_progress = 0 THEN
-                    _movement_progress := 0;
                     Status.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
