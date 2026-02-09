@@ -1,6 +1,6 @@
 ﻿@page "/Component_1"
 @using AXOpen.Core;
-
+@using Operon.Components.Tab
 
 @* 
 <!-- <GenericComponentStatusView> -->
@@ -16,7 +16,7 @@
 <RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Status-Display" />
 <!-- </RccComponentStatusView> -->
  *@
-
+@* 
 <!-- <RccComponentCommandView> -->
 <!-- This will render anything found on parameter assigned to Context  -->
 <AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.documentation.componentOne.Sequencer" />
@@ -25,3 +25,35 @@
 
 
 
+
+
+
+ *@
+
+
+
+<Tab>
+    <TabPage Title="RccComponentCommandView">
+        <!-- <RccComponentCommandView> -->
+        <!-- This will render anything found on parameter assigned to Context  -->
+        <AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.documentation.componentOne.Sequencer" />
+        <RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Command-Control" />
+        <!-- </RccComponentCommandView> -->
+    </TabPage>
+    <TabPage Title="RccComponentStatusView">
+        <!-- <RccComponentStatusView> -->
+        <!-- This will render anything found on parameter assigned to Context  -->
+        <RenderableContentControl Context="@Entry.Plc.documentation.componentOne" Presentation="Status-Display" />
+        <!-- </RccComponentStatusView> -->
+    </TabPage>
+    <TabPage Title="GenericComponentCommandView">
+        <!-- <GenericComponentCommandView> -->
+        <AxoComponentCommandView Component="@Entry.Plc.documentation.componentOne.ExampleRobot" />
+        <!-- </GenericComponentCommandView> -->
+    </TabPage>
+    <TabPage Title="GenericComponentStatusView">
+        <!-- <GenericComponentStatusView> -->
+        <AxoComponentStatusView Component="@Entry.Plc.documentation.componentOne.ExampleRobot" />
+        <!-- </GenericComponentStatusView> -->
+    </TabPage>
+</Tab>

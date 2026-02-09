@@ -1,14 +1,14 @@
 CONFIGURATION IoAddresses
     VAR_GLOBAL
 
-        // Module kuka_krc4/DIO512
-        kuka_krc4_DIO512_Input AT %IB0 : kuka_krc4_DIO512_Input_Layout;
-        kuka_krc4_DIO512_Output AT %QB0 : kuka_krc4_DIO512_Output_Layout;
+        // Module kuka-rb1/DIO512
+        kuka_rb1_DIO512_Input AT %IB0 : kuka_rb1_DIO512_Input_Layout;
+        kuka_rb1_DIO512_Output AT %QB0 : kuka_rb1_DIO512_Output_Layout;
     END_VAR
 END_CONFIGURATION
 
 TYPE
-    kuka_krc4_DIO512_Input_Layout : STRUCT
+    kuka_rb1_DIO512_Input_Layout : STRUCT
         Signals_0_0 AT %X0.0 : BOOL;
         Signals_0_1 AT %X0.1 : BOOL;
         Signals_0_2 AT %X0.2 : BOOL;
@@ -525,7 +525,7 @@ TYPE
 END_TYPE
 
 TYPE
-    kuka_krc4_DIO512_Output_Layout : STRUCT
+    kuka_rb1_DIO512_Output_Layout : STRUCT
         Signals_64_0 AT %X0.0 : BOOL;
         Signals_64_1 AT %X0.1 : BOOL;
         Signals_64_2 AT %X0.2 : BOOL;
