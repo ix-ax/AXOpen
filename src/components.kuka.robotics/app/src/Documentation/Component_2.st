@@ -29,10 +29,10 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             END_IF;
 
             //<Initialization>        
-            ExampleRobot.Run(THIS,HwIdentifiers#kuka_krc4_HwID);
+            ExampleRobot.Run(THIS,HwIdentifiers#kuka_rb1_HwID);
             //</Initialization>
 
-        THIS.UseInSequencer();
+            THIS.UseInSequencer();
         END_METHOD
 
         //<Usage>    

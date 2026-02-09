@@ -71,6 +71,10 @@ namespace AXOpen.Components.Kuka.Robotics.v_5_x_x
                 new KeyValuePair<ulong, AxoMessengerTextItem>(211, new AxoMessengerTextItem("Stop program finished succesfully.",                                                           "")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(212, new AxoMessengerTextItem("Stop program restored.",                                                                       "")),
 
+                new KeyValuePair<ulong, AxoMessengerTextItem>(220, new AxoMessengerTextItem("Reset all outputs started.",                                                                        "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(221, new AxoMessengerTextItem("Reset all outputs finished succesfully.",                                                           "")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(222, new AxoMessengerTextItem("Reset all outputs restored.",                                                                       "")),
+
                 //  General alarms
                 new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Device` parameter is assigned.")),
@@ -121,10 +125,14 @@ namespace AXOpen.Components.Kuka.Robotics.v_5_x_x
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10101, new AxoMessengerTextItem("Stop movements task was aborted, while not yet completed!","Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10110, new AxoMessengerTextItem("Stop program task finished with error!","Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10111, new AxoMessengerTextItem("Stop program task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10120, new AxoMessengerTextItem("Reset all outputs task finished with error!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(10121, new AxoMessengerTextItem("Reset all outputs task was aborted, while not yet completed!","Check the details.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(20001, new AxoMessengerTextItem("Stop program task was aborted, while not yet completed!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(20002, new AxoMessengerTextItem("Stop program task was aborted, while not yet completed!","Check the details.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(20003, new AxoMessengerTextItem("Stop program task was aborted, while not yet completed!","Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(20001, new AxoMessengerTextItem("Robot is switched into manual mode, while action requested!","Switch robot to automatic mode.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(20002, new AxoMessengerTextItem("Robot is not switched into automat mode, while action requested!","Switch robot to automatic mode.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(20003, new AxoMessengerTextItem("Waiting for signal 'Inputs.AlarmStopActive' to be set!","Check the signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(20004, new AxoMessengerTextItem("Waiting for signal 'Inputs.UserSafetySwitchClosed' to be set!","Check the signal.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(20005, new AxoMessengerTextItem("Waiting for signal 'Inputs.Error' to be reseted!","Check the signal.")),
 
 
 
@@ -203,6 +211,8 @@ namespace AXOpen.Components.Kuka.Robotics.v_5_x_x
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(610,  new AxoMessengerTextItem("Waiting for the signal Inputs.ProActive to be reseted!",                                                                                  "Check the status of the `ProActive` signal.")),
 
+                new KeyValuePair<ulong, AxoMessengerTextItem>(620,  new AxoMessengerTextItem("Waiting for all output signals to be reseted!",                                                                                  "Check the status of the `ProActive` signal.")),
+
         };
 
             TaskMessenger.DotNetMessengerTextList = messengerTextList;
@@ -275,6 +285,7 @@ namespace AXOpen.Components.Kuka.Robotics.v_5_x_x
                     errorDescriptionDict.Add(591, "Waiting for the signal Inputs.ProActive to be reseted!");
                     errorDescriptionDict.Add(600, "Waiting for the signal Inputs.RobotStopped to be set!");
                     errorDescriptionDict.Add(610, "Waiting for the signal Inputs.ProActive to be reseted!");
+                    errorDescriptionDict.Add(620, "Waiting for all output signals to be reseted!");
 
 
 
@@ -329,18 +340,14 @@ namespace AXOpen.Components.Kuka.Robotics.v_5_x_x
                     errorDescriptionDict.Add(10101, "Stop movements task was aborted, while not yet completed!");
                     errorDescriptionDict.Add(10110, "Stop program task finished with error!");
                     errorDescriptionDict.Add(10111, "Stop program task was aborted, while not yet completed!");
+                    errorDescriptionDict.Add(10120, "Reset all outputs task finished with error!");
+                    errorDescriptionDict.Add(10121, "Reset all outputs task was aborted, while not yet completed!");
 
-                    errorDescriptionDict.Add(20001, "Stop program task was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(20002, "Stop program task was aborted, while not yet completed!");
-                    errorDescriptionDict.Add(20003, "Stop program task was aborted, while not yet completed!");
-
-
-
-                    errorDescriptionDict.Add(20001, "Emergency stop activated!");
-                    errorDescriptionDict.Add(20002, "Safety circuit interupted!");
-                    errorDescriptionDict.Add(20003, "Program error active!");
-
-
+                    errorDescriptionDict.Add(20001, "Robot is switched into manual mode, while action requested!");
+                    errorDescriptionDict.Add(20002, "Robot is not switched into automat mode, while action requested!");
+                    errorDescriptionDict.Add(20003, "Waiting for signal 'Inputs.AlarmStopActive' to be set!");
+                    errorDescriptionDict.Add(20004, "Waiting for signal 'Inputs.UserSafetySwitchClosed' to be set!");
+                    errorDescriptionDict.Add(20005, "Waiting for signal 'Inputs.Error' to be reseted!");
                 }
                 string errorDescription = "   ";
 
@@ -462,6 +469,12 @@ namespace AXOpen.Components.Kuka.Robotics.v_5_x_x
                     actionDescriptionDict.Add(211, "Stop program finished succesfully");
                     actionDescriptionDict.Add(212, "Stop program restored.");
 
+                    actionDescriptionDict.Add(220, "Reset all outputs started.");
+                    actionDescriptionDict.Add(420, "Reset all outputs running: waiting for the 'ProActive' is off.");
+                    actionDescriptionDict.Add(421, "Reset all outputs finished.");
+                    actionDescriptionDict.Add(221, "Reset all outputs finished succesfully");
+                    actionDescriptionDict.Add(222, "Reset all outputs restored.");
+
                     actionDescriptionDict.Add(10000, "Start at main finished with error!");
                     actionDescriptionDict.Add(10001, "Start at main was aborted, while not yet completed!");
                     actionDescriptionDict.Add(10010, "Start motors and program finished with error!");
@@ -482,6 +495,8 @@ namespace AXOpen.Components.Kuka.Robotics.v_5_x_x
                     actionDescriptionDict.Add(10101, "Stop movements was aborted, while not yet completed!");
                     actionDescriptionDict.Add(10110, "Stop program finished with error!");
                     actionDescriptionDict.Add(10111, "Stop program was aborted, while not yet completed!");
+                    actionDescriptionDict.Add(10120, "Reset all outputs finished with error!");
+                    actionDescriptionDict.Add(10121, "Reset all outputs was aborted, while not yet completed!");
 
 
                 }

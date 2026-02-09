@@ -172,6 +172,10 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
   gc: |
     START=$(date +%s)
+    if [[ ! -d ".\\certs\\$PLC_NAME" ]]; then
+      mkdir -p ".\\certs\\$PLC_NAME"
+      echo "Created directory: .\\certs\\$PLC_NAME"
+    fi    
     apax plc-cert --target $AXTARGET --output .\\certs\\$PLC_NAME\\$PLC_NAME.cer
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax gc' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
