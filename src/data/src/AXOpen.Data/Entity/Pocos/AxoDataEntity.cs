@@ -23,7 +23,7 @@ namespace Pocos.AXOpen.Data
 
         public string Hash { get; set; }
 
-        public DateTime? ModifiedAt { get; set; }
-        public DateTime? CreatedAt { get; set; }
+        public DateTime _Modified { get; set; }
+        public DateTime _Created { get; set; }
     }
 }

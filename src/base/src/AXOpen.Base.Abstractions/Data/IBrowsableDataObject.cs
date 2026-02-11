@@ -8,7 +8,7 @@ namespace AXOpen.Base.Data
       
         string _EntityId { get; set; }
 
-        DateTime? ModifiedAt { get; set; }
-        DateTime? CreatedAt { get; set; }
+        DateTime _Modified { get; set; }
+        DateTime _Created { get; set; }
     }
 }

@@ -351,8 +351,8 @@ namespace AXOpen.Base.Data
                 }
                 try
                 {
-                    data?.CreatedAt = DateTime.Now;
-                    data?.ModifiedAt = DateTime.Now;
+                    data?._Created = DateTime.Now;
+                    data?._Modified = DateTime.Now;
                     CreateNvi(identifier, data);
                 }
                 catch (Exception e)
@@ -411,7 +411,7 @@ namespace AXOpen.Base.Data
                 }
                 try
                 {
-                    data?.ModifiedAt = DateTime.Now;
+                    data?._Modified = DateTime.Now;
                     UpdateNvi(identifier, data);
                 }
                 catch (Exception e)
