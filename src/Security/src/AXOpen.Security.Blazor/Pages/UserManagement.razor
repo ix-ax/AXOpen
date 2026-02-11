@@ -36,8 +36,8 @@
                 <tr @onclick="@(() => RowClicked(user))" class="cursor-pointer @((SelectedUser != null) ? ((SelectedUser.UserName == user.UserName) ? "active" : "") : "")">
                     <th>@user.UserName</th>
                     <td>@user.CanUserChangePassword</td>
-                    <td>@user.Created</td>
-                    <td>@user.Modified</td>
+                    <td>@user._Created</td>
+                    <td>@user._Modified</td>
                 </tr>
             }
         </tbody>
@@ -272,7 +272,7 @@
         SelectedUser.EnableAutoLogOut = Input.EnableAutoLogOut;
         SelectedUser.AutoLogOutTimeOutMinutes = Input.AutoLogOutTimeOutMinutes ?? 30;
 
-        SelectedUser.Modified = DateTime.Now;
+        SelectedUser._Modified = DateTime.Now;
 
         //SelectedUser.RoleHash = Hasher.CalculateHash(SelectedUser.Roles, _model.Username);
         var result = await _userManager.UpdateAsync(SelectedUser);

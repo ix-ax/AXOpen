@@ -27,8 +27,8 @@
             {
                 <tr @onclick="@(() => GroupClicked(group))" class="cursor-pointer @((SelectedGroup != null) ? ((SelectedGroup.Name == group.Name) ? "active" : "") : "")">
                     <th>@group.Name</th>
-                    <th>@group.Created</th>
-                    <th>@group.Modified</th>
+                    <th>@group._Created</th>
+                    <th>@group._Modified</th>
                 </tr>
             }
         </tbody>

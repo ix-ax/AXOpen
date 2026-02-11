@@ -99,7 +99,7 @@ namespace AxOpen.Security
                 {
                     data.Roles.Add(role);
                     data.RolesHash = new PasswordHasher<Group>().HashPassword(data, String.Join(",", data.Roles));
-                    data.Modified = DateTime.Now;
+                    data._Modified = DateTime.Now;
                 }
                 else
                 {
@@ -134,7 +134,7 @@ namespace AxOpen.Security
                         data.Roles.Add(role);
                     }
                     data.RolesHash = new PasswordHasher<Group>().HashPassword(data, String.Join(",", data.Roles));
-                    data.Modified = DateTime.Now;
+                    data._Modified = DateTime.Now;
                 }
                 else
                 {
@@ -171,7 +171,7 @@ namespace AxOpen.Security
                         data.Roles.Remove(role);
                     }
                     data.RolesHash = new PasswordHasher<Group>().HashPassword(data, String.Join(",", data.Roles));
-                    data.Modified = DateTime.Now;
+                    data._Modified = DateTime.Now;
                 }
                 else
                 {

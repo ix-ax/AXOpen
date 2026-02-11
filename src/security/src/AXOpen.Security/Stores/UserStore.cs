@@ -230,7 +230,7 @@ namespace AxOpen.Security.Stores
                     userData.Group = user.Group;
                     userData.GroupHash = new PasswordHasher<User>().HashPassword(user, user.Group);
                     userData.CanUserChangePassword = user.CanUserChangePassword;
-                    userData.Modified = user.Modified;
+                    userData._Modified = user._Modified;
                     userData.AutoLogOutTimeOutMinutes = user.AutoLogOutTimeOutMinutes;
                     userData.EnableAutoLogOut = user.EnableAutoLogOut;
                     userData.ExternalAuthId = user.ExternalAuthId;
