@@ -1,0 +1,37 @@
+NAMESPACE AXOpen.Components.Abb.Robotics
+    TYPE HwIdentifierList : ARRAY[0..29] OF UINT :=
+            [
+                UINT#32,
+                UINT#48,
+                UINT#51,
+                UINT#54,
+                UINT#60,
+                UINT#64,
+                UINT#65,
+                UINT#66,
+                UINT#72,
+                UINT#73,
+                UINT#117,
+                UINT#135,
+                UINT#256,
+                UINT#257,
+                UINT#258,
+                UINT#259,
+                UINT#260,
+                UINT#261,
+                UINT#262,
+                UINT#263,
+                UINT#264,
+                UINT#265,
+                UINT#266,
+                UINT#267,
+                UINT#268,
+                UINT#269,
+                UINT#270,
+                UINT#271,
+                UINT#272,
+                UINT#273
+    ];
+END_TYPE
+END_NAMESPACE
+
