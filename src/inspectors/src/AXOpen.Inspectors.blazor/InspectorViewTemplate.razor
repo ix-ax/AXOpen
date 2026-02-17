@@ -1,0 +1,154 @@
+﻿@namespace AXOpen.Inspectors
+@using Operon.Components.Accordion
+@inherits RenderableComponentBase;
+
+<div data-inspector-view-template class="accordion my-3">
+    <div class="accordion-item flux-inspector @GetStateClass()">
+        <button class="accordion-button @(_accordionOpen ? "active" : null)" type="button" @onclick="() => _accordionOpen = !_accordionOpen">
+            <p class="my-auto flex-shrink-0">@NameWithUnit</p>
+
+            <div class="flex flex-row items-center justify-end w-full mx-2 gap-2">
+                @if (IsAnalogInspectorData())
+                {
+                    <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMin" Presentation="@Presentation" />
+                    <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
+                    <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMax" Presentation="@Presentation" />
+                }
+                else if (IsDigitalInspectorData())
+                {
+                    <RenderableContentControl Context="((AxoDigitalInspectorData)Data).RequiredStatus" Presentation="@Presentation" />
+                    <RenderableContentControl Context="((AxoDigitalInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
+                }
+                else if (IsDataInspectorData())
+                {
+                    <RenderableContentControl Context="((AxoDataInspectorData)Data).RequiredStatus" Presentation="@Presentation" />
+                    <RenderableContentControl Context="((AxoDataInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
+                    <RenderableContentControl Context="((AxoDataInspectorData)Data).StarNotationEnabled" Presentation="@Presentation" />
+                }
+                else
+                {
+                    <p>@Localizer["CannotRenderUnspecifiedInspectorType"]</p>
+                }
+                <GenericIconView Result="@Result" Class="my-2" />
+            </div>
+
+            <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-auto my-auto icon-button-rotate " + (_accordionOpen ? "rotated" : null))" />
+        </button>
+
+        @if (IsOverInspected())
+        {
+            <p class="text-danger">@Localizer["OverInspectionDetected"]</p>
+        }
+
+        @if (_accordionOpen)
+        {
+            <div class="accordion-body">
+                <GenericInspectorDataView Data="@Data" Presentation="@Presentation" />
+                <div class="flex flex-row items-center mt-2 gap-4">
+                    <div class="flex flex-wrap flex-row w-1/3">
+                        <RenderableContentControl Context="@Data.IsByPassed" Presentation="@Presentation" Class="grow" />
+                        <RenderableContentControl Context="@Data.IsExcluded" Presentation="@Presentation" Class="grow" />
+                    </div>
+                    <RenderableContentControl Context="@Data.Failure" Presentation="@Presentation" Class="w-1/3 card p-2" />
+                    <RenderableContentControl Context="@Data.ErrorCode" Presentation="@Presentation" Class="w-1/3 card p-2" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public AxoInspectorData Data { get; set; }
+
+    [Parameter]
+    public string Presentation { get; set; }
+
+
+    private string _name;
+    [Parameter]
+    public string Name
+    {
+        get
+        {
+            return this._name == this.Data.GetSymbolTail() ? string.Empty : this._name;
+        }
+
+        set
+        {
+            this._name = value;
+        }
+    }
+
+    private string NameWithUnit => string.IsNullOrEmpty(this.Data?.Units) || this.Data?.Units == this.Data?.GetSymbolTail() ? this.Name : $"{Name} [{this.Data.Units}]";
+
+
+    private short Result
+    {
+        get
+        {
+            return ((Presentation == "Control") || (Presentation == "Display")) ? Data.Result.Cyclic : Data.Result.Shadow;
+        }
+    }
+
+    private bool _accordionOpen { get; set; } = false;
+
+    private bool IsAnalogInspectorData() => Data is AxoAnalogueInspectorData ? true : false;
+    private bool IsDigitalInspectorData() => Data is AxoDigitalInspectorData ? true : false;
+    private bool IsDataInspectorData() => Data is AxoDataInspectorData ? true : false;
+
+    private string GetStateClass() => ((eInspectorResult)Result) switch
+    {
+        eInspectorResult.NoAction => "flux-inspector--noaction",
+        eInspectorResult.Running => "flux-inspector--running",
+        eInspectorResult.Passed => "flux-inspector--passed",
+        eInspectorResult.Failed => "flux-inspector--failed",
+        eInspectorResult.Inconclusive => "flux-inspector--inconclusive",
+        eInspectorResult.Excluded => "flux-inspector--excluded",
+        eInspectorResult.Bypassed => "flux-inspector--bypassed",
+        _ => ""
+    };
+
+    private bool IsOverInspected()
+    {
+        if (Presentation.Contains("Shadow"))
+        {
+            return (Data.NumberOfAllowedRetries.Shadow > 0) && (Data.NumberOfAllowedRetries.Shadow < Data.RetryAttemptsCount.Shadow);
+        }
+        // other case is online
+        return (Data.NumberOfAllowedRetries.Cyclic > 0) && (Data.NumberOfAllowedRetries.Cyclic < Data.RetryAttemptsCount.Cyclic); ;
+    }
+
+    public override void ConfigurePolling()
+    {
+        if (!((Presentation == "Control") || (Presentation == "Display")))
+            return;
+
+        if (Data is AxoAnalogueInspectorData)
+        {
+            var d = Data as AxoAnalogueInspectorData;
+
+            this.StartPolling(d.Result);
+            this.StartPolling(d.RequiredMin);
+            this.StartPolling(d.DetectedStatus);
+            this.StartPolling(d.RequiredMax);
+        }
+        else if (Data is AxoDigitalInspectorData)
+        {
+            var d = Data as AxoDigitalInspectorData;
+
+            this.StartPolling(d.Result);
+            this.StartPolling(d.DetectedStatus);
+            this.StartPolling(d.RequiredStatus);
+        }
+        else if (Data is AxoDataInspectorData)
+        {
+            var d = Data as AxoDataInspectorData;
+
+            this.StartPolling(d.Result);
+            this.StartPolling(d.DetectedStatus);
+            this.StartPolling(d.RequiredStatus);
+            this.StartPolling(d.StarNotationEnabled);
+        }
+    }
+}
