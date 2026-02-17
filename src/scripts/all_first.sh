@@ -2,6 +2,18 @@ export GREEN='\033[0;32m'
 export RED='\033[0;31m'
 export YELLOW='\033[0;33m'
 export NC='\033[0m\r\n' # No Color+CRLF
+
+# Function to validate password does not contain problematic shell characters
+validate_password_safe_chars() {
+    local password="$1"
+    
+    # Check for problematic characters: $ ` \ " ' & | ; < > ( ) * ? [ ] { } or whitespace
+    if [[ "$password" =~ [\$\`\\\"\'\&\|\;\<\>\(\)\*\?\[\]\{\}[:space:]] ]]; then
+        return 1
+    fi
+    return 0
+}
+
 if [ "$#" -ne 7 ]; then
     printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD> <USE_PLC_SIM_ADVANCED>\r\n${NC}"
     exit 1
@@ -41,6 +53,13 @@ fi
 PASSWORD=$6
 if [ -z $PASSWORD ]; then
     printf "${RED}The PASSWORD could not be an empty string.\r\n${NC}"
+    exit 1
+fi
+
+# Validate password does not contain problematic shell characters
+if ! validate_password_safe_chars "$PASSWORD"; then
+    printf "${RED}The PASSWORD contains problematic characters.\r\n${NC}"
+    printf "${RED}Cannot use: \$ \` \\ \" ' & | ; < > ( ) * ? [ ] { } or whitespace\r\n${NC}"
     exit 1
 fi
 
@@ -119,3 +138,5 @@ else
 	printf "${RED}Please check the details above.${NC}\n"
 	exit 1
 fi
+
+
