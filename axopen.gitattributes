@@ -12,6 +12,9 @@
 *.yaml   text eol=lf
 *.yml    text eol=lf
 *.json   text eol=lf
+*.css    text eol=lf
+*.cs     text eol=lf
+
 
 # Windows-native scripts that often *must* be CRLF in the working tree
 # (repo still stores LF; checkout converts to CRLF)
