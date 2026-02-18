@@ -86,7 +86,7 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax hwl' Finished in :" $(expr $(date +%s) - $START) "s"
   ssc: | # setup secure communication, create and import certificates, setup password for AX_USERNAME                                                       (create pkcs12ForCertificateImport.p12 & apax hwc setup-secure-communication & apax hwc import-certificate [TLS+Webserver] & apax hwc manage-users set-password)  
     START=$(date +%s)
-    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD 
+    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD $AXTARGET
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ssc' Finished in :" $(expr $(date +%s) - $START) "s"
   hwcc: | # compile hardware configuration                                                                                                                  (apax hwc compile)
     START=$(date +%s)
@@ -171,10 +171,10 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
   gc: |
     START=$(date +%s)
-    apax plc-cert --target $AXTARGET --output .\\certs\\plc_line\\plc_line.cer
+    apax plc-cert --target $AXTARGET --output .\\certs\\$PLC_NAME\\$PLC_NAME.cer
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax gc' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
-    apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+    apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer --continuously
   x: |
     apax swfd
     apax mm
@@ -189,4 +189,25 @@ scripts:
     apax build
     dotnet ixc
 
-
+  tt: |
+    START=$(date +%s)
+    apax install
+    apax hwl
+    apax gc
+    apax gsd
+    apax hwcc
+    apax hwid
+    apax hwadr
+    apax hwdo
+    apax build
+    dotnet ixc
+    apax swfdo
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax tx' Finished in :" $(expr $(date +%s) - $START) "s"
+  ttx: |
+    START=$(date +%s)
+    apax install
+    apax build
+    dotnet ixc
+    apax gc
+    apax swfdo
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ttx' Finished in :" $(expr $(date +%s) - $START) "s"

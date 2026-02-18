@@ -98,12 +98,13 @@ else
 	apax install
 
 	is_cert_hash_sha1_equal_script=$( dirname ${BASH_SOURCE[0]})"\\is_cert_hash_sha1_equal.sh"
+
 	if ! $is_cert_hash_sha1_equal_script "$PLC_NAME" "$PLC_IP_ADDRESS"; then
 		printf "${RED}Certification file $certfile exists, but its sha1 hash is different to the PLC's one.\r\n"
 		printf "${RED}It has to be regenerated again.\r\n${NC}"
 		#alf										  #clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw
-		alf=$( dirname ${BASH_SOURCE[0]})"\\all_first.sh"
-		$alf $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD $USE_PLC_SIM_ADVANCED 
+#		alf=$( dirname ${BASH_SOURCE[0]})"\\all_first.sh"
+#		$alf $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $PLATFORM $USERNAME $PASSWORD $USE_PLC_SIM_ADVANCED 
 	else
 	
 		printf "${GREEN}Certification file $certfile exists and its sha1 hash is equal to the PLC's one.\r\n"
