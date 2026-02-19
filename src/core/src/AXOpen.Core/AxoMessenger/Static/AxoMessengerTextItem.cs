@@ -16,12 +16,9 @@ public class AxoMessengerTextItem
     public string MessageText 
     { 
         get { 
-                if(_messageText is null)
+                if(_messageText is null && MessageTextExpression is not null)
                 {
-                    if(MessageTextExpression is not null)
-                    {
-                        return MessageTextExpression.Invoke();
-                    }
+                    return MessageTextExpression.Invoke();
                 }
                 return _messageText; 
         } 
