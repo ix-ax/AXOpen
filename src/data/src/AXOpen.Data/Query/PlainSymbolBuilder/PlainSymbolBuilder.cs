@@ -20,15 +20,14 @@ namespace AXOpen.Data.Query
             CollectProperties(rootType, true);
         }
 
-        internal static Dictionary<Type, List<string>> IgnoreInterfacesProperty = new();
-        internal static HashSet<Type> IgnoredInterfaceTypes = new(); // speed up
+        internal static readonly Dictionary<Type, List<string>> IgnoreInterfacesProperty = new();
+        internal static readonly HashSet<Type> IgnoredInterfaceTypes = new(); // speed up
 
-        internal static Dictionary<Type, List<string>> IgnoredTypesProperty = new();
-        internal static HashSet<Type> IgnoredTypes = new();
+        internal static readonly Dictionary<Type, List<string>> IgnoredTypesProperty = new();
+        internal static readonly HashSet<Type> IgnoredTypes = new();
 
-        internal static List<string> IgnoredRootTypeProperties = new List<string>() { "Hash", "Changes", "RecordId" };
-
-        internal static List<Type> IgnoredAttributes = new List<Type>() { typeof(PlainSymbolIgnoreAttribute) };
+        internal static readonly List<string> IgnoredRootTypeProperties = new List<string>() { "Hash", "Changes", "RecordId" };
+        internal static readonly List<Type> IgnoredAttributes = new List<Type>() { typeof(PlainSymbolIgnoreAttribute) };
 
         public static void ClearStaticConfiguration()
         {
@@ -47,23 +46,20 @@ namespace AXOpen.Data.Query
 
         public static void IgnoreProperty(Type inType, string propertyName)
         {
-            Dictionary<Type, List<string>> targetDict = inType.IsInterface
-                ? IgnoreInterfacesProperty
-                : IgnoredTypesProperty;
+            var targetDict = inType.IsInterface ? IgnoreInterfacesProperty : IgnoredTypesProperty;
 
             if (!targetDict.TryGetValue(inType, out var list))
-            {
-                list = new List<string>();
-                targetDict[inType] = list;
-            }
+                targetDict[inType] = list = [];
 
             if (!list.Contains(propertyName))
-            {
                 list.Add(propertyName);
-            }
 
-            IgnoredInterfaceTypes = new(IgnoreInterfacesProperty.Keys);
-            IgnoredTypes = new(IgnoredTypesProperty.Keys);
+            // Rebuild lookup sets
+            IgnoredInterfaceTypes.Clear();
+            IgnoredInterfaceTypes.UnionWith(IgnoreInterfacesProperty.Keys);
+
+            IgnoredTypes.Clear();
+            IgnoredTypes.UnionWith(IgnoredTypesProperty.Keys);
         }
 
         public static void IgnoreRootProperty(string propertyName)
