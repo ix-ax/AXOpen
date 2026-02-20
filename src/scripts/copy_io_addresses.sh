@@ -29,7 +29,8 @@ if ! [[ -d "./hwc" ]]; then
     printf "${RED}Directory \"./hwc\" does not exist!!!${NC}"
     exit 1
 fi
-
+dos2unix SystemConstants/*
+dos2unix -r hwc/hwc.gen/*
 # ---- Paths ----
 input_file="SystemConstants/${PLC_NAME}_IoAddresses.st"
 output_dir="src/IO"
@@ -131,3 +132,4 @@ else
 	exitCode=$?  
 	echo "exitCode: $exitCode"
 fi
+dos2unix -r src/IO/*
