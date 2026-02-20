@@ -436,4 +436,4 @@ temp/
 .cursor
 operon-variables.css
 
-app\gsd\source
+**/app/gsd/source/**
