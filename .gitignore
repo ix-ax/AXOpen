@@ -420,9 +420,6 @@ import-cache
 .ax/plcs
 .ax/certificates
 
-#AX HWC compiled
-hwc.gen/
-
 #AX HWC templates copied from library
 library_templates
 
@@ -437,3 +434,6 @@ temp/
 **/JSONREPOS/
 
 .cursor
+operon-variables.css
+
+**/app/gsd/source/**

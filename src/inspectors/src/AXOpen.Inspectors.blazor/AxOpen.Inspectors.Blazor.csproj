@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>    
+	  <RootNamespace>AXOpen.Inspectors.Blazor</RootNamespace>
+
+	  <!--NuGet Specific part-->
+	  <Description>This library is part of AXOpen framework</Description>
+	  <PackageId>AXOpen.Inspectors.Blazor</PackageId>
+	  <Title>AXOpen - axopen.inspectors</Title>
+
+	  <!-- NuGet Common part-->
+	  <PackageProjectUrl>https://github.com/inxton/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/inxton/AXOpen</RepositoryUrl>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <Authors>inxton</Authors>
+	  <Copyright>(c) 2023  MTS spol. s r.o.  and Contributors</Copyright>
+	  <PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI, Blazor</PackageTags>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <PackageIcon>icon_128_128.png</PackageIcon>
+	  <RepositoryType>git</RepositoryType>
+	  <IncludeSymbols>True</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageReleaseNotes>
+		  Release notes are published here:
+		  https://github.com/inxton/AXOpen/releases
+	  </PackageReleaseNotes>
+	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+ 
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<FrameworkReference Include="Microsoft.AspNetCore.App" />   
+    <PackageReference Include="Humanizer" />    
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />	  
+  </ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\..\assets\icons\icon_128_128.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\..\..\NUGET-README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
+    <ProjectReference Include="..\AXOpen.Inspectors\inxton_axopen_inspectors.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="AxoAnalogueInspectorData\Online\AxoAnalogueInspectorDataCommandView.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Update="AxoAnalogueInspectorData\Online\AxoAnalogueInspectorDataStatusView.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Update="AxoAnalogueInspectorData\Shadow\AxoAnalogueInspectorDataShadowControlView.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+    <Content Update="AxoAnalogueInspectorData\Shadow\AxoAnalogueInspectorDataShadowDisplayView.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
+	
+
+</Project>

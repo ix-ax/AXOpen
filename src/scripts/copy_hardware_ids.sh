@@ -29,7 +29,8 @@ if ! [[ -d "./hwc" ]]; then
     printf "${RED}Directory \"./hwc\" does not exist!!!${NC}"
     exit 1
 fi
-
+dos2unix SystemConstants/*
+dos2unix -r hwc/hwc.gen/*
 input_file="SystemConstants/${PLC_NAME}_HwIdentifiers.st"
 output_dir="src/IO"
 output_file1="${output_dir}/HwIdentifiers.st"
@@ -125,7 +126,7 @@ END {
 }
 ' "$input_file"
 
-
+dos2unix -r src/IO/*
 echo -e "${GREEN}Generation complete.${NC}"
 echo -e "${GREEN} - ${output_file1}${NC}"
 echo -e "${GREEN} - ${output_file2}${NC}"
