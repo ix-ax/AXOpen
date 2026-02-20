@@ -30,6 +30,7 @@ if ! [[ -d "./hwc" ]]; then
     exit 1
 fi
 dos2unix SystemConstants/*
+dos2unix -r hwc/hwc.gen/
 input_file="SystemConstants/${PLC_NAME}_HwIdentifiers.st"
 output_dir="src/IO"
 output_file1="${output_dir}/HwIdentifiers.st"
