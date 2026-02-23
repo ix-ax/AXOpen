@@ -143,8 +143,8 @@ NAMESPACE AXOpen.Core.Dummies
     
 
         VAR PRIVATE            
-            // NULL_MESSENGER_SERVICE : _NULL_MESSENGER_SERVICE;
-            NULL_MESSENGER_SERVICE : IAxoMessagingServices;
+            NULL_MESSENGER_SERVICE : _NULL_MESSENGER_SERVICE;
+            // NULL_MESSENGER_SERVICE : IAxoMessagingServices;
             _messengerService : IAxoMessagingServices;
         END_VAR
 
