@@ -1,4 +1,4 @@
-﻿@using AXSharp.Connector;
+@using AXSharp.Connector;
 @using System.ComponentModel;
 @using System.Globalization;
 @using Operon.Components
@@ -7,47 +7,47 @@
 
 @if (IsString)
 {
-    <BaseInput @bind-Value="BoundString" />
+    <BaseInput @bind-Value="BoundString" AccessStatus="@AccessStatusClass" />
 }
 else if (IsBool)
 {
-    <BaseInput @bind-Value="BoundBool" />
+    <BaseInput @bind-Value="BoundBool" AccessStatus="@AccessStatusClass" />
 }
-else if (IsInteger) 
+else if (IsInteger)
 {
-    <BaseInput @bind-Value="BoundInteger" Min="@MinValueInteger.ToString()" Max="@MaxValueInteger.ToString()" Step="1" />
+    <BaseInput @bind-Value="BoundInteger" Min="@MinValueInteger.ToString()" Max="@MaxValueInteger.ToString()" Step="1" AccessStatus="@AccessStatusClass" />
 }
 else if (IsUnsignedInteger)
 {
-    <BaseInput @bind-Value="BoundUnsignedInteger" Min="@MinValueUnsignedInteger.ToString()" Max="@MaxValueUnsignedInteger.ToString()" Step="1" />
+    <BaseInput @bind-Value="BoundUnsignedInteger" Min="@MinValueUnsignedInteger.ToString()" Max="@MaxValueUnsignedInteger.ToString()" Step="1" AccessStatus="@AccessStatusClass" />
 }
 else if (IsFloatingPoint)
 {
-    <BaseInput @bind-Value="BoundFloatingPoint" Min="@MinValueFloatingNumber.ToString()" Max="@MaxValueFloatingNumber.ToString()" Step="any" />
+    <BaseInput @bind-Value="BoundFloatingPoint" Min="@MinValueFloatingNumber.ToString()" Max="@MaxValueFloatingNumber.ToString()" Step="any" AccessStatus="@AccessStatusClass" />
 }
 else if (IsChar)
 {
-    <BaseInput @bind-Value="BoundChar" />
+    <BaseInput @bind-Value="BoundChar" AccessStatus="@AccessStatusClass" />
 }
 else if (IsDateTime)
 {
-    <DateTimePicker @bind-Value="BoundDateTime" />
+    <DateTimePicker @bind-Value="BoundDateTime" AccessStatus="@AccessStatusClass" />
 }
 else if (IsDateOnly)
 {
-    <DateOnlyPicker @bind-Value="BoundDateOnly" />
+    <DateOnlyPicker @bind-Value="BoundDateOnly" AccessStatus="@AccessStatusClass" />
 }
 else if (IsTimeOnly)
 {
-    <BaseInput @bind-Value="BoundTimeOnly" Min="@MinTime.ToString()" Max="@MaxTime.ToString()" />
+    <BaseInput @bind-Value="BoundTimeOnly" Min="@MinTime.ToString()" Max="@MaxTime.ToString()" Class="@AccessStatusClass" />
 }
 else if (IsTimeSpan)
 {
-    <TimeSpanPicker @bind-Value="BoundTimeSpan" />
+    <TimeSpanPicker @bind-Value="BoundTimeSpan" AccessStatus="@AccessStatusClass" />
 }
 else if (IsEnum)
 {
-    <select @bind="BoundEnum" class="select min-w-6">
+    <select @bind="BoundEnum" class="@($"select min-w-6 {AccessStatusClass}")">
         @foreach (var option in EnumOptions)
         {
             <option value="@option">@option</option>
@@ -61,6 +61,7 @@ else
 
 @code {
     [Parameter] public Type ValueType { get; set; }
+    [Parameter] public string AccessStatusClass { get; set; }
 
     private object _Value;
     [Parameter]

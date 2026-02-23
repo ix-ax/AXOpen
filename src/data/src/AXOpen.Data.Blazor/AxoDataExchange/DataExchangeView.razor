@@ -1,4 +1,4 @@
-﻿@namespace AXOpen.Data
+@namespace AXOpen.Data
 @using AXOpen.Base
 @using AXOpen.Data;
 @using AXSharp.Connector;
@@ -23,14 +23,14 @@ else
     <div data-data-exchange-view class="flex flex-wrap justify-between">
         @if (Presentation.Equals("Command"))
         {
-            <div class="flex flex-wrap mx-2 gap-2">
+            <div data-dataexchange-operations class="flex flex-wrap gap-2">
                 @if (EnableCreate)
                 {
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_create">
                         <Authorized>
-                            <button type="button" class="btn btn-primary items-center" @onclick='() => { _modalCreate.Toggle(); ButtonOperationName = "Create"; }'>
-                                <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5 me-1" />
-                                @Localizer["Create"]
+                            <button type="button" class="btn btn-primary" @onclick='() => { _modalCreate.Toggle(); ButtonOperationName = "Create"; }'>
+                                @* <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5 me-1" /> *@
+                                @Localizer["Create new"]
                             </button>
                         </Authorized>
                     </AuthorizeView>
@@ -39,9 +39,9 @@ else
                 {
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_load_from_plc">
                         <Authorized>
-                            <button type="button" class="btn btn-primary items-center" @onclick='() => { _modalCreate.Toggle(); ButtonOperationName = "LoadFromPlc"; }'>
-                                <Operon.Icons.HeroIcon Icon="cloud-arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5 me-1" />
-                                @Localizer["Create New from PLC"]
+                            <button type="button" class="btn btn-primary" @onclick='() => { _modalCreate.Toggle(); ButtonOperationName = "LoadFromPlc"; }'>
+                                @* <Operon.Icons.HeroIcon Icon="cloud-arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5 me-1" /> *@
+                                @Localizer["Create new from PLC"]
                             </button>
                         </Authorized>
                     </AuthorizeView>
@@ -62,14 +62,16 @@ else
                 }
             </div>
         }
-        <div class="flex flex-wrap mx-2">
+        <div data-filtering-operations class="flex flex-wrap items-center gap-2">
             @if (!AdvanceFilterConfig)
             {
                 @if (EnableSorting)
                 {
+
                     <Dropdown @ref="_dropdownSort">
                         <DropdownButton>
                             <button type="button" class="btn btn-primary" @onclick="_dropdownSort.Toggle">
+                                @Vm.DefaulSorting.MemberName
                                 <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownSort?.Open ?? false ? "rotated" : null))" />
                             </button>
                         </DropdownButton>
@@ -82,15 +84,15 @@ else
                         </DropdownBody>
                     </Dropdown>
 
-                    <button type="button" class="btn btn-outline-secondary items-center" title="@(Vm.DefaulSorting.IsAscending ? "Sorting ascending" : "Sorting descending")" @onclick="() => setSortAscendingAsync()">
-                        <Operon.Icons.HeroIcon Icon="filter" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                    <button type="button" class="btn btn-outline-primary" @onclick="() => ToggleSortSettings()">
+                        @(Vm.DefaulSorting.IsAscending ? Localizer["Ascending"] : Localizer["Descending"])
                     </button>
                 }
 
                 <QuerySymbolConfigurationView SymbolConfiguration="@Vm.DefaulQueryDataEntityId" HideDescripion="true"></QuerySymbolConfigurationView>
 
-                <button type="button" class="btn btn-secondary items-center" @onclick="Vm.Filter">
-                    <Operon.Icons.HeroIcon Icon="magnifying-glass" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                <button type="button" class="btn btn-outline-primary mx-2" @onclick="Vm.Filter">
+                    @Localizer["Search"]
                 </button>
             }
             @if (EnableFiltering)
@@ -205,8 +207,8 @@ else
                                     {
                                         <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_copy">
                                             <Authorized>
-                                                <button type="button" class="btn btn-primary items-center" title="Copy" @onclick='() => { _modalCreate.Toggle(); Vm.SelectedRecord = item; ButtonOperationName = "Copy"; Vm.Locked(); }'>
-                                                    <Operon.Icons.HeroIcon Icon="clipboard-document" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                                <button type="button" class="btn btn-no-bg-primary" title="Copy" @onclick='() => { _modalCreate.Toggle(); Vm.SelectedRecord = item; ButtonOperationName = "Copy"; Vm.Locked(); }'>
+                                                    <Operon.Icons.HeroIcon Icon="clipboard-document" Type="Operon.Icons.IconType.Solid" Class="size-6" />
                                                 </button>
                                             </Authorized>
                                         </AuthorizeView>
@@ -214,8 +216,8 @@ else
 
                                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_edit">
                                         <Authorized>
-                                            <button type="button" class="btn btn-primary items-center" title="Edit" @onclick="() => { _modalEdit.Toggle(); Vm.SelectedRecord = item; Vm.Locked(); }">
-                                                <Operon.Icons.HeroIcon Icon="pencil-square" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                            <button type="button" class="btn btn-no-bg-primary" title="Edit" @onclick="() => { _modalEdit.Toggle(); Vm.SelectedRecord = item; Vm.Locked(); }">
+                                                <Operon.Icons.HeroIcon Icon="pencil-square" Type="Operon.Icons.IconType.Solid" Class="size-6" />
                                             </button>
                                         </Authorized>
                                     </AuthorizeView>
@@ -224,8 +226,8 @@ else
                                     {
                                         <AuthorizeView Roles="@DataExchangeRoleNames.can_data_send_to_plc">
                                             <Authorized>
-                                                <button type="button" class="btn btn-warning items-center" title="Send To Plc" @onclick='() => { _modalAckSendToPlc.Toggle(); Vm.SelectedRecord = item;}'>
-                                                    <HeroIcon Icon="computer-desktop" Type="Operon.Icons.IconType.Solid" Class="size-5" />
+                                                <button type="button" class="btn btn-no-bg-warning" title="Send To Plc" @onclick='() => { _modalAckSendToPlc.Toggle(); Vm.SelectedRecord = item;}'>
+                                                    <HeroIcon Icon="computer-desktop" Type="Operon.Icons.IconType.Solid" Class="size-6" />
                                                 </button>
                                             </Authorized>
                                         </AuthorizeView>
@@ -235,8 +237,8 @@ else
                                     {
                                         <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_delete">
                                             <Authorized>
-                                                <button type="button" class="btn btn-danger items-center" title="Delete" @onclick="() => { _modalDelete.Toggle(); Vm.SelectedRecord = item; Vm.Locked(); }">
-                                                    <HeroIcon Icon="trash" Type="Operon.Icons.IconType.Solid" Class="size-5" />
+                                                <button type="button" class="btn btn-no-bg-danger" title="Delete" @onclick="() => { _modalDelete.Toggle(); Vm.SelectedRecord = item; Vm.Locked(); }">
+                                                    <HeroIcon Icon="trash" Type="Operon.Icons.IconType.Solid" Class="size-6" />
                                                 </button>
                                             </Authorized>
                                         </AuthorizeView>
@@ -359,7 +361,7 @@ else
                     @Localizer["Load from PLC into THIS repository"]
                 </button>
             }
-            <button type="button" class="btn btn-outline-red" @onclick="() => { _modalCreate.CloseModal();; Vm.UnLocked(); }">@Localizer["Close"]</button>
+            <button type="button" class="btn btn-outline-primary" @onclick="() => { _modalCreate.CloseModal();; Vm.UnLocked(); }">@Localizer["Close"]</button>
         </div>
     </Modal>
 
@@ -411,7 +413,7 @@ else
 
             }
             <button type="button" class="btn btn-primary" @onclick="() => { _modalView.CloseModal(); _modalChanges.Toggle();; }">@Localizer["Changes"]</button>
-            <button type="button" class="btn btn-outline-red" @onclick="() => _modalView.CloseModal()">@Localizer["Close"]</button>
+            <button type="button" class="btn btn-outline-primary" @onclick="() => _modalView.CloseModal()">@Localizer["Close"]</button>
         </div>
     </Modal>
 
@@ -462,7 +464,7 @@ else
        
         <div class="modal-footer flex justify-end gap-1">
             <button type="button" class="btn btn-primary" @onclick="() => { _modalChanges.CloseModal(); _modalView.Toggle(); }">Back</button>
-            <button type="button" class="btn btn-outline-red" @onclick="() => _modalChanges.CloseModal()">Close modal</button>
+            <button type="button" class="btn btn-outline-danger" @onclick="() => _modalChanges.CloseModal()">Close modal</button>
         </div>
     </Modal>
 
@@ -497,7 +499,7 @@ else
                 </div>
             }
             <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" @onclick="() => { _modalEdit.CloseModal(); _modalAckEditUpdate.Toggle(); }">@Localizer["Update"]</button>
-            <button type="button" class="btn btn-outline-red" @onclick="() => { Vm.UnLocked(); _modalEdit.CloseModal(); }">@Localizer["Close"]</button>
+            <button type="button" class="btn btn-outline-primary" @onclick="() => { Vm.UnLocked(); _modalEdit.CloseModal(); }">@Localizer["Close"]</button>
         </div>
     </Modal>
 
@@ -545,7 +547,7 @@ else
                 @Localizer["Delete in this repository"]
             </button>
 
-            <button type="button" class="btn btn-outline-red" @onclick="() => { _modalDelete.CloseModal(); Vm.UnLocked(); }">@Localizer["Close"]</button>
+            <button type="button" class="btn btn-outline-primary" @onclick="() => { _modalDelete.CloseModal(); Vm.UnLocked(); }">@Localizer["Close"]</button>
         </div>
     </Modal>
 
@@ -576,7 +578,7 @@ else
                 @Localizer["Send data to THIS PLC"]
             </button>
 
-            <button class="btn btn-outline-red" @onclick="() => _modalAckSendToPlc.CloseModal()">@Localizer["Close"]</button>
+            <button class="btn btn-outline-primary" @onclick="() => _modalAckSendToPlc.CloseModal()">@Localizer["Close"]</button>
         </div>
     </Modal>
 
@@ -590,7 +592,7 @@ else
         <div class="modal-footer flex justify-end gap-1">
             <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" @onclick="async () => { _modalAckEditUpdate.CloseModal(); await Vm.Edit(); Vm.UnLocked(); }">@Localizer["Update"]</button>
 
-            <button type="button" class="btn btn-outline-red" @onclick="() => { _modalAckEditUpdate.CloseModal(); Vm.UnLocked(); }">Close modal</button>
+            <button type="button" class="btn btn-outline-danger" @onclick="() => { _modalAckEditUpdate.CloseModal(); Vm.UnLocked(); }">Close modal</button>
         </div>
     </Modal>
 
@@ -648,7 +650,7 @@ else
                 <strong>@Localizer["Export"]</strong>
             </button>
 
-            <button class="btn btn-outline-red" @onclick="() => { _modalExport.CloseModal(); ClearClientFiles();}">@Localizer["Close"]</button>
+            <button class="btn btn-outline-primary" @onclick="() => { _modalExport.CloseModal(); ClearClientFiles();}">@Localizer["Close"]</button>
         </div>
     </Modal>
 
@@ -702,7 +704,7 @@ else
                     _fileLoadingStatus =  eOperationStatus.Ready;}'>
                 @Localizer["Import"]
             </button>
-            <button type="button" class="btn btn-secondary" @onclick="async () => { _modalImport.CloseModal(); Vm.importStatus = eOperationStatus.Ready; await SaveCustomExportDataAsync();}">@Localizer["Close"]</button>
+            <button type="button" class="btn btn-outline-primary" @onclick="async () => { _modalImport.CloseModal(); Vm.importStatus = eOperationStatus.Ready; await SaveCustomExportDataAsync();}">@Localizer["Close"]</button>
         </div> 
     </Modal>
 

@@ -1,30 +1,30 @@
-﻿@using AXSharp.Connector;
+@using AXSharp.Connector;
 @using Operon.Components
 @using Operon.Components.Dropdown
+@using Operon.Icons
 @namespace AXOpen.Data.Query
 
-<div data-data-exchange-query class="flex flex-wrap flex-col">
+<div data-data-exchange-query class="w-full flex flex-wrap flex-col">
 
-    <div class="flex flex-wrap flex-row items-center gap-2 mb-1">
+    <div class="flex flex-wrap flex-row items-center gap-1 mt-1">
+
+        <input type="text" class="input w-100" @bind="SymbolsQueryFilter" @bind:event="oninput" placeholder="Type symbol name here for filter..." title="Enter a symbol name to filter the results" />
 
         @if (FilteredSymbols.Count > 0)
         {
-            <button class="btn btn-secondary items-center"
-                    type="button"
-                    @onclick="AddAllDisplayedToQuery">
-                <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                @Localizer["All"]
-            </button>
-        }
-        @if (FilteredSymbols.Count > 0)
-        {
-            <button class="btn btn-secondary items-center" type="button" @onclick="ClearFilter">
+            <button type="button" class="btn btn-outline-primary items-center" @onclick="ClearFilter">
                 <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                 @Localizer["Clean"]
             </button>
         }
 
-        <input type="text" class="input" @bind="SymbolsQueryFilter" @bind:event="oninput" placeholder="Type symbol name here for filter..." title="Enter a symbol name to filter the results" />
+        @if (FilteredSymbols.Count > 0)
+        {
+            <button type="button" class="btn btn-outline-primary items-center" @onclick="AddAllDisplayedToQuery">
+                <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                @Localizer["All"]
+            </button>
+        }
 
         @if (InjectedQueries.Count > 0)
         {
@@ -70,10 +70,10 @@
             @foreach (var symbol in GetDisplaySymbols())
             {
                 <div class="flex flex-wrap items-center gap-1">
-                    <button class="btn btn-secondary px-1! py-2!" type="button" @onclick="() => AddSymbolToQuery(symbol)">
+                    <button class="btn btn-primary px-1! py-2!" type="button" @onclick="() => AddSymbolToQuery(symbol)">
                         <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                     </button>
-                    <button class="btn btn-secondary px-1! py-2!" type="button" @onclick="() => AddSymbolToSorting(symbol)">
+                    <button class="btn btn-primary px-1! py-2!" type="button" @onclick="() => AddSymbolToSorting(symbol)">
                         <Operon.Icons.HeroIcon Icon="adjustments-vertical" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                     </button>
                     <p>@symbol</p>
@@ -87,27 +87,30 @@
     @if (CurrentQuery.Queries.Count() > 0)
     {
 
-        <div class="card">
+        <div class="card p-2">
             <div class="flex flex-wrap items-center gap-2">
+
                 <label>@Localizer["Query"]</label>
-                <div>
+
+                <div class="flex flex-wrap flex-col gap-1">
 
                     @foreach (var querySymbol in CurrentQuery.Queries)
                     {
                         <div class="flex flex-wrap items-center gap-1">
-                            <button type="button" class="btn btn-secondary px-1! py-2!" title="@Localizer["Remove"]"
+
+                            <button type="button" class="btn btn-no-bg-primary px-1! py-2!" title="@Localizer["Remove"]"
                                     @onclick="() => RemoveSymbolFromQuery(querySymbol.TrackSymbolId)">
                                 <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </button>
 
-                            @*  <label class="ms-2"> @Localizer["Move"]</label>
- *@
-                            <button type="button" class="btn btn-secondary px-1! py-2!" title="@Localizer["Move Up"]"
+
+                            <button type="button" class="btn btn-no-bg-primary px-1! py-2!" title="@Localizer["Move Up"]"
                                     @onclick="() => MoveQuerySymbolUp(querySymbol.TrackSymbolId)">
                                 <Operon.Icons.HeroIcon Icon="arrow-up" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </button>
 
-                            <button type="button" class="btn btn-secondary px-1! py-2!" title="@Localizer["Move Down"]"
+
+                            <button type="button" class="btn btn-no-bg-primary px-1! py-2!" title="@Localizer["Move Down"]"
                                     @onclick="() => MoveQuerySymbolDown(querySymbol.TrackSymbolId)">
                                 <Operon.Icons.HeroIcon Icon="arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </button>
@@ -124,28 +127,30 @@
 
     @if (CurrentQuery.Sorting.Count > 0)
     {
-        <div class="card">
+        <div class="card p2">
 
             <div class="flex flex-wrap items-center gap-2">
 
                 <label>@Localizer["Sort"]</label>
-                <div>
+
+                <div class="flex flex-wrap flex-col gap-1">
+
                     @foreach (var sortSymbol in CurrentQuery.Sorting)
                     {
                         <div class="flex flex-wrap items-center gap-1">
-                            <button type="button" class="btn btn-secondary px-1! py-2!" title="@Localizer["Remove"]"
+
+                            <button type="button" class="btn btn-no-bg-primary px-1! py-2!" title="@Localizer["Remove"]"
                                     @onclick="() => RemoveSymbolFromSorting(sortSymbol.TrackSymbolId)">
                                 <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </button>
-                            @* 
-                    <label class="ms-2"> @Localizer["Move"]</label>
- *@
-                            <button type="button" class="btn btn-secondary px-1! py-2!" title="@Localizer["Move Up"]"
+
+
+                            <button type="button" class="btn btn-no-bg-primary px-1! py-2!" title="@Localizer["Move Up"]"
                                     @onclick="() => MoveSortingSymbolUp(sortSymbol.TrackSymbolId)">
                                 <Operon.Icons.HeroIcon Icon="arrow-up" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </button>
 
-                            <button type="button" class="btn btn-secondary px-1! py-2!" title="@Localizer["Move Down"]"
+                            <button type="button" class="btn btn-no-bg-primary px-1! py-2!" title="@Localizer["Move Down"]"
                                     @onclick="() => MoveSortingSymbolDown(sortSymbol.TrackSymbolId)">
                                 <Operon.Icons.HeroIcon Icon="arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </button>
@@ -155,7 +160,7 @@
                             </div>
 
                             <div class="flex flex-wrap items-center gap-2">
-                                <label for="sortSymbolName">
+                                <label for="sortSymbolName" class="ms-4">
                                     @if (sortSymbol.IsAscending)
                                     {
                                         @Localizer["Ascending"]
@@ -166,7 +171,7 @@
                                     }
                                 </label>
 
-                                <BaseInput @bind-Value="sortSymbol.IsAscending" />
+                                <BaseInput @bind-Value="sortSymbol.IsAscending" Class="mx-4" />
                             </div>
 
                         </div>
@@ -195,7 +200,7 @@
                     @foreach (var element in History.Items)
                     {
                         <a class="dropdown-item @(CurrentQuery.Name == element.Name ? "active" : "")"
-                               @onclick='() => SelectlElementFromHistory(element.Name)'>@element.Name (@element.Modified.ToString())</a>
+                           @onclick='() => SelectlElementFromHistory(element.Name)'>@element.Name (@element.Modified.ToString())</a>
                     }
                 </DropdownBody>
             </Dropdown>
@@ -203,20 +208,19 @@
 
         <BaseInput @bind-Value="CurrentQuery.Name" Placeholder="Type query name" />
 
-        <button class="btn btn-secondary" type="button" @onclick="async () => await UpdateQueryHistoryToStorage()" title="@Localizer["Save query"]">
+        <button type="button" class="btn btn-outline-primary" @onclick="async () => await UpdateQueryHistoryToStorage()" title="@Localizer["Save query"]">
             <Operon.Icons.HeroIcon Icon="folder" Type="Operon.Icons.IconType.Outline" Class="size-5" />
         </button>
 
 
-        <button class="btn btn-secondary" type="button" @onclick="async () =>await RemoveItemFromHistory()" title="@Localizer["Delete query"]">
+        <button type="button" class="btn btn-outline-primary" @onclick="async () => await RemoveItemFromHistory()" title="@Localizer["Delete query"]">
             <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
         </button>
 
         @if (CurrentQuery.Queries.Count > 0)
         {
-            <button class="btn btn-primary flex items-center gap-2" type="button" @onclick="async () => await ExecuteFilter()">
-                <Operon.Icons.HeroIcon Icon="magnifying-glass" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                <span>@Localizer["Filter"]</span>
+            <button type="button" class="btn btn-primary" @onclick="async () => await ExecuteFilter()">
+                @Localizer["Search"]
             </button>
         }
 
