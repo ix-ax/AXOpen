@@ -18,7 +18,6 @@ NAMESPACE AXOpen.Core
             NULL_RTM : _NULL_RTM;           
             {S7.extern=Hidden}
             NULL_MESSENGER_SERVICE : _NULL_MESSENGER_SERVICE;  
-            // NULL_MESSENGER_SERVICE : IAxoMessagingServices;  
         END_VAR
 
         ///<summary>
@@ -48,12 +47,12 @@ NAMESPACE AXOpen.Core
         END_METHOD
     END_CLASS    
 
-
+    INTERFACE IAxoNullObject EXTENDS IAxoObject END_INTERFACE
     
     ///<summary>
     /// Provides an empty object for uninitialized objects.
     ///</summary>    
-    CLASS PUBLIC _NULL_OBJECT IMPLEMENTS IAxoObject
+    CLASS PUBLIC _NULL_OBJECT IMPLEMENTS IAxoNullObject
         VAR PRIVATE
             {S7.extern=Hidden}
             NULL_CONTEXT : _NULL_CONTEXT;
@@ -158,6 +157,7 @@ NAMESPACE AXOpen.Core
     END_CLASS 
     
     INTERFACE PUBLIC IAxoNullMessagingServices EXTENDS IAxoMessagingServices END_INTERFACE 
+
     ///<summary>
     /// Provides an empty RTC object for uninitialized RTC.
     ///</summary>
