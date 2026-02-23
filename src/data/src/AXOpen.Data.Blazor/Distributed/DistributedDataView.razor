@@ -1,7 +1,6 @@
 @namespace AXOpen.Data
 @using System.Reflection
 @using Microsoft.AspNetCore.Components.Authorization
-@using Operon.Components;
 
 @if (IsNoActiveOperation())
 {
@@ -35,7 +34,7 @@
             {
                 @Localizer["Do not concat query"]
                 <p class="ms-1">
-                    @($"[{@DistributedVM.TransmitedEntities.Count}]")
+                    @($"[{@DistributedVM.TransmitedEntities?.Count}]")
                 </p>
             }
             else
@@ -88,7 +87,7 @@ else
             <ul class="tab">
                 @foreach (var exchange in DistributedVM.DisplayedExchanges)
                 {
-                    <button type="button" class="btn tab-btn @(DistributedVM?.SelectedManagerVm?.Model == exchange ? "active" : null)" @onclick="async () => { await DistributedVM.SelectManager(exchange); }">@exchange.PresentableInstanceName</button>
+                    <button type="button" class="btn tab-btn @(DistributedVM?.SelectedManagerVm?.Model == exchange ? "active" : null)" @onclick="async () => {await DistributedVM.SelectManager(exchange);}">@exchange.PresentableInstanceName</button>
                 }
             </ul>
         }

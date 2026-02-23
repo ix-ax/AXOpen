@@ -39,7 +39,7 @@ else if (IsDateOnly)
 }
 else if (IsTimeOnly)
 {
-    <BaseInput @bind-Value="BoundTimeOnly" Min="@MinTime.ToString()" Max="@MaxTime.ToString()" Class="@AccessStatusClass" />
+    <BaseInput @bind-Value="BoundTimeOnly" Min="@MinTime.ToString()" Max="@MaxTime.ToString()" AccessStatus="@AccessStatusClass" />
 }
 else if (IsTimeSpan)
 {

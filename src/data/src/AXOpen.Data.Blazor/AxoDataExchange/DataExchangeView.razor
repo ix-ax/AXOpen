@@ -29,7 +29,6 @@ else
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_create">
                         <Authorized>
                             <button type="button" class="btn btn-primary" @onclick='() => { _modalCreate.Toggle(); ButtonOperationName = "Create"; }'>
-                                @* <Operon.Icons.HeroIcon Icon="plus" Type="Operon.Icons.IconType.Outline" Class="size-5 me-1" /> *@
                                 @Localizer["Create new"]
                             </button>
                         </Authorized>
@@ -40,7 +39,6 @@ else
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_load_from_plc">
                         <Authorized>
                             <button type="button" class="btn btn-primary" @onclick='() => { _modalCreate.Toggle(); ButtonOperationName = "LoadFromPlc"; }'>
-                                @* <Operon.Icons.HeroIcon Icon="cloud-arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5 me-1" /> *@
                                 @Localizer["Create new from PLC"]
                             </button>
                         </Authorized>
