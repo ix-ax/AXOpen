@@ -17,7 +17,8 @@ NAMESPACE AXOpen.Core
             {S7.extern=Hidden}
             NULL_RTM : _NULL_RTM;           
             {S7.extern=Hidden}
-            NULL_MESSENGER_SERVICE : _NULL_MESSENGER_SERVICE;  
+            // NULL_MESSENGER_SERVICE : _NULL_MESSENGER_SERVICE;  
+            NULL_MESSENGER_SERVICE : IAxoMessagingServices;  
         END_VAR
 
         ///<summary>
@@ -156,32 +157,32 @@ NAMESPACE AXOpen.Core
         END_METHOD
     END_CLASS 
     
-    ///<summary>
-    /// Provides an empty RTC object for uninitialized RTC.
-    ///</summary>
-    {S7.extern=ReadWrite}
-    CLASS PUBLIC _NULL_MESSENGER_SERVICE IMPLEMENTS IAxoMessagingServices
-        // Due to compiler issues with interface inheritance, we will temporarily implement methods related to messaging suspension also here.
-        METHOD PUBLIC QueueMessage : BOOL
-            VAR_INPUT
-                inMessegenger : IAxoMessenger;
-            END_VAR   
-            QueueMessage := FALSE;         
-        END_METHOD        
-        VAR PRIVATE
-            _isSuspended : BOOL := FALSE;
-        END_VAR
-        METHOD PUBLIC SuspendMessaging
-            _isSuspended := TRUE;
-        END_METHOD
+    // ///<summary>
+    // /// Provides an empty RTC object for uninitialized RTC.
+    // ///</summary>
+    // {S7.extern=ReadWrite}
+    // CLASS PUBLIC _NULL_MESSENGER_SERVICE IMPLEMENTS IAxoMessagingServices
+    //     // Due to compiler issues with interface inheritance, we will temporarily implement methods related to messaging suspension also here.
+    //     METHOD PUBLIC QueueMessage : BOOL
+    //         VAR_INPUT
+    //             inMessegenger : IAxoMessenger;
+    //         END_VAR   
+    //         QueueMessage := FALSE;         
+    //     END_METHOD        
+    //     VAR PRIVATE
+    //         _isSuspended : BOOL := FALSE;
+    //     END_VAR
+    //     METHOD PUBLIC SuspendMessaging
+    //         _isSuspended := TRUE;
+    //     END_METHOD
 
-        METHOD PUBLIC ResumeMessaging
-            _isSuspended := FALSE;
-        END_METHOD
+    //     METHOD PUBLIC ResumeMessaging
+    //         _isSuspended := FALSE;
+    //     END_METHOD
     
-        METHOD PUBLIC IsSuspended : BOOL
-            IsSuspended := _isSuspended;
-        END_METHOD
-    END_CLASS 
+    //     METHOD PUBLIC IsSuspended : BOOL
+    //         IsSuspended := _isSuspended;
+    //     END_METHOD
+    // END_CLASS 
 END_NAMESPACE
     

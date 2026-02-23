@@ -5,7 +5,7 @@ USING AXOpen.Messaging.Static;
 
 NAMESPACE AXOpen.Messaging    
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoMessengerService EXTENDS AxoObject IMPLEMENTS IAxoMessagingServices
+    CLASS PUBLIC AxoMessengerService EXTENDS AxoObject IMPLEMENTS AXOpen.Core.IAxoMessagingServices
         VAR PRIVATE
             _messages : REF_TO ARRAY[*] OF REF_TO AxoMessenger; // Array to hold message references
             _nextMessageIndex : DINT;
