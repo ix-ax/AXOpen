@@ -4,6 +4,21 @@ param
     [string]$IssueBody 
 )
 
+# Get the current script directory
+$scriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+# Construct the full path to _is_on_dev_nothing_to_commit.ps1
+$_is_on_dev_nothing_to_commit = Join-Path -Path $scriptDir -ChildPath "_is_on_dev_nothing_to_commit.ps1"
+
+# Call _is_on_dev_nothing_to_commit.ps1 
+$is_on_dev_nothing_to_commit = & $_is_on_dev_nothing_to_commit
+
+if($is_on_dev_nothing_to_commit -ne 1)
+{
+    Write-Host "You are not currently on the 'dev' branch, or you have some uncommited changes " -ForegroundColor Red
+    Write-Host "Commit your local changes, sync your local 'dev' branch with the remote and start this script again." -ForegroundColor Red
+    exit 1
+}
+
 if (-not $IssueTitle) 
 {
     $IssueTitle = Read-Host "Please enter an issue title."

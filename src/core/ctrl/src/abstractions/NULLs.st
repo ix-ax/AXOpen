@@ -47,12 +47,12 @@ NAMESPACE AXOpen.Core
         END_METHOD
     END_CLASS    
 
-
+    INTERFACE IAxoNullObject EXTENDS IAxoObject END_INTERFACE
     
     ///<summary>
     /// Provides an empty object for uninitialized objects.
     ///</summary>    
-    CLASS PUBLIC _NULL_OBJECT IMPLEMENTS IAxoObject
+    CLASS PUBLIC _NULL_OBJECT IMPLEMENTS IAxoNullObject
         VAR PRIVATE
             {S7.extern=Hidden}
             NULL_CONTEXT : _NULL_CONTEXT;
@@ -156,11 +156,13 @@ NAMESPACE AXOpen.Core
         END_METHOD
     END_CLASS 
     
+    INTERFACE PUBLIC IAxoNullMessagingServices EXTENDS IAxoMessagingServices END_INTERFACE 
+
     ///<summary>
     /// Provides an empty RTC object for uninitialized RTC.
     ///</summary>
     {S7.extern=ReadWrite}
-    CLASS PUBLIC _NULL_MESSENGER_SERVICE IMPLEMENTS IAxoMessagingServices
+    CLASS PUBLIC _NULL_MESSENGER_SERVICE IMPLEMENTS IAxoNullMessagingServices
         // Due to compiler issues with interface inheritance, we will temporarily implement methods related to messaging suspension also here.
         METHOD PUBLIC QueueMessage : BOOL
             VAR_INPUT
