@@ -1,4 +1,4 @@
-﻿// axopen_data_blazor
+// axopen_data_blazor
 // Copyright (c) 2023 MTS spol. s r.o,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/inxton/axsharp/graphs/contributors
 // See the LICENSE file in the repository root for more information.
@@ -163,7 +163,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         await Vm.FillObservableRecordsAsync();
     }
 
-    private async Task setSortAscendingAsync()
+    private async Task ToggleSortSettings()
     {
         Vm.DefaulSorting.IsAscending = !Vm.DefaulSorting.IsAscending;
 
