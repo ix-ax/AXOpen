@@ -58,13 +58,15 @@ NAMESPACE AXOpen.Messaging.Static
                 THIS.MessengerState := eAxoMessengerState#ActiveAcknowledgeRequired;                 
             END_IF;
 
-            IF THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeRequired OR THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired OR THIS.MessengerState = eAxoMessengerState#ActiveAlreadyAcknowledged THEN
+            IF THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeRequired OR 
+               THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired OR 
+               THIS.MessengerState = eAxoMessengerState#ActiveAlreadyAcknowledged THEN
                 IF _context.OpenCycleCount() = ULINT#0 OR  _context.GetRtc().NowUTC() = LDATE_AND_TIME#1970-01-01-00:00:00.000 THEN
                     THIS.MessengerState := eAxoMessengerState#InvalidImplementation;
                     THIS.Category := eAxoMessageCategory#ProgrammingError;
                 END_IF;
                 IF _context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
-                    THIS.Deactivate(MessageCode);
+                    THIS.Deactivate(MessageCode, THIS.ToLogLevel(Category));
                 END_IF;
             END_IF;   
 
@@ -114,18 +116,19 @@ NAMESPACE AXOpen.Messaging.Static
                 Risen := _context.GetRtc().NowUTC();
                 Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
                 Acknowledged := LDATE_AND_TIME#1970-01-01-00:00:00.000;
-                _context.GetLogger().Log('<#Risen#>', THIS.ToLogLevel(_category), THIS);
+                _context.GetLogger().Log('$5E', THIS.ToLogLevel(_category), THIS, _messageCode);
                 MessageCode := _messageCode;
                 Category := _category;
                 //  AcknowledgementRequired := Category >= eAxoMessageCategory#Error;
             END_IF;
 
             // "Reactivation" in case of acknowledgable alarm rised, falled and rised again without acknowledgement
-            IF THIS.MessengerState = eAxoMessengerState#InactiveWaitingForAcknowledge AND MessageCode = _messageCode  AND ActiveContextCount = ULINT#0 THEN                
+            IF THIS.MessengerState = eAxoMessengerState#InactiveWaitingForAcknowledge AND 
+                MessageCode = _messageCode  AND 
+                ActiveContextCount = ULINT#0 THEN                
                 Risen := _context.GetRtc().NowUTC();
                 Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
-                Acknowledged := LDATE_AND_TIME#1970-01-01-00:00:00.000;
-                _context.GetLogger().Log('<#Risen again before acknowledgement#>', THIS.ToLogLevel(_category), THIS);
+                Acknowledged := LDATE_AND_TIME#1970-01-01-00:00:00.000;                
             END_IF;
 
             IF MessageCode = _messageCode THEN
@@ -161,7 +164,7 @@ NAMESPACE AXOpen.Messaging.Static
             IF _condition THEN
                 ActivateOnCondition := THIS.Activate(_messageCode,_category);                    
             ELSE
-                THIS.Deactivate(_messageCode);        
+                THIS.Deactivate(_messageCode, THIS.ToLogLevel(_category));        
             END_IF;
         END_METHOD   
           
@@ -187,6 +190,7 @@ NAMESPACE AXOpen.Messaging.Static
         METHOD PRIVATE Deactivate
             VAR_INPUT
                 _messageCode : ULINT;
+                _logLevel : eLogLevel;
             END_VAR
             IF _context = NULL THEN
                 _context := THIS.GetContext();
@@ -195,16 +199,18 @@ NAMESPACE AXOpen.Messaging.Static
             IF _context = NULL THEN
                 RETURN;
             END_IF;
-
+         
             IF _messageCode = ULINT#0 THEN
                 RETURN;
             END_IF;
-            
-            IF THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeRequired OR THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired OR THIS.MessengerState = eAxoMessengerState#ActiveAlreadyAcknowledged THEN 
+                       
+            IF THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeRequired OR 
+               THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired OR 
+               THIS.MessengerState = eAxoMessengerState#ActiveAlreadyAcknowledged THEN 
                 IF  MessageCode = _messageCode THEN
                     ActiveContextCount := ULINT#0;
-                    Fallen := _context.GetRtc().NowUTC();                
-                    _context.GetLogger().Log('<#Fallen#>', eLogLevel#Information, THIS);
+                    Fallen := _context.GetRtc().NowUTC();     
+                    _context.GetLogger().Log('$76', _logLevel, THIS, _messageCode);                       
                     IF THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeRequired THEN
                         THIS.MessengerState := eAxoMessengerState#InactiveWaitingForAcknowledge;
                     ELSIF THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired THEN

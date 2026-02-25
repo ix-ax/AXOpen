@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
@@ -60,7 +60,7 @@ namespace AXOpen.Logging
                         {
                             case AxoMessenger messenger:
                                 await messenger.ReadAsync();
-                                message = $"{entry.Message.LastValue} : {messenger.GetMessageText()}";
+                                message = $"{entry.Message.LastValue} : {messenger.GetMessageText(entry.MessageCode.LastValue)}";
                                 break;
                             case AxoStep step:
                                 await step.ReadAsync();

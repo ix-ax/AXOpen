@@ -122,6 +122,7 @@ NAMESPACE AXOpen.Core
                 _message : STRING[80];
                 _level : eLogLevel;
                 _sender : IAxoObject;
+                _messageCode : ULINT;
             END_VAR   
             ;         
         END_METHOD   
