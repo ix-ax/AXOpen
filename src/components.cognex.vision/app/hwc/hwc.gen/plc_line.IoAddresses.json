@@ -1,0 +1,3089 @@
+{
+  "Version": 2,
+  "IoAddresses": [
+    {
+      "Ref": "cognex_dataman_280/Acquisition_Control",
+      "Submodules": [
+        {
+          "Name": "Acquisition Control",
+          "HardwareIdentifier": 323,
+          "Outputs": {
+            "StartAddress": "2320.0",
+            "EndAddress": "2320.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_dataman_280/Acquisition_Status",
+      "Submodules": [
+        {
+          "Name": "Acquisition Status",
+          "HardwareIdentifier": 320,
+          "Inputs": {
+            "StartAddress": "2607.0",
+            "EndAddress": "2609.7",
+            "Length": 24,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 8,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_dataman_280/ResultData_128",
+      "Submodules": [
+        {
+          "Name": "Result Data - 128 bytes",
+          "HardwareIdentifier": 317,
+          "Inputs": {
+            "StartAddress": "2470.0",
+            "EndAddress": "2605.7",
+            "Length": 1088,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 32,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 48,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 64,
+                "Length": 1024,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_dataman_280/Results_Control",
+      "Submodules": [
+        {
+          "Name": "Results Control",
+          "HardwareIdentifier": 322,
+          "Outputs": {
+            "StartAddress": "2319.0",
+            "EndAddress": "2319.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_dataman_280/Results_Status",
+      "Submodules": [
+        {
+          "Name": "Results Status",
+          "HardwareIdentifier": 319,
+          "Inputs": {
+            "StartAddress": "2606.0",
+            "EndAddress": "2606.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_dataman_280/Soft_Event_Control",
+      "Submodules": [
+        {
+          "Name": "Soft Event Control",
+          "HardwareIdentifier": 321,
+          "Inputs": {
+            "StartAddress": "2610.0",
+            "EndAddress": "2610.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_7",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          },
+          "Outputs": {
+            "StartAddress": "2318.0",
+            "EndAddress": "2318.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_8",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_9",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_10",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_11",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_12",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_13",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_14",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_15",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_dataman_280/UserData_128",
+      "Submodules": [
+        {
+          "Name": "User Data - 128 bytes",
+          "HardwareIdentifier": 318,
+          "Outputs": {
+            "StartAddress": "2186.0",
+            "EndAddress": "2317.7",
+            "Length": 1056,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 32,
+                "Length": 1024,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_dataman_380/Acquisition_Control",
+      "Submodules": [
+        {
+          "Name": "Acquisition Control",
+          "HardwareIdentifier": 310,
+          "Outputs": {
+            "StartAddress": "2185.0",
+            "EndAddress": "2185.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_dataman_380/Acquisition_Status",
+      "Submodules": [
+        {
+          "Name": "Acquisition Status",
+          "HardwareIdentifier": 307,
+          "Inputs": {
+            "StartAddress": "2466.0",
+            "EndAddress": "2468.7",
+            "Length": 24,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 8,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_dataman_380/ResultData_128",
+      "Submodules": [
+        {
+          "Name": "Result Data - 128 bytes",
+          "HardwareIdentifier": 304,
+          "Inputs": {
+            "StartAddress": "2329.0",
+            "EndAddress": "2464.7",
+            "Length": 1088,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 32,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 48,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 64,
+                "Length": 1024,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_dataman_380/Results_Control",
+      "Submodules": [
+        {
+          "Name": "Results Control",
+          "HardwareIdentifier": 309,
+          "Outputs": {
+            "StartAddress": "2184.0",
+            "EndAddress": "2184.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_dataman_380/Results_Status",
+      "Submodules": [
+        {
+          "Name": "Results Status",
+          "HardwareIdentifier": 306,
+          "Inputs": {
+            "StartAddress": "2465.0",
+            "EndAddress": "2465.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_dataman_380/Soft_Event_Control",
+      "Submodules": [
+        {
+          "Name": "Soft Event Control",
+          "HardwareIdentifier": 308,
+          "Inputs": {
+            "StartAddress": "2469.0",
+            "EndAddress": "2469.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_7",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          },
+          "Outputs": {
+            "StartAddress": "2183.0",
+            "EndAddress": "2183.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_8",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_9",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_10",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_11",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_12",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_13",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_14",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_15",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_dataman_380/UserData_128",
+      "Submodules": [
+        {
+          "Name": "User Data - 128 bytes",
+          "HardwareIdentifier": 305,
+          "Outputs": {
+            "StartAddress": "2051.0",
+            "EndAddress": "2182.7",
+            "Length": 1056,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 32,
+                "Length": 1024,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_2800/Slot_1",
+      "Submodules": [
+        {
+          "Name": "Acquisition Control",
+          "HardwareIdentifier": 297,
+          "Outputs": {
+            "StartAddress": "2050.0",
+            "EndAddress": "2050.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_2800/Slot_11_ResultData_250",
+      "Submodules": [
+        {
+          "Name": "Results - 250 bytes",
+          "HardwareIdentifier": 288,
+          "Inputs": {
+            "StartAddress": "2062.0",
+            "EndAddress": "2315.7",
+            "Length": 2032,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 32,
+                "Length": 2000,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_2800/Slot_12",
+      "Submodules": [
+        {
+          "Name": "Results - 250 bytes",
+          "HardwareIdentifier": 287,
+          "Inputs": {
+            "StartAddress": "1812.0",
+            "EndAddress": "2061.7",
+            "Length": 2000,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 2000,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_2800/Slot_13",
+      "Submodules": [
+        {
+          "Name": "Results - 250 bytes",
+          "HardwareIdentifier": 286,
+          "Inputs": {
+            "StartAddress": "1562.0",
+            "EndAddress": "1811.7",
+            "Length": 2000,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 2000,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_2800/Slot_14",
+      "Submodules": [
+        {
+          "Name": "Results - 250 bytes",
+          "HardwareIdentifier": 285,
+          "Inputs": {
+            "StartAddress": "1312.0",
+            "EndAddress": "1561.7",
+            "Length": 2000,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 2000,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_2800/Slot_2",
+      "Submodules": [
+        {
+          "Name": "Acquisition Status",
+          "HardwareIdentifier": 292,
+          "Inputs": {
+            "StartAddress": "2316.0",
+            "EndAddress": "2319.7",
+            "Length": 32,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_7",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_8",
+                "Offset": 8,
+                "Length": 8,
+                "DataType": "Unsigned8"
+              },
+              {
+                "Name": "Signals_9",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_2800/Slot_3",
+      "Submodules": [
+        {
+          "Name": "Inspection Control",
+          "HardwareIdentifier": 296,
+          "Outputs": {
+            "StartAddress": "2049.0",
+            "EndAddress": "2049.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_2800/Slot_4",
+      "Submodules": [
+        {
+          "Name": "Inspection Status",
+          "HardwareIdentifier": 293,
+          "Inputs": {
+            "StartAddress": "2320.0",
+            "EndAddress": "2323.7",
+            "Length": 32,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_7",
+                "Offset": 8,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_8",
+                "Offset": 9,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_9",
+                "Offset": 15,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_10",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_2800/Slot_5",
+      "Submodules": [
+        {
+          "Name": "Command Control",
+          "HardwareIdentifier": 294,
+          "Inputs": {
+            "StartAddress": "2324.0",
+            "EndAddress": "2327.7",
+            "Length": 32,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          },
+          "Outputs": {
+            "StartAddress": "2046.0",
+            "EndAddress": "2047.7",
+            "Length": 16,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_2",
+                "Offset": 0,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_2800/Slot_6",
+      "Submodules": [
+        {
+          "Name": "ExternalEvent Control",
+          "HardwareIdentifier": 295,
+          "Inputs": {
+            "StartAddress": "2328.0",
+            "EndAddress": "2328.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_7",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          },
+          "Outputs": {
+            "StartAddress": "2048.0",
+            "EndAddress": "2048.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_8",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_9",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_10",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_11",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_12",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_13",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_14",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_15",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_2800/Slot_7",
+      "Submodules": [
+        {
+          "Name": "User Data - 254 bytes",
+          "HardwareIdentifier": 291,
+          "Outputs": {
+            "StartAddress": "1792.0",
+            "EndAddress": "2045.7",
+            "Length": 2032,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 2032,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_2800/Slot_8",
+      "Submodules": [
+        {
+          "Name": "User Data - 254 bytes",
+          "HardwareIdentifier": 290,
+          "Outputs": {
+            "StartAddress": "1538.0",
+            "EndAddress": "1791.7",
+            "Length": 2032,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 2032,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_2800/Slot_9",
+      "Submodules": [
+        {
+          "Name": "User Data - 254 bytes",
+          "HardwareIdentifier": 289,
+          "Outputs": {
+            "StartAddress": "1284.0",
+            "EndAddress": "1537.7",
+            "Length": 2032,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 2032,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_7600/Acquisition_Control",
+      "Submodules": [
+        {
+          "Name": "Acquisition Control",
+          "HardwareIdentifier": 337,
+          "Outputs": {
+            "StartAddress": "2453.0",
+            "EndAddress": "2453.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_7600/Acquisition_Status",
+      "Submodules": [
+        {
+          "Name": "Acquisition Status",
+          "HardwareIdentifier": 333,
+          "Inputs": {
+            "StartAddress": "2747.0",
+            "EndAddress": "2749.7",
+            "Length": 24,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_7",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_8",
+                "Offset": 8,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_7600/Command_Control",
+      "Submodules": [
+        {
+          "Name": "Command Control",
+          "HardwareIdentifier": 334,
+          "Inputs": {
+            "StartAddress": "2750.0",
+            "EndAddress": "2751.7",
+            "Length": 16,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          },
+          "Outputs": {
+            "StartAddress": "2449.0",
+            "EndAddress": "2450.7",
+            "Length": 16,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_1",
+                "Offset": 0,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_7600/Inspection_Control",
+      "Submodules": [
+        {
+          "Name": "Inspection Control",
+          "HardwareIdentifier": 336,
+          "Outputs": {
+            "StartAddress": "2452.0",
+            "EndAddress": "2452.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_7600/Inspection_Status",
+      "Submodules": [
+        {
+          "Name": "Inspection Status",
+          "HardwareIdentifier": 332,
+          "Inputs": {
+            "StartAddress": "2743.0",
+            "EndAddress": "2746.7",
+            "Length": 32,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_7",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_8",
+                "Offset": 8,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_9",
+                "Offset": 9,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_10",
+                "Offset": 15,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_11",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_7600/ResultData_128",
+      "Submodules": [
+        {
+          "Name": "Results - 128 bytes",
+          "HardwareIdentifier": 330,
+          "Inputs": {
+            "StartAddress": "2611.0",
+            "EndAddress": "2742.7",
+            "Length": 1056,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 32,
+                "Length": 1024,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_7600/SoftEvent_Control",
+      "Submodules": [
+        {
+          "Name": "SoftEvent Control",
+          "HardwareIdentifier": 335,
+          "Inputs": {
+            "StartAddress": "2752.0",
+            "EndAddress": "2752.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_7",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          },
+          "Outputs": {
+            "StartAddress": "2451.0",
+            "EndAddress": "2451.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_8",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_9",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_10",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_11",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_12",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_13",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_14",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_15",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "cognex_insight_7600/UserData_128",
+      "Submodules": [
+        {
+          "Name": "User Data - 128 bytes",
+          "HardwareIdentifier": 331,
+          "Outputs": {
+            "StartAddress": "2321.0",
+            "EndAddress": "2448.7",
+            "Length": 1024,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1024,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/Engine_Control_1",
+      "Submodules": [
+        {
+          "Name": "Engine Control",
+          "HardwareIdentifier": 277,
+          "Inputs": {
+            "StartAddress": "1288.0",
+            "EndAddress": "1295.7",
+            "Length": 64,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_7",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_8",
+                "Offset": 8,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_9",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_10",
+                "Offset": 32,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_11",
+                "Offset": 48,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          },
+          "Outputs": {
+            "StartAddress": "1267.0",
+            "EndAddress": "1267.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_12",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_13",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_14",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_15",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/Engine_Control_2",
+      "Submodules": [
+        {
+          "Name": "Engine Control",
+          "HardwareIdentifier": 276,
+          "Inputs": {
+            "StartAddress": "1280.0",
+            "EndAddress": "1287.7",
+            "Length": 64,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_7",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_8",
+                "Offset": 8,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_9",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_10",
+                "Offset": 32,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_11",
+                "Offset": 48,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          },
+          "Outputs": {
+            "StartAddress": "1266.0",
+            "EndAddress": "1266.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_12",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_13",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_14",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_15",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/Engine_Control_3",
+      "Submodules": [
+        {
+          "Name": "Engine Control",
+          "HardwareIdentifier": 275,
+          "Inputs": {
+            "StartAddress": "1272.0",
+            "EndAddress": "1279.7",
+            "Length": 64,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_7",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_8",
+                "Offset": 8,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_9",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_10",
+                "Offset": 32,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_11",
+                "Offset": 48,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          },
+          "Outputs": {
+            "StartAddress": "1265.0",
+            "EndAddress": "1265.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_12",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_13",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_14",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_15",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/Engine_Control_4",
+      "Submodules": [
+        {
+          "Name": "Engine Control",
+          "HardwareIdentifier": 274,
+          "Inputs": {
+            "StartAddress": "1264.0",
+            "EndAddress": "1271.7",
+            "Length": 64,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_7",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_8",
+                "Offset": 8,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_9",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_10",
+                "Offset": 32,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_11",
+                "Offset": 48,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          },
+          "Outputs": {
+            "StartAddress": "1264.0",
+            "EndAddress": "1264.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_12",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_13",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_14",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_15",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/Result_Data_240_bytes_1",
+      "Submodules": [
+        {
+          "Name": "Results - 240 bytes",
+          "HardwareIdentifier": 272,
+          "Inputs": {
+            "StartAddress": "1024.0",
+            "EndAddress": "1263.7",
+            "Length": 1920,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1920,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/Result_Data_240_bytes_2",
+      "Submodules": [
+        {
+          "Name": "Results - 240 bytes",
+          "HardwareIdentifier": 266,
+          "Inputs": {
+            "StartAddress": "784.0",
+            "EndAddress": "1023.7",
+            "Length": 1920,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1920,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/Result_Data_240_bytes_3",
+      "Submodules": [
+        {
+          "Name": "Results - 240 bytes",
+          "HardwareIdentifier": 265,
+          "Inputs": {
+            "StartAddress": "544.0",
+            "EndAddress": "783.7",
+            "Length": 1920,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1920,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/Result_Data_240_bytes_4",
+      "Submodules": [
+        {
+          "Name": "Results - 240 bytes",
+          "HardwareIdentifier": 264,
+          "Inputs": {
+            "StartAddress": "304.0",
+            "EndAddress": "543.7",
+            "Length": 1920,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1920,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/Result_Data_240_bytes_5",
+      "Submodules": [
+        {
+          "Name": "Results - 240 bytes",
+          "HardwareIdentifier": 263,
+          "Inputs": {
+            "StartAddress": "64.0",
+            "EndAddress": "303.7",
+            "Length": 1920,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1920,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/Result_Data_64_bytes_1",
+      "Submodules": [
+        {
+          "Name": "Results - 64 bytes",
+          "HardwareIdentifier": 262,
+          "Inputs": {
+            "StartAddress": "0.0",
+            "EndAddress": "63.7",
+            "Length": 512,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 512,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/System_Control",
+      "Submodules": [
+        {
+          "Name": "System Control",
+          "HardwareIdentifier": 278,
+          "Inputs": {
+            "StartAddress": "1296.0",
+            "EndAddress": "1311.7",
+            "Length": 128,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 12,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_7",
+                "Offset": 13,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_8",
+                "Offset": 14,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_9",
+                "Offset": 15,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_10",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_11",
+                "Offset": 32,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_12",
+                "Offset": 48,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_13",
+                "Offset": 64,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_14",
+                "Offset": 65,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_15",
+                "Offset": 66,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_16",
+                "Offset": 67,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_17",
+                "Offset": 68,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_18",
+                "Offset": 69,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_19",
+                "Offset": 70,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_20",
+                "Offset": 71,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_21",
+                "Offset": 72,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_22",
+                "Offset": 73,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_23",
+                "Offset": 74,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_24",
+                "Offset": 75,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_25",
+                "Offset": 76,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_26",
+                "Offset": 77,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_27",
+                "Offset": 78,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_28",
+                "Offset": 79,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_29",
+                "Offset": 80,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_30",
+                "Offset": 81,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_31",
+                "Offset": 82,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_32",
+                "Offset": 83,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_33",
+                "Offset": 84,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_34",
+                "Offset": 85,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_35",
+                "Offset": 86,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_36",
+                "Offset": 87,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_37",
+                "Offset": 88,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_38",
+                "Offset": 89,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_39",
+                "Offset": 90,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_40",
+                "Offset": 91,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_41",
+                "Offset": 92,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_42",
+                "Offset": 93,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_43",
+                "Offset": 94,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_44",
+                "Offset": 95,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_45",
+                "Offset": 96,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_46",
+                "Offset": 112,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          },
+          "Outputs": {
+            "StartAddress": "1268.0",
+            "EndAddress": "1283.7",
+            "Length": 128,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_47",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_48",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_49",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_50",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_51",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_52",
+                "Offset": 8,
+                "Length": 8,
+                "DataType": "Unsigned8"
+              },
+              {
+                "Name": "Signals_53",
+                "Offset": 16,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_54",
+                "Offset": 32,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_55",
+                "Offset": 33,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_56",
+                "Offset": 34,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_57",
+                "Offset": 35,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_58",
+                "Offset": 36,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_59",
+                "Offset": 37,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_60",
+                "Offset": 38,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_61",
+                "Offset": 39,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_62",
+                "Offset": 40,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_63",
+                "Offset": 41,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_64",
+                "Offset": 42,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_65",
+                "Offset": 43,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_66",
+                "Offset": 44,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_67",
+                "Offset": 45,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_68",
+                "Offset": 46,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_69",
+                "Offset": 47,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_70",
+                "Offset": 48,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_71",
+                "Offset": 49,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_72",
+                "Offset": 50,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_73",
+                "Offset": 51,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_74",
+                "Offset": 52,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_75",
+                "Offset": 53,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_76",
+                "Offset": 54,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_77",
+                "Offset": 55,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_78",
+                "Offset": 56,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_79",
+                "Offset": 57,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_80",
+                "Offset": 58,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_81",
+                "Offset": 59,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_82",
+                "Offset": 60,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_83",
+                "Offset": 61,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_84",
+                "Offset": 62,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_85",
+                "Offset": 63,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_86",
+                "Offset": 64,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_87",
+                "Offset": 80,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_88",
+                "Offset": 96,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              },
+              {
+                "Name": "Signals_89",
+                "Offset": 112,
+                "Length": 16,
+                "DataType": "Unsigned16"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/User_Data_240_bytes_1",
+      "Submodules": [
+        {
+          "Name": "User Data - 240 bytes",
+          "HardwareIdentifier": 273,
+          "Outputs": {
+            "StartAddress": "1024.0",
+            "EndAddress": "1263.7",
+            "Length": 1920,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1920,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/User_Data_240_bytes_2",
+      "Submodules": [
+        {
+          "Name": "User Data - 240 bytes",
+          "HardwareIdentifier": 271,
+          "Outputs": {
+            "StartAddress": "784.0",
+            "EndAddress": "1023.7",
+            "Length": 1920,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1920,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/User_Data_240_bytes_3",
+      "Submodules": [
+        {
+          "Name": "User Data - 240 bytes",
+          "HardwareIdentifier": 270,
+          "Outputs": {
+            "StartAddress": "544.0",
+            "EndAddress": "783.7",
+            "Length": 1920,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1920,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/User_Data_240_bytes_4",
+      "Submodules": [
+        {
+          "Name": "User Data - 240 bytes",
+          "HardwareIdentifier": 269,
+          "Outputs": {
+            "StartAddress": "304.0",
+            "EndAddress": "543.7",
+            "Length": 1920,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1920,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/User_Data_240_bytes_5",
+      "Submodules": [
+        {
+          "Name": "User Data - 240 bytes",
+          "HardwareIdentifier": 268,
+          "Outputs": {
+            "StartAddress": "64.0",
+            "EndAddress": "303.7",
+            "Length": 1920,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1920,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "Ref": "vision_pro/User_Data_64_bytes_1",
+      "Submodules": [
+        {
+          "Name": "User Data - 64 bytes",
+          "HardwareIdentifier": 267,
+          "Outputs": {
+            "StartAddress": "0.0",
+            "EndAddress": "63.7",
+            "Length": 512,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 512,
+                "DataType": "OctetString"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

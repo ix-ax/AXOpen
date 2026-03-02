@@ -1,5 +1,5 @@
 NAMESPACE AXOpen.Components.Cognex.Vision
-    TYPE HwIdentifierList : ARRAY[0..96] OF UINT :=
+    TYPE HwIdentifierList : ARRAY[0..95] OF UINT :=
             [
                 UINT#32,
                 UINT#48,
@@ -96,8 +96,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 UINT#336,
                 UINT#337,
                 UINT#338,
-                UINT#339,
-                UINT#340
+                UINT#339
     ];
 END_TYPE
 END_NAMESPACE

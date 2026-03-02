@@ -35,4 +35,3 @@ scripts:
     apax clean
     apax icb
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax cicb' Finished in :" $(expr $(date +%s) - $START) "s"
-

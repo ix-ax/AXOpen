@@ -1,4 +1,4 @@
-﻿NAMESPACE AXOpen.Components.Cognex.Vision
+NAMESPACE AXOpen.Components.Cognex.Vision
     TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}

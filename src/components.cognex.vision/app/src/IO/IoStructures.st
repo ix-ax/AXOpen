@@ -1,4 +1,4 @@
-﻿NAMESPACE AXOpen.Components.Cognex.Vision
+NAMESPACE AXOpen.Components.Cognex.Vision
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
@@ -195,14 +195,6 @@
 	        Signals_1 AT %X0.1 : BOOL;
 	        Signals_2 AT %X0.2 : BOOL;
 	        Signals_3 AT %X0.7 : BOOL;
-	    END_STRUCT;
-	END_TYPE
-	
-	TYPE
-        {S7.extern=ReadWrite}
-        {#ix-attr:[Container(Layout.Wrap)]}
-	    cognex_insight_2800_Slot_10_Output_Layout : STRUCT
-	        Signals_0 AT %B0 : ARRAY[0..253] OF BYTE;
 	    END_STRUCT;
 	END_TYPE
 	
