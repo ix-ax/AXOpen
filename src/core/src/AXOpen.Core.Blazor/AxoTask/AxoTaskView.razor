@@ -8,22 +8,22 @@
 
 <button data-axo-task-view type="button"
         aria-disabled="@IsDisabled"
-        class="btn btn-primary text-sm! font-semibold! uppercase gap-4 flex items-center transition-all duration-200 disabled:bg-slate-300 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none disabled:saturate-50 disabled:contrast-75 disabled:cursor-not-allowed disabled:ring-0 disabled:ring-offset-0 disabled:opacity-100 @Class"
+        class="btn btn-primary gap-2 flex items-center justify-between @Class"
         style="@Style"
         @onclick="this.InvokeTask"
         disabled="@IsDisabled">
-    <span class="flex items-center justify-center w-5 h-5 shrink-0 @((IsDisabled ? "text-slate-500/80" : "text-current"))" aria-hidden="true">
+    <span class="flex items-center gap-2 text-inherit">
         @if (State == eAxoTaskState.Ready)
         {
-            <span class="inline-flex items-center justify-center w-full h-full rounded-full border-2 border-current @((IsDisabled ? "border-dashed opacity-70" : "border-solid"))"></span>
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full border-2 border-current text-inherit @((IsDisabled ? "border-dashed opacity-70" : "border-solid"))"></span>
         }
         else if (State == eAxoTaskState.Kicking)
         {
-            <span class="inline-flex items-center justify-center w-full h-full rounded-full border-2 border-current border-dashed animate-pulse @((IsDisabled ? "opacity-70" : string.Empty))"></span>
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full border-2 border-current border-dashed text-inherit animate-pulse @((IsDisabled ? "opacity-70" : string.Empty))"></span>
         }
         else if (State == eAxoTaskState.Busy)
         {
-            <span class="inline-flex items-center justify-center w-full h-full rounded-full border-t-2 border-current animate-spin @((IsDisabled ? "animate-none border-dashed opacity-70" : string.Empty))"></span>
+            <span class="inline-flex items-center justify-center w-5 h-5 rounded-full border-t-2 border-current text-inherit animate-spin @((IsDisabled ? "animate-none border-dashed opacity-70" : string.Empty))"></span>
         }
         else if (State == eAxoTaskState.Done)
         {
@@ -34,20 +34,16 @@
             <HeroIcon Icon="x-mark" Type="IconType.Outline" Class="@StatusHeroIconClass" />
         }
     </span>
-    <span class="flex-1 text-center px-2">@Description</span>
     
+    <span class="flex-1 text-center text-inherit">
+        @Description.ToUpper()
+    </span>
+
     @if (!HideRestoreButton)
     {
-          <span role="button"
-              tabindex="0"
-              class="flex items-center justify-center w-5 h-5 shrink-0 text-text/60 hover:text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary @((IsDisabled ? "opacity-60 text-slate-500 pointer-events-none" : string.Empty))"
-              title="@Localizer["ResetTask"]"
-              @onclick="@OnRestoreClick"
-              @onclick:stopPropagation="true"
-              @onkeydown="OnRestoreKeyDown">
-            <span class="sr-only">@Localizer["RestoreButton"]</span>
+        <button type="button" class="btn btn-no-bg-primary p-0! text-inherit!" title="@Localizer["ResetTask"]" disabled="@IsDisabled" @onclick="@OnRestoreClick" @onclick:stopPropagation="true" @onkeydown="OnRestoreKeyDown">
             <HeroIcon Icon="arrow-path" Type="IconType.Solid" Class="size-5" />
-        </span>
+        </button>
     }
 </button>
 
@@ -55,12 +51,6 @@
 
     [Parameter] public string? Class { get; set; }
     [Parameter] public string? Style { get; set; }
-    [Parameter] public bool ShowReset { get; set; }
-    [Parameter] public bool ShowAbortButton { get; set; } = false;
-    [Parameter] public bool ShowRestoreButton { get; set; } = true;
-    [Parameter] public bool ShowIcon { get; set; } = false;
-    [Parameter] public bool ShowText { get; set; } = true;
-    [Parameter] public string IconClass { get; set; } = "star"; // Default icon class
     [Parameter] public string? Text { get; set; }
 
     private void OnRestoreClick(MouseEventArgs e)
@@ -77,5 +67,5 @@
         }
     }
 
-    private string StatusHeroIconClass => $"size-5 {(IsDisabled ? "opacity-60" : string.Empty)}";
+    private string StatusHeroIconClass => $"size-5 text-inherit {(IsDisabled ? "opacity-60" : string.Empty)}";
 }

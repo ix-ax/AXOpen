@@ -30,83 +30,83 @@ public class SerilogLogger : ILogger
 
     public void Debug(string message, IIdentity identity)
     {
-        Log.Debug("{message} {identity}",message, new { UserName = identity.Name });
+        Log.Debug("{message} {identity}",message, new { UserName = identity?.Name });
     }
 
     public void Debug(string message, ITwinElement sender, IIdentity identity, object details)
     {
         Log.Debug<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
             new { Symbol = sender?.Symbol, Label = sender?.HumanReadable },
-            new { UserName = identity.Name, Type = identity.AuthenticationType },
+            new { UserName = identity.Name, Type = identity?.AuthenticationType },
             details
         );
     }
 
     public void Verbose(string message, IIdentity identity)
     {
-        Log.Verbose("{message} {identity}", message, new { UserName = identity.Name });
+        Log.Verbose("{message} {identity}", message, new { UserName = identity?.Name });
     }
 
     public void Verbose(string message, ITwinElement sender, IIdentity identity, object details)
     {
         Log.Verbose<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
             new { Symbol = sender?.Symbol, Label = sender?.HumanReadable },
-            new { UserName = identity.Name, Type = identity.AuthenticationType },
+            new { UserName = identity.Name, Type = identity?.AuthenticationType },
             details
         );
     }
 
     public void Information(string message, IIdentity identity)
     {
-        Log.Information("{message} {identity}", message,new { UserName = identity.Name });
+        Log.Information("{message} {identity}", message,new { UserName = identity?.Name });
     }
 
     public void Information(string message, ITwinElement sender, IIdentity identity, object details)
     {
         Log.Information<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
             new { Symbol = sender?.Symbol, Label = sender?.HumanReadable },
-            new { UserName = identity.Name, Type = identity.AuthenticationType },
+            new { UserName = identity.Name, Type = identity?.AuthenticationType },
             details);
     }
 
     public void Warning(string message, IIdentity identity)
     {
-        Log.Warning("{message} {identity}", message, new { UserName = identity.Name });
+        Log.Warning("{message} {identity}", message, new { UserName = identity?.Name });
     }
 
     public void Warning(string message, ITwinElement sender, IIdentity identity, object details)
     {
         Log.Warning<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
             new { Symbol = sender?.Symbol, Label = sender?.HumanReadable },
-            new { UserName = identity.Name, Type = identity.AuthenticationType },
+            new { UserName = identity.Name, Type = identity?.AuthenticationType },
             details
         );
     }
 
     public void Error(string message, IIdentity identity)
     {
-        Log.Error("{message} {identity}", message, new { UserName = identity.Name });
+        Log.Error("{message} {identity}", message, new { UserName = identity?.Name });
     }
 
     public void Error(string message, ITwinElement sender, IIdentity identity, object details)
     {
         Log.Error<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
             new { Symbol = sender?.Symbol, Label = sender?.HumanReadable },
-            new { UserName = identity.Name, Type = identity.AuthenticationType },
+            new { UserName = identity.Name, Type = identity?.AuthenticationType },
             details
         );
     }
 
     public void Fatal(string message, IIdentity identity)
     {
-        Log.Fatal("{message} {identity}", message, new { UserName = identity.Name });
+        Log.Fatal("{message} {identity}", message, new { UserName = identity?.Name });
     }
 
     public void Fatal(string message, ITwinElement sender, IIdentity identity, object details)
     {
         Log.Fatal<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
             new { Symbol = sender?.Symbol, Label = sender?.HumanReadable },
-            new { UserName = identity.Name, Type = identity.AuthenticationType },
+            new { UserName = identity.Name, Type = identity?.AuthenticationType },
             details
         );
     }

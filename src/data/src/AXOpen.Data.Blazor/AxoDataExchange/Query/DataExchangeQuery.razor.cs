@@ -1,4 +1,4 @@
-﻿using AngleSharp.Text;
+using AngleSharp.Text;
 using AXOpen.Base.Data.Query;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
@@ -457,9 +457,14 @@ namespace AXOpen.Data.Query
             {
                 var lastselected = History.Items.Where(h => h.Name == History.LastSelectedItemName);
 
-                if (lastselected != null)
+                if (lastselected != null && lastselected.Any())
                 {
                     CurrentQuery = lastselected.FirstOrDefault();
+                }
+                else 
+                {
+                    if (History.Items.Any())
+                        CurrentQuery = History.Items.Last();
                 }
             }
 

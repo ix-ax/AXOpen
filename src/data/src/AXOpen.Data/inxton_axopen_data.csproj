@@ -23,6 +23,21 @@
 		<Content Include=".meta\**" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Resources\PlcStringResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>PlcStringResources.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\PlcStringResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>	    
+	  </EmbeddedResource>
+	</ItemGroup>
+
 
 	<ItemGroup>
 	    <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\inxton_axopen_abstractions.csproj" />

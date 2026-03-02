@@ -57,6 +57,12 @@ $propsPath = Join-Path $repoRoot 'Directory.Packages.props'
 if(-not (Test-Path $toolsJsonPath)){ Write-Err ".config/dotnet-tools.json not found at $toolsJsonPath"; exit 1 }
 if(-not (Test-Path $propsPath)){ Write-Err "Directory.Packages.props not found at $propsPath"; exit 1 }
 
+function Write-Utf8NoBom-LF {
+    param([string]$Path, [string]$Content)
+    $lf = ($Content -replace "`r`n", "`n") -replace "`r", "`n"
+    [System.IO.File]::WriteAllText($Path, $lf, [System.Text.UTF8Encoding]::new($false))
+}
+
 # Discover token from environment if not explicitly provided
 if(-not $Token){
     $envTokenCandidates = @('AXSHARP_FEED_TOKEN','GITHUB_PACKAGES_TOKEN','GITHUB_TOKEN','GH_TOKEN','NUGET_TOKEN')
@@ -254,10 +260,14 @@ foreach($k in $operonToolKeys){
 
 if(-not $DryRun){
     if($NormalizeJson){
-        $newJson = $toolsObj | ConvertTo-Json -Depth 10
+        #$newJson = $toolsObj | ConvertTo-Json -Depth 10
         # Normalize spacing after colons to a single space
-        $newJson = ($newJson -split "`r?`n") | ForEach-Object { $_ -replace '":\s+','": ' } | Out-String
-        Set-Content -Path $toolsJsonPath -Value ($newJson.TrimEnd() + [Environment]::NewLine) -Encoding UTF8
+        #$newJson = ($newJson -split "`r?`n") | ForEach-Object { $_ -replace '":\s+','": ' } | Out-String
+        #Set-Content -Path $toolsJsonPath -Value ($newJson.TrimEnd() + [Environment]::NewLine) -Encoding UTF8
+        $newJson = $toolsObj | ConvertTo-Json -Depth 10
+        $newJson = (($newJson -split "`r?`n") | ForEach-Object { $_ -replace '":\s+','": ' }) -join "`n"
+        $newJson = $newJson.TrimEnd() + "`n"
+        Write-Utf8NoBom-LF -Path $toolsJsonPath -Content $newJson
     } else {
         # In-place substitution to preserve existing formatting (indentation, alignment, comments if any)
         $updatedRaw = $toolsRaw
@@ -286,7 +296,8 @@ if(-not $DryRun){
             )
         }
         if($updatedRaw -ne $toolsRaw){
-            Set-Content -Path $toolsJsonPath -Value $updatedRaw -Encoding UTF8
+            #Set-Content -Path $toolsJsonPath -Value $updatedRaw -Encoding UTF8
+            Write-Utf8NoBom-LF -Path $toolsJsonPath -Content $updatedRaw
         }
     }
 }
@@ -331,7 +342,8 @@ $propsUpdated = [System.Text.RegularExpressions.Regex]::Replace($propsUpdated, $
 
 if(-not $DryRun){
     if($propsUpdated -ne $propsRaw){
-        Set-Content -Path $propsPath -Value $propsUpdated -Encoding UTF8
+        #Set-Content -Path $propsPath -Value $propsUpdated -Encoding UTF8
+        Write-Utf8NoBom-LF -Path $propsPath     -Content $propsUpdated
     } elseif($Detailed){
         Write-Info 'No AXSharp.* or Inxton.Operon.* entries needed updating in Directory.Packages.props.'
     }

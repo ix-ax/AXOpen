@@ -10,6 +10,8 @@ namespace Pocos.AXOpen.Data
         public string _EntityId { get; set; }
         List<ValueChangeItem> Changes { get; set; }
 
+       
+
         string Hash { get; set; }
     }
 }

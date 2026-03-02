@@ -29,7 +29,7 @@ Templates:
         Modules:
           - Name: '${NAME}'
             TypeIdentifier:
-              FileName: 'GSDML-V2.44-COGNEX-DATAMAN280-20250924.XML'
+              FileName: 'gsdml-v2.42-cognex-datamanclassb-20220124.xml'
               GsdId: 'DAP46'
             Interfaces:
             - Name: 'Interface'
@@ -59,27 +59,27 @@ Templates:
           - Name: Acquisition_Control
             TypeIdentifier:
               GsdId: '101'
-              FileName: 'GSDML-V2.44-COGNEX-DATAMAN280-20250924.XML'
+              FileName: 'gsdml-v2.42-cognex-datamanclassb-20220124.xml'
             Slot: 1
           - Name: Acquisition_Status
             TypeIdentifier:
               GsdId: '201'
-              FileName: 'GSDML-V2.44-COGNEX-DATAMAN280-20250924.XML'
+              FileName: 'gsdml-v2.42-cognex-datamanclassb-20220124.xml'
             Slot: 2
           - Name: Results_Control
             TypeIdentifier:
               GsdId: '102'
-              FileName: 'GSDML-V2.44-COGNEX-DATAMAN280-20250924.XML'
+              FileName: 'gsdml-v2.42-cognex-datamanclassb-20220124.xml'
             Slot: 3
           - Name: Results_Status
             TypeIdentifier:
               GsdId: '202'
-              FileName: 'GSDML-V2.44-COGNEX-DATAMAN280-20250924.XML'
+              FileName: 'gsdml-v2.42-cognex-datamanclassb-20220124.xml'
             Slot: 4
           - Name: Soft_Event_Control
             TypeIdentifier:
               GsdId: '105'
-              FileName: 'GSDML-V2.44-COGNEX-DATAMAN280-20250924.XML'
+              FileName: 'gsdml-v2.42-cognex-datamanclassb-20220124.xml'
             Slot: 5
           - Apply: ${USER_DATA}
           - Apply: ${RESULT_DATA}

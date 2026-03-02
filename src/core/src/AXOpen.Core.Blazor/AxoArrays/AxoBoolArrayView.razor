@@ -3,14 +3,19 @@
 @using AXSharp.Connector;
 @using Operon.Components.Accordion
 @using Operon.Icons
+@using System.Globalization
+@using AXSharp.Connector.Localizations
+@using Microsoft.Extensions.Localization
+@using AXOpen.Core.Blazor.Properties
+@inject IStringLocalizer<AxOpenCoreResources> Localizer
 @* @using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents; *@
 @inherits RenderableComplexComponentBase<AxoBoolArray>;
 
 <div data-axo-bool-array-view class="flex flex-wrap w-full">
     <Accordion>
-        <AccordionItem Title="Data">
+        <AccordionItem Title="@Localizer["Data"]">
             <div class="flex flex-wrap justify-between">
-                <p class="align-middle">@Component.AttributeName</p>
+                <p class="align-middle">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</p>
 
                 <button type="button" class="btn btn-primary" @onclick="() => UpdateData(null, null)">
                     <HeroIcon Icon="arrow-path" Type="Operon.Icons.IconType.Outline" Class="size-5" />

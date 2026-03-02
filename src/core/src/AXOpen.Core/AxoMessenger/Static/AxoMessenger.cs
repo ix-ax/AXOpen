@@ -136,8 +136,8 @@ public partial class AxoMessenger
     private List<KeyValuePair<ulong, AxoMessengerTextItem>> dotNetMessengerTextList;
     public List<KeyValuePair<ulong, AxoMessengerTextItem>> DotNetMessengerTextList
     {
-        get{return dotNetMessengerTextList != null ? dotNetMessengerTextList : new List<KeyValuePair<ulong, AxoMessengerTextItem>>();}
-        set{dotNetMessengerTextList = value != null ? value : new List<KeyValuePair<ulong, AxoMessengerTextItem>>(); }
+        get{ return dotNetMessengerTextList != null ? dotNetMessengerTextList : new List<KeyValuePair<ulong, AxoMessengerTextItem>>(); }
+        set{ dotNetMessengerTextList = value != null ? value : new List<KeyValuePair<ulong, AxoMessengerTextItem>>(); }
     }
 
 

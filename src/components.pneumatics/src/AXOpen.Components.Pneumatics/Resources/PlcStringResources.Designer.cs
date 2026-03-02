@@ -59,5 +59,68 @@ namespace AXOpen.Components.Pneumatics.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In sensor.
+        /// </summary>
+        public static string In_sensor {
+            get {
+                return ResourceManager.GetString("In_sensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move in.
+        /// </summary>
+        public static string Move_in {
+            get {
+                return ResourceManager.GetString("Move_in", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move in signal.
+        /// </summary>
+        public static string Move_in_signal {
+            get {
+                return ResourceManager.GetString("Move_in_signal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move out.
+        /// </summary>
+        public static string Move_out {
+            get {
+                return ResourceManager.GetString("Move_out", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move out signal.
+        /// </summary>
+        public static string Move_out_signal {
+            get {
+                return ResourceManager.GetString("Move_out_signal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Out sensor.
+        /// </summary>
+        public static string Out_sensor {
+            get {
+                return ResourceManager.GetString("Out_sensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop.
+        /// </summary>
+        public static string Stop {
+            get {
+                return ResourceManager.GetString("Stop", resourceCulture);
+            }
+        }
     }
 }

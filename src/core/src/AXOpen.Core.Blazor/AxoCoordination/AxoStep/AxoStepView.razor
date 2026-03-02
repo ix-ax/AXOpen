@@ -2,6 +2,9 @@
 @using AXOpen.Core.Blazor.Culture;
 @using AXSharp.Connector.ValueTypes;
 @using AXSharp.Connector;
+@using Microsoft.Extensions.Localization
+@using AXOpen.Core.Blazor.Properties
+@inject IStringLocalizer<AxOpenCoreResources> Localizer
 @inherits RenderableComplexComponentBase<AxoStep>
 
 <div data-axo-step-view class="flex flex-wrap justify-center items-center gap-2 w-full px-4 py-2 @Class">
@@ -31,7 +34,7 @@
     <div class="flex flex-wrap items-center gap-2">
         @if (_stepState == eStepState.Active || _stepState == eStepState.Done)
         {
-            <span class="badge @(_stepState == eStepState.Active ? "badge-primary" : null)" title="Duration">
+            <span class="badge @(_stepState == eStepState.Active ? "badge-primary" : null)" title="@Localizer["Duration"]">
                 <Operon.Icons.HeroIcon Icon="clock" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                 @_durationText
             </span>

@@ -11,22 +11,24 @@
 @using AXOpen.Messaging
 @using AXSharp.Connector
 @inject AuthenticationStateProvider AuthenticationStateProvider;
+@using System.Globalization
+@using AXSharp.Connector.Localizations
 
 @if (EnableFiltering)
 {
     <div data-axo-object-diagnostics-view class="card p-2">
         <div class="input-group">
-            <input type="text" id="inputTailwindString" @bind="SearchTerm" @bind:event="oninput" title="Search alarms" placeholder="Search title or equipment" />
+            <input type="text" id="inputTailwindString" @bind="SearchTerm" @bind:event="oninput" title="@Localizer["SearchAlarms"]" placeholder="@Localizer["SearchTitleOrEquipment"]" />
         </div>
 
         <div class="flex flex-wrap flex-row items-center justify-center gap-4 py-1">
             <div class="inline-flex flex-wrap items-center gap-2">
-                <span class="text-sm font-semibold uppercase">Severity</span>
+                <span class="text-sm font-semibold uppercase">@Localizer["Severity"]</span>
                 @foreach (var severity in SeverityOptions)
                 {
                     <label class="btn btn-sm @(IsSeveritySelected(severity) ? "btn-primary" : "btn-outline-primary")">
                         <input type="checkbox" checked="@IsSeveritySelected(severity)" @onchange="() => ToggleSeverity(severity)" class="checkbox me-1" />
-                        <span>@SeverityLabel(severity)</span>
+                        @SeverityLabel(severity)
                     </label>
                 }
             </div>
@@ -34,22 +36,22 @@
             <div class="w-[1px] h-6 bg-text-light/60"></div>
 
             <div class="inline-flex flex-wrap items-center gap-2">
-                <span class="text-sm font-semibold uppercase">State</span>
+                <span class="text-sm font-semibold uppercase">@Localizer["State"]</span>
                 <label class="btn btn-sm @(IncludeActive ? "btn-primary" : "btn-outline-primary")">
                     <input type="checkbox" @bind="IncludeActive" class="checkbox me-1" />
-                    <span>Active</span>
+                    @Localizer["Active"]
                 </label>
                 <label class="btn btn-sm @(IncludeCleared ? "btn-primary" : "btn-outline-primary")">
                     <input type="checkbox" @bind="IncludeCleared" class="checkbox me-1" />
-                    <span>Cleared</span>
+                    @Localizer["Cleared"]
                 </label>
             </div>
 
             <div class="w-[1px] h-6 bg-text-light/60"></div>
 
-            <button type="button" class="btn btn-sm btn-primary gap-1 @(_shouldBounce ? "animate-bounce" : null)" @onclick="RefreshMessages" title="Refresh messages">
+            <button type="button" class="btn btn-sm btn-primary gap-1 @(_shouldBounce ? "animate-bounce" : null)" @onclick="RefreshMessages" title="@Localizer["RefreshMessages"]">
                 <Operon.Icons.HeroIcon Icon="arrow-path" Type="Operon.Icons.IconType.Solid" Class="size-3" />
-                Refresh
+                @Localizer["Refresh"]
             </button>
         </div>
     </div>
@@ -59,16 +61,16 @@
     <table class="table table-striped table-hover @Class" style="@Style">
         <thead>
             <tr>
-                <th>Severity</th>
-                <th>Title</th>
-                <th>Equipment</th>
-                <th>State</th>
-                <th>Raised</th>
-                <th>Acknowledged</th>
-                <th>Duration</th>
+                <th>@Localizer["Severity"]</th>
+                <th>@Localizer["Title"]</th>
+                <th>@Localizer["Equipment"]</th>
+                <th>@Localizer["State"]</th>
+                <th>@Localizer["Raised"]</th>
+                <th>@Localizer["Acknowledged"]</th>
+                <th>@Localizer["Duration"]</th>
                 @if (HasActionsColumn)
                 {
-                    <th class="text-right">Actions</th>
+                    <th class="text-right">@Localizer["Actions"]</th>
                 }
             </tr>
         </thead>
@@ -76,7 +78,7 @@
             @if (Rows.Count == 0)
             {
                 <tr>
-                    <td colspan="@(HasActionsColumn ? 8 : 7)" class="p-2">No alarms to display.</td>
+                    <td colspan="@(HasActionsColumn ? 8 : 7)" class="p-2">@Localizer["NoAlarmsToDisplay"]</td>
                 </tr>
             }
             else
@@ -90,7 +92,7 @@
                         role="@RowRole"
                         tabindex="@RowTabIndex">
                         <td class="flex flex-nowrap gap-2 items-center">
-                            <button type="button" class="flex cursor-pointer" @onclick:stopPropagation="true" @onclick="() => ToggleAlarmDetails(alarm)" title="@(isExpanded ? "Hide details" : "Show details")" aria-expanded="@isExpanded">
+                            <button type="button" class="flex cursor-pointer" @onclick:stopPropagation="true" @onclick="() => ToggleAlarmDetails(alarm)" title="@(isExpanded ? Localizer["HideDetails"] : Localizer["ShowDetails"])" aria-expanded="@isExpanded">
                                 <Operon.Icons.HeroIcon Icon="chevron-right" Type="Operon.Icons.IconType.Solid" Class="@(isExpanded ? "size-5 icon-button-rotate-90 rotated" : "size-5 icon-button-rotate-90")" />
                             </button>
                             <span class="badge @ConvertToInternalBadgeSeverityName((eAxoMessageCategory)alarm.Category.LastValue)" aria-label="@alarm.Category">
@@ -98,7 +100,7 @@
                             </span>
                         </td>
                         <td>@DisplayOrDash(@alarm.GetMessageText())</td>
-                        <td>@alarm.GetParent()?.AttributeName</td>
+                        <td>@(alarm.GetParent() != null ? alarm.GetParent().GetAttributeName(CultureInfo.CurrentUICulture) : string.Empty)</td>
                         <td class="font-semibold uppercase">@StateLabel(alarm)</td>
                         <td>@FormatTimestamp(alarm.Risen.LastValue)</td>
                         <td>@FormatAcknowledged(alarm)</td>
@@ -113,9 +115,9 @@
 
                                 @if (alarm.State == (eAxoMessengerState.ActiveAcknowledgeRequired))
                                 {
-                                    <button type="button" class="btn btn-sm btn-primary gap-1" disabled="@(!CanAcknowledge(alarm))" @onclick:stopPropagation="true" @onclick="(() => HandleAcknowledge(alarm))" title="Acknowledge alarm">
+                                    <button type="button" class="btn btn-sm btn-primary gap-1" disabled="@(!CanAcknowledge(alarm))" @onclick:stopPropagation="true" @onclick="(() => HandleAcknowledge(alarm))" title="@Localizer["AcknowledgeAlarm"]">
                                         <Operon.Icons.HeroIcon Icon="check" Type="Operon.Icons.IconType.Solid" Class="size-5" />
-                                        ACKN
+                                        @Localizer["ACKN"]
                                     </button>
                                 }
                             </td>
@@ -124,7 +126,7 @@
                         {
                             <td class="text-right">
                                 <div class="badge badge-primary uppercase">
-                                    <p>Ack</p>
+                                    <p>@Localizer["Ack"]</p>
                                 </div>
                             </td>
                         }
@@ -135,26 +137,26 @@
                             <td colspan="@(HasActionsColumn ? 8 : 7)">
                                 <div class="flex flex-wrap flex-row justify-between w-full">
                                     <div class="flex flex-wrap flex-col">
-                                        <span class="text-xs text-text/60 font-semibold uppercase">Suggestion:</span>
+                                        <span class="text-xs text-text/60 font-semibold uppercase">@Localizer["Suggestion"]:</span>
                                         <span class="text-xs text-text/80">@DisplayOrDash(alarm.GetHelpText())</span>
                                     </div>
                                     <div class="flex flex-wrap flex-col">
-                                        <span class="text-xs text-text/60 font-semibold uppercase">Symbol:</span>
+                                        <span class="text-xs text-text/60 font-semibold uppercase">@Localizer["Symbol"]:</span>
                                         <span class="text-xs text-text/80">@DisplayOrDash(alarm.Component.Symbol)</span>
                                     </div>
                                     <div class="flex flex-wrap flex-col">
-                                        <span class="text-xs text-text/60 font-semibold uppercase">Human Readable:</span>
+                                        <span class="text-xs text-text/60 font-semibold uppercase">@Localizer["HumanReadable"]:</span>
                                         <span class="text-xs text-text/80">@DisplayOrDash(alarm.Component.HumanReadable)</span>
                                     </div>
                                     <div class="flex flex-wrap flex-col">
-                                        <span class="text-xs text-text/60 font-semibold uppercase">Alarm ID:</span>
+                                        <span class="text-xs text-text/60 font-semibold uppercase">@Localizer["AlarmId"]:</span>
                                         <span class="text-xs text-text/80">@DisplayOrDash(alarm.Identity.LastValue.ToString())</span>
                                     </div>
                                     <AuthorizeView Roles="Administrator">
                                         <Authorized>
                                             <div class="flex flex-wrap flex-col">
-                                                <span class="text-xs text-text/60 font-semibold uppercase">Restore:</span>
-                                                <button class="btn btn-sm btn-primary" @onclick="() => RestoreParentTask(alarm)">Restore</button>
+                                                <span class="text-xs text-text/60 font-semibold uppercase">@Localizer["Restore"]:</span>
+                                                <button class="btn btn-sm btn-primary" @onclick="() => RestoreParentTask(alarm)">@Localizer["RestoreButton"]</button>
                                             </div>
                                         </Authorized>
                                     </AuthorizeView>
@@ -176,23 +178,23 @@
     }
 
     private static string DisplayOrDash(string? value) => string.IsNullOrWhiteSpace(value) ? "—" : value;
-    private static string SeverityLabel(eAxoMessageCategory category) => ConvertToSeverityName(category);
-    private static string StateLabel(AxoMessenger alarm)
+    private string SeverityLabel(eAxoMessageCategory category) => ConvertToSeverityName(category);
+    private string StateLabel(AxoMessenger alarm)
     {
         if (!alarm.IsActive)
         {
-            return "Cleared";
+            return Localizer["Cleared"];
         }
 
-        return alarm.IsAcknowledged ? "Active · Ack" : "Active";
+        return alarm.IsAcknowledged ? Localizer["ActiveAck"] : Localizer["Active"];
     }
     private static string FormatTimestamp(DateTime? timestamp)
         => timestamp?.ToLocalTime().ToString("g") ?? "—";
-    private static string FormatAcknowledged(AxoMessenger Component)
+    private string FormatAcknowledged(AxoMessenger Component)
     {
         if (!Component.IsAcknowledged)
         {
-            return Component.IsActive ? "Pending" : "—";
+            return Component.IsActive ? Localizer["Pending"] : "—";
         }
 
         return FormatTimestamp(Component.Acknowledged.LastValue);
@@ -264,24 +266,17 @@
         }
     }
 
-    private static string ConvertToSeverityName(eAxoMessageCategory category)
+    private string ConvertToSeverityName(eAxoMessageCategory category)
     {
-        switch (category)
+        return category switch
         {
-            case eAxoMessageCategory.Info:
-                return "info";
-            case eAxoMessageCategory.Warning:
-                return "warning";
-            case eAxoMessageCategory.Error:
-                return "error";
-            case eAxoMessageCategory.ProgrammingError:
-                return "system";
-            case eAxoMessageCategory.Critical:
-                return "fatal";
-         
-        }
-
-        return string.Empty;
+            eAxoMessageCategory.Info => Localizer["SeverityInfo"],
+            eAxoMessageCategory.Warning => Localizer["SeverityWarning"],
+            eAxoMessageCategory.Error => Localizer["SeverityError"],
+            eAxoMessageCategory.ProgrammingError => Localizer["SeverityProgrammingError"],
+            eAxoMessageCategory.Critical => Localizer["SeverityCritical"],
+            _ => string.Empty
+        };
     }
 
     private static string ConvertToInternalBadgeSeverityName(eAxoMessageCategory category)
@@ -356,7 +351,7 @@
     {
         return (alarm.Message.LastValue?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false)
                || (alarm.Component.Symbol?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false)
-               || (alarm.Component.AttributeName?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false)
+               || (alarm.Component.AttributeName != null && alarm.Component.GetAttributeName(CultureInfo.CurrentUICulture)?.Contains(term, StringComparison.OrdinalIgnoreCase) == true)
                || (alarm.Message.LastValue?.Contains(term, StringComparison.OrdinalIgnoreCase) ?? false);
     }
 

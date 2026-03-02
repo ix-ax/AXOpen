@@ -31,9 +31,7 @@ namespace AXOpen.Data.Blazor.Properties {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal AxOpenDataResources() {
         }
-
-        public static IFormatProvider Data_with_ID_was_created_for { get; internal set; }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -320,6 +318,15 @@ namespace AXOpen.Data.Blazor.Properties {
         internal static string Deleted {
             get {
                 return ResourceManager.GetString("Deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Don&apos;t send.
+        /// </summary>
+        internal static string Don_t_send {
+            get {
+                return ResourceManager.GetString("Don\'t send", resourceCulture);
             }
         }
         
@@ -653,6 +660,24 @@ namespace AXOpen.Data.Blazor.Properties {
         internal static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select an option.
+        /// </summary>
+        internal static string Select_an_option {
+            get {
+                return ResourceManager.GetString("Select an option", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send error.
+        /// </summary>
+        internal static string Send {
+            get {
+                return ResourceManager.GetString("Send", resourceCulture);
             }
         }
         

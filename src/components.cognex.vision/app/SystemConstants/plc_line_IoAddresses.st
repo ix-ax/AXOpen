@@ -2,7 +2,11 @@ CONFIGURATION IoAddresses
     VAR_GLOBAL
 
         // Module cognex_dataman_280/Acquisition_Control
+<<<<<<< HEAD
         cognex_dataman_280_Acquisition_Control_Output AT %QB2336 : cognex_dataman_280_Acquisition_Control_Output_Layout;
+=======
+        cognex_dataman_280_Acquisition_Control_Output AT %QB2574 : cognex_dataman_280_Acquisition_Control_Output_Layout;
+>>>>>>> dev
 
         // Module cognex_dataman_280/Acquisition_Status
         cognex_dataman_280_Acquisition_Status_Input AT %IB2607 : cognex_dataman_280_Acquisition_Status_Input_Layout;
@@ -11,13 +15,18 @@ CONFIGURATION IoAddresses
         cognex_dataman_280_ResultData_128_Input AT %IB2470 : cognex_dataman_280_ResultData_128_Input_Layout;
 
         // Module cognex_dataman_280/Results_Control
+<<<<<<< HEAD
         cognex_dataman_280_Results_Control_Output AT %QB2335 : cognex_dataman_280_Results_Control_Output_Layout;
+=======
+        cognex_dataman_280_Results_Control_Output AT %QB2573 : cognex_dataman_280_Results_Control_Output_Layout;
+>>>>>>> dev
 
         // Module cognex_dataman_280/Results_Status
         cognex_dataman_280_Results_Status_Input AT %IB2606 : cognex_dataman_280_Results_Status_Input_Layout;
 
         // Module cognex_dataman_280/Soft_Event_Control
         cognex_dataman_280_Soft_Event_Control_Input AT %IB2610 : cognex_dataman_280_Soft_Event_Control_Input_Layout;
+<<<<<<< HEAD
         cognex_dataman_280_Soft_Event_Control_Output AT %QB2334 : cognex_dataman_280_Soft_Event_Control_Output_Layout;
 
         // Module cognex_dataman_280/UserData_128
@@ -25,6 +34,15 @@ CONFIGURATION IoAddresses
 
         // Module cognex_dataman_380/Acquisition_Control
         cognex_dataman_380_Acquisition_Control_Output AT %QB2201 : cognex_dataman_380_Acquisition_Control_Output_Layout;
+=======
+        cognex_dataman_280_Soft_Event_Control_Output AT %QB2572 : cognex_dataman_280_Soft_Event_Control_Output_Layout;
+
+        // Module cognex_dataman_280/UserData_128
+        cognex_dataman_280_UserData_128_Output AT %QB2440 : cognex_dataman_280_UserData_128_Output_Layout;
+
+        // Module cognex_dataman_380/Acquisition_Control
+        cognex_dataman_380_Acquisition_Control_Output AT %QB2439 : cognex_dataman_380_Acquisition_Control_Output_Layout;
+>>>>>>> dev
 
         // Module cognex_dataman_380/Acquisition_Status
         cognex_dataman_380_Acquisition_Status_Input AT %IB2466 : cognex_dataman_380_Acquisition_Status_Input_Layout;
@@ -33,13 +51,18 @@ CONFIGURATION IoAddresses
         cognex_dataman_380_ResultData_128_Input AT %IB2329 : cognex_dataman_380_ResultData_128_Input_Layout;
 
         // Module cognex_dataman_380/Results_Control
+<<<<<<< HEAD
         cognex_dataman_380_Results_Control_Output AT %QB2200 : cognex_dataman_380_Results_Control_Output_Layout;
+=======
+        cognex_dataman_380_Results_Control_Output AT %QB2438 : cognex_dataman_380_Results_Control_Output_Layout;
+>>>>>>> dev
 
         // Module cognex_dataman_380/Results_Status
         cognex_dataman_380_Results_Status_Input AT %IB2465 : cognex_dataman_380_Results_Status_Input_Layout;
 
         // Module cognex_dataman_380/Soft_Event_Control
         cognex_dataman_380_Soft_Event_Control_Input AT %IB2469 : cognex_dataman_380_Soft_Event_Control_Input_Layout;
+<<<<<<< HEAD
         cognex_dataman_380_Soft_Event_Control_Output AT %QB2199 : cognex_dataman_380_Soft_Event_Control_Output_Layout;
 
         // Module cognex_dataman_380/UserData_128
@@ -47,6 +70,15 @@ CONFIGURATION IoAddresses
 
         // Module cognex_insight_2800/Slot_1
         cognex_insight_2800_Slot_1_Output AT %QB2066 : cognex_insight_2800_Slot_1_Output_Layout;
+=======
+        cognex_dataman_380_Soft_Event_Control_Output AT %QB2437 : cognex_dataman_380_Soft_Event_Control_Output_Layout;
+
+        // Module cognex_dataman_380/UserData_128
+        cognex_dataman_380_UserData_128_Output AT %QB2305 : cognex_dataman_380_UserData_128_Output_Layout;
+
+        // Module cognex_insight_2800/Slot_1
+        cognex_insight_2800_Slot_1_Output AT %QB2304 : cognex_insight_2800_Slot_1_Output_Layout;
+>>>>>>> dev
 
         // Module cognex_insight_2800/Slot_10
         cognex_insight_2800_Slot_10_Output AT %QB2470 : cognex_insight_2800_Slot_10_Output_Layout;
@@ -67,13 +99,18 @@ CONFIGURATION IoAddresses
         cognex_insight_2800_Slot_2_Input AT %IB2316 : cognex_insight_2800_Slot_2_Input_Layout;
 
         // Module cognex_insight_2800/Slot_3
+<<<<<<< HEAD
         cognex_insight_2800_Slot_3_Output AT %QB2065 : cognex_insight_2800_Slot_3_Output_Layout;
+=======
+        cognex_insight_2800_Slot_3_Output AT %QB2303 : cognex_insight_2800_Slot_3_Output_Layout;
+>>>>>>> dev
 
         // Module cognex_insight_2800/Slot_4
         cognex_insight_2800_Slot_4_Input AT %IB2320 : cognex_insight_2800_Slot_4_Input_Layout;
 
         // Module cognex_insight_2800/Slot_5
         cognex_insight_2800_Slot_5_Input AT %IB2324 : cognex_insight_2800_Slot_5_Input_Layout;
+<<<<<<< HEAD
         cognex_insight_2800_Slot_5_Output AT %QB2062 : cognex_insight_2800_Slot_5_Output_Layout;
 
         // Module cognex_insight_2800/Slot_6
@@ -91,16 +128,42 @@ CONFIGURATION IoAddresses
 
         // Module cognex_insight_7600/Acquisition_Control
         cognex_insight_7600_Acquisition_Control_Output AT %QB2469 : cognex_insight_7600_Acquisition_Control_Output_Layout;
+=======
+        cognex_insight_2800_Slot_5_Output AT %QB2300 : cognex_insight_2800_Slot_5_Output_Layout;
+
+        // Module cognex_insight_2800/Slot_6
+        cognex_insight_2800_Slot_6_Input AT %IB2328 : cognex_insight_2800_Slot_6_Input_Layout;
+        cognex_insight_2800_Slot_6_Output AT %QB2302 : cognex_insight_2800_Slot_6_Output_Layout;
+
+        // Module cognex_insight_2800/Slot_7
+        cognex_insight_2800_Slot_7_Output AT %QB2046 : cognex_insight_2800_Slot_7_Output_Layout;
+
+        // Module cognex_insight_2800/Slot_8
+        cognex_insight_2800_Slot_8_Output AT %QB1792 : cognex_insight_2800_Slot_8_Output_Layout;
+
+        // Module cognex_insight_2800/Slot_9
+        cognex_insight_2800_Slot_9_Output AT %QB1538 : cognex_insight_2800_Slot_9_Output_Layout;
+
+        // Module cognex_insight_7600/Acquisition_Control
+        cognex_insight_7600_Acquisition_Control_Output AT %QB2707 : cognex_insight_7600_Acquisition_Control_Output_Layout;
+>>>>>>> dev
 
         // Module cognex_insight_7600/Acquisition_Status
         cognex_insight_7600_Acquisition_Status_Input AT %IB2747 : cognex_insight_7600_Acquisition_Status_Input_Layout;
 
         // Module cognex_insight_7600/Command_Control
         cognex_insight_7600_Command_Control_Input AT %IB2750 : cognex_insight_7600_Command_Control_Input_Layout;
+<<<<<<< HEAD
         cognex_insight_7600_Command_Control_Output AT %QB2465 : cognex_insight_7600_Command_Control_Output_Layout;
 
         // Module cognex_insight_7600/Inspection_Control
         cognex_insight_7600_Inspection_Control_Output AT %QB2468 : cognex_insight_7600_Inspection_Control_Output_Layout;
+=======
+        cognex_insight_7600_Command_Control_Output AT %QB2703 : cognex_insight_7600_Command_Control_Output_Layout;
+
+        // Module cognex_insight_7600/Inspection_Control
+        cognex_insight_7600_Inspection_Control_Output AT %QB2706 : cognex_insight_7600_Inspection_Control_Output_Layout;
+>>>>>>> dev
 
         // Module cognex_insight_7600/Inspection_Status
         cognex_insight_7600_Inspection_Status_Input AT %IB2743 : cognex_insight_7600_Inspection_Status_Input_Layout;
@@ -110,10 +173,17 @@ CONFIGURATION IoAddresses
 
         // Module cognex_insight_7600/SoftEvent_Control
         cognex_insight_7600_SoftEvent_Control_Input AT %IB2752 : cognex_insight_7600_SoftEvent_Control_Input_Layout;
+<<<<<<< HEAD
         cognex_insight_7600_SoftEvent_Control_Output AT %QB2467 : cognex_insight_7600_SoftEvent_Control_Output_Layout;
 
         // Module cognex_insight_7600/UserData_128
         cognex_insight_7600_UserData_128_Output AT %QB2337 : cognex_insight_7600_UserData_128_Output_Layout;
+=======
+        cognex_insight_7600_SoftEvent_Control_Output AT %QB2705 : cognex_insight_7600_SoftEvent_Control_Output_Layout;
+
+        // Module cognex_insight_7600/UserData_128
+        cognex_insight_7600_UserData_128_Output AT %QB2575 : cognex_insight_7600_UserData_128_Output_Layout;
+>>>>>>> dev
 
         // Module vision_pro/Engine_Control_1
         vision_pro_Engine_Control_1_Input AT %IB1288 : vision_pro_Engine_Control_1_Input_Layout;

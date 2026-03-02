@@ -1,14 +1,14 @@
 ﻿@using AXOpen.VisualComposer.Components.VisualComposerItem
 @using AXSharp.Connector;
 @using Microsoft.AspNetCore.Components.Forms;
-@using KristofferStrube.Blazor.SVGEditor
+@* @using KristofferStrube.Blazor.SVGEditor *@
 @using Operon.Components
 @using Operon.Components.Accordion
 @using Operon.Components.Dropdown
 
-<link href="_content/BlazorColorPicker/colorpicker.css" rel="stylesheet" />
+@* <link href="_content/BlazorColorPicker/colorpicker.css" rel="stylesheet" />
 <link href="_content/Blazor.ContextMenu/blazorContextMenu.min.css" rel="stylesheet" />
-<link href="_content/AXOpen.KristofferStrube.Blazor.SVGEditor/kristofferStrubeBlazorSVGEditor.css" rel="stylesheet" />
+<link href="_content/AXOpen.KristofferStrube.Blazor.SVGEditor/kristofferStrubeBlazorSVGEditor.css" rel="stylesheet" /> *@
 
 <AuthorizeView Roles="Administrator">
     <Authorized>
@@ -46,18 +46,18 @@
                             {
                                 <a class="dropdown-item" @onclick="() => { _modalCreateCopy.Toggle(); _dropdownOption.CloseDropdown(); }">Create copy</a>
                                 <a class="dropdown-item" @onclick="() => { _modalBackground.Toggle(); _dropdownOption.CloseDropdown(); }">Background</a>
-                                <a class="dropdown-item" @onclick="() => { _editSVG = !_editSVG; _dropdownOption.CloseDropdown(); }">Toggle Edit SVG</a>
+                                @* <a class="dropdown-item" @onclick="() => { _editSVG = !_editSVG; _dropdownOption.CloseDropdown(); }">Toggle Edit SVG</a>
                                 @if (_editSVG)
                                 {
                                     <a class="dropdown-item" @onclick="() => { _modalBackgroundSVGInput.Toggle(); _dropdownOption.CloseDropdown(); }">Background SVG Input</a>
-                                }
+                                } *@
                                 <a class="dropdown-item" @onclick="async () => { await ChangeThemeAsync(); _dropdownOption.CloseDropdown(); }">Change theme</a>
                             }
                         </DropdownBody>
                     </Dropdown>
                 }
 
-                <button class="btn btn-no-bg-secondary p-1" @onclick="() => _inDesignMode = !_inDesignMode">
+                <button class="btn btn-no-bg-primary p-1" @onclick="() => _inDesignMode = !_inDesignMode">
                     <Operon.Icons.HeroIcon Icon="adjustments-horizontal" Type="Operon.Icons.IconType.Outline" Class="size-6" />
                 </button>
             </div>
@@ -109,11 +109,11 @@
                 </table>
             </div>
         }
-        else if (_inDesignMode && _editSVG)
+        @* else if (_inDesignMode && _editSVG)
         {
-            <div class="relative overflow-hidden m-0 p-0 w-full">
-                <div id="@_backgroundId" style="width: 100%; height: @((CurrentView.BackgroundHeight / CurrentView.BackgroundWidth) * ElementSize.Width)px;">
-                    <SVGEditor BackgroundTransparent="true" ViewBox="@("0 0 " + CurrentView.BackgroundWidth + " " + CurrentView.BackgroundHeight)" Input=@CurrentView.BackgroundSVGInput InputUpdated="(string s) => { CurrentView.BackgroundSVGInput = s; SaveAsync(); }" DisableZoom="true" DisablePanning="true" DisableScaleLabel="true" BackgroundWidth="CurrentView.BackgroundWidth" BackgroundHeight="CurrentView.BackgroundHeight" ElementWidth="ElementSize.Width" ElementHeight="(CurrentView.BackgroundHeight / CurrentView.BackgroundWidth) * ElementSize.Width" />
+            <div class="relative overflow-hidden m-0 p-0 w-full h-full">
+                <div id="@_backgroundId" class="w-full h-full">
+                    <SVGEditor BackgroundTransparent="true" Input=@CurrentView.BackgroundSVGInput InputUpdated="(string s) => { CurrentView.BackgroundSVGInput = s; SaveAsync(); }" DisableZoom="true" DisablePanning="true" DisableScaleLabel="true" ElementWidth="ElementSize.Width" ElementHeight="ElementSize.Width" />
                 </div>
 
                 <CascadingValue Value="@this" Name="Parent" IsFixed="true">
@@ -123,22 +123,22 @@
                     }
                     @if (!string.IsNullOrEmpty(CurrentView.ImgSrc))
                     {
-                        <div style="position: absolute; left: 0; top: 0; width: 100%; z-index: -1;">
-                            <img src="@CurrentView.ImgSrc" style="width: 100%; height: 100%;" />
+                        <div class="absolute w-full h-full -z-1" style="left: 50%; top: 50%; transform: scale(@(CurrentView.BackgroundImageScale.ToString().Replace(',', '.')));">
+                            <img src="@CurrentView.ImgSrc" class="@(CurrentView.BackgroundImageKeepAspectRatio ? "w-auto h-auto" : "w-full h-full")" style="translate: -50% -50%;" />
                         </div>
                     }
                 </CascadingValue>
             </div>
-        }
+        } *@
         else
         {
-            <div onpointermove="event.preventDefault()" onpointerleave="event.preventDefault()" class="w-full">
+            <div onpointermove="event.preventDefault()" onpointerleave="event.preventDefault()" class="w-full h-full">
                 <div @onpointermove="Move"
-                     @onpointerleave="Leave">
-                    <ZoomableContainer Parent="this" Disable="!CurrentView.AllowZoomingAndPanning">
-                        <div id="@_backgroundId" style="width: 100%; height: @((CurrentView.BackgroundHeight / CurrentView.BackgroundWidth) * ElementSize.Width)px;">
-                            <svg width="100%" height="100%" viewBox="0 0 @(CurrentView.BackgroundWidth) @(CurrentView.BackgroundHeight)">@(new MarkupString(CurrentView.BackgroundSVGInput))</svg>
-                        </div>
+                     @onpointerleave="Leave" class="w-full h-full">
+                    <ZoomableContainer Parent="this" Disable="!CurrentView.AllowZoomingAndPanning" Guid="_backgroundId">
+                        @* <div id="@_backgroundId" class="w-full h-full">
+                            <svg class="w-full h-full">@(new MarkupString(CurrentView.BackgroundSVGInput))</svg>
+                        </div> *@
 
                         <CascadingValue Value="@this" Name="Parent" IsFixed="true">
                             @foreach (VisualComposerItemData item in _items)
@@ -147,8 +147,8 @@
                             }
                             @if (!string.IsNullOrEmpty(CurrentView.ImgSrc))
                             {
-                                <div style="position: absolute; left: 0; top: 0; width: 100%; z-index: -1;">
-                                    <img src="@CurrentView.ImgSrc" style="width: 100%; height: 100%;" />
+                                <div class="absolute w-full h-full -z-1" style="left: 50%; top: 50%; transform: scale(@(CurrentView.BackgroundImageScale.ToString().Replace(',', '.')));">
+                                    <img src="@CurrentView.ImgSrc" class="@(CurrentView.BackgroundImageKeepAspectRatio ? "w-auto h-auto" : "w-full h-full")" style="translate: -50% -50%;" />
                                 </div>
                             }
                         </CascadingValue>
@@ -311,7 +311,20 @@
                     <BaseInput @bind-Value="_options.PresentationTemplate" Label="PresentationTemplate" />
                     <div class="flex flex-nowrap flex-row items-center gap-2">
                         <BaseInput @bind-Value="_options.Background" Label="Background" />
-                        <input type="color" class="ms-4" @bind="_options.BackgroundColor" title="Choose color">
+                        @if (_options.Background)
+                        {
+                            <div class="flex flex-wrap flex-col ms-4">
+                                <div class="color-group">
+                                    <input type="color" id="background-color-light" class="" @bind="_options.BackgroundColorLight" title="Choose background color light">
+                                    <label for="background-color-light">Background color light</label>
+                                </div>
+                                <div class="color-group">
+                                    <input type="color" id="background-color-dark" class="" @bind="_options.BackgroundColorDark" title="Choose background color dark">
+                                    <label for="background-color-dark">Background color dark</label>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary" @onclick="_options.SetDefaultBackgroundColors">Set default</button>
+                            </div>
+                        }
                     </div>
                     <BaseInput @bind-Value="_options.PollingInterval" Label="PollingInterval [ms]" />
                 </div>
@@ -428,6 +441,9 @@
                                     </a>
                                     <input type="checkbox" class="checkbox" checked="@(CurrentView.AllowZoomingAndPanning ? "checked" : null)" @onclick="() => ChangeAllowZoomingAndPanningAsync()" title="Zooming and panning" />
                                 }
+                                <a @onclick="() => ExportViewAsync(item, SaveLocationType.Server)" title="Export">
+                                    <Operon.Icons.HeroIcon Icon="arrow-down-tray" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                </a>
                                 <a @onclick="() => RemoveViewAsync(item)" title="Remove">
                                     <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                 </a>
@@ -455,6 +471,9 @@
                                     </a>
                                     <input type="checkbox" class="checkbox" checked="@(CurrentView.AllowZoomingAndPanning ? "checked" : null)" @onclick="() => ChangeAllowZoomingAndPanningAsync()" title="Zooming and panning" />
                                 }
+                                <a @onclick="() => ExportViewAsync(item, SaveLocationType.Local)" title="Export">
+                                    <Operon.Icons.HeroIcon Icon="arrow-down-tray" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                                </a>
                                 <a @onclick="() => RemoveViewAsync(item)" title="Remove">
                                     <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                                 </a>
@@ -466,6 +485,22 @@
                             </li>
                         }
                     </ul>
+                    <div class="mt-4 p-3 simple-border">
+                        <h5 class="mb-2">Import View</h5>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <select @bind="_importViewSaveLocation" class="select w-auto">
+                                @foreach (var saveLocation in Enum.GetValues(typeof(SaveLocationType)).Cast<SaveLocationType>())
+                                {
+                                    <option value="@saveLocation">@saveLocation</option>
+                                }
+                            </select>
+                            <label class="btn btn-primary cursor-pointer">
+                                <Operon.Icons.HeroIcon Icon="arrow-up-tray" Type="Operon.Icons.IconType.Outline" Class="size-5 me-2" />
+                                Import
+                                <InputFile style="display: none;" accept=".json" OnChange="@ImportViewAsync" />
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer flex justify-end gap-1">
                     <button class="btn btn-outline-red" @onclick="() => _modalViews.CloseModal()">Close</button>
@@ -490,19 +525,22 @@
                         </AccordionItem>
                         <AccordionItem Title="Color">
                             <div class="color-group">
-                                <input type="color" id="background-color-light" class="" @bind="CurrentView.BackgroundColorLight" title="Choose background color light">
+                                <input type="color" id="background-color-light" class="" @bind="CurrentView.BackgroundColorLight" @onfocusout="async () => await SaveAsync()" title="Choose background color light">
                                 <label for="background-color-light">Background color light</label>
                             </div>
                             <div class="color-group">
-                                <input type="color" id="background-color-dark" class="" @bind="CurrentView.BackgroundColorDark" title="Choose background color dark">
+                                <input type="color" id="background-color-dark" class="" @bind="CurrentView.BackgroundColorDark" @onfocusout="async () => await SaveAsync()" title="Choose background color dark">
                                 <label for="background-color-dark">Background color dark</label>
                             </div>
-                            <button type="button" class="btn btn-primary" disabled="@(string.IsNullOrEmpty(CurrentView.ImgSrc) ? "disabled" : null)" @onclick="() => { CurrentView.ImgSrc = null; SaveAsync(); }">Clear image (only background color)</button>
+                            <div class="flex flex-wrap flex-row gap-2">
+                                <button type="button" class="btn btn-danger" disabled="@(string.IsNullOrEmpty(CurrentView.ImgSrc) ? "disabled" : null)" @onclick="async () => { CurrentView.ImgSrc = null; await SaveAsync(); }">Clear image (only background color)</button>
+                                <button type="button" class="btn btn-outline-primary" @onclick="async () => { await SetDefaultBackgroundColorsAsync(); }">Set default</button>
+                            </div>
                         </AccordionItem>
                     </Accordion>
                     <div class="mt-2">
-                        <BaseInput @bind-Value="CurrentView.BackgroundWidth" OnFocusOut="SaveAsync" Label="Width" />
-                        <BaseInput @bind-Value="CurrentView.BackgroundHeight" OnFocusOut="SaveAsync" Label="Height" />
+                        <BaseInput @bind-Value="CurrentView.BackgroundImageScale" OnFocusOut="SaveAsync" Label="Background image scale" />
+                        <BaseInput @bind-Value="CurrentView.BackgroundImageKeepAspectRatio" OnFocusOut="SaveAsync" Label="Keep background image aspect ratio" />
                     </div>
                 </div>
                 <div class="modal-footer flex justify-end gap-1">
@@ -510,7 +548,7 @@
                 </div>
             </Modal>
 
-            <Modal @ref="_modalBackgroundSVGInput">
+            @* <Modal @ref="_modalBackgroundSVGInput">
                 <div class="modal-header">
                     <h4>Modal Title</h4>
                     <button class="cursor-pointer ms-auto my-auto" @onclick="() => _modalBackgroundSVGInput.CloseModal()">
@@ -526,7 +564,7 @@
                 <div class="modal-footer flex justify-end gap-1">
                     <button class="btn btn-outline-red" @onclick="() => _modalBackgroundSVGInput.CloseModal()">Close</button>
                 </div>
-            </Modal>
+            </Modal> *@
         }
     </Authorized>
     <NotAuthorized>
@@ -547,7 +585,7 @@
                     <BaseInput @bind-Value="_watchTableFilter" Placeholder="Filter by symbol..." Class="flex-1" />
                     @if (!string.IsNullOrEmpty(_watchTableFilter))
                     {
-                        <button class="btn btn-outline-secondary" @onclick="() => _watchTableFilter = string.Empty">Clear</button>
+                        <button class="btn btn-outline-primary" @onclick="() => _watchTableFilter = string.Empty">Clear</button>
                     }
                 </div>
                 <table class="table table-striped table-hover w-full">
@@ -595,10 +633,10 @@
         }
         else
         {
-            <ZoomableContainer Parent="this" Disable="!CurrentView.AllowZoomingAndPanning">
-                <div id="@_backgroundId" style="width: 100%; height: @((CurrentView.BackgroundHeight / CurrentView.BackgroundWidth) * ElementSize.Width)px;">
-                    <svg width="100%" height="100%" viewBox="0 0 @(CurrentView.BackgroundWidth) @(CurrentView.BackgroundHeight)">@(new MarkupString(CurrentView.BackgroundSVGInput))</svg>
-                </div>
+            <ZoomableContainer Parent="this" Disable="!CurrentView.AllowZoomingAndPanning" Guid="_backgroundId">
+                @* <div id="@_backgroundId" class="w-full h-full">
+                    <svg width="100%" height="100%">@(new MarkupString(CurrentView.BackgroundSVGInput))</svg>
+                </div> *@
 
                 <CascadingValue Value="@this" Name="Parent" IsFixed="true">
                     @foreach (VisualComposerItemData item in _items)
@@ -607,8 +645,8 @@
                     }
                     @if (!string.IsNullOrEmpty(CurrentView.ImgSrc))
                     {
-                        <div style="position: absolute; left: 0; top: 0; width: 100%; z-index: -1;">
-                            <img src="@CurrentView.ImgSrc" style="width: 100%; height: 100%;" />
+                        <div class="absolute w-full h-full -z-1" style="left: 50%; top: 50%; transform: scale(@(CurrentView.BackgroundImageScale.ToString().Replace(',', '.')));">
+                            <img src="@CurrentView.ImgSrc" class="@(CurrentView.BackgroundImageKeepAspectRatio ? "w-auto h-auto" : "w-full h-full")" style="translate: -50% -50%;" />
                         </div>
                     }
                 </CascadingValue>
@@ -643,5 +681,5 @@
     private Modal _modalCreateCopy { get; set; }
     private Modal _modalViews { get; set; }
     private Modal _modalBackground { get; set; }
-    private Modal _modalBackgroundSVGInput { get; set; }
+    // private Modal _modalBackgroundSVGInput { get; set; }
 }

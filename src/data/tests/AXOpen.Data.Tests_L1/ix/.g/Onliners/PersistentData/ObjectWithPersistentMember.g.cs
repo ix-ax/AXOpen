@@ -229,6 +229,11 @@ namespace Tests_L1.PersistentData
 
         public System.String GetAttributeName(System.Globalization.CultureInfo culture)
         {
+            if (string.IsNullOrEmpty(_attributeName))
+            {
+                return SymbolTail;
+            }
+
             return this.Translate(_attributeName, culture).Interpolate(this);
         }
 

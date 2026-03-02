@@ -68,30 +68,330 @@
   </data>
   <data name="StartMotorsProgramAndMovementsTask_timeout_DOT_" xml:space="preserve">
     <value>StartMotorsProgramAndMovementsTask timeout.</value>
-    <comment>src\AxoKrc4_v_5_x_x.st,849</comment>
+    <comment>src\AxoKrc4_v_5_x_x.st,854</comment>
   </data>
   <data name="StartMovementsTask_timeout_DOT_" xml:space="preserve">
     <value>StartMovementsTask timeout.</value>
-    <comment>src\AxoKrc4_v_5_x_x.st,1122</comment>
+    <comment>src\AxoKrc4_v_5_x_x.st,1129</comment>
   </data>
   <data name="StartProgramTask_timeout_DOT_" xml:space="preserve">
     <value>StartProgramTask timeout.</value>
-    <comment>src\AxoKrc4_v_5_x_x.st,1273</comment>
+    <comment>src\AxoKrc4_v_5_x_x.st,1280</comment>
   </data>
   <data name="StopMotorsTask_timeout_DOT_" xml:space="preserve">
     <value>StopMotorsTask timeout.</value>
-    <comment>src\AxoKrc4_v_5_x_x.st,1336</comment>
+    <comment>src\AxoKrc4_v_5_x_x.st,1343</comment>
   </data>
   <data name="StopMovementsAndProgramTask_timeout_DOT_" xml:space="preserve">
     <value>StopMovementsAndProgramTask timeout.</value>
-    <comment>src\AxoKrc4_v_5_x_x.st,1407</comment>
+    <comment>src\AxoKrc4_v_5_x_x.st,1414</comment>
   </data>
   <data name="StopMovementsTask_timeout_DOT_" xml:space="preserve">
     <value>StopMovementsTask timeout.</value>
-    <comment>src\AxoKrc4_v_5_x_x.st,1467</comment>
+    <comment>src\AxoKrc4_v_5_x_x.st,1474</comment>
   </data>
   <data name="StopProgramTask_timeout_DOT_" xml:space="preserve">
     <value>StopProgramTask timeout.</value>
-    <comment>src\AxoKrc4_v_5_x_x.st,1526</comment>
+    <comment>src\AxoKrc4_v_5_x_x.st,1533</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,39</comment>
+  </data>
+  <data name="Stop_movements" xml:space="preserve">
+    <value>Stop movements</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,43</comment>
+  </data>
+  <data name="Stop_movements_and_program" xml:space="preserve">
+    <value>Stop movements and program</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,47</comment>
+  </data>
+  <data name="Stop_program" xml:space="preserve">
+    <value>Stop program</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,51</comment>
+  </data>
+  <data name="Stop_motors" xml:space="preserve">
+    <value>Stop motors</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,55</comment>
+  </data>
+  <data name="Start_at_main" xml:space="preserve">
+    <value>Start at main</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,60</comment>
+  </data>
+  <data name="Start_motors_and_program" xml:space="preserve">
+    <value>Start motors and program</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,64</comment>
+  </data>
+  <data name="Start_program" xml:space="preserve">
+    <value>Start program</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,68</comment>
+  </data>
+  <data name="Start_motors" xml:space="preserve">
+    <value>Start motors</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,72</comment>
+  </data>
+  <data name="Start_movements" xml:space="preserve">
+    <value>Start movements</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,76</comment>
+  </data>
+  <data name="Start_motors_program_and_movements" xml:space="preserve">
+    <value>Start motors program and movements</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,80</comment>
+  </data>
+  <data name="Start_movements_with_extended_parameters" xml:space="preserve">
+    <value>Start movements with extended parameters</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,84</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,109</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,115</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\AxoKrc4_v_5_x_x.st,123</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st,9</comment>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware IDs</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Config.st,11</comment>
+  </data>
+  <data name="Program_Start__SQUAREBRACKET_EXT_UNDERSCORE_START_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Program Start [EXT_START]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,7</comment>
+  </data>
+  <data name="Move_Enable__SQUAREBRACKET_MOVE_UNDERSCORE_ENABLE_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Move Enable [MOVE_ENABLE]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,9</comment>
+  </data>
+  <data name="Error_Confirmation__SQUAREBRACKET_CONF_UNDERSCORE_MESS_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Error Confirmation [CONF_MESS]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,11</comment>
+  </data>
+  <data name="Drives_Off__SQUAREBRACKET_DRIVES_UNDERSCORE_OFF_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Drives Off [DRIVES_OFF]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,13</comment>
+  </data>
+  <data name="Drives_On__SQUAREBRACKET_DRIVES_UNDERSCORE_ON_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Drives On [DRIVES_ON]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,15</comment>
+  </data>
+  <data name="Activate_Interface__SQUAREBRACKET_I_UNDERSCORE_O_UNDERSCORE_ACT_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Activate Interface [I_O_ACT]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,17</comment>
+  </data>
+  <data name="Start_At_Main__SQUAREBRACKET_START_UNDERSCORE_AT_UNDERSCORE_MAIN_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Start At Main [START_AT_MAIN]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,19</comment>
+  </data>
+  <data name="Master_mode" xml:space="preserve">
+    <value>Master mode</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,21</comment>
+  </data>
+  <data name="Tool__ONE__retract" xml:space="preserve">
+    <value>Tool 1 retract</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,26</comment>
+  </data>
+  <data name="Tool__ONE__extend" xml:space="preserve">
+    <value>Tool 1 extend</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,28</comment>
+  </data>
+  <data name="Tool__TWO__retract" xml:space="preserve">
+    <value>Tool 2 retract</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,30</comment>
+  </data>
+  <data name="Tool__TWO__extend" xml:space="preserve">
+    <value>Tool 2 extend</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,32</comment>
+  </data>
+  <data name="Tool__THREE__retract" xml:space="preserve">
+    <value>Tool 3 retract</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,34</comment>
+  </data>
+  <data name="Tool__THREE__extend" xml:space="preserve">
+    <value>Tool 3 extend</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,36</comment>
+  </data>
+  <data name="Tool__FOUR__retract" xml:space="preserve">
+    <value>Tool 4 retract</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,38</comment>
+  </data>
+  <data name="Tool__FOUR__extend" xml:space="preserve">
+    <value>Tool 4 extend</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,40</comment>
+  </data>
+  <data name="Zones" xml:space="preserve">
+    <value>Zones</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,46</comment>
+  </data>
+  <data name="In_position" xml:space="preserve">
+    <value>In position</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,48</comment>
+  </data>
+  <data name="Action_number" xml:space="preserve">
+    <value>Action number</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,50</comment>
+  </data>
+  <data name="Global_robot_speed" xml:space="preserve">
+    <value>Global robot speed</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,52</comment>
+  </data>
+  <data name="Tool_number" xml:space="preserve">
+    <value>Tool number</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,54</comment>
+  </data>
+  <data name="Workobject_number" xml:space="preserve">
+    <value>Workobject number</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,56</comment>
+  </data>
+  <data name="Point_number" xml:space="preserve">
+    <value>Point number</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,58</comment>
+  </data>
+  <data name="User_specific_speed__ONE_" xml:space="preserve">
+    <value>User specific speed 1</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,60</comment>
+  </data>
+  <data name="User_specific_speed__TWO_" xml:space="preserve">
+    <value>User specific speed 2</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_Control.st,62</comment>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>Hardware ID of the device</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_HWIDs.st,5</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_None_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'None' submodule</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_HWIDs.st,7</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE__FIVE__ONE__TWO__UNDERSCORE_DI_UNDERSCORE_DO_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the '512_DI_DO' submodule</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_HWIDs.st,9</comment>
+  </data>
+  <data name="ControlReady__SQUAREBRACKET_RC_UNDERSCORE_RDY_ONE__ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>ControlReady [RC_RDY1]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,7</comment>
+  </data>
+  <data name="AlarmStopActive__SQUAREBRACKET_ALARM_UNDERSCORE_STOP_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>AlarmStopActive [ALARM_STOP]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,9</comment>
+  </data>
+  <data name="UserSafetySwitchClosed__SQUAREBRACKET_USER_UNDERSCORE_SAF_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>UserSafetySwitchClosed [USER_SAF]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,11</comment>
+  </data>
+  <data name="DrivesReady__SQUAREBRACKET_PERI_UNDERSCORE_RDY_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>DrivesReady [PERI_RDY]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,13</comment>
+  </data>
+  <data name="RobotCalibrated__SQUAREBRACKET_ROB_UNDERSCORE_CAL_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>RobotCalibrated [ROB_CAL]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,15</comment>
+  </data>
+  <data name="InterfaceActivated__SQUAREBRACKET_I_UNDERSCORE_O_UNDERSCORE_ACTCONF_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>InterfaceActivated [I_O_ACTCONF]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,17</comment>
+  </data>
+  <data name="ErrorCollection__SQUAREBRACKET_STOPMESS_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>ErrorCollection [STOPMESS]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,19</comment>
+  </data>
+  <data name="RobotStopped__SQUAREBRACKET_ROB_UNDERSCORE_STOPPED_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>RobotStopped [ROB_STOPPED]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,21</comment>
+  </data>
+  <data name="InHome__SQUAREBRACKET_IN_UNDERSCORE_HOME_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>InHome [IN_HOME]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,27</comment>
+  </data>
+  <data name="Manual__SQUAREBRACKET_T_ONE__ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Manual [T1]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,29</comment>
+  </data>
+  <data name="Automatic__SQUAREBRACKET_AUT_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Automatic [AUT]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,31</comment>
+  </data>
+  <data name="ExternalAutomatic__SQUAREBRACKET_EXT_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>ExternalAutomatic [EXT]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,33</comment>
+  </data>
+  <data name="ProcesActive__SQUAREBRACKET_PRO_UNDERSCORE_ACT_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>ProcesActive [PRO_ACT]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,35</comment>
+  </data>
+  <data name="ProgramMoveActive__SQUAREBRACKET_PROGRAM_MOVEMENT_ACTIVE_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>ProgramMoveActive [PROGRAM MOVEMENT ACTIVE]</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,37</comment>
+  </data>
+  <data name="Event_ID" xml:space="preserve">
+    <value>Event ID</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,39</comment>
+  </data>
+  <data name="PpMoved" xml:space="preserve">
+    <value>PpMoved</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,41</comment>
+  </data>
+  <data name="StartAtMain" xml:space="preserve">
+    <value>StartAtMain</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,43</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,45</comment>
+  </data>
+  <data name="In_area__ONE_" xml:space="preserve">
+    <value>In area 1</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,50</comment>
+  </data>
+  <data name="In_area__TWO_" xml:space="preserve">
+    <value>In area 2</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,52</comment>
+  </data>
+  <data name="In_area__THREE_" xml:space="preserve">
+    <value>In area 3</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,54</comment>
+  </data>
+  <data name="In_area__FOUR_" xml:space="preserve">
+    <value>In area 4</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,56</comment>
+  </data>
+  <data name="In_position__ONE_" xml:space="preserve">
+    <value>In position 1</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,58</comment>
+  </data>
+  <data name="In_position__TWO_" xml:space="preserve">
+    <value>In position 2</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,60</comment>
+  </data>
+  <data name="In_position__THREE_" xml:space="preserve">
+    <value>In position 3</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,62</comment>
+  </data>
+  <data name="In_position__FOUR_" xml:space="preserve">
+    <value>In position 4</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,64</comment>
+  </data>
+  <data name="Global_speed" xml:space="preserve">
+    <value>Global speed</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,94</comment>
+  </data>
+  <data name="PointNumber" xml:space="preserve">
+    <value>PointNumber</value>
+    <comment>src\AxoKukaRobotics_Datatypes_v_5_x_x\AxoKukaRobotics_State.st,100</comment>
   </data>
 </root>

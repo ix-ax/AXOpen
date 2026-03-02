@@ -24,9 +24,7 @@ NAMESPACE AXOpen.Components.Pneumatics
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-set:AttributeName = "<#Test cylinder#>"}
             _testCylinder : AXOpen.Components.Pneumatics.AxoCylinder;        
-            PlcInputs : REF_TO PlcInputs;
-            PlcOutputs : REF_TO PlcOutputs;       
-            
+           
             CylinderParent : AXOpen.Core.AxoObject;
         END_VAR
 

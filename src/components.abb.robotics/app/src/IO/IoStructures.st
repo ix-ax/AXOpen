@@ -1,4 +1,4 @@
-﻿NAMESPACE AXOpen.Components.Abb.Robotics
+NAMESPACE AXOpen.Components.Abb.Robotics
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}

@@ -62,6 +62,22 @@
     <value>THE REMOTE TASK IS NOT INITIALIZED</value>
     <comment>src\AxoAlert\AxoAlert.st,45</comment>
   </data>
+  <data name="Is_manually_controllable" xml:space="preserve">
+    <value>Is manually controllable</value>
+    <comment>src\AxoComponent\AxoComponent.st,62</comment>
+  </data>
+  <data name="Messenger__ONE___DASH__activate_using__APOSTROPHE_Activate_APOSTROPHE__method_called_inside_the_if_statement" xml:space="preserve">
+    <value>Messenger 1 - activate using 'Activate' method called inside the if statement</value>
+    <comment>src\AxoContext\AxoContext.st,19</comment>
+  </data>
+  <data name="RemoteTaskMessenger" xml:space="preserve">
+    <value>RemoteTaskMessenger</value>
+    <comment>src\AxoRemoteTask\AxoRemoteTask.st,27</comment>
+  </data>
+  <data name="Messenger" xml:space="preserve">
+    <value>Messenger</value>
+    <comment>src\AxoTask\AxoTask.st,38</comment>
+  </data>
   <data name="NULL_CONTEXT" xml:space="preserve">
     <value>NULL CONTEXT</value>
     <comment>src\AxoTask\AxoTaskLight.st,247</comment>
@@ -98,29 +114,45 @@
     <value>Task failed</value>
     <comment>src\AxoTask\AxoTaskLight.st,432</comment>
   </data>
+  <data name="Command_state" xml:space="preserve">
+    <value>Command state</value>
+    <comment>src\AxoTask\AxoTaskLight.st,14</comment>
+  </data>
   <data name="Sequence_in_config_state__COLON_" xml:space="preserve">
     <value>Sequence in config state :</value>
-    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,77</comment>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,79</comment>
   </data>
   <data name="Starts_step__COLON_" xml:space="preserve">
     <value>Starts step :</value>
-    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,182</comment>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,184</comment>
   </data>
   <data name="Check_that_steps_are_unique_and_properly_configured_DOT_" xml:space="preserve">
     <value>Check that steps are unique and properly configured.</value>
-    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,197</comment>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,199</comment>
   </data>
   <data name="Step_done__COLON_" xml:space="preserve">
     <value>Step done :</value>
-    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,233</comment>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,235</comment>
   </data>
   <data name="Step_request_to_step__COLON_" xml:space="preserve">
     <value>Step request to step :</value>
-    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,260</comment>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,262</comment>
   </data>
   <data name="Sequence_completed__COLON_" xml:space="preserve">
     <value>Sequence completed :</value>
-    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,292</comment>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,294</comment>
+  </data>
+  <data name="Stepping_mode" xml:space="preserve">
+    <value>Stepping mode</value>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,5</comment>
+  </data>
+  <data name="Sequence_mode" xml:space="preserve">
+    <value>Sequence mode</value>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,7</comment>
+  </data>
+  <data name="Run_step" xml:space="preserve">
+    <value>Run step</value>
+    <comment>src\AxoCoordination\AxoSequencer\AxoSequencer.st,12</comment>
   </data>
   <data name="At_step_COLON_" xml:space="preserve">
     <value>At step:</value>
@@ -128,14 +160,14 @@
   </data>
   <data name="Risen" xml:space="preserve">
     <value>Risen</value>
-    <comment>src\AxoMessaging\Static\AxoMessenger.st,110</comment>
+    <comment>src\AxoMessaging\Static\AxoMessenger.st,116</comment>
   </data>
   <data name="Risen_again_before_acknowledgement" xml:space="preserve">
     <value>Risen again before acknowledgement</value>
-    <comment>src\AxoMessaging\Static\AxoMessenger.st,121</comment>
+    <comment>src\AxoMessaging\Static\AxoMessenger.st,127</comment>
   </data>
   <data name="Fallen" xml:space="preserve">
     <value>Fallen</value>
-    <comment>src\AxoMessaging\Static\AxoMessenger.st,200</comment>
+    <comment>src\AxoMessaging\Static\AxoMessenger.st,206</comment>
   </data>
 </root>

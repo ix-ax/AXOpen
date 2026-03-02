@@ -897,23 +897,31 @@ namespace AXOpen.Components.Keyence.Vision
         /// </summary>
         public async Task ConfigureProxy(HttpContext httpContext, Func<Task> func)
         {
-            if (httpContext.Request.Path.StartsWithSegments($"/{Proxy}"))
+            try
             {
-                // Internal IP of the camera
-                var cameraUrl = $"http://{DeviceIpAddress}" + httpContext.Request.Path.Value.Replace($"/{Proxy}", "");
-
-                using var httpClient = new HttpClient();
-                var response = await httpClient.GetAsync(cameraUrl, HttpCompletionOption.ResponseHeadersRead);
-
-                if (response.IsSuccessStatusCode)
+                if (httpContext.Request.Path.StartsWithSegments($"/{Proxy}"))
                 {
-                    httpContext.Response.ContentType = response.Content.Headers.ContentType?.ToString() ?? "application/octet-stream";
-                    await response.Content.CopyToAsync(httpContext.Response.Body);
-                    return;
-                }
-            }
+                    // Internal IP of the camera
+                    var cameraUrl = $"http://{DeviceIpAddress}" + httpContext.Request.Path.Value.Replace($"/{Proxy}", "");
 
-            await func(); // Continue to Blazor handling
+                    using var httpClient = new HttpClient();
+                    var response = await httpClient.GetAsync(cameraUrl, HttpCompletionOption.ResponseHeadersRead);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        httpContext.Response.ContentType = response.Content.Headers.ContentType?.ToString() ?? "application/octet-stream";
+                        await response.Content.CopyToAsync(httpContext.Response.Body);
+                        return;
+                    }
+                }
+
+                await func(); // Continue to Blazor handling
+            }
+            catch (Exception)
+            {
+                AxoApplication.Current.Logger?.Error($"Error proxying request to camera at IP {DeviceIpAddress}.", null);
+            }
+            
         }
     }
 

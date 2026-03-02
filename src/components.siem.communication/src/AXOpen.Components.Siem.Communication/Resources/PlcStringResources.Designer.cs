@@ -61,6 +61,132 @@ namespace AXOpen.Components.Siem.Communication.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Baudrate.
+        /// </summary>
+        public static string Baudrate {
+            get {
+                return ResourceManager.GetString("Baudrate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Break detection.
+        /// </summary>
+        public static string Break_detection {
+            get {
+                return ResourceManager.GetString("Break_detection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Control.
+        /// </summary>
+        public static string Control {
+            get {
+                return ResourceManager.GetString("Control", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data bits.
+        /// </summary>
+        public static string Data_bits {
+            get {
+                return ResourceManager.GetString("Data_bits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data to send.
+        /// </summary>
+        public static string Data_to_send {
+            get {
+                return ResourceManager.GetString("Data_to_send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error time.
+        /// </summary>
+        public static string Error_time {
+            get {
+                return ResourceManager.GetString("Error_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Flow control.
+        /// </summary>
+        public static string Flow_control {
+            get {
+                return ResourceManager.GetString("Flow_control", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info time.
+        /// </summary>
+        public static string Info_time {
+            get {
+                return ResourceManager.GetString("Info_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inputs.
+        /// </summary>
+        public static string Inputs {
+            get {
+                return ResourceManager.GetString("Inputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Linepreset.
+        /// </summary>
+        public static string Linepreset {
+            get {
+                return ResourceManager.GetString("Linepreset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mode.
+        /// </summary>
+        public static string Mode {
+            get {
+                return ResourceManager.GetString("Mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outputs.
+        /// </summary>
+        public static string Outputs {
+            get {
+                return ResourceManager.GetString("Outputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parity.
+        /// </summary>
+        public static string Parity {
+            get {
+                return ResourceManager.GetString("Parity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Port config.
+        /// </summary>
+        public static string Port_config {
+            get {
+                return ResourceManager.GetString("Port_config", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PortConfigTask error..
         /// </summary>
         public static string PortConfigTask_error_DOT_ {
@@ -75,6 +201,42 @@ namespace AXOpen.Components.Siem.Communication.Resources {
         public static string PortConfigTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("PortConfigTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Protocol.
+        /// </summary>
+        public static string Protocol {
+            get {
+                return ResourceManager.GetString("Protocol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Receive data length.
+        /// </summary>
+        public static string Receive_data_length {
+            get {
+                return ResourceManager.GetString("Receive_data_length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Receive reset.
+        /// </summary>
+        public static string Receive_reset {
+            get {
+                return ResourceManager.GetString("Receive_reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Received data.
+        /// </summary>
+        public static string Received_data {
+            get {
+                return ResourceManager.GetString("Received_data", resourceCulture);
             }
         }
         
@@ -97,6 +259,33 @@ namespace AXOpen.Components.Siem.Communication.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send data length.
+        /// </summary>
+        public static string Send_data_length {
+            get {
+                return ResourceManager.GetString("Send_data_length", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SendDataTask.
+        /// </summary>
+        public static string SendDataTask {
+            get {
+                return ResourceManager.GetString("SendDataTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SendDataTask error..
         /// </summary>
         public static string SendDataTask_error_DOT_ {
@@ -115,83 +304,74 @@ namespace AXOpen.Components.Siem.Communication.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_10steps_5 timeout..
+        ///   Looks up a localized string similar to Set port config.
         /// </summary>
-        public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_ {
+        public static string Set_port_config {
             get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_", resourceCulture);
+                return ResourceManager.GetString("Set_port_config", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_10steps_4 timeout..
+        ///   Looks up a localized string similar to Status.
         /// </summary>
-        public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_ {
+        public static string Status {
             get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_", resourceCulture);
+                return ResourceManager.GetString("Status", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_10steps_6 timeout..
+        ///   Looks up a localized string similar to Stop bits.
         /// </summary>
-        public static string TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_ {
+        public static string Stop_bits {
             get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_", resourceCulture);
+                return ResourceManager.GetString("Stop_bits", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_20steps_5 timeout..
+        ///   Looks up a localized string similar to Task timeout.
         /// </summary>
-        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_ {
+        public static string Task_timeout {
             get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_", resourceCulture);
+                return ResourceManager.GetString("Task_timeout", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_20steps_4 timeout..
+        ///   Looks up a localized string similar to Update diagnostics.
         /// </summary>
-        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_ {
+        public static string Update_diagnostics {
             get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_", resourceCulture);
+                return ResourceManager.GetString("Update_diagnostics", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_20steps_1 timeout..
+        ///   Looks up a localized string similar to Wait time [ms].
         /// </summary>
-        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_ {
+        public static string Wait_time__SQUAREBRACKET_ms_ENDSQUAREBRACKET_ {
             get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_", resourceCulture);
+                return ResourceManager.GetString("Wait_time__SQUAREBRACKET_ms_ENDSQUAREBRACKET_", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_20steps_6 timeout..
+        ///   Looks up a localized string similar to Xoff char.
         /// </summary>
-        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_ {
+        public static string Xoff_char {
             get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_", resourceCulture);
+                return ResourceManager.GetString("Xoff_char", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_20steps_3 timeout..
+        ///   Looks up a localized string similar to Xon char.
         /// </summary>
-        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_ {
+        public static string Xon_char {
             get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to TemplateTask_20steps_2 timeout..
-        /// </summary>
-        public static string TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_ {
-            get {
-                return ResourceManager.GetString("TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_", resourceCulture);
+                return ResourceManager.GetString("Xon_char", resourceCulture);
             }
         }
     }

@@ -66,7 +66,15 @@ namespace AXOpen.Security.Services
 
             if(_module == null)
                 _module = await _jsRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.Security.Blazor/js/SerialCommunication.js");
-            int operationStatus = await _module.InvokeAsync<int>("openPortAsync", _selfRef, onlyPreviouslyAuthorizedPort, baudRate, 512, dataBits, flowControlString, parityString, stopBits);
+
+            int operationStatus = 0;
+            try
+            {
+                operationStatus = await _module.InvokeAsync<int>("openPortAsync", _selfRef, onlyPreviouslyAuthorizedPort, baudRate, 512, dataBits, flowControlString, parityString, stopBits);
+            }
+            catch (Exception ex)
+            {
+            }
 
             switch (operationStatus)
             {

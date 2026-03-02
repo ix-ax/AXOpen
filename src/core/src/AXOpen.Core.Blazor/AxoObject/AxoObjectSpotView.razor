@@ -7,6 +7,8 @@
 @using AXSharp.Connector
 @using Microsoft.JSInterop
 @using Operon.Icons
+@using System.Globalization
+@using AXSharp.Connector.Localizations
 @inject IJSRuntime JSRuntime
 
 <button data-axo-object-spot-view 
@@ -17,7 +19,7 @@
     <div class="flex items-center justify-between gap-2 p-2 border-b border-border/40">
         <div class="flex items-center gap-2">
             <HeroIcon Icon="cube" Type="IconType.Outline" Class="size-4 text-text/70" />
-            <span class="text-sm font-semibold text-text truncate">@Component.AttributeName</span>
+            <span class="text-sm font-semibold text-text truncate">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</span>
         </div>
     </div>
     
@@ -92,7 +94,7 @@
     ///<inheritdoc/>
     protected override async Task OnInitializedAsync()
     {
-        if (observer != null) await observer.InitializeLightUpdate(this.StartPolling);
+        if (observer != null) await observer.InitializeUpdate(this.StartPolling);
         await base.OnInitializedAsync();
     }
 }

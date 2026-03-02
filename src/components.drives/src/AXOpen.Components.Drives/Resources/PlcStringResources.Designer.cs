@@ -61,6 +61,357 @@ namespace AXOpen.Components.Drives.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Drive state.
+        /// </summary>
+        public static string Drive_state {
+            get {
+                return ResourceManager.GetString("Drive_state", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error time.
+        /// </summary>
+        public static string Error_time {
+            get {
+                return ResourceManager.GetString("Error_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Halt aborted.
+        /// </summary>
+        public static string Halt_aborted {
+            get {
+                return ResourceManager.GetString("Halt_aborted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Halt active.
+        /// </summary>
+        public static string Halt_active {
+            get {
+                return ResourceManager.GetString("Halt_active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Halt busy.
+        /// </summary>
+        public static string Halt_busy {
+            get {
+                return ResourceManager.GetString("Halt_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Halt decceleration.
+        /// </summary>
+        public static string Halt_decceleration {
+            get {
+                return ResourceManager.GetString("Halt_decceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Halt done.
+        /// </summary>
+        public static string Halt_done {
+            get {
+                return ResourceManager.GetString("Halt_done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Halt error.
+        /// </summary>
+        public static string Halt_error {
+            get {
+                return ResourceManager.GetString("Halt_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Halt error ID.
+        /// </summary>
+        public static string Halt_error_ID {
+            get {
+                return ResourceManager.GetString("Halt_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Halt jerk.
+        /// </summary>
+        public static string Halt_jerk {
+            get {
+                return ResourceManager.GetString("Halt_jerk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Halt task.
+        /// </summary>
+        public static string Halt_task {
+            get {
+                return ResourceManager.GetString("Halt_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home aborted.
+        /// </summary>
+        public static string Home_aborted {
+            get {
+                return ResourceManager.GetString("Home_aborted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home active.
+        /// </summary>
+        public static string Home_active {
+            get {
+                return ResourceManager.GetString("Home_active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home busy.
+        /// </summary>
+        public static string Home_busy {
+            get {
+                return ResourceManager.GetString("Home_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home done.
+        /// </summary>
+        public static string Home_done {
+            get {
+                return ResourceManager.GetString("Home_done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home error.
+        /// </summary>
+        public static string Home_error {
+            get {
+                return ResourceManager.GetString("Home_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home error ID.
+        /// </summary>
+        public static string Home_error_ID {
+            get {
+                return ResourceManager.GetString("Home_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home status.
+        /// </summary>
+        public static string Home_status {
+            get {
+                return ResourceManager.GetString("Home_status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home valid.
+        /// </summary>
+        public static string Home_valid {
+            get {
+                return ResourceManager.GetString("Home_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Homming acceleration.
+        /// </summary>
+        public static string Homming_acceleration {
+            get {
+                return ResourceManager.GetString("Homming_acceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Homming decceleration.
+        /// </summary>
+        public static string Homming_decceleration {
+            get {
+                return ResourceManager.GetString("Homming_decceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Homming mode.
+        /// </summary>
+        public static string Homming_mode {
+            get {
+                return ResourceManager.GetString("Homming_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Homming position.
+        /// </summary>
+        public static string Homming_position {
+            get {
+                return ResourceManager.GetString("Homming_position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Homming task.
+        /// </summary>
+        public static string Homming_task {
+            get {
+                return ResourceManager.GetString("Homming_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Homming velocity.
+        /// </summary>
+        public static string Homming_velocity {
+            get {
+                return ResourceManager.GetString("Homming_velocity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info time.
+        /// </summary>
+        public static string Info_time {
+            get {
+                return ResourceManager.GetString("Info_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jog aborted.
+        /// </summary>
+        public static string Jog_aborted {
+            get {
+                return ResourceManager.GetString("Jog_aborted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jog acceleration.
+        /// </summary>
+        public static string Jog_acceleration {
+            get {
+                return ResourceManager.GetString("Jog_acceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jog active.
+        /// </summary>
+        public static string Jog_active {
+            get {
+                return ResourceManager.GetString("Jog_active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jog busy.
+        /// </summary>
+        public static string Jog_busy {
+            get {
+                return ResourceManager.GetString("Jog_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jog deceleration.
+        /// </summary>
+        public static string Jog_deceleration {
+            get {
+                return ResourceManager.GetString("Jog_deceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jog direction.
+        /// </summary>
+        public static string Jog_direction {
+            get {
+                return ResourceManager.GetString("Jog_direction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jog done.
+        /// </summary>
+        public static string Jog_done {
+            get {
+                return ResourceManager.GetString("Jog_done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jog error.
+        /// </summary>
+        public static string Jog_error {
+            get {
+                return ResourceManager.GetString("Jog_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jog error ID.
+        /// </summary>
+        public static string Jog_error_ID {
+            get {
+                return ResourceManager.GetString("Jog_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jog jerk.
+        /// </summary>
+        public static string Jog_jerk {
+            get {
+                return ResourceManager.GetString("Jog_jerk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jog negative.
+        /// </summary>
+        public static string Jog_negative {
+            get {
+                return ResourceManager.GetString("Jog_negative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jog positive.
+        /// </summary>
+        public static string Jog_positive {
+            get {
+                return ResourceManager.GetString("Jog_positive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jog velocity.
+        /// </summary>
+        public static string Jog_velocity {
+            get {
+                return ResourceManager.GetString("Jog_velocity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MC_Halt has thrown an error: .
         /// </summary>
         public static string MC_UNDERSCORE_Halt_has_thrown_an_error_COLON__ {
@@ -174,6 +525,2148 @@ namespace AXOpen.Components.Drives.Resources {
         public static string MC_UNDERSCORE_WriteRealParameter_has_thrown_an_error_COLON__ {
             get {
                 return ResourceManager.GetString("MC_UNDERSCORE_WriteRealParameter_has_thrown_an_error_COLON__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move absolute aborted.
+        /// </summary>
+        public static string Move_absolute_aborted {
+            get {
+                return ResourceManager.GetString("Move_absolute_aborted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move absolute acceleration.
+        /// </summary>
+        public static string Move_absolute_acceleration {
+            get {
+                return ResourceManager.GetString("Move_absolute_acceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move absolute active.
+        /// </summary>
+        public static string Move_absolute_active {
+            get {
+                return ResourceManager.GetString("Move_absolute_active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move absolute busy.
+        /// </summary>
+        public static string Move_absolute_busy {
+            get {
+                return ResourceManager.GetString("Move_absolute_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move absolute continous update.
+        /// </summary>
+        public static string Move_absolute_continous_update {
+            get {
+                return ResourceManager.GetString("Move_absolute_continous_update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move absolute decceleration.
+        /// </summary>
+        public static string Move_absolute_decceleration {
+            get {
+                return ResourceManager.GetString("Move_absolute_decceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move absolute direction.
+        /// </summary>
+        public static string Move_absolute_direction {
+            get {
+                return ResourceManager.GetString("Move_absolute_direction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move absolute done.
+        /// </summary>
+        public static string Move_absolute_done {
+            get {
+                return ResourceManager.GetString("Move_absolute_done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move absolute error.
+        /// </summary>
+        public static string Move_absolute_error {
+            get {
+                return ResourceManager.GetString("Move_absolute_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move absolute error ID.
+        /// </summary>
+        public static string Move_absolute_error_ID {
+            get {
+                return ResourceManager.GetString("Move_absolute_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move absolute jerk.
+        /// </summary>
+        public static string Move_absolute_jerk {
+            get {
+                return ResourceManager.GetString("Move_absolute_jerk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move absolute position.
+        /// </summary>
+        public static string Move_absolute_position {
+            get {
+                return ResourceManager.GetString("Move_absolute_position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move absolute task.
+        /// </summary>
+        public static string Move_absolute_task {
+            get {
+                return ResourceManager.GetString("Move_absolute_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move absolute velocity.
+        /// </summary>
+        public static string Move_absolute_velocity {
+            get {
+                return ResourceManager.GetString("Move_absolute_velocity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move additive aborted.
+        /// </summary>
+        public static string Move_additive_aborted {
+            get {
+                return ResourceManager.GetString("Move_additive_aborted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move additive acceleration.
+        /// </summary>
+        public static string Move_additive_acceleration {
+            get {
+                return ResourceManager.GetString("Move_additive_acceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move additive active.
+        /// </summary>
+        public static string Move_additive_active {
+            get {
+                return ResourceManager.GetString("Move_additive_active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move additive busy.
+        /// </summary>
+        public static string Move_additive_busy {
+            get {
+                return ResourceManager.GetString("Move_additive_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move additive continuous update.
+        /// </summary>
+        public static string Move_additive_continuous_update {
+            get {
+                return ResourceManager.GetString("Move_additive_continuous_update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move additive deceleration.
+        /// </summary>
+        public static string Move_additive_deceleration {
+            get {
+                return ResourceManager.GetString("Move_additive_deceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move additive distance.
+        /// </summary>
+        public static string Move_additive_distance {
+            get {
+                return ResourceManager.GetString("Move_additive_distance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move additive done.
+        /// </summary>
+        public static string Move_additive_done {
+            get {
+                return ResourceManager.GetString("Move_additive_done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move additive error.
+        /// </summary>
+        public static string Move_additive_error {
+            get {
+                return ResourceManager.GetString("Move_additive_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move additive error ID.
+        /// </summary>
+        public static string Move_additive_error_ID {
+            get {
+                return ResourceManager.GetString("Move_additive_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move additive jerk.
+        /// </summary>
+        public static string Move_additive_jerk {
+            get {
+                return ResourceManager.GetString("Move_additive_jerk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move additive task.
+        /// </summary>
+        public static string Move_additive_task {
+            get {
+                return ResourceManager.GetString("Move_additive_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move additive velocity.
+        /// </summary>
+        public static string Move_additive_velocity {
+            get {
+                return ResourceManager.GetString("Move_additive_velocity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move relative aborted.
+        /// </summary>
+        public static string Move_relative_aborted {
+            get {
+                return ResourceManager.GetString("Move_relative_aborted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move relative acceleration.
+        /// </summary>
+        public static string Move_relative_acceleration {
+            get {
+                return ResourceManager.GetString("Move_relative_acceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move relative active.
+        /// </summary>
+        public static string Move_relative_active {
+            get {
+                return ResourceManager.GetString("Move_relative_active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move relative busy.
+        /// </summary>
+        public static string Move_relative_busy {
+            get {
+                return ResourceManager.GetString("Move_relative_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move relative continuous update.
+        /// </summary>
+        public static string Move_relative_continuous_update {
+            get {
+                return ResourceManager.GetString("Move_relative_continuous_update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move relative deceleration.
+        /// </summary>
+        public static string Move_relative_deceleration {
+            get {
+                return ResourceManager.GetString("Move_relative_deceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move relative distance.
+        /// </summary>
+        public static string Move_relative_distance {
+            get {
+                return ResourceManager.GetString("Move_relative_distance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move relative done.
+        /// </summary>
+        public static string Move_relative_done {
+            get {
+                return ResourceManager.GetString("Move_relative_done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move relative error.
+        /// </summary>
+        public static string Move_relative_error {
+            get {
+                return ResourceManager.GetString("Move_relative_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move relative error ID.
+        /// </summary>
+        public static string Move_relative_error_ID {
+            get {
+                return ResourceManager.GetString("Move_relative_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move relative jerk.
+        /// </summary>
+        public static string Move_relative_jerk {
+            get {
+                return ResourceManager.GetString("Move_relative_jerk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move relative task.
+        /// </summary>
+        public static string Move_relative_task {
+            get {
+                return ResourceManager.GetString("Move_relative_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move relative velocity.
+        /// </summary>
+        public static string Move_relative_velocity {
+            get {
+                return ResourceManager.GetString("Move_relative_velocity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move velocity .
+        /// </summary>
+        public static string Move_velocity_ {
+            get {
+                return ResourceManager.GetString("Move_velocity_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move velocity aborted.
+        /// </summary>
+        public static string Move_velocity_aborted {
+            get {
+                return ResourceManager.GetString("Move_velocity_aborted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move velocity acceleration.
+        /// </summary>
+        public static string Move_velocity_acceleration {
+            get {
+                return ResourceManager.GetString("Move_velocity_acceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move velocity active.
+        /// </summary>
+        public static string Move_velocity_active {
+            get {
+                return ResourceManager.GetString("Move_velocity_active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move velocity busy.
+        /// </summary>
+        public static string Move_velocity_busy {
+            get {
+                return ResourceManager.GetString("Move_velocity_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move velocity continuous update.
+        /// </summary>
+        public static string Move_velocity_continuous_update {
+            get {
+                return ResourceManager.GetString("Move_velocity_continuous_update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move velocity deceleration.
+        /// </summary>
+        public static string Move_velocity_deceleration {
+            get {
+                return ResourceManager.GetString("Move_velocity_deceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move velocity error.
+        /// </summary>
+        public static string Move_velocity_error {
+            get {
+                return ResourceManager.GetString("Move_velocity_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move velocity error ID.
+        /// </summary>
+        public static string Move_velocity_error_ID {
+            get {
+                return ResourceManager.GetString("Move_velocity_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move velocity in velocity.
+        /// </summary>
+        public static string Move_velocity_in_velocity {
+            get {
+                return ResourceManager.GetString("Move_velocity_in_velocity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move velocity jerk.
+        /// </summary>
+        public static string Move_velocity_jerk {
+            get {
+                return ResourceManager.GetString("Move_velocity_jerk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move velocity task.
+        /// </summary>
+        public static string Move_velocity_task {
+            get {
+                return ResourceManager.GetString("Move_velocity_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move velocity velocity.
+        /// </summary>
+        public static string Move_velocity_velocity {
+            get {
+                return ResourceManager.GetString("Move_velocity_velocity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Position.
+        /// </summary>
+        public static string Position {
+            get {
+                return ResourceManager.GetString("Position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power error.
+        /// </summary>
+        public static string Power_error {
+            get {
+                return ResourceManager.GetString("Power_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power error ID.
+        /// </summary>
+        public static string Power_error_ID {
+            get {
+                return ResourceManager.GetString("Power_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power status.
+        /// </summary>
+        public static string Power_status {
+            get {
+                return ResourceManager.GetString("Power_status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power task.
+        /// </summary>
+        public static string Power_task {
+            get {
+                return ResourceManager.GetString("Power_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power valid.
+        /// </summary>
+        public static string Power_valid {
+            get {
+                return ResourceManager.GetString("Power_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual position busy.
+        /// </summary>
+        public static string Read_actual_position_busy {
+            get {
+                return ResourceManager.GetString("Read_actual_position_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual position error.
+        /// </summary>
+        public static string Read_actual_position_error {
+            get {
+                return ResourceManager.GetString("Read_actual_position_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual position error ID.
+        /// </summary>
+        public static string Read_actual_position_error_ID {
+            get {
+                return ResourceManager.GetString("Read_actual_position_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual position task.
+        /// </summary>
+        public static string Read_actual_position_task {
+            get {
+                return ResourceManager.GetString("Read_actual_position_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual position valid.
+        /// </summary>
+        public static string Read_actual_position_valid {
+            get {
+                return ResourceManager.GetString("Read_actual_position_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual position value.
+        /// </summary>
+        public static string Read_actual_position_value {
+            get {
+                return ResourceManager.GetString("Read_actual_position_value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual torque busy.
+        /// </summary>
+        public static string Read_actual_torque_busy {
+            get {
+                return ResourceManager.GetString("Read_actual_torque_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual torque error.
+        /// </summary>
+        public static string Read_actual_torque_error {
+            get {
+                return ResourceManager.GetString("Read_actual_torque_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual torque error ID.
+        /// </summary>
+        public static string Read_actual_torque_error_ID {
+            get {
+                return ResourceManager.GetString("Read_actual_torque_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual torque task.
+        /// </summary>
+        public static string Read_actual_torque_task {
+            get {
+                return ResourceManager.GetString("Read_actual_torque_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual torque valid.
+        /// </summary>
+        public static string Read_actual_torque_valid {
+            get {
+                return ResourceManager.GetString("Read_actual_torque_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual torque value.
+        /// </summary>
+        public static string Read_actual_torque_value {
+            get {
+                return ResourceManager.GetString("Read_actual_torque_value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual velocity busy.
+        /// </summary>
+        public static string Read_actual_velocity_busy {
+            get {
+                return ResourceManager.GetString("Read_actual_velocity_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual velocity error.
+        /// </summary>
+        public static string Read_actual_velocity_error {
+            get {
+                return ResourceManager.GetString("Read_actual_velocity_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual velocity error ID.
+        /// </summary>
+        public static string Read_actual_velocity_error_ID {
+            get {
+                return ResourceManager.GetString("Read_actual_velocity_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual velocity task.
+        /// </summary>
+        public static string Read_actual_velocity_task {
+            get {
+                return ResourceManager.GetString("Read_actual_velocity_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual velocity valid.
+        /// </summary>
+        public static string Read_actual_velocity_valid {
+            get {
+                return ResourceManager.GetString("Read_actual_velocity_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read actual velocity value.
+        /// </summary>
+        public static string Read_actual_velocity_value {
+            get {
+                return ResourceManager.GetString("Read_actual_velocity_value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis error axis error ID.
+        /// </summary>
+        public static string Read_axis_error_axis_error_ID {
+            get {
+                return ResourceManager.GetString("Read_axis_error_axis_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis error busy.
+        /// </summary>
+        public static string Read_axis_error_busy {
+            get {
+                return ResourceManager.GetString("Read_axis_error_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis error error.
+        /// </summary>
+        public static string Read_axis_error_error {
+            get {
+                return ResourceManager.GetString("Read_axis_error_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis error error ID.
+        /// </summary>
+        public static string Read_axis_error_error_ID {
+            get {
+                return ResourceManager.GetString("Read_axis_error_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis error task.
+        /// </summary>
+        public static string Read_axis_error_task {
+            get {
+                return ResourceManager.GetString("Read_axis_error_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis error valid.
+        /// </summary>
+        public static string Read_axis_error_valid {
+            get {
+                return ResourceManager.GetString("Read_axis_error_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis info busy.
+        /// </summary>
+        public static string Read_axis_info_busy {
+            get {
+                return ResourceManager.GetString("Read_axis_info_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis info communication ready.
+        /// </summary>
+        public static string Read_axis_info_communication_ready {
+            get {
+                return ResourceManager.GetString("Read_axis_info_communication_ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis info error.
+        /// </summary>
+        public static string Read_axis_info_error {
+            get {
+                return ResourceManager.GetString("Read_axis_info_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis info error ID.
+        /// </summary>
+        public static string Read_axis_info_error_ID {
+            get {
+                return ResourceManager.GetString("Read_axis_info_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis info home absolute switch.
+        /// </summary>
+        public static string Read_axis_info_home_absolute_switch {
+            get {
+                return ResourceManager.GetString("Read_axis_info_home_absolute_switch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis info is homed.
+        /// </summary>
+        public static string Read_axis_info_is_homed {
+            get {
+                return ResourceManager.GetString("Read_axis_info_is_homed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis info limit switch negative.
+        /// </summary>
+        public static string Read_axis_info_limit_switch_negative {
+            get {
+                return ResourceManager.GetString("Read_axis_info_limit_switch_negative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis info limit switch positive.
+        /// </summary>
+        public static string Read_axis_info_limit_switch_positive {
+            get {
+                return ResourceManager.GetString("Read_axis_info_limit_switch_positive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis info power on.
+        /// </summary>
+        public static string Read_axis_info_power_on {
+            get {
+                return ResourceManager.GetString("Read_axis_info_power_on", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis info ready for power on.
+        /// </summary>
+        public static string Read_axis_info_ready_for_power_on {
+            get {
+                return ResourceManager.GetString("Read_axis_info_ready_for_power_on", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis info simulation.
+        /// </summary>
+        public static string Read_axis_info_simulation {
+            get {
+                return ResourceManager.GetString("Read_axis_info_simulation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis info task.
+        /// </summary>
+        public static string Read_axis_info_task {
+            get {
+                return ResourceManager.GetString("Read_axis_info_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis info valid.
+        /// </summary>
+        public static string Read_axis_info_valid {
+            get {
+                return ResourceManager.GetString("Read_axis_info_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read axis info warning.
+        /// </summary>
+        public static string Read_axis_info_warning {
+            get {
+                return ResourceManager.GetString("Read_axis_info_warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read bool parameter busy.
+        /// </summary>
+        public static string Read_bool_parameter_busy {
+            get {
+                return ResourceManager.GetString("Read_bool_parameter_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read bool parameter error.
+        /// </summary>
+        public static string Read_bool_parameter_error {
+            get {
+                return ResourceManager.GetString("Read_bool_parameter_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read bool parameter error ID.
+        /// </summary>
+        public static string Read_bool_parameter_error_ID {
+            get {
+                return ResourceManager.GetString("Read_bool_parameter_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read bool parameter number.
+        /// </summary>
+        public static string Read_bool_parameter_number {
+            get {
+                return ResourceManager.GetString("Read_bool_parameter_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read bool parameter task.
+        /// </summary>
+        public static string Read_bool_parameter_task {
+            get {
+                return ResourceManager.GetString("Read_bool_parameter_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read bool parameter valid.
+        /// </summary>
+        public static string Read_bool_parameter_valid {
+            get {
+                return ResourceManager.GetString("Read_bool_parameter_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read bool parameter value.
+        /// </summary>
+        public static string Read_bool_parameter_value {
+            get {
+                return ResourceManager.GetString("Read_bool_parameter_value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read digital input busy.
+        /// </summary>
+        public static string Read_digital_input_busy {
+            get {
+                return ResourceManager.GetString("Read_digital_input_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read digital input error.
+        /// </summary>
+        public static string Read_digital_input_error {
+            get {
+                return ResourceManager.GetString("Read_digital_input_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read digital input error ID.
+        /// </summary>
+        public static string Read_digital_input_error_ID {
+            get {
+                return ResourceManager.GetString("Read_digital_input_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read digital input number.
+        /// </summary>
+        public static string Read_digital_input_number {
+            get {
+                return ResourceManager.GetString("Read_digital_input_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read digital input task.
+        /// </summary>
+        public static string Read_digital_input_task {
+            get {
+                return ResourceManager.GetString("Read_digital_input_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read digital input valid.
+        /// </summary>
+        public static string Read_digital_input_valid {
+            get {
+                return ResourceManager.GetString("Read_digital_input_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read digital input value.
+        /// </summary>
+        public static string Read_digital_input_value {
+            get {
+                return ResourceManager.GetString("Read_digital_input_value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read digital output busy.
+        /// </summary>
+        public static string Read_digital_output_busy {
+            get {
+                return ResourceManager.GetString("Read_digital_output_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read digital output error.
+        /// </summary>
+        public static string Read_digital_output_error {
+            get {
+                return ResourceManager.GetString("Read_digital_output_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read digital output error ID.
+        /// </summary>
+        public static string Read_digital_output_error_ID {
+            get {
+                return ResourceManager.GetString("Read_digital_output_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read digital output number.
+        /// </summary>
+        public static string Read_digital_output_number {
+            get {
+                return ResourceManager.GetString("Read_digital_output_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read digital output task.
+        /// </summary>
+        public static string Read_digital_output_task {
+            get {
+                return ResourceManager.GetString("Read_digital_output_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read digital output valid.
+        /// </summary>
+        public static string Read_digital_output_valid {
+            get {
+                return ResourceManager.GetString("Read_digital_output_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read digital output value.
+        /// </summary>
+        public static string Read_digital_output_value {
+            get {
+                return ResourceManager.GetString("Read_digital_output_value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read motion state accelerating.
+        /// </summary>
+        public static string Read_motion_state_accelerating {
+            get {
+                return ResourceManager.GetString("Read_motion_state_accelerating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read motion state busy.
+        /// </summary>
+        public static string Read_motion_state_busy {
+            get {
+                return ResourceManager.GetString("Read_motion_state_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read motion state constant velocity.
+        /// </summary>
+        public static string Read_motion_state_constant_velocity {
+            get {
+                return ResourceManager.GetString("Read_motion_state_constant_velocity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read motion state decelerating.
+        /// </summary>
+        public static string Read_motion_state_decelerating {
+            get {
+                return ResourceManager.GetString("Read_motion_state_decelerating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read motion state direction negative.
+        /// </summary>
+        public static string Read_motion_state_direction_negative {
+            get {
+                return ResourceManager.GetString("Read_motion_state_direction_negative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read motion state direction positive.
+        /// </summary>
+        public static string Read_motion_state_direction_positive {
+            get {
+                return ResourceManager.GetString("Read_motion_state_direction_positive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read motion state error.
+        /// </summary>
+        public static string Read_motion_state_error {
+            get {
+                return ResourceManager.GetString("Read_motion_state_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read motion state error ID.
+        /// </summary>
+        public static string Read_motion_state_error_ID {
+            get {
+                return ResourceManager.GetString("Read_motion_state_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read motion state source.
+        /// </summary>
+        public static string Read_motion_state_source {
+            get {
+                return ResourceManager.GetString("Read_motion_state_source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read motion state task.
+        /// </summary>
+        public static string Read_motion_state_task {
+            get {
+                return ResourceManager.GetString("Read_motion_state_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read motion state valid.
+        /// </summary>
+        public static string Read_motion_state_valid {
+            get {
+                return ResourceManager.GetString("Read_motion_state_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read parameter busy.
+        /// </summary>
+        public static string Read_parameter_busy {
+            get {
+                return ResourceManager.GetString("Read_parameter_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read parameter error.
+        /// </summary>
+        public static string Read_parameter_error {
+            get {
+                return ResourceManager.GetString("Read_parameter_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read parameter error ID.
+        /// </summary>
+        public static string Read_parameter_error_ID {
+            get {
+                return ResourceManager.GetString("Read_parameter_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read parameter number.
+        /// </summary>
+        public static string Read_parameter_number {
+            get {
+                return ResourceManager.GetString("Read_parameter_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read parameter task.
+        /// </summary>
+        public static string Read_parameter_task {
+            get {
+                return ResourceManager.GetString("Read_parameter_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read parameter valid.
+        /// </summary>
+        public static string Read_parameter_valid {
+            get {
+                return ResourceManager.GetString("Read_parameter_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read parameter value.
+        /// </summary>
+        public static string Read_parameter_value {
+            get {
+                return ResourceManager.GetString("Read_parameter_value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read real parameter busy.
+        /// </summary>
+        public static string Read_real_parameter_busy {
+            get {
+                return ResourceManager.GetString("Read_real_parameter_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read real parameter error.
+        /// </summary>
+        public static string Read_real_parameter_error {
+            get {
+                return ResourceManager.GetString("Read_real_parameter_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read real parameter error ID.
+        /// </summary>
+        public static string Read_real_parameter_error_ID {
+            get {
+                return ResourceManager.GetString("Read_real_parameter_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read real parameter number.
+        /// </summary>
+        public static string Read_real_parameter_number {
+            get {
+                return ResourceManager.GetString("Read_real_parameter_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read real parameter task.
+        /// </summary>
+        public static string Read_real_parameter_task {
+            get {
+                return ResourceManager.GetString("Read_real_parameter_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read real parameter valid.
+        /// </summary>
+        public static string Read_real_parameter_valid {
+            get {
+                return ResourceManager.GetString("Read_real_parameter_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read real parameter value.
+        /// </summary>
+        public static string Read_real_parameter_value {
+            get {
+                return ResourceManager.GetString("Read_real_parameter_value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read status busy.
+        /// </summary>
+        public static string Read_status_busy {
+            get {
+                return ResourceManager.GetString("Read_status_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read status continuous motion.
+        /// </summary>
+        public static string Read_status_continuous_motion {
+            get {
+                return ResourceManager.GetString("Read_status_continuous_motion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read status disabled.
+        /// </summary>
+        public static string Read_status_disabled {
+            get {
+                return ResourceManager.GetString("Read_status_disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read status discrete motion.
+        /// </summary>
+        public static string Read_status_discrete_motion {
+            get {
+                return ResourceManager.GetString("Read_status_discrete_motion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read status error.
+        /// </summary>
+        public static string Read_status_error {
+            get {
+                return ResourceManager.GetString("Read_status_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read status error ID.
+        /// </summary>
+        public static string Read_status_error_ID {
+            get {
+                return ResourceManager.GetString("Read_status_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read status error stop.
+        /// </summary>
+        public static string Read_status_error_stop {
+            get {
+                return ResourceManager.GetString("Read_status_error_stop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read status homming.
+        /// </summary>
+        public static string Read_status_homming {
+            get {
+                return ResourceManager.GetString("Read_status_homming", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read status standstill.
+        /// </summary>
+        public static string Read_status_standstill {
+            get {
+                return ResourceManager.GetString("Read_status_standstill", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read status stopping.
+        /// </summary>
+        public static string Read_status_stopping {
+            get {
+                return ResourceManager.GetString("Read_status_stopping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read status synchronized motion.
+        /// </summary>
+        public static string Read_status_synchronized_motion {
+            get {
+                return ResourceManager.GetString("Read_status_synchronized_motion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read status task.
+        /// </summary>
+        public static string Read_status_task {
+            get {
+                return ResourceManager.GetString("Read_status_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read status valid.
+        /// </summary>
+        public static string Read_status_valid {
+            get {
+                return ResourceManager.GetString("Read_status_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset busy.
+        /// </summary>
+        public static string Reset_busy {
+            get {
+                return ResourceManager.GetString("Reset_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset done.
+        /// </summary>
+        public static string Reset_done {
+            get {
+                return ResourceManager.GetString("Reset_done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset error.
+        /// </summary>
+        public static string Reset_error {
+            get {
+                return ResourceManager.GetString("Reset_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset error ID.
+        /// </summary>
+        public static string Reset_error_ID {
+            get {
+                return ResourceManager.GetString("Reset_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset task.
+        /// </summary>
+        public static string Reset_task {
+            get {
+                return ResourceManager.GetString("Reset_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set override acceleration factor.
+        /// </summary>
+        public static string Set_override_acceleration_factor {
+            get {
+                return ResourceManager.GetString("Set_override_acceleration_factor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set override busy.
+        /// </summary>
+        public static string Set_override_busy {
+            get {
+                return ResourceManager.GetString("Set_override_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set override enabled.
+        /// </summary>
+        public static string Set_override_enabled {
+            get {
+                return ResourceManager.GetString("Set_override_enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set override error.
+        /// </summary>
+        public static string Set_override_error {
+            get {
+                return ResourceManager.GetString("Set_override_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set override error ID.
+        /// </summary>
+        public static string Set_override_error_ID {
+            get {
+                return ResourceManager.GetString("Set_override_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set override jerk factor.
+        /// </summary>
+        public static string Set_override_jerk_factor {
+            get {
+                return ResourceManager.GetString("Set_override_jerk_factor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set override task.
+        /// </summary>
+        public static string Set_override_task {
+            get {
+                return ResourceManager.GetString("Set_override_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set override velocity factor.
+        /// </summary>
+        public static string Set_override_velocity_factor {
+            get {
+                return ResourceManager.GetString("Set_override_velocity_factor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set position busy.
+        /// </summary>
+        public static string Set_position_busy {
+            get {
+                return ResourceManager.GetString("Set_position_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set position done.
+        /// </summary>
+        public static string Set_position_done {
+            get {
+                return ResourceManager.GetString("Set_position_done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set position error.
+        /// </summary>
+        public static string Set_position_error {
+            get {
+                return ResourceManager.GetString("Set_position_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set position error ID.
+        /// </summary>
+        public static string Set_position_error_ID {
+            get {
+                return ResourceManager.GetString("Set_position_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set position execution mode.
+        /// </summary>
+        public static string Set_position_execution_mode {
+            get {
+                return ResourceManager.GetString("Set_position_execution_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set position position.
+        /// </summary>
+        public static string Set_position_position {
+            get {
+                return ResourceManager.GetString("Set_position_position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set position relative.
+        /// </summary>
+        public static string Set_position_relative {
+            get {
+                return ResourceManager.GetString("Set_position_relative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set position task.
+        /// </summary>
+        public static string Set_position_task {
+            get {
+                return ResourceManager.GetString("Set_position_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop aborted.
+        /// </summary>
+        public static string Stop_aborted {
+            get {
+                return ResourceManager.GetString("Stop_aborted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop active.
+        /// </summary>
+        public static string Stop_active {
+            get {
+                return ResourceManager.GetString("Stop_active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop busy.
+        /// </summary>
+        public static string Stop_busy {
+            get {
+                return ResourceManager.GetString("Stop_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop decceleration.
+        /// </summary>
+        public static string Stop_decceleration {
+            get {
+                return ResourceManager.GetString("Stop_decceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop done.
+        /// </summary>
+        public static string Stop_done {
+            get {
+                return ResourceManager.GetString("Stop_done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop error.
+        /// </summary>
+        public static string Stop_error {
+            get {
+                return ResourceManager.GetString("Stop_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop error ID.
+        /// </summary>
+        public static string Stop_error_ID {
+            get {
+                return ResourceManager.GetString("Stop_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop jerk.
+        /// </summary>
+        public static string Stop_jerk {
+            get {
+                return ResourceManager.GetString("Stop_jerk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop task.
+        /// </summary>
+        public static string Stop_task {
+            get {
+                return ResourceManager.GetString("Stop_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task timeout.
+        /// </summary>
+        public static string Task_timeout {
+            get {
+                return ResourceManager.GetString("Task_timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque.
+        /// </summary>
+        public static string Torque {
+            get {
+                return ResourceManager.GetString("Torque", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control aborted.
+        /// </summary>
+        public static string Torque_control_aborted {
+            get {
+                return ResourceManager.GetString("Torque_control_aborted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control acceleration.
+        /// </summary>
+        public static string Torque_control_acceleration {
+            get {
+                return ResourceManager.GetString("Torque_control_acceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control active.
+        /// </summary>
+        public static string Torque_control_active {
+            get {
+                return ResourceManager.GetString("Torque_control_active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control busy.
+        /// </summary>
+        public static string Torque_control_busy {
+            get {
+                return ResourceManager.GetString("Torque_control_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control continuous update.
+        /// </summary>
+        public static string Torque_control_continuous_update {
+            get {
+                return ResourceManager.GetString("Torque_control_continuous_update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control deceleration.
+        /// </summary>
+        public static string Torque_control_deceleration {
+            get {
+                return ResourceManager.GetString("Torque_control_deceleration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control direction.
+        /// </summary>
+        public static string Torque_control_direction {
+            get {
+                return ResourceManager.GetString("Torque_control_direction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control error.
+        /// </summary>
+        public static string Torque_control_error {
+            get {
+                return ResourceManager.GetString("Torque_control_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control error ID.
+        /// </summary>
+        public static string Torque_control_error_ID {
+            get {
+                return ResourceManager.GetString("Torque_control_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control in torque.
+        /// </summary>
+        public static string Torque_control_in_torque {
+            get {
+                return ResourceManager.GetString("Torque_control_in_torque", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control jerk.
+        /// </summary>
+        public static string Torque_control_jerk {
+            get {
+                return ResourceManager.GetString("Torque_control_jerk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control position limit.
+        /// </summary>
+        public static string Torque_control_position_limit {
+            get {
+                return ResourceManager.GetString("Torque_control_position_limit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control task.
+        /// </summary>
+        public static string Torque_control_task {
+            get {
+                return ResourceManager.GetString("Torque_control_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control torque.
+        /// </summary>
+        public static string Torque_control_torque {
+            get {
+                return ResourceManager.GetString("Torque_control_torque", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control torque ramp.
+        /// </summary>
+        public static string Torque_control_torque_ramp {
+            get {
+                return ResourceManager.GetString("Torque_control_torque_ramp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Torque control velocity.
+        /// </summary>
+        public static string Torque_control_velocity {
+            get {
+                return ResourceManager.GetString("Torque_control_velocity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Velocity.
+        /// </summary>
+        public static string Velocity {
+            get {
+                return ResourceManager.GetString("Velocity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write bool parameter busy.
+        /// </summary>
+        public static string Write_bool_parameter_busy {
+            get {
+                return ResourceManager.GetString("Write_bool_parameter_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write bool parameter done.
+        /// </summary>
+        public static string Write_bool_parameter_done {
+            get {
+                return ResourceManager.GetString("Write_bool_parameter_done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write bool parameter error.
+        /// </summary>
+        public static string Write_bool_parameter_error {
+            get {
+                return ResourceManager.GetString("Write_bool_parameter_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write bool parameter error ID.
+        /// </summary>
+        public static string Write_bool_parameter_error_ID {
+            get {
+                return ResourceManager.GetString("Write_bool_parameter_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write bool parameter execution mode.
+        /// </summary>
+        public static string Write_bool_parameter_execution_mode {
+            get {
+                return ResourceManager.GetString("Write_bool_parameter_execution_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write bool parameter number.
+        /// </summary>
+        public static string Write_bool_parameter_number {
+            get {
+                return ResourceManager.GetString("Write_bool_parameter_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write bool parameter task.
+        /// </summary>
+        public static string Write_bool_parameter_task {
+            get {
+                return ResourceManager.GetString("Write_bool_parameter_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write bool parameter value.
+        /// </summary>
+        public static string Write_bool_parameter_value {
+            get {
+                return ResourceManager.GetString("Write_bool_parameter_value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write digital output busy.
+        /// </summary>
+        public static string Write_digital_output_busy {
+            get {
+                return ResourceManager.GetString("Write_digital_output_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write digital output done.
+        /// </summary>
+        public static string Write_digital_output_done {
+            get {
+                return ResourceManager.GetString("Write_digital_output_done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write digital output error.
+        /// </summary>
+        public static string Write_digital_output_error {
+            get {
+                return ResourceManager.GetString("Write_digital_output_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write digital output error ID.
+        /// </summary>
+        public static string Write_digital_output_error_ID {
+            get {
+                return ResourceManager.GetString("Write_digital_output_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write digital output execution mode.
+        /// </summary>
+        public static string Write_digital_output_execution_mode {
+            get {
+                return ResourceManager.GetString("Write_digital_output_execution_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write digital output number.
+        /// </summary>
+        public static string Write_digital_output_number {
+            get {
+                return ResourceManager.GetString("Write_digital_output_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write digital output task.
+        /// </summary>
+        public static string Write_digital_output_task {
+            get {
+                return ResourceManager.GetString("Write_digital_output_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write digital output value.
+        /// </summary>
+        public static string Write_digital_output_value {
+            get {
+                return ResourceManager.GetString("Write_digital_output_value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write parameter busy.
+        /// </summary>
+        public static string Write_parameter_busy {
+            get {
+                return ResourceManager.GetString("Write_parameter_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write parameter done.
+        /// </summary>
+        public static string Write_parameter_done {
+            get {
+                return ResourceManager.GetString("Write_parameter_done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write parameter error.
+        /// </summary>
+        public static string Write_parameter_error {
+            get {
+                return ResourceManager.GetString("Write_parameter_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write parameter error ID.
+        /// </summary>
+        public static string Write_parameter_error_ID {
+            get {
+                return ResourceManager.GetString("Write_parameter_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write parameter execution mode.
+        /// </summary>
+        public static string Write_parameter_execution_mode {
+            get {
+                return ResourceManager.GetString("Write_parameter_execution_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write parameter number.
+        /// </summary>
+        public static string Write_parameter_number {
+            get {
+                return ResourceManager.GetString("Write_parameter_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write parameter task.
+        /// </summary>
+        public static string Write_parameter_task {
+            get {
+                return ResourceManager.GetString("Write_parameter_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write parameter value.
+        /// </summary>
+        public static string Write_parameter_value {
+            get {
+                return ResourceManager.GetString("Write_parameter_value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write real parameter busy.
+        /// </summary>
+        public static string Write_real_parameter_busy {
+            get {
+                return ResourceManager.GetString("Write_real_parameter_busy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write real parameter done.
+        /// </summary>
+        public static string Write_real_parameter_done {
+            get {
+                return ResourceManager.GetString("Write_real_parameter_done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write real parameter error.
+        /// </summary>
+        public static string Write_real_parameter_error {
+            get {
+                return ResourceManager.GetString("Write_real_parameter_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write real parameter error ID.
+        /// </summary>
+        public static string Write_real_parameter_error_ID {
+            get {
+                return ResourceManager.GetString("Write_real_parameter_error_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write real parameter execution mode.
+        /// </summary>
+        public static string Write_real_parameter_execution_mode {
+            get {
+                return ResourceManager.GetString("Write_real_parameter_execution_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write real parameter number.
+        /// </summary>
+        public static string Write_real_parameter_number {
+            get {
+                return ResourceManager.GetString("Write_real_parameter_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write real parameter task.
+        /// </summary>
+        public static string Write_real_parameter_task {
+            get {
+                return ResourceManager.GetString("Write_real_parameter_task", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write real parameter value.
+        /// </summary>
+        public static string Write_real_parameter_value {
+            get {
+                return ResourceManager.GetString("Write_real_parameter_value", resourceCulture);
             }
         }
     }

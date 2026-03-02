@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="The_safety_condition_is_lost_during_movement_DOT_" xml:space="preserve">
+    <value>Bezpečnostná podmienka sa počas pohybu stráca.</value>
+  </data>
+  <data name="TurnTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit TurnTask.</value>
+  </data>
+  <data name="InitPositionTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit úlohy InitPositionTask.</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stav</value>
+  </data>
+  <data name="MessengerInfo" xml:space="preserve">
+    <value>MessengerInfo</value>
+  </data>
+  <data name="Raw_range" xml:space="preserve">
+    <value>Surový rozsah</value>
+  </data>
+  <data name="Real_range" xml:space="preserve">
+    <value>Skutočný rozsah</value>
+  </data>
+  <data name="Scale_value" xml:space="preserve">
+    <value>Hodnota stupnice</value>
+  </data>
+  <data name="SetPoint" xml:space="preserve">
+    <value>SetPoint</value>
+  </data>
+  <data name="Unscaled_value" xml:space="preserve">
+    <value>Neškálovaná hodnota</value>
+  </data>
+  <data name="Button_Signal" xml:space="preserve">
+    <value>Signál tlačidla</value>
+  </data>
+  <data name="LED_Indicator" xml:space="preserve">
+    <value>Indikátor LED</value>
+  </data>
+  <data name="Signal" xml:space="preserve">
+    <value>Signál</value>
+  </data>
+  <data name="Check_on" xml:space="preserve">
+    <value>Skontrolujte, či</value>
+  </data>
+  <data name="Check_off" xml:space="preserve">
+    <value>Zaškrtnite</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>Na stránke</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Vypnuté</value>
+  </data>
+  <data name="Turn" xml:space="preserve">
+    <value>Otočte</value>
+  </data>
+  <data name="Current_position" xml:space="preserve">
+    <value>Súčasná pozícia</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnovenie</value>
+  </data>
+  <data name="InitPositionTask" xml:space="preserve">
+    <value>InitPositionTask</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Smer</value>
+  </data>
+  <data name="Number_of_positions" xml:space="preserve">
+    <value>Počet pozícií</value>
+  </data>
+  <data name="Offset" xml:space="preserve">
+    <value>Ofset</value>
+  </data>
+  <data name="Enable_turn" xml:space="preserve">
+    <value>Povolenie otáčania</value>
+  </data>
+  <data name="Start_turn" xml:space="preserve">
+    <value>Začiatok otáčania</value>
+  </data>
+  <data name="Safety_condition" xml:space="preserve">
+    <value>Bezpečnostný stav</value>
+  </data>
+  <data name="In_position" xml:space="preserve">
+    <value>V polohe</value>
+  </data>
+  <data name="In_precise_position" xml:space="preserve">
+    <value>V presnej polohe</value>
+  </data>
+  <data name="Coding_position" xml:space="preserve">
+    <value>Pozícia kódovania</value>
+  </data>
+  <data name="Raw_low" xml:space="preserve">
+    <value>Spodná surová hodnota</value>
+  </data>
+  <data name="Raw_high" xml:space="preserve">
+    <value>Vrchná surová hodnota</value>
+  </data>
+  <data name="Real_low" xml:space="preserve">
+    <value>Spodná reálna hodnota</value>
+  </data>
+  <data name="Real_high" xml:space="preserve">
+    <value>Vrchná reálna hodnota</value>
+  </data>
+  <data name="Gain" xml:space="preserve">
+    <value>Zosilnenie</value>
+  </data>
+</root>

@@ -59,5 +59,329 @@ namespace AXOpen.Core.Blazor.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Acknowledge.
+        /// </summary>
+        public static string Acknowledge {
+            get {
+                return ResourceManager.GetString("Acknowledge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Acknowledged.
+        /// </summary>
+        public static string Acknowledged {
+            get {
+                return ResourceManager.GetString("Acknowledged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to active.
+        /// </summary>
+        public static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active · Acknowledged.
+        /// </summary>
+        public static string ActiveAcknowledged {
+            get {
+                return ResourceManager.GetString("ActiveAcknowledged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active Alarm.
+        /// </summary>
+        public static string ActiveAlarms {
+            get {
+                return ResourceManager.GetString("ActiveAlarms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active Alarms.
+        /// </summary>
+        public static string ActiveAlarmsPlural {
+            get {
+                return ResourceManager.GetString("ActiveAlarmsPlural", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active · Unacknowledged.
+        /// </summary>
+        public static string ActiveUnacknowledged {
+            get {
+                return ResourceManager.GetString("ActiveUnacknowledged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alarm ID.
+        /// </summary>
+        public static string AlarmId {
+            get {
+                return ResourceManager.GetString("AlarmId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cleared.
+        /// </summary>
+        public static string Cleared {
+            get {
+                return ResourceManager.GetString("Cleared", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duration.
+        /// </summary>
+        public static string Duration {
+            get {
+                return ResourceManager.GetString("Duration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter step mode.
+        /// </summary>
+        public static string EnterStepMode {
+            get {
+                return ResourceManager.GetString("EnterStepMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equipment.
+        /// </summary>
+        public static string Equipment {
+            get {
+                return ResourceManager.GetString("Equipment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exit step mode.
+        /// </summary>
+        public static string ExitStepMode {
+            get {
+                return ResourceManager.GetString("ExitStepMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HIDE DETAILS.
+        /// </summary>
+        public static string HideDetails {
+            get {
+                return ResourceManager.GetString("HideDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Human Readable.
+        /// </summary>
+        public static string HumanReadable {
+            get {
+                return ResourceManager.GetString("HumanReadable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Idle.
+        /// </summary>
+        public static string Idle {
+            get {
+                return ResourceManager.GetString("Idle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Alarms.
+        /// </summary>
+        public static string NoAlarms {
+            get {
+                return ResourceManager.GetString("NoAlarms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Raised.
+        /// </summary>
+        public static string Raised {
+            get {
+                return ResourceManager.GetString("Raised", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset task.
+        /// </summary>
+        public static string ResetTask {
+            get {
+                return ResourceManager.GetString("ResetTask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RESTORE.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string RestoreButton {
+            get {
+                return ResourceManager.GetString("RestoreButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Running.
+        /// </summary>
+        public static string Running {
+            get {
+                return ResourceManager.GetString("Running", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Critical.
+        /// </summary>
+        public static string SeverityCritical {
+            get {
+                return ResourceManager.GetString("SeverityCritical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info.
+        /// </summary>
+        public static string SeverityInfo {
+            get {
+                return ResourceManager.GetString("SeverityInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Major Fault.
+        /// </summary>
+        public static string SeverityMajorFault {
+            get {
+                return ResourceManager.GetString("SeverityMajorFault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minor Fault.
+        /// </summary>
+        public static string SeverityMinorFault {
+            get {
+                return ResourceManager.GetString("SeverityMinorFault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string SeverityWarning {
+            get {
+                return ResourceManager.GetString("SeverityWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SHOW DETAILS.
+        /// </summary>
+        public static string ShowDetails {
+            get {
+                return ResourceManager.GetString("ShowDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STEP MODE.
+        /// </summary>
+        public static string StepMode {
+            get {
+                return ResourceManager.GetString("StepMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STEP MODE ACTIVE - CONTROLLED BY MASTER SEQUENCE.
+        /// </summary>
+        public static string StepModeActiveControlledByMaster {
+            get {
+                return ResourceManager.GetString("StepModeActiveControlledByMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to STEP MODE CONTROLLED BY MASTER SEQUENCE.
+        /// </summary>
+        public static string StepModeControlledByMaster {
+            get {
+                return ResourceManager.GetString("StepModeControlledByMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suggestion.
+        /// </summary>
+        public static string Suggestion {
+            get {
+                return ResourceManager.GetString("Suggestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Symbol.
+        /// </summary>
+        public static string Symbol {
+            get {
+                return ResourceManager.GetString("Symbol", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timeout.
+        /// </summary>
+        public static string Timeout {
+            get {
+                return ResourceManager.GetString("Timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Details.
+        /// </summary>
+        public static string ViewDetails {
+            get {
+                return ResourceManager.GetString("ViewDetails", resourceCulture);
+            }
+        }
     }
 }

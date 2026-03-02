@@ -1,4 +1,4 @@
-﻿@using AXSharp.Connector;
+@using AXSharp.Connector;
 @using Operon.Components.Dropdown
 @namespace AXOpen.Data.Query
 
@@ -9,20 +9,14 @@
         <label> @SymbolConfiguration.SymbolPathWithParent</label>
     }
 
-    <Dropdown @ref="_dropdownComponent">
-        <DropdownButton>
-            <button type="button" class="btn btn-secondary" @onclick="_dropdownComponent.Toggle">
-                @Operation
-                <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownComponent?.Open ?? false ? "rotated" : null))" />
-            </button>
-        </DropdownButton>
-        <DropdownBody>
+    <div class="select-group">
+        <select @bind="Operation" class="min-w-6 m-0!">
             @foreach (var operation in OperationProvider.GetOperationsForType(SymbolConfiguration.SymbolType))
             {
-                <a class="dropdown-item @(@SymbolConfiguration.Operation == operation ? "active" : "")" @onclick="() => {Operation = operation;}">@operation</a>
+                <option value="@operation">@Localizer[operation]</option>
             }
-        </DropdownBody>
-    </Dropdown>
+        </select>
+    </div>
 
     @if (SymbolConfiguration.IsRangeOperation)
     {
@@ -30,26 +24,21 @@
         {
             <label>@Localizer["Min"]</label>
         }
-        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="MinOrValue"></DynamicInput>
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="MinOrValue" AccessStatusClass="m-0!"></DynamicInput>
 
         if (!HideDescripion)
         {
             <label>@Localizer["Max"]</label>
         }
-        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@Max"></DynamicInput>
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@Max" AccessStatusClass="m-0!"></DynamicInput>
     }
     else
     {
-
         if (!HideDescripion)
         {
             <label for="minOrValue">@Localizer["Value"]</label>
         }
-        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@MinOrValue"></DynamicInput>
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@MinOrValue" AccessStatusClass="m-0!"></DynamicInput>
     }
 
 </div>
-
-@code {
-    private Dropdown _dropdownComponent { get; set; }
-}

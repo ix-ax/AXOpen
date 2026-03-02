@@ -162,4 +162,202 @@
   <data name="Error_writing_tag" xml:space="preserve">
     <value>Chyba pri zápise značky</value>
   </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnoviť</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Začať</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Zastaviť</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Pokrok</value>
+  </data>
+  <data name="ReadUID_UNDERSCORE_Task" xml:space="preserve">
+    <value>ReadUIDTask</value>
+  </data>
+  <data name="Tag_field_to_read" xml:space="preserve">
+    <value>Pole značky na čítanie</value>
+  </data>
+  <data name="ReadTagFieldTask" xml:space="preserve">
+    <value>ReadTagFieldTask</value>
+  </data>
+  <data name="Tag_field_to_write" xml:space="preserve">
+    <value>Pole značky na zápis</value>
+  </data>
+  <data name="Length_of_the_tag_field_to_write" xml:space="preserve">
+    <value>Dĺžka zapisovaného poľa značky</value>
+  </data>
+  <data name="WriteTagFieldTask" xml:space="preserve">
+    <value>WriteTagFieldTask</value>
+  </data>
+  <data name="Read_address" xml:space="preserve">
+    <value>Prečítajte si adresu</value>
+  </data>
+  <data name="Length_of_data_to_read" xml:space="preserve">
+    <value>Dĺžka údajov na čítanie</value>
+  </data>
+  <data name="ReadTask" xml:space="preserve">
+    <value>ReadTask</value>
+  </data>
+  <data name="Write_address" xml:space="preserve">
+    <value>Napíšte adresu</value>
+  </data>
+  <data name="Length_of_data_to_write" xml:space="preserve">
+    <value>Dĺžka zapisovaných údajov</value>
+  </data>
+  <data name="WriteTask" xml:space="preserve">
+    <value>WriteTask</value>
+  </data>
+  <data name="ResetTask" xml:space="preserve">
+    <value>ResetTask</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Prečítajte si</value>
+  </data>
+  <data name="Number_of_bytes_to_read" xml:space="preserve">
+    <value>Počet bajtov na čítanie</value>
+  </data>
+  <data name="Read_buffer_offset" xml:space="preserve">
+    <value>Posunutie čítania vyrovnávacej pamäte</value>
+  </data>
+  <data name="Data_read" xml:space="preserve">
+    <value>Čítanie údajov</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Napíšte na</value>
+  </data>
+  <data name="Number_of_bytes_to_write" xml:space="preserve">
+    <value>Počet bajtov na zápis</value>
+  </data>
+  <data name="Write_buffer_offset" xml:space="preserve">
+    <value>Posunutie vyrovnávacej pamäte pri zápise</value>
+  </data>
+  <data name="Data_to_write" xml:space="preserve">
+    <value>Údaje na zápis</value>
+  </data>
+  <data name="Soft_reset" xml:space="preserve">
+    <value>Mäkký reset</value>
+  </data>
+  <data name="Reset_reader" xml:space="preserve">
+    <value>Resetovanie čítačky</value>
+  </data>
+  <data name="Read_tag" xml:space="preserve">
+    <value>Čítajte značku</value>
+  </data>
+  <data name="Read_tag_length" xml:space="preserve">
+    <value>Dĺžka načítanej značky</value>
+  </data>
+  <data name="Read_tag_address" xml:space="preserve">
+    <value>Čítanie adresy značky</value>
+  </data>
+  <data name="Data_read_from_tag" xml:space="preserve">
+    <value>Údaje načítané z tagu</value>
+  </data>
+  <data name="Write_tag" xml:space="preserve">
+    <value>Napíšte značku</value>
+  </data>
+  <data name="Write_tag_lenghth" xml:space="preserve">
+    <value>Dĺžka zápisu značky</value>
+  </data>
+  <data name="Write_tag_address" xml:space="preserve">
+    <value>Zapísať adresu značky</value>
+  </data>
+  <data name="Data_to_write_to_tag" xml:space="preserve">
+    <value>Údaje, ktoré sa majú zapísať do značky</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Prístav</value>
+  </data>
+  <data name="Reader_IO_image_size__BRACKET_in_bytes_ENDBRACKET_" xml:space="preserve">
+    <value>Veľkosť obrazu IO čítačky (v bajtoch)</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Identifikátory hardvéru</value>
+  </data>
+  <data name="Data_buffer_low_index" xml:space="preserve">
+    <value>Nízky index dátovej vyrovnávacej pamäte</value>
+  </data>
+  <data name="Data_buffer_high_index" xml:space="preserve">
+    <value>Vysoký index dátovej vyrovnávacej pamäte</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Obnovenie</value>
+  </data>
+  <data name="Switch_off_antenna" xml:space="preserve">
+    <value>Vypnutie antény</value>
+  </data>
+  <data name="Block" xml:space="preserve">
+    <value>Blok</value>
+  </data>
+  <data name="Command" xml:space="preserve">
+    <value>Príkaz</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Head_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Podmodul ID hardvéru "Head</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_CM_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Podmodul ID hardvéru "CM</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Reader_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Podmodul ID hardvéru "Reader</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stav</value>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Kontrola</value>
+  </data>
+  <data name="New_data_ready" xml:space="preserve">
+    <value>Pripravené nové údaje</value>
+  </data>
+  <data name="Reset_command_received" xml:space="preserve">
+    <value>Prijatý príkaz na resetovanie</value>
+  </data>
+  <data name="Automatic_command_execution_paused" xml:space="preserve">
+    <value>Automatické vykonávanie príkazov pozastavené</value>
+  </data>
+  <data name="Antene_status" xml:space="preserve">
+    <value>Stav Antene</value>
+  </data>
+  <data name="Presence_of_a_transponder" xml:space="preserve">
+    <value>Prítomnosť transpondéra</value>
+  </data>
+  <data name="Error_or_startup" xml:space="preserve">
+    <value>Chyba alebo spustenie</value>
+  </data>
+  <data name="Actice_command" xml:space="preserve">
+    <value>Príkaz Actice</value>
+  </data>
+  <data name="Length_of_user_data_in" xml:space="preserve">
+    <value>Dĺžka používateľských údajov v</value>
+  </data>
+  <data name="Start_address" xml:space="preserve">
+    <value>Počiatočná adresa</value>
+  </data>
+  <data name="Rfid_code_size" xml:space="preserve">
+    <value>Veľkosť kódu Rfid</value>
+  </data>
+  <data name="Hardware_config_data" xml:space="preserve">
+    <value>Konfiguračné údaje hardvéru</value>
+  </data>
 </root>

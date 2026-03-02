@@ -2,7 +2,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    kuka_krc4_DIO512_Input_Layout : STRUCT
+	    kuka_rb1_DIO512_Input_Layout : STRUCT
 	        Signals_0_0 AT %X0.0 : BOOL;
 	        Signals_0_1 AT %X0.1 : BOOL;
 	        Signals_0_2 AT %X0.2 : BOOL;
@@ -521,7 +521,7 @@
 	TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
-	    kuka_krc4_DIO512_Output_Layout : STRUCT
+	    kuka_rb1_DIO512_Output_Layout : STRUCT
 	        Signals_64_0 AT %X0.0 : BOOL;
 	        Signals_64_1 AT %X0.1 : BOOL;
 	        Signals_64_2 AT %X0.2 : BOOL;

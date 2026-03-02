@@ -60,74 +60,1594 @@
   </resheader>
   <data name="ClearResultDataTask_timeout_DOT_" xml:space="preserve">
     <value>ClearResultDataTask timeout.</value>
-    <comment>src\Axo_SR_1000.st,1290</comment>
+    <comment>src\Axo_SR_1000.st,1278</comment>
   </data>
   <data name="ErrorStatus_DOT_ReadFailure" xml:space="preserve">
     <value>ErrorStatus.ReadFailure</value>
-    <comment>src\Axo_SR_1000.st,1481</comment>
+    <comment>src\Axo_SR_1000.st,1469</comment>
   </data>
   <data name="ReadTask_timeout_DOT_" xml:space="preserve">
     <value>ReadTask timeout.</value>
-    <comment>src\Axo_SR_1000.st,1597</comment>
+    <comment>src\Axo_SR_1000.st,1508</comment>
   </data>
   <data name="ErrorStatus_DOT_TuneFailure" xml:space="preserve">
     <value>ErrorStatus.TuneFailure</value>
-    <comment>src\Axo_SR_1000.st,1787</comment>
+    <comment>src\Axo_SR_1000.st,1698</comment>
   </data>
   <data name="TuneTask_timeout_DOT_" xml:space="preserve">
     <value>TuneTask timeout.</value>
-    <comment>src\Axo_SR_1000.st,1902</comment>
+    <comment>src\Axo_SR_1000.st,1725</comment>
+  </data>
+  <data name="Bank" xml:space="preserve">
+    <value>Bank</value>
+    <comment>src\Axo_SR_1000.st,53</comment>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Read</value>
+    <comment>src\Axo_SR_1000.st,56</comment>
+  </data>
+  <data name="Inspection_results" xml:space="preserve">
+    <value>Inspection results</value>
+    <comment>src\Axo_SR_1000.st,60</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\Axo_SR_1000.st,68</comment>
+  </data>
+  <data name="Clear_result_data" xml:space="preserve">
+    <value>Clear result data</value>
+    <comment>src\Axo_SR_1000.st,71</comment>
+  </data>
+  <data name="Tune_data" xml:space="preserve">
+    <value>Tune data</value>
+    <comment>src\Axo_SR_1000.st,74</comment>
+  </data>
+  <data name="Read_data" xml:space="preserve">
+    <value>Read data</value>
+    <comment>src\Axo_SR_1000.st,95</comment>
+  </data>
+  <data name="Handshake_and_General_Error" xml:space="preserve">
+    <value>Handshake and General Error</value>
+    <comment>src\Axo_SR_1000.st,102</comment>
+  </data>
+  <data name="BUSY_Status" xml:space="preserve">
+    <value>BUSY Status</value>
+    <comment>src\Axo_SR_1000.st,109</comment>
+  </data>
+  <data name="Completion_Status" xml:space="preserve">
+    <value>Completion Status</value>
+    <comment>src\Axo_SR_1000.st,115</comment>
+  </data>
+  <data name="Error_Status" xml:space="preserve">
+    <value>Error Status</value>
+    <comment>src\Axo_SR_1000.st,122</comment>
+  </data>
+  <data name="Terminal_Status" xml:space="preserve">
+    <value>Terminal Status</value>
+    <comment>src\Axo_SR_1000.st,129</comment>
+  </data>
+  <data name="Unstable_Read_Status" xml:space="preserve">
+    <value>Unstable Read Status</value>
+    <comment>src\Axo_SR_1000.st,136</comment>
+  </data>
+  <data name="Matching_Level_and_Total_Evaluation_Grade_Status" xml:space="preserve">
+    <value>Matching Level and Total Evaluation Grade Status</value>
+    <comment>src\Axo_SR_1000.st,143</comment>
+  </data>
+  <data name="Operation_Result_Status" xml:space="preserve">
+    <value>Operation Result Status</value>
+    <comment>src\Axo_SR_1000.st,150</comment>
+  </data>
+  <data name="Read_Data" xml:space="preserve">
+    <value>Read Data</value>
+    <comment>src\Axo_SR_1000.st,157</comment>
+  </data>
+  <data name="Latch_and_Error_Clear_Control" xml:space="preserve">
+    <value>Latch and Error Clear Control</value>
+    <comment>src\Axo_SR_1000.st,164</comment>
+  </data>
+  <data name="Operation_instruction_Control" xml:space="preserve">
+    <value>Operation instruction Control</value>
+    <comment>src\Axo_SR_1000.st,171</comment>
+  </data>
+  <data name="Completion_Clear_Control" xml:space="preserve">
+    <value>Completion Clear Control</value>
+    <comment>src\Axo_SR_1000.st,178</comment>
+  </data>
+  <data name="Parameter_Bank_Number" xml:space="preserve">
+    <value>Parameter Bank Number</value>
+    <comment>src\Axo_SR_1000.st,185</comment>
+  </data>
+  <data name="User_data" xml:space="preserve">
+    <value>User data</value>
+    <comment>src\Axo_SR_1000.st,192</comment>
+  </data>
+  <data name="User_Data" xml:space="preserve">
+    <value>User Data</value>
+    <comment>src\Axo_SR_1000.st,199</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\Axo_SR_1000.st,207</comment>
   </data>
   <data name="TriggerTask_timeout_DOT_" xml:space="preserve">
     <value>TriggerTask timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,6250</comment>
+    <comment>src\Axo_IV3\Axo_IV3.st,6182</comment>
   </data>
   <data name="Attempt_to_change_the_program_failed_DOT_" xml:space="preserve">
     <value>Attempt to change the program failed.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,6421</comment>
+    <comment>src\Axo_IV3\Axo_IV3.st,6347</comment>
   </data>
   <data name="ChangeProgramTask_timeout_DOT_" xml:space="preserve">
     <value>ChangeProgramTask timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,6424</comment>
+    <comment>src\Axo_IV3\Axo_IV3.st,6350</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_10steps_3 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,6577</comment>
+  <data name="Progress" xml:space="preserve">
+    <value>Progress</value>
+    <comment>src\Axo_IV3\Axo_IV3.st,14</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_10steps_4 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,6730</comment>
+  <data name="TriggerTask" xml:space="preserve">
+    <value>TriggerTask</value>
+    <comment>src\Axo_IV3\Axo_IV3.st,21</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_10steps_5 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,6883</comment>
+  <data name="Required_program_number" xml:space="preserve">
+    <value>Required program number</value>
+    <comment>src\Axo_IV3\Axo_IV3.st,31</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_10steps_6 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,7036</comment>
+  <data name="ChangeProgramTask" xml:space="preserve">
+    <value>ChangeProgramTask</value>
+    <comment>src\Axo_IV3\Axo_IV3.st,34</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_1 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,7310</comment>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\Axo_IV3\Axo_IV3.st,58</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_2 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,7582</comment>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\Axo_IV3\Axo_IV3.st,64</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_3 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,7855</comment>
+  <data name="BUSY" xml:space="preserve">
+    <value>BUSY</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_BusyStatus.st,5</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_4 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,8128</comment>
+  <data name="TRG_BUSY" xml:space="preserve">
+    <value>TRG BUSY</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_BusyStatus.st,7</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_5 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,8401</comment>
+  <data name="LOCK_BUSY" xml:space="preserve">
+    <value>LOCK BUSY</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_BusyStatus.st,9</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_6 timeout.</value>
-    <comment>src\Axo_IV3\Axo_IV3.st,8674</comment>
+  <data name="MODE_BUSY" xml:space="preserve">
+    <value>MODE BUSY</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_BusyStatus.st,11</comment>
+  </data>
+  <data name="ERR_BUSY" xml:space="preserve">
+    <value>ERR BUSY</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_BusyStatus.st,13</comment>
+  </data>
+  <data name="Read_Complete_Clear" xml:space="preserve">
+    <value>Read Complete Clear</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st,5</comment>
+  </data>
+  <data name="Preset_Complete_Clear" xml:space="preserve">
+    <value>Preset Complete Clear</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st,7</comment>
+  </data>
+  <data name="Register_Preset_Data_Complete_Clear" xml:space="preserve">
+    <value>Register Preset Data Complete Clear</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st,9</comment>
+  </data>
+  <data name="Tune_Complete_Clear" xml:space="preserve">
+    <value>Tune Complete Clear</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st,11</comment>
+  </data>
+  <data name="EXT_DOT__Request_Complete_Clear" xml:space="preserve">
+    <value>EXT. Request Complete Clear</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionClearControl.st,13</comment>
+  </data>
+  <data name="Read_Complete" xml:space="preserve">
+    <value>Read Complete</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st,5</comment>
+  </data>
+  <data name="Preset_Complete" xml:space="preserve">
+    <value>Preset Complete</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st,7</comment>
+  </data>
+  <data name="Register_Preset_Data_Complete" xml:space="preserve">
+    <value>Register Preset Data Complete</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st,9</comment>
+  </data>
+  <data name="Tune_Complete" xml:space="preserve">
+    <value>Tune Complete</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st,11</comment>
+  </data>
+  <data name="EXT_DOT__Request_Complete" xml:space="preserve">
+    <value>EXT. Request Complete</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_CompletionStatus.st,13</comment>
+  </data>
+  <data name="Continous_reading" xml:space="preserve">
+    <value>Continous reading</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_Config.st,5</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_Config.st,7</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_Config.st,9</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_Config.st,11</comment>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware IDs</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_Config.st,13</comment>
+  </data>
+  <data name="Result_data_size" xml:space="preserve">
+    <value>Result data size</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_Config.st,15</comment>
+  </data>
+  <data name="User_data_size" xml:space="preserve">
+    <value>User data size</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_Config.st,17</comment>
+  </data>
+  <data name="Read_Failure" xml:space="preserve">
+    <value>Read Failure</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st,5</comment>
+  </data>
+  <data name="Preset_Failure" xml:space="preserve">
+    <value>Preset Failure</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st,7</comment>
+  </data>
+  <data name="Register_Preset_Data_Failure_" xml:space="preserve">
+    <value>Register Preset Data Failure </value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st,9</comment>
+  </data>
+  <data name="Tune_Failure_" xml:space="preserve">
+    <value>Tune Failure </value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st,11</comment>
+  </data>
+  <data name="EXT_DOT__Request_Failure_" xml:space="preserve">
+    <value>EXT. Request Failure </value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_ErrorStatus.st,13</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HandshakeAndGeneralErrorStatus.st,5</comment>
+  </data>
+  <data name="Result_Data_Available" xml:space="preserve">
+    <value>Result Data Available</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HandshakeAndGeneralErrorStatus.st,7</comment>
+  </data>
+  <data name="Result_Data_Strobe" xml:space="preserve">
+    <value>Result Data Strobe</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HandshakeAndGeneralErrorStatus.st,9</comment>
+  </data>
+  <data name="Buffer_Overflow_Error" xml:space="preserve">
+    <value>Buffer Overflow Error</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HandshakeAndGeneralErrorStatus.st,11</comment>
+  </data>
+  <data name="General_Error" xml:space="preserve">
+    <value>General Error</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HandshakeAndGeneralErrorStatus.st,13</comment>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>Hardware ID of the device</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,5</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_HandshakeAndGeneralErrorStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'HandshakeAndGeneralErrorStatus' submodule</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,7</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_BUSY_UNDERSCORE_Status_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'BUSY_Status' submodule</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,9</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_CompletionStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'CompletionStatus' submodule</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,11</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ErrorStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ErrorStatus' submodule</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,13</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_TerminalStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'TerminalStatus' submodule</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,15</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_UnstableReadStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'UnstableReadStatus' submodule</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,17</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_MatchingLevelAndTotalEvaluationGradeStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'MatchingLevelAndTotalEvaluationGradeStatus' submodule</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,19</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_OperationalResultStatus_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'OperationalResultStatus' submodule</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,21</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ReadData_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ReadData' submodule</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,23</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_LatchAndErrorClearControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'LatchAndErrorClearControl' submodule</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,25</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_OperationInstructionControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'OperationInstructionControl' submodule</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,27</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_CompletionClearControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'CompletionClearControl' submodule</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,29</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ParameterBankNumber_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ParameterBankNumber' submodule</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,31</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_UserData_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'UserData' submodule</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_HWIDs.st,33</comment>
+  </data>
+  <data name="Result_Data_Latch" xml:space="preserve">
+    <value>Result Data Latch</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_LatchAndErrorClearControl.st,5</comment>
+  </data>
+  <data name="Error_Clear" xml:space="preserve">
+    <value>Error Clear</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_LatchAndErrorClearControl.st,7</comment>
+  </data>
+  <data name="Matching_Level" xml:space="preserve">
+    <value>Matching Level</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_MatchingLevelAndTotalEvaluationGradeStatus.st,5</comment>
+  </data>
+  <data name="ISO_SLASH_IEC__ONE__FIVE__FOUR__ONE__FIVE__Grade" xml:space="preserve">
+    <value>ISO/IEC 15415 Grade</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_MatchingLevelAndTotalEvaluationGradeStatus.st,7</comment>
+  </data>
+  <data name="ISO_SLASH_IEC_TR__TWO__NINE__ONE__FIVE__EIGHT__BRACKET_AIM_DPM_DASH__ONE__DASH__TWO__ZERO__ZERO__SIX__ENDBRACKET__Grade" xml:space="preserve">
+    <value>ISO/IEC TR 29158(AIM DPM-1-2006) Grade</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_MatchingLevelAndTotalEvaluationGradeStatus.st,9</comment>
+  </data>
+  <data name="_UNDERSCORE_Reserved" xml:space="preserve">
+    <value>_Reserved</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_MatchingLevelAndTotalEvaluationGradeStatus.st,11</comment>
+  </data>
+  <data name="Read_Result_Code" xml:space="preserve">
+    <value>Read Result Code</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_OperationalResultStatus.st,5</comment>
+  </data>
+  <data name="Preset_Result_Code" xml:space="preserve">
+    <value>Preset Result Code</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_OperationalResultStatus.st,7</comment>
+  </data>
+  <data name="Register_Preset_Data_Result_Code" xml:space="preserve">
+    <value>Register Preset Data Result Code</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_OperationalResultStatus.st,9</comment>
+  </data>
+  <data name="Tune_Result_Code" xml:space="preserve">
+    <value>Tune Result Code</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_OperationalResultStatus.st,11</comment>
+  </data>
+  <data name="_UNDERSCORE_Reserved_SQUAREBRACKET__ZERO__ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>_Reserved[0]</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_OperationalResultStatus.st,13</comment>
+  </data>
+  <data name="_UNDERSCORE_Reserved_SQUAREBRACKET__ONE__ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>_Reserved[1]</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_OperationalResultStatus.st,15</comment>
+  </data>
+  <data name="_UNDERSCORE_Reserved_SQUAREBRACKET__TWO__ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>_Reserved[2]</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_OperationalResultStatus.st,17</comment>
+  </data>
+  <data name="EXT_DOT__Request_Result_Code" xml:space="preserve">
+    <value>EXT. Request Result Code</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_OperationalResultStatus.st,19</comment>
+  </data>
+  <data name="General_Error_Code" xml:space="preserve">
+    <value>General Error Code</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_OperationalResultStatus.st,21</comment>
+  </data>
+  <data name="_UNDERSCORE_Reserved_SQUAREBRACKET__THREE__ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>_Reserved[3]</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_OperationalResultStatus.st,23</comment>
+  </data>
+  <data name="Read_Request" xml:space="preserve">
+    <value>Read Request</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_OperationInstructionControl.st,5</comment>
+  </data>
+  <data name="Preset_Request" xml:space="preserve">
+    <value>Preset Request</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_OperationInstructionControl.st,7</comment>
+  </data>
+  <data name="Register_Preset_Data_Request" xml:space="preserve">
+    <value>Register Preset Data Request</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_OperationInstructionControl.st,9</comment>
+  </data>
+  <data name="Tune_Request" xml:space="preserve">
+    <value>Tune Request</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_OperationInstructionControl.st,11</comment>
+  </data>
+  <data name="Bank_Number_Register" xml:space="preserve">
+    <value>Bank Number Register</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_ParameterBankNumber.st,5</comment>
+  </data>
+  <data name="Result_Data_Ready_Count" xml:space="preserve">
+    <value>Result Data Ready Count</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_ReadData.st,5</comment>
+  </data>
+  <data name="Result_Data_Update_Count" xml:space="preserve">
+    <value>Result Data Update Count</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_ReadData.st,7</comment>
+  </data>
+  <data name="Result_Data_Size" xml:space="preserve">
+    <value>Result Data Size</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_ReadData.st,11</comment>
+  </data>
+  <data name="IN_ONE__Status" xml:space="preserve">
+    <value>IN1 Status</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st,5</comment>
+  </data>
+  <data name="IN_TWO__Status" xml:space="preserve">
+    <value>IN2 Status</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st,7</comment>
+  </data>
+  <data name="OUT_ONE__Status" xml:space="preserve">
+    <value>OUT1 Status</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st,9</comment>
+  </data>
+  <data name="OUT_TWO__Status" xml:space="preserve">
+    <value>OUT2 Status</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st,11</comment>
+  </data>
+  <data name="OUT_THREE__Status" xml:space="preserve">
+    <value>OUT3 Status</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_TerminalStatus.st,13</comment>
+  </data>
+  <data name="Unstable" xml:space="preserve">
+    <value>Unstable</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st,5</comment>
+  </data>
+  <data name="Matching_Level_Unstable" xml:space="preserve">
+    <value>Matching Level Unstable</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st,7</comment>
+  </data>
+  <data name="ISO_SLASH_IEC__ONE__FIVE__FOUR__ONE__FIVE__Unstable" xml:space="preserve">
+    <value>ISO/IEC 15415 Unstable</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st,9</comment>
+  </data>
+  <data name="ISO_SLASH_IEC_TR__TWO__NINE__ONE__FIVE__EIGHT__BRACKET_AIM_DPM_DASH__ONE__DASH__TWO__ZERO__ZERO__SIX__ENDBRACKET__Unstable" xml:space="preserve">
+    <value>ISO/IEC TR 29158(AIM DPM-1-2006) Unstable</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st,11</comment>
+  </data>
+  <data name="SAE_AS_NINE__ONE__THREE__TWO__Unstable" xml:space="preserve">
+    <value>SAE AS9132 Unstable</value>
+    <comment>src\Axo_SR_1000_Datatypes\Axo_SR_1000_UnstableReadStatus.st,13</comment>
+  </data>
+  <data name="Trigger_request" xml:space="preserve">
+    <value>Trigger request</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st,5</comment>
+  </data>
+  <data name="Master_registration_request" xml:space="preserve">
+    <value>Master registration request</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st,7</comment>
+  </data>
+  <data name="Program_switching_request" xml:space="preserve">
+    <value>Program switching request</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st,9</comment>
+  </data>
+  <data name="Warning_clear_request" xml:space="preserve">
+    <value>Warning clear request</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st,11</comment>
+  </data>
+  <data name="Statistics_reset_request" xml:space="preserve">
+    <value>Statistics reset request</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st,13</comment>
+  </data>
+  <data name="Buffer_clear_request" xml:space="preserve">
+    <value>Buffer clear request</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st,15</comment>
+  </data>
+  <data name="SD_card_saving_stop_request" xml:space="preserve">
+    <value>SD card saving stop request</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st,17</comment>
+  </data>
+  <data name="Setting_value_change_request" xml:space="preserve">
+    <value>Setting value change request</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st,19</comment>
+  </data>
+  <data name="Result_acquisition_complete_notification" xml:space="preserve">
+    <value>Result acquisition complete notification</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st,21</comment>
+  </data>
+  <data name="Program_number" xml:space="preserve">
+    <value>Program number</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st,23</comment>
+  </data>
+  <data name="Function__ONE__COLON__Limit_set_DOT_no_DOT__BRACKET_no_OCR_ENDBRACKET__SLASH_Master_text_set_DOT_no_DOT__BRACKET_OCR_ENDBRACKET__SLASH_FTP_SLASH_SD_DASH_saved_set_DOT_no_DOT__BRACKET_FTP_client_SLASH_SD_card_saving_function_ENDBRACKET_" xml:space="preserve">
+    <value>Function 1: Limit set.no.(no OCR)/Master text set.no.(OCR)/FTP/SD-saved set.no.(FTP client/SD card saving function)</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st,25</comment>
+  </data>
+  <data name="Function__TWO__COLON__Limit_set_DOT_no_DOT__BRACKET_no_OCR_ENDBRACKET__SLASH_Master_text_SLASH_number_of_letters_BRACKET_OCR_ENDBRACKET__SLASH_FTP_SLASH_SD_DASH_saving_settings_BRACKET_FTP_client_SLASH_SD_card_saving_function_ENDBRACKET_" xml:space="preserve">
+    <value>Function 2: Limit set.no.(no OCR)/Master text/number of letters(OCR)/FTP/SD-saving settings(FTP client/SD card saving function)</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandControl.st,27</comment>
+  </data>
+  <data name="Trigger_response" xml:space="preserve">
+    <value>Trigger response</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,5</comment>
+  </data>
+  <data name="Master_registration_response" xml:space="preserve">
+    <value>Master registration response</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,7</comment>
+  </data>
+  <data name="Program_switching_response" xml:space="preserve">
+    <value>Program switching response</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,9</comment>
+  </data>
+  <data name="Warning_clear_response" xml:space="preserve">
+    <value>Warning clear response</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,11</comment>
+  </data>
+  <data name="Statistics_reset_response" xml:space="preserve">
+    <value>Statistics reset response</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,13</comment>
+  </data>
+  <data name="Buffer_clear_response" xml:space="preserve">
+    <value>Buffer clear response</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,15</comment>
+  </data>
+  <data name="SD_card_saving_stop_response" xml:space="preserve">
+    <value>SD card saving stop response</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,17</comment>
+  </data>
+  <data name="Setting_value_change_response" xml:space="preserve">
+    <value>Setting value change response</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,19</comment>
+  </data>
+  <data name="Trigger_failed" xml:space="preserve">
+    <value>Trigger failed</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,22</comment>
+  </data>
+  <data name="Master_registration_failed" xml:space="preserve">
+    <value>Master registration failed</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,24</comment>
+  </data>
+  <data name="Program_switching_failed" xml:space="preserve">
+    <value>Program switching failed</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,26</comment>
+  </data>
+  <data name="SD_card_saving_stop_failed" xml:space="preserve">
+    <value>SD card saving stop failed</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,31</comment>
+  </data>
+  <data name="Setting_value_change_failed" xml:space="preserve">
+    <value>Setting value change failed</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,33</comment>
+  </data>
+  <data name="Result_available" xml:space="preserve">
+    <value>Result available</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,36</comment>
+  </data>
+  <data name="Result_update_complete" xml:space="preserve">
+    <value>Result update complete</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,38</comment>
+  </data>
+  <data name="Imaging_status" xml:space="preserve">
+    <value>Imaging status</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,42</comment>
+  </data>
+  <data name="RUN" xml:space="preserve">
+    <value>RUN</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,44</comment>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Ready</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,46</comment>
+  </data>
+  <data name="Trigger_ready" xml:space="preserve">
+    <value>Trigger ready</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,48</comment>
+  </data>
+  <data name="SD_card_identification_status" xml:space="preserve">
+    <value>SD card identification status</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,50</comment>
+  </data>
+  <data name="Sorting_mode_information" xml:space="preserve">
+    <value>Sorting mode information</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,53</comment>
+  </data>
+  <data name="Insufficient_free_space_on_SD_card" xml:space="preserve">
+    <value>Insufficient free space on SD card</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,58</comment>
+  </data>
+  <data name="Buffer_overrun" xml:space="preserve">
+    <value>Buffer overrun</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,60</comment>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_CommandStatusBits.st,62</comment>
+  </data>
+  <data name="Maximal_program_number" xml:space="preserve">
+    <value>Maximal program number</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_Config.st,11</comment>
+  </data>
+  <data name="Overall_judgment_OK" xml:space="preserve">
+    <value>Overall judgment OK</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,5</comment>
+  </data>
+  <data name="Position_correction" xml:space="preserve">
+    <value>Position correction</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,7</comment>
+  </data>
+  <data name="LOGIC_ONE_" xml:space="preserve">
+    <value>LOGIC1</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,9</comment>
+  </data>
+  <data name="LOGIC_TWO_" xml:space="preserve">
+    <value>LOGIC2</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,11</comment>
+  </data>
+  <data name="LOGIC_THREE_" xml:space="preserve">
+    <value>LOGIC3</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,13</comment>
+  </data>
+  <data name="LOGIC_FOUR_" xml:space="preserve">
+    <value>LOGIC4</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,15</comment>
+  </data>
+  <data name="Overall_judgment_NG" xml:space="preserve">
+    <value>Overall judgment NG</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,17</comment>
+  </data>
+  <data name="Tool__ONE_" xml:space="preserve">
+    <value>Tool 1</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,20</comment>
+  </data>
+  <data name="Tool__TWO_" xml:space="preserve">
+    <value>Tool 2</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,22</comment>
+  </data>
+  <data name="Tool__THREE_" xml:space="preserve">
+    <value>Tool 3</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,24</comment>
+  </data>
+  <data name="Tool__FOUR_" xml:space="preserve">
+    <value>Tool 4</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,26</comment>
+  </data>
+  <data name="Tool__FIVE_" xml:space="preserve">
+    <value>Tool 5</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,28</comment>
+  </data>
+  <data name="Tool__SIX_" xml:space="preserve">
+    <value>Tool 6</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,30</comment>
+  </data>
+  <data name="Tool__SEVEN_" xml:space="preserve">
+    <value>Tool 7</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,32</comment>
+  </data>
+  <data name="Tool__EIGHT_" xml:space="preserve">
+    <value>Tool 8</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,34</comment>
+  </data>
+  <data name="Tool__NINE_" xml:space="preserve">
+    <value>Tool 9</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,36</comment>
+  </data>
+  <data name="Tool__ONE__ZERO_" xml:space="preserve">
+    <value>Tool 10</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,38</comment>
+  </data>
+  <data name="Tool__ONE__ONE_" xml:space="preserve">
+    <value>Tool 11</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,40</comment>
+  </data>
+  <data name="Tool__ONE__TWO_" xml:space="preserve">
+    <value>Tool 12</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,42</comment>
+  </data>
+  <data name="Tool__ONE__THREE_" xml:space="preserve">
+    <value>Tool 13</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,44</comment>
+  </data>
+  <data name="Tool__ONE__FOUR_" xml:space="preserve">
+    <value>Tool 14</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,46</comment>
+  </data>
+  <data name="Tool__ONE__FIVE_" xml:space="preserve">
+    <value>Tool 15</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,48</comment>
+  </data>
+  <data name="Tool__ONE__SIX_" xml:space="preserve">
+    <value>Tool 16</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_1.st,50</comment>
+  </data>
+  <data name="Master_number_SLASH_total_status_product_type" xml:space="preserve">
+    <value>Master number/total status product type</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,5</comment>
+  </data>
+  <data name="Tool__ONE__SEVEN_" xml:space="preserve">
+    <value>Tool 17</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,8</comment>
+  </data>
+  <data name="Tool__ONE__EIGHT_" xml:space="preserve">
+    <value>Tool 18</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,10</comment>
+  </data>
+  <data name="Tool__ONE__NINE_" xml:space="preserve">
+    <value>Tool 19</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,12</comment>
+  </data>
+  <data name="Tool__TWO__ZERO_" xml:space="preserve">
+    <value>Tool 20</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,14</comment>
+  </data>
+  <data name="Tool__TWO__ONE_" xml:space="preserve">
+    <value>Tool 21</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,16</comment>
+  </data>
+  <data name="Tool__TWO__TWO_" xml:space="preserve">
+    <value>Tool 22</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,18</comment>
+  </data>
+  <data name="Tool__TWO__THREE_" xml:space="preserve">
+    <value>Tool 23</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,20</comment>
+  </data>
+  <data name="Tool__TWO__FOUR_" xml:space="preserve">
+    <value>Tool 24</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,22</comment>
+  </data>
+  <data name="Tool__TWO__FIVE_" xml:space="preserve">
+    <value>Tool 25</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,24</comment>
+  </data>
+  <data name="Tool__TWO__SIX_" xml:space="preserve">
+    <value>Tool 26</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,26</comment>
+  </data>
+  <data name="Tool__TWO__SEVEN_" xml:space="preserve">
+    <value>Tool 27</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,28</comment>
+  </data>
+  <data name="Tool__TWO__EIGHT_" xml:space="preserve">
+    <value>Tool 28</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,30</comment>
+  </data>
+  <data name="Tool__TWO__NINE_" xml:space="preserve">
+    <value>Tool 29</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,32</comment>
+  </data>
+  <data name="Tool__THREE__ZERO_" xml:space="preserve">
+    <value>Tool 30</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,34</comment>
+  </data>
+  <data name="Tool__THREE__ONE_" xml:space="preserve">
+    <value>Tool 31</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,36</comment>
+  </data>
+  <data name="Tool__THREE__TWO_" xml:space="preserve">
+    <value>Tool 32</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,38</comment>
+  </data>
+  <data name="Tool__THREE__THREE_" xml:space="preserve">
+    <value>Tool 33</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,40</comment>
+  </data>
+  <data name="Tool__THREE__FOUR_" xml:space="preserve">
+    <value>Tool 34</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,42</comment>
+  </data>
+  <data name="Tool__THREE__FIVE_" xml:space="preserve">
+    <value>Tool 35</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,44</comment>
+  </data>
+  <data name="Tool__THREE__SIX_" xml:space="preserve">
+    <value>Tool 36</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,46</comment>
+  </data>
+  <data name="Tool__THREE__SEVEN_" xml:space="preserve">
+    <value>Tool 37</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,48</comment>
+  </data>
+  <data name="Tool__THREE__EIGHT_" xml:space="preserve">
+    <value>Tool 38</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,50</comment>
+  </data>
+  <data name="Tool__THREE__NINE_" xml:space="preserve">
+    <value>Tool 39</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,52</comment>
+  </data>
+  <data name="Tool__FOUR__ZERO_" xml:space="preserve">
+    <value>Tool 40</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,54</comment>
+  </data>
+  <data name="Tool__FOUR__ONE_" xml:space="preserve">
+    <value>Tool 41</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,56</comment>
+  </data>
+  <data name="Tool__FOUR__TWO_" xml:space="preserve">
+    <value>Tool 42</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,58</comment>
+  </data>
+  <data name="Tool__FOUR__THREE_" xml:space="preserve">
+    <value>Tool 43</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,60</comment>
+  </data>
+  <data name="Tool__FOUR__FOUR_" xml:space="preserve">
+    <value>Tool 44</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,62</comment>
+  </data>
+  <data name="Tool__FOUR__FIVE_" xml:space="preserve">
+    <value>Tool 45</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,64</comment>
+  </data>
+  <data name="Tool__FOUR__SIX_" xml:space="preserve">
+    <value>Tool 46</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,66</comment>
+  </data>
+  <data name="Tool__FOUR__SEVEN_" xml:space="preserve">
+    <value>Tool 47</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,68</comment>
+  </data>
+  <data name="Tool__FOUR__EIGHT_" xml:space="preserve">
+    <value>Tool 48</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,70</comment>
+  </data>
+  <data name="Tool__FOUR__NINE_" xml:space="preserve">
+    <value>Tool 49</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,72</comment>
+  </data>
+  <data name="Tool__FIVE__ZERO_" xml:space="preserve">
+    <value>Tool 50</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,74</comment>
+  </data>
+  <data name="Tool__FIVE__ONE_" xml:space="preserve">
+    <value>Tool 51</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,76</comment>
+  </data>
+  <data name="Tool__FIVE__TWO_" xml:space="preserve">
+    <value>Tool 52</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,78</comment>
+  </data>
+  <data name="Tool__FIVE__THREE_" xml:space="preserve">
+    <value>Tool 53</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,80</comment>
+  </data>
+  <data name="Tool__FIVE__FOUR_" xml:space="preserve">
+    <value>Tool 54</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,82</comment>
+  </data>
+  <data name="Tool__FIVE__FIVE_" xml:space="preserve">
+    <value>Tool 55</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,84</comment>
+  </data>
+  <data name="Tool__FIVE__SIX_" xml:space="preserve">
+    <value>Tool 56</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,86</comment>
+  </data>
+  <data name="Tool__FIVE__SEVEN_" xml:space="preserve">
+    <value>Tool 57</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,88</comment>
+  </data>
+  <data name="Tool__FIVE__EIGHT_" xml:space="preserve">
+    <value>Tool 58</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,90</comment>
+  </data>
+  <data name="Tool__FIVE__NINE_" xml:space="preserve">
+    <value>Tool 59</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,92</comment>
+  </data>
+  <data name="Tool__SIX__ZERO_" xml:space="preserve">
+    <value>Tool 60</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,94</comment>
+  </data>
+  <data name="Tool__SIX__ONE_" xml:space="preserve">
+    <value>Tool 61</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,96</comment>
+  </data>
+  <data name="Tool__SIX__TWO_" xml:space="preserve">
+    <value>Tool 62</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,98</comment>
+  </data>
+  <data name="Tool__SIX__THREE_" xml:space="preserve">
+    <value>Tool 63</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,100</comment>
+  </data>
+  <data name="Tool__SIX__FOUR_" xml:space="preserve">
+    <value>Tool 64</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceResultBits_2.st,102</comment>
+  </data>
+  <data name="Processing_time_MAX" xml:space="preserve">
+    <value>Processing time MAX</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st,5</comment>
+  </data>
+  <data name="Processing_time_MIN" xml:space="preserve">
+    <value>Processing time MIN</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st,7</comment>
+  </data>
+  <data name="Processing_time_AVE" xml:space="preserve">
+    <value>Processing time AVE</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st,9</comment>
+  </data>
+  <data name="Number_of_triggers" xml:space="preserve">
+    <value>Number of triggers</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st,12</comment>
+  </data>
+  <data name="Number_of_OKs" xml:space="preserve">
+    <value>Number of OKs</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st,14</comment>
+  </data>
+  <data name="Number_of_NGs" xml:space="preserve">
+    <value>Number of NGs</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st,16</comment>
+  </data>
+  <data name="Number_of_trigger_errors" xml:space="preserve">
+    <value>Number of trigger errors</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatistics.st,18</comment>
+  </data>
+  <data name="Error_No_DOT_" xml:space="preserve">
+    <value>Error No.</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st,5</comment>
+  </data>
+  <data name="Warning_No_DOT_" xml:space="preserve">
+    <value>Warning No.</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st,7</comment>
+  </data>
+  <data name="Number_of_remaining_buffers" xml:space="preserve">
+    <value>Number of remaining buffers</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st,9</comment>
+  </data>
+  <data name="Checksum" xml:space="preserve">
+    <value>Checksum</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st,11</comment>
+  </data>
+  <data name="Current_program_No_DOT_" xml:space="preserve">
+    <value>Current program No.</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st,13</comment>
+  </data>
+  <data name="Program_No_DOT__during_judgment" xml:space="preserve">
+    <value>Program No. during judgment</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st,15</comment>
+  </data>
+  <data name="Result_No_DOT_" xml:space="preserve">
+    <value>Result No.</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st,17</comment>
+  </data>
+  <data name="Processing_time" xml:space="preserve">
+    <value>Processing time</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_DeviceStatusWords.st,19</comment>
+  </data>
+  <data name="Hardware_ID__of_the_device" xml:space="preserve">
+    <value>Hardware ID  of the device</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,4</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_CommandControl_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'CommandControl' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,6</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_CommandStatusBits_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'CommandStatusBits' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,8</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_DeviceResultBits_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'DeviceResultBits_1' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,10</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_DeviceStatusWords_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'DeviceStatusWords' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,12</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_DeviceStatistics_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'DeviceStatistics' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,14</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_PositionAdjustResult_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'PositionAdjustResult' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,16</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_1' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,18</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_2' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,20</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_3' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,22</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_4' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,24</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_5' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,26</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_6' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,28</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_7' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,30</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_8' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,32</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_9' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,34</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_10' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,36</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_11' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,38</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_12' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,40</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_13' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,42</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_14' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,44</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_15' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,46</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_16' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,48</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_17' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,50</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_18' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,52</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__ONE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_19' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,54</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_20' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,56</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_21' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,58</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_22' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,60</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_23' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,62</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_24' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,64</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_25' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,66</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_26' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,68</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_27' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,70</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_28' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,72</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__TWO__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_29' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,74</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_30' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,76</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_31' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,78</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_32' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,80</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_33' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,82</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_34' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,84</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_35' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,86</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_36' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,88</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_37' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,90</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_38' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,92</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__THREE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_39' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,94</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_40' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,96</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_41' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,98</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_42' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,100</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_43' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,102</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_44' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,104</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_45' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,106</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_46' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,108</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_47' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,110</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_48' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,112</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FOUR__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_49' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,114</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_50' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,116</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_51' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,118</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_52' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,120</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_53' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,122</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_54' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,124</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__FIVE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_55' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,126</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__SIX__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_56' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,128</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__SEVEN__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_57' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,130</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__EIGHT__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_58' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,132</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__FIVE__NINE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_59' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,134</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__SIX__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_60' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,136</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__SIX__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_61' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,138</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__SIX__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_62' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,140</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__SIX__THREE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_63' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,142</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_ToolResult_UNDERSCORE__SIX__FOUR__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'ToolResult_64' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,144</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_DeviceResultBits_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'DeviceResultBits_2' submodule</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_HWIDs.st,146</comment>
+  </data>
+  <data name="Command_status_bits" xml:space="preserve">
+    <value>Command status bits</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,7</comment>
+  </data>
+  <data name="Device_result_bits__ONE_" xml:space="preserve">
+    <value>Device result bits 1</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,13</comment>
+  </data>
+  <data name="Device_status_words" xml:space="preserve">
+    <value>Device status words</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,19</comment>
+  </data>
+  <data name="Device_statistics" xml:space="preserve">
+    <value>Device statistics</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,25</comment>
+  </data>
+  <data name="Position_adjust_result" xml:space="preserve">
+    <value>Position adjust result</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,31</comment>
+  </data>
+  <data name="Tool_result__ONE_" xml:space="preserve">
+    <value>Tool result 1</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,37</comment>
+  </data>
+  <data name="Tool_result__TWO_" xml:space="preserve">
+    <value>Tool result 2</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,41</comment>
+  </data>
+  <data name="Tool_result__THREE_" xml:space="preserve">
+    <value>Tool result 3</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,45</comment>
+  </data>
+  <data name="Tool_result__FOUR_" xml:space="preserve">
+    <value>Tool result 4</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,49</comment>
+  </data>
+  <data name="Tool_result__FIVE_" xml:space="preserve">
+    <value>Tool result 5</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,53</comment>
+  </data>
+  <data name="Tool_result__SIX_" xml:space="preserve">
+    <value>Tool result 6</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,57</comment>
+  </data>
+  <data name="Tool_result__SEVEN_" xml:space="preserve">
+    <value>Tool result 7</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,61</comment>
+  </data>
+  <data name="Tool_result__EIGHT_" xml:space="preserve">
+    <value>Tool result 8</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,65</comment>
+  </data>
+  <data name="Tool_result__NINE_" xml:space="preserve">
+    <value>Tool result 9</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,69</comment>
+  </data>
+  <data name="Tool_result__ONE__ZERO_" xml:space="preserve">
+    <value>Tool result 10</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,73</comment>
+  </data>
+  <data name="Tool_result__ONE__ONE_" xml:space="preserve">
+    <value>Tool result 11</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,77</comment>
+  </data>
+  <data name="Tool_result__ONE__TWO_" xml:space="preserve">
+    <value>Tool result 12</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,81</comment>
+  </data>
+  <data name="Tool_result__ONE__THREE_" xml:space="preserve">
+    <value>Tool result 13</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,85</comment>
+  </data>
+  <data name="Tool_result__ONE__FOUR_" xml:space="preserve">
+    <value>Tool result 14</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,89</comment>
+  </data>
+  <data name="Tool_result__ONE__FIVE_" xml:space="preserve">
+    <value>Tool result 15</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,93</comment>
+  </data>
+  <data name="Tool_result__ONE__SIX_" xml:space="preserve">
+    <value>Tool result 16</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,97</comment>
+  </data>
+  <data name="Tool_result__ONE__SEVEN_" xml:space="preserve">
+    <value>Tool result 17</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,101</comment>
+  </data>
+  <data name="Tool_result__ONE__EIGHT_" xml:space="preserve">
+    <value>Tool result 18</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,105</comment>
+  </data>
+  <data name="Tool_result__ONE__NINE_" xml:space="preserve">
+    <value>Tool result 19</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,109</comment>
+  </data>
+  <data name="Tool_result__TWO__ZERO_" xml:space="preserve">
+    <value>Tool result 20</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,113</comment>
+  </data>
+  <data name="Tool_result__TWO__ONE_" xml:space="preserve">
+    <value>Tool result 21</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,117</comment>
+  </data>
+  <data name="Tool_result__TWO__TWO_" xml:space="preserve">
+    <value>Tool result 22</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,121</comment>
+  </data>
+  <data name="Tool_result__TWO__THREE_" xml:space="preserve">
+    <value>Tool result 23</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,125</comment>
+  </data>
+  <data name="Tool_result__TWO__FOUR_" xml:space="preserve">
+    <value>Tool result 24</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,129</comment>
+  </data>
+  <data name="Tool_result__TWO__FIVE_" xml:space="preserve">
+    <value>Tool result 25</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,133</comment>
+  </data>
+  <data name="Tool_result__TWO__SIX_" xml:space="preserve">
+    <value>Tool result 26</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,137</comment>
+  </data>
+  <data name="Tool_result__TWO__SEVEN_" xml:space="preserve">
+    <value>Tool result 27</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,141</comment>
+  </data>
+  <data name="Tool_result__TWO__EIGHT_" xml:space="preserve">
+    <value>Tool result 28</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,145</comment>
+  </data>
+  <data name="Tool_result__TWO__NINE_" xml:space="preserve">
+    <value>Tool result 29</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,149</comment>
+  </data>
+  <data name="Tool_result__THREE__ZERO_" xml:space="preserve">
+    <value>Tool result 30</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,153</comment>
+  </data>
+  <data name="Tool_result__THREE__ONE_" xml:space="preserve">
+    <value>Tool result 31</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,157</comment>
+  </data>
+  <data name="Tool_result__THREE__TWO_" xml:space="preserve">
+    <value>Tool result 32</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,161</comment>
+  </data>
+  <data name="Tool_result__THREE__THREE_" xml:space="preserve">
+    <value>Tool result 33</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,165</comment>
+  </data>
+  <data name="Tool_result__THREE__FOUR_" xml:space="preserve">
+    <value>Tool result 34</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,169</comment>
+  </data>
+  <data name="Tool_result__THREE__FIVE_" xml:space="preserve">
+    <value>Tool result 35</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,173</comment>
+  </data>
+  <data name="Tool_result__THREE__SIX_" xml:space="preserve">
+    <value>Tool result 36</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,177</comment>
+  </data>
+  <data name="Tool_result__THREE__SEVEN_" xml:space="preserve">
+    <value>Tool result 37</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,181</comment>
+  </data>
+  <data name="Tool_result__THREE__EIGHT_" xml:space="preserve">
+    <value>Tool result 38</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,185</comment>
+  </data>
+  <data name="Tool_result__THREE__NINE_" xml:space="preserve">
+    <value>Tool result 39</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,189</comment>
+  </data>
+  <data name="Tool_result__FOUR__ZERO_" xml:space="preserve">
+    <value>Tool result 40</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,193</comment>
+  </data>
+  <data name="Tool_result__FOUR__ONE_" xml:space="preserve">
+    <value>Tool result 41</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,197</comment>
+  </data>
+  <data name="Tool_result__FOUR__TWO_" xml:space="preserve">
+    <value>Tool result 42</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,201</comment>
+  </data>
+  <data name="Tool_result__FOUR__THREE_" xml:space="preserve">
+    <value>Tool result 43</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,205</comment>
+  </data>
+  <data name="Tool_result__FOUR__FOUR_" xml:space="preserve">
+    <value>Tool result 44</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,209</comment>
+  </data>
+  <data name="Tool_result__FOUR__FIVE_" xml:space="preserve">
+    <value>Tool result 45</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,213</comment>
+  </data>
+  <data name="Tool_result__FOUR__SIX_" xml:space="preserve">
+    <value>Tool result 46</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,217</comment>
+  </data>
+  <data name="Tool_result__FOUR__SEVEN_" xml:space="preserve">
+    <value>Tool result 47</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,221</comment>
+  </data>
+  <data name="Tool_result__FOUR__EIGHT_" xml:space="preserve">
+    <value>Tool result 48</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,225</comment>
+  </data>
+  <data name="Tool_result__FOUR__NINE_" xml:space="preserve">
+    <value>Tool result 49</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,229</comment>
+  </data>
+  <data name="Tool_result__FIVE__ZERO_" xml:space="preserve">
+    <value>Tool result 50</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,233</comment>
+  </data>
+  <data name="Tool_result__FIVE__ONE_" xml:space="preserve">
+    <value>Tool result 51</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,237</comment>
+  </data>
+  <data name="Tool_result__FIVE__TWO_" xml:space="preserve">
+    <value>Tool result 52</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,241</comment>
+  </data>
+  <data name="Tool_result__FIVE__THREE_" xml:space="preserve">
+    <value>Tool result 53</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,245</comment>
+  </data>
+  <data name="Tool_result__FIVE__FOUR_" xml:space="preserve">
+    <value>Tool result 54</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,249</comment>
+  </data>
+  <data name="Tool_result__FIVE__FIVE_" xml:space="preserve">
+    <value>Tool result 55</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,253</comment>
+  </data>
+  <data name="Tool_result__FIVE__SIX_" xml:space="preserve">
+    <value>Tool result 56</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,257</comment>
+  </data>
+  <data name="Tool_result__FIVE__SEVEN_" xml:space="preserve">
+    <value>Tool result 57</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,261</comment>
+  </data>
+  <data name="Tool_result__FIVE__EIGHT_" xml:space="preserve">
+    <value>Tool result 58</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,265</comment>
+  </data>
+  <data name="Tool_result__FIVE__NINE_" xml:space="preserve">
+    <value>Tool result 59</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,269</comment>
+  </data>
+  <data name="Tool_result__SIX__ZERO_" xml:space="preserve">
+    <value>Tool result 60</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,273</comment>
+  </data>
+  <data name="Tool_result__SIX__ONE_" xml:space="preserve">
+    <value>Tool result 61</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,277</comment>
+  </data>
+  <data name="Tool_result__SIX__TWO_" xml:space="preserve">
+    <value>Tool result 62</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,281</comment>
+  </data>
+  <data name="Tool_result__SIX__THREE_" xml:space="preserve">
+    <value>Tool result 63</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,285</comment>
+  </data>
+  <data name="Tool_result__SIX__FOUR_" xml:space="preserve">
+    <value>Tool result 64</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,289</comment>
+  </data>
+  <data name="Device_result_bits__TWO_" xml:space="preserve">
+    <value>Device result bits 2</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_In.st,294</comment>
+  </data>
+  <data name="Command_control" xml:space="preserve">
+    <value>Command control</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_Out.st,5</comment>
+  </data>
+  <data name="Position_correction_score" xml:space="preserve">
+    <value>Position correction score</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_PositionAdjustResult.st,5</comment>
+  </data>
+  <data name="Position_correction_score_MAX" xml:space="preserve">
+    <value>Position correction score MAX</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_PositionAdjustResult.st,7</comment>
+  </data>
+  <data name="Position_correction_score_MIN" xml:space="preserve">
+    <value>Position correction score MIN</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_PositionAdjustResult.st,9</comment>
+  </data>
+  <data name="Position_correction_score_Lower_threshold" xml:space="preserve">
+    <value>Position correction score Lower threshold</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_PositionAdjustResult.st,11</comment>
+  </data>
+  <data name="Matching_rate" xml:space="preserve">
+    <value>Matching rate</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st,5</comment>
+  </data>
+  <data name="Matching_rate_MAX" xml:space="preserve">
+    <value>Matching rate MAX</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st,7</comment>
+  </data>
+  <data name="Matching_rate_MIN" xml:space="preserve">
+    <value>Matching rate MIN</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st,9</comment>
+  </data>
+  <data name="Lower_threshold" xml:space="preserve">
+    <value>Lower threshold</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st,11</comment>
+  </data>
+  <data name="Upper_threshold" xml:space="preserve">
+    <value>Upper threshold</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st,13</comment>
+  </data>
+  <data name="Decimal_point_position" xml:space="preserve">
+    <value>Decimal point position</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st,15</comment>
+  </data>
+  <data name="Pitch_present_value_MAX_SLASH_color_average_H__BRACKET_hue_ENDBRACKET_" xml:space="preserve">
+    <value>Pitch present value MAX/color average H (hue)</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st,17</comment>
+  </data>
+  <data name="Pitch_present_value_MIN_SLASH_color_average_S__BRACKET_saturation_ENDBRACKET_" xml:space="preserve">
+    <value>Pitch present value MIN/color average S (saturation)</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st,19</comment>
+  </data>
+  <data name="Number_of_pitches_SLASH_color_average_V__BRACKET_brightness_ENDBRACKET__SLASH_brightness_average" xml:space="preserve">
+    <value>Number of pitches/color average V (brightness)/brightness average</value>
+    <comment>src\Axo_IV3\TypesStructuresAndEnums\Axo_IV3_ToolResult.st,21</comment>
   </data>
 </root>

@@ -95,6 +95,9 @@ NAMESPACE AXOpen.Core
                 NULL_CONTEXT_OBJ    : IAxoObject;
             END_VAR
 
+            // We always reset message count upon initialization.
+            THIS.MsgCnt := LINT#0;
+
             IF _isInitialized THEN
                 RETURN;
             END_IF;
@@ -117,7 +120,7 @@ NAMESPACE AXOpen.Core
                 _errorState := UINT#40;
                 RETURN;
             END_IF;
-
+                        
             _context        := inParent.GetContext();                 
             _parent         := inParent;
             _isInitialized  := TRUE;
@@ -141,6 +144,9 @@ NAMESPACE AXOpen.Core
                 inContext : IAxoContext;
             END_VAR   
          
+
+            // We always reset message count upon initialization.
+            THIS.MsgCnt := LINT#0;
             IF _isInitialized THEN
                 RETURN;
             END_IF;
@@ -150,6 +156,8 @@ NAMESPACE AXOpen.Core
                 _errorState := UINT#10;
                 RETURN;
             END_IF;
+            
+            
             
             _context        := inContext;                 
             _isInitialized  := TRUE;

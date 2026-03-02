@@ -89,7 +89,7 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax hwl' Finished in :" $(expr $(date +%s) - $START) "s"
   ssc: | # setup secure communication, create and import certificates, setup password for AX_USERNAME                                                       (create pkcs12ForCertificateImport.p12 & apax hwc setup-secure-communication & apax hwc import-certificate [TLS+Webserver] & apax hwc manage-users set-password)  
     START=$(date +%s)
-    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD 
+    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD $AXTARGET
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ssc' Finished in :" $(expr $(date +%s) - $START) "s"
   hwcc: | # compile hardware configuration                                                                                                                  (apax hwc compile)
     START=$(date +%s)
@@ -191,6 +191,7 @@ scripts:
     apax hwadr
     apax build
     dotnet ixc
+
   tt: |
     START=$(date +%s)
     apax install

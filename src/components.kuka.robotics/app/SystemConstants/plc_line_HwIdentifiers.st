@@ -1,12 +1,12 @@
 CONFIGURATION HardwareIDs
     VAR_GLOBAL CONSTANT
-        kuka_krc4_HwID : UINT := UINT#258;
-        kuka_krc4_DIO512_512_digital_in__and_outputs_HwID : UINT := UINT#262;
-        kuka_krc4_Rack_HwID : UINT := UINT#260;
-        kuka_krc4_kuka_krc4_HwID : UINT := UINT#261;
-        kuka_krc4_kuka_krc4_Interface1_HwID : UINT := UINT#257;
-        kuka_krc4_kuka_krc4_Interface1_Port_1_HwID : UINT := UINT#259;
-        kuka_krc4_kuka_krc4_KRC4_ProfiNet_5_0_HwID : UINT := UINT#263;
+        kuka_rb1_HwID : UINT := UINT#258;
+        kuka_rb1_DIO512_512_digital_in__and_outputs_HwID : UINT := UINT#262;
+        kuka_rb1_Rack_HwID : UINT := UINT#260;
+        kuka_rb1_kuka_rb1_HwID : UINT := UINT#261;
+        kuka_rb1_kuka_rb1_Interface1_HwID : UINT := UINT#257;
+        kuka_rb1_kuka_rb1_Interface1_Port_1_HwID : UINT := UINT#259;
+        kuka_rb1_kuka_rb1_KRC4_ProfiNet_5_0_HwID : UINT := UINT#263;
         plc_line_HwID : UINT := UINT#32;
         plc_line_Rail_0_HwID : UINT := UINT#264;
         plc_line_plc_line_HwID : UINT := UINT#48;

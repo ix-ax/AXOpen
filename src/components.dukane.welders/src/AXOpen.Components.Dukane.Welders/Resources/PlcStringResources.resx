@@ -60,50 +60,674 @@
   </resheader>
   <data name="ClearErrorTask_timeout_DOT_" xml:space="preserve">
     <value>ClearErrorTask timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,912</comment>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,772</comment>
   </data>
   <data name="ChangeWeldingSetupTask_timeout_DOT_" xml:space="preserve">
     <value>ChangeWeldingSetupTask timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,1074</comment>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,857</comment>
   </data>
   <data name="ChangeWeldingProbeTask_timeout_DOT_" xml:space="preserve">
     <value>ChangeWeldingProbeTask timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,1232</comment>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,926</comment>
   </data>
   <data name="CycleStopTask_timeout_DOT_" xml:space="preserve">
     <value>CycleStopTask timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,1388</comment>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,986</comment>
   </data>
   <data name="RunWeldingWithTimeTask_timeout_DOT_" xml:space="preserve">
     <value>RunWeldingWithTimeTask timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,1565</comment>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,1158</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_10steps_6 timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,1718</comment>
+  <data name="Run_welding_with_time" xml:space="preserve">
+    <value>Run welding with time</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,15</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_1 timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,1992</comment>
+  <data name="Required_setup_number" xml:space="preserve">
+    <value>Required setup number</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,18</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_2 timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,2264</comment>
+  <data name="Required_probe_number" xml:space="preserve">
+    <value>Required probe number</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,21</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_3 timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,2537</comment>
+  <data name="Required_welding_time" xml:space="preserve">
+    <value>Required welding time</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,24</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_4 timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,2810</comment>
+  <data name="Progress" xml:space="preserve">
+    <value>Progress</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,27</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_5 timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,3083</comment>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,35</comment>
   </data>
-  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
-    <value>TemplateTask_20steps_6 timeout.</value>
-    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,3356</comment>
+  <data name="Change_setup" xml:space="preserve">
+    <value>Change setup</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,40</comment>
+  </data>
+  <data name="Clear_error" xml:space="preserve">
+    <value>Clear error</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,44</comment>
+  </data>
+  <data name="Change_probe" xml:space="preserve">
+    <value>Change probe</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,48</comment>
+  </data>
+  <data name="CycleStopTask" xml:space="preserve">
+    <value>CycleStopTask</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,54</comment>
+  </data>
+  <data name="Config" xml:space="preserve">
+    <value>Config</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,63</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,80</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,86</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder.st,94</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_Config.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_Config.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_Config.st,9</comment>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware IDs</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_Config.st,11</comment>
+  </data>
+  <data name="LowerBadEnergyLimit" xml:space="preserve">
+    <value>LowerBadEnergyLimit</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,5</comment>
+  </data>
+  <data name="LowerSuspectEnergyLimit" xml:space="preserve">
+    <value>LowerSuspectEnergyLimit</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,7</comment>
+  </data>
+  <data name="UpperSuspectEnergyLimit" xml:space="preserve">
+    <value>UpperSuspectEnergyLimit</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,9</comment>
+  </data>
+  <data name="UpperBadEnergyLimit" xml:space="preserve">
+    <value>UpperBadEnergyLimit</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,11</comment>
+  </data>
+  <data name="LowerBadPowerLimit" xml:space="preserve">
+    <value>LowerBadPowerLimit</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,21</comment>
+  </data>
+  <data name="LowerSuspectPowerLimit" xml:space="preserve">
+    <value>LowerSuspectPowerLimit</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,23</comment>
+  </data>
+  <data name="UpperSuspectPowerLimit" xml:space="preserve">
+    <value>UpperSuspectPowerLimit</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,25</comment>
+  </data>
+  <data name="UpperBadPowerLimit" xml:space="preserve">
+    <value>UpperBadPowerLimit</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,27</comment>
+  </data>
+  <data name="LowerBadTimeLimit" xml:space="preserve">
+    <value>LowerBadTimeLimit</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,37</comment>
+  </data>
+  <data name="LowerSuspectTimeLimit" xml:space="preserve">
+    <value>LowerSuspectTimeLimit</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,39</comment>
+  </data>
+  <data name="UpperSuspectTimeLimit" xml:space="preserve">
+    <value>UpperSuspectTimeLimit</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,41</comment>
+  </data>
+  <data name="UpperBadTimeLimit" xml:space="preserve">
+    <value>UpperBadTimeLimit</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,43</comment>
+  </data>
+  <data name="GoodPart" xml:space="preserve">
+    <value>GoodPart</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,53</comment>
+  </data>
+  <data name="BadPart" xml:space="preserve">
+    <value>BadPart</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,55</comment>
+  </data>
+  <data name="SuspectPart" xml:space="preserve">
+    <value>SuspectPart</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_CyclePartStatusBitDefinition.st,57</comment>
+  </data>
+  <data name="Frequency_UNDERSCORE_Overload_UNDERSCORE__THREE_" xml:space="preserve">
+    <value>Frequency_Overload_3</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,5</comment>
+  </data>
+  <data name="Under_UNDERSCORE_Voltage_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>Under_Voltage_1</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,13</comment>
+  </data>
+  <data name="Over_UNDERSCORE_Amplitude_UNDERSCORE_Fault" xml:space="preserve">
+    <value>Over_Amplitude_Fault</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,21</comment>
+  </data>
+  <data name="InternalError_UNDERSCORE__FIVE_" xml:space="preserve">
+    <value>InternalError_5</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,23</comment>
+  </data>
+  <data name="US_UNDERSCORE_Voltage_UNDERSCORE_Overload" xml:space="preserve">
+    <value>US_Voltage_Overload</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,25</comment>
+  </data>
+  <data name="Average_UNDERSCORE_Overload" xml:space="preserve">
+    <value>Average_Overload</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,37</comment>
+  </data>
+  <data name="Current_UNDERSCORE_Loop" xml:space="preserve">
+    <value>Current_Loop</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,39</comment>
+  </data>
+  <data name="Power_UNDERSCORE_Not_UNDERSCORE_OK" xml:space="preserve">
+    <value>Power_Not_OK</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,41</comment>
+  </data>
+  <data name="Over_UNDERSCORE_Temperature" xml:space="preserve">
+    <value>Over_Temperature</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,43</comment>
+  </data>
+  <data name="InternalError_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>InternalError_1</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,53</comment>
+  </data>
+  <data name="InternalError_UNDERSCORE__TWO_" xml:space="preserve">
+    <value>InternalError_2</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,55</comment>
+  </data>
+  <data name="InternalError_UNDERSCORE__THREE_" xml:space="preserve">
+    <value>InternalError_3</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,57</comment>
+  </data>
+  <data name="InternalError_UNDERSCORE__FOUR_" xml:space="preserve">
+    <value>InternalError_4</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,59</comment>
+  </data>
+  <data name="FrequencyOverload_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>FrequencyOverload_1</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,61</comment>
+  </data>
+  <data name="Frequency_UNDERSCORE_Overload_UNDERSCORE__TWO_" xml:space="preserve">
+    <value>Frequency_Overload_2</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,63</comment>
+  </data>
+  <data name="Peak_UNDERSCORE_Overload_UNDERSCORE_Positive" xml:space="preserve">
+    <value>Peak_Overload_Positive</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,65</comment>
+  </data>
+  <data name="Peak_UNDERSCORE_Overload_UNDERSCORE_Negative" xml:space="preserve">
+    <value>Peak_Overload_Negative</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ErrorStatusBitDefinition.st,67</comment>
+  </data>
+  <data name="Hardware_ID__of_the_device" xml:space="preserve">
+    <value>Hardware ID  of the device</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_HWIDs.st,4</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_iQ_UNDERSCORE_to_UNDERSCORE_PLC_UNDERSCORE_Inputs_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'iQ_to_PLC_Inputs' submodule</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_HWIDs.st,6</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_out_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'out_1' submodule</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_HWIDs.st,8</comment>
+  </data>
+  <data name="Weld_ONE_Position" xml:space="preserve">
+    <value>Weld1Position</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,5</comment>
+  </data>
+  <data name="ErrorStatus" xml:space="preserve">
+    <value>ErrorStatus</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,7</comment>
+  </data>
+  <data name="TotalWeldTime" xml:space="preserve">
+    <value>TotalWeldTime</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,21</comment>
+  </data>
+  <data name="TotalWeldDistance" xml:space="preserve">
+    <value>TotalWeldDistance</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,23</comment>
+  </data>
+  <data name="TotalWeldEnergy" xml:space="preserve">
+    <value>TotalWeldEnergy</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,25</comment>
+  </data>
+  <data name="HoldTime" xml:space="preserve">
+    <value>HoldTime</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,27</comment>
+  </data>
+  <data name="HoldDistance" xml:space="preserve">
+    <value>HoldDistance</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,29</comment>
+  </data>
+  <data name="TotalCycleTime" xml:space="preserve">
+    <value>TotalCycleTime</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,31</comment>
+  </data>
+  <data name="FinalHoldPosition" xml:space="preserve">
+    <value>FinalHoldPosition</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,33</comment>
+  </data>
+  <data name="Weld_ONE_PeakForce" xml:space="preserve">
+    <value>Weld1PeakForce</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,35</comment>
+  </data>
+  <data name="Weld_ONE_Distance" xml:space="preserve">
+    <value>Weld1Distance</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,37</comment>
+  </data>
+  <data name="Weld_ONE_Energy" xml:space="preserve">
+    <value>Weld1Energy</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,39</comment>
+  </data>
+  <data name="Weld_ONE_Power" xml:space="preserve">
+    <value>Weld1Power</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,41</comment>
+  </data>
+  <data name="Weld_TWO_Time" xml:space="preserve">
+    <value>Weld2Time</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,43</comment>
+  </data>
+  <data name="Weld_TWO_Distance" xml:space="preserve">
+    <value>Weld2Distance</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,45</comment>
+  </data>
+  <data name="Weld_TWO_Energy" xml:space="preserve">
+    <value>Weld2Energy</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,47</comment>
+  </data>
+  <data name="Weld_TWO_Power" xml:space="preserve">
+    <value>Weld2Power</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,49</comment>
+  </data>
+  <data name="Weld_TWO_Position" xml:space="preserve">
+    <value>Weld2Position</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,51</comment>
+  </data>
+  <data name="TriggerTime" xml:space="preserve">
+    <value>TriggerTime</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,53</comment>
+  </data>
+  <data name="TriggerPosition" xml:space="preserve">
+    <value>TriggerPosition</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,55</comment>
+  </data>
+  <data name="AverageSensingVelocity" xml:space="preserve">
+    <value>AverageSensingVelocity</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,57</comment>
+  </data>
+  <data name="TriggerPressure" xml:space="preserve">
+    <value>TriggerPressure</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,59</comment>
+  </data>
+  <data name="TriggerForce" xml:space="preserve">
+    <value>TriggerForce</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,61</comment>
+  </data>
+  <data name="TriggerDelayTime" xml:space="preserve">
+    <value>TriggerDelayTime</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,63</comment>
+  </data>
+  <data name="TriggerDelayDistance" xml:space="preserve">
+    <value>TriggerDelayDistance</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,65</comment>
+  </data>
+  <data name="Weld_ONE_Time" xml:space="preserve">
+    <value>Weld1Time</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_PressPartStatusBitDefinition.st,67</comment>
+  </data>
+  <data name="Trigger_UNDERSCORE_Delay" xml:space="preserve">
+    <value>Trigger_Delay</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st,37</comment>
+  </data>
+  <data name="Servo_UNDERSCORE_DN_UNDERSCORE_Limit" xml:space="preserve">
+    <value>Servo_DN_Limit</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st,39</comment>
+  </data>
+  <data name="Servo_UNDERSCORE_TOS_UNDERSCORE_Position" xml:space="preserve">
+    <value>Servo_TOS_Position</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st,41</comment>
+  </data>
+  <data name="Forced_UNDERSCORE_ShutDown" xml:space="preserve">
+    <value>Forced_ShutDown</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st,53</comment>
+  </data>
+  <data name="Trigger_UNDERSCORE_Lost_UNDERSCORE_Early" xml:space="preserve">
+    <value>Trigger_Lost_Early</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st,55</comment>
+  </data>
+  <data name="Trigger_UNDERSCORE_Lost_UNDERSCORE_Weld" xml:space="preserve">
+    <value>Trigger_Lost_Weld</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st,57</comment>
+  </data>
+  <data name="Latched_UNDERSCORE_Bad_UNDERSCORE_Part" xml:space="preserve">
+    <value>Latched_Bad_Part</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st,59</comment>
+  </data>
+  <data name="PreTrigger_UNDERSCORE_OverTravel" xml:space="preserve">
+    <value>PreTrigger_OverTravel</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st,61</comment>
+  </data>
+  <data name="Part_UNDERSCORE_Detected" xml:space="preserve">
+    <value>Part_Detected</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st,63</comment>
+  </data>
+  <data name="PreTrigger_UNDERSCORE_Time" xml:space="preserve">
+    <value>PreTrigger_Time</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st,65</comment>
+  </data>
+  <data name="Trigger_UNDERSCORE_Time" xml:space="preserve">
+    <value>Trigger_Time</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_ProcessErrorStatus.st,67</comment>
+  </data>
+  <data name="SystemErrorStatus" xml:space="preserve">
+    <value>SystemErrorStatus</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,5</comment>
+  </data>
+  <data name="SystemInitiateError" xml:space="preserve">
+    <value>SystemInitiateError</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,7</comment>
+  </data>
+  <data name="SystemProcessError" xml:space="preserve">
+    <value>SystemProcessError</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,9</comment>
+  </data>
+  <data name="GeneratorState" xml:space="preserve">
+    <value>GeneratorState</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,11</comment>
+  </data>
+  <data name="RealTimeAmplitude" xml:space="preserve">
+    <value>RealTimeAmplitude</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,13</comment>
+  </data>
+  <data name="RealTimeFrequency" xml:space="preserve">
+    <value>RealTimeFrequency</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,15</comment>
+  </data>
+  <data name="RealTimePower" xml:space="preserve">
+    <value>RealTimePower</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,17</comment>
+  </data>
+  <data name="SystemStatus" xml:space="preserve">
+    <value>SystemStatus</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,19</comment>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Temperature</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,21</comment>
+  </data>
+  <data name="CycleCount" xml:space="preserve">
+    <value>CycleCount</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,23</comment>
+  </data>
+  <data name="GoodPartCount" xml:space="preserve">
+    <value>GoodPartCount</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,25</comment>
+  </data>
+  <data name="BadPartCount" xml:space="preserve">
+    <value>BadPartCount</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,27</comment>
+  </data>
+  <data name="SuspectPartCount" xml:space="preserve">
+    <value>SuspectPartCount</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,29</comment>
+  </data>
+  <data name="AbortedPartCount" xml:space="preserve">
+    <value>AbortedPartCount</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,31</comment>
+  </data>
+  <data name="CyclePartStatus" xml:space="preserve">
+    <value>CyclePartStatus</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,33</comment>
+  </data>
+  <data name="CycleWeldTime" xml:space="preserve">
+    <value>CycleWeldTime</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,35</comment>
+  </data>
+  <data name="CycleWeldPeakPower" xml:space="preserve">
+    <value>CycleWeldPeakPower</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,37</comment>
+  </data>
+  <data name="CycleWeldEnergy" xml:space="preserve">
+    <value>CycleWeldEnergy</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,39</comment>
+  </data>
+  <data name="ActiveSetup" xml:space="preserve">
+    <value>ActiveSetup</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,41</comment>
+  </data>
+  <data name="RunningSetup" xml:space="preserve">
+    <value>RunningSetup</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,43</comment>
+  </data>
+  <data name="RunningMPCProbe" xml:space="preserve">
+    <value>RunningMPCProbe</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,45</comment>
+  </data>
+  <data name="SelectedInputVoltage" xml:space="preserve">
+    <value>SelectedInputVoltage</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,47</comment>
+  </data>
+  <data name="RealTimePosition" xml:space="preserve">
+    <value>RealTimePosition</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,49</comment>
+  </data>
+  <data name="RealTimeVelocity" xml:space="preserve">
+    <value>RealTimeVelocity</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,51</comment>
+  </data>
+  <data name="PressPartStatus_UNDERSCORE_Bad_UNDERSCORE_lo" xml:space="preserve">
+    <value>PressPartStatus_Bad_lo</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,53</comment>
+  </data>
+  <data name="PressPartStatus_UNDERSCORE_Sus_UNDERSCORE_lo" xml:space="preserve">
+    <value>PressPartStatus_Sus_lo</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,55</comment>
+  </data>
+  <data name="PressPartStatus_UNDERSCORE_Sus_UNDERSCORE_hi" xml:space="preserve">
+    <value>PressPartStatus_Sus_hi</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,57</comment>
+  </data>
+  <data name="PressPartStatus_UNDERSCORE_Bad_UNDERSCORE_hi" xml:space="preserve">
+    <value>PressPartStatus_Bad_hi</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,59</comment>
+  </data>
+  <data name="CycleTriggerTime" xml:space="preserve">
+    <value>CycleTriggerTime</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,61</comment>
+  </data>
+  <data name="CycleTriggerPosition" xml:space="preserve">
+    <value>CycleTriggerPosition</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,63</comment>
+  </data>
+  <data name="CycleTriggerDelayTime" xml:space="preserve">
+    <value>CycleTriggerDelayTime</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,65</comment>
+  </data>
+  <data name="CycleTriggerDelayDistance" xml:space="preserve">
+    <value>CycleTriggerDelayDistance</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,67</comment>
+  </data>
+  <data name="CycleWeld_ONE_Distance" xml:space="preserve">
+    <value>CycleWeld1Distance</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,69</comment>
+  </data>
+  <data name="CycleWeld_ONE_Position" xml:space="preserve">
+    <value>CycleWeld1Position</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,71</comment>
+  </data>
+  <data name="CycleTotalTime" xml:space="preserve">
+    <value>CycleTotalTime</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemInputs.st,73</comment>
+  </data>
+  <data name="ClearSetup" xml:space="preserve">
+    <value>ClearSetup</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st,19</comment>
+  </data>
+  <data name="RunScan" xml:space="preserve">
+    <value>RunScan</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st,37</comment>
+  </data>
+  <data name="RunContinuously" xml:space="preserve">
+    <value>RunContinuously</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st,53</comment>
+  </data>
+  <data name="RunWeld" xml:space="preserve">
+    <value>RunWeld</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st,55</comment>
+  </data>
+  <data name="RunTest" xml:space="preserve">
+    <value>RunTest</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st,57</comment>
+  </data>
+  <data name="ClearError" xml:space="preserve">
+    <value>ClearError</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st,59</comment>
+  </data>
+  <data name="OTF_UNDERSCORE_AmplitudeEnable" xml:space="preserve">
+    <value>OTF_AmplitudeEnable</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st,61</comment>
+  </data>
+  <data name="CycleStop" xml:space="preserve">
+    <value>CycleStop</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st,63</comment>
+  </data>
+  <data name="FrontPanelLockout_UNDERSCORE__ZERO_" xml:space="preserve">
+    <value>FrontPanelLockout_0</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st,65</comment>
+  </data>
+  <data name="FrontPanelLockout_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>FrontPanelLockout_1</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st,67</comment>
+  </data>
+  <data name="OTF_UNDERSCORE_Amp_UNDERSCORE_Setpoint" xml:space="preserve">
+    <value>OTF_Amp_Setpoint</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st,69</comment>
+  </data>
+  <data name="ActiveSetupSelection" xml:space="preserve">
+    <value>ActiveSetupSelection</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st,71</comment>
+  </data>
+  <data name="RunningSetupSelection" xml:space="preserve">
+    <value>RunningSetupSelection</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st,73</comment>
+  </data>
+  <data name="RunningMPCProbeSelection" xml:space="preserve">
+    <value>RunningMPCProbeSelection</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemOutputs.st,75</comment>
+  </data>
+  <data name="SetupChanged" xml:space="preserve">
+    <value>SetupChanged</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,19</comment>
+  </data>
+  <data name="InCycle" xml:space="preserve">
+    <value>InCycle</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,21</comment>
+  </data>
+  <data name="InCycle_UNDERSCORE_No_UNDERSCORE_AB" xml:space="preserve">
+    <value>InCycle_No_AB</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,23</comment>
+  </data>
+  <data name="OverTemp" xml:space="preserve">
+    <value>OverTemp</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,25</comment>
+  </data>
+  <data name="In_UNDERSCORE_AfterBurst" xml:space="preserve">
+    <value>In_AfterBurst</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,27</comment>
+  </data>
+  <data name="In_UNDERSCORE_Test" xml:space="preserve">
+    <value>In_Test</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,29</comment>
+  </data>
+  <data name="In_UNDERSCORE_TestScan" xml:space="preserve">
+    <value>In_TestScan</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,31</comment>
+  </data>
+  <data name="MPC_UNDERSCORE_Present" xml:space="preserve">
+    <value>MPC_Present</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,33</comment>
+  </data>
+  <data name="PowerOK" xml:space="preserve">
+    <value>PowerOK</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,37</comment>
+  </data>
+  <data name="MPC_UNDERSCORE_Ready" xml:space="preserve">
+    <value>MPC_Ready</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,39</comment>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Ready</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,41</comment>
+  </data>
+  <data name="Any_UNDERSCORE_Fault" xml:space="preserve">
+    <value>Any_Fault</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,43</comment>
+  </data>
+  <data name="Overload" xml:space="preserve">
+    <value>Overload</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,45</comment>
+  </data>
+  <data name="Estop" xml:space="preserve">
+    <value>Estop</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,47</comment>
+  </data>
+  <data name="Online" xml:space="preserve">
+    <value>Online</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,49</comment>
+  </data>
+  <data name="In_UNDERSCORE_Hold" xml:space="preserve">
+    <value>In_Hold</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,51</comment>
+  </data>
+  <data name="Good_UNDERSCORE_Part" xml:space="preserve">
+    <value>Good_Part</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,53</comment>
+  </data>
+  <data name="Bad_UNDERSCORE_Part" xml:space="preserve">
+    <value>Bad_Part</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,55</comment>
+  </data>
+  <data name="Suspect_UNDERSCORE_Part" xml:space="preserve">
+    <value>Suspect_Part</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,57</comment>
+  </data>
+  <data name="CycleStartReject" xml:space="preserve">
+    <value>CycleStartReject</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,59</comment>
+  </data>
+  <data name="Amplitude_UNDERSCORE_Regulation" xml:space="preserve">
+    <value>Amplitude_Regulation</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,61</comment>
+  </data>
+  <data name="Power_UNDERSCORE_Regulation" xml:space="preserve">
+    <value>Power_Regulation</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,63</comment>
+  </data>
+  <data name="Trigger_UNDERSCORE_Status" xml:space="preserve">
+    <value>Trigger_Status</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,65</comment>
+  </data>
+  <data name="US_UNDERSCORE_Status" xml:space="preserve">
+    <value>US_Status</value>
+    <comment>src\AxoIQSeriesWelder\Axo_IQ_SeriesWelder_SystemStatusBitDefinition.st,67</comment>
   </data>
 </root>

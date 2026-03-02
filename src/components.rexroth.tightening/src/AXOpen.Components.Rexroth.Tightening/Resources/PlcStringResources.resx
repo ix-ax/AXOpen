@@ -84,30 +84,466 @@
   </data>
   <data name="ResetFaultTask_timeout_DOT_" xml:space="preserve">
     <value>ResetFaultTask timeout.</value>
-    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2162</comment>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2138</comment>
   </data>
   <data name="ResetResultsTask_timeout_DOT_" xml:space="preserve">
     <value>ResetResultsTask timeout.</value>
-    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2221</comment>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2197</comment>
   </data>
   <data name="SetScrewingProgramTask_timeout_DOT_" xml:space="preserve">
     <value>SetScrewingProgramTask timeout.</value>
-    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2321</comment>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2297</comment>
   </data>
   <data name="GetScrewingResultsTask_timeout_DOT_" xml:space="preserve">
     <value>GetScrewingResultsTask timeout.</value>
-    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2393</comment>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2369</comment>
   </data>
   <data name="ScrewClockwiseTask_timeout_DOT_" xml:space="preserve">
     <value>ScrewClockwiseTask timeout.</value>
-    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2611</comment>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2587</comment>
   </data>
   <data name="ScrewCounterClockwiseTask_timeout_DOT_" xml:space="preserve">
     <value>ScrewCounterClockwiseTask timeout.</value>
-    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2824</comment>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,2800</comment>
   </data>
   <data name="RunAutomatTask_timeout_DOT_" xml:space="preserve">
     <value>RunAutomatTask timeout.</value>
-    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,3196</comment>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,3172</comment>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,14</comment>
+  </data>
+  <data name="NOK" xml:space="preserve">
+    <value>NOK</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,18</comment>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Results</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,22</comment>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Progress</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,25</comment>
+  </data>
+  <data name="Program_number__BRACKET_manual_ENDBRACKET_" xml:space="preserve">
+    <value>Program number (manual)</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,33</comment>
+  </data>
+  <data name="IDcode__BRACKET_manual_ENDBRACKET_" xml:space="preserve">
+    <value>IDcode (manual)</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,37</comment>
+  </data>
+  <data name="Automatic_start_manual" xml:space="preserve">
+    <value>Automatic start manual</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,41</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,45</comment>
+  </data>
+  <data name="DisableTask" xml:space="preserve">
+    <value>DisableTask</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,49</comment>
+  </data>
+  <data name="EnableTask" xml:space="preserve">
+    <value>EnableTask</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,53</comment>
+  </data>
+  <data name="DisableClockwiseTask" xml:space="preserve">
+    <value>DisableClockwiseTask</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,57</comment>
+  </data>
+  <data name="EnableClockwiseTask" xml:space="preserve">
+    <value>EnableClockwiseTask</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,61</comment>
+  </data>
+  <data name="DisableCounterClockwiseTask" xml:space="preserve">
+    <value>DisableCounterClockwiseTask</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,65</comment>
+  </data>
+  <data name="EnableCounterClockwiseTask" xml:space="preserve">
+    <value>EnableCounterClockwiseTask</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,69</comment>
+  </data>
+  <data name="ResetFaultTask" xml:space="preserve">
+    <value>ResetFaultTask</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,73</comment>
+  </data>
+  <data name="ResetResultsTask" xml:space="preserve">
+    <value>ResetResultsTask</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,77</comment>
+  </data>
+  <data name="SetScrewingProgramTask" xml:space="preserve">
+    <value>SetScrewingProgramTask</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,81</comment>
+  </data>
+  <data name="GetScrewingResultsTask" xml:space="preserve">
+    <value>GetScrewingResultsTask</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,85</comment>
+  </data>
+  <data name="ScrewClockwiseTask" xml:space="preserve">
+    <value>ScrewClockwiseTask</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,89</comment>
+  </data>
+  <data name="ScrewCounterClockwiseTask" xml:space="preserve">
+    <value>ScrewCounterClockwiseTask</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,93</comment>
+  </data>
+  <data name="RunAutomatTask" xml:space="preserve">
+    <value>RunAutomatTask</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,97</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,121</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,127</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\Axo_CS351_compact\Axo_CS351_compact.st,136</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st,9</comment>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware IDs</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st,11</comment>
+  </data>
+  <data name="Torque_scaling_constant__BRACKET_depends_on_the_type_of_spindle_used_ENDBRACKET_" xml:space="preserve">
+    <value>Torque scaling constant (depends on the type of spindle used)</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st,13</comment>
+  </data>
+  <data name="Angle_scaling_constant__BRACKET_depends_on_the_type_of_spindle_used_ENDBRACKET_" xml:space="preserve">
+    <value>Angle scaling constant (depends on the type of spindle used)</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Config.st,15</comment>
+  </data>
+  <data name="Program_number_ack_DOT_" xml:space="preserve">
+    <value>Program number ack.</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,5</comment>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Ready</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,7</comment>
+  </data>
+  <data name="No_fault" xml:space="preserve">
+    <value>No fault</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,9</comment>
+  </data>
+  <data name="In_Cycle" xml:space="preserve">
+    <value>In Cycle</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,11</comment>
+  </data>
+  <data name="In_Cycle_counter_clockwise" xml:space="preserve">
+    <value>In Cycle counter clockwise</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,13</comment>
+  </data>
+  <data name="Cycle_complete" xml:space="preserve">
+    <value>Cycle complete</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,15</comment>
+  </data>
+  <data name="Tool_button" xml:space="preserve">
+    <value>Tool button</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,21</comment>
+  </data>
+  <data name="Counter_clockwise_select" xml:space="preserve">
+    <value>Counter clockwise select</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,23</comment>
+  </data>
+  <data name="Start_button_ErgoSpin" xml:space="preserve">
+    <value>Start button ErgoSpin</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,25</comment>
+  </data>
+  <data name="Triger_Out" xml:space="preserve">
+    <value>Triger Out</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,27</comment>
+  </data>
+  <data name="Torque_too_high" xml:space="preserve">
+    <value>Torque too high</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,29</comment>
+  </data>
+  <data name="Torque_too_low" xml:space="preserve">
+    <value>Torque too low</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,31</comment>
+  </data>
+  <data name="Angle_too_high" xml:space="preserve">
+    <value>Angle too high</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,33</comment>
+  </data>
+  <data name="Angle_too_low" xml:space="preserve">
+    <value>Angle too low</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,35</comment>
+  </data>
+  <data name="Counter_clockwise_lock_acknowledge" xml:space="preserve">
+    <value>Counter clockwise lock acknowledge</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,37</comment>
+  </data>
+  <data name="Enable_acknowledge" xml:space="preserve">
+    <value>Enable acknowledge</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,39</comment>
+  </data>
+  <data name="Active_enable_acknowledge" xml:space="preserve">
+    <value>Active enable acknowledge</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,41</comment>
+  </data>
+  <data name="Clockwise_lock_acknowledge" xml:space="preserve">
+    <value>Clockwise lock acknowledge</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,43</comment>
+  </data>
+  <data name="Clockwise_acknowledge" xml:space="preserve">
+    <value>Clockwise acknowledge</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,45</comment>
+  </data>
+  <data name="Counter_clockwise_acknowledge" xml:space="preserve">
+    <value>Counter clockwise acknowledge</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,47</comment>
+  </data>
+  <data name="ErgoSpin_LED_Green_acknowledge" xml:space="preserve">
+    <value>ErgoSpin LED Green acknowledge</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,49</comment>
+  </data>
+  <data name="ErgoSpin_LED_Yellow_acknowledge" xml:space="preserve">
+    <value>ErgoSpin LED Yellow acknowledge</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,51</comment>
+  </data>
+  <data name="ErgoSpin_LED_Red_acknowledge" xml:space="preserve">
+    <value>ErgoSpin LED Red acknowledge</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,53</comment>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,55</comment>
+  </data>
+  <data name="Cycle_counter" xml:space="preserve">
+    <value>Cycle counter</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,59</comment>
+  </data>
+  <data name="Program_number" xml:space="preserve">
+    <value>Program number</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,61</comment>
+  </data>
+  <data name="Torque_min" xml:space="preserve">
+    <value>Torque min</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,63</comment>
+  </data>
+  <data name="Torque" xml:space="preserve">
+    <value>Torque</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,65</comment>
+  </data>
+  <data name="Torque_max" xml:space="preserve">
+    <value>Torque max</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,67</comment>
+  </data>
+  <data name="Angle_min" xml:space="preserve">
+    <value>Angle min</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,69</comment>
+  </data>
+  <data name="Angle" xml:space="preserve">
+    <value>Angle</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,71</comment>
+  </data>
+  <data name="Angle_max" xml:space="preserve">
+    <value>Angle max</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,73</comment>
+  </data>
+  <data name="Error_code" xml:space="preserve">
+    <value>Error code</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,75</comment>
+  </data>
+  <data name="Error_class" xml:space="preserve">
+    <value>Error class</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_In.st,77</comment>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Control</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,5</comment>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Enable</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,9</comment>
+  </data>
+  <data name="Reset_fault" xml:space="preserve">
+    <value>Reset fault</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,11</comment>
+  </data>
+  <data name="Start_clockwise" xml:space="preserve">
+    <value>Start clockwise</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,13</comment>
+  </data>
+  <data name="Start_counter_clockwise" xml:space="preserve">
+    <value>Start counter clockwise</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,15</comment>
+  </data>
+  <data name="Reset_results" xml:space="preserve">
+    <value>Reset results</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,17</comment>
+  </data>
+  <data name="Nok_acknowledge" xml:space="preserve">
+    <value>Nok acknowledge</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,19</comment>
+  </data>
+  <data name="User_In__ONE_" xml:space="preserve">
+    <value>User In 1</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,21</comment>
+  </data>
+  <data name="User_In__TWO_" xml:space="preserve">
+    <value>User In 2</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,23</comment>
+  </data>
+  <data name="ErgoSpin_LED_Green" xml:space="preserve">
+    <value>ErgoSpin LED Green</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,25</comment>
+  </data>
+  <data name="ErgoSpin_LED_Yellow" xml:space="preserve">
+    <value>ErgoSpin LED Yellow</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,27</comment>
+  </data>
+  <data name="ErgoSpin_LED_Red" xml:space="preserve">
+    <value>ErgoSpin LED Red</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,29</comment>
+  </data>
+  <data name="Active_enable" xml:space="preserve">
+    <value>Active enable</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,31</comment>
+  </data>
+  <data name="Counter_clockwise_lock" xml:space="preserve">
+    <value>Counter clockwise lock</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,33</comment>
+  </data>
+  <data name="Clockwise_lock" xml:space="preserve">
+    <value>Clockwise lock</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,35</comment>
+  </data>
+  <data name="Clockwise_AND" xml:space="preserve">
+    <value>Clockwise AND</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,37</comment>
+  </data>
+  <data name="Counter_clockwise_AND" xml:space="preserve">
+    <value>Counter clockwise AND</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Out.st,39</comment>
+  </data>
+  <data name="ID_code" xml:space="preserve">
+    <value>ID code</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_compact_Results.st,7</comment>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>Hardware ID of the device</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,4</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 1' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,6</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 2' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,8</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__THREE__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 3' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,10</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__FOUR__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 4' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,12</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__FIVE__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 5' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,14</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__SIX__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 6' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,16</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__SEVEN__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 7' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,18</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__EIGHT__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 8' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,20</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__NINE__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 9' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,22</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__ZERO__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 10' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,24</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__ONE__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 11' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,26</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__TWO__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 12' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,28</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__THREE__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 13' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,30</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__FOUR__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 14' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,32</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__FIVE__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 15' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,34</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__SIX__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 16' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,36</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__SEVEN__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 17' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,38</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__EIGHT__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 18' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,40</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__NINE__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 19' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,42</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__ZERO__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 20' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,44</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__ONE__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 21' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,46</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__TWO__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 22' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,48</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__THREE__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 23' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,50</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__FOUR__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 24' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,52</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__FIVE__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 25' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,54</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__SIX__APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'Slot 26' module</value>
+    <comment>src\Axo_CS351_compact\TypesStructuresAndEnums\Axo_CS351_HWIDs.st,56</comment>
   </data>
 </root>

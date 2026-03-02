@@ -1,4 +1,4 @@
-export GREEN='\033[0;32m'
+﻿export GREEN='\033[0;32m'
 export RED='\033[0;31m'
 export YELLOW='\033[0;33m'
 export NC='\033[0m\r\n' # No Color+CRLF
@@ -74,7 +74,7 @@ fi
 
 #setup_secure_communication                   # setup secure communication, create and import certificates, setup password for AX_USERNAME 
 setup_secure_communication=$( dirname ${BASH_SOURCE[0]})"\\setup_secure_communication.sh"
-$setup_secure_communication $PLC_NAME $USERNAME $PASSWORD
+$setup_secure_communication $PLC_NAME $USERNAME $PASSWORD $PLC_IP_ADDRESS
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Configuring secure communication finished succesfully.${NC}"
 else

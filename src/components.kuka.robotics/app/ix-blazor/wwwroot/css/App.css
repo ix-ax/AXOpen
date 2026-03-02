@@ -4,8 +4,7 @@
 /*@import "../../../../../../../operon/src/Operon/wwwroot/css/operon.css";
 @source "../../../../../../../operon/src/Operon/Components";
 @source "../../../../../../../operon/src/Operon/Icons";
-@source "../../../../../../../axopen/src/data/src/AXOpen.Data.Blazor";
-@source "../../../../../../../axopen/src/core/src/AXOpen.Core.Blazor";
+@source "../../../../../../../axopen/src/core/src/AXOpen.Core.Blazor/";
 @source "../../../../../../../axopen/src/Security/src/AXOpen.Security.Blazor/Views";
 @source "../../../../../../../axopen/src/inspectors/src/AXOpen.Inspectors.blazor";
 @source "../../../../../../../axopen/src/base/src/AXOpen.VisualComposer";*/

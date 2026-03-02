@@ -61,6 +61,505 @@ namespace AXOpen.Components.Kuka.Robotics.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Action number.
+        /// </summary>
+        public static string Action_number {
+            get {
+                return ResourceManager.GetString("Action_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activate Interface [I_O_ACT].
+        /// </summary>
+        public static string Activate_Interface__SQUAREBRACKET_I_UNDERSCORE_O_UNDERSCORE_ACT_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("Activate_Interface__SQUAREBRACKET_I_UNDERSCORE_O_UNDERSCORE_ACT_ENDSQUAREBRACKET_" +
+                        "", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AlarmStopActive [ALARM_STOP].
+        /// </summary>
+        public static string AlarmStopActive__SQUAREBRACKET_ALARM_UNDERSCORE_STOP_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("AlarmStopActive__SQUAREBRACKET_ALARM_UNDERSCORE_STOP_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Automatic [AUT].
+        /// </summary>
+        public static string Automatic__SQUAREBRACKET_AUT_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("Automatic__SQUAREBRACKET_AUT_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ControlReady [RC_RDY1].
+        /// </summary>
+        public static string ControlReady__SQUAREBRACKET_RC_UNDERSCORE_RDY_ONE__ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("ControlReady__SQUAREBRACKET_RC_UNDERSCORE_RDY_ONE__ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drives Off [DRIVES_OFF].
+        /// </summary>
+        public static string Drives_Off__SQUAREBRACKET_DRIVES_UNDERSCORE_OFF_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("Drives_Off__SQUAREBRACKET_DRIVES_UNDERSCORE_OFF_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drives On [DRIVES_ON].
+        /// </summary>
+        public static string Drives_On__SQUAREBRACKET_DRIVES_UNDERSCORE_ON_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("Drives_On__SQUAREBRACKET_DRIVES_UNDERSCORE_ON_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DrivesReady [PERI_RDY].
+        /// </summary>
+        public static string DrivesReady__SQUAREBRACKET_PERI_UNDERSCORE_RDY_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("DrivesReady__SQUAREBRACKET_PERI_UNDERSCORE_RDY_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error Confirmation [CONF_MESS].
+        /// </summary>
+        public static string Error_Confirmation__SQUAREBRACKET_CONF_UNDERSCORE_MESS_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("Error_Confirmation__SQUAREBRACKET_CONF_UNDERSCORE_MESS_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error time.
+        /// </summary>
+        public static string Error_time {
+            get {
+                return ResourceManager.GetString("Error_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ErrorCollection [STOPMESS].
+        /// </summary>
+        public static string ErrorCollection__SQUAREBRACKET_STOPMESS_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("ErrorCollection__SQUAREBRACKET_STOPMESS_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Event ID.
+        /// </summary>
+        public static string Event_ID {
+            get {
+                return ResourceManager.GetString("Event_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ExternalAutomatic [EXT].
+        /// </summary>
+        public static string ExternalAutomatic__SQUAREBRACKET_EXT_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("ExternalAutomatic__SQUAREBRACKET_EXT_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Global robot speed.
+        /// </summary>
+        public static string Global_robot_speed {
+            get {
+                return ResourceManager.GetString("Global_robot_speed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Global speed.
+        /// </summary>
+        public static string Global_speed {
+            get {
+                return ResourceManager.GetString("Global_speed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;512_DI_DO&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE__FIVE__ONE__TWO__UNDERSCORE_DI_UNDERSCORE_DO_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE__FIVE__ONE__TWO__UNDERSCORE_DI_UNDERSCORE_DO_APOST" +
+                        "ROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the &apos;None&apos; submodule.
+        /// </summary>
+        public static string Hardware_ID_of_the__APOSTROPHE_None_APOSTROPHE__submodule {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the__APOSTROPHE_None_APOSTROPHE__submodule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware ID of the device.
+        /// </summary>
+        public static string Hardware_ID_of_the_device {
+            get {
+                return ResourceManager.GetString("Hardware_ID_of_the_device", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hardware IDs.
+        /// </summary>
+        public static string Hardware_IDs {
+            get {
+                return ResourceManager.GetString("Hardware_IDs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In area 4.
+        /// </summary>
+        public static string In_area__FOUR_ {
+            get {
+                return ResourceManager.GetString("In_area__FOUR_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In area 1.
+        /// </summary>
+        public static string In_area__ONE_ {
+            get {
+                return ResourceManager.GetString("In_area__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In area 3.
+        /// </summary>
+        public static string In_area__THREE_ {
+            get {
+                return ResourceManager.GetString("In_area__THREE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In area 2.
+        /// </summary>
+        public static string In_area__TWO_ {
+            get {
+                return ResourceManager.GetString("In_area__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In position.
+        /// </summary>
+        public static string In_position {
+            get {
+                return ResourceManager.GetString("In_position", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In position 4.
+        /// </summary>
+        public static string In_position__FOUR_ {
+            get {
+                return ResourceManager.GetString("In_position__FOUR_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In position 1.
+        /// </summary>
+        public static string In_position__ONE_ {
+            get {
+                return ResourceManager.GetString("In_position__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In position 3.
+        /// </summary>
+        public static string In_position__THREE_ {
+            get {
+                return ResourceManager.GetString("In_position__THREE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In position 2.
+        /// </summary>
+        public static string In_position__TWO_ {
+            get {
+                return ResourceManager.GetString("In_position__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info time.
+        /// </summary>
+        public static string Info_time {
+            get {
+                return ResourceManager.GetString("Info_time", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InHome [IN_HOME].
+        /// </summary>
+        public static string InHome__SQUAREBRACKET_IN_UNDERSCORE_HOME_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("InHome__SQUAREBRACKET_IN_UNDERSCORE_HOME_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inputs.
+        /// </summary>
+        public static string Inputs {
+            get {
+                return ResourceManager.GetString("Inputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InterfaceActivated [I_O_ACTCONF].
+        /// </summary>
+        public static string InterfaceActivated__SQUAREBRACKET_I_UNDERSCORE_O_UNDERSCORE_ACTCONF_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("InterfaceActivated__SQUAREBRACKET_I_UNDERSCORE_O_UNDERSCORE_ACTCONF_ENDSQUAREBRAC" +
+                        "KET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manual [T1].
+        /// </summary>
+        public static string Manual__SQUAREBRACKET_T_ONE__ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("Manual__SQUAREBRACKET_T_ONE__ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Master mode.
+        /// </summary>
+        public static string Master_mode {
+            get {
+                return ResourceManager.GetString("Master_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Move Enable [MOVE_ENABLE].
+        /// </summary>
+        public static string Move_Enable__SQUAREBRACKET_MOVE_UNDERSCORE_ENABLE_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("Move_Enable__SQUAREBRACKET_MOVE_UNDERSCORE_ENABLE_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Outputs.
+        /// </summary>
+        public static string Outputs {
+            get {
+                return ResourceManager.GetString("Outputs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Point number.
+        /// </summary>
+        public static string Point_number {
+            get {
+                return ResourceManager.GetString("Point_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PointNumber.
+        /// </summary>
+        public static string PointNumber {
+            get {
+                return ResourceManager.GetString("PointNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PpMoved.
+        /// </summary>
+        public static string PpMoved {
+            get {
+                return ResourceManager.GetString("PpMoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ProcesActive [PRO_ACT].
+        /// </summary>
+        public static string ProcesActive__SQUAREBRACKET_PRO_UNDERSCORE_ACT_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("ProcesActive__SQUAREBRACKET_PRO_UNDERSCORE_ACT_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program Start [EXT_START].
+        /// </summary>
+        public static string Program_Start__SQUAREBRACKET_EXT_UNDERSCORE_START_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("Program_Start__SQUAREBRACKET_EXT_UNDERSCORE_START_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ProgramMoveActive [PROGRAM MOVEMENT ACTIVE].
+        /// </summary>
+        public static string ProgramMoveActive__SQUAREBRACKET_PROGRAM_MOVEMENT_ACTIVE_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("ProgramMoveActive__SQUAREBRACKET_PROGRAM_MOVEMENT_ACTIVE_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore.
+        /// </summary>
+        public static string Restore {
+            get {
+                return ResourceManager.GetString("Restore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RobotCalibrated [ROB_CAL].
+        /// </summary>
+        public static string RobotCalibrated__SQUAREBRACKET_ROB_UNDERSCORE_CAL_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("RobotCalibrated__SQUAREBRACKET_ROB_UNDERSCORE_CAL_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RobotStopped [ROB_STOPPED].
+        /// </summary>
+        public static string RobotStopped__SQUAREBRACKET_ROB_UNDERSCORE_STOPPED_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("RobotStopped__SQUAREBRACKET_ROB_UNDERSCORE_STOPPED_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start at main.
+        /// </summary>
+        public static string Start_at_main {
+            get {
+                return ResourceManager.GetString("Start_at_main", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start At Main [START_AT_MAIN].
+        /// </summary>
+        public static string Start_At_Main__SQUAREBRACKET_START_UNDERSCORE_AT_UNDERSCORE_MAIN_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("Start_At_Main__SQUAREBRACKET_START_UNDERSCORE_AT_UNDERSCORE_MAIN_ENDSQUAREBRACKET" +
+                        "_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start motors.
+        /// </summary>
+        public static string Start_motors {
+            get {
+                return ResourceManager.GetString("Start_motors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start motors and program.
+        /// </summary>
+        public static string Start_motors_and_program {
+            get {
+                return ResourceManager.GetString("Start_motors_and_program", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start motors program and movements.
+        /// </summary>
+        public static string Start_motors_program_and_movements {
+            get {
+                return ResourceManager.GetString("Start_motors_program_and_movements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start movements.
+        /// </summary>
+        public static string Start_movements {
+            get {
+                return ResourceManager.GetString("Start_movements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start movements with extended parameters.
+        /// </summary>
+        public static string Start_movements_with_extended_parameters {
+            get {
+                return ResourceManager.GetString("Start_movements_with_extended_parameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start program.
+        /// </summary>
+        public static string Start_program {
+            get {
+                return ResourceManager.GetString("Start_program", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StartAtMain.
+        /// </summary>
+        public static string StartAtMain {
+            get {
+                return ResourceManager.GetString("StartAtMain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to StartAtMainTask timeout..
         /// </summary>
         public static string StartAtMainTask_timeout_DOT_ {
@@ -106,6 +605,42 @@ namespace AXOpen.Components.Kuka.Robotics.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Stop motors.
+        /// </summary>
+        public static string Stop_motors {
+            get {
+                return ResourceManager.GetString("Stop_motors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop movements.
+        /// </summary>
+        public static string Stop_movements {
+            get {
+                return ResourceManager.GetString("Stop_movements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop movements and program.
+        /// </summary>
+        public static string Stop_movements_and_program {
+            get {
+                return ResourceManager.GetString("Stop_movements_and_program", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop program.
+        /// </summary>
+        public static string Stop_program {
+            get {
+                return ResourceManager.GetString("Stop_program", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to StopMotorsTask timeout..
         /// </summary>
         public static string StopMotorsTask_timeout_DOT_ {
@@ -138,6 +673,150 @@ namespace AXOpen.Components.Kuka.Robotics.Resources {
         public static string StopProgramTask_timeout_DOT_ {
             get {
                 return ResourceManager.GetString("StopProgramTask_timeout_DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Task timeout.
+        /// </summary>
+        public static string Task_timeout {
+            get {
+                return ResourceManager.GetString("Task_timeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 4 extend.
+        /// </summary>
+        public static string Tool__FOUR__extend {
+            get {
+                return ResourceManager.GetString("Tool__FOUR__extend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 4 retract.
+        /// </summary>
+        public static string Tool__FOUR__retract {
+            get {
+                return ResourceManager.GetString("Tool__FOUR__retract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 1 extend.
+        /// </summary>
+        public static string Tool__ONE__extend {
+            get {
+                return ResourceManager.GetString("Tool__ONE__extend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 1 retract.
+        /// </summary>
+        public static string Tool__ONE__retract {
+            get {
+                return ResourceManager.GetString("Tool__ONE__retract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 3 extend.
+        /// </summary>
+        public static string Tool__THREE__extend {
+            get {
+                return ResourceManager.GetString("Tool__THREE__extend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 3 retract.
+        /// </summary>
+        public static string Tool__THREE__retract {
+            get {
+                return ResourceManager.GetString("Tool__THREE__retract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 2 extend.
+        /// </summary>
+        public static string Tool__TWO__extend {
+            get {
+                return ResourceManager.GetString("Tool__TWO__extend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool 2 retract.
+        /// </summary>
+        public static string Tool__TWO__retract {
+            get {
+                return ResourceManager.GetString("Tool__TWO__retract", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tool number.
+        /// </summary>
+        public static string Tool_number {
+            get {
+                return ResourceManager.GetString("Tool_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update diagnostics.
+        /// </summary>
+        public static string Update_diagnostics {
+            get {
+                return ResourceManager.GetString("Update_diagnostics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User specific speed 1.
+        /// </summary>
+        public static string User_specific_speed__ONE_ {
+            get {
+                return ResourceManager.GetString("User_specific_speed__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User specific speed 2.
+        /// </summary>
+        public static string User_specific_speed__TWO_ {
+            get {
+                return ResourceManager.GetString("User_specific_speed__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserSafetySwitchClosed [USER_SAF].
+        /// </summary>
+        public static string UserSafetySwitchClosed__SQUAREBRACKET_USER_UNDERSCORE_SAF_ENDSQUAREBRACKET_ {
+            get {
+                return ResourceManager.GetString("UserSafetySwitchClosed__SQUAREBRACKET_USER_UNDERSCORE_SAF_ENDSQUAREBRACKET_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workobject number.
+        /// </summary>
+        public static string Workobject_number {
+            get {
+                return ResourceManager.GetString("Workobject_number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zones.
+        /// </summary>
+        public static string Zones {
+            get {
+                return ResourceManager.GetString("Zones", resourceCulture);
             }
         }
     }

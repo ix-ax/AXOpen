@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ReadTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ReadTask.</value>
+  </data>
+  <data name="WriteTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit úlohy WriteTask.</value>
+  </data>
+  <data name="ResetCommunicationTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ResetCommunicationTask.</value>
+  </data>
+  <data name="ResetReaderTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ResetReaderTask.</value>
+  </data>
+  <data name="WriteCharToMemoryTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit úlohy WriteCharToMemoryTask.</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnovenie</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Prečítajte si</value>
+  </data>
+  <data name="Read_address" xml:space="preserve">
+    <value>Prečítajte si adresu</value>
+  </data>
+  <data name="Number_of_bytes_to_read" xml:space="preserve">
+    <value>Počet bajtov na čítanie</value>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Napíšte na</value>
+  </data>
+  <data name="Write_address" xml:space="preserve">
+    <value>Napíšte adresu</value>
+  </data>
+  <data name="Data_to_write" xml:space="preserve">
+    <value>Údaje na zápis</value>
+  </data>
+  <data name="Reset_communication" xml:space="preserve">
+    <value>Obnovenie komunikácie</value>
+  </data>
+  <data name="Reset_reader" xml:space="preserve">
+    <value>Resetovanie čítačky</value>
+  </data>
+  <data name="Write_char_to_memory" xml:space="preserve">
+    <value>Zápis char do pamäte</value>
+  </data>
+  <data name="Character_to_write_to_memory" xml:space="preserve">
+    <value>Znak na zápis do pamäte</value>
+  </data>
+  <data name="Address_to_write" xml:space="preserve">
+    <value>Adresa na písanie</value>
+  </data>
+  <data name="Number_of_bytes_to_write" xml:space="preserve">
+    <value>Počet bajtov na zápis</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Identifikátory hardvéru</value>
+  </data>
+  <data name="Start_address" xml:space="preserve">
+    <value>Počiatočná adresa</value>
+  </data>
+  <data name="Rfid_code_size" xml:space="preserve">
+    <value>Veľkosť kódu Rfid</value>
+  </data>
+  <data name="BitHeader_ONE__Job" xml:space="preserve">
+    <value>Úloha BitHeader1</value>
+  </data>
+  <data name="BitHeader_ONE__Reserve_ZERO_" xml:space="preserve">
+    <value>BitHeader1 Rezerva0</value>
+  </data>
+  <data name="qBitHeader_ONE__GroundState" xml:space="preserve">
+    <value>qBitHeader1 GroundState</value>
+  </data>
+  <data name="BitHeader_ONE__Reserve_ONE_" xml:space="preserve">
+    <value>BitHeader1 Rezerva1</value>
+  </data>
+  <data name="BitHeader_ONE__Reserve_TWO_" xml:space="preserve">
+    <value>BitHeader1 Rezerva2</value>
+  </data>
+  <data name="qBitHeader_ONE__HeadOnOff" xml:space="preserve">
+    <value>qBitHeader1 HeadOnOff</value>
+  </data>
+  <data name="qBitHeader_ONE__ToggleBit" xml:space="preserve">
+    <value>qBitHeader1 ToggleBit</value>
+  </data>
+  <data name="BitHeader_ONE__Reserve_THREE_" xml:space="preserve">
+    <value>BitHeader1 Rezerva3</value>
+  </data>
+  <data name="Command_designator" xml:space="preserve">
+    <value>Označenie príkazu</value>
+  </data>
+  <data name="Number__of_bytes" xml:space="preserve">
+    <value>Počet bajtov</value>
+  </data>
+  <data name="BitHeader_TWO__Job" xml:space="preserve">
+    <value>Úloha BitHeader2</value>
+  </data>
+  <data name="BitHeader_TWO__Reserve_ZERO_" xml:space="preserve">
+    <value>BitHeader2 Reserve0</value>
+  </data>
+  <data name="qBitHeader_TWO__GroundState" xml:space="preserve">
+    <value>qBitHeader2 GroundState</value>
+  </data>
+  <data name="BitHeader_TWO__Reserve_ONE_" xml:space="preserve">
+    <value>BitHeader2 Rezerva1</value>
+  </data>
+  <data name="BitHeader_TWO__Reserve_TWO_" xml:space="preserve">
+    <value>BitHeader2 Rezerva2</value>
+  </data>
+  <data name="qBitHeader_TWO__HeadOnOff" xml:space="preserve">
+    <value>qBitHeader2 HeadOnOff</value>
+  </data>
+  <data name="qBitHeader_TWO__ToggleBit" xml:space="preserve">
+    <value>qBitHeader2 ToggleBit</value>
+  </data>
+  <data name="BitHeader_TWO__Reserve_THREE_" xml:space="preserve">
+    <value>BitHeader2 Rezerva3</value>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>ID hardvéru zariadenia</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_BISM_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "BISM</value>
+  </data>
+  <data name="BitHeader_ONE__CodeTagPresent" xml:space="preserve">
+    <value>BitHeader1 CodeTagPresent</value>
+  </data>
+  <data name="BitHeader_ONE__JobAccepted" xml:space="preserve">
+    <value>BitHeader1 JobAccepted</value>
+  </data>
+  <data name="BitHeader_ONE__JobEnd" xml:space="preserve">
+    <value>BitHeader1 JobEnd</value>
+  </data>
+  <data name="BitHeader_ONE__JobError" xml:space="preserve">
+    <value>BitHeader1 JobError</value>
+  </data>
+  <data name="BitHeader_ONE__ToggleBit" xml:space="preserve">
+    <value>BitHeader1 ToggleBit</value>
+  </data>
+  <data name="BitHeader_ONE__HeadFailure" xml:space="preserve">
+    <value>BitHeader1 HeadFailure</value>
+  </data>
+  <data name="BitHeader_ONE__Power" xml:space="preserve">
+    <value>BitHeader1 Výkon</value>
+  </data>
+  <data name="BitHeader_TWO__CodeTagPresent" xml:space="preserve">
+    <value>BitHeader2 CodeTagPresent</value>
+  </data>
+  <data name="BitHeader_TWO__JobAccepted" xml:space="preserve">
+    <value>BitHeader2 JobAccepted</value>
+  </data>
+  <data name="BitHeader_TWO__JobEnd" xml:space="preserve">
+    <value>BitHeader2 JobEnd</value>
+  </data>
+  <data name="BitHeader_TWO__JobError" xml:space="preserve">
+    <value>BitHeader2 JobError</value>
+  </data>
+  <data name="BitHeader_TWO__ToggleBit" xml:space="preserve">
+    <value>BitHeader2 ToggleBit</value>
+  </data>
+  <data name="BitHeader_TWO__HeadFailure" xml:space="preserve">
+    <value>BitHeader2 HeadFailure</value>
+  </data>
+  <data name="BitHeader_TWO__Power" xml:space="preserve">
+    <value>BitHeader2 Výkon</value>
+  </data>
+</root>

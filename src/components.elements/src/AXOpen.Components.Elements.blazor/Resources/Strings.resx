@@ -185,4 +185,77 @@
   <data name="Ready" xml:space="preserve">
     <value>Ready</value>
   </data>
+  <!-- AxoSignalTowerView -->
+  <data name="SignalTower" xml:space="preserve">
+    <value>Signal Tower</value>
+  </data>
+  <data name="SignalTowerControls" xml:space="preserve">
+    <value>Signal Tower Controls</value>
+  </data>
+  <data name="SignalTowerStatus" xml:space="preserve">
+    <value>Signal Tower Status</value>
+  </data>
+  <data name="Lights" xml:space="preserve">
+    <value>Lights</value>
+  </data>
+  <data name="LightOutputs" xml:space="preserve">
+    <value>Light Outputs</value>
+  </data>
+  <data name="LightsActive" xml:space="preserve">
+    <value>Lights active</value>
+  </data>
+  <data name="Horn" xml:space="preserve">
+    <value>Horn</value>
+  </data>
+  <data name="HornControl" xml:space="preserve">
+    <value>Horn Control</value>
+  </data>
+  <data name="HornToggleHint" xml:space="preserve">
+    <value>Toggle the acoustic horn output when audible alert is required.</value>
+  </data>
+  <data name="HornOn" xml:space="preserve">
+    <value>Horn ON</value>
+  </data>
+  <data name="HornOff" xml:space="preserve">
+    <value>Horn OFF</value>
+  </data>
+  <data name="ManualOverride" xml:space="preserve">
+    <value>Manual override</value>
+  </data>
+  <data name="ManualOverrideHint" xml:space="preserve">
+    <value>Use these controls during commissioning or maintenance. For automatic operation rely on PLC sequences.</value>
+  </data>
+  <data name="Diagnostics" xml:space="preserve">
+    <value>Diagnostics</value>
+  </data>
+  <data name="MessengerOverview" xml:space="preserve">
+    <value>Messenger Overview</value>
+  </data>
+  <data name="MonitorDiagnostics" xml:space="preserve">
+    <value>Monitor diagnostics</value>
+  </data>
+  <data name="MonitorDiagnosticsHint" xml:space="preserve">
+    <value>Messenger messages originate from the PLC logic; resolve reported issues before returning to automatic mode.</value>
+  </data>
+  <data name="CurrentState" xml:space="preserve">
+    <value>Current State</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>ON</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="Red" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="Yellow" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
+  <data name="Green" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="Blue" xml:space="preserve">
+    <value>Blue</value>
+  </data>
 </root>

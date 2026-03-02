@@ -582,7 +582,7 @@ namespace AXOpen.Components.Cognex.Vision.v_24_0_0
                     actionDescriptionDict.Add(328, "Change job by name running: waiting for the command complete acknowledged.");
                     actionDescriptionDict.Add(329, "Change job by name running: waiting for the device to be online.");
                     actionDescriptionDict.Add(330, "Change job by name finished.");
-                    actionDescriptionDict.Add(330, "Change job by name finished with an error.");
+                    actionDescriptionDict.Add(339, "Change job by name finished with an error.");
                     actionDescriptionDict.Add(121, "Change job by name finished succesfully.");
                     actionDescriptionDict.Add(122, "Change job by name restored.");
 
