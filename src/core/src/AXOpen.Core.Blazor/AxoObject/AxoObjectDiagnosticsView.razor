@@ -270,12 +270,12 @@
     {
         return category switch
         {
-            eAxoMessageCategory.Info => Localizer["SeverityInfo"],
-            eAxoMessageCategory.Potential => Localizer["PotentialIssue"],
-            eAxoMessageCategory.Warning => Localizer["SeverityWarning"],
-            eAxoMessageCategory.Error => Localizer["SeverityError"],
-            eAxoMessageCategory.ProgrammingError => Localizer["SeverityProgrammingError"],
-            eAxoMessageCategory.Critical => Localizer["SeverityCritical"],
+            eAxoMessageCategory.Info => Localizer["Info"],
+            eAxoMessageCategory.Potential => Localizer["Potential"],
+            eAxoMessageCategory.Warning => Localizer["Warning"],
+            eAxoMessageCategory.Error => Localizer["Error"],
+            eAxoMessageCategory.ProgrammingError => Localizer["System"],
+            eAxoMessageCategory.Critical => Localizer["Critical"],
             _ => string.Empty
         };
     }
@@ -428,7 +428,7 @@
     private IJSObjectReference? module;
     private IEnumerable<ITwinObject> observedObjects = new List<ITwinObject>();
     private AxoMessageProvider provider;
-    private static readonly eAxoMessageCategory[] SeverityOptions = Enum.GetValues<eAxoMessageCategory>().ToArray();
+    private static readonly eAxoMessageCategory[] SeverityOptions = Enum.GetValues<eAxoMessageCategory>().Skip(1).ToArray();
     private readonly HashSet<eAxoMessageCategory> _selectedSeverities = new(SeverityOptions);
     private bool _shouldBounce = false;
     private System.Threading.Timer? _bounceTimer;
