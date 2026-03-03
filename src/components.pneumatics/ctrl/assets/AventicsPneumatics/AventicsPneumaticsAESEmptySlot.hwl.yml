@@ -3,7 +3,7 @@ Templates:
   - Name: 'AventicsPneumaticsAESEmptySlot'
     Placeholders:
     - Name: 'NAME'
-        Optional: TRUE    
+      Optional: TRUE    
     - Name: 'SLOT'
       Value: 1
       AllowedValues:
