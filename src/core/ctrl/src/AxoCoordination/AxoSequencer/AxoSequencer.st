@@ -30,7 +30,8 @@ NAMESPACE AXOpen.Core
             _refStep :  REF_TO AxoStep;       
             _microStep : UINT;   
             _context        :   IAxoContext;
-            _analytics : IAxoSequencerAnalytics;                      
+            _analytics : IAxoSequencerAnalytics;    
+            _stepExecutionMode : eAxoStepExecutionMode;                 
         END_VAR
                 
         METHOD PUBLIC SetAnalitics
@@ -181,6 +182,11 @@ NAMESPACE AXOpen.Core
                 
                 IF step.GetIsActive() AND (step.IsReady() OR step.IsDone() OR SteppingMode = eAxoSteppingMode#StepByStep) THEN
                     IF (SteppingMode = eAxoSteppingMode#Continous) THEN
+                        _stepExecutionMode := _step.GetStepExecutionMode();
+                        IF _stepExecutionMode = eAxoStepExecutionMode#SwitchToStepModeBeforeEnteringStep THEN
+                            THIS.SetSteppingMode(eAxoSteppingMode#StepByStep);
+                            RETURN;
+                        END_IF;
                         step.Invoke();
                         _context.GetLogger().Log('<#Starts step :#>', AXOpen.Logging.eLogLevel#Verbose, step);
                     // Invoke the step in a case of step mode when StepIn Command is invoked
@@ -236,7 +242,12 @@ NAMESPACE AXOpen.Core
                     _context.GetLogger().Log('<#Step done :#>', AXOpen.Logging.eLogLevel#Verbose, _step);
                     _step.DoneWhen(_step.IsBusy());
                     IF(_analytics <> NULL) THEN _analytics.UpdateAnalytics(CurrentStep); END_IF;
-                    _step.SetIsActive(FALSE);                     
+                    _step.SetIsActive(FALSE);       
+                    _stepExecutionMode := _step.GetStepExecutionMode();
+                    IF _stepExecutionMode = eAxoStepExecutionMode#SwitchToStepModeAfterLeavingStep THEN
+                        THIS.SetSteppingMode(eAxoSteppingMode#StepByStep);
+                        RETURN;
+                    END_IF;                                  
                     CurrentOrder := CurrentOrder + ULINT#1;                                      
                     // Finalize the StepIn Command in a case of step mode
                     StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);
