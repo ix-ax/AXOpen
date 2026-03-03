@@ -154,6 +154,7 @@ NAMESPACE AXOpen.Messaging.Static
                 IF ActiveContextCount = ULINT#0 OR Risen = LDATE_AND_TIME#1970-01-01-00:00:00.000 THEN
                     THIS.MessengerState := eAxoMessengerState#InvalidImplementation;
                     THIS.Category := eAxoMessageCategory#ProgrammingError;
+                    RETURN;
                 END_IF;
                 IF THIS.MessengerState <> eAxoMessengerState#ActiveAlreadyAcknowledged THEN
                     IF AcknowledgementRequired THEN
