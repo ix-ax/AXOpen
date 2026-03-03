@@ -1,4 +1,4 @@
-﻿@namespace AXOpen.Messaging.Static
+@namespace AXOpen.Messaging.Static
 @inherits RenderableComplexComponentBase<AxoMessenger>
 @using System.Security.Principal
 @using Operon.Icons
@@ -99,6 +99,8 @@
         {
             case eAxoMessageCategory.Info:
                 return Localizer["SeverityInfo"];
+            case eAxoMessageCategory.Potential:
+                return Localizer["PotentialIssue"];
             case eAxoMessageCategory.Warning:
                 return Localizer["SeverityWarning"];
             case eAxoMessageCategory.Error:
@@ -116,6 +118,8 @@
         switch (category)
         {
             case eAxoMessageCategory.Info:
+                return "bg-linear-to-br from-info/20! from-0% to-background-light! to-50%";
+            case eAxoMessageCategory.Potential:
                 return "bg-linear-to-br from-info/20! from-0% to-background-light! to-50%";
             case eAxoMessageCategory.Warning:
                 return "bg-linear-to-br from-warning/20! from-0% to-background-light! to-50%";
@@ -135,8 +139,10 @@
         {
             case eAxoMessageCategory.Info:
                 return "shadow-glow-info";
+            case eAxoMessageCategory.Potential:
+                return "shadow-glow-info";
             case eAxoMessageCategory.Warning:
-                return "shadow-glow-warning";
+                return "shadow-glow-warning";            
             case eAxoMessageCategory.Error:
                 return "shadow-glow-danger";
             case eAxoMessageCategory.ProgrammingError:
@@ -152,6 +158,8 @@
         switch (category)
         {
             case eAxoMessageCategory.Info:
+                return "bg-info";
+            case eAxoMessageCategory.Potential:
                 return "bg-info";
             case eAxoMessageCategory.Warning:
                 return "bg-warning";

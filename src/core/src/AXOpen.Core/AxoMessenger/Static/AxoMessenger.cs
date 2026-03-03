@@ -212,7 +212,7 @@ public partial class AxoMessenger
         //18446744073709551615
         if (messageCode == ulong.MaxValue)
         {            
-            return this.Message.LastValue;
+            return this.Message.GetCyclic();
         }
        
         string retVal = "";

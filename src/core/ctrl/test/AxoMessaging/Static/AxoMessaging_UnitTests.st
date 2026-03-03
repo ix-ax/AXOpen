@@ -225,6 +225,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
 
         VAR PRIVATE
             _IsSuspended : BOOL := FALSE;
+            _requalificationCategory : eAxoMessageCategory := eAxoMessageCategory#None;
         END_VAR
 
         METHOD PUBLIC QueueMessage : BOOL
@@ -250,6 +251,17 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
     
         METHOD PUBLIC IsSuspended : BOOL
             IsSuspended :=_IsSuspended;
+        END_METHOD
+    
+        METHOD PUBLIC RequalifyDownstreamMessages
+            VAR_INPUT
+                inMessageCategory : eAxoMessageCategory;
+            END_VAR
+            _requalificationCategory := inMessageCategory;
+        END_METHOD
+    
+        METHOD PUBLIC GetRequalifiedMessageCategory : eAxoMessageCategory
+            GetRequalifiedMessageCategory := _requalificationCategory;
         END_METHOD
     END_CLASS
 
@@ -398,6 +410,27 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             //--Assert            
             Assert.Equal(TRUE, _suti._object._messenger.IsActive());
                            
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC category_should_be_requalified_when_requalification_changes_while_message_is_active
+            _suti.InjectMessengerService(_serviceSpy);
+
+            _suti.Open();
+            _suti.InitializeRootObject(_suti._object);
+            _suti._object._messenger.Serve(_suti._object);
+            _serviceSpy.RequalifyDownstreamMessages(eAxoMessageCategory#None);
+            _suti._object._messenger.Activate(UINT#1, eAxoMessageCategory#Potential);
+            Assert.Equal(TRUE, _suti._object._messenger.Category = eAxoMessageCategory#Potential);
+            _suti.Close();
+
+            _suti.Open();
+            _suti._object._messenger.Serve(_suti._object);
+            _serviceSpy.RequalifyDownstreamMessages(eAxoMessageCategory#Error);
+            _suti._object._messenger.Activate(UINT#1, eAxoMessageCategory#Potential);
+            Assert.Equal(TRUE, _suti._object._messenger.IsActive());
+            Assert.Equal(TRUE, _suti._object._messenger.Category = eAxoMessageCategory#Error);
+            _suti.Close();
         END_METHOD
 
 

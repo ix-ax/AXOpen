@@ -1,4 +1,4 @@
-﻿@namespace AXOpen.Core
+@namespace AXOpen.Core
 @inherits RenderableComplexComponentBase<AxoObject>
 @using AXOpen.Core
 @using AXOpen.Messaging.Static
@@ -271,6 +271,7 @@
         return category switch
         {
             eAxoMessageCategory.Info => Localizer["SeverityInfo"],
+            eAxoMessageCategory.Potential => Localizer["PotentialIssue"],
             eAxoMessageCategory.Warning => Localizer["SeverityWarning"],
             eAxoMessageCategory.Error => Localizer["SeverityError"],
             eAxoMessageCategory.ProgrammingError => Localizer["SeverityProgrammingError"],
@@ -284,6 +285,8 @@
         switch (category)
         {
             case eAxoMessageCategory.Info:
+                return "badge-info";
+            case eAxoMessageCategory.Potential:
                 return "badge-info";
             case eAxoMessageCategory.Warning:
                 return "badge-warning";
@@ -304,6 +307,8 @@
         switch (category)
         {
             case eAxoMessageCategory.Info:
+                return "bg-info/10!";
+            case eAxoMessageCategory.Potential:
                 return "bg-info/10!";
             case eAxoMessageCategory.Warning:
                 return "bg-warning/10!";

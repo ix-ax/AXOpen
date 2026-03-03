@@ -185,6 +185,17 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC IsSuspended : BOOL
             IsSuspended := _isSuspended;
         END_METHOD
+    
+        METHOD PUBLIC RequalifyDownstreamMessages
+            VAR_INPUT
+                inMessageCategory : eAxoMessageCategory;
+            END_VAR
+            ;
+        END_METHOD
+    
+        METHOD PUBLIC GetRequalifiedMessageCategory : eAxoMessageCategory
+            ;
+        END_METHOD
     END_CLASS 
 END_NAMESPACE
     
