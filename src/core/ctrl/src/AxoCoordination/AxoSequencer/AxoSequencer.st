@@ -2,11 +2,13 @@ NAMESPACE AXOpen.Core
     USING System.Strings;
     {S7.extern=ReadWrite}
     CLASS AxoSequencer EXTENDS AxoTask IMPLEMENTS IAxoSequencer
-        VAR PUBLIC                  
+        VAR PROTECTED                  
             {#ix-set:AttributeName = "<#Stepping mode#>"}
             SteppingMode : eAxoSteppingMode;
             {#ix-set:AttributeName = "<#Sequence mode#>"}
             SequenceMode : eAxoSequenceMode;
+        END_VAR
+        VAR PUBLIC                  
             CurrentOrder : ULINT;
             {#ix-set:AttributeName = ">>"}
             StepForwardCommand : AxoTask;
@@ -182,6 +184,7 @@ NAMESPACE AXOpen.Core
                 
                 IF step.GetIsActive() AND (step.IsReady() OR step.IsDone() OR SteppingMode = eAxoSteppingMode#StepByStep) THEN
                     IF (SteppingMode = eAxoSteppingMode#Continous) THEN
+                        // Switching to step mode as the step is marked as 'SwitchToStepModeBeforeEnteringStep'
                         _stepExecutionMode := _step.GetStepExecutionMode();
                         IF _stepExecutionMode = eAxoStepExecutionMode#SwitchToStepModeBeforeEnteringStep THEN
                             THIS.SetSteppingMode(eAxoSteppingMode#StepByStep);
@@ -242,12 +245,13 @@ NAMESPACE AXOpen.Core
                     _context.GetLogger().Log('<#Step done :#>', AXOpen.Logging.eLogLevel#Verbose, _step);
                     _step.DoneWhen(_step.IsBusy());
                     IF(_analytics <> NULL) THEN _analytics.UpdateAnalytics(CurrentStep); END_IF;
-                    _step.SetIsActive(FALSE);       
+                    // Switching to step mode as the step is marked as 'SwitchToStepModeAfterLeavingStep'
                     _stepExecutionMode := _step.GetStepExecutionMode();
                     IF _stepExecutionMode = eAxoStepExecutionMode#SwitchToStepModeAfterLeavingStep THEN
                         THIS.SetSteppingMode(eAxoSteppingMode#StepByStep);
                         RETURN;
                     END_IF;                                  
+                    _step.SetIsActive(FALSE);       
                     CurrentOrder := CurrentOrder + ULINT#1;                                      
                     // Finalize the StepIn Command in a case of step mode
                     StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);
@@ -321,6 +325,13 @@ NAMESPACE AXOpen.Core
             ;
         END_METHOD    
             
+        ///<summary>
+        /// Executes once when the sequence is switched to StepByStep mode.
+        ///</summary>
+        METHOD PROTECTED OnEnterStepByStepMode
+            ;
+        END_METHOD    
+
         ///<summary>
         /// Gets the state of the coordinator                        
         ///</summary>
@@ -453,6 +464,17 @@ NAMESPACE AXOpen.Core
                 inSteppingMode : eAxoSteppingMode; 
             END_VAR
             SteppingMode := inSteppingMode;
+        END_METHOD
+
+        METHOD PUBLIC GetSequenceMode : eAxoSequenceMode
+            GetSequenceMode := SequenceMode;
+        END_METHOD
+
+        METHOD PUBLIC SetSequenceMode 
+            VAR_INPUT
+                inSequenceMode : eAxoSequenceMode; 
+            END_VAR
+            SequenceMode := inSequenceMode;
         END_METHOD
 
     END_CLASS    
