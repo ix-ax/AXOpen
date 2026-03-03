@@ -136,7 +136,7 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             _MoveToOutIsBusy := _MoveOutTask.IsBusy();
 
-           _Messenger.ActivateOnCondition(UINT#1, (_MoveToOutIsBusy AND NOT _MoveToOutIsSuspended AND _MoveOutTask.Duration >= T#10S), eAxoMessageCategory#Potential);   
+           _Messenger.ActivateOnCondition(UINT#1, (_MoveToOutIsBusy AND NOT _MoveToOutIsSuspended), eAxoMessageCategory#Potential);   
            _Messenger.ActivateOnCondition(UINT#9, (_MoveOutTask.IsDone() AND NOT _OutSensor), eAxoMessageCategory#Potential); 
             
 
