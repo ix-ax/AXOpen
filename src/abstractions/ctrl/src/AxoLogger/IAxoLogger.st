@@ -25,7 +25,7 @@ NAMESPACE AXOpen.Logging
                 /// _message is a string of maximum 80 characters that represents the log message
                 /// </summary>
                 _message : STRING[80];
-                
+                                                       
                 /// <summary>
                 /// _level is an instance of eLogLevel that represents the level of the log
                 /// </summary>
@@ -35,6 +35,11 @@ NAMESPACE AXOpen.Logging
                 /// _sender is an instance of IAxoObject that represents the sender of the log
                 /// </summary>
                 _sender : IAxoObject;
+
+                /// <summary>
+                /// _messageCode is an unsigned long integer that represents the code of the log message
+                /// </summary>
+                _messageCode : ULINT;
             END_VAR                         
         END_METHOD                
              

@@ -27,9 +27,19 @@ Static `AxoMessenger` is a class that provides a mechanism for delivering static
 
 Depending on the [eAxoMessageCategory](../../../docs/apictrl/abstractions/plc.AXOpen.Messaging.eAxoMessageCategory.html) the messenger should require the acknowledgement.
 
-By default the acknowledgement is not required for the levels `Trace`,`Debug`,`Info`,`TimedOut`,`Notification` and `Warning`. 
+By default the acknowledgement is not required for the levels `Trace`, `Debug`, `Info`, `Notification`, `Potential` and `Warning`. 
 This could be overwritten by calling the `RequireAcknowledgement()` method. 
-Contrariwise, the acknowledgement is required for the levels `Error`,`ProgrammingError`,`Critical`,`Fatal` and `Catastrophic` by default. This could be overwritten by calling the `DoNotRequireAcknowledgement()` method. 
+Contrariwise, the acknowledgement is required for the levels `Error`, `ProgrammingError`, `Critical`, `Fatal` and `Catastrophic` by default. This could be overwritten by calling the `DoNotRequireAcknowledgement()` method.
+
+### Potential Message Category and Requalification
+
+The `Potential` message category (severity level 150) represents potential problems that may escalate to `Warning` or `Error` states depending on system configuration. This category is useful for:
+
+- Identifying emerging issues that may require escalation
+- Implementing hierarchical error handling in complex workflows  
+- Allowing downstream components to determine severity based on context
+
+A `Potential` message can be automatically requalified to `Warning` or `Error` by configuring the messenger service through the `RequalifyDownstreamMessages(category)` method. This is particularly useful in sequencers and multi-step processes where conditions may escalate over time (e.g., a step taking longer than expected may be initially reported as `Potential` and then escalated to `Error` if it exceeds the configured time threshold). 
 
 **Attributes `MessageText`, `Help` and `PlcTextList`**
 

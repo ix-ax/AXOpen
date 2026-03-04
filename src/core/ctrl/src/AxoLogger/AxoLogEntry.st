@@ -10,6 +10,12 @@ NAMESPACE AXOpen.Logging
             /// </summary>
             Message : STRING[80];
 
+
+            /// <summary>
+            /// Message code. The code will provide information about the text of the message from message tables of respective messenger.            
+            /// </summary>
+            MessageCode : ULINT;
+
             /// <summary>
             /// The severity level of the log entry.
             /// </summary>

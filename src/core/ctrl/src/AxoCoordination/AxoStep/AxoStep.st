@@ -1,3 +1,4 @@
+USING AXOpen.Messaging.Static;
 NAMESPACE AXOpen.Core
     {#ix-prop: public string Description}
     {S7.extern=ReadWrite}
@@ -152,9 +153,6 @@ NAMESPACE AXOpen.Core
             ELSIF (SequencerContainer <> NULL) THEN
                 ExecuteInternal := SequencerContainer^.Execute(THIS, Enable);   
             END_IF;
-
-            
-                
             // Selector ?= coord;
             // IF(coord <> NULL) THEN Sequencer^.ExecuteWithSelector(THIS, Enable); END_IF;    
 
