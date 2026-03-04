@@ -128,7 +128,8 @@ NAMESPACE AXOpen.Messaging.Static
             
                        
             // "Complete new" activation
-            IF THIS.MessengerState = eAxoMessengerState#Idle AND MessageCode = ULINT#0  AND ActiveContextCount = ULINT#0 THEN                
+            IF THIS.MessengerState = eAxoMessengerState#Idle AND MessageCode = ULINT#0  
+               AND ActiveContextCount = ULINT#0 THEN                
                 Risen := _context.GetRtc().NowUTC();
                 Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
                 Acknowledged := LDATE_AND_TIME#1970-01-01-00:00:00.000;
@@ -138,7 +139,20 @@ NAMESPACE AXOpen.Messaging.Static
                 _requalifiedToCategory := eAxoMessageCategory#None;
                 //  AcknowledgementRequired := Category >= eAxoMessageCategory#Error;
             END_IF;
-              
+            
+            // Activation with different message code without deactivation of the previous one. 
+            // This can only happen with non-acknowledgeable messages, as acknowledgeable messages require deactivation or acknowledgement 
+            // before being able to be activated again with a different message code.
+            IF THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired && MessageCode <> _messageCode THEN                
+                Risen := _context.GetRtc().NowUTC();
+                Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
+                Acknowledged := LDATE_AND_TIME#1970-01-01-00:00:00.000;
+                _context.GetLogger().Log(RISE_SIGNATURE, THIS.ToLogLevel(_category), THIS, _messageCode);
+                MessageCode := _messageCode;
+                Category := _category;
+                _requalifiedToCategory := eAxoMessageCategory#None;                
+            END_IF;
+
             // "Reactivation" in case of acknowledgable alarm rised, falled and rised again without acknowledgement
             IF THIS.MessengerState = eAxoMessengerState#InactiveWaitingForAcknowledge AND 
                 MessageCode = _messageCode  AND 
