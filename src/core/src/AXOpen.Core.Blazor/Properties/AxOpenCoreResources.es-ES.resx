@@ -189,14 +189,14 @@
   <data name="ResetTask" xml:space="preserve">
     <value>Reiniciar tarea</value>
   </data>
-  <data name="Info" xml:space="preserve">
+  <data name="SeverityInfo" xml:space="preserve">
     <value>Información</value>
   </data>
-  <data name="Warning" xml:space="preserve">
+  <data name="SeverityWarning" xml:space="preserve">
     <value>Advertencia</value>
   </data>
-  <data name="Error_" xml:space="preserve">
-    <value>Fallo</value>
+  <data name="SeverityMinorFault" xml:space="preserve">
+    <value>Fallo menor</value>
   </data>
   <data name="SeverityMajorFault" xml:space="preserve">
     <value>Fallo grave</value>
@@ -204,10 +204,10 @@
   <data name="SeverityError" xml:space="preserve">
     <value>Error</value>
   </data>
-  <data name="System" xml:space="preserve">
+  <data name="SeverityProgrammingError" xml:space="preserve">
     <value>Error del sistema</value>
   </data>
-  <data name="Critical" xml:space="preserve">
+  <data name="SeverityCritical" xml:space="preserve">
     <value>Crítica</value>
   </data>
   <data name="ActiveAcknowledged" xml:space="preserve">
@@ -260,10 +260,10 @@
   <data name="NoAlarmsToDisplay" xml:space="preserve">
     <value>No hay alarmas para mostrar.</value>
   </data>
-  <data name="HideDetails_Duplicate[1]" xml:space="preserve">
+  <data name="HideDetails" xml:space="preserve">
     <value>Ocultar detalles</value>
   </data>
-  <data name="ShowDetails_Duplicate[1]" xml:space="preserve">
+  <data name="ShowDetails" xml:space="preserve">
     <value>Mostrar detalles</value>
   </data>
   <data name="AcknowledgeAlarm" xml:space="preserve">

@@ -189,14 +189,14 @@
   <data name="ResetTask" xml:space="preserve">
     <value>Feladat alaphelyzetbe állítása</value>
   </data>
-  <data name="Info" xml:space="preserve">
+  <data name="SeverityInfo" xml:space="preserve">
     <value>Info</value>
   </data>
-  <data name="Warning" xml:space="preserve">
+  <data name="SeverityWarning" xml:space="preserve">
     <value>Figyelmeztetés</value>
   </data>
-  <data name="Error_" xml:space="preserve">
-    <value>Hiba</value>
+  <data name="SeverityMinorFault" xml:space="preserve">
+    <value>Kisebb hiba</value>
   </data>
   <data name="SeverityMajorFault" xml:space="preserve">
     <value>Fő hiba</value>
@@ -204,10 +204,10 @@
   <data name="SeverityError" xml:space="preserve">
     <value>Hiba</value>
   </data>
-  <data name="System" xml:space="preserve">
+  <data name="SeverityProgrammingError" xml:space="preserve">
     <value>Rendszerhiba</value>
   </data>
-  <data name="Critical" xml:space="preserve">
+  <data name="SeverityCritical" xml:space="preserve">
     <value>Kritikus</value>
   </data>
   <data name="ActiveAcknowledged" xml:space="preserve">
@@ -260,10 +260,10 @@
   <data name="NoAlarmsToDisplay" xml:space="preserve">
     <value>Nincsenek megjelenítendő riasztások.</value>
   </data>
-  <data name="HideDetails_Duplicate[1]" xml:space="preserve">
+  <data name="HideDetails" xml:space="preserve">
     <value>Részletek elrejtése</value>
   </data>
-  <data name="ShowDetails_Duplicate[1]" xml:space="preserve">
+  <data name="ShowDetails" xml:space="preserve">
     <value>Részletek megjelenítése</value>
   </data>
   <data name="AcknowledgeAlarm" xml:space="preserve">

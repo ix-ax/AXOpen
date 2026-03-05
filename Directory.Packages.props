@@ -40,7 +40,7 @@
     <PackageVersion Include="Serilog" Version="4.3.0" />
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
     <!-- Hardware & Devices -->
-    <PackageVersion Include="Siemens.Simatic.S7.Webserver.API" Version="3.3.24" />
+    <PackageVersion Include="Siemens.Simatic.S7.Webserver.API" Version="3.3.3" />
     <!-- Testing - Core -->
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
     <PackageVersion Include="NSubstitute" Version="5.3.0" />

@@ -197,24 +197,21 @@ public partial class AxoMessenger
         return FindParentOfType<T>(node.GetParent(), depth++);
     }
 
-
-    public string GetMessageText()
-    {
-        return GetMessageText(this.MessageCode.LastValue);
-    }
-
     /// <summary>
     /// Retrieves the message text based on the message code.
     /// </summary>
     /// <returns>The message text string.</returns>
-    public string GetMessageText(ulong messageCode)
-    {        
+    public string GetMessageText()
+    {
         //18446744073709551615
+        
+        ulong messageCode = this.MessageCode.LastValue;
+
         if (messageCode == ulong.MaxValue)
-        {            
-            return this.Message.GetCyclic();
+        {
+            return this.Message.LastValue;
         }
-       
+
         string retVal = "";
         string prefix = "";
         if (this.MessengerState.Equals(eAxoMessengerState.InvalidImplementation) || this.MessengerState.LastValue.Equals((short)eAxoMessengerState.InvalidImplementation))

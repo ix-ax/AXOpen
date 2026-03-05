@@ -192,13 +192,4 @@
   <data name="Fallen" xml:space="preserve">
     <value>Caídos</value>
   </data>
-  <data name="Messenger__ONE___DASH__activate_using__APOSTROPHE_Activate_APOSTROPHE__method_called_inside_the_if_statement" xml:space="preserve">
-    <value>Mensajero 1 - activar usando el método 'Activate' llamado dentro de la sentencia if</value>
-  </data>
-  <data name="RemoteTaskMessenger" xml:space="preserve">
-    <value>RemoteTaskMessenger</value>
-  </data>
-  <data name="Messenger" xml:space="preserve">
-    <value>Mensajero</value>
-  </data>
 </root>

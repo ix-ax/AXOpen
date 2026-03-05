@@ -118,28 +118,4 @@
   <data name="Fallen" xml:space="preserve">
     <value>Caídos</value>
   </data>
-  <data name="Is_manually_controllable" xml:space="preserve">
-    <value>Se puede controlar manualmente</value>
-  </data>
-  <data name="Messenger__ONE___DASH__activate_using__APOSTROPHE_Activate_APOSTROPHE__method_called_inside_the_if_statement" xml:space="preserve">
-    <value>Mensajero 1 - activar usando el método 'Activate' llamado dentro de la sentencia if</value>
-  </data>
-  <data name="RemoteTaskMessenger" xml:space="preserve">
-    <value>RemoteTaskMessenger</value>
-  </data>
-  <data name="Messenger" xml:space="preserve">
-    <value>Mensajero</value>
-  </data>
-  <data name="Command_state" xml:space="preserve">
-    <value>Estado de mando</value>
-  </data>
-  <data name="Stepping_mode" xml:space="preserve">
-    <value>Modo escalonado</value>
-  </data>
-  <data name="Sequence_mode" xml:space="preserve">
-    <value>Modo secuencia</value>
-  </data>
-  <data name="Run_step" xml:space="preserve">
-    <value>Ejecutar paso</value>
-  </data>
 </root>
