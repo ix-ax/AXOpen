@@ -1,4 +1,4 @@
-using AXOpen.Messaging;
+﻿using AXOpen.Messaging;
 using AXOpen.Messaging.Static;
 using AXSharp.Connector;
 using AXOpen.Core;
@@ -50,8 +50,6 @@ namespace AXOpen.Core
                     switch (seriousness)
                     {
                         case eAxoMessageCategory.Info:
-                            return eAlarmLevel.ActiveInfo;
-                        case eAxoMessageCategory.Potential:
                             return eAlarmLevel.ActiveInfo;
                         case eAxoMessageCategory.Warning:
                             return eAlarmLevel.ActiveWarnings;
@@ -231,7 +229,6 @@ namespace AXOpen.Core
         NoAlarms,
         Unacknowledged,
         ActiveInfo,
-        ActivePotential,
         ActiveWarnings,
         ActiveErrors
     }

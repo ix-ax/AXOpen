@@ -31,13 +31,11 @@ NAMESPACE AXOpen.Logging
         /// <param name="_message">The message to be logged.</param>
         /// <param name="_level">The severity level of the log.</param>
         /// <param name="_sender">The object that sends the log.</param>
-        /// <param name="_messageCode">The code of the log message.</param>
         METHOD PUBLIC Log
             VAR_INPUT
                 _message : STRING[80];
                 _level : eLogLevel;  
-                _sender : IAxoObject;   
-                _messageCode : ULINT;           
+                _sender : IAxoObject;              
             END_VAR
            
             IF(_level >= THIS.MinimumLevel) THEN
@@ -47,7 +45,6 @@ NAMESPACE AXOpen.Logging
                 
                 LogEntries[Carret].Message := _message;
                 LogEntries[Carret].Level := _level;
-                LogEntries[Carret].MessageCode := _messageCode;
                                 
                 IF(_sender <> NULL) THEN
                     LogEntries[Carret].Sender := _sender.GetIdentity();
@@ -78,7 +75,6 @@ NAMESPACE AXOpen.Logging
                 LogEntries[Carret].Level := _level;
                 LogEntries[Carret].ToDequeue := TRUE;
                 LogEntries[Carret].Sender := ULINT#0;                
-                LogEntries[Carret].MessageCode := ULINT#0;
                 Carret := Carret + 1;
             END_IF;
         END_METHOD

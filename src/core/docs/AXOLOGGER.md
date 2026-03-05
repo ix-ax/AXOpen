@@ -155,21 +155,16 @@ This example showcases how to initialize a logger in a .NET application using th
 ---
 ## AxoLogger and AxoMessenger
 
-AxoMessenger uses Context AxoLogger to log the rising and falling of an alarm. There is no particular need for the configuration of this behaviour. 
+AxoMessenger uses Context AxoLogger to log the rising and falling of an alarm. There is no particular need for the configuration fo this behaviour. 
 
 Here are the mappings between eAxoMessageCategory and eLogLevel as per the code:
 
 - Trace messages are logged as Verbose.
 - Debug messages are logged as Debug.
-- Info and Notification messages are logged as Information.
-- **Potential messages are logged as Information** (These are potential problems that may escalate to Warning or Error based on system requalification configuration).
+- Info, TimedOut, and Notification messages are logged as - Information.
 - Warning messages are logged as Warning.
 - Error and ProgrammingError messages are logged as Error.
 - Critical, Fatal, and Catastrophic messages are logged as Fatal.
-
-### Message Requalification and Logging
-
-When a `Potential` message is requalified by the downstream `AxoMessengerService` to a `Warning` or `Error` category, the log level will be updated accordingly at the requalification point. This allows for intermediate detection of issues that may escalate during execution of coordinated components and sequencers.
 
 
 
