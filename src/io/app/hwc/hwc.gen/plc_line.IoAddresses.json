@@ -1,0 +1,238 @@
+{
+  "Version": 2,
+  "IoAddresses": [
+    {
+      "Ref": "bni00l3/BALLUFF_Link_module",
+      "HardwareIdentifier": 263,
+      "Submodules": [
+        {
+          "Name": "BALLUFF_8_Port_IO-Link_Master",
+          "Ref": "bni00l3/BALLUFF_Link_module/BALLUFF_8_Port_IO-Link_Master",
+          "HardwareIdentifier": 264,
+          "Inputs": {
+            "StartAddress": "0.0",
+            "EndAddress": "0.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_7",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          },
+          "Outputs": {
+            "StartAddress": "0.0",
+            "EndAddress": "0.7",
+            "Length": 8,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_8",
+                "Offset": 0,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_9",
+                "Offset": 1,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_10",
+                "Offset": 2,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_11",
+                "Offset": 3,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_12",
+                "Offset": 4,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_13",
+                "Offset": 5,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_14",
+                "Offset": 6,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_15",
+                "Offset": 7,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        },
+        {
+          "Name": "X01",
+          "Ref": "bni00l3/BALLUFF_Link_module/X01",
+          "HardwareIdentifier": 265,
+          "Inputs": {
+            "StartAddress": "1.0",
+            "EndAddress": "3.7",
+            "Length": 24,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 16,
+                "DataType": "OctetString"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 18,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 19,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 20,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 21,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 22,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 23,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        },
+        {
+          "Name": "X02",
+          "Ref": "bni00l3/BALLUFF_Link_module/X02",
+          "HardwareIdentifier": 266,
+          "Inputs": {
+            "StartAddress": "4.0",
+            "EndAddress": "5.7",
+            "Length": 16,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 8,
+                "DataType": "OctetString"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 10,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 11,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 12,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 13,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 14,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 15,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 NAMESPACE AXOpen.Io
-    TYPE HwIdentifierList : ARRAY[0..42] OF UINT :=
+    TYPE HwIdentifierList : ARRAY[0..30] OF UINT :=
             [
                 UINT#32,
                 UINT#48,
@@ -31,19 +31,7 @@ NAMESPACE AXOpen.Io
                 UINT#271,
                 UINT#272,
                 UINT#273,
-                UINT#274,
-                UINT#275,
-                UINT#276,
-                UINT#277,
-                UINT#278,
-                UINT#279,
-                UINT#280,
-                UINT#281,
-                UINT#282,
-                UINT#283,
-                UINT#284,
-                UINT#285,
-                UINT#286
+                UINT#285
     ];
 END_TYPE
 END_NAMESPACE
