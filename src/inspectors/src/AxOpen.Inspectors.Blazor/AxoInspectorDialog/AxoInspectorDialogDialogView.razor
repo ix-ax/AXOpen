@@ -63,7 +63,7 @@
     string InspectionDescription { get; set; }
 
     string InspectionId { get; set; }
-    
+
     eInspectorType InspectorType { get; set; }
 
     async Task<eInspectorType> GetInspectorType()
@@ -75,9 +75,9 @@
     {
         currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
         NavigationManager.LocationChanged += OnLocationChanged;
-        
+
         InspectionDescription = await Component._inspectionDetails.GetAsync(CultureInfo.CurrentCulture);        
-        InspectionId = Component._inspectionDetails.LastValue;
+
         InspectorType = await GetInspectorType();
         return base.OnInitializedAsync();
     }
