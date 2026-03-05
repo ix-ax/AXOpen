@@ -189,14 +189,14 @@
   <data name="ResetTask" xml:space="preserve">
     <value>Obnovenie úlohy</value>
   </data>
-  <data name="Info" xml:space="preserve">
+  <data name="SeverityInfo" xml:space="preserve">
     <value>Informácie</value>
   </data>
-  <data name="Warning" xml:space="preserve">
+  <data name="SeverityWarning" xml:space="preserve">
     <value>Upozornenie</value>
   </data>
-  <data name="Error_" xml:space="preserve">
-    <value>Chyba</value>
+  <data name="SeverityMinorFault" xml:space="preserve">
+    <value>Menšia porucha</value>
   </data>
   <data name="SeverityMajorFault" xml:space="preserve">
     <value>Hlavná porucha</value>
@@ -204,10 +204,10 @@
   <data name="SeverityError" xml:space="preserve">
     <value>Chyba</value>
   </data>
-  <data name="System" xml:space="preserve">
+  <data name="SeverityProgrammingError" xml:space="preserve">
     <value>Chyba systému</value>
   </data>
-  <data name="Critical" xml:space="preserve">
+  <data name="SeverityCritical" xml:space="preserve">
     <value>Kritické</value>
   </data>
   <data name="ActiveAcknowledged" xml:space="preserve">
@@ -260,10 +260,10 @@
   <data name="NoAlarmsToDisplay" xml:space="preserve">
     <value>Žiadne alarmy na zobrazenie.</value>
   </data>
-  <data name="HideDetails_Duplicate[1]" xml:space="preserve">
+  <data name="HideDetails" xml:space="preserve">
     <value>Skryť podrobnosti</value>
   </data>
-  <data name="ShowDetails_Duplicate[1]" xml:space="preserve">
+  <data name="ShowDetails" xml:space="preserve">
     <value>Zobraziť podrobnosti</value>
   </data>
   <data name="AcknowledgeAlarm" xml:space="preserve">

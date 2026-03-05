@@ -1,4 +1,4 @@
-@namespace AXOpen.Core
+﻿@namespace AXOpen.Core
 @inherits RenderableComplexComponentBase<AxoObject>
 @using AXOpen.Core
 @using AXOpen.Messaging.Static
@@ -270,12 +270,11 @@
     {
         return category switch
         {
-            eAxoMessageCategory.Info => Localizer["Info"],
-            eAxoMessageCategory.Potential => Localizer["Potential"],
-            eAxoMessageCategory.Warning => Localizer["Warning"],
-            eAxoMessageCategory.Error => Localizer["Error"],
-            eAxoMessageCategory.ProgrammingError => Localizer["System"],
-            eAxoMessageCategory.Critical => Localizer["Critical"],
+            eAxoMessageCategory.Info => Localizer["SeverityInfo"],
+            eAxoMessageCategory.Warning => Localizer["SeverityWarning"],
+            eAxoMessageCategory.Error => Localizer["SeverityError"],
+            eAxoMessageCategory.ProgrammingError => Localizer["SeverityProgrammingError"],
+            eAxoMessageCategory.Critical => Localizer["SeverityCritical"],
             _ => string.Empty
         };
     }
@@ -285,8 +284,6 @@
         switch (category)
         {
             case eAxoMessageCategory.Info:
-                return "badge-info";
-            case eAxoMessageCategory.Potential:
                 return "badge-info";
             case eAxoMessageCategory.Warning:
                 return "badge-warning";
@@ -307,8 +304,6 @@
         switch (category)
         {
             case eAxoMessageCategory.Info:
-                return "bg-info/10!";
-            case eAxoMessageCategory.Potential:
                 return "bg-info/10!";
             case eAxoMessageCategory.Warning:
                 return "bg-warning/10!";
@@ -428,7 +423,7 @@
     private IJSObjectReference? module;
     private IEnumerable<ITwinObject> observedObjects = new List<ITwinObject>();
     private AxoMessageProvider provider;
-    private static readonly eAxoMessageCategory[] SeverityOptions = Enum.GetValues<eAxoMessageCategory>().Skip(1).ToArray();
+    private static readonly eAxoMessageCategory[] SeverityOptions = Enum.GetValues<eAxoMessageCategory>().ToArray();
     private readonly HashSet<eAxoMessageCategory> _selectedSeverities = new(SeverityOptions);
     private bool _shouldBounce = false;
     private System.Threading.Timer? _bounceTimer;

@@ -133,19 +133,19 @@
     <value>Resetovať úlohu</value>
   </data>
   <!-- Severity Names -->
-  <data name="Info" xml:space="preserve">
+  <data name="SeverityInfo" xml:space="preserve">
     <value>Info</value>
   </data>
-  <data name="Warning" xml:space="preserve">
+  <data name="SeverityWarning" xml:space="preserve">
     <value>Varovanie</value>
   </data>
-  <data name="Error_" xml:space="preserve">
-    <value>Chyba</value>
+  <data name="SeverityMinorFault" xml:space="preserve">
+    <value>Menšia chyba</value>
   </data>
   <data name="SeverityMajorFault" xml:space="preserve">
     <value>Väčšia chyba</value>
   </data>
-  <data name="Critical" xml:space="preserve">
+  <data name="SeverityCritical" xml:space="preserve">
     <value>Kritický</value>
   </data>
   <!-- State Labels -->
@@ -170,89 +170,5 @@
   </data>
   <data name="Active" xml:space="preserve">
     <value>aktívny</value>
-  </data>
-  <data name="SeverityError" xml:space="preserve">
-    <value>Chyba</value>
-  </data>
-  <data name="System" xml:space="preserve">
-    <value>Chyba systému</value>
-  </data>
-  <data name="Severity" xml:space="preserve">
-    <value>Závažnosť</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Názov</value>
-  </data>
-  <data name="State" xml:space="preserve">
-    <value>Štát</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
-    <value>Činnosti</value>
-  </data>
-  <data name="SearchAlarms" xml:space="preserve">
-    <value>Vyhľadávanie alarmov</value>
-  </data>
-  <data name="SearchTitleOrEquipment" xml:space="preserve">
-    <value>Vyhľadávanie názvu alebo zariadenia</value>
-  </data>
-  <data name="Refresh" xml:space="preserve">
-    <value>Obnoviť</value>
-  </data>
-  <data name="RefreshMessages" xml:space="preserve">
-    <value>Obnovenie správ</value>
-  </data>
-  <data name="NoAlarmsToDisplay" xml:space="preserve">
-    <value>Nezobrazujú sa žiadne alarmy.</value>
-  </data>
-  <data name="HideDetails_Duplicate[1]" xml:space="preserve">
-    <value>Skryť podrobnosti</value>
-  </data>
-  <data name="ShowDetails_Duplicate[1]" xml:space="preserve">
-    <value>Zobraziť podrobnosti</value>
-  </data>
-  <data name="AcknowledgeAlarm" xml:space="preserve">
-    <value>Potvrdenie alarmu</value>
-  </data>
-  <data name="ACKN" xml:space="preserve">
-    <value>ACKN</value>
-  </data>
-  <data name="Ack" xml:space="preserve">
-    <value>Ack</value>
-  </data>
-  <data name="Pending" xml:space="preserve">
-    <value>Čaká sa na</value>
-  </data>
-  <data name="ActiveAck" xml:space="preserve">
-    <value>Aktívne - Ack</value>
-  </data>
-  <data name="Alarms" xml:space="preserve">
-    <value>alarmy</value>
-  </data>
-  <data name="Alarm" xml:space="preserve">
-    <value>alarm</value>
-  </data>
-  <data name="ToggleServiceView" xml:space="preserve">
-    <value>Prepnutie zobrazenia služby</value>
-  </data>
-  <data name="Normal" xml:space="preserve">
-    <value>Normálne</value>
-  </data>
-  <data name="Service" xml:space="preserve">
-    <value>Služba</value>
-  </data>
-  <data name="CONFIGURATION" xml:space="preserve">
-    <value>KONFIGURÁCIA</value>
-  </data>
-  <data name="STATE" xml:space="preserve">
-    <value>ŠTÁT</value>
-  </data>
-  <data name="Data" xml:space="preserve">
-    <value>Údaje</value>
-  </data>
-  <data name="SeverityLabel" xml:space="preserve">
-    <value>Závažnosť</value>
-  </data>
-  <data name="AlarmCode" xml:space="preserve">
-    <value>Kód alarmu</value>
   </data>
 </root>

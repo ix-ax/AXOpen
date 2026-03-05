@@ -123,30 +123,6 @@ Components should surface diagnostic and alarm information consistently:
 
 For UI auto‑rendering the alarm level icons provided by `AxoComponent` will reflect the highest active severity; ensure warnings are deactivated when condition clears to avoid stale visualization.
 
-### Message Categories
-
-The framework supports the following message categories (in order of severity):
-
-* **None** (0): No category; used to clear requalification directives and ignore non-critical messages
-* **Info** (100): Informative messages with minimal impact; do not require operator intervention
-* **Potential** (150): Potential problems that may escalate to Warning or Error states; these messages can be automatically requalified based on system configuration when downstream conditions are detected
-* **Warning** (200): Possible problems that may adversely affect a process; information to help identify problems but does not necessarily stop the process
-* **Error** (300): Failures that cannot be immediately recovered; intervention is needed
-* **Critical** (400): Critical system failures
-* **ProgrammingError** (500): Implementation or configuration errors in the application
-
-When using the `Potential` category, ensure that the parent context or sequencer is configured with appropriate requalification rules to escalate potential issues to `Warning` or `Error` when conditions persist.
-
-### Message Requalification
-
-For coordinated components and sequencers, message requalification allows upstream components to influence downstream message severity. Use `GetMessengerService().RequalifyDownstreamMessages(category)` to set the requalification category. This is particularly useful for:
-
-* Escalating `Potential` messages to `Warning` or `Error` based on elapsed time
-* Implementing hierarchical error response strategies in multi-step workflows
-* Ensuring consistent severity handling across component hierarchies
-
-Note: Only `Potential` messages are subject to requalification; other categories retain their configured severity.
-
 
 ## Documentation requirements
 
