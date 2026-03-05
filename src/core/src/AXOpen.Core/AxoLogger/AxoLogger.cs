@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
@@ -58,9 +58,13 @@ namespace AXOpen.Logging
 
                         switch (sender)
                         {
+                            case AxoStepTimedOutMessenger timedOutMessenger:
+                                level = (eLogLevel)entry.Level.LastValue;
+                                message = $"{entry.Message.LastValue}";
+                                break;
                             case AxoMessenger messenger:
                                 await messenger.ReadAsync();
-                                message = $"{entry.Message.LastValue} : {messenger.GetMessageText()}";
+                                message = $"{entry.Message.LastValue} {messenger.GetMessageText(messenger.MessageCode.LastValue)}";
                                 break;
                             case AxoStep step:
                                 await step.ReadAsync();

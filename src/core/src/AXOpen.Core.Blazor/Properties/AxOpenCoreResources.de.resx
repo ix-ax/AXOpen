@@ -133,19 +133,19 @@
     <value>Aufgabe zurücksetzen</value>
   </data>
   <!-- Severity Names -->
-  <data name="SeverityInfo" xml:space="preserve">
+  <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>
-  <data name="SeverityWarning" xml:space="preserve">
+  <data name="Warning" xml:space="preserve">
     <value>Warnung</value>
   </data>
-  <data name="SeverityMinorFault" xml:space="preserve">
-    <value>Kleiner Fehler</value>
+  <data name="Error_" xml:space="preserve">
+    <value>Fehler</value>
   </data>
   <data name="SeverityMajorFault" xml:space="preserve">
     <value>Großer Fehler</value>
   </data>
-  <data name="SeverityCritical" xml:space="preserve">
+  <data name="Critical" xml:space="preserve">
     <value>Kritisch</value>
   </data>
   <!-- State Labels -->
@@ -170,5 +170,89 @@
   </data>
   <data name="Active" xml:space="preserve">
     <value>aktiv</value>
+  </data>
+  <data name="SeverityError" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Systemfehler</value>
+  </data>
+  <data name="Severity" xml:space="preserve">
+    <value>Schweregrad</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Staat</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Aktionen</value>
+  </data>
+  <data name="SearchAlarms" xml:space="preserve">
+    <value>Alarme suchen</value>
+  </data>
+  <data name="SearchTitleOrEquipment" xml:space="preserve">
+    <value>Titel oder Ausrüstung suchen</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Auffrischen</value>
+  </data>
+  <data name="RefreshMessages" xml:space="preserve">
+    <value>Meldungen aktualisieren</value>
+  </data>
+  <data name="NoAlarmsToDisplay" xml:space="preserve">
+    <value>Es werden keine Alarme angezeigt.</value>
+  </data>
+  <data name="HideDetails_Duplicate[1]" xml:space="preserve">
+    <value>Details ausblenden</value>
+  </data>
+  <data name="ShowDetails_Duplicate[1]" xml:space="preserve">
+    <value>Details anzeigen</value>
+  </data>
+  <data name="AcknowledgeAlarm" xml:space="preserve">
+    <value>Alarm quittieren</value>
+  </data>
+  <data name="ACKN" xml:space="preserve">
+    <value>ACKN</value>
+  </data>
+  <data name="Ack" xml:space="preserve">
+    <value>Ack</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Anhängig</value>
+  </data>
+  <data name="ActiveAck" xml:space="preserve">
+    <value>Aktiv - Ack</value>
+  </data>
+  <data name="Alarms" xml:space="preserve">
+    <value>Alarme</value>
+  </data>
+  <data name="Alarm" xml:space="preserve">
+    <value>Alarm</value>
+  </data>
+  <data name="ToggleServiceView" xml:space="preserve">
+    <value>Dienstansicht umschalten</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>Dienst</value>
+  </data>
+  <data name="CONFIGURATION" xml:space="preserve">
+    <value>KONFIGURATION</value>
+  </data>
+  <data name="STATE" xml:space="preserve">
+    <value>STAAT</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Daten</value>
+  </data>
+  <data name="SeverityLabel" xml:space="preserve">
+    <value>Schweregrad</value>
+  </data>
+  <data name="AlarmCode" xml:space="preserve">
+    <value>Alarm-Code</value>
   </data>
 </root>
