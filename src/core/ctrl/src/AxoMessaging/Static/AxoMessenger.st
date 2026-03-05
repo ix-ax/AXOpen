@@ -38,7 +38,7 @@ NAMESPACE AXOpen.Messaging.Static
             _requalifiedToCategory : eAxoMessageCategory := eAxoMessageCategory#None; // This property is used to store the new category of the message in case it gets requalified by the messenger service configuration.            
         END_VAR    
 
-        VAR CONSTANT PROTECTED
+        VAR PROTECTED
             RISE_SIGNATURE : STRING[4] := '^ : ';
             FALL_SIGNATURE : STRING[4] := 'v : ';
         END_VAR    
