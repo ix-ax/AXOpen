@@ -183,49 +183,49 @@
           "HardwareIdentifier": 272,
           "Inputs": {
             "StartAddress": "4.0",
-            "EndAddress": "6.7",
-            "Length": 24,
+            "EndAddress": "5.7",
+            "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
               {
                 "Name": "Signals_0",
                 "Offset": 0,
-                "Length": 16,
+                "Length": 8,
                 "DataType": "OctetString"
               },
               {
                 "Name": "Signals_1",
-                "Offset": 18,
+                "Offset": 10,
                 "Length": 1,
                 "DataType": "Boolean"
               },
               {
                 "Name": "Signals_2",
-                "Offset": 19,
+                "Offset": 11,
                 "Length": 1,
                 "DataType": "Boolean"
               },
               {
                 "Name": "Signals_3",
-                "Offset": 20,
+                "Offset": 12,
                 "Length": 1,
                 "DataType": "Boolean"
               },
               {
                 "Name": "Signals_4",
-                "Offset": 21,
+                "Offset": 13,
                 "Length": 1,
                 "DataType": "Boolean"
               },
               {
                 "Name": "Signals_5",
-                "Offset": 22,
+                "Offset": 14,
                 "Length": 1,
                 "DataType": "Boolean"
               },
               {
                 "Name": "Signals_6",
-                "Offset": 23,
+                "Offset": 15,
                 "Length": 1,
                 "DataType": "Boolean"
               }
