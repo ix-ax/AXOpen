@@ -1,4 +1,4 @@
-using AXOpen.Core;
+﻿using AXOpen.Core;
 using AXOpen.Core.Blazor.AxoDialogs;
 using AXOpen.Logging;
 using AXSharp.Connector;
