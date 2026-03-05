@@ -10,6 +10,12 @@ NAMESPACE AXOpen.Io
 
 	        bni00l3_BALLUFF_Link_module_X02_Input AT %B4 : bni00l3_BALLUFF_Link_module_X02_Input_Layout;
 
+	        // Module et200sp/A10
+	        et200sp_A10_Input AT %B39 : et200sp_A10_Input_Layout;
+
+	        // Module et200sp/A30
+	        et200sp_A30_Input AT %B7 : et200sp_A30_Input_Layout;
+
         END_STRUCT;
     END_TYPE
 END_NAMESPACE

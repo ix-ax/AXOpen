@@ -16,12 +16,12 @@ Devices:
       IP_ADDRESS_X1: 192.168.100.122/24
       PROFINET_DEVICE_NAME_X1: bni00l3
       X01: balluff_bni00l3_bni00ay
-      X02: balluff_bni00l3_bni0099
+      X02: balluff_bni00l3_bni0099_bni0099
 IoSystems:
 - Name: profinet_plc_line
   ControllerInterfaces:
   - Ref: plc_line/plc_line/PROFINET_interface_1
   DeviceInterfaces:
-  # - Ref: et200sp/et200sp/PN-IO
+  - Ref: et200sp/et200sp/PN-IO
   - Ref: bni00l3/bni00l3/PN-IO
   # - Ref: et200sp_1/et200sp_1/PN-IO
