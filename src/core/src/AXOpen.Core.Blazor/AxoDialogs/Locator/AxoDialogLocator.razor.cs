@@ -1,4 +1,4 @@
-using AXOpen.Core.Blazor.AxoDialogs.Hubs;
+﻿using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXOpen.Core.Blazor.Dialogs;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
@@ -88,27 +88,27 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         private async void OnSignalRClient_DialogOpen(object sender, SignalRClientReceivedMessageArgs e)
         {
-            Log.Logger.Verbose($"AxoDialogLocator by SignalR Opening : {e.SymbolOfDialogInstance}");
+            Log.Logger.Information($"AxoDialogLocator by SignalR Opening : {e.SymbolOfDialogInstance}");
             // this message is no supported and required at this moment.
             await Refresh();
         }
 
         private async void OnSignalRClient_DialogClose(object sender, SignalRClientReceivedMessageArgs e)
         {
-            Log.Logger.Verbose($"AxoDialogLocator by SignalR Closing: {e.SymbolOfDialogInstance}");
+            Log.Logger.Information($"AxoDialogLocator by SignalR Closing: {e.SymbolOfDialogInstance}");
             _dialogProxyService.RemoveDisplayedDialog(e.SymbolOfDialogInstance);
             await Refresh();
         }
 
         private async void OnPlc_DialogInvoked(object? sender, AxoDialogEventArgs e)
         {
-            Log.Logger.Verbose($"AxoDialogLocator by PLC Opening: {e.SymbolOfDialogInstance}");
+            Log.Logger.Information($"AxoDialogLocator by PLC Opening: {e.SymbolOfDialogInstance}");
             await Refresh();
         }
 
         private async void OnPlc_DialogRemoved(object? sender, AxoDialogEventArgs e)
         {
-            Log.Logger.Verbose($"AxoDialogLocator by PLC Closing: {e.SymbolOfDialogInstance}");
+            Log.Logger.Information($"AxoDialogLocator by PLC Closing: {e.SymbolOfDialogInstance}");
             await Refresh();
         }
 

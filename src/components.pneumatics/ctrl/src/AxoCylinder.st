@@ -115,7 +115,7 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             _Messenger.Serve(THIS);
 
-            _Messenger.ActivateOnCondition(UINT#3, _OutSensor AND _InSensor, eAxoMessageCategory#Warning);
+            _Messenger.ActivateOnCondition(UINT#3, _OutSensor AND _InSensor, eAxoMessageCategory#Error);
 
             IF(_StopTask.Execute(THIS)) THEN
                 _MoveInSignal := FALSE;
@@ -136,10 +136,9 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             _MoveToOutIsBusy := _MoveOutTask.IsBusy();
 
-           IF(NOT _MoveToOutIsSuspended AND NOT THIS._MoveOutTask.IsDisabled) THEN
-                _Messenger.ActivateOnCondition(UINT#1, (_MoveToOutIsBusy AND NOT _MoveToOutIsSuspended), eAxoMessageCategory#Potential);   
-                _Messenger.ActivateOnCondition(UINT#9, (_MoveOutTask.IsDone() AND NOT _OutSensor), eAxoMessageCategory#Potential); 
-           END_IF;
+           _Messenger.ActivateOnCondition(UINT#1, (_MoveToOutIsBusy AND NOT _MoveToOutIsSuspended AND _MoveOutTask.Duration >= T#10S), eAxoMessageCategory#Error);   
+           _Messenger.ActivateOnCondition(UINT#9, (_MoveOutTask.IsDone() AND NOT _OutSensor), eAxoMessageCategory#Warning); 
+            
 
             IF(_MoveInTask.Execute(THIS)) THEN    
                 IF(_MoveInTask.IsFirstExecutionCycle()) THEN
@@ -152,10 +151,8 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             _MoveToInIsBusy := _MoveInTask.IsBusy();
 
-            IF(NOT _MoveToInIsSuspended AND NOT THIS._MoveInTask.IsDisabled) THEN
-                _Messenger.ActivateOnCondition(UINT#2, (_MoveToInIsBusy AND NOT _MoveToInIsSuspended), eAxoMessageCategory#Potential);
-                _Messenger.ActivateOnCondition(UINT#8, (_MoveInTask.IsDone() AND NOT _InSensor), eAxoMessageCategory#Potential);
-            END_IF;    
+            _Messenger.ActivateOnCondition(UINT#2, (_MoveToInIsBusy AND NOT _MoveToInIsSuspended AND _MoveInTask.Duration >= T#10S), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(UINT#8, (_MoveInTask.IsDone() AND NOT _InSensor), eAxoMessageCategory#Warning);
 
 
             outMoveInSignal := _MoveInSignal AND NOT _MoveToInIsSuspended;
