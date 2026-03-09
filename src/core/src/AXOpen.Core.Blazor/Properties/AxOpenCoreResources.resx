@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
@@ -156,10 +156,10 @@
   </data>
   <!-- State Labels -->
   <data name="ActiveAcknowledged" xml:space="preserve">
-    <value>Active · Acknowledged</value>
+    <value>Active � Acknowledged</value>
   </data>
   <data name="ActiveUnacknowledged" xml:space="preserve">
-    <value>Active · Unacknowledged</value>
+    <value>Active � Unacknowledged</value>
   </data>
   <data name="Cleared" xml:space="preserve">
     <value>Cleared</value>
@@ -225,7 +225,7 @@
     <value>Pending</value>
   </data>
   <data name="ActiveAck" xml:space="preserve">
-    <value>Active · Ack</value>
+    <value>Active � Ack</value>
   </data>
   <!-- Component Container -->
   <data name="Alarms" xml:space="preserve">
@@ -259,5 +259,20 @@
   </data>
   <data name="AlarmCode" xml:space="preserve">
     <value>Alarm code</value>
+  </data>
+  <data name="SequencerSendSuspendConfiguration" xml:space="preserve">
+    <value>Send suspend configuration</value>
+  </data>
+  <data name="SequencerSuspendBeforeExecution" xml:space="preserve">
+    <value>Suspend before execution</value>
+  </data>
+  <data name="SequencerSuspendAfterExecution" xml:space="preserve">
+    <value>Suspend after execution</value>
+  </data>
+  <data name="SequencerStepExecutionMode" xml:space="preserve">
+    <value>Step execution mode</value>
+  </data>
+  <data name="SequencerNoStepsFound" xml:space="preserve">
+    <value>No steps found.</value>
   </data>
 </root>

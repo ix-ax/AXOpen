@@ -314,4 +314,19 @@
   <data name="AlarmCode" xml:space="preserve">
     <value>Riasztási kód</value>
   </data>
+  <data name="SequencerSendSuspendConfiguration" xml:space="preserve">
+    <value>Felfuggesztes konfiguracio kuldese</value>
+  </data>
+  <data name="SequencerSuspendBeforeExecution" xml:space="preserve">
+    <value>Felfuggesztes vegrehajtas elott</value>
+  </data>
+  <data name="SequencerSuspendAfterExecution" xml:space="preserve">
+    <value>Felfuggesztes vegrehajtas utan</value>
+  </data>
+  <data name="SequencerStepExecutionMode" xml:space="preserve">
+    <value>Lepes vegrehajtasi mod</value>
+  </data>
+  <data name="SequencerNoStepsFound" xml:space="preserve">
+    <value>Nem talalhato lepes.</value>
+  </data>
 </root>

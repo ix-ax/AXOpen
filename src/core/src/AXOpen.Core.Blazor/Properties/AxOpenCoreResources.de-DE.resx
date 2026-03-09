@@ -314,4 +314,19 @@
   <data name="AlarmCode" xml:space="preserve">
     <value>Alarmcode</value>
   </data>
+  <data name="SequencerSendSuspendConfiguration" xml:space="preserve">
+    <value>Sperrkonfiguration senden</value>
+  </data>
+  <data name="SequencerSuspendBeforeExecution" xml:space="preserve">
+    <value>Vor Ausfuehrung sperren</value>
+  </data>
+  <data name="SequencerSuspendAfterExecution" xml:space="preserve">
+    <value>Nach Ausfuehrung sperren</value>
+  </data>
+  <data name="SequencerStepExecutionMode" xml:space="preserve">
+    <value>Schrittausfuehrungsmodus</value>
+  </data>
+  <data name="SequencerNoStepsFound" xml:space="preserve">
+    <value>Keine Schritte gefunden.</value>
+  </data>
 </root>

@@ -171,4 +171,20 @@
   <data name="Active" xml:space="preserve">
     <value>aktívny</value>
   </data>
+  <data name="SequencerSendSuspendConfiguration" xml:space="preserve">
+    <value>Odoslat konfiguraciu pozastavenia</value>
+  </data>
+  <data name="SequencerSuspendBeforeExecution" xml:space="preserve">
+    <value>Pozastavit pred vykonanim</value>
+  </data>
+  <data name="SequencerSuspendAfterExecution" xml:space="preserve">
+    <value>Pozastavit po vykonani</value>
+  </data>
+  <data name="SequencerStepExecutionMode" xml:space="preserve">
+    <value>Rezim vykonania kroku</value>
+  </data>
+  <data name="SequencerNoStepsFound" xml:space="preserve">
+    <value>Nenasli sa ziadne kroky.</value>
+  </data>
 </root>
+

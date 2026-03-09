@@ -1,0 +1,52 @@
+@namespace AXOpen.Core
+@inherits RenderableComplexComponentBase<AxoSequencer>
+
+<div data-axo-sequencer-steps-view class="card bg-background-light/80! p-2 @Class">
+	<div class="mb-2 flex justify-end">
+		<button class="btn btn-primary btn-sm"
+				@onclick="ApplySuspendConfigurationAsync"
+				disabled="@(Steps.Count == 0)">
+			@Localizer["SequencerSendSuspendConfiguration"]
+		</button>
+	</div>
+	<div class="overflow-x-auto">
+		<table class="table table-striped table-hover w-full">
+			<thead>
+				<tr>
+					<th>Order</th>
+					<th>Symbol</th>
+					<th>Desc</th>
+					<th>@Localizer["SequencerSuspendBeforeExecution"]</th>
+					<th>@Localizer["SequencerSuspendAfterExecution"]</th>
+					<th>@Localizer["SequencerStepExecutionMode"]</th>
+				</tr>
+			</thead>
+			<tbody>
+				@if (Steps.Count == 0)
+				{
+					<tr>
+						<td colspan="6" class="text-center text-text/70">@Localizer["SequencerNoStepsFound"]</td>
+					</tr>
+				}
+				else
+				{
+					@foreach (var item in Steps)
+					{
+						<tr>
+							<td>@item.Order</td>
+							<td>@item.Symbol</td>
+							<td>@item.Desc</td>
+							<td>
+								<input type="checkbox" @bind="item.SuspendStepBeforeExecution" />
+							</td>
+							<td>
+								<input type="checkbox" @bind="item.SuspendStepAfterExecution" />
+							</td>
+							<td>@item.StepExecutionMode</td>
+						</tr>
+					}
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
