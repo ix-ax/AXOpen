@@ -2,7 +2,26 @@
 @inherits RenderableComplexComponentBase<AxoSequencer>
 
 <div data-axo-sequencer-steps-view class="card bg-background-light/80! p-2 @Class">
-	<div class="mb-2 flex justify-end">
+	<div class="mb-2 flex justify-center">
+
+		<AXOpen.Core.AxoTaskStatusView Text="@_currentStepDescription" HideRestoreButton="false" Component="this.Component.StepIn" Class="btn-lg w-125" />
+		@if (ShowCurrentStepRunButtons)
+		{
+
+			<button class="btn btn-warning btn-sm ms-2"
+					@onclick="RunAndRemoveSuspendAsync">
+				RunAndRemoveSuspend
+			</button>
+			<button class="btn btn-primary btn-sm ms-2"
+					@onclick="RunOnlyAsync">
+				RunOnly
+			</button>
+
+
+
+		
+		}
+		
 		<button class="btn btn-primary btn-sm"
 				@onclick="ApplySuspendConfigurationAsync"
 				disabled="@(Steps.Count == 0)">

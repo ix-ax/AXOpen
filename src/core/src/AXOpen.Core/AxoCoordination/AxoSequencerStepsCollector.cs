@@ -1,7 +1,6 @@
 using AXOpen.Core;
 using AXSharp.Connector;
 using System.ComponentModel;
-using System.Globalization;
 using System.Threading.Tasks;
 
 namespace AXOpen.Core;
@@ -9,10 +8,17 @@ namespace AXOpen.Core;
 public sealed class AxoSequencerStepsCollector
 {
     public IReadOnlyList<FlatAxoStepItem> GetStepsBySequence(ITwinObject root, string sequenceSymbol)
+        => GetStepsBySequence(root, sequenceSymbol, static (sequence, step) => new FlatAxoStepItem(sequence, step), static item => item.Order);
+
+    public IReadOnlyList<TItem> GetStepsBySequence<TItem>(
+        ITwinObject root,
+        string sequenceSymbol,
+        Func<AxoSequencerContainer, AxoStep, TItem> itemFactory,
+        Func<TItem, ulong> orderSelector)
     {
         if (string.IsNullOrWhiteSpace(sequenceSymbol))
         {
-            return Array.Empty<FlatAxoStepItem>();
+            return Array.Empty<TItem>();
         }
 
         var sequence = Traverse(root)
@@ -21,46 +27,54 @@ public sealed class AxoSequencerStepsCollector
 
         if (sequence is null)
         {
-            return Array.Empty<FlatAxoStepItem>();
+            return Array.Empty<TItem>();
         }
 
-        return GetStepsBySequence(sequence);
+        return GetStepsBySequence(sequence, itemFactory, orderSelector);
     }
 
-    public IReadOnlyList<FlatAxoStepItem> GetStepsBySequence(AxoSequencerContainer sequence)
+    public IReadOnlyList<TItem> GetStepsBySequence<TItem>(
+        AxoSequencerContainer sequence,
+        Func<AxoSequencerContainer, AxoStep, TItem> itemFactory,
+        Func<TItem, ulong> orderSelector)
     {
-        var items = CollectStepsForSequence(sequence, knownSteps: null);
+        var items = CollectStepsForSequence(sequence, knownSteps: null, itemFactory);
 
         return items
-            .OrderBy(item => item.Order)
+            .OrderBy(orderSelector)
             .ToArray();
     }
 
-    public async Task<IReadOnlyList<FlatAxoStepItem>> GetFlatSteps(AXSharp.Connector.Connector connector, ITwinObject root)
+    public async Task<IReadOnlyList<TItem>> GetFlatSteps<TItem>(
+        Connector connector,
+        ITwinObject root,
+        Func<AxoSequencerContainer, AxoStep, TItem> itemFactory,
+        Func<TItem, ulong> orderSelector)
     {
         await connector.ReadBatchAsync(
             Traverse(root)
                 .OfType<AXOpen.Core.AxoStep>()
                 .SelectMany(step => new ITwinPrimitive[] { step.Descr, step.Order, step.StepExecutionMode }));
 
-        var items = new List<FlatAxoStepItem>();
+        var items = new List<TItem>();
         var knownSteps = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
         foreach (var sequence in Traverse(root).OfType<AXOpen.Core.AxoSequencerContainer>())
         {
-            items.AddRange(CollectStepsForSequence(sequence, knownSteps));
+            items.AddRange(CollectStepsForSequence(sequence, knownSteps, itemFactory));
         }
 
         return items
-            .OrderBy(item => item.Order)
+            .OrderBy(orderSelector)
             .ToArray();
     }
 
-    private static IReadOnlyList<FlatAxoStepItem> CollectStepsForSequence(
+    private static IReadOnlyList<TItem> CollectStepsForSequence<TItem>(
         AXOpen.Core.AxoSequencerContainer sequence,
-        HashSet<string>? knownSteps)
+        HashSet<string>? knownSteps,
+        Func<AxoSequencerContainer, AxoStep, TItem> itemFactory)
     {
-        var items = new List<FlatAxoStepItem>();
+        var items = new List<TItem>();
 
         foreach (var step in Traverse(sequence).OfType<AxoStep>())
         {
@@ -75,9 +89,7 @@ public sealed class AxoSequencerStepsCollector
             }
             if (step.Order.LastValue!=0 && step.GetSymbolTail()!="CurrentStep")
             {
-                items.Add(new FlatAxoStepItem(
-               sequence,
-               step));
+                items.Add(itemFactory(sequence, step));
             }
            
         }
@@ -108,64 +120,3 @@ public sealed class AxoSequencerStepsCollector
         }
     }
 }
-
-public sealed record FlatAxoStepItem(
-    AxoSequencerContainer Sequence,
-    AxoStep Step)
-{
-    private bool _suspendStepBeforeExecution = (eAxoStepExecutionMode)Step.StepExecutionMode.LastValue == eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep;
-    private bool _suspendStepAfterExecution = (eAxoStepExecutionMode)Step.StepExecutionMode.LastValue == eAxoStepExecutionMode.SwitchToStepModeAfterLeavingStep;
-
-    public ulong Order => Step.Order.LastValue;
-
-    public string Symbol => Step.Symbol ?? string.Empty;
-
-    public string Desc => Step.Descr.GetCyclic(CultureInfo.CurrentUICulture) ?? string.Empty;
-
-    public bool SuspendStepAfterExecution
-    {
-        get => _suspendStepAfterExecution;
-        set
-        {
-            _suspendStepAfterExecution = value;
-
-            if (value)
-            {
-                _suspendStepBeforeExecution = false;
-            }
-
-            if (value)
-            {
-                Step.StepExecutionMode.Cyclic = (short)eAxoStepExecutionMode.SwitchToStepModeAfterLeavingStep;
-            }
-        }
-    }
-
-    public bool SuspendStepBeforeExecution
-    {
-        get => _suspendStepBeforeExecution;
-        set
-        {
-            _suspendStepBeforeExecution = value;
-
-            if (value)
-            {
-                _suspendStepAfterExecution = false;
-            }
-
-            if (value)
-            {
-                Step.StepExecutionMode.Cyclic = (short)eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep;
-            }
-        }
-    }
-
-    public eAxoStepExecutionMode StepExecutionMode =>
-        SuspendStepBeforeExecution
-            ? eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep
-            : SuspendStepAfterExecution
-                ? eAxoStepExecutionMode.SwitchToStepModeAfterLeavingStep
-            : RawStepExecutionMode;
-
-    private eAxoStepExecutionMode RawStepExecutionMode => (eAxoStepExecutionMode)Step.StepExecutionMode.LastValue;
-};
