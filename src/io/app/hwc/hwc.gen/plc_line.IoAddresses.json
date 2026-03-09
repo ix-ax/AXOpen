@@ -128,7 +128,62 @@
           "HardwareIdentifier": 271,
           "Inputs": {
             "StartAddress": "1.0",
-            "EndAddress": "3.7",
+            "EndAddress": "5.7",
+            "Length": 40,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 32,
+                "DataType": "OctetString"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 34,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 35,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 36,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 37,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 38,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 39,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        },
+        {
+          "Name": "X02",
+          "Ref": "bni00l3/BALLUFF_Link_module/X02",
+          "HardwareIdentifier": 272,
+          "Inputs": {
+            "StartAddress": "6.0",
+            "EndAddress": "8.7",
             "Length": 24,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -178,12 +233,67 @@
           }
         },
         {
-          "Name": "X02",
-          "Ref": "bni00l3/BALLUFF_Link_module/X02",
-          "HardwareIdentifier": 272,
+          "Name": "X03",
+          "Ref": "bni00l3/BALLUFF_Link_module/X03",
+          "HardwareIdentifier": 265,
           "Inputs": {
-            "StartAddress": "4.0",
-            "EndAddress": "5.7",
+            "StartAddress": "43.0",
+            "EndAddress": "45.7",
+            "Length": 24,
+            "Source": "AutoAssigned",
+            "SignalLayout": [
+              {
+                "Name": "Signals_0",
+                "Offset": 0,
+                "Length": 16,
+                "DataType": "OctetString"
+              },
+              {
+                "Name": "Signals_1",
+                "Offset": 18,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_2",
+                "Offset": 19,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_3",
+                "Offset": 20,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_4",
+                "Offset": 21,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_5",
+                "Offset": 22,
+                "Length": 1,
+                "DataType": "Boolean"
+              },
+              {
+                "Name": "Signals_6",
+                "Offset": 23,
+                "Length": 1,
+                "DataType": "Boolean"
+              }
+            ]
+          }
+        },
+        {
+          "Name": "X04",
+          "Ref": "bni00l3/BALLUFF_Link_module/X04",
+          "HardwareIdentifier": 266,
+          "Inputs": {
+            "StartAddress": "46.0",
+            "EndAddress": "47.7",
             "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -241,8 +351,8 @@
           "Name": "DI 16x24VDC ST V1.1",
           "HardwareIdentifier": 283,
           "Inputs": {
-            "StartAddress": "39.0",
-            "EndAddress": "40.7",
+            "StartAddress": "41.0",
+            "EndAddress": "42.7",
             "Length": 16,
             "Source": "AutoAssigned",
             "SignalLayout": [
@@ -467,8 +577,8 @@
           "Name": "CM 4xIO-Link V2.2 32I/32O",
           "HardwareIdentifier": 281,
           "Inputs": {
-            "StartAddress": "7.0",
-            "EndAddress": "38.7",
+            "StartAddress": "9.0",
+            "EndAddress": "40.7",
             "Length": 256,
             "Source": "AutoAssigned",
             "SignalLayout": [
