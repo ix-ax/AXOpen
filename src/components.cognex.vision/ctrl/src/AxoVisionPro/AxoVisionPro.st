@@ -1093,7 +1093,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // HardResetAllCamerasTask running: waiting for the job id set.
                 IF _progress = 300 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
                     		
@@ -1133,7 +1133,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // HardResetAllCamerasTask running: waiting for the job id cleared.
                 IF _progress = 301 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
     
@@ -1194,7 +1194,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ResetTask running: checking if the data buffer is free.
                 IF _progress = 310 THEN                                                                                     
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#510;
                     END_IF;
     
@@ -1217,7 +1217,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ResetTask running: writing the user data.
                 IF _progress = 311 THEN   
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#511;
                     END_IF;
     
@@ -1236,7 +1236,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ResetTask running: checking if the data buffer is free.
                 IF _progress = 312 THEN                           
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#512;
                     END_IF;
     
@@ -1251,7 +1251,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ResetTask running: releasing the data buffer.
                 IF _progress = 313 THEN                           
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
                     END_IF;
     
@@ -1318,7 +1318,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // TriggerTask running: waiting for the system to be ready.
                 IF _progress = 320 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#520;
                     END_IF;
     
@@ -1334,7 +1334,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // TriggerTask running: waiting for the system to be online.
                 IF _progress = 321 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#521;
                     END_IF;
     
@@ -1346,7 +1346,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // TriggerTask running: reseting camera before trigger started.                
                 IF _progress = 322 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#522;
                     END_IF;
     
@@ -1361,7 +1361,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // TriggerTask running: reseting the trigger.
                 IF _progress = 323 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#523;
                     END_IF;
     
@@ -1374,7 +1374,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // TriggerTask running: setting the trigger and waiting for acknowledgement.
                 IF _progress = 324 THEN                                                
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#524;
                     END_IF;
     
@@ -1387,7 +1387,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // TriggerTask running: resetting the trigger and waiting for acknowledgment to fall.
                 IF _progress = 325 THEN                                                              
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#525;
                     END_IF;
     
@@ -1444,7 +1444,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ReadResultsTask running: waiting for the system to be ready.
                 IF _progress = 360 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#560, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#560, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#560;
                     END_IF;
     
@@ -1456,7 +1456,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ReadResultsTask running: waiting for the system to be online.
                 IF _progress = 361 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#561, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#561, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#561;
                     END_IF;
     
@@ -1468,7 +1468,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ReadResultsTask running: checking the correct JobId.
                 IF _progress = 362 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#562, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#562, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#562;
                     END_IF;
     
@@ -1480,7 +1480,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ReadResultsTask running: waiting for the data buffer is free.
                 IF _progress = 363 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#563, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#563, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#563;
                     END_IF;
 
@@ -1500,7 +1500,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ReadResultsTask running: locking the data buffer.
                 IF _progress = 364 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#564, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#564, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#564;
                     END_IF;
     
@@ -1512,7 +1512,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ReadResultsTask running: setting the user data.
                 IF _progress = 365 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#565, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#565, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#565;
                     END_IF;
 
@@ -1530,7 +1530,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ReadResultsTask running: waiting for the results to be valid.
                 IF _progress = 366 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#566, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#566, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#566;
                     END_IF;
     
@@ -1542,7 +1542,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ReadResultsTask running: calculating the size of the data.
                 IF _progress = 367 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#567, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#567, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#567;
                     END_IF;
                     Inputs.Status.ReadedDataVariantSize := _readResultsLength;
@@ -1554,7 +1554,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ReadResultsTask running: copying the data from hardware to the buffer.
                 IF _progress = 369 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#569, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#569, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#569;
                     END_IF;
     
@@ -1714,7 +1714,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ReadResultsTask running: reading the data.
                 IF _progress = 370 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#570, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#570, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#570;
                     END_IF;
 
@@ -1726,7 +1726,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ReadResultsTask running: acknowledging the result data.
                 IF _progress = 371 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#571, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#571, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#571;
                     END_IF;
     
@@ -1744,7 +1744,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ReadResultsTask running: reseting the job load Id.
                 IF _progress = 372 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#572, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#572, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#572;
                     END_IF;
     
@@ -1760,7 +1760,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // ReadResultsTask running: loading the job.
                 IF _progress = 373 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#573, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#573, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#573;
                     END_IF;
     
@@ -1823,7 +1823,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // SendDataTask running: waiting for the system to be ready.
                 IF _progress = 380 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#580, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#580, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#580;
                     END_IF;
                 	//Userdata buffer sa plnia prve 4 bajty informacne, data su od 4 a viac.
@@ -1840,7 +1840,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // SendDataTask running: waiting for the system to be online.
                 IF _progress = 381 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#581, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#581, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#581;
                     END_IF;
     
@@ -1852,7 +1852,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // SendDataTask running: waiting for the data buffer is free.
                 IF _progress = 382 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#582, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#582, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#582;
                     END_IF;
                     // PLC nastavi na User Data ID inspekcie, ID operacie a User Data (cislo jobu, seriove cislo kusu, tolerancie).
@@ -1868,7 +1868,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // SendDataTask running: locking the data buffer.
                 IF _progress = 383 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#583, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#583, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#583; 
                     END_IF;
 	    
@@ -1885,7 +1885,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // SendDataTask running: setting the length of the data to sent.
                 IF _progress = 384 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#584, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#584, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#584;
                     END_IF;
     
@@ -1898,7 +1898,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // SendDataTask running: filling the user data to be sent.
                 IF _progress = 386 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#586, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#586, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#586;
                     END_IF;
                     IF _sendDataLength = UINT#0 THEN
@@ -2130,7 +2130,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // SendDataTask running: waiting for falling of the set user data acknowledge.
                 IF _progress = 387 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#587, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#587, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#587;
                     END_IF;
     
@@ -2143,7 +2143,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // SendDataTask running: waiting for the confirmation of the user data.
                 IF _progress = 388 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#588, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#588, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#588;
                     END_IF;
     
@@ -2156,7 +2156,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // SendDataTask running: waiting for falling of the set user data acknowledge.
                 IF _progress = 389 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#589, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#589, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#589;
                     END_IF;
     
@@ -2168,7 +2168,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // SendDataTask running: waiting for falling of the set user data acknowledge.
                 IF _progress = 390 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#590, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#590, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#590;
                     END_IF;
 
@@ -2184,7 +2184,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // SendDataTask running: data handler set.
                 IF _progress = 391 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#591, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#591, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#591;
                     END_IF;
     
@@ -2197,7 +2197,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // SendDataTask running: waiting for data handler ack.
                 IF _progress = 392 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#592, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#592, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#592;
                     END_IF;
     
@@ -2210,7 +2210,7 @@ NAMESPACE AXOpen.Components.Cognex.Vision
                 // SendDataTask running: waiting for data handler ack false.
                 IF _progress = 393 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#593, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#593, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#593;
                     END_IF;
     
