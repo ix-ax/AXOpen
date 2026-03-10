@@ -451,7 +451,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start at main running: starting program at main.
                 IF _power_progress = 300 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#500, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#500, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#500;
                     END_IF;
 
@@ -466,7 +466,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start at main running: starting program at main.
                 IF _power_progress = 301 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#501, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#501, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#501;
                     END_IF;
 
@@ -481,7 +481,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start at main running: program started.
                 IF _power_progress = 302 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#502, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#502, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#502;
                     END_IF;
                     Outputs.ActionNo := BYTE#255;
@@ -518,8 +518,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 Status.Error.Id  :=  UINT#10001;
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#10000,StartAtMainTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10001,StartAtMainTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#102,StartAtMainTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,StartAtMainTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#102,StartAtMainTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StartAtMainTask.RestoreTriggered() AND _power_progress >= 300 AND _power_progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
                 _power_progress := 0;
@@ -545,7 +545,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors and program running: switching to auto.
                 IF _power_progress = 310 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#510, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#510, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#510;
                     END_IF;
 
@@ -557,7 +557,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors and program running: reseting error.
                 IF _power_progress = 311 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#511, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#511, eAxoMessageCategory#Error);
                         Status.Error.Id     := UINT#511;
                     END_IF;
 
@@ -572,7 +572,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors and program running: reseting emergency stop error.
                 IF _power_progress = 312 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#512, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#512, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#512;
                     END_IF;
 
@@ -587,7 +587,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors and program running: switching motors on.
                 IF _power_progress = 313 THEN	
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#513, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#513;
                     END_IF;
 
@@ -606,7 +606,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors and program running: starting program.
                 IF _power_progress = 314 THEN	
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#514, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#514, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#514;
                     END_IF;
 
@@ -625,7 +625,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors and program running: checking controller error.
                 IF _power_progress = 315 THEN	
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#515, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#515, eAxoMessageCategory#Error);
                         Status.Error.Id     := UINT#515;
                     END_IF;
 
@@ -665,8 +665,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 Status.Error.Id  :=  UINT#10011;
             END_IF;         
             Messenger.ActivateOnCondition(ULINT#10010,StartMotorsAndProgramTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10011,StartMotorsAndProgramTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,StartMotorsAndProgramTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10011,StartMotorsAndProgramTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#112,StartMotorsAndProgramTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StartMotorsAndProgramTask.RestoreTriggered() AND _power_progress >= 310 AND _power_progress <= 319  THEN
                 Status.Action.Id :=  UINT#112;
                 _power_progress := 0;
@@ -692,7 +692,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors program and movements running: switching to auto.
                 IF _power_progress = 320 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#520, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#520, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#520;
                     END_IF;
 
@@ -704,7 +704,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors program and movements running: reseting error.
                 IF _power_progress = 321 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#521, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#521, eAxoMessageCategory#Error);
                         Status.Error.Id     := UINT#521;
                     END_IF;
 
@@ -719,7 +719,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors program and movements running: reseting emergency stop error.
                 IF _power_progress = 322 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#522, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#522, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#522;
                     END_IF;
 
@@ -734,7 +734,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors program and movements running: switching motors on.             
                 IF _power_progress = 323 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#523, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#523, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#523;
                     END_IF;
 
@@ -753,7 +753,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors program and movements running: starting program.             
                 IF _power_progress = 324 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#524, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#524, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#524;
                     END_IF;
 
@@ -772,7 +772,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors program and movements running: checking controller error.   
                 IF _power_progress = 325 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#525, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#525, eAxoMessageCategory#Error);
                         Status.Error.Id     := UINT#525;
                     END_IF;
 
@@ -792,7 +792,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors program and movements running: sending parameters of the movement to the controller.   
                 IF _power_progress = 326 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#526, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#526, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#526;
                     END_IF;
 
@@ -815,27 +815,27 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 IF _power_progress = 327 THEN 
                     IF _infoTimer.output THEN
                         IF Inputs.GlobalSpeed <> Status.CurrentMovementParameters.GlobalSpeed THEN
-                            TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#527;//<#Waiting for Inputs.GlobalSpeed to be equal to MovementParameters.GlobalSpeed!
                             END_IF;
                         IF Inputs.ToolNo <> Status.CurrentMovementParameters.ToolNo THEN
-                            TaskMessenger.Activate( UINT#528, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#528, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#528;//<#Waiting for Inputs.ToolNo to be equal to MovementParameters.ToolNo!
                         END_IF;
                         IF Inputs.WorkobjectNo <> Status.CurrentMovementParameters.WorkobjectNo THEN
-                            TaskMessenger.Activate( UINT#529, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#529, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#529;//<#Waiting for Inputs.WorkobjectNo to be equal to MovementParameters.WorkobjectNo!
                         END_IF;
                         IF Inputs.PointNo <> Status.CurrentMovementParameters.PointNo THEN
-                            TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#530;//<#Waiting for Inputs.PointNo to be equal to MovementParameters.PointNo!
                         END_IF;
                         IF Inputs.UserSpecSpeed1 <> Status.CurrentMovementParameters.UserSpecSpeed1 THEN
-                            TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#531;//<#Waiting for Inputs.UserSpecSpeed1 to be equal to MovementParameters.UserSpecSpeed1!
                         END_IF;
                         IF Inputs.UserSpecSpeed2 <> Status.CurrentMovementParameters.UserSpecSpeed2 THEN
-                            TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#532;//<#Waiting for Inputs.UserSpecSpeed2 to be equal to MovementParameters.UserSpecSpeed2!
                         END_IF;
                     END_IF;
@@ -854,7 +854,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors program and movements running: acknowleadging of the movement parameters.
                 IF _power_progress = 333 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#533, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#533, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#533;
                     END_IF;
 
@@ -868,7 +868,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors program and movements running: waiting for the movement is finished.
                 IF _power_progress = 334 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#534, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#534, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#534;
                     END_IF;
                     IF Status.CurrentMovementParameters.GlobalSpeed > BYTE#0 THEN
@@ -885,7 +885,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors program and movements running: acknowleadging of the finished movement.
                 IF _power_progress = 335 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#535, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#535, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#535;
                     END_IF;
 
@@ -916,8 +916,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 Status.Error.Id  :=  UINT#10021;
             END_IF; 
             Messenger.ActivateOnCondition(ULINT#10020,StartMotorsProgramAndMovementsTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10021,StartMotorsProgramAndMovementsTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#122,StartMotorsProgramAndMovementsTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10021,StartMotorsProgramAndMovementsTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#122,StartMotorsProgramAndMovementsTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StartMotorsProgramAndMovementsTask.RestoreTriggered() AND _power_progress >= 320 AND _power_progress <= 339  THEN
                 Status.Action.Id :=  UINT#122;
                 _power_progress := 0;
@@ -943,7 +943,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors running: switching to auto.
                 IF _power_progress = 340 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#540, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#540, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#540;
                     END_IF;
 
@@ -955,7 +955,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors running: reseting error.
                 IF _power_progress = 341 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#541, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#541, eAxoMessageCategory#Error);
                         Status.Error.Id     := UINT#541;
                     END_IF;
 
@@ -970,7 +970,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors running: reseting emergency stop error.
                 IF _power_progress = 342 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#542, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#542, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#542;
                     END_IF;
 
@@ -985,7 +985,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors running: switching motors on.
                 IF _power_progress = 343 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#543, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#543, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#543;
                     END_IF;
 
@@ -1004,7 +1004,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start motors running: checking controller error.
                 IF _power_progress = 344 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#544, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#544, eAxoMessageCategory#Error);
                         Status.Error.Id     := UINT#544;
                     END_IF;
 
@@ -1044,8 +1044,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 Status.Error.Id  :=  UINT#10041;
             END_IF;    
             Messenger.ActivateOnCondition(ULINT#10040,StartMotorsTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10041,StartMotorsTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#142,StartMotorsTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10041,StartMotorsTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#142,StartMotorsTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StartMotorsTask.RestoreTriggered() AND _power_progress >= 340 AND _power_progress <= 349 THEN
                 Status.Action.Id :=  UINT#142;
                 _power_progress := 0;
@@ -1069,7 +1069,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start movements running: waiting for the program is running.
                 IF _movement_progress = 350 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#550, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#550, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#550;
                     END_IF;
 
@@ -1081,7 +1081,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start movements running: waiting for the motors are on.
                 IF _movement_progress = 351 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#551, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#551, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#551;
                     END_IF;
 
@@ -1093,7 +1093,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start movements running: waiting for the error is cleared.
                 IF _movement_progress = 352 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#552, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#552, eAxoMessageCategory#Error);
                         Status.Error.Id     := UINT#552;
                     END_IF;
                                         
@@ -1105,7 +1105,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start movements running: sending parameters of the movement to the controller.
                 IF _movement_progress = 353 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#553, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#553, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#553;
                     END_IF;
                             
@@ -1128,27 +1128,27 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 IF _movement_progress = 354 THEN
                     IF _infoTimer.output THEN
                         IF Inputs.GlobalSpeed <> Status.CurrentMovementParameters.GlobalSpeed THEN
-                            TaskMessenger.Activate( UINT#554, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#554, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#554;//<#Waiting for Inputs.GlobalSpeed to be equal to MovementParameters.GlobalSpeed!
                         END_IF;
                         IF Inputs.ToolNo <> Status.CurrentMovementParameters.ToolNo THEN
-                            TaskMessenger.Activate( UINT#555, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#555, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#555;//<#Waiting for Inputs.ToolNo to be equal to MovementParameters.ToolNo!
                         END_IF;
                         IF Inputs.WorkobjectNo <> Status.CurrentMovementParameters.WorkobjectNo THEN
-                            TaskMessenger.Activate( UINT#556, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#556, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#556;//<#Waiting for Inputs.WorkobjectNo to be equal to MovementParameters.WorkobjectNo!
                         END_IF;
                         IF Inputs.PointNo <> Status.CurrentMovementParameters.PointNo THEN
-                            TaskMessenger.Activate( UINT#557, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#557, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#557;//<#Waiting for Inputs.PointNo to be equal to MovementParameters.PointNo!
                         END_IF;
                         IF Inputs.UserSpecSpeed1 <> Status.CurrentMovementParameters.UserSpecSpeed1 THEN
-                            TaskMessenger.Activate( UINT#558, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#558, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#558;//<#Waiting for Inputs.UserSpecSpeed1 to be equal to MovementParameters.UserSpecSpeed1!
                         END_IF;
                         IF Inputs.UserSpecSpeed2 <> Status.CurrentMovementParameters.UserSpecSpeed2 THEN
-                            TaskMessenger.Activate( UINT#559, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#559, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#559;//<#Waiting for Inputs.UserSpecSpeed2 to be equal to MovementParameters.UserSpecSpeed2!
                         END_IF;
                     END_IF;
@@ -1167,7 +1167,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start movements running: acknowleadging of the movement parameters.
                 IF _movement_progress = 360 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#560, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#560, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#560;
                     END_IF;
 
@@ -1181,7 +1181,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start movements running: waiting for the movement is finished.
                 IF _movement_progress = 361 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#561, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#561, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#561;
                     END_IF;
                     IF Status.CurrentMovementParameters.GlobalSpeed > BYTE#0 THEN
@@ -1198,7 +1198,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start movements running: acknowleadging of the finished movement.
                 IF _movement_progress = 362 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#562, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#562, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#562;
                     END_IF;
 
@@ -1233,8 +1233,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 Status.Error.Id  :=  UINT#10051;
             END_IF;    
             Messenger.ActivateOnCondition(ULINT#10050,StartMovementsTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10051,StartMovementsTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#152,StartMovementsTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10051,StartMovementsTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#152,StartMovementsTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StartMovementsTask.RestoreTriggered() AND _movement_progress >= 350 AND _movement_progress <= 369 THEN
                 Status.Action.Id :=  UINT#152;
                 _movement_progress := 0;
@@ -1260,7 +1260,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start program running: starting program.
                 IF _power_progress = 370 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#570, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#570, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#570;
                     END_IF;
 
@@ -1274,7 +1274,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Start program running: starting program.
                 IF _power_progress = 371 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#571, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#571, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#571;
                     END_IF;
 
@@ -1309,8 +1309,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 Status.Error.Id  :=  UINT#10071;
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#10070,StartProgramTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10071,StartProgramTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#172,StartProgramTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10071,StartProgramTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#172,StartProgramTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StartProgramTask.RestoreTriggered() AND _power_progress >= 370 AND _power_progress <= 379  THEN
                 Status.Action.Id :=  UINT#172;
                 _power_progress := 0;
@@ -1336,7 +1336,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Stop motors running: switching the motors off.
                 IF _power_progress = 380 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#580, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#580, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#580;
                     END_IF;
 
@@ -1350,7 +1350,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Stop motors running: switching the motors off.
                 IF _power_progress = 381 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#581, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#581, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#581;
                     END_IF;
 
@@ -1385,8 +1385,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 Status.Error.Id  :=  UINT#10081;
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#10080,StopMotorsTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10081,StopMotorsTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#182,StopMotorsTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10081,StopMotorsTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#182,StopMotorsTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StopMotorsTask.RestoreTriggered() AND _power_progress >= 380 AND _power_progress <= 389  THEN
                 Status.Action.Id :=  UINT#182;
                 _power_progress := 0;
@@ -1412,7 +1412,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Stop movements and program running: stopping the movement.
                 IF _power_progress = 390 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#590, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#590, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#590;
                     END_IF;
 
@@ -1432,7 +1432,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Stop movements and program running: stopping the program.
                 IF _power_progress = 391 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#591, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#591, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#591;
                     END_IF;
 
@@ -1470,7 +1470,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#10090,StopMovementsAndProgramTask.HasError(), eAxoMessageCategory#Error);
             Messenger.ActivateOnCondition(ULINT#10091,StopMovementsAndProgramTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#192,StopMovementsAndProgramTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#192,StopMovementsAndProgramTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StopMovementsAndProgramTask.RestoreTriggered() AND _power_progress >= 390 AND _power_progress <= 399  THEN
                 Status.Action.Id :=  UINT#192;
                 _power_progress := 0;
@@ -1494,7 +1494,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Stop movements running: stopping the movement.
                 IF _power_progress = 400 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#600, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#600, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#600;
                     END_IF;
 
@@ -1538,8 +1538,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 Status.Error.Id  :=  UINT#10101;
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#10100,StopMovementsTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10101,StopMovementsTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#202,StopMovementsTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10101,StopMovementsTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#202,StopMovementsTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StopMovementsTask.RestoreTriggered() AND _power_progress >= 400 AND _power_progress <= 409  THEN
                 Status.Action.Id :=  UINT#202;
                 _power_progress := 0;
@@ -1563,7 +1563,7 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 // Stop program running: stopping the program.
                 IF _power_progress = 410 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate(UINT#610, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate(UINT#610, eAxoMessageCategory#Potential);
                         Status.Error.Id     := UINT#610;
                     END_IF;
 
@@ -1598,8 +1598,8 @@ NAMESPACE AXOpen.Components.Abb.Robotics
                 Status.Error.Id  :=  UINT#10111;
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#10110,StopProgramTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10111,StopProgramTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#212,StopProgramTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10111,StopProgramTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#212,StopProgramTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StopProgramTask.RestoreTriggered() AND _power_progress >= 410 AND _power_progress <= 419  THEN
                 Status.Action.Id :=  UINT#212;
                 _power_progress := 0;
