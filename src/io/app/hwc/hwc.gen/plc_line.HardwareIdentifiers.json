@@ -1,0 +1,173 @@
+{
+  "Version": 1,
+  "HardwareIdentifiers": [
+    {
+      "Name": "bni00l3",
+      "Value": 258
+    },
+    {
+      "Name": "bni00l3~BALLUFF_Link_module",
+      "Value": 263
+    },
+    {
+      "Name": "bni00l3~BALLUFF_Link_module~BALLUFF_8_Port_IO-Link_Master",
+      "Value": 264
+    },
+    {
+      "Name": "bni00l3~Rack",
+      "Value": 261
+    },
+    {
+      "Name": "bni00l3~X01",
+      "Value": 271
+    },
+    {
+      "Name": "bni00l3~X02",
+      "Value": 272
+    },
+    {
+      "Name": "bni00l3~X03",
+      "Value": 265
+    },
+    {
+      "Name": "bni00l3~X04",
+      "Value": 266
+    },
+    {
+      "Name": "bni00l3~X05",
+      "Value": 267
+    },
+    {
+      "Name": "bni00l3~X06",
+      "Value": 268
+    },
+    {
+      "Name": "bni00l3~X07",
+      "Value": 269
+    },
+    {
+      "Name": "bni00l3~X08",
+      "Value": 270
+    },
+    {
+      "Name": "bni00l3~bni00l3",
+      "Value": 262
+    },
+    {
+      "Name": "bni00l3~bni00l3~BNI XG3-508-0B5-R067",
+      "Value": 273
+    },
+    {
+      "Name": "bni00l3~bni00l3~PN-IO",
+      "Value": 257
+    },
+    {
+      "Name": "bni00l3~bni00l3~PN-IO~Port_1",
+      "Value": 259
+    },
+    {
+      "Name": "bni00l3~bni00l3~PN-IO~Port_2",
+      "Value": 260
+    },
+    {
+      "Name": "et200sp",
+      "Value": 275
+    },
+    {
+      "Name": "et200sp~A100~Server module V1.1 (0 bytes)",
+      "Value": 280
+    },
+    {
+      "Name": "et200sp~A10~DI 16x24VDC ST V1.1",
+      "Value": 283
+    },
+    {
+      "Name": "et200sp~A20~DQ 16x24VDC/0.5A ST V1.1",
+      "Value": 282
+    },
+    {
+      "Name": "et200sp~A30~CM 4xIO-Link V2.2 32I/32O",
+      "Value": 281
+    },
+    {
+      "Name": "et200sp~Rack",
+      "Value": 278
+    },
+    {
+      "Name": "et200sp~et200sp",
+      "Value": 279
+    },
+    {
+      "Name": "et200sp~et200sp~IM 155-6 PN ST V4.2",
+      "Value": 284
+    },
+    {
+      "Name": "et200sp~et200sp~PN-IO",
+      "Value": 274
+    },
+    {
+      "Name": "et200sp~et200sp~Port_1",
+      "Value": 276
+    },
+    {
+      "Name": "et200sp~et200sp~Port_2",
+      "Value": 277
+    },
+    {
+      "Name": "plc_line",
+      "Value": 32
+    },
+    {
+      "Name": "plc_line~Rail_0",
+      "Value": 285
+    },
+    {
+      "Name": "plc_line~plc_line",
+      "Value": 48
+    },
+    {
+      "Name": "plc_line~plc_line~CPU display_1",
+      "Value": 54
+    },
+    {
+      "Name": "plc_line~plc_line~Card reader/writer_1",
+      "Value": 51
+    },
+    {
+      "Name": "plc_line~plc_line~DP interface_1",
+      "Value": 60
+    },
+    {
+      "Name": "plc_line~plc_line~OPC UA_1",
+      "Value": 117
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_1",
+      "Value": 64
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_1~Port_1",
+      "Value": 65
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_1~Port_2",
+      "Value": 66
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_2",
+      "Value": 72
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_2~Port_3",
+      "Value": 73
+    },
+    {
+      "Name": "plc_line~plc_line~Virtual communication interface",
+      "Value": 135
+    },
+    {
+      "Name": "profinet_plc_line",
+      "Value": 256
+    }
+  ]
+}

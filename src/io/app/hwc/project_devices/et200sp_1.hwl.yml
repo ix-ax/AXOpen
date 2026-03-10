@@ -1,61 +1,61 @@
-Devices:
-- Name: et200sp_1
-  Modules:
-  - Apply: '6ES7155-6AU02-0BN0_v6_3'
-    Arguments:
-      NAME: et200sp_1
-      IP_ADDRESS_X1: '192.168.100.160/24'
-      PROFINET_DEVICE_NAME_X1: et200sp_1
-  - Apply: '6ES7131-6BH01-0BA0_v0_0'
-    Arguments:
-      NAME: A10
-      TERMINAL: 'Enable new potential group (light BaseUnit)'   # Possible values:  'Use potential group of the left module (dark BaseUnit)'
-                                                                #                   'Enable new potential group (light BaseUnit)'
-                                                                # Default value:    'Use potential group of the left module (dark BaseUnit)'
-                                                                # So this parameter need to be specified only in the case of 'Enable new potential group (light BaseUnit)' is used
-  - Apply: '6ES7131-6BH01-0BA0_v0_0'
-    Arguments:
-      NAME: A11
-  - Apply: '6ES7131-6BH01-0BA0_v0_0'
-    Arguments:
-      NAME: A12
-  - Apply: '6ES7131-6BH01-0BA0_v0_0'
-    Arguments:
-      NAME: A13
-  - Apply: '6ES7131-6BH01-0BA0_v0_0'
-    Arguments:
-      NAME: A14
-  - Apply: '6ES7131-6BH01-0BA0_v0_0'
-    Arguments:
-      NAME: A15
-  - Apply: '6ES7131-6BH01-0BA0_v0_0'
-    Arguments:
-      NAME: A16
-  - Apply: '6ES7131-6BH01-0BA0_v0_0'
-    Arguments:
-      NAME: A17
-  - Apply: '6ES7132-6BH01-0BA0_v0_0'
-    Arguments:
-      NAME: A20
-      TERMINAL: 'Enable new potential group (light BaseUnit)'   # Possible values:  'Use potential group of the left module (dark BaseUnit)'
-                                                                #                   'Enable new potential group (light BaseUnit)'
-                                                                # Default value:    'Use potential group of the left module (dark BaseUnit)'
-                                                                # So this parameter need to be specified only in the case of 'Enable new potential group (light BaseUnit)' is used
-  - Apply: '6ES7132-6BH01-0BA0_v0_0'
-    Arguments:
-      NAME: A21
-  - Apply: '6ES7132-6BH01-0BA0_v0_0'
-    Arguments:
-      NAME: A22
-  - Apply: '6ES7132-6BH01-0BA0_v0_0'
-    Arguments:
-      NAME: A23
-  - Apply: '6ES7134-6HD01-0BA1_v2_0'
-    Arguments:
-      NAME: A30
-  - Apply: '6ES7135-6HD00-0BA1_v1_0'
-    Arguments:
-      NAME: A40
-  - Apply: '6ES7193-6PA00-0AA0_v1_1'
-    Arguments:
-      NAME: A100
+# Devices:
+# - Name: et200sp_1
+#   Modules:
+#   - Apply: '6ES7155-6AU02-0BN0_v6_3'
+#     Arguments:
+#       NAME: et200sp_1
+#       IP_ADDRESS_X1: '192.168.100.160/24'
+#       PROFINET_DEVICE_NAME_X1: et200sp_1
+#   - Apply: '6ES7131-6BH01-0BA0_v0_0'
+#     Arguments:
+#       NAME: A10
+#       TERMINAL: 'Enable new potential group (light BaseUnit)'   # Possible values:  'Use potential group of the left module (dark BaseUnit)'
+#                                                                 #                   'Enable new potential group (light BaseUnit)'
+#                                                                 # Default value:    'Use potential group of the left module (dark BaseUnit)'
+#                                                                 # So this parameter need to be specified only in the case of 'Enable new potential group (light BaseUnit)' is used
+#   - Apply: '6ES7131-6BH01-0BA0_v0_0'
+#     Arguments:
+#       NAME: A11
+#   - Apply: '6ES7131-6BH01-0BA0_v0_0'
+#     Arguments:
+#       NAME: A12
+#   - Apply: '6ES7131-6BH01-0BA0_v0_0'
+#     Arguments:
+#       NAME: A13
+#   - Apply: '6ES7131-6BH01-0BA0_v0_0'
+#     Arguments:
+#       NAME: A14
+#   - Apply: '6ES7131-6BH01-0BA0_v0_0'
+#     Arguments:
+#       NAME: A15
+#   - Apply: '6ES7131-6BH01-0BA0_v0_0'
+#     Arguments:
+#       NAME: A16
+#   - Apply: '6ES7131-6BH01-0BA0_v0_0'
+#     Arguments:
+#       NAME: A17
+#   - Apply: '6ES7132-6BH01-0BA0_v0_0'
+#     Arguments:
+#       NAME: A20
+#       TERMINAL: 'Enable new potential group (light BaseUnit)'   # Possible values:  'Use potential group of the left module (dark BaseUnit)'
+#                                                                 #                   'Enable new potential group (light BaseUnit)'
+#                                                                 # Default value:    'Use potential group of the left module (dark BaseUnit)'
+#                                                                 # So this parameter need to be specified only in the case of 'Enable new potential group (light BaseUnit)' is used
+#   - Apply: '6ES7132-6BH01-0BA0_v0_0'
+#     Arguments:
+#       NAME: A21
+#   - Apply: '6ES7132-6BH01-0BA0_v0_0'
+#     Arguments:
+#       NAME: A22
+#   - Apply: '6ES7132-6BH01-0BA0_v0_0'
+#     Arguments:
+#       NAME: A23
+#   - Apply: '6ES7134-6HD01-0BA1_v2_0'
+#     Arguments:
+#       NAME: A30
+#   - Apply: '6ES7135-6HD00-0BA1_v1_0'
+#     Arguments:
+#       NAME: A40
+#   - Apply: '6ES7193-6PA00-0AA0_v1_1'
+#     Arguments:
+#       NAME: A100
