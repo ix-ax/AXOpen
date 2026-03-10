@@ -3,9 +3,6 @@ export RED='\033[0;31m'
 export YELLOW='\033[0;33m'
 export NC='\033[0m\r\n' # No Color+CRLF
 hwcc=$(apax hwc compile -i ".\hwc" -o bin/hwc/)
-dos2unix SystemConstants/*
-dos2unix -r src/IO/*
-dos2unix -r hwc/hwc.gen/*
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Hardware configuration compiled succesfully.${NC}"
 	exit 0
@@ -14,3 +11,6 @@ else
 	printf "${RED}Please check the details above.${NC}\n"
 	exit 1
 fi
+dos2unix SystemConstants/*
+dos2unix -r src/IO/*
+dos2unix -r hwc/hwc.gen/*
