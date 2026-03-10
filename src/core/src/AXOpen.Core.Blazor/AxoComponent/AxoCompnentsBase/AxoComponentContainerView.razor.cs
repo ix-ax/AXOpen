@@ -1,4 +1,4 @@
-﻿using AXOpen.Messaging;
+using AXOpen.Messaging;
 using AXOpen.Messaging.Static;
 using AXOpen.VisualComposer.Components.VisualComposerItem;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
@@ -62,6 +62,7 @@ namespace AXOpen.Core.Blazor
             eAlarmLevel.NoAlarms => "",
             eAlarmLevel.Unacknowledged => "animate-pulse-danger badge-warning",
             eAlarmLevel.ActiveInfo => "animate-pulse-danger badge-info",
+            eAlarmLevel.ActivePotential => "animate-pulse-danger badge-info",
             eAlarmLevel.ActiveWarnings => "animate-pulse-danger badge-warning",
             eAlarmLevel.ActiveErrors => "animate-pulse-danger badge-danger",
             _ => ""
@@ -106,6 +107,7 @@ namespace AXOpen.Core.Blazor
                     return seriousness switch
                     {
                         eAxoMessageCategory.Info => eAlarmLevel.ActiveInfo,
+                        eAxoMessageCategory.Potential => eAlarmLevel.ActivePotential,
                         eAxoMessageCategory.Warning => eAlarmLevel.ActiveWarnings,
                         eAxoMessageCategory.Error or eAxoMessageCategory.ProgrammingError or eAxoMessageCategory.Critical => eAlarmLevel.ActiveErrors,
                         _ => eAlarmLevel.NoAlarms
@@ -126,6 +128,7 @@ namespace AXOpen.Core.Blazor
                 eAlarmLevel.NoAlarms => "",
                 eAlarmLevel.Unacknowledged => "border-warning",
                 eAlarmLevel.ActiveInfo => "border-info",
+                eAlarmLevel.ActivePotential => "border-info shadow-glow-info",
                 eAlarmLevel.ActiveWarnings => "border-warning/20! shadow-glow-warning",
                 eAlarmLevel.ActiveErrors => "border-danger/20! shadow-glow-danger",
                 _ => ""
@@ -137,6 +140,7 @@ namespace AXOpen.Core.Blazor
                eAlarmLevel.NoAlarms => "",
                eAlarmLevel.Unacknowledged => "bg-warning",
                eAlarmLevel.ActiveInfo => "bg-info",
+               eAlarmLevel.ActivePotential => "bg-info shadow-glow-info",
                eAlarmLevel.ActiveWarnings => "bg-warning/20! shadow-glow-warning",
                eAlarmLevel.ActiveErrors => "bg-danger/20! shadow-glow-danger",
                _ => ""
@@ -148,6 +152,7 @@ namespace AXOpen.Core.Blazor
                eAlarmLevel.NoAlarms => "bg-background/80",
                eAlarmLevel.Unacknowledged => "bg-warning",
                eAlarmLevel.ActiveInfo => "bg-info",
+               eAlarmLevel.ActivePotential => "bg-info",
                eAlarmLevel.ActiveWarnings => "bg-warning/20! shadow-glow-warning",
                eAlarmLevel.ActiveErrors => "bg-danger/20! shadow-glow-danger",
                _ => "bg-background/80"

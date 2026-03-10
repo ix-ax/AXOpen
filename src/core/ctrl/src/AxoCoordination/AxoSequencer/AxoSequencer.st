@@ -1,3 +1,5 @@
+USING AXOpen.Messaging;
+USING AXOpen.Messaging.Static;
 NAMESPACE AXOpen.Core
     USING System.Strings;
     {S7.extern=ReadWrite}
@@ -90,6 +92,9 @@ NAMESPACE AXOpen.Core
             StepBackwardCommand.SetSuspendMultipleExecuteCallCheck(TRUE);
 
             IF SUPER.Execute() THEN
+                // Resets the message category requalification to default value of None at the beginning of each sequence execution to avoid unexpected message category requalifications caused by previous sequence executions.
+                _context.GetMessengerService().RequalifyDownstreamMessages(eAxoMessageCategory#None);
+                
                 IF _context = NULL THEN 
                     RETURN; 
                 END_IF;         
@@ -116,6 +121,10 @@ NAMESPACE AXOpen.Core
             END_IF;            
         END_METHOD    
         
+        VAR PUBLIC
+            _msgStepTimedOut : AxoStepTimedOutMessenger;
+        END_VAR    
+
         METHOD INTERNAL Execute : BOOL
             VAR_INPUT
                 step : IAxoStep;                
@@ -131,7 +140,6 @@ NAMESPACE AXOpen.Core
                 END_IF;     
                 
                 _step := step;
-                            
                 IF(_coordinatorState = AxoCoordinatorStates#Configuring) THEN
                     THIS.DetermineOrder(step);  
                 END_IF;                                                            
@@ -247,6 +255,21 @@ NAMESPACE AXOpen.Core
             IF(THIS.CurrentOrder = step.GetStepOrder()) THEN
                 _refStep ?= step;
                 CurrentStep := _refStep^;                
+            END_IF;   
+
+            IF(THIS.MaxSequenceDuration = LT#0s) THEN
+                THIS.MaxSequenceDuration := LT#10s; // Default value for max sequence duration to 10 seconds if not set
+            END_IF;    
+
+            // We will only report step timeout when the step duration exceeds the MaxSequenceDuration, 
+            // which is set for the whole sequence, to avoid too much noise in the logs.
+            IF(THIS.CurrentStep.Duration > THIS.MaxSequenceDuration) THEN
+                IF(Execute) THEN 
+                    _context.GetMessengerService().RequalifyDownstreamMessages(eAxoMessageCategory#Error);
+                    _msgStepTimedOut.Activate(THIS, _refStep); 
+                END_IF;               
+            ELSE
+                _msgStepTimedOut.Deactivate(THIS, _refStep);                                              
             END_IF;   
 
             // IF(THIS.CurrentOrder + ULINT#1 = step.GetStepOrder() OR (THIS.CurrentOrder = THIS.GetNumberOfConfiguredSteps() AND step.GetStepOrder() = UINT#1)) THEN
@@ -518,6 +541,78 @@ NAMESPACE AXOpen.Core
             END_VAR
             _sequenceMode := inSequenceMode;
         END_METHOD
+    END_CLASS     
+    
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC AxoStepTimedOutMessenger EXTENDS AxoMessenger
 
-    END_CLASS    
+        VAR CONSTANT
+            MSG_STEP_TIMED_OUT : STRING[254] := '<#Step timed out: #>';            
+        END_VAR    
+
+        VAR PRIVATE
+            _refObservedStep : REF_TO AxoStep;
+        END_VAR    
+
+        METHOD INTERNAL Activate 
+            VAR_INPUT
+                inParent : IAxoObject;            
+                inStep : REF_TO AXOpen.Core.AxoStep;
+            END_VAR
+            
+            VAR
+                _context : IAxoContext;
+            END_VAR   
+            
+            IF(inStep = NULL) THEN
+               RETURN;
+            END_IF;    
+                      
+            IF(THIS.MessengerState = eAxoMessengerState#Idle && _refObservedStep <> inStep) THEN
+                THIS.MessengerState := eAxoMessengerState#ActiveAcknowledgeNotRequired;            
+                _context := inParent.GetContext();   
+                Risen := _context.GetRtc().NowUTC();                
+                Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
+                Acknowledged := LDATE_AND_TIME#1970-01-01-00:00:00.000;                                
+                Category := eAxoMessageCategory#Error;   
+                Message := System.Strings.Concat(MSG_STEP_TIMED_OUT, inStep^.GetStepDescription());  
+                MessageCode := ULINT#18446744073709551615; // No specific message code for step timeout                
+                _context.GetLogger().Log(System.Strings.Concat(RISE_SIGNATURE, Message), AXOpen.Logging.eLogLevel#Error, THIS);                
+                _refObservedStep := inStep;
+            END_IF;
+
+            IF(THIS.MessengerState <> eAxoMessengerState#Idle && _refObservedStep = inStep) THEN
+                inParent.AggregateMessage(1);
+            END_IF;    
+        END_METHOD
+
+        
+        METHOD INTERNAL Deactivate 
+            VAR_INPUT
+                inParent : IAxoObject;                                     
+                inStep : REF_TO AXOpen.Core.AxoStep;
+            END_VAR 
+            VAR
+                _context : IAxoContext;
+            END_VAR
+
+            IF(_refObservedStep = NULL) THEN
+                RETURN;
+            END_IF;    
+
+           
+            IF(THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired) THEN   
+                _context := inParent.GetContext();   
+                Fallen := _context.GetRtc().NowUTC();     
+                Message :=System.Strings.Concat(MSG_STEP_TIMED_OUT, _refObservedStep^.GetStepDescription());
+                MessageCode := ULINT#18446744073709551615; // No specific message code for step timeout
+                _context.GetLogger().Log(System.Strings.Concat(FALL_SIGNATURE, Message), AXOpen.Logging.eLogLevel#Error, THIS);
+                THIS.MessengerState := eAxoMessengerState#Idle;
+            END_IF; 
+
+            _refObservedStep := NULL;   
+
+        END_METHOD
+    END_CLASS
+
 END_NAMESPACE
