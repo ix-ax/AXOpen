@@ -62,8 +62,8 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
 	{
 		foreach (var step in Component.GetDescendants<AxoStep>())
 		{
-			StartPolling(step.Order, 1000);
-            StartPolling(step.StepExecutionMode, 1000);
+			StartPolling(step.Order, 500);
+            StartPolling(step.StepExecutionMode, 500);
 		}
         StartPolling(this.Component.SteppingMode, 500);
         StartPolling(this.Component.CurrentStep.Descr, 500);
@@ -92,7 +92,7 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
 		StateHasChanged();
 	}
 
-    protected async Task ClearBreakpointMarks()
+    protected async Task ClearAllBreakpointsAsync()
     {
         foreach (var item in Steps)
         {
@@ -101,6 +101,8 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
         }
 
         await ApplyBreakpointConfigurationAsync();
+        await this.Component.SetReqSteppingMode.SetAsync(true);
+        await this.Component.ReqSteppingMode.SetAsync((short)eAxoSteppingMode.Continous);
         StateHasChanged();
     }
 

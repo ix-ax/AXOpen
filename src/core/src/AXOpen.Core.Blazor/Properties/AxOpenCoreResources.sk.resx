@@ -186,8 +186,6 @@
   <data name="SequencerNoStepsFound" xml:space="preserve">
     <value>Nenasli sa ziadne kroky.</value>
   </data>
-</root>
-
   <data name="SeverityError" xml:space="preserve">
     <value>Chyba</value>
   </data>

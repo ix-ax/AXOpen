@@ -12,13 +12,13 @@
     transition: background-color 120ms ease, border-color 120ms ease, transform 120ms ease;
 }
 
-.breakpoint-dot:checked {
-    background-color: #dc2626;
-    border-color: #dc2626;
-}
+    .breakpoint-dot:checked {
+        background-color: #991b1b;
+        border-color: #991b1b;
+    }
 
 .breakpoint-dot.breakpoint-dot-applied {
-    background-color: #991b1b;
+    background-color: #dc2626;
     border-color: #991b1b;
     box-shadow: 0 0 0 2px rgba(153, 27, 27, 0.22);
 }
