@@ -298,12 +298,6 @@ NAMESPACE AXOpen.Core
                     _context.GetLogger().Log('<#Step done :#>', AXOpen.Logging.eLogLevel#Verbose, _step);
                     _step.DoneWhen(_step.IsBusy());
                     IF(_analytics <> NULL) THEN _analytics.UpdateAnalytics(CurrentStep); END_IF;
-                    // Switching to step mode as the step is marked as 'SwitchToStepModeAfterLeavingStep'
-                    _stepExecutionMode := _step.GetStepExecutionMode();
-                    IF _stepExecutionMode = eAxoStepExecutionMode#SwitchToStepModeAfterLeavingStep THEN
-                        THIS.SetSteppingMode(eAxoSteppingMode#StepByStep);
-                        RETURN;
-                    END_IF;                                  
                     _step.SetIsActive(FALSE);       
                     CurrentOrder := CurrentOrder + ULINT#1;                                      
                     // Finalize the StepIn Command in a case of step mode
