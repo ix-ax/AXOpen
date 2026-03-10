@@ -2,6 +2,7 @@ using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using BlazorContextMenu;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,13 +11,23 @@ namespace AXOpen.Core;
 public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<AxoSequencer>
 {
 	private readonly AxoSequencerStepsCollector _collector = new();
+    private readonly HashSet<ulong> _monitoredStepOrders = new();
+    private bool _isMonitoredStepsLoaded;
 
 	[Parameter]
 	public string? Class { get; set; }
 
+    [Inject]
+    private IJSRuntime JSRuntime { get; set; } = default!;
+
 
 
 	protected IReadOnlyList<FlatAxoStepItem> Steps { get; private set; } = Array.Empty<FlatAxoStepItem>();
+
+    private string MonitoredStepsStorageKey => $"axo-sequencer-monitored-steps:{Component.Symbol}";
+
+    private IEnumerable<FlatAxoStepItem> MonitoredSteps =>
+        Steps.Where(step => _monitoredStepOrders.Contains(step.Order));
 
 	private bool ShowCurrentStepRunButtons =>
 		Component.CurrentStep is not null
@@ -24,17 +35,25 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
 
 	protected override async Task OnAfterRenderAsync(bool firstRender)
 	{
-		if (!firstRender)
-		{
-			return;
-		}
+        if (firstRender)
+        {
+            Steps = await _collector.GetFlatSteps(
+                Component.GetConnector(),
+                Component,
+                static (sequence, step) => new FlatAxoStepItem(sequence, step),
+                static item => item.Order);
+            StateHasChanged();
+        }
 
-		Steps = await _collector.GetFlatSteps(
-			Component.GetConnector(),
-			Component,
-			static (sequence, step) => new FlatAxoStepItem(sequence, step),
-			static item => item.Order);
-		StateHasChanged();
+        if (!_isMonitoredStepsLoaded)
+        {
+            var loaded = await TryLoadMonitoredStepsAsync();
+            if (loaded)
+            {
+                _isMonitoredStepsLoaded = true;
+                StateHasChanged();
+            }
+        }
 	}
     private eAxoSteppingMode _currentSteppingMode => (eAxoSteppingMode)this.Component.SteppingMode.LastValue;
     private string _currentStepDescription => string.IsNullOrEmpty(this.Component.CurrentStep.Descr.GetCyclic(Thread.CurrentThread.CurrentUICulture)) ? "-" : this.Component.CurrentStep.Descr.GetCyclic(Thread.CurrentThread.CurrentUICulture);
@@ -78,10 +97,7 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
 			{
 				await item.Step.StepExecutionMode.SetAsync((short)eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep);
 			}
-            else if (item.BreakpointAfterExecution)
-			{
-				await item.Step.StepExecutionMode.SetAsync((short)eAxoStepExecutionMode.SwitchToStepModeAfterLeavingStep);
-			}
+          
 			else
 			{
 				if (item.Step.StepExecutionMode.LastValue !=(short)eAxoStepExecutionMode.ExecuteAndContinue)
@@ -97,7 +113,7 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
         foreach (var item in Steps)
         {
             item.BreakpointBeforeExecution = false;
-            item.BreakpointAfterExecution = false;
+          
         }
 
         await ApplyBreakpointConfigurationAsync();
@@ -106,15 +122,12 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
         StateHasChanged();
     }
 
-	protected async Task RunOnlyAsync()
+	protected async Task RunAsync()
 	{
         await RunCurrentStepAsync(removeBreakpointForCurrentStep: false);
 	}
 
-    protected async Task RunAndRemoveBreakpointAsync()
-	{
-        await RunCurrentStepAsync(removeBreakpointForCurrentStep: true);
-	}
+
 
 
     private async Task RunCurrentStepAsync(bool removeBreakpointForCurrentStep)
@@ -143,7 +156,6 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
             if (item is not null)
             {
                 item.BreakpointBeforeExecution = false;
-                item.BreakpointAfterExecution = false;
                 await item.Step.StepExecutionMode.SetAsync((short)eAxoStepExecutionMode.ExecuteAndContinue);
             }
         }
@@ -152,8 +164,7 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
            
             if (item.BreakpointBeforeExecution)
                 await item.Step.StepExecutionMode.SetAsync((short)eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep);
-            else if (item.BreakpointAfterExecution)
-                await item.Step.StepExecutionMode.SetAsync((short)eAxoStepExecutionMode.SwitchToStepModeAfterLeavingStep);
+         
 
         }
         StateHasChanged();
@@ -166,12 +177,7 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
             : string.Empty;
     }
 
-    private static string GetAfterBreakpointDotClass(FlatAxoStepItem item)
-    {
-        return item.StepExecutionMode == eAxoStepExecutionMode.SwitchToStepModeAfterLeavingStep
-            ? "breakpoint-dot-applied"
-            : string.Empty;
-    }
+   
 
     private string GetCurrentStepDotClass(FlatAxoStepItem item, bool isChecked)
     {
@@ -185,6 +191,62 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
         return item.Order == CurrentStepOrder
             ? "current-step-row"
             : string.Empty;
+    }
+
+    private async Task AddToMonitor(FlatAxoStepItem item)
+    {
+        _monitoredStepOrders.Add(item.Order);
+        await SaveMonitoredStepsAsync();
+        StateHasChanged();
+    }
+
+    private async Task RemoveFromMonitor(FlatAxoStepItem item)
+    {
+        _monitoredStepOrders.Remove(item.Order);
+        await SaveMonitoredStepsAsync();
+        StateHasChanged();
+    }
+
+    private bool IsMonitored(FlatAxoStepItem item)
+    {
+        return _monitoredStepOrders.Contains(item.Order);
+    }
+
+    private async Task<bool> TryLoadMonitoredStepsAsync()
+    {
+        try
+        {
+            var storedOrders = await JSRuntime.InvokeAsync<string?>("localStorage.getItem", MonitoredStepsStorageKey);
+            if (string.IsNullOrWhiteSpace(storedOrders))
+            {
+                return true;
+            }
+
+            _monitoredStepOrders.Clear();
+            foreach (var value in storedOrders.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+            {
+                if (ulong.TryParse(value, out var parsedOrder))
+                {
+                    _monitoredStepOrders.Add(parsedOrder);
+                }
+            }
+
+            return true;
+        }
+        catch (InvalidOperationException)
+        {
+            return false;
+        }
+        catch (JSDisconnectedException)
+        {
+            return false;
+        }
+    }
+
+    private async Task SaveMonitoredStepsAsync()
+    {
+        var storedOrders = string.Join(',', _monitoredStepOrders.OrderBy(order => order));
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", MonitoredStepsStorageKey, storedOrders);
     }
 
   

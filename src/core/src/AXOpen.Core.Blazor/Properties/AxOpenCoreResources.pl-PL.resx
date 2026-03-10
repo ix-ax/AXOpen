@@ -329,4 +329,37 @@
   <data name="SequencerNoStepsFound" xml:space="preserve">
     <value>Nie znaleziono krokow.</value>
   </data>
+  <data name="SequencerMonitoredSteps" xml:space="preserve">
+    <value>Monitorowane kroki</value>
+  </data>
+  <data name="SequencerNoMonitoredStepsSelected" xml:space="preserve">
+    <value>Nie wybrano monitorowanych krokow.</value>
+  </data>
+  <data name="SequencerBreakpoint" xml:space="preserve">
+    <value>Punkt przerwania</value>
+  </data>
+  <data name="SequencerOrder" xml:space="preserve">
+    <value>Kolejnosc</value>
+  </data>
+  <data name="SequencerDesc" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="SequencerMonitor" xml:space="preserve">
+    <value>Monitoruj</value>
+  </data>
+  <data name="SequencerContinue" xml:space="preserve">
+    <value>Kontynuuj</value>
+  </data>
+  <data name="SequencerRemove" xml:space="preserve">
+    <value>Usun</value>
+  </data>
+  <data name="SequencerAddToMonitor" xml:space="preserve">
+    <value>Dodaj do monitorowanych</value>
+  </data>
+  <data name="SequencerApplyBreakpoints" xml:space="preserve">
+    <value>Zastosuj punkty przerwania</value>
+  </data>
+  <data name="SequencerClearAllBreakpoints" xml:space="preserve">
+    <value>Wyczysc wszystkie punkty przerwania</value>
+  </data>
 </root>

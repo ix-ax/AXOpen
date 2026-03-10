@@ -13,14 +13,15 @@
 }
 
     .breakpoint-dot:checked {
-        background-color: #991b1b;
-        border-color: #991b1b;
+        background-color: #fca5a5;
+        border-color: #dc2626;
+        border-width: 2px;
     }
 
 .breakpoint-dot.breakpoint-dot-applied {
     background-color: #dc2626;
-    border-color: #991b1b;
-    box-shadow: 0 0 0 2px rgba(153, 27, 27, 0.22);
+    border-color: #dc2626;
+    
 }
 
 .breakpoint-dot.breakpoint-dot-current {

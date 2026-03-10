@@ -275,4 +275,37 @@
   <data name="SequencerNoStepsFound" xml:space="preserve">
     <value>No steps found.</value>
   </data>
+  <data name="SequencerMonitoredSteps" xml:space="preserve">
+    <value>Monitored steps</value>
+  </data>
+  <data name="SequencerNoMonitoredStepsSelected" xml:space="preserve">
+    <value>No monitored steps selected.</value>
+  </data>
+  <data name="SequencerBreakpoint" xml:space="preserve">
+    <value>Breakpoint</value>
+  </data>
+  <data name="SequencerOrder" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="SequencerDesc" xml:space="preserve">
+    <value>Desc</value>
+  </data>
+  <data name="SequencerMonitor" xml:space="preserve">
+    <value>Monitor</value>
+  </data>
+  <data name="SequencerContinue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="SequencerRemove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="SequencerAddToMonitor" xml:space="preserve">
+    <value>Add to monitor</value>
+  </data>
+  <data name="SequencerApplyBreakpoints" xml:space="preserve">
+    <value>Apply breakpoints</value>
+  </data>
+  <data name="SequencerClearAllBreakpoints" xml:space="preserve">
+    <value>Clear all breakpoints</value>
+  </data>
 </root>

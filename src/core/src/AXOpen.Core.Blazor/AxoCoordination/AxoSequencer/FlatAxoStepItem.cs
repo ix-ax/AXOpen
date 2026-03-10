@@ -7,28 +7,14 @@ public sealed record FlatAxoStepItem(
     AxoStep Step)
 {
     private bool _breakpointBeforeExecution = (eAxoStepExecutionMode)Step.StepExecutionMode.LastValue == eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep;
-    private bool _breakpointAfterExecution = (eAxoStepExecutionMode)Step.StepExecutionMode.LastValue == eAxoStepExecutionMode.SwitchToStepModeAfterLeavingStep;
-
+ 
     public ulong Order => Step.Order.LastValue;
 
     public string Symbol => Step.Symbol ?? string.Empty;
 
     public string Desc => Step.Descr.GetCyclic(CultureInfo.CurrentUICulture) ?? string.Empty;
 
-    public bool BreakpointAfterExecution
-    {
-        get => _breakpointAfterExecution;
-        set
-        {
-            _breakpointAfterExecution = value;
-
-            if (value)
-            {
-                _breakpointBeforeExecution = false;
-            }
-
-        }
-    }
+    
 
     public bool BreakpointBeforeExecution
     {
@@ -37,10 +23,7 @@ public sealed record FlatAxoStepItem(
         {
             _breakpointBeforeExecution = value;
 
-            if (value)
-            {
-                _breakpointAfterExecution = false;
-            }
+          
 
           
         }
