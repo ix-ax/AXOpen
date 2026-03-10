@@ -124,6 +124,7 @@ NAMESPACE AXOpen.Core
                 _message : STRING[80];
                 _level : eLogLevel;
                 _sender : IAxoObject;
+                _messageCode : ULINT;
             END_VAR   
             ;         
         END_METHOD   
@@ -187,6 +188,17 @@ NAMESPACE AXOpen.Core
     
         METHOD PUBLIC IsSuspended : BOOL
             IsSuspended := _isSuspended;
+        END_METHOD
+    
+        METHOD PUBLIC RequalifyDownstreamMessages
+            VAR_INPUT
+                inMessageCategory : eAxoMessageCategory;
+            END_VAR
+            ;
+        END_METHOD
+    
+        METHOD PUBLIC GetRequalifiedMessageCategory : eAxoMessageCategory
+            ;
         END_METHOD
     END_CLASS 
 END_NAMESPACE

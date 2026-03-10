@@ -3,8 +3,7 @@ NAMESPACE AXOpen.Core
         eAxoStepExecutionMode : INT 
         (          
             ExecuteAndContinue := 0,
-            SwitchToStepModeBeforeEnteringStep := 1, 
-            SwitchToStepModeAfterLeavingStep := 2
+            SwitchToStepModeBeforeEnteringStep := 1
         ) := ExecuteAndContinue;
     END_TYPE
 END_NAMESPACE    

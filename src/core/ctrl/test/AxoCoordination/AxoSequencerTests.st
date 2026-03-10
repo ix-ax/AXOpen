@@ -2015,45 +2015,5 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(_step_2.IsBusy(),FALSE);
         END_METHOD
 
-        {Test}        
-        METHOD PUBLIC SwitchToStepModeAfterLeavingStep_should_set_the_sequencer_into_the_step_mode
-            // Arrange
-            _step_1.StepExecutionMode := eAxoStepExecutionMode#ExecuteAndContinue;
-            _step_2.StepExecutionMode := eAxoStepExecutionMode#SwitchToStepModeAfterLeavingStep;
-            _sequencer.SetSteppingMode(eAxoSteppingMode#Continous);
-            // Act
-            THIS.ExecuteSequence(FALSE,FALSE);
-            // Assert
-            Assert.Equal(_sequencer.GetSteppingMode(), eAxoSteppingMode#Continous);
-            // Act
-            THIS.ExecuteSequence(TRUE,FALSE);
-            // Assert
-            Assert.Equal(_sequencer.GetSteppingMode(), eAxoSteppingMode#StepByStep);
-        END_METHOD
-
-        {Test}        
-        METHOD PUBLIC SwitchToStepModeAfterLeavingStep_should_set_the_step_to_active
-            // Arrange
-            _step_1.StepExecutionMode := eAxoStepExecutionMode#ExecuteAndContinue;
-            _step_2.StepExecutionMode := eAxoStepExecutionMode#SwitchToStepModeAfterLeavingStep;
-            _sequencer.SetSteppingMode(eAxoSteppingMode#Continous);
-            // Act
-            THIS.ExecuteSequence(TRUE,FALSE);
-            // Assert
-            Assert.Equal(_step_2.IsActive,TRUE);
-        END_METHOD
-
-        {Test}        
-        METHOD PUBLIC SwitchToStepModeAfterLeavingStep_should_invoke_the_step
-            // Arrange
-            _step_1.StepExecutionMode := eAxoStepExecutionMode#ExecuteAndContinue;
-            _step_2.StepExecutionMode := eAxoStepExecutionMode#SwitchToStepModeAfterLeavingStep;
-            _sequencer.SetSteppingMode(eAxoSteppingMode#Continous);
-            // Act
-            THIS.ExecuteSequence(TRUE,FALSE);
-            // Assert
-            Assert.Equal(_step_2.IsDone(),TRUE);
-        END_METHOD
-
     END_CLASS  
 END_NAMESPACE

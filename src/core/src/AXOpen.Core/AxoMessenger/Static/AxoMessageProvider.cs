@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -16,12 +16,15 @@ namespace AXOpen.Messaging.Static
     /// </summary>
     public class AxoMessageProvider
     {
-        private AxoMessageProvider(IEnumerable<ITwinObject> observedObjects)
+        private AxoMessageProvider(IEnumerable<ITwinObject> observedObjects, int observedDepth = int.MaxValue)
         {
             this.ObservedObjects = observedObjects;
+            this.ObservedDepth = observedDepth;
         }
 
         public IEnumerable<ITwinObject> ObservedObjects { get; }
+        
+        public int ObservedDepth { get; }
 
         private int? _cachedActiveMessagesCount;
         private int? _maxActiveMessagesCount;
@@ -192,7 +195,7 @@ namespace AXOpen.Messaging.Static
                     var retVal = new List<AxoMessenger>();
                     foreach (var observedObject in ObservedObjects.Where(p => p != null))
                     {
-                        retVal.AddRange(observedObject.GetChildren().Flatten(p => p.GetChildren())
+                        retVal.AddRange(observedObject.GetChildren().Flatten(p => p.GetChildren(), this.ObservedDepth)
                             .OfType<AxoMessenger>());
                     }
 
@@ -208,9 +211,9 @@ namespace AXOpen.Messaging.Static
         /// </summary>
         /// <param name="observedObjects">The collection of observed objects.</param>
         /// <returns>A new instance of the AxoMessageProvider class.</returns>
-        public static AxoMessageProvider Create(IEnumerable<ITwinObject> observedObjects)
+        public static AxoMessageProvider Create(IEnumerable<ITwinObject> observedObjects, int observedDepth = int.MaxValue)
         {
-            return new AxoMessageProvider(observedObjects); 
+            return new AxoMessageProvider(observedObjects, observedDepth);
         }
         
         

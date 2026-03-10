@@ -52,10 +52,10 @@ fi
 
 
 if [ "$8" = "true" ]; then
-	echo "Project cerificate is going to overwrite the online one."
+	echo "Project certificate is going to overwrite the online one."
 	FORCE=true
 else
-	echo "Project cerificate is going to be compared with online one."
+	echo "Project certificate is going to be compared with online one."
 	FORCE=false
 fi
 

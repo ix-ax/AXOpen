@@ -95,6 +95,20 @@ NAMESPACE AXOpen.Messaging
             IsSuspended := _isSuspended;
         END_METHOD    
 
+        VAR PRIVATE
+            _requalificationCategory : eAxoMessageCategory := eAxoMessageCategory#None;            
+        END_VAR
+        
+        METHOD PUBLIC RequalifyDownstreamMessages
+            VAR_INPUT
+                inMessageCategory : eAxoMessageCategory;
+            END_VAR
+            _requalificationCategory := inMessageCategory;
+        END_METHOD
+    
+        METHOD PUBLIC GetRequalifiedMessageCategory : eAxoMessageCategory
+            GetRequalifiedMessageCategory := _requalificationCategory;
+        END_METHOD
     END_CLASS
         
    

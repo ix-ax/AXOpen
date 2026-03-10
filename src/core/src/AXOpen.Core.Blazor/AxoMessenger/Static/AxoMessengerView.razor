@@ -1,4 +1,4 @@
-﻿@namespace AXOpen.Messaging.Static
+@namespace AXOpen.Messaging.Static
 @inherits RenderableComplexComponentBase<AxoMessenger>
 @using System.Security.Principal
 @using Operon.Icons
@@ -9,7 +9,7 @@
 <div data-axo-messenger-view class="card w-full @ConvertToInternalShadowGlowSeverityName((eAxoMessageCategory)Component.Category.LastValue) @ConvertToInternalBgShadowSeverityName((eAxoMessageCategory)Component.Category.LastValue) @Class">
     <div class="card-title flex flex-wrap flex-row justify-between gap-2 bg-background-light/40!">
         <div class="flux-flex flex-wrap items-center gap-2">
-            <div class="flux-badge badge-primary gap-2" aria-label="@Localizer["SeverityLabel"]">
+            <div class="@ConvertToBadge((eAxoMessageCategory)Component.Category.LastValue) gap-2" aria-label="@Localizer["SeverityLabel"]">
                 <span class="inline-flex w-2 h-2 rounded-full @ConvertToInternalBgSeverityName((eAxoMessageCategory)Component.Category.LastValue)"></span>
                 @ConvertToInternalSeverityName((eAxoMessageCategory)Component.Category.LastValue)
             </div>
@@ -18,7 +18,7 @@
                 <span class="text-text/80 font-semibold uppercase" aria-label="@Localizer["AlarmCode"]">@Component.GetMessageText()</span>
             }
         </div>
-        <div class="badge badge-primary" role="status">@StateLabel</div>
+        @* <div class="badge badge-primary" role="status">@StateLabel</div> *@
     </div>
 
     <div class="card-body">
@@ -98,15 +98,17 @@
         switch (category)
         {
             case eAxoMessageCategory.Info:
-                return Localizer["SeverityInfo"];
+                return Localizer["Info"];
+            case eAxoMessageCategory.Potential:
+                return Localizer["Potential"];
             case eAxoMessageCategory.Warning:
-                return Localizer["SeverityWarning"];
+                return Localizer["Warning"];
             case eAxoMessageCategory.Error:
-                return Localizer["SeverityMinorFault"];
+                return Localizer["Error"];
             case eAxoMessageCategory.ProgrammingError:
-                return Localizer["SeverityMajorFault"];
+                return Localizer["System"];
             case eAxoMessageCategory.Critical:
-                return Localizer["SeverityCritical"];
+                return Localizer["Critical"];
         }
         return string.Empty;
     }
@@ -116,6 +118,8 @@
         switch (category)
         {
             case eAxoMessageCategory.Info:
+                return "bg-linear-to-br from-info/20! from-0% to-background-light! to-50%";
+            case eAxoMessageCategory.Potential:
                 return "bg-linear-to-br from-info/20! from-0% to-background-light! to-50%";
             case eAxoMessageCategory.Warning:
                 return "bg-linear-to-br from-warning/20! from-0% to-background-light! to-50%";
@@ -129,14 +133,36 @@
         return string.Empty;
     }
 
+    private static string ConvertToBadge(eAxoMessageCategory category)
+    {
+        switch (category)
+        {
+            case eAxoMessageCategory.Info:
+                return "badge badge-primary";
+            case eAxoMessageCategory.Potential:
+                return "badge badge-primary";
+            case eAxoMessageCategory.Warning:
+                return "badge badge-warning";
+            case eAxoMessageCategory.Error:
+                return "badge badge-danger";
+            case eAxoMessageCategory.ProgrammingError:
+                return "badge badge-danger";
+            case eAxoMessageCategory.Critical:
+                return "badge badge-danger";
+        }
+        return string.Empty;
+    }
+
     private static string ConvertToInternalShadowGlowSeverityName(eAxoMessageCategory category)
     {
         switch (category)
         {
             case eAxoMessageCategory.Info:
                 return "shadow-glow-info";
+            case eAxoMessageCategory.Potential:
+                return "shadow-glow-info";
             case eAxoMessageCategory.Warning:
-                return "shadow-glow-warning";
+                return "shadow-glow-warning";            
             case eAxoMessageCategory.Error:
                 return "shadow-glow-danger";
             case eAxoMessageCategory.ProgrammingError:
@@ -152,6 +178,8 @@
         switch (category)
         {
             case eAxoMessageCategory.Info:
+                return "bg-info";
+            case eAxoMessageCategory.Potential:
                 return "bg-info";
             case eAxoMessageCategory.Warning:
                 return "bg-warning";
