@@ -4,13 +4,13 @@
 <div data-axo-sequencer-steps-view class="card bg-background-light/80! p-2 @Class">
 	<div class="mb-2 flex justify-center">
 
-		<AXOpen.Core.AxoTaskStatusView Text="@_currentStepDescription" HideRestoreButton="false" Component="this.Component.StepIn" Class="btn-lg w-125" />
+		<AxoTaskStatusView Text="@_currentStepDescription" HideRestoreButton="false" Component="this.Component.StepIn" Class="btn-lg w-125" />
 		@if (ShowCurrentStepRunButtons)
 		{
 
 			<button class="btn btn-warning btn-sm ms-2"
-					@onclick="RunAndRemoveSuspendAsync">
-				RunAndRemoveSuspend
+					@onclick="RunAndRemoveBreakpointAsync">
+				RunAndRemoveBreakpoint
 			</button>
 			<button class="btn btn-primary btn-sm ms-2"
 					@onclick="RunOnlyAsync">
@@ -22,50 +22,63 @@
 		
 		}
 		
-		<button class="btn btn-primary btn-sm"
-				@onclick="ApplySuspendConfigurationAsync"
-				disabled="@(Steps.Count == 0)">
-			@Localizer["SequencerSendSuspendConfiguration"]
-		</button>
+		
 	</div>
-	<div class="overflow-x-auto">
-		<table class="table table-striped table-hover w-full">
-			<thead>
-				<tr>
-					<th>Order</th>
-					<th>Symbol</th>
-					<th>Desc</th>
-					<th>@Localizer["SequencerSuspendBeforeExecution"]</th>
-					<th>@Localizer["SequencerSuspendAfterExecution"]</th>
-					<th>@Localizer["SequencerStepExecutionMode"]</th>
-				</tr>
-			</thead>
-			<tbody>
-				@if (Steps.Count == 0)
-				{
+	<details class="mt-2" open>
+		<summary class="cursor-pointer select-none text-sm font-medium">@Localizer["ViewDetails"]</summary>
+		<div class="overflow-x-auto mt-2">
+			<div class="mb-2 flex justify-center">
+				<button class="btn btn-primary btn-sm"
+						@onclick="ClearBreakpointMarks"
+						disabled="@(Steps.Count == 0)">
+					Clear all breakpoints
+				</button>
+				<button class="btn btn-primary btn-sm"
+						@onclick="ApplyBreakpointConfigurationAsync"
+						disabled="@(Steps.Count == 0)">
+					Apply breakpoints
+				</button>
+			</div>
+			<table class="table table-striped table-hover w-full">
+				<thead>
 					<tr>
-						<td colspan="6" class="text-center text-text/70">@Localizer["SequencerNoStepsFound"]</td>
+						<th class="breakpoint-col">Breakpoint Before</th>
+						<th class="breakpoint-col">Breakpoint After</th>
+						<th>Order</th>
+					@* 	<th>Symbol</th> *@
+						<th>Desc</th>
+						
+						@* <th>@Localizer["SequencerStepExecutionMode"]</th> *@
 					</tr>
-				}
-				else
-				{
-					@foreach (var item in Steps)
+				</thead>
+				<tbody>
+					@if (Steps.Count == 0)
 					{
 						<tr>
-							<td>@item.Order</td>
-							<td>@item.Symbol</td>
-							<td>@item.Desc</td>
-							<td>
-								<input type="checkbox" @bind="item.SuspendStepBeforeExecution" />
-							</td>
-							<td>
-								<input type="checkbox" @bind="item.SuspendStepAfterExecution" />
-							</td>
-							<td>@item.StepExecutionMode</td>
+							<td colspan="6" class="text-center text-text/70">@Localizer["SequencerNoStepsFound"]</td>
 						</tr>
 					}
-				}
-			</tbody>
-		</table>
-	</div>
+					else
+					{
+						@foreach (var item in Steps)
+						{
+							<tr class="@GetCurrentStepRowClass(item)">
+								<td class="breakpoint-col">
+									<input type="checkbox" class="breakpoint-dot @GetBeforeBreakpointDotClass(item) @GetCurrentStepDotClass(item, item.BreakpointBeforeExecution)" @bind="item.BreakpointBeforeExecution" />
+								</td>
+								<td class="breakpoint-col">
+									<input type="checkbox" class="breakpoint-dot @GetAfterBreakpointDotClass(item) @GetCurrentStepDotClass(item, item.BreakpointAfterExecution)" @bind="item.BreakpointAfterExecution" />
+								</td>
+								<td>@item.Order</td>
+								@* <td>@item.Symbol</td> *@
+								<td>@item.Desc</td>
+							
+								@* <td>@item.StepExecutionMode</td> *@
+							</tr>
+						}
+					}
+				</tbody>
+			</table>
+		</div>
+	</details>
 </div>

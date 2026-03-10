@@ -3,6 +3,7 @@ using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using BlazorContextMenu;
 using Microsoft.AspNetCore.Components;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace AXOpen.Core;
 
@@ -69,15 +70,15 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
 		
     }
 
-	protected async Task ApplySuspendConfigurationAsync()
+    protected async Task ApplyBreakpointConfigurationAsync()
 	{
 		foreach (var item in Steps)
 		{
-			if (item.SuspendStepBeforeExecution)
+            if (item.BreakpointBeforeExecution)
 			{
 				await item.Step.StepExecutionMode.SetAsync((short)eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep);
 			}
-			else if (item.SuspendStepAfterExecution)
+            else if (item.BreakpointAfterExecution)
 			{
 				await item.Step.StepExecutionMode.SetAsync((short)eAxoStepExecutionMode.SwitchToStepModeAfterLeavingStep);
 			}
@@ -91,18 +92,30 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
 		StateHasChanged();
 	}
 
+    protected async Task ClearBreakpointMarks()
+    {
+        foreach (var item in Steps)
+        {
+            item.BreakpointBeforeExecution = false;
+            item.BreakpointAfterExecution = false;
+        }
+
+        await ApplyBreakpointConfigurationAsync();
+        StateHasChanged();
+    }
+
 	protected async Task RunOnlyAsync()
 	{
-		await RunCurrentStepAsync(removeSuspendForCurrentStep: false);
+        await RunCurrentStepAsync(removeBreakpointForCurrentStep: false);
 	}
 
-	protected async Task RunAndRemoveSuspendAsync()
+    protected async Task RunAndRemoveBreakpointAsync()
 	{
-		await RunCurrentStepAsync(removeSuspendForCurrentStep: true);
+        await RunCurrentStepAsync(removeBreakpointForCurrentStep: true);
 	}
 
 
-    private async Task RunCurrentStepAsync(bool removeSuspendForCurrentStep)
+    private async Task RunCurrentStepAsync(bool removeBreakpointForCurrentStep)
     {
         if (Component.CurrentStep is null)
         {
@@ -122,26 +135,54 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
         await this.Component.SetReqSteppingMode.SetAsync(true);
         await this.Component.ReqSteppingMode.SetAsync((short)eAxoSteppingMode.Continous);
 
-        if (removeSuspendForCurrentStep)
+        if (removeBreakpointForCurrentStep)
         {
            
             if (item is not null)
             {
-                item.SuspendStepBeforeExecution = false;
-                item.SuspendStepAfterExecution = false;
+                item.BreakpointBeforeExecution = false;
+                item.BreakpointAfterExecution = false;
                 await item.Step.StepExecutionMode.SetAsync((short)eAxoStepExecutionMode.ExecuteAndContinue);
             }
         }
         else
         {
            
-            if (item.SuspendStepBeforeExecution)
+            if (item.BreakpointBeforeExecution)
                 await item.Step.StepExecutionMode.SetAsync((short)eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep);
-            else if (item.SuspendStepAfterExecution)
+            else if (item.BreakpointAfterExecution)
                 await item.Step.StepExecutionMode.SetAsync((short)eAxoStepExecutionMode.SwitchToStepModeAfterLeavingStep);
 
         }
         StateHasChanged();
+    }
+
+    private static string GetBeforeBreakpointDotClass(FlatAxoStepItem item)
+    {
+        return item.StepExecutionMode == eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep
+            ? "breakpoint-dot-applied"
+            : string.Empty;
+    }
+
+    private static string GetAfterBreakpointDotClass(FlatAxoStepItem item)
+    {
+        return item.StepExecutionMode == eAxoStepExecutionMode.SwitchToStepModeAfterLeavingStep
+            ? "breakpoint-dot-applied"
+            : string.Empty;
+    }
+
+    private string GetCurrentStepDotClass(FlatAxoStepItem item, bool isChecked)
+    {
+        return isChecked && item.Order == CurrentStepOrder
+            ? "breakpoint-dot-current"
+            : string.Empty;
+    }
+
+    private string GetCurrentStepRowClass(FlatAxoStepItem item)
+    {
+        return item.Order == CurrentStepOrder
+            ? "current-step-row"
+            : string.Empty;
     }
 
   

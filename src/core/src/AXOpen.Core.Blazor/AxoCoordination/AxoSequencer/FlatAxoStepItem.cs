@@ -6,8 +6,8 @@ public sealed record FlatAxoStepItem(
     AxoSequencerContainer Sequence,
     AxoStep Step)
 {
-    private bool _suspendStepBeforeExecution = (eAxoStepExecutionMode)Step.StepExecutionMode.LastValue == eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep;
-    private bool _suspendStepAfterExecution = (eAxoStepExecutionMode)Step.StepExecutionMode.LastValue == eAxoStepExecutionMode.SwitchToStepModeAfterLeavingStep;
+    private bool _breakpointBeforeExecution = (eAxoStepExecutionMode)Step.StepExecutionMode.LastValue == eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep;
+    private bool _breakpointAfterExecution = (eAxoStepExecutionMode)Step.StepExecutionMode.LastValue == eAxoStepExecutionMode.SwitchToStepModeAfterLeavingStep;
 
     public ulong Order => Step.Order.LastValue;
 
@@ -15,31 +15,31 @@ public sealed record FlatAxoStepItem(
 
     public string Desc => Step.Descr.GetCyclic(CultureInfo.CurrentUICulture) ?? string.Empty;
 
-    public bool SuspendStepAfterExecution
+    public bool BreakpointAfterExecution
     {
-        get => _suspendStepAfterExecution;
+        get => _breakpointAfterExecution;
         set
         {
-            _suspendStepAfterExecution = value;
+            _breakpointAfterExecution = value;
 
             if (value)
             {
-                _suspendStepBeforeExecution = false;
+                _breakpointBeforeExecution = false;
             }
 
         }
     }
 
-    public bool SuspendStepBeforeExecution
+    public bool BreakpointBeforeExecution
     {
-        get => _suspendStepBeforeExecution;
+        get => _breakpointBeforeExecution;
         set
         {
-            _suspendStepBeforeExecution = value;
+            _breakpointBeforeExecution = value;
 
             if (value)
             {
-                _suspendStepAfterExecution = false;
+                _breakpointAfterExecution = false;
             }
 
           
@@ -47,9 +47,9 @@ public sealed record FlatAxoStepItem(
     }
 
     public eAxoStepExecutionMode StepExecutionMode => RawStepExecutionMode;
-        //SuspendStepBeforeExecution
+        //BreakpointBeforeExecution
         //    ? eAxoStepExecutionMode.SwitchToStepModeBeforeEnteringStep
-        //    : SuspendStepAfterExecution
+        //    : BreakpointAfterExecution
         //        ? eAxoStepExecutionMode.SwitchToStepModeAfterLeavingStep
         //    : RawStepExecutionMode;
 

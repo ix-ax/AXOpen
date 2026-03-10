@@ -1,0 +1,53 @@
+.breakpoint-dot {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 9999px;
+    border: 1px solid #111111;
+    background-color: #111111;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    transition: background-color 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+
+.breakpoint-dot:checked {
+    background-color: #dc2626;
+    border-color: #dc2626;
+}
+
+.breakpoint-dot.breakpoint-dot-applied {
+    background-color: #991b1b;
+    border-color: #991b1b;
+    box-shadow: 0 0 0 2px rgba(153, 27, 27, 0.22);
+}
+
+.breakpoint-dot.breakpoint-dot-current {
+    background-color: #facc15;
+    border-color: #eab308;
+    box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.28);
+}
+
+tr.current-step-row > td {
+    background-color: rgba(250, 204, 21, 0.14);
+}
+
+tr.current-step-row:hover > td {
+    background-color: rgba(250, 204, 21, 0.22);
+}
+
+.breakpoint-dot:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+th.breakpoint-col,
+td.breakpoint-col {
+    width: 1%;
+    min-width: 44px;
+    white-space: nowrap;
+    text-align: center;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+}
