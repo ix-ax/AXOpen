@@ -137,12 +137,20 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax swddo' Finished in :" $(expr $(date +%s) - $START) "s"
   alf: | #clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw                                      (apax plcsim & apax clean & apax install & apax clean_plc & apax ssc & apax hwfd & apax swfd)
     START=$(date +%s)
-      ..\\..\\scripts\\all_first.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
+    if [ "$1" = "--force" ] || [ "$1" = "-f" ]; then
+      ..\\..\\scripts\\all_first.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED true
+    else
+      ..\\..\\scripts\\all_first.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED false
+    fi
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax alf' Finished in :" $(expr $(date +%s) - $START) "s"
   all: | #build and download hardware and software using cert file. If cert file does not exists or its hash is different calls apax alf                    (apax plcsim & apax clean & apax install & apax hwu & apax swfd)
     START=$(date +%s)
-      ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
-    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax all' Finished in :" $(expr $(date +%s) - $START) "s"
+    if [ "$1" = "--force" ] || [ "$1" = "-f" ]; then
+      ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED true
+    else
+      ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED false
+    fi
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax all' Finished in :" $(expr $(date +%s) - $START) "s"    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax all' Finished in :" $(expr $(date +%s) - $START) "s"
   ib: |
     START=$(date +%s)
     apax install
