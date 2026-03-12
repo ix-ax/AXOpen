@@ -87,7 +87,7 @@ namespace AXOpen.Data.Query
         }
 
         public List<PlainSymbolBuilder> PlainBuilders { private set; get; } = new List<PlainSymbolBuilder>();
-        public List<string> Symbols { private set; get; } = new List<string>();// whole available symbols
+        public List<Symbol> Symbols { private set; get; } = new();// whole available symbols
 
         private string _SymbolsQueryFilter = "";
 
@@ -151,11 +151,11 @@ namespace AXOpen.Data.Query
             await FillObservableSymbols();
         }
 
-        public List<string> FilteredSymbols { private set; get; } = new List<string>(); // symbols for qery on selected pagge and display to the user
+        public List<Symbol> FilteredSymbols { private set; get; } = new(); // symbols for qery on selected pagge and display to the user
 
         private volatile object _displaySymbolLock = new object();
 
-        private List<string> _DisplyedSymbols = new List<string>(); // symbols for qery on selected pagge and display to te user
+        private List<Symbol> _DisplyedSymbols = new(); // symbols for qery on selected pagge and display to te user
 
         private string _StorageKey;
 
@@ -182,9 +182,9 @@ namespace AXOpen.Data.Query
             }
         }
 
-        public List<string> GetDisplaySymbols()
+        public List<Symbol> GetDisplaySymbols()
         {
-            var symbolList = new List<string>();
+            var symbolList = new List<Symbol>();
 
             lock (_displaySymbolLock)
             {
@@ -215,7 +215,7 @@ namespace AXOpen.Data.Query
         {
             await InvokeAsync(() =>
             {
-                var query = Symbols.Where(s => string.IsNullOrEmpty(SymbolsQueryFilter) || s.Contains(SymbolsQueryFilter, StringComparison.OrdinalIgnoreCase)).ToList();
+                var query = Symbols.Where(s => string.IsNullOrEmpty(SymbolsQueryFilter) || s.SymbolPath.Contains(SymbolsQueryFilter, StringComparison.OrdinalIgnoreCase)).ToList();
                 SymbolsQueryCount = query.Count;
                 FilteredSymbols = query;
             });
@@ -223,7 +223,7 @@ namespace AXOpen.Data.Query
             await FillObservableSymbols();
         }
 
-        public Task<bool> AddSymbolToQuery(string symbol)
+        public Task<bool> AddSymbolToQuery(Symbol symbol)
         {
             var querySymbol = this.PlainBuilders.CreateNewQuerySymbol(symbol);
 
@@ -312,7 +312,7 @@ namespace AXOpen.Data.Query
             return Task.FromResult(false); // No movement possible
         }
 
-        public Task<bool> AddSymbolToSorting(string symbol)
+        public Task<bool> AddSymbolToSorting(Symbol symbol)
         {
             CurrentQuery.Sorting.Add(this.PlainBuilders.CreateNewSortSymbol(symbol));
             return Task.FromResult(true);

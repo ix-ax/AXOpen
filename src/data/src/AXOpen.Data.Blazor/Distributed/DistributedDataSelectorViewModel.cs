@@ -1,4 +1,4 @@
-﻿using AXOpen.Base.Data;
+using AXOpen.Base.Data;
 using AXOpen.Base.Data.Query;
 using AXOpen.Base.Dialogs;
 using AXOpen.Data.Query;
@@ -53,8 +53,7 @@ namespace AXOpen.Data
             {
                 if (_DefaulQueryDataEntityId == null)
                 {
-                    var poco = MainExchange.GetPlainTypes().First();
-                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}._EntityId", typeof(string).FullName, "StartsWith", "", "");
+                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration(MainExchange.GetPlainTypes().First().FullName, $"_EntityId", typeof(string).FullName, "StartsWith", "", "");
                 }
 
                 return _DefaulQueryDataEntityId;

@@ -1,4 +1,4 @@
-﻿using AXOpen.Data.Interfaces;
+using AXOpen.Data.Interfaces;
 using AXOpen.Data;
 using AXSharp.Presentation;
 using System;
@@ -143,8 +143,7 @@ namespace AXOpen.Data
             {
                 if (_DefaulQueryDataEntityId == null)
                 {
-                    var poco = DataExchange.GetPlainTypes().First();
-                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}._EntityId", typeof(string).FullName, "StartsWith", "", "");
+                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration(DataExchange.GetPlainTypes().First().FullName,"_EntityId", typeof(string).FullName, "StartsWith", "", "");
                 }
 
                 return _DefaulQueryDataEntityId;

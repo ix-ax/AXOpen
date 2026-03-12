@@ -63,9 +63,5 @@ namespace AXOpen.Data.Query
             return new SortSymbolConfiguration(symbol.RootTypeName, symbol.SymbolPath, t.FullName, false);
         }
 
-
-
-
-
     }
 }

@@ -174,7 +174,7 @@ namespace AXOpen.Data.Query
                 TypeDictionary[type] = objectProperties;
             }
         }
-        private void CollectSymbols(Type type, string currentPath, List<string> symbols)
+        private void CollectSymbolsPaths(Type type, string currentPath, List<string> symbols)
         {
             if (!TypeDictionary.TryGetValue(type, out var properties))
                 return;
@@ -189,9 +189,16 @@ namespace AXOpen.Data.Query
                 }
                 else
                 {
-                    CollectSymbols(prop.VariableType, newPath, symbols);
+                    CollectSymbolsPaths(prop.VariableType, newPath, symbols);
                 }
             }
+        }
+
+        public List<AXOpen.Data.Query.Symbol> GetSymbols()
+        {
+            var symbols = new List<AXOpen.Data.Query.Symbol>();
+            symbols.AddRange(GetSymbolPaths().Select(p => new AXOpen.Data.Query.Symbol( RootTypeName , p)));
+            return symbols;
         }
 
         /// <summary>
@@ -200,7 +207,7 @@ namespace AXOpen.Data.Query
         /// Example: <c>vInt</c>, <c>NestObj.vString</c>.
         /// </summary>
         /// <returns>List of discoverable symbol paths.</returns>
-        public List<string> GetSymbols( )
+        public List<string> GetSymbolPaths( )
         {
             var symbols = new List<string>();
 
@@ -208,14 +215,14 @@ namespace AXOpen.Data.Query
                 return symbols;
 
 
-            CollectSymbols(RootType,"", symbols);
+            CollectSymbolsPaths(RootType,"", symbols);
 
             return symbols;
         }
 
         /// <summary>
         /// Resolves CLR type of a symbol path relative to <see cref="RootType"/>.
-        /// The path must use the same format as <see cref="GetSymbols"/> output,
+        /// The path must use the same format as <see cref="GetSymbolPaths"/> output,
         /// i.e. without root type prefix.
         /// </summary>
         /// <param name="symbolPath">Relative symbol path, for example <c>vInt</c> or <c>NestObj.vInt</c>.</param>
