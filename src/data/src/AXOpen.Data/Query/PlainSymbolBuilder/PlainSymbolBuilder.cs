@@ -150,7 +150,7 @@ namespace AXOpen.Data.Query
                 }
 
                 var isNullableType = Nullable.GetUnderlyingType(prop.PropertyType) != null;
-                var actualType = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
+                var actualType =   prop.PropertyType;
                 var isPlainType = typeof(IPlain).IsAssignableFrom(actualType);
 
                 if (isNullableType && isPlainType)
@@ -159,7 +159,7 @@ namespace AXOpen.Data.Query
                     continue;
                 }
 
-                var p = new PlainFilterVariable(prop.Name, actualType, isPlainType);
+                var p = new PlainFilterVariable(prop.Name, actualType, isPlainType, isNullableType);
 
                 objectProperties.Add(p);
 
@@ -194,8 +194,13 @@ namespace AXOpen.Data.Query
             }
         }
 
-
-        public List<string> GetSymbols( bool attachRootName = false)
+        /// <summary>
+        /// Builds all leaf symbol paths for the current <see cref="RootType"/>.
+        /// Returned paths are relative to the root type and do not include root type name.
+        /// Example: <c>vInt</c>, <c>NestObj.vString</c>.
+        /// </summary>
+        /// <returns>List of discoverable symbol paths.</returns>
+        public List<string> GetSymbols( )
         {
             var symbols = new List<string>();
 
@@ -203,22 +208,30 @@ namespace AXOpen.Data.Query
                 return symbols;
 
 
-            CollectSymbols(RootType, attachRootName ? this.RootTypeName : "", symbols);
+            CollectSymbols(RootType,"", symbols);
 
             return symbols;
         }
-        public Type? GetSymbolType(string result)
+
+        /// <summary>
+        /// Resolves CLR type of a symbol path relative to <see cref="RootType"/>.
+        /// The path must use the same format as <see cref="GetSymbols"/> output,
+        /// i.e. without root type prefix.
+        /// </summary>
+        /// <param name="symbolPath">Relative symbol path, for example <c>vInt</c> or <c>NestObj.vInt</c>.</param>
+        /// <returns>
+        /// Final property type when path is valid; otherwise <see langword="null"/>.
+        /// </returns>
+        public Type? GetSymbolType(string symbolPath)
         {
-            if (string.IsNullOrWhiteSpace(result))
+            if (string.IsNullOrWhiteSpace(symbolPath))
                 return null;
 
-            var parts = result.Split('.');
+            var parts = symbolPath.Split('.');
+
             Type currentType = RootType;
 
-            if (parts[0] != this.RootTypeName)
-                throw new Exception("Symbol has different rootType name!");
-
-            foreach (var part in parts.Skip(1)) // Skip root name
+            foreach (var part in parts) 
             {
                 if (!TypeDictionary.ContainsKey(currentType))
                     return null;

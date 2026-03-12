@@ -13,7 +13,88 @@ namespace Tests_L4
         }
 
         [Fact]
-        public void plain_symbol_builder_should_be_initialized()
+        public void should_resolve_types_for_baseprimitives_symbols()
+        {
+            var plainSymbolBuilder = new PlainSymbolBuilder(typeof(BasePrimitives));
+            var plainSymbols = plainSymbolBuilder.GetSymbols().ToList();
+
+            Assert.Equal(typeof(BasePrimitives).FullName, plainSymbolBuilder.RootTypeName);
+
+            var expectedSymbolsWithTypes = new (string Symbol, Type Type)[]
+            {
+                ("vBOOL", typeof(bool)),
+                ("vBYTE", typeof(byte)),
+                ("vWORD", typeof(ushort)),
+                ("vDWORD", typeof(uint)),
+                ("vLWORD", typeof(ulong)),
+                ("vSINT", typeof(sbyte)),
+                ("vINT", typeof(short)),
+                ("vDINT", typeof(int)),
+                ("vLINT", typeof(long)),
+                ("vUSINT", typeof(byte)),
+                ("vUINT", typeof(ushort)),
+                ("vUDINT", typeof(uint)),
+                ("vULINT", typeof(ulong)),
+                ("vREAL", typeof(float)),
+                ("vLREAL", typeof(double)),
+                ("vTIME", typeof(TimeSpan)),
+                ("vLTIME", typeof(TimeSpan)),
+                ("vDATE", typeof(DateOnly)),
+                ("vLDATE", typeof(DateOnly)),
+                ("vTIME_OF_DAY", typeof(TimeSpan)),
+                ("vLTIME_OF_DAY", typeof(TimeSpan)),
+                ("vDATE_AND_TIME", typeof(DateTime)),
+                ("vLDATE_AND_TIME", typeof(DateTime)),
+                ("vCHAR", typeof(char)),
+                ("vWCHAR", typeof(char)),
+                ("vSTRING", typeof(string)),
+                ("vWSTRING", typeof(string))
+            };
+
+            Assert.Equal(expectedSymbolsWithTypes.Length, plainSymbols.Count);
+            foreach (var expected in expectedSymbolsWithTypes)
+            {
+                Assert.Contains(expected.Symbol, plainSymbols);
+
+                var symbolType = plainSymbolBuilder.GetSymbolType(expected.Symbol);
+                Assert.NotNull(symbolType);
+                Assert.Equal(expected.Type, symbolType);
+            }
+        }
+
+        [Fact]
+        public void should_resolve_types_for_stationdata_symbols()
+        {
+            var plainSymbolBuilder = new PlainSymbolBuilder(typeof(Pocos.FragmentExchange_Test_L4.StationData));
+            var plainSymbols = plainSymbolBuilder.GetSymbols().ToList();
+
+            Assert.Equal(typeof(Pocos.FragmentExchange_Test_L4.StationData).FullName, plainSymbolBuilder.RootTypeName);
+
+            var expectedSymbolsWithTypes = new (string Symbol, Type Type)[]
+            {
+                ("_EntityId", typeof(string)),
+                ("ModifiedAt", typeof(DateTime?)),
+                ("CreatedAt", typeof(DateTime?)),
+                ("vString", typeof(string)),
+                ("vInt", typeof(short)),
+                ("vBool", typeof(bool)),
+                ("NestObj.vString", typeof(string)),
+                ("NestObj.vInt", typeof(short)),
+                ("NestObj.vBool", typeof(bool)),
+            };
+
+            Assert.Equal(expectedSymbolsWithTypes.Length, plainSymbols.Count);
+            foreach (var expected in expectedSymbolsWithTypes)
+            {
+                Assert.Contains(expected.Symbol, plainSymbols);
+                var symbolType = plainSymbolBuilder.GetSymbolType(expected.Symbol);
+                Assert.NotNull(symbolType);
+                Assert.Equal(expected.Type, symbolType);
+            }
+        }
+
+        [Fact]
+        public void should_initialize_type_dictionary()
         {
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.NestedPrimitives_L3));
 
@@ -26,53 +107,28 @@ namespace Tests_L4
         }
 
         [Fact]
-        public void plain_symbol_builder_should_recognize_all_symbols()
+        public void should_ignore_root_properties()
         {
-            var plainSymbolBuilder = new PlainSymbolBuilder(typeof(BasePrimitives));
-            var plainSymbols = plainSymbolBuilder.GetSymbols().ToList();
+            PlainSymbolBuilder.IgnoreRootProperty("_EntityId");
 
-            Assert.Equal(typeof(BasePrimitives).FullName, plainSymbolBuilder.RootTypeName);
+            var plainSymbolBuilder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.ProcessData));
 
-            var expectedSymbols = new[]
-            {
-                "vBOOL",
-                "vBYTE",
-                "vWORD",
-                "vDWORD",
-                "vLWORD",
-                "vSINT",
-                "vINT",
-                "vDINT",
-                "vLINT",
-                "vUSINT",
-                "vUINT",
-                "vUDINT",
-                "vULINT",
-                "vREAL",
-                "vLREAL",
-                "vTIME",
-                "vLTIME",
-                "vDATE",
-                "vLDATE",
-                "vTIME_OF_DAY",
-                "vLTIME_OF_DAY",
-                "vDATE_AND_TIME",
-                "vLDATE_AND_TIME",
-                "vCHAR",
-                "vWCHAR",
-                "vSTRING",
-                "vWSTRING"
-            };
-
-            Assert.Equal(expectedSymbols.Length, plainSymbols.Count);
-            foreach (var symbol in expectedSymbols)
-            {
-                Assert.Contains(symbol, plainSymbols);
-            }
+            Assert.DoesNotContain("_EntityId", plainSymbolBuilder.GetSymbols());
         }
 
         [Fact]
-        public void plain_symbol_builder_should_ignore_interface_properties()
+        public void should_ignore_casted_properties()
+        {
+            PlainSymbolBuilder.IgnoreProperty(typeof(Pocos.AXOpen.Data.AxoDataEntity), "_EntityId");
+
+            var plainSymbolBuilder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.ProcessData));
+            var plainSymbols = plainSymbolBuilder.GetSymbols();
+
+            Assert.DoesNotContain("_EntityId", plainSymbols);
+        }
+
+        [Fact]
+        public void should_ignore_interface_properties()
         {
             PlainSymbolBuilder.IgnoreProperty(typeof(AXSharp.Connector.IPlain), "vBOOL");
             PlainSymbolBuilder.IgnoreProperty(typeof(AXSharp.Connector.IPlain), "vLDATE_AND_TIME");
@@ -85,18 +141,7 @@ namespace Tests_L4
         }
 
         [Fact]
-        public void plain_symbol_builder_should_ignore_casted_properties()
-        {
-            PlainSymbolBuilder.IgnoreProperty(typeof(Pocos.AXOpen.Data.AxoDataEntity), "_EntityId");
-
-            var plainSymbolBuilder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.ProcessData));
-            var plainSymbols = plainSymbolBuilder.GetSymbols();
-
-            Assert.DoesNotContain("_EntityId", plainSymbols);
-        }
-
-        [Fact]
-        public void plain_symbol_builder_should_include_nullable_time_properties()
+        public void should_include_nullable_time_properties()
         {
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(Pocos.AXOpen.Data.AxoDataEntity));
             var plainSymbols = plainSymbolBuilder.GetSymbols();
@@ -108,7 +153,7 @@ namespace Tests_L4
         }
 
         [Fact]
-        public void plain_symbol_builder_should_include_nullable_object_properties()
+        public void should_include_nullable_object_properties()
         {
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(NulableAxoDataEntity));
             var plainSymbols = plainSymbolBuilder.GetSymbols();
@@ -122,7 +167,7 @@ namespace Tests_L4
         }
 
         [Fact]
-        public void plain_symbol_builder_should_ignore_object_with_attribute()
+        public void should_ignore_object_with_attribute()
         {
             PlainSymbolBuilder.IgnoreAttribute(typeof(CustomExcludeAttribute));
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(NulableAxoDataEntity));
@@ -137,17 +182,7 @@ namespace Tests_L4
         }
 
         [Fact]
-        public void plain_symbol_builder_should_ignore_root_properties()
-        {
-            PlainSymbolBuilder.IgnoreRootProperty("_EntityId");
-
-            var plainSymbolBuilder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.ProcessData));
-
-            Assert.DoesNotContain("_EntityId", plainSymbolBuilder.GetSymbols());
-        }
-
-        [Fact]
-        public void plain_symbol_builder_should_return_symbols()
+        public void should_return_symbols()
         {
             // 21 ms - 81 000
             // 15 ms - 54 000
