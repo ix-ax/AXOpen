@@ -1,4 +1,4 @@
-﻿using AXOpen.Data;
+using AXOpen.Data;
 using AXOpen.Base.Data;
 using System;
 using System.Collections.Generic;
@@ -13,45 +13,58 @@ namespace AXOpen.Data.Query
 {
     public static class QueryExtensions
     {
-        public static PredicateContainer AddQuerySymbolToPredicates(this PredicateContainer pc, IEnumerable<PlainSymbolBuilder> plains, QuerySymbolConfiguration config)
+        public static PredicateContainer AddQuerySymbolToPredicates(this PredicateContainer pc, PlainSymbolBuilder builder, QuerySymbolConfiguration config)
         {
-            if (plains == null || config == null)
+            if (builder == null || config == null) return pc;
+
+            var lambda = PredicateBuilder.BuildLambdaPredicate(builder.RootType, config.SymbolPath, config.Operation, config.MinOrValue, config.Max);
+            pc.AddPredicates(builder.RootType, lambda);
+
+            return pc;
+        }
+
+        public static PredicateContainer AddSortSymbolToPredicates(this PredicateContainer pc, PlainSymbolBuilder builder, SortSymbolConfiguration config)
+        {
+            if (builder == null || config == null) return pc;
+
+            var sc = new SortSettings() { MemberName = config.SymbolPath, IsAscending = config.IsAscending };
+            pc.AddSortMember(sc, builder.RootType);
+
+            return pc;
+        }
+
+
+
+        public static PredicateContainer AddQuerySymbolToPredicates(this PredicateContainer pc, IEnumerable<PlainSymbolBuilder> builders, QuerySymbolConfiguration config)
+        {
+            if (builders == null || config == null) return pc;
+
+            var targetBuilders = builders.Where(p => p.RootType == config.RootType);
+
+            if (targetBuilders != null && targetBuilders.Count() > 0)
             {
-                return pc;
-            }
+                var builder = targetBuilders.First();
 
-            var targetPlains = plains.Where(p => p.RootTypeName == config.ParentTypeName);
-
-            if (targetPlains != null && targetPlains.Count() > 0)
-            {
-                var targetPlain = targetPlains.First();
-
-                var lambda = PredicateBuilder.BuildLambdaPredicate(targetPlain.RootType, config.Symbol, config.Operation, config.MinOrValue, config.Max);
-
-                pc.AddPredicates(targetPlain.RootType, lambda);
+                pc.AddQuerySymbolToPredicates(builder, config);
             }
 
             return pc;
         }
 
-        public static PredicateContainer AddSortSymbolToPredicates(this PredicateContainer pc, IEnumerable<PlainSymbolBuilder> plains, SortSymbolConfiguration config)
+        public static PredicateContainer AddSortSymbolToPredicates(this PredicateContainer pc, IEnumerable<PlainSymbolBuilder> builders, SortSymbolConfiguration config)
         {
-            if (plains == null || config == null)
+            if (builders == null || config == null) return pc;
+
+            var targetBuilders = builders.Where(p => p.RootType == config.RootType);
+
+            if (targetBuilders != null && targetBuilders.Count() > 0)
             {
-                return pc;
+                var builder = targetBuilders.First();
+
+                var sc = new SortSettings() { MemberName = config.SymbolPath, IsAscending = config.IsAscending };
+
+                pc.AddSortMember(sc, builder.RootType);
             }
-
-            var targetPlains = plains.Where(p => p.RootTypeName == config.ParentTypeName);
-
-            if (targetPlains != null && targetPlains.Count() > 0)
-            {
-                var targetPlain = targetPlains.First();
-
-                var sc = new SortSettings() { MemberName = config.Symbol, IsAscending = config.IsAscending };
-
-                pc.AddSortMember(sc, targetPlain.RootType);
-            }
-
             return pc;
         }
     }

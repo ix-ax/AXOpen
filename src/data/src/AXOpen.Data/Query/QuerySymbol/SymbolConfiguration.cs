@@ -1,4 +1,4 @@
-﻿using AXOpen.Data;
+using AXOpen.Data;
 using AXOpen.Base.Data;
 using System;
 using System.Collections.Generic;
@@ -12,35 +12,18 @@ using Newtonsoft.Json.Linq;
 
 namespace AXOpen.Data.Query
 {
-    public class SymbolConfiguration
+    public class SymbolConfiguration : Symbol
     {
         [JsonConstructor]
-        public SymbolConfiguration(string symbolPathWithParent, string symbolTypeFullName)
+        public SymbolConfiguration(string rootTypeName, string symbolPath, string symbolTypeName) : base(rootTypeName, symbolPath)
         {
-            this.SymbolPathWithParent = symbolPathWithParent;
-            this.SymbolTypeFullName = symbolTypeFullName;
+            this.SymbolTypeName = symbolTypeName;
         }
 
-        public string SymbolPathWithParent { get; set; }
-        public string SymbolTypeFullName { get; set; }
+        public string SymbolTypeName { get; set; }
 
         public Guid TrackSymbolId { get; set; } = Guid.NewGuid();
 
-        private string _ParentTypeName = string.Empty;
-
-        [System.Text.Json.Serialization.JsonIgnore]
-        public string ParentTypeName
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(_ParentTypeName))
-                {
-                    _ParentTypeName = GetParentTypeName(SymbolPathWithParent);
-                }
-
-                return _ParentTypeName;
-            }
-        }
 
         private Type _SymbolType;
 
@@ -51,47 +34,62 @@ namespace AXOpen.Data.Query
             {
                 if (_SymbolType == null)
                 {
-                    _SymbolType = Type.GetType(SymbolTypeFullName);
+                    _SymbolType = ResolveType(SymbolTypeName);
                 }
 
                 return _SymbolType;
             }
         }
 
-        private string _Symbol = string.Empty;
-
-        [System.Text.Json.Serialization.JsonIgnore]
-        public string Symbol
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(_Symbol))
-                {
-                    _Symbol = RemoveParentTypeName(SymbolPathWithParent);
-                }
-                return _Symbol;
-            }
-        }
-
-        private string _Operation;
 
         internal object CheckType(object inputValue)
         {
             if (inputValue != null)
             {
-                if (inputValue.GetType() == SymbolType)
+                var inputType = inputValue.GetType();
+                var targetType = SymbolType;
+
+                // 1) Easiest path: same type, no conversion required.
+                if (inputType == targetType)
                 {
                     return inputValue;
                 }
-                else
+
+                var targetUnderlyingType = Nullable.GetUnderlyingType(targetType);
+
+                // 2) Nullable target: assign when input matches underlying type.
+                if (targetUnderlyingType != null)
                 {
+                    if (inputType == targetUnderlyingType)
+                    {
+                        return inputValue;
+                    }
+
                     try
                     {
-                        return Convert.ChangeType(inputValue, SymbolType);
+                        return Convert.ChangeType(inputValue, targetUnderlyingType);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        // swallow;
+                        // swallow
+                    }
+                }
+                else
+                {
+                    // 3) Non-nullable target with nullable input that has same underlying type.
+                    var inputUnderlyingType = Nullable.GetUnderlyingType(inputType);
+                    if (inputUnderlyingType == targetType)
+                    {
+                        return inputValue;
+                    }
+
+                    try
+                    {
+                        return Convert.ChangeType(inputValue, targetType);
+                    }
+                    catch (Exception)
+                    {
+                        // swallow
                     }
                 }
             }

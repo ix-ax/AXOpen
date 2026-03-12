@@ -1,4 +1,4 @@
-﻿using AXOpen.Data;
+using AXOpen.Data;
 using AXOpen.Base.Data;
 using System;
 using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace AXOpen.Data.Query
     public class SortSymbolConfiguration : SymbolConfiguration
     {
         [JsonConstructor]
-        public SortSymbolConfiguration(string symbolPathWithParent, string symbolTypeFullName, bool isAscending) : base(symbolPathWithParent, symbolTypeFullName)
+        public SortSymbolConfiguration( string parentFullTypeName, string symbolPathWithParent, string symbolTypeFullName, bool isAscending) : base( parentFullTypeName ,symbolPathWithParent, symbolTypeFullName)
         {
             this.IsAscending = isAscending;
         }

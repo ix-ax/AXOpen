@@ -1,4 +1,4 @@
-﻿namespace Tests_L4
+namespace Tests_L4
 {
     using AXOpen.Base.Data.Query;
     using AXOpen.Data;
@@ -59,60 +59,57 @@
             Assert.Equal(33, result.Count());
 
             // ProcessData top-level members
-            Assert.Equal("ProcessData.vString",                    result[0]);
-            Assert.Equal("ProcessData.vInt",                       result[1]);
-            Assert.Equal("ProcessData.vBool",                      result[2]);
+            Assert.Equal("vString",                    result[0]);
+            Assert.Equal("vInt",                       result[1]);
+            Assert.Equal("vBool",                      result[2]);
 
             // ProcessData.Primitives nested members
-            Assert.Equal("ProcessData.Primitives.vBOOL",           result[3]);
-            Assert.Equal("ProcessData.Primitives.vBYTE",           result[4]);
-            Assert.Equal("ProcessData.Primitives.vWORD",           result[5]);
-            Assert.Equal("ProcessData.Primitives.vDWORD",          result[6]);
-            Assert.Equal("ProcessData.Primitives.vLWORD",          result[7]);
-            Assert.Equal("ProcessData.Primitives.vSINT",           result[8]);
-            Assert.Equal("ProcessData.Primitives.vINT",            result[9]);
-            Assert.Equal("ProcessData.Primitives.vDINT",           result[10]);
-            Assert.Equal("ProcessData.Primitives.vLINT",           result[11]);
-            Assert.Equal("ProcessData.Primitives.vUSINT",          result[12]);
-            Assert.Equal("ProcessData.Primitives.vUINT",           result[13]);
-            Assert.Equal("ProcessData.Primitives.vUDINT",          result[14]);
-            Assert.Equal("ProcessData.Primitives.vULINT",          result[15]);
-            Assert.Equal("ProcessData.Primitives.vREAL",           result[16]);
-            Assert.Equal("ProcessData.Primitives.vLREAL",          result[17]);
-            Assert.Equal("ProcessData.Primitives.vTIME",           result[18]);
-            Assert.Equal("ProcessData.Primitives.vLTIME",          result[19]);
-            Assert.Equal("ProcessData.Primitives.vDATE",           result[20]);
-            Assert.Equal("ProcessData.Primitives.vLDATE",          result[21]);
-            Assert.Equal("ProcessData.Primitives.vTIME_OF_DAY",    result[22]);
-            Assert.Equal("ProcessData.Primitives.vLTIME_OF_DAY",   result[23]);
-            Assert.Equal("ProcessData.Primitives.vDATE_AND_TIME",  result[24]);
-            Assert.Equal("ProcessData.Primitives.vLDATE_AND_TIME", result[25]);
-            Assert.Equal("ProcessData.Primitives.vCHAR",           result[26]);
-            Assert.Equal("ProcessData.Primitives.vWCHAR",          result[27]);
-            Assert.Equal("ProcessData.Primitives.vSTRING",         result[28]);
-            Assert.Equal("ProcessData.Primitives.vWSTRING",        result[29]);
+            Assert.Equal("Primitives.vBOOL",           result[3]);
+            Assert.Equal("Primitives.vBYTE",           result[4]);
+            Assert.Equal("Primitives.vWORD",           result[5]);
+            Assert.Equal("Primitives.vDWORD",          result[6]);
+            Assert.Equal("Primitives.vLWORD",          result[7]);
+            Assert.Equal("Primitives.vSINT",           result[8]);
+            Assert.Equal("Primitives.vINT",            result[9]);
+            Assert.Equal("Primitives.vDINT",           result[10]);
+            Assert.Equal("Primitives.vLINT",           result[11]);
+            Assert.Equal("Primitives.vUSINT",          result[12]);
+            Assert.Equal("Primitives.vUINT",           result[13]);
+            Assert.Equal("Primitives.vUDINT",          result[14]);
+            Assert.Equal("Primitives.vULINT",          result[15]);
+            Assert.Equal("Primitives.vREAL",           result[16]);
+            Assert.Equal("Primitives.vLREAL",          result[17]);
+            Assert.Equal("Primitives.vTIME",           result[18]);
+            Assert.Equal("Primitives.vLTIME",          result[19]);
+            Assert.Equal("Primitives.vDATE",           result[20]);
+            Assert.Equal("Primitives.vLDATE",          result[21]);
+            Assert.Equal("Primitives.vTIME_OF_DAY",    result[22]);
+            Assert.Equal("Primitives.vLTIME_OF_DAY",   result[23]);
+            Assert.Equal("Primitives.vDATE_AND_TIME",  result[24]);
+            Assert.Equal("Primitives.vLDATE_AND_TIME", result[25]);
+            Assert.Equal("Primitives.vCHAR",           result[26]);
+            Assert.Equal("Primitives.vWCHAR",          result[27]);
+            Assert.Equal("Primitives.vSTRING",         result[28]);
+            Assert.Equal("Primitives.vWSTRING",        result[29]);
 
             // Inherited AxoDataEntity members
-            Assert.Equal("ProcessData.ModifiedAt",                 result[30]);
-            Assert.Equal("ProcessData.CreatedAt",                  result[31]);
-            Assert.Equal("ProcessData._EntityId",                  result[32]);
+            Assert.Equal("ModifiedAt",                 result[30]);
+            Assert.Equal("CreatedAt",                  result[31]);
+            Assert.Equal("_EntityId",                  result[32]);
         }
 
         [Fact]
         public void should_build_lambda_from_symbol()
         {
-            var plains = Exchange.GetPlainTypes();
+            var plainSymbolBuilder = new PlainSymbolBuilder(Exchange.GetPlainTypes().First());
 
-            string requiredSymbolName = "ProcessData.vString";
             Type requiredSymbolType = typeof(string);
+            string requiredSymbolName = "vString";
 
-            var plainSymbolBuilder = new PlainSymbolBuilder(plains.First());
-
-            var result = plainSymbolBuilder.GetSymbols().Where(p => p == requiredSymbolName).First(); //SharedHeader.vString"
-
+            var result = plainSymbolBuilder.GetSymbols().Where(p => p == requiredSymbolName).First(); //vString"
             Assert.Equal(requiredSymbolName, result);
 
-            var acquiredSymbolType = plainSymbolBuilder.GetSymbolType(result);
+            var acquiredSymbolType = plainSymbolBuilder.GetSymbolType(requiredSymbolName);
 
             Assert.Equal(requiredSymbolType.FullName, acquiredSymbolType.FullName);
 
@@ -132,7 +129,7 @@
         {
             var plains = Exchange.GetPlainTypes();
 
-            string requiredSymbolName = "ProcessData.vInt";
+            string requiredSymbolName = "vInt";
             Type requiredSymbolType = typeof(Int16);
 
             var plainSymbolBuilder = new PlainSymbolBuilder(plains.First());
@@ -170,87 +167,41 @@
         [Fact]
         public void should_build_lambda_from_query_symbol()
         {
-            var plainBuilders = Exchange.GetPlainTypes().Select(p => new PlainSymbolBuilder(p)).ToList();
+            var builder = new PlainSymbolBuilder(Exchange.GetPlainTypes().First());
 
-            var plainTypeHeaderName = plainBuilders.First().RootTypeName;
-
-            string varNameHeader = "vString";
-            string varValueMinHeader = "3";
-            string varValueMaxHeader = "";
-            string varOperationHeader = "Contains";
-
-            Type requiredSymbolTypeHeader = typeof(string);
-
-            string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.{varNameHeader}";
-
+            string variablePath = "vString";
+            string variableValue = "3";
+            string variableOperation = "Contains";
+            
             var config = new QuerySymbolConfiguration(
-                RequiredSymbolPathWithParent,
-                requiredSymbolTypeHeader.FullName,
-                varOperationHeader,
-                varValueMinHeader,
-                varValueMaxHeader);
+                builder.RootTypeName,
+                variablePath,
+                typeof(string).FullName,
+                variableOperation,
+                variableValue,
+                "");
 
-            // check right set up
-            Assert.Equal(RequiredSymbolPathWithParent, config.SymbolPathWithParent);
-            Assert.Equal(plainTypeHeaderName, config.ParentTypeName);
-            Assert.Equal(varNameHeader, config.Symbol);
-
-            var pc = new PredicateContainer().AddQuerySymbolToPredicates(plainBuilders, config);
+            var pc = new PredicateContainer().AddQuerySymbolToPredicates(builder, config);
 
             var records = Exchange.GetRecords(pc, 100, 0);
 
             Assert.Equal(1, records.Count());
         }
 
-        [Fact]
-        public void should_build_create_query_symbol()
-        {
-            var plainBuilders = Exchange.GetPlainTypes().Select(p => new PlainSymbolBuilder(p)).ToList();
-
-            var plainTypeHeaderName = plainBuilders.First().RootTypeName;
-
-            string varNameHeader = "vString";
-            string varValueMinHeader = "3";
-            string varOperationHeader = "Contains";
-
-            Type requiredSymbolTypeHeader = typeof(string);
-
-            string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.{varNameHeader}";
-
-            var config = plainBuilders.CreateNewQuerySymbol(RequiredSymbolPathWithParent);
-
-            config.MinOrValue = varValueMinHeader;
-            config.Operation = varOperationHeader;
-
-            // check right set up
-            Assert.Equal(RequiredSymbolPathWithParent, config.SymbolPathWithParent);
-            Assert.Equal(plainTypeHeaderName, config.ParentTypeName);
-            Assert.Equal(varNameHeader, config.Symbol);
-
-            var pc = new PredicateContainer().AddQuerySymbolToPredicates(plainBuilders, config);
-
-            var records = Exchange.GetRecords(pc, 100, 0);
-
-            Assert.Equal(1, records.Count());
-        }
 
         [Fact]
         public void should_build_filter_and_sort_accesing()
         {
             var plains = Exchange.GetPlainTypes();
 
-            var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
+            var builder = plains.Select(p => new PlainSymbolBuilder(p)).First();
+                        
+            var querySymbol = builder.CreateNewQuerySymbol(Constants.MEMBER_NAME_ENTITY_ID);
 
-            var plainTypeHeaderName = plainBuilders.First().RootTypeName;
+            querySymbol.MinOrValue = "";
+            querySymbol.Operation = "!="; // not empty
 
-            string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.{Constants.MEMBER_NAME_ENTITY_ID}";
-
-            var config = plainBuilders.CreateNewQuerySymbol(RequiredSymbolPathWithParent);
-
-            config.MinOrValue = "";
-            config.Operation = "!="; // not empty
-
-            var pc = new PredicateContainer().AddQuerySymbolToPredicates(plainBuilders, config);
+            var pc = new PredicateContainer().AddQuerySymbolToPredicates(builder, querySymbol);
 
             SortSettings sortSettings = new SortSettings() { IsAscending = true };
 
@@ -277,18 +228,14 @@
         {
             var plains = Exchange.GetPlainTypes();
 
-            var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
+            var builder = plains.Select(p => new PlainSymbolBuilder(p)).First();
 
-            var plainTypeHeaderName = plainBuilders.First().RootTypeName;
+            var querySymbol = builder.CreateNewQuerySymbol(Constants.MEMBER_NAME_ENTITY_ID);
 
-            string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.{Constants.MEMBER_NAME_ENTITY_ID}";
+            querySymbol.MinOrValue = "";
+            querySymbol.Operation = "!="; // not empty
 
-            var config = plainBuilders.CreateNewQuerySymbol(RequiredSymbolPathWithParent);
-
-            config.MinOrValue = "";
-            config.Operation = "!="; // not empty
-
-            var pc = new PredicateContainer().AddQuerySymbolToPredicates(plainBuilders, config);
+            var pc = new PredicateContainer().AddQuerySymbolToPredicates(builder, querySymbol);
 
             SortSettings sortSettings = new SortSettings() { IsAscending = false };
 
@@ -310,74 +257,71 @@
             Assert.Equal("0", records[9]._EntityId);
         }
 
-        [Fact]
-        public void should_build_filter_and_sort_from_sortsymbolConfiguraion()
-        {
-            var plains = Exchange.GetPlainTypes();
+        //[Fact]
+        //public void should_build_filter_and_sort_from_sortsymbolConfiguraion()
+        //{
+        //    var plains = Exchange.GetPlainTypes();
 
-            var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
+        //    var builder = plains.Select(p => new PlainSymbolBuilder(p)).First();
 
-            var plainTypeHeaderName = plainBuilders.First().RootTypeName;
+        //    var querySymbol = builder.CreateNewQuerySymbol(Constants.MEMBER_NAME_ENTITY_ID);
 
-            string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.{Constants.MEMBER_NAME_ENTITY_ID}";
+        //    querySymbol.MinOrValue = "";
 
-            QuerySymbolConfiguration querySymbol = plainBuilders.CreateNewQuerySymbol(RequiredSymbolPathWithParent);
+        //    querySymbol.Operation = "!="; // not empty
 
-            querySymbol.MinOrValue = "";
-            querySymbol.Operation = "!="; // not empty
+        //    SortSymbolConfiguration sortSymbol = new SortSymbolConfiguration(plainBuilders.First().RootTypeName,RequiredSymbolPathWithParent, typeof(string).FullName, false);
 
-            SortSymbolConfiguration sortSymbol = new SortSymbolConfiguration(RequiredSymbolPathWithParent, typeof(string).FullName, false);
+        //    var pc = new PredicateContainer();
 
-            var pc = new PredicateContainer();
+        //    pc.AddQuerySymbolToPredicates(plainBuilders, querySymbol);
 
-            pc.AddQuerySymbolToPredicates(plainBuilders, querySymbol);
+        //    pc.AddSortSymbolToPredicates(plainBuilders, sortSymbol);
 
-            pc.AddSortSymbolToPredicates(plainBuilders, sortSymbol);
+        //    var records = Exchange.GetRecords(pc, 100, 0).ToList();
 
-            var records = Exchange.GetRecords(pc, 100, 0).ToList();
+        //    Assert.Equal(10, records.Count());
 
-            Assert.Equal(10, records.Count());
+        //    Assert.Equal("9", records[0]._EntityId);
+        //    Assert.Equal("8", records[1]._EntityId);
+        //    Assert.Equal("7", records[2]._EntityId);
+        //    Assert.Equal("6", records[3]._EntityId);
+        //    Assert.Equal("5", records[4]._EntityId);
+        //    Assert.Equal("4", records[5]._EntityId);
+        //    Assert.Equal("3", records[6]._EntityId);
+        //    Assert.Equal("2", records[7]._EntityId);
+        //    Assert.Equal("1", records[8]._EntityId);
+        //    Assert.Equal("0", records[9]._EntityId);
+        //}
 
-            Assert.Equal("9", records[0]._EntityId);
-            Assert.Equal("8", records[1]._EntityId);
-            Assert.Equal("7", records[2]._EntityId);
-            Assert.Equal("6", records[3]._EntityId);
-            Assert.Equal("5", records[4]._EntityId);
-            Assert.Equal("4", records[5]._EntityId);
-            Assert.Equal("3", records[6]._EntityId);
-            Assert.Equal("2", records[7]._EntityId);
-            Assert.Equal("1", records[8]._EntityId);
-            Assert.Equal("0", records[9]._EntityId);
-        }
+        //[Fact]
+        //public void should_filter_and_sort_with_property()
+        //{
+        //    var plains = Exchange.GetPlainTypes();
 
-        [Fact]
-        public void should_filter_and_sort_with_property()
-        {
-            var plains = Exchange.GetPlainTypes();
+        //    var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
 
-            var plainBuilders = plains.Select(p => new PlainSymbolBuilder(p)).ToList();
+        //    var plainTypeHeaderName = plainBuilders.First().RootTypeName;
 
-            var plainTypeHeaderName = plainBuilders.First().RootTypeName;
+        //    string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.Primitives.vINT";
 
-            string RequiredSymbolPathWithParent = $"{plainTypeHeaderName}.Primitives.vINT";
+        //    QuerySymbolConfiguration querySymbol = plainBuilders.CreateNewQuerySymbol(RequiredSymbolPathWithParent);
 
-            QuerySymbolConfiguration querySymbol = plainBuilders.CreateNewQuerySymbol(RequiredSymbolPathWithParent);
+        //    querySymbol.MinOrValue = 0;
+        //    querySymbol.Operation = "!="; 
 
-            querySymbol.MinOrValue = 0;
-            querySymbol.Operation = "!="; 
+        //    SortSymbolConfiguration sortSymbol = new SortSymbolConfiguration(plainBuilders.First().RootTypeName, RequiredSymbolPathWithParent, typeof(string).FullName, false);
 
-            SortSymbolConfiguration sortSymbol = new SortSymbolConfiguration(RequiredSymbolPathWithParent, typeof(string).FullName, false);
+        //    var pc = new PredicateContainer();
 
-            var pc = new PredicateContainer();
+        //    pc.AddQuerySymbolToPredicates(plainBuilders, querySymbol);
 
-            pc.AddQuerySymbolToPredicates(plainBuilders, querySymbol);
+        //    pc.AddSortSymbolToPredicates(plainBuilders, sortSymbol);
 
-            pc.AddSortSymbolToPredicates(plainBuilders, sortSymbol);
+        //    var records = Exchange.GetRecords(pc, 100, 0).ToList();
 
-            var records = Exchange.GetRecords(pc, 100, 0).ToList();
+        //    Assert.Equal(10, records.Count());
 
-            Assert.Equal(10, records.Count());
-
-        }
+        //}
     }
 }

@@ -1,4 +1,4 @@
-﻿using AXOpen.Data;
+using AXOpen.Data;
 using AXOpen.Base.Data;
 using System;
 using System.Collections.Generic;
@@ -15,8 +15,8 @@ namespace AXOpen.Data.Query
     public class QuerySymbolConfiguration : SymbolConfiguration
     {
         [JsonConstructor]
-        public QuerySymbolConfiguration(string symbolPathWithParent, string symbolTypeFullName, string operation, object minOrValue, object max)
-            : base(symbolPathWithParent, symbolTypeFullName)
+        public QuerySymbolConfiguration( string rootTypeName,string symbolPath, string symbolTypeName, string operation, object minOrValue, object max)
+            : base(rootTypeName, symbolPath, symbolTypeName)
         {
             this.Operation = operation;
             this.MinOrValue = minOrValue;
@@ -24,8 +24,6 @@ namespace AXOpen.Data.Query
         }
 
         private object _MinOrValue;
-        private object _Max;
-
         [JsonConverter(typeof(QuerySymbolJsonValueConverter))]
         public object MinOrValue
         {
@@ -44,6 +42,7 @@ namespace AXOpen.Data.Query
             }
         }
 
+        private object _Max;
         [JsonConverter(typeof(QuerySymbolJsonValueConverter))]
         public object Max
         {
@@ -63,7 +62,6 @@ namespace AXOpen.Data.Query
         }
 
         private string _Operation;
-
         public string Operation
         {
             get { return _Operation; }
