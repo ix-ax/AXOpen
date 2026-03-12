@@ -932,7 +932,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //***********Update inputs ***************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_HandshakeAndGeneralErrorStatus) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1201, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1201;
                 RETURN;
             END_IF;
@@ -945,7 +945,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_BUSY_Status) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1202, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1202;
                 RETURN;
             END_IF;
@@ -958,7 +958,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_CompletionStatus) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1203, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1203, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1203;
                 RETURN;
             END_IF;
@@ -971,7 +971,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ErrorStatus) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1204, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1204, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1204;
                 RETURN;
             END_IF;
@@ -984,7 +984,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_TerminalStatus),_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1205, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1205, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1205;
                 RETURN;
             END_IF;
@@ -997,7 +997,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_UnstableReadStatus),_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1206, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1206, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1206;
                 RETURN;
             END_IF;
@@ -1010,7 +1010,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_MatchingLevelAndTotalEvaluationGradeStatus),_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1207, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1207, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1207;
                 RETURN;
             END_IF;
@@ -1030,7 +1030,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_OperationalResultStatus),_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1208, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1208, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1208;
                 RETURN;
             END_IF;
@@ -1067,7 +1067,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ReadData),_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1209, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1209, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1209;
                 RETURN;
             END_IF;
@@ -1137,7 +1137,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ClearResultDataTask running: reseting the outputs.
                 IF _progress = 330 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Error);
                         Status.Error.Id :=      UINT#530;
                     END_IF;
 
@@ -1169,7 +1169,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ClearResultDataTask running: reseting the error flag.
                 IF _progress = 331 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Error);
                         Status.Error.Id :=      UINT#531;
                     END_IF;
     
@@ -1183,7 +1183,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ClearResultDataTask running: reseting the read complete flag.
                 IF _progress = 332 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Error);
                         Status.Error.Id :=      UINT#532;
                     END_IF;
     
@@ -1197,7 +1197,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ClearResultDataTask running: reseting the preset complete flag.
                 IF _progress = 333 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#533, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#533, eAxoMessageCategory#Error);
                         Status.Error.Id :=      UINT#533;
                     END_IF;
     
@@ -1211,7 +1211,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ClearResultDataTask running: reseting the register preset data complete flag.
                 IF _progress = 334 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#534, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#534, eAxoMessageCategory#Error);
                         Status.Error.Id :=      UINT#534;
                     END_IF;
     
@@ -1225,7 +1225,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ClearResultDataTask running: reseting the tune complete flag.
                 IF _progress = 335 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#535, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#535, eAxoMessageCategory#Error);
                         Status.Error.Id :=      UINT#535;
                     END_IF;
     
@@ -1239,7 +1239,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ClearResultDataTask running: reseting the external request complete flag.
                 IF _progress = 336 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#536, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#536, eAxoMessageCategory#Error);
                         Status.Error.Id :=      UINT#536;
                     END_IF;
     
@@ -1253,7 +1253,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ClearResultDataTask running: waiting for the general error flag is reseted.
                 IF _progress = 337 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#537, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#537, eAxoMessageCategory#Error);
                         Status.Error.Id :=      UINT#537;
                     END_IF;
     
@@ -1285,8 +1285,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 Status.Error.Id  :=  UINT#10031;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10030,ClearResultDataTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10031,ClearResultDataTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#132,ClearResultDataTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10031,ClearResultDataTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#132,ClearResultDataTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF ClearResultDataTask.RestoreTriggered() AND _progress >= 330 AND _progress <= 339  THEN
                 Status.Action.Id :=  UINT#132;
                 _progress := 0;
@@ -1310,7 +1310,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ReadTask running: reseting the outputs.
                 IF _progress = 380 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#580, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#580, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#580;
                     END_IF;
 
@@ -1342,7 +1342,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ReadTask running: reseting the error flag.
                 IF _progress = 381 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#581, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#581, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#581;
                     END_IF;
     
@@ -1356,7 +1356,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ReadTask running: reseting the read complete flag.
                 IF _progress = 382 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#582, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#582, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#582;
                     END_IF;
     
@@ -1370,7 +1370,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ReadTask running: reseting the preset complete flag.
                 IF _progress = 383 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#583, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#583, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#583;
                     END_IF;
     
@@ -1384,7 +1384,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ReadTask running: reseting the register preset data complete flag.
                 IF _progress = 384 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#584, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#584, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#584;
                     END_IF;
     
@@ -1398,7 +1398,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ReadTask running: reseting the tune complete flag.
                 IF _progress = 385 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#585, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#585, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#585;
                     END_IF;
     
@@ -1412,7 +1412,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ReadTask running: reseting the external request complete flag.
                 IF _progress = 386 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#586, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#586, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#586;
                     END_IF;
     
@@ -1426,7 +1426,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ReadTask running: waiting for the general error flag is reseted.
                 IF _progress = 387 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#587, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#587, eAxoMessageCategory#Error);
                         Status.Error.Id :=      UINT#587;
                     END_IF;
     
@@ -1438,7 +1438,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ReadTask running: setting bank number.
                 IF _progress = 388 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#588, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#588, eAxoMessageCategory#Error);
                         Status.Error.Id :=      UINT#588;
                     END_IF;
     
@@ -1451,7 +1451,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ReadTask running: starting trigger.
                 IF _progress = 389 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#589, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#589, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#589;
                     END_IF;
     
@@ -1470,7 +1470,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ReadTask running: waiting for the result data.
                 IF _progress = 390 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#590, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#590, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#590;
                     END_IF;
     
@@ -1482,7 +1482,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ReadTask running: acknowledging results.
                 IF _progress = 391 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#591, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#591, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#591;
                     END_IF;
     
@@ -1515,8 +1515,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 Status.Error.Id  :=  UINT#10081;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10080,ReadTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10081,ReadTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#182,ReadTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10081,ReadTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#182,ReadTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF ReadTask.RestoreTriggered() AND _progress >= 380 AND _progress <= 399  THEN
                 Status.Action.Id :=  UINT#182;
                 _progress := 0;
@@ -1540,7 +1540,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TuneTask running: reseting the outputs.
                 IF _progress = 400 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#600, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#600, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#600;
                     END_IF;
     
@@ -1572,7 +1572,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TuneTask running: reseting the error flag.
                 IF _progress = 401 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#601, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#601, eAxoMessageCategory#Error);
                         Status.Error.Id :=      UINT#601;
                     END_IF;
     
@@ -1586,7 +1586,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TuneTask running: reseting the read complete flag.
                 IF _progress = 402 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#602, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#602, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#602;
                     END_IF;
     
@@ -1600,7 +1600,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TuneTask running: reseting the preset complete flag.
                 IF _progress = 403 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#603, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#603, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#603;
                     END_IF;
 
@@ -1614,7 +1614,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TuneTask running: reseting the register preset data complete flag.
                 IF _progress = 404 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#604, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#604, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#604;
                     END_IF;
     
@@ -1628,7 +1628,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TuneTask running: reseting the tune complete flag.
                 IF _progress = 405 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#605, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#605, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#605;
                     END_IF;
     
@@ -1642,7 +1642,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TuneTask running: reseting the external request complete flag.
                 IF _progress = 406 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#606, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#606, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#606;
                     END_IF;
     
@@ -1656,7 +1656,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TuneTask running: waiting for the general error flag is reseted.
                 IF _progress = 407 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#607, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#607, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#607;
                     END_IF;
     
@@ -1668,7 +1668,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TuneTask running: setting bank number.
                 IF _progress = 408 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#608, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#608, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#608;
                     END_IF;
     
@@ -1681,7 +1681,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TuneTask running: starting the tunning process.
                 IF _progress = 409 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#609, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#609, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#609;
                     END_IF;
 
@@ -1699,7 +1699,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TuneTask running: acknowledging the tunning process.
                 IF _progress = 410 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#610, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#610, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#610;
                     END_IF;
     
@@ -1732,8 +1732,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 Status.Error.Id  :=  UINT#10101;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10100,TuneTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10101,TuneTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#202,TuneTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10101,TuneTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#202,TuneTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF TuneTask.RestoreTriggered() AND _progress >= 400 AND _progress <= 419  THEN
                 Status.Action.Id :=  UINT#202;
                 _progress := 0;
@@ -1746,7 +1746,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_LatchAndErrorClearControl),_data_1);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1231, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1231;
                 RETURN;
             END_IF;
@@ -1758,7 +1758,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_OperationInstructionControl),_data_1);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1232, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1232;
                 RETURN;
             END_IF;
@@ -1771,7 +1771,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_CompletionClearControl),_data_1);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1233, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1233, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1233;
                 RETURN;
             END_IF;
@@ -1781,7 +1781,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_ParameterBankNumber),_data_2);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1234, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1234, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1234;
                 RETURN;
             END_IF;
@@ -1807,7 +1807,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     END_FOR;
                     _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_UserData),_data_34);
                     IF _retVal > WORD#0 THEN
-                        Messenger.Activate(UINT#1236, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(UINT#1236, eAxoMessageCategory#Error);
                         Status.Error.Id := UINT#1236;
                         RETURN;
                     END_IF;
@@ -1819,7 +1819,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     END_FOR;
                     _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_UserData),_data_66);
                     IF _retVal > WORD#0 THEN
-                        Messenger.Activate(UINT#1237, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(UINT#1237, eAxoMessageCategory#Error);
                         Status.Error.Id := UINT#1237;
                         RETURN;
                     END_IF;
@@ -1831,7 +1831,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     END_FOR;
                     _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_UserData),_data_130);
                     IF _retVal > WORD#0 THEN
-                        Messenger.Activate(UINT#1238, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(UINT#1238, eAxoMessageCategory#Error);
                         Status.Error.Id := UINT#1238;
                         RETURN;
                     END_IF;
@@ -1843,7 +1843,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                     END_FOR;
                     _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_UserData),_data_254);
                     IF _retVal > WORD#0 THEN
-                        Messenger.Activate(UINT#1239, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(UINT#1239, eAxoMessageCategory#Error);
                         Status.Error.Id := UINT#1239;
                         RETURN;
                     END_IF;
