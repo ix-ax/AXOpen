@@ -314,4 +314,52 @@
   <data name="AlarmCode" xml:space="preserve">
     <value>Kód alarmu</value>
   </data>
+  <data name="SequencerSendSuspendConfiguration" xml:space="preserve">
+    <value>Odoslat konfiguraciu pozastavenia</value>
+  </data>
+  <data name="SequencerSuspendBeforeExecution" xml:space="preserve">
+    <value>Pozastavit pred vykonanim</value>
+  </data>
+  <data name="SequencerSuspendAfterExecution" xml:space="preserve">
+    <value>Pozastavit po vykonani</value>
+  </data>
+  <data name="SequencerStepExecutionMode" xml:space="preserve">
+    <value>Rezim vykonania kroku</value>
+  </data>
+  <data name="SequencerNoStepsFound" xml:space="preserve">
+    <value>Nenasli sa ziadne kroky.</value>
+  </data>
+  <data name="SequencerMonitoredSteps" xml:space="preserve">
+    <value>Monitorované kroky</value>
+  </data>
+  <data name="SequencerNoMonitoredStepsSelected" xml:space="preserve">
+    <value>Nie sú vybraté žiadne monitorované kroky.</value>
+  </data>
+  <data name="SequencerBreakpoint" xml:space="preserve">
+    <value>Bod prerušenia</value>
+  </data>
+  <data name="SequencerOrder" xml:space="preserve">
+    <value>Poradie</value>
+  </data>
+  <data name="SequencerDesc" xml:space="preserve">
+    <value>Popis</value>
+  </data>
+  <data name="SequencerMonitor" xml:space="preserve">
+    <value>Monitor</value>
+  </data>
+  <data name="SequencerContinue" xml:space="preserve">
+    <value>Pokračovať</value>
+  </data>
+  <data name="SequencerRemove" xml:space="preserve">
+    <value>Odstrániť</value>
+  </data>
+  <data name="SequencerAddToMonitor" xml:space="preserve">
+    <value>Pridať do monitoru</value>
+  </data>
+  <data name="SequencerApplyBreakpoints" xml:space="preserve">
+    <value>Použiť body prerušenia</value>
+  </data>
+  <data name="SequencerClearAllBreakpoints" xml:space="preserve">
+    <value>Vymazať všetky body prerušenia</value>
+  </data>
 </root>

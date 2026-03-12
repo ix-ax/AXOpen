@@ -47,6 +47,8 @@ NAMESPACE AXOpen.Core
         END_METHOD
     END_CLASS    
 
+    // Derived interface used, due to compiler issues with interface inheritance.
+    // https://docs.industrial-operations-x.siemens.cloud/r/en-us/ax/faq/2510/known-issues/casting-error-in-specific-inheritance-relations-when-compiling-to-1500
     INTERFACE IAxoNullObject EXTENDS IAxoObject END_INTERFACE
     
     ///<summary>
@@ -157,6 +159,8 @@ NAMESPACE AXOpen.Core
         END_METHOD
     END_CLASS 
     
+    // Derived interface used, due to compiler issues with interface inheritance.
+    // https://docs.industrial-operations-x.siemens.cloud/r/en-us/ax/faq/2510/known-issues/casting-error-in-specific-inheritance-relations-when-compiling-to-1500
     INTERFACE PUBLIC IAxoNullMessagingServices EXTENDS IAxoMessagingServices END_INTERFACE 
 
     ///<summary>

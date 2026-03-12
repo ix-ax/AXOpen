@@ -8,7 +8,8 @@ NAMESPACE AXOpen.Core
             Order : ULINT;                      
             Descr : STRING[120];
             IsActive : BOOL;                        
-            IsEnabled : BOOL;                             
+            IsEnabled : BOOL;  
+            StepExecutionMode : eAxoStepExecutionMode := eAxoStepExecutionMode#ExecuteAndContinue;                           
         END_VAR 
 
         VAR PROTECTED            
@@ -214,6 +215,14 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC GetStepDescription : STRING
             GetStepDescription := THIS.Descr;
         END_METHOD
+
+        ///<summary>
+        /// Returns the step execution mode
+        ///</summary>
+        METHOD PUBLIC GetStepExecutionMode : eAxoStepExecutionMode
+            GetStepExecutionMode := THIS.StepExecutionMode;
+        END_METHOD
+    
     END_CLASS    
 END_NAMESPACE
 

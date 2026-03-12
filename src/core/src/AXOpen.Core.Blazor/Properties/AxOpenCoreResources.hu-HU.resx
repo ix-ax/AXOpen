@@ -314,4 +314,52 @@
   <data name="AlarmCode" xml:space="preserve">
     <value>Riasztási kód</value>
   </data>
+  <data name="SequencerSendSuspendConfiguration" xml:space="preserve">
+    <value>Felfuggesztes konfiguracio kuldese</value>
+  </data>
+  <data name="SequencerSuspendBeforeExecution" xml:space="preserve">
+    <value>Felfuggesztes vegrehajtas elott</value>
+  </data>
+  <data name="SequencerSuspendAfterExecution" xml:space="preserve">
+    <value>Felfuggesztes vegrehajtas utan</value>
+  </data>
+  <data name="SequencerStepExecutionMode" xml:space="preserve">
+    <value>Lepes vegrehajtasi mod</value>
+  </data>
+  <data name="SequencerNoStepsFound" xml:space="preserve">
+    <value>Nem talalhato lepes.</value>
+  </data>
+  <data name="SequencerMonitoredSteps" xml:space="preserve">
+    <value>Figyelt lepesek</value>
+  </data>
+  <data name="SequencerNoMonitoredStepsSelected" xml:space="preserve">
+    <value>Nincs kivalasztott figyelt lepes.</value>
+  </data>
+  <data name="SequencerBreakpoint" xml:space="preserve">
+    <value>Torespont</value>
+  </data>
+  <data name="SequencerOrder" xml:space="preserve">
+    <value>Sorrend</value>
+  </data>
+  <data name="SequencerDesc" xml:space="preserve">
+    <value>Leiras</value>
+  </data>
+  <data name="SequencerMonitor" xml:space="preserve">
+    <value>Figyeles</value>
+  </data>
+  <data name="SequencerContinue" xml:space="preserve">
+    <value>Folytatas</value>
+  </data>
+  <data name="SequencerRemove" xml:space="preserve">
+    <value>Eltavolitas</value>
+  </data>
+  <data name="SequencerAddToMonitor" xml:space="preserve">
+    <value>Hozzaadas a figyeleshez</value>
+  </data>
+  <data name="SequencerApplyBreakpoints" xml:space="preserve">
+    <value>Torespontok alkalmazasa</value>
+  </data>
+  <data name="SequencerClearAllBreakpoints" xml:space="preserve">
+    <value>Osszes torespont torlese</value>
+  </data>
 </root>

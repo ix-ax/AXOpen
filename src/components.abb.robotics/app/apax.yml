@@ -1,4 +1,4 @@
-﻿name: "app_axopen.components.abb.robotics"
+name: "app_axopen.components.abb.robotics"
 version: '0.0.0-dev.0'
 type: app
 targets:
@@ -144,12 +144,8 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax alf' Finished in :" $(expr $(date +%s) - $START) "s"
   all: | #build and download hardware and software using cert file. If cert file does not exists or its hash is different calls apax alf                    (apax plcsim & apax clean & apax install & apax hwu & apax swfd)
     START=$(date +%s)
-    if [ "$1" = "--force" ] || [ "$1" = "-f" ]; then
-      ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED true
-    else
-      ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED false
-    fi
-    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax all' Finished in :" $(expr $(date +%s) - $START) "s"    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax all' Finished in :" $(expr $(date +%s) - $START) "s"
+      ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax all' Finished in :" $(expr $(date +%s) - $START) "s"
   ib: |
     START=$(date +%s)
     apax install
@@ -180,6 +176,10 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
   gc: |
     START=$(date +%s)
+    if [[ ! -d ".\\certs\\$PLC_NAME" ]]; then
+      mkdir -p ".\\certs\\$PLC_NAME"
+      echo "Created directory: .\\certs\\$PLC_NAME"
+    fi    
     apax plc-cert --target $AXTARGET --output .\\certs\\$PLC_NAME\\$PLC_NAME.cer
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax gc' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |

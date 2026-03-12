@@ -314,4 +314,52 @@
   <data name="AlarmCode" xml:space="preserve">
     <value>Código de alarma</value>
   </data>
+  <data name="SequencerSendSuspendConfiguration" xml:space="preserve">
+    <value>Enviar configuracion de suspension</value>
+  </data>
+  <data name="SequencerSuspendBeforeExecution" xml:space="preserve">
+    <value>Suspender antes de la ejecucion</value>
+  </data>
+  <data name="SequencerSuspendAfterExecution" xml:space="preserve">
+    <value>Suspender despues de la ejecucion</value>
+  </data>
+  <data name="SequencerStepExecutionMode" xml:space="preserve">
+    <value>Modo de ejecucion del paso</value>
+  </data>
+  <data name="SequencerNoStepsFound" xml:space="preserve">
+    <value>No se encontraron pasos.</value>
+  </data>
+  <data name="SequencerMonitoredSteps" xml:space="preserve">
+    <value>Pasos monitorizados</value>
+  </data>
+  <data name="SequencerNoMonitoredStepsSelected" xml:space="preserve">
+    <value>No hay pasos monitorizados seleccionados.</value>
+  </data>
+  <data name="SequencerBreakpoint" xml:space="preserve">
+    <value>Punto de interrupcion</value>
+  </data>
+  <data name="SequencerOrder" xml:space="preserve">
+    <value>Orden</value>
+  </data>
+  <data name="SequencerDesc" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+  <data name="SequencerMonitor" xml:space="preserve">
+    <value>Monitorizar</value>
+  </data>
+  <data name="SequencerContinue" xml:space="preserve">
+    <value>Continuar</value>
+  </data>
+  <data name="SequencerRemove" xml:space="preserve">
+    <value>Quitar</value>
+  </data>
+  <data name="SequencerAddToMonitor" xml:space="preserve">
+    <value>Anadir al monitor</value>
+  </data>
+  <data name="SequencerApplyBreakpoints" xml:space="preserve">
+    <value>Aplicar puntos de interrupcion</value>
+  </data>
+  <data name="SequencerClearAllBreakpoints" xml:space="preserve">
+    <value>Borrar todos los puntos de interrupcion</value>
+  </data>
 </root>
