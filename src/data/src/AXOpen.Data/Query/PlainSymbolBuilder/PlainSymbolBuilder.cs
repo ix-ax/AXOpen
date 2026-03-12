@@ -1,4 +1,4 @@
-﻿using AXOpen.Data;
+using AXOpen.Data;
 using AXOpen.Base.Data;
 using System;
 using System.Collections.Generic;
@@ -88,8 +88,7 @@ namespace AXOpen.Data.Query
 
         public Type RootType { get; private set; }
 
-        public string RootTypeName { get => RootType.Name; } // presentable reason
-        public string RootFullTypeName { get => RootType.FullName; } // filterring
+        public string RootTypeName { get => RootType.FullName; } // presentable reason
 
         private void CollectProperties(Type type, bool isRoot)
         {
@@ -182,7 +181,7 @@ namespace AXOpen.Data.Query
 
             foreach (var prop in properties)
             {
-                string newPath = $"{currentPath}.{prop.Name}";
+                string newPath = string.IsNullOrEmpty(currentPath) ?  prop.Name : $"{currentPath}.{prop.Name}";
 
                 if (!prop.IsPlainType)
                 {
@@ -196,14 +195,15 @@ namespace AXOpen.Data.Query
         }
 
 
-        public List<string> GetSymbols()
+        public List<string> GetSymbols( bool attachRootName = false)
         {
             var symbols = new List<string>();
 
             if (RootType == null || !TypeDictionary.ContainsKey(RootType))
                 return symbols;
 
-            CollectSymbols(RootType, this.RootTypeName, symbols);
+
+            CollectSymbols(RootType, attachRootName ? this.RootTypeName : "", symbols);
 
             return symbols;
         }
