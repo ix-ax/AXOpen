@@ -279,7 +279,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
             //***********Update inputs **************
             _retval := ReadData(Config.HWIDs.HwID_iQ_to_PLC_Inputs, _data_in);
             IF _retval > WORD#0 THEN
-                Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1201, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1201;
                 RETURN;
             END_IF;
@@ -750,7 +750,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 // ClearErrorTask running: waiting for the error flag is reseted.
                 IF _progress = 300 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
                     Outputs.ClearError := _blink.output;
@@ -783,8 +783,8 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 Status.Error.Id  :=  UINT#10001;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10000,ClearErrorTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10001,ClearErrorTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#102,ClearErrorTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,ClearErrorTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#102,ClearErrorTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF ClearErrorTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
                 _progress := 0;
@@ -818,7 +818,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 // ChangeWeldingSetupTask running: changing active setup selected.
                 IF _progress = 311 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#511;
                     END_IF;
 
@@ -833,7 +833,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 // ChangeWeldingSetupTask running: changing running setup selected.
                 IF _progress = 312 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#512;
                     END_IF;
 
@@ -868,8 +868,8 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 Status.Error.Id  :=  UINT#10011;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10010,ChangeWeldingSetupTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10011,ChangeWeldingSetupTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,ChangeWeldingSetupTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10011,ChangeWeldingSetupTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#112,ChangeWeldingSetupTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF ChangeWeldingSetupTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
                 Status.Action.Id :=  UINT#112;
                 _progress := 0;
@@ -903,7 +903,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 // ChangeWeldingProbeTask running: changing running probe selected..
                 IF _progress = 321 THEN   
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#521;
                     END_IF;
 
@@ -937,8 +937,8 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 Status.Error.Id  :=  UINT#10021;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10020,ChangeWeldingProbeTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10021,ChangeWeldingProbeTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#122,ChangeWeldingProbeTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10021,ChangeWeldingProbeTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#122,ChangeWeldingProbeTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF ChangeWeldingProbeTask.RestoreTriggered() AND _progress >= 320 AND _progress <= 329  THEN
                 Status.Action.Id :=  UINT#122;
                 _progress := 0;
@@ -962,7 +962,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 // CycleStopTask running: waiting for the cycle is finished.
                 IF _progress = 330 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#530;
                     END_IF;
     
@@ -997,8 +997,8 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 Status.Error.Id  :=  UINT#10031;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10030,CycleStopTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10031,CycleStopTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#132,CycleStopTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10031,CycleStopTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#132,CycleStopTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF CycleStopTask.RestoreTriggered() AND _progress >= 330 AND _progress <= 339  THEN
                 Status.Action.Id :=  UINT#132;
                 _progress := 0;
@@ -1022,7 +1022,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 // RunWeldingWithTimeTask running: reseting the error.
                 IF _progress = 340 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#540;
                     END_IF;
 
@@ -1037,7 +1037,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 // RunWeldingWithTimeTask running: waiting for the system to be ready.
                 IF _progress = 341 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#541;
                     END_IF;
 
@@ -1059,7 +1059,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 // RunWeldingWithTimeTask running: changing active setup selected.
                 IF _progress = 343 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#543, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#543, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#543;
                     END_IF;
 
@@ -1074,7 +1074,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 // RunWeldingWithTimeTask running: changing running setup selected.
                 IF _progress = 344 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#544, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#544, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#544;
                     END_IF;
 
@@ -1089,7 +1089,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 // RunWeldingWithTimeTask running: changing running probe selected.
                 IF _progress = 345 THEN     
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#545, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#545, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#545;
                     END_IF;
                     
@@ -1103,7 +1103,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 // RunWeldingWithTimeTask running: starting the welding cycle.
                 IF _progress = 346 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#546, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#546, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#546;
                     END_IF;
                     
@@ -1130,10 +1130,10 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 IF _progress = 348 THEN 
                     IF _infoTimer.output THEN
                         IF Inputs.SystemStatus.InCycle THEN
-                            TaskMessenger.Activate( UINT#548, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#548, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#548;
                         ELSIF NOT Inputs.SystemStatus.Ready THEN
-                            TaskMessenger.Activate( UINT#549, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#549, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#549;
                         END_IF;
                     END_IF;
@@ -1169,8 +1169,8 @@ NAMESPACE AXOpen.Components.Dukane.Welders
                 Status.Error.Id  :=  UINT#10041;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10040,RunWeldingWithTimeTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10041,RunWeldingWithTimeTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#142,RunWeldingWithTimeTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10041,RunWeldingWithTimeTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#142,RunWeldingWithTimeTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF RunWeldingWithTimeTask.RestoreTriggered() AND _progress >= 340 AND _progress <= 349  THEN
                 Status.Action.Id :=  UINT#142;
                 _progress := 0;
@@ -1237,7 +1237,7 @@ NAMESPACE AXOpen.Components.Dukane.Welders
 
             _retval := WriteData(Config.HWIDs.HwID_PLC_to_iQ_Outputs,_data_out);
             IF _retval > WORD#0 THEN
-                Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1231, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1231;
                 RETURN;
             END_IF;            
