@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
@@ -27,11 +27,13 @@ namespace AXOpen.Core
 
             if (currentSteppingMode == eAxoSteppingMode.Continous)
             {
-                await this.Component.SteppingMode.SetAsync((short)eAxoSteppingMode.StepByStep);
+                await this.Component.SetReqSteppingMode.SetAsync(true);
+                await this.Component.ReqSteppingMode.SetAsync((short)eAxoSteppingMode.StepByStep);
             }
             else
             {
-                await this.Component.SteppingMode.SetAsync((short)eAxoSteppingMode.Continous);
+                await this.Component.SetReqSteppingMode.SetAsync(true);
+                await this.Component.ReqSteppingMode.SetAsync((short)eAxoSteppingMode.Continous);
             }
         }
 
