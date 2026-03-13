@@ -27,9 +27,6 @@
 		</None>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <PackageVersion Update="GitVersion.MsBuild" Version="6.0.5" />
-	</ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Update="GitVersion.MsBuild">
