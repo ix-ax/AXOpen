@@ -50,17 +50,27 @@ namespace AXOpen.Data.Query
                 bool addExternalPredicates = Exchange.InjectedPredicateContainer != null && (Exchange.InjectedPredicateContainer.PredicatesCount() > 0
                 || Exchange.InjectedPredicateContainer.SortingCount() > 0);
 
-                var plainBuilders = Exchange.GetPlainTypes().Select(t => new PlainSymbolBuilder(t)).ToList();
+                PlainBuilders = Exchange.GetPlainTypes().Select(t => new PlainSymbolBuilder(t)).ToList();
 
-                CommonHiddenPrefix = plainBuilders.GetCommonPrefix();
 
-                foreach (var builder in plainBuilders)
-                {                    
+                bool removeRootTypeName = (PlainBuilders.Count == 1);
+
+                if (!removeRootTypeName)
+                    CommonHiddenPrefix = PlainBuilders.GetCommonPrefix();
+
+                foreach (var builder in PlainBuilders)
+                {
                     var rootType = builder.RootType;
 
-                    var s = builder.GetSymbols();
+                    foreach (var symbol in builder.GetSymbols())
+                    {
+                        if (removeRootTypeName)
+                            symbol.PresentablePath = symbol.SymbolPath;
+                        else
+                            symbol.PresentablePath = symbol.PresentablePath.Substring(CommonHiddenPrefix.Length).TrimStart(['.','_']);
 
-                    Symbols.AddRange(s);
+                        Symbols.AddRange(symbol);
+                    }
 
                     if (addExternalPredicates)
                     {
@@ -97,7 +107,7 @@ namespace AXOpen.Data.Query
         public string SymbolsQueryFilter // string that contains the symbol
         {
             set
-           {
+            {
                 if (_SymbolsQueryFilter != value)
                 {
                     _SymbolsQueryFilter = value;
@@ -201,7 +211,7 @@ namespace AXOpen.Data.Query
 
         public List<string> InjectedQueries { private set; get; } = new();
         public List<string> InjectedSorting { private set; get; } = new();
-        
+
         private Task FillObservableSymbols()
         {
             return Task.Run(() =>
@@ -218,7 +228,7 @@ namespace AXOpen.Data.Query
         {
             await InvokeAsync(() =>
             {
-                var query = Symbols.Where(s => string.IsNullOrEmpty(SymbolsQueryFilter) || s.SymbolPath.Contains(SymbolsQueryFilter, StringComparison.OrdinalIgnoreCase)).ToList();
+                var query = Symbols.Where(s => string.IsNullOrEmpty(SymbolsQueryFilter) || s.PresentablePath.Contains(SymbolsQueryFilter, StringComparison.OrdinalIgnoreCase)).ToList();
                 SymbolsQueryCount = query.Count;
                 FilteredSymbols = query;
             });
@@ -464,7 +474,7 @@ namespace AXOpen.Data.Query
                 {
                     CurrentQuery = lastselected.FirstOrDefault();
                 }
-                else 
+                else
                 {
                     if (History.Items.Any())
                         CurrentQuery = History.Items.Last();

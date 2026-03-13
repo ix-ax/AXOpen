@@ -196,18 +196,17 @@ namespace Tests_L4
         }
 
         [Fact]
-        public void should_return_common_prefix_for_types_sharing_namespace()
+        public void should_return_common_prefix_for_types_sharing_dot_namespace()
         {
             var names = new[]
             {
                 "Pocos.axosimple.SharedProductionData",
-                "Pocos.axosimple.ProcessData",
-                "Pocos.axosimple.RecipeData"
+                "Pocos.axosimple_Shared.RecipeData"
             };
 
             var result = PlainSymbolBuilderExtension.GetCommonPrefix(names);
 
-            Assert.Equal("Pocos.axosimple.", result);
+            Assert.Equal("Pocos.axosimple", result);
         }
 
         [Fact]

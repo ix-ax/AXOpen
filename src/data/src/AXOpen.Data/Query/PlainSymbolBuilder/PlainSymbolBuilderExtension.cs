@@ -87,9 +87,7 @@ namespace AXOpen.Data.Query
                     return "";
             }
 
-            // trim to last dot so we don't cut in the middle of a segment
-            var lastDot = prefix.LastIndexOf('.');
-            return lastDot > 0 ? prefix[..(lastDot + 1)] : "";
+            return prefix;
         }
     }
 }

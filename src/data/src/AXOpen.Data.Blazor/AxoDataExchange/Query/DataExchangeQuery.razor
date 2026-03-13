@@ -74,7 +74,7 @@
                     <button class="btn btn-outline-primary px-1! py-2! w-15" type="button" @onclick="() => AddSymbolToSorting(symbol)">
                         <Operon.Icons.HeroIcon Icon="adjustments-vertical" Type="Operon.Icons.IconType.Outline" Class="size-4" />
                     </button>
-                    <p>@symbol.GetDisplaySymbolPath(CommonHiddenPrefix)</p>
+                    <p>@symbol.PresentablePath</p>
                 </div>
             }
 
@@ -154,7 +154,7 @@
                             </button>
 
                             <div class="flex flex-wrap items-center gap-2">
-                                <label> @sortSymbol.GetDisplaySymbolPath(CommonHiddenPrefix)</label>
+                                <label> @sortSymbol.PresentablePath</label>
                             </div>
 
                             <div class="flex flex-wrap items-center gap-2">

@@ -59,24 +59,24 @@ namespace AXOpen.Data.Query
             }
         }
 
-        public string GetDisplaySymbolPath(string hiddenPrefix = "") 
+        private string _PresentablePath;
+        [System.Text.Json.Serialization.JsonIgnore]
+        // used for presntable reason, if not set, will default to {RootTypeName}.{SymbolPath}.
+        // for better readability can by set from outside, for example, to hide some common prefix in the symbol path.
+        public string PresentablePath
         {
-            return $"{GetRootTypeNameWithoutPrefix(hiddenPrefix)}.{this.SymbolPath}";
-        }
-
-        internal string GetRootTypeNameWithoutPrefix(string hiddenPrefix)
-        {
-            if (string.IsNullOrEmpty(hiddenPrefix))
+            set
             {
-                return this.RootTypeName;
+                _PresentablePath = value;
             }
-
-            if (!this.RootTypeName.StartsWith(hiddenPrefix, StringComparison.Ordinal))
+            get
             {
-                return this.RootTypeName;
+                if (string.IsNullOrEmpty(_PresentablePath))
+                {
+                    _PresentablePath = $"{RootTypeName}.{SymbolPath}";
+                }
+                return _PresentablePath;
             }
-
-            return this.RootTypeName[hiddenPrefix.Length..].TrimStart('.');
         }
 
     }

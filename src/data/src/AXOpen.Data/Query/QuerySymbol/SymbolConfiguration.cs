@@ -97,16 +97,5 @@ namespace AXOpen.Data.Query
             return OperationProvider.GetMinForType(SymbolType);
         }
 
-        public static string GetParentTypeName(string symbolPathWithParent)
-        {
-            int index = symbolPathWithParent.IndexOf('.');
-            return index != -1 ? symbolPathWithParent.Substring(0, index) : symbolPathWithParent;
-        }
-
-        public static string RemoveParentTypeName(string symbolPathWithParent)
-        {
-            int index = symbolPathWithParent.IndexOf('.');
-            return index != -1 ? symbolPathWithParent.Substring(index + 1) : symbolPathWithParent;
-        }
     }
 }
