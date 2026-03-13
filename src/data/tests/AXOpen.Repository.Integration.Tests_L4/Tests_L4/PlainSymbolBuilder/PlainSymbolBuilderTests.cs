@@ -16,7 +16,7 @@ namespace Tests_L4
         public void should_resolve_types_for_baseprimitives_symbols()
         {
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(BasePrimitives));
-            var plainSymbols = plainSymbolBuilder.GetSymbols().ToList();
+            var plainSymbolPaths = plainSymbolBuilder.GetSymbolPaths().ToList();
 
             Assert.Equal(typeof(BasePrimitives).FullName, plainSymbolBuilder.RootTypeName);
 
@@ -51,10 +51,10 @@ namespace Tests_L4
                 ("vWSTRING", typeof(string))
             };
 
-            Assert.Equal(expectedSymbolsWithTypes.Length, plainSymbols.Count);
+            Assert.Equal(expectedSymbolsWithTypes.Length, plainSymbolPaths.Count);
             foreach (var expected in expectedSymbolsWithTypes)
             {
-                Assert.Contains(expected.Symbol, plainSymbols);
+                Assert.Contains(expected.Symbol, plainSymbolPaths);
 
                 var symbolType = plainSymbolBuilder.GetSymbolType(expected.Symbol);
                 Assert.NotNull(symbolType);
@@ -66,7 +66,7 @@ namespace Tests_L4
         public void should_resolve_types_for_stationdata_symbols()
         {
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(Pocos.FragmentExchange_Test_L4.StationData));
-            var plainSymbols = plainSymbolBuilder.GetSymbols().ToList();
+            var plainSymbolPaths = plainSymbolBuilder.GetSymbolPaths().ToList();
 
             Assert.Equal(typeof(Pocos.FragmentExchange_Test_L4.StationData).FullName, plainSymbolBuilder.RootTypeName);
 
@@ -83,10 +83,10 @@ namespace Tests_L4
                 ("NestObj.vBool", typeof(bool)),
             };
 
-            Assert.Equal(expectedSymbolsWithTypes.Length, plainSymbols.Count);
+            Assert.Equal(expectedSymbolsWithTypes.Length, plainSymbolPaths.Count);
             foreach (var expected in expectedSymbolsWithTypes)
             {
-                Assert.Contains(expected.Symbol, plainSymbols);
+                Assert.Contains(expected.Symbol, plainSymbolPaths);
                 var symbolType = plainSymbolBuilder.GetSymbolType(expected.Symbol);
                 Assert.NotNull(symbolType);
                 Assert.Equal(expected.Type, symbolType);
@@ -113,7 +113,7 @@ namespace Tests_L4
 
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.ProcessData));
 
-            Assert.DoesNotContain("_EntityId", plainSymbolBuilder.GetSymbols());
+            Assert.DoesNotContain("_EntityId", plainSymbolBuilder.GetSymbolPaths());
         }
 
         [Fact]
@@ -122,9 +122,9 @@ namespace Tests_L4
             PlainSymbolBuilder.IgnoreProperty(typeof(Pocos.AXOpen.Data.AxoDataEntity), "_EntityId");
 
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.ProcessData));
-            var plainSymbols = plainSymbolBuilder.GetSymbols();
+            var plainSymbolPaths = plainSymbolBuilder.GetSymbolPaths();
 
-            Assert.DoesNotContain("_EntityId", plainSymbols);
+            Assert.DoesNotContain("_EntityId", plainSymbolPaths);
         }
 
         [Fact]
@@ -134,36 +134,36 @@ namespace Tests_L4
             PlainSymbolBuilder.IgnoreProperty(typeof(AXSharp.Connector.IPlain), "vLDATE_AND_TIME");
 
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(BasePrimitives));
-            var plainSymbols = plainSymbolBuilder.GetSymbols();
+            var plainSymbolPaths = plainSymbolBuilder.GetSymbolPaths();
 
-            Assert.DoesNotContain("vBOOL", plainSymbols);
-            Assert.DoesNotContain("vLDATE_AND_TIME", plainSymbols);
+            Assert.DoesNotContain("vBOOL", plainSymbolPaths);
+            Assert.DoesNotContain("vLDATE_AND_TIME", plainSymbolPaths);
         }
 
         [Fact]
         public void should_include_nullable_time_properties()
         {
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(Pocos.AXOpen.Data.AxoDataEntity));
-            var plainSymbols = plainSymbolBuilder.GetSymbols();
+            var plainSymbolPaths = plainSymbolBuilder.GetSymbolPaths();
 
-            Assert.Equal(3, plainSymbols.Count());
-            Assert.Contains("_EntityId", plainSymbols);
-            Assert.Contains("ModifiedAt", plainSymbols);
-            Assert.Contains("CreatedAt", plainSymbols);
+            Assert.Equal(3, plainSymbolPaths.Count());
+            Assert.Contains("_EntityId", plainSymbolPaths);
+            Assert.Contains("ModifiedAt", plainSymbolPaths);
+            Assert.Contains("CreatedAt", plainSymbolPaths);
         }
 
         [Fact]
         public void should_include_nullable_object_properties()
         {
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(NulableAxoDataEntity));
-            var plainSymbols = plainSymbolBuilder.GetSymbols();
+            var plainSymbolPaths = plainSymbolBuilder.GetSymbolPaths();
 
-            Assert.Equal(5, plainSymbols.Count());
-            Assert.Contains("_EntityId", plainSymbols);
-            Assert.Contains("ModifiedAt", plainSymbols);
-            Assert.Contains("CreatedAt", plainSymbols);
-            Assert.Contains("NulableObject.NulableString", plainSymbols);
-            Assert.Contains("ExcludedNulableObject.NulableString", plainSymbols);
+            Assert.Equal(5, plainSymbolPaths.Count());
+            Assert.Contains("_EntityId", plainSymbolPaths);
+            Assert.Contains("ModifiedAt", plainSymbolPaths);
+            Assert.Contains("CreatedAt", plainSymbolPaths);
+            Assert.Contains("NulableObject.NulableString", plainSymbolPaths);
+            Assert.Contains("ExcludedNulableObject.NulableString", plainSymbolPaths);
         }
 
         [Fact]
@@ -171,14 +171,14 @@ namespace Tests_L4
         {
             PlainSymbolBuilder.IgnoreAttribute(typeof(CustomExcludeAttribute));
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(NulableAxoDataEntity));
-            var plainSymbols = plainSymbolBuilder.GetSymbols();
+            var plainSymbolPaths = plainSymbolBuilder.GetSymbolPaths();
 
-            Assert.Equal(4, plainSymbols.Count());
-            Assert.Contains("_EntityId", plainSymbols);
-            Assert.Contains("ModifiedAt", plainSymbols);
-            Assert.Contains("CreatedAt", plainSymbols);
-            Assert.Contains("NulableObject.NulableString", plainSymbols);
-            Assert.DoesNotContain("ExcludedNulableObject.NulableString", plainSymbols);
+            Assert.Equal(4, plainSymbolPaths.Count());
+            Assert.Contains("_EntityId", plainSymbolPaths);
+            Assert.Contains("ModifiedAt", plainSymbolPaths);
+            Assert.Contains("CreatedAt", plainSymbolPaths);
+            Assert.Contains("NulableObject.NulableString", plainSymbolPaths);
+            Assert.DoesNotContain("ExcludedNulableObject.NulableString", plainSymbolPaths);
         }
 
         [Fact]

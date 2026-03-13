@@ -14,6 +14,10 @@ namespace AXOpen.Data.Query
 {
     public class PlainSymbolBuilder
     {
+        /// <summary>
+        /// Initializes a new instance of <see cref="PlainSymbolBuilder"/> and collects all properties from the specified root type.
+        /// </summary>
+        /// <param name="rootType">The root type to inspect for building symbol paths.</param>
         public PlainSymbolBuilder(Type rootType)
         {
             this.RootType = rootType;
@@ -29,6 +33,9 @@ namespace AXOpen.Data.Query
         internal static readonly List<string> IgnoredRootTypeProperties = new List<string>() { "Hash", "Changes", "RecordId" };
         internal static readonly List<Type> IgnoredAttributes = new List<Type>() { typeof(PlainSymbolIgnoreAttribute) };
 
+        /// <summary>
+        /// Resets all static ignore configurations to their defaults (only <c>Hash</c>, <c>Changes</c>, <c>RecordId</c> and <see cref="PlainSymbolIgnoreAttribute"/>).
+        /// </summary>
         public static void ClearStaticConfiguration()
         {
             IgnoredRootTypeProperties.Clear();
@@ -44,6 +51,11 @@ namespace AXOpen.Data.Query
             IgnoredAttributes.Add(typeof(PlainSymbolIgnoreAttribute));
         }
 
+        /// <summary>
+        /// Registers a property to be excluded from symbol collection for the given type or interface.
+        /// </summary>
+        /// <param name="inType">The type or interface that owns the property to ignore.</param>
+        /// <param name="propertyName">The name of the property to ignore.</param>
         public static void IgnoreProperty(Type inType, string propertyName)
         {
             var targetDict = inType.IsInterface ? IgnoreInterfacesProperty : IgnoredTypesProperty;
@@ -62,6 +74,10 @@ namespace AXOpen.Data.Query
             IgnoredTypes.UnionWith(IgnoredTypesProperty.Keys);
         }
 
+        /// <summary>
+        /// Adds a property name to the list of properties ignored on every root type.
+        /// </summary>
+        /// <param name="propertyName">The root-level property name to ignore.</param>
         public static void IgnoreRootProperty(string propertyName)
         {
             if (!IgnoredRootTypeProperties.Contains(propertyName))
@@ -70,6 +86,11 @@ namespace AXOpen.Data.Query
             }
         }
 
+        /// <summary>
+        /// Registers an attribute type so that any property decorated with it is excluded from symbol collection.
+        /// </summary>
+        /// <param name="attributeType">The attribute type to ignore. Must derive from <see cref="Attribute"/>.</param>
+        /// <exception cref="ArgumentException">Thrown when <paramref name="attributeType"/> is not an <see cref="Attribute"/>.</exception>
         public static void IgnoreAttribute(Type attributeType)
         {
             if (!typeof(Attribute).IsAssignableFrom(attributeType))
@@ -174,7 +195,7 @@ namespace AXOpen.Data.Query
                 TypeDictionary[type] = objectProperties;
             }
         }
-        private void CollectSymbolsPaths(Type type, string currentPath, List<string> symbols)
+        private void CollectSymbolPaths(Type type, string currentPath, List<string> symbols)
         {
             if (!TypeDictionary.TryGetValue(type, out var properties))
                 return;
@@ -189,11 +210,14 @@ namespace AXOpen.Data.Query
                 }
                 else
                 {
-                    CollectSymbolsPaths(prop.VariableType, newPath, symbols);
+                    CollectSymbolPaths(prop.VariableType, newPath, symbols);
                 }
             }
         }
 
+        /// <summary>
+        /// Returns all leaf symbol paths as <see cref="Symbol"/> instances, each associated with the root type name.
+        /// </summary>
         public List<AXOpen.Data.Query.Symbol> GetSymbols()
         {
             var symbols = new List<AXOpen.Data.Query.Symbol>();
@@ -201,34 +225,28 @@ namespace AXOpen.Data.Query
             return symbols;
         }
 
+       
         /// <summary>
-        /// Builds all leaf symbol paths for the current <see cref="RootType"/>.
-        /// Returned paths are relative to the root type and do not include root type name.
-        /// Example: <c>vInt</c>, <c>NestObj.vString</c>.
+        /// Returns the dot-separated paths to all leaf (non-<see cref="IPlain"/>) properties reachable from the root type.
         /// </summary>
-        /// <returns>List of discoverable symbol paths.</returns>
         public List<string> GetSymbolPaths( )
         {
-            var symbols = new List<string>();
+            var plainSymbolPaths = new List<string>();
 
             if (RootType == null || !TypeDictionary.ContainsKey(RootType))
-                return symbols;
+                return plainSymbolPaths;
 
 
-            CollectSymbolsPaths(RootType,"", symbols);
+            CollectSymbolPaths(RootType,"", plainSymbolPaths);
 
-            return symbols;
+            return plainSymbolPaths;
         }
 
         /// <summary>
-        /// Resolves CLR type of a symbol path relative to <see cref="RootType"/>.
-        /// The path must use the same format as <see cref="GetSymbolPaths"/> output,
-        /// i.e. without root type prefix.
+        /// Resolves the CLR type of a property identified by a dot-separated symbol path.
         /// </summary>
-        /// <param name="symbolPath">Relative symbol path, for example <c>vInt</c> or <c>NestObj.vInt</c>.</param>
-        /// <returns>
-        /// Final property type when path is valid; otherwise <see langword="null"/>.
-        /// </returns>
+        /// <param name="symbolPath">Dot-separated path (e.g. <c>"Nested.Value"</c>).</param>
+        /// <returns>The <see cref="Type"/> of the target property, or <c>null</c> if the path is invalid.</returns>
         public Type? GetSymbolType(string symbolPath)
         {
             if (string.IsNullOrWhiteSpace(symbolPath))
