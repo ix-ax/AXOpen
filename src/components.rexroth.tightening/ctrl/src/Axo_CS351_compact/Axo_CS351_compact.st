@@ -1417,7 +1417,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             //  Slot 10 Input_4_word_1
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_10),_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1201, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1201;
                 RETURN;
             END_IF;
@@ -1459,7 +1459,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             //  Slot 11 Input_4_word_2
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_11) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1202, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1202;
                 RETURN;
             END_IF;
@@ -1476,7 +1476,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             //  Slot 12 Input_4_word_3
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_12) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1203, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1203, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1203;
                 RETURN;
             END_IF;
@@ -1492,7 +1492,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_13) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1204, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1204, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1204;
                 RETURN;
             END_IF;
@@ -1510,7 +1510,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             //  Slot 14 Input_4_word_5
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_14) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1205, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1205, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1205;
                 RETURN;
             END_IF;
@@ -1527,7 +1527,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             //  Slot 15 Input_4_word_6
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_15) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1206, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1206, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1206;
                 RETURN;
             END_IF;
@@ -1544,7 +1544,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             //  Slot 16 Input_4_word_7
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_16) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1207, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1207, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1207;
                 RETURN;
             END_IF;
@@ -1561,7 +1561,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             //  Slot 17 Input_4_word_8
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_17) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1208, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1208, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1208;
                 RETURN;
             END_IF;
@@ -1578,7 +1578,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             //  Slot 18 Input_4_word_9
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_18) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1209, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1209, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1209;
                 RETURN;
             END_IF;
@@ -1596,7 +1596,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             //  Slot 19 Input_4_word_10
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_19) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1210, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1210, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1210;
                 RETURN;
             END_IF;
@@ -1615,7 +1615,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             // Slot 20 Input_4_word_11
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_20) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1211, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1211, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1211;
                 RETURN;
             END_IF;  
@@ -1634,7 +1634,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             // Slot 21 Input_4_word_12
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_21) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1212, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1212, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1212;
                 RETURN;
             END_IF;  
@@ -1653,7 +1653,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             // Slot 22 Input_4_word_13
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_22) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1213, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1213, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1213;
                 RETURN;
             END_IF;  
@@ -1669,7 +1669,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             // Slot 23 Input_4_word_14
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_23) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1214, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1214, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1214;
                 RETURN;
             END_IF;  
@@ -1677,7 +1677,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             // Slot 24 Input_4_word_15
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_24) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1215, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1215, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1215;
                 RETURN;
             END_IF;  
@@ -1685,7 +1685,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             // Slot 25 Input_4_word_16
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_25) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1216, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1216, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1216;
                 RETURN;
             END_IF;  
@@ -1693,7 +1693,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             // Slot 26 Input_2_word_1
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Slot_26) ,_data_in4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1217, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1217, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1217;
                 RETURN;
             END_IF;  
@@ -3220,7 +3220,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Slot_1),_data_out4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1231, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1231;
                 RETURN;
             END_IF;
@@ -3237,7 +3237,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Slot_2),_data_out4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1232, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1232;
                 RETURN;
             END_IF;
@@ -3254,7 +3254,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Slot_3),_data_out4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1233, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1233, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1233;
                 RETURN;
             END_IF;
@@ -3271,7 +3271,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Slot_4),_data_out4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1234, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1234, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1234;
                 RETURN;
             END_IF;
@@ -3288,7 +3288,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Slot_5),_data_out4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1235, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1235, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1235;
                 RETURN;
             END_IF;
@@ -3305,7 +3305,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Slot_6),_data_out4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1236, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1236, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1236;
                 RETURN;
             END_IF;
@@ -3322,7 +3322,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Slot_7),_data_out4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1237, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1237, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1237;
                 RETURN;
             END_IF;
@@ -3339,7 +3339,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Slot_8),_data_out4w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1238, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1238, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1238;
                 RETURN;
             END_IF;
@@ -3352,7 +3352,7 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Slot_9),_data_out2w);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1239, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1239, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1239;
                 RETURN;
             END_IF;
