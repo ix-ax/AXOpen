@@ -13,7 +13,7 @@ namespace Tests_L4
         }
 
         [Fact]
-        public void should_resolve_types_for_baseprimitives_symbols()
+        public void should_resolve_types_for_base_primitives_symbols()
         {
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(BasePrimitives));
             var plainSymbolPaths = plainSymbolBuilder.GetSymbolPaths().ToList();
@@ -52,18 +52,18 @@ namespace Tests_L4
             };
 
             Assert.Equal(expectedSymbolsWithTypes.Length, plainSymbolPaths.Count);
-            foreach (var expected in expectedSymbolsWithTypes)
+            foreach (var expectedSymbolWithType in expectedSymbolsWithTypes)
             {
-                Assert.Contains(expected.Symbol, plainSymbolPaths);
+                Assert.Contains(expectedSymbolWithType.Symbol, plainSymbolPaths);
 
-                var symbolType = plainSymbolBuilder.GetSymbolType(expected.Symbol);
-                Assert.NotNull(symbolType);
-                Assert.Equal(expected.Type, symbolType);
+                var resolvedSymbolType = plainSymbolBuilder.GetSymbolType(expectedSymbolWithType.Symbol);
+                Assert.NotNull(resolvedSymbolType);
+                Assert.Equal(expectedSymbolWithType.Type, resolvedSymbolType);
             }
         }
 
         [Fact]
-        public void should_resolve_types_for_stationdata_symbols()
+        public void should_resolve_types_for_station_data_symbols()
         {
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(Pocos.FragmentExchange_Test_L4.StationData));
             var plainSymbolPaths = plainSymbolBuilder.GetSymbolPaths().ToList();
@@ -84,12 +84,12 @@ namespace Tests_L4
             };
 
             Assert.Equal(expectedSymbolsWithTypes.Length, plainSymbolPaths.Count);
-            foreach (var expected in expectedSymbolsWithTypes)
+            foreach (var expectedSymbolWithType in expectedSymbolsWithTypes)
             {
-                Assert.Contains(expected.Symbol, plainSymbolPaths);
-                var symbolType = plainSymbolBuilder.GetSymbolType(expected.Symbol);
-                Assert.NotNull(symbolType);
-                Assert.Equal(expected.Type, symbolType);
+                Assert.Contains(expectedSymbolWithType.Symbol, plainSymbolPaths);
+                var resolvedSymbolType = plainSymbolBuilder.GetSymbolType(expectedSymbolWithType.Symbol);
+                Assert.NotNull(resolvedSymbolType);
+                Assert.Equal(expectedSymbolWithType.Type, resolvedSymbolType);
             }
         }
 
@@ -182,7 +182,7 @@ namespace Tests_L4
         }
 
         [Fact]
-        public void should_return_symbols()
+        public void should_return_all_symbols_for_nested_primitives()
         {
             // 21 ms - 81 000
             // 15 ms - 54 000
@@ -190,9 +190,9 @@ namespace Tests_L4
 
             var plainSymbolBuilder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.NestedPrimitives_L3));
 
-            var plainSymbols = plainSymbolBuilder.GetSymbols();
+            var resolvedSymbols = plainSymbolBuilder.GetSymbols();
 
-            Assert.Equal(27000, plainSymbols.Count());
+            Assert.Equal(27000, resolvedSymbols.Count());
         }
     }
 }

@@ -15,9 +15,9 @@ namespace Tests_L4
         }
 
         [Fact]
-        public void should_match_symbol_paths_with_all_baseprimitives_variables()
+        public void should_match_symbol_paths_with_all_complex_symbols()
         {
-            var expectedSymbols = new List<string>
+            var expectedSymbolPaths = new List<string>
             {
                 "_EntityId",
                 "ModifiedAt",
@@ -30,41 +30,41 @@ namespace Tests_L4
                 "NestObj.vString",
             };
 
-            var actualSymbols = _fixture.TestData.Select(x => x.SymbolPath).OrderBy(x => x).ToList();
+            var actualSymbolPaths = _fixture.TestData.Select(x => x.SymbolPath).OrderBy(x => x).ToList();
 
-            Assert.Equal(expectedSymbols.OrderBy(x => x), actualSymbols);
+            Assert.Equal(expectedSymbolPaths.OrderBy(x => x), actualSymbolPaths);
         }
        
         [Fact]
-        public void should_validate_primitives_query_symbol_serialization()
+        public void should_validate_complex_query_symbol_collection_serialization()
         {
-            var serialized = JsonSerializer.Serialize(_fixture.TestData);
+            var serializedQuerySymbolConfigurations = JsonSerializer.Serialize(_fixture.TestData);
 
-            var deserialized = JsonSerializer.Deserialize<List<QuerySymbolConfiguration>>(serialized);
+            var deserializedQuerySymbolConfigurations = JsonSerializer.Deserialize<List<QuerySymbolConfiguration>>(serializedQuerySymbolConfigurations);
 
-            Assert.NotNull(deserialized);
-            Assert.Equal(_fixture.TestData.Count, deserialized.Count);
+            Assert.NotNull(deserializedQuerySymbolConfigurations);
+            Assert.Equal(_fixture.TestData.Count, deserializedQuerySymbolConfigurations.Count);
 
             for (int i = 0; i < _fixture.TestData.Count; i++)
             {
-                var expected = _fixture.TestData[i];
-                var actual = deserialized[i];
+                var expectedQuerySymbolConfiguration = _fixture.TestData[i];
+                var actualQuerySymbolConfiguration = deserializedQuerySymbolConfigurations[i];
 
-                Assert.Equal(expected.SymbolPath, actual.SymbolPath);
-                Assert.Equal(expected.SymbolTypeName, actual.SymbolTypeName);
-                Assert.Equal(expected.Operation, actual.Operation);
+                Assert.Equal(expectedQuerySymbolConfiguration.SymbolPath, actualQuerySymbolConfiguration.SymbolPath);
+                Assert.Equal(expectedQuerySymbolConfiguration.SymbolTypeName, actualQuerySymbolConfiguration.SymbolTypeName);
+                Assert.Equal(expectedQuerySymbolConfiguration.Operation, actualQuerySymbolConfiguration.Operation);
 
-                Assert.NotNull(actual.MinOrValue);
-                Assert.NotNull(actual.Max);
+                Assert.NotNull(actualQuerySymbolConfiguration.MinOrValue);
+                Assert.NotNull(actualQuerySymbolConfiguration.Max);
 
-                Assert.Equal(expected.MinOrValue?.GetType(), actual.MinOrValue?.GetType());
-                Assert.Equal(expected.Max?.GetType(), actual.Max?.GetType());
+                Assert.Equal(expectedQuerySymbolConfiguration.MinOrValue?.GetType(), actualQuerySymbolConfiguration.MinOrValue?.GetType());
+                Assert.Equal(expectedQuerySymbolConfiguration.Max?.GetType(), actualQuerySymbolConfiguration.Max?.GetType());
 
-                Assert.Equal(expected.MinOrValue, actual.MinOrValue);
-                Assert.Equal(expected.Max, actual.Max);
+                Assert.Equal(expectedQuerySymbolConfiguration.MinOrValue, actualQuerySymbolConfiguration.MinOrValue);
+                Assert.Equal(expectedQuerySymbolConfiguration.Max, actualQuerySymbolConfiguration.Max);
                     
-                Assert.NotNull(expected.RootType);
-                Assert.Equal(expected.RootType, actual.RootType);
+                Assert.NotNull(expectedQuerySymbolConfiguration.RootType);
+                Assert.Equal(expectedQuerySymbolConfiguration.RootType, actualQuerySymbolConfiguration.RootType);
             }
         }
        

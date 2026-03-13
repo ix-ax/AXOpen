@@ -1,4 +1,4 @@
-﻿namespace Tests_L4
+namespace Tests_L4
 {
     using AXOpen.Base.Data.Query;
     using Pocos.Exchange_Test_L4;
@@ -12,7 +12,7 @@
         protected SingleRepositoryFixture_Base Fixture { set; get; }
 
         [Fact]
-        public void ContainsRecords()
+        public void should_contain_records()
         {
             Assert.Equal(Fixture.Repository.Count, 10);
         }
@@ -20,46 +20,46 @@
         [Fact]
         public void should_return_entities()
         {
-            var pc = new PredicateContainer();
+            var predicateContainer = new PredicateContainer();
 
-            pc.AddPredicates<ProcessData>(p => (p.vInt > 2 && (p.Primitives.vINT > 3 && p.Primitives.vINT <= 8)));
-            pc.AddPredicates<ProcessData>(p => (p.vBool == true));
+            predicateContainer.AddPredicates<ProcessData>(p => (p.vInt > 2 && (p.Primitives.vINT > 3 && p.Primitives.vINT <= 8)));
+            predicateContainer.AddPredicates<ProcessData>(p => (p.vBool == true));
 
-            var result = Fixture.Repository.GetRecords(pc, 100, 0).ToList();
+            var records = Fixture.Repository.GetRecords(predicateContainer, 100, 0).ToList();
 
-            Assert.Equal(3, result.Count());
+            Assert.Equal(3, records.Count());
 
-            Assert.Equal("7", result[0]._EntityId);
-            Assert.Equal("5", result[1]._EntityId);
-            Assert.Equal("3", result[2]._EntityId);
+            Assert.Equal("7", records[0]._EntityId);
+            Assert.Equal("5", records[1]._EntityId);
+            Assert.Equal("3", records[2]._EntityId);
         }
 
         [Fact]
         public void should_return_entity_ids()
         {
-            var pc = new PredicateContainer();
+            var predicateContainer = new PredicateContainer();
 
-            pc.AddPredicates<ProcessData>(p => (p.vInt > 2 && (p.Primitives.vINT > 3 && p.Primitives.vINT <= 8)));
-            pc.AddPredicates<ProcessData>(p => (p.vBool == true));
+            predicateContainer.AddPredicates<ProcessData>(p => (p.vInt > 2 && (p.Primitives.vINT > 3 && p.Primitives.vINT <= 8)));
+            predicateContainer.AddPredicates<ProcessData>(p => (p.vBool == true));
 
-            List<string> result = Fixture.Repository.GetEntityIds(pc).ToList();
+            List<string> entityIds = Fixture.Repository.GetEntityIds(predicateContainer).ToList();
 
-            Assert.Equal(3, result.Count());
+            Assert.Equal(3, entityIds.Count());
 
-            Assert.Equal("7", result[0]);
-            Assert.Equal("5", result[1]);
-            Assert.Equal("3", result[2]);
+            Assert.Equal("7", entityIds[0]);
+            Assert.Equal("5", entityIds[1]);
+            Assert.Equal("3", entityIds[2]);
         }
 
         [Fact]
         public void should_return_entity_ids_in_order()
         {
-            var pcAscending = new PredicateContainer();
-            pcAscending.AddSortMember<ProcessData>(p => (p._EntityId), isAscending: true);
+            var ascendingPredicateContainer = new PredicateContainer();
+            ascendingPredicateContainer.AddSortMember<ProcessData>(p => (p._EntityId), isAscending: true);
 
-            List<string> requeestedIds = new() { "1", "9", "3", "7", };
+            List<string> requestedIds = new() { "1", "9", "3", "7", };
 
-            List<ProcessData> ascendingRecords = Fixture.Repository.GetRecords(requeestedIds, pcAscending).ToList();
+            List<ProcessData> ascendingRecords = Fixture.Repository.GetRecords(requestedIds, ascendingPredicateContainer).ToList();
 
             Assert.Equal(4, ascendingRecords.Count());
 
@@ -68,10 +68,10 @@
             Assert.Equal("7", ascendingRecords[2]._EntityId);
             Assert.Equal("9", ascendingRecords[3]._EntityId);
 
-            var pcDescending = new PredicateContainer();
-            pcDescending.AddSortMember<ProcessData>(p => (p._EntityId), isAscending: false);
+            var descendingPredicateContainer = new PredicateContainer();
+            descendingPredicateContainer.AddSortMember<ProcessData>(p => (p._EntityId), isAscending: false);
 
-            List<ProcessData> descendingRecords = Fixture.Repository.GetRecords(requeestedIds, pcDescending).ToList();
+            List<ProcessData> descendingRecords = Fixture.Repository.GetRecords(requestedIds, descendingPredicateContainer).ToList();
 
             Assert.Equal(4, descendingRecords.Count());
 
@@ -85,19 +85,19 @@
         [Fact]
         public void should_return_intersected_ids_in_order()
         {
-            var pc = new PredicateContainer();
-            pc.AddSortMember<ProcessData>(p => (p._EntityId), isAscending: true);
-            pc.AddPredicates<ProcessData>(p => (p.vInt > 1 && p.vInt < 9));
+            var predicateContainer = new PredicateContainer();
+            predicateContainer.AddSortMember<ProcessData>(p => (p._EntityId), isAscending: true);
+            predicateContainer.AddPredicates<ProcessData>(p => (p.vInt > 1 && p.vInt < 9));
 
 
-            List<string> requeestedIds = new() { "1", "9", "3", "7", };
+            List<string> requestedIds = new() { "1", "9", "3", "7", };
 
-            List<string> ascendingRecords = Fixture.Repository.GetEntityIds(pc, requeestedIds).ToList();
+            List<string> intersectedEntityIds = Fixture.Repository.GetEntityIds(predicateContainer, requestedIds).ToList();
 
-            Assert.Equal(2, ascendingRecords.Count());
+            Assert.Equal(2, intersectedEntityIds.Count());
 
-            Assert.Equal("3", ascendingRecords[0]);
-            Assert.Equal("7", ascendingRecords[1]);
+            Assert.Equal("3", intersectedEntityIds[0]);
+            Assert.Equal("7", intersectedEntityIds[1]);
 
         }
     }
