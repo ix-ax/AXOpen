@@ -19,17 +19,14 @@ namespace AXOpen.Data.Query
         public IDataExchangeQueryViewModel Exchange { get; set; }
 
         [Inject]
-        private ProtectedLocalStorage ProtectedLocalStorage { set; get; }
+        private ProtectedLocalStorage ProtectedLocalStorage { get; set; }
 
-        public Guid ViewGuid { get; } = new Guid();
+        private bool RemovePrefixOfPresentableSymbolPath { get; set; }
 
-        public bool SymbolsWasInitialize { get; set; }
+        private string RemovedCommonSymbolPrefix { get; set; } = "";
 
-        private bool RemoveRootTypeName { get; set; }
-        private string CommonHiddenPrefix { get; set; } = "";
-
-        public List<PlainSymbolBuilder> PlainBuilders { private set; get; } = new List<PlainSymbolBuilder>();
-        public List<Symbol> Symbols { private set; get; } = new();// whole available symbols
+        public List<PlainSymbolBuilder> PlainBuilders { get; private set; } = new List<PlainSymbolBuilder>();
+        public List<Symbol> Symbols { get; private set; } = new();
         public QuerySortConfiguration CurrentQuery { get; set; } = new();
         public QuerySortHistory History { get; set; } = new();
 
@@ -42,9 +39,9 @@ namespace AXOpen.Data.Query
                 if (_SymbolsQueryFilter != value)
                 {
                     _SymbolsQueryFilter = value;
-                    _symbolsQueryPage = 1;
+                    PaginationSelected = 1;
 
-                    _ = UpdateSymbolList();
+                    _ = UpdateSymbolListAsync();
                 }
             }
 
@@ -54,47 +51,16 @@ namespace AXOpen.Data.Query
             }
         }
 
-        public int SymbolsQueryCount { set; get; } // all symbols from query
+        protected int PaginationSelected { set; get; } = 1; // selected page
+        protected int PaginationPageSize { set; get; } = 5;
+        protected int PaginationCount { set; get; } // count of symbols last query
 
-        private int _symbolsQueryPage = 1;
-        public int SymbolsQueryPage // displaing only selected page
-        {
-            set
-            {
-                if (_symbolsQueryPage != value)
-                {
-                    _symbolsQueryPage = value;
-                    _ = FilterSymbolsAsync();
-                }
-            }
-            get
-            {
-                return _symbolsQueryPage;
-            }
-        }
 
-        private int _symbolsQueryPageLimit = 5;
-        public int SymbolsQueryPageLimit // displaing only selected page
-        {
-            set
-            {
-                if (_symbolsQueryPageLimit != value)
-                {
-                    _symbolsQueryPageLimit = value;
-                    _ = FilterSymbolsAsync();
-                }
-            }
-            get
-            {
-                return _symbolsQueryPageLimit;
-            }
-        }
+        public List<Symbol> FilteredSymbols { get; private set; } = new();
 
-        public List<Symbol> FilteredSymbols { private set; get; } = new(); // symbols for qery on selected pagge and display to the user
+        private volatile object _DisplayedSymbolsLock = new object();
 
-        private volatile object _displaySymbolLock = new object();
-
-        private List<Symbol> _DisplyedSymbols = new(); // symbols for qery on selected pagge and display to te user
+        private List<Symbol> _DisplayedSymbols = new();
 
         private string _StorageKey;
 
@@ -121,26 +87,22 @@ namespace AXOpen.Data.Query
             }
         }
 
-        public PredicateContainer PredicateContainer { private set; get; } = new PredicateContainer();
+        public PredicateContainer PredicateContainer { get; private set; } = new PredicateContainer();
 
-        public List<string> InjectedQueries { private set; get; } = new();
-        public List<string> InjectedSorting { private set; get; } = new();
+        public List<string> InjectedQueries { get; private set; } = new();
+        public List<string> InjectedSorting { get; private set; } = new();
 
-        protected override void OnInitialized()
-        {
-            SymbolsWasInitialize = false;
-        }
-
+       
         protected override async Task OnInitializedAsync()
         {
             await base.OnInitializedAsync();
 
-            await InitializeSymbols();
+            await InitializeSymbolsAsync();
 
-            await LoadQueryHistoryData();
+            await LoadHistoryAsync();
         }
 
-        protected Task InitializeSymbols()
+        protected Task InitializeSymbolsAsync()
         {
             Task initTask = Task.Run(() =>
             {
@@ -149,10 +111,10 @@ namespace AXOpen.Data.Query
 
                 PlainBuilders = Exchange.GetPlainTypes().Select(t => new PlainSymbolBuilder(t)).ToList();
 
-                RemoveRootTypeName = (PlainBuilders.Count == 1);
+                RemovePrefixOfPresentableSymbolPath = (PlainBuilders.Count == 1);
 
-                if (!RemoveRootTypeName)
-                    CommonHiddenPrefix = PlainBuilders.GetCommonPrefix();
+                if (!RemovePrefixOfPresentableSymbolPath)
+                    RemovedCommonSymbolPrefix = PlainBuilders.GetCommonPrefix();
 
                 foreach (var builder in PlainBuilders)
                 {
@@ -186,12 +148,11 @@ namespace AXOpen.Data.Query
                         }
                     }
                 }
-                SymbolsWasInitialize = true;
             });
             return initTask;
         }
 
-        public async Task UpdateSymbolList()
+        public async Task UpdateSymbolListAsync()
         {
             await FilterSymbolsAsync();
             this.StateHasChanged();
@@ -199,8 +160,8 @@ namespace AXOpen.Data.Query
 
         private async Task PageSizeAndSelectedChangedAsync(int pageSize, int selected)
         {
-            _symbolsQueryPageLimit = pageSize;
-            _symbolsQueryPage = selected;
+            PaginationPageSize = pageSize;
+            PaginationSelected = selected;
             FillObservableSymbols();
         }
 
@@ -208,9 +169,9 @@ namespace AXOpen.Data.Query
         {
             var symbolList = new List<Symbol>();
 
-            lock (_displaySymbolLock)
+            lock (_DisplayedSymbolsLock)
             {
-                symbolList.AddRange(_DisplyedSymbols);
+                symbolList.AddRange(_DisplayedSymbols);
             }
 
             return symbolList;
@@ -220,7 +181,7 @@ namespace AXOpen.Data.Query
             await InvokeAsync(() =>
             {
                 var query = Symbols.Where(s => string.IsNullOrEmpty(SymbolsQueryFilter) || s.PresentablePath.Contains(SymbolsQueryFilter, StringComparison.OrdinalIgnoreCase)).ToList();
-                SymbolsQueryCount = query.Count;
+                PaginationCount = query.Count;
                 FilteredSymbols = query;
             });
 
@@ -229,13 +190,13 @@ namespace AXOpen.Data.Query
 
         private void FillObservableSymbols()
         {
-            lock (_displaySymbolLock)
+            lock (_DisplayedSymbolsLock)
             {
-                _DisplyedSymbols.Clear();
+                _DisplayedSymbols.Clear();
 
-                _DisplyedSymbols.AddRange(
-                    FilteredSymbols.Skip((SymbolsQueryPage - 1)
-                    * SymbolsQueryPageLimit).Take(SymbolsQueryPageLimit));
+                _DisplayedSymbols.AddRange(
+                    FilteredSymbols.Skip((PaginationSelected - 1)
+                    * PaginationPageSize).Take(PaginationPageSize));
             }
         }
 
@@ -261,16 +222,16 @@ namespace AXOpen.Data.Query
             return Task.FromResult(true);
         }
 
-        public Task<bool> RemoveSymbolFromQuery(Guid trakSymbolId)
+        public Task<bool> RemoveSymbolFromQuery(Guid trackSymbolId)
         {
-            CurrentQuery.Queries.Remove(CurrentQuery.Queries.Where(p => p.TrackSymbolId == trakSymbolId).First());
+            CurrentQuery.Queries.Remove(CurrentQuery.Queries.Where(p => p.TrackSymbolId == trackSymbolId).First());
 
             return Task.FromResult(true);
         }
 
-        public Task<bool> RemoveSymbolFromSorting(Guid trakSymbolId)
+        public Task<bool> RemoveSymbolFromSorting(Guid trackSymbolId)
         {
-            CurrentQuery.Sorting.Remove(CurrentQuery.Sorting.Where(p => p.TrackSymbolId == trakSymbolId).First());
+            CurrentQuery.Sorting.Remove(CurrentQuery.Sorting.Where(p => p.TrackSymbolId == trackSymbolId).First());
 
             return Task.FromResult(true);
         }
@@ -333,7 +294,7 @@ namespace AXOpen.Data.Query
             return Task.FromResult(true);
         }
 
-        public async Task ExecuteFilter()
+        public async Task ExecuteFilterAsync()
         {
             PredicateContainer = null;
             PredicateContainer = new PredicateContainer();
@@ -357,7 +318,7 @@ namespace AXOpen.Data.Query
 
             Exchange.InvokeStateHasChanged();
 
-            await UpdateQueryHistoryToStorage();
+            await SaveHistoryAsync();
         }
 
         public Task<bool> ClearFilter()
@@ -368,7 +329,7 @@ namespace AXOpen.Data.Query
             return Task.FromResult(true);
         }
 
-        private async Task UpdateQueryHistoryToStorage()
+        private async Task SaveHistoryAsync()
         {
             try
             {
@@ -402,7 +363,7 @@ namespace AXOpen.Data.Query
             }
         }
 
-        private async Task RemoveItemFromHistory()
+        private async Task RemoveHistoryItemAsync()
         {
             try
             {
@@ -419,7 +380,7 @@ namespace AXOpen.Data.Query
                         History.Items.Remove(element);
 
                         await ProtectedLocalStorage.SetAsync(this.StorageKey, History);
-                        await LoadQueryHistoryData();
+                        await LoadHistoryAsync();
                     }
                 }
             }
@@ -429,7 +390,7 @@ namespace AXOpen.Data.Query
             }
         }
 
-        private void SelectlElementFromHistory(string name)
+        private void SelectHistoryItem(string name)
         {
             var newItem = History.Items.Where(t => t.Name == name).First();
 
@@ -439,7 +400,7 @@ namespace AXOpen.Data.Query
             }
         }
 
-        private async Task LoadQueryHistoryData()
+        private async Task LoadHistoryAsync()
         {
             try
             {
@@ -492,10 +453,10 @@ namespace AXOpen.Data.Query
 
         internal void SetPresentableSymbolPath(Symbol symbol)
         {
-            if (RemoveRootTypeName)
+            if (RemovePrefixOfPresentableSymbolPath)
                 symbol.PresentablePath = symbol.SymbolPath;
             else
-                symbol.PresentablePath = symbol.PresentablePath.Substring(CommonHiddenPrefix.Length).TrimStart(['.', '_']);
+                symbol.PresentablePath = symbol.PresentablePath.Substring(RemovedCommonSymbolPrefix.Length).TrimStart(['.', '_']);
         }
 
         public void Dispose()
