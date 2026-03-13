@@ -74,7 +74,7 @@
                     <button class="btn btn-outline-primary px-1! py-2! w-15" type="button" @onclick="() => AddSymbolToSorting(symbol)">
                         <Operon.Icons.HeroIcon Icon="adjustments-vertical" Type="Operon.Icons.IconType.Outline" Class="size-4" />
                     </button>
-                    <p>@symbol</p>
+                    <p>@symbol.GetDisplaySymbolPath(CommonHiddenPrefix)</p>
                 </div>
             }
 
@@ -113,7 +113,7 @@
                                 <Operon.Icons.HeroIcon Icon="arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </button>
 
-                            <QuerySymbolConfigurationView @key=querySymbol.TrackSymbolId SymbolConfiguration="@querySymbol"></QuerySymbolConfigurationView>
+                            <QuerySymbolConfigurationView @key=querySymbol.TrackSymbolId SymbolConfiguration="@querySymbol" HiddenPrefix="@CommonHiddenPrefix"></QuerySymbolConfigurationView>
                         </div>
                     }
                 </div>
@@ -154,8 +154,7 @@
                             </button>
 
                             <div class="flex flex-wrap items-center gap-2">
-                                <label> @sortSymbol.RootTypeName</label>
-                                <label> @sortSymbol.SymbolPath</label>
+                                <label> @sortSymbol.GetDisplaySymbolPath(CommonHiddenPrefix)</label>
                             </div>
 
                             <div class="flex flex-wrap items-center gap-2">

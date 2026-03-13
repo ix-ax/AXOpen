@@ -14,9 +14,9 @@ namespace AXOpen.Data.Query
 {
     public class Symbol
     {
-        public Symbol(string rooTypeName, string symbolPath)
+        public Symbol(string rootTypeName, string symbolPath)
         {
-            this.RootTypeName   = rooTypeName;
+            this.RootTypeName   = rootTypeName;
             this.SymbolPath     = symbolPath;
         }
 
@@ -57,6 +57,26 @@ namespace AXOpen.Data.Query
 
                 return _RootType;
             }
+        }
+
+        public string GetDisplaySymbolPath(string hiddenPrefix = "") 
+        {
+            return $"{GetRootTypeNameWithoutPrefix(hiddenPrefix)}.{this.SymbolPath}";
+        }
+
+        internal string GetRootTypeNameWithoutPrefix(string hiddenPrefix)
+        {
+            if (string.IsNullOrEmpty(hiddenPrefix))
+            {
+                return this.RootTypeName;
+            }
+
+            if (!this.RootTypeName.StartsWith(hiddenPrefix, StringComparison.Ordinal))
+            {
+                return this.RootTypeName;
+            }
+
+            return this.RootTypeName[hiddenPrefix.Length..].TrimStart('.');
         }
 
     }

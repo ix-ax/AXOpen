@@ -24,6 +24,7 @@ namespace AXOpen.Data.Query
         public Guid ViewGuid { get; } = new Guid();
 
         public bool SymbolsWasInitialize { get; set; }
+        public string CommonHiddenPrefix { get; set; } = "";
 
         public QuerySortHistory History { get; set; } = new();
         public QuerySortConfiguration CurrentQuery { get; set; } = new();
@@ -49,15 +50,17 @@ namespace AXOpen.Data.Query
                 bool addExternalPredicates = Exchange.InjectedPredicateContainer != null && (Exchange.InjectedPredicateContainer.PredicatesCount() > 0
                 || Exchange.InjectedPredicateContainer.SortingCount() > 0);
 
-                foreach (var rootType in Exchange.GetPlainTypes())
-                {
-                    var plainPathContainer = new PlainSymbolBuilder(rootType);
+                var plainBuilders = Exchange.GetPlainTypes().Select(t => new PlainSymbolBuilder(t)).ToList();
 
-                    var s = plainPathContainer.GetSymbols();
+                CommonHiddenPrefix = plainBuilders.GetCommonPrefix();
+
+                foreach (var builder in plainBuilders)
+                {                    
+                    var rootType = builder.RootType;
+
+                    var s = builder.GetSymbols();
 
                     Symbols.AddRange(s);
-
-                    PlainBuilders.Add(plainPathContainer);
 
                     if (addExternalPredicates)
                     {
@@ -471,6 +474,7 @@ namespace AXOpen.Data.Query
             if (CurrentQuery == null) CurrentQuery = new();
 
         }
+
 
         public void Dispose()
         {

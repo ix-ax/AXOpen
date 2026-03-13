@@ -63,5 +63,33 @@ namespace AXOpen.Data.Query
             return new SortSymbolConfiguration(symbol.RootTypeName, symbol.SymbolPath, t.FullName, false);
         }
 
+        public static string GetCommonPrefix(this IEnumerable<PlainSymbolBuilder> plains)
+        {
+            return GetCommonPrefix(plains.Select(p => p.RootTypeName));
+        }
+
+        public static string GetCommonPrefix(IEnumerable<string> names)
+        {
+            var list = names.Where(n => n != null).ToList();
+            if (list.Count == 0)
+                return "";
+
+            var prefix = list[0];
+            for (int i = 1; i < list.Count; i++)
+            {
+                var s = list[i];
+                var len = Math.Min(prefix.Length, s.Length);
+                int j = 0;
+                while (j < len && prefix[j] == s[j])
+                    j++;
+                prefix = prefix[..j];
+                if (prefix.Length == 0)
+                    return "";
+            }
+
+            // trim to last dot so we don't cut in the middle of a segment
+            var lastDot = prefix.LastIndexOf('.');
+            return lastDot > 0 ? prefix[..(lastDot + 1)] : "";
+        }
     }
 }

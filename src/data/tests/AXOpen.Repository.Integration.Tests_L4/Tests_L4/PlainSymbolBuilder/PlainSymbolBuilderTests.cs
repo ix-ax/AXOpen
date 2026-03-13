@@ -194,5 +194,34 @@ namespace Tests_L4
 
             Assert.Equal(27000, resolvedSymbols.Count());
         }
+
+        [Fact]
+        public void should_return_common_prefix_for_types_sharing_namespace()
+        {
+            var names = new[]
+            {
+                "Pocos.axosimple.SharedProductionData",
+                "Pocos.axosimple.ProcessData",
+                "Pocos.axosimple.RecipeData"
+            };
+
+            var result = PlainSymbolBuilderExtension.GetCommonPrefix(names);
+
+            Assert.Equal("Pocos.axosimple.", result);
+        }
+
+        [Fact]
+        public void should_return_empty_prefix_for_types_with_no_common_namespace()
+        {
+            var names = new[]
+            {
+                "Alpha.One.TypeA",
+                "Beta.Two.TypeB"
+            };
+
+            var result = PlainSymbolBuilderExtension.GetCommonPrefix(names);
+
+            Assert.Equal("", result);
+        }
     }
 }
