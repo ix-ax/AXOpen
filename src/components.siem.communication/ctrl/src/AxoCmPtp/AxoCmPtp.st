@@ -234,7 +234,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 // PortConfigTask running: waiting for '_portConfig.done' to be on.
                 IF _progress = 300 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
 
@@ -254,7 +254,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 // PortConfigTask running: waiting for '_portConfig.done' to be off.
                 IF _progress = 301 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
 
@@ -288,8 +288,8 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 Status.Error.Id  :=  UINT#10001;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10000,PortConfigTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10001,PortConfigTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#102,PortConfigTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,PortConfigTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#102,PortConfigTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF PortConfigTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
                 _progress := 0;
@@ -314,7 +314,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 // ReceiveResetTask running: waiting for '_receiveReset.done' to be on. 
                 IF _progress = 310 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#510;
                     END_IF;
 
@@ -333,7 +333,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 // ReceiveResetTask running:waiting for '_receiveReset.done' to be off. 
                 IF _progress = 311 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#511;
                     END_IF;
     
@@ -367,8 +367,8 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 Status.Error.Id  :=  UINT#10011;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10010,ReceiveResetTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10011,ReceiveResetTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,ReceiveResetTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10011,ReceiveResetTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#112,ReceiveResetTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF ReceiveResetTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
                 Status.Action.Id :=  UINT#112;
                 _progress := 0;
@@ -397,7 +397,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 // SendDataTask running: waiting for '_sendP2P.done' to be on.  
                 IF _progress = 320 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#520;
                     END_IF;
 
@@ -416,7 +416,7 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 // SendDataTask running: waiting for '_sendP2P.done' to be off. 
                 IF _progress = 321 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#521;
                     END_IF;
     
@@ -450,8 +450,8 @@ NAMESPACE AXOpen.Components.Siem.Communication
                 Status.Error.Id  :=  UINT#10021;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10020,SendDataTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10021,SendDataTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#122,SendDataTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10021,SendDataTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#122,SendDataTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF SendDataTask.RestoreTriggered() AND _progress >= 320 AND _progress <= 329  THEN
                 Status.Action.Id :=  UINT#122;
                 _progress := 0;
