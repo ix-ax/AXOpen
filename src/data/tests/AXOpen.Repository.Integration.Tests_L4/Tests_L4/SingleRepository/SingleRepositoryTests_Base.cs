@@ -100,5 +100,20 @@ namespace Tests_L4
             Assert.Equal("7", intersectedEntityIds[1]);
 
         }
+
+
+        [Fact]
+        public void should_return_records_with_created_at_from_initial_time()
+        {
+            var predicateContainer = new PredicateContainer();
+            predicateContainer.AddPredicates<ProcessData>(p => (p.CreatedAt >= Fixture.InitialTestTime));
+
+            var records = Fixture.Repository.GetRecords(predicateContainer, 100, 0).ToList();
+
+            Assert.Equal(10, records.Count);
+        }
+
+
+
     }
 }
