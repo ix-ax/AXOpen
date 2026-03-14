@@ -207,7 +207,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
             //***********UPDATE**INPUTS******************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_InOut_64_byte) ,_data);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1201, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1201;
                 RETURN;
             END_IF;
@@ -360,7 +360,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start at main running: switching to auto mode.
                 IF _power_progress = 300 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
 
@@ -374,7 +374,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start at main running: enabling the operations.
                 IF _power_progress = 301 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
 
@@ -388,7 +388,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start at main running: reseting the error.
                 IF _power_progress = 302 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#502;
                     END_IF;
 
@@ -403,7 +403,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start at main running: reseting the emergency stop.
                 IF _power_progress = 303 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#503;
                     END_IF;
 
@@ -418,7 +418,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start at main running: reseting the program.
                 IF _power_progress = 304 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#504;
                     END_IF;
 
@@ -452,8 +452,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 Status.Error.Id  :=  UINT#10001;
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#10000,StartAtMainTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10001,StartAtMainTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#102,StartAtMainTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,StartAtMainTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#102,StartAtMainTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StartAtMainTask.RestoreTriggered() AND _power_progress >= 300 AND _power_progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
                 _power_progress := 0;
@@ -478,7 +478,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start motors and program running: switching to auto mode.
                 IF _power_progress = 310 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#510;
                     END_IF;
                     
@@ -492,7 +492,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start motors and program running: enabling the operations.
                 IF _power_progress = 311 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#511;
                     END_IF;
                     
@@ -506,7 +506,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start motors and program running: reseting the error.
                 IF _power_progress = 312 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#512;
                     END_IF;
                     
@@ -521,7 +521,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start motors and program running: reseting the emergency stop.
                 IF _power_progress = 313 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
                     END_IF;
                     
@@ -536,7 +536,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start motors and program running: starting the servomotors.
                 IF _power_progress = 314 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#514;
                     END_IF;
 
@@ -556,7 +556,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start motors and program running: starting the servomotors.
                 IF _power_progress = 315 THEN	
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#515;
                     END_IF;
 
@@ -577,7 +577,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start motors and program running: starting the program.
                 IF _power_progress = 316 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#516;
                     END_IF;
 
@@ -597,7 +597,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start motors and program running: starting the program.
                 IF _power_progress = 317 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#517;
                     END_IF;
 
@@ -636,8 +636,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 Status.Error.Id  :=  UINT#10011;
             END_IF;         
             Messenger.ActivateOnCondition(ULINT#10010,StartMotorsAndProgramTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10011,StartMotorsAndProgramTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,StartMotorsAndProgramTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10011,StartMotorsAndProgramTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#112,StartMotorsAndProgramTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StartMotorsAndProgramTask.RestoreTriggered() AND _power_progress >= 310 AND _power_progress <= 319  THEN
                 Status.Action.Id :=  UINT#112;
                 _power_progress := 0;
@@ -661,7 +661,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Stop movements running: switching to auto mode.
                 IF _power_progress = 320 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#520;
                     END_IF;
                     
@@ -675,7 +675,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Stop movements running: enabling the operations.
                 IF _power_progress = 321 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#521;
                     END_IF;
 
@@ -689,7 +689,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Stop movements running: stopping the movement.
                 IF _power_progress = 322 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#522;
                     END_IF;
                     
@@ -724,8 +724,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 Status.Error.Id  :=  UINT#10021;
             END_IF; 
             Messenger.ActivateOnCondition(ULINT#10020,StopMovementsTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10021,StopMovementsTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#122,StopMovementsTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10021,StopMovementsTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#122,StopMovementsTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StopMovementsTask.RestoreTriggered() AND _power_progress >= 320 AND _power_progress <= 339  THEN
                 Status.Action.Id :=  UINT#122;
                 _power_progress := 0;
@@ -751,7 +751,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Stop movements and program running: switching to auto mode.
                 IF _power_progress = 330 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#530;
                     END_IF;
 
@@ -765,7 +765,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Stop movements and program running: enabling the operations.
                 IF _power_progress = 331 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#531;
                     END_IF;
 
@@ -779,7 +779,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Stop movements and program running: stopping the movement.
                 IF _power_progress = 332 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#532;
                     END_IF;
 
@@ -814,8 +814,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 Status.Error.Id  :=  UINT#10031;
             END_IF;    
             Messenger.ActivateOnCondition(ULINT#10030,StopMovementsAndProgramTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10031,StopMovementsAndProgramTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#132,StopMovementsAndProgramTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10031,StopMovementsAndProgramTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#132,StopMovementsAndProgramTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StopMovementsAndProgramTask.RestoreTriggered() AND _power_progress >= 330 AND _power_progress <= 339 THEN
                 Status.Action.Id :=  UINT#132;
                 _power_progress := 0;
@@ -840,19 +840,19 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 IF _movement_progress = 340 THEN
                     IF _infoTimer.output THEN
                         IF NOT Inputs.AutoEnable THEN   //<#Waiting for AutoEnable!
-                            TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Potential);
                             Status.Error.Id := UINT#540;
                         END_IF;
                         IF NOT Inputs.OperationEnable THEN//<#Waiting for OperationEnable!
-                            TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Potential);
                             Status.Error.Id := UINT#541;
                         END_IF;
                         IF NOT Inputs.ServoOn THEN//<#Waiting for ServoOn!
-                            TaskMessenger.Activate( UINT#542, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#542, eAxoMessageCategory#Potential);
                             Status.Error.Id := UINT#542;
                         END_IF;
                         IF Inputs.ErrorReset THEN//<#Waiting for ErrorReset!
-                            TaskMessenger.Activate( UINT#543, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#543, eAxoMessageCategory#Potential);
                             Status.Error.Id := UINT#543;
                         END_IF;
                     END_IF;
@@ -867,7 +867,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start movements running: sending parameters of the movement to the controller.
                 IF _movement_progress = 344 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#544, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#544, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#544;
                     END_IF;
 
@@ -892,27 +892,27 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 IF _movement_progress = 345 THEN
                     IF _infoTimer.output THEN
                         IF Inputs.GlobalSpeed <> Status.CurrentMovementParameters.GlobalSpeed THEN
-                            TaskMessenger.Activate( UINT#545, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#545, eAxoMessageCategory#Potential);
                             Status.Error.Id := UINT#545;//<#Waiting for Inputs.GlobalSpeed to be equal to MovementParameters.GlobalSpeed!
                         END_IF;
                         IF Inputs.ToolNo <> Status.CurrentMovementParameters.ToolNo THEN
-                            TaskMessenger.Activate( UINT#546, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#546, eAxoMessageCategory#Potential);
                             Status.Error.Id := UINT#546;//<#Waiting for Inputs.ToolNo to be equal to MovementParameters.ToolNo!
                         END_IF;
                         IF Inputs.WorkobjectNo <> Status.CurrentMovementParameters.WorkobjectNo THEN
-                            TaskMessenger.Activate( UINT#547, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#547, eAxoMessageCategory#Potential);
                             Status.Error.Id := UINT#547;//<#Waiting for Inputs.WorkobjectNo to be equal to MovementParameters.WorkobjectNo!
                         END_IF;
                         IF Inputs.PointNo <> Status.CurrentMovementParameters.PointNo THEN
-                            TaskMessenger.Activate( UINT#548, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#548, eAxoMessageCategory#Potential);
                             Status.Error.Id := UINT#548;//<#Waiting for Inputs.PointNo to be equal to MovementParameters.PointNo!
                         END_IF;
                         IF Inputs.UserSpecSpeed1 <> Status.CurrentMovementParameters.UserSpecSpeed1 THEN
-                            TaskMessenger.Activate( UINT#549, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#549, eAxoMessageCategory#Potential);
                             Status.Error.Id := UINT#549;//<#Waiting for Inputs.UserSpecSpeed1 to be equal to MovementParameters.UserSpecSpeed1!
                         END_IF;
                         IF Inputs.UserSpecSpeed2 <> Status.CurrentMovementParameters.UserSpecSpeed2 THEN
-                            TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Potential);
                             Status.Error.Id := UINT#550;//<#Waiting for Inputs.UserSpecSpeed2 to be equal to MovementParameters.UserSpecSpeed2!
                         END_IF;
                     END_IF;
@@ -932,7 +932,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start movements running: acknowleadging of the movement parameters.
                 IF _movement_progress = 351 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#551;
                     END_IF;
 
@@ -946,7 +946,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start movements running: waiting for the movement is finished.
                 IF _movement_progress = 352 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#552, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#552, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#552;
                     END_IF;
 
@@ -960,7 +960,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 // Start movements running: acknowleadging of the finished movement.
                 IF _movement_progress = 353 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#553, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#553, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#553;
                     END_IF;
 
@@ -995,8 +995,8 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
                 Status.Error.Id  :=  UINT#10041;
             END_IF;    
             Messenger.ActivateOnCondition(ULINT#10040,StartMovementsTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10041,StartMovementsTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#142,StartMovementsTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10041,StartMovementsTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#142,StartMovementsTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StartMovementsTask.RestoreTriggered() AND _movement_progress >= 340 AND _movement_progress <= 349 THEN
                 Status.Action.Id :=  UINT#142;
                 _movement_progress := 0;
@@ -1098,7 +1098,7 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
 
             _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_InOut_64_byte),_data);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1231, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1231;
                 RETURN;
             END_IF;            

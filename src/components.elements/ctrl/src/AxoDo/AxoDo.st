@@ -90,12 +90,12 @@ NAMESPACE AXOpen.Components.Elements
 
         METHOD PUBLIC IsTrue : BOOL
             IsTrue := _signal;
-            _messengerInfo.ActivateOnCondition(UINT#1,IsTrue,AXOpen.Messaging.eAxoMessageCategory#Warning);
+            _messengerInfo.ActivateOnCondition(UINT#1,IsTrue,AXOpen.Messaging.eAxoMessageCategory#Potential);
         END_METHOD
 
         METHOD PUBLIC IsFalse : BOOL
             IsFalse := NOT _signal;
-            _messengerInfo.ActivateOnCondition(UINT#2,IsFalse,AXOpen.Messaging.eAxoMessageCategory#Warning);
+            _messengerInfo.ActivateOnCondition(UINT#2,IsFalse,AXOpen.Messaging.eAxoMessageCategory#Potential);
         END_METHOD
     END_CLASS
 END_NAMESPACE

@@ -467,7 +467,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             //***********Update inputs **************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_CM) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1201, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1201;
                 RETURN;
             END_IF;
@@ -475,7 +475,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Reader) ,_data_in);
 
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1202, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1202;
                 RETURN;
             END_IF;
@@ -544,7 +544,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadUID_Task running: waiting for the tag presence.
                 IF _progress = 300 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
     
@@ -556,7 +556,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadUID_Task running: command triggered.
                 IF _progress = 301 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
     
@@ -571,7 +571,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadUID_Task running: waiting for active command to be equal 1 (ReadUID).
                 IF _progress = 302 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#502;
                     END_IF;
     
@@ -583,7 +583,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadUID_Task running: waiting for the new data.
                 IF _progress = 303 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#503;
                     END_IF;
     
@@ -595,7 +595,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadUID_Task running: reading the data.
                 IF _progress = 304 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#504;
                     END_IF;
                     FOR _index := INT#0 TO (TO_INT(Inputs.Status.BLOCKLENGTH) - INT#1) BY INT#1 DO
@@ -620,7 +620,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadUID_Task running: cleaning the tail of the data buffer.
                 IF _progress = 305 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#505;
                     END_IF;
 
@@ -656,8 +656,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 Status.Error.Id  :=  UINT#10001;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10000,ReadUID_Task.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10001,ReadUID_Task.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#102,ReadUID_Task.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,ReadUID_Task.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#102,ReadUID_Task.RestoreTriggered() , eAxoMessageCategory#Info);
             IF ReadUID_Task.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
                 _progress := 0;
@@ -688,7 +688,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadTagFieldTask running: waiting for the tag presence.
                 IF _progress = 310 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#510;
                     END_IF;
     
@@ -700,7 +700,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadTagFieldTask running: command triggered.
                 IF _progress = 311 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#511;
                     END_IF;
 
@@ -719,7 +719,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadTagFieldTask running: waiting for active command to be equal 2 (ReadTagField).
                 IF _progress = 312 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#512;
                     END_IF;
     
@@ -731,7 +731,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadTagFieldTask running: waiting for the new data.
                 IF _progress = 313 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
                     END_IF;
     
@@ -743,7 +743,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadTagFieldTask running: reading the data.
                 IF _progress = 314 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#514;
                     END_IF;
     
@@ -769,7 +769,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadTagFieldTask running: cleaning the tail of the data buffer.
                 IF _progress = 315 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#515;
                     END_IF;
                     FOR _index := _dataBufferOffset TO Config.DataBufferHighIndex BY INT#1 DO
@@ -804,8 +804,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 Status.Error.Id  :=  UINT#10011;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10010,ReadTagFieldTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10011,ReadTagFieldTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,ReadTagFieldTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10011,ReadTagFieldTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#112,ReadTagFieldTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF ReadTagFieldTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
                 Status.Action.Id :=  UINT#112;
                 _progress := 0;
@@ -836,7 +836,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // WriteTagFieldTask running: waiting for the tag presence.
                 IF _progress = 320 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#520;
                     END_IF;
     
@@ -848,7 +848,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // WriteTagFieldTask running: writing data header and first frame.
                 IF _progress = 321 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#521;
                     END_IF;
                     Outputs.Data[0] := _writeTagField.%B1;
@@ -880,7 +880,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // WriteTagFieldTask running: command triggered.
                 IF _progress = 322 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#522;
                     END_IF;
 
@@ -896,7 +896,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // WriteTagFieldTask running: waiting for active command to be equal 3 (WriteTagField).
                 IF _progress = 323 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#523;
                     END_IF;
     
@@ -908,7 +908,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // WriteTagFieldTask running: waiting for the new data accepted.
                 IF _progress = 324 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#524;
                     END_IF;
     
@@ -920,7 +920,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // WriteTagFieldTask running: writing additional data frame.
                 IF _progress = 325 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#525;
                     END_IF;
                     IF _bytesToWrite > Config.IOsize - UINT#4 THEN
@@ -951,7 +951,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // WriteTagFieldTask running: waiting for active command to be equal 3 (WriteTagField).
                 IF _progress = 326 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#526;
                     END_IF;
 
@@ -985,8 +985,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 Status.Error.Id  :=  UINT#10021;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10020,WriteTagFieldTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10021,WriteTagFieldTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#122,WriteTagFieldTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10021,WriteTagFieldTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#122,WriteTagFieldTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF WriteTagFieldTask.RestoreTriggered() AND _progress >= 320 AND _progress <= 329  THEN
                 Status.Action.Id :=  UINT#122;
                 _progress := 0;
@@ -1017,7 +1017,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadTask running: waiting for the tag presence.
                 IF _progress = 330 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#530;
                     END_IF;
     
@@ -1029,7 +1029,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadTask running: command triggered.
                 IF _progress = 331 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#531;
                     END_IF;
 
@@ -1058,7 +1058,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadTask running: waiting for active command to be equal 4 (Read).
                 IF _progress = 332 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#532;
                     END_IF;
     
@@ -1070,7 +1070,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadTask running: waiting for the new data.
                 IF _progress = 333 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#533, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#533, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#533;
                     END_IF;
     
@@ -1082,13 +1082,13 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadTask running: reading the data.
                 IF _progress = 334 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#534, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#534, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#534;
                     END_IF;
     
                     FOR _index := INT#0 TO TO_INT(Inputs.Status.BLOCKLENGTH) DO
                         IF (_index + _dataBufferOffset) > Config.DataBufferHighIndex THEN
-                            TaskMessenger.Activate( UINT#1303, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#1303, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#1303;
                             RETURN;
                         ELSE
@@ -1108,7 +1108,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ReadTask running: cleaning the tail of the data buffer.
                 IF _progress = 335 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#535, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#535, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#535;
                     END_IF;
 
@@ -1144,8 +1144,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 Status.Error.Id  :=  UINT#10031;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10030,ReadTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10031,ReadTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#132,ReadTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10031,ReadTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#132,ReadTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF ReadTask.RestoreTriggered() AND _progress >= 330 AND _progress <= 339  THEN
                 Status.Action.Id :=  UINT#132;
                 _progress := 0;
@@ -1176,7 +1176,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // WriteTask running: waiting for the tag presence.
                 IF _progress = 340 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#540;
                     END_IF;
     
@@ -1188,7 +1188,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // WriteTask running: writing data header and first frame.
                 IF _progress = 341 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#541;
                     END_IF;
 
@@ -1227,7 +1227,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // WriteTask running: command triggered.
                 IF _progress = 342 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#542, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#542, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#542;
                     END_IF;
 
@@ -1243,7 +1243,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // WriteTask running: waiting for active command to be equal 5 (Write).
                 IF _progress = 343 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#543, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#543, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#543;
                     END_IF;
     
@@ -1255,7 +1255,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // WriteTask running: waiting for the new data accepted.
                 IF _progress = 344 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#544, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#544, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#544;
                     END_IF;
     
@@ -1267,7 +1267,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // WriteTask running: writing additional data frame.
                 IF _progress = 345 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#545, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#545, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#545;
                     END_IF;
     
@@ -1299,7 +1299,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // WriteTask running: waiting for active command to be equal 5 (Write).
                 IF _progress = 346 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#546, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#546, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#546;
                     END_IF;
     
@@ -1333,8 +1333,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 Status.Error.Id  :=  UINT#10041;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10040,WriteTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10041,WriteTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#142,WriteTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10041,WriteTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#142,WriteTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF WriteTask.RestoreTriggered() AND _progress >= 340 AND _progress <= 349  THEN
                 Status.Action.Id :=  UINT#142;
                 _progress := 0;
@@ -1364,7 +1364,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ResetTask running: waiting for 'Inputs.Status.RESETCONF' to be on.
                 IF _progress = 350 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#550;
                     END_IF;
 
@@ -1378,7 +1378,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 // ResetTask running: waiting for 'Inputs.Status.RESETCONF' to be off.
                 IF _progress = 351 THEN                                                                                     // ResetTask running: , <add the detailed description of the current action 2>
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#551;
                     END_IF;
 
@@ -1412,8 +1412,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 Status.Error.Id  :=  UINT#10051;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10050,ResetTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10051,ResetTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#152,ResetTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10051,ResetTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#152,ResetTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF ResetTask.RestoreTriggered() AND _progress >= 350 AND _progress <= 359  THEN
                 Status.Action.Id :=  UINT#152;
                 _progress := 0;
@@ -1423,7 +1423,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             //***********Update outputs ****************
             _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_CM),_data_out_2);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1231, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1231;
                 RETURN;
             END_IF;         
@@ -1444,7 +1444,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Reader),_data_out_32);
                 IF _retVal > WORD#0 THEN
-                    Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
+                    Messenger.Activate(UINT#1232, eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1232;
                     RETURN;
                 END_IF;
@@ -1463,7 +1463,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Reader),_data_out_116);
                 IF _retVal > WORD#0 THEN
-                    Messenger.Activate(UINT#1233, eAxoMessageCategory#ProgrammingError);
+                    Messenger.Activate(UINT#1233, eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1233;
                     RETURN;
                 END_IF;
@@ -1484,7 +1484,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Reader),_data_out_128);
                 IF _retVal > WORD#0 THEN
-                    Messenger.Activate(UINT#1234, eAxoMessageCategory#ProgrammingError);
+                    Messenger.Activate(UINT#1234, eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1234;
                     RETURN;
                 END_IF;

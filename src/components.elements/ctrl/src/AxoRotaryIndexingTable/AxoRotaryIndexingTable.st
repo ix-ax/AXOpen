@@ -202,7 +202,7 @@ NAMESPACE AXOpen.Components.Elements
                 // TurnTask running: turn table moving, waiting for 'Inputs.InPosition' to be reseted.
                 IF _progress = 302 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#502;
                     END_IF;
 
@@ -218,7 +218,7 @@ NAMESPACE AXOpen.Components.Elements
                 // TurnTask running: turn table moving, waiting for 'Inputs.InPosition' to be set.
                 IF _progress = 303 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#503;
                     END_IF;
     
@@ -270,8 +270,8 @@ NAMESPACE AXOpen.Components.Elements
                 Outputs.StartTurn := FALSE;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10000,TurnTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10001,TurnTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#102,TurnTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,TurnTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#102,TurnTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF TurnTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
                 _progress := 0;
@@ -296,7 +296,7 @@ NAMESPACE AXOpen.Components.Elements
                 // InitPositionTask running: turn table moving, waiting for 'Inputs.InPosition' to be reseted.
                 IF _progress = 312 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#512;
                     END_IF;
     
@@ -312,7 +312,7 @@ NAMESPACE AXOpen.Components.Elements
                 // InitPositionTask running: turn table moving, waiting for 'Inputs.InPosition' to be set.
                 IF _progress = 313 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
                     END_IF;
     
@@ -352,8 +352,8 @@ NAMESPACE AXOpen.Components.Elements
                 Outputs.StartTurn := FALSE;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10010,InitPositionTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10011,InitPositionTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,InitPositionTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10011,InitPositionTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#112,InitPositionTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF InitPositionTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
                 Status.Action.Id :=  UINT#112;
                 _progress := 0;

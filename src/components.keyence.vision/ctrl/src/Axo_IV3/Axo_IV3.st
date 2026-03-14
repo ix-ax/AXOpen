@@ -3348,7 +3348,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************CommandStatusBits*********************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_CommandStatusBits) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1601, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1601, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1601;
                 RETURN;
             END_IF;
@@ -3393,7 +3393,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************DeviceResultBits_1********************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_DeviceResultBits_1) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1602, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1602, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1602;
                 RETURN;
             END_IF;
@@ -3429,7 +3429,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************DeviceStatusWords*********************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_DeviceStatusWords) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1603, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1603, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1603;
                 RETURN;
             END_IF;
@@ -3463,7 +3463,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************DeviceStatistics**********************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_DeviceStatistics) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1604, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1604, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1604;
                 RETURN;
             END_IF;
@@ -3504,7 +3504,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************PositionAdjustResult******************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_PositionAdjustResult) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1605, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1605, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1605;
                 RETURN;
             END_IF;
@@ -3527,7 +3527,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_1**************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_1) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1606, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1606, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1606;
                 RETURN;
             END_IF;
@@ -3565,7 +3565,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_2**************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_2) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1607, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1607, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1607;
                 RETURN;
             END_IF;
@@ -3603,7 +3603,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_3**************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_3) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1608, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1608, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1608;
                 RETURN;
             END_IF;
@@ -3641,7 +3641,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_4**************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_4) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1609, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1609, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1609;
                 RETURN;
             END_IF;
@@ -3679,7 +3679,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_5**************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_5) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1610, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1610, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1610;
                 RETURN;
             END_IF;
@@ -3717,7 +3717,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_6**************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_6) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1611, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1611, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1611;
                 RETURN;
             END_IF;
@@ -3755,7 +3755,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_7**************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_7) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1612, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1612, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1612;
                 RETURN;
             END_IF;
@@ -3793,7 +3793,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_8**************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_8) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1613, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1613, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1613;
                 RETURN;
             END_IF;
@@ -3831,7 +3831,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_9**************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_9) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1614, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1614, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1614;
                 RETURN;
             END_IF;
@@ -3869,7 +3869,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_10*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_10) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1615, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1615, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1615;
                 RETURN;
             END_IF;
@@ -3907,7 +3907,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_11*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_11) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1616, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1616, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1616;
                 RETURN;
             END_IF;
@@ -3945,7 +3945,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_12*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_12) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1617, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1617, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1617;
                 RETURN;
             END_IF;
@@ -3983,7 +3983,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_13*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_13) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1618, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1618, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1618;
                 RETURN;
             END_IF;
@@ -4021,7 +4021,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_14*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_14) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1619, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1619, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1619;
                 RETURN;
             END_IF;
@@ -4059,7 +4059,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_15*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_15) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1620, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1620, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1620;
                 RETURN;
             END_IF;
@@ -4097,7 +4097,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_16*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_16) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1621, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1621, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1621;
                 RETURN;
             END_IF;
@@ -4135,7 +4135,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_17*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_17) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1622, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1622, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1622;
                 RETURN;
             END_IF;
@@ -4173,7 +4173,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_18*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_18) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1623, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1623, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1623;
                 RETURN;
             END_IF;
@@ -4211,7 +4211,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_19*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_19) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1624, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1624, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1624;
                 RETURN;
             END_IF;
@@ -4249,7 +4249,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_20*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_20) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1625, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1625, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1625;
                 RETURN;
             END_IF;
@@ -4287,7 +4287,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_21*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_21) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1626, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1626, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1626;
                 RETURN;
             END_IF;
@@ -4325,7 +4325,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_22*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_22) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1627, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1627, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1627;
                 RETURN;
             END_IF;
@@ -4363,7 +4363,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_23*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_23) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1628, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1628, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1628;
                 RETURN;
             END_IF;
@@ -4401,7 +4401,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_24*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_24) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1629, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1629, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1629;
                 RETURN;
             END_IF;
@@ -4439,7 +4439,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_25*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_25) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1630, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1630, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1630;
                 RETURN;
             END_IF;
@@ -4477,7 +4477,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_26*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_26) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1631, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1631, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1631;
                 RETURN;
             END_IF;
@@ -4515,7 +4515,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_27*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_27) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1632, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1632, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1632;
                 RETURN;
             END_IF;
@@ -4553,7 +4553,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_28*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_28) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1633, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1633, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1633;
                 RETURN;
             END_IF;
@@ -4591,7 +4591,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_29*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_29) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1634, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1634, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1634;
                 RETURN;
             END_IF;
@@ -4629,7 +4629,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_30*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_30) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1635, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1635, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1635;
                 RETURN;
             END_IF;
@@ -4667,7 +4667,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_31*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_31) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1636, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1636, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1636;
                 RETURN;
             END_IF;
@@ -4705,7 +4705,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_32*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_32) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1637, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1637, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1637;
                 RETURN;
             END_IF;
@@ -4743,7 +4743,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_33*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_33) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1638, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1638, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1638;
                 RETURN;
             END_IF;
@@ -4781,7 +4781,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_34*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_34) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1639, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1639, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1639;
                 RETURN;
             END_IF;
@@ -4819,7 +4819,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_35*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_35) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1640, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1640, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1640;
                 RETURN;
             END_IF;
@@ -4857,7 +4857,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_36*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_36) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1641, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1641, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1641;
                 RETURN;
             END_IF;
@@ -4895,7 +4895,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_37*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_37) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1642, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1642, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1642;
                 RETURN;
             END_IF;
@@ -4933,7 +4933,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_38*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_38) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1643, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1643, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1643;
                 RETURN;
             END_IF;
@@ -4971,7 +4971,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_39*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_39) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1644, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1644, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1644;
                 RETURN;
             END_IF;
@@ -5009,7 +5009,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_40*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_40) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1645, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1645, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1645;
                 RETURN;
             END_IF;
@@ -5047,7 +5047,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_41*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_41) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1646, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1646, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1646;
                 RETURN;
             END_IF;
@@ -5085,7 +5085,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_42*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_42) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1647, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1647, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1647;
                 RETURN;
             END_IF;
@@ -5123,7 +5123,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_43*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_43) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1648, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1648, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1648;
                 RETURN;
             END_IF;
@@ -5161,7 +5161,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_44*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_44) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1649, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1649, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1649;
                 RETURN;
             END_IF;
@@ -5199,7 +5199,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_45*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_45) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1650, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1650, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1650;
                 RETURN;
             END_IF;
@@ -5237,7 +5237,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_46*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_46) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1651, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1651, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1651;
                 RETURN;
             END_IF;
@@ -5275,7 +5275,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_47*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_47) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1652, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1652, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1652;
                 RETURN;
             END_IF;
@@ -5313,7 +5313,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_48*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_48) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1653, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1653, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1653;
                 RETURN;
             END_IF;
@@ -5351,7 +5351,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_49*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_49) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1654, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1654, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1654;
                 RETURN;
             END_IF;
@@ -5389,7 +5389,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_50*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_50) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1655, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1655, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1655;
                 RETURN;
             END_IF;
@@ -5427,7 +5427,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_51*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_51) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1656, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1656, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1656;
                 RETURN;
             END_IF;
@@ -5465,7 +5465,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_52*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_52) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1657, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1657, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1657;
                 RETURN;
             END_IF;
@@ -5503,7 +5503,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_53*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_53) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1658, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1658, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1658;
                 RETURN;
             END_IF;
@@ -5541,7 +5541,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_54*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_54) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1659, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1659, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1659;
                 RETURN;
             END_IF;
@@ -5579,7 +5579,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_55*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_55) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1660, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1660, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1660;
                 RETURN;
             END_IF;
@@ -5617,7 +5617,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_56*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_56) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1661, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1661, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1661;
                 RETURN;
             END_IF;
@@ -5655,7 +5655,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_57*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_57) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1662, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1662, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1662;
                 RETURN;
             END_IF;
@@ -5693,7 +5693,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_58*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_58) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1663, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1663, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1663;
                 RETURN;
             END_IF;
@@ -5731,7 +5731,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_59*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_59) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1664, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1664, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1664;
                 RETURN;
             END_IF;
@@ -5769,7 +5769,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_60*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_60) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1665, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1665, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1665;
                 RETURN;
             END_IF;
@@ -5807,7 +5807,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_61*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_61) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1666, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1666, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1666;
                 RETURN;
             END_IF;
@@ -5845,7 +5845,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_62*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_62) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1667, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1667, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1667;
                 RETURN;
             END_IF;
@@ -5883,7 +5883,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_63*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_63) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1668, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1668, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1668;
                 RETURN;
             END_IF;
@@ -5921,7 +5921,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************ToolResult_64*************************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_ToolResult_64) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1669, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1669, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1669;
                 RETURN;
             END_IF;
@@ -5959,7 +5959,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
             //*************************DeviceResultBits_2********************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_DeviceResultBits_2) ,_data_in);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1670, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1670, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1670;
                 RETURN;
             END_IF;
@@ -6073,7 +6073,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TriggerTask running: waiting for the raising of the 'TriggerReady' signal.
                 IF _progress = 300 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
 
@@ -6085,7 +6085,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TriggerTask running: waiting for the raising of the 'TriggerResponse' signal.
                 IF _progress = 301 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
 
@@ -6099,7 +6099,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TriggerTask running: waiting for the raising of the 'BUSY' signal.
                 IF _progress = 302 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#502;
                     END_IF;
 
@@ -6111,7 +6111,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TriggerTask running: waiting for the raising of the 'ImagingStatus' signal.
                 IF _progress = 303 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#503;
                     END_IF;
     
@@ -6123,7 +6123,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TriggerTask running: waiting for the falling of the 'BUSY' signal.
                 IF _progress = 304 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#504;
                     END_IF;
 
@@ -6137,7 +6137,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TriggerTask running: waiting for the change of the 'ResultUpdateComplete' signal.
                 IF _progress = 305 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#505;
                     END_IF;
     
@@ -6149,7 +6149,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TriggerTask running: waiting for the raising of the 'ResultAvailable' signal.
                 IF _progress = 306 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#506, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#506, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#506;
                     END_IF;
     
@@ -6161,7 +6161,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // TriggerTask running: waiting for the incrementation of the 'ResultNo' signal.
                 IF _progress = 307 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#507, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#507, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#507;
                     END_IF;
 
@@ -6193,8 +6193,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 Status.Error.Id  :=  UINT#10001;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10000,TriggerTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10001,TriggerTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#102,TriggerTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,TriggerTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#102,TriggerTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF TriggerTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
                 _progress := 0;
@@ -6230,14 +6230,14 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                         THIS.CallTimers(FALSE);
                         _progress := 311;
                     ELSE
-                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#510;
                     END_IF;
                 END_IF;
                  // ChangeProgramTask running: if 'ProgramSwitchingResponse' signal is true finish previous change.
                 IF _progress = 311 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#511;
                     END_IF;
 
@@ -6253,7 +6253,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                  // ChangeProgramTask running: wait for falling edge ProgramSwitchingResponse
                 IF _progress = 313 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
                     END_IF;
     
@@ -6266,7 +6266,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ChangeProgramTask running: wait for program numbers to be equal.
                 IF _progress = 312 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
                     END_IF;
     
@@ -6280,7 +6280,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ChangeProgramTask running: setting the new program number.
                 IF _progress = 314 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#511;
                     END_IF;
 
@@ -6296,7 +6296,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ChangeProgramTask running: waiting for the raising of the 'ProgramSwitchingResponse' signal.
                 IF _progress = 315 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#512;
                     END_IF;
     
@@ -6310,7 +6310,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ChangeProgramTask running: waiting for the falling of the 'ProgramSwitchingResponse' signal.
                 IF _progress = 316 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
                     END_IF;
     
@@ -6325,7 +6325,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 // ChangeProgramTask running: waiting for equals program change.
                 IF _progress = 317 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
                     END_IF;
     
@@ -6361,8 +6361,8 @@ NAMESPACE AXOpen.Components.Keyence.Vision
                 Status.Error.Id  :=  UINT#10011;
             END_IF;            
             Messenger.ActivateOnCondition(ULINT#10010,ChangeProgramTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10011,ChangeProgramTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,ChangeProgramTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10011,ChangeProgramTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#112,ChangeProgramTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF ChangeProgramTask.RestoreTriggered() AND _progress >= 310 AND _progress <= 319  THEN
                 Status.Action.Id :=  UINT#112;
                 _progress := 0;
