@@ -1,4 +1,6 @@
 name: single_app_run
+permissions:
+  contents: read
 on:
   workflow_dispatch:
     inputs:

@@ -41,8 +41,7 @@ namespace integrations.data.single
                     {
                         DataDirectory =
                             Path.Combine(new FileInfo(Assembly.GetExecutingAssembly().Location).Directory.FullName,
-                                "tmp", "data"),
-                        AcceptEula = true,
+                                "tmp", "data"),                                                
                         ServerUrl = "http://127.0.0.1:8080",
                     });
 
@@ -79,7 +78,7 @@ namespace integrations.data.single
             await sut.CreateTest.RunTest();
 
             //-- Assert
-            Assert.NotNull(Repository.Queryable.FirstOrDefault(p => p.DataEntityId == identifier));
+            Assert.NotNull(Repository.Queryable.FirstOrDefault(p => p._EntityId == identifier));
         }
 
         [Fact]
@@ -98,8 +97,8 @@ namespace integrations.data.single
 
             //-- Assert
 
-            var record = Repository.Queryable.FirstOrDefault(p => p.DataEntityId == identifier1);
-            Assert.Equal("hello-id-to-read-1", Entry.Plc.Integrations.DM._data.DataEntityId.GetAsync().Result);
+            var record = Repository.Queryable.FirstOrDefault(p => p._EntityId == identifier1);
+            Assert.Equal("hello-id-to-read-1", Entry.Plc.Integrations.DM._data._EntityId.GetAsync().Result);
         }
 
         [Fact]
@@ -117,7 +116,7 @@ namespace integrations.data.single
 
             //-- Assert
 
-            var record = Repository.Queryable.FirstOrDefault(p => p.DataEntityId == identifier);
+            var record = Repository.Queryable.FirstOrDefault(p => p._EntityId == identifier);
             Assert.Equal("this has been modified", record.SomeData);
         }
 
@@ -138,7 +137,7 @@ namespace integrations.data.single
 
             //-- Assert
 
-            var record = Repository.Queryable.FirstOrDefault(p => p.DataEntityId == identifier1);
+            var record = Repository.Queryable.FirstOrDefault(p => p._EntityId == identifier1);
             Assert.Null(record);
         }
     }
@@ -172,7 +171,7 @@ namespace integrations.data.single
 
             for (int i = 0; i < records.Count; i++)
             {
-                this.Repository.Delete(records[i].DataEntityId);
+                this.Repository.Delete(records[i]._EntityId);
             }
                 
 

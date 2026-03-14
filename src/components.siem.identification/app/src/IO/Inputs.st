@@ -1,28 +1,27 @@
-NAMESPACE AXOpen.Components.Siem.Identification
+﻿NAMESPACE AXOpen.Components.Siem.Identification
     TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
         Inputs : STRUCT
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_0 AT %B0:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_1 AT %B8:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_2 AT %B16:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_3 AT %B24:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_4 AT %B32:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_5 AT %B40:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_6 AT %B48:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_7 AT %B56:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_8 AT %B64:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_9 AT %B72:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_10 AT %B80:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_11 AT %B88:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_12 AT %B96:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_13 AT %B104:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_14 AT %B112:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_15 AT %B120:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_16 AT %B128:  LWORD;
-            et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_17 AT %B136:  LWORD;
-            rf186c_CM_1 AT %B146:  WORD;
-            rf186c_Reader_1 AT %B144:  WORD;
+	        // Module et200sp_CM_4xIO_Link_RF200/CM_4xIO-Link_V2_2_144I_128O_1
+	        et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_Input AT %B162 : et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_Input_Layout;
+
+	        // Module rf186c/CM_1
+	        rf186c_CM_1_Input AT %B308 : rf186c_CM_1_Input_Layout;
+
+	        // Module rf186c_cyc/CM
+	        rf186c_cyc_CM_Input AT %B160 : rf186c_cyc_CM_Input_Layout;
+
+	        // Module rf186c_cyc/RF260R_1
+	        rf186c_cyc_RF260R_1_Input AT %B128 : rf186c_cyc_RF260R_1_Input_Layout;
+
+	        // Module rf186c_cyc/RF340R_1
+	        rf186c_cyc_RF340R_1_Input AT %B0 : rf186c_cyc_RF340R_1_Input_Layout;
+
+	        // Module rf186c/Reader_1
+	        rf186c_Reader_1_Input AT %B306 : rf186c_Reader_1_Input_Layout;
+
         END_STRUCT;
     END_TYPE
 END_NAMESPACE
+

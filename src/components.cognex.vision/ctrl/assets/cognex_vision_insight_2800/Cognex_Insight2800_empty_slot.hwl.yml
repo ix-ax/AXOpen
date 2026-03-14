@@ -1,0 +1,18 @@
+Templates:
+  Modules:
+  - Name: 'Cognex_Insight2800_empty_slot'
+    Placeholders:
+      - Name: 'ModuleName'
+        Optional: TRUE    
+      - Name: 'SLOT'
+        Value: 8
+        AllowedValues:
+          - 8
+          - 9
+          - 10
+          - 12
+          - 13
+          - 14
+    Content:
+      TypeIdentifier: NotAssigned
+      Slot: ${SLOT}        

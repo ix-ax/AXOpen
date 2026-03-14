@@ -71,7 +71,7 @@ else
 	printf "${RED}Please check the details above.${NC}\n"
 	exit 1
 fi
-apax hwld load --input bin/hwc/$PLC_NAME --target $PLC_IP_ADDRESS --master-password $PASSWORD --accept-security-disclaimer --log Information
+echo y | apax hwld load --input bin/hwc/$PLC_NAME --target $PLC_IP_ADDRESS --master-password $PASSWORD --accept-security-disclaimer --log Information
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Hardware configuration has been succesfully downloaded.${NC}"
 else
@@ -80,7 +80,7 @@ else
 	exit 1
 fi
 certfile="./certs/$PLC_NAME/$PLC_NAME.cer" 
-apax plc-cert --targetIP $PLC_IP_ADDRESS --output-file $certfile
+apax plc-cert --target $PLC_IP_ADDRESS --output $certfile
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Security  certificate has been succesfully uploaded.${NC}"
 else

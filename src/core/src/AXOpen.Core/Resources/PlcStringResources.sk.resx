@@ -129,4 +129,76 @@
   <data name="Stepping_mode" xml:space="preserve">
     <value>Krokový mód</value>
   </data>
+  <data name="Is_manually_controllable" xml:space="preserve">
+    <value>Ručne ovládateľné</value>
+  </data>
+  <data name="THE_REMOTE_TASK_IS_NOT_INITIALIZED" xml:space="preserve">
+    <value>VZDIALENÁ ÚLOHA NIE JE INICIALIZOVANÁ</value>
+  </data>
+  <data name="NULL_CONTEXT" xml:space="preserve">
+    <value>NULL CONTEXT</value>
+  </data>
+  <data name="Task_invoked" xml:space="preserve">
+    <value>Vyvolaná úloha</value>
+  </data>
+  <data name="Attempt_to_invoke_disabled_task" xml:space="preserve">
+    <value>Pokus o vyvolanie zakázanej úlohy</value>
+  </data>
+  <data name="CyclicExecuteIsNotCalled" xml:space="preserve">
+    <value>CyclicExecuteIsNotCalled</value>
+  </data>
+  <data name="Task_restored" xml:space="preserve">
+    <value>Obnovená úloha</value>
+  </data>
+  <data name="Task_done_DOT_" xml:space="preserve">
+    <value>Úloha je splnená.</value>
+  </data>
+  <data name="MultipleExecuteIsCalled" xml:space="preserve">
+    <value>MultipleExecuteIsCalled</value>
+  </data>
+  <data name="Task_started_DOT_" xml:space="preserve">
+    <value>Úloha sa začala.</value>
+  </data>
+  <data name="Task_failed" xml:space="preserve">
+    <value>Úloha zlyhala</value>
+  </data>
+  <data name="Sequence_in_config_state__COLON_" xml:space="preserve">
+    <value>Sekvencia v konfiguračnom stave :</value>
+  </data>
+  <data name="Starts_step__COLON_" xml:space="preserve">
+    <value>Začína krok :</value>
+  </data>
+  <data name="Check_that_steps_are_unique_and_properly_configured_DOT_" xml:space="preserve">
+    <value>Skontrolujte, či sú kroky jedinečné a správne nakonfigurované.</value>
+  </data>
+  <data name="Step_done__COLON_" xml:space="preserve">
+    <value>Krok hotový :</value>
+  </data>
+  <data name="Step_request_to_step__COLON_" xml:space="preserve">
+    <value>Žiadosť o krok na krok :</value>
+  </data>
+  <data name="Sequence_completed__COLON_" xml:space="preserve">
+    <value>Sekvencia dokončená :</value>
+  </data>
+  <data name="At_step_COLON_" xml:space="preserve">
+    <value>Na krok:</value>
+  </data>
+  <data name="Risen" xml:space="preserve">
+    <value>Risen</value>
+  </data>
+  <data name="Risen_again_before_acknowledgement" xml:space="preserve">
+    <value>Znovu vzkriesený pred potvrdením</value>
+  </data>
+  <data name="Fallen" xml:space="preserve">
+    <value>Fallen</value>
+  </data>
+  <data name="Messenger__ONE___DASH__activate_using__APOSTROPHE_Activate_APOSTROPHE__method_called_inside_the_if_statement" xml:space="preserve">
+    <value>Messenger 1 - aktivácia pomocou metódy 'Activate' volanej vo vnútri príkazu if</value>
+  </data>
+  <data name="RemoteTaskMessenger" xml:space="preserve">
+    <value>RemoteTaskMessenger</value>
+  </data>
+  <data name="Messenger" xml:space="preserve">
+    <value>Messenger</value>
+  </data>
 </root>

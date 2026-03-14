@@ -2,33 +2,49 @@
 @inherits RenderableComplexComponentBase<AxoObject>
 @using System.Timers
 @using AXOpen.Messaging.Static
+@using AXOpen.VisualComposer
+@using AXOpen.VisualComposer.Components.VisualComposerItem
 @using AXSharp.Connector
 @using Microsoft.JSInterop
-@implements IAsyncDisposable;
+@using Operon.Icons
+@using System.Globalization
+@using AXSharp.Connector.Localizations
 @inject IJSRuntime JSRuntime
 
-
-<button type="button" class="btn btn-primary"
-        data-bs-toggle="tooltip" 
-        data-bs-placement="top"
-        data-bs-custom-class="custom-tooltip"
-        data-bs-title="@Component.HumanReadable"
-        @onclick="SetCurrentObject">
-    @Component.AttributeName
-    <a>
-       @if (observer.ActiveMessagesCount > 0)
-       {
-           <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-               <span class="visually-hidden">New alerts</span>
-           </span>
-       }
-    </a>
+<button data-axo-object-spot-view 
+        type="button" 
+        class="flex flex-col w-full min-w-32 rounded-lg border transition-all duration-200 overflow-hidden hover:-translate-y-0.5 @(observer?.ActiveMessagesCount > 0 ? "border-danger/40 bg-danger/10 hover:bg-danger/20 shadow-glow-danger" : "border-border bg-background/40 hover:bg-background/60")" 
+        @onclick="() => OpenDetails()">
+    <!-- Header -->
+    <div class="flex items-center justify-between gap-2 p-2 border-b border-border/40">
+        <div class="flex items-center gap-2">
+            <HeroIcon Icon="cube" Type="IconType.Outline" Class="size-4 text-text/70" />
+            <span class="text-sm font-semibold text-text truncate">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</span>
+        </div>
+    </div>
+    
+    <!-- Status -->
+    <div class="flex items-center justify-center p-3 gap-2">
+        @if (observer?.ActiveMessagesCount > 0)
+        {
+            <div class="flex items-center gap-2 text-danger">
+                <HeroIcon Icon="exclamation-triangle" Type="IconType.Solid" Class="size-4" />
+                <span class="badge badge-danger">@observer.ActiveMessagesCount</span>
+            </div>
+        }
+        else
+        {
+            <div class="flex items-center gap-2 text-success">
+                <HeroIcon Icon="check-circle" Type="IconType.Solid" Class="size-4" />
+                <span class="text-xs font-semibold uppercase">OK</span>
+            </div>
+        }
+    </div>
 </button>
 
 @code
 {
-    private IJSObjectReference? module;
-    private AxoMessageProvider? observer; 
+    private AxoMessageProvider? observer;
 
     public override void ConfigurePolling()
     {
@@ -58,21 +74,27 @@
     }
 
     private readonly Timer updateTimer = new Timer();
-    
-    
-    ///<inheritdoc/>
-    public async ValueTask DisposeAsync()
+
+
+
+    protected virtual void OpenDetails(string presentationType = "Status-Display")
     {
-        if (module != null) await module.DisposeAsync();
+        if (RccContainer is RenderableContentControl rccContainer)
+        {
+            if (rccContainer.ParentContainer is VisualComposerItem composerItem)
+            {
+                if (!composerItem.InDesign)
+                {                    
+                    composerItem.Parent.OpenDetails(this.Component, presentationType); // Updated to use presentationType
+                }
+            }
+        }
     }
-    
+
     ///<inheritdoc/>
     protected override async Task OnInitializedAsync()
     {
-        if (observer != null) await observer.InitializeLightUpdate(this.StartPolling);
+        if (observer != null) await observer.InitializeUpdate(this.StartPolling);
         await base.OnInitializedAsync();
     }
 }
-
-
-

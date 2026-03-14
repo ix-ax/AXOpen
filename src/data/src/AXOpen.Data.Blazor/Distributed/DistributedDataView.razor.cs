@@ -1,9 +1,9 @@
 ﻿using AXOpen.Base.Data.Query;
 using AXOpen.Base.Dialogs;
-using Humanizer.DateTimeHumanizeStrategy;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
+using Operon.Components.Toast;
 using Pocos.AXOpen.Data;
 using System.Globalization;
 
@@ -46,7 +46,7 @@ namespace AXOpen.Data
         public AuthenticationStateProvider Authentication { set; get; }
 
         [Inject]
-        public IAlertService AlertService { get; set; }
+        public IToastService ToastService { get; set; }
 
         [Inject]
         public IDistributedDataExchangeService DistributedExchangeService { set; get; }
@@ -76,7 +76,7 @@ namespace AXOpen.Data
             if (DistributedExchangeService.IsExistGroup(GroupName))
             {
                 this.DistributedVM = new DistributedDataViewModel(
-                    this.AlertService,
+                    this.ToastService,
                     this.Authentication,
                     this.DistributedExchangeService,
                     this.ExchangeConfigService,

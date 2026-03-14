@@ -27,7 +27,7 @@ if [ -z $PASSWORD ]; then
     exit 1
 fi
 
-apax hwld --target $PLC_IP_ADDRESS --reset-plc All --username $USERNAME --password $PASSWORD --accept-security-disclaimer
+echo y | apax hwld load --target $PLC_IP_ADDRESS --reset-plc All --username $USERNAME --password $PASSWORD --accept-security-disclaimer
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}PLC was reseted succesfully.${NC}"
 else

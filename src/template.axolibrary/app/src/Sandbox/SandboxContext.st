@@ -10,7 +10,7 @@ NAMESPACE Template.Axolibrary
 
         METHOD PROTECTED OVERRIDE Main
             THIS.InitializeRootObject(_rootObject);
-            _testComponent.Run(parent  :=   _rootObject,hwID    :=   WORD#60);
+            _testComponent.Run(inParent  :=   _rootObject,hwID    :=   UINT#60);
 
             IF(_manualControl) THEN
                 _testComponent.ActivateManualControl();

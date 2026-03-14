@@ -11,11 +11,6 @@ namespace AXOpen.VisualComposer
 {
     public static class Helpers
     {
-        public static string ModalIdHelper(this string id)
-        {
-            return id.Replace('.', '_').Replace(' ', '_').Replace('=', '_').Replace('\'', '_').Replace('"', '_').Replace('[', '_').Replace(']', '_').Replace('<', '_').Replace('>', '_').Replace('{', '_').Replace('}', '_').Replace('(', '_').Replace(')', '_');
-        }
-
         public static string CorrectFilePath(this string path)
         {
             if (path == null)

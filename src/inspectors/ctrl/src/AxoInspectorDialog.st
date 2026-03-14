@@ -21,11 +21,14 @@ NAMESPACE AXOpen.Inspectors
             _inspectorIndentity : ULINT; //try display inspector inside dialog.
             _inspectionDetails : STRING[254];
             _inspectorType : eInspectorType;
-            {#ix-set:AttributeName = "<#Data#>"}             
+            {#ix-set:AttributeName = ""}             
+            {#ix-set:Units = ""}             
             _analogInspectorData : AxoAnalogueInspectorData;       
-            {#ix-set:AttributeName = "<#Data#>"} 
+            {#ix-set:AttributeName = ""}             
+            {#ix-set:Units = ""}                         
             _digitalInspectorData : AxoDigitalInspectorData;       
-            {#ix-set:AttributeName = "<#Data#>"} 
+            {#ix-set:AttributeName = ""}             
+            {#ix-set:Units = ""}              
             _dataInspectorData : AxoDataInspectorData;                                                       
         END_VAR
 
@@ -110,13 +113,14 @@ NAMESPACE AXOpen.Inspectors
                        
                     END_IF;
 
-            
+
                 ELSE
 
                     IF(_parentInspectorRef^.Coordinator() <> NULL) THEN
                         _parentInspectorRef^.Coordinator().MoveNext();
+                        _parentInspectorRef^.Restore();
                     END_IF;	
-
+                    ;
                 END_IF;	
 
                 // restore this task, when answer is provided and task is done

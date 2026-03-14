@@ -7,37 +7,37 @@ NAMESPACE AXOpen.Data
     INTERFACE IAxoDataExchange        
         METHOD Create : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR        
         END_METHOD       
         
         METHOD Read : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR        
         END_METHOD 
 
         METHOD Update : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR        
         END_METHOD 
 
         METHOD Delete : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR        
         END_METHOD 
 
-        METHOD EntityExist : IAxoEntityExistTaskState
+        METHOD EntityExist : IAxoDataCrudTaskEntityExistState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR        
         END_METHOD 
 
         METHOD CreateOrUpdate : IAxoTaskState
             VAR_INPUT
-                Identifier : STRING[254];
+                inIdentifier : STRING[254];
             END_VAR        
         END_METHOD 
 
@@ -46,7 +46,7 @@ NAMESPACE AXOpen.Data
              
         METHOD Run 
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR            
         END_METHOD
     END_INTERFACE

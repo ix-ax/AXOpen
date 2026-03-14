@@ -28,16 +28,15 @@ namespace AXOpen.Core
             HumanReadable = tabName;
             RoleName = roleName;
         }
-        
-        public string TabName { get; set; } = string.Empty;
-
-        public string Symbol { get; } = string.Empty;
 
         public string AttributeName { get; } = string.Empty;
 
         public string HumanReadable { get; set; } = string.Empty;
         public string RoleName { get; set; } = string.Empty;
-        public Translator Interpreter => this._parent.Interpreter;
+
+        public string Symbol => string.Empty;
+
+        public Translator Interpreter => _parent.Interpreter;
 
         private readonly ITwinObject _parent;
 
@@ -109,12 +108,12 @@ namespace AXOpen.Core
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
 
-        public Task<T> OnlineToPlain<T>()
+        public Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
             throw new NotImplementedException();
         }
 
-        public Task PlainToOnline<T>(T plain)
+        public Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             throw new NotImplementedException();
         }

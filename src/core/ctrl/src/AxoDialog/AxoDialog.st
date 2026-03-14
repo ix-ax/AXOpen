@@ -43,13 +43,16 @@ NAMESPACE AXOpen.Core
 
             IF NOT THIS.IsInitialized THEN // dialog is not observed/monitored by server
                 
-                IF (THIS.Status <> eAxoTaskState#Ready) THEN
-                    THIS.Restore(); 
-                end_if;
-                
-                _answer := eDialogAnswer#NoAnswer; // set default value
-                ErrorDetails := 'THE REMOTE TASK IS NOT INITIALIZED';
-                RETURN; // if it continue  .Execute() call ThrowWhen() and task go to ErrorState  
+                // This will prevent the dialog from going to error state if the server is not connected.
+                // The dialog will remain in the Ready state, allowing for future attempts to show it.
+               
+                //IF (THIS.Status <> eAxoTaskState#Ready) THEN
+                //    THIS.Restore(); 
+                //END_IF;
+                ;
+                // _answer := eDialogAnswer#NoAnswer; // set default value
+                // ErrorDetails := 'THE REMOTE TASK IS NOT INITIALIZED';
+                // RETURN; // if it continue  .Execute() call ThrowWhen() and task go to ErrorState  
             END_IF;
 
             callCounter := THIS.GetParent().GetContext().OpenCycleCount();
@@ -120,7 +123,7 @@ NAMESPACE AXOpen.Core
 
             IF NOT THIS.IsInitialized THEN // dialog is not observed/monitored by server
                 _answer := eDialogAnswer#NoAnswer; // set default value
-                ErrorDetails := 'THE REMOTE TASK IS NOT INITIALIZED';
+                ErrorDetails := '<#THE REMOTE TASK IS NOT INITIALIZED#>';
                 RETURN; // if it continue  .Execute() call ThrowWhen() and task go to ErrorState  
             END_IF;
 

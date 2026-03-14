@@ -140,5 +140,28 @@ NAMESPACE AXOpen.Core.Dummies
             END_VAR
             _contextLogger := _logger;
         END_METHOD            
+    
+
+        VAR PRIVATE            
+            NULL_MESSENGER_SERVICE : _NULL_MESSENGER_SERVICE;
+            // NULL_MESSENGER_SERVICE : IAxoMessagingServices;
+            _messengerService : IAxoMessagingServices;
+        END_VAR
+
+        METHOD PUBLIC InjectMessengerService
+            VAR_INPUT
+                inMessengerService : IAxoMessagingServices;
+            END_VAR
+            _messengerService := inMessengerService;
+        END_METHOD
+
+        METHOD PUBLIC GetMessengerService : IAxoMessagingServices
+            IF(_messengerService <> NULL) THEN
+                GetMessengerService := _messengerService;
+            ELSE
+               
+                GetMessengerService := NULL_MESSENGER_SERVICE;    
+            END_IF;    
+        END_METHOD   
     END_CLASS          
 END_NAMESPACE

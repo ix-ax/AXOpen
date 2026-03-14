@@ -1,0 +1,1473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="StartAtMainTask_timeout_DOT_" xml:space="preserve">
+    <value>StartAtMainTask timeout.</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,1613</comment>
+  </data>
+  <data name="StartMotorsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMotorsAndProgramTask timeout.</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,1789</comment>
+  </data>
+  <data name="StartMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMovementsTask timeout.</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,1969</comment>
+  </data>
+  <data name="StopMovementsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsAndProgramTask timeout.</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,2047</comment>
+  </data>
+  <data name="StopMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsTask timeout.</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,2125</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,36</comment>
+  </data>
+  <data name="Power_On_Task" xml:space="preserve">
+    <value>Power On Task</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,40</comment>
+  </data>
+  <data name="Start_at_main" xml:space="preserve">
+    <value>Start at main</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,45</comment>
+  </data>
+  <data name="Start_motors_and_program" xml:space="preserve">
+    <value>Start motors and program</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,49</comment>
+  </data>
+  <data name="Stop_movements" xml:space="preserve">
+    <value>Stop movements</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,53</comment>
+  </data>
+  <data name="Stop_movements_and_program" xml:space="preserve">
+    <value>Stop movements and program</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,57</comment>
+  </data>
+  <data name="Start_movements_with_extended_parameters" xml:space="preserve">
+    <value>Start movements with extended parameters</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,61</comment>
+  </data>
+  <data name="Power_progress" xml:space="preserve">
+    <value>Power progress</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,83</comment>
+  </data>
+  <data name="Movement_progress" xml:space="preserve">
+    <value>Movement progress</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,87</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,97</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,103</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,111</comment>
+  </data>
+  <data name="Reboot_controller" xml:space="preserve">
+    <value>Reboot controller</value>
+    <comment>src\AxoUrCb3\AxoUrCb3_v_3_x_x.st,114</comment>
+  </data>
+  <data name="Robot" xml:space="preserve">
+    <value>Robot</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st,7</comment>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>State</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st,11</comment>
+  </data>
+  <data name="IO_state" xml:space="preserve">
+    <value>IO state</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st,15</comment>
+  </data>
+  <data name="Tool_state" xml:space="preserve">
+    <value>Tool state</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st,19</comment>
+  </data>
+  <data name="Joints" xml:space="preserve">
+    <value>Joints</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st,23</comment>
+  </data>
+  <data name="TCP" xml:space="preserve">
+    <value>TCP</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st,27</comment>
+  </data>
+  <data name="Bits" xml:space="preserve">
+    <value>Bits</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st,31</comment>
+  </data>
+  <data name="Ints" xml:space="preserve">
+    <value>Ints</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st,35</comment>
+  </data>
+  <data name="Floats" xml:space="preserve">
+    <value>Floats</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsInputData_v_1_x_x.st,39</comment>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>Speed</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsOutputData_v_1_x_x.st,7</comment>
+  </data>
+  <data name="IO" xml:space="preserve">
+    <value>IO</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsOutputData_v_1_x_x.st,11</comment>
+  </data>
+  <data name="Reg__ONE_" xml:space="preserve">
+    <value>Reg 1</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsOutputData_v_1_x_x.st,15</comment>
+  </data>
+  <data name="Reg__TWO_" xml:space="preserve">
+    <value>Reg 2</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsOutputData_v_1_x_x.st,19</comment>
+  </data>
+  <data name="Bit_register__ZERO_" xml:space="preserve">
+    <value>Bit register 0</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,5</comment>
+  </data>
+  <data name="Bit_register__ONE_" xml:space="preserve">
+    <value>Bit register 1</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,7</comment>
+  </data>
+  <data name="Bit_register__TWO_" xml:space="preserve">
+    <value>Bit register 2</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,9</comment>
+  </data>
+  <data name="Bit_register__THREE_" xml:space="preserve">
+    <value>Bit register 3</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,11</comment>
+  </data>
+  <data name="Bit_register__FOUR_" xml:space="preserve">
+    <value>Bit register 4</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,13</comment>
+  </data>
+  <data name="Bit_register__FIVE_" xml:space="preserve">
+    <value>Bit register 5</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,15</comment>
+  </data>
+  <data name="Bit_register__SIX_" xml:space="preserve">
+    <value>Bit register 6</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,17</comment>
+  </data>
+  <data name="Bit_register__SEVEN_" xml:space="preserve">
+    <value>Bit register 7</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,19</comment>
+  </data>
+  <data name="Bit_register__EIGHT_" xml:space="preserve">
+    <value>Bit register 8</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,21</comment>
+  </data>
+  <data name="Bit_register__NINE_" xml:space="preserve">
+    <value>Bit register 9</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,23</comment>
+  </data>
+  <data name="Bit_register__ONE__ZERO_" xml:space="preserve">
+    <value>Bit register 10</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,25</comment>
+  </data>
+  <data name="Bit_register__ONE__ONE_" xml:space="preserve">
+    <value>Bit register 11</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,27</comment>
+  </data>
+  <data name="Bit_register__ONE__TWO_" xml:space="preserve">
+    <value>Bit register 12</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,29</comment>
+  </data>
+  <data name="Bit_register__ONE__THREE_" xml:space="preserve">
+    <value>Bit register 13</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,31</comment>
+  </data>
+  <data name="Bit_register__ONE__FOUR_" xml:space="preserve">
+    <value>Bit register 14</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,33</comment>
+  </data>
+  <data name="Bit_register__ONE__FIVE_" xml:space="preserve">
+    <value>Bit register 15</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,35</comment>
+  </data>
+  <data name="Bit_register__ONE__SIX_" xml:space="preserve">
+    <value>Bit register 16</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,37</comment>
+  </data>
+  <data name="Bit_register__ONE__SEVEN_" xml:space="preserve">
+    <value>Bit register 17</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,39</comment>
+  </data>
+  <data name="Bit_register__ONE__EIGHT_" xml:space="preserve">
+    <value>Bit register 18</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,41</comment>
+  </data>
+  <data name="Bit_register__ONE__NINE_" xml:space="preserve">
+    <value>Bit register 19</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,43</comment>
+  </data>
+  <data name="Bit_register__TWO__ZERO_" xml:space="preserve">
+    <value>Bit register 20</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,45</comment>
+  </data>
+  <data name="Bit_register__TWO__ONE_" xml:space="preserve">
+    <value>Bit register 21</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,47</comment>
+  </data>
+  <data name="Bit_register__TWO__TWO_" xml:space="preserve">
+    <value>Bit register 22</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,49</comment>
+  </data>
+  <data name="Bit_register__TWO__THREE_" xml:space="preserve">
+    <value>Bit register 23</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,51</comment>
+  </data>
+  <data name="Bit_register__TWO__FOUR_" xml:space="preserve">
+    <value>Bit register 24</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,53</comment>
+  </data>
+  <data name="Bit_register__TWO__FIVE_" xml:space="preserve">
+    <value>Bit register 25</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,55</comment>
+  </data>
+  <data name="Bit_register__TWO__SIX_" xml:space="preserve">
+    <value>Bit register 26</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,57</comment>
+  </data>
+  <data name="Bit_register__TWO__SEVEN_" xml:space="preserve">
+    <value>Bit register 27</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,59</comment>
+  </data>
+  <data name="Bit_register__TWO__EIGHT_" xml:space="preserve">
+    <value>Bit register 28</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,61</comment>
+  </data>
+  <data name="Bit_register__TWO__NINE_" xml:space="preserve">
+    <value>Bit register 29</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,63</comment>
+  </data>
+  <data name="Bit_register__THREE__ZERO_" xml:space="preserve">
+    <value>Bit register 30</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,65</comment>
+  </data>
+  <data name="Bit_register__THREE__ONE_" xml:space="preserve">
+    <value>Bit register 31</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,67</comment>
+  </data>
+  <data name="Bit_register__THREE__TWO_" xml:space="preserve">
+    <value>Bit register 32</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,69</comment>
+  </data>
+  <data name="Bit_register__THREE__THREE_" xml:space="preserve">
+    <value>Bit register 33</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,71</comment>
+  </data>
+  <data name="Bit_register__THREE__FOUR_" xml:space="preserve">
+    <value>Bit register 34</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,73</comment>
+  </data>
+  <data name="Bit_register__THREE__FIVE_" xml:space="preserve">
+    <value>Bit register 35</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,75</comment>
+  </data>
+  <data name="Bit_register__THREE__SIX_" xml:space="preserve">
+    <value>Bit register 36</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,77</comment>
+  </data>
+  <data name="Bit_register__THREE__SEVEN_" xml:space="preserve">
+    <value>Bit register 37</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,79</comment>
+  </data>
+  <data name="Bit_register__THREE__EIGHT_" xml:space="preserve">
+    <value>Bit register 38</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,81</comment>
+  </data>
+  <data name="Bit_register__THREE__NINE_" xml:space="preserve">
+    <value>Bit register 39</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,83</comment>
+  </data>
+  <data name="Bit_register__FOUR__ZERO_" xml:space="preserve">
+    <value>Bit register 40</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,85</comment>
+  </data>
+  <data name="Bit_register__FOUR__ONE_" xml:space="preserve">
+    <value>Bit register 41</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,87</comment>
+  </data>
+  <data name="Bit_register__FOUR__TWO_" xml:space="preserve">
+    <value>Bit register 42</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,89</comment>
+  </data>
+  <data name="Bit_register__FOUR__THREE_" xml:space="preserve">
+    <value>Bit register 43</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,91</comment>
+  </data>
+  <data name="Bit_register__FOUR__FOUR_" xml:space="preserve">
+    <value>Bit register 44</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,93</comment>
+  </data>
+  <data name="Bit_register__FOUR__FIVE_" xml:space="preserve">
+    <value>Bit register 45</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,95</comment>
+  </data>
+  <data name="Bit_register__FOUR__SIX_" xml:space="preserve">
+    <value>Bit register 46</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,97</comment>
+  </data>
+  <data name="Bit_register__FOUR__SEVEN_" xml:space="preserve">
+    <value>Bit register 47</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,99</comment>
+  </data>
+  <data name="Bit_register__FOUR__EIGHT_" xml:space="preserve">
+    <value>Bit register 48</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,101</comment>
+  </data>
+  <data name="Bit_register__FOUR__NINE_" xml:space="preserve">
+    <value>Bit register 49</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,103</comment>
+  </data>
+  <data name="Bit_register__FIVE__ZERO_" xml:space="preserve">
+    <value>Bit register 50</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,105</comment>
+  </data>
+  <data name="Bit_register__FIVE__ONE_" xml:space="preserve">
+    <value>Bit register 51</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,107</comment>
+  </data>
+  <data name="Bit_register__FIVE__TWO_" xml:space="preserve">
+    <value>Bit register 52</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,109</comment>
+  </data>
+  <data name="Bit_register__FIVE__THREE_" xml:space="preserve">
+    <value>Bit register 53</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,111</comment>
+  </data>
+  <data name="Bit_register__FIVE__FOUR_" xml:space="preserve">
+    <value>Bit register 54</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,113</comment>
+  </data>
+  <data name="Bit_register__FIVE__FIVE_" xml:space="preserve">
+    <value>Bit register 55</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,115</comment>
+  </data>
+  <data name="Bit_register__FIVE__SIX_" xml:space="preserve">
+    <value>Bit register 56</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,117</comment>
+  </data>
+  <data name="Bit_register__FIVE__SEVEN_" xml:space="preserve">
+    <value>Bit register 57</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,119</comment>
+  </data>
+  <data name="Bit_register__FIVE__EIGHT_" xml:space="preserve">
+    <value>Bit register 58</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,121</comment>
+  </data>
+  <data name="Bit_register__FIVE__NINE_" xml:space="preserve">
+    <value>Bit register 59</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,123</comment>
+  </data>
+  <data name="Bit_register__SIX__ZERO_" xml:space="preserve">
+    <value>Bit register 60</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,125</comment>
+  </data>
+  <data name="Bit_register__SIX__ONE_" xml:space="preserve">
+    <value>Bit register 61</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,127</comment>
+  </data>
+  <data name="Bit_register__SIX__TWO_" xml:space="preserve">
+    <value>Bit register 62</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,129</comment>
+  </data>
+  <data name="Bit_register__SIX__THREE_" xml:space="preserve">
+    <value>Bit register 63</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OBitRegs_v_1_x_x.st,131</comment>
+  </data>
+  <data name="Float_register__ZERO_" xml:space="preserve">
+    <value>Float register 0</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,5</comment>
+  </data>
+  <data name="Float_register__ONE_" xml:space="preserve">
+    <value>Float register 1</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,7</comment>
+  </data>
+  <data name="Float_register__TWO_" xml:space="preserve">
+    <value>Float register 2</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,9</comment>
+  </data>
+  <data name="Float_register__THREE_" xml:space="preserve">
+    <value>Float register 3</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,11</comment>
+  </data>
+  <data name="Float_register__FOUR_" xml:space="preserve">
+    <value>Float register 4</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,13</comment>
+  </data>
+  <data name="Float_register__FIVE_" xml:space="preserve">
+    <value>Float register 5</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,15</comment>
+  </data>
+  <data name="Float_register__SIX_" xml:space="preserve">
+    <value>Float register 6</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,17</comment>
+  </data>
+  <data name="Float_register__SEVEN_" xml:space="preserve">
+    <value>Float register 7</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,19</comment>
+  </data>
+  <data name="Float_register__EIGHT_" xml:space="preserve">
+    <value>Float register 8</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,21</comment>
+  </data>
+  <data name="Float_register__NINE_" xml:space="preserve">
+    <value>Float register 9</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,23</comment>
+  </data>
+  <data name="Float_register__ONE__ZERO_" xml:space="preserve">
+    <value>Float register 10</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,25</comment>
+  </data>
+  <data name="Float_register__ONE__ONE_" xml:space="preserve">
+    <value>Float register 11</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,27</comment>
+  </data>
+  <data name="Float_register__ONE__TWO_" xml:space="preserve">
+    <value>Float register 12</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,29</comment>
+  </data>
+  <data name="Float_register__ONE__THREE_" xml:space="preserve">
+    <value>Float register 13</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,31</comment>
+  </data>
+  <data name="Float_register__ONE__FOUR_" xml:space="preserve">
+    <value>Float register 14</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,33</comment>
+  </data>
+  <data name="Float_register__ONE__FIVE_" xml:space="preserve">
+    <value>Float register 15</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,35</comment>
+  </data>
+  <data name="Float_register__ONE__SIX_" xml:space="preserve">
+    <value>Float register 16</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,37</comment>
+  </data>
+  <data name="Float_register__ONE__SEVEN_" xml:space="preserve">
+    <value>Float register 17</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,39</comment>
+  </data>
+  <data name="Float_register__ONE__EIGHT_" xml:space="preserve">
+    <value>Float register 18</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,41</comment>
+  </data>
+  <data name="Float_register__ONE__NINE_" xml:space="preserve">
+    <value>Float register 19</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,43</comment>
+  </data>
+  <data name="Float_register__TWO__ZERO_" xml:space="preserve">
+    <value>Float register 20</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,45</comment>
+  </data>
+  <data name="Float_register__TWO__ONE_" xml:space="preserve">
+    <value>Float register 21</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,47</comment>
+  </data>
+  <data name="Float_register__TWO__TWO_" xml:space="preserve">
+    <value>Float register 22</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,49</comment>
+  </data>
+  <data name="Float_register__TWO__THREE_" xml:space="preserve">
+    <value>Float register 23</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OFloatRegs_v_1_x_x.st,51</comment>
+  </data>
+  <data name="Int_register__ZERO_" xml:space="preserve">
+    <value>Int register 0</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,5</comment>
+  </data>
+  <data name="Int_register__ONE_" xml:space="preserve">
+    <value>Int register 1</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,7</comment>
+  </data>
+  <data name="Int_register__TWO_" xml:space="preserve">
+    <value>Int register 2</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,9</comment>
+  </data>
+  <data name="Int_register__THREE_" xml:space="preserve">
+    <value>Int register 3</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,11</comment>
+  </data>
+  <data name="Int_register__FOUR_" xml:space="preserve">
+    <value>Int register 4</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,13</comment>
+  </data>
+  <data name="Int_register__FIVE_" xml:space="preserve">
+    <value>Int register 5</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,15</comment>
+  </data>
+  <data name="Int_register__SIX_" xml:space="preserve">
+    <value>Int register 6</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,17</comment>
+  </data>
+  <data name="Int_register__SEVEN_" xml:space="preserve">
+    <value>Int register 7</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,19</comment>
+  </data>
+  <data name="Int_register__EIGHT_" xml:space="preserve">
+    <value>Int register 8</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,21</comment>
+  </data>
+  <data name="Int_register__NINE_" xml:space="preserve">
+    <value>Int register 9</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,23</comment>
+  </data>
+  <data name="Int_register__ONE__ZERO_" xml:space="preserve">
+    <value>Int register 10</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,25</comment>
+  </data>
+  <data name="Int_register__ONE__ONE_" xml:space="preserve">
+    <value>Int register 11</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,27</comment>
+  </data>
+  <data name="Int_register__ONE__TWO_" xml:space="preserve">
+    <value>Int register 12</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,29</comment>
+  </data>
+  <data name="Int_register__ONE__THREE_" xml:space="preserve">
+    <value>Int register 13</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,31</comment>
+  </data>
+  <data name="Int_register__ONE__FOUR_" xml:space="preserve">
+    <value>Int register 14</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,33</comment>
+  </data>
+  <data name="Int_register__ONE__FIVE_" xml:space="preserve">
+    <value>Int register 15</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,35</comment>
+  </data>
+  <data name="Int_register__ONE__SIX_" xml:space="preserve">
+    <value>Int register 16</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,37</comment>
+  </data>
+  <data name="Int_register__ONE__SEVEN_" xml:space="preserve">
+    <value>Int register 17</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,39</comment>
+  </data>
+  <data name="Int_register__ONE__EIGHT_" xml:space="preserve">
+    <value>Int register 18</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,41</comment>
+  </data>
+  <data name="Int_register__ONE__NINE_" xml:space="preserve">
+    <value>Int register 19</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,43</comment>
+  </data>
+  <data name="Int_register__TWO__ZERO_" xml:space="preserve">
+    <value>Int register 20</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,45</comment>
+  </data>
+  <data name="Int_register__TWO__ONE_" xml:space="preserve">
+    <value>Int register 21</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,47</comment>
+  </data>
+  <data name="Int_register__TWO__TWO_" xml:space="preserve">
+    <value>Int register 22</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,49</comment>
+  </data>
+  <data name="Int_register__TWO__THREE_" xml:space="preserve">
+    <value>Int register 23</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIntRegs_v_1_x_x.st,51</comment>
+  </data>
+  <data name="Standard_digital_inputs" xml:space="preserve">
+    <value>Standard digital inputs</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,5</comment>
+  </data>
+  <data name="Configurable_digital_inputs" xml:space="preserve">
+    <value>Configurable digital inputs</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,7</comment>
+  </data>
+  <data name="Standard_digital_outputs" xml:space="preserve">
+    <value>Standard digital outputs</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,9</comment>
+  </data>
+  <data name="Configurable_digital_outputs" xml:space="preserve">
+    <value>Configurable digital outputs</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,11</comment>
+  </data>
+  <data name="Analog_I_SLASH_O_types" xml:space="preserve">
+    <value>Analog I/O types</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,13</comment>
+  </data>
+  <data name="Standard_analog_input__ZERO___SQUAREBRACKET_A_or_V_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Standard analog input 0 [A or V]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,15</comment>
+  </data>
+  <data name="Standard_analog_input__ONE___SQUAREBRACKET_A_or_V_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Standard analog input 1 [A or V]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,17</comment>
+  </data>
+  <data name="Standard_analog_output__ZERO___SQUAREBRACKET_A_or_V_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Standard analog output 0 [A or V]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,19</comment>
+  </data>
+  <data name="Standard_analog_output__ONE___SQUAREBRACKET_A_or_V_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Standard analog output 1 [A or V]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,21</comment>
+  </data>
+  <data name="I_SLASH_O_current__SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>I/O current [A]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,23</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ZERO_" xml:space="preserve">
+    <value>Euromap67 input bit 0</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,25</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE_" xml:space="preserve">
+    <value>Euromap67 input bit 1</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,27</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO_" xml:space="preserve">
+    <value>Euromap67 input bit 2</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,29</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__THREE_" xml:space="preserve">
+    <value>Euromap67 input bit 3</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,31</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__FOUR_" xml:space="preserve">
+    <value>Euromap67 input bit 4</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,33</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__FIVE_" xml:space="preserve">
+    <value>Euromap67 input bit 5</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,35</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__SIX_" xml:space="preserve">
+    <value>Euromap67 input bit 6</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,37</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__SEVEN_" xml:space="preserve">
+    <value>Euromap67 input bit 7</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,39</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__EIGHT_" xml:space="preserve">
+    <value>Euromap67 input bit 8</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,41</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__NINE_" xml:space="preserve">
+    <value>Euromap67 input bit 9</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,43</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__ZERO_" xml:space="preserve">
+    <value>Euromap67 input bit 10</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,45</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__ONE_" xml:space="preserve">
+    <value>Euromap67 input bit 11</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,47</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__TWO_" xml:space="preserve">
+    <value>Euromap67 input bit 12</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,49</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__THREE_" xml:space="preserve">
+    <value>Euromap67 input bit 13</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,51</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__FOUR_" xml:space="preserve">
+    <value>Euromap67 input bit 14</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,53</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__FIVE_" xml:space="preserve">
+    <value>Euromap67 input bit 15</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,55</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__SIX_" xml:space="preserve">
+    <value>Euromap67 input bit 16</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,57</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__SEVEN_" xml:space="preserve">
+    <value>Euromap67 input bit 17</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,59</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__EIGHT_" xml:space="preserve">
+    <value>Euromap67 input bit 18</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,61</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__ONE__NINE_" xml:space="preserve">
+    <value>Euromap67 input bit 19</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,63</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__ZERO_" xml:space="preserve">
+    <value>Euromap67 input bit 20</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,65</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__ONE_" xml:space="preserve">
+    <value>Euromap67 input bit 21</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,67</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__TWO_" xml:space="preserve">
+    <value>Euromap67 input bit 22</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,69</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__THREE_" xml:space="preserve">
+    <value>Euromap67 input bit 23</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,71</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__FOUR_" xml:space="preserve">
+    <value>Euromap67 input bit 24</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,73</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__FIVE_" xml:space="preserve">
+    <value>Euromap67 input bit 25</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,75</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__SIX_" xml:space="preserve">
+    <value>Euromap67 input bit 26</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,77</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__SEVEN_" xml:space="preserve">
+    <value>Euromap67 input bit 27</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,79</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__EIGHT_" xml:space="preserve">
+    <value>Euromap67 input bit 28</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,81</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__TWO__NINE_" xml:space="preserve">
+    <value>Euromap67 input bit 29</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,83</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__THREE__ZERO_" xml:space="preserve">
+    <value>Euromap67 input bit 30</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,85</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__THREE__ONE_" xml:space="preserve">
+    <value>Euromap67 input bit 31</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,87</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__input_bit__THREE__TWO_" xml:space="preserve">
+    <value>Euromap67 input bit 32</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,89</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ZERO_" xml:space="preserve">
+    <value>Euromap67 output bit 0</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,91</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE_" xml:space="preserve">
+    <value>Euromap67 output bit 1</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,93</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO_" xml:space="preserve">
+    <value>Euromap67 output bit 2</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,95</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__THREE_" xml:space="preserve">
+    <value>Euromap67 output bit 3</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,97</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__FOUR_" xml:space="preserve">
+    <value>Euromap67 output bit 4</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,99</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__FIVE_" xml:space="preserve">
+    <value>Euromap67 output bit 5</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,101</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__SIX_" xml:space="preserve">
+    <value>Euromap67 output bit 6</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,103</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__SEVEN_" xml:space="preserve">
+    <value>Euromap67 output bit 7</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,105</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__EIGHT_" xml:space="preserve">
+    <value>Euromap67 output bit 8</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,107</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__NINE_" xml:space="preserve">
+    <value>Euromap67 output bit 9</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,109</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__ZERO_" xml:space="preserve">
+    <value>Euromap67 output bit 10</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,111</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__ONE_" xml:space="preserve">
+    <value>Euromap67 output bit 11</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,113</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__TWO_" xml:space="preserve">
+    <value>Euromap67 output bit 12</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,115</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__THREE_" xml:space="preserve">
+    <value>Euromap67 output bit 13</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,117</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__FOUR_" xml:space="preserve">
+    <value>Euromap67 output bit 14</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,119</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__FIVE_" xml:space="preserve">
+    <value>Euromap67 output bit 15</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,121</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__SIX_" xml:space="preserve">
+    <value>Euromap67 output bit 16</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,123</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__SEVEN_" xml:space="preserve">
+    <value>Euromap67 output bit 17</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,125</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__EIGHT_" xml:space="preserve">
+    <value>Euromap67 output bit 18</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,127</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__ONE__NINE_" xml:space="preserve">
+    <value>Euromap67 output bit 19</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,129</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__ZERO_" xml:space="preserve">
+    <value>Euromap67 output bit 20</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,131</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__ONE_" xml:space="preserve">
+    <value>Euromap67 output bit 21</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,133</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__TWO_" xml:space="preserve">
+    <value>Euromap67 output bit 22</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,135</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__THREE_" xml:space="preserve">
+    <value>Euromap67 output bit 23</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,137</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__FOUR_" xml:space="preserve">
+    <value>Euromap67 output bit 24</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,139</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__FIVE_" xml:space="preserve">
+    <value>Euromap67 output bit 25</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,141</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__SIX_" xml:space="preserve">
+    <value>Euromap67 output bit 26</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,143</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__SEVEN_" xml:space="preserve">
+    <value>Euromap67 output bit 27</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,145</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__EIGHT_" xml:space="preserve">
+    <value>Euromap67 output bit 28</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,147</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__TWO__NINE_" xml:space="preserve">
+    <value>Euromap67 output bit 29</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,149</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__THREE__ZERO_" xml:space="preserve">
+    <value>Euromap67 output bit 30</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,151</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__THREE__ONE_" xml:space="preserve">
+    <value>Euromap67 output bit 31</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,153</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN__output_bit__THREE__TWO_" xml:space="preserve">
+    <value>Euromap67 output bit 32</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,155</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN___TWO__FOUR_V_voltage" xml:space="preserve">
+    <value>Euromap67 24V voltage</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,157</comment>
+  </data>
+  <data name="Euromap_SIX__SEVEN___TWO__FOUR_V_current" xml:space="preserve">
+    <value>Euromap67 24V current</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OIo_v_1_x_x.st,159</comment>
+  </data>
+  <data name="Joint_position__ZERO___SQUAREBRACKET_rad_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint position 0 [rad]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,5</comment>
+  </data>
+  <data name="Joint_position__ONE___SQUAREBRACKET_rad_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint position 1 [rad]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,7</comment>
+  </data>
+  <data name="Joint_position__TWO___SQUAREBRACKET_rad_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint position 2 [rad]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,9</comment>
+  </data>
+  <data name="Joint_position__THREE___SQUAREBRACKET_rad_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint position 3 [rad]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,11</comment>
+  </data>
+  <data name="Joint_position__FOUR___SQUAREBRACKET_rad_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint position 4 [rad]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,13</comment>
+  </data>
+  <data name="Joint_position__FIVE___SQUAREBRACKET_rad_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint position 5 [rad]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,15</comment>
+  </data>
+  <data name="Joint_velocity__ZERO___SQUAREBRACKET_rad_SLASH_s_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint velocity 0 [rad/s]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,17</comment>
+  </data>
+  <data name="Joint_velocity__ONE___SQUAREBRACKET_rad_SLASH_s_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint velocity 1 [rad/s]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,19</comment>
+  </data>
+  <data name="Joint_velocity__TWO___SQUAREBRACKET_rad_SLASH_s_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint velocity 2 [rad/s]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,21</comment>
+  </data>
+  <data name="Joint_velocity__THREE___SQUAREBRACKET_rad_SLASH_s_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint velocity 3 [rad/s]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,23</comment>
+  </data>
+  <data name="Joint_velocity__FOUR___SQUAREBRACKET_rad_SLASH_s_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint velocity 4 [rad/s]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,25</comment>
+  </data>
+  <data name="Joint_velocity__FIVE___SQUAREBRACKET_rad_SLASH_s_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint velocity 5 [rad/s]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,27</comment>
+  </data>
+  <data name="Joint_current__ZERO___SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint current 0 [A]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,29</comment>
+  </data>
+  <data name="Joint_current__ONE___SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint current 1 [A]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,31</comment>
+  </data>
+  <data name="Joint_current__TWO___SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint current 2 [A]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,33</comment>
+  </data>
+  <data name="Joint_current__THREE___SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint current 3 [A]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,35</comment>
+  </data>
+  <data name="Joint_current__FOUR___SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint current 4 [A]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,37</comment>
+  </data>
+  <data name="Joint_current__FIVE___SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint current 5 [A]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,39</comment>
+  </data>
+  <data name="Joint_temperature__ZERO___SQUAREBRACKET__C_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint temperature 0 [°C]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,41</comment>
+  </data>
+  <data name="Joint_temperature__ONE___SQUAREBRACKET__C_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint temperature 1 [°C]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,43</comment>
+  </data>
+  <data name="Joint_temperature__TWO___SQUAREBRACKET__C_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint temperature 2 [°C]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,45</comment>
+  </data>
+  <data name="Joint_temperature__THREE___SQUAREBRACKET__C_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint temperature 3 [°C]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,47</comment>
+  </data>
+  <data name="Joint_temperature__FOUR___SQUAREBRACKET__C_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint temperature 4 [°C]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,49</comment>
+  </data>
+  <data name="Joint_temperature__FIVE___SQUAREBRACKET__C_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Joint temperature 5 [°C]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,51</comment>
+  </data>
+  <data name="Joint_mode__ZERO_" xml:space="preserve">
+    <value>Joint mode 0</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,53</comment>
+  </data>
+  <data name="Joint_mode__ONE_" xml:space="preserve">
+    <value>Joint mode 1</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,55</comment>
+  </data>
+  <data name="Joint_mode__TWO_" xml:space="preserve">
+    <value>Joint mode 2</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,57</comment>
+  </data>
+  <data name="Joint_mode__THREE_" xml:space="preserve">
+    <value>Joint mode 3</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,59</comment>
+  </data>
+  <data name="Joint_mode__FOUR_" xml:space="preserve">
+    <value>Joint mode 4</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,61</comment>
+  </data>
+  <data name="Joint_mode__FIVE_" xml:space="preserve">
+    <value>Joint mode 5</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OJoints_v_1_x_x.st,63</comment>
+  </data>
+  <data name="Controller_major_version" xml:space="preserve">
+    <value>Controller major version</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,5</comment>
+  </data>
+  <data name="Controller_minor_version" xml:space="preserve">
+    <value>Controller minor version</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,7</comment>
+  </data>
+  <data name="Reserved" xml:space="preserve">
+    <value>Reserved</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,9</comment>
+  </data>
+  <data name="Robot_mode" xml:space="preserve">
+    <value>Robot mode</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,11</comment>
+  </data>
+  <data name="Real_time_machine_seconds" xml:space="preserve">
+    <value>Real time machine seconds</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,13</comment>
+  </data>
+  <data name="Real_time_machine_milliseconds" xml:space="preserve">
+    <value>Real time machine milliseconds</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,15</comment>
+  </data>
+  <data name="Real_time_machine_minutes" xml:space="preserve">
+    <value>Real time machine minutes</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,17</comment>
+  </data>
+  <data name="Real_time_machine_hours" xml:space="preserve">
+    <value>Real time machine hours</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,19</comment>
+  </data>
+  <data name="Real_time_machine_days" xml:space="preserve">
+    <value>Real time machine days</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,21</comment>
+  </data>
+  <data name="Robot_current__SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Robot current [A]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,23</comment>
+  </data>
+  <data name="PW_COLON__Is_power_on" xml:space="preserve">
+    <value>PW: Is power on</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,25</comment>
+  </data>
+  <data name="PR_COLON__Is_program_running" xml:space="preserve">
+    <value>PR: Is program running</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,27</comment>
+  </data>
+  <data name="TB_COLON__Is_teach_button_pressed" xml:space="preserve">
+    <value>TB: Is teach button pressed</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,29</comment>
+  </data>
+  <data name="PB_COLON__Is_power_button_pressed" xml:space="preserve">
+    <value>PB: Is power button pressed</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,31</comment>
+  </data>
+  <data name="Speed_slider_fraction" xml:space="preserve">
+    <value>Speed slider fraction</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2ORobot_v_1_x_x.st,33</comment>
+  </data>
+  <data name="Safety_mode" xml:space="preserve">
+    <value>Safety mode</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st,5</comment>
+  </data>
+  <data name="NO_COLON__Is_normal_mode" xml:space="preserve">
+    <value>NO: Is normal mode</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st,7</comment>
+  </data>
+  <data name="RD_COLON__Is_reduced_mode" xml:space="preserve">
+    <value>RD: Is reduced mode</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st,9</comment>
+  </data>
+  <data name="PS_COLON__Is_protective_stopped" xml:space="preserve">
+    <value>PS: Is protective stopped</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st,11</comment>
+  </data>
+  <data name="RC_COLON__Is_recovery_mode" xml:space="preserve">
+    <value>RC: Is recovery mode</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st,13</comment>
+  </data>
+  <data name="SS_COLON__Is_safeguard_stopped" xml:space="preserve">
+    <value>SS: Is safeguard stopped</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st,15</comment>
+  </data>
+  <data name="SES_COLON__Is_system_emergency_stopped" xml:space="preserve">
+    <value>SES: Is system emergency stopped</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st,17</comment>
+  </data>
+  <data name="RES_COLON__Is_robot_emergency_stopped" xml:space="preserve">
+    <value>RES: Is robot emergency stopped</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st,19</comment>
+  </data>
+  <data name="ES_COLON__Is_emergency_stopped" xml:space="preserve">
+    <value>ES: Is emergency stopped</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st,21</comment>
+  </data>
+  <data name="VL_COLON__Is_violation" xml:space="preserve">
+    <value>VL: Is violation</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st,23</comment>
+  </data>
+  <data name="FT_COLON__Is_fault" xml:space="preserve">
+    <value>FT: Is fault</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st,25</comment>
+  </data>
+  <data name="ST_COLON__Is_stopped_due_TO_safety" xml:space="preserve">
+    <value>ST: Is stopped due TO safety</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OSafety_v_1_x_x.st,27</comment>
+  </data>
+  <data name="Actual_TCP_Position" xml:space="preserve">
+    <value>Actual TCP Position</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st,5</comment>
+  </data>
+  <data name="Actual_TCP_Velocity" xml:space="preserve">
+    <value>Actual TCP Velocity</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st,7</comment>
+  </data>
+  <data name="Actual_TCP_Force" xml:space="preserve">
+    <value>Actual TCP Force</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st,9</comment>
+  </data>
+  <data name="Actual_TCP_Torque" xml:space="preserve">
+    <value>Actual TCP Torque</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st,11</comment>
+  </data>
+  <data name="TCP_force_scalar__SQUAREBRACKET_N_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>TCP force scalar [N]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTcp_v_1_x_x.st,13</comment>
+  </data>
+  <data name="Tool_mode" xml:space="preserve">
+    <value>Tool mode</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st,5</comment>
+  </data>
+  <data name="TDI_COLON__Tool_Digital_Inputs" xml:space="preserve">
+    <value>TDI: Tool Digital Inputs</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st,7</comment>
+  </data>
+  <data name="TDO_COLON__Tool_Digital_Outputs" xml:space="preserve">
+    <value>TDO: Tool Digital Outputs</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st,9</comment>
+  </data>
+  <data name="TAIT_COLON__Tool_Analog_Input_Types" xml:space="preserve">
+    <value>TAIT: Tool Analog Input Types</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st,11</comment>
+  </data>
+  <data name="Tool_analog_input__ZERO___SQUAREBRACKET_A_OR_V_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Tool analog input 0 [A OR V]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st,13</comment>
+  </data>
+  <data name="Tool_analog_input__ONE___SQUAREBRACKET_A_OR_V_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Tool analog input 1 [A OR V]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st,15</comment>
+  </data>
+  <data name="Tool_output_voltage__SQUAREBRACKET_V_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Tool output voltage [V]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st,17</comment>
+  </data>
+  <data name="Tool_current__SQUAREBRACKET_A_ENDSQUAREBRACKET_" xml:space="preserve">
+    <value>Tool current [A]</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRoboticsT2OTool_v_1_x_x.st,19</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st,9</comment>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware IDs</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st,11</comment>
+  </data>
+  <data name="Remote_power_on_enabled" xml:space="preserve">
+    <value>Remote power on enabled</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st,13</comment>
+  </data>
+  <data name="Remote_power_on_pulse_time" xml:space="preserve">
+    <value>Remote power on pulse time</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st,15</comment>
+  </data>
+  <data name="IP_address" xml:space="preserve">
+    <value>IP address</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Config_v_1_x_x.st,17</comment>
+  </data>
+  <data name="Start_program" xml:space="preserve">
+    <value>Start program</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,7</comment>
+  </data>
+  <data name="Stop_program" xml:space="preserve">
+    <value>Stop program</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,9</comment>
+  </data>
+  <data name="Pause_program" xml:space="preserve">
+    <value>Pause program</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,11</comment>
+  </data>
+  <data name="Set_motor_on" xml:space="preserve">
+    <value>Set motor on</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,13</comment>
+  </data>
+  <data name="Run_action" xml:space="preserve">
+    <value>Run action</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,15</comment>
+  </data>
+  <data name="Master_mode" xml:space="preserve">
+    <value>Master mode</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,20</comment>
+  </data>
+  <data name="Tool__ONE__retract" xml:space="preserve">
+    <value>Tool 1 retract</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,25</comment>
+  </data>
+  <data name="Tool__ONE__extend" xml:space="preserve">
+    <value>Tool 1 extend</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,27</comment>
+  </data>
+  <data name="Tool__TWO__retract" xml:space="preserve">
+    <value>Tool 2 retract</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,29</comment>
+  </data>
+  <data name="Tool__TWO__extend" xml:space="preserve">
+    <value>Tool 2 extend</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,31</comment>
+  </data>
+  <data name="Tool__THREE__retract" xml:space="preserve">
+    <value>Tool 3 retract</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,33</comment>
+  </data>
+  <data name="Tool__THREE__extend" xml:space="preserve">
+    <value>Tool 3 extend</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,35</comment>
+  </data>
+  <data name="Tool__FOUR__retract" xml:space="preserve">
+    <value>Tool 4 retract</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,37</comment>
+  </data>
+  <data name="Tool__FOUR__extend" xml:space="preserve">
+    <value>Tool 4 extend</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,39</comment>
+  </data>
+  <data name="Zones" xml:space="preserve">
+    <value>Zones</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,44</comment>
+  </data>
+  <data name="In_position" xml:space="preserve">
+    <value>In position</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,46</comment>
+  </data>
+  <data name="Action_number" xml:space="preserve">
+    <value>Action number</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,48</comment>
+  </data>
+  <data name="Global_robot_speed" xml:space="preserve">
+    <value>Global robot speed</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,50</comment>
+  </data>
+  <data name="Tool_number" xml:space="preserve">
+    <value>Tool number</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,52</comment>
+  </data>
+  <data name="Workobject_number" xml:space="preserve">
+    <value>Workobject number</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,54</comment>
+  </data>
+  <data name="Point_number" xml:space="preserve">
+    <value>Point number</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,56</comment>
+  </data>
+  <data name="User_specific_speed__ONE_" xml:space="preserve">
+    <value>User specific speed 1</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,58</comment>
+  </data>
+  <data name="User_specific_speed__TWO_" xml:space="preserve">
+    <value>User specific speed 2</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,60</comment>
+  </data>
+  <data name="Coordinates" xml:space="preserve">
+    <value>Coordinates</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,65</comment>
+  </data>
+  <data name="UR_Specific" xml:space="preserve">
+    <value>UR Specific</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_Control_v_1_x_x.st,70</comment>
+  </data>
+  <data name="Hardware_ID_of_the_Device" xml:space="preserve">
+    <value>Hardware ID of the Device</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st,6</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_T_TWO_O_UNDERSCORE_State_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'T2O_State' submodule</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st,8</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_T_TWO_O_UNDERSCORE_IO_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'T2O_IO' submodule</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st,10</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_T_TWO_O_UNDERSCORE_Joints_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'T2O_Joints' submodule</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st,12</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_T_TWO_O_UNDERSCORE_TCP_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'T2O_TCP' submodule</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st,14</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_T_TWO_O_UNDERSCORE_General_UNDERSCORE_Purpose_UNDERSCORE_Bit_UNDERSCORE_Registers_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'T2O_General_Purpose_Bit_Registers' submodule</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st,16</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_T_TWO_O_UNDERSCORE_General_UNDERSCORE_Purpose_UNDERSCORE_Int_UNDERSCORE_Registers_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'T2O_General_Purpose_Int_Registers' submodule</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st,18</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_T_TWO_O_UNDERSCORE_General_UNDERSCORE_Purpose_UNDERSCORE_Float_UNDERSCORE_Registers_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'T2O_General_Purpose_Float_Registers' submodule</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st,20</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_O_TWO_T_UNDERSCORE_Robot_UNDERSCORE_IO_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'O2T_Robot_IO' submodule</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st,22</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_O_TWO_T_UNDERSCORE_General_UNDERSCORE_Purpose_UNDERSCORE_Registers_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'O2T_General_Purpose_Registers_1' submodule</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st,24</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_O_TWO_T_UNDERSCORE_General_UNDERSCORE_Purpose_UNDERSCORE_Registers_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'O2T_General_Purpose_Registers_2' submodule</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_HWIDs_v_1_x_x.st,26</comment>
+  </data>
+  <data name="Standard_digital_output_mask" xml:space="preserve">
+    <value>Standard digital output mask</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TIo_v_1_x_x.st,5</comment>
+  </data>
+  <data name="Configurable_digital_output_mask" xml:space="preserve">
+    <value>Configurable digital output mask</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TIo_v_1_x_x.st,7</comment>
+  </data>
+  <data name="AOM_COLON__Analog_output_mask" xml:space="preserve">
+    <value>AOM: Analog output mask</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TIo_v_1_x_x.st,13</comment>
+  </data>
+  <data name="AOT_COLON__Analog_output_types" xml:space="preserve">
+    <value>AOT: Analog output types</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TIo_v_1_x_x.st,15</comment>
+  </data>
+  <data name="TDOM_COLON__Tool_digital_output_mask" xml:space="preserve">
+    <value>TDOM: Tool digital output mask</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TIo_v_1_x_x.st,17</comment>
+  </data>
+  <data name="TDO_COLON__Tool_digital_output" xml:space="preserve">
+    <value>TDO: Tool digital output</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TIo_v_1_x_x.st,19</comment>
+  </data>
+  <data name="Standard_analog_output__ZERO_" xml:space="preserve">
+    <value>Standard analog output 0</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TIo_v_1_x_x.st,21</comment>
+  </data>
+  <data name="SSM_COLON__Speed_slider_fraction_mask" xml:space="preserve">
+    <value>SSM: Speed slider fraction mask</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_O2TRobot_v_1_x_x.st,5</comment>
+  </data>
+  <data name="Robot_Mode" xml:space="preserve">
+    <value>Robot Mode</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st,7</comment>
+  </data>
+  <data name="In_area__ONE_" xml:space="preserve">
+    <value>In area 1</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st,12</comment>
+  </data>
+  <data name="In_area__TWO_" xml:space="preserve">
+    <value>In area 2</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st,14</comment>
+  </data>
+  <data name="In_area__THREE_" xml:space="preserve">
+    <value>In area 3</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st,16</comment>
+  </data>
+  <data name="In_area__FOUR_" xml:space="preserve">
+    <value>In area 4</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st,18</comment>
+  </data>
+  <data name="In_position__ONE_" xml:space="preserve">
+    <value>In position 1</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st,20</comment>
+  </data>
+  <data name="In_position__TWO_" xml:space="preserve">
+    <value>In position 2</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st,22</comment>
+  </data>
+  <data name="In_position__THREE_" xml:space="preserve">
+    <value>In position 3</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st,24</comment>
+  </data>
+  <data name="In_position__FOUR_" xml:space="preserve">
+    <value>In position 4</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st,26</comment>
+  </data>
+  <data name="Global_speed" xml:space="preserve">
+    <value>Global speed</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st,59</comment>
+  </data>
+  <data name="PointNumber" xml:space="preserve">
+    <value>PointNumber</value>
+    <comment>src\AxoUrRoboticsDataTypes_v_1_x_x\AxoUrRobotics_State_v_1_x_x.st,65</comment>
+  </data>
+</root>

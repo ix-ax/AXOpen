@@ -23,6 +23,8 @@ using System.Security.Claims;
 using AXOpen.Data.Query;
 using AXOpen.Base.Data.Query;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Operon.Components.Toast;
+using Properties = AXOpen.Data.Blazor.Properties;
 
 namespace AXOpen.Data
 {
@@ -66,7 +68,7 @@ namespace AXOpen.Data
         public bool IsBusy { get; set; }
 
         public long FilteredCount { get; set; }
-        public int Page { get; set; } = 0;
+        public int Page { get; set; } = 1;
         public int Limit { get; set; } = 10;
         public string CreateItemId { get; set; }
 
@@ -93,19 +95,19 @@ namespace AXOpen.Data
 
         public List<ValueChangeItem> Changes { get; set; } = new List<ValueChangeItem>();
 
-        private IAlertService _alertDialogService;
+        private IToastService _toastService;
 
-        public IAlertService AlertDialogService
+        public IToastService ToastService
         {
             get
             {
-                if (_alertDialogService == null)
-                    throw new Exception("AlertDialogService must be implemented in " + this.ToString());
-                return _alertDialogService;
+                if (_toastService == null)
+                    throw new Exception("ToastService must be implemented in " + this.ToString());
+                return _toastService;
             }
             set
             {
-                _alertDialogService = value;
+                _toastService = value;
             }
         }
 
@@ -142,7 +144,7 @@ namespace AXOpen.Data
                 if (_DefaulQueryDataEntityId == null)
                 {
                     var poco = DataExchange.GetPlainTypes().First();
-                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}.DataEntityId", typeof(string).FullName, "StartsWith", "", "");
+                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration($"{poco.Name}._EntityId", typeof(string).FullName, "StartsWith", "", "");
                 }
 
                 return _DefaulQueryDataEntityId;
@@ -217,7 +219,7 @@ namespace AXOpen.Data
 
         public virtual async Task Filter()
         {
-            Page = 0; // reset page => filtered count is unknown
+            Page = 1; // reset page => filtered count is unknown
 
             await FillObservableRecordsAsync(BuidDefaultPredicates());
         }
@@ -248,12 +250,12 @@ namespace AXOpen.Data
 
             LastFilter = predicates;
 
-            if (EntityIdsInjected.Count > 0 && Page * Limit >= EntityIdsInjected.Count) // is over limit => set last page
+            if (EntityIdsInjected.Count > 0 && (Page - 1) * Limit >= EntityIdsInjected.Count) // is over limit => set last page
             {
                 Page = (EntityIdsInjected.Count - 1) / Limit;
             }
 
-            Filter(predicates, Limit, Page * Limit);
+            Filter(predicates, Limit, (Page - 1) * Limit);
         }
 
         public virtual IEnumerable<IBrowsableDataObject> Filter(PredicateContainer predicates, int limit = 10, int skip = 0)
@@ -336,7 +338,7 @@ namespace AXOpen.Data
 
             if (Records.Count > 0)
             {
-                var found = Records.FirstOrDefault(p => p.DataEntityId == id);
+                var found = Records.FirstOrDefault(p => p._EntityId == id);
                 if (found == null)
                     throw new UnableToLocateRecordId($"Unable to locate record id '{id}'", null);
                 else
@@ -355,17 +357,17 @@ namespace AXOpen.Data
             {
                 if (string.IsNullOrEmpty(CreateItemId))
                 {
-                    AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Cannot create!", "New entry name cannot be empty. Please provide an ID", 10);
+                    ToastService?.AddToast(eToastType.Danger, Properties.AxOpenDataResources.Cannot_create, Properties.AxOpenDataResources.New_entry_name_cannot_be_empty, 10);
                     return;
                 }
 
                 await DataExchange.CreateNewAsync(CreateItemId, RefUIData);
                 AxoApplication.Current.Logger.Information($"Created {CreateItemId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
-                AlertDialogService?.AddAlertDialog(eAlertType.Success, "Created!", "Item was successfully created!", 10);
+                ToastService?.AddToast(eToastType.Success, Properties.AxOpenDataResources.Created, Properties.AxOpenDataResources.Item_was_successfully_created, 10);
             }
             catch (Exception e)
             {
-                AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Failed to create new record!", e.Message, 10);
+                ToastService?.AddToast(eToastType.Danger, Properties.AxOpenDataResources.Failed_to_create_new_record, e.Message, 10);
             }
             finally
             {
@@ -380,13 +382,13 @@ namespace AXOpen.Data
         {
             try
             {
-                await DataExchange.Delete(SelectedRecord.DataEntityId);
-                AxoApplication.Current.Logger.Information($"Deleted {SelectedRecord.DataEntityId} from {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
-                AlertDialogService?.AddAlertDialog(eAlertType.Success, "Deleted!", "Item was successfully deleted!", 10);
+                await DataExchange.Delete(SelectedRecord._EntityId);
+                AxoApplication.Current.Logger.Information($"Deleted {SelectedRecord._EntityId} from {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+                ToastService?.AddToast(eToastType.Success, Properties.AxOpenDataResources.Deleted, Properties.AxOpenDataResources.Item_was_successfully_deleted, 10);
             }
             catch (Exception e)
             {
-                AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Failed to delete", e.Message, 10);
+                ToastService?.AddToast(eToastType.Danger, Properties.AxOpenDataResources.Failed_to_delete, e.Message, 10);
             }
             finally
             {
@@ -402,11 +404,11 @@ namespace AXOpen.Data
             {
                 await DataExchange.CreateCopyCurrentShadowsAsync(CreateItemId, RefUIData);
                 AxoApplication.Current.Logger.Information($"Copied {CreateItemId} into {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
-                AlertDialogService.AddAlertDialog(eAlertType.Success, "Copied!", "Item was successfully copied!", 10);
+                ToastService.AddToast(eToastType.Success, Properties.AxOpenDataResources.Copied, Properties.AxOpenDataResources.Item_was_successfully_copied, 10);
             }
             catch (Exception e)
             {
-                AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Failed to copy!", e.Message, 10);
+                ToastService?.AddToast(eToastType.Danger, Properties.AxOpenDataResources.Failed_to_copy, e.Message, 10);
             }
             finally
             {
@@ -420,15 +422,15 @@ namespace AXOpen.Data
         public async Task Edit()
         {
             await DataExchange.UpdateFromShadowsAsync(RefUIData);
-            AlertDialogService?.AddAlertDialog(eAlertType.Success, "Edited!", "Item was successfully edited!", 10);
+            ToastService?.AddToast(eToastType.Success, Properties.AxOpenDataResources.Edited, Properties.AxOpenDataResources.Item_was_successfully_edited, 10);
             UpdateObservableRecords(BuidDefaultPredicates());
         }
 
         public async Task SendToPlc()
         {
             await DataExchange.FromRepositoryToControllerAsync(SelectedRecord, RefUIData);
-            AxoApplication.Current.Logger.Information($"Sended to Plc {SelectedRecord.DataEntityId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
-            AlertDialogService?.AddAlertDialog(eAlertType.Success, "Sended to PLC!", "Item was successfully sended to PLC!", 10);
+            AxoApplication.Current.Logger.Information($"Sent to Plc {SelectedRecord._EntityId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+            ToastService?.AddToast(eToastType.Success, Properties.AxOpenDataResources.Sent_to_PLC, Properties.AxOpenDataResources.Item_was_successfully_sent_to_PLC, 10);
         }
 
         public async Task LoadFromPlc()
@@ -436,12 +438,12 @@ namespace AXOpen.Data
             try
             {
                 await DataExchange.CreateDataFromControllerAsync(CreateItemId, RefUIData);
-                AlertDialogService?.AddAlertDialog(eAlertType.Success, "Loaded from PLC!", "Item was successfully loaded from PLC!", 10);
+                ToastService?.AddToast(eToastType.Success, Properties.AxOpenDataResources.Loaded_from_PLC, Properties.AxOpenDataResources.Item_was_successfully_loaded_from_PLC, 10);
                 AxoApplication.Current.Logger.Information($"Loaded from Plc {CreateItemId} into {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
             }
             catch (Exception e)
             {
-                AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Failed to create new record from the controller", e.Message, 10);
+                ToastService?.AddToast(eToastType.Danger, Properties.AxOpenDataResources.Failed_to_create_new_record_from_the_controller, e.Message, 10);
             }
             finally
             {
@@ -454,31 +456,31 @@ namespace AXOpen.Data
         //{
         //    try
         //    {
-        //        var identifier = SelectedRecord.DataEntityId;
+        //        var identifier = SelectedRecord._EntityId;
 
         //        var refdata = DataExchange.CloneDataObject();
 
-        //        var DataEntityId = (refdata as IAxoDataEntity).DataEntityId;
+        //        var _EntityId = (refdata as IAxoDataEntity)._EntityId;
 
         //        List<ITwinPrimitive> batchRedElements = new();
 
-        //        batchRedElements.Add(DataEntityId);
+        //        batchRedElements.Add(_EntityId);
 
         //        await refdata.GetConnector().ReadBatchAsync(batchRedElements);
 
-        //        if (DataEntityId.Cyclic != identifier)
+        //        if (_EntityId.Cyclic != identifier)
         //        {
-        //            AlertDialogService?.AddAlertDialog(eAlertType.Warning, "Update error", $"Online record has different ID that requested to update: {DataEntityId.Cyclic}/{identifier}!", 14);
+        //            AlertDialogService?.AddToast(eToastType.Warning, "Update error", $"Online record has different ID that requested to update: {_EntityId.Cyclic}/{identifier}!", 14);
         //            return;
         //        }
 
         //        await DataExchange.RemoteUpdate(identifier);
-        //        AlertDialogService?.AddAlertDialog(eAlertType.Success, "Update from PLC!", "Item was successfully updated from PLC!", 10);
+        //        AlertDialogService?.AddToast(eToastType.Success, "Update from PLC!", "Item was successfully updated from PLC!", 10);
         //        AxoApplication.Current.Logger.Information($"Updated from Plc {identifier} into {DataExchange.PresentableInstanceName} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
         //    }
         //    catch (Exception e)
         //    {
-        //        AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Failed to update a record from the controller", e.Message, 10);
+        //        AlertDialogService?.AddToast(eToastType.Danger, "Failed to update a record from the controller", e.Message, 10);
         //    }
         //    finally
         //    {
@@ -500,13 +502,13 @@ namespace AXOpen.Data
 
                     exportStatus = eOperationStatus.Done;
 
-                    AlertDialogService?.AddAlertDialog(eAlertType.Success, "Exported!", "Data was successfully exported!", 10);
+                    ToastService?.AddToast(eToastType.Success, Properties.AxOpenDataResources.Exported, Properties.AxOpenDataResources.Data_was_successfully_exported, 10);
 
-                    AxoApplication.Current.Logger.Information($"Exported data from {DataExchange} to path {path} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+                    AxoApplication.Current.Logger.Information($"Data form '{DataExchange}' where exported to location '{path}' by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
                 }
                 catch (Exception e)
                 {
-                    AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Error!", e.Message, 10);
+                    ToastService?.AddToast(eToastType.Danger, Properties.AxOpenDataResources.Error, e.Message, 10);
                     exportStatus = eOperationStatus.Failed;
                 }
             });
@@ -521,14 +523,14 @@ namespace AXOpen.Data
                     DataExchange.ImportData(path, AuthenticationProvider.GetAuthenticationStateAsync().Result, exportFileType: ExportSet.ExportFileType, separator: ExportSet.Separator);
                     this.UpdateObservableRecords();
 
-                    AlertDialogService?.AddAlertDialog(eAlertType.Success, "Imported!", "Data was successfully imported!", 10);
-                    AxoApplication.Current.Logger.Information($"Imported data into {DataExchange} from path {path} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
+                    ToastService?.AddToast(eToastType.Success, Properties.AxOpenDataResources.Imported, Properties.AxOpenDataResources.Data_were_successfully_imported, 10);
+                    AxoApplication.Current.Logger.Information($"Data imported into '{DataExchange}' from location '{path}' by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
 
                     importStatus = eOperationStatus.Done;
                 }
                 catch (Exception e)
                 {
-                    AlertDialogService?.AddAlertDialog(eAlertType.Danger, "Error!", e.Message, 10);
+                    ToastService?.AddToast(eToastType.Danger, Properties.AxOpenDataResources.Error, e.Message, 10);
                 }
             });
         }

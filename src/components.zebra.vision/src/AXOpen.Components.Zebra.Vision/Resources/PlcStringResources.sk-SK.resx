@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ReadTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ReadTask.</value>
+  </data>
+  <data name="ClearDataTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ClearDataTask.</value>
+  </data>
+  <data name="ClearErrorTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ClearErrorTask.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask10steps4 timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask10steps5 timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask10steps6 timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask20steps1 timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask20steps2 timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask20steps3 timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask20steps4 timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask20steps5 timeout.</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX__timeout_DOT_" xml:space="preserve">
+    <value>TemplateTask20steps6 timeout.</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnovenie</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Prečítajte si</value>
+  </data>
+  <data name="Read_data" xml:space="preserve">
+    <value>Čítanie údajov</value>
+  </data>
+  <data name="Barcode_type" xml:space="preserve">
+    <value>Typ čiarového kódu</value>
+  </data>
+  <data name="Barcode_length" xml:space="preserve">
+    <value>Dĺžka čiarového kódu</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Pokrok</value>
+  </data>
+  <data name="Clear_data" xml:space="preserve">
+    <value>Vymazanie údajov</value>
+  </data>
+  <data name="Clear_error" xml:space="preserve">
+    <value>Vymazanie chyby</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FOUR_" xml:space="preserve">
+    <value>ŠablónaTask10steps4</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__FIVE_" xml:space="preserve">
+    <value>ŠablónaTask10steps5</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__ONE__ZERO_steps_UNDERSCORE__SIX_" xml:space="preserve">
+    <value>ŠablónaTask10steps6</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__ONE_" xml:space="preserve">
+    <value>ŠablónaTask20steps1</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__TWO_" xml:space="preserve">
+    <value>ŠablónaTask20steps2</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__THREE_" xml:space="preserve">
+    <value>ŠablónaTask20steps3</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FOUR_" xml:space="preserve">
+    <value>ŠablónaTask20steps4</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__FIVE_" xml:space="preserve">
+    <value>ŠablónaTask20steps5</value>
+  </data>
+  <data name="TemplateTask_UNDERSCORE__TWO__ZERO_steps_UNDERSCORE__SIX_" xml:space="preserve">
+    <value>ŠablónaTask20steps6</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Identifikátory hardvéru</value>
+  </data>
+  <data name="Enable_handshake" xml:space="preserve">
+    <value>Povolenie podávania rúk</value>
+  </data>
+  <data name="Enable_fragments" xml:space="preserve">
+    <value>Povolenie fragmentov</value>
+  </data>
+  <data name="Continous_reading" xml:space="preserve">
+    <value>Kontinuálne čítanie</value>
+  </data>
+  <data name="Hardware_ID__of_the_device" xml:space="preserve">
+    <value>ID hardvéru zariadenia</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_BarcodeData_UNDERSCORE_v_TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "BarcodeDatav2</value>
+  </data>
+  <data name="Fragmented" xml:space="preserve">
+    <value>Fragmentované</value>
+  </data>
+  <data name="First_fragment" xml:space="preserve">
+    <value>Prvý fragment</value>
+  </data>
+  <data name="Middle_fragment" xml:space="preserve">
+    <value>Stredný fragment</value>
+  </data>
+  <data name="Last_fragment" xml:space="preserve">
+    <value>Posledný fragment</value>
+  </data>
+  <data name="Transfer_enabled" xml:space="preserve">
+    <value>Prenos povolený</value>
+  </data>
+  <data name="Handshake_enabled" xml:space="preserve">
+    <value>Podanie rúk je povolené</value>
+  </data>
+  <data name="Fragmentation_enabled" xml:space="preserve">
+    <value>Fragmentácia povolená</value>
+  </data>
+  <data name="Cache_overflow" xml:space="preserve">
+    <value>Preplnenie vyrovnávacej pamäte</value>
+  </data>
+  <data name="Input_data_overflow" xml:space="preserve">
+    <value>Preplnenie vstupných údajov</value>
+  </data>
+  <data name="Waiting_for_handshake" xml:space="preserve">
+    <value>Čakanie na podanie ruky</value>
+  </data>
+  <data name="Trigger_state" xml:space="preserve">
+    <value>Stav spúšte</value>
+  </data>
+  <data name="Scanner_type" xml:space="preserve">
+    <value>Typ skenera</value>
+  </data>
+  <data name="Update_counter" xml:space="preserve">
+    <value>Aktualizácia počítadla</value>
+  </data>
+  <data name="Number_of_scanners" xml:space="preserve">
+    <value>Počet skenerov</value>
+  </data>
+  <data name="Battery_charge_state" xml:space="preserve">
+    <value>Stav nabitia batérie</value>
+  </data>
+  <data name="Battery_voltage" xml:space="preserve">
+    <value>Napätie batérie</value>
+  </data>
+  <data name="Battery_temperature" xml:space="preserve">
+    <value>Teplota batérie</value>
+  </data>
+  <data name="Length_of_the_data" xml:space="preserve">
+    <value>Dĺžka údajov</value>
+  </data>
+</root>

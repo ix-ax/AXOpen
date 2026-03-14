@@ -27,6 +27,21 @@ using Path = System.IO.Path;
 
 public static class ApaxCmd
 {
+
+    public static void ApaxSelfUpdate(this BuildContext context, string version)
+    {
+        var apaxArguments = $"self-update {version}";
+
+        context.Log.Information($"apax self-update to version '{version}'");
+        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        {
+            Arguments = apaxArguments,            
+            RedirectStandardOutput = false,
+            RedirectStandardError = false,
+            Silent = false
+        }).WaitForExit();
+    }
+
     public static void ApaxInstall(this BuildContext context, IEnumerable<string> folders)
     {
         foreach (var folder in folders)
@@ -267,7 +282,7 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxClean(this BuildContext context, (string folder, string name, bool pack, bool app_run) lib)
+    public static void ApaxClean(this BuildContext context, (string folder, string name, bool pack, bool app_run, bool test) lib)
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
@@ -293,7 +308,7 @@ public static class ApaxCmd
             context.Log.Information($"apax build started for in '{folder}'");
             var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
-                Arguments = "build --ignore-scripts",
+                Arguments = "build",
                 WorkingDirectory = folder,
                 RedirectStandardOutput = false,
                 RedirectStandardError = false,
@@ -311,7 +326,7 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxUpdate(this BuildContext context, (string folder, string name, bool pack, bool app_run) lib)
+    public static void ApaxUpdate(this BuildContext context, (string folder, string name, bool pack, bool app_run, bool test) lib)
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
@@ -336,7 +351,7 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxPack(this BuildContext context, (string folder, string name, bool pack, bool app_run) lib)
+    public static void ApaxPack(this BuildContext context, (string folder, string name, bool pack, bool app_run, bool test) lib)
     {        
         if (lib.pack)
         {
@@ -352,7 +367,7 @@ public static class ApaxCmd
     }
 
 
-    public static void ApaxTest(this BuildContext context, (string folder, string name, bool pack, bool app_run) lib)
+    public static void ApaxTest(this BuildContext context, (string folder, string name, bool pack, bool app_run, bool test) lib)
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
@@ -384,7 +399,7 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxTestLibrary(this BuildContext context, (string folder, string name, bool pack, bool app_run) lib)
+    public static void ApaxTestLibrary(this BuildContext context, (string folder, string name, bool pack, bool app_run, bool test) lib)
     {
         foreach (var folder in context.GetLibraryAxFolders(lib))
         {
@@ -426,7 +441,7 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxCopyArtifacts(this BuildContext context,  (string folder, string name, bool pack, bool app_run) lib)
+    public static void ApaxCopyArtifacts(this BuildContext context,  (string folder, string name, bool pack, bool app_run, bool test) lib)
     {
         if (lib.pack)
         {
@@ -453,7 +468,7 @@ public static class ApaxCmd
         {
             var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
-                Arguments = $"publish -p {apaxPackageFile} -r  https://npm.pkg.github.com",
+                Arguments = $"publish --package {apaxPackageFile} --registry  https://npm.pkg.github.com",
                 WorkingDirectory = context.ArtifactsApax,
                 RedirectStandardOutput = false,
                 RedirectStandardError = false,
@@ -583,9 +598,9 @@ public static class ApaxCmd
         {
             if (root.Children.TryGetValue(new YamlScalarNode("catalogs"), out var catalogNode))
             {
-                var apaxArguments = "install --catalog";
+                var apaxArguments = "install --catalog --strict";
                 var folder = Path.GetDirectoryName(yamlFilePath);
-                context.Log.Information($"apax install --catalog started in '{folder}'");
+                context.Log.Information($"apax install --catalog --strict started in '{folder}'");
                 context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
                 {
                     Arguments = apaxArguments,

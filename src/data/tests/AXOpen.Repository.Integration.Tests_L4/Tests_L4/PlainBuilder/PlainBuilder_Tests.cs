@@ -12,7 +12,6 @@ namespace Tests_L4
             PlainSymbolBuilder.ClearStaticConfiguration();
         }
 
-        
 
         [Fact]
         public void plain_builder_should_ignore_interface_properties()
@@ -21,29 +20,73 @@ namespace Tests_L4
             PlainSymbolBuilder.IgnoreProperty(typeof(AXSharp.Connector.IPlain), "vLDATE_AND_TIME");
 
             var builder = new PlainSymbolBuilder(typeof(BasePrimitives));
+            var symbols = builder.GetSymbols();
 
-            Assert.False(builder.GetSymbols().Where(s => s.Contains("vBOOL")).Any());
-            Assert.False(builder.GetSymbols().Where(s => s.Contains("vLDATE_AND_TIME")).Any());
+            Assert.DoesNotContain("BasePrimitives.vBOOL",          symbols);
+            Assert.DoesNotContain("BasePrimitives.vLDATE_AND_TIME", symbols);
         }
 
         [Fact]
         public void plain_builder_should_ignore_casted_properties()
         {
-            PlainSymbolBuilder.IgnoreProperty(typeof(Pocos.AXOpen.Data.AxoDataEntity), "DataEntityId");
+            PlainSymbolBuilder.IgnoreProperty(typeof(Pocos.AXOpen.Data.AxoDataEntity), "_EntityId");
 
             var builder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.ProcessData));
+            var symbols = builder.GetSymbols();
 
-            Assert.False(builder.GetSymbols().Where(s => s.Contains("DataEntityId")).Any());
+            Assert.DoesNotContain("ProcessData._EntityId", symbols);
+        }
+
+
+        [Fact]
+        public void plain_builder_should_take_into_account_nulable_time_properties()
+        {
+            var builder = new PlainSymbolBuilder(typeof(Pocos.AXOpen.Data.AxoDataEntity));
+            var symbols = builder.GetSymbols();
+
+            Assert.Equal(3, symbols.Count());
+            Assert.Contains("AxoDataEntity._EntityId",  symbols);
+            Assert.Contains("AxoDataEntity.ModifiedAt", symbols);
+            Assert.Contains("AxoDataEntity.CreatedAt",  symbols);
+        }
+
+        [Fact]
+        public void plain_builder_should_take_into_account_nulable_object_properties()
+        {
+            var builder = new PlainSymbolBuilder(typeof(NulableAxoDataEntity));
+            var symbols = builder.GetSymbols();
+
+            Assert.Equal(5, symbols.Count());
+            Assert.Contains("NulableAxoDataEntity._EntityId",                       symbols);
+            Assert.Contains("NulableAxoDataEntity.ModifiedAt",                      symbols);
+            Assert.Contains("NulableAxoDataEntity.CreatedAt",                       symbols);
+            Assert.Contains("NulableAxoDataEntity.NulableObject.NulableString",     symbols);
+            Assert.Contains("NulableAxoDataEntity.ExcludedNulableObject.NulableString", symbols);
+        }
+
+        [Fact]
+        public void plain_builder_should_ignore_object_with_attribute()
+        {
+            PlainSymbolBuilder.IgnoreAttribute(typeof(CustomExcludeAttribute));
+            var builder = new PlainSymbolBuilder(typeof(NulableAxoDataEntity));
+            var symbols = builder.GetSymbols();
+
+            Assert.Equal(4, symbols.Count());
+            Assert.Contains("NulableAxoDataEntity._EntityId",                           symbols);
+            Assert.Contains("NulableAxoDataEntity.ModifiedAt",                          symbols);
+            Assert.Contains("NulableAxoDataEntity.CreatedAt",                           symbols);
+            Assert.Contains("NulableAxoDataEntity.NulableObject.NulableString",         symbols);
+            Assert.DoesNotContain("NulableAxoDataEntity.ExcludedNulableObject.NulableString", symbols);
         }
 
         [Fact]
         public void plain_builder_should_ignore_root_properties()
         {
-            PlainSymbolBuilder.IgnoreRootProperty("DataEntityId");
+            PlainSymbolBuilder.IgnoreRootProperty("_EntityId");
 
             var builder = new PlainSymbolBuilder(typeof(Pocos.Exchange_Test_L4.ProcessData));
 
-            Assert.False(builder.GetSymbols().Where(s => s.Contains("DataEntityId")).Any());
+            Assert.DoesNotContain("ProcessData._EntityId", builder.GetSymbols());
         }
 
         [Fact]
@@ -70,7 +113,7 @@ namespace Tests_L4
 
             var symbols = builder.GetSymbols();
 
-            Assert.Equal(27001, symbols.Count());
+            Assert.Equal(27000, symbols.Count());
         }
     }
 }

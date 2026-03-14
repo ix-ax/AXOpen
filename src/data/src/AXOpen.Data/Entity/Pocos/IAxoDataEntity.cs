@@ -7,8 +7,10 @@ namespace Pocos.AXOpen.Data
 {
     public partial interface IAxoDataEntity : IBrowsableDataObject
     {
-        public string DataEntityId { get; set; }
+        public string _EntityId { get; set; }
         List<ValueChangeItem> Changes { get; set; }
+
+       
 
         string Hash { get; set; }
     }

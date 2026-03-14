@@ -53,17 +53,49 @@
         public void should_create_symbol_list()
         {
             var plains = Exchange.GetPlainTypes();
-
             var plainSymbolBuilder = new PlainSymbolBuilder(plains.First());
-
             var result = plainSymbolBuilder.GetSymbols();
 
-            Assert.Equal(31, result.Count());
+            Assert.Equal(33, result.Count());
 
-            Assert.Equal("ProcessData.vString", result[0]);
-            Assert.Equal("ProcessData.vInt", result[1]);
-            Assert.Equal("ProcessData.vBool", result[2]);
-            //todo add all vars...
+            // ProcessData top-level members
+            Assert.Equal("ProcessData.vString",                    result[0]);
+            Assert.Equal("ProcessData.vInt",                       result[1]);
+            Assert.Equal("ProcessData.vBool",                      result[2]);
+
+            // ProcessData.Primitives nested members
+            Assert.Equal("ProcessData.Primitives.vBOOL",           result[3]);
+            Assert.Equal("ProcessData.Primitives.vBYTE",           result[4]);
+            Assert.Equal("ProcessData.Primitives.vWORD",           result[5]);
+            Assert.Equal("ProcessData.Primitives.vDWORD",          result[6]);
+            Assert.Equal("ProcessData.Primitives.vLWORD",          result[7]);
+            Assert.Equal("ProcessData.Primitives.vSINT",           result[8]);
+            Assert.Equal("ProcessData.Primitives.vINT",            result[9]);
+            Assert.Equal("ProcessData.Primitives.vDINT",           result[10]);
+            Assert.Equal("ProcessData.Primitives.vLINT",           result[11]);
+            Assert.Equal("ProcessData.Primitives.vUSINT",          result[12]);
+            Assert.Equal("ProcessData.Primitives.vUINT",           result[13]);
+            Assert.Equal("ProcessData.Primitives.vUDINT",          result[14]);
+            Assert.Equal("ProcessData.Primitives.vULINT",          result[15]);
+            Assert.Equal("ProcessData.Primitives.vREAL",           result[16]);
+            Assert.Equal("ProcessData.Primitives.vLREAL",          result[17]);
+            Assert.Equal("ProcessData.Primitives.vTIME",           result[18]);
+            Assert.Equal("ProcessData.Primitives.vLTIME",          result[19]);
+            Assert.Equal("ProcessData.Primitives.vDATE",           result[20]);
+            Assert.Equal("ProcessData.Primitives.vLDATE",          result[21]);
+            Assert.Equal("ProcessData.Primitives.vTIME_OF_DAY",    result[22]);
+            Assert.Equal("ProcessData.Primitives.vLTIME_OF_DAY",   result[23]);
+            Assert.Equal("ProcessData.Primitives.vDATE_AND_TIME",  result[24]);
+            Assert.Equal("ProcessData.Primitives.vLDATE_AND_TIME", result[25]);
+            Assert.Equal("ProcessData.Primitives.vCHAR",           result[26]);
+            Assert.Equal("ProcessData.Primitives.vWCHAR",          result[27]);
+            Assert.Equal("ProcessData.Primitives.vSTRING",         result[28]);
+            Assert.Equal("ProcessData.Primitives.vWSTRING",        result[29]);
+
+            // Inherited AxoDataEntity members
+            Assert.Equal("ProcessData.ModifiedAt",                 result[30]);
+            Assert.Equal("ProcessData.CreatedAt",                  result[31]);
+            Assert.Equal("ProcessData._EntityId",                  result[32]);
         }
 
         [Fact]
@@ -75,10 +107,6 @@
             Type requiredSymbolType = typeof(string);
 
             var plainSymbolBuilder = new PlainSymbolBuilder(plains.First());
-
-            var allSymbols = plainSymbolBuilder.GetSymbols();
-
-            Assert.Equal(31, allSymbols.Count());
 
             var result = plainSymbolBuilder.GetSymbols().Where(p => p == requiredSymbolName).First(); //SharedHeader.vString"
 
@@ -108,10 +136,6 @@
             Type requiredSymbolType = typeof(Int16);
 
             var plainSymbolBuilder = new PlainSymbolBuilder(plains.First());
-
-            var allSymbols = plainSymbolBuilder.GetSymbols();
-
-            Assert.Equal(31, allSymbols.Count());
 
             var result = plainSymbolBuilder.GetSymbols().Where(p => p == requiredSymbolName).First(); //SharedHeader.vString"
 
@@ -236,16 +260,16 @@
 
             Assert.Equal(10, records.Count());
 
-            Assert.Equal("0", records[0].DataEntityId);
-            Assert.Equal("1", records[1].DataEntityId);
-            Assert.Equal("2", records[2].DataEntityId);
-            Assert.Equal("3", records[3].DataEntityId);
-            Assert.Equal("4", records[4].DataEntityId);
-            Assert.Equal("5", records[5].DataEntityId);
-            Assert.Equal("6", records[6].DataEntityId);
-            Assert.Equal("7", records[7].DataEntityId);
-            Assert.Equal("8", records[8].DataEntityId);
-            Assert.Equal("9", records[9].DataEntityId);
+            Assert.Equal("0", records[0]._EntityId);
+            Assert.Equal("1", records[1]._EntityId);
+            Assert.Equal("2", records[2]._EntityId);
+            Assert.Equal("3", records[3]._EntityId);
+            Assert.Equal("4", records[4]._EntityId);
+            Assert.Equal("5", records[5]._EntityId);
+            Assert.Equal("6", records[6]._EntityId);
+            Assert.Equal("7", records[7]._EntityId);
+            Assert.Equal("8", records[8]._EntityId);
+            Assert.Equal("9", records[9]._EntityId);
         }
 
         [Fact]
@@ -274,16 +298,16 @@
 
             Assert.Equal(10, records.Count());
 
-            Assert.Equal("9", records[0].DataEntityId);
-            Assert.Equal("8", records[1].DataEntityId);
-            Assert.Equal("7", records[2].DataEntityId);
-            Assert.Equal("6", records[3].DataEntityId);
-            Assert.Equal("5", records[4].DataEntityId);
-            Assert.Equal("4", records[5].DataEntityId);
-            Assert.Equal("3", records[6].DataEntityId);
-            Assert.Equal("2", records[7].DataEntityId);
-            Assert.Equal("1", records[8].DataEntityId);
-            Assert.Equal("0", records[9].DataEntityId);
+            Assert.Equal("9", records[0]._EntityId);
+            Assert.Equal("8", records[1]._EntityId);
+            Assert.Equal("7", records[2]._EntityId);
+            Assert.Equal("6", records[3]._EntityId);
+            Assert.Equal("5", records[4]._EntityId);
+            Assert.Equal("4", records[5]._EntityId);
+            Assert.Equal("3", records[6]._EntityId);
+            Assert.Equal("2", records[7]._EntityId);
+            Assert.Equal("1", records[8]._EntityId);
+            Assert.Equal("0", records[9]._EntityId);
         }
 
         [Fact]
@@ -314,16 +338,16 @@
 
             Assert.Equal(10, records.Count());
 
-            Assert.Equal("9", records[0].DataEntityId);
-            Assert.Equal("8", records[1].DataEntityId);
-            Assert.Equal("7", records[2].DataEntityId);
-            Assert.Equal("6", records[3].DataEntityId);
-            Assert.Equal("5", records[4].DataEntityId);
-            Assert.Equal("4", records[5].DataEntityId);
-            Assert.Equal("3", records[6].DataEntityId);
-            Assert.Equal("2", records[7].DataEntityId);
-            Assert.Equal("1", records[8].DataEntityId);
-            Assert.Equal("0", records[9].DataEntityId);
+            Assert.Equal("9", records[0]._EntityId);
+            Assert.Equal("8", records[1]._EntityId);
+            Assert.Equal("7", records[2]._EntityId);
+            Assert.Equal("6", records[3]._EntityId);
+            Assert.Equal("5", records[4]._EntityId);
+            Assert.Equal("4", records[5]._EntityId);
+            Assert.Equal("3", records[6]._EntityId);
+            Assert.Equal("2", records[7]._EntityId);
+            Assert.Equal("1", records[8]._EntityId);
+            Assert.Equal("0", records[9]._EntityId);
         }
 
         [Fact]

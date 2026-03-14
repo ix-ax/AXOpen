@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>    
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PackageId>AXOpen.Operon.Blazor</PackageId>
+    <RootNamespace>AXOpen.Operon.Blazor</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>		   			  	  
+      <FrameworkReference Include="Microsoft.AspNetCore.App" /> 	    
+	    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />      
+      <PackageReference Include="Inxton.Operon" />
+  </ItemGroup>
+
+ 
+  
+
+	
+
+	
+</Project>

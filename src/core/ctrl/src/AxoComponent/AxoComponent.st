@@ -1,6 +1,7 @@
 NAMESPACE AXOpen.Core
 
     {S7.extern=ReadWrite}
+    {#ix-prop:public string Description}
     CLASS PUBLIC ABSTRACT AxoComponent EXTENDS AxoObject IMPLEMENTS IAxoComponent     
         VAR PRIVATE
             _context    :   IAxoContext;

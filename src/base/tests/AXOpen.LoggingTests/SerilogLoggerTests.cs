@@ -6,6 +6,7 @@ using Serilog;
 using Serilog.Core;
 using Serilog.Events;
 using Xunit;
+using Assert = Xunit.Assert;
 
 namespace AXOpen.Logging.Tests
 {

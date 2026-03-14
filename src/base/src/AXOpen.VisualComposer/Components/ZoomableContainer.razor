@@ -1,0 +1,44 @@
+﻿<style>
+    .bg-switcher-container {
+        background-color: @Parent.CurrentView.BackgroundColorLight;
+    }
+
+    [data-theme="dark"] .bg-switcher-container {
+        background-color: @Parent.CurrentView.BackgroundColorDark;
+    }
+</style>
+
+
+@if (Parent!.CurrentView.AllowZoomingAndPanning)
+{
+    <div id="@Guid.ToString()" onwheel="event.preventDefault()" class="m-0 p-0 w-full h-full">
+        <div @onpointermove="MoveAsync"
+             @onpointerdown="Down"
+             @onpointerup="Up"
+             @onpointerleave="Leave"
+             @onwheel="WheelAsync"
+             class="bg-switcher-container overflow-hidden w-full h-full">
+             @* style="overflow: hidden; background-color: @(Parent.CurrentView.BackgroundColor);"> *@
+            <div class="relative w-full h-full" style="transform: scale(@(Parent!.CurrentView.Scale.ToString().Replace(',', '.'))) translate(@(Parent!.CurrentView.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.CurrentView.TranslateY.ToString().Replace(',', '.'))%);">
+                @ChildContent
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div id="@Guid.ToString()" class="m-0 p-0 w-full h-full">
+        <div @onpointermove="MoveAsync"
+             @onpointerdown="Down"
+             @onpointerup="Up"
+             @onpointerleave="Leave"
+             @onwheel="WheelAsync"
+             class="bg-switcher-container overflow-hidden w-full h-full">
+            @*  style="overflow: hidden; background-color: @(Parent.CurrentView.BackgroundColorLight);"> *@
+            <div class="relative w-full h-full" style="transform: scale(@(Parent!.CurrentView.Scale.ToString().Replace(',', '.'))) translate(@(Parent!.CurrentView.TranslateX.ToString().Replace(',', '.'))%, @(Parent!.CurrentView.TranslateY.ToString().Replace(',', '.'))%);">
+                @ChildContent
+            </div>
+        </div>
+    </div>
+}
+

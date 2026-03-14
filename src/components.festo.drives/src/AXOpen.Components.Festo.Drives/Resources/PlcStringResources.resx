@@ -1,0 +1,677 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\AxoCmmtAs\AxoCmmtAs.st,27</comment>
+  </data>
+  <data name="Scaling_constant_required_position" xml:space="preserve">
+    <value>Scaling constant required position</value>
+    <comment>src\AxoCmmtAs\AxoCmmtAs.st,40</comment>
+  </data>
+  <data name="Scaling_constant_actual_position" xml:space="preserve">
+    <value>Scaling constant actual position</value>
+    <comment>src\AxoCmmtAs\AxoCmmtAs.st,45</comment>
+  </data>
+  <data name="Scaling_constant_required_velocity" xml:space="preserve">
+    <value>Scaling constant required velocity</value>
+    <comment>src\AxoCmmtAs\AxoCmmtAs.st,50</comment>
+  </data>
+  <data name="Scaling_constant_actual_velocity" xml:space="preserve">
+    <value>Scaling constant actual velocity</value>
+    <comment>src\AxoCmmtAs\AxoCmmtAs.st,55</comment>
+  </data>
+  <data name="Scaling_constant_required_torque" xml:space="preserve">
+    <value>Scaling constant required torque</value>
+    <comment>src\AxoCmmtAs\AxoCmmtAs.st,60</comment>
+  </data>
+  <data name="Scaling_constant_actual_torque" xml:space="preserve">
+    <value>Scaling constant actual torque</value>
+    <comment>src\AxoCmmtAs\AxoCmmtAs.st,65</comment>
+  </data>
+  <data name="Scaling_constant_required_acceleration" xml:space="preserve">
+    <value>Scaling constant required acceleration</value>
+    <comment>src\AxoCmmtAs\AxoCmmtAs.st,70</comment>
+  </data>
+  <data name="Scaling_constant_actual_acceleration" xml:space="preserve">
+    <value>Scaling constant actual acceleration</value>
+    <comment>src\AxoCmmtAs\AxoCmmtAs.st,75</comment>
+  </data>
+  <data name="Scaling_constant_required_deceleration" xml:space="preserve">
+    <value>Scaling constant required deceleration</value>
+    <comment>src\AxoCmmtAs\AxoCmmtAs.st,80</comment>
+  </data>
+  <data name="Scaling_constant_actual_deceleration" xml:space="preserve">
+    <value>Scaling constant actual deceleration</value>
+    <comment>src\AxoCmmtAs\AxoCmmtAs.st,85</comment>
+  </data>
+  <data name="Scaling_constant_required_jerk" xml:space="preserve">
+    <value>Scaling constant required jerk</value>
+    <comment>src\AxoCmmtAs\AxoCmmtAs.st,90</comment>
+  </data>
+  <data name="Scaling_constant_actual_jerk" xml:space="preserve">
+    <value>Scaling constant actual jerk</value>
+    <comment>src\AxoCmmtAs\AxoCmmtAs.st,95</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrization.st,9</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrization.st,13</comment>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Enable</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationIn.st,8</comment>
+  </data>
+  <data name="ReadWrite" xml:space="preserve">
+    <value>ReadWrite</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationIn.st,10</comment>
+  </data>
+  <data name="ParameterNo" xml:space="preserve">
+    <value>ParameterNo</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationIn.st,12</comment>
+  </data>
+  <data name="Subindex" xml:space="preserve">
+    <value>Subindex</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationIn.st,14</comment>
+  </data>
+  <data name="AxisNo" xml:space="preserve">
+    <value>AxisNo</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationIn.st,16</comment>
+  </data>
+  <data name="HardwareId" xml:space="preserve">
+    <value>HardwareId</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationIn.st,18</comment>
+  </data>
+  <data name="ValueWriteREAL" xml:space="preserve">
+    <value>ValueWriteREAL</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationIn.st,20</comment>
+  </data>
+  <data name="ValueWriteLINT" xml:space="preserve">
+    <value>ValueWriteLINT</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationIn.st,22</comment>
+  </data>
+  <data name="ValueWriteBOOL" xml:space="preserve">
+    <value>ValueWriteBOOL</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationIn.st,24</comment>
+  </data>
+  <data name="ValueReadREAL" xml:space="preserve">
+    <value>ValueReadREAL</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationOut.st,8</comment>
+  </data>
+  <data name="ValueReadLINT" xml:space="preserve">
+    <value>ValueReadLINT</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationOut.st,10</comment>
+  </data>
+  <data name="ValueReadBOOL" xml:space="preserve">
+    <value>ValueReadBOOL</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationOut.st,12</comment>
+  </data>
+  <data name="Busy" xml:space="preserve">
+    <value>Busy</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationOut.st,14</comment>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Done</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationOut.st,16</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationOut.st,18</comment>
+  </data>
+  <data name="ErrorId" xml:space="preserve">
+    <value>ErrorId</value>
+    <comment>src\PROFIdrive\AxoPROFIdriveParametrizationOut.st,20</comment>
+  </data>
+  <data name="jog_ONE_" xml:space="preserve">
+    <value>jog1</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,7</comment>
+  </data>
+  <data name="jog_TWO_" xml:space="preserve">
+    <value>jog2</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,9</comment>
+  </data>
+  <data name="controlByPlc" xml:space="preserve">
+    <value>controlByPlc</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,11</comment>
+  </data>
+  <data name="StartHoming" xml:space="preserve">
+    <value>StartHoming</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,13</comment>
+  </data>
+  <data name="ReleaseBrake" xml:space="preserve">
+    <value>ReleaseBrake</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,15</comment>
+  </data>
+  <data name="ExternalBlockChange" xml:space="preserve">
+    <value>ExternalBlockChange</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,17</comment>
+  </data>
+  <data name="reserved_ONE__FOUR_" xml:space="preserve">
+    <value>reserved14</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,19</comment>
+  </data>
+  <data name="reserved_ONE__FIVE_" xml:space="preserve">
+    <value>reserved15</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,21</comment>
+  </data>
+  <data name="on" xml:space="preserve">
+    <value>on</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,23</comment>
+  </data>
+  <data name="noCoastStop" xml:space="preserve">
+    <value>noCoastStop</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,25</comment>
+  </data>
+  <data name="noQuickStop" xml:space="preserve">
+    <value>noQuickStop</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,27</comment>
+  </data>
+  <data name="enableOperation" xml:space="preserve">
+    <value>enableOperation</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,29</comment>
+  </data>
+  <data name="cancelTraversing" xml:space="preserve">
+    <value>cancelTraversing</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,31</comment>
+  </data>
+  <data name="intermediateStop" xml:space="preserve">
+    <value>intermediateStop</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,33</comment>
+  </data>
+  <data name="activateTraversing" xml:space="preserve">
+    <value>activateTraversing</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,35</comment>
+  </data>
+  <data name="acknowledgeFault" xml:space="preserve">
+    <value>acknowledgeFault</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,37</comment>
+  </data>
+  <data name="MDI_UNDERSCORE_MOD" xml:space="preserve">
+    <value>MDI_MOD</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,47</comment>
+  </data>
+  <data name="PosModulo" xml:space="preserve">
+    <value>PosModulo</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,49</comment>
+  </data>
+  <data name="NegModulo" xml:space="preserve">
+    <value>NegModulo</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,51</comment>
+  </data>
+  <data name="reserved_ONE__ONE_" xml:space="preserve">
+    <value>reserved11</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,53</comment>
+  </data>
+  <data name="reserved_ONE__TWO_" xml:space="preserve">
+    <value>reserved12</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,55</comment>
+  </data>
+  <data name="reserved_ONE__THREE_" xml:space="preserve">
+    <value>reserved13</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,57</comment>
+  </data>
+  <data name="SetupMode" xml:space="preserve">
+    <value>SetupMode</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,59</comment>
+  </data>
+  <data name="MDI_UNDERSCORE_Activate" xml:space="preserve">
+    <value>MDI_Activate</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,61</comment>
+  </data>
+  <data name="travBlockBit_ZERO_" xml:space="preserve">
+    <value>travBlockBit0</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,63</comment>
+  </data>
+  <data name="travBlockBit_ONE_" xml:space="preserve">
+    <value>travBlockBit1</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,65</comment>
+  </data>
+  <data name="travBlockBit_TWO_" xml:space="preserve">
+    <value>travBlockBit2</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,67</comment>
+  </data>
+  <data name="travBlockBit_THREE_" xml:space="preserve">
+    <value>travBlockBit3</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,69</comment>
+  </data>
+  <data name="travBlockBit_FOUR_" xml:space="preserve">
+    <value>travBlockBit4</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,71</comment>
+  </data>
+  <data name="travBlockBit_FIVE_" xml:space="preserve">
+    <value>travBlockBit5</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,73</comment>
+  </data>
+  <data name="travBlockBit_SIX_" xml:space="preserve">
+    <value>travBlockBit6</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,75</comment>
+  </data>
+  <data name="reserved_SEVEN_" xml:space="preserve">
+    <value>reserved7</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,77</comment>
+  </data>
+  <data name="FlyingRef" xml:space="preserve">
+    <value>FlyingRef</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,87</comment>
+  </data>
+  <data name="reserved_NINE_" xml:space="preserve">
+    <value>reserved9</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,89</comment>
+  </data>
+  <data name="SelectProbe" xml:space="preserve">
+    <value>SelectProbe</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,91</comment>
+  </data>
+  <data name="ProbeEdgeEval" xml:space="preserve">
+    <value>ProbeEdgeEval</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,93</comment>
+  </data>
+  <data name="SW_DASH_Limit" xml:space="preserve">
+    <value>SW-Limit</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,99</comment>
+  </data>
+  <data name="HW_DASH_Limit" xml:space="preserve">
+    <value>HW-Limit</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,101</comment>
+  </data>
+  <data name="Trackingmode" xml:space="preserve">
+    <value>Trackingmode</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,103</comment>
+  </data>
+  <data name="SetReferencePoint" xml:space="preserve">
+    <value>SetReferencePoint</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,105</comment>
+  </data>
+  <data name="reserved_TWO_" xml:space="preserve">
+    <value>reserved2</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,107</comment>
+  </data>
+  <data name="reserved_THREE_" xml:space="preserve">
+    <value>reserved3</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,109</comment>
+  </data>
+  <data name="reserved_FOUR_" xml:space="preserve">
+    <value>reserved4</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,111</comment>
+  </data>
+  <data name="jog_UNDERSCORE_inc" xml:space="preserve">
+    <value>jog_inc</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,113</comment>
+  </data>
+  <data name="reserved_SIX_" xml:space="preserve">
+    <value>reserved6</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,115</comment>
+  </data>
+  <data name="TravelToFixStop" xml:space="preserve">
+    <value>TravelToFixStop</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,127</comment>
+  </data>
+  <data name="reserved_ONE__ZERO_" xml:space="preserve">
+    <value>reserved10</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,131</comment>
+  </data>
+  <data name="signOfLifeBit_ZERO_" xml:space="preserve">
+    <value>signOfLifeBit0</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,135</comment>
+  </data>
+  <data name="signOfLifeBit_ONE_" xml:space="preserve">
+    <value>signOfLifeBit1</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,137</comment>
+  </data>
+  <data name="signOfLifeBit_TWO_" xml:space="preserve">
+    <value>signOfLifeBit2</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,139</comment>
+  </data>
+  <data name="signOfLifeBit_THREE_" xml:space="preserve">
+    <value>signOfLifeBit3</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,141</comment>
+  </data>
+  <data name="reserved_ZERO_" xml:space="preserve">
+    <value>reserved0</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,143</comment>
+  </data>
+  <data name="reserved_ONE_" xml:space="preserve">
+    <value>reserved1</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,145</comment>
+  </data>
+  <data name="reserved_FIVE_" xml:space="preserve">
+    <value>reserved5</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,153</comment>
+  </data>
+  <data name="STW_ONE_" xml:space="preserve">
+    <value>STW1</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,168</comment>
+  </data>
+  <data name="POS_UNDERSCORE_STW_ONE_" xml:space="preserve">
+    <value>POS_STW1</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,172</comment>
+  </data>
+  <data name="POS_UNDERSCORE_STW_TWO_" xml:space="preserve">
+    <value>POS_STW2</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,176</comment>
+  </data>
+  <data name="STW_TWO_" xml:space="preserve">
+    <value>STW2</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,180</comment>
+  </data>
+  <data name="Override" xml:space="preserve">
+    <value>Override</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,183</comment>
+  </data>
+  <data name="MDI_UNDERSCORE_TARPOS" xml:space="preserve">
+    <value>MDI_TARPOS</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,185</comment>
+  </data>
+  <data name="MDI_UNDERSCORE_VELOCITY" xml:space="preserve">
+    <value>MDI_VELOCITY</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,187</comment>
+  </data>
+  <data name="MDI_UNDERSCORE_ACC" xml:space="preserve">
+    <value>MDI_ACC</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,189</comment>
+  </data>
+  <data name="MDI_UNDERSCORE_DEC" xml:space="preserve">
+    <value>MDI_DEC</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,191</comment>
+  </data>
+  <data name="followingErrorInTolerance" xml:space="preserve">
+    <value>followingErrorInTolerance</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,204</comment>
+  </data>
+  <data name="controlRequest" xml:space="preserve">
+    <value>controlRequest</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,206</comment>
+  </data>
+  <data name="targetPosReached" xml:space="preserve">
+    <value>targetPosReached</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,208</comment>
+  </data>
+  <data name="homePosSet" xml:space="preserve">
+    <value>homePosSet</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,210</comment>
+  </data>
+  <data name="acknowledgeTraversingBlockActivated" xml:space="preserve">
+    <value>acknowledgeTraversingBlockActivated</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,212</comment>
+  </data>
+  <data name="driveStopped" xml:space="preserve">
+    <value>driveStopped</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,214</comment>
+  </data>
+  <data name="axisAccelerates" xml:space="preserve">
+    <value>axisAccelerates</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,216</comment>
+  </data>
+  <data name="axisDecelerates" xml:space="preserve">
+    <value>axisDecelerates</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,218</comment>
+  </data>
+  <data name="readyForSwitchOn" xml:space="preserve">
+    <value>readyForSwitchOn</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,220</comment>
+  </data>
+  <data name="ready" xml:space="preserve">
+    <value>ready</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,222</comment>
+  </data>
+  <data name="operationEnabled" xml:space="preserve">
+    <value>operationEnabled</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,224</comment>
+  </data>
+  <data name="faultPresent" xml:space="preserve">
+    <value>faultPresent</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,226</comment>
+  </data>
+  <data name="noCoastingActive" xml:space="preserve">
+    <value>noCoastingActive</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,228</comment>
+  </data>
+  <data name="noQuickStopActive" xml:space="preserve">
+    <value>noQuickStopActive</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,230</comment>
+  </data>
+  <data name="switchingOnInhibitedActive" xml:space="preserve">
+    <value>switchingOnInhibitedActive</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,232</comment>
+  </data>
+  <data name="warningActive" xml:space="preserve">
+    <value>warningActive</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,234</comment>
+  </data>
+  <data name="deviceSpecificBit_EIGHT_" xml:space="preserve">
+    <value>deviceSpecificBit8</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,244</comment>
+  </data>
+  <data name="deviceSpecificBit_NINE_" xml:space="preserve">
+    <value>deviceSpecificBit9</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,246</comment>
+  </data>
+  <data name="deviceSpecificBit_ONE__ZERO_" xml:space="preserve">
+    <value>deviceSpecificBit10</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,248</comment>
+  </data>
+  <data name="deviceSpecificBit_ONE__ONE_" xml:space="preserve">
+    <value>deviceSpecificBit11</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,250</comment>
+  </data>
+  <data name="doSignOfLifeBit_ZERO_" xml:space="preserve">
+    <value>doSignOfLifeBit0</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,252</comment>
+  </data>
+  <data name="doSignOfLifeBit_ONE_" xml:space="preserve">
+    <value>doSignOfLifeBit1</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,254</comment>
+  </data>
+  <data name="doSignOfLifeBit_TWO_" xml:space="preserve">
+    <value>doSignOfLifeBit2</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,256</comment>
+  </data>
+  <data name="doSignOfLifeBit_THREE_" xml:space="preserve">
+    <value>doSignOfLifeBit3</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,258</comment>
+  </data>
+  <data name="deviceSpecificBit_ZERO_" xml:space="preserve">
+    <value>deviceSpecificBit0</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,260</comment>
+  </data>
+  <data name="deviceSpecificBit_ONE_" xml:space="preserve">
+    <value>deviceSpecificBit1</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,262</comment>
+  </data>
+  <data name="deviceSpecificBit_TWO_" xml:space="preserve">
+    <value>deviceSpecificBit2</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,264</comment>
+  </data>
+  <data name="deviceSpecificBit_THREE_" xml:space="preserve">
+    <value>deviceSpecificBit3</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,266</comment>
+  </data>
+  <data name="deviceSpecificBit_FOUR_" xml:space="preserve">
+    <value>deviceSpecificBit4</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,268</comment>
+  </data>
+  <data name="deviceSpecificBit_FIVE_" xml:space="preserve">
+    <value>deviceSpecificBit5</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,270</comment>
+  </data>
+  <data name="deviceSpecificBit_SIX_" xml:space="preserve">
+    <value>deviceSpecificBit6</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,272</comment>
+  </data>
+  <data name="deviceSpecificBit_SEVEN_" xml:space="preserve">
+    <value>deviceSpecificBit7</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,274</comment>
+  </data>
+  <data name="ZSW_ONE_" xml:space="preserve">
+    <value>ZSW1</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,285</comment>
+  </data>
+  <data name="POS_UNDERSCORE_ZSW_ONE_" xml:space="preserve">
+    <value>POS_ZSW1</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,288</comment>
+  </data>
+  <data name="POS_UNDERSCORE_ZSW_TWO_" xml:space="preserve">
+    <value>POS_ZSW2</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,290</comment>
+  </data>
+  <data name="ZSW_TWO_" xml:space="preserve">
+    <value>ZSW2</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,294</comment>
+  </data>
+  <data name="MELDW" xml:space="preserve">
+    <value>MELDW</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,297</comment>
+  </data>
+  <data name="XIST_UNDERSCORE_A" xml:space="preserve">
+    <value>XIST_A</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,299</comment>
+  </data>
+  <data name="NIST_UNDERSCORE_B" xml:space="preserve">
+    <value>NIST_B</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,301</comment>
+  </data>
+  <data name="Fault_UNDERSCORE_Code" xml:space="preserve">
+    <value>Fault_Code</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,303</comment>
+  </data>
+  <data name="Warn_UNDERSCORE_Code" xml:space="preserve">
+    <value>Warn_Code</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,305</comment>
+  </data>
+  <data name="Reserved" xml:space="preserve">
+    <value>Reserved</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,307</comment>
+  </data>
+  <data name="OUT" xml:space="preserve">
+    <value>OUT</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,319</comment>
+  </data>
+  <data name="IN" xml:space="preserve">
+    <value>IN</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_111.st,323</comment>
+  </data>
+  <data name="M_UNDERSCORE_ADD_ONE_" xml:space="preserve">
+    <value>M_ADD1</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_750.st,7</comment>
+  </data>
+  <data name="M_UNDERSCORE_LIMIT_UNDERSCORE_POS" xml:space="preserve">
+    <value>M_LIMIT_POS</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_750.st,9</comment>
+  </data>
+  <data name="M_UNDERSCORE_LIMIT_UNDERSCORE_NEG" xml:space="preserve">
+    <value>M_LIMIT_NEG</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_750.st,11</comment>
+  </data>
+  <data name="M_UNDERSCORE_Actual" xml:space="preserve">
+    <value>M_Actual</value>
+    <comment>src\PROFIdrive\PROFIdriveTelegram_750.st,23</comment>
+  </data>
+  <data name="Hardware_ID_Device" xml:space="preserve">
+    <value>Hardware ID Device</value>
+    <comment>src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st,4</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_DoServo_APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'DoServo' module</value>
+    <comment>src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st,6</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_DoServo_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'DoServo' submodule</value>
+    <comment>src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st,8</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ModuleAccessPoint_APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'ModuleAccessPoint' module</value>
+    <comment>src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st,10</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EmptyModule_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'EmptyModule_1' submodule</value>
+    <comment>src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st,12</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Telegram_ONE__ONE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'Telegram111' submodule</value>
+    <comment>src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st,14</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EmptyModule_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'EmptyModule_2' submodule</value>
+    <comment>src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st,16</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Telegram_SEVEN__FIVE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'Telegram750' submodule</value>
+    <comment>src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisHWIDs.st,18</comment>
+  </data>
+  <data name="Telegram_ONE__ONE__ONE__Inputs" xml:space="preserve">
+    <value>Telegram111 Inputs</value>
+    <comment>src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st,9</comment>
+  </data>
+  <data name="Telegram_ONE__ONE__ONE__Outputs" xml:space="preserve">
+    <value>Telegram111 Outputs</value>
+    <comment>src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st,14</comment>
+  </data>
+  <data name="Telegram_SEVEN__FIVE__ZERO__Inputs" xml:space="preserve">
+    <value>Telegram750 Inputs</value>
+    <comment>src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st,21</comment>
+  </data>
+  <data name="Telegram_SEVEN__FIVE__ZERO__Outputs" xml:space="preserve">
+    <value>Telegram750 Outputs</value>
+    <comment>src\AxoCmmtAs\TypesStructuresAndEnums\AxoCmmtAsAxisReference.st,26</comment>
+  </data>
+</root>

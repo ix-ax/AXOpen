@@ -15,6 +15,10 @@
   </ItemGroup>
 
 
+  <ItemGroup>
+    <PackageReference Include="Inxton.Operon" />
+  </ItemGroup>
+  
 	<ItemGroup>		
 		<PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
 	</ItemGroup>

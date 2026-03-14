@@ -1,0 +1,9 @@
+Templates:
+  Modules:
+  - Name: 'Cognex_Insight2800_ResultData_32'
+    Content:
+      Name: 'Slot_11_ResultData_32'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.44-Cognex-IS2800ClassB-20250304.XML'
+        GsdId: '402'
+      Slot: 11        

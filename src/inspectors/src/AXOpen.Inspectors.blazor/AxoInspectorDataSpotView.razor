@@ -1,0 +1,85 @@
+﻿@namespace AXOpen.Inspectors
+@using AXOpen.VisualComposer
+@using AXOpen.VisualComposer.Components.VisualComposerItem
+@using AXSharp.Connector
+@using System.Globalization
+@using AXSharp.Connector.Localizations
+@inherits RenderableComplexComponentBase<AxoInspectorData>
+
+<button data-axo-inspector-data-spot-view type="button" class="action-btn justify-between @Class" @onclick="SetCurrentObject" title="@(Component != null ? Component.GetAttributeName(CultureInfo.CurrentUICulture) : string.Empty) - @GetResultText()">
+    <div class="flex flex-wrap flex-row items-center gap-2">
+        <span class="inline flex w-3 h-3 rounded-full @ResultIndicatorCss"></span>
+        <span>@(Component != null ? Component.GetAttributeName(CultureInfo.CurrentUICulture) : string.Empty)</span>
+    </div>
+    <GenericIconView Result="Data.Result.LastValue" HasLabel="false" />
+</button>
+
+@code {
+    [Parameter] public string? Class { get; set; }
+    [Parameter] public string? Style { get; set; }
+
+    private AxoInspectorData? Data
+    {
+        get
+        {
+            return this.Component;
+        }
+    }
+
+    private eInspectorResult ResultValue => ((eInspectorResult)Data?.Result.LastValue);
+
+    private string ResultIndicatorCss => ResultValue switch
+    {
+        eInspectorResult.NoAction => "bg-primary/80",
+        eInspectorResult.Running => "bg-info/80",
+        eInspectorResult.Passed => "bg-success/80",
+        eInspectorResult.Failed => "bg-danger/80",
+        eInspectorResult.Inconclusive => "bg-warning/80",
+        eInspectorResult.Excluded => "bg-warning/70",
+        eInspectorResult.Bypassed => "bg-warning/60",
+        _ => "bg-primary/80"
+    };
+
+    private string GetResultText() => ResultValue switch
+    {
+        eInspectorResult.NoAction => Localizer["NoAction"],
+        eInspectorResult.Running => Localizer["Running"],
+        eInspectorResult.Passed => Localizer["Passed"],
+        eInspectorResult.Failed => Localizer["Failed"],
+        eInspectorResult.Inconclusive => Localizer["Inconclusive"],
+        eInspectorResult.Excluded => Localizer["Excluded"],
+        eInspectorResult.Bypassed => Localizer["Bypassed"],
+        _ => Localizer["Unknown"]
+    };
+
+    /// <inheritdoc />
+    public override void ConfigurePolling()
+    {
+        // Polling configured in OnInitializedAsync
+    }
+
+    private async void SetCurrentObject()
+    {
+        if (RccContainer is RenderableContentControl rccContainer)
+        {
+            if (rccContainer.ParentContainer is VisualComposerItem composerItem)
+            {
+                if (composerItem.Parent != null)
+                {
+                    await composerItem.Parent.OpenDetails(this.Component, "Status");
+                }
+            }
+        }
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        if (this.Data != null)
+        {
+            this.StartPolling(Data.Result, 500);
+        }
+
+        return base.OnInitializedAsync();
+    }
+
+}

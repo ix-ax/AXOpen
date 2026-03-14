@@ -1,0 +1,82 @@
+@namespace AXOpen.Components.Elements
+@using AXOpen.Core
+@using AXOpen.Core.Blazor
+@using AXSharp.Presentation.Blazor.Controls
+@using AXSharp.Presentation.Blazor.Controls.RenderableContent
+@inherits AxoComponentViewBase<AxoDi>
+
+<AxoComponentContainerView Component="@Component" ParentReference="this">
+    <HeaderContent>
+        <div class="flex items-center gap-3" @onclick:stopPropagation="true">
+            <span class="@SignalBadgeClass">@SignalStateLabel</span>
+            <span class="text-xs uppercase tracking-wide text-text/70">@SignalHint</span>
+        </div>
+    </HeaderContent>
+    <CommandsOperateContent>
+        <div class="flex flex-col gap-3 w-full" @onclick:stopPropagation="true">
+            <div class="flex flex-wrap gap-3">
+                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="@Localizer["ExpectHigh"]" Component="Component._isTrueTask" HideRestoreButton="false"></AxoTaskCommandView>
+                <AxoTaskCommandView class="flex-1 min-w-[10rem]" Text="@Localizer["ExpectLow"]" Component="Component._isFalseTask" HideRestoreButton="false"></AxoTaskCommandView>
+            </div>            
+        </div>
+    </CommandsOperateContent>
+
+    <CommandsMonitorContent>
+        <div class="flex flex-col gap-3 w-full" @onclick:stopPropagation="true">
+            <div class="flex flex-wrap gap-3">
+                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="@Localizer["HighCheck"]" Component="Component._isTrueTask" HideRestoreButton="false"></AxoTaskStatusView>
+                <AxoTaskStatusView class="flex-1 min-w-[10rem]" Text="@Localizer["LowCheck"]" Component="Component._isFalseTask" HideRestoreButton="false"></AxoTaskStatusView>
+            </div>           
+        </div>
+    </CommandsMonitorContent>
+    <ConfigAndStateViewContent>
+        <div class="flex flex-col gap-3" @onclick:stopPropagation="true">
+            <div class="card p-4">
+                <div>
+                    <p class="text-xs uppercase tracking-wide text-text/60">@Localizer["Signal"]</p>
+                    <p class="text-lg font-semibold">@SignalStateLabel</p>
+                    <p class="text-sm text-text/70">@SignalDetail</p>
+                </div>
+                <span class="@SignalIndicatorClass" aria-hidden="true"></span>
+            </div>                  
+        </div>
+    </ConfigAndStateViewContent>
+    <SpotContent>        
+        <button type="button" class="axo-di-spot">           
+            <span class="@SpotIndicatorClass" aria-hidden="true"></span>            
+        </button>
+    </SpotContent>
+</AxoComponentContainerView>
+
+@code
+{      
+    protected bool IsSignalHigh => Component?._signal?.Cyclic ?? false;
+
+    protected string SignalStateLabel => IsSignalHigh ? Localizer["SignalHigh"] : Localizer["SignalLow"];
+
+    protected string SignalHint => IsSignalHigh
+        ? Localizer["PositiveFeedbackPresent"]
+        : Localizer["WaitingForPositiveFeedback"];
+
+    protected string SignalDetail => IsSignalHigh
+        ? Localizer["InputIsEnergizedAndReady"]
+        : Localizer["InputIsDeEnergized"];
+
+    protected string SignalBadgeClass => $"badge text-xs font-semibold tracking-wide {(IsSignalHigh ? "badge-success" : "badge-ghost text-slate-400 bg-slate-700/40 border border-slate-500/40")}";
+
+    protected string SignalIndicatorClass => $"axo-di-signal-indicator {(IsSignalHigh ? "axo-di-signal-indicator--on" : "axo-di-signal-indicator--off")}";
+
+    protected string SpotIndicatorClass => $"axo-di-spot-indicator {(IsSignalHigh ? "axo-di-spot-indicator--on" : "axo-di-spot-indicator--off")}";
+
+    public override async void ConfigurePolling()
+    {        
+        if (Component is null)
+        {
+            return;
+        }
+
+        this.StartPolling(Component._signal);
+        this.StartPolling(Component._isTrueTask.Status);
+        this.StartPolling(Component._isFalseTask.Status);
+    }
+}

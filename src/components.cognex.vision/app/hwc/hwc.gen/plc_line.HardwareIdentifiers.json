@@ -1,0 +1,389 @@
+{
+  "Version": 1,
+  "HardwareIdentifiers": [
+    {
+      "Name": "cognex_dataman_280",
+      "Value": 313
+    },
+    {
+      "Name": "cognex_dataman_280~Acquisition_Control~Acquisition Control",
+      "Value": 323
+    },
+    {
+      "Name": "cognex_dataman_280~Acquisition_Status~Acquisition Status",
+      "Value": 320
+    },
+    {
+      "Name": "cognex_dataman_280~Rack",
+      "Value": 315
+    },
+    {
+      "Name": "cognex_dataman_280~ResultData_128~Result Data - 128 bytes",
+      "Value": 317
+    },
+    {
+      "Name": "cognex_dataman_280~Results_Control~Results Control",
+      "Value": 322
+    },
+    {
+      "Name": "cognex_dataman_280~Results_Status~Results Status",
+      "Value": 319
+    },
+    {
+      "Name": "cognex_dataman_280~Soft_Event_Control~Soft Event Control",
+      "Value": 321
+    },
+    {
+      "Name": "cognex_dataman_280~UserData_128~User Data - 128 bytes",
+      "Value": 318
+    },
+    {
+      "Name": "cognex_dataman_280~cognex_dataman_280",
+      "Value": 316
+    },
+    {
+      "Name": "cognex_dataman_280~cognex_dataman_280~DataMan 280 CC-B",
+      "Value": 324
+    },
+    {
+      "Name": "cognex_dataman_280~cognex_dataman_280~Interface",
+      "Value": 312
+    },
+    {
+      "Name": "cognex_dataman_280~cognex_dataman_280~Interface~Port_1",
+      "Value": 314
+    },
+    {
+      "Name": "cognex_dataman_380",
+      "Value": 300
+    },
+    {
+      "Name": "cognex_dataman_380~Acquisition_Control~Acquisition Control",
+      "Value": 310
+    },
+    {
+      "Name": "cognex_dataman_380~Acquisition_Status~Acquisition Status",
+      "Value": 307
+    },
+    {
+      "Name": "cognex_dataman_380~Rack",
+      "Value": 302
+    },
+    {
+      "Name": "cognex_dataman_380~ResultData_128~Result Data - 128 bytes",
+      "Value": 304
+    },
+    {
+      "Name": "cognex_dataman_380~Results_Control~Results Control",
+      "Value": 309
+    },
+    {
+      "Name": "cognex_dataman_380~Results_Status~Results Status",
+      "Value": 306
+    },
+    {
+      "Name": "cognex_dataman_380~Soft_Event_Control~Soft Event Control",
+      "Value": 308
+    },
+    {
+      "Name": "cognex_dataman_380~UserData_128~User Data - 128 bytes",
+      "Value": 305
+    },
+    {
+      "Name": "cognex_dataman_380~cognex_dataman_380",
+      "Value": 303
+    },
+    {
+      "Name": "cognex_dataman_380~cognex_dataman_380~DataMan 380 CC-B",
+      "Value": 311
+    },
+    {
+      "Name": "cognex_dataman_380~cognex_dataman_380~Interface",
+      "Value": 299
+    },
+    {
+      "Name": "cognex_dataman_380~cognex_dataman_380~Interface~Port_1",
+      "Value": 301
+    },
+    {
+      "Name": "cognex_insight_2800",
+      "Value": 281
+    },
+    {
+      "Name": "cognex_insight_2800~Rack",
+      "Value": 283
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_11_ResultData_250~Results - 250 bytes",
+      "Value": 288
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_12~Results - 250 bytes",
+      "Value": 287
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_13~Results - 250 bytes",
+      "Value": 286
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_14~Results - 250 bytes",
+      "Value": 285
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_1~Acquisition Control",
+      "Value": 297
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_2~Acquisition Status",
+      "Value": 292
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_3~Inspection Control",
+      "Value": 296
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_4~Inspection Status",
+      "Value": 293
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_5~Command Control",
+      "Value": 294
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_6~ExternalEvent Control",
+      "Value": 295
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_7~User Data - 254 bytes",
+      "Value": 291
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_8~User Data - 254 bytes",
+      "Value": 290
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_9~User Data - 254 bytes",
+      "Value": 289
+    },
+    {
+      "Name": "cognex_insight_2800~cognex_insight_2800",
+      "Value": 284
+    },
+    {
+      "Name": "cognex_insight_2800~cognex_insight_2800~In-Sight IS28XX CC-B",
+      "Value": 298
+    },
+    {
+      "Name": "cognex_insight_2800~cognex_insight_2800~Interface",
+      "Value": 280
+    },
+    {
+      "Name": "cognex_insight_2800~cognex_insight_2800~Interface~Port_1",
+      "Value": 282
+    },
+    {
+      "Name": "cognex_insight_7600",
+      "Value": 326
+    },
+    {
+      "Name": "cognex_insight_7600~Acquisition_Control~Acquisition Control",
+      "Value": 337
+    },
+    {
+      "Name": "cognex_insight_7600~Acquisition_Status~Acquisition Status",
+      "Value": 333
+    },
+    {
+      "Name": "cognex_insight_7600~Command_Control~Command Control",
+      "Value": 334
+    },
+    {
+      "Name": "cognex_insight_7600~Inspection_Control~Inspection Control",
+      "Value": 336
+    },
+    {
+      "Name": "cognex_insight_7600~Inspection_Status~Inspection Status",
+      "Value": 332
+    },
+    {
+      "Name": "cognex_insight_7600~Rack",
+      "Value": 328
+    },
+    {
+      "Name": "cognex_insight_7600~ResultData_128~Results - 128 bytes",
+      "Value": 330
+    },
+    {
+      "Name": "cognex_insight_7600~SoftEvent_Control~SoftEvent Control",
+      "Value": 335
+    },
+    {
+      "Name": "cognex_insight_7600~UserData_128~User Data - 128 bytes",
+      "Value": 331
+    },
+    {
+      "Name": "cognex_insight_7600~cognex_insight_7600",
+      "Value": 329
+    },
+    {
+      "Name": "cognex_insight_7600~cognex_insight_7600~In-Sight IS79XX-IS75XX CC-B",
+      "Value": 338
+    },
+    {
+      "Name": "cognex_insight_7600~cognex_insight_7600~Interface",
+      "Value": 325
+    },
+    {
+      "Name": "cognex_insight_7600~cognex_insight_7600~Interface~Port_1",
+      "Value": 327
+    },
+    {
+      "Name": "plc_line",
+      "Value": 32
+    },
+    {
+      "Name": "plc_line~Rail_0",
+      "Value": 339
+    },
+    {
+      "Name": "plc_line~plc_line",
+      "Value": 48
+    },
+    {
+      "Name": "plc_line~plc_line~CPU display_1",
+      "Value": 54
+    },
+    {
+      "Name": "plc_line~plc_line~Card reader/writer_1",
+      "Value": 51
+    },
+    {
+      "Name": "plc_line~plc_line~DP interface_1",
+      "Value": 60
+    },
+    {
+      "Name": "plc_line~plc_line~OPC UA_1",
+      "Value": 117
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_1",
+      "Value": 64
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_1~Port_1",
+      "Value": 65
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_1~Port_2",
+      "Value": 66
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_2",
+      "Value": 72
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_2~Port_3",
+      "Value": 73
+    },
+    {
+      "Name": "plc_line~plc_line~Virtual communication interface",
+      "Value": 135
+    },
+    {
+      "Name": "profinet_plc_line",
+      "Value": 256
+    },
+    {
+      "Name": "vision_pro",
+      "Value": 258
+    },
+    {
+      "Name": "vision_pro~Engine_Control_1~Engine Control",
+      "Value": 277
+    },
+    {
+      "Name": "vision_pro~Engine_Control_2~Engine Control",
+      "Value": 276
+    },
+    {
+      "Name": "vision_pro~Engine_Control_3~Engine Control",
+      "Value": 275
+    },
+    {
+      "Name": "vision_pro~Engine_Control_4~Engine Control",
+      "Value": 274
+    },
+    {
+      "Name": "vision_pro~Rack",
+      "Value": 260
+    },
+    {
+      "Name": "vision_pro~Result_Data_240_bytes_1~Results - 240 bytes",
+      "Value": 272
+    },
+    {
+      "Name": "vision_pro~Result_Data_240_bytes_2~Results - 240 bytes",
+      "Value": 266
+    },
+    {
+      "Name": "vision_pro~Result_Data_240_bytes_3~Results - 240 bytes",
+      "Value": 265
+    },
+    {
+      "Name": "vision_pro~Result_Data_240_bytes_4~Results - 240 bytes",
+      "Value": 264
+    },
+    {
+      "Name": "vision_pro~Result_Data_240_bytes_5~Results - 240 bytes",
+      "Value": 263
+    },
+    {
+      "Name": "vision_pro~Result_Data_64_bytes_1~Results - 64 bytes",
+      "Value": 262
+    },
+    {
+      "Name": "vision_pro~System_Control~System Control",
+      "Value": 278
+    },
+    {
+      "Name": "vision_pro~User_Data_240_bytes_1~User Data - 240 bytes",
+      "Value": 273
+    },
+    {
+      "Name": "vision_pro~User_Data_240_bytes_2~User Data - 240 bytes",
+      "Value": 271
+    },
+    {
+      "Name": "vision_pro~User_Data_240_bytes_3~User Data - 240 bytes",
+      "Value": 270
+    },
+    {
+      "Name": "vision_pro~User_Data_240_bytes_4~User Data - 240 bytes",
+      "Value": 269
+    },
+    {
+      "Name": "vision_pro~User_Data_240_bytes_5~User Data - 240 bytes",
+      "Value": 268
+    },
+    {
+      "Name": "vision_pro~User_Data_64_bytes_1~User Data - 64 bytes",
+      "Value": 267
+    },
+    {
+      "Name": "vision_pro~vision_pro",
+      "Value": 261
+    },
+    {
+      "Name": "vision_pro~vision_pro~Communication Card CC24",
+      "Value": 279
+    },
+    {
+      "Name": "vision_pro~vision_pro~Interface",
+      "Value": 257
+    },
+    {
+      "Name": "vision_pro~vision_pro~Interface~Port_1",
+      "Value": 259
+    }
+  ]
+}

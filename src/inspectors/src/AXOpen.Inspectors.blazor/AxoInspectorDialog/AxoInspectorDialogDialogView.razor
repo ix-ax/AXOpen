@@ -1,0 +1,90 @@
+@namespace AXOpen.Inspectors
+@using System.Globalization
+@using AXOpen.Core.Blazor.AxoDialogs
+@using AXSharp.Connector.Localizations
+@using Microsoft.AspNetCore.Components.Authorization;
+@using Microsoft.AspNetCore.Components.Routing
+@using AXSharp.Presentation.Blazor.Controls.RenderableContent
+@inherits AxoDialogBaseView<AxoInspectorDialog>
+@inject AuthenticationStateProvider _asp
+@inject NavigationManager NavigationManager
+
+<div class="flex flex-col simple-border p-3">
+    <div class="p-3 mx-auto" style="width: 600px; text-align: center;">
+        <h4>@InspectionDescription</h4>
+    </div>
+    <div class="flex flex-col">
+        @switch (InspectorType)
+        {
+            case eInspectorType.Digital:
+                <RenderableContentControl Context="Component._digitalInspectorData" Presentation="Status" />
+                break;
+            case eInspectorType.Analogue:
+                <RenderableContentControl Context="Component._analogInspectorData" Presentation="Status" />
+                break;
+            case eInspectorType.Data:
+                <RenderableContentControl Context="Component._dataInspectorData" Presentation="Status" />
+                break;
+        }
+
+        <div class="flex flex-row items-center justify-center space-x-4">
+            <AuthorizeView Roles="can_retry_inspection">
+                <Authorized>
+                    <button type="button" class="btn btn-primary m-2" disabled="@RetryDisabled" @onclick="Retry">@Localizer["Retry"]</button>
+                </Authorized>
+            </AuthorizeView>
+            <AuthorizeView Roles="can_terminate_inspection">
+                <Authorized>
+                    <button type="button" class="btn btn-primary m-2" @onclick="Terminate">@Localizer["Terminate"]</button>
+                </Authorized>   
+            </AuthorizeView>
+            <AuthorizeView Roles="can_override_inspection">
+                <Authorized>
+                    <button type="button" class="btn btn-primary m-2" @onclick="Override">@Localizer["Override"]</button>
+                </Authorized>
+            </AuthorizeView>            
+        </div>
+    </div>
+
+    @if (!_asp.GetAuthenticationStateAsync().Result.User.Identity.IsAuthenticated)
+    {
+        <div class="mt-4">
+            <p>@Localizer["NotAuthorizedPleaseLogIn"] <a href="Security/Login">@Localizer["LogIn"]</a>.</p>
+            <a href="@($"Security/Login?returnUrl={Uri.EscapeDataString(currentUrl ?? "/")}")">@Localizer["LogIn"]</a>
+        </div>
+    }
+</div>
+
+@code
+{
+
+    private string? currentUrl;
+
+    string InspectionDescription { get; set; }
+
+    string InspectionId { get; set; }
+    
+    eInspectorType InspectorType { get; set; }
+
+    async Task<eInspectorType> GetInspectorType()
+    {
+        return (eInspectorType)await Component._inspectorType.GetAsync();
+    }
+
+    protected override async Task<Task> OnInitializedAsync()
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        NavigationManager.LocationChanged += OnLocationChanged;
+        
+        InspectionDescription = await Component._inspectionDetails.GetAsync(CultureInfo.CurrentCulture);        
+        InspectionId = Component._inspectionDetails.LastValue;
+        InspectorType = await GetInspectorType();
+        return base.OnInitializedAsync();
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
+        StateHasChanged();
+    }
+}

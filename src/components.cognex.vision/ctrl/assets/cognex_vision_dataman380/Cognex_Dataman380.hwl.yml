@@ -1,0 +1,85 @@
+Templates:
+  Devices:
+    - Name: 'Cognex_Dataman380'
+      Placeholders:
+        - Name: 'NAME'
+          Value: 'cognex_dataman_380'
+        - Name: 'IP_ADDRESS_X1'
+          Value: '192.168.100.1/24'
+        - Name: 'PROFINET_DEVICE_NAME_X1'
+          Value: 'cognex_dataman_380'
+        - Name: 'USER_DATA'
+          Value: 'Cognex_Dataman380_UserData_128'
+          AllowedValues:
+            - 'Cognex_Dataman380_UserData_16'
+            - 'Cognex_Dataman380_UserData_32'
+            - 'Cognex_Dataman380_UserData_64'
+            - 'Cognex_Dataman380_UserData_128'
+            - 'Cognex_Dataman380_UserData_250'
+        - Name: 'RESULT_DATA'
+          Value: 'Cognex_Dataman380_ResultData_128'
+          AllowedValues:
+            - 'Cognex_Dataman380_ResultData_16'
+            - 'Cognex_Dataman380_ResultData_32'
+            - 'Cognex_Dataman380_ResultData_64'
+            - 'Cognex_Dataman380_ResultData_128'
+            - 'Cognex_Dataman380_ResultData_246'
+      Content:
+        Name: '${NAME}'
+        Modules:
+          - Name: '${NAME}'
+            TypeIdentifier:
+              FileName: 'GSDML-V2.44-Cognex-DataMan380-20250616.xml'
+              GsdId: 'DAP52'
+            Interfaces:
+            - Name: 'Interface'
+              Label: 'X1'
+              Addresses:
+                Configured:
+                - IPv4: '${IP_ADDRESS_X1}'
+                - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+              Parameters:
+                AdditionalInformation: ""
+                LocationIdentifier: ""
+                PlantDesignation: ""
+                IECV22LLDPMode: False
+                # PrioritizedStartup (Boolean)
+            Ports:
+            - Name: 'Port_1'
+              Label: 'X1 P1'
+              Parameters:
+                # Possible values: 8 - Automatic | 16 - TP 100 Mbps full duplex | 30 - 30
+                TransmissionRateAndDuplex: 'Automatic'
+                EndOfDetectionOfAccessibleDevices: False
+                EndOfTopologyDiscovery: False
+                # PortMonitoring: False
+                # TransmissionRateAutoNegotiation: True
+                # CableName: 0
+                # MediumAttachmentType: 'Copper'
+          - Name: Acquisition_Control
+            TypeIdentifier:
+              GsdId: '101'
+              FileName: 'GSDML-V2.44-Cognex-DataMan380-20250616.xml'
+            Slot: 1
+          - Name: Acquisition_Status
+            TypeIdentifier:
+              GsdId: '201'
+              FileName: 'GSDML-V2.44-Cognex-DataMan380-20250616.xml'
+            Slot: 2
+          - Name: Results_Control
+            TypeIdentifier:
+              GsdId: '102'
+              FileName: 'GSDML-V2.44-Cognex-DataMan380-20250616.xml'
+            Slot: 3
+          - Name: Results_Status
+            TypeIdentifier:
+              GsdId: '202'
+              FileName: 'GSDML-V2.44-Cognex-DataMan380-20250616.xml'
+            Slot: 4
+          - Name: Soft_Event_Control
+            TypeIdentifier:
+              GsdId: '105'
+              FileName: 'GSDML-V2.44-Cognex-DataMan380-20250616.xml'
+            Slot: 5
+          - Apply: ${USER_DATA}
+          - Apply: ${RESULT_DATA}

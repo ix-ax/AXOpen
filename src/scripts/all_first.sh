@@ -1,9 +1,21 @@
-export GREEN='\033[0;32m'
+﻿export GREEN='\033[0;32m'
 export RED='\033[0;31m'
 export YELLOW='\033[0;33m'
 export NC='\033[0m\r\n' # No Color+CRLF
-if [ "$#" -ne 7 ]; then
-    printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD> <USE_PLC_SIM_ADVANCED>\r\n${NC}"
+
+# Function to validate password does not contain problematic shell characters
+validate_password_safe_chars() {
+    local password="$1"
+    
+    # Check for problematic characters: $ ` \ " ' & | ; < > ( ) * ? [ ] { } or whitespace
+    if [[ "$password" =~ [\$\`\\\"\'\&\|\;\<\>\(\)\*\?\[\]\{\}[:space:]] ]]; then
+        return 1
+    fi
+    return 0
+}
+
+if [ "$#" -ne 8 ]; then
+    printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD> <USE_PLC_SIM_ADVANCED> <FORCE>\r\n${NC}"
     exit 1
 fi
 
@@ -44,10 +56,25 @@ if [ -z $PASSWORD ]; then
     exit 1
 fi
 
+# Validate password does not contain problematic shell characters
+if ! validate_password_safe_chars "$PASSWORD"; then
+    printf "${RED}The PASSWORD contains problematic characters.\r\n${NC}"
+    printf "${RED}Cannot use: \$ \` \\ \" ' & | ; < > ( ) * ? [ ] { } or whitespace\r\n${NC}"
+    exit 1
+fi
+
 USE_PLC_SIM_ADVANCED=$7
 if [ -z $USE_PLC_SIM_ADVANCED ]; then
     printf "${RED}The USE_PLC_SIM_ADVANCED could not be an empty string.\r\n${NC}"
     exit 1
+fi
+
+if [ "$8" = "true" ]; then
+	echo "Project certificate is going to be deleted and regenerated again."
+	FORCE=true
+else
+	echo "Project certificate is going to be generated if it does not already exists."
+	FORCE=false
 fi
 
 PLCSIM=0
@@ -65,7 +92,7 @@ case "$(echo "$USE_PLC_SIM_ADVANCED" | tr '[:upper:]' '[:lower:]')" in
         ;;
 esac
 
-printf "${RED}This command will prompt during execution, so do not leave your PC. You can enjoy your coffee afterward.\r\n${NC}"
+printf "${YELLOW}This command will prompt during execution, so do not leave your PC. You can enjoy your coffee afterward.\r\n${NC}"
 
 check_requisites_apax_script=$( dirname ${BASH_SOURCE[0]})"\\check_requisites_apax.sh"
 if ! $check_requisites_apax_script ; then
@@ -88,50 +115,26 @@ if [ "$PLCSIM" -eq 1 ]; then
 	$plcsim_script $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS
 fi
 
+
 #apax run ci                                  # clean and install dependencies
 apax clean
+apax install --catalog
 apax install
 
+if [ "$FORCE" = "true" ]; then
+	certs_folder="./certs"
+    rm -rf "${certs_folder:?}/"*
+	hwc_gen_folder="./hwc/hwc.gen"
+    rm -rf "${hwc_gen_folder:?}/"*
+fi
 #clean_plc                                    # total reset of the PLC excluding IP and name
 clean_plc=$( dirname ${BASH_SOURCE[0]})"\\clean_plc.sh"
 $clean_plc $PLC_IP_ADDRESS $USERNAME $PASSWORD
 
-#copy_and_install_gsd                         # copy and install all gsdml files from library           
-copy_and_install_gsd=$( dirname ${BASH_SOURCE[0]})"\\copy_and_install_gsd.sh"
-$copy_and_install_gsd
-if [[ $? -eq 0 ]]; then
-	printf "${GREEN}Gsdml files installed succesfully.${NC}"
-else
-	printf "${RED}Installation of the gsdml files finished with an error!${NC}\n"
-	printf "${RED}Please check the details above.${NC}\n"
-	exit 1
-fi
 
-#copy_hwl_templates                           # copy all templates from library  
-copy_hwl_templates=$( dirname ${BASH_SOURCE[0]})"\\copy_hwl_templates.sh"
-$copy_hwl_templates
-if [[ $? -eq 0 ]]; then
-	printf "${GREEN}Copying hardware templates from the libraries finished succesfully.${NC}"
-else
-	printf "${RED}Copying hardware templates from the libraries finished with an error!${NC}\n"
-	printf "${RED}Please check the details above.${NC}\n"
-	exit 1
-fi
-
-#setup_secure_communication                   # setup secure communication, create and import certificates, setup password for AX_USERNAME 
-setup_secure_communication=$( dirname ${BASH_SOURCE[0]})"\\setup_secure_communication.sh"
-$setup_secure_communication $PLC_NAME $USERNAME $PASSWORD
-if [[ $? -eq 0 ]]; then
-	printf "${GREEN}Configuring secure communication finished succesfully.${NC}"
-else
-	printf "${RED}Configuring secure communication finished with an error!${NC}\n"
-	printf "${RED}Please check the details above.${NC}\n"
-	exit 1
-fi
-
-#hw_first_compile_and_first_download          # compile, copy the HwIds, first download HW using password and upload certificate       
-hw_first_compile_and_first_download=$( dirname ${BASH_SOURCE[0]})"\\hw_first_compile_and_first_download.sh"
-$hw_first_compile_and_first_download $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $USERNAME $PASSWORD 
+#hw_first_download          # copy gsd, copy hwl, setup secure communication,  compile, copy the HwIds, first download HW using password and upload certificate       
+hw_first_download=$( dirname ${BASH_SOURCE[0]})"\\hw_first_download.sh"
+$hw_first_download $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS $USERNAME $PASSWORD 
 if [[ $? -eq 0 ]]; then
 	printf "${GREEN}Hardware configuration has been succesfully compiled and downloaded.${NC}"
 else
@@ -150,3 +153,5 @@ else
 	printf "${RED}Please check the details above.${NC}\n"
 	exit 1
 fi
+
+

@@ -2,11 +2,10 @@ NAMESPACE AXOpen.Components.Drives
     {S7.extern=ReadWrite}
     CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
-            _manualControl : BOOL;          
-            PlcInputs : ARRAY [0..10] OF BYTE;
-            PlcOutputs : ARRAY [0..10] OF BYTE;         
-            _rootObject :   AxoObject; 
-            _testDrive  : AXOpen.Components.Drives.AxoDriveExample;  
+            _manualControl  :   BOOL;          
+            _AxisRef        :   AxoDriveAxisReferenceExample;
+            _rootObject     :   AxoObject; 
+            _testDrive      :   AXOpen.Components.Drives.AxoDriveExample;  
         END_VAR
         
 
@@ -15,9 +14,8 @@ NAMESPACE AXOpen.Components.Drives
             IF(_manualControl) THEN            
                 _testDrive.ActivateManualControl();
             END_IF;   
-            _testDrive.Run(parent           :=  _rootObject,
-                            refAxisIn       :=  REF(PlcInputs),
-                            refAxisOut      :=  REF(PlcOutputs),
+            _testDrive.Run(inParent           :=  _rootObject,
+                            AxisRef         :=  _AxisRef,
                             Enable          :=  TRUE,
                             EnablePositive  :=  TRUE,
                             EnableNegative  :=  TRUE);

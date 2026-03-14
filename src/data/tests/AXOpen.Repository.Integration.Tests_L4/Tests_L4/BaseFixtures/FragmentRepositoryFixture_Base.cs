@@ -25,17 +25,17 @@
             {
                 var h = new HeaderData();
                 FillUpData(h, i);
-                RepositoryHeader.Create(h.DataEntityId, h);
+                RepositoryHeader.Create(h._EntityId, h);
 
                 var station = new StationData();
                 FillUpData(station, i);
-                RepositoryStation.Create(station.DataEntityId, station);
+                RepositoryStation.Create(station._EntityId, station);
             }
         }
 
         private void FillUpData(HeaderData obj, int iteration)
         {
-            obj.DataEntityId = iteration.ToString();
+            obj._EntityId = iteration.ToString();
             obj.vBool = true;
             obj.vString = "even " + iteration.ToString();
             obj.vInt = (short)iteration;
@@ -49,7 +49,7 @@
 
         private void FillUpData(StationData obj, int iteration)
         {
-            obj.DataEntityId = iteration.ToString();
+            obj._EntityId = iteration.ToString();
             obj.vBool = true;
             obj.vString = "even " + iteration.ToString();
             obj.vInt = (short)iteration;

@@ -1,0 +1,28 @@
+Templates:
+  Modules:
+  - Name: 'AventicsPneumaticsAESEmptySlot'
+    Placeholders:
+    - Name: 'NAME'
+      Optional: TRUE    
+    - Name: 'SLOT'
+      Value: 1
+      AllowedValues:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+    Content:
+      TypeIdentifier: NotAssigned
+      Slot: ${SLOT}        

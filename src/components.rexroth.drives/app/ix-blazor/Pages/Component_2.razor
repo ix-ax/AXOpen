@@ -1,0 +1,26 @@
+﻿@page "/Component_2"
+@using AXOpen.Core;
+
+
+<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.documentation.componentTwo.Sequencer" />
+<RenderableContentControl Context="@Entry.Plc.documentation.componentTwo" Presentation="Command-Control" />
+@* 
+<!-- <GenericComponentStatusView> -->
+ <AxoComponentStatusView Component="@Entry.Plc.documentation.componentTwo.CtrlXdrive" /> 
+<!-- </GenericComponentStatusView> -->
+
+<!-- <GenericComponentCommandView> -->
+ <AxoComponentCommandView Component="@Entry.Plc.documentation.componentTwo.CtrlXdrive" />
+<!-- </GenericComponentCommandView> -->
+
+<!-- <RccComponentStatusView> -->
+ <RenderableContentControl Context="@Entry.Plc.documentation.componentTwo.CtrlXdrive" Presentation="Status-Display" />
+<!-- </RccComponentStatusView> -->
+
+
+<!-- <RccComponentCommandView> -->
+<RenderableContentControl Context="@Entry.Plc.documentation.componentTwo.CtrlXdrive" Presentation="Command-Control" />
+<!-- </RccComponentCommandView> -->
+
+ *@
+

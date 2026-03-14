@@ -19,10 +19,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
             
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF ActivateManualControl THEN
                 //<DatamanManualControl>
@@ -31,10 +31,10 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             END_IF;
 
             //<Initialization>        
-            Dataman_300.Run(parent := THIS, hwID :=  HwIdentifiers#dm_300_HwID);
+            Dataman_300.Run(inParent := THIS, hwID :=  HwIdentifiers#cognex_dataman_380_HwID);
             //</Initialization>
 
-        THIS.UseInSequencer();
+            THIS.UseInSequencer();
         END_METHOD
 
         //<Usage>    

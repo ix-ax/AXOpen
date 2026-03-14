@@ -35,7 +35,8 @@
 
 	<!--REF_PCKG_START-->
 	<ItemGroup>		
-		<PackageReference Include="AXSharp.Presentation.Blazor.Controls"/>
+		<PackageReference Include="AXSharp.Presentation.Blazor.Controls" />		
+		<PackageReference Include="Inxton.Operon" />
 	</ItemGroup>
 	<!--REF_PCKG_END-->
 	<ItemGroup>

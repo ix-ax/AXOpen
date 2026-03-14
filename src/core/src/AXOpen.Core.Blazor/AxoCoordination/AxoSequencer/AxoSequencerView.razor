@@ -1,186 +1,141 @@
-﻿@namespace AXOpen.Core
+﻿@using Operon.Components.Accordion
 @inherits RenderableComplexComponentBase<AxoSequencer>
+@namespace AXOpen.Core
+@using System.Globalization
+@using AXSharp.Connector.Localizations
 
-@code {
-    private bool _isCollapsed = true;
-
-    private void Collapse()
-    {
-        _isCollapsed = !_isCollapsed;
-    }
-
-}
-@using AXOpen.Core.Blazor.Culture;
-@using Microsoft.AspNetCore.Components.Authorization;
-
-
-<div class="d-flex">
-    <div class="container rounded-3 @AxoStepHelper.StepRowColor(Component.CurrentStep)">
-        <div class="col fs-3">
-            @AxoStepHelper.Description(Component.CurrentStep)
-        </div>
-    </div>
-
-    <a class="btn btn-primary ms-1 d-flex align-items-center" role="button" @onclick="Collapse">
-        <span class="bi-chevron-down d-inline-block collapsible @(_isCollapsed ? "show" : "open")" />
-    </a>
-</div>
-
-@if (!_isCollapsed)
-{
-    
-
-
-<div class="card-body">
-    <div class="row">
-        <div class="col">
-            @if (HasTaskControlButton)
+<div data-axo-sequencer-view class="card bg-background-light/80! @(!this.IsControllable ? "opacity-60 cursor-default" : null)">
+    <!-- Sequencer Header -->
+    <div class="flex flex-wrap justify-between gap-2 mx-4 my-2">
+        <div class="flex flex-wrap items-center gap-2">
+            <h5 class="text-xl text-text font-semibold">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</h5>
+            @if (_currentStatus != eSequenceStatus.Inactive)
             {
-                @if (IsControllable)
+                <span class="badge @StatusBadgeClass">
+                    @StatusText
+                </span>
+            }
+        </div>
+        <div class="flex flex-wrap">
+            <button type="button" class="btn gap-2 @(_currentSteppingMode == eAxoSteppingMode.StepByStep ? "btn-warning" : "btn-outline-primary")"
+                @onclick="ToggleStepMode"
+                title="@(_currentSteppingMode == eAxoSteppingMode.StepByStep ? Localizer["ExitStepMode"] : Localizer["EnterStepMode"])">
+                <span class="inline-flex w-5 h-5 rounded-full @(_currentSteppingMode == eAxoSteppingMode.StepByStep ? "bg-warning/40 shadow-glow-warning animate-pulse" : "border border-primary/40 shadow-glow-primary")"></span>
+                @if(!HasExternalStepModeControl)
                 {
-                    <AXOpen.Core.AxoTaskCommandView Component="@Component" />
+                    if (_currentSteppingMode == eAxoSteppingMode.StepByStep)
+                    {
+                        <text>@Localizer["StepMode"]</text>
+                    }   
+                    else
+                    {
+                       <text>@Localizer["StepMode"]</text>
+                    }
                 }
                 else
                 {
-                    <AXOpen.Core.AxoTaskStatusView Component="@Component" />
+                    if (_currentSteppingMode == eAxoSteppingMode.StepByStep)
+                    {
+                        <text>@Localizer["StepModeActiveControlledByMaster"]</text>
+                    }   
+                    else
+                    {
+                       <text>@Localizer["StepModeControlledByMaster"]</text>
+                    }
+                
                 }
+            </button>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <div class="flex flex-wrap items-center gap-2">
+                <Operon.Icons.HeroIcon Icon="clock" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                <span class="text-sm @SequenceTimeClass">@_duration</span>
+            </div>
+            
+            @if (!string.IsNullOrEmpty(Component.ErrorDetails.LastValue))
+            {
+                <div class="badge badge-danger" title="@Component.ErrorDetails.LastValue">
+                    <Operon.Icons.HeroIcon Icon="exclamation-triangle" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                </div>
             }
         </div>
     </div>
-    @if (HasSettings)
-    {
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <RenderableContentControl Context="@Component.SequenceMode" Presentation="@(IsControllable ? "Control" : "Display")" />
-                </div>
-                <div class="col">
-                    <RenderableContentControl Context="@Component.SteppingMode" Presentation="@(IsControllable ? "Control" : "Display")" />
-                </div>
-            </div>
-        </div>
-    }
 
-    @if (HasStepControls)
-    {
-        <div class="container">
-            <div class="d-flex justify-content-evenly">
-                <div>
-                    <AuthorizeView Roles="can_skip_steps_in_sequence">
-                        <Authorized>
-                            @if (IsControllable)
-                            {
-                                <AXOpen.Core.AxoTaskCommandView Component="@Component.StepBackwardCommand" />
-                            }
-                            else
-                            {
-                                <AXOpen.Core.AxoTaskStatusView Component="@Component.StepBackwardCommand" />
-                            }
-                        </Authorized>
-                        <NotAuthorized>
-                            <AXOpen.Core.AxoTaskStatusView Component="@Component.StepBackwardCommand" />
-                        </NotAuthorized>
-                    </AuthorizeView>
-                </div>
-
-                <div>
-                    @if (IsControllable)
-                    {
-                        <AXOpen.Core.AxoTaskCommandView Component="@Component.StepIn" />
-                    }
-                    else
-                    {
-                        <AXOpen.Core.AxoTaskStatusView Component="@Component.StepIn" />
-                    }
-                </div>
-                <div>
-                    <AuthorizeView Roles="can_skip_steps_in_sequence">
-                        <Authorized>
-                            @if (IsControllable)
-                            {
-                                <AXOpen.Core.AxoTaskCommandView Component="@Component.StepForwardCommand" />
-                            }
-                            else
-                            {
-                                <AXOpen.Core.AxoTaskStatusView Component="@Component.StepForwardCommand" />
-                            }
-                        </Authorized>
-                        <NotAuthorized>
-                            <AXOpen.Core.AxoTaskStatusView Component="@Component.StepForwardCommand" />
-                        </NotAuthorized>
-                    </AuthorizeView>
-                </div>
-            </div>
-        </div>
-    }
-    @if (HasStepDetails)
-    {
-        <div class="row justify-content-end">
-            <button type="button" class="btn btn-primary ms-auto my-2 mx-3 col-auto" data-bs-toggle="modal" data-bs-target="#showStepsModal" @onclick="OnOpenModalWindow">Show all steps</button>
-        </div>
-
-        <div class="rounded-3 overflow-hidden">
-            <AxoStepView Component="Component.BeforeStep" />
-            <AxoStepView Component="Component.CurrentStep" />
-            <AxoStepView Component="Component.AfterStep" />
-        </div>
-    }
-</div>
-}
-@{
-    void OnOpenModalWindow()
-    {
-        RefreshStepsInSequnce();
-        this.EnableModalContent = true;
-    }
-
-    void OnCloseModalWindow()
-    {
-        this.EnableModalContent = false;
-    }
-}
-
-
-<div class="modal fade" id="showStepsModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Steps</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="OnCloseModalWindow"></button>
-            </div>
-            <div class="modal-body" style="max-height: calc(95vh - 200px); overflow-x: auto;">
-
-                @if (this.EnableModalContent)
-                {
-                    <table class="table rounded-3 overflow-hidden">
-                        <thead class="bg-light">
-                            <tr>
-                                <th scope="col" width="30">Order</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Duration</th>
-                                <th scope="col">Start time</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var step in this.AllSteps.Where(p => p != null && p.Order.Cyclic != 0).OrderBy(p => p.Order.Cyclic))
-                            {
-                                <tr class="@AxoStepHelper.StepRowColor(step)">
-                                    <td>@step.Order.Cyclic</td>
-                                    <th scope="row">@AxoStepHelper.Description(step)</th>
-                                    <td>@step.Duration.Cyclic.TotalSeconds</td>
-                                    <td>@Humanizer.DateHumanizeExtensions.Humanize(step.StartTimeStamp.Cyclic, culture: CultureExtensions.Culture)</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                }
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" @onclick="RefreshDurationAndStatus">Refresh steps duration</button>
-                <button type="button" class="btn btn-primary" @onclick="RefreshStepsInSequnce">Refresh steps</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="OnCloseModalWindow">Close</button>
-            </div>
-        </div>
+    <!-- Current Step Display -->
+    <div class="flex flex-wrap m-2 @(_currentSteppingMode == eAxoSteppingMode.StepByStep ? "justify-between" : "justify-center") items-center p-2 gap-2">
+        @if(_currentSteppingMode == eAxoSteppingMode.StepByStep)
+        {
+            <AxoTaskCommandView HideRestoreButton="true" Component="this.Component.StepBackwardCommand" Class="btn-lg" />
+        }
+        @if (Component.CurrentStep != null)
+        {
+            @if(_currentSteppingMode == eAxoSteppingMode.StepByStep)
+            {
+                <AxoTaskCommandView Text="@_runStepButtonText" HideRestoreButton="false" Component="this.Component.StepIn" Class="btn-lg w-125" />
+            }
+            else
+            {
+                <AxoTaskStatusView Text="@_runStepButtonText" HideRestoreButton="false" Component="this.Component.StepIn" Class="btn-lg w-125" />
+            }
+        }
+        @if(_currentSteppingMode == eAxoSteppingMode.StepByStep)
+        {
+            <AxoTaskCommandView HideRestoreButton="true" Component="this.Component.StepForwardCommand" Class="btn-lg" />
+        }
     </div>
+      
+    <!-- Error Details (if present) -->
+    @if (!string.IsNullOrEmpty(Component.ErrorDetails.LastValue))
+    {
+        <div class="alert alert-danger gap-2">
+            <Operon.Icons.HeroIcon Icon="exclamation-circle" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+            <h6>@Component.ErrorDetails.LastValue</h6>
+        </div>
+    }
 </div>
+
+@code {
+    private string StatusBadgeClass
+    {
+        get
+        {
+            return _currentStatus switch
+            {
+                eSequenceStatus.Active => "badge-primary",
+                eSequenceStatus.SequencerError => "badge-danger",
+                eSequenceStatus.SequenceTimeOutError => "badge-warning",
+                eSequenceStatus.ExternalComponentError => "badge-danger",
+                _ => "badge-info"
+            };
+        }
+    }
+
+    private string StatusText
+    {
+        get
+        {
+            return _currentStatus switch
+            {
+                eSequenceStatus.Active => Localizer["Running"],
+                eSequenceStatus.SequenceTimeOutError => Localizer["Timeout"],
+                eSequenceStatus.SequencerError => Localizer["Error"],                
+                eSequenceStatus.ExternalComponentError => Localizer["Error"],
+                _ => Localizer["Idle"]
+            };
+        }
+    }
+
+    private string SequenceTimeClass
+    {
+        get
+        {
+            if (this.Component.Duration.LastValue > TimeSpan.FromSeconds(Component.MaxSequenceDuration.LastValue.TotalSeconds) && this.Component.Duration.LastValue > TimeSpan.FromSeconds(10))
+            {
+                var delay = (this.Component.Duration.LastValue.TotalSeconds - Component.MaxSequenceDuration.LastValue.TotalSeconds);
+                return $"text-danger";
+            }
+
+            return "text-success";
+        }
+    }
+}

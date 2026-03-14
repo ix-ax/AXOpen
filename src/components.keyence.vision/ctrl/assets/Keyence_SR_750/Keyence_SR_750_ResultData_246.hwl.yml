@@ -1,0 +1,9 @@
+Templates:
+  Modules:
+  - Name: 'Keyence_SR_750_ResultData_246'
+    Content:
+      Name: 'ResultData_246'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.25-KEYENCE-SR-750-20121220.XML'
+        GsdId: '112'
+      Slot: 9

@@ -1,25 +1,60 @@
-NAMESPACE AXOpen.Components.Rexroth.Tightening
+﻿NAMESPACE AXOpen.Components.Rexroth.Tightening
     TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
         Inputs : STRUCT
-            Axo_CS351_Input_2_word_1 AT %B0:  DWORD;
-            Axo_CS351_Input_4_word_1 AT %B124:  LWORD;
-            Axo_CS351_Input_4_word_10 AT %B52:  LWORD;
-            Axo_CS351_Input_4_word_11 AT %B44:  LWORD;
-            Axo_CS351_Input_4_word_12 AT %B36:  LWORD;
-            Axo_CS351_Input_4_word_13 AT %B28:  LWORD;
-            Axo_CS351_Input_4_word_14 AT %B20:  LWORD;
-            Axo_CS351_Input_4_word_15 AT %B12:  LWORD;
-            Axo_CS351_Input_4_word_16 AT %B4:  LWORD;
-            Axo_CS351_Input_4_word_2 AT %B116:  LWORD;
-            Axo_CS351_Input_4_word_3 AT %B108:  LWORD;
-            Axo_CS351_Input_4_word_4 AT %B100:  LWORD;
-            Axo_CS351_Input_4_word_5 AT %B92:  LWORD;
-            Axo_CS351_Input_4_word_6 AT %B84:  LWORD;
-            Axo_CS351_Input_4_word_7 AT %B76:  LWORD;
-            Axo_CS351_Input_4_word_8 AT %B68:  LWORD;
-            Axo_CS351_Input_4_word_9 AT %B60:  LWORD;
+	        // Module rexroth_cs351/Input_2_word_1
+	        rexroth_cs351_Input_2_word_1_Input AT %B0 : rexroth_cs351_Input_2_word_1_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_1
+	        rexroth_cs351_Input_4_word_1_Input AT %B124 : rexroth_cs351_Input_4_word_1_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_10
+	        rexroth_cs351_Input_4_word_10_Input AT %B52 : rexroth_cs351_Input_4_word_10_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_11
+	        rexroth_cs351_Input_4_word_11_Input AT %B44 : rexroth_cs351_Input_4_word_11_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_12
+	        rexroth_cs351_Input_4_word_12_Input AT %B36 : rexroth_cs351_Input_4_word_12_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_13
+	        rexroth_cs351_Input_4_word_13_Input AT %B28 : rexroth_cs351_Input_4_word_13_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_14
+	        rexroth_cs351_Input_4_word_14_Input AT %B20 : rexroth_cs351_Input_4_word_14_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_15
+	        rexroth_cs351_Input_4_word_15_Input AT %B12 : rexroth_cs351_Input_4_word_15_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_16
+	        rexroth_cs351_Input_4_word_16_Input AT %B4 : rexroth_cs351_Input_4_word_16_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_2
+	        rexroth_cs351_Input_4_word_2_Input AT %B116 : rexroth_cs351_Input_4_word_2_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_3
+	        rexroth_cs351_Input_4_word_3_Input AT %B108 : rexroth_cs351_Input_4_word_3_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_4
+	        rexroth_cs351_Input_4_word_4_Input AT %B100 : rexroth_cs351_Input_4_word_4_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_5
+	        rexroth_cs351_Input_4_word_5_Input AT %B92 : rexroth_cs351_Input_4_word_5_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_6
+	        rexroth_cs351_Input_4_word_6_Input AT %B84 : rexroth_cs351_Input_4_word_6_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_7
+	        rexroth_cs351_Input_4_word_7_Input AT %B76 : rexroth_cs351_Input_4_word_7_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_8
+	        rexroth_cs351_Input_4_word_8_Input AT %B68 : rexroth_cs351_Input_4_word_8_Input_Layout;
+
+	        // Module rexroth_cs351/Input_4_word_9
+	        rexroth_cs351_Input_4_word_9_Input AT %B60 : rexroth_cs351_Input_4_word_9_Input_Layout;
+
         END_STRUCT;
     END_TYPE
 END_NAMESPACE
+

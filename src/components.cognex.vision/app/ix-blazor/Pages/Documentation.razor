@@ -1,19 +1,23 @@
 ﻿@page "/Documentation"
 @using AXOpen.Core;
-@using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents;
+@using Operon.Components.Tab
+@* @using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents; *@
 
 
-<TabControl>
-    <TabPage Text="Component_1 - Insight_7600">
+<Tab>
+    <TabPage Title="Component_1 - Insight_7600">
         <Component_1></Component_1>
     </TabPage>
-    <TabPage Text="Component_2 - Dataman_280">
+    <TabPage Title="Component_2 - Dataman_280">
         <Component_2></Component_2>
     </TabPage>
-    <TabPage Text="Component_3 - Dataman_300">
+    <TabPage Title="Component_3 - Dataman_300">
         <Component_3></Component_3>
     </TabPage>
-    <TabPage Text="Component_4 - Insight_2800">
+    <TabPage Title="Component_4 - Insight_2800">
         <Component_4></Component_4>
     </TabPage>
-</TabControl>
+    <TabPage Title="Component_5 - Vision_pro">
+        <Component_5></Component_5>
+    </TabPage>
+</Tab>

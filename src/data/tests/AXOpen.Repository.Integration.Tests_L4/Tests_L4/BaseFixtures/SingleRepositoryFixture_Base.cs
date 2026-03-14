@@ -29,13 +29,13 @@ namespace Tests_L4
 
                 this.FillUpData(item, i);
 
-                Repository.Create(item.DataEntityId, item);
+                Repository.Create(item._EntityId, item);
             }
         }
 
         private void FillUpData(ProcessData obj, int iteration)
         {
-            obj.DataEntityId = iteration.ToString();
+            obj._EntityId = iteration.ToString();
             obj.vBool = true;
             obj.vString = "even " + iteration.ToString();
             obj.vInt = (short)iteration;

@@ -21,19 +21,19 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
             // RETURN;
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF(manualControl) THEN            
                 AxoCmmtAs.ActivateManualControl();
             END_IF;  
 
             //<Initialization>        
-            AxoCmmtAs.Run(parent            :=  THIS,
-                            hwID                  :=    HwIdentifiers#cmmtas_HwID,
+            AxoCmmtAs.Run(inParent            :=  THIS,
+                            hwID                  :=    HwIdentifiers#festo_cmmtas_HwID,
                             Enable                :=    Enable,
                             EnablePositive        :=    EnablePositive,
                             EnableNegative        :=    EnableNegative);
@@ -45,7 +45,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         //<Usage>    
         VAR PUBLIC                       
             Sequencer : AxoSequencer;       
-            Steps : ARRAY[0..30] OF AXOpen.Core.AxoStep;
+            Steps : ARRAY[0..40] OF AXOpen.Core.AxoStep;      
         END_VAR
 
         VAR PRIVATE
@@ -53,8 +53,12 @@ NAMESPACE AXOpen.Components.Festo.Drives
             _BoolValue  : BOOL;
             _DintValue  : DINT;
             _RealValue  : REAL;
-            _i          : INT;
             _TaskState  :   IAxoTaskState;
+            ReadDigitalInput_Valid : BOOL;
+            ReadDigitalInput_Value : BOOL;                
+            MoveVelocity_InVelocity : BOOL;                
+            MoveTorque_InTorque : BOOL;                
+            Stop_Done : BOOL;                
         END_VAR
         METHOD PRIVATE UseInSequencer   
 
@@ -62,318 +66,375 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Sequencer.Open();
             Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
 
-            _i := 0;
-            IF(Steps[_i].Execute(Sequencer, 'Restore')) THEN
+            IF(Steps[2].Execute(Sequencer, TRUE, 'Restore')) THEN
                 manualControl := FALSE;
                 Enable := FALSE;
                 EnablePositive := FALSE;
                 EnableNegative := FALSE;
-                AxoCmmtAs.Restore();             
+                AxoCmmtAs.Restore();   
                 Sequencer.MoveNext();                
+                RETURN;
             END_IF;
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Reset drive')) THEN
+            IF(Steps[3].Execute(Sequencer, TRUE, 'Reset drive')) THEN
                 IF(AxoCmmtAs.AxoReset().IsDone()) THEN                
-                    Sequencer.MoveNext();                
+                    Sequencer.MoveNext();  
+                    RETURN;              
                 END_IF;    
             END_IF;
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Enable drive')) THEN
+            IF(Steps[4].Execute(Sequencer, TRUE, 'Enable drive')) THEN
                 Enable := TRUE;
                 EnablePositive := TRUE;
                 EnableNegative := TRUE;
                 IF(AxoCmmtAs.AxoPower_Status) THEN                
-                    Sequencer.MoveNext();                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
                 END_IF;    
             END_IF;
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Drive homming')) THEN
-                IF(AxoCmmtAs.AxoHome(  Position        :=  LREAL#0.005,
-                                            HommingMode     :=  INT#-17,
-                                            Velocity        :=  LREAL#0.01,
-                                            Acceleration    :=  LREAL#1.0,
-                                            Deceleration    :=  LREAL#1.0
-                                            ).IsDone()) THEN                
-                    Sequencer.MoveNext();                
-                    AxoCmmtAs.Restore(); 
-                END_IF;    
-            END_IF;    
-            
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Check position')) THEN
-                IF(AxoCmmtAs.ActualPosition >=0.0049 AND  AxoCmmtAs.ActualPosition <=0.0051) THEN                
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;    
-
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Set position')) THEN
-                IF(AxoCmmtAs.AxoSetPosition(Position :=  LREAL#0.0).IsDone()) THEN                
+            IF(Steps[5].Execute(Sequencer, TRUE, 'Drive homming')) THEN
+                IF(AxoCmmtAs.AxoHome(   Position        :=  LREAL#5.0,
+                                                            HommingMode     :=  INT#1,  // Negative hardware limit switch with zero pulse
+                                                            Velocity        :=  LREAL#10.0,
+                                                            Acceleration    :=  LREAL#1500.0,
+                                                            Deceleration    :=  LREAL#1500.0
+                                                            ).IsDone()) THEN                
+                    AxoCmmtAs.Restore();   
                     Sequencer.MoveNext();       
-                    AxoCmmtAs.Restore();             
+                    RETURN;           
                 END_IF;    
             END_IF;    
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Check position')) THEN
-                IF(AxoCmmtAs.ActualPosition >=-0.0001 AND  AxoCmmtAs.ActualPosition <=0.0001) THEN                
-                    Sequencer.MoveNext();                
+            IF(Steps[6].Execute(Sequencer, TRUE, 'Check position')) THEN
+                IF(AxoCmmtAs.ActualPosition >=4.9 AND  AxoCmmtAs.ActualPosition <=5.1) THEN                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
                 END_IF;    
             END_IF;    
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Move absolute')) THEN
-                IF(AxoCmmtAs.AxoMoveAbsolute(  Position        :=  LREAL#0.005,
-                                                    Velocity        :=  LREAL#0.3,
-                                                    Acceleration    :=  LREAL#1.0,
-                                                    Deceleration    :=  LREAL#1.0,
-                                                    Jerk            :=  LREAL#500.0
-                                                    ).IsDone()) THEN                
-                    Sequencer.MoveNext();     
-                    AxoCmmtAs.Restore();    
+            IF(Steps[7].Execute(Sequencer, TRUE, 'Set position')) THEN
+                IF(AxoCmmtAs.AxoSetPosition(Position :=  LREAL#0.0).IsDone()) THEN                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;         
                 END_IF;    
             END_IF;    
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Check position')) THEN
-                IF(AxoCmmtAs.ActualPosition >=0.0049 AND  AxoCmmtAs.ActualPosition <=0.0051) THEN                
-                    Sequencer.MoveNext();                
+            IF(Steps[8].Execute(Sequencer, TRUE, 'Check position')) THEN
+                IF(AxoCmmtAs.ActualPosition >=-0.1 AND  AxoCmmtAs.ActualPosition <=0.1) THEN                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
                 END_IF;    
             END_IF;    
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Move additive')) THEN
-                AxoCmmtAs.AxoMoveAbsolute(  Position           :=  LREAL#0.010,
-                                                    Velocity        :=  LREAL#0.3,
-                                                    Acceleration    :=  LREAL#1.0,
-                                                    Deceleration    :=  LREAL#1.0,
-                                                    Jerk            :=  LREAL#500.0
-                                                    );
-                IF AxoCmmtAs.ActualPosition > 0.006 THEN
-                    AxoCmmtAs.AxoMoveAdditive(  Distance        :=  LREAL#0.005,
-                                                        Velocity        :=  LREAL#0.1,
-                                                        Acceleration    :=  LREAL#1.0,
-                                                        Deceleration    :=  LREAL#1.0,
-                                                        Jerk            :=  LREAL#500.0
-                                                        );
-                END_IF;                                                
-                IF(AxoCmmtAs.AxoMoveAdditive_Task.IsDone()) THEN                
-                        Sequencer.MoveNext();                
-                        AxoCmmtAs.Restore();    
+            IF(Steps[9].Execute(Sequencer, TRUE, 'Move absolute')) THEN
+                IF(AxoCmmtAs.AxoMoveAbsolute(  ContinuousUpdate := FALSE,
+                                                                    Position        :=  LREAL#5.0,
+                                                                    Velocity        :=  LREAL#5.0,
+                                                                    Acceleration    :=  LREAL#1500.0,
+                                                                    Deceleration    :=  LREAL#1500.0,
+                                                                    Jerk            :=  LREAL#150000.0
+                                                                    ).IsDone()) THEN                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;              
                 END_IF;    
             END_IF;    
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Check position')) THEN
-                IF(AxoCmmtAs.ActualPosition >=0.0149 AND  AxoCmmtAs.ActualPosition <=0.0151) THEN                
-                    Sequencer.MoveNext();                
+            IF(Steps[10].Execute(Sequencer, TRUE, 'Check position')) THEN
+                IF(AxoCmmtAs.ActualPosition >=4.9 AND  AxoCmmtAs.ActualPosition <=5.1) THEN                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
                 END_IF;    
             END_IF;    
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Move relative')) THEN
-                IF(AxoCmmtAs.AxoMoveRelative(  Distance        :=  LREAL#-0.0050,
-                                                    Velocity        :=  LREAL#0.10,
-                                                    Acceleration    :=  LREAL#1.0,
-                                                    Deceleration    :=  LREAL#1.0,
-                                                    Jerk            :=  LREAL#500.0
-                                                    ).IsDone()) THEN                
-                    Sequencer.MoveNext();
-                    AxoCmmtAs.Restore();    
+            IF(Steps[11].Execute(Sequencer, TRUE, 'Move absolute')) THEN
+                    AxoCmmtAs.AxoMoveAbsolute(  ContinuousUpdate := FALSE,
+                                                                    Position        :=  LREAL#10.0,
+                                                                    Velocity        :=  LREAL#1.0,
+                                                                    Acceleration    :=  LREAL#1500.0,
+                                                                    Deceleration    :=  LREAL#1500.0,
+                                                                    Jerk            :=  LREAL#150000.0
+                                                                    );
+                IF AxoCmmtAs.ActualPosition > 6.0 THEN
+                    // AxoCmmtAs.Restore();   // commented out as we need to keep it moving after exiting this step
+                    Sequencer.MoveNext();       
+                    RETURN;   
+                END_IF;    
+            END_IF;    
+     
+            IF(Steps[12].Execute(Sequencer, TRUE, 'Move additive')) THEN
+                IF AxoCmmtAs.AxoMoveAdditive(   ContinuousUpdate := FALSE,
+                                                                    Distance        :=  LREAL#5.0,
+                                                                    Velocity        :=  LREAL#5.0,
+                                                                    Acceleration    :=  LREAL#1500.0,
+                                                                    Deceleration    :=  LREAL#1500.0,
+                                                                    Jerk            :=  LREAL#150000.0
+                                                                    ).IsDone() THEN
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
                 END_IF;    
             END_IF;    
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Check position')) THEN
-                IF(AxoCmmtAs.ActualPosition >=0.0099 AND  AxoCmmtAs.ActualPosition <=0.0101) THEN                
-                    Sequencer.MoveNext();                
+            IF(Steps[13].Execute(Sequencer, TRUE, 'Check position')) THEN
+                IF(AxoCmmtAs.ActualPosition >=14.9 AND  AxoCmmtAs.ActualPosition <=15.1) THEN                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
                 END_IF;    
             END_IF;    
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Read digital input')) THEN
-                AxoCmmtAs.AxoReadDigitalInput(Enable := TRUE, InputNumber := 2 , Valid=> _Valid, Value => _BoolValue);
-                IF(_Valid AND _BoolValue) THEN                
-                    Sequencer.MoveNext();                
-                    AxoCmmtAs.AxoReadDigitalInput(Enable :=FALSE);
-                    AxoCmmtAs.Restore();             
+            IF(Steps[14].Execute(Sequencer, TRUE, 'Move relative')) THEN
+                IF(AxoCmmtAs.AxoMoveRelative(   ContinuousUpdate := FALSE,
+                                                                    Distance        :=  LREAL#-5.0,
+                                                                    Velocity        :=  LREAL#5.0,
+                                                                    Acceleration    :=  LREAL#1500.0,
+                                                                    Deceleration    :=  LREAL#1500.0,
+                                                                    Jerk            :=  LREAL#150000.0
+                                                                    ).IsDone()) THEN                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;           
+                END_IF;    
+            END_IF;    
+
+            IF(Steps[15].Execute(Sequencer, TRUE, 'Check position')) THEN
+                IF(AxoCmmtAs.ActualPosition >=9.9 AND  AxoCmmtAs.ActualPosition <=10.1) THEN                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
+                END_IF;    
+            END_IF;    
+
+            IF(Steps[16].Execute(Sequencer, TRUE, 'Read digital input')) THEN
+                AxoCmmtAs.AxoReadDigitalInput(Enable := TRUE, InputNumber := 38 , Valid=> ReadDigitalInput_Valid, Value => ReadDigitalInput_Value); // 38~~X1C.7  Negative limit switch
+                IF(ReadDigitalInput_Valid AND ReadDigitalInput_Value) THEN        
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;                 
                 END_IF;   
             END_IF;    
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Move velocity')) THEN
-                AxoCmmtAs.AxoMoveVelocity(  Velocity        :=  LREAL#0.01,
-                                                    Acceleration    :=  LREAL#1.0,
-                                                    Deceleration    :=  LREAL#1.0,
-                                                    Jerk            :=  LREAL#500.0,
-                                                    Direction       :=  eAxoDriveDirection#NegativeDirection,
-                                                    InVelocity      => _BoolValue);
-                IF(_BoolValue) THEN                
+            IF(Steps[17].Execute(Sequencer, TRUE, 'Stop reading digital input')) THEN
+                AxoCmmtAs.AxoReadDigitalInput(Enable := FALSE, InputNumber := 38 , Valid=> ReadDigitalInput_Valid, Value => ReadDigitalInput_Value); // 38~~X1C.7  Negative limit switch
+                IF(NOT ReadDigitalInput_Valid AND NOT ReadDigitalInput_Value) THEN        
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;                 
+                END_IF;   
+            END_IF;   
+            
+            IF(Steps[18].Execute(Sequencer, TRUE, 'Move velocity')) THEN
+                AxoCmmtAs.AxoMoveVelocity(  ContinuousUpdate := FALSE,
+                                                                Velocity        :=  LREAL#2.0,
+                                                                Acceleration    :=  LREAL#1500.0,
+                                                                Deceleration    :=  LREAL#1500.0,
+                                                                Jerk            :=  LREAL#150000.0,
+                                                                Direction       :=  eAxoDriveDirection#NegativeDirection,
+                                                                InVelocity      =>  MoveVelocity_InVelocity);
+                IF MoveVelocity_InVelocity THEN 
+                    MoveVelocity_InVelocity := FALSE;   
+                    AxoCmmtAs.Restore();   
                     Sequencer.MoveNext();         
-                    AxoCmmtAs.Restore();    
+                    RETURN;            
                 END_IF;    
             END_IF;    
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Halt')) THEN
-                IF(AxoCmmtAs.AxoHalt(   Deceleration    :=  LREAL#1.0,
-                                        Jerk            :=  LREAL#500.0
-                                        ).IsDone()) THEN                
-                    Sequencer.MoveNext();                
-                    AxoCmmtAs.Restore();             
-                    RETURN;
+            IF(Steps[19].Execute(Sequencer, TRUE, 'Halt')) THEN
+                IF(AxoCmmtAs.AxoHalt(   Deceleration    :=  LREAL#1500.0,
+                                                            Jerk            :=  LREAL#150000.0
+                                                            ).IsDone()) THEN                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
                 END_IF;    
             END_IF;    
             
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Move velocity')) THEN
-                AxoCmmtAs.AxoMoveVelocity(  Velocity        :=  LREAL#0.01,
-                                                    Acceleration    :=  LREAL#1.0,
-                                                    Deceleration    :=  LREAL#1.0,
-                                                    Jerk            :=  LREAL#500.0,
-                                                    Direction       :=  eAxoDriveDirection#PositiveDirection,
-                                                    InVelocity      => _BoolValue);
-                IF(_BoolValue) THEN                
-                    Sequencer.MoveNext();                
-                    AxoCmmtAs.Restore();             
+            IF(Steps[20].Execute(Sequencer, TRUE, 'Move velocity')) THEN
+                AxoCmmtAs.AxoMoveVelocity(  ContinuousUpdate := FALSE,
+                                                                Velocity        :=  LREAL#2.0,
+                                                                Acceleration    :=  LREAL#1500.0,
+                                                                Deceleration    :=  LREAL#1500.0,
+                                                                Jerk            :=  LREAL#150000.0,
+                                                                Direction       :=  eAxoDriveDirection#NegativeDirection,
+                                                                InVelocity      =>  MoveVelocity_InVelocity);
+                IF MoveVelocity_InVelocity THEN 
+                    MoveVelocity_InVelocity := FALSE;   
+                    // AxoCmmtAs.Restore();  // commented out as we need to keep it moving after exiting this step
+                    Sequencer.MoveNext();       
+                    RETURN;   
                 END_IF;    
             END_IF;    
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Read digital input')) THEN
-                AxoCmmtAs.AxoReadDigitalInput(Enable := TRUE, InputNumber := 2 , Valid=> _Valid, Value => _BoolValue);
-                IF(_Valid AND _BoolValue) THEN                
-                    Sequencer.MoveNext();                
+            IF(Steps[21].Execute(Sequencer, TRUE, 'Read digital input')) THEN
+                AxoCmmtAs.AxoReadDigitalInput(Enable := TRUE, InputNumber := 38 , Valid=> ReadDigitalInput_Valid, Value => ReadDigitalInput_Value); // 38~~X1C.7  Negative limit switch
+                IF(ReadDigitalInput_Valid AND NOT ReadDigitalInput_Value) THEN                
                     AxoCmmtAs.AxoReadDigitalInput(Enable :=FALSE);
-                    AxoCmmtAs.Restore();             
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
                 END_IF;   
             END_IF;  
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Disable drive')) THEN
-                Enable := FALSE;
-                EnablePositive := TRUE;
-                EnableNegative := TRUE;
-                IF(NOT AxoCmmtAs.AxoPower_Status) THEN                
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;
+            IF(Steps[22].Execute(Sequencer, TRUE, 'Stop reading digital input')) THEN
+                AxoCmmtAs.AxoReadDigitalInput(Enable := FALSE, InputNumber := 38 , Valid=> ReadDigitalInput_Valid, Value => ReadDigitalInput_Value); // 38~~X1C.7  Negative limit switch
+                IF(NOT ReadDigitalInput_Valid AND NOT ReadDigitalInput_Value) THEN        
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
+                END_IF;   
+            END_IF;   
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Reset drive')) THEN
-                AxoCmmtAs.AxoReset();
-                Sequencer.MoveNext();                
-            END_IF;
-
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Enable drive')) THEN
-                Enable := TRUE;
-                EnablePositive := TRUE;
-                EnableNegative := TRUE;
-                IF(AxoCmmtAs.AxoPower_Status) THEN                
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;
-
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Jog')) THEN
-                manualControl := TRUE;
-                AxoCmmtAs.AxoJogPositive.RemoteSwitchOn := AxoCmmtAs.ActualPosition <= 0.02;
-                AxoCmmtAs.AxoJog_Velocity      :=  LREAL#0.01;
-                AxoCmmtAs.AxoJog_Acceleration  :=  LREAL#1.0;
-                AxoCmmtAs.AxoJog_Deceleration  :=  LREAL#1.0;
-                AxoCmmtAs.AxoJog_Jerk          :=  LREAL#100.0;
-                AxoCmmtAs.AxoJog_Direction     :=  AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
-
-                IF(AxoCmmtAs.ActualPosition > 0.02) THEN                
-                    AxoCmmtAs.AxoJogPositive.RemoteSwitchOn := FALSE;
-                END_IF;    
-                IF(AxoCmmtAs.ActualPosition > 0.02 AND AxoCmmtAs.AxoHalt_Done) THEN                
-                    Sequencer.MoveNext();                
-                    manualControl := FALSE;
-                END_IF;    
-            END_IF;    
-
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Torque control')) THEN
-                AxoCmmtAs.AxoTorqueControl(     Torque          := LREAL#0.6 ,
-                                                TorqueRamp      := LREAL#1.0 ,
-                                                PositionLimit   :=  LREAL#0.100,
-                                                Velocity        :=  LREAL#1.0,
-                                                Acceleration    :=  LREAL#1.0,
-                                                Deceleration    :=  LREAL#1.0,
-                                                Jerk            :=  LREAL#500.0,
-                                                Direction       :=  eAxoDriveDirection#PositiveDirection,
-                                                InTorque      => _BoolValue);
-                IF(_BoolValue) THEN                
-                    Sequencer.MoveNext();                
-                    AxoCmmtAs.Restore();    
-                END_IF;    
-            END_IF;    
-
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Check position')) THEN
-                IF(AxoCmmtAs.ActualPosition >=0.0021) THEN                
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;    
-
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Stop')) THEN
-                AxoCmmtAs.AxoStop(  Deceleration    :=  LREAL#1.0,
-                                            Jerk            :=  LREAL#500.0,
-                                            Done      => _BoolValue);
-                IF(_BoolValue) THEN                
-                    Sequencer.MoveNext();   
-                END_IF;    
-            END_IF;    
-
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Release stop')) THEN
-                AxoCmmtAs.AxoStop_Task.Restore();
-                IF(AxoCmmtAs.AxoStop_Task.IsReady()) THEN                
-                    Sequencer.MoveNext();   
-                END_IF;    
-            END_IF;    
-
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Move absolute')) THEN
-                IF(AxoCmmtAs.AxoMoveAbsolute(  Position        :=  LREAL#0.0,
-                                                    Velocity        :=  LREAL#0.5,
-                                                    Acceleration    :=  LREAL#1.0,
-                                                    Deceleration    :=  LREAL#1.0,
-                                                    Jerk            :=  LREAL#500.0
-                                                    ).IsDone()) THEN                
-                    Sequencer.MoveNext();     
-                    AxoCmmtAs.Restore();    
-                END_IF;    
-            END_IF; 
-
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Disable drive')) THEN
+            IF(Steps[23].Execute(Sequencer, TRUE, 'Disable drive')) THEN
                 Enable := FALSE;
                 EnablePositive := FALSE;
                 EnableNegative := FALSE;
                 IF(NOT AxoCmmtAs.AxoPower_Status) THEN                
-                    Sequencer.MoveNext();                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
                 END_IF;    
             END_IF;
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Reset drive')) THEN
+            IF(Steps[24].Execute(Sequencer, TRUE, 'Restore')) THEN
+                AxoCmmtAs.Restore();   
+                Sequencer.MoveNext();      
+                RETURN;          
+            END_IF;
+
+            IF(Steps[25].Execute(Sequencer, TRUE, 'Reset drive')) THEN
                 IF(AxoCmmtAs.AxoReset().IsDone()) THEN                
-                    Sequencer.MoveNext();                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
+                END_IF;    
+            END_IF;            
+
+            IF(Steps[26].Execute(Sequencer, TRUE, 'Enable drive')) THEN
+                Enable := TRUE;
+                EnablePositive := TRUE;
+                EnableNegative := TRUE;
+                IF(AxoCmmtAs.AxoPower_Status) THEN                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
                 END_IF;    
             END_IF;
 
-            _i := _i + 1;
-            IF(Steps[_i].Execute(Sequencer, 'Restore')) THEN
-                AxoCmmtAs.Restore();
-                Sequencer.CompleteSequence(); 
+            IF(Steps[27].Execute(Sequencer, TRUE, 'Jog')) THEN
+                manualControl := TRUE;
+                AxoCmmtAs.AxoJogPositive.RemoteSwitchOn := TRUE;
+                AxoCmmtAs.AxoJog_Velocity      :=  LREAL#10.0;
+                AxoCmmtAs.AxoJog_Acceleration  :=  LREAL#1500.0;
+                AxoCmmtAs.AxoJog_Deceleration  :=  LREAL#1500.0;
+                AxoCmmtAs.AxoJog_Jerk          :=  LREAL#150000.0;
+                AxoCmmtAs.AxoJog_Direction     :=  AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
+
+                IF(AxoCmmtAs.ActualPosition > 1.0) THEN                
+                    AxoCmmtAs.AxoJogPositive.RemoteSwitchOn := FALSE;
+                END_IF;    
+                IF( AxoCmmtAs.ActualPosition > 1.0 AND 
+                    AxoCmmtAs.DriveState = AXOpen.Components.Drives.eAxoDriveState#Standstill AND
+                    AxoCmmtAs.AxoHalt_Task.IsDone()) THEN                
+                    manualControl := FALSE;
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
+                END_IF;  
+            END_IF;    
+
+            IF(Steps[28].Execute(Sequencer, TRUE, 'Torque control')) THEN
+                AxoCmmtAs.AxoTorqueControl( ContinuousUpdate := FALSE,
+                                                                Torque    := LREAL#0.1,
+                                                                TorqueRamp      :=  LREAL#1.0,
+                                                                PositionLimit   :=  LREAL#50.0,
+                                                                Velocity        :=  LREAL#50.0,
+                                                                Acceleration    :=  LREAL#1500.0,
+                                                                Deceleration    :=  LREAL#1500.0,
+                                                                Jerk            :=  LREAL#150000.0,
+                                                                Direction       :=  eAxoDriveDirection#PositiveDirection,
+                                                                InTorque        =>  MoveTorque_InTorque);
+                IF MoveTorque_InTorque THEN                
+                    MoveTorque_InTorque := FALSE; 
+                    // AxoCmmtAs.Restore();    // commented out as we need to stay in torque up to reach the position 10.0
+                    Sequencer.MoveNext();       
+                    RETURN;   
+                END_IF;    
+            END_IF;    
+
+            IF(Steps[29].Execute(Sequencer, TRUE, 'Check position')) THEN
+                IF(AxoCmmtAs.ActualPosition >=10.0) THEN   
+                    AxoCmmtAs.Restore();          
+                    Sequencer.MoveNext();       
+                    RETURN;   
+                END_IF;    
+            END_IF;    
+
+            IF(Steps[30].Execute(Sequencer, TRUE, 'Stop')) THEN
+                AxoCmmtAs.AxoStop(  Deceleration    :=  LREAL#1500.0,
+                                                        Jerk            :=  LREAL#150000.0,
+                                                        Done            => Stop_Done);
+                IF(Stop_Done) THEN 
+                    Stop_Done := FALSE;               
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
+                END_IF;    
+            END_IF;    
+
+            IF(Steps[31].Execute(Sequencer, TRUE, 'Release stop')) THEN
+                AxoCmmtAs.AxoStop_Task.Restore();
+                IF(AxoCmmtAs.AxoStop_Task.IsReady()) THEN                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
+                END_IF;    
+            END_IF;    
+
+            IF(Steps[32].Execute(Sequencer, TRUE, 'Move absolute')) THEN
+                IF(AxoCmmtAs.AxoMoveAbsolute(   ContinuousUpdate := FALSE,
+                                                                    Position        :=  LREAL#0.0,
+                                                                    Velocity        :=  LREAL#10.0,
+                                                                    Acceleration    :=  LREAL#1500.0,
+                                                                    Deceleration    :=  LREAL#1500.0,
+                                                                    Jerk            :=  LREAL#150000.0
+                                                                    ).IsDone()) THEN                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
+                END_IF;    
+            END_IF; 
+
+            IF(Steps[33].Execute(Sequencer, TRUE, 'Disable drive')) THEN
+                Enable := FALSE;
+                EnablePositive := FALSE;
+                EnableNegative := FALSE;
+                IF(NOT AxoCmmtAs.AxoPower_Status) THEN                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
+                END_IF;    
             END_IF;
+
+            IF(Steps[34].Execute(Sequencer, TRUE, 'Reset drive')) THEN
+                IF(AxoCmmtAs.AxoReset().IsDone()) THEN                
+                    AxoCmmtAs.Restore();   
+                    Sequencer.MoveNext();       
+                    RETURN;   
+                END_IF;    
+            END_IF;
+
+            IF(Steps[35].Execute(Sequencer, TRUE, 'Restore')) THEN
+                AxoCmmtAs.Restore();   
+                Sequencer.CompleteSequence();
+            END_IF;
+
         END_METHOD
         // </Usage>
     END_CLASS

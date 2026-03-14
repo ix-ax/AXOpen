@@ -1,25 +1,23 @@
-﻿name: "app_axopen.components.cognex.vision"
+name: "app_axopen.components.cognex.vision"
 version: '0.0.0-dev.0'
 type: app
 targets:
-  - llvm
+  # - llvm
   - "1500"
 variables:
-  APAX_BUILD_ARGS:
-    - "--debug" # Generate debug information for target "1500"
+  # APAX_BUILD_ARGS:
+  #   - "--debug" # Generate debug information for target "1500"
   # Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build. =>
   PLC_NAME: "plc_line"
   DEFAULT_NAMESPACE: "AXOpen.Components.Cognex.Vision"
   AXTARGET: 192.168.100.120
   AXTARGETPLATFORMINPUT: .\bin\1500\
-  AX_USERNAME: "adm"
-  AX_TARGET_PWD: "123ABCDabcd$#!"
+  AX_USERNAME: "admin"
+  AX_TARGET_PWD: "Qwerty123456+"
   USE_PLC_SIM_ADVANCED: "true"
   # <= Do not commit any changes to the following variables. You may modify them locally, but committing the changes will mess up the nightly build.
 registries:
   "@inxton": "https://npm.pkg.github.com/"
-catalogs:
-  "@inxton/ax.catalog": 0.0.23
 devDependencies:
   "@inxton/ax-sdk": '0.0.0-dev.0'
 dependencies:
@@ -54,7 +52,6 @@ scripts:
     dotnet tool restore
     dotnet ixc --skip-deps 
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ixc' Finished in :" $(expr $(date +%s) - $START) "s"
-  postbuild: apax run ixc # run after build
   dcpli: | # list all interfaces, used to discover MAC address of the adapter connected to PLC                                                              (apax dcp-utility list-interfaces )
     START=$(date +%s)
     ..\\..\\scripts\\dcp_utility_list_interfaces.sh                                                                                                         
@@ -80,10 +77,6 @@ scripts:
     START=$(date +%s)
     ..\\..\\scripts\\clean_plc.sh $AXTARGET $AX_USERNAME $AX_TARGET_PWD  
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax clean_plc' Finished in :" $(expr $(date +%s) - $START) "s"
-  ssc: | # setup secure communication, create and import certificates, setup password for AX_USERNAME                                                       (create pkcs12ForCertificateImport.p12 & apax hwc setup-secure-communication & apax hwc import-certificate [TLS+Webserver] & apax hwc manage-users set-password)  
-    START=$(date +%s)
-    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD 
-    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ssc' Finished in :" $(expr $(date +%s) - $START) "s"
   gsd: | # copy and install all gsdml files from libraries                                                                                                  (copy gsdml files from all assets dir & apax hwc install-gsd)
     START=$(date +%s)
     ..\\..\\scripts\\copy_and_install_gsd.sh 
@@ -92,6 +85,10 @@ scripts:
     START=$(date +%s)
     ..\\..\\scripts\\copy_hwl_templates.sh 
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax hwl' Finished in :" $(expr $(date +%s) - $START) "s"
+  ssc: | # setup secure communication, create and import certificates, setup password for AX_USERNAME                                                       (create pkcs12ForCertificateImport.p12 & apax hwc setup-secure-communication & apax hwc import-certificate [TLS+Webserver] & apax hwc manage-users set-password)  
+    START=$(date +%s)
+    ..\\..\\scripts\\setup_secure_communication.sh $PLC_NAME $AX_USERNAME $AX_TARGET_PWD $AXTARGET
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ssc' Finished in :" $(expr $(date +%s) - $START) "s"
   hwcc: | # compile hardware configuration                                                                                                                  (apax hwc compile)
     START=$(date +%s)
     ..\\..\\scripts\\hw_compile.sh  
@@ -113,6 +110,10 @@ scripts:
     START=$(date +%s)
     ..\\..\\scripts\\hw_update.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AX_USERNAME $AX_TARGET_PWD
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax hwu' Finished in :" $(expr $(date +%s) - $START) "s"
+  hwfdo: | # first download HW using password and upload certificate                                                                                        (apax hwld [using password] & apax plc-cert)
+    START=$(date +%s)
+    ..\\..\\scripts\\hw_first_download_only.sh $PLC_NAME $AXTARGET $AX_TARGET_PWD 
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax hwfdo' Finished in :" $(expr $(date +%s) - $START) "s"
   hwdo: | # download HW only using certificate                                                                                                              (apax hwld [using cert file])
     START=$(date +%s)
     ..\\..\\scripts\\hw_download_only.sh $PLC_NAME $AXTARGET $AX_USERNAME $AX_TARGET_PWD
@@ -135,20 +136,41 @@ scripts:
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax swddo' Finished in :" $(expr $(date +%s) - $START) "s"
   alf: | #clear plc except ip and name and provide all actions for install all, build and initial download hw so as sw                                      (apax plcsim & apax clean & apax install & apax clean_plc & apax ssc & apax hwfd & apax swfd)
     START=$(date +%s)
-      ..\\..\\scripts\\all_first.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
+    if [ "$1" = "--force" ] || [ "$1" = "-f" ]; then
+      ..\\..\\scripts\\all_first.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED true
+    else
+      ..\\..\\scripts\\all_first.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED false
+    fi
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax alf' Finished in :" $(expr $(date +%s) - $START) "s"
   all: | #build and download hardware and software using cert file. If cert file does not exists or its hash is different calls apax alf                    (apax plcsim & apax clean & apax install & apax hwu & apax swfd)
     START=$(date +%s)
-      ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
+    if [ "$1" = "--force" ] || [ "$1" = "-f" ]; then
+      ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED true
+    else
+      ..\\..\\scripts\\all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED false
+    fi
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax all' Finished in :" $(expr $(date +%s) - $START) "s"
+  cla: | #compile all
+    START=$(date +%s)
+    ..\\..\\scripts\\compile_all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax cla' Finished in :" $(expr $(date +%s) - $START) "s"
+  cpa: | #compare all
+    START=$(date +%s)
+    ..\\..\\scripts\\compare_all.sh $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD  
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax cpa' Finished in :" $(expr $(date +%s) - $START) "s"
+  cca: | #compile all compare all
+    START=$(date +%s)
+    ..\\..\\scripts\\compile_all_compare_all.sh $DEFAULT_NAMESPACE $PLC_NAME $AXTARGET $AXTARGETPLATFORMINPUT $AX_USERNAME $AX_TARGET_PWD $USE_PLC_SIM_ADVANCED
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax cca' Finished in :" $(expr $(date +%s) - $START) "s"
   ib: |
     START=$(date +%s)
     apax install
     apax build
+    dotnet ixc
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ib' Finished in :" $(expr $(date +%s) - $START) "s"
   icb: |
     START=$(date +%s)
-    apax install --catalog
+    apax install --catalog --strict
     apax ib
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax icb' Finished in :" $(expr $(date +%s) - $START) "s"
   cib: |
@@ -165,12 +187,52 @@ scripts:
     START=$(date +%s)
     apax install
     apax build
+    dotnet ixc
     apax test
     echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ibt' Finished in :" $(expr $(date +%s) - $START) "s"
+  gc: |
+    START=$(date +%s)
+    if [[ ! -d ".\\certs\\$PLC_NAME" ]]; then
+      mkdir -p ".\\certs\\$PLC_NAME"
+      echo "Created directory: .\\certs\\$PLC_NAME"
+    fi    
+    apax plc-cert --target $AXTARGET --output .\\certs\\$PLC_NAME\\$PLC_NAME.cer
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax gc' Finished in :" $(expr $(date +%s) - $START) "s"
   mm: |
-    apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\plc_line\\plc_line.cer --continuously
+    apax mon --targetIP $AXTARGET --file monitor.mon --username $AX_USERNAME --password $AX_TARGET_PWD --certificate .\\certs\\$PLC_NAME\\$PLC_NAME.cer --continuously
+  x: |
+    apax swfd
+    apax mm
+  t: |
+    apax install
+    apax hwl
+    apax ssc
+    apax gsd
+    apax hwcc
+    apax hwid
+    apax hwadr
+    apax build
+    dotnet ixc
 
-
-
-
-
+  tt: |
+    START=$(date +%s)
+    apax install
+    apax hwl
+    apax gc
+    apax gsd
+    apax hwcc
+    apax hwid
+    apax hwadr
+    apax hwdo
+    apax build
+    dotnet ixc
+    apax swfdo
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax tx' Finished in :" $(expr $(date +%s) - $START) "s"
+  ttx: |
+    START=$(date +%s)
+    apax install
+    apax build
+    dotnet ixc
+    apax gc
+    apax swfdo
+    echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - 'apax ttx' Finished in :" $(expr $(date +%s) - $START) "s"

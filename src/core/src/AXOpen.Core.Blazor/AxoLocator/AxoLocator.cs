@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using AXOpen.Core.Blazor.AxoAlertDialog;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Serilog;
+using Operon.Components.Toast;
 
 namespace AXOpen.Core.Blazor.Dialogs
 {
@@ -19,7 +20,7 @@ namespace AXOpen.Core.Blazor.Dialogs
         public NavigationManager NavigationManager { get; set; }
 
         [Inject]
-        public IAlertService AlertDialogService { get; set; }
+        public IToastService ToastService { get; set; }
 
         [Inject]
         public AxoDialogAndAlertContainer DialogContainer { get; set; }

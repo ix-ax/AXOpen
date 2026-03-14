@@ -232,16 +232,22 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
     private Stopwatch sw = new Stopwatch();
 
+
+    public eAccessPriority RemoteCreateAccessPriority { get; set; } = eAccessPriority.Low;
+    public eAccessPriority RemoteReadAccessPriority { get; set; } = eAccessPriority.Normal;
+    public eAccessPriority RemoteUpdateAccessPriority { get; set; } = eAccessPriority.Low;
+    public eAccessPriority RemoteCreateOrUpdateAccessPriority { get; set; } = eAccessPriority.Low;
+
     /// <inheritdoc />
     public async Task<bool> RemoteCreate(string identifier)
     {
         sw.Restart();
         //await Operation.ReadAsync();
-        await DataEntity.DataEntityId.SetAsync(identifier);
-        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
+        await DataEntity._EntityId.SetAsync(identifier);
+        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>(RemoteCreateAccessPriority);
         Repository.Create(identifier, cloned);
         sw.Stop();
-        AxoApplication.Current.Logger.Information($"Record '{identifier}' created in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
+        AxoApplication.Current.Logger.Debug($"Record '{identifier}' created in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
         return true;
     }
 
@@ -253,9 +259,9 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
             sw.Restart();
             //await Operation.ReadAsync();
             var record = Repository.Read(identifier);
-            await ((ITwinObject)DataEntity).PlainToOnline(record);
+            await ((ITwinObject)DataEntity).PlainToOnline(record, RemoteReadAccessPriority);
             sw.Stop();
-            AxoApplication.Current.Logger.Information($"Record '{identifier}' read from '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
+            AxoApplication.Current.Logger.Debug($"Record '{identifier}' read from '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
             return true;
         }
         catch (Exception exception)
@@ -269,14 +275,14 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     {
         sw.Restart();
         //await Operation.ReadAsync();
-        await DataEntity.DataEntityId.SetAsync(identifier);
+        await DataEntity._EntityId.SetAsync(identifier);
 
-        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
+        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>(RemoteUpdateAccessPriority);
 
         cloned.Hash = HashHelper.CreateHash(cloned);
         Repository.Update(identifier, cloned);
         sw.Stop();
-        AxoApplication.Current.Logger.Information($"Record '{identifier}' updated in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
+        AxoApplication.Current.Logger.Debug($"Record '{identifier}' updated in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
         return true;
     }
 
@@ -285,10 +291,10 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     {
         sw.Restart();
         //await Operation.ReadAsync();
-        await DataEntity.DataEntityId.SetAsync(identifier);
+        await DataEntity._EntityId.SetAsync(identifier);
         Repository.Delete(identifier);
         sw.Stop();
-        AxoApplication.Current.Logger.Information($"Record '{identifier}' deleted in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
+        AxoApplication.Current.Logger.Debug($"Record '{identifier}' deleted in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
         return true;
     }
 
@@ -297,10 +303,10 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     {
         sw.Restart();
         //await Operation.ReadAsync();
-        await DataEntity.DataEntityId.SetAsync(identifier);
+        await DataEntity._EntityId.SetAsync(identifier);
         var retVal = Repository.Exists(identifier);
         sw.Stop();
-        AxoApplication.Current.Logger.Information($"Information about record '{identifier}' existence in '{this.Symbol}' retrieved in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
+        AxoApplication.Current.Logger.Debug($"Information about record '{identifier}' existence in '{this.Symbol}' retrieved in '{sw.ElapsedMilliseconds} ms'", this, AxoApplication.Current.ControllerIdentity);
         return retVal;
     }
 
@@ -309,9 +315,9 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     {
         sw.Restart();
         // await Operation.ReadAsync();
-        await DataEntity.DataEntityId.SetAsync(identifier);
+        await DataEntity._EntityId.SetAsync(identifier);
 
-        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
+        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>(RemoteCreateOrUpdateAccessPriority);
 
         cloned.Hash = HashHelper.CreateHash(cloned);
 
@@ -325,7 +331,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         }
 
         sw.Stop();
-        AxoApplication.Current.Logger.Information($"Record '{identifier}' created in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms' using `Create or update` function.", this, AxoApplication.Current.ControllerIdentity);
+        AxoApplication.Current.Logger.Debug($"Record '{identifier}' created in '{this.Symbol}' in '{sw.ElapsedMilliseconds} ms' using `Create or update` function.", this, AxoApplication.Current.ControllerIdentity);
 
         return true;
     }
@@ -403,7 +409,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task DeInitializeRemoteDataExchange()
     {
         Operation.DeInitialize();
-        await this.WriteAsync();
+        await this.Operation.WriteAsync();
         //_idExistsTask.InitializeExclusively(Exists);
         //_createOrUpdateTask.Initialize(CreateOrUpdate);
     }
@@ -411,7 +417,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     private async Task Handle()
     {
         var operation = (eCrudOperation)await Operation.CrudOperation.GetAsync();
-        var identifier = await Operation.DataEntityIdentifier.GetAsync();
+        var identifier = await Operation._EntityId.GetAsync();
 
         switch (operation)
         {
@@ -447,13 +453,13 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
     private async Task<bool> RemoteCreate()
     {
-        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
+        var Identifier = await Operation._EntityId.GetAsync();
         return await RemoteCreate(Identifier);
     }
 
     private async Task<bool> RemoteRead()
     {
-        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
+        var Identifier = await Operation._EntityId.GetAsync();
         return await RemoteRead(Identifier);
     }
 
@@ -537,7 +543,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task CreateNewAsync(string identifier, ITwinObject dataObject)
     {
         Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)dataObject.CreatePoco();
-        poco.DataEntityId = identifier;
+        poco._EntityId = identifier;
         poco.Hash = HashHelper.CreateHash(poco);
 
         this.Repository.Create(identifier, poco);
@@ -549,7 +555,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <inheritdoc />
     public async Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity, ITwinObject dataObject)
     {
-        var record = Repository.Read(entity.DataEntityId);
+        var record = Repository.Read(entity._EntityId);
         await dataObject.PlainToShadow(record);
         ((AxoDataEntity)dataObject).Hash = record.Hash;
         ((AxoDataEntity)dataObject).Changes = record.Changes;
@@ -561,23 +567,23 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         var plainer = await ((ITwinObject)dataObject).ShadowToPlain<dynamic>();
         ChangeTrackerSaveObservedChanges(plainer, dataObject);
         plainer.Hash = HashHelper.CreateHash(plainer);
-        Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
+        Repository.Update(((IBrowsableDataObject)plainer)._EntityId, plainer);
     }
 
     /// <inheritdoc />
     public async Task FromRepositoryToControllerAsync(IBrowsableDataObject selected, ITwinObject dataObject)
     {
-        await dataObject.PlainToOnline(Repository.Read(selected.DataEntityId));
+        await dataObject.PlainToOnline(Repository.Read(selected._EntityId));
     }
 
     /// <inheritdoc />
     public async Task CreateDataFromControllerAsync(string recordId, ITwinObject dataObject)
     {
         var plainer = await dataObject.OnlineToPlain<dynamic>();
-        plainer.DataEntityId = recordId;
+        plainer._EntityId = recordId;
         plainer.Hash = HashHelper.CreateHash(plainer);
-        Repository.Create(plainer.DataEntityId, plainer);
-        var plain = Repository.Read(plainer.DataEntityId);
+        Repository.Create(plainer._EntityId, plainer);
+        var plain = Repository.Read(plainer._EntityId);
         dataObject.PlainToShadow(plain);
     }
 
@@ -591,9 +597,9 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task CreateCopyCurrentShadowsAsync(string recordId, ITwinObject dataObject)
     {
         var source = (Pocos.AXOpen.Data.IAxoDataEntity)await dataObject.ShadowToPlain<IBrowsableDataObject>();
-        source.DataEntityId = recordId;
+        source._EntityId = recordId;
         source.Hash = HashHelper.CreateHash(source);
-        Repository.Create(source.DataEntityId, source);
+        Repository.Create(source._EntityId, source);
     }
 
     private Dictionary<string, Type> _exporters;
@@ -763,12 +769,12 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
             var plainer = await ((ITwinObject)dataObject).ShadowToPlain<dynamic>();
             ChangeTrackerSaveObservedChanges(plainer, dataObject);
             plainer.Hash = HashHelper.CreateHash(plainer);
-            Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
+            Repository.Update(((IBrowsableDataObject)plainer)._EntityId, plainer);
         }
         else
         {
             Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)dataObject.CreatePoco();
-            poco.DataEntityId = recordId;
+            poco._EntityId = recordId;
             poco.Hash = HashHelper.CreateHash(poco);
 
             this.Repository.Create(recordId, poco);

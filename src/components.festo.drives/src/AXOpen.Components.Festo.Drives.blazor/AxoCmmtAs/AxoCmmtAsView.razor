@@ -1,0 +1,296 @@
+@namespace AXOpen.Components.Festo.Drives
+@using AXOpen.Core
+@using AXOpen.Core.Blazor
+@using AXOpen.Components.Drives
+@inherits AxoComponentViewBase<AxoCmmtAs>
+
+<AxoComponentContainerView Component="@Component" ParentReference="this">
+    <HeaderContent>
+        <div class="flex flex-wrap items-center gap-3 text-xs md:text-sm" @onclick:stopPropagation="true">
+            <span class="badge @DriveStateBadgeClass">@DriveStateLabel</span>
+            <span class="badge badge-soft">@CurrentMotionTaskLabel</span>
+            <div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
+                <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">@Localizer["Position"]</span>
+                <strong class="text-[0.85rem] text-slate-900/90">@FormattedPosition</strong>
+            </div>
+            <div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
+                <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">@Localizer["Velocity"]</span>
+                <strong class="text-[0.85rem] text-slate-900/90">@FormattedVelocity</strong>
+            </div>
+            <div class="flex flex-col px-3.5 py-1.5 rounded-full bg-slate-400/20 text-slate-900/85 font-medium">
+                <span class="text-[0.65rem] uppercase tracking-wider text-slate-900/70">@Localizer["Torque"]</span>
+                <strong class="text-[0.85rem] text-slate-900/90">@FormattedTorque</strong>
+            </div>
+        </div>
+    </HeaderContent>
+
+    <CommandsOperateContent>
+        <div class="flex flex-col gap-4 w-full" @onclick:stopPropagation="true">
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
+                <div class="section-header">
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["PowerAndSafety"]</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["PowerAndSafetyDescription"]</p>
+                </div>
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
+                    <AxoToggleTaskCommandView Text="@Localizer["PowerStage"]" Component="Component.AxoPower_Task" HideRestoreButton="false" />
+                    <AxoTaskCommandView Text="@Localizer["ControlledStop"]" Component="Component.AxoStop_Task" HideRestoreButton="false" />
+                    <AxoTaskCommandView Text="@Localizer["Halt"]" Component="Component.AxoHalt_Task" HideRestoreButton="false" />
+                </div>
+                <div class="grid gap-3 md:grid-cols-2">
+                    <RenderableContentControl Context="Component.AxoPower_Status" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoPower_ErrorID" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoStop_Deceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoStop_Jerk" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoHalt_Deceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoHalt_Jerk" Presentation="Control" />
+                </div>
+            </section>
+
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
+                <div class="section-header">
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["HomingAndReferencing"]</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["HomingAndReferencingDescription"]</p>
+                </div>
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
+                    <AxoTaskCommandView Text="@Localizer["Home"]" Component="Component.AxoHome_Task" HideRestoreButton="false" />
+                    <AxoTaskCommandView Text="@Localizer["SetPosition"]" Component="Component.AxoSetPosition_Task" HideRestoreButton="false" />
+                    <AxoToggleTaskCommandView Text="@Localizer["Override"]" Component="Component.AxoSetOverride_Task" HideRestoreButton="false" />
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
+                    <RenderableContentControl Context="Component.AxoHome_Position" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoHome_HommingMode" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoHome_Velocity" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoHome_Acceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoHome_Deceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoSetPosition_Position" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoSetPosition_Relative" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoSetOverride_VelFactor" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoSetOverride_AccFactor" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoSetOverride_JerkFactor" Presentation="Control" />
+                </div>
+            </section>
+
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
+                <div class="section-header">
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["DiscreteMotion"]</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["DiscreteMotionDescription"]</p>
+                </div>
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
+                    <AxoTaskCommandView Text="@Localizer["MoveAbsolute"]" Component="Component.AxoMoveAbsolute_Task" HideRestoreButton="false" />
+                    <AxoTaskCommandView Text="@Localizer["MoveRelative"]" Component="Component.AxoMoveRelative_Task" HideRestoreButton="false" />
+                    <AxoTaskCommandView Text="@Localizer["MoveAdditive"]" Component="Component.AxoMoveAdditive_Task" HideRestoreButton="false" />
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Position" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Velocity" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Acceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Deceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Jerk" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveRelative_Distance" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveRelative_Velocity" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveRelative_Acceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveRelative_Deceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveAdditive_Distance" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveAdditive_Velocity" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveAdditive_Acceleration" Presentation="Control" />
+                </div>
+            </section>
+
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
+                <div class="section-header">
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["ContinuousMotionAndTorque"]</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["ContinuousMotionDescription"]</p>
+                </div>
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
+                    <AxoTaskCommandView Text="@Localizer["VelocityButton"]" Component="Component.AxoMoveVelocity_Task" HideRestoreButton="false" />
+                    <AxoTaskCommandView Text="@Localizer["TorqueControl"]" Component="Component.AxoTorqueControl_Task" HideRestoreButton="false" />
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Velocity" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Acceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Deceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Jerk" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Torque" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_TorqueRamp" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Velocity" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Acceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Deceleration" Presentation="Control" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Jerk" Presentation="Control" />
+                </div>
+            </section>
+        </div>
+    </CommandsOperateContent>
+
+    <CommandsMonitorContent>
+        <div class="flex flex-col gap-4 w-full" @onclick:stopPropagation="true">
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
+                <div class="section-header">
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["PowerAndSafety"]</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["LiveFeedbackDescription"]</p>
+                </div>
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
+                    <AxoToggleTaskStatusView Text="@Localizer["PowerStage"]" Component="Component.AxoPower_Task" HideRestoreButton="false" />
+                    <AxoTaskStatusView Text="@Localizer["ControlledStop"]" Component="Component.AxoStop_Task" HideRestoreButton="false" />
+                    <AxoTaskStatusView Text="@Localizer["Halt"]" Component="Component.AxoHalt_Task" HideRestoreButton="false" />
+                </div>
+                <div class="grid gap-3 md:grid-cols-2">
+                    <RenderableContentControl Context="Component.AxoPower_Status" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoPower_ErrorID" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoStop_Deceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoStop_Jerk" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoHalt_Deceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoHalt_Jerk" Presentation="Display" />
+                </div>
+            </section>
+
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
+                <div class="section-header">
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["HomingAndReferencing"]</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["MonitorReferencingDescription"]</p>
+                </div>
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
+                    <AxoTaskStatusView Text="@Localizer["Home"]" Component="Component.AxoHome_Task" HideRestoreButton="false" />
+                    <AxoTaskStatusView Text="@Localizer["SetPosition"]" Component="Component.AxoSetPosition_Task" HideRestoreButton="false" />
+                    <AxoToggleTaskStatusView Text="@Localizer["Override"]" Component="Component.AxoSetOverride_Task" HideRestoreButton="false" />
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
+                    <RenderableContentControl Context="Component.AxoHome_Position" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoHome_HommingMode" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoHome_Velocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoHome_Acceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoHome_Deceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoSetPosition_Position" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoSetPosition_Relative" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoSetOverride_VelFactor" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoSetOverride_AccFactor" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoSetOverride_JerkFactor" Presentation="Display" />
+                </div>
+            </section>
+
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
+                <div class="section-header">
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["DiscreteMotion"]</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["DiscreteMotionMonitorDescription"]</p>
+                </div>
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
+                    <AxoTaskStatusView Text="@Localizer["MoveAbsolute"]" Component="Component.AxoMoveAbsolute_Task" HideRestoreButton="false" />
+                    <AxoTaskStatusView Text="@Localizer["MoveRelative"]" Component="Component.AxoMoveRelative_Task" HideRestoreButton="false" />
+                    <AxoTaskStatusView Text="@Localizer["MoveAdditive"]" Component="Component.AxoMoveAdditive_Task" HideRestoreButton="false" />
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Position" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Velocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Acceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Deceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveAbsolute_Jerk" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveRelative_Distance" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveRelative_Velocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveRelative_Acceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveRelative_Deceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveAdditive_Distance" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveAdditive_Velocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveAdditive_Acceleration" Presentation="Display" />
+                </div>
+            </section>
+
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
+                <div class="section-header">
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["ContinuousMotionAndTorque"]</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["ContinuousMotionMonitorDescription"]</p>
+                </div>
+                <div class="grid gap-2 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
+                    <AxoTaskStatusView Text="@Localizer["VelocityButton"]" Component="Component.AxoMoveVelocity_Task" HideRestoreButton="false" />
+                    <AxoTaskStatusView Text="@Localizer["TorqueControl"]" Component="Component.AxoTorqueControl_Task" HideRestoreButton="false" />
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Velocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Acceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Deceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoMoveVelocity_Jerk" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Torque" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_TorqueRamp" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Velocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Acceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Deceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxoTorqueControl_Jerk" Presentation="Display" />
+                </div>
+            </section>
+        </div>
+    </CommandsMonitorContent>
+
+    <ConfigAndStateViewContent>
+        <div class="grid gap-4 w-full" @onclick:stopPropagation="true">
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
+                <div class="section-header">
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["DriveFeedback"]</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["DriveFeedbackDescription"]</p>
+                </div>
+                <div class="grid gap-3 md:grid-cols-2">
+                    <RenderableContentControl Context="Component.DriveStatus" Presentation="Status-Display" />
+                    <RenderableContentControl Context="Component.AxisRefExt.Status" Presentation="Status-Display" />
+                    <RenderableContentControl Context="Component.Messenger" Presentation="Status-Display" />
+                    <RenderableContentControl Context="Component.TaskMessenger" Presentation="Status-Display" />
+                    <RenderableContentControl Context="Component.HardwareDiagnosticsTask" Presentation="Status-Display" />
+                </div>
+            </section>
+
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
+                <div class="section-header">
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["ScalingConstants"]</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["ScalingConstantsDescription"]</p>
+                </div>
+                <div class="grid gap-3 md:grid-cols-3">
+                    <RenderableContentControl Context="Component.ScalingConstantRequiredPosition" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantActualPosition" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantRequiredVelocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantActualVelocity" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantRequiredAcceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantActualAcceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantRequiredDeceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantActualDeceleration" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantRequiredTorque" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantActualTorque" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantRequiredJerk" Presentation="Display" />
+                    <RenderableContentControl Context="Component.ScalingConstantActualJerk" Presentation="Display" />
+                </div>
+            </section>
+
+            <section class="flex flex-col gap-3 p-4 rounded-xl border border-slate-400/35 bg-slate-900/35 backdrop-blur-sm">
+                <div class="section-header">
+                    <h6 class="m-0 font-semibold text-[0.95rem] text-slate-100/95">@Localizer["AxisReference"]</h6>
+                    <p class="m-0 text-[0.8rem] text-slate-400/90">@Localizer["AxisReferenceDescription"]</p>
+                </div>
+                <div class="grid gap-3 md:grid-cols-2">
+                    <RenderableContentControl Context="Component.AxisRefExt.Telegram111_In" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxisRefExt.Telegram111_Out" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxisRefExt.Telegram750_In" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxisRefExt.Telegram750_Out" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxisRefExt.HWIDs" Presentation="Display" />
+                    <RenderableContentControl Context="Component.AxisRefExt.Data" Presentation="Display" />
+                </div>
+            </section>
+        </div>
+    </ConfigAndStateViewContent>
+
+    <SpotContent>
+        <div class="drive-spot">
+            <div class="drive-spot__state">
+                <span>@DriveStateLabel</span>
+                
+                @* <span>@CurrentMotionTaskLabel</span> *@
+            </div>
+            <div class="drive-spot__metric">
+                <p>@Localizer["Position"]</p>
+                <strong>@FormattedPosition</strong>
+            </div>
+            <div class="drive-spot__metric">
+                <p>@Localizer["Velocity"]</p>
+                <strong>@FormattedVelocity</strong>
+            </div>
+            <div class="drive-spot__metric">
+                <p>@Localizer["Torque"]</p>
+                <strong>@FormattedTorque</strong>
+            </div>
+        </div>
+    </SpotContent>
+</AxoComponentContainerView>

@@ -2,18 +2,17 @@
 
 <PageTitle>pneumaticcomponents.blazor</PageTitle>
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<div class="flex flex-col md:flex-row w-full">
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
+    <NavMenu />
 
-        <article class="content px-4">
+    <main class="flex-1">
+        <AxOpen.Security.Views.LoginDisplay />
+        <article class="block">
             @Body
         </article>
     </main>
+
+    <Operon.Components.Toast.ToastView />
 </div>
+

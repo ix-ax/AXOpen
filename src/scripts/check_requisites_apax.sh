@@ -1,5 +1,5 @@
 apaxUrl="https://console.simatic-ax.siemens.io/"
-expectedApaxVersion="3.5.0"
+expectedApaxVersion="4.2.0"
 
 export GREEN='\033[0;32m'
 export RED='\033[0;31m'
@@ -76,10 +76,11 @@ if ! is_apax_installed ; then
     printf "${RED}Apax is not installed or not found in PATH. You need to have a valid SIMATIC-AX license.${NC}"
     exit 1
 elif ! is_apax_version_equal "$expectedApaxVersion" ; then
-    printf "${RED}Apax installed, but version found does not match the verion required $expectedApaxVersion.${NC}"
+    printf "${RED}Apax installed, but the version found does not match the version required $expectedApaxVersion.${NC}"
+    printf "${RED}Run 'apax self-update $expectedApaxVersion'.${NC}"
     exit 1
 else
-    printf "${GREEN}Apax installed, verion matches required $expectedApaxVersion.${NC}"
+    printf "${GREEN}Apax installed, version matches required $expectedApaxVersion.${NC}"
 	if ! is_apax_site_accessible ; then
     	printf "${RED}Failed to access feed: $apaxUrl. Error: HTTP status $response.${NC}"
         printf "${RED}Try to access it manually, check your connection, firewall settings, credentials, etc.${NC}"

@@ -1,21 +1,45 @@
 
-**NuGet package feed**
+**NuGet Package Feed (Blazor Packages)**
 
->[!IMPORTANT]
-> **NuGet pacakges are now published experimentally**
+This note applies specifically to the AXOpen Blazor UI / integration packages but defers to the consolidated guidance in `NUGET_PACAKGE_GENERAL.md`.
 
-This nuget package's feed is hosted on github on how to authenticate to the feed see the documentation [here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry).
+> [!TIP]
+> If you have already added the `gh-packages-inxton` source (see general doc) you do not need to repeat configuration for Blazor packages.
 
-~~~bash
-dotnet nuget add source --username GITHUBUSERNAME --password PAT  --store-password-in-clear-text --name gh-packages-inxton "https://nuget.pkg.github.com/inxton/index.json"
-~~~
+Common package IDs (examples):
 
-Replace GITHUBUSERNAME with your github name
-Replace PAT with your Personal Access Token ([how to create your PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
+* `AXOpen.Core.Blazor`
+* `AXOpen.Integrations.Blazor`
+* `AXOpen.Security` (UI components depend on this for auth views)
 
+Add (only if not already configured):
 
->[!NOTE]
-> Please notice that all AXOpen packages are being released from a single repository and version numbers are aligned. You can use different versions that have major version number alligned should it be necessary, however we strongly recommend to use pacakge with the same version number, such packages are being built and tested together to enshure best experience.
+```bash
+dotnet nuget add source \
+	--username YOUR_GITHUB_USERNAME \
+	--password YOUR_GITHUB_PAT \
+	--store-password-in-clear-text \
+	--name gh-packages-inxton \
+	"https://nuget.pkg.github.com/inxton/index.json"
+```
+
+### Version Strategy
+
+Blazor surface changes (Razor components, CSS/JS assets) may introduce subtle breakage if versions drift from backend core packages. Keep UI and core packages on identical versions to avoid mismatched rendering metadata or missing layout attributes.
+
+### Asset Resolution
+
+Static assets (icons, css, JS) are served via the standard `_content/{PackageId}/...` path. When creating composite libraries, re-export or document the asset path rather than copying files into the host app to reduce duplication.
+
+### Debugging UI Package Issues
+
+| Symptom | Likely Cause | Suggested Fix |
+|---------|--------------|---------------|
+| 404 on `_content/...` | Static web assets not referenced (missing package ref) | Confirm `<PackageReference>` present & rebuild |
+| Missing styles | Theme CSS not selected / cookie unset | Inspect cookies, verify theme asset existence |
+| Auth views blank | `ConfigureAxBlazorSecurity` not called or DI mismatch | Check `Program.cs` configuration order |
+
+For adding or updating the feed, contribution, or advanced scenarios (mirroring, offline caches) see `NUGET_PACAKGE_GENERAL.md`.
 
 
 

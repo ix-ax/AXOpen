@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DisableTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit DisableTask.</value>
+  </data>
+  <data name="EnableTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit EnableTask.</value>
+  </data>
+  <data name="DisableClockwiseTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit DisableClockwiseTask.</value>
+  </data>
+  <data name="EnableClockwiseTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit EnableClockwiseTask.</value>
+  </data>
+  <data name="DisableCounterClockwiseTask_timeout_DOT_" xml:space="preserve">
+    <value>DisableCounterClockwiseTask timeout.</value>
+  </data>
+  <data name="EnableCounterClockwiseTask_timeout_DOT_" xml:space="preserve">
+    <value>EnableCounterClockwiseTask timeout.</value>
+  </data>
+  <data name="ResetFaultTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ResetFaultTask.</value>
+  </data>
+  <data name="ResetResultsTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit ResetResultsTask.</value>
+  </data>
+  <data name="SetScrewingProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit SetScrewingProgramTask.</value>
+  </data>
+  <data name="GetScrewingResultsTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit úlohy GetScrewingResultsTask.</value>
+  </data>
+  <data name="ScrewClockwiseTask_timeout_DOT_" xml:space="preserve">
+    <value>ScrewClockwiseTask timeout.</value>
+  </data>
+  <data name="ScrewCounterClockwiseTask_timeout_DOT_" xml:space="preserve">
+    <value>ScrewCounterClockwiseTask timeout.</value>
+  </data>
+  <data name="RunAutomatTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit úlohy RunAutomatTask.</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnoviť</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Pripravený</value>
+  </data>
+  <data name="Torque" xml:space="preserve">
+    <value>Krútiaci moment</value>
+  </data>
+  <data name="NOK" xml:space="preserve">
+    <value>NOK</value>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Výsledky</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Pokrok</value>
+  </data>
+  <data name="Program_number__BRACKET_manual_ENDBRACKET_" xml:space="preserve">
+    <value>Číslo programu (manuálne)</value>
+  </data>
+  <data name="IDcode__BRACKET_manual_ENDBRACKET_" xml:space="preserve">
+    <value>IDkód (manuálne)</value>
+  </data>
+  <data name="Automatic_start_manual" xml:space="preserve">
+    <value>Automatický štart manuálu</value>
+  </data>
+  <data name="DisableTask" xml:space="preserve">
+    <value>DisableTask</value>
+  </data>
+  <data name="EnableTask" xml:space="preserve">
+    <value>EnableTask</value>
+  </data>
+  <data name="DisableClockwiseTask" xml:space="preserve">
+    <value>DisableClockwiseTask</value>
+  </data>
+  <data name="EnableClockwiseTask" xml:space="preserve">
+    <value>EnableClockwiseTask</value>
+  </data>
+  <data name="DisableCounterClockwiseTask" xml:space="preserve">
+    <value>DisableCounterClockwiseTask</value>
+  </data>
+  <data name="EnableCounterClockwiseTask" xml:space="preserve">
+    <value>EnableCounterClockwiseTask</value>
+  </data>
+  <data name="ResetFaultTask" xml:space="preserve">
+    <value>ResetFaultTask</value>
+  </data>
+  <data name="ResetResultsTask" xml:space="preserve">
+    <value>ResetResultsTask</value>
+  </data>
+  <data name="SetScrewingProgramTask" xml:space="preserve">
+    <value>SetScrewingProgramTask</value>
+  </data>
+  <data name="GetScrewingResultsTask" xml:space="preserve">
+    <value>GetScrewingResultsTask</value>
+  </data>
+  <data name="ScrewClockwiseTask" xml:space="preserve">
+    <value>Skrutka v smere hodinových ručičiekÚloha</value>
+  </data>
+  <data name="ScrewCounterClockwiseTask" xml:space="preserve">
+    <value>ScrewCounterClockwiseTask</value>
+  </data>
+  <data name="RunAutomatTask" xml:space="preserve">
+    <value>RunAutomatTask</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Identifikátory hardvéru</value>
+  </data>
+  <data name="Torque_scaling_constant__BRACKET_depends_on_the_type_of_spindle_used_ENDBRACKET_" xml:space="preserve">
+    <value>Konštanta škálovania krútiaceho momentu (závisí od typu použitého vretena)</value>
+  </data>
+  <data name="Angle_scaling_constant__BRACKET_depends_on_the_type_of_spindle_used_ENDBRACKET_" xml:space="preserve">
+    <value>Konštanta uhlovej stupnice (závisí od typu použitého vretena)</value>
+  </data>
+  <data name="Program_number_ack_DOT_" xml:space="preserve">
+    <value>Číslo programu ack.</value>
+  </data>
+  <data name="No_fault" xml:space="preserve">
+    <value>Žiadna chyba</value>
+  </data>
+  <data name="In_Cycle" xml:space="preserve">
+    <value>V cykle</value>
+  </data>
+  <data name="In_Cycle_counter_clockwise" xml:space="preserve">
+    <value>V cykle proti smeru hodinových ručičiek</value>
+  </data>
+  <data name="Cycle_complete" xml:space="preserve">
+    <value>Cyklus dokončený</value>
+  </data>
+  <data name="Tool_button" xml:space="preserve">
+    <value>Tlačidlo nástroja</value>
+  </data>
+  <data name="Counter_clockwise_select" xml:space="preserve">
+    <value>Vyberte proti smeru hodinových ručičiek</value>
+  </data>
+  <data name="Start_button_ErgoSpin" xml:space="preserve">
+    <value>Tlačidlo Štart ErgoSpin</value>
+  </data>
+  <data name="Triger_Out" xml:space="preserve">
+    <value>Triger Out</value>
+  </data>
+  <data name="Torque_too_high" xml:space="preserve">
+    <value>Príliš vysoký krútiaci moment</value>
+  </data>
+  <data name="Torque_too_low" xml:space="preserve">
+    <value>Príliš nízky krútiaci moment</value>
+  </data>
+  <data name="Angle_too_high" xml:space="preserve">
+    <value>Príliš vysoký uhol</value>
+  </data>
+  <data name="Angle_too_low" xml:space="preserve">
+    <value>Príliš nízky uhol</value>
+  </data>
+  <data name="Counter_clockwise_lock_acknowledge" xml:space="preserve">
+    <value>Potvrdenie uzamknutia proti smeru hodinových ručičiek</value>
+  </data>
+  <data name="Enable_acknowledge" xml:space="preserve">
+    <value>Povolenie potvrdenia</value>
+  </data>
+  <data name="Active_enable_acknowledge" xml:space="preserve">
+    <value>Aktívne potvrdenie povolenia</value>
+  </data>
+  <data name="Clockwise_lock_acknowledge" xml:space="preserve">
+    <value>Potvrdenie uzamknutia v smere hodinových ručičiek</value>
+  </data>
+  <data name="Clockwise_acknowledge" xml:space="preserve">
+    <value>Potvrdenie v smere hodinových ručičiek</value>
+  </data>
+  <data name="Counter_clockwise_acknowledge" xml:space="preserve">
+    <value>Potvrdenie proti smeru hodinových ručičiek</value>
+  </data>
+  <data name="ErgoSpin_LED_Green_acknowledge" xml:space="preserve">
+    <value>ErgoSpin LED zelená potvrdenie</value>
+  </data>
+  <data name="ErgoSpin_LED_Yellow_acknowledge" xml:space="preserve">
+    <value>ErgoSpin LED žlté potvrdenie</value>
+  </data>
+  <data name="ErgoSpin_LED_Red_acknowledge" xml:space="preserve">
+    <value>ErgoSpin LED červené potvrdenie</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Výsledok</value>
+  </data>
+  <data name="Cycle_counter" xml:space="preserve">
+    <value>Počítadlo cyklov</value>
+  </data>
+  <data name="Program_number" xml:space="preserve">
+    <value>Číslo programu</value>
+  </data>
+  <data name="Torque_min" xml:space="preserve">
+    <value>Krútiaci moment min</value>
+  </data>
+  <data name="Torque_max" xml:space="preserve">
+    <value>Maximálny krútiaci moment</value>
+  </data>
+  <data name="Angle_min" xml:space="preserve">
+    <value>Uhol min.</value>
+  </data>
+  <data name="Angle" xml:space="preserve">
+    <value>Uhol</value>
+  </data>
+  <data name="Angle_max" xml:space="preserve">
+    <value>Uhol max</value>
+  </data>
+  <data name="Error_code" xml:space="preserve">
+    <value>Kód chyby</value>
+  </data>
+  <data name="Error_class" xml:space="preserve">
+    <value>Trieda chýb</value>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Kontrola</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Povolenie stránky</value>
+  </data>
+  <data name="Reset_fault" xml:space="preserve">
+    <value>Resetovanie poruchy</value>
+  </data>
+  <data name="Start_clockwise" xml:space="preserve">
+    <value>Začnite v smere hodinových ručičiek</value>
+  </data>
+  <data name="Start_counter_clockwise" xml:space="preserve">
+    <value>Začnite proti smeru hodinových ručičiek</value>
+  </data>
+  <data name="Reset_results" xml:space="preserve">
+    <value>Obnovenie výsledkov</value>
+  </data>
+  <data name="Nok_acknowledge" xml:space="preserve">
+    <value>Nok berie na vedomie</value>
+  </data>
+  <data name="User_In__ONE_" xml:space="preserve">
+    <value>Používateľ v 1</value>
+  </data>
+  <data name="User_In__TWO_" xml:space="preserve">
+    <value>Používateľ v 2</value>
+  </data>
+  <data name="ErgoSpin_LED_Green" xml:space="preserve">
+    <value>ErgoSpin LED zelená</value>
+  </data>
+  <data name="ErgoSpin_LED_Yellow" xml:space="preserve">
+    <value>ErgoSpin LED žltá</value>
+  </data>
+  <data name="ErgoSpin_LED_Red" xml:space="preserve">
+    <value>ErgoSpin LED červená</value>
+  </data>
+  <data name="Active_enable" xml:space="preserve">
+    <value>Aktívne povolenie</value>
+  </data>
+  <data name="Counter_clockwise_lock" xml:space="preserve">
+    <value>Zámok proti smeru hodinových ručičiek</value>
+  </data>
+  <data name="Clockwise_lock" xml:space="preserve">
+    <value>Zámok v smere hodinových ručičiek</value>
+  </data>
+  <data name="Clockwise_AND" xml:space="preserve">
+    <value>V smere hodinových ručičiek A</value>
+  </data>
+  <data name="Counter_clockwise_AND" xml:space="preserve">
+    <value>Proti smeru hodinových ručičiek A</value>
+  </data>
+  <data name="ID_code" xml:space="preserve">
+    <value>Identifikačný kód</value>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>ID hardvéru zariadenia</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 1</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 2</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__THREE__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 3</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__FOUR__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 4</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__FIVE__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 5</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__SIX__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 6</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__SEVEN__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 7</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__EIGHT__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 8</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__NINE__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 9</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__ZERO__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 10</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__ONE__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 11</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__TWO__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 12</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__THREE__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 13</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__FOUR__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 14</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__FIVE__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 15</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__SIX__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 16</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__SEVEN__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 17</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__EIGHT__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 18</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__ONE__NINE__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 19</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__ZERO__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 20</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__ONE__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 21</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__TWO__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 22</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__THREE__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 23</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__FOUR__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 24</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__FIVE__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 25</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Slot__TWO__SIX__APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu "Slot 26</value>
+  </data>
+</root>

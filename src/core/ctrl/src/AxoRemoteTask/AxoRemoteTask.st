@@ -42,12 +42,17 @@ NAMESPACE AXOpen.Core
 
             IF(Execute) THEN                
                 _remoteTaskMessenger.ActivateOnCondition(UINT#1,NOT IsInitialized, AXOpen.Messaging.eAxoMessageCategory#Warning);
-                //SUPER.ThrowWhen(NOT IsInitialized, 'THE REMOTE TASK IS NOT INITIALIZED');     
+                //SUPER.ThrowWhen(NOT IsInitialized,'<#THE REMOTE TASK IS NOT INITIALIZED#>');     
                 SUPER.ThrowWhen(HasRemoteException, ErrorDetails);                                
                 SUPER.DoneWhen(StartSignature = DoneSignature);     
+                // This will set the IsInitialized to TRUE when the remote system acknowledges the StartSignature
+                // This will allow the task to be executed again in the future without going to error state
+                IF(StartSignature = DoneSignature) THEN
+                    THIS.IsInitialized := TRUE;
+                END_IF;    
                 IsBeingCalledCounter := IsBeingCalledCounter + 1;                       
             END_IF;                
-                                    
+                                                
             _remoteTaskMessenger.ActivateOnCondition(UINT#2,HasRemoteException, AXOpen.Messaging.eAxoMessageCategory#Error).RequireAcknowledgement();        
         END_METHOD  
                       

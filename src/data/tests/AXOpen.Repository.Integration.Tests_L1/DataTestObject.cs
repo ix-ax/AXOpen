@@ -14,6 +14,9 @@ namespace AXOpen.Repository.Integration.Tests
             UlongMax = ulong.MaxValue;
         }
 
+        public DateTime? ModifiedAt { get; set; } = DateTime.UtcNow;
+        public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
+
         public string Name { get; set; }
         public DateTime DateOfBirth { get; set; }
 
@@ -21,7 +24,7 @@ namespace AXOpen.Repository.Integration.Tests
 
         public DateTime _Created { get; set; }
 
-        public string DataEntityId { get; set; }
+        public string _EntityId { get; set; }
 
         public DateTime _Modified { get; set; }
 
@@ -158,6 +161,9 @@ namespace AXOpen.Repository.Integration.Tests
             UlongMax = ulong.MaxValue;
         }
 
+        public DateTime? ModifiedAt { get; set; } = DateTime.UtcNow;
+        public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
+
         public string Name { get; set; }
         public DateTime DateOfBirth { get; set; }
 
@@ -165,7 +171,7 @@ namespace AXOpen.Repository.Integration.Tests
 
         public DateTime _Created { get; set; }
 
-        public string DataEntityId { get; set; }
+        public string _EntityId { get; set; }
 
         public DateTime _Modified { get; set; }
 

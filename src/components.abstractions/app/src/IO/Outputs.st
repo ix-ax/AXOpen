@@ -1,9 +1,10 @@
-NAMESPACE AXOpen.Abstractions
+﻿NAMESPACE AXOpen.Abstractions
     TYPE
         {S7.extern=ReadWrite}
         {#ix-attr:[Container(Layout.Wrap)]}
         Outputs : STRUCT
-            noOutputsFoundInTheHwConfig AT %B0: BYTE;
+            noOutputsFoundInTheHwConfig AT %B0:  BYTE;
         END_STRUCT;
     END_TYPE
 END_NAMESPACE
+

@@ -1,8 +1,12 @@
+#!/bin/bash
+
+# ---- Colors ----
 export GREEN='\033[0;32m'
 export RED='\033[0;31m'
 export YELLOW='\033[0;33m'
-export NC='\033[0m\r\n' # No Color+CRLF
+export NC='\033[0m\r\n' # No Color + CRLF
 
+# ---- Argument Validation ----
 if [ "$#" -ne 2 ]; then
     printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME>.${NC}"
     exit 1
@@ -25,90 +29,107 @@ if ! [[ -d "./hwc" ]]; then
     printf "${RED}Directory \"./hwc\" does not exist!!!${NC}"
     exit 1
 fi
-
+dos2unix SystemConstants/*
+dos2unix -r hwc/hwc.gen/*
+# ---- Paths ----
 input_file="SystemConstants/${PLC_NAME}_IoAddresses.st"
 output_dir="src/IO"
 output_file_inputs="$output_dir/Inputs.st"
 output_file_outputs="$output_dir/Outputs.st"
+output_file_structures="$output_dir/IoStructures.st"
 
 if ! [[ -e "$input_file" ]]; then
     printf "${RED}File $input_file does not exist!!!${NC}"
     exit 1
 fi
 
-mkdir -p "$output_dir"
+hwcv=$(apax hwc --version)
+echo "hwc version used: '$hwcv'."
 
-noInputsFoundInTheHwConfig=1
-noOutputsFoundInTheHwConfig=1
+# Condition 1: all versions below 3.4.0
+if [[ "$(printf '%s\n' "$hwcv" "3.4.0" | sort -V | head -n1)" == "$hwcv" && "$hwcv" != "3.4.0" ]]; then
+	mkdir -p "$output_dir"
+	# --- Init outputs ------------------------------------------------------------
+	: > "$output_file_inputs"
+	: > "$output_file_outputs"
+	: > "$output_file_structures"
+	# ---- AWK Processing ----
+	awk -v ns="$NAMESPACE" '
+	BEGIN {
+		hasInputs = 0
+		hasOutputs = 0
 
-# Base content
-inputs_content="NAMESPACE ${NAMESPACE}
-    TYPE
-        {S7.extern=ReadWrite}
-        {#ix-attr:[Container(Layout.Wrap)]}
-        Inputs : STRUCT"
-outputs_content="NAMESPACE ${NAMESPACE}
-    TYPE
-        {S7.extern=ReadWrite}
-        {#ix-attr:[Container(Layout.Wrap)]}
-        Outputs : STRUCT"
+		print "NAMESPACE " ns "\n    TYPE\n        {S7.extern=ReadWrite}\n        {#ix-attr:[Container(Layout.Wrap)]}\n        Inputs : STRUCT" > "'"$output_file_inputs"'"
+		print "NAMESPACE " ns "\n    TYPE\n        {S7.extern=ReadWrite}\n        {#ix-attr:[Container(Layout.Wrap)]}\n        Outputs : STRUCT" > "'"$output_file_outputs"'"
+	}
+	{
+		line = $0
+		gsub(/\r/, "", line)
 
-# Read the entire file into a single variable
-file_content=$(<"$input_file")
+		# Prepend underscore if first char is invalid
+		match(line, /^[[:space:]]*/)
+		prefix = substr(line, 1, RLENGTH)
+		rest = substr(line, RLENGTH+1)
+		first = substr(rest, 1, 1)
+		if (first !~ /[a-zA-Z_]/ && first != "") {
+			rest = "_" rest
+		}
+		line = prefix rest
 
-# Process all lines
-while IFS= read -r line; do
-    modified_line="$line"
-    first_non_white_pos=$(expr match "$modified_line" '^[[:space:]]*')
-    first_char="${modified_line:$first_non_white_pos:1}"
+		# INPUT processing
+		if (line ~ /_InputAddress/) {
+			name = $1
+			sub(/_InputAddress/, "", name)  # remove only first occurrence
+			match(line, /%[A-Z]+([0-9]*):/, addr)
+			match(line, /:[[:space:]]*([^;]+);/, typ)
+			if (name && addr[1] != "" && typ[1]) {
+				printf "            %s AT %%B%s:  %s;\n", name, addr[1], typ[1] >> "'"$output_file_inputs"'"
+				hasInputs = 1
+			}
+		}
 
-    if [[ "$first_non_white_pos" -lt "${#modified_line}" && ! "$first_char" =~ [a-zA-Z] ]]; then
-        before_first_char="${modified_line:0:$first_non_white_pos}"
-        after_first_char="${modified_line:$first_non_white_pos}"
-        if [[ "$first_char" != "_" ]]; then
-            modified_line="${before_first_char}_${after_first_char}"
-        fi
-    fi
+		# OUTPUT processing
+		if (line ~ /_OutputAddress/) {
+			name = $1
+			sub(/_OutputAddress/, "", name)  # remove only first occurrence
+			match(line, /%[A-Z]+([0-9]*):/, addr)
+			match(line, /:[[:space:]]*([^;]+);/, typ)
+			if (name && addr[1] != "" && typ[1]) {
+				printf "            %s AT %%B%s:  %s;\n", name, addr[1], typ[1] >> "'"$output_file_outputs"'"
+				hasOutputs = 1
+			}
+		}
+	}
+	END {
+		if (!hasInputs)
+			print "            noInputsFoundInTheHwConfig AT %B0:  BYTE;" >> "'"$output_file_inputs"'"
+		if (!hasOutputs)
+			print "            noOutputsFoundInTheHwConfig AT %B0:  BYTE;" >> "'"$output_file_outputs"'"
 
-    if [[ $modified_line == *"_InputAddress"* ]]; then
-        variable_name=$(echo "$modified_line" | awk '{print $1}' | sed 's/_InputAddress//')
-        address_offset=$(echo "$modified_line" | awk -F'%' '{print $2}' | awk -F':' '{print $1}' | grep -o '[0-9]\+')
-        variable_type=$(echo "$modified_line" | awk -F':' '{print $2}' | awk -F';' '{print $1}')
-        noInputsFoundInTheHwConfig=0
-        inputs_content+="
-            ${variable_name} AT %B${address_offset}: ${variable_type};"
-    fi
+		print "        END_STRUCT;\n    END_TYPE\nEND_NAMESPACE" >> "'"$output_file_inputs"'"
+		print "        END_STRUCT;\n    END_TYPE\nEND_NAMESPACE" >> "'"$output_file_outputs"'"
+	}
+	' "$input_file"
 
-    if [[ $modified_line == *"_OutputAddress"* ]]; then
-        variable_name=$(echo "$modified_line" | awk '{print $1}' | sed 's/_OutputAddress//')
-        address_offset=$(echo "$modified_line" | awk -F'%' '{print $2}' | awk -F':' '{print $1}' | grep -o '[0-9]\+')
-        variable_type=$(echo "$modified_line" | awk -F':' '{print $2}' | awk -F';' '{print $1}')
-        noOutputsFoundInTheHwConfig=0
-        outputs_content+="
-            ${variable_name} AT %B${address_offset}: ${variable_type};"
-    fi
-done <<< "$file_content"
+	echo -e "${GREEN}Done. Files written to $output_dir${NC}"
+else
+	# echo "input_file: $input_file"
+	# echo "output_dir: $output_dir"
+	# echo "output_file_inputs: $output_file_inputs"
+	# echo "output_file_outputs: $output_file_outputs"
+	# echo "output_file_structures: $output_file_structures"
+	# echo "NAMESPACE: $NAMESPACE"
+	scriptDir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+	copy_io_addresses_hwc_3_4_0="$scriptDir/copy_io_addresses_hwc_3_4_0.ps1"
 
-# Add fallback if no addresses found
-if [ $noInputsFoundInTheHwConfig -eq 1 ]; then
-    inputs_content+="
-            noInputsFoundInTheHwConfig AT %B0: BYTE;"
+	powershell.exe -File "$copy_io_addresses_hwc_3_4_0" \
+										  -input_file "$input_file" \
+										  -output_dir "$output_dir" \
+										  -output_file_inputs "$output_file_inputs" \
+										  -output_file_outputs "$output_file_outputs" \
+										  -output_file_structures "$output_file_structures" \
+										  -NAMESPACE "$NAMESPACE"
+	exitCode=$?  
+	echo "exitCode: $exitCode"
 fi
-if [ $noOutputsFoundInTheHwConfig -eq 1 ]; then
-    outputs_content+="
-            noOutputsFoundInTheHwConfig AT %B0: BYTE;"
-fi
-
-# Footer
-inputs_content+="
-        END_STRUCT;
-    END_TYPE
-END_NAMESPACE"
-outputs_content+="
-        END_STRUCT;
-    END_TYPE
-END_NAMESPACE"
-
-# Write all content at once
-echo "$inputs_content" > "$output_file_inputs"
-echo "$outputs_content" > "$output_file_outputs"
+dos2unix -r src/IO/*

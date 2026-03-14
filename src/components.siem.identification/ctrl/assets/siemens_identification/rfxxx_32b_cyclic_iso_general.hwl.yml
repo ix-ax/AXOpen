@@ -1,0 +1,39 @@
+Templates:
+  Modules:
+  - Name: 'rfxxx_32b_cyclic_iso_general'
+    Placeholders:
+    - Name: 'ModuleName'
+      Value: 'ModuleName'
+    Content:
+      Name: '${ModuleName}'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.43-SIEMENS-RF18XC-20240514.XML'
+        GsdId: 'ID_UNI_IO32'
+      Parameters:
+        RecordDataList:
+        - IndexName: 'General parameters (Requirement: WBM parameterization disabled)'
+          Values:
+          - OffsetName: 'Diagnostic messages'
+            # Possible ValueNames: None | Hard errors | Hard/soft errors
+            ValueName: 'Hard/soft errors'
+          - OffsetName: 'ISO 15693'
+            # Possible ValueNames: Off (or RF300 Gen1 with RF3xxT) | ISO general | MDS D1xx, NXP | MDS D200, TI | MDS D261, STM/NXP | MDS D3xx, Infineon | MDS D4xx, Fujitsu - 2 kB | MDS D5xx, Fujitsu - 8 kB
+            ValueName: 'ISO general'
+          - OffsetName: 'RF300'
+            Value: False
+          - OffsetName: 'MOBY E'
+            Value: False
+          - OffsetName: 'Consistency assurance'
+            Value: False
+          - OffsetName: 'Minimum data holding time [ms]'
+            # Possible value range: [0, 65535]
+            Value: 0
+          - OffsetName: 'Automatic command'
+            # Possible ValueNames: Disabled or no command active - command execution via user program | Read UID | Read tag field | Read
+            ValueName: 'Disabled or no command active - command execution via user program'
+          - OffsetName: 'Address or tag field index'
+            # Possible value range: [0, 4294967295]
+            Value: 0
+          - OffsetName: 'Data length'
+            # Possible value range: [0, 28]
+            Value: 28

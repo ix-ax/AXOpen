@@ -1,0 +1,9 @@
+Templates:
+  Modules:
+  - Name: 'Cognex_Vision_Insight_V_6_0_0_ResultData_128'
+    Content:
+      Name: 'ResultData_128'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.34-Cognex-InSightClassB-20200529.xml'
+        GsdId: '404'
+      Slot: 8        

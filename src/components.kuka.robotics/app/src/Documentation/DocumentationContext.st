@@ -10,6 +10,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
         METHOD PROTECTED OVERRIDE Main
             THIS.InitializeRootObject(_rootObject);
             componentOne.Run(_rootObject);
+            RETURN;
             componentTwo.Run(_rootObject);
         END_METHOD
     END_CLASS

@@ -27,6 +27,8 @@ To accomplish this, call the `Run` method cyclically with the proper variables (
 
 [!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
 
+>[!IMPORTANT]
+>Movement suspension and movement abort methods (`SuspendMoveToInWhile`, `SuspendMoveToOutWhile`, `AbortMoveToHomeWhen`, `AbortMoveToWorkWhen`) must be called cyclically **before** calling the `Run` method to ensure proper operation and safety.
 
 #### Example use
 
@@ -45,12 +47,12 @@ To stop the movement, when the cylinder is moving, the public `Stop` method is p
 
 **Blocking the movement**
 To block the movement, there are four public methods present:
-`SuspendMoveToHomeWhile(Condition)` - Suspends the movement to the home position while the `Condition` is `TRUE`. If the task was already invoked, it remains still executing and, with the falling edge of the `Condition` cylinder, continues its movement to the home position. If the task is invoked when `Condition` is already `TRUE`, the task starts to be executed, but the movement starts also with the falling edge of the `Condition`. 
-`SuspendMoveToWorkWhile(Condition)` - Works exactly the same as `SuspendMoveToHomeWhile(Condition)` but in the opposite direction.
-**Example of using SuspendMoveToHomeWhile method**
-[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=SuspendMoveToHomeWhile)]
-**Example of using SuspendMoveToWorkWhile method**
-[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=SuspendMoveToWorkWhile)]
+`SuspendMoveToInWhile(Condition)` - Suspends the movement to the home position while the `Condition` is `TRUE`. If the task was already invoked, it remains still executing and, with the falling edge of the `Condition` cylinder, continues its movement to the home position. If the task is invoked when `Condition` is already `TRUE`, the task starts to be executed, but the movement starts also with the falling edge of the `Condition`. 
+`SuspendMoveToOutWhile(Condition)` - Works exactly the same as `SuspendMoveToInWhile(Condition)` but in the opposite direction.
+**Example of using SuspendMoveToInWhile method**
+[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=SuspendMoveToInWhile)]
+**Example of using SuspendMoveToOutWhile method**
+[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=SuspendMoveToOutWhile)]
 
 `AbortMoveToHomeWhen(Condition)` - Aborts the movement to the home position when the `Condition` is `TRUE`. If the task was already invoked, it is restored and disabled. After the falling edge of the `Condition` cylinder does not continue its movement to the home position. The task needs to be invoked again to start the movement. 
 `AbortMoveToWorkWhen(Condition)` - Works exactly the same as `AbortMoveToHomeWhen(Condition)` but in the opposite direction.

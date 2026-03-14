@@ -1,0 +1,159 @@
+﻿@namespace AXOpen.Core.Blazor
+@using AXOpen.Messaging
+@using AXOpen.Messaging.Static
+@using System.Globalization
+@using AXSharp.Connector.Localizations
+@using Microsoft.Extensions.Localization
+@using AXOpen.Core.Blazor.Properties
+@inject IStringLocalizer<AxOpenCoreResources> Localizer
+@inherits RenderableComponentBase
+
+<div @onmouseenter="BringToForeGround"
+     @onmouseleave="BringToZIndexBack"
+     class="@MainContainerClasses">
+
+    @* class="flex flex-col gap-4 p-4 border rounded-lg bg-background/70 @AlarmBorderClass" *@
+    <!--Header-->
+    @if(HeaderActive)
+    {
+        <div @onclick="ToggleDetails"
+         class="flex items-center justify-between border-b border-border p-2 cursor-pointer
+                hover:bg-background/20 transition-colors rounded px-2 -mx-2 select-none">
+        <div class="flex items-center gap-2">
+            <span class="text-xs">@(DetailsActive ? "▼" : "▶")</span>
+            <h5 class="text-lg font-semibold text-text">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</h5>
+        </div>
+            @HeaderContent
+        <div class="flex items-center gap-2" @onclick:stopPropagation="true">
+            @if (HasActiveMessages)
+            {
+                <button @onclick="ToggleMessages"
+                        class="badge @AlarmBadgeClass"
+                        title="@ActiveAlarmCount @(ActiveAlarmCount != 1 ? Localizer["Alarms"] : Localizer["Alarm"]) @Localizer["Active"]">
+                    @ActiveAlarmCount @Localizer["Active"] @(ActiveAlarmCount != 1 ? Localizer["Alarms"] : Localizer["Alarm"])
+                </button>
+            }
+                <button @onclick="ToggleServiceView"
+                        class="badge badge-primary"
+                        title="@Localizer["ToggleServiceView"]">
+                    @(this.ServiceViewActive ? Localizer["Normal"] : Localizer["Service"])
+                </button>
+        </div>
+    </div>
+    }
+
+    @if (!ServiceViewActive)
+    {
+        <!--Alarms-->
+        @if (AlarmsActive == true)
+        {
+            <div class="flex flex-col gap-2 border-t border-border pt-2">
+                @foreach (var msg in MessageProvider.Messengers.Where(m => m.State != eAxoMessengerState.Idle))
+                {
+                    <AxoMessengerView Component="msg" />
+                }
+            </div>
+    
+        }
+
+        <!--Manual Commands / Status-->
+        @if (CommandsActive)
+        {
+            if (CommandsOperateContent is not null && Component._isManuallyControllable.Cyclic == true)
+            {
+                @CommandsOperateContent
+            }
+            else
+            {
+                @CommandsMonitorContent
+            }
+        }
+
+        @if (DetailsActive)
+        {
+            if (Component._isManuallyControllable.Cyclic == true)
+            {               
+                <div class="card p-4" @onclick:stopPropagation="true"> 
+                    <p class="text-sm font-bold text-text/70 mt-2 mx-2">@Localizer["CONFIGURATION"]</p>
+                    <div class="m-2 w-full">
+                        @if(ConfigContent is not null)
+                        {
+                            @ConfigContent
+                        }
+                        else
+                        {
+                            <div class="w-full">
+                                @ConfigAndStateViewContent
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+            else
+            {      
+                <div class="card p-4" @onclick:stopPropagation="true">
+                    <p class="text-sm font-bold text-text/70 mt-2 mx-2">@Localizer["STATE"]</p>
+                    <div class="m-2 w-full">
+                        @ConfigAndStateViewContent
+                    </div>
+                </div>                
+            }
+        }
+               
+        <!--Spot view-->
+        @if (SpotActive == true)
+        {
+            <button @onclick="OpenModal">
+                <div class="flex flex-col gap-0 p-0 @AlarmBackgroundClass rounded-lg">
+                    @if (SpotHeader is null)
+                    {
+                        <p class="text-sm font-semibold text-text/70 px-1 pt-1 pb-1 @LabelBackgroundClass rounded-t">@(Component != null ? Component.GetAttributeName(CultureInfo.CurrentUICulture) : string.Empty)</p>                    
+                    }
+                    else
+                    {
+                        @SpotHeader
+                    }
+                    @SpotContent
+                </div>
+            </button>
+        }
+    }
+    else
+    {        
+        @if (Component?._isManuallyControllable.Cyclic == true)
+        {
+            <AxoComponentCommandView Component="Component" HideHeader="true"/>
+        }
+        else
+        {
+            <AxoComponentStatusView Component="Component" HideHeader="true"/>
+        }
+    }
+</div>
+@code
+{
+    [Parameter]
+    public IAxoComponentViewBase? ParentReference { get; set; }
+
+    [Parameter]
+    public RenderFragment? HeaderContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? CommandsOperateContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? CommandsMonitorContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? ConfigContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? ConfigAndStateViewContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? SpotContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? SpotHeader { get; set; }
+
+}

@@ -26,9 +26,9 @@ namespace axosimple
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
-            return await (dynamic)this.OnlineToPlainAsync();
+            return await (dynamic)this.OnlineToPlainAsync(priority);
         }
 
         public new async Task<Pocos.axosimple.SharedProductionData> OnlineToPlainAsync()
@@ -49,7 +49,7 @@ namespace axosimple
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             await this.PlainToOnlineAsync((dynamic)plain);
         }
@@ -124,7 +124,7 @@ namespace axosimple
             PostConstruct(parent, readableTail, symbolTail);
         }
 
-        public async override Task<T> OnlineToPlain<T>()
+        public async override Task<T> OnlineToPlain<T>(eAccessPriority priority = eAccessPriority.Normal)
         {
             return await (dynamic)this.OnlineToPlainAsync();
         }
@@ -145,7 +145,7 @@ namespace axosimple
             return plain;
         }
 
-        public async override Task PlainToOnline<T>(T plain)
+        public async override Task PlainToOnline<T>(T plain, eAccessPriority priority = eAccessPriority.Normal)
         {
             await this.PlainToOnlineAsync((dynamic)plain);
         }

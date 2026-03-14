@@ -24,7 +24,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 RETURN;
             END_IF;
             IF Mode = UINT#1 THEN
-                    IOlinkReader.Run(  parent      :=  _rootObject,
+                    IOlinkReader.Run(  inParent      :=  _rootObject,
                                         HW_ID       :=  HwIdentifiers#et200sp_CM_4xIO_Link_RF200_CM_4xIO_Link_V2_2_144I_128O_1_CM_4xIO_Link_V2_2_144I_128O_HwID, 
                                         portAddr    :=  INT#0,
                                         version     :=  USINT#11);
@@ -33,7 +33,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             END_IF;
 
             IF Mode = UINT#2 THEN
-                IdentProfileReader.Run(parent      :=  _rootObject,
+                IdentProfileReader.Run(inParent      :=  _rootObject,
                                         HW_ID       :=  HwIdentifiers#rf186c_Reader_1__Reader__HwID,
                                         API         :=  DWORD#16#5B00,	
                                         SLOT 		:=  WORD#2,

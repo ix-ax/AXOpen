@@ -3,32 +3,18 @@ USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 USING AXOpen.Components.Robotics;
 USING AXOpen.Components.Abstractions.Robotics;
-USING Siemens.Simatic.S71500.Hardware.Utilities;
+USING Siemens.Simatic.Hardware.Utilities;
 
 NAMESPACE AXOpen.Components.Ur.Robotics
     {S7.extern=ReadWrite}
     CLASS AxoUrCb3_v_3_x_x EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.Robotics.IAxoRobotics
         VAR PRIVATE
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
-            _infoTime               :   LTIME := LT#2S;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
-            _errorTime              :   LTIME := LT#0S;
             _context                :   IAxoContext;
             _stopTasksAreActive     :   BOOL;
             _stopType               :   eAxoRoboticsStopType;
             _someTaskIsActive       :   BOOL;
-            _hwID                                                    : WORD;
-            _hwIdAxoUrRobotics_T2O_State                             : WORD;
-            _hwIdAxoUrRobotics_T2O_IO                                : WORD;
-            _hwIdAxoUrRobotics_T2O_Joints                            : WORD;
-            _hwIdAxoUrRobotics_T2O_TCP                               : WORD;
-            _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers     : WORD;
-            _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers     : WORD;
-            _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers   : WORD;
-            _hwIdAxoUrRobotics_O2T_Robot_IO                          : WORD;
-            _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1       : WORD;
-            _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2       : WORD;
-
             
             _initHwCheckDone        :   BOOL;
             _retval                 :   WORD;
@@ -137,9 +123,9 @@ NAMESPACE AXOpen.Components.Ur.Robotics
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent                                                  : IAxoObject;
-                hwID                                                    : WORD;
-                refPowerOnPulse                                         : REF_TO BOOL;
+                inParent        :   IAxoObject;
+                hwID            :   UINT;
+                refPowerOnPulse :   REF_TO BOOL;
             END_VAR
             VAR 
                 _word : WORD;
@@ -150,24 +136,24 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _data100 : ARRAY[0..99] OF BYTE;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             Messenger.Serve(THIS);
 
             IF NOT _initHwCheckDone THEN
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(UINT#700, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#700;
                     RETURN;
                 END_IF;
-                IF hwID = WORD#0 THEN
+                Config.HWIDs.HwId_Device  := hwID;
+                IF Config.HWIDs.HwId_Device = UINT#0 THEN
                     Messenger.Activate(UINT#701, eAxoMessageCategory#ProgrammingError);
                     Status.Error.Id := UINT#701;
                     RETURN;
                 END_IF;
     
-                _hwID                    := hwID;                                                      
-                _retval := ReadSlotFromHardwareID(hardwareID := TO_UINT(_hwID), geoAddr :=_geoAddr);   
+                _retval := ReadSlotFromHardwareID(hardwareID := Config.HWIDs.HwId_Device, geoAddr :=_geoAddr);   
                 IF _retval = WORD#8090 THEN
                     Messenger.Activate(UINT#702,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#702;
@@ -178,8 +164,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#1;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_T2O_State :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_T2O_State = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_State = UINT#0 THEN
                     Messenger.Activate(UINT#710,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#710;
                     RETURN;
@@ -209,7 +194,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#715;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_T2O_State , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_AxoUrRobotics_T2O_State) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#32 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#716,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#716;
@@ -219,8 +204,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#2;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_T2O_IO :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_T2O_IO = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_IO = UINT#0 THEN
                     Messenger.Activate(UINT#720,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#720;
                     RETURN;
@@ -250,7 +234,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#725;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_T2O_IO , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_AxoUrRobotics_T2O_IO) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#68 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#726,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#726;
@@ -260,8 +244,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#3;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_T2O_Joints :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_T2O_Joints = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_Joints = UINT#0 THEN
                     Messenger.Activate(UINT#730,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#730;
                     RETURN;
@@ -291,7 +274,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#735;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_T2O_Joints , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_AxoUrRobotics_T2O_Joints) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#104 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#736,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#736;
@@ -301,8 +284,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#4;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_T2O_TCP :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_T2O_TCP = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_TCP = UINT#0 THEN
                     Messenger.Activate(UINT#740,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#740;
                     RETURN;
@@ -332,7 +314,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#745;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_T2O_TCP , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_AxoUrRobotics_T2O_TCP) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#76 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#746,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#746;
@@ -342,8 +324,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#5;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers = UINT#0 THEN
                     Messenger.Activate(UINT#750,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#750;
                     RETURN;
@@ -373,7 +354,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#755;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#8 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#756,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#756;
@@ -383,8 +364,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#6;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers = UINT#0 THEN
                     Messenger.Activate(UINT#760,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#760;
                     RETURN;
@@ -414,7 +394,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#765;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers), inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#96 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#766,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#766;
@@ -424,8 +404,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#7;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers = UINT#0 THEN
                     Messenger.Activate(UINT#770,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#770;
                     RETURN;
@@ -455,7 +434,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#775;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#132 OR _outputsCount <> UINT#0 THEN
                     Messenger.Activate(UINT#776,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#776;
@@ -465,8 +444,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#8;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_O2T_Robot_IO :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_O2T_Robot_IO = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_O2T_Robot_IO = UINT#0 THEN
                     Messenger.Activate(UINT#780,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#780;
                     RETURN;
@@ -496,7 +474,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#785;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_O2T_Robot_IO , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_AxoUrRobotics_O2T_Robot_IO) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#24 THEN
                     Messenger.Activate(UINT#786,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#786;
@@ -506,8 +484,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#9;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1 = UINT#0 THEN
                     Messenger.Activate(UINT#790,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#790;
                     RETURN;
@@ -537,7 +514,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#795;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#100 THEN
                     Messenger.Activate(UINT#796,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#796;
@@ -547,8 +524,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 _geoAddr.Slot   :=  UINT#10;                                                            
                 _geoAddr.HardwareType := UINT#4; // (4-Module)
                 _retval := ReadHardwareIDFromSlot(geoAddr := _geoAddr, hardwareID => _outHwid);        
-                _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 :=  TO_WORD(_outHwid);                                         
-                IF _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2 = UINT#0 THEN
                     Messenger.Activate(UINT#800,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#800;
                     RETURN;
@@ -578,69 +554,69 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     Status.Error.Id := UINT#805;
                     RETURN;
                 END_IF;
-                ReadHardwareIOAddress(hardwareIdentifier :=  _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2 , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
+                ReadHardwareIOAddress(hardwareID := (Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2) , inputStartAddress => _inputsAddress , inputCount => _inputsCount , outputStartAddress => _outputsAddress , outputCount => _outputsCount); 
                 IF _inputsCount <> UINT#0 OR _outputsCount <> UINT#100 THEN
                     Messenger.Activate(UINT#806,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#806;
                     RETURN;
                 END_IF;
  
-                IF parent = NULL THEN
+                IF inParent = NULL THEN
                     Messenger.Activate(UINT#1130,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1130;
                     RETURN;
                 END_IF;
-                IF _hwID  = WORD#0 THEN
+                IF Config.HWIDs.HwId_Device  = UINT#0 THEN
                     Messenger.Activate(UINT#1131,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1131;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_T2O_State  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_State  = UINT#0 THEN
                     Messenger.Activate(UINT#1132,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1132;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_T2O_IO  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_IO  = UINT#0 THEN
                     Messenger.Activate(UINT#1133,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1133;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_T2O_Joints  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_Joints  = UINT#0 THEN
                     Messenger.Activate(UINT#1134,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1134;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_T2O_TCP  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_TCP  = UINT#0 THEN
                     Messenger.Activate(UINT#1135,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1135;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers  = UINT#0 THEN
                     Messenger.Activate(UINT#1136,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1136;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers  = UINT#0 THEN
                     Messenger.Activate(UINT#1137,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1137;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers  = UINT#0 THEN
                     Messenger.Activate(UINT#1138,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1138;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_O2T_Robot_IO  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_O2T_Robot_IO  = UINT#0 THEN
                     Messenger.Activate(UINT#1139,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1139;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1  = UINT#0 THEN
                     Messenger.Activate(UINT#1140,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1140;
                     RETURN;
                 END_IF;
-                IF _hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2  = WORD#0 THEN
+                IF Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2  = UINT#0 THEN
                     Messenger.Activate(UINT#1141,eAxoMessageCategory#Error);
                     Status.Error.Id := UINT#1141;
                     RETURN;
@@ -654,29 +630,26 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             //*******************************************
             _context := THIS.GetContext();
 
-            _infoTime := Config.InfoTime;
-            _errorTime := Config.ErrorTime;
-
             //*************INITIALIZATION*************
-            // RestoreTask.Run(THIS);
-            // PowerOnTask.Run(THIS);
-            // StopMovementsTask.Run(THIS);
-            // StopMovementsAndProgramTask.Run(THIS);
+            RestoreTask.Run(THIS);
+            PowerOnTask.Run(THIS);
+            StopMovementsTask.Run(THIS);
+            StopMovementsAndProgramTask.Run(THIS);
             
-            // StartAtMainTask.Run(THIS);
-            // StartMotorsAndProgramTask.Run(THIS);
-            // StartMovementsTask.Run(THIS);
-            // HardwareDiagnosticsTask.Run(THIS);
-            // RebootControllerTask.Run(THIS);
+            StartAtMainTask.Run(THIS);
+            StartMotorsAndProgramTask.Run(THIS);
+            StartMovementsTask.Run(THIS);
+            HardwareDiagnosticsTask.Run(THIS);
+            RebootControllerTask.Run(THIS);
 
             _stopTasksAreActive := StopMovementsTask.IsBusy() OR StopMovementsAndProgramTask.IsBusy();
             //****************************************
             //********************Diagnostics*********        
-            HardwareDiagnosticsTask.Run(THIS,_hwID);
+            HardwareDiagnosticsTask.Run(THIS,Config.HWIDs.HwId_Device);
             RebootControllerTask.Execute(THIS);
             //****************************************
             //*************RESTORE********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
@@ -685,9 +658,9 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             //***********UPDATE**INPUTS******************
             //Inputs Low level
             //INPUTS T2O STATE ROBOT => st_URO_CB3_T2OInfoData
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAxoUrRobotics_T2O_State, _data);
+            _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwId_AxoUrRobotics_T2O_State), _data);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1201, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1201;
                 RETURN;
             END_IF;
@@ -732,9 +705,9 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Inputs.Safety.ST_IsStoppedDueSafety              := _data[29].%X2;
 
             //INPUTS T20 IO => st_URO_CB3_T2OIoStateData
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAxoUrRobotics_T2O_IO, _data);
+            _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwId_AxoUrRobotics_T2O_IO), _data);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1202, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1202;
                 RETURN;
             END_IF;
@@ -878,9 +851,9 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Inputs.Tool.ToolCurrent                          := TO_REAL(_dword);    
 
             // //INPUTS T20 JOINT => st_URO_CB3_T2OJointsData
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAxoUrRobotics_T2O_Joints, _data);
+            _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwId_AxoUrRobotics_T2O_Joints), _data);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1203, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1203, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1203;
                 RETURN;
             END_IF;
@@ -1036,9 +1009,9 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Inputs.Joints.JointMode_5                        := TO_USINT(_data[101]);
 
             //INPUTS T20 TCP => st_URO_CB3_T2OTcpData
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAxoUrRobotics_T2O_TCP, _data);
+            _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwId_AxoUrRobotics_T2O_TCP), _data);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1204, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1204, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1204;
                 RETURN;
             END_IF;
@@ -1157,9 +1130,9 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Inputs.TCP.TCP_ForceScalar                       := TO_REAL(_dword);  
 
             //INPUTS T20 BITS => st_URO_CB3_T2OBitRegsData
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAxoUrRobotics_T2O_General_Purpose_Bit_Registers, _data);
+            _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Bit_Registers), _data);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1205, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1205, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1205;
                 RETURN;
             END_IF;
@@ -1236,9 +1209,9 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Inputs.Bits.Register_63                          := _data[7].%X7;
 
             //INPUTS T20 BITS => st_URO_CB3_T2OIntRegsData
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAxoUrRobotics_T2O_General_Purpose_Int_Registers, _data);
+            _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Int_Registers), _data);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1206, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1206, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1206;
                 RETURN;
             END_IF;
@@ -1387,9 +1360,9 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Inputs.Ints.Register_23                          := TO_DINT(_dword);
 
             //INPUTS T20 BITS => st_URO_CB3_T2OFloatRegsData
-            _retVal := Siemens.Simatic.S71500.DistributedIO.ReadData(_hwIdAxoUrRobotics_T2O_General_Purpose_Float_Registers, _data);
+            _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwId_AxoUrRobotics_T2O_General_Purpose_Float_Registers), _data);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1207, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1207, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1207;
                 RETURN;
             END_IF;
@@ -1581,7 +1554,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             Inputs.Coordinates.Rz                                   := Inputs.Inputs.Floats.Register_7;
 
             //*************StartAtMainTask***************
-            StartAtMainTask.IsDisabled := _stopTasksAreActive;
+            StartAtMainTask.SetIsDisabled(_stopTasksAreActive);
             IF StartAtMainTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;
@@ -1595,15 +1568,15 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 300;
                 END_IF;
-                
+                // Start at main running: waiting for 'NORMAL' or 'REDUCED' mode is choosen.
                 IF _power_progress = 300 THEN  
                     IF _infoTimer.output THEN
                         IF NOT Inputs.Inputs.Safety.NO_IsNormalMode THEN
-                            TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#500;
                         END_IF;
                         IF NOT Inputs.Inputs.Safety.RD_IsReducedMode THEN
-                            TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#501;
                         END_IF;
                     END_IF;
@@ -1613,10 +1586,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=302;                    
                     END_IF;
                 END_IF;
-
+                // Start at main running: waiting for the program to start running.
                 IF _power_progress = 302 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#502;
                     END_IF;
 
@@ -1628,7 +1601,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=303;                    
                     END_IF;
                 END_IF;
-
+                // Start at main finished.
                 IF _power_progress = 303 THEN  
                     StartAtMainTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
@@ -1638,6 +1611,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 THIS.CallTimers(TRUE);
                 StartAtMainTask.ThrowWhen(_errorTimer.output );
                 Status.Action.Id := TO_UINT(_power_progress);
+                StartAtMainTask.ThrowWhen(StartAtMainTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartAtMainTask timeout.#>');                
             END_IF;
             IF StartAtMainTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#101;
@@ -1650,8 +1624,8 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 Status.Error.Id  :=  UINT#10001;
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#10000,StartAtMainTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10001,StartAtMainTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#102,StartAtMainTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,StartAtMainTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#102,StartAtMainTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StartAtMainTask.RestoreTriggered() AND _power_progress >= 300 AND _power_progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
                 _power_progress := 0;
@@ -1659,7 +1633,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             //*******************************************
 
             //***********StartMotorsAndProgramTask*******
-            StartMotorsAndProgramTask.IsDisabled := _stopTasksAreActive;
+            StartMotorsAndProgramTask.SetIsDisabled(_stopTasksAreActive);
             IF StartMotorsAndProgramTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#110;
             END_IF;
@@ -1674,15 +1648,15 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 310;
                 END_IF;
-              
+                // Start motors and program running: waiting for 'NORMAL' or 'REDUCED' mode is choosen.
                 IF _power_progress = 310 THEN  
                     IF _infoTimer.output THEN
                         IF NOT Inputs.Inputs.Safety.NO_IsNormalMode THEN
-                            TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#510;
                         END_IF;
                         IF NOT Inputs.Inputs.Safety.RD_IsReducedMode THEN
-                            TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#511;
                         END_IF;
                     END_IF;
@@ -1692,10 +1666,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=312;                    
                     END_IF;
                 END_IF;
-
-                IF _power_progress = 312 THEN	//Reseting error
+                // Start motors and program running: waiting for the error to be reset (on the robot teach pendant).
+                IF _power_progress = 312 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#512;
                     END_IF;
 
@@ -1704,31 +1678,31 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress := 313;
                     END_IF;
                 END_IF;
-              
-                IF _power_progress = 313 THEN	//Reseting emergency stop error
+                // Start motors and program running: waiting for the emergency stop error to be reset (on the robot teach pendant).
+                IF _power_progress = 313 THEN
                     IF _infoTimer.output THEN
                         IF Inputs.Inputs.Safety.ES_IsEmergencyStopped  THEN
-                            TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#513;
                         END_IF;
                         IF Inputs.Inputs.Safety.PS_IsProtectiveStopped  THEN
-                            TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#514;
                         END_IF;
                         IF Inputs.Inputs.Safety.SS_IsSafeguardStopped  THEN
-                            TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#515;
                         END_IF;
                         IF Inputs.Inputs.Safety.RC_IsRecoveryMode  THEN
-                            TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#516;
                         END_IF;
                         IF Inputs.Inputs.Safety.ST_IsStoppedDueSafety  THEN
-                            TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#517;
                         END_IF;
                         IF Inputs.Inputs.Safety.VL_IsViolation  THEN
-                            TaskMessenger.Activate( UINT#518, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#518, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#518;
                         END_IF;
                     END_IF;
@@ -1743,10 +1717,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress := 319;
                     END_IF;
                 END_IF;
-              
+                // Start motors and program running: waiting for the motors to be powered on.
                 IF _power_progress = 319 THEN	
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#519, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#519, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#519;
                     END_IF;
 
@@ -1763,10 +1737,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                          _power_progress := 320;
                     END_IF;
                 END_IF;		
-
+                // Start motors and program running: waiting for the motors to be powered on.
                 IF _power_progress = 320 THEN	
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#520;
                     END_IF;
 
@@ -1783,10 +1757,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                          _power_progress := 321;
                     END_IF;
                 END_IF;		
-
+                // Start motors and program running: waiting for the program to start running.
                 IF _power_progress = 321 THEN	
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#521;
                     END_IF;
 
@@ -1803,7 +1777,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                          _power_progress := 322;
                     END_IF;
                 END_IF;		
-              
+                // Start motors and program finished.
                 IF _power_progress = 322 THEN	
                     StartMotorsAndProgramTask.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
@@ -1813,6 +1787,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 THIS.CallTimers(TRUE);
                 StartMotorsAndProgramTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
+                StartMotorsAndProgramTask.ThrowWhen(StartMotorsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMotorsAndProgramTask timeout.#>');                
             END_IF;
             IF StartMotorsAndProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#111;
@@ -1825,8 +1800,8 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 Status.Error.Id  :=  UINT#10011;
             END_IF;         
             Messenger.ActivateOnCondition(ULINT#10010,StartMotorsAndProgramTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10011,StartMotorsAndProgramTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,StartMotorsAndProgramTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10011,StartMotorsAndProgramTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#112,StartMotorsAndProgramTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StartMotorsAndProgramTask.RestoreTriggered() AND _power_progress >= 310 AND _power_progress <= 329  THEN
                 Status.Action.Id :=  UINT#112;
                 _power_progress := 0;
@@ -1834,7 +1809,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             //*******************************************
                         
             //***********StartMovementsTask**************
-            StartMovementsTask.IsDisabled := NOT Inputs.Inputs.Robot.PW_IsPowerOn;
+            StartMovementsTask.SetIsDisabled(NOT Inputs.Inputs.Robot.PW_IsPowerOn);
             IF StartMovementsTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#180;
             END_IF;
@@ -1847,10 +1822,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     THIS.CallTimers(FALSE);
                     _movement_progress := 380;
                 END_IF;
-                
+                // Start movements running: waiting for the program to start running.
                 IF _movement_progress = 380 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#580, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#580, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#580;
                     END_IF;
 
@@ -1859,10 +1834,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _movement_progress := 381;
                     END_IF;
                 END_IF;
-                
+                // Start movements running: waiting for the motors to be powered on.
                 IF _movement_progress = 381 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#581, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#581, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#581;
                     END_IF;
 
@@ -1871,10 +1846,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _movement_progress := 382;
                     END_IF;
                 END_IF;
-                
+                // Start movements running: waiting for the error to be reset (on the robot teach pendant).
                 IF _movement_progress = 382 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#582, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#582, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#582;
                     END_IF;
 
@@ -1883,10 +1858,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _movement_progress := 383;
                     END_IF;
                 END_IF;
-                
+                // Start movements running: sending parameters of the movement to the controller.
                 IF _movement_progress = 383 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#583, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#583, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#583;
                     END_IF;
 
@@ -1905,31 +1880,31 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _movement_progress := 384;
                     END_IF;
                 END_IF;
-                
+                // Start movements running: waiting for the movement parameters sent to the controller to be mirrored back.
                 IF _movement_progress = 384 THEN
                     IF _infoTimer.output THEN
                         IF Inputs.GlobalSpeed <> TO_DINT(Status.CurrentMovementParameters.GlobalSpeed) THEN
-                            TaskMessenger.Activate( UINT#584, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#584, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#584;//<#Waiting for Inputs.GlobalSpeed to be equal to MovementParameters.GlobalSpeed!
                         END_IF;
                         IF Inputs.ToolNo <> TO_DINT(Status.CurrentMovementParameters.ToolNo) THEN
-                            TaskMessenger.Activate( UINT#585, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#585, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#585;//<#Waiting for Inputs.ToolNo to be equal to MovementParameters.ToolNo!
                         END_IF;
                         IF Inputs.WorkobjectNo <> TO_DINT(Status.CurrentMovementParameters.WorkobjectNo) THEN
-                            TaskMessenger.Activate( UINT#586, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#586, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#586;//<#Waiting for Inputs.WorkobjectNo to be equal to MovementParameters.WorkobjectNo!
                         END_IF;
                         IF Inputs.PointNo <> TO_DINT(Status.CurrentMovementParameters.PointNo) THEN
-                            TaskMessenger.Activate( UINT#587, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#587, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#587;//<#Waiting for Inputs.PointNo to be equal to MovementParameters.PointNo!
                         END_IF;
                         IF Inputs.UserSpecSpeed1 <> Status.CurrentMovementParameters.UserSpecSpeed1 THEN
-                            TaskMessenger.Activate( UINT#588, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#588, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#588;//<#Waiting for Inputs.UserSpecSpeed1 to be equal to MovementParameters.UserSpecSpeed1!
                         END_IF;
                         IF Inputs.UserSpecSpeed2 <> Status.CurrentMovementParameters.UserSpecSpeed2 THEN
-                            TaskMessenger.Activate( UINT#589, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#589, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#589;//<#Waiting for Inputs.UserSpecSpeed2 to be equal to MovementParameters.UserSpecSpeed2!
                         END_IF;
                     END_IF;
@@ -1945,10 +1920,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _movement_progress:=390;
                     END_IF;
                 END_IF;		
-
+                // Start movements running: acknowleadging of the movement parameters.
                 IF _movement_progress = 390 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#590, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#590, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#590;
                     END_IF;
 
@@ -1959,10 +1934,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _movement_progress:=391;
                     END_IF;
                 END_IF;	
-                
+                // Start movements running: waiting for the movement is finished.
                 IF _movement_progress = 391 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#591, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#591, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#591;
                     END_IF;
 
@@ -1973,10 +1948,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _movement_progress:=392;
                     END_IF;
                 END_IF;	
-
+                // Start movements running: acknowleadging of the finished movement.
                 IF _movement_progress = 392 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#592, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#592, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#592;
                     END_IF;
 
@@ -1991,8 +1966,8 @@ NAMESPACE AXOpen.Components.Ur.Robotics
 	            THIS.CallTimers(TRUE);
                 
                 StartMovementsTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_movement_progress);
+                StartMovementsTask.ThrowWhen(StartMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StartMovementsTask timeout.#>');                
             END_IF;
             IF StartMovementsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#181;
@@ -2005,8 +1980,8 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 Status.Error.Id  :=  UINT#10081;
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#10080,StartMovementsTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10081,StartMovementsTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#182,StartMovementsTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10081,StartMovementsTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#182,StartMovementsTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StartMovementsTask.RestoreTriggered() AND _movement_progress >= 380 AND _movement_progress <= 399  THEN
                 Status.Action.Id :=  UINT#182;
                 _movement_progress := 0;
@@ -2014,7 +1989,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             //*******************************************
 
             //***********StopMovementsAndProgramTask*****
-            StopMovementsAndProgramTask.IsDisabled := FALSE;
+            StopMovementsAndProgramTask.SetIsDisabled(FALSE);
             IF StopMovementsAndProgramTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#210;
             END_IF;
@@ -2027,15 +2002,15 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 410;
                 END_IF;
-                
+                // Stop movements and program running: waiting for 'NORMAL' or 'REDUCED' mode is choosen.
                 IF _power_progress = 410 THEN  
                     IF _infoTimer.output THEN
                         IF NOT Inputs.Inputs.Safety.NO_IsNormalMode THEN
-                            TaskMessenger.Activate( UINT#610, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#610, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#610;
                         END_IF;
                         IF NOT Inputs.Inputs.Safety.RD_IsReducedMode THEN
-                            TaskMessenger.Activate( UINT#611, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#611, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#611;
                         END_IF;      
                     END_IF;
@@ -2045,10 +2020,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=412;                    
                     END_IF;
                 END_IF;
-
+                // Stop movements and program running: waiting for the program to be stopped."
                 IF _power_progress = 412 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#612, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#612, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#612;
                     END_IF;
 
@@ -2060,18 +2035,17 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=413;                    
                     END_IF;                    
                 END_IF;                    
-
+                // Stop movements and program finished.
                 IF _power_progress = 413 THEN
                     Outputs.Stop := FALSE ;
                     StopMovementsAndProgramTask.DoneWhen(TRUE);
                     _power_progress := 0;
                 END_IF;		
 
-                THIS.CallTimers(TRUE);
-                
+                THIS.CallTimers(TRUE);                
                 StopMovementsAndProgramTask.ThrowWhen(_errorTimer.output);
-
                 Status.Action.Id := TO_UINT(_power_progress);
+                StopMovementsAndProgramTask.ThrowWhen(StopMovementsAndProgramTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopMovementsAndProgramTask timeout.#>');                
             END_IF;
             IF StopMovementsAndProgramTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#211;
@@ -2084,8 +2058,8 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 Status.Error.Id  :=  UINT#10111;
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#10110,StopMovementsAndProgramTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10111,StopMovementsAndProgramTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#212,StopMovementsAndProgramTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10111,StopMovementsAndProgramTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#212,StopMovementsAndProgramTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StopMovementsAndProgramTask.RestoreTriggered() AND _power_progress >= 410 AND _power_progress <= 419  THEN
                 Status.Action.Id :=  UINT#212;
                 _power_progress := 0;
@@ -2093,7 +2067,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             //*******************************************
             
             //***********StopMovementsTask***************
-            StopMovementsTask.IsDisabled := FALSE;
+            StopMovementsTask.SetIsDisabled(FALSE);
             IF StopMovementsAndProgramTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#220;
             END_IF;
@@ -2106,15 +2080,15 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                     THIS.CallTimers(FALSE);
                     _power_progress := 420;
                 END_IF;
-               
+                // Stop movements running: waiting for 'NORMAL' or 'REDUCED' mode is choosen.
                 IF _power_progress = 420 THEN 
                     IF _infoTimer.output THEN
                         IF NOT Inputs.Inputs.Safety.NO_IsNormalMode THEN
-                            TaskMessenger.Activate( UINT#620, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#620, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#620;
                         END_IF;
                         IF NOT Inputs.Inputs.Safety.RD_IsReducedMode THEN
-                            TaskMessenger.Activate( UINT#621, eAxoMessageCategory#Warning);
+                            TaskMessenger.Activate( UINT#621, eAxoMessageCategory#Potential);
                             Status.Error.Id :=      UINT#621;
                         END_IF;      
                     END_IF;
@@ -2124,10 +2098,10 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=422;                    
                     END_IF;
                 END_IF;
-
+                // Stop movements running: waiting for the program to be stopped.
                 IF _power_progress = 422 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#622, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#622, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#622;
                     END_IF; 
 
@@ -2139,17 +2113,17 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                         _power_progress:=423;                    
                     END_IF;                    
                 END_IF;                    
-
+                // Stop movements finished.
                 IF _power_progress = 423 THEN
                     Outputs.Pause := FALSE ;
                     StopMovementsTask.DoneWhen(TRUE);
                     _power_progress := 0;
                 END_IF;		
-                THIS.CallTimers(TRUE);
-                
-                StopMovementsTask.ThrowWhen(_errorTimer.output);
 
+                THIS.CallTimers(TRUE);
+                StopMovementsTask.ThrowWhen(_errorTimer.output);
                 Status.Action.Id := TO_UINT(_power_progress);
+                StopMovementsTask.ThrowWhen(StopMovementsTask.Duration >= Config.TaskTimeout AND Config.TaskTimeout > T#0s ,'<#StopMovementsTask timeout.#>');                
             END_IF;
             IF StopMovementsTask.DoneReached() THEN
                 Status.Action.Id :=  UINT#221;
@@ -2162,8 +2136,8 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 Status.Error.Id  :=  UINT#10121;
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#10120,StopMovementsTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10121,StopMovementsTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#222,StopMovementsTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10121,StopMovementsTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#222,StopMovementsTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StopMovementsTask.RestoreTriggered() AND _power_progress >= 420 AND _power_progress <= 429  THEN
                 Status.Action.Id :=  UINT#222;
                 _power_progress := 0;
@@ -2171,7 +2145,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             //*******************************************
 
             //*************POWER ON********************
-            PowerOnTask.IsDisabled := NOT(Inputs.RobotMode=eAxoUrRoboticsRobotMode#DISCONNECTED AND Config.RemotePowerOnEnabled);
+            PowerOnTask.SetIsDisabled(NOT(Inputs.RobotMode=eAxoUrRoboticsRobotMode#DISCONNECTED AND Config.RemotePowerOnEnabled));
             IF PowerOnTask.Execute(THIS) THEN
                 refPowerOnPulse^ :=TRUE;
                 Status.Action.Id :=  UINT#420;//('<#POWER ON PULSE WAS SEND TO CONTROLER#>');
@@ -2276,9 +2250,9 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             _data24[22] := _dword.%B1;
             _data24[23] := _dword.%B0;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdAxoUrRobotics_O2T_Robot_IO,_data24);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwId_AxoUrRobotics_O2T_Robot_IO),_data24);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1231, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1231;
                 RETURN;
             END_IF; 
@@ -2464,9 +2438,9 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             _data100[98]    := _dword.%B1;
             _data100[99]    := _dword.%B0;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdAxoUrRobotics_O2T_General_Purpose_Registers_1,_data100);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_1),_data100);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1232, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1232;
                 RETURN;
             END_IF; 
@@ -2652,9 +2626,9 @@ NAMESPACE AXOpen.Components.Ur.Robotics
             _data100[98]    := _dword.%B1;
             _data100[99]    := _dword.%B0;
 
-            _retVal := Siemens.Simatic.S71500.DistributedIO.WriteData(_hwIdAxoUrRobotics_O2T_General_Purpose_Registers_2,_data100);
+            _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwId_AxoUrRobotics_O2T_General_Purpose_Registers_2),_data100);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1233, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1233, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1233;
                 RETURN;
             END_IF; 
@@ -2737,8 +2711,8 @@ NAMESPACE AXOpen.Components.Ur.Robotics
                 signal : BOOL;
             END_VAR
             
-            _infoTimer.OnDelay(THIS, signal AND _infoTime > LT#0s , _infoTime);
-            _errorTimer.OnDelay(THIS, signal AND _errorTime > LT#0s , _errorTime );
+            _infoTimer.OnDelay(THIS, signal AND Config.InfoTime > LT#0s , Config.InfoTime);
+            _errorTimer.OnDelay(THIS, signal AND Config.ErrorTime > LT#0s , Config.ErrorTime );
         END_METHOD
 
         METHOD PRIVATE GetRobotModeDescription : eAxoUrRoboticsRobotMode
@@ -2759,3 +2733,7 @@ NAMESPACE AXOpen.Components.Ur.Robotics
         END_METHOD
     END_CLASS
 END_NAMESPACE
+
+
+
+

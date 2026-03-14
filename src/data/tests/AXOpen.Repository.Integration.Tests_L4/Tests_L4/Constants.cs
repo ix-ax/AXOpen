@@ -26,6 +26,6 @@
         public const string JSON_REPO_STATION_DATA_FOLDER_NAME = "JSON_REPO_STATION_DATA_FOLDER_NAME";
 
 
-        public const string MEMBER_NAME_ENTITY_ID = "DataEntityId";
+        public const string MEMBER_NAME_ENTITY_ID = "_EntityId";
     }
 }

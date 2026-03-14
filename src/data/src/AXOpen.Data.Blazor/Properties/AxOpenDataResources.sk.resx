@@ -201,4 +201,169 @@
   <data name="Back" xml:space="preserve">
     <value>Späť</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Chyba!</value>
+  </data>
+  <data name="Cannot create" xml:space="preserve">
+    <value>Nemôžem vytvoriť!</value>
+  </data>
+  <data name="New entry name cannot be empty" xml:space="preserve">
+    <value>Názov nového záznamu nemôže byť prázdny. Uveďte prosím ID.</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Vytvorené!</value>
+  </data>
+  <data name="Item was successfully created" xml:space="preserve">
+    <value>Položka bola úspešne vytvorená!</value>
+  </data>
+  <data name="Failed to create new record" xml:space="preserve">
+    <value>Nepodarilo sa vytvoriť nový záznam!</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Odstránené!</value>
+  </data>
+  <data name="Item was successfully deleted" xml:space="preserve">
+    <value>Položka bola úspešne odstránená!</value>
+  </data>
+  <data name="Failed to delete" xml:space="preserve">
+    <value>Odstránenie sa nepodarilo</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>Kopírované!</value>
+  </data>
+  <data name="Item was successfully copied" xml:space="preserve">
+    <value>Položka bola úspešne skopírovaná!</value>
+  </data>
+  <data name="Failed to copy" xml:space="preserve">
+    <value>Kopírovanie sa nepodarilo!</value>
+  </data>
+  <data name="Edited" xml:space="preserve">
+    <value>Upravované!</value>
+  </data>
+  <data name="Item was successfully edited" xml:space="preserve">
+    <value>Položka bola úspešne upravená!</value>
+  </data>
+  <data name="Sent to PLC" xml:space="preserve">
+    <value>Odoslané do PLC!</value>
+  </data>
+  <data name="Item was successfully sent to PLC" xml:space="preserve">
+    <value>Položka bola úspešne odoslaná do PLC!</value>
+  </data>
+  <data name="Loaded from PLC" xml:space="preserve">
+    <value>Načítané z PLC!</value>
+  </data>
+  <data name="Item was successfully loaded from PLC" xml:space="preserve">
+    <value>Položka bola úspešne načítaná z PLC!</value>
+  </data>
+  <data name="Failed to create new record from the controller" xml:space="preserve">
+    <value>Nepodarilo sa vytvoriť nový záznam z ovládača</value>
+  </data>
+  <data name="Exported" xml:space="preserve">
+    <value>Exportované!</value>
+  </data>
+  <data name="Data was successfully exported" xml:space="preserve">
+    <value>Dáta boli úspešne exportované!</value>
+  </data>
+  <data name="Imported" xml:space="preserve">
+    <value>Importované!</value>
+  </data>
+  <data name="Data were successfully imported" xml:space="preserve">
+    <value>Dáta boli úspešne importované!</value>
+  </data>
+  <data name="Update data error" xml:space="preserve">
+    <value>Chyba aktualizácie údajov</value>
+  </data>
+  <data name="Please enter valid identifier" xml:space="preserve">
+    <value>Zadajte platný identifikátor!</value>
+  </data>
+  <data name="Create error" xml:space="preserve">
+    <value>Vytvoriť chybu</value>
+  </data>
+  <data name="Please enter valid source identifier" xml:space="preserve">
+    <value>Zadajte platný identifikátor zdroja!</value>
+  </data>
+  <data name="Create data error" xml:space="preserve">
+    <value>Vytvoriť chybu údajov</value>
+  </data>
+  <data name="Copy error" xml:space="preserve">
+    <value>Chyba kopírovania</value>
+  </data>
+  <data name="Copy record error" xml:space="preserve">
+    <value>Chyba kopírovania záznamu</value>
+  </data>
+  <data name="Data cannot be deleted please enter valid new identifier" xml:space="preserve">
+    <value>Údaje nemožno vymazať. Zadajte platný nový identifikátor!</value>
+  </data>
+  <data name="Copied record" xml:space="preserve">
+    <value>Kopírovaný záznam</value>
+  </data>
+  <data name="Copied error" xml:space="preserve">
+    <value>Kopírovaná chyba</value>
+  </data>
+  <data name="Delete error" xml:space="preserve">
+    <value>Odstrániť chybu</value>
+  </data>
+  <data name="Send record" xml:space="preserve">
+    <value>Odoslať záznam</value>
+  </data>
+  <data name="Send error" xml:space="preserve">
+    <value>Odoslať chybu</value>
+  </data>
+  <data name="Delete record" xml:space="preserve">
+    <value>Odstrániť záznam</value>
+  </data>
+  <data name="Persistent Data" xml:space="preserve">
+    <value>Trvalé údaje</value>
+  </data>
+  <data name="Whole persistent data was successfully sent to PLC" xml:space="preserve">
+    <value>Všetky trvalé údaje boli úspešne odoslané do PLC!</value>
+  </data>
+  <data name="Whole persistent data was successfully read from PLC" xml:space="preserve">
+    <value>Celé trvalé údaje boli úspešne načítané z PLC!</value>
+  </data>
+  <data name="Persistent group was successfully read from PLC" xml:space="preserve">
+    <value>Trvalá skupina {0} bola úspešne načítaná z PLC!</value>
+  </data>
+  <data name="Data with ID was created for" xml:space="preserve">
+    <value>Údaje s ID: „{0}“ boli vytvorené pre: {1}!</value>
+  </data>
+  <data name="Record already exist for" xml:space="preserve">
+    <value>Záznam už existuje pre: {0}!</value>
+  </data>
+  <data name="Source Record not exist for" xml:space="preserve">
+    <value>Zdrojový záznam neexistuje pre: {0}!</value>
+  </data>
+  <data name="Record was deleted from repositories" xml:space="preserve">
+    <value>Záznam „{0}“ bol odstránený z úložísk: {1}.</value>
+  </data>
+  <data name="Source record does not exist in repositories" xml:space="preserve">
+    <value>Zdrojový záznam neexistuje v úložiskách: {0}.</value>
+  </data>
+  <data name="Create new record" xml:space="preserve">
+    <value>Vytvoriť nový záznam</value>
+  </data>
+  <data name="Create record error" xml:space="preserve">
+    <value>Vytvorenie chyby záznamu</value>
+  </data>
+  <data name="Create record from PLC" xml:space="preserve">
+    <value>Vytvoriť záznam z PLC</value>
+  </data>
+  <data name="Persistent_group_loaded_to_PLC" xml:space="preserve">
+    <value>Trvalá skupina {0} bola úspešne načítaná do PLC!</value>
+  </data>
+  <data name="Persistent_group_read_from_PLC" xml:space="preserve">
+    <value>Trvalá skupina {0} bola úspešne načítaná z PLC!</value>
+  </data>
+  <data name="Data_with_ID_was_created_for" xml:space="preserve">
+    <value>Údaje s ID: „{0}“ boli vytvorené pre: {1}!</value>
+  </data>
+  <data name="Select an option" xml:space="preserve">
+    <value>Vybrať možnosť</value>
+  </data>
+  <data name="Don't send" xml:space="preserve">
+    <value>Neposielať</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Odoslať</value>
+  </data>
 </root>

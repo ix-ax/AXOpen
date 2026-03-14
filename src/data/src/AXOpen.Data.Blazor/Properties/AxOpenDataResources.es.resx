@@ -201,4 +201,170 @@
   <data name="Back" xml:space="preserve">
     <value>¡Atrás!&amp;#10;</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>¡Error!</value>
+  </data>
+  <data name="Cannot create" xml:space="preserve">
+    <value>¡No se puede crear!</value>
+  </data>
+  <data name="New entry name cannot be empty" xml:space="preserve">
+    <value>El nombre de la nueva entrada no puede estar vacío. Por favor, introduzca un ID.</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Creado</value>
+  </data>
+  <data name="Item was successfully created" xml:space="preserve">
+    <value>¡El artículo se ha creado correctamente!</value>
+  </data>
+  <data name="Failed to create new record" xml:space="preserve">
+    <value>¡No se ha podido crear el nuevo registro!</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>¡Eliminado!</value>
+  </data>
+  <data name="Item was successfully deleted" xml:space="preserve">
+    <value>¡El elemento se ha eliminado correctamente!</value>
+  </data>
+  <data name="Failed to delete" xml:space="preserve">
+    <value>No se ha podido eliminar.</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>¡Copiado!</value>
+  </data>
+  <data name="Item was successfully copied" xml:space="preserve">
+    <value>¡El artículo se ha copiado correctamente!</value>
+  </data>
+  <data name="Failed to copy" xml:space="preserve">
+    <value>¡Error al copiar!</value>
+  </data>
+  <data name="Edited" xml:space="preserve">
+    <value>¡Editado!</value>
+  </data>
+  <data name="Item was successfully edited" xml:space="preserve">
+    <value>¡El artículo se ha editado correctamente!</value>
+  </data>
+  <data name="Sent to PLC" xml:space="preserve">
+    <value>¡Enviado al PLC!</value>
+  </data>
+  <data name="Item was successfully sent to PLC" xml:space="preserve">
+    <value>¡El artículo se ha enviado correctamente al PLC!</value>
+  </data>
+  <data name="Loaded from PLC" xml:space="preserve">
+    <value>¡Cargado desde PLC!</value>
+  </data>
+  <data name="Item was successfully loaded from PLC" xml:space="preserve">
+    <value>¡El elemento se ha cargado correctamente desde el PLC!</value>
+  </data>
+  <data name="Failed to create new record from the controller" xml:space="preserve">
+    <value>No se ha podido crear un nuevo registro desde el controlador.</value>
+  </data>
+  <data name="Exported" xml:space="preserve">
+    <value>¡Exportado!</value>
+  </data>
+  <data name="Data was successfully exported" xml:space="preserve">
+    <value>¡Los datos se han exportado correctamente!</value>
+  </data>
+  <data name="Imported" xml:space="preserve">
+    <value>¡Importado!</value>
+  </data>
+  <data name="Data were successfully imported" xml:space="preserve">
+    <value>¡Los datos se han importado correctamente!</value>
+  </data>
+  <data name="Update data error" xml:space="preserve">
+    <value>Error al actualizar los datos</value>
+  </data>
+  <data name="Please enter valid identifier" xml:space="preserve">
+    <value>¡Introduzca un identificador válido!</value>
+  </data>
+  <data name="Create error" xml:space="preserve">
+    <value>Crear error</value>
+  </data>
+  <data name="Please enter valid source identifier" xml:space="preserve">
+    <value>¡Introduzca un identificador de origen válido!</value>
+  </data>
+  <data name="Create data error" xml:space="preserve">
+    <value>Crear error de datos</value>
+  </data>
+  <data name="Copy error" xml:space="preserve">
+    <value>Error de copia</value>
+  </data>
+  <data name="Copy record error" xml:space="preserve">
+    <value>Error al copiar el registro</value>
+  </data>
+  <data name="Data cannot be deleted please enter valid new identifier" xml:space="preserve">
+    <value>Los datos no se pueden eliminar. ¡Introduzca un nuevo identificador válido!</value>
+  </data>
+  <data name="Copied record" xml:space="preserve">
+    <value>Registro copiado</value>
+  </data>
+  <data name="Copied error" xml:space="preserve">
+    <value>Error copiado</value>
+  </data>
+  <data name="Delete error" xml:space="preserve">
+    <value>Eliminar error</value>
+  </data>
+  <data name="Send record" xml:space="preserve">
+    <value>Enviar registro</value>
+  </data>
+  <data name="Send error" xml:space="preserve">
+    <value>Enviar error</value>
+  </data>
+  <data name="Delete record" xml:space="preserve">
+    <value>Eliminar registro</value>
+  </data>
+  <data name="Persistent Data" xml:space="preserve">
+    <value>Datos persistentes</value>
+  </data>
+  <data name="Whole persistent data was successfully sent to PLC" xml:space="preserve">
+    <value>¡Todos los datos persistentes se enviaron correctamente al PLC!</value>
+  </data>
+  <data name="Whole persistent data was successfully read from PLC" xml:space="preserve">
+    <value>¡Se han leído correctamente todos los datos persistentes del PLC!</value>
+  </data>
+  <data name="Persistent group was successfully read from PLC" xml:space="preserve">
+    <value>¡El grupo persistente {0} se ha leído correctamente desde el PLC!</value>
+  </data>
+  <data name="Data with ID was created for" xml:space="preserve">
+    <value>Los datos con ID: «{0}» se crearon para: {1}!</value>
+  </data>
+  <data name="Record already exist for" xml:space="preserve">
+    <value>¡Ya existe un registro para: {0}!</value>
+  </data>
+  <data name="Source Record not exist for" xml:space="preserve">
+    <value>¡No existe el registro fuente para: {0}!</value>
+  </data>
+  <data name="Record was deleted from repositories" xml:space="preserve">
+    <value>El registro «{0}» se ha eliminado de los repositorios: {1}.</value>
+  </data>
+  <data name="Source record does not exist in repositories" xml:space="preserve">
+    <value>El registro fuente no existe en los repositorios: {0}.</value>
+  </data>
+  <data name="Create new record" xml:space="preserve">
+    <value>Crear nuevo registro</value>
+  </data>
+  <data name="Create record error" xml:space="preserve">
+    <value>Crear error de registro</value>
+  </data>
+  <data name="Create record from PLC" xml:space="preserve">
+    <value>Crear registro desde PLC</value>
+  </data>
+  <data name="Persistent_group_loaded_to_PLC" xml:space="preserve">
+    <value>¡El grupo persistente {0} se ha cargado correctamente en el PLC!</value>
+  </data>
+  <data name="Persistent_group_read_from_PLC" xml:space="preserve">
+    <value>¡El grupo persistente {0} se ha leído correctamente desde el PLC!</value>
+  </data>
+  <data name="Data_with_ID_was_created_for" xml:space="preserve">
+    <value>Los datos con ID: «{0}» se crearon para: {1}!</value>
+  </data>
+  <data name="Select an option" xml:space="preserve">
+    <value>Eligir</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Don't send" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Send" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
 </root>

@@ -1,3 +1,4 @@
+USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Core;
 USING AXOpen.Messaging.Static;
 USING AXOpen.Messaging;
@@ -7,7 +8,7 @@ NAMESPACE AXOpen.Components.Drives
     {#ix-attr:[Container(Layout.Wrap)]}
     {S7.extern=ReadWrite}
     CLASS PUBLIC ABSTRACT AxoDrive EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoDrive
-        VAR PUBLIC  //HEADER
+        VAR PUBLIC //HEADER
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
             {#ix-attr:[ReadOnly()]}
@@ -53,7 +54,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Power error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoPower_ErrorID                        :   WORD;
+            AxoPower_ErrorID                        :   DINT;
             //***********Stop*********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -89,7 +90,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoStop_ErrorID                         :   WORD;                   
+            AxoStop_ErrorID                         :   DINT;                   
             //***********Halt*********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -125,7 +126,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoHalt_ErrorID                         :   WORD;                   
+            AxoHalt_ErrorID                         :   DINT;                   
             //***********Home*********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -162,7 +163,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoHome_ErrorID                         :   WORD;
+            AxoHome_ErrorID                         :   DINT;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home done#>"}
             {#ix-attr:[ReadOnly()]}
@@ -229,7 +230,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoMoveAbsolute_ErrorID                 :   WORD;                   
+            AxoMoveAbsolute_ErrorID                 :   DINT;                   
             //***********MoveRelative*************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -277,7 +278,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoMoveRelative_ErrorID                 :   WORD;                   
+            AxoMoveRelative_ErrorID                 :   DINT;                   
             //***********MoveAdditive*************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -325,7 +326,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoMoveAdditive_ErrorID                 :   WORD;                   
+            AxoMoveAdditive_ErrorID                 :   DINT;                   
             //***********MoveVelocity*************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -373,7 +374,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoMoveVelocity_ErrorID                 :   WORD;                   
+            AxoMoveVelocity_ErrorID                 :   DINT;                   
             //***********TorqueControl************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -430,7 +431,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Torque control error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoTorqueControl_ErrorID                :   WORD;                   
+            AxoTorqueControl_ErrorID                :   DINT;                   
             //***********SetPosition**************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -461,7 +462,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoSetPosition_ErrorID                  :   WORD;                   
+            AxoSetPosition_ErrorID                  :   DINT;                   
             //***********SetOverride**************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -492,7 +493,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoSetOverride_ErrorID                  :   WORD;          
+            AxoSetOverride_ErrorID                  :   DINT;          
             //***********ReadParameter************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -517,7 +518,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadParameter_ErrorID                :   WORD;          
+            AxoReadParameter_ErrorID                :   DINT;          
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter value#>"}
             {#ix-attr:[ReadOnly()]}
@@ -546,7 +547,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read real parameter error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadRealParameter_ErrorID            :   WORD;          
+            AxoReadRealParameter_ErrorID            :   DINT;          
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read real parameter value#>"}
             {#ix-attr:[ReadOnly()]}
@@ -575,7 +576,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadBoolParameter_ErrorID            :   WORD;          
+            AxoReadBoolParameter_ErrorID            :   DINT;          
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter value#>"}
             {#ix-attr:[ReadOnly()]}
@@ -610,7 +611,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoWriteParameter_ErrorID               :   WORD;          
+            AxoWriteParameter_ErrorID               :   DINT;          
             //***********WriteRealParameter*******************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -641,7 +642,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write real parameter error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoWriteRealParameter_ErrorID           :   WORD;          
+            AxoWriteRealParameter_ErrorID           :   DINT;          
             //***********WriteBoolParameter*******************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -672,7 +673,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoWriteBoolParameter_ErrorID           :   WORD;          
+            AxoWriteBoolParameter_ErrorID           :   DINT;          
             //***********ReadDigitalInput*********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -697,7 +698,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital input error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadDigitalInput_ErrorID             :   WORD;          
+            AxoReadDigitalInput_ErrorID             :   DINT;          
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital input value#>"}
             {#ix-attr:[ReadOnly()]}
@@ -726,7 +727,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital output error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadDigitalOutput_ErrorID            :   WORD;          
+            AxoReadDigitalOutput_ErrorID            :   DINT;          
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital output value#>"}
             {#ix-attr:[ReadOnly()]}
@@ -761,7 +762,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoWriteDigitalOutput_ErrorID           :   WORD;          
+            AxoWriteDigitalOutput_ErrorID           :   DINT;          
             //***********ReadActualPosition*******************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -783,7 +784,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual position error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadActualPosition_ErrorID           :   WORD;          
+            AxoReadActualPosition_ErrorID           :   DINT;          
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual position value#>"}
             {#ix-attr:[ReadOnly()]}
@@ -809,7 +810,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual velocity error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadActualVelocity_ErrorID           :   WORD;          
+            AxoReadActualVelocity_ErrorID           :   DINT;          
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual velocity value#>"}
             {#ix-attr:[ReadOnly()]}
@@ -835,7 +836,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual torque error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadActualTorque_ErrorID             :   WORD;          
+            AxoReadActualTorque_ErrorID             :   DINT;          
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual torque value#>"}
             {#ix-attr:[ReadOnly()]}
@@ -861,7 +862,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadStatus_ErrorID                   :   WORD;                     
+            AxoReadStatus_ErrorID                   :   DINT;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status error stop#>"}
             {#ix-attr:[ReadOnly()]}
@@ -918,7 +919,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadMotionState_ErrorID              :   WORD;                     
+            AxoReadMotionState_ErrorID              :   DINT;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state constant velocity#>"}
             {#ix-attr:[ReadOnly()]}
@@ -960,7 +961,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadAxisInfo_ErrorID                 :   WORD;                      
+            AxoReadAxisInfo_ErrorID                 :   DINT;                      
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info home absolute switch#>"}
             {#ix-attr:[ReadOnly()]}
@@ -1018,7 +1019,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis error error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadAxisError_ErrorID                :   WORD;         
+            AxoReadAxisError_ErrorID                :   DINT;         
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis error axis error ID#>"}
             {#ix-attr:[ReadOnly()]}
@@ -1044,7 +1045,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Reset error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReset_ErrorID                        :   WORD;    
+            AxoReset_ErrorID                        :   DINT;    
             //***********Jog**********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -1092,7 +1093,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoJog_ErrorID                          :   WORD;    
+            AxoJog_ErrorID                          :   DINT;    
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog aborted#>"}
             {#ix-attr:[ReadOnly()]}
@@ -1106,24 +1107,14 @@ NAMESPACE AXOpen.Components.Drives
             DriveConfig         :   AxoDrive_Config;
         END_VAR
 
-        VAR PUBLIC //STATUS
-            {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-attr:[ComponentDetails("Status")]}
-            {#ix-attr:[ReadOnly()]}
-            DriveStatus         :   AxoDrive_Status;
-            Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
-            TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
+        VAR PROTECTED
+            MessageCodeFromMC                            :   ULINT;
+            ErrorFromMC                                  :   BOOL;
         END_VAR
-        
         VAR PRIVATE
-            _AxisRef                                :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             _movementDisabled                       :   BOOL;
-            _messageCode                            :   ULINT;
             _lastMessageCode                        :   ULINT;
             _disabledDuringMovement                 :   BOOL;
-            _error                                  :   BOOL;
-            _warning                                :   BOOL;
-            _category                               :   AXOpen.Messaging.eAxoMessageCategory;
             _movementInPositiveDirection            :   BOOL;
             _movementInNegativeDirection            :   BOOL;
             //***********Stop*********************************
@@ -1230,30 +1221,26 @@ NAMESPACE AXOpen.Components.Drives
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent          :   IAxoObject; 
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
+                inParent          :   IAxoObject; 
+                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
                 EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
                 EnableNegative  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
 
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-
-            IF parent = NULL THEN
-                DriveStatus.Error.Id := UINT#700;
+            IF inParent = NULL THEN
                 RETURN;
             END_IF;
 
-            SUPER.Run(parent);
-
-            IF NOT THIS.IsValidReferences(refAxisIn,refAxisOut) THEN
+            IF AxisRef = NULL THEN
                 RETURN;
             END_IF;
-            
-            THIS.UpdateInputs(refAxisIn,_AxisRef);
-            THIS.Execute(_AxisRef,Enable,EnablePositive,EnableNegative);
-            THIS.UpdateOutputs(_AxisRef,refAxisIn);
+
+            SUPER.Run(inParent);
+
+            THIS.UpdateInputs(AxisRef);
+            THIS.Execute(AxisRef,Enable,EnablePositive,EnableNegative);
+            THIS.UpdateOutputs(AxisRef);
         END_METHOD   
 
 
@@ -1265,44 +1252,8 @@ NAMESPACE AXOpen.Components.Drives
                 EnableNegative  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
 
-            Messenger.Serve(THIS);
-            TaskMessenger.Serve(THIS);
-// THIS SHOULD BE PROBABLE REMOVED =>           
-            // RestoreTask.Run(THIS);
-            // AxoPower_Task.Run(THIS);
-            // AxoStop_Task.Run(THIS);
-            // AxoHalt_Task.Run(THIS);
-            // AxoHome_Task.Run(THIS);
-            // AxoMoveAbsolute_Task.Run(THIS);
-            // AxoMoveRelative_Task.Run(THIS);
-            // AxoMoveAdditive_Task.Run(THIS);
-            // AxoMoveVelocity_Task.Run(THIS);
-            // AxoTorqueControl_Task.Run(THIS);
-            // AxoSetPosition_Task.Run(THIS);
-            // AxoSetOverride_Task.Run(THIS);
-            // AxoReadParameter_Task.Run(THIS);
-            // AxoReadRealParameter_Task.Run(THIS);
-            // AxoReadBoolParameter_Task.Run(THIS);
-            // AxoWriteParameter_Task.Run(THIS);
-            // AxoWriteRealParameter_Task.Run(THIS);
-            // AxoWriteBoolParameter_Task.Run(THIS);
-            // AxoReadDigitalInput_Task.Run(THIS);
-            // AxoReadDigitalOutput_Task.Run(THIS);
-            // AxoWriteDigitalOutput_Task.Run(THIS);
-            // AxoReadActualPosition_Task.Run(THIS);
-            // AxoReadActualVelocity_Task.Run(THIS);
-            // AxoReadActualTorque_Task.Run(THIS);
-            // AxoReadStatus_Task.Run(THIS);
-            // AxoReadMotionState_Task.Run(THIS);
-            // AxoReadAxisInfo_Task.Run(THIS);
-            // AxoReadAxisError_Task.Run(THIS);
-            // AxoReset_Task.Run(THIS);
-            // AxoJogPositive.Run(THIS);
-            // AxoJogNegative.Run(THIS);
-// <= THIS SHOULD BE PROBABLE REMOVED
-
             //*************RESTORE**********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
@@ -1360,7 +1311,7 @@ NAMESPACE AXOpen.Components.Drives
 
             IF AxoHalt_Task.IsBusy() THEN
                 AxoHalt_Task.DoneWhen(AxoHalt_Done);
-                AxoHalt_Task.ThrowWhen(AxoHalt_Error,CONCAT('MC_Halt has thrown an error: ', ToString(AxoHalt_ErrorID)));
+                AxoHalt_Task.ThrowWhen(AxoHalt_Error,CONCAT('<#MC_Halt has thrown an error: #>', ToString(AxoHalt_ErrorID)));
                 IF AxoHalt_CommandAborted THEN
                     AxoHalt_Task.Abort();
                 END_IF;
@@ -1415,7 +1366,7 @@ NAMESPACE AXOpen.Components.Drives
                     AxoHome_Deceleration    :=  _AxoHome_Deceleration;
                 END_IF;
                 AxoHome_Task.DoneWhen(AxoHome_Done);
-                AxoHome_Task.ThrowWhen(AxoHome_Error,CONCAT('MC_Home has thrown an error: ', ToString(AxoHome_ErrorID)));
+                AxoHome_Task.ThrowWhen(AxoHome_Error,CONCAT('<#MC_Home has thrown an error: #>', ToString(AxoHome_ErrorID)));
                 IF AxoHome_CommandAborted THEN
                     AxoHome_Task.Abort();
                 END_IF;
@@ -1459,7 +1410,7 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveAbsolute_Direction           :=  _AxoMoveAbsolute_Direction;
                 END_IF;
                 AxoMoveAbsolute_Task.DoneWhen(AxoMoveAbsolute_Done);
-                AxoMoveAbsolute_Task.ThrowWhen(AxoMoveAbsolute_Error,CONCAT('MC_MoveAbsolute has thrown an error: ', ToString(AxoMoveAbsolute_ErrorID)));
+                AxoMoveAbsolute_Task.ThrowWhen(AxoMoveAbsolute_Error,CONCAT('<#MC_MoveAbsolute has thrown an error: #>', ToString(AxoMoveAbsolute_ErrorID)));
                 IF AxoMoveAbsolute_CommandAborted THEN
                     AxoMoveAbsolute_Task.Abort();
                 END_IF;
@@ -1501,7 +1452,7 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveRelative_Jerk                :=  _AxoMoveRelative_Jerk;
                 END_IF;
                 AxoMoveRelative_Task.DoneWhen(AxoMoveRelative_Done);
-                AxoMoveRelative_Task.ThrowWhen(AxoMoveRelative_Error,CONCAT('MC_MoveRelative has thrown an error: ', ToString(AxoMoveRelative_ErrorID)));
+                AxoMoveRelative_Task.ThrowWhen(AxoMoveRelative_Error,CONCAT('<#MC_MoveRelative has thrown an error: #>', ToString(AxoMoveRelative_ErrorID)));
                 IF AxoMoveRelative_CommandAborted THEN
                     AxoMoveRelative_Task.Abort();
                 END_IF;
@@ -1543,7 +1494,7 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveAdditive_Jerk                :=  _AxoMoveAdditive_Jerk;
                 END_IF;
                 AxoMoveAdditive_Task.DoneWhen(AxoMoveAdditive_Done);
-                AxoMoveAdditive_Task.ThrowWhen(AxoMoveAdditive_Error,CONCAT('MC_MoveAdditive has thrown an error: ', ToString(AxoMoveAdditive_ErrorID)));
+                AxoMoveAdditive_Task.ThrowWhen(AxoMoveAdditive_Error,CONCAT('<#MC_MoveAdditive has thrown an error: #>', ToString(AxoMoveAdditive_ErrorID)));
                 IF AxoMoveAdditive_CommandAborted THEN
                     AxoMoveAdditive_Task.Abort();
                 END_IF;
@@ -1587,11 +1538,14 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveVelocity_Direction           :=  _AxoMoveVelocity_Direction;
                 END_IF;
                 AxoMoveVelocity_Task.DoneWhen(AxoMoveVelocity_InVelocity AND NOT _AxoMoveVelocity_ContinuousUpdate);
-                AxoMoveVelocity_Task.ThrowWhen(AxoMoveVelocity_Error,CONCAT('MC_MoveVelocity has thrown an error: ', ToString(AxoMoveVelocity_ErrorID)));
+                AxoMoveVelocity_Task.ThrowWhen(AxoMoveVelocity_Error,CONCAT('<#MC_MoveVelocity has thrown an error: #>', ToString(AxoMoveVelocity_ErrorID)));
                 IF AxoMoveVelocity_CommandAborted THEN
                     AxoMoveVelocity_Task.Abort();
                 END_IF;
             END_IF;
+            IF AxoMoveVelocity_Task.RestoreTriggered() OR AxoMoveVelocity_Task.AbortTriggered() THEN;
+                AxoMoveVelocity_InVelocity := FALSE;
+            END_IF;                
             //******************************************
 
             //*************AXO_TORQUE_CONTROL***********
@@ -1631,11 +1585,14 @@ NAMESPACE AXOpen.Components.Drives
                     AxoTorqueControl_Direction          :=  _AxoTorqueControl_Direction;
                 END_IF;
                 AxoTorqueControl_Task.DoneWhen(AxoTorqueControl_InTorque AND NOT _AxoTorqueControl_ContinuousUpdate);
-                AxoTorqueControl_Task.ThrowWhen(AxoTorqueControl_Error,CONCAT('MC_TorqueControl has thrown an error: ', ToString(AxoTorqueControl_ErrorID)));
+                AxoTorqueControl_Task.ThrowWhen(AxoTorqueControl_Error,CONCAT('<#MC_TorqueControl has thrown an error: #>', ToString(AxoTorqueControl_ErrorID)));
                 IF AxoTorqueControl_CommandAborted THEN
                     AxoTorqueControl_Task.Abort();
                 END_IF;
             END_IF;
+            IF AxoTorqueControl_Task.RestoreTriggered() OR AxoTorqueControl_Task.AbortTriggered() THEN;
+                AxoTorqueControl_InTorque := FALSE;
+            END_IF;  
             //******************************************
             IF DriveState = eAxoDriveState#ContinuousMotion AND (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
                 _disabledDuringMovement := TRUE;
@@ -1660,7 +1617,7 @@ NAMESPACE AXOpen.Components.Drives
 
             IF AxoSetPosition_Task.IsBusy() THEN
                 AxoSetPosition_Task.DoneWhen(AxoSetPosition_Done);
-                AxoSetPosition_Task.ThrowWhen(AxoSetPosition_Error,CONCAT('MC_SetPosition has thrown an error: ', ToString(AxoSetPosition_ErrorID)));
+                AxoSetPosition_Task.ThrowWhen(AxoSetPosition_Error,CONCAT('<#MC_SetPosition has thrown an error: #>', ToString(AxoSetPosition_ErrorID)));
             END_IF;
             //******************************************
 
@@ -1689,6 +1646,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadParameter_Error,
                         AxoReadParameter_ErrorID,
                         AxoReadParameter_Value);
+            IF  AxoReadParameter_Task.IsSwitchedOff() THEN
+                AxoReadParameter_Valid := FALSE;
+                AxoReadParameter_Value := LINT#0;
+            END_IF; 
             //******************************************
 
             //*************AXO_READ_REAL_PARAMETER******
@@ -1702,6 +1663,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadRealParameter_Error,
                         AxoReadRealParameter_ErrorID,
                         AxoReadRealParameter_Value);
+            IF  AxoReadRealParameter_Task.IsSwitchedOff() THEN
+                AxoReadRealParameter_Valid := FALSE;
+                AxoReadRealParameter_Value := REAL#0.0;
+            END_IF;                         
             //******************************************
 
             //*************AXO_READ_BOOL_PARAMETER******
@@ -1715,6 +1680,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadBoolParameter_Error,
                         AxoReadBoolParameter_ErrorID,
                         AxoReadBoolParameter_Value);
+            IF  AxoReadBoolParameter_Task.IsSwitchedOff() THEN
+                AxoReadBoolParameter_Valid := FALSE;
+                AxoReadBoolParameter_Value := FALSE;
+            END_IF;                         
             //******************************************
 
             //*************AXO_WRITE_PARAMETER**********
@@ -1730,7 +1699,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteParameter_ErrorID);
             IF AxoWriteParameter_Task.IsBusy() THEN
                 AxoWriteParameter_Task.DoneWhen(AxoWriteParameter_Done);
-                AxoWriteParameter_Task.ThrowWhen(AxoWriteParameter_Error,CONCAT('MC_WriteParameter has thrown an error: ', ToString(AxoWriteParameter_ErrorID)));
+                AxoWriteParameter_Task.ThrowWhen(AxoWriteParameter_Error,CONCAT('<#MC_WriteParameter has thrown an error: #>', ToString(AxoWriteParameter_ErrorID)));
             END_IF;
             //******************************************
 
@@ -1747,7 +1716,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteRealParameter_ErrorID);
             IF AxoWriteRealParameter_Task.IsBusy() THEN
                 AxoWriteRealParameter_Task.DoneWhen(AxoWriteRealParameter_Done);
-                AxoWriteRealParameter_Task.ThrowWhen(AxoWriteRealParameter_Error,CONCAT('MC_WriteRealParameter has thrown an error: ', ToString(AxoWriteRealParameter_ErrorID)));
+                AxoWriteRealParameter_Task.ThrowWhen(AxoWriteRealParameter_Error,CONCAT('<#MC_WriteRealParameter has thrown an error: #>', ToString(AxoWriteRealParameter_ErrorID)));
             END_IF;
             //******************************************
 
@@ -1764,7 +1733,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteBoolParameter_ErrorID);
             IF AxoWriteBoolParameter_Task.IsBusy() THEN
                 AxoWriteBoolParameter_Task.DoneWhen(AxoWriteBoolParameter_Done);
-                AxoWriteBoolParameter_Task.ThrowWhen(AxoWriteBoolParameter_Error,CONCAT('MC_WriteBoolParameter has thrown an error: ', ToString(AxoWriteBoolParameter_ErrorID)));
+                AxoWriteBoolParameter_Task.ThrowWhen(AxoWriteBoolParameter_Error,CONCAT('<#MC_WriteBoolParameter has thrown an error: #>', ToString(AxoWriteBoolParameter_ErrorID)));
             END_IF;
             //******************************************
 
@@ -1779,6 +1748,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadDigitalInput_Error,
                         AxoReadDigitalInput_ErrorID,
                         AxoReadDigitalInput_Value);
+            IF  AxoReadDigitalInput_Task.IsSwitchedOff() THEN
+                AxoReadDigitalInput_Valid := FALSE;
+                AxoReadDigitalInput_Value := FALSE;
+            END_IF;       
             //******************************************
 
             //*************AXO_READ_DIGITAL_OUTPUT******
@@ -1792,6 +1765,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadDigitalOutput_Error,
                         AxoReadDigitalOutput_ErrorID,
                         AxoReadDigitalOutput_Value);
+            IF  AxoReadDigitalOutput_Task.IsSwitchedOff() THEN
+                AxoReadDigitalOutput_Valid := FALSE;
+                AxoReadDigitalOutput_Value := FALSE;
+            END_IF;       
             //******************************************
 
             //*************AXO_WRITE_DIGITAL_OUTPUT*****
@@ -1807,7 +1784,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteDigitalOutput_ErrorID);
             IF AxoWriteDigitalOutput_Task.IsBusy() THEN
                 AxoWriteDigitalOutput_Task.DoneWhen(AxoWriteDigitalOutput_Done);
-                AxoWriteDigitalOutput_Task.ThrowWhen(AxoWriteDigitalOutput_Error,CONCAT('MC_WriteDigitalOutput has thrown an error: ', ToString(AxoWriteDigitalOutput_ErrorID)));
+                AxoWriteDigitalOutput_Task.ThrowWhen(AxoWriteDigitalOutput_Error,CONCAT('<#MC_WriteDigitalOutput has thrown an error: #>', ToString(AxoWriteDigitalOutput_ErrorID)));
             END_IF;
             //******************************************
 
@@ -1821,6 +1798,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadActualPosition_Error,
                         AxoReadActualPosition_ErrorID,
                         AxoReadActualPosition_Value);
+            IF  AxoReadActualPosition_Task.IsSwitchedOff() THEN
+                AxoReadActualPosition_Valid := FALSE;
+                AxoReadActualPosition_Value := LREAL#0.0;
+            END_IF;       
             //******************************************
 
             //*************AXO_READ_ACTUAL_VELOCITY*****
@@ -1833,6 +1814,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadActualVelocity_Error,
                         AxoReadActualVelocity_ErrorID,
                         AxoReadActualVelocity_Value);
+            IF  AxoReadActualVelocity_Task.IsSwitchedOff() THEN
+                AxoReadActualVelocity_Valid := FALSE;
+                AxoReadActualVelocity_Value := LREAL#0.0;
+            END_IF;       
             //******************************************
 
             //*************AXO_READ_ACTUAL_TORQUE*******
@@ -1845,6 +1830,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadActualTorque_Error,
                         AxoReadActualTorque_ErrorID,
                         AxoReadActualTorque_Value);
+            IF  AxoReadActualTorque_Task.IsSwitchedOff() THEN
+                AxoReadActualTorque_Valid := FALSE;
+                AxoReadActualTorque_Value := LREAL#0.0;
+            END_IF;       
             //******************************************
 
             //*************AXO_READ_STATUS**************
@@ -1864,6 +1853,17 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadStatus_DiscreteMotion,      
                         AxoReadStatus_ContinuousMotion,    
                         AxoReadStatus_SynchronizedMotion);
+            IF  AxoReadStatus_Task.IsSwitchedOff() THEN
+                AxoReadStatus_Valid := FALSE;
+                AxoReadStatus_ErrorStop := FALSE;
+                AxoReadStatus_Disabled  := FALSE;
+                AxoReadStatus_Stopping  := FALSE;
+                AxoReadStatus_Homing    := FALSE;
+                AxoReadStatus_Standstill    := FALSE;
+                AxoReadStatus_DiscreteMotion    := FALSE;
+                AxoReadStatus_ContinuousMotion  := FALSE;
+                AxoReadStatus_SynchronizedMotion    := FALSE;
+            END_IF;       
             //******************************************
 
             //*************AXO_READ_MOTION_STATE********
@@ -1881,6 +1881,14 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadMotionState_Decelerating,                           
                         AxoReadMotionState_DirectionPositive,                      
                         AxoReadMotionState_DirectionNegative);
+            IF  AxoReadMotionState_Task.IsSwitchedOff() THEN
+                AxoReadMotionState_Valid := FALSE;
+                AxoReadMotionState_ConstantVelocity := FALSE;
+                AxoReadMotionState_Accelerating := FALSE;
+                AxoReadMotionState_Decelerating := FALSE;
+                AxoReadMotionState_DirectionPositive    := FALSE;
+                AxoReadMotionState_DirectionNegative    := FALSE;                
+            END_IF;       
             //******************************************
 
             //*************AXO_READ_AXIS_INFO***********
@@ -1901,6 +1909,18 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadAxisInfo_PowerOn,
                         AxoReadAxisInfo_IsHomed,
                         AxoReadAxisInfo_AxisWarning);
+            IF  AxoReadAxisInfo_Task.IsSwitchedOff() THEN
+                AxoReadAxisInfo_Valid := FALSE;
+                AxoReadAxisInfo_HomeAbsSwitch   := FALSE;
+                AxoReadAxisInfo_LimitSwitchPos  := FALSE;
+                AxoReadAxisInfo_LimitSwitchNeg  := FALSE;
+                AxoReadAxisInfo_Simulation  := FALSE;
+                AxoReadAxisInfo_CommunicationReady  := FALSE;
+                AxoReadAxisInfo_ReadyForPowerOn := FALSE;
+                AxoReadAxisInfo_PowerOn := FALSE;
+                AxoReadAxisInfo_IsHomed := FALSE;
+                AxoReadAxisInfo_AxisWarning := FALSE;                
+            END_IF;       
             //******************************************
 
             //*************AXO_READ_AXIS_ERROR**********
@@ -1913,6 +1933,11 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadAxisError_Error,
                         AxoReadAxisError_ErrorID,
                         AxoReadAxisError_AxisErrorID);
+            IF  AxoReadAxisError_Task.IsSwitchedOff() THEN
+                AxoReadAxisError_Valid := FALSE;
+                AxoReadAxisError_ErrorID    := DINT#0;
+                AxoReadAxisError_AxisErrorID    := DWORD#0;
+            END_IF;       
             //******************************************
 
             //*************AXO_RESET********************
@@ -1925,7 +1950,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReset_ErrorID);
             IF AxoReset_Task.IsBusy() THEN
                 AxoReset_Task.DoneWhen(AxoReset_Done);
-                AxoReset_Task.ThrowWhen(AxoReset_Error,CONCAT('MC_Reset has thrown an error: ', ToString(AxoReset_ErrorID)));
+                AxoReset_Task.ThrowWhen(AxoReset_Error,CONCAT('<#MC_Reset has thrown an error: #>', ToString(AxoReset_ErrorID)));
             END_IF;
             //******************************************
 
@@ -1940,7 +1965,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoJog_Busy                             :=  FALSE;                   
             AxoJog_CommandAborted                   :=  FALSE;
             AxoJog_Error                            :=  FALSE;                   
-            AxoJog_ErrorID                          :=  FALSE;    
+            AxoJog_ErrorID                          :=  DINT#0;    
             IF AxoJogPositive.IsSwitchedOn() THEN
                 AxoJog_Direction := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
             ELSIF AxoJogNegative.IsSwitchedOn() THEN
@@ -1984,168 +2009,154 @@ NAMESPACE AXOpen.Components.Drives
                 AxoJogNegative.StopMotion := FALSE;
             END_IF;
             //******************************************
-            _error := FALSE;
-            _warning := FALSE;
+            ErrorFromMC := FALSE;
+            // _warning := FALSE;
             IF AxoPower_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoPower_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoPower_ErrorID);
                 END_IF;
             ELSIF AxoStop_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoStop_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoStop_ErrorID);
                 END_IF;
             ELSIF AxoHalt_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoHalt_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoHalt_ErrorID);
                 END_IF;
             ELSIF AxoHome_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoHome_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoHome_ErrorID);
                 END_IF;
             ELSIF AxoMoveAbsolute_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoMoveAbsolute_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoMoveAbsolute_ErrorID);
                 END_IF;
             ELSIF AxoMoveRelative_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoMoveRelative_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoMoveRelative_ErrorID);
                 END_IF;
             ELSIF AxoMoveAdditive_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoMoveAdditive_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoMoveAdditive_ErrorID);
                 END_IF;
             ELSIF AxoMoveVelocity_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoMoveVelocity_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoMoveVelocity_ErrorID);
                 END_IF;
             ELSIF AxoTorqueControl_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoTorqueControl_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoTorqueControl_ErrorID);
                 END_IF;
             ELSIF AxoSetPosition_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoSetPosition_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoSetPosition_ErrorID);
                 END_IF;
             ELSIF AxoSetOverride_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoSetOverride_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoSetOverride_ErrorID);
                 END_IF;
             ELSIF AxoReadParameter_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoReadParameter_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoReadParameter_ErrorID);
                 END_IF;
             ELSIF AxoReadRealParameter_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoReadRealParameter_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoReadRealParameter_ErrorID);
                 END_IF;
             ELSIF AxoReadBoolParameter_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoReadBoolParameter_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoReadBoolParameter_ErrorID);
                 END_IF;
             ELSIF AxoWriteParameter_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoWriteParameter_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoWriteParameter_ErrorID);
                 END_IF;
             ELSIF AxoWriteRealParameter_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoWriteRealParameter_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoWriteRealParameter_ErrorID);
                 END_IF;
             ELSIF AxoWriteBoolParameter_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoWriteBoolParameter_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoWriteBoolParameter_ErrorID);
                 END_IF;
             ELSIF AxoReadDigitalInput_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoReadDigitalInput_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoReadDigitalInput_ErrorID);
                 END_IF;
             ELSIF AxoReadDigitalOutput_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoReadDigitalOutput_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoReadDigitalOutput_ErrorID);
                 END_IF;
             ELSIF AxoWriteDigitalOutput_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoWriteDigitalOutput_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoWriteDigitalOutput_ErrorID);
                 END_IF;
             ELSIF AxoReadActualPosition_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoReadActualPosition_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoReadActualPosition_ErrorID);
                 END_IF;
             ELSIF AxoReadActualVelocity_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoReadActualVelocity_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoReadActualVelocity_ErrorID);
                 END_IF;
             ELSIF AxoReadActualTorque_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoReadActualTorque_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoReadActualTorque_ErrorID);
                 END_IF;
             ELSIF AxoReadStatus_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoReadStatus_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoReadStatus_ErrorID);
                 END_IF;
             ELSIF AxoReadMotionState_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoReadMotionState_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoReadMotionState_ErrorID);
                 END_IF;
             ELSIF AxoReadAxisInfo_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoReadAxisInfo_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoReadAxisInfo_ErrorID);
                 END_IF;
             ELSIF AxoReadAxisError_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoReadAxisError_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoReadAxisError_ErrorID);
                 END_IF;
             ELSIF AxoReset_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoReset_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoReset_ErrorID);
                 END_IF;
             ELSIF AxoJog_Error THEN
-                _error := TRUE;
-                IF _messageCode = ULINT#0 THEN
-                    _messageCode := TO_ULINT(AxoJog_ErrorID);
+                ErrorFromMC := TRUE;
+                IF MessageCodeFromMC = ULINT#0 THEN
+                    MessageCodeFromMC := TO_ULINT(AxoJog_ErrorID);
                 END_IF;
             END_IF;
-
-            _category   :=  eAxoMessageCategory#Error;
-            IF _warning AND NOT _error THEN
-                _category   :=  eAxoMessageCategory#Warning;
-            END_IF;
-            Messenger.ActivateOnCondition(_messageCode, (_error OR _warning) AND _messageCode = _lastMessageCode ,_category);
-            // IF NOT Messenger.IsActive THEN
-            IF Messenger.MessengerState = eAxoMessengerState#Idle THEN
-                IF _error OR _warning THEN
-                    _lastMessageCode := _messageCode;
-                ELSE
-                    _messageCode := ULINT#0;
-                END_IF;                          
-            END_IF;                          
 
         END_METHOD
 
@@ -2153,14 +2164,6 @@ NAMESPACE AXOpen.Components.Drives
 		/// Restores this instance . 
         ///</summary>   
         METHOD PUBLIC OVERRIDE Restore 
-            VAR
-                _index : INT;
-            END_VAR
-            DriveStatus.Action.Id := UINT#0;
-            DriveStatus.Error.Id  := UINT#0;
-            Messenger.Restore();
-            TaskMessenger.Restore();
-
             //AxoPower_Task.Restore();
             AxoStop_Task.Restore();
             AxoHalt_Task.Restore();
@@ -2172,22 +2175,35 @@ NAMESPACE AXOpen.Components.Drives
             AxoTorqueControl_Task.Restore();
             AxoSetPosition_Task.Restore();
             AxoSetOverride_Task.SwitchOff();
+            // MC_SetOverride(AxisRef, FALSE);
             AxoReadParameter_Task.SwitchOff();
+            // MC_ReadParameter(AxisRef, FALSE);
             AxoReadRealParameter_Task.SwitchOff();
+            // MC_ReadRealParameter(AxisRef, FALSE);
             AxoReadBoolParameter_Task.SwitchOff();
+            // MC_ReadBoolParameter(AxisRef, FALSE);
             AxoWriteParameter_Task.Restore();
             AxoWriteRealParameter_Task.Restore();
             AxoWriteBoolParameter_Task.Restore();
             AxoReadDigitalInput_Task.SwitchOff();
+            // MC_ReadDigitalInput(AxisRef, FALSE);
             AxoReadDigitalOutput_Task.SwitchOff();
+            // MC_ReadDigitalOutput(AxisRef, FALSE);
             AxoWriteDigitalOutput_Task.Restore();
             AxoReadActualPosition_Task.SwitchOff();
+            // MC_ReadActualPosition(AxisRef, FALSE);
             AxoReadActualVelocity_Task.SwitchOff();
+            // MC_ReadActualVelocity(AxisRef, FALSE);
             AxoReadActualTorque_Task.SwitchOff();
+            // MC_ReadActualTorque(AxisRef, FALSE);
             AxoReadStatus_Task.SwitchOff();
+            // MC_ReadStatus(AxisRef, FALSE);
             AxoReadMotionState_Task.SwitchOff();
+            // MC_ReadMotionState(AxisRef, FALSE);
             AxoReadAxisInfo_Task.SwitchOff();
+            // MC_ReadAxisInfo(AxisRef, FALSE);
             AxoReadAxisError_Task.SwitchOff();
+            // MC_ReadAxisError(AxisRef, FALSE);
             AxoReset_Task.Restore();
             AxoJogPositive.RemoteSwitchOn := FALSE;
             AxoJogPositive.StartMotion := FALSE;
@@ -2196,6 +2212,111 @@ NAMESPACE AXOpen.Components.Drives
             AxoJogNegative.StartMotion := FALSE;
             AxoJogNegative.StopMotion := FALSE;
              
+            //************************************************
+            MessageCodeFromMC                       :=   ULINT#0;
+            ErrorFromMC                             :=   FALSE;
+            _movementDisabled                       :=   FALSE;
+            _lastMessageCode                        :=   ULINT#0;
+            _disabledDuringMovement                 :=   FALSE;
+            _movementInPositiveDirection            :=   FALSE;
+            _movementInNegativeDirection            :=   FALSE;
+            //***********Stop*********************************
+            _AxoStop_Deceleration                   :=   LREAL#0.0;                     
+            _AxoStop_Jerk                           :=   LREAL#0.0;                      
+            //***********Halt*********************************
+            _AxoHalt_Deceleration                   :=   LREAL#0.0;                     
+            _AxoHalt_Jerk                           :=   LREAL#0.0;     
+            //***********Home*********************************
+            _AxoHome_Position                       :=   LREAL#0.0; 
+            _AxoHome_HommingMode                    :=   INT#0;
+            _AxoHome_Velocity                       :=   LREAL#0.0; 
+            _AxoHome_Acceleration                   :=   LREAL#0.0; 
+            _AxoHome_Deceleration                   :=   LREAL#0.0; 
+            //***********MoveAbsolute*************************
+            _AxoMoveAbsolute_ContinuousUpdate       :=   FALSE;
+            _AxoMoveAbsolute_Position               :=   LREAL#0.0; 
+            _AxoMoveAbsolute_Velocity               :=   LREAL#0.0; 
+            _AxoMoveAbsolute_Acceleration           :=   LREAL#0.0; 
+            _AxoMoveAbsolute_Deceleration           :=   LREAL#0.0; 
+            _AxoMoveAbsolute_Jerk                   :=   LREAL#0.0; 
+            _AxoMoveAbsolute_Direction              :=   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#CurrentDirection;
+            //***********MoveRelative*************************
+            _AxoMoveRelative_ContinuousUpdate       :=   FALSE;
+            _AxoMoveRelative_Distance               :=   LREAL#0.0; 
+            _AxoMoveRelative_Velocity               :=   LREAL#0.0; 
+            _AxoMoveRelative_Acceleration           :=   LREAL#0.0; 
+            _AxoMoveRelative_Deceleration           :=   LREAL#0.0; 
+            _AxoMoveRelative_Jerk                   :=   LREAL#0.0; 
+            //***********MoveAdditive*************************
+            _AxoMoveAdditive_ContinuousUpdate       :=   FALSE;
+            _AxoMoveAdditive_Distance               :=   LREAL#0.0; 
+            _AxoMoveAdditive_Velocity               :=   LREAL#0.0; 
+            _AxoMoveAdditive_Acceleration           :=   LREAL#0.0; 
+            _AxoMoveAdditive_Deceleration           :=   LREAL#0.0; 
+            _AxoMoveAdditive_Jerk                   :=   LREAL#0.0; 
+            //***********MoveVelocity*************************
+            _AxoMoveVelocity_ContinuousUpdate       :=   FALSE;
+            _AxoMoveVelocity_Velocity               :=   LREAL#0.0; 
+            _AxoMoveVelocity_Acceleration           :=   LREAL#0.0; 
+            _AxoMoveVelocity_Deceleration           :=   LREAL#0.0; 
+            _AxoMoveVelocity_Jerk                   :=   LREAL#0.0; 
+            _AxoMoveVelocity_Direction              :=   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#CurrentDirection;
+            //***********TorqueControl************************
+            _AxoTorqueControl_ContinuousUpdate      :=   FALSE;
+            _AxoTorqueControl_Torque                :=   LREAL#0.0; 
+            _AxoTorqueControl_TorqueRamp            :=   LREAL#0.0; 
+            _AxoTorqueControl_PositionLimit         :=   LREAL#0.0; 
+            _AxoTorqueControl_Velocity              :=   LREAL#0.0; 
+            _AxoTorqueControl_Acceleration          :=   LREAL#0.0; 
+            _AxoTorqueControl_Deceleration          :=   LREAL#0.0; 
+            _AxoTorqueControl_Jerk                  :=   LREAL#0.0; 
+            _AxoTorqueControl_Direction             :=   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#CurrentDirection;
+            //***********SetPosition**************************
+            _AxoSetPosition_Position                :=   LREAL#0.0;                    
+            _AxoSetPosition_Relative                :=   FALSE;                   
+            _AxoSetPosition_ExecutionMode           :=   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;         
+            //***********SetOverride**************************
+            _AxoSetOverride_VelFactor               :=   LREAL#0.0;                     
+            _AxoSetOverride_AccFactor               :=   LREAL#0.0;                     
+            _AxoSetOverride_JerkFactor              :=   LREAL#0.0;        
+            //***********ReadParameter************************
+            _AxoReadParameter_ParameterNumber       :=   DINT#0;
+            //***********ReadReadParameter************************
+            _AxoReadRealParameter_ParameterNumber   :=   DINT#0;
+            //***********ReadBoolParameter********************
+            _AxoReadBoolParameter_ParameterNumber   :=   DINT#0;
+            //***********WriteParameter***********************
+            _AxoWriteParameter_ParameterNumber      :=   DINT#0;                 
+            _AxoWriteParameter_Value                :=   LINT#0;                     
+            _AxoWriteParameter_ExecutionMode        :=   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                     
+            //***********WriteRealParameter***********************
+            _AxoWriteRealParameter_ParameterNumber  :=   DINT#0;                 
+            _AxoWriteRealParameter_Value            :=   REAL#0.0;                     
+            _AxoWriteRealParameter_ExecutionMode    :=   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                     
+            //***********WriteBoolParameter*******************
+            _AxoWriteBoolParameter_ParameterNumber  :=   DINT#0;                 
+            _AxoWriteBoolParameter_Value            :=   FALSE;                  
+            _AxoWriteBoolParameter_ExecutionMode    :=   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                    
+            //***********ReadDigitalInput*********************
+            _AxoReadDigitalInput_InputNumber        :=   INT#0;
+            //***********ReadDigitalOutput********************
+            _AxoReadDigitalOutput_OutputNumber      :=   INT#0;
+            //***********WriteDigitalOutput*******************
+            _AxoWriteDigitalOutput_OutputNumber     :=   INT#0;
+            _AxoWriteDigitalOutput_Value            :=   FALSE;                   
+            _AxoWriteDigitalOutput_ExecutionMode    :=   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                  
+            //***********ReadMotionState**********************
+            _AxoReadMotionState_Source              :=   AXOpen.Components.Abstractions.Drives.eAxoSource#ActualValue;
+            //***********Jog**********************************
+            _AxoJog_Velocity                        :=   LREAL#0.0; 
+            _AxoJog_Acceleration                    :=   LREAL#0.0; 
+            _AxoJog_Deceleration                    :=   LREAL#0.0; 
+            _AxoJog_Jerk                            :=   LREAL#0.0; 
+            _AxoJog_Direction                       :=   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#CurrentDirection;
+            _AxoJogInVelocity                       :=   FALSE;
+            _AxoJog_Active                          :=   FALSE;
+            //************************************************
+
             RestoreTask.DoneWhen(TRUE);
         END_METHOD
 
@@ -2332,7 +2453,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
 
             _AxoHome_Position    :=  Position;
@@ -2366,7 +2487,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by switching off power (only possibility to abort)                
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
 
             _AxoStop_Deceleration   :=  Deceleration;
@@ -2397,7 +2518,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by switching off power (only possibility to abort)                
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
 
             _AxoHalt_Deceleration   :=  Deceleration;
@@ -2432,7 +2553,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
 
             _AxoMoveAbsolute_ContinuousUpdate   := ContinuousUpdate;
@@ -2471,7 +2592,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
 
             _AxoMoveRelative_ContinuousUpdate   :=  ContinuousUpdate;
@@ -2512,10 +2633,10 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
 
-             _AxoMoveAdditive_ContinuousUpdate   :=  ContinuousUpdate;
+            _AxoMoveAdditive_ContinuousUpdate   :=  ContinuousUpdate;
             _AxoMoveAdditive_Distance           :=  Distance;
             _AxoMoveAdditive_Velocity           :=  Velocity;
             _AxoMoveAdditive_Acceleration       :=  Acceleration;
@@ -2550,7 +2671,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
 
             _AxoMoveVelocity_ContinuousUpdate   :=  ContinuousUpdate;
@@ -2594,7 +2715,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       //  Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       //  ‘Command’ is aborted by another command
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                       //  Error identification             
             END_VAR
 
             _AxoTorqueControl_ContinuousUpdate  :=  ContinuousUpdate;
@@ -2632,7 +2753,7 @@ NAMESPACE AXOpen.Components.Drives
             VAR_OUTPUT
                 Done            :   BOOL;                       //  ‘Position’ has new value
                 Error           :   BOOL;                       //  Signals that an error has occurred within the FunctionBlock
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                       //  Error identification             
             END_VAR
 
             _AxoSetPosition_Position         :=  Position;
@@ -2661,7 +2782,7 @@ NAMESPACE AXOpen.Components.Drives
                 Enabled         :   BOOL;                       //  Signals that the override factor(s) is (are) set successfully
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the FumethodnctionBlock
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                       //  Error identification             
             END_VAR
 
             IF Enable THEN
@@ -2672,6 +2793,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoSetOverride_Task.SwitchOn();
             ELSE
                 AxoSetOverride_Task.SwitchOff();
+                // THIS.MC_SetOverride(AxisRef, FALSE);
             END_IF;
 
             AxoSetOverride  := AxoSetOverride_Task;
@@ -2690,7 +2812,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
 
@@ -2700,6 +2822,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadParameter_Task.SwitchOn();
             ELSE
                 AxoReadParameter_Task.SwitchOff();
+                // THIS.MC_ReadParameter(AxisRef, FALSE);
             END_IF;
 
             Valid   := AxoReadParameter_Valid;
@@ -2723,7 +2846,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   REAL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
 
@@ -2733,6 +2856,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadRealParameter_Task.SwitchOn();
             ELSE
                 AxoReadRealParameter_Task.SwitchOff();
+                // THIS.MC_ReadRealParameter(AxisRef, FALSE);
             END_IF;
 
             Valid   := AxoReadRealParameter_Valid;
@@ -2756,7 +2880,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   BOOL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
 
@@ -2766,6 +2890,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadBoolParameter_Task.SwitchOn();
             ELSE
                 AxoReadBoolParameter_Task.SwitchOff();
+                // THIS.MC_ReadBoolParameter(AxisRef, FALSE);
             END_IF;
 
             Valid   := AxoReadBoolParameter_Valid;
@@ -2790,7 +2915,7 @@ NAMESPACE AXOpen.Components.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method 
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
 
             _AxoWriteParameter_ParameterNumber  :=  ParameterNumber;
@@ -2803,7 +2928,7 @@ NAMESPACE AXOpen.Components.Drives
             ErrorID             :=  AxoWriteParameter_ErrorID;
 
             AxoWriteParameter   :=  AxoWriteParameter_Task.Invoke(THIS);
-    END_METHOD
+        END_METHOD
 
         ///<summary>
         /// This method modifies the value of a vendor specific parameter of type REAL.
@@ -2818,7 +2943,7 @@ NAMESPACE AXOpen.Components.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
 
             _AxoWriteRealParameter_ParameterNumber  :=  ParameterNumber;
@@ -2846,7 +2971,7 @@ NAMESPACE AXOpen.Components.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
 
             _AxoWriteBoolParameter_ParameterNumber  :=  ParameterNumber;
@@ -2874,7 +2999,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   BOOL;                       //  The value of the selected input signal
             END_VAR
 
@@ -2884,6 +3009,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadDigitalInput_Task.SwitchOn();
             ELSE
                 AxoReadDigitalInput_Task.SwitchOff();
+                // THIS.MC_ReadDigitalInput(AxisRef, FALSE);
             END_IF;
 
             Valid               :=  AxoReadDigitalInput_Valid;
@@ -2908,16 +3034,16 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   BOOL;                       //  The value of the selected output signal
             END_VAR
 
             IF Enable THEN
                 _AxoReadDigitalOutput_OutputNumber   :=  OutputNumber;
-
                 AxoReadDigitalOutput_Task.SwitchOn();
             ELSE
                 AxoReadDigitalOutput_Task.SwitchOff();
+                // THIS.MC_ReadDigitalOutput(AxisRef, FALSE);
             END_IF;
 
             Valid   := AxoReadDigitalOutput_Valid;
@@ -2942,7 +3068,7 @@ NAMESPACE AXOpen.Components.Drives
                 Done            :   BOOL;                       //  Writing of the output signal value is done
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
 
             _AxoWriteDigitalOutput_OutputNumber     :=  OutputNumber;
@@ -2968,7 +3094,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Position        :   LREAL;                      //  New absolute position (in axis’ unit [u])
             END_VAR
 
@@ -2976,6 +3102,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadActualPosition_Task.SwitchOn();
             ELSE
                 AxoReadActualPosition_Task.SwitchOff();
+                // THIS.MC_ReadActualPosition(AxisRef, FALSE);
             END_IF;
 
             Valid       := AxoReadActualPosition_Valid;
@@ -3000,7 +3127,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Velocity        :   LREAL;                      //  The value of the actual velocity (in axis’ unit [u/s])
             END_VAR
 
@@ -3008,6 +3135,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadActualVelocity_Task.SwitchOn();
             ELSE
                 AxoReadActualVelocity_Task.SwitchOff();
+                // THIS.MC_ReadActualVelocity(AxisRef, FALSE);
             END_IF;
 
             Valid       :=  AxoReadActualVelocity_Valid;
@@ -3032,7 +3160,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Torque          :   LREAL;                      //  The value of the actual torque or force (in technical units)
             END_VAR
 
@@ -3040,6 +3168,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadActualTorque_Task.SwitchOn();
             ELSE
                 AxoReadActualTorque_Task.SwitchOff();
+                // THIS.MC_ReadActualTorque(AxisRef, FALSE);
             END_IF;
 
             Valid   :=  AxoReadActualTorque_Valid;
@@ -3062,7 +3191,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 ErrorStop       :   BOOL;                       //  See state diagram
                 Disabled        :   BOOL;                       //  See state diagram
                 Stopping        :   BOOL;                       //  See state diagram
@@ -3077,6 +3206,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadStatus_Task.SwitchOn();
             ELSE
                 AxoReadStatus_Task.SwitchOff();
+                // THIS.MC_ReadStatus(AxisRef, FALSE);
             END_IF;
 
             Valid               :=  AxoReadStatus_Valid;
@@ -3107,7 +3237,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 ConstantVelocity:   BOOL;                       //  Velocity is constant. Velocity may be 0. For the actual value a window is applicable (window is vendor specific)
                 Accelerating    :   BOOL;                       //  Increasing the absolute value of the velocity
                 Decelerating    :   BOOL;                       //  Decreasing the absolute value of the velocity
@@ -3119,6 +3249,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadMotionState_Task.SwitchOn();
             ELSE
                 AxoReadMotionState_Task.SwitchOff();
+                // THIS.MC_ReadMotionState(AxisRef, FALSE);
             END_IF;
 
             Valid               :=  AxoReadMotionState_Valid;
@@ -3146,7 +3277,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 HomeAbsSwitch   :   BOOL;                       //  Digital home switch input is active
                 LimitSwitchPos  :   BOOL;                       //  Positive hardware end switch is active
                 LimitSwitchNeg  :   BOOL;                       //  Negative hardware end switch is active
@@ -3162,6 +3293,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadAxisInfo_Task.SwitchOn();
             ELSE
                 AxoReadAxisInfo_Task.SwitchOff();
+                // THIS.ReadAxisInfo(AxisRef, FALSE);
             END_IF;
 
             Valid               :=  AxoReadAxisInfo_Valid;
@@ -3193,7 +3325,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 AxisErrorID     :   DWORD;                      //  The value of the axis error. These values are vendor specific
             END_VAR
             
@@ -3201,6 +3333,7 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReadAxisError_Task.SwitchOn();
             ELSE
                 AxoReadAxisError_Task.SwitchOff();
+                // THIS.MC_ReadAxisError(FALSE);
             END_IF;
 
             Valid           :=  AxoReadAxisError_Valid;
@@ -3221,7 +3354,7 @@ NAMESPACE AXOpen.Components.Drives
                 Done            :   BOOL;                       //  ‘Standstill’ or ‘Disabled’ state is reached
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
 
             Done        :=  AxoReset_Done;
@@ -3232,44 +3365,23 @@ NAMESPACE AXOpen.Components.Drives
             AxoReset    := AxoReset_Task.Invoke(THIS);
         END_METHOD
 
-
-        METHOD PROTECTED IsValidReferences: BOOL
-            VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
-            END_VAR
-            IsValidReferences := FALSE;
-            IF refAxisIn = NULL THEN
-                DriveStatus.Error.Id := UINT#701;
-            ELSIF refAxisOut = NULL THEN
-                DriveStatus.Error.Id := UINT#702;
-            ELSE
-                IsValidReferences := TRUE;
-            END_IF;
-
-            Messenger.ActivateOnCondition(ULINT#701,refAxisIn = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#702,refAxisOut = NULL, eAxoMessageCategory#ProgrammingError);
-        END_METHOD
-
         ///<summary>
-        /// Ensures swapping the hardware input data structure into the AxisRef data structure  
+        /// Ensures reading the hardware input data into the AxisRef data structure  
         /// This vendor specific method must be overridden in derived class.
         ///</summary>
         METHOD PROTECTED ABSTRACT UpdateInputs : BOOL
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             END_VAR
         END_METHOD   
 
         ///<summary>
-        /// Ensures swapping the AxisRef data structure into the hardware output data structure
+        /// Ensures writing the AxisRef data structure into the hardware output data
         /// This vendor specific method must be overridden in derived class.
         ///</summary>
         METHOD PROTECTED ABSTRACT UpdateOutputs : BOOL
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
             END_VAR
         END_METHOD   
 
@@ -3286,7 +3398,7 @@ NAMESPACE AXOpen.Components.Drives
                 Status          :   BOOL;                       //  Effective state of the power stage
                 Valid           :   BOOL;                       //  If true, a valid set of outputs is available at the method
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification            
+                ErrorID         :   DINT;                       //  Error identification            
             END_VAR
         END_METHOD 
 
@@ -3312,7 +3424,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
         END_METHOD
 
@@ -3335,7 +3447,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by switching off power (only possibility to abort)                
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
         END_METHOD
 
@@ -3357,7 +3469,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by switching off power (only possibility to abort)                
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
         END_METHOD
 
@@ -3383,7 +3495,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
         END_METHOD
 
@@ -3408,7 +3520,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
         END_METHOD
 
@@ -3436,7 +3548,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
         END_METHOD
 
@@ -3461,7 +3573,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       // Error identification           
+                ErrorID         :   DINT;                       // Error identification           
              END_VAR
         END_METHOD
 
@@ -3492,7 +3604,7 @@ NAMESPACE AXOpen.Components.Drives
                 Active          :   BOOL;                       //  Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       //  ‘Command’ is aborted by another command
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                       //  Error identification             
             END_VAR
         END_METHOD
 
@@ -3515,7 +3627,7 @@ NAMESPACE AXOpen.Components.Drives
                 Done            :   BOOL;                       //  ‘Position’ has new value
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                       //  Error identification             
             END_VAR
         END_METHOD
 
@@ -3536,7 +3648,7 @@ NAMESPACE AXOpen.Components.Drives
                 Enabled         :   BOOL;                       //  Signals that the override factor(s) is (are) set successfully
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification             
+                ErrorID         :   DINT;                       //  Error identification             
             END_VAR
         END_METHOD
 
@@ -3555,7 +3667,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   LINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
         END_METHOD
@@ -3574,7 +3686,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   REAL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
         END_METHOD
@@ -3593,7 +3705,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   BOOL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
         END_METHOD
@@ -3614,7 +3726,7 @@ NAMESPACE AXOpen.Components.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
         END_METHOD
 
@@ -3634,7 +3746,7 @@ NAMESPACE AXOpen.Components.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
         END_METHOD
 
@@ -3654,7 +3766,7 @@ NAMESPACE AXOpen.Components.Drives
                 Done            :   BOOL;                       //  Parameter successfully written
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
         END_METHOD
 
@@ -3673,7 +3785,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   BOOL;                       //  The value of the selected input signal
             END_VAR
         END_METHOD
@@ -3693,7 +3805,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Value           :   BOOL;                       //  The value of the selected output signal
             END_VAR
         END_METHOD
@@ -3714,7 +3826,7 @@ NAMESPACE AXOpen.Components.Drives
                 Done            :   BOOL;                       //  Writing of the output signal value is done
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
         END_METHOD
 
@@ -3731,7 +3843,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Position        :   LREAL;                       //  New absolute position (in axis’ unit [u])
             END_VAR
         END_METHOD
@@ -3751,7 +3863,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Velocity        :   LREAL;                       //  The value of the actual velocity (in axis’ unit [u/s])
             END_VAR
         END_METHOD
@@ -3771,7 +3883,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 Torque          :   LREAL;                       //  The value of the actual torque or force (in technical units)
             END_VAR
         END_METHOD
@@ -3789,14 +3901,14 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 ErrorStop       :   BOOL;                       //  See state diagram
                 Disabled        :   BOOL;                       //  See state diagram
                 Stopping        :   BOOL;                       //  See state diagram
                 Homing          :   BOOL;                       //  See state diagram
                 Standstill      :   BOOL;                       //  See state diagram
                 DiscreteMotion  :   BOOL;                       //  See state diagram
-                ContinousMotion :   BOOL;                       //  See state diagram
+                ContinuousMotion:   BOOL;                       //  See state diagram
                 SynchronizedMotion: BOOL;                       //  See state diagram
             END_VAR
         END_METHOD
@@ -3815,7 +3927,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 ConstantVelocity:   BOOL;                       //  Velocity is constant. Velocity may be 0. For the actual value a window is applicable (window is vendor specific)
                 Accelerating    :   BOOL;                       //  Increasing the absolute value of the velocity
                 Decelerating    :   BOOL;                       //  Decreasing the absolute value of the velocity
@@ -3838,7 +3950,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 HomeAbsSwitch   :   BOOL;                       //  Digital home switch input is active
                 LimitSwitchPos  :   BOOL;                       //  Positive hardware end switch is active
                 LimitSwitchNeg  :   BOOL;                       //  Negative hardware end switch is active
@@ -3865,7 +3977,7 @@ NAMESPACE AXOpen.Components.Drives
                 Valid           :   BOOL;                       //  A valid output is available at the method
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
                 AxisErrorID     :   DWORD;                      //  The value of the axis error. These values are vendor specific
             END_VAR
         END_METHOD
@@ -3884,7 +3996,7 @@ NAMESPACE AXOpen.Components.Drives
                 Done            :   BOOL;                       //  ‘Standstill’ or ‘Disabled’ state is reached
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
-                ErrorID         :   WORD;                       //  Error identification
+                ErrorID         :   DINT;                       //  Error identification
             END_VAR
         END_METHOD
     END_CLASS

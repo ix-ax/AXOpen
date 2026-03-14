@@ -1,191 +1,116 @@
-﻿@using AXSharp.Connector;
+@using AXSharp.Connector;
+@using Operon.Components
+@using Operon.Components.Dropdown
+@using Operon.Icons
 @namespace AXOpen.Data.Query
 
-@* ICONS FROM https://icons.getbootstrap.com/ *@
+<div data-data-exchange-query class="w-full flex flex-wrap flex-col">
 
-<style>
-    .custom-label {
-        font-weight: bold; /* Make text bold */
-        margin: 0; /* Remove margin */
-        padding: 0; /* Remove padding */
-        line-height: 0.5; /* Reduce height */
-        display: block; /* Ensures it respects height settings */
-    }
-</style>
+    <div class="w-full flex flex-wrap flex-row items-center gap-1 mt-1">
 
-<style>
-    .custom-icon {
-        font-size: 1.3rem;
-    }
-</style>
 
-<div class="container-fluid p-0 m-1">
+        <input type="text" class="input flex-1 min-w-0" @bind="SymbolsQueryFilter" @bind:event="oninput" placeholder="Type symbol name here for filter..." title="Enter a symbol name to filter the results" />
 
-    <div class="col d-flex align-items-center gap-2 mb-1">
+        <button type="button" class="btn btn-outline-primary" @onclick="ClearFilter" title="@Localizer["Clean"]">
+            <Operon.Icons.HeroIcon Icon="backspace" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+        </button>
 
         @if (FilteredSymbols.Count > 0)
         {
-            <button class="btn btn-secondary px-2 py-1"
-                    type="button"
-                    style="width:100px;"
-                    @onclick="AddAllDisplayedToQuery">
-                <i class="bi bi-funnel"></i>
-                @Localizer["All"]
+            <button type="button" class="btn btn-outline-primary" @onclick="AddAllDisplayedToQuery">
+                @Localizer["All to filter"]
+                <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Outline" Class="size-5" />
             </button>
         }
-        @if (FilteredSymbols.Count > 0)
-        {
-            <button class="btn btn-secondary px-2 py-1" type="button" style="width:100px;" @onclick="ClearFilter">
-                <i class="bi bi-x-circle"></i>
-                @Localizer["Clean"]
-            </button>
-        }
-
-        <input id="filterText" @bind="SymbolsQueryFilter" @bind:event="oninput"
-               placeholder="Type symbol name here for filter..."
-               class="form-control"
-               title="Enter a symbol name to filter the results"
-               data-bs-toggle="tooltip" />
 
         @if (InjectedQueries.Count > 0)
         {
-            <button class="btn btn-warning dropdown-toggle m-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                @Localizer["Injected query !"]
-            </button>
-
-            <ul class="dropdown-menu">
-                @foreach (var element in InjectedQueries)
-                {
-                    <li><a class="dropdown-item">@element</a></li>
-                }
-            </ul>
+            <Dropdown @ref="_dropdownInjectedQueries">
+                <DropdownButton>
+                    <button type="button" class="btn btn-primary" @onclick="_dropdownInjectedQueries.Toggle">
+                        @Localizer["Injected query !"]
+                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownInjectedQueries?.Open ?? false ? "rotated" : null))" />
+                    </button>
+                </DropdownButton>
+                <DropdownBody>
+                    @foreach (var element in InjectedQueries)
+                    {
+                        <a class="dropdown-item">@element</a>
+                    }
+                </DropdownBody>
+            </Dropdown>
         }
 
         @if (InjectedSorting.Count > 0)
         {
-            <button class="btn btn-warning dropdown-toggle m-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                @Localizer["Injected sort!"]
-            </button>
-
-            <ul class="dropdown-menu">
-                @foreach (var element in InjectedSorting)
-                {
-                    <li><a class="dropdown-item">@element</a></li>
-                }
-            </ul>
+            <Dropdown @ref="_dropdownInjectedSorting">
+                <DropdownButton>
+                    <button type="button" class="btn btn-primary" @onclick="_dropdownInjectedSorting.Toggle">
+                        @Localizer["Injected sort!"]
+                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownInjectedSorting?.Open ?? false ? "rotated" : null))" />
+                    </button>
+                </DropdownButton>
+                <DropdownBody>
+                    @foreach (var element in InjectedSorting)
+                    {
+                        <a class="dropdown-item">@element</a>
+                    }
+                </DropdownBody>
+            </Dropdown>
         }
     </div>
 
     @if (FilteredSymbols.Count > 0)
     {
-        <div class="card flex p-1 my-1">
+        <div class="card flex flex-wrap flex-col p-1">
 
             @foreach (var symbol in GetDisplaySymbols())
             {
-                <p class="m-1">
-                    <button class="btn btn-secondary px-2 py-1" type="button" @onclick="() => AddSymbolToQuery(symbol)">
-                        <i class="bi bi-funnel"></i>
+                <div class="flex flex-wrap items-center gap-2 p-1">
+                    <button class="btn btn-outline-primary px-1! py-2! w-15" type="button" @onclick="() => AddSymbolToQuery(symbol)">
+                        <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Outline" Class="size-4" />
                     </button>
-                    <button class="btn btn-secondary px-2 py-1" type="button" @onclick="() => AddSymbolToSorting(symbol)">
-                        <i class="bi bi-sort-alpha-down"></i>
+
+                    <button class="btn btn-outline-primary px-1! py-2! w-15" type="button" @onclick="() => AddSymbolToSorting(symbol)">
+                        <Operon.Icons.HeroIcon Icon="adjustments-vertical" Type="Operon.Icons.IconType.Outline" Class="size-4" />
                     </button>
-                    @symbol
-                </p>
-            }
-
-            @if (FilteredSymbols.Count > 5)
-            {
-                <div class="d-flex">
-
-                    <div class="dropup">
-                        Showing @(SymbolsQueryPage * SymbolsQueryPageLimit + 1) to @(((SymbolsQueryPage + 1) * SymbolsQueryPageLimit) > SymbolsQueryCount ? SymbolsQueryCount : ((SymbolsQueryPage + 1) * SymbolsQueryPageLimit)) of @SymbolsQueryCount rows
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@SymbolsQueryPageLimit</button>
-                        <ul class="dropdown-menu m-0">
-                            <li><a class="dropdown-item @(SymbolsQueryPageLimit == 5 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(5)">5</a></li>
-                            <li><a class="dropdown-item @(SymbolsQueryPageLimit == 10 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(10)">10</a></li>
-                            <li><a class="dropdown-item @(SymbolsQueryPageLimit == 25 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(25)">25</a></li>
-                            <li><a class="dropdown-item @(SymbolsQueryPageLimit == 50 ? "active" : "")" style="cursor: pointer" @onclick="() => SetLimitAsync(50)">50</a></li>
-                        </ul>
-                        rows per page
-                    </div>
-                    <nav class="ms-auto">
-                        <ul class="pagination m-0">
-                            <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(Modulo(SymbolsQueryPage - 1, MaxPage + 1))" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-
-                            @if (MaxPage < 7)
-                            {
-                                @for (var i = 0; i < MaxPage + 1; i++)
-                                {
-                                    var j = i;
-                                    <li class="page-item @(SymbolsQueryPage == i ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(j)">@(i + 1)</a></li>
-                                }
-                            }
-                            else
-                            {
-                                <li class="page-item @(SymbolsQueryPage == 0 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(0)">1</a></li>
-
-                                @if (SymbolsQueryPage < 4)
-                                {
-                                    <li class="page-item @(SymbolsQueryPage == 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(1)">2</a></li>
-                                    <li class="page-item @(SymbolsQueryPage == 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(2)">3</a></li>
-                                    <li class="page-item @(SymbolsQueryPage == 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(3)">4</a></li>
-                                    <li class="page-item @(SymbolsQueryPage == 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(4)">5</a></li>
-                                    <li class="page-item disabled"><a class="page-link">...</a></li>
-                                }
-                                else if (SymbolsQueryPage > MaxPage - 4)
-                                {
-                                    <li class="page-item disabled"><a class="page-link">...</a></li>
-                                    <li class="page-item @(SymbolsQueryPage == @MaxPage - 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 4)">@(MaxPage - 3)</a></li>
-                                    <li class="page-item @(SymbolsQueryPage == @MaxPage - 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 3)">@(MaxPage - 2)</a></li>
-                                    <li class="page-item @(SymbolsQueryPage == @MaxPage - 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 2)">@(MaxPage - 1)</a></li>
-                                    <li class="page-item @(SymbolsQueryPage == @MaxPage - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage - 1)">@(MaxPage)</a></li>
-                                }
-                                else
-                                {
-                                    <li class="page-item disabled"><a class="page-link">...</a></li>
-                                    <li class="page-item @(SymbolsQueryPage == SymbolsQueryPage - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(SymbolsQueryPage - 1)">@(SymbolsQueryPage)</a></li>
-                                    <li class="page-item @(SymbolsQueryPage == SymbolsQueryPage ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(SymbolsQueryPage)">@(SymbolsQueryPage + 1)</a></li>
-                                    <li class="page-item @(SymbolsQueryPage == SymbolsQueryPage + 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(SymbolsQueryPage + 1)">@(SymbolsQueryPage + 2)</a></li>
-                                    <li class="page-item disabled"><a class="page-link">...</a></li>
-                                }
-
-                                <li class="page-item @(SymbolsQueryPage == @MaxPage ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => SetPageAsync(MaxPage)">@(MaxPage + 1)</a></li>
-                            }
-
-                            <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="async () => { if (MaxPage != -1) await SetPageAsync((SymbolsQueryPage + 1) % (MaxPage + 1)); }" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                        </ul>
-                    </nav>
+                    <p>@symbol</p>
                 </div>
             }
+
+            <Operon.Components.Pagination Count="SymbolsQueryCount" @bind-PageSize="SymbolsQueryPageLimit" @bind-Selected="SymbolsQueryPage" PageSizeAndSelectedChangedAsync="PageSizeAndSelectedChangedAsync" />
         </div>
     }
 
     @if (CurrentQuery.Queries.Count() > 0)
     {
 
-        <div class="card p-1 my-1" style="border: 2px solid lightskyblue;">
-            <div class="d-flex align-items-center gap-2">
-                <label class="custom-label" style="color: deepskyblue; min-width: 50px">@Localizer["Query"]</label>
-                <div>
+        <div class="card p-2">
+            <div class="flex flex-wrap items-center gap-2">
+
+                <label>@Localizer["Query"]</label>
+
+                <div class="flex flex-wrap flex-col gap-1">
 
                     @foreach (var querySymbol in CurrentQuery.Queries)
                     {
-                        <div class="d-flex align-items-center gap-2">
-                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
+                        <div class="flex flex-wrap items-center gap-1">
+
+                            <button type="button" class="btn btn-no-bg-primary px-1! py-2!" title="@Localizer["Remove"]"
                                     @onclick="() => RemoveSymbolFromQuery(querySymbol.TrackSymbolId)">
-                                <i class="bi bi-trash custom-icon"></i>
+                                <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </button>
 
-                            @*  <label class="ms-2"> @Localizer["Move"]</label>
- *@
-                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Up"]"
+
+                            <button type="button" class="btn btn-no-bg-primary px-1! py-2!" title="@Localizer["Move Up"]"
                                     @onclick="() => MoveQuerySymbolUp(querySymbol.TrackSymbolId)">
-                                <i class="bi bi-arrow-bar-up custom-icon"></i>
+                                <Operon.Icons.HeroIcon Icon="arrow-up" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </button>
 
-                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Down"]"
+
+                            <button type="button" class="btn btn-no-bg-primary px-1! py-2!" title="@Localizer["Move Down"]"
                                     @onclick="() => MoveQuerySymbolDown(querySymbol.TrackSymbolId)">
-                                <i class="bi bi-arrow-bar-down custom-icon"></i>
+                                <Operon.Icons.HeroIcon Icon="arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </button>
 
                             <QuerySymbolConfigurationView @key=querySymbol.TrackSymbolId SymbolConfiguration="@querySymbol"></QuerySymbolConfigurationView>
@@ -200,57 +125,51 @@
 
     @if (CurrentQuery.Sorting.Count > 0)
     {
-        <div class="card p-1 my-1" style="border: 2px solid yellowgreen;">
+        <div class="card p-2">
 
-            <div class="d-flex align-items-center gap-2">
+            <div class="flex flex-wrap items-center gap-2">
 
-                <label class="custom-label" style="color: yellowgreen; min-width: 50px">@Localizer["Sort"]</label>
-                <div>
+                <label>@Localizer["Sort"]</label>
+
+                <div class="flex flex-wrap flex-col gap-1">
+
                     @foreach (var sortSymbol in CurrentQuery.Sorting)
                     {
-                        <div class="d-flex align-items-center gap-2 my-1">
-                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Remove"]"
+                        <div class="flex flex-wrap items-center gap-1">
+
+                            <button type="button" class="btn btn-no-bg-primary px-1! py-2!" title="@Localizer["Remove"]"
                                     @onclick="() => RemoveSymbolFromSorting(sortSymbol.TrackSymbolId)">
-                                <i class="bi bi-trash custom-icon"></i>
+                                <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </button>
-                            @* 
-                    <label class="ms-2"> @Localizer["Move"]</label>
- *@
-                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Up"]"
+
+
+                            <button type="button" class="btn btn-no-bg-primary px-1! py-2!" title="@Localizer["Move Up"]"
                                     @onclick="() => MoveSortingSymbolUp(sortSymbol.TrackSymbolId)">
-                                <i class="bi bi-arrow-bar-up custom-icon"></i>
+                                <Operon.Icons.HeroIcon Icon="arrow-up" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </button>
 
-                            <button type="button" class="btn btn-secondary px-3 py-0" title="@Localizer["Move Down"]"
+                            <button type="button" class="btn btn-no-bg-primary px-1! py-2!" title="@Localizer["Move Down"]"
                                     @onclick="() => MoveSortingSymbolDown(sortSymbol.TrackSymbolId)">
-                                <i class="bi bi-arrow-bar-down custom-icon"></i>
+                                <Operon.Icons.HeroIcon Icon="arrow-down" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                             </button>
 
-                            <div class="d-flex flex-row align-items-center gap-2">
+                            <div class="flex flex-wrap items-center gap-2">
                                 <label> @sortSymbol.SymbolPathWithParent</label>
                             </div>
 
-                            <div class="d-flex flex-row align-items-center gap-2">
-                                <label for="sortSymbolName">
+                            <div class="flex flex-wrap items-center gap-2">
+                                <label for="sortSymbolName" class="ms-4">
                                     @if (sortSymbol.IsAscending)
                                     {
-                                        <i class="bi bi-sort-up-alt">
-                                            <span class="ms-2">
-                                                @Localizer["Ascending"]
-                                            </span>
-                                        </i>
+                                        @Localizer["Ascending"]
                                     }
                                     else
                                     {
-                                        <i class="bi bi-sort-down-alt">
-                                            <span class="ms-2">
-                                                @Localizer["Descending"]
-                                            </span>
-
-                                        </i>
+                                        @Localizer["Descending"]
                                     }
                                 </label>
-                                <input id="sortSymbolName" type="checkbox" @bind="sortSymbol.IsAscending" class="form-check-input" />
+
+                                <BaseInput @bind-Value="sortSymbol.IsAscending" Class="mx-4" />
                             </div>
 
                         </div>
@@ -263,51 +182,54 @@
     }
 
 
-    <div class="card d-flex flex-row align-items-center gap-2 p-1 m-0" style="border: 2px solid lightgray;">
+    <div class="card p-2">
 
-        <label class="custom-label" style="color: darkgray; min-width: 50px">@Localizer["Filter"]</label>
+        <div class="flex flex-wrap items-center gap-2">
 
-        <div>
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                @CurrentQuery.Name
-            </button>
+            <label>@Localizer["Filter"]</label>
 
-            <ul class="dropdown-menu">
-                @foreach (var element in History.Items)
-                {
-                    <li>
+
+            <Dropdown @ref="_dropdownHistory">
+                <DropdownButton>
+                    <button type="button" class="btn btn-primary" @onclick="_dropdownHistory.Toggle">
+                        @CurrentQuery.Name
+                        <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownHistory?.Open ?? false ? "rotated" : null))" />
+                    </button>
+                </DropdownButton>
+                <DropdownBody>
+                    @foreach (var element in History.Items)
+                    {
                         <a class="dropdown-item @(CurrentQuery.Name == element.Name ? "active" : "")"
                            @onclick='() => SelectlElementFromHistory(element.Name)'>@element.Name (@element.Modified.ToString())</a>
-                    </li>
-                }
-            </ul>
-        </div>
-
-        <input id="CurentQueryName" @bind="CurrentQuery.Name" @bind:event="oninput"
-               placeholder="Type query name "
-               class="form-control"
-               style="max-width: 300px;"
-               title="Query name"
-               data-bs-toggle="tooltip" />
-
-        <button class="btn btn-secondary m-1 py-0" type="button" @onclick="async () => await UpdateQueryHistoryToStorage()"
-                data-bs-toggle="tooltip" title="@Localizer["Save query"]">
-            <i class="bi bi-floppy custom-icon"></i>
-        </button>
+                    }
+                </DropdownBody>
+            </Dropdown>
 
 
-        <button class="btn btn-secondary m-1 py-0" type="button" @onclick="async () =>await RemoveItemFromHistory()"
-                data-bs-toggle="tooltip" title="@Localizer["Delete query"]">
-            <i class="bi bi-trash custom-icon"></i>
-        </button>
+            <BaseInput @bind-Value="CurrentQuery.Name" Placeholder="Type query name" />
 
-        @if (CurrentQuery.Queries.Count > 0)
-        {
-            <button class="btn btn-primary m-1 px-5 py-0 d-flex align-items-center gap-2 btn-block" type="button" @onclick="async () => await ExecuteFilter()">
-                <i class="bi bi-search custom-icon"></i>
-                <span>@Localizer["Filter"]</span>
+            <button type="button" class="btn btn-outline-primary" @onclick="async () => await UpdateQueryHistoryToStorage()" title="@Localizer["Save query"]">
+                <Operon.Icons.HeroIcon Icon="folder" Type="Operon.Icons.IconType.Outline" Class="size-5" />
             </button>
-        }
+
+
+            <button type="button" class="btn btn-outline-primary" @onclick="async () => await RemoveItemFromHistory()" title="@Localizer["Delete query"]">
+                <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+            </button>
+
+            @if (CurrentQuery.Queries.Count > 0)
+            {
+                <button type="button" class="btn btn-primary" @onclick="async () => await ExecuteFilter()">
+                    @Localizer["Search"]
+                </button>
+            }
+        </div>
 
     </div>
 </div>
+
+@code {
+    private Dropdown _dropdownInjectedQueries { get; set; }
+    private Dropdown _dropdownInjectedSorting { get; set; }
+    private Dropdown _dropdownHistory { get; set; }
+}

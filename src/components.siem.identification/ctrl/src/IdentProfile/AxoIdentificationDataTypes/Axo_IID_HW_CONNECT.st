@@ -17,7 +17,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
     {S7.extern=ReadWrite}
     CLASS PUBLIC Axo_IID_HW_CONNECT
         VAR PUBLIC
-            HW_ID               :   WORD    :=  WORD#16#0; 			//Hardware identifier
+            HW_ID               :   UINT    :=  UINT#16#0; 			//Hardware identifier
             AR_NUMBER 			:   WORD    :=  WORD#16#0; 			//Number of AR
             API 				:   DWORD   :=  DWORD#16#0000_5B00; //API number 
             SLOT 				:   WORD    :=  WORD#16#02;  		//Slot number  

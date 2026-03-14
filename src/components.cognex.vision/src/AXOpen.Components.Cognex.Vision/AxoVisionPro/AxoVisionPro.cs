@@ -78,10 +78,10 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(262, new AxoMessengerTextItem("TemplateTask_20steps_6 restored.","")),
                 //  General alarms
                 new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                               ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                                  ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!"                                                                ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Device` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."                    ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_SystemControl is zero."                                                                             ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_SystemControl is zero."                                                                   ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(711, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(712, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(713, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."                           ,"Check the hardware configuration.")),
@@ -89,7 +89,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(715, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'System_Control' GsdId: '101'."           ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Engine_Control_1 is zero."                                                                          ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_EngineControl_1 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(721, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(722, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(723, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2."                           ,"Check the hardware configuration.")),
@@ -97,7 +97,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(725, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(726, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 2. Expected module: 'Engine_Control' GsdId: '401'."           ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(730, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Engine_Control_2 is zero."                                                                          ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(730, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_EngineControl_2 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(731, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(732, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(733, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3."                           ,"Check the hardware configuration.")),
@@ -105,7 +105,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(735, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(736, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 3. Expected module: 'Engine_Control' GsdId: '401'."           ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(740, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Engine_Control_3 is zero."                                                                          ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(740, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_EngineControl_3 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(741, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(742, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(743, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4."                           ,"Check the hardware configuration.")),
@@ -113,7 +113,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(745, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(746, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 4. Expected module: 'Engine_Control' GsdId: '401'."           ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(750, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Engine_Control_4 is zero."                                                                          ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(750, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_EngineControl_4 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(751, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(752, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(753, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5."                           ,"Check the hardware configuration.")),
@@ -121,7 +121,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(755, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(756, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 5. Expected module: 'Engine_Control' GsdId: '401'."           ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(760, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_User_Data_240_bytes_1 is zero."                                                                     ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(760, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_UserData_240B_1 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(761, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(762, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(763, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6."                           ,"Check the hardware configuration.")),
@@ -129,7 +129,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(765, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(766, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 6. Expected module: 'User_Data_240_bytes' GsdId: '705'."      ,"Check the hardware configuration.")),
                                                                                                                                                                                                                                         
-                new KeyValuePair<ulong, AxoMessengerTextItem>(770, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_User_Data_240_bytes_2 is zero."                                                                     ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(770, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_UserData_240B_2 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(771, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(772, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(773, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7."                           ,"Check the hardware configuration.")),
@@ -137,7 +137,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(775, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(776, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 7. Expected module: 'User_Data_240_bytes' GsdId: '705'."      ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(780, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_User_Data_240_bytes_3 is zero."                                                                     ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(780, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_UserData_240B_3 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(781, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(782, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(783, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8."                           ,"Check the hardware configuration.")),
@@ -145,7 +145,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(785, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(786, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 8. Expected module: 'User_Data_240_bytes' GsdId: '705'."      ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(790, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_User_Data_240_bytes_4 is zero."                                                                     ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(790, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_UserData_240B_4 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(791, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(792, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(793, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9."                           ,"Check the hardware configuration.")),
@@ -153,7 +153,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(795, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 9."                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(796, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 9. Expected module: 'User_Data_240_bytes' GsdId: '705'."      ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_User_Data_240_bytes_5 is zero."                                                                     ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(800, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_UserData_240B_5 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(801, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 10."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(802, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 10."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(803, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 10."                          ,"Check the hardware configuration.")),
@@ -161,7 +161,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(805, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 10."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(806, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 10. Expected module: 'User_Data_240_bytes' GsdId: '705'."     ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(810, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_User_Data_64_bytes_1 is zero."                                                                      ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(810, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_UserData_64B_1 is zero."                                                                  ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(811, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 11."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(812, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 11."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(813, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 11."                          ,"Check the hardware configuration.")),
@@ -169,7 +169,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(815, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 11."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(816, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 11. Expected module: 'User_Data_64_bytes' GsdId: '703'."      ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(820, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Results_240_bytes_1 is zero."                                                                       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(820, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_ResultData_240B_1 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(821, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 12."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(822, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 12."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(823, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 12."                          ,"Check the hardware configuration.")),
@@ -177,7 +177,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(825, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 12."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(826, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 12. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(830, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Results_240_bytes_2 is zero."                                                                       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(830, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_ResultData_240B_2 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(831, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 13."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(832, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 13."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(833, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 13."                          ,"Check the hardware configuration.")),
@@ -185,7 +185,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(835, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 13."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(836, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 13. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(840, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Results_240_bytes_3 is zero."                                                                       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(840, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_ResultData_240B_3 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(841, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 14."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(842, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 14."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(843, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 14."                          ,"Check the hardware configuration.")),
@@ -193,7 +193,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(845, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 14."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(846, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 14. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(850, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Results_240_bytes_4 is zero."                                                                       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(850, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_ResultData_240B_4 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(851, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 15."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(852, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 15."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(853, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 15."                          ,"Check the hardware configuration.")),
@@ -201,7 +201,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(855, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 15."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(856, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 15. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(860, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Results_240_bytes_5 is zero."                                                                       ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(860, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_ResultData_240B_5 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(861, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 16."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(862, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 16."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(863, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 16."                          ,"Check the hardware configuration.")),
@@ -209,7 +209,7 @@ namespace AXOpen.Components.Cognex.Vision
                 new KeyValuePair<ulong, AxoMessengerTextItem>(865, new AxoMessengerTextItem("Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 16."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(866, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 16. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(870, new AxoMessengerTextItem("Hw configuration error. Value of _hwID_Result_Data_64_bytes_1 is zero."                                                                    ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(870, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HW_ResultData_64B_1 is zero."                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(871, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 17."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(872, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 17."                          ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(873, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 17."                          ,"Check the hardware configuration.")),
@@ -403,54 +403,56 @@ namespace AXOpen.Components.Cognex.Vision
                                                                                                                                                                                                                                     
                                                                                                                                                                                                                                     
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1130, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                              ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1131, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                                 ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `hwID_SystemControl` has invalid value in `Run` method!"                                                                   ,"Check the call of the `Run` method, if the `hwID_SystemControl` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1133, new AxoMessengerTextItem("Input variable `hwID_Engine_Control_1` has invalid value in `Run` method!"                                                                ,"Check the call of the `Run` method, if the `hwID_Engine_Control_1` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1134, new AxoMessengerTextItem("Input variable `hwID_Engine_Control_2` has invalid value in `Run` method!"                                                                ,"Check the call of the `Run` method, if the `hwID_Engine_Control_2` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1135, new AxoMessengerTextItem("Input variable `hwID_Engine_Control_3` has invalid value in `Run` method!"                                                                ,"Check the call of the `Run` method, if the `hwID_Engine_Control_3` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1136, new AxoMessengerTextItem("Input variable `hwID_Engine_Control_4` has invalid value in `Run` method!"                                                                ,"Check the call of the `Run` method, if the `hwID_Engine_Control_4` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1137, new AxoMessengerTextItem("Input variable `hwID_User_Data_240_bytes_1` has invalid value in `Run` method!"                                                           ,"Check the call of the `Run` method, if the `hwID_User_Data_240_bytes_1` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1138, new AxoMessengerTextItem("Input variable `hwID_User_Data_240_bytes_2` has invalid value in `Run` method!"                                                           ,"Check the call of the `Run` method, if the `hwID_User_Data_240_bytes_2` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1139, new AxoMessengerTextItem("Input variable `hwID_User_Data_240_bytes_3` has invalid value in `Run` method!"                                                           ,"Check the call of the `Run` method, if the `hwID_User_Data_240_bytes_3` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1140, new AxoMessengerTextItem("Input variable `hwID_User_Data_240_bytes_4` has invalid value in `Run` method!"                                                           ,"Check the call of the `Run` method, if the `hwID_User_Data_240_bytes_4` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1141, new AxoMessengerTextItem("Input variable `hwID_User_Data_240_bytes_5` has invalid value in `Run` method!"                                                           ,"Check the call of the `Run` method, if the `hwID_User_Data_240_bytes_5` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1142, new AxoMessengerTextItem("Input variable `hwID_User_Data_64_bytes_1` has invalid value in `Run` method!"                                                            ,"Check the call of the `Run` method, if the `hwID_User_Data_64_bytes_1` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1143, new AxoMessengerTextItem("Input variable `hwID_Results_240_bytes_1` has invalid value in `Run` method!"                                                             ,"Check the call of the `Run` method, if the `hwID_Results_240_bytes_1` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1144, new AxoMessengerTextItem("Input variable `hwID_Results_240_bytes_2` has invalid value in `Run` method!"                                                             ,"Check the call of the `Run` method, if the `hwID_Results_240_bytes_2` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1145, new AxoMessengerTextItem("Input variable `hwID_Results_240_bytes_3` has invalid value in `Run` method!"                                                             ,"Check the call of the `Run` method, if the `hwID_Results_240_bytes_3` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1146, new AxoMessengerTextItem("Input variable `hwID_Results_240_bytes_4` has invalid value in `Run` method!"                                                             ,"Check the call of the `Run` method, if the `hwID_Results_240_bytes_4` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1147, new AxoMessengerTextItem("Input variable `hwID_Results_240_bytes_5` has invalid value in `Run` method!"                                                             ,"Check the call of the `Run` method, if the `hwID_Results_240_bytes_5` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1131, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!"                                                               ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Device` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_SystemControl` has invalid value in `Run` method!"                                                        ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_SystemControl` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1133, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Engine_Control_1` has invalid value in `Run` method!"                                                     ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Engine_Control_1` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1134, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Engine_Control_2` has invalid value in `Run` method!"                                                     ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Engine_Control_2` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1135, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Engine_Control_3` has invalid value in `Run` method!"                                                     ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Engine_Control_3` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1136, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Engine_Control_4` has invalid value in `Run` method!"                                                     ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Engine_Control_4` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1137, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_User_Data_240_bytes_1` has invalid value in `Run` method!"                                                ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_User_Data_240_bytes_1` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1138, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_User_Data_240_bytes_2` has invalid value in `Run` method!"                                                ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_User_Data_240_bytes_2` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1139, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_User_Data_240_bytes_3` has invalid value in `Run` method!"                                                ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_User_Data_240_bytes_3` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1140, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_User_Data_240_bytes_4` has invalid value in `Run` method!"                                                ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_User_Data_240_bytes_4` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1141, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_User_Data_240_bytes_5` has invalid value in `Run` method!"                                                ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_User_Data_240_bytes_5` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1142, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_User_Data_64_bytes_1` has invalid value in `Run` method!"                                                 ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_User_Data_64_bytes_1` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1143, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Results_240_bytes_1` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Results_240_bytes_1` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1144, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Results_240_bytes_2` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Results_240_bytes_2` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1145, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Results_240_bytes_3` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Results_240_bytes_3` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1146, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Results_240_bytes_4` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Results_240_bytes_4` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1147, new AxoMessengerTextItem("Input variable `Config.HWIDs.HW_Results_240_bytes_5` has invalid value in `Run` method!"                                                  ,"Check the call of the `Run` method, if the `Config.HWIDs.HW_Results_240_bytes_5` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1148, new AxoMessengerTextItem("Input variable `hwId_17` has invalid value in `Run` method!"                                                                              ,"Check the call of the `Run` method, if the `hwId_17` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1149, new AxoMessengerTextItem("Input variable `hwId_18` has invalid value in `Run` method!"                                                                              ,"Check the call of the `Run` method, if the `hwId_18` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1150, new AxoMessengerTextItem("Input variable `hwId_19` has invalid value in `Run` method!"                                                                              ,"Check the call of the `Run` method, if the `hwId_19` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1151, new AxoMessengerTextItem("Input variable `hwId_20` has invalid value in `Run` method!"                                                                              ,"Check the call of the `Run` method, if the `hwId_20` parameter is assigned.")),
                                                                                                                                                                                                                                         
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_SystemControl!"                                                                         ,"Check the value of the _hwID_SystemControl and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1202, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_Engine_Control_1!"                                                                      ,"Check the value of the _hwID_Engine_Control_1 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1203, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_Engine_Control_2!"                                                                      ,"Check the value of the hwID_Engine_Control_2 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1204, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_Engine_Control_3!"                                                                      ,"Check the value of the hwID_Engine_Control_3 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1205, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_Engine_Control_4!"                                                                      ,"Check the value of the hwID_Engine_Control_4 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1206, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_1!"                                                                 ,"Check the value of the hwID_User_Data_240_bytes_1 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1207, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_2!"                                                                 ,"Check the value of the hwID_User_Data_240_bytes_2 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1208, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_3!"                                                                 ,"Check the value of the hwID_User_Data_240_bytes_3 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1209, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_4!"                                                                 ,"Check the value of the hwID_User_Data_240_bytes_4 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1210, new AxoMessengerTextItem("Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_5!"                                                                 ,"Check the value of the hwID_User_Data_240_bytes_5 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_SystemControl!"                                                   ,"Check the value of the Config.HWIDs.HW_SystemControl and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1202, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_Engine_Control_1!"                                                ,"Check the value of the Config.HWIDs.HW_Engine_Control_1 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1203, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_Engine_Control_2!"                                                ,"Check the value of the Config.HWIDs.HW_Engine_Control_2 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1204, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_Engine_Control_3!"                                                ,"Check the value of the Config.HWIDs.HW_Engine_Control_3 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1205, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_Engine_Control_4!"                                                ,"Check the value of the Config.HWIDs.HW_Engine_Control_4 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1206, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_User_Data_240_bytes_1!"                                           ,"Check the value of the Config.HWIDs.HW_User_Data_240_bytes_1 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1207, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_User_Data_240_bytes_2!"                                           ,"Check the value of the Config.HWIDs.HW_User_Data_240_bytes_2 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1208, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_User_Data_240_bytes_3!"                                           ,"Check the value of the Config.HWIDs.HW_User_Data_240_bytes_3 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1209, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_User_Data_240_bytes_4!"                                           ,"Check the value of the Config.HWIDs.HW_User_Data_240_bytes_4 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1210, new AxoMessengerTextItem("Error reading the input data from the module with HWID: Config.HWIDs.HW_User_Data_240_bytes_5!"                                           ,"Check the value of the Config.HWIDs.HW_User_Data_240_bytes_5 and reacheability of the device!")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1231, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_User_Data_64_bytes_1!"                                                                 ,"Check the value of the hwID_User_Data_64_bytes_1 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1232, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_1!"                                                                  ,"Check the value of the hwID_Results_240_bytes_1 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1233, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_2!"                                                                  ,"Check the value of the hwID_Results_240_bytes_2 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1234, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_3!"                                                                  ,"Check the value of the hwID_Results_240_bytes_3 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1235, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_4!"                                                                  ,"Check the value of the hwID_Results_240_bytes_4 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1236, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_5!"                                                                  ,"Check the value of the hwID_Results_240_bytes_5 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1237, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_17!"                                                                                   ,"Check the value of the hwID_17 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1238, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_18!"                                                                                   ,"Check the value of the hwID_18 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1239, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_19!"                                                                                   ,"Check the value of the hwID_19 and reacheability of the device!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1230, new AxoMessengerTextItem("Error writing the AxoVisionProOutputStructure_hwID_20!"                                                                                   ,"Check the value of the hwID_20 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1231, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_User_Data_64_bytes_1!"                                         ,"Check the value of the Config.HWIDs.HW_User_Data_64_bytes_1 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1232, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_Results_240_bytes_1!"                                          ,"Check the value of the Config.HWIDs.HW_Results_240_bytes_1 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1233, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_Results_240_bytes_2!"                                          ,"Check the value of the Config.HWIDs.HW_Results_240_bytes_2 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1234, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_Results_240_bytes_3!"                                          ,"Check the value of the Config.HWIDs.HW_Results_240_bytes_3 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1235, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_Results_240_bytes_4!"                                          ,"Check the value of the Config.HWIDs.HW_Results_240_bytes_4 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1236, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_Results_240_bytes_5!"                                          ,"Check the value of the Config.HWIDs.HW_Results_240_bytes_5 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1237, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_17!"                                                           ,"Check the value of the Config.HWIDs.HW_17 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1238, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_18!"                                                           ,"Check the value of the Config.HWIDs.HW_18 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1239, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_19!"                                                           ,"Check the value of the Config.HWIDs.HW_19 and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1230, new AxoMessengerTextItem("Error writing the output data to the module with the HWID: Config.HWIDs.HW_20!"                                                           ,"Check the value of the Config.HWIDs.HW_20 and reacheability of the device!")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1301, new AxoMessengerTextItem("Invalid value of the 'CameraNo' input variable, value too low!"                                                                           ,"Check the value of the 'CameraNo' input variable!")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1302, new AxoMessengerTextItem("Invalid value of the 'CameraNo' input variable, value too high!"                                                                          ,"Check the value of the 'CameraNo' input variable!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1303, new AxoMessengerTextItem("Result data size oversized!"                                                                                                              ,"Check the hardware configuration!")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1303, new AxoMessengerTextItem("User data size oversized!"                                                                                                                ,"Check the hardware configuration!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1303, new AxoMessengerTextItem("No results to read: required result length is zero in 'ReadResultsTask'."                                                                 ,"Correct the required length.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1304, new AxoMessengerTextItem("Result data size oversized!"                                                                                                              ,"Check the hardware configuration!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1305, new AxoMessengerTextItem("No user data to send: required user data length is zero in 'SendDataTask'."                                                               ,"Correct the required length.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1306, new AxoMessengerTextItem("User data size oversized!"                                                                                                                ,"Check the hardware configuration!")),
 
 
                 // HardResetAllCamerasTask
@@ -502,197 +504,197 @@ namespace AXOpen.Components.Cognex.Vision
             {
                 new KeyValuePair<ulong, AxoMessengerTextItem>(0,    new AxoMessengerTextItem("  ", "  ")),
                 // HardResetAllCamerasTask
-                new KeyValuePair<ulong, AxoMessengerTextItem>(500,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(501,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(502,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(503,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(504,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(505,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(506,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(507,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(508,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(509,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(500,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.CurentJobID` to be greater then zero!"                                                     ,"Check the status of the `Inputs.Status.CurentJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(501,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.CurentJobID` to be equal to zero!"                                                         ,"Check the status of the `Inputs.Status.CurentJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(502,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(503,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(504,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(505,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(506,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(507,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(508,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(509,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 // ResetTask
-                new KeyValuePair<ulong, AxoMessengerTextItem>(510,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(511,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(512,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(513,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(514,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(515,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(516,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(517,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(518,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(519,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(510,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         ,"Check the status of the `Inputs.Status.UserDataLockerJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(511,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(512,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.ReadDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         ,"Check the status of the `Inputs.Status.ReadDataLockerJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(513,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(514,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(515,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(516,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(517,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(518,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(519,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 // TriggerTask
-                new KeyValuePair<ulong, AxoMessengerTextItem>(520,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(521,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(522,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(523,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(524,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(525,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(526,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(527,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(528,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(529,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(520,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SystemReady` to be set!"                                                                   ,"Check the status of the `Inputs.Status.SystemReady`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(521,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.Online` to be set!"                                                                        ,"Check the status of the `Inputs.Status.Online`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(522,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SoftEvent.ResetAck` to be set!"                                                            ,"Check the status of the `Inputs.Status.SoftEvent.ResetAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(523,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SoftEvent.TriggerAck` to be reseted!"                                                      ,"Check the status of the `Inputs.Status.SoftEvent.TriggerAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(524,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SoftEvent.TriggerAck` to be set!"                                                          ,"Check the status of the `Inputs.Status.SoftEvent.TriggerAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(525,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SoftEvent.TriggerAck` to be reseted!"                                                      ,"Check the status of the Inputs.Status.SoftEvent.TriggerAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(526,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(527,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(528,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(529,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_10steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(530,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(531,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(532,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(533,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(534,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(535,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(536,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(537,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(538,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(539,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(530,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(531,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(532,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(533,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(534,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(535,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(536,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(537,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(538,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(539,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_10steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(540,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(541,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(542,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(543,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(544,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(545,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(546,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(547,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(548,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(549,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(540,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(541,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(542,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(543,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(544,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(545,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(546,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(547,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(548,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(549,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_10steps_6
-                new KeyValuePair<ulong, AxoMessengerTextItem>(550,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(551,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(552,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(553,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(554,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(555,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(556,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(557,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(558,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(559,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(550,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(551,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(552,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(553,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(554,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(555,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(556,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(557,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(558,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(559,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //ReadResultsTask
-                new KeyValuePair<ulong, AxoMessengerTextItem>(560,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(561,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(562,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(563,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(564,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(565,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(566,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(567,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(568,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(569,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(570,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(571,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(572,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(573,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(574,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(575,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(576,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(577,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(578,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(579,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(560,  new AxoMessengerTextItem("Waiting for the signal/variable `Waiting for system ready` to be set!"                                                                    ,"Check the status of the `Waiting for system ready`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(561,  new AxoMessengerTextItem("Waiting for the signal/variable `Waiting for online` to be set!"                                                                          ,"Check the status of the `Waiting for online`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(562,  new AxoMessengerTextItem("Waiting for the signal/variable `_readResultsJobID` to be greather or equal to zero and lower to ten!"                                    ,"Check the status of the `_readResultsJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(563,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.ReadDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         ,"Check the status of the `Inputs.Status.ReadDataLockerJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(564,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(565,  new AxoMessengerTextItem("Waiting for the variable `Inputs.Status.CurentJobID` to be equal to value of 'Outputs.Control.JobLoadID' and greather to zero, so as the the variable 'Inputs.Status.JobLoadComplete' to be set!"         ,"Check the statuses of the `Inputs.Status.CurentJobID` and 'Inputs.Status.JobLoadComplete' variables.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(566,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.ResultValid` to be set!"                                                                   ,"Check the status of the `Inputs.Status.ResultValid`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(567,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(568,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(569,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(570,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(571,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.ResultValid` to be reseted!"                                                               ,"Check the status of the `Inputs.Status.ResultValid`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(572,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(573,  new AxoMessengerTextItem("Waiting for the variable `Inputs.Status.CurentJobID` to be equal to zero and variable 'Inputs.Status.JobLoadComplete' to be set!"         ,"Check the statuses of the `Inputs.Status.CurentJobID` and 'Inputs.Status.JobLoadComplete' variables.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(574,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(575,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(576,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(577,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(578,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(579,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //SendDataTask
-                new KeyValuePair<ulong, AxoMessengerTextItem>(580,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(581,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(582,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(583,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(584,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(585,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(586,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(587,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(588,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(589,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(590,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(591,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(592,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(593,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(594,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(595,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(596,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(597,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(598,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(599,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(580,  new AxoMessengerTextItem("Waiting for the signal/variable `Waiting for system ready` to be set!"                                                                    ,"Check the status of the `Waiting for system ready`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(581,  new AxoMessengerTextItem("Waiting for the signal/variable `Waiting for online` to be set!"                                                                          ,"Check the status of the `Waiting for online`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(582,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         ,"Check the status of the `Inputs.Status.UserDataLockerJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(583,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'!"                           ,"Check the status of the `Inputs.Status.UserDataLockerJobID`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(584,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(585,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(586,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(587,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SetUserDataAck` to be reseted!"                                                            ,"Check the status of the `Inputs.Status.SetUserDataAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(588,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SetUserDataAck` to be set!"                                                                ,"Check the status of the `Inputs.Status.SetUserDataAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(589,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SetUserDataAck` to be reseted!"                                                            ,"Check the status of the `Inputs.Status.SetUserDataAck`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(590,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(591,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SoftEvent.DataHandlerDone` to be reseted!"                                                 ,"Check the status of the `Inputs.Status.SoftEvent.DataHandlerDone`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(592,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SoftEvent.DataHandlerDone` to be set!"                                                     ,"Check the status of the `Inputs.Status.SoftEvent.DataHandlerDone`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(593,  new AxoMessengerTextItem("Waiting for the signal/variable `Inputs.Status.SoftEvent.DataHandlerDone` to be reseted!"                                                 ,"Check the status of the `Inputs.Status.SoftEvent.DataHandlerDone`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(594,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(595,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(596,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(597,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(598,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(599,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_20steps_3
-                new KeyValuePair<ulong, AxoMessengerTextItem>(600,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(601,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(602,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(603,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(604,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(605,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(606,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(607,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(608,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(609,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(610,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(611,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(612,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(613,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(614,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(615,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(616,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(617,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(618,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(619,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(600,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(601,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(602,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(603,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(604,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(605,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(606,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(607,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(608,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(609,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(610,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(611,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(612,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(613,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(614,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(615,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(616,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(617,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(618,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(619,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_20steps_4
-                new KeyValuePair<ulong, AxoMessengerTextItem>(620,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(621,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(622,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(623,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(624,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(625,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(626,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(627,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(628,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(629,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(630,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(631,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(632,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(633,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(634,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(635,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(636,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(637,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(638,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(639,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(620,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(621,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(622,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(623,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(624,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(625,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(626,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(627,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(628,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(629,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(630,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(631,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(632,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(633,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(634,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(635,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(636,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(637,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(638,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(639,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_20steps_5
-                new KeyValuePair<ulong, AxoMessengerTextItem>(640,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(641,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(642,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(643,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(644,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(645,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(646,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(647,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(648,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(649,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(650,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(651,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(652,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(653,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(654,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(655,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(656,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(657,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(658,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(659,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(640,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(641,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(642,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(643,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(644,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(645,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(646,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(647,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(648,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(649,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(650,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(651,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(652,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(653,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(654,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(655,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(656,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(657,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(658,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(659,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
                 //TemplateTask_20steps_6
-                new KeyValuePair<ulong, AxoMessengerTextItem>(660,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(661,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(662,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(663,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(664,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(665,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(666,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(667,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(668,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(669,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(670,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(671,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(672,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(673,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(674,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(675,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(676,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(677,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(678,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(679,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !","Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(660,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(661,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(662,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(663,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(664,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(665,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(666,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(667,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(668,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(669,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(670,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(671,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(672,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(673,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(674,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(675,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(676,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(677,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(678,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(679,  new AxoMessengerTextItem("Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      ,"Check the status of the `<insert name>`  signal/variable.")),
 
 
 
@@ -716,203 +718,87 @@ namespace AXOpen.Components.Cognex.Vision
                 {
                     errorDescriptionDict.Add(0, "   ");
                     // HardResetAllCamerasTask
-                    errorDescriptionDict.Add(500, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(501, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(502, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(503, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(504, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(505, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(506, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(507, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(508, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(509, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(500, "Waiting for the signal/variable `Inputs.Status.CurentJobID` to be greater then zero!"                                                     );
+                    errorDescriptionDict.Add(501, "Waiting for the signal/variable `Inputs.Status.CurentJobID` to be equal to zero!"                                                         );
+                    errorDescriptionDict.Add(502, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(503, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(504, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(505, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(506, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(507, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(508, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(509, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
                     // ResetTask
-                    errorDescriptionDict.Add(510, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(511, "Waiting for the signal `Inputs.Status.WorkSensor` to be reseted!");
-                    errorDescriptionDict.Add(512, "Waiting for the signal `Inputs.Status.HomeSensor` to be set!");
-                    errorDescriptionDict.Add(513, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(514, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(515, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(516, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(517, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(518, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(519, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(510, "Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         );
+                    errorDescriptionDict.Add(511, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(512, "Waiting for the signal/variable `Inputs.Status.ReadDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         );
+                    errorDescriptionDict.Add(513, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(514, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(515, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(516, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(517, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(518, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(519, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
                     // TriggerTask
-                    errorDescriptionDict.Add(520, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(521, "Waiting for the signal `Inputs.Status.HomeSensor` to be reseted!");
-                    errorDescriptionDict.Add(522, "Waiting for the signal `Inputs.Status.WorkSensor` to be set!");
-                    errorDescriptionDict.Add(523, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(524, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(525, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(526, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(527, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(528, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(529, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_4
-                    errorDescriptionDict.Add(530, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(531, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(532, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(533, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(534, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(535, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(536, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(537, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(538, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(539, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_5
-                    errorDescriptionDict.Add(540, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(541, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(542, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(543, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(544, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(545, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(546, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(547, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(548, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(549, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_10steps_6
-                    errorDescriptionDict.Add(550, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(551, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(552, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(553, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(554, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(555, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(556, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(557, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(558, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(559, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // ReadResultsTask
-                    errorDescriptionDict.Add(560, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(561, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(562, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(563, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(564, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(565, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(566, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(567, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(568, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(569, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(570, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(571, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(572, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(573, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(574, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(575, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(576, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(577, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(578, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(579, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // SendDataTask
-                    errorDescriptionDict.Add(580, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(581, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(582, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(583, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(584, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(585, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(586, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(587, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(588, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(589, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(590, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(591, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(592, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(593, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(594, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(595, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(596, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(597, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(598, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(599, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_20steps_3
-                    errorDescriptionDict.Add(600, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(601, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(602, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(603, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(604, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(605, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(606, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(607, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(608, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(609, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(610, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(611, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(612, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(613, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(614, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(615, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(616, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(617, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(618, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(619, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_20steps_4
-                    errorDescriptionDict.Add(620, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(621, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(622, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(623, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(624, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(625, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(626, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(627, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(628, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(629, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(630, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(631, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(632, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(633, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(634, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(635, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(636, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(637, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(638, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(639, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_20steps_5
-                    errorDescriptionDict.Add(640, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(641, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(642, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(643, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(644, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(645, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(646, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(647, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(648, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(649, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(650, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(651, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(652, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(653, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(654, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(655, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(656, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(657, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(658, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(659, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    // TemplateTask_20steps_6
-                    errorDescriptionDict.Add(660, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(661, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(662, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(663, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(664, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(665, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(666, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(667, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(668, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(669, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(670, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(671, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(672, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(673, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(674, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(675, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(676, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(677, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(678, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
-                    errorDescriptionDict.Add(679, "Waiting for the signal/variable `<insert name>` to be set/reseted !");
+                    errorDescriptionDict.Add(520, "Waiting for the signal/variable `Inputs.Status.SystemReady` to be set!"                                                                   );
+                    errorDescriptionDict.Add(521, "Waiting for the signal/variable `Inputs.Status.Online` to be set!"                                                                        );
+                    errorDescriptionDict.Add(522, "Waiting for the signal/variable `Inputs.Status.SoftEvent.ResetAck` to be set!"                                                            );
+                    errorDescriptionDict.Add(523, "Waiting for the signal/variable `Inputs.Status.SoftEvent.TriggerAck` to be reseted!"                                                      );
+                    errorDescriptionDict.Add(524, "Waiting for the signal/variable `Inputs.Status.SoftEvent.TriggerAck` to be set!"                                                          );
+                    errorDescriptionDict.Add(525, "Waiting for the signal/variable `Inputs.Status.SoftEvent.TriggerAck` to be reseted!"                                                      );
+                    errorDescriptionDict.Add(526, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(527, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(528, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(529, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    //ReadResultsTask
+                    errorDescriptionDict.Add(560, "Waiting for the signal/variable `Waiting for system ready` to be set!"                                                                    );
+                    errorDescriptionDict.Add(561, "Waiting for the signal/variable `Waiting for online` to be set!"                                                                          );
+                    errorDescriptionDict.Add(562, "Waiting for the signal/variable `_readResultsJobID` to be greather or equal to zero and lower to ten!"                                    );
+                    errorDescriptionDict.Add(563, "Waiting for the signal/variable `Inputs.Status.ReadDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         );
+                    errorDescriptionDict.Add(564, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(565, "Waiting for the variable `Inputs.Status.CurentJobID` to be equal to value of 'Outputs.Control.JobLoadID' and greather to zero, so as the the variable 'Inputs.Status.JobLoadComplete' to be set!");
+                    errorDescriptionDict.Add(566, "Waiting for the signal/variable `Inputs.Status.ResultValid` to be set!"                                                                   );
+                    errorDescriptionDict.Add(567, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(568, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(569, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(570, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(571, "Waiting for the signal/variable `Inputs.Status.ResultValid` to be reseted!"                                                               );
+                    errorDescriptionDict.Add(572, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(573, "Waiting for the variable `Inputs.Status.CurentJobID` to be equal to zero and variable 'Inputs.Status.JobLoadComplete' to be set!"         );
+                    errorDescriptionDict.Add(574, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(575, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(576, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(577, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(578, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(579, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    //SendDataTask
+                    errorDescriptionDict.Add(580, "Waiting for the signal/variable `Waiting for system ready` to be set!"                                                                    );
+                    errorDescriptionDict.Add(581, "Waiting for the signal/variable `Waiting for online` to be set!"                                                                          );
+                    errorDescriptionDict.Add(582, "Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'  or equal to zero!"         );
+                    errorDescriptionDict.Add(583, "Waiting for the signal/variable `Inputs.Status.UserDataLockerJobID` to be equal to value of 'Config.CameraNo'!"                           );
+                    errorDescriptionDict.Add(584, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(585, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(586, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(587, "Waiting for the signal/variable `Inputs.Status.SetUserDataAck` to be reseted!"                                                            );
+                    errorDescriptionDict.Add(588, "Waiting for the signal/variable `Inputs.Status.SetUserDataAck` to be set!"                                                                );
+                    errorDescriptionDict.Add(589, "Waiting for the signal/variable `Inputs.Status.SetUserDataAck` to be reseted!"                                                            );
+                    errorDescriptionDict.Add(590, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(591, "Waiting for the signal/variable `Inputs.Status.SoftEvent.DataHandlerDone` to be reseted!"                                                 );
+                    errorDescriptionDict.Add(592, "Waiting for the signal/variable `Inputs.Status.SoftEvent.DataHandlerDone` to be set!"                                                     );
+                    errorDescriptionDict.Add(593, "Waiting for the signal/variable `Inputs.Status.SoftEvent.DataHandlerDone` to be reseted!"                                                 );
+                    errorDescriptionDict.Add(594, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(595, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(596, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(597, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(598, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+                    errorDescriptionDict.Add(599, "Waiting for the signal/variable `<insert name>` to be set/reseted !"                                                                      );
+
                     //  General alarms
                     errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
-                    errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!"                                                                                  );
+                    errorDescriptionDict.Add(701, "Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!");
                     errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."                    );
 
-                    errorDescriptionDict.Add(710, "Hw configuration error. Value of _hwID_SystemControl is zero."                                                                             );
+                    errorDescriptionDict.Add(710, "Hw configuration error. Value of Config.HWIDs.HW_SystemControl is zero.");
                     errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."                           );
                     errorDescriptionDict.Add(712, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."                           );
                     errorDescriptionDict.Add(713, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."                           );
@@ -920,7 +806,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(715, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."                           );
                     errorDescriptionDict.Add(716, "Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'System_Control' GsdId: '101'."           );
 
-                    errorDescriptionDict.Add(720, "Hw configuration error. Value of _hwID_Engine_Control_1 is zero."                                                                          );
+                    errorDescriptionDict.Add(720, "Hw configuration error. Value of Config.HWIDs.HW_Engine_Control_1 is zero.");
                     errorDescriptionDict.Add(721, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 2."                           );
                     errorDescriptionDict.Add(722, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 2."                           );
                     errorDescriptionDict.Add(723, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 2."                           );
@@ -928,7 +814,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(725, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 2."                           );
                     errorDescriptionDict.Add(726, "Hw configuration error: Module with unexpected size or type detected in Slot 2. Expected module: 'Engine_Control' GsdId: '401'."           );
 
-                    errorDescriptionDict.Add(730, "Hw configuration error. Value of _hwID_Engine_Control_2 is zero."                                                                          );
+                    errorDescriptionDict.Add(730, "Hw configuration error. Value of Config.HWIDs.HW_Engine_Control_2 is zero.");
                     errorDescriptionDict.Add(731, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 3."                           );
                     errorDescriptionDict.Add(732, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 3."                           );
                     errorDescriptionDict.Add(733, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 3."                           );
@@ -936,7 +822,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(735, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 3."                           );
                     errorDescriptionDict.Add(736, "Hw configuration error: Module with unexpected size or type detected in Slot 3. Expected module: 'Engine_Control' GsdId: '401'."           );
 
-                    errorDescriptionDict.Add(740, "Hw configuration error. Value of _hwID_Engine_Control_3 is zero."                                                                          );
+                    errorDescriptionDict.Add(740, "Hw configuration error. Value of Config.HWIDs.HW_Engine_Control_3 is zero.");
                     errorDescriptionDict.Add(741, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 4."                           );
                     errorDescriptionDict.Add(742, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 4."                           );
                     errorDescriptionDict.Add(743, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 4."                           );
@@ -944,7 +830,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(745, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 4."                           );
                     errorDescriptionDict.Add(746, "Hw configuration error: Module with unexpected size or type detected in Slot 4. Expected module: 'Engine_Control' GsdId: '401'."           );
 
-                    errorDescriptionDict.Add(750, "Hw configuration error. Value of _hwID_Engine_Control_4 is zero."                                                                          );
+                    errorDescriptionDict.Add(750, "Hw configuration error. Value of Config.HWIDs.HW_Engine_Control_4 is zero.");
                     errorDescriptionDict.Add(751, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 5."                           );
                     errorDescriptionDict.Add(752, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 5."                           );
                     errorDescriptionDict.Add(753, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 5."                           );
@@ -952,7 +838,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(755, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 5."                           );
                     errorDescriptionDict.Add(756, "Hw configuration error: Module with unexpected size or type detected in Slot 5. Expected module: 'Engine_Control' GsdId: '401'."           );
 
-                    errorDescriptionDict.Add(760, "Hw configuration error. Value of _hwID_User_Data_240_bytes_1 is zero."                                                                     );
+                    errorDescriptionDict.Add(760, "Hw configuration error. Value of Config.HWIDs.HW_User_Data_240_bytes_1 is zero.");
                     errorDescriptionDict.Add(761, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 6."                           );
                     errorDescriptionDict.Add(762, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 6."                           );
                     errorDescriptionDict.Add(763, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 6."                           );
@@ -960,7 +846,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(765, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 6."                           );
                     errorDescriptionDict.Add(766, "Hw configuration error: Module with unexpected size or type detected in Slot 6. Expected module: 'User_Data_240_bytes' GsdId: '705'."      );
 
-                    errorDescriptionDict.Add(770, "Hw configuration error. Value of _hwID_User_Data_240_bytes_2 is zero."                                                                     );
+                    errorDescriptionDict.Add(770, "Hw configuration error. Value of Config.HWIDs.HW_User_Data_240_bytes_2 is zero.");
                     errorDescriptionDict.Add(771, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 7."                           );
                     errorDescriptionDict.Add(772, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 7."                           );
                     errorDescriptionDict.Add(773, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 7."                           );
@@ -968,7 +854,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(775, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 7."                           );
                     errorDescriptionDict.Add(776, "Hw configuration error: Module with unexpected size or type detected in Slot 7. Expected module: 'User_Data_240_bytes' GsdId: '705'."      );
 
-                    errorDescriptionDict.Add(780, "Hw configuration error. Value of _hwID_User_Data_240_bytes_3 is zero."                                                                     );
+                    errorDescriptionDict.Add(780, "Hw configuration error. Value of Config.HWIDs.HW_User_Data_240_bytes_3 is zero.");
                     errorDescriptionDict.Add(781, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 8."                           );
                     errorDescriptionDict.Add(782, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 8."                           );
                     errorDescriptionDict.Add(783, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 8."                           );
@@ -976,7 +862,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(785, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 8."                           );
                     errorDescriptionDict.Add(786, "Hw configuration error: Module with unexpected size or type detected in Slot 8. Expected module: 'User_Data_240_bytes' GsdId: '705'."      );
 
-                    errorDescriptionDict.Add(790, "Hw configuration error. Value of _hwID_User_Data_240_bytes_4 is zero."                                                                     );
+                    errorDescriptionDict.Add(790, "Hw configuration error. Value of Config.HWIDs.HW_User_Data_240_bytes_4 is zero.");
                     errorDescriptionDict.Add(791, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 9."                           );
                     errorDescriptionDict.Add(792, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 9."                           );
                     errorDescriptionDict.Add(793, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 9."                           );
@@ -984,7 +870,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(795, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 9."                           );
                     errorDescriptionDict.Add(796, "Hw configuration error: Module with unexpected size or type detected in Slot 9. Expected module: 'User_Data_240_bytes' GsdId: '705'."      );
 
-                    errorDescriptionDict.Add(800, "Hw configuration error. Value of _hwID_User_Data_240_bytes_5 is zero."                                                                     );
+                    errorDescriptionDict.Add(800, "Hw configuration error. Value of Config.HWIDs.HW_User_Data_240_bytes_5 is zero.");
                     errorDescriptionDict.Add(801, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 10."                          );
                     errorDescriptionDict.Add(802, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 10."                          );
                     errorDescriptionDict.Add(803, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 10."                          );
@@ -992,7 +878,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(805, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 10."                          );
                     errorDescriptionDict.Add(806, "Hw configuration error: Module with unexpected size or type detected in Slot 10. Expected module: 'User_Data_240_bytes' GsdId: '705'."     );
 
-                    errorDescriptionDict.Add(810, "Hw configuration error. Value of _hwID_User_Data_64_bytes_1 is zero."                                                                      );
+                    errorDescriptionDict.Add(810, "Hw configuration error. Value of Config.HWIDs.HW_User_Data_64_bytes_1 is zero.");
                     errorDescriptionDict.Add(811, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 11."                          );
                     errorDescriptionDict.Add(812, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 11."                          );
                     errorDescriptionDict.Add(813, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 11."                          );
@@ -1000,7 +886,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(815, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 11."                          );
                     errorDescriptionDict.Add(816, "Hw configuration error: Module with unexpected size or type detected in Slot 11. Expected module: 'User_Data_64_bytes' GsdId: '703'."      );
 
-                    errorDescriptionDict.Add(820, "Hw configuration error. Value of _hwID_Results_240_bytes_1 is zero."                                                                       );
+                    errorDescriptionDict.Add(820, "Hw configuration error. Value of Config.HWIDs.HW_Results_240_bytes_1 is zero.");
                     errorDescriptionDict.Add(821, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 12."                          );
                     errorDescriptionDict.Add(822, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 12."                          );
                     errorDescriptionDict.Add(823, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 12."                          );
@@ -1008,7 +894,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(825, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 12."                          );
                     errorDescriptionDict.Add(826, "Hw configuration error: Module with unexpected size or type detected in Slot 12. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   );
 
-                    errorDescriptionDict.Add(830, "Hw configuration error. Value of _hwID_Results_240_bytes_2 is zero."                                                                       );
+                    errorDescriptionDict.Add(830, "Hw configuration error. Value of Config.HWIDs.HW_Results_240_bytes_2 is zero.");
                     errorDescriptionDict.Add(831, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 13."                          );
                     errorDescriptionDict.Add(832, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 13."                          );
                     errorDescriptionDict.Add(833, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 13."                          );
@@ -1016,7 +902,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(835, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 13."                          );
                     errorDescriptionDict.Add(836, "Hw configuration error: Module with unexpected size or type detected in Slot 13. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   );
 
-                    errorDescriptionDict.Add(840, "Hw configuration error. Value of _hwID_Results_240_bytes_3 is zero."                                                                       );
+                    errorDescriptionDict.Add(840, "Hw configuration error. Value of Config.HWIDs.HW_Results_240_bytes_3 is zero.");
                     errorDescriptionDict.Add(841, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 14."                          );
                     errorDescriptionDict.Add(842, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 14."                          );
                     errorDescriptionDict.Add(843, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 14."                          );
@@ -1024,7 +910,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(845, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 14."                          );
                     errorDescriptionDict.Add(846, "Hw configuration error: Module with unexpected size or type detected in Slot 14. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   );
 
-                    errorDescriptionDict.Add(850, "Hw configuration error. Value of _hwID_Results_240_bytes_4 is zero."                                                                       );
+                    errorDescriptionDict.Add(850, "Hw configuration error. Value of Config.HWIDs.HW_Results_240_bytes_4 is zero.");
                     errorDescriptionDict.Add(851, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 15."                          );
                     errorDescriptionDict.Add(852, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 15."                          );
                     errorDescriptionDict.Add(853, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 15."                          );
@@ -1032,7 +918,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(855, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 15."                          );
                     errorDescriptionDict.Add(856, "Hw configuration error: Module with unexpected size or type detected in Slot 15. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   );
 
-                    errorDescriptionDict.Add(860, "Hw configuration error. Value of _hwID_Results_240_bytes_5 is zero."                                                                       );
+                    errorDescriptionDict.Add(860, "Hw configuration error. Value of Config.HWIDs.HW_Results_240_bytes_5 is zero.");
                     errorDescriptionDict.Add(861, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 16."                          );
                     errorDescriptionDict.Add(862, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 16."                          );
                     errorDescriptionDict.Add(863, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 16."                          );
@@ -1040,7 +926,7 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(865, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 16."                          );
                     errorDescriptionDict.Add(866, "Hw configuration error: Module with unexpected size or type detected in Slot 16. Expected module: 'Result_Data_240_bytes' GsdId: '805'."   );
 
-                    errorDescriptionDict.Add(870, "Hw configuration error. Value of _hwID_Result_Data_64_bytes_1 is zero."                                                                    );
+                    errorDescriptionDict.Add(870, "Hw configuration error. Value of Config.HWIDs.HW_Result_Data_64_bytes_1 is zero.");
                     errorDescriptionDict.Add(871, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 17."                          );
                     errorDescriptionDict.Add(872, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 17."                          );
                     errorDescriptionDict.Add(873, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 17."                          );
@@ -1233,45 +1119,45 @@ namespace AXOpen.Components.Cognex.Vision
                     errorDescriptionDict.Add(1106, "Hw configuration error: Module with unexpected size or type detected in Slot 40. Expected module: 'gsd_id_of_req_module'."                );
 
                     errorDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!"                                                                              );
-                    errorDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!"                                                                                 );
-                    errorDescriptionDict.Add(1132, "Input variable `hwID_SystemControl` has invalid value in `Run` method!"                                                                   );
-                    errorDescriptionDict.Add(1133, "Input variable `hwID_Engine_Control_1` has invalid value in `Run` method!"                                                                );
-                    errorDescriptionDict.Add(1134, "Input variable `hwID_Engine_Control_2` has invalid value in `Run` method!"                                                                );
-                    errorDescriptionDict.Add(1135, "Input variable `hwID_Engine_Control_3` has invalid value in `Run` method!"                                                                );
-                    errorDescriptionDict.Add(1136, "Input variable `hwID_Engine_Control_4` has invalid value in `Run` method!"                                                                );
-                    errorDescriptionDict.Add(1137, "Input variable `hwID_User_Data_240_bytes_1` has invalid value in `Run` method!"                                                           );
-                    errorDescriptionDict.Add(1138, "Input variable `hwID_User_Data_240_bytes_2` has invalid value in `Run` method!"                                                           );
-                    errorDescriptionDict.Add(1139, "Input variable `hwID_User_Data_240_bytes_3` has invalid value in `Run` method!"                                                           );
-                    errorDescriptionDict.Add(1140, "Input variable `hwID_User_Data_240_bytes_4` has invalid value in `Run` method!"                                                           );
-                    errorDescriptionDict.Add(1141, "Input variable `hwID_User_Data_240_bytes_5` has invalid value in `Run` method!"                                                           );
-                    errorDescriptionDict.Add(1142, "Input variable `hwID_User_Data_64_bytes_1` has invalid value in `Run` method!"                                                            );
-                    errorDescriptionDict.Add(1143, "Input variable `hwID_Results_240_bytes_1` has invalid value in `Run` method!"                                                             );
-                    errorDescriptionDict.Add(1144, "Input variable `hwID_Results_240_bytes_2` has invalid value in `Run` method!"                                                             );
-                    errorDescriptionDict.Add(1145, "Input variable `hwID_Results_240_bytes_3` has invalid value in `Run` method!"                                                             );
-                    errorDescriptionDict.Add(1146, "Input variable `hwID_Results_240_bytes_4` has invalid value in `Run` method!"                                                             );
-                    errorDescriptionDict.Add(1147, "Input variable `hwID_Results_240_bytes_5` has invalid value in `Run` method!"                                                             );
+                    errorDescriptionDict.Add(1131, "Input variable `Config.HWIDs.HW_Device has invalid value in `Run` method!"                                                                                 );
+                    errorDescriptionDict.Add(1132, "Input variable `Config.HWIDs.HW_SystemControl` has invalid value in `Run` method!"                                                                   );
+                    errorDescriptionDict.Add(1133, "Input variable `Config.HWIDs.HW_Engine_Control_1` has invalid value in `Run` method!"                                                                );
+                    errorDescriptionDict.Add(1134, "Input variable `Config.HWIDs.HW_Engine_Control_2` has invalid value in `Run` method!"                                                                );
+                    errorDescriptionDict.Add(1135, "Input variable `Config.HWIDs.HW_Engine_Control_3` has invalid value in `Run` method!"                                                                );
+                    errorDescriptionDict.Add(1136, "Input variable `Config.HWIDs.HW_Engine_Control_4` has invalid value in `Run` method!"                                                                );
+                    errorDescriptionDict.Add(1137, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_1` has invalid value in `Run` method!"                                                           );
+                    errorDescriptionDict.Add(1138, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_2` has invalid value in `Run` method!"                                                           );
+                    errorDescriptionDict.Add(1139, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_3` has invalid value in `Run` method!"                                                           );
+                    errorDescriptionDict.Add(1140, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_4` has invalid value in `Run` method!"                                                           );
+                    errorDescriptionDict.Add(1141, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_5` has invalid value in `Run` method!"                                                           );
+                    errorDescriptionDict.Add(1142, "Input variable `Config.HWIDs.HW_User_Data_64_bytes_1` has invalid value in `Run` method!"                                                            );
+                    errorDescriptionDict.Add(1143, "Input variable `Config.HWIDs.HW_Results_240_bytes_1` has invalid value in `Run` method!"                                                             );
+                    errorDescriptionDict.Add(1144, "Input variable `Config.HWIDs.HW_Results_240_bytes_2` has invalid value in `Run` method!"                                                             );
+                    errorDescriptionDict.Add(1145, "Input variable `Config.HWIDs.HW_Results_240_bytes_3` has invalid value in `Run` method!"                                                             );
+                    errorDescriptionDict.Add(1146, "Input variable `Config.HWIDs.HW_Results_240_bytes_4` has invalid value in `Run` method!"                                                             );
+                    errorDescriptionDict.Add(1147, "Input variable `Config.HWIDs.HW_Results_240_bytes_5` has invalid value in `Run` method!");
                     errorDescriptionDict.Add(1148, "Input variable `hwId_17` has invalid value in `Run` method!"                                                                              );
                     errorDescriptionDict.Add(1149, "Input variable `hwId_18` has invalid value in `Run` method!"                                                                              );
                     errorDescriptionDict.Add(1150, "Input variable `hwId_19` has invalid value in `Run` method!"                                                                              );
                     errorDescriptionDict.Add(1151, "Input variable `hwId_20` has invalid value in `Run` method!"                                                                              );
 
-                    errorDescriptionDict.Add(1201, "Error reading the AxoVisionProInputStructure_hwID_SystemControl!"                                                                         );
-                    errorDescriptionDict.Add(1202, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_1!"                                                                      );
-                    errorDescriptionDict.Add(1203, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_2!"                                                                      );
-                    errorDescriptionDict.Add(1204, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_3!"                                                                      );
-                    errorDescriptionDict.Add(1205, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_4!"                                                                      );
-                    errorDescriptionDict.Add(1206, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_1!"                                                                 );
-                    errorDescriptionDict.Add(1207, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_2!"                                                                 );
-                    errorDescriptionDict.Add(1208, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_3!"                                                                 );
-                    errorDescriptionDict.Add(1209, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_4!"                                                                 );
-                    errorDescriptionDict.Add(1210, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_5!"                                                                 );
+                    errorDescriptionDict.Add(1201, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_SystemControl!"                                                                         );
+                    errorDescriptionDict.Add(1202, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_Engine_Control_1!"                                                                      );
+                    errorDescriptionDict.Add(1203, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_Engine_Control_2!"                                                                      );
+                    errorDescriptionDict.Add(1204, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_Engine_Control_3!"                                                                      );
+                    errorDescriptionDict.Add(1205, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_Engine_Control_4!"                                                                      );
+                    errorDescriptionDict.Add(1206, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_User_Data_240_bytes_1!"                                                                 );
+                    errorDescriptionDict.Add(1207, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_User_Data_240_bytes_2!"                                                                 );
+                    errorDescriptionDict.Add(1208, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_User_Data_240_bytes_3!"                                                                 );
+                    errorDescriptionDict.Add(1209, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_User_Data_240_bytes_4!"                                                                 );
+                    errorDescriptionDict.Add(1210, "Error reading the input data from the module with the HWID:Config.HWIDs.HW_User_Data_240_bytes_5!");
 
-                    errorDescriptionDict.Add(1231, "Error writing the AxoVisionProOutputStructure_hwID_User_Data_64_bytes_1!"                                                                 );
-                    errorDescriptionDict.Add(1232, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_1!"                                                                  );
-                    errorDescriptionDict.Add(1233, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_2!"                                                                  );
-                    errorDescriptionDict.Add(1234, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_3!"                                                                  );
-                    errorDescriptionDict.Add(1235, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_4!"                                                                  );
-                    errorDescriptionDict.Add(1236, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_5!"                                                                  );
+                    errorDescriptionDict.Add(1231, "Error writing the output data to the module with HWID: Config.HWIDs.HW_User_Data_64_bytes_1!"                                                                 );
+                    errorDescriptionDict.Add(1232, "Error writing the output data to the module with HWID: Config.HWIDs.HW_Results_240_bytes_1!"                                                                  );
+                    errorDescriptionDict.Add(1233, "Error writing the output data to the module with HWID: Config.HWIDs.HW_Results_240_bytes_2!"                                                                  );
+                    errorDescriptionDict.Add(1234, "Error writing the output data to the module with HWID: Config.HWIDs.HW_Results_240_bytes_3!"                                                                  );
+                    errorDescriptionDict.Add(1235, "Error writing the output data to the module with HWID: Config.HWIDs.HW_Results_240_bytes_4!"                                                                  );
+                    errorDescriptionDict.Add(1236, "Error writing the output data to the module with HWID: Config.HWIDs.HW_Results_240_bytes_5!");
                     errorDescriptionDict.Add(1237, "Error writing the AxoVisionProOutputStructure_hwID_17!"                                                                                   );
                     errorDescriptionDict.Add(1238, "Error writing the AxoVisionProOutputStructure_hwID_18!"                                                                                   );
                     errorDescriptionDict.Add(1239, "Error writing the AxoVisionProOutputStructure_hwID_19!"                                                                                   );
@@ -1279,48 +1165,28 @@ namespace AXOpen.Components.Cognex.Vision
 
                     errorDescriptionDict.Add(1301, "Invalid value of the 'CameraNo' input variable, value too low!"                                                                           );
                     errorDescriptionDict.Add(1302, "Invalid value of the 'CameraNo' input variable, value too high!"                                                                          );
-                    errorDescriptionDict.Add(1303, "Result data size oversized!"                                                                                                              );
-                    errorDescriptionDict.Add(1304, "User data size oversized!"                                                                                                                );
+                    errorDescriptionDict.Add(1303, "No results to read: required result length is zero in 'ReadResultsTask'."                                                                 );
+                    errorDescriptionDict.Add(1304, "Result data size oversized!"                                                                                                              );
+                    errorDescriptionDict.Add(1305, "No user data to send: required user data length is zero in 'SendDataTask'."                                                               );
+                    errorDescriptionDict.Add(1306, "User data size oversized!");
 
 
-                // HardResetAllCamerasTask
+                    // HardResetAllCamerasTask
                     errorDescriptionDict.Add(10000, "HardResetAllCamerasTask finished with error!");
                     errorDescriptionDict.Add(10001, "HardResetAllCamerasTask was aborted, while not yet completed!");
-                // ResetTask
+                    // ResetTask
                     errorDescriptionDict.Add(10010, "ResetTask finished with error!");
                     errorDescriptionDict.Add(10011, "ResetTask was aborted, while not yet completed!");                                                                         
-                // TriggerTask
+                    // TriggerTask
                     errorDescriptionDict.Add(10020, "TriggerTask finished with error!");
                     errorDescriptionDict.Add(10021, "TriggerTask was aborted, while not yet completed!");                                                                                       
-                // TemplateTask_10steps_4
-                    errorDescriptionDict.Add(10030, "TemplateTask_10steps_4 task finished with error!");
-                    errorDescriptionDict.Add(10031, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
-                // TemplateTask_10steps_5
-                    errorDescriptionDict.Add(10040, "TemplateTask_10steps_5 task finished with error!");
-                    errorDescriptionDict.Add(10041, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
-                // TemplateTask_10steps_6
-                    errorDescriptionDict.Add(10050, "TemplateTask_10steps_6 task finished with error!");
-                    errorDescriptionDict.Add(10051, "TemplateTask_10steps_6 task was aborted, while not yet completed!");
 
-                // ReadResultsTask
+                    // ReadResultsTask
                     errorDescriptionDict.Add(10060, "ReadResultsTask task finished with error!");
                     errorDescriptionDict.Add(10061, "ReadResultsTask task was aborted, while not yet completed!");
                     // SendDataTask
                     errorDescriptionDict.Add(10080, "SendDataTask task finished with error!");
                     errorDescriptionDict.Add(10081, "SendDataTask task was aborted, while not yet completed!");                                                                            
-                // TemplateTask_20steps_3
-                    errorDescriptionDict.Add(10100,"TemplateTask_20steps_3 task finished with error!");
-                    errorDescriptionDict.Add(10101, "TemplateTask_20steps_3 task was aborted, while not yet completed!");
-                // TemplateTask_20steps_4
-                    errorDescriptionDict.Add(10120,"TemplateTask_20steps_4 task finished with error!");
-                    errorDescriptionDict.Add(10121, "TemplateTask_20steps_4 task was aborted, while not yet completed!");
-                // TemplateTask_20steps_5
-                    errorDescriptionDict.Add(10140,"TemplateTask_20steps_5 task finished with error!");
-                    errorDescriptionDict.Add(10141, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
-                // TemplateTask_20steps_6
-                    errorDescriptionDict.Add(10160,"TemplateTask_20steps_6 task finished with error!");
-                    errorDescriptionDict.Add(10161, "TemplateTask_20steps_6 task was aborted, while not yet completed!");
-
                 }
                 string errorDescription = "   ";
 
@@ -1350,279 +1216,112 @@ namespace AXOpen.Components.Cognex.Vision
                     actionDescriptionDict.Add(50, "Restore has been executed.");
                     // HardResetAllCamerasTask
                     actionDescriptionDict.Add(100, "HardResetAllCamerasTask started.");
-                    actionDescriptionDict.Add(300, "HardResetAllCamerasTask running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(301, "HardResetAllCamerasTask running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(302, "HardResetAllCamerasTask running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(303, "HardResetAllCamerasTask running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(304, "HardResetAllCamerasTask running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(305, "HardResetAllCamerasTask running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(306, "HardResetAllCamerasTask running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(307, "HardResetAllCamerasTask running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(308, "HardResetAllCamerasTask running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(309, "HardResetAllCamerasTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(300, "HardResetAllCamerasTask running: waiting for the job id set.");
+                    actionDescriptionDict.Add(301, "HardResetAllCamerasTask running: waiting for the job id cleared.");
+                    actionDescriptionDict.Add(302, "HardResetAllCamerasTask finished.");
                     actionDescriptionDict.Add(101, "HardResetAllCamerasTask finished succesfully.");
                     actionDescriptionDict.Add(102, "HardResetAllCamerasTask restored.");
                     // ResetTask
                     actionDescriptionDict.Add(110, "ResetTask started.");
-                    actionDescriptionDict.Add(310, "ResetTask running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(311, "ResetTask running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(312, "ResetTask running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(313, "ResetTask running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(314, "ResetTask running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(315, "ResetTask running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(316, "ResetTask running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(317, "ResetTask running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(318, "ResetTask running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(319, "ResetTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(310, "ResetTask running: checking if the data buffer is free.");
+                    actionDescriptionDict.Add(311, "ResetTask running: writing the user data.");
+                    actionDescriptionDict.Add(312, "ResetTask running: checking if the data buffer is free.");
+                    actionDescriptionDict.Add(313, "ResetTask running: releasing the data buffer.");
+                    actionDescriptionDict.Add(314, "ResetTask finished.");
                     actionDescriptionDict.Add(111, "ResetTask finished succesfully.");
                     actionDescriptionDict.Add(112, "ResetTask restored.");
                     // TriggerTask
                     actionDescriptionDict.Add(120, "TriggerTask started.");
-                    actionDescriptionDict.Add(320, "TriggerTask running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(321, "TriggerTask running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(322, "TriggerTask running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(323, "TriggerTask running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(324, "TriggerTask running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(325, "TriggerTask running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(326, "TriggerTask running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(327, "TriggerTask running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(328, "TriggerTask running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(329, "TriggerTask running, <add the detailed description of the current action 10>");
+                    actionDescriptionDict.Add(320, "TriggerTask running: waiting for the system to be ready.");
+                    actionDescriptionDict.Add(321, "TriggerTask running: waiting for the system to be online.");
+                    actionDescriptionDict.Add(322, "TriggerTask running: reseting camera before trigger started.");
+                    actionDescriptionDict.Add(323, "TriggerTask running: reseting the trigger.");
+                    actionDescriptionDict.Add(324, "TriggerTask running: setting the trigger and waiting for acknowledgement.");
+                    actionDescriptionDict.Add(325, "TriggerTask running: resetting the trigger and waiting for acknowledgment to fall.");
+                    actionDescriptionDict.Add(326, "TriggerTask finished.");
                     actionDescriptionDict.Add(121, "TriggerTask finished succesfully.");
                     actionDescriptionDict.Add(122, "TriggerTask restored.");
-                    // TemplateTask_10steps_4
-                    actionDescriptionDict.Add(130, "TemplateTask_10steps_4 started.");
-                    actionDescriptionDict.Add(330, "TemplateTask_10steps_4 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(331, "TemplateTask_10steps_4 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(332, "TemplateTask_10steps_4 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(333, "TemplateTask_10steps_4 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(334, "TemplateTask_10steps_4 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(335, "TemplateTask_10steps_4 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(336, "TemplateTask_10steps_4 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(337, "TemplateTask_10steps_4 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(338, "TemplateTask_10steps_4 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(339, "TemplateTask_10steps_4 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(131, "TemplateTask_10steps_4 finished succesfully.");
-                    actionDescriptionDict.Add(132, "TemplateTask_10steps_4 restored.");
-                    // TemplateTask_10steps_5
-                    actionDescriptionDict.Add(140, "TemplateTask_10steps_5 started.");
-                    actionDescriptionDict.Add(340, "TemplateTask_10steps_5 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(341, "TemplateTask_10steps_5 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(342, "TemplateTask_10steps_5 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(343, "TemplateTask_10steps_5 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(344, "TemplateTask_10steps_5 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(345, "TemplateTask_10steps_5 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(346, "TemplateTask_10steps_5 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(347, "TemplateTask_10steps_5 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(348, "TemplateTask_10steps_5 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(349, "TemplateTask_10steps_5 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(141, "TemplateTask_10steps_5 finished succesfully.");
-                    actionDescriptionDict.Add(142, "TemplateTask_10steps_5 restored.");
-                    // TemplateTask_10steps_6
-                    actionDescriptionDict.Add(150, "TemplateTask_10steps_6 started.");
-                    actionDescriptionDict.Add(350, "TemplateTask_10steps_6 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(351, "TemplateTask_10steps_6 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(352, "TemplateTask_10steps_6 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(353, "TemplateTask_10steps_6 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(354, "TemplateTask_10steps_6 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(355, "TemplateTask_10steps_6 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(356, "TemplateTask_10steps_6 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(357, "TemplateTask_10steps_6 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(358, "TemplateTask_10steps_6 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(359, "TemplateTask_10steps_6 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(151, "TemplateTask_10steps_6 finished succesfully.");
-                    actionDescriptionDict.Add(152, "TemplateTask_10steps_6 restored.");
-
                     // ReadResultsTask
                     actionDescriptionDict.Add(160, "ReadResultsTask started.");
-                    actionDescriptionDict.Add(360, "ReadResultsTask running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(361, "ReadResultsTask running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(362, "ReadResultsTask running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(363, "ReadResultsTask running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(364, "ReadResultsTask running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(365, "ReadResultsTask running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(366, "ReadResultsTask running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(367, "ReadResultsTask running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(368, "ReadResultsTask running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(369, "ReadResultsTask running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(370, "ReadResultsTask running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(371, "ReadResultsTask running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(372, "ReadResultsTask running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(373, "ReadResultsTask running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(374, "ReadResultsTask running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(375, "ReadResultsTask running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(376, "ReadResultsTask running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(377, "ReadResultsTask running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(378, "ReadResultsTask running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(379, "ReadResultsTask running, <add the detailed description of the current action 20>");
+                    actionDescriptionDict.Add(360, "ReadResultsTask running: waiting for the system to be ready.");
+                    actionDescriptionDict.Add(361, "ReadResultsTask running: waiting for the system to be online.");
+                    actionDescriptionDict.Add(362, "ReadResultsTask running: checking the correct JobId.");
+                    actionDescriptionDict.Add(363, "ReadResultsTask running: waiting for the data buffer is free.");
+                    actionDescriptionDict.Add(364, "ReadResultsTask running: locking the data buffer.");
+                    actionDescriptionDict.Add(365, "ReadResultsTask running: setting the user data.");
+                    actionDescriptionDict.Add(366, "ReadResultsTask running: waiting for the results to be valid.");
+                    actionDescriptionDict.Add(367, "ReadResultsTask running: calculating the size of the data.");
+                    actionDescriptionDict.Add(369, "ReadResultsTask running: copying the data from hardware to the buffer.");
+                    actionDescriptionDict.Add(370, "ReadResultsTask running: reading the data.");
+                    actionDescriptionDict.Add(371, "ReadResultsTask running: acknowledging the result data.");
+                    actionDescriptionDict.Add(372, "ReadResultsTask running: reseting the job load Id.");
+                    actionDescriptionDict.Add(373, "ReadResultsTask running: loading the job.");
+                    actionDescriptionDict.Add(374, "ReadResultsTask finished.");
                     actionDescriptionDict.Add(161, "ReadResultsTask finished succesfully.");
                     actionDescriptionDict.Add(162, "ReadResultsTask restored.");
                     // SendDataTask
                     actionDescriptionDict.Add(180, "SendDataTask started.");
-                    actionDescriptionDict.Add(380, "SendDataTask running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(381, "SendDataTask running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(382, "SendDataTask running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(383, "SendDataTask running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(384, "SendDataTask running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(385, "SendDataTask running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(386, "SendDataTask running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(387, "SendDataTask running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(388, "SendDataTask running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(389, "SendDataTask running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(390, "SendDataTask running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(391, "SendDataTask running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(392, "SendDataTask running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(393, "SendDataTask running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(394, "SendDataTask running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(395, "SendDataTask running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(396, "SendDataTask running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(397, "SendDataTask running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(398, "SendDataTask running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(399, "SendDataTask running, <add the detailed description of the current action 20>");
+                    actionDescriptionDict.Add(380, "SendDataTask running: waiting for the system to be ready.");
+                    actionDescriptionDict.Add(381, "SendDataTask running: waiting for the system to be online.");
+                    actionDescriptionDict.Add(382, "SendDataTask running: waiting for the data buffer is free.");
+                    actionDescriptionDict.Add(383, "SendDataTask running: locking the data buffer.");
+                    actionDescriptionDict.Add(384, "SendDataTask running: setting the length of the data to sent.");
+                    actionDescriptionDict.Add(386, "SendDataTask running: filling the user data to be sent.");
+                    actionDescriptionDict.Add(387, "SendDataTask running: waiting for falling of the set user data acknowledge.");
+                    actionDescriptionDict.Add(388, "SendDataTask running: waiting for the confirmation of the user data.");
+                    actionDescriptionDict.Add(389, "SendDataTask running: waiting for falling of the set user data acknowledge.");
+                    actionDescriptionDict.Add(390, "SendDataTask running, wait for release user data ack");
+                    actionDescriptionDict.Add(391, "SendDataTask running: data handler set.");
+                    actionDescriptionDict.Add(392, "SendDataTask running: waiting for data handler ack.");
+                    actionDescriptionDict.Add(393, "SendDataTask running: waiting for data handler ack false.");
+                    actionDescriptionDict.Add(394, "SendDataTask finished.");
                     actionDescriptionDict.Add(181, "SendDataTask finished succesfully.");
                     actionDescriptionDict.Add(182, "SendDataTask restored.");
-                    // TemplateTask_20steps_3
-                    actionDescriptionDict.Add(200, "TemplateTask_20steps_3 started.");
-                    actionDescriptionDict.Add(400, "TemplateTask_20steps_3 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(401, "TemplateTask_20steps_3 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(402, "TemplateTask_20steps_3 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(403, "TemplateTask_20steps_3 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(404, "TemplateTask_20steps_3 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(405, "TemplateTask_20steps_3 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(406, "TemplateTask_20steps_3 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(407, "TemplateTask_20steps_3 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(408, "TemplateTask_20steps_3 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(409, "TemplateTask_20steps_3 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(410, "TemplateTask_20steps_3 running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(411, "TemplateTask_20steps_3 running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(412, "TemplateTask_20steps_3 running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(413, "TemplateTask_20steps_3 running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(414, "TemplateTask_20steps_3 running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(415, "TemplateTask_20steps_3 running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(416, "TemplateTask_20steps_3 running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(417, "TemplateTask_20steps_3 running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(418, "TemplateTask_20steps_3 running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(419, "TemplateTask_20steps_3 running, <add the detailed description of the current action 20>");
-                    actionDescriptionDict.Add(201, "TemplateTask_20steps_3 finished succesfully.");
-                    actionDescriptionDict.Add(202, "TemplateTask_20steps_3 restored.");
-                    // TemplateTask_20steps_4
-                    actionDescriptionDict.Add(220, "TemplateTask_20steps_4 started.");
-                    actionDescriptionDict.Add(420, "TemplateTask_20steps_4 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(421, "TemplateTask_20steps_4 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(422, "TemplateTask_20steps_4 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(423, "TemplateTask_20steps_4 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(424, "TemplateTask_20steps_4 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(425, "TemplateTask_20steps_4 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(426, "TemplateTask_20steps_4 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(427, "TemplateTask_20steps_4 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(428, "TemplateTask_20steps_4 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(429, "TemplateTask_20steps_4 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(430, "TemplateTask_20steps_4 running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(431, "TemplateTask_20steps_4 running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(432, "TemplateTask_20steps_4 running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(433, "TemplateTask_20steps_4 running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(434, "TemplateTask_20steps_4 running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(435, "TemplateTask_20steps_4 running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(436, "TemplateTask_20steps_4 running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(437, "TemplateTask_20steps_4 running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(438, "TemplateTask_20steps_4 running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(439, "TemplateTask_20steps_4 running, <add the detailed description of the current action 20>");
-                    actionDescriptionDict.Add(221, "TemplateTask_20steps_4 finished succesfully.");
-                    actionDescriptionDict.Add(222, "TemplateTask_20steps_4 restored.");
-                    // TemplateTask_20steps_5
-                    actionDescriptionDict.Add(240, "TemplateTask_20steps_5 started.");
-                    actionDescriptionDict.Add(440, "TemplateTask_20steps_5 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(441, "TemplateTask_20steps_5 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(442, "TemplateTask_20steps_5 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(443, "TemplateTask_20steps_5 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(444, "TemplateTask_20steps_5 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(445, "TemplateTask_20steps_5 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(446, "TemplateTask_20steps_5 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(447, "TemplateTask_20steps_5 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(448, "TemplateTask_20steps_5 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(449, "TemplateTask_20steps_5 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(450, "TemplateTask_20steps_5 running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(451, "TemplateTask_20steps_5 running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(452, "TemplateTask_20steps_5 running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(453, "TemplateTask_20steps_5 running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(454, "TemplateTask_20steps_5 running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(455, "TemplateTask_20steps_5 running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(456, "TemplateTask_20steps_5 running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(457, "TemplateTask_20steps_5 running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(458, "TemplateTask_20steps_5 running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(459, "TemplateTask_20steps_5 running, <add the detailed description of the current action 20>");
-                    actionDescriptionDict.Add(241, "TemplateTask_20steps_5 finished succesfully.");
-                    actionDescriptionDict.Add(242, "TemplateTask_20steps_5 restored.");
-                    // TemplateTask_20steps_6
-                    actionDescriptionDict.Add(260, "TemplateTask_20steps_6 started.");
-                    actionDescriptionDict.Add(460, "TemplateTask_20steps_6 running, <add the detailed description of the current action 1>");
-                    actionDescriptionDict.Add(461, "TemplateTask_20steps_6 running, <add the detailed description of the current action 2>");
-                    actionDescriptionDict.Add(462, "TemplateTask_20steps_6 running, <add the detailed description of the current action 3>");
-                    actionDescriptionDict.Add(463, "TemplateTask_20steps_6 running, <add the detailed description of the current action 4>");
-                    actionDescriptionDict.Add(464, "TemplateTask_20steps_6 running, <add the detailed description of the current action 5>");
-                    actionDescriptionDict.Add(465, "TemplateTask_20steps_6 running, <add the detailed description of the current action 6>");
-                    actionDescriptionDict.Add(466, "TemplateTask_20steps_6 running, <add the detailed description of the current action 7>");
-                    actionDescriptionDict.Add(467, "TemplateTask_20steps_6 running, <add the detailed description of the current action 8>");
-                    actionDescriptionDict.Add(468, "TemplateTask_20steps_6 running, <add the detailed description of the current action 9>");
-                    actionDescriptionDict.Add(469, "TemplateTask_20steps_6 running, <add the detailed description of the current action 10>");
-                    actionDescriptionDict.Add(470, "TemplateTask_20steps_6 running, <add the detailed description of the current action 11>");
-                    actionDescriptionDict.Add(471, "TemplateTask_20steps_6 running, <add the detailed description of the current action 12>");
-                    actionDescriptionDict.Add(472, "TemplateTask_20steps_6 running, <add the detailed description of the current action 13>");
-                    actionDescriptionDict.Add(473, "TemplateTask_20steps_6 running, <add the detailed description of the current action 14>");
-                    actionDescriptionDict.Add(474, "TemplateTask_20steps_6 running, <add the detailed description of the current action 15>");
-                    actionDescriptionDict.Add(475, "TemplateTask_20steps_6 running, <add the detailed description of the current action 16>");
-                    actionDescriptionDict.Add(476, "TemplateTask_20steps_6 running, <add the detailed description of the current action 17>");
-                    actionDescriptionDict.Add(477, "TemplateTask_20steps_6 running, <add the detailed description of the current action 18>");
-                    actionDescriptionDict.Add(478, "TemplateTask_20steps_6 running, <add the detailed description of the current action 19>");
-                    actionDescriptionDict.Add(479, "TemplateTask_20steps_6 running, <add the detailed description of the current action 20>");
-                    actionDescriptionDict.Add(261, "TemplateTask_20steps_6 finished succesfully.");
-                    actionDescriptionDict.Add(262, "TemplateTask_20steps_6 restored.");
                     // General alarms
                     actionDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!");
-                    actionDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(702, "Input variable `hwID_System_Control` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(703, "Input variable `hwID_Engine_Control_1` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(704, "Input variable `hwID_Engine_Control_2` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(705, "Input variable `hwID_Engine_Control_3` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(706, "Input variable `hwID_Engine_Control_4` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(707, "Input variable `hwID_User_Data_240_bytes_1` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(708, "Input variable `hwID_User_Data_240_bytes_2` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(709, "Input variable `hwID_User_Data_240_bytes_3` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(710, "Input variable `hwID_User_Data_240_bytes_4` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(711, "Input variable `hwID_User_Data_240_bytes_5` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(712, "Input variable `hwID_User_Data_64_bytes_1` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(713, "Input variable `hwID_Results_240_bytes_1` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(714, "Input variable `hwID_Results_240_bytes_2` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(715, "Input variable `hwID_Results_240_bytes_3` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(716, "Input variable `hwID_Results_240_bytes_4` has invalid value in `Run` method!");
-                    actionDescriptionDict.Add(717, "Input variable `hwID_Results_240_bytes_5` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(701, "Input variable `Config.HWIDs.HW_Device` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(702, "Input variable `Config.HWIDs.HW_System_Control` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(703, "Input variable `Config.HWIDs.HW_Engine_Control_1` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(704, "Input variable `Config.HWIDs.HW_Engine_Control_2` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(705, "Input variable `Config.HWIDs.HW_Engine_Control_3` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(706, "Input variable `Config.HWIDs.HW_Engine_Control_4` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(707, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_1` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(708, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_2` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(709, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_3` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(710, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_4` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(711, "Input variable `Config.HWIDs.HW_User_Data_240_bytes_5` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(712, "Input variable `Config.HWIDs.HW_User_Data_64_bytes_1` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(713, "Input variable `Config.HWIDs.HW_Results_240_bytes_1` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(714, "Input variable `Config.HWIDs.HW_Results_240_bytes_2` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(715, "Input variable `Config.HWIDs.HW_Results_240_bytes_3` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(716, "Input variable `Config.HWIDs.HW_Results_240_bytes_4` has invalid value in `Run` method!");
+                    actionDescriptionDict.Add(717, "Input variable `Config.HWIDs.HW_Results_240_bytes_5` has invalid value in `Run` method!");
                     actionDescriptionDict.Add(718, "Input variable `hwId_17` has invalid value in `Run` method!");
                     actionDescriptionDict.Add(719, "Input variable `hwId_18` has invalid value in `Run` method!");
                     actionDescriptionDict.Add(720, "Input variable `hwId_19` has invalid value in `Run` method!");
                     actionDescriptionDict.Add(721, "Input variable `hwId_20` has invalid value in `Run` method!");
 
-                    actionDescriptionDict.Add(722, "Error reading the AxoVisionProInputStructure_hwID_System_Control!");
-                    actionDescriptionDict.Add(723, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_1!");
-                    actionDescriptionDict.Add(724, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_2!");
-                    actionDescriptionDict.Add(725, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_3!");
-                    actionDescriptionDict.Add(726, "Error reading the AxoVisionProInputStructure_hwID_Engine_Control_4!");
-                    actionDescriptionDict.Add(727, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_1!");
-                    actionDescriptionDict.Add(728, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_2!");
-                    actionDescriptionDict.Add(729, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_3!");
-                    actionDescriptionDict.Add(730, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_4!");
-                    actionDescriptionDict.Add(731, "Error reading the AxoVisionProInputStructure_hwID_User_Data_240_bytes_5!");
+                    actionDescriptionDict.Add(722, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_System_Control!");
+                    actionDescriptionDict.Add(723, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_Engine_Control_1!");
+                    actionDescriptionDict.Add(724, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_Engine_Control_2!");
+                    actionDescriptionDict.Add(725, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_Engine_Control_3!");
+                    actionDescriptionDict.Add(726, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_Engine_Control_4!");
+                    actionDescriptionDict.Add(727, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_User_Data_240_bytes_1!");
+                    actionDescriptionDict.Add(728, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_User_Data_240_bytes_2!");
+                    actionDescriptionDict.Add(729, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_User_Data_240_bytes_3!");
+                    actionDescriptionDict.Add(730, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_User_Data_240_bytes_4!");
+                    actionDescriptionDict.Add(731, "Error reading the input data from the module with the HWID: Config.HWIDs.HW_User_Data_240_bytes_5!");
 
-                    actionDescriptionDict.Add(733, "Error writing the AxoVisionProOutputStructure_hwID_User_Data_64_bytes_1!");
-                    actionDescriptionDict.Add(734, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_1!");
-                    actionDescriptionDict.Add(735, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_2!");
-                    actionDescriptionDict.Add(736, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_3!");
-                    actionDescriptionDict.Add(737, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_4!");
-                    actionDescriptionDict.Add(738, "Error writing the AxoVisionProOutputStructure_hwID_Results_240_bytes_5!");
+                    actionDescriptionDict.Add(733, "Error writing the output data to the module: Config.HWIDs.HW_User_Data_64_bytes_1!");
+                    actionDescriptionDict.Add(734, "Error writing the output data to the module: Config.HWIDs.HW_Results_240_bytes_1!");
+                    actionDescriptionDict.Add(735, "Error writing the output data to the module: Config.HWIDs.HW_Results_240_bytes_2!");
+                    actionDescriptionDict.Add(736, "Error writing the output data to the module: Config.HWIDs.HW_Results_240_bytes_3!");
+                    actionDescriptionDict.Add(737, "Error writing the output data to the module: Config.HWIDs.HW_Results_240_bytes_4!");
+                    actionDescriptionDict.Add(738, "Error writing the output data to the module: Config.HWIDs.HW_Results_240_bytes_5!");
                     actionDescriptionDict.Add(739, "Error writing the AxoVisionProOutputStructure_hwID_17!");
                     actionDescriptionDict.Add(740, "Error writing the AxoVisionProOutputStructure_hwID_18!");
                     actionDescriptionDict.Add(741, "Error writing the AxoVisionProOutputStructure_hwID_19!");
                     actionDescriptionDict.Add(742, "Error writing the AxoVisionProOutputStructure_hwID_20!");
-
 
                     // HardResetAllCamerasTask
                     actionDescriptionDict.Add(10000, "HardResetAllCamerasTask finished with error!");
@@ -1633,15 +1332,6 @@ namespace AXOpen.Components.Cognex.Vision
                     // TriggerTask
                     actionDescriptionDict.Add(10020, "TriggerTask finished with error!");
                     actionDescriptionDict.Add(10021, "TriggerTask was aborted, while not yet completed!");
-                    // TemplateTask_10steps_4
-                    actionDescriptionDict.Add(10030, "TemplateTask_10steps_4 task finished with error!");
-                    actionDescriptionDict.Add(10031, "TemplateTask_10steps_4 task was aborted, while not yet completed!");
-                    // TemplateTask_10steps_5
-                    actionDescriptionDict.Add(10040, "TemplateTask_10steps_5 task finished with error!");
-                    actionDescriptionDict.Add(10041, "TemplateTask_10steps_5 task was aborted, while not yet completed!");
-                    // TemplateTask_10steps_6
-                    actionDescriptionDict.Add(10050, "TemplateTask_10steps_6 task finished with error!");
-                    actionDescriptionDict.Add(10051, "TemplateTask_10steps_6 task was aborted, while not yet completed!");
 
                     // ReadResultsTask
                     actionDescriptionDict.Add(10060, "ReadResultsTask task finished with error!");
@@ -1649,19 +1339,6 @@ namespace AXOpen.Components.Cognex.Vision
                     // SendDataTask
                     actionDescriptionDict.Add(10080, "SendDataTask task finished with error!");
                     actionDescriptionDict.Add(10081, "SendDataTask task was aborted, while not yet completed!");
-                    // TemplateTask_20steps_3       
-                    actionDescriptionDict.Add(10100, "TemplateTask_20steps_3 task finished with error!");
-                    actionDescriptionDict.Add(10101, "TemplateTask_20steps_3 task was aborted, while not yet completed!");
-                    // TemplateTask_20steps_4
-                    actionDescriptionDict.Add(10120, "TemplateTask_20steps_4 task finished with error!");
-                    actionDescriptionDict.Add(10121, "TemplateTask_20steps_4 task was aborted, while not yet completed!");
-                    // TemplateTask_20steps_5
-                    actionDescriptionDict.Add(10140, "TemplateTask_20steps_5 task finished with error!");
-                    actionDescriptionDict.Add(10141, "TemplateTask_20steps_5 task was aborted, while not yet completed!");
-                    // TemplateTask_20steps_6
-                    actionDescriptionDict.Add(10160, "TemplateTask_20steps_6 task finished with error!");
-                    actionDescriptionDict.Add(10161, "TemplateTask_20steps_6 task was aborted, while not yet completed!");
-
                 }
 
                 string actionDescription = "   ";
@@ -1677,9 +1354,7 @@ namespace AXOpen.Components.Cognex.Vision
                 {
                     return "   ";
                 }
-
             }
         }
     }
-
 }

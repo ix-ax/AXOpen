@@ -18,26 +18,18 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF(manualControl) THEN            
                 ExampleScrewdriver.ActivateManualControl();
             END_IF;
             
             //<Initialization>        
-            ExampleScrewdriver.Run( parent                  :=  THIS,
-                                    hwID                   := HwIdentifiers#wp462_t1_rh_deso_HwID,
-                                    hwId_Input_1_byte_1    := HwIdentifiers#wp462_t1_rh_deso_Input_1_byte_1_Input_1_byte_HwID,
-                                    hwId_Input_1_byte_2    := HwIdentifiers#wp462_t1_rh_deso_Input_1_byte_2_Input_1_byte_HwID,
-                                    hwId_Input_2_word_1    := HwIdentifiers#wp462_t1_rh_deso_Input_2_word_1_Input_2_word_HwID,
-                                    hwId_Input_1_word_1    := HwIdentifiers#wp462_t1_rh_deso_Input_1_word_1_Input_1_word_HwID,
-                                    hwId_Input_2_word_2    := HwIdentifiers#wp462_t1_rh_deso_Input_2_word_2_Input_2_word_HwID,
-                                    hwId_Input_1_word_2    := HwIdentifiers#wp462_t1_rh_deso_Input_1_word_2_Input_1_word_HwID,
-                                    hwId_Output_1_byte_1   := HwIdentifiers#wp462_t1_rh_deso_Output_1_byte_1_Output_1_byte_HwID,
-                                    hwId_Output_1_byte_2   := HwIdentifiers#wp462_t1_rh_deso_Output_1_byte_2_Output_1_byte_HwID);       
+            ExampleScrewdriver.Run( inParent                  :=  THIS,
+                                    hwID                   := HwIdentifiers#desoutter_cvic_ii_HwID);       
             //</Initialization>
 
         THIS.UseInSequencer();

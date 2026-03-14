@@ -3,9 +3,9 @@ NAMESPACE AXOpen.Core
     CLASS ABSTRACT AxoSequencerContainer EXTENDS AxoSequencer
         METHOD PUBLIC OVERRIDE Run 
             VAR_INPUT
-                object : IAxoObject;
+                inParent : IAxoObject;
             END_VAR
-            SUPER.Run(object);
+            SUPER.Run(inParent);
             IF THIS.Open() THEN
                 THIS.Main();
             END_IF;

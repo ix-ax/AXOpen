@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="RequiredValue" xml:space="preserve">
+    <value>Požadovaná hodnota</value>
+  </data>
+  <data name="ExpectHigh" xml:space="preserve">
+    <value>Očakávajte HIGH</value>
+  </data>
+  <data name="ExpectLow" xml:space="preserve">
+    <value>Očakávajte nízku úroveň</value>
+  </data>
+  <data name="HighCheck" xml:space="preserve">
+    <value>VYSOKÁ kontrola</value>
+  </data>
+  <data name="LowCheck" xml:space="preserve">
+    <value>NÍZKA kontrola</value>
+  </data>
+  <data name="Signal" xml:space="preserve">
+    <value>Signál</value>
+  </data>
+  <data name="SignalHigh" xml:space="preserve">
+    <value>Signál HIGH</value>
+  </data>
+  <data name="SignalLow" xml:space="preserve">
+    <value>Signál LOW</value>
+  </data>
+  <data name="PositiveFeedbackPresent" xml:space="preserve">
+    <value>Prítomná pozitívna spätná väzba</value>
+  </data>
+  <data name="WaitingForPositiveFeedback" xml:space="preserve">
+    <value>Čakanie na pozitívnu spätnú väzbu</value>
+  </data>
+  <data name="InputIsEnergizedAndReady" xml:space="preserve">
+    <value>Vstup je pod napätím a pripravený</value>
+  </data>
+  <data name="InputIsDeEnergized" xml:space="preserve">
+    <value>Vstup je bez napätia</value>
+  </data>
+  <data name="SwitchOn" xml:space="preserve">
+    <value>Zapnutie spínača</value>
+  </data>
+  <data name="SwitchOff" xml:space="preserve">
+    <value>Vypínač OFF</value>
+  </data>
+  <data name="SignalOn" xml:space="preserve">
+    <value>Zapnutý signál</value>
+  </data>
+  <data name="SignalOff" xml:space="preserve">
+    <value>Signál OFF</value>
+  </data>
+  <data name="OutputIsActive" xml:space="preserve">
+    <value>Výstup je aktívny</value>
+  </data>
+  <data name="OutputIsInactive" xml:space="preserve">
+    <value>Výstup je neaktívny</value>
+  </data>
+  <data name="OutputIsEnergized" xml:space="preserve">
+    <value>Výstup je pod napätím</value>
+  </data>
+  <data name="OutputIsDeEnergized" xml:space="preserve">
+    <value>Výstup je bez napätia</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Pozícia</value>
+  </data>
+  <data name="Turn" xml:space="preserve">
+    <value>Otočte</value>
+  </data>
+  <data name="InitPosition" xml:space="preserve">
+    <value>Východisková pozícia</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnovenie</value>
+  </data>
+  <data name="CurrentPosition" xml:space="preserve">
+    <value>Súčasná pozícia</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Štart</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>Koniec</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="SafetyCondition" xml:space="preserve">
+    <value>Podmienka bezpečnosti</value>
+  </data>
+  <data name="InPosition" xml:space="preserve">
+    <value>V pozícii</value>
+  </data>
+  <data name="InPrecisePosition" xml:space="preserve">
+    <value>V presnej polohe</value>
+  </data>
+  <data name="CodingPosition" xml:space="preserve">
+    <value>Pozícia kódovania</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="EnableTurn" xml:space="preserve">
+    <value>Povolenie otočenia</value>
+  </data>
+  <data name="StartTurn" xml:space="preserve">
+    <value>Začiatok otáčania</value>
+  </data>
+  <data name="SafetyNotOk" xml:space="preserve">
+    <value>Bezpečnosť nie je v poriadku</value>
+  </data>
+  <data name="Turning" xml:space="preserve">
+    <value>Otáčanie...</value>
+  </data>
+  <data name="Initializing" xml:space="preserve">
+    <value>Inicializácia...</value>
+  </data>
+  <data name="InPrecisePositionStatus" xml:space="preserve">
+    <value>V presnej polohe</value>
+  </data>
+  <data name="InPositionStatus" xml:space="preserve">
+    <value>V polohe</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Pripravené</value>
+  </data>
+  <!-- AxoSignalTowerView -->
+  <data name="SignalTower" xml:space="preserve">
+    <value>Signalizačný stĺp</value>
+  </data>
+  <data name="SignalTowerControls" xml:space="preserve">
+    <value>Ovládanie signalizačného stĺpa</value>
+  </data>
+  <data name="SignalTowerStatus" xml:space="preserve">
+    <value>Stav signalizačného stĺpa</value>
+  </data>
+  <data name="Lights" xml:space="preserve">
+    <value>Svetlá</value>
+  </data>
+  <data name="LightOutputs" xml:space="preserve">
+    <value>Výstupy svetiel</value>
+  </data>
+  <data name="LightsActive" xml:space="preserve">
+    <value>Aktívne svetlá</value>
+  </data>
+  <data name="Horn" xml:space="preserve">
+    <value>Siréna</value>
+  </data>
+  <data name="HornControl" xml:space="preserve">
+    <value>Ovládanie sirény</value>
+  </data>
+  <data name="HornToggleHint" xml:space="preserve">
+    <value>Prepínať akustický výstup, keď je požadovaný zvukový alarm.</value>
+  </data>
+  <data name="HornOn" xml:space="preserve">
+    <value>Siréna ZAPNUTÁ</value>
+  </data>
+  <data name="HornOff" xml:space="preserve">
+    <value>Siréna VYPNUTÁ</value>
+  </data>
+  <data name="ManualOverride" xml:space="preserve">
+    <value>Manuálne ovládanie</value>
+  </data>
+  <data name="ManualOverrideHint" xml:space="preserve">
+    <value>Použite tieto ovládacie prvky počas uvádzania do prevádzky alebo údržby. Na automatickú prevádzku sa spoliehajte na sekvencie PLC.</value>
+  </data>
+  <data name="Diagnostics" xml:space="preserve">
+    <value>Diagnostika</value>
+  </data>
+  <data name="MessengerOverview" xml:space="preserve">
+    <value>Prehľad správ</value>
+  </data>
+  <data name="MonitorDiagnostics" xml:space="preserve">
+    <value>Monitorovať diagnostiku</value>
+  </data>
+  <data name="MonitorDiagnosticsHint" xml:space="preserve">
+    <value>Správy pochádzajú z logiky PLC; odstráňte problémy pred návratom do automatického režimu.</value>
+  </data>
+  <data name="CurrentState" xml:space="preserve">
+    <value>Aktuálny stav</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>ZAP</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>VYP</value>
+  </data>
+  <data name="Red" xml:space="preserve">
+    <value>Červená</value>
+  </data>
+  <data name="Yellow" xml:space="preserve">
+    <value>Žltá</value>
+  </data>
+  <data name="Green" xml:space="preserve">
+    <value>Zelená</value>
+  </data>
+  <data name="Blue" xml:space="preserve">
+    <value>Modrá</value>
+  </data>
+</root>

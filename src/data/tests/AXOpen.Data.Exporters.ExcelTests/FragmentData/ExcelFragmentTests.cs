@@ -62,8 +62,8 @@ namespace AXOpen.Data.Tests
 
             using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
             {
-                Assert.Equal("_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r", ExcelTests.GetTextFromExcel(zip.Entries[0].Open(), "Set"));
-                Assert.Equal("_data.DataEntityId;_data.CounterDelay;\r_data.DataEntityId;_data.CounterDelay;\rhey remote create;20;\r", ExcelTests.GetTextFromExcel(zip.Entries[0].Open(), "Manip"));
+                Assert.Equal("_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r", ExcelTests.GetTextFromExcel(zip.Entries[0].Open(), "Set"));
+                Assert.Equal("_data._EntityId;_data.CounterDelay;\r_data._EntityId;_data.CounterDelay;\rhey remote create;20;\r", ExcelTests.GetTextFromExcel(zip.Entries[0].Open(), "Manip"));
             }
 
             // clear
@@ -125,7 +125,7 @@ namespace AXOpen.Data.Tests
 
             using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
             {
-                Assert.Equal("_data.DataEntityId;\r_data.DataEntityId;\rsecond;\r", ExcelTests.GetTextFromExcel(zip.Entries[0].Open(), "Manip"));
+                Assert.Equal("_data._EntityId;\r_data._EntityId;\rsecond;\r", ExcelTests.GetTextFromExcel(zip.Entries[0].Open(), "Manip"));
             }
 
             // clear
@@ -151,8 +151,8 @@ namespace AXOpen.Data.Tests
             File.Delete(zipFile);
 
             ExcelTests.CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> { 
-                { sut.Set.GetSymbolTail(), "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r" },
-                { sut.Manip.GetSymbolTail(), "_data.DataEntityId;_data.CounterDelay;\r_data.DataEntityId;_data.CounterDelay;\rhey remote create;20;\r" }
+                { sut.Set.GetSymbolTail(), "_data._EntityId;_data.ComesFrom;_data.GoesTo;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r" },
+                { sut.Manip.GetSymbolTail(), "_data._EntityId;_data.CounterDelay;\r_data._EntityId;_data.CounterDelay;\rhey remote create;20;\r" }
             });
 
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
@@ -192,8 +192,8 @@ namespace AXOpen.Data.Tests
             File.Delete(zipFile);
 
             ExcelTests.CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> {
-                { sut.Set.GetSymbolTail(), "_data.DataEntityId;_data.GoesTo;\r_data.DataEntityId;_data.GoesTo;\rfirst;11;\r" },
-                { sut.Manip.GetSymbolTail(), "_data.DataEntityId;\r_data.DataEntityId;\rfirst;\r" }
+                { sut.Set.GetSymbolTail(), "_data._EntityId;_data.GoesTo;\r_data._EntityId;_data.GoesTo;\rfirst;11;\r" },
+                { sut.Manip.GetSymbolTail(), "_data._EntityId;\r_data._EntityId;\rfirst;\r" }
             });
 
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
@@ -233,8 +233,8 @@ namespace AXOpen.Data.Tests
             File.Delete(zipFile);
 
             ExcelTests.CreateExcelFromText(Path.Combine(tempDirectory, "Export.xlsx"), new Dictionary<string, string> {
-                { sut.Set.GetSymbolTail(), "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r_data.DataEntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\rhey remote create;10;20;30;\r" },
-                { sut.Manip.GetSymbolTail(), "_data.DataEntityId;_data.CounterDelay;_data.ExtraElement;\r_data.DataEntityId;_data.CounterDelay;_data.ExtraElement;\rhey remote create;20;30;\r" }
+                { sut.Set.GetSymbolTail(), "_data._EntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r_data._EntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\rhey remote create;10;20;30;\r" },
+                { sut.Manip.GetSymbolTail(), "_data._EntityId;_data.CounterDelay;_data.ExtraElement;\r_data._EntityId;_data.CounterDelay;_data.ExtraElement;\rhey remote create;20;30;\r" }
             });
 
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);

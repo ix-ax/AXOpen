@@ -44,7 +44,7 @@ namespace AXOpen.Base.Data
             
             if(Records.Count > 0)
             {
-                var found = Records.FirstOrDefault(p => p.DataEntityId == id);
+                var found = Records.FirstOrDefault(p => p._EntityId == id);
                 if (found == null)
                     throw new UnableToLocateRecordId($"Unable to locate record id '{id}'", null);
                 else
@@ -60,7 +60,7 @@ namespace AXOpen.Base.Data
         public IEnumerable<T> FindByModifiedRange(DateTime start, DateTime end) { return null; }
         public void AddRecord(T data) 
         { 
-            Repository.Create((data).DataEntityId, data); 
+            Repository.Create((data)._EntityId, data); 
         }
        
         public IEnumerable<DataItemValidation> UpdateRecord(T data)
@@ -68,11 +68,11 @@ namespace AXOpen.Base.Data
             var validations = this.Repository.OnRecordUpdateValidation(data);
             if (!validations.Any(p => p.Failed))
             { 
-                Repository.Update(((IBrowsableDataObject)data).DataEntityId, data);
+                Repository.Update(((IBrowsableDataObject)data)._EntityId, data);
             }
             return validations;
         }
-        public void Delete(T data) { Repository.Delete(((IBrowsableDataObject)data).DataEntityId); }
+        public void Delete(T data) { Repository.Delete(((IBrowsableDataObject)data)._EntityId); }
         public long Count { get { return this.Repository.Count; } }        
         public long FilteredCount(string id, eSearchMode searchMode = eSearchMode.Exact)
         {
@@ -231,14 +231,14 @@ namespace AXOpen.Base.Data
 
         private void UpdateDocument(List<ImportItems> dictionary, IEnumerable<ITwinPrimitive> valueTags, ITwinObject prototype)
         {                        
-            string id = dictionary.FirstOrDefault(p => p.Key.Contains("DataEntityId")).Value;
-            var existing = this.Repository.Queryable.Where(p => p.DataEntityId == id).FirstOrDefault();
+            string id = dictionary.FirstOrDefault(p => p.Key.Contains("_EntityId")).Value;
+            var existing = this.Repository.Queryable.Where(p => p._EntityId == id).FirstOrDefault();
             if(existing != null)
             {                 
                 ((dynamic)prototype).PlainToShadow(existing);
             }
 
-            ((dynamic)prototype).DataEntityId.Shadow = id;
+            ((dynamic)prototype)._EntityId.Shadow = id;
 
             if(existing != null) ((dynamic)prototype).ChangeTracker.StartObservingChanges();
             // Swap values to shadow
@@ -269,7 +269,7 @@ namespace AXOpen.Base.Data
 
                 //((dynamic)existing).ShadowToPlain((dynamic)prototype);
                 existing = existing.ShadowToPlain1<T>(prototype);
-                this.Repository.Update(existing.DataEntityId, existing);
+                this.Repository.Update(existing._EntityId, existing);
             }
             else
             {
@@ -278,7 +278,7 @@ namespace AXOpen.Base.Data
                 //((dynamic)newRecord).ShadowToPlain((dynamic)prototype);
                 newRecord = newRecord.ShadowToPlain1<T>(prototype);
 
-                this.Repository.Create(newRecord.DataEntityId, newRecord);
+                this.Repository.Create(newRecord._EntityId, newRecord);
             }            
         }
 

@@ -143,7 +143,7 @@ NAMESPACE AxoDataDistributedExample
 
         METHOD PRIVATE Execute
             AutomatSequence.Run(
-                _parent         := THIS,   
+                inParent        := THIS,   
                 _headerData     := REF(EntityHeader),
                 _processData    := REF(ProcessData) 
             );
@@ -161,7 +161,7 @@ NAMESPACE AxoDataDistributedExample
 
         METHOD INTERNAL Run
             VAR_INPUT
-                _parent : IAxoObject;
+                inParent : IAxoObject;
                 _headerData : REF_TO SharedHeader_Manager;
                 _processData : REF_TO StationData_Manager;
             END_VAR

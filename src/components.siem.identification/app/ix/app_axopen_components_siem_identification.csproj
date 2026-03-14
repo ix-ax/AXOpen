@@ -30,6 +30,7 @@
   	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include=".g\" />
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
 	</ItemGroup>

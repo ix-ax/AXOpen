@@ -36,6 +36,7 @@
   	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include=".g\Onliners\" />
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
 	</ItemGroup>
@@ -59,12 +60,8 @@
 	<ItemGroup>
 	  <EmbeddedResource Update="Resources\PlcStringResources.resx">
 	    <Generator>PublicResXFileCodeGenerator</Generator>
-	    <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>
+	    <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>	    
 	  </EmbeddedResource>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Resources\" />
 	</ItemGroup>
 
 	<ItemGroup>

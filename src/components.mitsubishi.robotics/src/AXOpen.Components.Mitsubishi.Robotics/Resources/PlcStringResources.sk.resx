@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="StartAtMainTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit StartAtMainTask.</value>
+  </data>
+  <data name="StartMotorsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit StartMotorsAndProgramTask.</value>
+  </data>
+  <data name="StopMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsTask timeout.</value>
+  </data>
+  <data name="StopMovementsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsAndProgramTask timeout.</value>
+  </data>
+  <data name="StartMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>Časový limit StartMovementsTask.</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Obnoviť</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Začať</value>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Zastaviť</value>
+  </data>
+  <data name="Servo_Off" xml:space="preserve">
+    <value>Servo vypnuté</value>
+  </data>
+  <data name="Servo_On" xml:space="preserve">
+    <value>Servo zapnuté</value>
+  </data>
+  <data name="In_position" xml:space="preserve">
+    <value>V polohe</value>
+  </data>
+  <data name="Battery_Low" xml:space="preserve">
+    <value>Nízky stav batérie</value>
+  </data>
+  <data name="Start_at_main" xml:space="preserve">
+    <value>Začnite na hlavnej</value>
+  </data>
+  <data name="Start_motors_and_program" xml:space="preserve">
+    <value>Spustenie motorov a programovanie</value>
+  </data>
+  <data name="Stop_movements" xml:space="preserve">
+    <value>Zastavenie pohybov</value>
+  </data>
+  <data name="Stop_movements_and_program" xml:space="preserve">
+    <value>Zastavenie pohybov a program</value>
+  </data>
+  <data name="Start_movements_with_extended_parameters" xml:space="preserve">
+    <value>Spustenie pohybov s rozšírenými parametrami</value>
+  </data>
+  <data name="Power_progress" xml:space="preserve">
+    <value>Pokrok v oblasti výkonu</value>
+  </data>
+  <data name="Movement_progress" xml:space="preserve">
+    <value>Pokrok v pohybe</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Informačný čas</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Čas chyby</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Časový limit úlohy</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Identifikátory hardvéru</value>
+  </data>
+  <data name="Operation_enable__BRACKET_rights_ENDBRACKET_" xml:space="preserve">
+    <value>Povolenie operácie (práva)</value>
+  </data>
+  <data name="Automatic_operation_enabled" xml:space="preserve">
+    <value>Povolená automatická prevádzka</value>
+  </data>
+  <data name="Program_reset" xml:space="preserve">
+    <value>Resetovanie programu</value>
+  </data>
+  <data name="Error_Reset" xml:space="preserve">
+    <value>Obnovenie chyby</value>
+  </data>
+  <data name="Cycle_Stop" xml:space="preserve">
+    <value>Cyklistická zastávka</value>
+  </data>
+  <data name="General_Purpose_reset" xml:space="preserve">
+    <value>Resetovanie na všeobecné účely</value>
+  </data>
+  <data name="Overide_specification" xml:space="preserve">
+    <value>Špecifikácia Overide</value>
+  </data>
+  <data name="Master_mode" xml:space="preserve">
+    <value>Hlavný režim</value>
+  </data>
+  <data name="Tool__ONE__retract" xml:space="preserve">
+    <value>Zasunutie nástroja 1</value>
+  </data>
+  <data name="Tool__ONE__extend" xml:space="preserve">
+    <value>Nástroj 1 rozšíriť</value>
+  </data>
+  <data name="Tool__TWO__retract" xml:space="preserve">
+    <value>Zatiahnutie nástroja 2</value>
+  </data>
+  <data name="Tool__TWO__extend" xml:space="preserve">
+    <value>Nástroj 2 rozšíriť</value>
+  </data>
+  <data name="Tool__THREE__retract" xml:space="preserve">
+    <value>Zatiahnutie nástroja 3</value>
+  </data>
+  <data name="Tool__THREE__extend" xml:space="preserve">
+    <value>Nástroj 3 rozšíriť</value>
+  </data>
+  <data name="Tool__FOUR__retract" xml:space="preserve">
+    <value>Zatiahnutie nástroja 4</value>
+  </data>
+  <data name="Tool__FOUR__extend" xml:space="preserve">
+    <value>Nástroj 4 rozšíriť</value>
+  </data>
+  <data name="Zones" xml:space="preserve">
+    <value>Zóny</value>
+  </data>
+  <data name="Action_number" xml:space="preserve">
+    <value>Číslo akcie</value>
+  </data>
+  <data name="Global_robot_speed" xml:space="preserve">
+    <value>Globálna rýchlosť robota</value>
+  </data>
+  <data name="Tool_number" xml:space="preserve">
+    <value>Číslo nástroja</value>
+  </data>
+  <data name="Workobject_number" xml:space="preserve">
+    <value>Číslo pracovného objektu</value>
+  </data>
+  <data name="Point_number" xml:space="preserve">
+    <value>Číslo bodu</value>
+  </data>
+  <data name="User_specific_speed__ONE_" xml:space="preserve">
+    <value>Rýchlosť špecifická pre používateľa 1</value>
+  </data>
+  <data name="User_specific_speed__TWO_" xml:space="preserve">
+    <value>Rýchlosť špecifická pre používateľa 2</value>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>ID hardvéru zariadenia</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_InOut_UNDERSCORE__SIX__FOUR__UNDERSCORE_byte_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu "InOut64byte</value>
+  </data>
+  <data name="Operation_rights" xml:space="preserve">
+    <value>Prevádzkové práva</value>
+  </data>
+  <data name="High_level_error" xml:space="preserve">
+    <value>Chyba na vysokej úrovni</value>
+  </data>
+  <data name="Low_level_error" xml:space="preserve">
+    <value>Chyba nízkej úrovne</value>
+  </data>
+  <data name="Warning_level_error__BRACKET_caution_ENDBRACKET_" xml:space="preserve">
+    <value>Chyba na úrovni varovania (upozornenie)</value>
+  </data>
+  <data name="Emergency_stop" xml:space="preserve">
+    <value>Núdzové zastavenie</value>
+  </data>
+  <data name="Rc_Ready" xml:space="preserve">
+    <value>Rc Ready</value>
+  </data>
+  <data name="In_area__ONE_" xml:space="preserve">
+    <value>V oblasti 1</value>
+  </data>
+  <data name="In_area__TWO_" xml:space="preserve">
+    <value>V oblasti 2</value>
+  </data>
+  <data name="In_area__THREE_" xml:space="preserve">
+    <value>V oblasti 3</value>
+  </data>
+  <data name="In_area__FOUR_" xml:space="preserve">
+    <value>V oblasti 4</value>
+  </data>
+  <data name="In_position__ONE_" xml:space="preserve">
+    <value>V polohe 1</value>
+  </data>
+  <data name="In_position__TWO_" xml:space="preserve">
+    <value>V polohe 2</value>
+  </data>
+  <data name="In_position__THREE_" xml:space="preserve">
+    <value>V polohe 3</value>
+  </data>
+  <data name="In_position__FOUR_" xml:space="preserve">
+    <value>Na pozícii 4</value>
+  </data>
+  <data name="Global_speed" xml:space="preserve">
+    <value>Globálna rýchlosť</value>
+  </data>
+  <data name="PointNumber" xml:space="preserve">
+    <value>PointNumber</value>
+  </data>
+</root>

@@ -49,8 +49,8 @@
 
             Assert.Equal(2, result.Count());
 
-            Assert.Equal("7", result[0].DataEntityId);
-            Assert.Equal("6", result[1].DataEntityId);
+            Assert.Equal("7", result[0]._EntityId);
+            Assert.Equal("6", result[1]._EntityId);
         }
 
         [Fact]
@@ -66,7 +66,7 @@
 
             Assert.Equal(1, result.Count());
 
-            Assert.Equal("4", result[0].DataEntityId);
+            Assert.Equal("4", result[0]._EntityId);
         }
 
         [Fact]
@@ -88,37 +88,33 @@
         {
             var plains = Exchange.GetPlainTypes();
 
-            var plainBuilder_Header = new PlainSymbolBuilder(plains.First());
+            var plainBuilder_Header  = new PlainSymbolBuilder(plains.First());
             var plainBuilder_Station = new PlainSymbolBuilder(plains.Last());
 
-            var result_header = plainBuilder_Header.GetSymbols().ToList();
-            var result_Station = plainBuilder_Station.GetSymbols().ToList();
+            var result = plainBuilder_Header.GetSymbols()
+                            .Concat(plainBuilder_Station.GetSymbols())
+                            .ToList();
 
-            List<string> result = new();
+            Assert.Equal(15, result.Count);
 
-            foreach (var symbol in result_header)
-            {
-                result.Add(symbol);
-            }
+            // HeaderData members
+            Assert.Equal("HeaderData.vString",   result[0]);
+            Assert.Equal("HeaderData.vInt",      result[1]);
+            Assert.Equal("HeaderData.vBool",     result[2]);
+            Assert.Equal("HeaderData.ModifiedAt",result[3]);
+            Assert.Equal("HeaderData.CreatedAt", result[4]);
+            Assert.Equal("HeaderData._EntityId", result[5]);
 
-            foreach (var symbol in result_Station)
-            {
-                result.Add(symbol);
-            }
-
-            Assert.Equal(11, result.Count());
-
-            Assert.Equal("HeaderData.vString", result[0]);
-            Assert.Equal("HeaderData.vInt", result[1]);
-            Assert.Equal("HeaderData.vBool", result[2]);
-            Assert.Equal("HeaderData.DataEntityId", result[3]);
-            Assert.Equal("StationData.vString", result[4]);
-            Assert.Equal("StationData.vInt", result[5]);
-            Assert.Equal("StationData.vBool", result[6]);
-            Assert.Equal("StationData.NestObj.vString", result[7]);
-            Assert.Equal("StationData.NestObj.vInt", result[8]);
-            Assert.Equal("StationData.NestObj.vBool", result[9]);
-            Assert.Equal("StationData.DataEntityId", result[10]);
+            // StationData members
+            Assert.Equal("StationData.vString",         result[6]);
+            Assert.Equal("StationData.vInt",            result[7]);
+            Assert.Equal("StationData.vBool",           result[8]);
+            Assert.Equal("StationData.NestObj.vString", result[9]);
+            Assert.Equal("StationData.NestObj.vInt",    result[10]);
+            Assert.Equal("StationData.NestObj.vBool",   result[11]);
+            Assert.Equal("StationData.ModifiedAt",      result[12]);
+            Assert.Equal("StationData.CreatedAt",       result[13]);
+            Assert.Equal("StationData._EntityId",       result[14]);
         }
 
         [Fact]
@@ -146,7 +142,7 @@
             symbols.AddRange(plainSymbolBuilder_header.GetSymbols());
             symbols.AddRange(plainSymbolBuilder_station.GetSymbols());
 
-            Assert.Equal(11, symbols.Count());
+            Assert.Equal(15, symbols.Count());
 
             var acquiredSymbolHeader = plainSymbolBuilder_header.GetSymbols().Where(p => p == requiredSymbolNameHeader).First(); //SharedHeader.vString"
             var acquiredSymbolStation = plainSymbolBuilder_station.GetSymbols().Where(p => p == requiredSymbolNameStation).First(); //SharedHeader.vString"

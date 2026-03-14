@@ -21,17 +21,17 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
-                parent : IAxoObject;
+                inParent : IAxoObject;
             END_VAR    
             
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
 
             IF(manualControl) THEN            
                 IndraDrive.ActivateManualControl();
             END_IF;   
             //<Initialization>        
-            IndraDrive.Run(parent               :=  THIS,
-                            hwID                :=  HwIdentifiers#ST3_indradrive_HwID,
+            IndraDrive.Run(inParent               :=  THIS,
+                            hwID                :=  HwIdentifiers#rexroth_indradrive_HwID,
                             Enable              :=  Enable,
                             EnablePositive      :=  EnablePositive,
                             EnableNegative      :=  EnableNegative);
@@ -144,14 +144,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _i := _i + 1;
             IF(Steps[_i].Execute(Sequencer, 'Move additive')) THEN
                 IndraDrive.AxoMoveAbsolute(  Position           :=  LREAL#10.0,
-                                                    Velocity        :=  LREAL#10.0,
+                                                    Velocity        :=  LREAL#1.0,
                                                     Acceleration    :=  LREAL#50.0,
                                                     Deceleration    :=  LREAL#50.0,
                                                     Jerk            :=  LREAL#50.0
                                                     );
-                IF IndraDrive.ActualPosition > 6.0 THEN
+                IF IndraDrive.ActualPosition > 7.5 THEN
                     IndraDrive.AxoMoveAdditive(  Distance        :=  LREAL#5.0,
-                                                        Velocity        :=  LREAL#1.0,
+                                                        Velocity        :=  LREAL#5.0,
                                                         Acceleration    :=  LREAL#50.0,
                                                         Deceleration    :=  LREAL#50.0,
                                                         Jerk            :=  LREAL#50.0

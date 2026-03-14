@@ -4,7 +4,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision
     CLASS PUBLIC AxoVisionPro_Out
         VAR PUBLIC 
             {#ix-set:AttributeName = "<#Control#>"}
-            {#ix-attr:[ReadOnly()]}
             Control           :   AxoVisionPro_Control;
         END_VAR 
     END_CLASS    

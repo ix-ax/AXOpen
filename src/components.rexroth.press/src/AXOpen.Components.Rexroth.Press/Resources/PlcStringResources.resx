@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="RunCommandTask_timeout_DOT_" xml:space="preserve">
+    <value>RunCommandTask timeout.</value>
+    <comment>src\AxoSmartFunctionKit_v_4_x_x.st,583</comment>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Results</value>
+    <comment>src\AxoSmartFunctionKit_v_4_x_x.st,38</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\AxoSmartFunctionKit_v_4_x_x.st,45</comment>
+  </data>
+  <data name="Run_command" xml:space="preserve">
+    <value>Run command</value>
+    <comment>src\AxoSmartFunctionKit_v_4_x_x.st,49</comment>
+  </data>
+  <data name="Run_command_parameters" xml:space="preserve">
+    <value>Run command parameters</value>
+    <comment>src\AxoSmartFunctionKit_v_4_x_x.st,53</comment>
+  </data>
+  <data name="Get_results" xml:space="preserve">
+    <value>Get results</value>
+    <comment>src\AxoSmartFunctionKit_v_4_x_x.st,57</comment>
+  </data>
+  <data name="Export_curve" xml:space="preserve">
+    <value>Export curve</value>
+    <comment>src\AxoSmartFunctionKit_v_4_x_x.st,61</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\AxoSmartFunctionKit_v_4_x_x.st,86</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\AxoSmartFunctionKit_v_4_x_x.st,92</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\AxoSmartFunctionKit_v_4_x_x.st,100</comment>
+  </data>
+  <data name="Command" xml:space="preserve">
+    <value>Command</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitRequest_v_4_x_x.st,5</comment>
+  </data>
+  <data name="Serial_number" xml:space="preserve">
+    <value>Serial number</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitRequest_v_4_x_x.st,7</comment>
+  </data>
+  <data name="Program_Id" xml:space="preserve">
+    <value>Program Id</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitRequest_v_4_x_x.st,9</comment>
+  </data>
+  <data name="Position_distance_tara" xml:space="preserve">
+    <value>Position distance tara</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitRequest_v_4_x_x.st,11</comment>
+  </data>
+  <data name="Travel_speed" xml:space="preserve">
+    <value>Travel speed</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitRequest_v_4_x_x.st,13</comment>
+  </data>
+  <data name="Acceleration" xml:space="preserve">
+    <value>Acceleration</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitRequest_v_4_x_x.st,15</comment>
+  </data>
+  <data name="Offset" xml:space="preserve">
+    <value>Offset</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitRequest_v_4_x_x.st,17</comment>
+  </data>
+  <data name="Axis_in_reference" xml:space="preserve">
+    <value>Axis in reference</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st,5</comment>
+  </data>
+  <data name="Program_active" xml:space="preserve">
+    <value>Program active</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st,7</comment>
+  </data>
+  <data name="Last_pressing_Ok" xml:space="preserve">
+    <value>Last pressing Ok</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st,9</comment>
+  </data>
+  <data name="Last_pressing_Nok" xml:space="preserve">
+    <value>Last pressing Nok</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st,11</comment>
+  </data>
+  <data name="Sensor_tared" xml:space="preserve">
+    <value>Sensor tared</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st,13</comment>
+  </data>
+  <data name="Press_ready" xml:space="preserve">
+    <value>Press ready</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st,15</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st,17</comment>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st,19</comment>
+  </data>
+  <data name="Request_possible" xml:space="preserve">
+    <value>Request possible</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st,21</comment>
+  </data>
+  <data name="Respons_avialable" xml:space="preserve">
+    <value>Respons avialable</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st,23</comment>
+  </data>
+  <data name="Notification_available" xml:space="preserve">
+    <value>Notification available</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st,25</comment>
+  </data>
+  <data name="Emergency_off_active" xml:space="preserve">
+    <value>Emergency off active</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st,27</comment>
+  </data>
+  <data name="Safe_standstill_active" xml:space="preserve">
+    <value>Safe standstill active</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResponse_v_4_x_x.st,29</comment>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>Id</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st,5</comment>
+  </data>
+  <data name="Maximal_force" xml:space="preserve">
+    <value>Maximal force</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st,7</comment>
+  </data>
+  <data name="Maximal_position" xml:space="preserve">
+    <value>Maximal position</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st,9</comment>
+  </data>
+  <data name="Valid" xml:space="preserve">
+    <value>Valid</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st,11</comment>
+  </data>
+  <data name="Creation_date" xml:space="preserve">
+    <value>Creation date</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st,13</comment>
+  </data>
+  <data name="Cycle_time" xml:space="preserve">
+    <value>Cycle time</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st,15</comment>
+  </data>
+  <data name="Validation_time" xml:space="preserve">
+    <value>Validation time</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st,17</comment>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st,19</comment>
+  </data>
+  <data name="Custom_Id" xml:space="preserve">
+    <value>Custom Id</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st,21</comment>
+  </data>
+  <data name="Data_recording_disabled" xml:space="preserve">
+    <value>Data recording disabled</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st,23</comment>
+  </data>
+  <data name="Sampling_interval" xml:space="preserve">
+    <value>Sampling interval</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st,25</comment>
+  </data>
+  <data name="_UNDERSCORE_v" xml:space="preserve">
+    <value>_v</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitResults_v_4_x_x.st,27</comment>
+  </data>
+  <data name="Response_status" xml:space="preserve">
+    <value>Response status</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st,5</comment>
+  </data>
+  <data name="Notification_Id" xml:space="preserve">
+    <value>Notification Id</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st,7</comment>
+  </data>
+  <data name="Notification_to_display" xml:space="preserve">
+    <value>Notification to display</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st,9</comment>
+  </data>
+  <data name="Notification_position" xml:space="preserve">
+    <value>Notification position</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st,11</comment>
+  </data>
+  <data name="Notification_velocity" xml:space="preserve">
+    <value>Notification velocity</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st,13</comment>
+  </data>
+  <data name="Notification_force" xml:space="preserve">
+    <value>Notification force</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st,15</comment>
+  </data>
+  <data name="Digital_Io_mapping" xml:space="preserve">
+    <value>Digital Io mapping</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st,17</comment>
+  </data>
+  <data name="Virtual_Io" xml:space="preserve">
+    <value>Virtual Io</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKitStatus_v_4_x_x.st,19</comment>
+  </data>
+  <data name="Current_command_parameters" xml:space="preserve">
+    <value>Current command parameters</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_ComponentStatus_v_4_x_x.st,6</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st,9</comment>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware IDs</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st,11</comment>
+  </data>
+  <data name="Location_of_the_curve_export" xml:space="preserve">
+    <value>Location of the curve export</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st,13</comment>
+  </data>
+  <data name="Ip_address" xml:space="preserve">
+    <value>Ip address</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Config_v_4_x_x.st,15</comment>
+  </data>
+  <data name="Handle" xml:space="preserve">
+    <value>Handle</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st,7</comment>
+  </data>
+  <data name="Value__ONE_" xml:space="preserve">
+    <value>Value 1</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st,11</comment>
+  </data>
+  <data name="Value__TWO_" xml:space="preserve">
+    <value>Value 2</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st,13</comment>
+  </data>
+  <data name="Value__THREE_" xml:space="preserve">
+    <value>Value 3</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st,15</comment>
+  </data>
+  <data name="Value__FOUR_" xml:space="preserve">
+    <value>Value 4</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st,17</comment>
+  </data>
+  <data name="Value__FIVE_" xml:space="preserve">
+    <value>Value 5</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st,19</comment>
+  </data>
+  <data name="Value__SIX_" xml:space="preserve">
+    <value>Value 6</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st,21</comment>
+  </data>
+  <data name="Value__SEVEN_" xml:space="preserve">
+    <value>Value 7</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st,23</comment>
+  </data>
+  <data name="Fast_variable_control" xml:space="preserve">
+    <value>Fast variable control</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st,27</comment>
+  </data>
+  <data name="Fast_variable_data" xml:space="preserve">
+    <value>Fast variable data</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_Control_v_4_x_x.st,29</comment>
+  </data>
+  <data name="Hardware_ID_Device" xml:space="preserve">
+    <value>Hardware ID Device</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st,4</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ParamCh_UNDERSCORE_IDN_APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'ParamCh_IDN' module</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st,6</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_F_UNDERSCORE_ModulNotUsed_APOSTROPHE__module" xml:space="preserve">
+    <value>Hardware ID 'F_ModulNotUsed' module</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st,8</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Input_UNDERSCORE__TWO__FOUR__UNDERSCORE_Words_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'Input_24_Words' submodule</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st,10</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Output_UNDERSCORE__TWO__ONE__UNDERSCORE_Words_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'Output_21_Words' submodule</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_HWIDs_v_4_x_x.st,12</comment>
+  </data>
+  <data name="Value_ONE_" xml:space="preserve">
+    <value>Value1</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st,11</comment>
+  </data>
+  <data name="Value_TWO_" xml:space="preserve">
+    <value>Value2</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st,13</comment>
+  </data>
+  <data name="Value_THREE_" xml:space="preserve">
+    <value>Value3</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st,15</comment>
+  </data>
+  <data name="NotificationId" xml:space="preserve">
+    <value>NotificationId</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st,17</comment>
+  </data>
+  <data name="NotificationValue" xml:space="preserve">
+    <value>NotificationValue</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st,19</comment>
+  </data>
+  <data name="NotificationStatus" xml:space="preserve">
+    <value>NotificationStatus</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st,21</comment>
+  </data>
+  <data name="NotificationPosition" xml:space="preserve">
+    <value>NotificationPosition</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st,23</comment>
+  </data>
+  <data name="NotificationVelocity" xml:space="preserve">
+    <value>NotificationVelocity</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st,25</comment>
+  </data>
+  <data name="NotificationForce" xml:space="preserve">
+    <value>NotificationForce</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st,27</comment>
+  </data>
+  <data name="DigitalIoMapping" xml:space="preserve">
+    <value>DigitalIoMapping</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st,29</comment>
+  </data>
+  <data name="VirtualIo" xml:space="preserve">
+    <value>VirtualIo</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st,31</comment>
+  </data>
+  <data name="Fast_variable_state" xml:space="preserve">
+    <value>Fast variable state</value>
+    <comment>src\AxoSmartFunctionKitDataTypes_v_4_x_x\AxoSmartFunctionKit_State_v_4_x_x.st,33</comment>
+  </data>
+</root>

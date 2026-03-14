@@ -12,17 +12,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" />
-		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" />
+		<FrameworkReference Include="Microsoft.AspNetCore.App" /> 
+		<PackageReference Include="Inxton.Operon" />				
 		<PackageReference Include="AXSharp.Abstractions" />
 		<PackageReference Include="AXSharp.Connector" />
 		<PackageReference Include="AXSharp.Presentation.Blazor" />
 		<PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
 		<PackageReference Include="AXOpen.KristofferStrube.Blazor.SVGEditor" />
-	</ItemGroup>
-
-	<ItemGroup>		
-		<!--<ProjectReference Include="C:\MTS\Blazor.SVGEditor\src\KristofferStrube.Blazor.SVGEditor\KristofferStrube.Blazor.SVGEditor.csproj" />-->
-	</ItemGroup>
-	  
+	</ItemGroup>			
 </Project>

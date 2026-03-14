@@ -9,13 +9,13 @@ NAMESPACE AXOpen.Data
     /// </summary>
     {#ix-set:AttributeName = "<#Data operation#>"}     
     {S7.extern=ReadWrite}
-    CLASS AxoDataCrudTask EXTENDS AxoRemoteTask IMPLEMENTS IAxoEntityExistTaskState      
+    CLASS AxoDataCrudTask EXTENDS AxoRemoteTask IMPLEMENTS IAxoDataCrudTaskEntityExistState      
         VAR PUBLIC
             ///<summary>
             /// Gets or sets the type of CRUD operation to be perfomed.            
             /// </summary>
             CrudOperation : eCrudOperation;
-            DataEntityIdentifier : STRING[254];
+            _EntityId : STRING[254];
             _exist : BOOL;            
         END_VAR
 
@@ -34,19 +34,21 @@ NAMESPACE AXOpen.Data
                 operation : eCrudOperation;
             END_VAR
 
+            // This may produce unwanted side effects if the task is invoked with different parameters while it is running.
+            // It may prevent done state to be provided upstream to the caller.
             IF SUPER.IsDone() THEN
                 IF (_LastDataEntityIdentifier   <> identifier OR 
                     _LastCrudOperation          <> operation ) THEN
-                    SUPER.Restore();
+                    SUPER.Restore();                    
                 END_IF;
             END_IF;
 
             IF SUPER.IsReady() THEN
-                DataEntityIdentifier := identifier;
+                _EntityId := identifier;
                 CrudOperation := operation;
             END_IF;
 
-            _LastDataEntityIdentifier   := DataEntityIdentifier;
+            _LastDataEntityIdentifier   := _EntityId;
             _LastCrudOperation          := CrudOperation;
 
             Invoke := SUPER.Invoke();
@@ -60,10 +62,5 @@ NAMESPACE AXOpen.Data
 
     TYPE
         eCrudOperation : (Create, Read, Update, Delete, CreateOrUpdate, EntityExist);
-    END_TYPE
-
-    INTERFACE PUBLIC IAxoEntityExistTaskState EXTENDS IAxoTaskState
-        METHOD Exist : BOOL END_METHOD
-    END_INTERFACE
-
+    END_TYPE   
 END_NAMESPACE

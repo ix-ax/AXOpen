@@ -25,7 +25,7 @@ namespace AXOpen.Repository.Integration.Tests
 
             foreach (var item in this.repository.GetRecords("*"))
             {
-                repository.Delete(item.DataEntityId);
+                repository.Delete(item._EntityId);
             }
         }
     }

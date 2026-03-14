@@ -43,7 +43,7 @@ NAMESPACE AXOpen.Core
                     THIS.Restore(); 
                 END_IF;
 
-                ErrorDetails := 'THE REMOTE TASK IS NOT INITIALIZED';
+                ErrorDetails := '<#THE REMOTE TASK IS NOT INITIALIZED#>';
                 RETURN; // if it continue  .Execute() call ThrowWhen() and task go to ErrorState  
             END_IF;
             
@@ -132,9 +132,9 @@ NAMESPACE AXOpen.Core
 
     METHOD PUBLIC WithType : IAxoAlertFormat
         VAR_INPUT
-            inAlertType : eDialogType;
+            inDialogType : eDialogType;
         END_VAR
-        _alertType := inAlertType;
+        _alertType := inDialogType;
         WithType := THIS;
     END_METHOD
 

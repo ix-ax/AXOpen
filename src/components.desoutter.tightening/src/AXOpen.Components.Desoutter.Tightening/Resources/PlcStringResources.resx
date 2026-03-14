@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ResetTask_timeout_DOT_" xml:space="preserve">
+    <value>ResetTask timeout.</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,711</comment>
+  </data>
+  <data name="Unable_to_change_the_screwing_program_DOT_" xml:space="preserve">
+    <value>Unable to change the screwing program.</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,777</comment>
+  </data>
+  <data name="Screwing_cycle_takes_too_long_DOT_" xml:space="preserve">
+    <value>Screwing cycle takes too long.</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,939</comment>
+  </data>
+  <data name="_UNDERSCORE_progress" xml:space="preserve">
+    <value>_progress</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,51</comment>
+  </data>
+  <data name="Screwing_program" xml:space="preserve">
+    <value>Screwing program</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,54</comment>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>Passed</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,59</comment>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Failed</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,63</comment>
+  </data>
+  <data name="Torque" xml:space="preserve">
+    <value>Torque</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,66</comment>
+  </data>
+  <data name="Torque_trend" xml:space="preserve">
+    <value>Torque trend</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,70</comment>
+  </data>
+  <data name="Angle" xml:space="preserve">
+    <value>Angle</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,74</comment>
+  </data>
+  <data name="Angle_trend" xml:space="preserve">
+    <value>Angle trend</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,78</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,86</comment>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,90</comment>
+  </data>
+  <data name="Required_screwing_program" xml:space="preserve">
+    <value>Required screwing program</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,95</comment>
+  </data>
+  <data name="Set_screwing_program" xml:space="preserve">
+    <value>Set screwing program</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,98</comment>
+  </data>
+  <data name="Start_screwing" xml:space="preserve">
+    <value>Start screwing</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,101</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,127</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,133</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\CVIC_II\AxoCVIC_II.st,142</comment>
+  </data>
+  <data name="Screwing_program_min" xml:space="preserve">
+    <value>Screwing program min</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Config.st,5</comment>
+  </data>
+  <data name="Screwing_program_max" xml:space="preserve">
+    <value>Screwing program max</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Config.st,8</comment>
+  </data>
+  <data name="Program_change_timeout" xml:space="preserve">
+    <value>Program change timeout</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Config.st,11</comment>
+  </data>
+  <data name="Screwing_cycle_timeout" xml:space="preserve">
+    <value>Screwing cycle timeout</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Config.st,14</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Config.st,17</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Config.st,19</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Config.st,21</comment>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware IDs</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Config.st,23</comment>
+  </data>
+  <data name="Cycle_bit__ONE_" xml:space="preserve">
+    <value>Cycle bit 1</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Control.st,5</comment>
+  </data>
+  <data name="Cycle_bit__TWO_" xml:space="preserve">
+    <value>Cycle bit 2</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Control.st,8</comment>
+  </data>
+  <data name="Cycle_bit__FOUR_" xml:space="preserve">
+    <value>Cycle bit 4</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Control.st,11</comment>
+  </data>
+  <data name="Spindle_validation" xml:space="preserve">
+    <value>Spindle validation</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Control.st,14</comment>
+  </data>
+  <data name="Error_acknowledge" xml:space="preserve">
+    <value>Error acknowledge</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Control.st,17</comment>
+  </data>
+  <data name="Start_cycle" xml:space="preserve">
+    <value>Start cycle</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Control.st,20</comment>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Direction</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Control.st,23</comment>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>Hardware ID of the device</value>
+    <comment>src\CVIC_II\AxoCVIC_II_HWIDs.st,5</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'Input_1_byte_1' submodule</value>
+    <comment>src\CVIC_II\AxoCVIC_II_HWIDs.st,7</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'Input_1_byte_2' submodule</value>
+    <comment>src\CVIC_II\AxoCVIC_II_HWIDs.st,9</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__TWO__UNDERSCORE_word_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'Input_2_word_1' submodule</value>
+    <comment>src\CVIC_II\AxoCVIC_II_HWIDs.st,11</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_word_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'Input_1_word_1' submodule</value>
+    <comment>src\CVIC_II\AxoCVIC_II_HWIDs.st,13</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__TWO__UNDERSCORE_word_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'Input_2_word_2' submodule</value>
+    <comment>src\CVIC_II\AxoCVIC_II_HWIDs.st,15</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Input_UNDERSCORE__ONE__UNDERSCORE_word_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'Input_1_word_2' submodule</value>
+    <comment>src\CVIC_II\AxoCVIC_II_HWIDs.st,17</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Output_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'Output_1_byte_1' submodule</value>
+    <comment>src\CVIC_II\AxoCVIC_II_HWIDs.st,19</comment>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_Output_UNDERSCORE__ONE__UNDERSCORE_byte_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID of the 'Output_1_byte_2' submodule</value>
+    <comment>src\CVIC_II\AxoCVIC_II_HWIDs.st,21</comment>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+    <comment>src\CVIC_II\AxoCVIC_II_In.st,5</comment>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Control</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Out.st,5</comment>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Ready</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Status.st,14</comment>
+  </data>
+  <data name="In_cycle" xml:space="preserve">
+    <value>In cycle</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Status.st,17</comment>
+  </data>
+  <data name="NumberOfCyclesOk" xml:space="preserve">
+    <value>NumberOfCyclesOk</value>
+    <comment>src\CVIC_II\AxoCVIC_II_Status.st,26</comment>
+  </data>
+</root>

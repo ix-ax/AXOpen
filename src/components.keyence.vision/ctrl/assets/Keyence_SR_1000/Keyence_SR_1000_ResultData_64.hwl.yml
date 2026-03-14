@@ -1,0 +1,9 @@
+Templates:
+  Modules:
+  - Name: 'Keyence_SR_1000_ResultData_64'
+    Content:
+      Name: 'ResultData_64'
+      TypeIdentifier:
+        FileName: 'GSDML-V2.3-KEYENCE-SR-1000-20140805.XML'
+        GsdId: '110'
+      Slot: 9

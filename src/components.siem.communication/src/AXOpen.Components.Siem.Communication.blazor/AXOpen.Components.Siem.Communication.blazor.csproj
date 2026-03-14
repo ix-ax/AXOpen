@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    
+	  <RootNamespace>AXOpen.Components.Siem.Communication.Blazor</RootNamespace>
+
+	  <!--NuGet Specific part-->
+	  <Description>This library is part of AXOpen framework</Description>
+	  <PackageId>AXOpen.Components.Siem.Communication.Blazor</PackageId>
+	  <Title>AXOpen - AXOpen.Components.Siem.Communication</Title>
+
+	  <!-- NuGet Common part-->
+	  <PackageProjectUrl>https://github.com/inxton/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/inxton/AXOpen</RepositoryUrl>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <Authors>inxton</Authors>
+	  <Copyright>(c) 2023  MTS spol. s r.o.  and Contributors</Copyright>
+	  <PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI, Blazor</PackageTags>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <PackageIcon>icon_128_128.png</PackageIcon>
+	  <RepositoryType>git</RepositoryType>
+	  <IncludeSymbols>True</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageReleaseNotes>
+		  Release notes are published here:
+		  https://github.com/inxton/AXOpen/releases
+	  </PackageReleaseNotes>
+	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+ 
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<FrameworkReference Include="Microsoft.AspNetCore.App" />  
+	<PackageReference Include="AXSharp.Presentation.Blazor" />
+    <PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
+    <PackageReference Include="Humanizer" />    
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
+	  
+  </ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\..\assets\icons\icon_128_128.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\..\..\NUGET-README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
+    <ProjectReference Include="..\..\..\io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj" />
+    <ProjectReference Include="..\AXOpen.Components.Siem.Communication\\inxton_axopen_components_siem_communication.csproj" />
+  </ItemGroup>
+</Project>

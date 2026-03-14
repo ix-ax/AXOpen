@@ -4,9 +4,8 @@
 		
 	</PropertyGroup>
 	<ItemGroup>		
-		<PackageReference Include="MongoDB.Bson"/>
-		<PackageReference Include="MongoDB.Driver"/>
-		<PackageReference Include="MongoDB.Driver.Core"/>
+		<PackageReference Include="MongoDB.Bson" />
+		<PackageReference Include="MongoDB.Driver" />
 		<ProjectReference Include="..\..\..\..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
 	</ItemGroup>
 </Project>

@@ -41,6 +41,10 @@ NAMESPACE AxoStaticMessengerExample
             _messenger4condition_1 : BOOL;
             {#ix-set:AttributeName = "<#Set to high to activate the messenger 4 with message code 2#>"}
             _messenger4condition_2 : BOOL;
+            {#ix-set:AttributeName = "<#Message to be posted by messenger 4 #>"}
+            _messenger4text : STRING[254] := 'Messenger 4 text';
+            {#ix-set:AttributeName = "<#Set to high to post dynamic message to messanger 4#>"}
+            _messenger4condition_3 : BOOL;
 
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-set:AttributeName = "<#Messenger 5 - textlist in .NET#>"}
@@ -66,6 +70,11 @@ NAMESPACE AxoStaticMessengerExample
             _messenger5condition_9 : BOOL;
             {#ix-set:AttributeName = "<#Set to high to activate the messenger 5 with code 10, with no help text defined#>"}
             _messenger5condition_10 : BOOL;
+            {#ix-set:AttributeName = "<#Message to be posted by messenger 5#>"}
+            _messenger5text : STRING[254] := 'Messenger 5 text';
+            {#ix-set:AttributeName = "<#Set to high to post dynamic message to messanger 5#>"}
+            _messenger5condition_11 : BOOL;
+
             {#ix-set:AttributeName = "<#Set to high to call the messenger 5#>"}
             _messenger5callcondition : BOOL;
 
@@ -99,6 +108,10 @@ NAMESPACE AxoStaticMessengerExample
             _messenger4.ActivateOnCondition(UINT#1,_messenger4condition_1,eAxoMessageCategory#Info).RequireAcknowledgement();
             _messenger4.ActivateOnCondition(UINT#2,_messenger4condition_2,eAxoMessageCategory#Info).RequireAcknowledgement();
 
+            IF _messenger4condition_3 THEN
+                _messenger4.Post(inParent := _rootObject, inMessage := _messenger4text, inCategory := eAxoMessageCategory#Info) ;
+            END_IF;
+
             IF _messenger5callcondition THEN
                 _messenger5.Serve(_rootObject);    
                 _messenger5.ActivateOnCondition(ULINT#1,_messenger5condition_1,eAxoMessageCategory#Error).RequireAcknowledgement();
@@ -111,6 +124,9 @@ NAMESPACE AxoStaticMessengerExample
                 _messenger5.ActivateOnCondition(ULINT#8,_messenger5condition_8,eAxoMessageCategory#Error).RequireAcknowledgement();
                 _messenger5.ActivateOnCondition(ULINT#9,_messenger5condition_9,eAxoMessageCategory#Error).RequireAcknowledgement();
                 _messenger5.ActivateOnCondition(ULINT#10,_messenger5condition_10,eAxoMessageCategory#Error).RequireAcknowledgement();
+                IF _messenger5condition_11 THEN
+                    _messenger5.Post(inParent := _rootObject, inMessage := _messenger5text, inCategory := eAxoMessageCategory#Info).RequireAcknowledgement();
+                END_IF;                
             ELSE
                 _messenger5.Restore();
             END_IF;

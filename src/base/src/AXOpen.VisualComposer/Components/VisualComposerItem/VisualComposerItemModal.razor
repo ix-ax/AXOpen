@@ -1,0 +1,102 @@
+﻿@using AXSharp.Presentation.Blazor.Services
+@using Operon.Components
+@if (Origin.IdPlain != null)
+{
+    <AuthorizeView Roles="Administrator">
+        <Authorized>
+            <Modal @bind-Open="Origin.ModalSettingOpen">
+                <div class="modal-header">
+                    <h4>@Origin.IdPlain</h4>
+                    <button type="button" class="cursor-pointer ms-auto my-auto" @onclick="() => { Origin.ModalSettingOpen = false; RemoveAsync(); }">
+                        <Operon.Icons.HeroIcon Icon="trash" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+                    </button>
+                    <button type="button" class="cursor-pointer ms-2 my-auto" @onclick="() => Origin.ModalSettingOpen = false">
+                        <Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-6" />
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <BaseInput @bind-Value="Origin.Top" Label="Top" />
+                    <BaseInput @bind-Value="Origin.Left" Label="Left" />
+
+                    <div class="flex flex-nowrap flex-row items-center">
+                        @if (_customPresentation)
+                        {
+                            <BaseInput @bind-Value="Origin.Presentation" Label="Presentation" />
+                        }
+                        else
+                        {
+                            <div class="input-group">
+                                <label class="me-2">Presentation</label>
+                                <select class="select min-w-6" value="@Origin.Presentation" @onchange="@((args) => @Origin.Presentation = (string)args.Value)">
+                                    @foreach (var presentation in PresentationType.AllTypes)
+                                    {
+                                        <option data value="@presentation.ToString()">@presentation.ToString()</option>
+                                    }
+                                </select>
+                            </div>
+                        }
+                        <BaseInput @bind-Value="_customPresentation" Label="Custom" Class="ms-4" />
+                    </div>
+
+                    <div class="input-group">
+                        <label class="me-2">Transform</label>
+                        <select class="select min-w-6" value="@Origin.Transform.ToString()" @onchange="@((args) => @Origin.Transform = TransformType.FromString((string)args.Value))">
+                            @foreach (var transform in TransformType.AllTypes)
+                            {
+                                <option data value="@transform.ToString()">@transform.ToString()</option>
+                            }
+                        </select>
+                    </div>
+
+                    <BaseInput @bind-Value="Origin.Width" Label="Width" />
+                    <BaseInput @bind-Value="Origin.Height" Label="Height" />
+                    <BaseInput @bind-Value="Origin.ZIndex" Label="ZIndex" />
+                    <BaseInput @bind-Value="Origin.Scale" Label="Scale" />
+                    <BaseInput @bind-Value="Origin.Rotate" Label="Rotate" Unit="Deg" />
+                    <BaseInput @bind-Value="Origin.Roles" Label="Roles" />
+
+                    <div class="flex flex-nowrap flex-row items-center">
+                        @if (_customPresentationTemplate)
+                        {
+                            <BaseInput @bind-Value="Origin.PresentationTemplate" Label="PresentationTemplate" />
+                        }
+                        else
+                        {
+                            <div class="input-group">
+                                <label class="me-2">Presentation</label>
+                                <select @bind="Origin.PresentationTemplate" class="select min-w-6">
+                                    <option data value="">None</option>
+                                    @foreach (var component in Components.Where(x => x.type != null && x.type.Equals(Origin.TwinElement.GetType().FullName)))
+                                    {
+                                        <option data value="@component.key">@component.key</option>
+                                    }
+                                </select>
+                            </div>
+                        }
+                        <BaseInput @bind-Value="_customPresentationTemplate" Label="Custom" Class="ms-4" />
+                    </div>
+
+                    <div class="flex flex-nowrap flex-row items-center">
+                        <BaseInput @bind-Value="Origin.Background" Label="Background" />
+                        @if (Origin.Background)
+                        {
+                            <div class="flex flex-wrap flex-col ms-4">
+                                <div class="color-group">
+                                    <input type="color" id="background-color-light" class="" @bind="Origin.BackgroundColorLight" title="Choose background color light">
+                                    <label for="background-color-light">Background color light</label>
+                                </div>
+                                <div class="color-group">
+                                    <input type="color" id="background-color-dark" class="" @bind="Origin.BackgroundColorDark" title="Choose background color dark">
+                                    <label for="background-color-dark">Background color dark</label>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary" @onclick="Origin.SetDefaultBackgroundColors">Set default</button>
+                            </div>
+                        }
+                    </div>
+
+                    <BaseInput @bind-Value="Origin.PollingInterval" Label="PollingInterval [ms]" />
+                </div>
+            </Modal>
+        </Authorized>
+    </AuthorizeView>
+}

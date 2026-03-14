@@ -1,0 +1,9 @@
+Templates:
+  Modules:
+  - Name: 'Cognex_Dataman280_UserData_250'
+    Content:
+      Name: 'UserData_250'
+      TypeIdentifier:
+        FileName: 'gsdml-v2.42-cognex-datamanclassb-20220124.xml'
+        GsdId: '305'
+      Slot: 6        

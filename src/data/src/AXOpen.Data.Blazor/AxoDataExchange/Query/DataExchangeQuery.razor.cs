@@ -1,4 +1,4 @@
-﻿using AngleSharp.Text;
+using AngleSharp.Text;
 using AXOpen.Base.Data.Query;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
@@ -94,7 +94,7 @@ namespace AXOpen.Data.Query
         public string SymbolsQueryFilter // string that contains the symbol
         {
             set
-            {
+           {
                 if (_SymbolsQueryFilter != value)
                 {
                     _SymbolsQueryFilter = value;
@@ -115,11 +115,41 @@ namespace AXOpen.Data.Query
         }
 
         public int SymbolsQueryCount { set; get; } // all symbols from query
-        public int SymbolsQueryPage { set; get; }// displaing only selected page
-        public int SymbolsQueryPageLimit { set; get; } = 5;// displaing only selected page
 
-        private int MaxPage =>
-       (int)(SymbolsQueryCount % SymbolsQueryPageLimit == 0 ? SymbolsQueryCount / SymbolsQueryPageLimit - 1 : SymbolsQueryCount / SymbolsQueryPageLimit);
+        private int _symbolsQueryPage = 1;
+        public int SymbolsQueryPage // displaing only selected page
+        {
+            set
+            {
+                _symbolsQueryPage = value;
+                FilterSymbolsAsync();
+            }
+            get
+            {
+                return _symbolsQueryPage;
+            }
+        }
+
+        private int _symbolsQueryPageLimit = 5;
+        public int SymbolsQueryPageLimit // displaing only selected page
+        {
+            set
+            {
+                _symbolsQueryPageLimit = value;
+                FilterSymbolsAsync();
+            }
+            get
+            {
+                return _symbolsQueryPageLimit;
+            }
+        }
+
+        private async Task PageSizeAndSelectedChangedAsync(int pageSize, int selected)
+        {
+            SymbolsQueryPageLimit = pageSize;
+            SymbolsQueryPage = selected;
+            await FillObservableSymbols();
+        }
 
         public List<string> FilteredSymbols { private set; get; } = new List<string>(); // symbols for qery on selected pagge and display to the user
 
@@ -168,23 +198,7 @@ namespace AXOpen.Data.Query
 
         public List<string> InjectedQueries { private set; get; } = new();
         public List<string> InjectedSorting { private set; get; } = new();
-
-        private async Task SetLimitAsync(int limit)
-        {
-            var oldLimit = SymbolsQueryPageLimit;
-            SymbolsQueryPageLimit = limit;
-
-            SymbolsQueryPage = SymbolsQueryPage * oldLimit / SymbolsQueryPageLimit;
-
-            await FillObservableSymbols();
-        }
-
-        private async Task SetPageAsync(int page)
-        {
-            SymbolsQueryPage = page;
-            await FillObservableSymbols();
-        }
-
+        
         private Task FillObservableSymbols()
         {
             return Task.Run(() =>
@@ -192,16 +206,9 @@ namespace AXOpen.Data.Query
                 _DisplyedSymbols.Clear();
 
                 _DisplyedSymbols.AddRange(
-                    FilteredSymbols.Skip(SymbolsQueryPage * SymbolsQueryPageLimit).Take(SymbolsQueryPageLimit)
+                    FilteredSymbols.Skip((SymbolsQueryPage - 1) * SymbolsQueryPageLimit).Take(SymbolsQueryPageLimit)
                     );
             });
-        }
-
-        private int Modulo(int x, int m)
-        {
-            if (m == 0) return 0; // avoid exception caused by % 0
-            var r = x % m;
-            return r < 0 ? r + m : r;
         }
 
         private async Task FilterSymbolsAsync()
@@ -450,9 +457,14 @@ namespace AXOpen.Data.Query
             {
                 var lastselected = History.Items.Where(h => h.Name == History.LastSelectedItemName);
 
-                if (lastselected != null)
+                if (lastselected != null && lastselected.Any())
                 {
                     CurrentQuery = lastselected.FirstOrDefault();
+                }
+                else 
+                {
+                    if (History.Items.Any())
+                        CurrentQuery = History.Items.Last();
                 }
             }
 

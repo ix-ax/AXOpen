@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+    <comment>src\AxoAi\AxoAi.st,21</comment>
+  </data>
+  <data name="MessengerInfo" xml:space="preserve">
+    <value>MessengerInfo</value>
+    <comment>src\AxoAi\AxoAi.st,29</comment>
+  </data>
+  <data name="Raw_low" xml:space="preserve">
+    <value>Raw low</value>
+    <comment>src\AxoAi\AxoAiConfig.st,12</comment>
+  </data>
+  <data name="Raw_high" xml:space="preserve">
+    <value>Raw high</value>
+    <comment>src\AxoAi\AxoAiConfig.st,18</comment>
+  </data>
+  <data name="Real_low" xml:space="preserve">
+    <value>Real low</value>
+    <comment>src\AxoAi\AxoAiConfig.st,25</comment>
+  </data>
+  <data name="Real_high" xml:space="preserve">
+    <value>Real high</value>
+    <comment>src\AxoAi\AxoAiConfig.st,32</comment>
+  </data>
+  <data name="Gain" xml:space="preserve">
+    <value>Gain</value>
+    <comment>src\AxoAi\AxoAiConfig.st,38</comment>
+  </data>
+  <data name="Offset" xml:space="preserve">
+    <value>Offset</value>
+    <comment>src\AxoAi\AxoAiConfig.st,43</comment>
+  </data>
+  <data name="Raw_range" xml:space="preserve">
+    <value>Raw range</value>
+    <comment>src\AxoAi\AxoAiStatus.st,11</comment>
+  </data>
+  <data name="Real_range" xml:space="preserve">
+    <value>Real range</value>
+    <comment>src\AxoAi\AxoAiStatus.st,17</comment>
+  </data>
+  <data name="Scale_value" xml:space="preserve">
+    <value>Scale value</value>
+    <comment>src\AxoAi\AxoAiStatus.st,22</comment>
+  </data>
+  <data name="SetPoint" xml:space="preserve">
+    <value>SetPoint</value>
+    <comment>src\AxoAo\AxoAo.st,14</comment>
+  </data>
+  <data name="Unscaled_value" xml:space="preserve">
+    <value>Unscaled value</value>
+    <comment>src\AxoAo\AxoAoStatus.st,21</comment>
+  </data>
+  <data name="Button_Signal" xml:space="preserve">
+    <value>Button Signal</value>
+    <comment>src\AxoBacklitButton\AxoBacklitButton.st,10</comment>
+  </data>
+  <data name="LED_Indicator" xml:space="preserve">
+    <value>LED Indicator</value>
+    <comment>src\AxoBacklitButton\AxoBacklitButton.st,14</comment>
+  </data>
+  <data name="Signal" xml:space="preserve">
+    <value>Signal</value>
+    <comment>src\AxoDi\AxoDi.st,14</comment>
+  </data>
+  <data name="Check_on" xml:space="preserve">
+    <value>Check on</value>
+    <comment>src\AxoDi\AxoDi.st,18</comment>
+  </data>
+  <data name="Check_off" xml:space="preserve">
+    <value>Check off</value>
+    <comment>src\AxoDi\AxoDi.st,23</comment>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>On</value>
+    <comment>src\AxoDo\AxoDo.st,17</comment>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+    <comment>src\AxoDo\AxoDo.st,21</comment>
+  </data>
+  <data name="The_safety_condition_is_lost_during_movement_DOT_" xml:space="preserve">
+    <value>The safety condition is lost during movement.</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,151</comment>
+  </data>
+  <data name="TurnTask_timeout_DOT_" xml:space="preserve">
+    <value>TurnTask timeout.</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,255</comment>
+  </data>
+  <data name="InitPositionTask_timeout_DOT_" xml:space="preserve">
+    <value>InitPositionTask timeout.</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,337</comment>
+  </data>
+  <data name="Turn" xml:space="preserve">
+    <value>Turn</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,12</comment>
+  </data>
+  <data name="Current_position" xml:space="preserve">
+    <value>Current position</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,16</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,23</comment>
+  </data>
+  <data name="InitPositionTask" xml:space="preserve">
+    <value>InitPositionTask</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,27</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,51</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable.st,57</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st,9</comment>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Direction</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st,11</comment>
+  </data>
+  <data name="Number_of_positions" xml:space="preserve">
+    <value>Number of positions</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Config.st,13</comment>
+  </data>
+  <data name="Enable_turn" xml:space="preserve">
+    <value>Enable turn</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Control.st,5</comment>
+  </data>
+  <data name="Start_turn" xml:space="preserve">
+    <value>Start turn</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_Control.st,7</comment>
+  </data>
+  <data name="Safety_condition" xml:space="preserve">
+    <value>Safety condition</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_State.st,5</comment>
+  </data>
+  <data name="In_position" xml:space="preserve">
+    <value>In position</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_State.st,7</comment>
+  </data>
+  <data name="In_precise_position" xml:space="preserve">
+    <value>In precise position</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_State.st,9</comment>
+  </data>
+  <data name="Coding_position" xml:space="preserve">
+    <value>Coding position</value>
+    <comment>src\AxoRotaryIndexingTable\AxoRotaryIndexingTable_State.st,11</comment>
+  </data>
+</root>

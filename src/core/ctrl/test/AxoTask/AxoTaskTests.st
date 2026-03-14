@@ -391,10 +391,10 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             // Arrange
             THIS.Initialize();
             _context.Open();
-           myTask.IsDisabled := TRUE;
-           myTask.Invoke();
-           // Act/Assert 
-           Assert.Equal(FALSE, myTask.Execute());             
+            myTask.SetIsDisabled(TRUE);
+            myTask.Invoke();
+            // Act/Assert 
+            Assert.Equal(FALSE, myTask.Execute());             
         END_METHOD
 
         {Test}
@@ -405,7 +405,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
            myTask.Invoke();
            // Act/Assert 
            Assert.Equal(TRUE, myTask.Execute());             
-           myTask.IsDisabled := TRUE;
+           myTask.SetIsDisabled(TRUE);
            Assert.Equal(FALSE, myTask.Execute());             
         END_METHOD
 
@@ -422,7 +422,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             END_IF;    
             actState := myTask.GetState();
             Assert.Equal(TRUE, THIS.Equal(expState, actState));           
-            myTask.IsDisabled := TRUE;
+            myTask.SetIsDisabled(TRUE);
             myTask.Invoke();   
             myTask.Execute();
             actState := myTask.GetState();
@@ -469,14 +469,14 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             actState := myTask.GetState();
             Assert.Equal(TRUE, THIS.Equal(expState, actState));           
             myTask.RemoteInvoke := TRUE;
-            myTask.IsDisabled := TRUE;
+            myTask.SetIsDisabled(TRUE);
             myTask.Invoke();   
             myTask.Execute();
             myTask.ThrowWhen(FALSE);
             myTask.DoneWhen(TRUE);
             actState := myTask.GetState();
             Assert.Equal(TRUE, THIS.Equal(expState, actState));           
-            expState := eAxoTaskState#Disabled;
+            expState := eAxoTaskState#Ready;
             myTask.Restore();
             actState := myTask.GetState();
             Assert.Equal(TRUE, THIS.Equal(expState, actState));           
@@ -498,10 +498,13 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
 
         {Test}
         METHOD PUBLIC execution_of_the_invoked_task_should_not_start_after_any_empty_cycles
-            THIS.Initialize();
+            THIS.Initialize();            
+            _context.Open();
+            _context.Close();
+
             myTask.Invoke();
             Assert.Equal(TRUE,THIS.Equal(eAxoTaskState#Kicking,myTask.GetState()));
-
+            
             _context.Open();
             _context.Close();
 
@@ -892,6 +895,9 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             THIS.Initialize();
             _context.Open();
             // Act/Assert 
+          
+            myTask.SetSuspendMultipleExecuteCallCheck(FALSE);
+
             myTask.Invoke();      
             myTask.Execute();
             Assert.Equal(TRUE, myTask.IsBusy());
@@ -929,6 +935,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         METHOD PUBLIC task_should_stay_at_busy_state_and_remote_abort_signal_should_be_reseted_as_the_abbility_to_abort_task_is_disabled_by_default
             THIS.Initialize();
             _context.Open();
+            
             myTask.Invoke();
             myTask.Execute();
             myTask.RemoteAbort := TRUE;
@@ -1328,7 +1335,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             THIS.Initialize();
             _context.Open();
             _context.Close();
-
+            myTask.SetSuspendCyclicExecuteIsNotCalledCheck(FALSE);
              // Act
             _context.Open();
             myTask.Invoke();          
@@ -1351,7 +1358,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             _context.Close();
 
            //Assert 
-            Assert.Equal(TRUE, THIS.AreEqual('CyclicExecuteIsNotCalled', myTask.ErrorDetails));           
+            Assert.Equal(TRUE, THIS.AreEqual('<#CyclicExecuteIsNotCalled#>', myTask.ErrorDetails));           
         END_METHOD     
         
         {Test}
@@ -1389,8 +1396,9 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         {Test}
         METHOD PUBLIC multiple_execute_call_should_return_an_error
             // Arrange/Act
-            THIS.Initialize();
+            THIS.Initialize();            
             _context.Open();
+            myTask.SetSuspendMultipleExecuteCallCheck(FALSE);
             myTask.Execute();          
             myTask.Execute();          
             _context.Close();
@@ -1409,7 +1417,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             _context.Close();
 
            //Assert 
-            Assert.Equal(TRUE, THIS.AreEqual('MultipleExecuteIsCalled', myTask.ErrorDetails));           
+            Assert.Equal(TRUE, THIS.AreEqual('<#MultipleExecuteIsCalled#>', myTask.ErrorDetails));           
         END_METHOD     
         
         {Test}
@@ -1488,6 +1496,19 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             // Assert 
             // TODO 
             // Assert.Equal(ULINT#3, myTask._messenger.MessageCode);           
+        END_METHOD     
+
+        {Test}
+        METHOD PUBLIC invoke_disabled_task_should_not_enter_error_state
+            // Arrange/Act
+            myTask.Run(_rootObject);
+            _context.Open();
+            myTask.SetIsDisabled(TRUE);
+            myTask.Invoke();
+            myTask.Execute();          
+            _context.Close();   
+            
+            Assert.Equal(FALSE, myTask.HasError()); 
         END_METHOD     
     END_CLASS
 END_NAMESPACE

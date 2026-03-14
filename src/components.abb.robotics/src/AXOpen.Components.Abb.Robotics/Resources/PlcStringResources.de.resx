@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="StartAtMainTask_timeout_DOT_" xml:space="preserve">
+    <value>StartAtMainTask-Zeitüberschreitung.</value>
+  </data>
+  <data name="StartMotorsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMotorsAndProgramTask Zeitüberschreitung.</value>
+  </data>
+  <data name="StartMotorsProgramAndMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMotorsProgramAndMovementsTask Zeitüberschreitung.</value>
+  </data>
+  <data name="StartMotorsTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMotorsTask Zeitüberschreitung.</value>
+  </data>
+  <data name="StartMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StartMovementsTask Zeitüberschreitung.</value>
+  </data>
+  <data name="StartProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StartProgrammAufgabe Zeitüberschreitung.</value>
+  </data>
+  <data name="StopMotorsTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMotorsTask Zeitüberschreitung.</value>
+  </data>
+  <data name="StopMovementsAndProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsAndProgramTask timeout.</value>
+  </data>
+  <data name="StopMovementsTask_timeout_DOT_" xml:space="preserve">
+    <value>StopMovementsTask Zeitüberschreitung.</value>
+  </data>
+  <data name="StopProgramTask_timeout_DOT_" xml:space="preserve">
+    <value>StopProgramTask Zeitüberschreitung.</value>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info-Zeit</value>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Fehlerzeit</value>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Zeitüberschreitung der Aufgabe</value>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware-IDs</value>
+  </data>
+  <data name="Interuption_actually_running_instruction" xml:space="preserve">
+    <value>Unterbrechung der laufenden Anweisung</value>
+  </data>
+  <data name="Load_program" xml:space="preserve">
+    <value>Programm laden</value>
+  </data>
+  <data name="Load_and_run_program" xml:space="preserve">
+    <value>Programm laden und ausführen</value>
+  </data>
+  <data name="Switch_off_the_motors" xml:space="preserve">
+    <value>Schalten Sie die Motoren aus</value>
+  </data>
+  <data name="Switch_on_the_motors" xml:space="preserve">
+    <value>Schalten Sie die Motoren ein</value>
+  </data>
+  <data name="Switch_on_the_motors_and_start_program" xml:space="preserve">
+    <value>Motoren einschalten und Programm starten</value>
+  </data>
+  <data name="Emergency_stop_acknowledge" xml:space="preserve">
+    <value>Not-Aus quittieren</value>
+  </data>
+  <data name="Error_acknowledge" xml:space="preserve">
+    <value>Fehler quittieren</value>
+  </data>
+  <data name="Program_start" xml:space="preserve">
+    <value>Programmstart</value>
+  </data>
+  <data name="Program_start_at_main" xml:space="preserve">
+    <value>Programmstart bei Haupt</value>
+  </data>
+  <data name="Program_stop" xml:space="preserve">
+    <value>Programm anhalten</value>
+  </data>
+  <data name="Stop_movement_DASH_quick" xml:space="preserve">
+    <value>Bewegung stoppen-schnell</value>
+  </data>
+  <data name="Stop_movement_DASH_soft" xml:space="preserve">
+    <value>Bewegung anhalten-weich</value>
+  </data>
+  <data name="Stop_program_at_the_end_of_the_cycle" xml:space="preserve">
+    <value>Programm am Ende des Zyklus anhalten</value>
+  </data>
+  <data name="Stop_program_at_the_end_of_the_instruction" xml:space="preserve">
+    <value>Programm am Ende der Anweisung anhalten</value>
+  </data>
+  <data name="Speed_limitation" xml:space="preserve">
+    <value>Geschwindigkeitsbegrenzung</value>
+  </data>
+  <data name="Master_mode" xml:space="preserve">
+    <value>Master-Modus</value>
+  </data>
+  <data name="Tool__ONE__retract" xml:space="preserve">
+    <value>Werkzeug 1 einziehen</value>
+  </data>
+  <data name="Tool__ONE__extend" xml:space="preserve">
+    <value>Werkzeug 1 erweitern</value>
+  </data>
+  <data name="Tool__TWO__retract" xml:space="preserve">
+    <value>Werkzeug 2 einziehen</value>
+  </data>
+  <data name="Tool__TWO__extend" xml:space="preserve">
+    <value>Werkzeug 2 erweitern</value>
+  </data>
+  <data name="Tool__THREE__retract" xml:space="preserve">
+    <value>Werkzeug 3 einziehen</value>
+  </data>
+  <data name="Tool__THREE__extend" xml:space="preserve">
+    <value>Werkzeug 3 erweitern</value>
+  </data>
+  <data name="Tool__FOUR__retract" xml:space="preserve">
+    <value>Werkzeug 4 einziehen</value>
+  </data>
+  <data name="Tool__FOUR__extend" xml:space="preserve">
+    <value>Werkzeug 4 erweitern</value>
+  </data>
+  <data name="Zones" xml:space="preserve">
+    <value>Zonen</value>
+  </data>
+  <data name="In_position" xml:space="preserve">
+    <value>In Position</value>
+  </data>
+  <data name="Action_number" xml:space="preserve">
+    <value>Aktionsnummer</value>
+  </data>
+  <data name="Global_robot_speed" xml:space="preserve">
+    <value>Globale Robotergeschwindigkeit</value>
+  </data>
+  <data name="Tool_number" xml:space="preserve">
+    <value>Werkzeug-Nummer</value>
+  </data>
+  <data name="Workobject_number" xml:space="preserve">
+    <value>Nummer des Arbeitsobjekts</value>
+  </data>
+  <data name="Point_number" xml:space="preserve">
+    <value>Punktzahl</value>
+  </data>
+  <data name="User_specific_speed__ONE_" xml:space="preserve">
+    <value>Benutzerspezifische Geschwindigkeit 1</value>
+  </data>
+  <data name="User_specific_speed__TWO_" xml:space="preserve">
+    <value>Benutzerspezifische Geschwindigkeit 2</value>
+  </data>
+  <data name="Coordinates" xml:space="preserve">
+    <value>Koordinaten</value>
+  </data>
+  <data name="Hardware_ID_of_the_device" xml:space="preserve">
+    <value>Hardware-ID des Geräts</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_DI_UNDERSCORE__SIX__FOUR__UNDERSCORE_bytes_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des Submoduls "DI64bytes".</value>
+  </data>
+  <data name="Hardware_ID_of_the__APOSTROPHE_DO_UNDERSCORE__SIX__FOUR__UNDERSCORE_bytes_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware-ID des "DO64bytes"-Submoduls</value>
+  </data>
+  <data name="AutoOn" xml:space="preserve">
+    <value>AutoOn</value>
+  </data>
+  <data name="CycleOn" xml:space="preserve">
+    <value>CycleOn</value>
+  </data>
+  <data name="Emergency_stop" xml:space="preserve">
+    <value>Not-Aus</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="Event_ID" xml:space="preserve">
+    <value>Ereignis-ID</value>
+  </data>
+  <data name="Move_active" xml:space="preserve">
+    <value>Aktiv bewegen</value>
+  </data>
+  <data name="Move_inactive" xml:space="preserve">
+    <value>Inaktivität verschieben</value>
+  </data>
+  <data name="Motor_off" xml:space="preserve">
+    <value>Motor aus</value>
+  </data>
+  <data name="Motor_on" xml:space="preserve">
+    <value>Motor eingeschaltet</value>
+  </data>
+  <data name="Motor_off_state" xml:space="preserve">
+    <value>Zustand Motor aus</value>
+  </data>
+  <data name="Motor_on_state" xml:space="preserve">
+    <value>Zustand Motor ein</value>
+  </data>
+  <data name="Program_execution_error" xml:space="preserve">
+    <value>Fehler bei der Programmausführung</value>
+  </data>
+  <data name="Safety_OK" xml:space="preserve">
+    <value>Sicherheit OK</value>
+  </data>
+  <data name="System_input_busy" xml:space="preserve">
+    <value>Systemeingang belegt</value>
+  </data>
+  <data name="Program_pointer_moved" xml:space="preserve">
+    <value>Programmzeiger verschoben</value>
+  </data>
+  <data name="Motion_supervision" xml:space="preserve">
+    <value>Überwachung der Bewegung</value>
+  </data>
+  <data name="Battery_Low" xml:space="preserve">
+    <value>Batterie schwach</value>
+  </data>
+  <data name="In_area__ONE_" xml:space="preserve">
+    <value>Im Bereich 1</value>
+  </data>
+  <data name="In_area__TWO_" xml:space="preserve">
+    <value>Im Bereich 2</value>
+  </data>
+  <data name="In_area__THREE_" xml:space="preserve">
+    <value>Im Bereich 3</value>
+  </data>
+  <data name="In_area__FOUR_" xml:space="preserve">
+    <value>Im Bereich 4</value>
+  </data>
+  <data name="In_position__ONE_" xml:space="preserve">
+    <value>In Stellung 1</value>
+  </data>
+  <data name="In_position__TWO_" xml:space="preserve">
+    <value>In Stellung 2</value>
+  </data>
+  <data name="In_position__THREE_" xml:space="preserve">
+    <value>In Stellung 3</value>
+  </data>
+  <data name="In_position__FOUR_" xml:space="preserve">
+    <value>Auf Platz 4</value>
+  </data>
+  <data name="Auto_stop__ONE_" xml:space="preserve">
+    <value>Automatischer Stopp 1</value>
+  </data>
+  <data name="Auto_stop__TWO_" xml:space="preserve">
+    <value>Automatischer Stopp 2</value>
+  </data>
+  <data name="Emergency_stop__ONE_" xml:space="preserve">
+    <value>Not-Aus 1</value>
+  </data>
+  <data name="Emergency_stop__TWO_" xml:space="preserve">
+    <value>Not-Aus 2</value>
+  </data>
+  <data name="General_stop__ONE_" xml:space="preserve">
+    <value>Allgemeine Haltestelle 1</value>
+  </data>
+  <data name="General_stop__TWO_" xml:space="preserve">
+    <value>Allgemeine Haltestelle 2</value>
+  </data>
+  <data name="Enable__ONE_" xml:space="preserve">
+    <value>Aktivieren 1</value>
+  </data>
+  <data name="Enable__TWO_" xml:space="preserve">
+    <value>Aktivieren 2</value>
+  </data>
+  <data name="Global_speed" xml:space="preserve">
+    <value>Globale Geschwindigkeit</value>
+  </data>
+  <data name="PointNumber" xml:space="preserve">
+    <value>PunktZahl</value>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Fortschritt</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Wiederherstellen</value>
+  </data>
+  <data name="Stop_movements" xml:space="preserve">
+    <value>Bewegungen anhalten</value>
+  </data>
+  <data name="Stop_movements_and_program" xml:space="preserve">
+    <value>Bewegungen anhalten und programmieren</value>
+  </data>
+  <data name="Stop_program" xml:space="preserve">
+    <value>Programm anhalten</value>
+  </data>
+  <data name="Stop_motors" xml:space="preserve">
+    <value>Motoren anhalten</value>
+  </data>
+  <data name="Start_at_main" xml:space="preserve">
+    <value>Start am Hauptbahnhof</value>
+  </data>
+  <data name="Start_motors_and_program" xml:space="preserve">
+    <value>Motoren starten und programmieren</value>
+  </data>
+  <data name="Start_program" xml:space="preserve">
+    <value>Programm starten</value>
+  </data>
+  <data name="Start_motors" xml:space="preserve">
+    <value>Motoren starten</value>
+  </data>
+  <data name="Start_movements" xml:space="preserve">
+    <value>Bewegungen starten</value>
+  </data>
+  <data name="Start_motors_program_and_movements" xml:space="preserve">
+    <value>Motoren starten Programm und Bewegungen</value>
+  </data>
+  <data name="Start_movements_with_extended_parameters" xml:space="preserve">
+    <value>Startbewegungen mit erweiterten Parametern</value>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Eingaben</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Ausgaben</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Diagnose aktualisieren</value>
+  </data>
+  <data name="Power_progress" xml:space="preserve">
+    <value>Fortschritte bei der Leistung</value>
+  </data>
+  <data name="Movement_progress" xml:space="preserve">
+    <value>Fortschritte in der Bewegung</value>
+  </data>
+</root>

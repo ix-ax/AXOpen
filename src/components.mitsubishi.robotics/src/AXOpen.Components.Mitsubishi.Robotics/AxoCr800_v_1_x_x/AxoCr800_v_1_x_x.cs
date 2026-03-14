@@ -7,9 +7,9 @@ using AXOpen.Components.Abstractions;
 using AXOpen.Messaging.Static;
 using AXSharp.Connector;
 
-namespace AXOpen.Components.Mitsubishi.Robotics
+namespace AXOpen.Components.Mitsubishi.Robotics.v_1_x_x
 {
-    public partial class AxoCr800_v_1_x_x : AXOpen.Core.AxoComponent
+    public partial class AxoCr800 : AXOpen.Core.AxoComponent
     {
         partial void PostConstruct(ITwinObject parent, string readableTail, string symbolTail)
         {
@@ -54,10 +54,10 @@ namespace AXOpen.Components.Mitsubishi.Robotics
 
                 //  General alarm
                 new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                                               ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                                                  ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                                                                              ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Device` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(702, new AxoMessengerTextItem("Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."                                    ,"Check the hardware configuration.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Hw configuration error. Value of hwIdInOut_64_byte is zero."                                                                                               ,"Check the hardware configuration.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(710, new AxoMessengerTextItem("Hw configuration error. Value of Config.HWIDs.HwID_InOut_64_byte is zero."                                                                                 ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(711, new AxoMessengerTextItem("Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(712, new AxoMessengerTextItem("Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."                                           ,"Check the hardware configuration.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(713, new AxoMessengerTextItem("Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."                                           ,"Check the hardware configuration.")),
@@ -66,12 +66,12 @@ namespace AXOpen.Components.Mitsubishi.Robotics
                 new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'In_Out_64_byte' (GsdId=ID_MODULE_IN_OUT64B)."            ,"Check the hardware configuration.")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(1130, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!"                                                                                              ,"Check the call of the `Run` method, if the `parent` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1131, new AxoMessengerTextItem("Input variable `hwId` has invalid value in `Run` method!"                                                                                                 ,"Check the call of the `Run` method, if the `hwId` parameter is assigned.")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `hwIdInOut_64_byte` has invalid value in `Run` method!"                                                                                    ,"Check the call of the `Run` method, if the `hwID_in_1` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1131, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                                                                             ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_Device` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1132, new AxoMessengerTextItem("Input variable `Config.HWIDs.HwID_InOut_64_byte` has invalid value in `Run` method!"                                                                      ,"Check the call of the `Run` method, if the `Config.HWIDs.HwID_InOut_64_byte` parameter is assigned.")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the InOut_64_byte!"                                                                                                                         ,"Check the value of the hwIdInOut_64_byte and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1201, new AxoMessengerTextItem("Error reading the InOut_64_byte!"                                                                                                                         ,"Check the value of the Config.HWIDs.HwID_InOut_64_byte and reacheability of the device!")),
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(1231, new AxoMessengerTextItem("Error writing the InOut_64_byte!"                                                                                                                         ,"Check the value of the hwIdInOut_64_byte and reacheability of the device!")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(1231, new AxoMessengerTextItem("Error writing the InOut_64_byte!"                                                                                                                         ,"Check the value of the Config.HWIDs.HwID_InOut_64_byte and reacheability of the device!")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10000, new AxoMessengerTextItem("Start at main finished with error!"                                                                                                                      ,"Check the details.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(10001, new AxoMessengerTextItem("Start at main was aborted, while not yet completed!"                                                                                                     ,"Check the details.")),
@@ -128,7 +128,7 @@ namespace AXOpen.Components.Mitsubishi.Robotics
                 new KeyValuePair<ulong, AxoMessengerTextItem>(548,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.PointNo` to be the same as the value of the `CurrentMovementParameters.PointNo `.",                  "Check the value of the Inputs.PointNosignal")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(549,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.UserSpecSpeed1` to be the same as the value of the `CurrentMovementParameters.UserSpecSpeed1 `.",    "Check the value of the Inputs.UserSpecSpeed1signal")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(550,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.UserSpecSpeed2` to be the same as the value of the `CurrentMovementParameters.UserSpecSpeed2 `.",    "Check the value of the Inputs.UserSpecSpeed2signal")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(551,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.ActionNo` to be the same as the value of the `Outputs.ActionNo`.",                                   "Check the value of the Inputs.ActionNosignal")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(551,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.ActionNo` to be the same as the value of the `Outputs.ActionNo`.",                                   "Check the value of the Inputs.ActionNo signal")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(552,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.ActionNo` to be the same as the value of the `Outputs.ActionNo`.",                                   "Check the value of the Inputs.ActionNo signal")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(553,  new AxoMessengerTextItem("Waiting for the value of the `Inputs.ActionNo` to be the same as the value of the `Outputs.ActionNo`.",                                   "Check the value of the Inputs.ActionNo signal")),
 
@@ -137,7 +137,7 @@ namespace AXOpen.Components.Mitsubishi.Robotics
             TaskMessenger.DotNetMessengerTextList = messengerTextList;
         }
     }
-    public partial class AxoMitsubishiRobotics_Component_Status_v_1_x_x : AXOpen.Components.Robotics.AxoRobot_Status
+    public partial class AxoMitsubishiRobotics_Component_Status : AXOpen.Components.Robotics.AxoRobot_Status
     {
         Dictionary<ulong, string> errorDescriptionDict = new Dictionary<ulong, string>();
         Dictionary<ulong, string> actionDescriptionDict = new Dictionary<ulong, string>();
@@ -185,9 +185,9 @@ namespace AXOpen.Components.Mitsubishi.Robotics
                     errorDescriptionDict.Add(553, "Waiting for the value of the `Inputs.ActionNo` to be the same as the value of the `Outputs.ActionNo`.");
                     //  General alarm
                     errorDescriptionDict.Add(700, "Input variable `parent` has NULL reference in `Run` method!"                                                                                              );
-                    errorDescriptionDict.Add(701, "Input variable `hwId` has invalid value in `Run` method!"                                                                                                 );
+                    errorDescriptionDict.Add(701, "Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                                                                                                 );
                     errorDescriptionDict.Add(702, "Hw configuration error. The address specified at the hardwareID parameter is invalid in ReadSlotFromHardwareID (8090)."                                   );
-                    errorDescriptionDict.Add(710, "Hw configuration error. Value of hwIdInOut_64_byte is zero."                                                                                              );
+                    errorDescriptionDict.Add(710, "Hw configuration error. Value of Config.HWIDs.HwID_InOut_64_byte is zero."                                                                                              );
                     errorDescriptionDict.Add(711, "Hw configuration error. Invalid value for HardwareType in GeoAddr in ReadHardwareIDFromSlot  (8091) for slot 1."                                          );
                     errorDescriptionDict.Add(712, "Hw configuration error. Invalid value for IOSystem in GeoAddr in ReadHardwareIDFromSlot      (8094) for slot 1."                                          );
                     errorDescriptionDict.Add(713, "Hw configuration error. Invalid value for Station in GeoAddr in ReadHardwareIDFromSlot       (8095) for slot 1."                                          );
@@ -195,8 +195,8 @@ namespace AXOpen.Components.Mitsubishi.Robotics
                     errorDescriptionDict.Add(715, "Hw configuration error. Invalid value for Subslot in GeoAddr in ReadHardwareIDFromSlot       (8097) for slot 1."                                          );
                     errorDescriptionDict.Add(716, "Hw configuration error: Module with unexpected size or type detected in Slot 1. Expected module: 'In_Out_64_byte' (GsdId=ID_MODULE_IN_OUT64B)."           );
                     errorDescriptionDict.Add(1130, "Input variable `parent` has NULL reference in `Run` method!"                                                                                             );
-                    errorDescriptionDict.Add(1131, "Input variable `hwId` has invalid value in `Run` method!"                                                                                                );
-                    errorDescriptionDict.Add(1132, "Input variable `hwIdInOut_64_byte` has invalid value in `Run` method!"                                                                                   );
+                    errorDescriptionDict.Add(1131, "Input variable `Config.HWIDs.HwID_Device` has invalid value in `Run` method!"                                                                                                );
+                    errorDescriptionDict.Add(1132, "Input variable `Config.HWIDs.HwID_InOut_64_byte` has invalid value in `Run` method!"                                                                                   );
                     errorDescriptionDict.Add(1201, "Error reading the InOut_64_byte!"                                                                                                                        );
                     errorDescriptionDict.Add(1231, "Error writing the InOut_64_byte!"                                                                                                                        );
                     errorDescriptionDict.Add(10000, "Start at main finished with error!"                                                                                                                     );
@@ -239,82 +239,52 @@ namespace AXOpen.Components.Mitsubishi.Robotics
                     actionDescriptionDict.Add(50, "Restore has been executed.");
 
                     actionDescriptionDict.Add(100, "Start at main started.");
-                    actionDescriptionDict.Add(300, "Start at main running.");
-                    actionDescriptionDict.Add(301, "Start at main running.");
-                    actionDescriptionDict.Add(302, "Start at main running.");
-                    actionDescriptionDict.Add(303, "Start at main running.");
-                    actionDescriptionDict.Add(304, "Start at main running.");
-                    actionDescriptionDict.Add(305, "Start at main running.");
-                    actionDescriptionDict.Add(306, "Start at main running.");
-                    actionDescriptionDict.Add(307, "Start at main running.");
-                    actionDescriptionDict.Add(308, "Start at main running.");
-                    actionDescriptionDict.Add(309, "Start at main running.");
+                    actionDescriptionDict.Add(300, "Start at main running: switching to auto mode.");
+                    actionDescriptionDict.Add(301, "Start at main running: enabling the operations.");
+                    actionDescriptionDict.Add(302, "Start at main running: reseting the error.");
+                    actionDescriptionDict.Add(303, "Start at main running: reseting the emergency stop.");
+                    actionDescriptionDict.Add(304, "Start at main running: reseting the program.");
+                    actionDescriptionDict.Add(305, "Start at main finished.");
                     actionDescriptionDict.Add(101, "Start at main finished succesfully.");
                     actionDescriptionDict.Add(102, "Start at main restored.");
 
                     actionDescriptionDict.Add(110, "Start motors and program started.");
-                    actionDescriptionDict.Add(310, "Start motors and program running.");
-                    actionDescriptionDict.Add(311, "Start motors and program running.");
-                    actionDescriptionDict.Add(312, "Start motors and program running.");
-                    actionDescriptionDict.Add(313, "Start motors and program running.");
-                    actionDescriptionDict.Add(314, "Start motors and program running.");
-                    actionDescriptionDict.Add(315, "Start motors and program running.");
-                    actionDescriptionDict.Add(316, "Start motors and program running.");
-                    actionDescriptionDict.Add(317, "Start motors and program running.");
-                    actionDescriptionDict.Add(318, "Start motors and program running.");
-                    actionDescriptionDict.Add(319, "Start motors and program running.");
+                    actionDescriptionDict.Add(310, "Start motors and program running: switching to auto mode.");
+                    actionDescriptionDict.Add(311, "Start motors and program running: enabling the operations.");
+                    actionDescriptionDict.Add(312, "Start motors and program running: reseting the error.");
+                    actionDescriptionDict.Add(313, "Start motors and program running: reseting the emergency stop.");
+                    actionDescriptionDict.Add(314, "Start motors and program running: starting the servomotors.");
+                    actionDescriptionDict.Add(315, "Start motors and program running: starting the servomotors.");
+                    actionDescriptionDict.Add(316, "Start motors and program running: starting the program.");
+                    actionDescriptionDict.Add(317, "Start motors and program running: starting the program.");
+                    actionDescriptionDict.Add(318, "Start motors and program finished.");
                     actionDescriptionDict.Add(111, "Start motors and program finished succesfully.");
                     actionDescriptionDict.Add(112, "Start motors and program restored.");
 
                     actionDescriptionDict.Add(120, "Stop movements started.");
-                    actionDescriptionDict.Add(320, "Stop movements running.");
-                    actionDescriptionDict.Add(321, "Stop movements running.");
-                    actionDescriptionDict.Add(322, "Stop movements running.");
-                    actionDescriptionDict.Add(323, "Stop movements running.");
-                    actionDescriptionDict.Add(324, "Stop movements running.");
-                    actionDescriptionDict.Add(325, "Stop movements running.");
-                    actionDescriptionDict.Add(326, "Stop movements running.");
-                    actionDescriptionDict.Add(327, "Stop movements running.");
-                    actionDescriptionDict.Add(328, "Stop movements running.");
-                    actionDescriptionDict.Add(329, "Stop movements running.");
+                    actionDescriptionDict.Add(320, "Stop movements running: switching to auto mode.");
+                    actionDescriptionDict.Add(321, "Stop movements running: enabling the operations.");
+                    actionDescriptionDict.Add(322, "Stop movements running: stopping the movement.");
+                    actionDescriptionDict.Add(323, "Stop movements finished.");
                     actionDescriptionDict.Add(121, "Stop movements finished succesfully.");
                     actionDescriptionDict.Add(122, "Stop movements restored.");
 
                     actionDescriptionDict.Add(130, "Stop movements and program started.");
-                    actionDescriptionDict.Add(330, "Stop movements and program running.");
-                    actionDescriptionDict.Add(331, "Stop movements and program running.");
-                    actionDescriptionDict.Add(332, "Stop movements and program running.");
-                    actionDescriptionDict.Add(333, "Stop movements and program running.");
-                    actionDescriptionDict.Add(334, "Stop movements and program running.");
-                    actionDescriptionDict.Add(335, "Stop movements and program running.");
-                    actionDescriptionDict.Add(336, "Stop movements and program running.");
-                    actionDescriptionDict.Add(337, "Stop movements and program running.");
-                    actionDescriptionDict.Add(338, "Stop movements and program running.");
-                    actionDescriptionDict.Add(339, "Stop movements and program running.");
+                    actionDescriptionDict.Add(330, "Stop movements and program running: switching to auto mode.");
+                    actionDescriptionDict.Add(331, "Stop movements and program running: enabling the operations.");
+                    actionDescriptionDict.Add(332, "Stop movements and program running: stopping the movement.");
+                    actionDescriptionDict.Add(333, "Stop movements and program finished.");
                     actionDescriptionDict.Add(131, "Stop movements and program finished succesfully.");
                     actionDescriptionDict.Add(132, "Stop movements and program restored.");
 
                     actionDescriptionDict.Add(140, "Start movements started.");
-                    actionDescriptionDict.Add(340, "Start movements running.");
-                    actionDescriptionDict.Add(341, "Start movements running.");
-                    actionDescriptionDict.Add(342, "Start movements running.");
-                    actionDescriptionDict.Add(343, "Start movements running.");
-                    actionDescriptionDict.Add(344, "Start movements running.");
-                    actionDescriptionDict.Add(345, "Start movements running.");
-                    actionDescriptionDict.Add(346, "Start movements running.");
-                    actionDescriptionDict.Add(347, "Start movements running.");
-                    actionDescriptionDict.Add(348, "Start movements running.");
-                    actionDescriptionDict.Add(349, "Start movements running.");
-                    actionDescriptionDict.Add(350, "Start movements running.");
-                    actionDescriptionDict.Add(351, "Start movements running.");
-                    actionDescriptionDict.Add(352, "Start movements running.");
-                    actionDescriptionDict.Add(353, "Start movements running.");
-                    actionDescriptionDict.Add(354, "Start movements running.");
-                    actionDescriptionDict.Add(355, "Start movements running.");
-                    actionDescriptionDict.Add(356, "Start movements running.");
-                    actionDescriptionDict.Add(357, "Start movements running.");
-                    actionDescriptionDict.Add(358, "Start movements running.");
-                    actionDescriptionDict.Add(359, "Start movements running.");
+                    actionDescriptionDict.Add(340, "Start movements running: waiting for all movement conditions to be fulfilled.");
+                    actionDescriptionDict.Add(344, "Start movements running: sending parameters of the movement to the controller.");
+                    actionDescriptionDict.Add(345, "Start movements running: waiting for the movement parameters sent to the controller to be mirrored back.");
+                    actionDescriptionDict.Add(351, "Start movements running: acknowleadging of the movement parameters.");
+                    actionDescriptionDict.Add(352, "Start movements running: waiting for the movement is finished.");
+                    actionDescriptionDict.Add(353, "Start movements running: acknowleadging of the finished movement.");
+                    actionDescriptionDict.Add(354, "Start movements finished.");
                     actionDescriptionDict.Add(141, "Start movements finished succesfully.");
                     actionDescriptionDict.Add(142, "Start movements restored.");
 

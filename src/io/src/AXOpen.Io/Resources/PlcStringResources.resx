@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="UpdateDiagnostics" xml:space="preserve">
+    <value>UpdateDiagnostics</value>
+    <comment>src\AxoHwDiag\AxoHwDiag.st,13</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\AxoHwDiag\AxoHwDiag.st,16</comment>
+  </data>
+  <data name="Hardware_ID" xml:space="preserve">
+    <value>Hardware ID</value>
+    <comment>src\AxoIoComponent\AxoHardwareDiagnostics.st,11</comment>
+  </data>
+  <data name="Diagnostics_return_code" xml:space="preserve">
+    <value>Diagnostics return code</value>
+    <comment>src\AxoIoComponent\AxoHardwareDiagnostics.st,14</comment>
+  </data>
+  <data name="Diagnostics_details" xml:space="preserve">
+    <value>Diagnostics details</value>
+    <comment>src\AxoIoComponent\AxoHardwareDiagnostics.st,18</comment>
+  </data>
+  <data name="Diagnostics_sub_details" xml:space="preserve">
+    <value>Diagnostics sub details</value>
+    <comment>src\AxoIoComponent\AxoHardwareSubDiagnostics.st,18</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\AxoIoComponent\AxoIoComponent.st,11</comment>
+  </data>
+  <data name="Update_sub_diagnostics" xml:space="preserve">
+    <value>Update sub diagnostics</value>
+    <comment>src\AxoIoComponent\AxoIoComponent.st,14</comment>
+  </data>
+  <data name="ConfigTask_timeout_DOT_" xml:space="preserve">
+    <value>ConfigTask timeout.</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st,1379</comment>
+  </data>
+  <data name="Config" xml:space="preserve">
+    <value>Config</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st,16</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\AxoIOLinkET200SP_Balluff_IO.st,43</comment>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Index</value>
+    <comment>src\AxoRecordAccessTool\AxoRecordAccessTool.st,16</comment>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Length</value>
+    <comment>src\AxoRecordAccessTool\AxoRecordAccessTool.st,19</comment>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+    <comment>src\AxoRecordAccessTool\AxoRecordAccessTool.st,22</comment>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+    <comment>src\AxoRecordAccessTool\AxoRecordAccessTool.st,25</comment>
+  </data>
+  <data name="Read_record" xml:space="preserve">
+    <value>Read record</value>
+    <comment>src\AxoRecordAccessTool\AxoRecordAccessTool.st,28</comment>
+  </data>
+  <data name="Write_record" xml:space="preserve">
+    <value>Write record</value>
+    <comment>src\AxoRecordAccessTool\AxoRecordAccessTool.st,31</comment>
+  </data>
+  <data name="HardwareID" xml:space="preserve">
+    <value>HardwareID</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagCommonDetails.st,5</comment>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>State</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagCommonDetails.st,7</comment>
+  </data>
+  <data name="Subordinate_state" xml:space="preserve">
+    <value>Subordinate state</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagCommonDetails.st,9</comment>
+  </data>
+  <data name="GetDiagnosticsReturnCode" xml:space="preserve">
+    <value>GetDiagnosticsReturnCode</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagCommonDetails.st,11</comment>
+  </data>
+  <data name="Operating_DiagnosticsEnabled" xml:space="preserve">
+    <value>Operating DiagnosticsEnabled</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagCommonDetails.st,13</comment>
+  </data>
+  <data name="IO_state" xml:space="preserve">
+    <value>IO state</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagCommonDetails.st,15</comment>
+  </data>
+  <data name="Hardware_component_state" xml:space="preserve">
+    <value>Hardware component state</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagComponentStateDetail.st,6</comment>
+  </data>
+  <data name="PLC" xml:space="preserve">
+    <value>PLC</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st,7</comment>
+  </data>
+  <data name="IOSystem" xml:space="preserve">
+    <value>IOSystem</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st,13</comment>
+  </data>
+  <data name="Station" xml:space="preserve">
+    <value>Station</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st,19</comment>
+  </data>
+  <data name="Module" xml:space="preserve">
+    <value>Module</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st,25</comment>
+  </data>
+  <data name="Sub_module" xml:space="preserve">
+    <value>Sub module</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st,31</comment>
+  </data>
+  <data name="Faulty_item_details" xml:space="preserve">
+    <value>Faulty item details</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagDetails.st,37</comment>
+  </data>
+  <data name="Component_state" xml:space="preserve">
+    <value>Component state</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagSystemDetails.st,12</comment>
+  </data>
+  <data name="Operating_state" xml:space="preserve">
+    <value>Operating state</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiagSystemDetails.st,15</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiag_Config.st,8</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiag_Config.st,10</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\AxoHwDiag\TypesStructuresAndEnums\AxoHwDiag_Config.st,12</comment>
+  </data>
+  <data name="PlcState" xml:space="preserve">
+    <value>PlcState</value>
+    <comment>src\AxoIoComponent\TypesStructuresAndEnums\ComponentStateDetail.st,10</comment>
+  </data>
+  <data name="Component_state_detail" xml:space="preserve">
+    <value>Component state detail</value>
+    <comment>src\AxoIoComponent\TypesStructuresAndEnums\DiagnosticDetails.st,6</comment>
+  </data>
+  <data name="Subordinate_IO_state" xml:space="preserve">
+    <value>Subordinate IO state</value>
+    <comment>src\AxoIoComponent\TypesStructuresAndEnums\SubordinateDiagnosticDetails.st,7</comment>
+  </data>
+  <data name="Port__ONE_" xml:space="preserve">
+    <value>Port 1</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st,13</comment>
+  </data>
+  <data name="Port__TWO_" xml:space="preserve">
+    <value>Port 2</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st,15</comment>
+  </data>
+  <data name="Port__THREE_" xml:space="preserve">
+    <value>Port 3</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st,17</comment>
+  </data>
+  <data name="Port__FOUR_" xml:space="preserve">
+    <value>Port 4</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Config.st,19</comment>
+  </data>
+  <data name="Port_C_ONE_" xml:space="preserve">
+    <value>Port C1</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_In.st,5</comment>
+  </data>
+  <data name="Port_C_TWO_" xml:space="preserve">
+    <value>Port C2</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_In.st,8</comment>
+  </data>
+  <data name="Port_C_THREE_" xml:space="preserve">
+    <value>Port C3</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_In.st,11</comment>
+  </data>
+  <data name="Port_C_FOUR_" xml:space="preserve">
+    <value>Port C4</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_In.st,14</comment>
+  </data>
+  <data name="Box_ONE_" xml:space="preserve">
+    <value>Box1</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Port.st,5</comment>
+  </data>
+  <data name="Box_TWO_" xml:space="preserve">
+    <value>Box2</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Port.st,8</comment>
+  </data>
+  <data name="Port_status" xml:space="preserve">
+    <value>Port status</value>
+    <comment>src\AxoIOLinkET200SP_Balluff_IO\TypesStructuresAndEnums\AxoIOLinkET200SP_Balluff_IO_Port.st,11</comment>
+  </data>
+</root>

@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ReadUID_UNDERSCORE_Task_timeout_DOT_" xml:space="preserve">
+    <value>ReadUID_Task timeout.</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,645</comment>
+  </data>
+  <data name="ReadTagFieldTask_timeout_DOT_" xml:space="preserve">
+    <value>ReadTagFieldTask timeout.</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,793</comment>
+  </data>
+  <data name="WriteTagFieldTask_timeout_DOT_" xml:space="preserve">
+    <value>WriteTagFieldTask timeout.</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,974</comment>
+  </data>
+  <data name="ReadTask_timeout_DOT_" xml:space="preserve">
+    <value>ReadTask timeout.</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,1133</comment>
+  </data>
+  <data name="WriteTask_timeout_DOT_" xml:space="preserve">
+    <value>WriteTask timeout.</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,1322</comment>
+  </data>
+  <data name="ResetTask_timeout_DOT_" xml:space="preserve">
+    <value>ResetTask timeout.</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,1401</comment>
+  </data>
+  <data name="Progress" xml:space="preserve">
+    <value>Progress</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,12</comment>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Restore</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,20</comment>
+  </data>
+  <data name="ReadUID_UNDERSCORE_Task" xml:space="preserve">
+    <value>ReadUID_Task</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,25</comment>
+  </data>
+  <data name="Tag_field_to_read" xml:space="preserve">
+    <value>Tag field to read</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,31</comment>
+  </data>
+  <data name="ReadTagFieldTask" xml:space="preserve">
+    <value>ReadTagFieldTask</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,34</comment>
+  </data>
+  <data name="Tag_field_to_write" xml:space="preserve">
+    <value>Tag field to write</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,40</comment>
+  </data>
+  <data name="Length_of_the_tag_field_to_write" xml:space="preserve">
+    <value>Length of the tag field to write</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,43</comment>
+  </data>
+  <data name="WriteTagFieldTask" xml:space="preserve">
+    <value>WriteTagFieldTask</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,46</comment>
+  </data>
+  <data name="Read_address" xml:space="preserve">
+    <value>Read address</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,52</comment>
+  </data>
+  <data name="Length_of_data_to_read" xml:space="preserve">
+    <value>Length of data to read</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,55</comment>
+  </data>
+  <data name="ReadTask" xml:space="preserve">
+    <value>ReadTask</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,58</comment>
+  </data>
+  <data name="Write_address" xml:space="preserve">
+    <value>Write address</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,63</comment>
+  </data>
+  <data name="Length_of_data_to_write" xml:space="preserve">
+    <value>Length of data to write</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,66</comment>
+  </data>
+  <data name="WriteTask" xml:space="preserve">
+    <value>WriteTask</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,69</comment>
+  </data>
+  <data name="ResetTask" xml:space="preserve">
+    <value>ResetTask</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,73</comment>
+  </data>
+  <data name="Inputs" xml:space="preserve">
+    <value>Inputs</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,98</comment>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Outputs</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,104</comment>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Update diagnostics</value>
+    <comment>src\AxoSimaticIdentCyclic\AxoSimaticIdentCyclic.st,112</comment>
+  </data>
+  <data name="Read" xml:space="preserve">
+    <value>Read</value>
+    <comment>src\IdentProfile\Axo_IdentDevice.st,55</comment>
+  </data>
+  <data name="Number_of_bytes_to_read" xml:space="preserve">
+    <value>Number of bytes to read</value>
+    <comment>src\IdentProfile\Axo_IdentDevice.st,58</comment>
+  </data>
+  <data name="Read_buffer_offset" xml:space="preserve">
+    <value>Read buffer offset</value>
+    <comment>src\IdentProfile\Axo_IdentDevice.st,64</comment>
+  </data>
+  <data name="Data_read" xml:space="preserve">
+    <value>Data read</value>
+    <comment>src\IdentProfile\Axo_IdentDevice.st,70</comment>
+  </data>
+  <data name="Write" xml:space="preserve">
+    <value>Write</value>
+    <comment>src\IdentProfile\Axo_IdentDevice.st,78</comment>
+  </data>
+  <data name="Number_of_bytes_to_write" xml:space="preserve">
+    <value>Number of bytes to write</value>
+    <comment>src\IdentProfile\Axo_IdentDevice.st,81</comment>
+  </data>
+  <data name="Write_buffer_offset" xml:space="preserve">
+    <value>Write buffer offset</value>
+    <comment>src\IdentProfile\Axo_IdentDevice.st,87</comment>
+  </data>
+  <data name="Data_to_write" xml:space="preserve">
+    <value>Data to write</value>
+    <comment>src\IdentProfile\Axo_IdentDevice.st,93</comment>
+  </data>
+  <data name="Soft_reset" xml:space="preserve">
+    <value>Soft reset</value>
+    <comment>src\IdentProfile\Axo_IdentDevice.st,100</comment>
+  </data>
+  <data name="Reset_reader" xml:space="preserve">
+    <value>Reset reader</value>
+    <comment>src\IdentProfile\Axo_IdentDevice.st,103</comment>
+  </data>
+  <data name="Error_when_switching_the_antena_On" xml:space="preserve">
+    <value>Error when switching the antena On</value>
+    <comment>src\IOLink\AxoIOLink_RF200Device.st,307</comment>
+  </data>
+  <data name="Error_reading_tag" xml:space="preserve">
+    <value>Error reading tag</value>
+    <comment>src\IOLink\AxoIOLink_RF200Device.st,348</comment>
+  </data>
+  <data name="Error_writing_tag" xml:space="preserve">
+    <value>Error writing tag</value>
+    <comment>src\IOLink\AxoIOLink_RF200Device.st,477</comment>
+  </data>
+  <data name="Read_tag" xml:space="preserve">
+    <value>Read tag</value>
+    <comment>src\IOLink\AxoIOLink_RF200Device.st,70</comment>
+  </data>
+  <data name="Read_tag_length" xml:space="preserve">
+    <value>Read tag length</value>
+    <comment>src\IOLink\AxoIOLink_RF200Device.st,73</comment>
+  </data>
+  <data name="Read_tag_address" xml:space="preserve">
+    <value>Read tag address</value>
+    <comment>src\IOLink\AxoIOLink_RF200Device.st,76</comment>
+  </data>
+  <data name="Data_read_from_tag" xml:space="preserve">
+    <value>Data read from tag</value>
+    <comment>src\IOLink\AxoIOLink_RF200Device.st,81</comment>
+  </data>
+  <data name="Write_tag" xml:space="preserve">
+    <value>Write tag</value>
+    <comment>src\IOLink\AxoIOLink_RF200Device.st,89</comment>
+  </data>
+  <data name="Write_tag_lenghth" xml:space="preserve">
+    <value>Write tag lenghth</value>
+    <comment>src\IOLink\AxoIOLink_RF200Device.st,92</comment>
+  </data>
+  <data name="Write_tag_address" xml:space="preserve">
+    <value>Write tag address</value>
+    <comment>src\IOLink\AxoIOLink_RF200Device.st,95</comment>
+  </data>
+  <data name="Data_to_write_to_tag" xml:space="preserve">
+    <value>Data to write to tag</value>
+    <comment>src\IOLink\AxoIOLink_RF200Device.st,101</comment>
+  </data>
+  <data name="Info_time" xml:space="preserve">
+    <value>Info time</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st,5</comment>
+  </data>
+  <data name="Error_time" xml:space="preserve">
+    <value>Error time</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st,7</comment>
+  </data>
+  <data name="Task_timeout" xml:space="preserve">
+    <value>Task timeout</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st,9</comment>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st,11</comment>
+  </data>
+  <data name="Reader_IO_image_size__BRACKET_in_bytes_ENDBRACKET_" xml:space="preserve">
+    <value>Reader IO image size (in bytes)</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st,13</comment>
+  </data>
+  <data name="Hardware_IDs" xml:space="preserve">
+    <value>Hardware IDs</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st,15</comment>
+  </data>
+  <data name="Data_buffer_low_index" xml:space="preserve">
+    <value>Data buffer low index</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st,17</comment>
+  </data>
+  <data name="Data_buffer_high_index" xml:space="preserve">
+    <value>Data buffer high index</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Config.st,19</comment>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st,5</comment>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st,7</comment>
+  </data>
+  <data name="Stop" xml:space="preserve">
+    <value>Stop</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st,9</comment>
+  </data>
+  <data name="Switch_off_antenna" xml:space="preserve">
+    <value>Switch off antenna</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st,11</comment>
+  </data>
+  <data name="Block" xml:space="preserve">
+    <value>Block</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st,13</comment>
+  </data>
+  <data name="Command" xml:space="preserve">
+    <value>Command</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Control.st,15</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Head_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'Head' submodule</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st,4</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_CM_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'CM' submodule</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st,6</comment>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Reader_APOSTROPHE__submodule" xml:space="preserve">
+    <value>Hardware ID 'Reader' submodule</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_HWIDs.st,8</comment>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_In.st,5</comment>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Control</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Out.st,5</comment>
+  </data>
+  <data name="New_data_ready" xml:space="preserve">
+    <value>New data ready</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st,5</comment>
+  </data>
+  <data name="Reset_command_received" xml:space="preserve">
+    <value>Reset command received</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st,7</comment>
+  </data>
+  <data name="Automatic_command_execution_paused" xml:space="preserve">
+    <value>Automatic command execution paused</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st,9</comment>
+  </data>
+  <data name="Antene_status" xml:space="preserve">
+    <value>Antene status</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st,11</comment>
+  </data>
+  <data name="Presence_of_a_transponder" xml:space="preserve">
+    <value>Presence of a transponder</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st,15</comment>
+  </data>
+  <data name="Error_or_startup" xml:space="preserve">
+    <value>Error or startup</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st,17</comment>
+  </data>
+  <data name="Actice_command" xml:space="preserve">
+    <value>Actice command</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st,19</comment>
+  </data>
+  <data name="Length_of_user_data_in" xml:space="preserve">
+    <value>Length of user data in</value>
+    <comment>src\AxoSimaticIdentCyclic\TypesStructuresAndEnums\AxoSimaticIdentCyclic_Status.st,21</comment>
+  </data>
+  <data name="Start_address" xml:space="preserve">
+    <value>Start address</value>
+    <comment>src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st,9</comment>
+  </data>
+  <data name="Rfid_code_size" xml:space="preserve">
+    <value>Rfid code size</value>
+    <comment>src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st,11</comment>
+  </data>
+  <data name="Hardware_config_data" xml:space="preserve">
+    <value>Hardware config data</value>
+    <comment>src\IdentProfile\AxoIdentificationDataTypes\Axo_IdentDevice_Config.st,13</comment>
+  </data>
+</root>

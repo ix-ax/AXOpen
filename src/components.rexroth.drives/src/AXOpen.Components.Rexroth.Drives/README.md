@@ -16,5 +16,3 @@ dotnet add package AXOpen.Components.Rexroth.Drives --version {axopen-version}
 ~~~xml
 <PackageReference Include="AXOpen.Components.Rexroth.Drives" Version="{axopen-version}" />
 ~~~
-
-<!-- TODO: Additional information about partial extensions -->

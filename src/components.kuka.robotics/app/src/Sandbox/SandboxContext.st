@@ -4,12 +4,13 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
         VAR PUBLIC
             ActivateManualControl : BOOL;         
             _rootObject :   AxoObject;
-            ExampleRobot : AXOpen.Components.Kuka.Robotics.AxoKrc4_v_5_x_x;          
+            ExampleRobot : AXOpen.Components.Kuka.Robotics.v_5_x_x.AxoKrc4;          
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main
             THIS.InitializeRootObject(_rootObject);
-            ExampleRobot.Run(_rootObject,HwIdentifiers#KRC4_HwID);
+            RETURN;
+            ExampleRobot.Run(_rootObject,HwIdentifiers#kuka_rb1_HwID);
 
             IF ActivateManualControl THEN
                 ExampleRobot.ActivateManualControl();

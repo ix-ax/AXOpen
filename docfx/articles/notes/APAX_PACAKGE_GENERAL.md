@@ -1,24 +1,44 @@
 
-**APAX package registry**
+**Apax Package Registry**
 
->[!IMPORTANT]
-> **APAX pacakges are now published experimentally**
+> [!IMPORTANT]
+> AXOpen Apax (SIMATIC AX) packages are published from the shared monorepo; keep versions aligned analogous to the NuGet guidance.
 
-This apax package's registry is hosted on github on how to authenticate to the registry see the documentation [here](https://console.simatic-ax.siemens.io/docs/faq/login-to-external-registries) and [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+Registry is hosted on GitHub Packages (npm endpoint). Authentication references:
+* Siemens AX docs (external registries): <https://console.simatic-ax.siemens.io/docs/faq/login-to-external-registries>
+* GitHub PAT management: <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens>
 
-~~~bash
-apax login --registry https://npm.pkg.github.com --username GH_USER_NAME --password PAT
-~~~
+Login:
 
-Add registry to your `apax.yml` file.
+```bash
+apax login --registry https://npm.pkg.github.com --username YOUR_GITHUB_USERNAME --password YOUR_GITHUB_PAT
+```
 
-~~~yml
-registries: 
+`apax.yml` snippet:
+
+```yml
+registries:
   "@inxton": https://npm.pkg.github.com/
-~~~
+```
 
->[!NOTE]
-> Please notice that all AXOpen packages are being released from a single repository and version numbers are aligned. You can use different versions that have major version number alligned should it be necessary, however we strongly recommend to use pacakge with the same version number, such packages are being built and tested together to enshure best experience.
+> [!NOTE]
+> Version Alignment: Use the same version across all `@inxton` scoped packages whenever possible. Diverging major versions is unsupported; minor/patch divergence is untested and should be a temporary measure only.
+
+### Troubleshooting
+
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| 401 Unauthorized | PAT missing `read:packages` | Recreate PAT with required scope |
+| 404 Not Found | Registry not listed in `apax.yml` | Add registry block & retry |
+| Version mismatch build errors | Mixed major versions | Align all package versions |
+
+### Updating Packages
+1. Adjust versions in `apax.yml` / package manifest.
+2. Run `apax install` to refresh.
+3. Commit the version change as a cohesive set.
+
+### Publishing (Maintainers)
+CI handles publish. For exceptional manual publish ensure tags follow semantic versioning and coordinate with NuGet release to keep parity.
 
 
 

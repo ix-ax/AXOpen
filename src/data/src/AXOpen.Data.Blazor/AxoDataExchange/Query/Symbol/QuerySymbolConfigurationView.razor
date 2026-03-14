@@ -1,22 +1,22 @@
-﻿@using AXSharp.Connector;
+@using AXSharp.Connector;
+@using Operon.Components.Dropdown
 @namespace AXOpen.Data.Query
 
-<div class="d-flex flex-row align-items-center gap-2">
+<div class="flex flex-wrap items-center gap-2">
 
     @if (!HideDescripion)
     {
         <label> @SymbolConfiguration.SymbolPathWithParent</label>
     }
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Operation</button>
 
-    <ul class="dropdown-menu">
-
-        @foreach (var operation in OperationProvider.GetOperationsForType(SymbolConfiguration.SymbolType))
-        {
-            <li><a class="dropdown-item @(@SymbolConfiguration.Operation == operation ? "active" : "")" style="cursor: pointer" @onclick="() => {Operation = operation;}">@operation</a></li>
-        }
-
-    </ul>
+    <div class="select-group">
+        <select @bind="Operation" class="min-w-6 m-0!">
+            @foreach (var operation in OperationProvider.GetOperationsForType(SymbolConfiguration.SymbolType))
+            {
+                <option value="@operation">@Localizer[operation]</option>
+            }
+        </select>
+    </div>
 
     @if (SymbolConfiguration.IsRangeOperation)
     {
@@ -24,22 +24,21 @@
         {
             <label>@Localizer["Min"]</label>
         }
-        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="MinOrValue"></DynamicInput>
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="MinOrValue" AccessStatusClass="m-0!"></DynamicInput>
 
         if (!HideDescripion)
         {
             <label>@Localizer["Max"]</label>
         }
-        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@Max"></DynamicInput>
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@Max" AccessStatusClass="m-0!"></DynamicInput>
     }
     else
     {
-
         if (!HideDescripion)
         {
             <label for="minOrValue">@Localizer["Value"]</label>
         }
-        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@MinOrValue"></DynamicInput>
+        <DynamicInput ValueType="@SymbolConfiguration.SymbolType" @bind-Value="@MinOrValue" AccessStatusClass="m-0!"></DynamicInput>
     }
 
 </div>

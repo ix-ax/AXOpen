@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -16,12 +16,23 @@ namespace AXOpen.Messaging.Static
     /// </summary>
     public class AxoMessageProvider
     {
-        private AxoMessageProvider(IEnumerable<ITwinObject> observedObjects)
+        private AxoMessageProvider(IEnumerable<ITwinObject> observedObjects, int observedDepth = int.MaxValue)
         {
             this.ObservedObjects = observedObjects;
+            this.ObservedDepth = observedDepth;
         }
 
         public IEnumerable<ITwinObject> ObservedObjects { get; }
+        
+        public int ObservedDepth { get; }
+
+        private int? _cachedActiveMessagesCount;
+        private int? _maxActiveMessagesCount;
+        private DateTime _lastActiveMessagesCountUpdate = DateTime.MinValue;
+        private DateTime _maxActiveMessagesCountSetTime = DateTime.MinValue;
+        private readonly TimeSpan _activeMessagesCountCacheDuration = TimeSpan.FromMilliseconds(100);
+        private readonly TimeSpan _maxValueHoldDuration = TimeSpan.FromSeconds(2);
+        private readonly object _activeMessagesCountLock = new object();
 
         /// <summary>
         /// Gets the number of active messages.
@@ -29,27 +40,66 @@ namespace AXOpen.Messaging.Static
         /// <remarks>
         /// This property counts the number of messages that are currently active.
         /// An active message is defined as a message belonging to a Messenger that has a state other than Idle or NotActiveWatingAckn.
+        /// The value uses a maximum-tracking mechanism to prevent flickering caused by PLC cycle timing,
+        /// where the message count is accumulated during each controller cycle starting from 0.
+        /// The maximum value seen is held for a period since the correct full count persists longer than partial counts.
         /// </remarks>
         public int? ActiveMessagesCount
         {
             get
             {
-                try
+                lock (_activeMessagesCountLock)
                 {
-                    return ObservedObjects
-                        .OfType<AXOpen.Core.AxoObject>()
-                        .Select(p => Convert.ToInt32(p.MsgCnt.LastValue)) // Convert to appropriate numeric type
-                        .Sum();
+                    var now = DateTime.UtcNow;
+                    
+                    // Return cached value if we just read recently
+                    if (_cachedActiveMessagesCount.HasValue && 
+                        (now - _lastActiveMessagesCountUpdate) < _activeMessagesCountCacheDuration)
+                    {
+                        return _maxActiveMessagesCount ?? _cachedActiveMessagesCount;
+                    }
+
+                    try
+                    {
+                        var count = ObservedObjects
+                            .OfType<AxoObject>()
+                            .Select(p => Convert.ToInt32(p.MsgCnt.LastValue))
+                            .Sum();
+                        
+                        _cachedActiveMessagesCount = count;
+                        _lastActiveMessagesCountUpdate = now;
+                        
+                        // Track maximum value seen
+                        if (!_maxActiveMessagesCount.HasValue || count > _maxActiveMessagesCount.Value)
+                        {
+                            _maxActiveMessagesCount = count;
+                            _maxActiveMessagesCountSetTime = now;
+                        }
+                        // Reset max if hold duration has passed and current value is lower
+                        else if ((now - _maxActiveMessagesCountSetTime) > _maxValueHoldDuration)
+                        {
+                            _maxActiveMessagesCount = count;
+                            _maxActiveMessagesCountSetTime = now;
+                        }
+                        
+                        return _maxActiveMessagesCount;
+                    }
+                    catch (Exception e)
+                    {
+                        return -1;
+                    }
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
-                
-                return 0;
             }
         }
 
+
+        private int? _cachedRelevantMessagesCount;
+        private int? _maxRelevantMessagesCount;
+        private DateTime _lastRelevantMessagesCountUpdate = DateTime.MinValue;
+        private DateTime _maxRelevantMessagesCountSetTime = DateTime.MinValue;
+        private readonly TimeSpan _relevantMessagesCountCacheDuration = TimeSpan.FromMilliseconds(100);
+        private readonly TimeSpan _maxRelevantValueHoldDuration = TimeSpan.FromSeconds(2);
+        private readonly object _relevantMessagesCountLock = new object();
 
         /// <summary>
         /// Gets the count of relevant messages based on the state of Messengers.
@@ -57,25 +107,57 @@ namespace AXOpen.Messaging.Static
         /// <remarks>
         /// The RelevantMessagesCount property will return the number of messengers that have a state greater than eAxoMessengerState.Idle.
         /// Messengers is a collection of objects that represents messengers.
+        /// The value uses a maximum-tracking mechanism to prevent flickering caused by PLC cycle timing,
+        /// where the message count is accumulated during each controller cycle starting from 0.
+        /// The maximum value seen is held for a period since the correct full count persists longer than partial counts.
         /// </remarks>
         /// <returns>An integer that represents the count of relevant messages.</returns>
         public int? RelevantMessagesCount
         {
             get
             {
-                try
+                lock (_relevantMessagesCountLock)
                 {
-                    return ObservedObjects
-                        .OfType<AXOpen.Core.AxoObject>()
-                        .Select(p => Convert.ToInt32(p.MsgCnt.LastValue)) // Convert to appropriate numeric type
-                        .Sum();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
+                    var now = DateTime.UtcNow;
+                    
+                    // Return cached value if we just read recently
+                    if (_cachedRelevantMessagesCount.HasValue && 
+                        (now - _lastRelevantMessagesCountUpdate) < _relevantMessagesCountCacheDuration)
+                    {
+                        return _maxRelevantMessagesCount ?? _cachedRelevantMessagesCount;
+                    }
 
-                return 0;
+                    try
+                    {
+                        var count = ObservedObjects
+                            .OfType<AXOpen.Core.AxoObject>()
+                            .Select(p => Convert.ToInt32(p.MsgCnt.LastValue))
+                            .Sum();
+                        
+                        _cachedRelevantMessagesCount = count;
+                        _lastRelevantMessagesCountUpdate = now;
+                        
+                        // Track maximum value seen
+                        if (!_maxRelevantMessagesCount.HasValue || count > _maxRelevantMessagesCount.Value)
+                        {
+                            _maxRelevantMessagesCount = count;
+                            _maxRelevantMessagesCountSetTime = now;
+                        }
+                        // Reset max if hold duration has passed and current value is lower
+                        else if ((now - _maxRelevantMessagesCountSetTime) > _maxRelevantValueHoldDuration)
+                        {
+                            _maxRelevantMessagesCount = count;
+                            _maxRelevantMessagesCountSetTime = now;
+                        }
+                        
+                        return _maxRelevantMessagesCount;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        return 0;
+                    }
+                }
             }
         }
         
@@ -113,7 +195,7 @@ namespace AXOpen.Messaging.Static
                     var retVal = new List<AxoMessenger>();
                     foreach (var observedObject in ObservedObjects.Where(p => p != null))
                     {
-                        retVal.AddRange(observedObject.GetChildren().Flatten(p => p.GetChildren())
+                        retVal.AddRange(observedObject.GetChildren().Flatten(p => p.GetChildren(), this.ObservedDepth)
                             .OfType<AxoMessenger>());
                     }
 
@@ -129,9 +211,9 @@ namespace AXOpen.Messaging.Static
         /// </summary>
         /// <param name="observedObjects">The collection of observed objects.</param>
         /// <returns>A new instance of the AxoMessageProvider class.</returns>
-        public static AxoMessageProvider Create(IEnumerable<ITwinObject> observedObjects)
+        public static AxoMessageProvider Create(IEnumerable<ITwinObject> observedObjects, int observedDepth = int.MaxValue)
         {
-            return new AxoMessageProvider(observedObjects); 
+            return new AxoMessageProvider(observedObjects, observedDepth);
         }
         
         
@@ -188,6 +270,29 @@ namespace AXOpen.Messaging.Static
             if (con != null)
             {
                 await con.ReadBatchAsync(r)!;
+            }
+        }
+
+        /// <summary>
+        /// Invalidates the cached message counts, forcing them to be recalculated on next access.
+        /// Use this method if you need to ensure fresh values after a batch read operation.
+        /// </summary>
+        public void InvalidateMessageCountCache()
+        {
+            lock (_activeMessagesCountLock)
+            {
+                _cachedActiveMessagesCount = null;
+                _maxActiveMessagesCount = null;
+                _lastActiveMessagesCountUpdate = DateTime.MinValue;
+                _maxActiveMessagesCountSetTime = DateTime.MinValue;
+            }
+            
+            lock (_relevantMessagesCountLock)
+            {
+                _cachedRelevantMessagesCount = null;
+                _maxRelevantMessagesCount = null;
+                _lastRelevantMessagesCountUpdate = DateTime.MinValue;
+                _maxRelevantMessagesCountSetTime = DateTime.MinValue;
             }
         }
     }

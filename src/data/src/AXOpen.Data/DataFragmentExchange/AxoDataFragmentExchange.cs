@@ -86,7 +86,7 @@ public partial class AxoDataFragmentExchange
     public async Task InitializeRemoteDataExchange()
     {
         Operation.InitializeExclusively(Handle);
-        await this.WriteAsync();
+        await this.Operation.WriteAsync();
     }
 
     /// <summary>
@@ -96,14 +96,14 @@ public partial class AxoDataFragmentExchange
     public async Task DeInitializeRemoteDataExchange()
     {
         Operation.DeInitialize();
-        await this.WriteAsync();
+        await this.Operation.WriteAsync();
     }
 
     private async Task Handle()
     {
         //await Operation.ReadAsync();
         var operation = (eCrudOperation)await Operation.CrudOperation.GetAsync();
-        var identifier = await Operation.DataEntityIdentifier.GetAsync();
+        var identifier = await Operation._EntityId.GetAsync();
 
         switch (operation)
         {
@@ -236,7 +236,7 @@ public partial class AxoDataFragmentExchange
     private static void CreateNewPocoInFragmentRepository(string identifier, IAxoDataExchange fragment)
     {
         Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.DataExchangeTwinObject.CreatePoco();
-        poco.DataEntityId = identifier;
+        poco._EntityId = identifier;
         poco.Hash = HashHelper.CreateHash(poco);
 
         fragment?.Repository.Create(identifier, poco);
@@ -317,18 +317,18 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in GetFragments(dataObject))
         {
-            var exist = fragment.Repository.Exists(entity.DataEntityId);
+            var exist = fragment.Repository.Exists(entity._EntityId);
 
             if (exist)
             {
-                var record = fragment.Repository.Read(entity.DataEntityId);
+                var record = fragment.Repository.Read(entity._EntityId);
                 await fragment.Twin.PlainToShadow(record);
                 ((AxoDataEntity)fragment.Twin).Hash = record.Hash;
                 ((AxoDataEntity)fragment.Twin).Changes = record.Changes;
             }
             else
             {
-                CreateNewPocoInFragmentRepository(entity.DataEntityId, fragment.Manager);
+                CreateNewPocoInFragmentRepository(entity._EntityId, fragment.Manager);
             }
         }
     }
@@ -341,7 +341,7 @@ public partial class AxoDataFragmentExchange
             var plainer = await (fragment.Twin).ShadowToPlain<dynamic>();
             fragment.Manager.ChangeTrackerSaveObservedChanges(plainer, fragment.Twin);
             plainer.Hash = HashHelper.CreateHash(plainer);
-            fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
+            fragment.Repository.Update(((IBrowsableDataObject)plainer)._EntityId, plainer);
         }
     }
 
@@ -350,7 +350,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in GetFragments(dataObject))
         {
-            await fragment.Twin.PlainToOnline(fragment.Repository.Read(entity.DataEntityId));
+            await fragment.Twin.PlainToOnline(fragment.Repository.Read(entity._EntityId));
         }
     }
 
@@ -360,10 +360,10 @@ public partial class AxoDataFragmentExchange
         foreach (var fragment in GetFragments(dataObject))
         {
             var plainer = await fragment.Twin.OnlineToPlain<dynamic>();
-            plainer.DataEntityId = recordId;
+            plainer._EntityId = recordId;
             plainer.Hash = HashHelper.CreateHash(plainer);
-            fragment.Repository.Create(plainer.DataEntityId, plainer);
-            var plain = fragment.Repository.Read(plainer.DataEntityId);
+            fragment.Repository.Create(plainer._EntityId, plainer);
+            var plain = fragment.Repository.Read(plainer._EntityId);
             fragment.Twin.PlainToShadow(plain);
         }
     }
@@ -393,12 +393,12 @@ public partial class AxoDataFragmentExchange
                 var plainer = await (fragment.Twin).ShadowToPlain<dynamic>();
                 fragment.Manager.ChangeTrackerSaveObservedChanges(plainer, fragment.Twin);
                 plainer.Hash = HashHelper.CreateHash(plainer);
-                fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
+                fragment.Repository.Update(((IBrowsableDataObject)plainer)._EntityId, plainer);
             }
             else
             {
                 Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.Twin.CreatePoco();
-                poco.DataEntityId = identifier;
+                poco._EntityId = identifier;
                 poco.Hash = HashHelper.CreateHash(poco);
 
                 fragment.Repository.Create(identifier, poco);
@@ -414,9 +414,9 @@ public partial class AxoDataFragmentExchange
         foreach (var fragment in GetFragments(dataObject))
         {
             var source = (Pocos.AXOpen.Data.IAxoDataEntity)await fragment.Twin.ShadowToPlain<IBrowsableDataObject>();
-            source.DataEntityId = identifier;
+            source._EntityId = identifier;
             source.Hash = HashHelper.CreateHash(source);
-            fragment.Repository.Create(source.DataEntityId, source);
+            fragment.Repository.Create(source._EntityId, source);
         }
     }
 
@@ -500,7 +500,7 @@ public partial class AxoDataFragmentExchange
     {
         return ((dynamic)Repository)?.GetRecords(identifier, limit, skip, searchMode, sortExpression, sortAscending);
     }
-
+    
     public IEnumerable<IBrowsableDataObject> GetRecords(PredicateContainer predicates,
         int limit, int skip)
     {
@@ -514,7 +514,7 @@ public partial class AxoDataFragmentExchange
 
         var records = GetRecords(toFind).ToList();
 
-        var orderedRecords = records.OrderBy(record => toFind.IndexOf(record.DataEntityId))
+        var orderedRecords = records.OrderBy(record => toFind.IndexOf(record._EntityId))
             .ToList();
 
         return orderedRecords;

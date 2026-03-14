@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Inputs" xml:space="preserve">
+    <value>Vstupy</value>
+  </data>
+  <data name="Outputs" xml:space="preserve">
+    <value>Výstupy</value>
+  </data>
+  <data name="Busy" xml:space="preserve">
+    <value>Zaneprázdnený</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="Override" xml:space="preserve">
+    <value>Prepísať</value>
+  </data>
+  <data name="Update_diagnostics" xml:space="preserve">
+    <value>Aktualizácia diagnostiky</value>
+  </data>
+  <data name="Scaling_constant_required_position" xml:space="preserve">
+    <value>Konštanta mierky požadovanej polohy</value>
+  </data>
+  <data name="Scaling_constant_actual_position" xml:space="preserve">
+    <value>Konštanta mierky skutočnej polohy</value>
+  </data>
+  <data name="Scaling_constant_required_velocity" xml:space="preserve">
+    <value>Konštanta potrebnej rýchlosti</value>
+  </data>
+  <data name="Scaling_constant_actual_velocity" xml:space="preserve">
+    <value>Konštantná skutočná rýchlosť</value>
+  </data>
+  <data name="Scaling_constant_required_torque" xml:space="preserve">
+    <value>Konštanta potrebného krútiaceho momentu</value>
+  </data>
+  <data name="Scaling_constant_actual_torque" xml:space="preserve">
+    <value>Konštantný skutočný krútiaci moment</value>
+  </data>
+  <data name="Scaling_constant_required_acceleration" xml:space="preserve">
+    <value>Konštanta potrebného zrýchlenia</value>
+  </data>
+  <data name="Scaling_constant_actual_acceleration" xml:space="preserve">
+    <value>Skalopevná konštanta skutočného zrýchlenia</value>
+  </data>
+  <data name="Scaling_constant_required_deceleration" xml:space="preserve">
+    <value>Konštanta potrebného spomalenia</value>
+  </data>
+  <data name="Scaling_constant_actual_deceleration" xml:space="preserve">
+    <value>Konštanta mierky skutočného spomalenia</value>
+  </data>
+  <data name="Scaling_constant_required_jerk" xml:space="preserve">
+    <value>Potrebná škálovacia konštanta trhnutie</value>
+  </data>
+  <data name="Scaling_constant_actual_jerk" xml:space="preserve">
+    <value>Skalopevná konštanta skutočného trhnutia</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Povolenie stránky</value>
+  </data>
+  <data name="ReadWrite" xml:space="preserve">
+    <value>ReadWrite</value>
+  </data>
+  <data name="ParameterNo" xml:space="preserve">
+    <value>ParameterNo</value>
+  </data>
+  <data name="Subindex" xml:space="preserve">
+    <value>Podindex</value>
+  </data>
+  <data name="AxisNo" xml:space="preserve">
+    <value>OsNo</value>
+  </data>
+  <data name="HardwareId" xml:space="preserve">
+    <value>HardwareId</value>
+  </data>
+  <data name="ValueWriteREAL" xml:space="preserve">
+    <value>ValueWriteREAL</value>
+  </data>
+  <data name="ValueWriteLINT" xml:space="preserve">
+    <value>ValueWriteLINT</value>
+  </data>
+  <data name="ValueWriteBOOL" xml:space="preserve">
+    <value>ValueWriteBOOL</value>
+  </data>
+  <data name="ValueReadREAL" xml:space="preserve">
+    <value>ValueReadREAL</value>
+  </data>
+  <data name="ValueReadLINT" xml:space="preserve">
+    <value>ValueReadLINT</value>
+  </data>
+  <data name="ValueReadBOOL" xml:space="preserve">
+    <value>ValueReadBOOL</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Hotovo</value>
+  </data>
+  <data name="ErrorId" xml:space="preserve">
+    <value>ErrorId</value>
+  </data>
+  <data name="jog_ONE_" xml:space="preserve">
+    <value>jog1</value>
+  </data>
+  <data name="jog_TWO_" xml:space="preserve">
+    <value>jog2</value>
+  </data>
+  <data name="controlByPlc" xml:space="preserve">
+    <value>controlByPlc</value>
+  </data>
+  <data name="StartHoming" xml:space="preserve">
+    <value>StartHoming</value>
+  </data>
+  <data name="ReleaseBrake" xml:space="preserve">
+    <value>ReleaseBrake</value>
+  </data>
+  <data name="ExternalBlockChange" xml:space="preserve">
+    <value>ExternalBlockChange</value>
+  </data>
+  <data name="reserved_ONE__FOUR_" xml:space="preserve">
+    <value>rezervované14</value>
+  </data>
+  <data name="reserved_ONE__FIVE_" xml:space="preserve">
+    <value>vyhradené15</value>
+  </data>
+  <data name="on" xml:space="preserve">
+    <value>na stránke .</value>
+  </data>
+  <data name="noCoastStop" xml:space="preserve">
+    <value>noCoastStop</value>
+  </data>
+  <data name="noQuickStop" xml:space="preserve">
+    <value>noQuickStop</value>
+  </data>
+  <data name="enableOperation" xml:space="preserve">
+    <value>enableOperation</value>
+  </data>
+  <data name="cancelTraversing" xml:space="preserve">
+    <value>cancelTraversing</value>
+  </data>
+  <data name="intermediateStop" xml:space="preserve">
+    <value>intermediateStop</value>
+  </data>
+  <data name="activateTraversing" xml:space="preserve">
+    <value>activateTraversing</value>
+  </data>
+  <data name="acknowledgeFault" xml:space="preserve">
+    <value>acknowledgeFault</value>
+  </data>
+  <data name="MDI_UNDERSCORE_MOD" xml:space="preserve">
+    <value>MDIMOD</value>
+  </data>
+  <data name="PosModulo" xml:space="preserve">
+    <value>PosModulo</value>
+  </data>
+  <data name="NegModulo" xml:space="preserve">
+    <value>NegModulo</value>
+  </data>
+  <data name="reserved_ONE__ONE_" xml:space="preserve">
+    <value>rezervované11</value>
+  </data>
+  <data name="reserved_ONE__TWO_" xml:space="preserve">
+    <value>rezervované12</value>
+  </data>
+  <data name="reserved_ONE__THREE_" xml:space="preserve">
+    <value>rezervované13</value>
+  </data>
+  <data name="SetupMode" xml:space="preserve">
+    <value>SetupMode</value>
+  </data>
+  <data name="MDI_UNDERSCORE_Activate" xml:space="preserve">
+    <value>MDIAktivovať</value>
+  </data>
+  <data name="travBlockBit_ZERO_" xml:space="preserve">
+    <value>travBlockBit0</value>
+  </data>
+  <data name="travBlockBit_ONE_" xml:space="preserve">
+    <value>travBlockBit1</value>
+  </data>
+  <data name="travBlockBit_TWO_" xml:space="preserve">
+    <value>travBlockBit2</value>
+  </data>
+  <data name="travBlockBit_THREE_" xml:space="preserve">
+    <value>travBlockBit3</value>
+  </data>
+  <data name="travBlockBit_FOUR_" xml:space="preserve">
+    <value>travBlockBit4</value>
+  </data>
+  <data name="travBlockBit_FIVE_" xml:space="preserve">
+    <value>travBlockBit5</value>
+  </data>
+  <data name="travBlockBit_SIX_" xml:space="preserve">
+    <value>travBlockBit6</value>
+  </data>
+  <data name="reserved_SEVEN_" xml:space="preserve">
+    <value>rezervované7</value>
+  </data>
+  <data name="FlyingRef" xml:space="preserve">
+    <value>FlyingRef</value>
+  </data>
+  <data name="reserved_NINE_" xml:space="preserve">
+    <value>rezervované9</value>
+  </data>
+  <data name="SelectProbe" xml:space="preserve">
+    <value>SelectProbe</value>
+  </data>
+  <data name="ProbeEdgeEval" xml:space="preserve">
+    <value>ProbeEdgeEval</value>
+  </data>
+  <data name="SW_DASH_Limit" xml:space="preserve">
+    <value>SW-Limit</value>
+  </data>
+  <data name="HW_DASH_Limit" xml:space="preserve">
+    <value>HW limit</value>
+  </data>
+  <data name="Trackingmode" xml:space="preserve">
+    <value>Režim sledovania</value>
+  </data>
+  <data name="SetReferencePoint" xml:space="preserve">
+    <value>SetReferencePoint</value>
+  </data>
+  <data name="reserved_TWO_" xml:space="preserve">
+    <value>rezervované2</value>
+  </data>
+  <data name="reserved_THREE_" xml:space="preserve">
+    <value>rezervované3</value>
+  </data>
+  <data name="reserved_FOUR_" xml:space="preserve">
+    <value>rezervované4</value>
+  </data>
+  <data name="jog_UNDERSCORE_inc" xml:space="preserve">
+    <value>joginc</value>
+  </data>
+  <data name="reserved_SIX_" xml:space="preserve">
+    <value>rezervované6</value>
+  </data>
+  <data name="TravelToFixStop" xml:space="preserve">
+    <value>TravelToFixStop</value>
+  </data>
+  <data name="reserved_ONE__ZERO_" xml:space="preserve">
+    <value>rezervované10</value>
+  </data>
+  <data name="signOfLifeBit_ZERO_" xml:space="preserve">
+    <value>signOfLifeBit0</value>
+  </data>
+  <data name="signOfLifeBit_ONE_" xml:space="preserve">
+    <value>signOfLifeBit1</value>
+  </data>
+  <data name="signOfLifeBit_TWO_" xml:space="preserve">
+    <value>signOfLifeBit2</value>
+  </data>
+  <data name="signOfLifeBit_THREE_" xml:space="preserve">
+    <value>signOfLifeBit3</value>
+  </data>
+  <data name="reserved_ZERO_" xml:space="preserve">
+    <value>rezervované0</value>
+  </data>
+  <data name="reserved_ONE_" xml:space="preserve">
+    <value>rezervované1</value>
+  </data>
+  <data name="reserved_FIVE_" xml:space="preserve">
+    <value>rezervované5</value>
+  </data>
+  <data name="STW_ONE_" xml:space="preserve">
+    <value>STW1</value>
+  </data>
+  <data name="POS_UNDERSCORE_STW_ONE_" xml:space="preserve">
+    <value>POSSTW1</value>
+  </data>
+  <data name="POS_UNDERSCORE_STW_TWO_" xml:space="preserve">
+    <value>POSSTW2</value>
+  </data>
+  <data name="STW_TWO_" xml:space="preserve">
+    <value>STW2</value>
+  </data>
+  <data name="MDI_UNDERSCORE_TARPOS" xml:space="preserve">
+    <value>MDITARPOS</value>
+  </data>
+  <data name="MDI_UNDERSCORE_VELOCITY" xml:space="preserve">
+    <value>MDIVELOCITY</value>
+  </data>
+  <data name="MDI_UNDERSCORE_ACC" xml:space="preserve">
+    <value>MDIACC</value>
+  </data>
+  <data name="MDI_UNDERSCORE_DEC" xml:space="preserve">
+    <value>MDIDEC</value>
+  </data>
+  <data name="followingErrorInTolerance" xml:space="preserve">
+    <value>followingErrorInTolerance</value>
+  </data>
+  <data name="controlRequest" xml:space="preserve">
+    <value>controlRequest</value>
+  </data>
+  <data name="targetPosReached" xml:space="preserve">
+    <value>targetPosReached</value>
+  </data>
+  <data name="homePosSet" xml:space="preserve">
+    <value>homePosSet</value>
+  </data>
+  <data name="acknowledgeTraversingBlockActivated" xml:space="preserve">
+    <value>acknowledgeTraversingBlockActivated</value>
+  </data>
+  <data name="driveStopped" xml:space="preserve">
+    <value>driveStopped</value>
+  </data>
+  <data name="axisAccelerates" xml:space="preserve">
+    <value>axisAccelerates</value>
+  </data>
+  <data name="axisDecelerates" xml:space="preserve">
+    <value>axisDecelerates</value>
+  </data>
+  <data name="readyForSwitchOn" xml:space="preserve">
+    <value>readyForSwitchOn</value>
+  </data>
+  <data name="ready" xml:space="preserve">
+    <value>pripravené</value>
+  </data>
+  <data name="operationEnabled" xml:space="preserve">
+    <value>operationEnabled</value>
+  </data>
+  <data name="faultPresent" xml:space="preserve">
+    <value>faultPresent</value>
+  </data>
+  <data name="noCoastingActive" xml:space="preserve">
+    <value>noCoastingActive</value>
+  </data>
+  <data name="noQuickStopActive" xml:space="preserve">
+    <value>noQuickStopActive</value>
+  </data>
+  <data name="switchingOnInhibitedActive" xml:space="preserve">
+    <value>switchingOnInhibitedActive</value>
+  </data>
+  <data name="warningActive" xml:space="preserve">
+    <value>warningActive</value>
+  </data>
+  <data name="deviceSpecificBit_EIGHT_" xml:space="preserve">
+    <value>deviceSpecificBit8</value>
+  </data>
+  <data name="deviceSpecificBit_NINE_" xml:space="preserve">
+    <value>deviceSpecificBit9</value>
+  </data>
+  <data name="deviceSpecificBit_ONE__ZERO_" xml:space="preserve">
+    <value>deviceSpecificBit10</value>
+  </data>
+  <data name="deviceSpecificBit_ONE__ONE_" xml:space="preserve">
+    <value>deviceSpecificBit11</value>
+  </data>
+  <data name="doSignOfLifeBit_ZERO_" xml:space="preserve">
+    <value>doSignOfLifeBit0</value>
+  </data>
+  <data name="doSignOfLifeBit_ONE_" xml:space="preserve">
+    <value>doSignOfLifeBit1</value>
+  </data>
+  <data name="doSignOfLifeBit_TWO_" xml:space="preserve">
+    <value>doSignOfLifeBit2</value>
+  </data>
+  <data name="doSignOfLifeBit_THREE_" xml:space="preserve">
+    <value>doSignOfLifeBit3</value>
+  </data>
+  <data name="deviceSpecificBit_ZERO_" xml:space="preserve">
+    <value>deviceSpecificBit0</value>
+  </data>
+  <data name="deviceSpecificBit_ONE_" xml:space="preserve">
+    <value>deviceSpecificBit1</value>
+  </data>
+  <data name="deviceSpecificBit_TWO_" xml:space="preserve">
+    <value>deviceSpecificBit2</value>
+  </data>
+  <data name="deviceSpecificBit_THREE_" xml:space="preserve">
+    <value>deviceSpecificBit3</value>
+  </data>
+  <data name="deviceSpecificBit_FOUR_" xml:space="preserve">
+    <value>deviceSpecificBit4</value>
+  </data>
+  <data name="deviceSpecificBit_FIVE_" xml:space="preserve">
+    <value>deviceSpecificBit5</value>
+  </data>
+  <data name="deviceSpecificBit_SIX_" xml:space="preserve">
+    <value>deviceSpecificBit6</value>
+  </data>
+  <data name="deviceSpecificBit_SEVEN_" xml:space="preserve">
+    <value>deviceSpecificBit7</value>
+  </data>
+  <data name="ZSW_ONE_" xml:space="preserve">
+    <value>ZSW1</value>
+  </data>
+  <data name="POS_UNDERSCORE_ZSW_ONE_" xml:space="preserve">
+    <value>POSZSW1</value>
+  </data>
+  <data name="POS_UNDERSCORE_ZSW_TWO_" xml:space="preserve">
+    <value>POSZSW2</value>
+  </data>
+  <data name="ZSW_TWO_" xml:space="preserve">
+    <value>ZSW2</value>
+  </data>
+  <data name="MELDW" xml:space="preserve">
+    <value>MELDW</value>
+  </data>
+  <data name="XIST_UNDERSCORE_A" xml:space="preserve">
+    <value>XISTA</value>
+  </data>
+  <data name="NIST_UNDERSCORE_B" xml:space="preserve">
+    <value>NISTB</value>
+  </data>
+  <data name="Fault_UNDERSCORE_Code" xml:space="preserve">
+    <value>FaultCode</value>
+  </data>
+  <data name="Warn_UNDERSCORE_Code" xml:space="preserve">
+    <value>WarnCode</value>
+  </data>
+  <data name="Reserved" xml:space="preserve">
+    <value>Rezervované</value>
+  </data>
+  <data name="OUT" xml:space="preserve">
+    <value>OUT</value>
+  </data>
+  <data name="IN" xml:space="preserve">
+    <value>IN</value>
+  </data>
+  <data name="M_UNDERSCORE_ADD_ONE_" xml:space="preserve">
+    <value>MADD1</value>
+  </data>
+  <data name="M_UNDERSCORE_LIMIT_UNDERSCORE_POS" xml:space="preserve">
+    <value>MLIMITPOS</value>
+  </data>
+  <data name="M_UNDERSCORE_LIMIT_UNDERSCORE_NEG" xml:space="preserve">
+    <value>MLIMITNEG</value>
+  </data>
+  <data name="M_UNDERSCORE_Actual" xml:space="preserve">
+    <value>Skutočné</value>
+  </data>
+  <data name="Hardware_ID_Device" xml:space="preserve">
+    <value>ID hardvéru Zariadenie</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_DoServo_APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu 'DoServo'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_DoServo_APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru podmodulu 'DoServo'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_ModuleAccessPoint_APOSTROPHE__module" xml:space="preserve">
+    <value>ID hardvéru modulu 'ModuleAccessPoint'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EmptyModule_UNDERSCORE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'EmptyModule1' submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Telegram_ONE__ONE__ONE__APOSTROPHE__submodule" xml:space="preserve">
+    <value>Podmodul ID hardvéru 'Telegram111'</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_EmptyModule_UNDERSCORE__TWO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru 'EmptyModule2' submodul</value>
+  </data>
+  <data name="Hardware_ID__APOSTROPHE_Telegram_SEVEN__FIVE__ZERO__APOSTROPHE__submodule" xml:space="preserve">
+    <value>ID hardvéru submodulu 'Telegram750'</value>
+  </data>
+  <data name="Telegram_ONE__ONE__ONE__Inputs" xml:space="preserve">
+    <value>Telegram111 Vstupy</value>
+  </data>
+  <data name="Telegram_ONE__ONE__ONE__Outputs" xml:space="preserve">
+    <value>Telegram111 Výstupy</value>
+  </data>
+  <data name="Telegram_SEVEN__FIVE__ZERO__Inputs" xml:space="preserve">
+    <value>Vstupy Telegram750</value>
+  </data>
+  <data name="Telegram_SEVEN__FIVE__ZERO__Outputs" xml:space="preserve">
+    <value>Výstupy Telegram750</value>
+  </data>
+</root>

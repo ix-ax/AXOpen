@@ -3,16 +3,14 @@ USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 USING System.Strings;
 USING System.Serialization;
-USING Siemens.Simatic.S71500.DistributedIO;
+USING Siemens.Simatic.DistributedIO;
 
 NAMESPACE AXOpen.Components.Siem.Identification
     {S7.extern=ReadWrite}
     CLASS PUBLIC Axo_IdentDevice EXTENDS AXOpen.Core.AxoComponent
         VAR PRIVATE
             _infoTimer                  :   AXOpen.Timers.OnDelayTimer;
-            _infoTime                   :   LTIME := LT#2S;
             _errorTimer                 :   AXOpen.Timers.OnDelayTimer;
-            _errorTime                  :   LTIME := LT#5S;
             _blink                      :   AXOpen.Timers.AxoBlinker;
             _context                    :   IAxoContext;
             _someTaskIsActive           :   BOOL;
@@ -144,8 +142,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
         ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                parent : IAxoObject;
-                HW_ID               :   WORD    :=  WORD#16#0; 			//Hardware identifier
+                inParent : IAxoObject;
+                HW_ID               :   UINT    :=  UINT#0; 			//Hardware identifier
                 API 				:   DWORD   :=  DWORD#16#0000_5B00; //API number 
                 SLOT 				:   WORD    :=  WORD#16#02;  		//Slot number  
                 SUB_SLOT 			:   WORD    :=  WORD#16#01; 		//Subslot number 
@@ -155,18 +153,18 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 i : INT;
             END_VAR
 
-            SUPER.Run(parent);
+            SUPER.Run(inParent);
             Messenger.Serve(THIS);
             TaskMessenger.Serve(THIS);
             IdentProfileMessenger.Serve(THIS);
 
-            Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
-            Messenger.ActivateOnCondition(ULINT#701,HW_ID = WORD#0, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#700,inParent = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#701,HW_ID = UINT#0, eAxoMessageCategory#ProgrammingError);
 
-            IF parent = NULL THEN
+            IF inParent = NULL THEN
                 Status.Error.Id := UINT#700;
                 RETURN;
-            ELSIF HW_ID = WORD#0 THEN
+            ELSIF HW_ID = UINT#0 THEN
                 Status.Error.Id := UINT#701;
                 RETURN;
             END_IF;
@@ -178,8 +176,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
             _identProfile_HwConnect.CM_CHANNEL  :=  CM_CHANNEL;
 
             //*********************************************
-            // THIS.Execute();
-            //*************Execute inline******************
 
             _identProfile.Run(  Execute         :=  _identProfile_Execute,
                                 RepeatCommand   :=  _identProfile_RepeatCommand,
@@ -224,9 +220,6 @@ NAMESPACE AXOpen.Components.Siem.Identification
             //*******************************************
             _context := THIS.GetContext();
 
-            _infoTime := Config.InfoTime;
-            _errorTime := Config.ErrorTime;
-
             //*************INITIALIZATION*************
             RestoreTask.Run(THIS);
             ReadTask.Run(THIS);
@@ -240,14 +233,14 @@ NAMESPACE AXOpen.Components.Siem.Identification
             //****************************************
 
             //*************RESTORE********************
-            RestoreTask.IsDisabled := FALSE;
+            RestoreTask.SetIsDisabled(FALSE);
             IF RestoreTask.Execute(THIS) THEN
                 THIS.Restore();
             END_IF;
             //****************************************
 
             //*************ReadTask************
-            ReadTask.IsDisabled := FALSE;
+            ReadTask.SetIsDisabled(FALSE);
             IF ReadTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;
@@ -268,7 +261,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 IF _progress = 300 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
 
@@ -289,7 +282,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 IF _progress = 301 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
 
@@ -303,7 +296,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 IF _progress = 302 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#502;
                     END_IF;
 
@@ -315,7 +308,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 IF _progress = 303 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#503;
                     END_IF;
 
@@ -329,7 +322,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 IF _progress = 304 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#504;
                     END_IF;
   
@@ -367,8 +360,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 Status.Error.Id  :=  UINT#10001;
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#10000,ReadTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10001,ReadTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#102,ReadTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10001,ReadTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#102,ReadTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF ReadTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
                 _progress := 0;
@@ -377,7 +370,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
  
             //***********WriteTask***********************
-            WriteTask.IsDisabled := FALSE;
+            WriteTask.SetIsDisabled(FALSE);
             IF WriteTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#120;
             END_IF;
@@ -395,7 +388,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 IF _progress = 320 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#520;
                     END_IF;
 
@@ -420,7 +413,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 IF _progress = 321 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#521;
                     END_IF;
                     
@@ -434,7 +427,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 IF _progress = 322 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#522;
                     END_IF;
 
@@ -446,7 +439,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 IF _progress = 323 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#523;
                     END_IF;
 
@@ -460,7 +453,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 IF _progress = 324 THEN	
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#524;
                     END_IF;
 
@@ -493,8 +486,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 Status.Error.Id  :=  UINT#10021;
             END_IF;         
             Messenger.ActivateOnCondition(ULINT#10020,WriteTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10021,WriteTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#122,WriteTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10021,WriteTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#122,WriteTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF WriteTask.RestoreTriggered() AND _progress >= 320 AND _progress <= 339  THEN
                 Status.Action.Id :=  UINT#122;
                 _progress := 0;
@@ -502,7 +495,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             //*******************************************
                         
             //*****************SoftReset*****************
-            SoftResetTask.IsDisabled := FALSE;
+            SoftResetTask.SetIsDisabled(FALSE);
             IF SoftResetTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#140;
             END_IF;
@@ -520,7 +513,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 IF _progress = 340 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#540;
                     END_IF;
 
@@ -542,7 +535,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 IF _progress = 341 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#541;
                     END_IF;
 
@@ -556,7 +549,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 IF _progress = 342 THEN	
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#542, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#542, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#542;
                     END_IF;
 
@@ -568,7 +561,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 IF _progress = 343 THEN	
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#543, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#543, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#543;
                     END_IF;
 
@@ -580,7 +573,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 IF _progress = 344 THEN	
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#544, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#544, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#544;
                     END_IF;
 
@@ -616,8 +609,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 Status.Error.Id  :=  UINT#10041;
             END_IF; 
             Messenger.ActivateOnCondition(ULINT#10040,SoftResetTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10041,SoftResetTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#142,SoftResetTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10041,SoftResetTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#142,SoftResetTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF SoftResetTask.RestoreTriggered() AND _progress >= 340 AND _progress <= 349  THEN
                 Status.Action.Id :=  UINT#142;
                 _progress := 0;
@@ -625,7 +618,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
             //*******************************************
 
             //***********ResetReaderTask*****************
-            ResetReaderTask.IsDisabled := FALSE;
+            ResetReaderTask.SetIsDisabled(FALSE);
             IF ResetReaderTask.StartTriggered() THEN
                 Status.Action.Id :=  UINT#150;
             END_IF;
@@ -643,7 +636,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
               
                 IF _progress = 350 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#550, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#550;
                     END_IF;
 
@@ -668,7 +661,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                               
                 IF _progress = 351 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#551, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#551;
                     END_IF;
 
@@ -682,7 +675,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 IF _progress = 352 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#552, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#552, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#552;
                     END_IF;
 
@@ -694,7 +687,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 
                 IF _progress = 353 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#553, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#553, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#553;
                     END_IF;
 
@@ -708,7 +701,7 @@ NAMESPACE AXOpen.Components.Siem.Identification
 
                 IF _progress = 354 THEN	
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#554, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#554, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#554;
                     END_IF;
 
@@ -741,8 +734,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 Status.Error.Id  :=  UINT#10051;
             END_IF;    
             Messenger.ActivateOnCondition(ULINT#10050,ResetReaderTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10051,ResetReaderTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#152,ResetReaderTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10051,ResetReaderTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#152,ResetReaderTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF ResetReaderTask.RestoreTriggered() AND _progress >= 350 AND _progress <= 359 THEN
                 Status.Action.Id :=  UINT#152;
                 _progress := 0;
@@ -910,8 +903,8 @@ NAMESPACE AXOpen.Components.Siem.Identification
                 signal : BOOL;
             END_VAR
             
-            _infoTimer.OnDelay(THIS, signal , _infoTime);
-            _errorTimer.OnDelay(THIS, signal , _errorTime );
+            _infoTimer.OnDelay(THIS, signal AND Config.InfoTime > LT#0S ,Config.InfoTime);
+            _errorTimer.OnDelay(THIS, signal AND Config.ErrorTime > LT#0S , Config.ErrorTime);
         END_METHOD
     END_CLASS
 END_NAMESPACE

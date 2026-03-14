@@ -18,13 +18,13 @@
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />   
 		<PackageReference Include="AXSharp.Presentation.Blazor" />
 	    <PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
-	    <PackageReference Include="Humanizer" />
-	    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+	    <PackageReference Include="Humanizer" />	    
 	    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup>   
 	  <ProjectReference Include="..\..\..\base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj" />
+	  <ProjectReference Include="..\..\..\styling\src\AXOpen.Operon.Blazor.csproj" />
 	  <ProjectReference Include="..\AXOpen.Core\inxton_axopen_core.csproj" />
   </ItemGroup>
 
@@ -51,4 +51,6 @@
       <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+	
+
 </Project>

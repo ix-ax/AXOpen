@@ -1,0 +1,117 @@
+version: 1
+# Scope: steer Copilot's PR description output
+targets:
+  - pull_request.description
+
+rules:
+  - id: pr-description-structure
+    instruction: |
+      Write PR descriptions using the following sections and order:
+
+      ## Summary
+      - One or two sentences: what changed and why.
+      - Be specific; name the feature, behavior, or defect addressed.
+
+      ## Functional Changes
+      - Group by library. Use bullets.
+      - For each entry, include the layer:
+        - (PLC) for controller/PLC layer changes.
+        - (.NET) for higher-level framework changes.
+      - Example bullet format:
+        - **AuthLibrary (.NET):** Introduced `ValidationService` to centralize token checks.
+        - **OrderController (PLC):** Calls `ValidationService` before persisting orders.
+
+      ## Interdependencies
+      - List new or changed dependencies between libraries/components (with minimum required versions if relevant).
+      - Example:
+        - `AuthLibrary` now depends on `CoreLibrary.ValidationService` (>= v3.2).
+
+      ## Chores (non-functional)
+      - Keep chores separate from functional changes.
+      - Subsections to use as needed: Dependencies, CI/CD, Docs, Tooling, Formatting.
+      - Example bullets:
+        - **Dependencies:** Bump `Newtonsoft.Json` 13.0.1 → 13.0.2 in `CoreLibrary`.
+        - **CI/CD:** Switch pipeline to `dotnet test` on .NET 8.
+        - **Docs:** Update README with `ValidationService` usage.
+
+      ## Related Issues
+      - Link issues using GitHub keywords (e.g., Fixes #123, Closes #456).
+
+      ## Testing Notes
+      - How to verify the change (commands, environments, manual steps).
+      - Mention key unit/integration tests and their locations.
+
+      ## Checklist
+      - [ ] Builds pass
+      - [ ] Tests added/updated
+      - [ ] Docs updated (if needed)
+      - [ ] Interdependencies documented
+      - [ ] Chores separated
+
+  - id: pr-description-style
+    instruction: |
+      Style:
+      - Write clear, concrete, measurable statements.
+      - Prefer active, action verbs: Added, Removed, Updated, Refactored.
+      - Keep sentences short; use lists for readability.
+
+      Avoid:
+      - All-encompassing phrases: “overall improvements”, “general cleanup”, “improved everything”.
+      - Clichés/vague terms: “minor tweaks”, “various enhancements”, “quality improvements”.
+      - Empty summaries: “fixed bugs”.
+      Replace with specifics:
+      - “Refactored `OrderController` validation flow to remove duplication.”
+      - “Fixed null reference in `UserSessionStore` when token is missing.”
+
+  - id: libraries-and-paths
+    instruction: |
+      Organize Functional Changes by **library**. Infer libraries from changed paths (e.g., `src/CoreLibrary`, `libs/AuthLibrary`, `plc/OrderController`).
+      - Use the library’s canonical name in bold.
+      - Mark each entry with (PLC) or (.NET).
+      - If multiple files in the same library are changed, summarize at library level and call out notable classes/methods.
+
+  - id: interdependencies-mandatory
+    instruction: |
+      If any library now calls into another, or requires a minimum version/config, list it under **Interdependencies** with clear direction:
+      - who depends on whom
+      - what version/range is needed
+      - any migration notes for downstream consumers
+
+  - id: chores-separation
+    instruction: |
+      Put non-functional changes in **Chores** and NOT under Functional Changes.
+      Classify chores under: Dependencies, CI/CD, Docs, Tooling, Formatting.
+      Do not mix chores with PLC/.NET functional bullets.
+
+  - id: plc-vs-dotnet-tagging
+    instruction: |
+      For every Functional Changes bullet, explicitly tag the layer:
+      - (PLC) for controller/PLC code.
+      - (.NET) for higher-level framework or library code.
+
+  - id: examples
+    instruction: |
+      Example (use as a guide; adapt names):
+      ## Summary
+      Centralizes validation and aligns PLC controllers with new service.
+
+      ## Functional Changes
+      - **CoreLibrary (.NET):** Added `ValidationService` with email and token checks.
+      - **AuthLibrary (.NET):** Uses `ValidationService` before issuing tokens.
+      - **OrderController (PLC):** Validates input via `ValidationService` prior to persistence.
+
+      ## Interdependencies
+      - `AuthLibrary` depends on `CoreLibrary.ValidationService` (>= v3.2).
+      - PLC controllers require `CoreLibrary` v3.2+.
+
+      ## Chores
+      - **Dependencies:** Update `Serilog` 2.12 → 3.0 in `CoreLibrary`.
+      - **CI/CD:** Run integration tests on .NET 8.
+      - **Docs:** Add `ValidationService` usage to README.
+
+      ## Related Issues
+      Fixes #123
+
+      ## Testing Notes
+      - `dotnet test` in `tests/CoreLibrary.Tests` and `tests/PLC.Controllers.Tests`
+      - Manual: login flow + order creation with invalid email.

@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Elements
+NAMESPACE AXOpen.Components.Elements
     /// <summary>
     /// 	Class representing current status of analog output							
     /// </summary>

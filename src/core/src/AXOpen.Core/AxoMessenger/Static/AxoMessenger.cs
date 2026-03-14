@@ -136,11 +136,27 @@ public partial class AxoMessenger
     private List<KeyValuePair<ulong, AxoMessengerTextItem>> dotNetMessengerTextList;
     public List<KeyValuePair<ulong, AxoMessengerTextItem>> DotNetMessengerTextList
     {
-        get{return dotNetMessengerTextList != null ? dotNetMessengerTextList : new List<KeyValuePair<ulong, AxoMessengerTextItem>>();}
-        set{dotNetMessengerTextList = value != null ? value : new List<KeyValuePair<ulong, AxoMessengerTextItem>>(); }
+        get{ return dotNetMessengerTextList != null ? dotNetMessengerTextList : new List<KeyValuePair<ulong, AxoMessengerTextItem>>(); }
+        set{ dotNetMessengerTextList = value != null ? value : new List<KeyValuePair<ulong, AxoMessengerTextItem>>(); }
+    }
+
+
+    public void RestoreParentTask(IIdentity? currentUserIdentity)
+    {
+        (this?.GetParent() as AxoTask)?.Restore();
+        AxoApplication.Current.Logger.Information(
+            $"Task has been restored using alarm view.", this.Component,
+            currentUserIdentity);
     }
 
     public eAxoMessengerState State => (eAxoMessengerState)this.MessengerState.LastValue;
+
+    public bool IsActive => State == eAxoMessengerState.ActiveAlreadyAcknowledged ||
+                            State == eAxoMessengerState.ActiveAcknowledgeRequired ||
+                            State == eAxoMessengerState.ActiveAcknowledgeNotRequired;
+
+    public bool IsAcknowledged => State == eAxoMessengerState.ActiveAlreadyAcknowledged;
+                                      
 
     public void Acknowledge(IIdentity identity)
     {
@@ -168,7 +184,7 @@ public partial class AxoMessenger
 
     public async Task ReadDetailsAsync()
     {
-        var r = new ITwinPrimitive[] { this.MessageCode, Category, MessageCode,  MessengerState };
+        var r = new ITwinPrimitive[] { this.MessageCode, Category, MessageCode,  MessengerState, Message, Risen, Fallen, Acknowledged   };
         await this.GetConnector()?.ReadBatchAsync(r)!;
     }
 
@@ -181,13 +197,24 @@ public partial class AxoMessenger
         return FindParentOfType<T>(node.GetParent(), depth++);
     }
 
+
+    public string GetMessageText()
+    {
+        return GetMessageText(this.MessageCode.LastValue);
+    }
+
     /// <summary>
     /// Retrieves the message text based on the message code.
     /// </summary>
     /// <returns>The message text string.</returns>
-    public string GetMessageText()
-    {
-        ulong messageCode = this.MessageCode.LastValue;
+    public string GetMessageText(ulong messageCode)
+    {        
+        //18446744073709551615
+        if (messageCode == ulong.MaxValue)
+        {            
+            return this.Message.GetCyclic();
+        }
+       
         string retVal = "";
         string prefix = "";
         if (this.MessengerState.Equals(eAxoMessengerState.InvalidImplementation) || this.MessengerState.LastValue.Equals((short)eAxoMessengerState.InvalidImplementation))
@@ -231,7 +258,15 @@ public partial class AxoMessenger
 
     public string GetHelpText()
         {
-            ulong messageCode = MessageCode.Cyclic;
+
+            ulong messageCode = MessageCode.LastValue;
+
+            if (messageCode == ulong.MaxValue)
+            {
+                return string.Empty;
+            }
+
+        
             string retVal = "";
             string prefix = "";
             if (this.MessengerState.Equals(eAxoMessengerState.InvalidImplementation))
@@ -248,14 +283,14 @@ public partial class AxoMessenger
                     if (PlcMessengerTextList != null && PlcMessengerTextList.Count > 0)
                     {
                         string _helpText = (from item in PlcMessengerTextList where item.Key == messageCode select item.Value.HelpText.ToString()).FirstOrDefault();
-                        retVal = string.IsNullOrEmpty(_helpText) ? prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !" : prefix + _helpText;
-                    }
+                        retVal = string.IsNullOrEmpty(_helpText) ? prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !" : prefix + _helpText + $"[{messageCode}]";
+                }
                     //Message texts are written in .NET and passed into the component
                     else if (DotNetMessengerTextList != null && DotNetMessengerTextList.Count > 0)
                     {
                         string _helpText = (from item in DotNetMessengerTextList where item.Key == messageCode select item.Value.HelpText.ToString()).FirstOrDefault();
-                        retVal = string.IsNullOrEmpty(_helpText) ? prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !" : prefix + _helpText;
-                    }
+                        retVal = string.IsNullOrEmpty(_helpText) ? prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !" : prefix + _helpText + $"[{messageCode}]";
+                }
                     else
                     {
                         retVal = prefix + "Help text not defined for the message code: " + messageCode.ToString() + " !";
@@ -308,4 +343,9 @@ public partial class AxoMessenger
             }
     }
 }
+}
+
+public class EmptyMessenger
+{
+    public string MessageText { get; set; } = "All good here.";
 }

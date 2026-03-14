@@ -1,23 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net9.0</TargetFramework>
+    <OutputType>Exe</OutputType>    
     <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+	  <GitVersionOutputFile>$(MSBuildProjectDirectory)\obj\gitversion.json</GitVersionOutputFile>
 	  <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
-	  <PackageReference Include="CliWrap" Version="3.6.7" />
-	  <PackageReference Include="CommandLineParser" Version="2.9.1" />
-	  <PackageReference Include="Octokit" Version="8.0.0" />
-	  <PackageReference Include="Octokit.Extensions" Version="1.0.7" />
-	  <PackageReference Include="Cake.Frosting" Version="4.0.0" />
-	  <PackageReference Include="Cake.Powershell" Version="4.0.0" />
-	  <PackageReference Include="Polly" Version="8.5.0" />
-    <PackageReference Include="GitVersion.MsBuild" Version="5.12.0">
-	    <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="YamlDotNet" Version="16.2.0" />
+	  <PackageReference Include="CliWrap" />
+	  <PackageReference Include="CommandLineParser" />
+	  <PackageReference Include="NuGet.Packaging" />
+	  <PackageReference Include="Octokit" />
+	  <PackageReference Include="Octokit.Extensions" />
+	  <PackageReference Include="Cake.Frosting" />
+	  <PackageReference Include="Cake.Powershell" />
+	  <PackageReference Include="Polly" />
+	  <PackageReference Include="System.IO.Packaging" />  
+    <PackageReference Include="YamlDotNet" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FilteredSolution\" />

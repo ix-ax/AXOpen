@@ -1,9 +1,11 @@
 USING AXOpen.Core;
-NAMESPACE AXOpen.Elements
+NAMESPACE AXOpen.Components.Elements
     /// <summary>
     /// Class representing Analog input
     /// </summary>
     {S7.extern=ReadWrite}
+    {#ix-prop:public string Units}
+    {#ix-set:Units = ".#"}
     CLASS AxoAi EXTENDS AXOpen.Core.AxoComponent
 
         VAR PUBLIC
@@ -44,20 +46,18 @@ NAMESPACE AXOpen.Elements
         METHOD PUBLIC Run 
 
             VAR_INPUT
-                parent : Axopen.Core.IAxoObject;
+                inParent : Axopen.Core.IAxoObject;
                 inSignal: DINT;
             END_VAR
             
 
-            IF (parent = NULL) THEN 
+            IF (inParent = NULL) THEN 
                 RETURN; 
             END_IF;
 
-            IF _context = NULL THEN
-                SUPER.Run(parent);
-                _context := THIS.GetContext();
-            END_IF;
-
+         
+            SUPER.Run(inParent);
+         
             _messengerInfo.Serve(THIS); 
  
             _signal := inSignal;
@@ -98,10 +98,10 @@ NAMESPACE AXOpen.Elements
         /// </summary>
         METHOD PUBLIC Run 
             VAR_INPUT
-                parent : Axopen.Core.IAxoObject;
+                inParent : Axopen.Core.IAxoObject;
                 inSignal: WORD;
             END_VAR
-            THIS.Run(parent,TO_DINT(inSignal));
+            THIS.Run(inParent,TO_DINT(inSignal));
         END_METHOD
 
         METHOD PUBLIC OVERRIDE Restore 

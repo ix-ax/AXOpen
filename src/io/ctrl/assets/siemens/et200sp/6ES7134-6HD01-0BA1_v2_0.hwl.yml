@@ -1,0 +1,75 @@
+Templates:
+  Modules:
+  - Name: '6ES7134-6HD01-0BA1_v2_0'
+    Placeholders:
+    - Name: 'NAME'
+      Value: 'NAME'
+    - Name: 'TERMINAL'
+      Value: 'Use potential group of the left module (dark BaseUnit)'
+      AllowedValues:
+        - 'Use potential group of the left module (dark BaseUnit)'
+        - 'Enable new potential group (light BaseUnit)'
+    Content:
+      Name: "${NAME}"
+      TypeIdentifier:
+        FileName: 'GSDML-V2.45-SIEMENS-ET200SP-20250606.XML'
+        GsdId: 'AI 4xU/I 2-wire ST V2.0'
+      IoConfiguration:
+        Inputs:
+          # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
+          ProcessImagePartition: 'Automatic update'
+      Parameters:
+        RecordDataList:
+        - IndexName: 'Inputs'
+          Values:
+          - OffsetName: 'Channel 0 Type/range of measurement'
+            # Possible ValueNames: Deactivated | Voltage +/- 5 V | Voltage +/- 10 V | Voltage 1..5 V | Voltage 0..10 V | Current (2-wire transducer) 0..20 mA | Current (2-wire transducer) 4..20 mA
+            ValueName: 'Current (2-wire transducer) 4..20 mA'
+          - OffsetName: 'Channel 0 Smoothing'
+            # Possible ValueNames: None | Weak | Medium | Strong
+            ValueName: 'None'
+          - OffsetName: 'Channel 0 Interference frequency suppression'
+            # Possible ValueNames: 60 Hz (50 ms) | 50 Hz (60 ms) | 16.6 Hz (180 ms)
+            ValueName: '50 Hz (60 ms)'
+          - OffsetName: 'Diagnostics: No supply voltage L+'
+            Value: False
+          - OffsetName: 'Diagnostics: Short circuit to ground'
+            Value: False
+          - OffsetName: 'Diagnostics: Wire break'
+            Value: False
+          - OffsetName: 'Diagnostics: Underflow'
+            Value: False
+          - OffsetName: 'Diagnostics: Overflow'
+            Value: False
+          - OffsetName: 'Channel 1 Type/range of measurement'
+            # Possible ValueNames: Deactivated | Voltage +/- 5 V | Voltage +/- 10 V | Voltage 1..5 V | Voltage 0..10 V | Current (2-wire transducer) 0..20 mA | Current (2-wire transducer) 4..20 mA
+            ValueName: 'Current (2-wire transducer) 4..20 mA'
+          - OffsetName: 'Channel 1 Smoothing'
+            # Possible ValueNames: None | Weak | Medium | Strong
+            ValueName: 'None'
+          - OffsetName: 'Channel 1 Interference frequency suppression'
+            # Possible ValueNames: 60 Hz (50 ms) | 50 Hz (60 ms) | 16.6 Hz (180 ms)
+            ValueName: '50 Hz (60 ms)'
+          - OffsetName: 'Channel 2 Type/range of measurement'
+            # Possible ValueNames: Deactivated | Voltage +/- 5 V | Voltage +/- 10 V | Voltage 1..5 V | Voltage 0..10 V | Current (2-wire transducer) 0..20 mA | Current (2-wire transducer) 4..20 mA
+            ValueName: 'Current (2-wire transducer) 4..20 mA'
+          - OffsetName: 'Channel 2 Smoothing'
+            # Possible ValueNames: None | Weak | Medium | Strong
+            ValueName: 'None'
+          - OffsetName: 'Channel 2 Interference frequency suppression'
+            # Possible ValueNames: 60 Hz (50 ms) | 50 Hz (60 ms) | 16.6 Hz (180 ms)
+            ValueName: '50 Hz (60 ms)'
+          - OffsetName: 'Channel 3 Type/range of measurement'
+            # Possible ValueNames: Deactivated | Voltage +/- 5 V | Voltage +/- 10 V | Voltage 1..5 V | Voltage 0..10 V | Current (2-wire transducer) 0..20 mA | Current (2-wire transducer) 4..20 mA
+            ValueName: 'Current (2-wire transducer) 4..20 mA'
+          - OffsetName: 'Channel 3 Smoothing'
+            # Possible ValueNames: None | Weak | Medium | Strong
+            ValueName: 'None'
+          - OffsetName: 'Channel 3 Interference frequency suppression'
+            # Possible ValueNames: 60 Hz (50 ms) | 50 Hz (60 ms) | 16.6 Hz (180 ms)
+            ValueName: '50 Hz (60 ms)'
+        - IndexName: 'Potential group'
+          Values:
+          - OffsetName: 'Potential group'
+            # Possible ValueNames: Use potential group of the left module (dark BaseUnit) | Enable new potential group (light BaseUnit)
+            ValueName: '${TERMINAL}'
