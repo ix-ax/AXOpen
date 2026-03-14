@@ -208,7 +208,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: datarecord 128 write running
                 IF _progress = 300 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
                     _data_config_54[0]  := BYTE#16#04;
@@ -481,7 +481,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: datarecord 128 write reset
                 IF _progress = 301 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
 
@@ -495,7 +495,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: Port 1 
                 IF _progress = 302 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#502;
                     END_IF;
                    
@@ -510,7 +510,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 1 Index 55 running
                 IF _progress = 303 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#503, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#503;
                     END_IF;
 
@@ -546,7 +546,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 1 Index 55 reset
                 IF _progress = 304 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#504, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#504;
                     END_IF;
     
@@ -560,7 +560,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 1 Index 2 running
                 IF _progress = 305 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#505, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#505;
                     END_IF;
     
@@ -592,7 +592,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 1 Index 2 reset
                 IF _progress = 306 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#506, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#506, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#506;
                     END_IF;
     
@@ -606,7 +606,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write read request Port 1 Index 55 running
                 IF _progress = 307 THEN                           
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#507, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#507, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#507;
                     END_IF;
     
@@ -638,7 +638,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write read request Port 1 Index 55 reset
                 IF _progress = 308 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#508, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#508, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#508;
                     END_IF;
     
@@ -652,7 +652,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter read Port 1 Index 55 running
                 IF _progress = 309 THEN                    
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#509, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#509, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#509;
                     END_IF;
     
@@ -673,7 +673,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter read Port 1 Index 55 reset
                 IF _progress = 310 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#510;
                     END_IF;
     
@@ -687,7 +687,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter Port 1 Index 55 compare
                 IF _progress = 311 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#511, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#511;
                     END_IF;
 
@@ -712,7 +712,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: Port 2 
                 IF _progress = 312 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#512, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#512;
                     END_IF;
                    
@@ -727,7 +727,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 2 Index 55 running
                 IF _progress = 313 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#513, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#513;
                     END_IF;
     
@@ -763,7 +763,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 2 Index 55 reset
                 IF _progress = 314 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#514, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#514;
                     END_IF;
     
@@ -777,7 +777,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 2 Index 2 running
                 IF _progress = 315 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#515, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#515;
                     END_IF;
     
@@ -809,7 +809,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 2 Index 2 reset
                 IF _progress = 316 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#516, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#516;
                     END_IF;
     
@@ -823,7 +823,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write read request Port 2 Index 55 running
                 IF _progress = 317 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#517, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#517;
                     END_IF;
     
@@ -855,7 +855,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write read request Port 2 Index 55 reset
                 IF _progress = 318 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#518, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#518, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#518;
                     END_IF;
     
@@ -869,7 +869,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter read Port 2 Index 55 running
                 IF _progress = 319 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#519, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#519, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#519;
                     END_IF;
     
@@ -889,7 +889,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter read Port 2 Index 55 reset
                 IF _progress = 320 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#520, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#520;
                     END_IF;
     
@@ -903,7 +903,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter Port 2 Index 55 compare
                 IF _progress = 321 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#521, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#521;
                     END_IF;
 
@@ -927,7 +927,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: Port 3 
                 IF _progress = 322 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#522;
                     END_IF;
                    
@@ -942,7 +942,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 3 Index 55 running
                 IF _progress = 323 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#523;
                     END_IF;
 
@@ -978,7 +978,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 3 Index 55 reset
                 IF _progress = 324 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#524;
                     END_IF;
     
@@ -992,7 +992,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 3 Index 2 running
                 IF _progress = 325 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#525;
                     END_IF;
     
@@ -1024,7 +1024,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 3 Index 2 reset
                 IF _progress = 326 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#526;
                     END_IF;
     
@@ -1038,7 +1038,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write read request Port 3 Index 55 running
                 IF _progress = 327 THEN                           
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#527;
                     END_IF;
     
@@ -1070,7 +1070,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write read request Port 3 Index 55 reset
                 IF _progress = 328 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#528, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#528, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#528;
                     END_IF;
     
@@ -1084,7 +1084,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter read Port 3 Index 55 running
                 IF _progress = 329 THEN                    
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#529, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#529, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#529;
                     END_IF;
     
@@ -1105,7 +1105,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter read Port 3 Index 55 reset
                 IF _progress = 330 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#530, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#530;
                     END_IF;
     
@@ -1119,7 +1119,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter Port 3 Index 55 compare
                 IF _progress = 331 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#531, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#531;
                     END_IF;
 
@@ -1143,7 +1143,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: Port 4 
                 IF _progress = 332 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#532, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#532;
                     END_IF;
                    
@@ -1158,7 +1158,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 4 Index 55 running
                 IF _progress = 333 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#533, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#533, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#533;
                     END_IF;
     
@@ -1194,7 +1194,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 4 Index 55 reset
                 IF _progress = 334 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#534, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#534, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#534;
                     END_IF;
     
@@ -1208,7 +1208,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 4 Index 2 running
                 IF _progress = 335 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#535, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#535, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#535;
                     END_IF;
     
@@ -1240,7 +1240,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write Port 4 Index 2 reset
                 IF _progress = 336 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#536, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#536, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#536;
                     END_IF;
     
@@ -1254,7 +1254,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write read request Port 4 Index 55 running
                 IF _progress = 337 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#537, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#537, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#537;
                     END_IF;
     
@@ -1286,7 +1286,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter write read request Port 4 Index 55 reset
                 IF _progress = 338 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#538, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#538, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#538;
                     END_IF;
     
@@ -1300,7 +1300,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter read Port 4 Index 55 running
                 IF _progress = 339 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#539, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#539, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#539;
                     END_IF;
     
@@ -1320,7 +1320,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter read Port 4 Index 55 reset
                 IF _progress = 340 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#540, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#540;
                     END_IF;
     
@@ -1334,7 +1334,7 @@ NAMESPACE AXOpen.Io
                 // ConfigTask running: ISDU parameter Port 4 Index 55 compare
                 IF _progress = 341 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#541, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#541;
                     END_IF;
 
@@ -1358,7 +1358,7 @@ NAMESPACE AXOpen.Io
                 
                 IF _progress = 342 THEN 
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#542, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#542, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#542;
                     END_IF;
 
@@ -1404,7 +1404,7 @@ NAMESPACE AXOpen.Io
             //***********Update inputs **************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.Hwid) ,_data_in_32);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1201, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1201;
                 RETURN;
             END_IF;

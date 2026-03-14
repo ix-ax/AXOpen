@@ -291,15 +291,15 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _initHwCheckDone    := TRUE;
             END_IF;            
 
-            Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Warning);
-            Messenger.ActivateOnCondition(ULINT#301, Enable AND NOT EnableNegative, eAxoMessageCategory#Warning);
+            Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#301, Enable AND NOT EnableNegative, eAxoMessageCategory#Info);
 
             HardwareDiagnosticsTask.Run(THIS,AxisRef.Data.hwIdDevice);
 
             //***********Update inputs **************
             _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRef.Data.hwIdParamCh_IDN) ,_Parameter);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1201, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1201;
                 RETURN;
             END_IF;
@@ -325,7 +325,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             _retVal := Siemens.Simatic.DistributedIO.ReadData((AxisRef.Data.hwIdInput_9_Words) ,_Fieldbus);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1202, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1202;
                 RETURN;
             END_IF;
@@ -408,7 +408,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRef.Data.hwIdParamCh_IDN),_Parameter);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1231, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1231;
                 RETURN;
             END_IF;    
@@ -457,7 +457,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             _retVal := Siemens.Simatic.DistributedIO.WriteData((AxisRef.Data.hwIdOutput_13_Words),_Fieldbus);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1232, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1232;
                 RETURN;
             END_IF;    

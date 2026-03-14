@@ -350,7 +350,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             //Parameter Channel
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HW_ParamCh_IDN) ,_data10);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1201, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1201;
                 RETURN;
             END_IF;
@@ -358,7 +358,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             //Input 24W
             _retVal := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HW_Input_24_Words) ,_data48);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1202, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1202;
                 RETURN;
             END_IF;
@@ -474,7 +474,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
                 
                 IF _progress = 300 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
                     Outputs.Value1 := DWORD#0;
@@ -545,7 +545,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
 
                 IF _progress = 301 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
                     
@@ -559,7 +559,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
 
                 IF _progress = 302 THEN  
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#502;
                     END_IF;
                     
@@ -594,8 +594,8 @@ NAMESPACE AXOpen.Components.Rexroth.Press
                 Status.Error.Id  :=  UINT#2001;
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#2000,RunCommandTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#2001,RunCommandTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#102,RunCommandTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#2001,RunCommandTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#102,RunCommandTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF RunCommandTask.RestoreTriggered() AND _progress >= 300 AND _progress <= 309  THEN
                 Status.Action.Id :=  UINT#102;
                 _progress := 0;
@@ -621,8 +621,8 @@ NAMESPACE AXOpen.Components.Rexroth.Press
                 Status.Error.Id  :=  UINT#2011;
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#2010,GetResultsTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#2011,GetResultsTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#112,GetResultsTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#2011,GetResultsTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#112,GetResultsTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF GetResultsTask.RestoreTriggered()THEN
                 Status.Action.Id :=  UINT#112;
             END_IF;
@@ -646,8 +646,8 @@ NAMESPACE AXOpen.Components.Rexroth.Press
                 Status.Error.Id  :=  UINT#2021;
             END_IF;     
             Messenger.ActivateOnCondition(ULINT#2020,ExportCurveTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#2021,ExportCurveTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#122,ExportCurveTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#2021,ExportCurveTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#122,ExportCurveTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF ExportCurveTask.RestoreTriggered()THEN
                 Status.Action.Id :=  UINT#122;
             END_IF;
@@ -657,7 +657,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
             //Parameter Channel
             _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HW_ParamCh_IDN),_data10);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1231, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1231;
                 RETURN;
             END_IF;       
@@ -708,7 +708,7 @@ NAMESPACE AXOpen.Components.Rexroth.Press
 
             _retVal := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HW_Output_21_Words),_data42);
             IF _retVal > WORD#0 THEN
-                Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1232, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1232;
                 RETURN;
             END_IF;       
