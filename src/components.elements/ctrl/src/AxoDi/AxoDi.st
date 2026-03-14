@@ -81,14 +81,14 @@ NAMESPACE AXOpen.Components.Elements
         /// </summary>
         METHOD PUBLIC IsTrue : BOOL
             IsTrue := _signal;
-            _messengerInfo.ActivateOnCondition(UINT#1,NOT IsTrue,AXOpen.Messaging.eAxoMessageCategory#Warning);
+            _messengerInfo.ActivateOnCondition(UINT#1,NOT IsTrue,AXOpen.Messaging.eAxoMessageCategory#Potential);
         END_METHOD
         /// <summary>
         /// Returns TRUE if signal is off. It creates alarm otherwise.
         /// </summary>
         METHOD PUBLIC IsFalse : BOOL
             IsFalse := NOT _signal;
-            _messengerInfo.ActivateOnCondition(UINT#2,NOT IsFalse,AXOpen.Messaging.eAxoMessageCategory#Warning);
+            _messengerInfo.ActivateOnCondition(UINT#2,NOT IsFalse,AXOpen.Messaging.eAxoMessageCategory#Potential);
         END_METHOD
 
         METHOD PUBLIC SignalStatus : BOOL

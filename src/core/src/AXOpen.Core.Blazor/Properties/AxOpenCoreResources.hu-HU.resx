@@ -189,14 +189,14 @@
   <data name="ResetTask" xml:space="preserve">
     <value>Feladat alaphelyzetbe állítása</value>
   </data>
-  <data name="SeverityInfo" xml:space="preserve">
+  <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>
-  <data name="SeverityWarning" xml:space="preserve">
+  <data name="Warning" xml:space="preserve">
     <value>Figyelmeztetés</value>
   </data>
-  <data name="SeverityMinorFault" xml:space="preserve">
-    <value>Kisebb hiba</value>
+  <data name="Error_" xml:space="preserve">
+    <value>Hiba</value>
   </data>
   <data name="SeverityMajorFault" xml:space="preserve">
     <value>Fő hiba</value>
@@ -204,10 +204,10 @@
   <data name="SeverityError" xml:space="preserve">
     <value>Hiba</value>
   </data>
-  <data name="SeverityProgrammingError" xml:space="preserve">
+  <data name="System" xml:space="preserve">
     <value>Rendszerhiba</value>
   </data>
-  <data name="SeverityCritical" xml:space="preserve">
+  <data name="Critical" xml:space="preserve">
     <value>Kritikus</value>
   </data>
   <data name="ActiveAcknowledged" xml:space="preserve">
@@ -260,10 +260,10 @@
   <data name="NoAlarmsToDisplay" xml:space="preserve">
     <value>Nincsenek megjelenítendő riasztások.</value>
   </data>
-  <data name="HideDetails" xml:space="preserve">
+  <data name="HideDetails_Duplicate[1]" xml:space="preserve">
     <value>Részletek elrejtése</value>
   </data>
-  <data name="ShowDetails" xml:space="preserve">
+  <data name="ShowDetails_Duplicate[1]" xml:space="preserve">
     <value>Részletek megjelenítése</value>
   </data>
   <data name="AcknowledgeAlarm" xml:space="preserve">
@@ -313,5 +313,53 @@
   </data>
   <data name="AlarmCode" xml:space="preserve">
     <value>Riasztási kód</value>
+  </data>
+  <data name="SequencerSendSuspendConfiguration" xml:space="preserve">
+    <value>Felfuggesztes konfiguracio kuldese</value>
+  </data>
+  <data name="SequencerSuspendBeforeExecution" xml:space="preserve">
+    <value>Felfuggesztes vegrehajtas elott</value>
+  </data>
+  <data name="SequencerSuspendAfterExecution" xml:space="preserve">
+    <value>Felfuggesztes vegrehajtas utan</value>
+  </data>
+  <data name="SequencerStepExecutionMode" xml:space="preserve">
+    <value>Lepes vegrehajtasi mod</value>
+  </data>
+  <data name="SequencerNoStepsFound" xml:space="preserve">
+    <value>Nem talalhato lepes.</value>
+  </data>
+  <data name="SequencerMonitoredSteps" xml:space="preserve">
+    <value>Figyelt lepesek</value>
+  </data>
+  <data name="SequencerNoMonitoredStepsSelected" xml:space="preserve">
+    <value>Nincs kivalasztott figyelt lepes.</value>
+  </data>
+  <data name="SequencerBreakpoint" xml:space="preserve">
+    <value>Torespont</value>
+  </data>
+  <data name="SequencerOrder" xml:space="preserve">
+    <value>Sorrend</value>
+  </data>
+  <data name="SequencerDesc" xml:space="preserve">
+    <value>Leiras</value>
+  </data>
+  <data name="SequencerMonitor" xml:space="preserve">
+    <value>Figyeles</value>
+  </data>
+  <data name="SequencerContinue" xml:space="preserve">
+    <value>Folytatas</value>
+  </data>
+  <data name="SequencerRemove" xml:space="preserve">
+    <value>Eltavolitas</value>
+  </data>
+  <data name="SequencerAddToMonitor" xml:space="preserve">
+    <value>Hozzaadas a figyeleshez</value>
+  </data>
+  <data name="SequencerApplyBreakpoints" xml:space="preserve">
+    <value>Torespontok alkalmazasa</value>
+  </data>
+  <data name="SequencerClearAllBreakpoints" xml:space="preserve">
+    <value>Osszes torespont torlese</value>
   </data>
 </root>

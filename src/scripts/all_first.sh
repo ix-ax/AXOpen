@@ -14,8 +14,8 @@ validate_password_safe_chars() {
     return 0
 }
 
-if [ "$#" -ne 7 ]; then
-    printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD> <USE_PLC_SIM_ADVANCED>\r\n${NC}"
+if [ "$#" -ne 8 ]; then
+    printf "${RED}Usage: $0 <NAMESPACE> <PLC_NAME> <PLC_IP_ADDRESS> <PLATFORM> <USERNAME> <PASSWORD> <USE_PLC_SIM_ADVANCED> <FORCE>\r\n${NC}"
     exit 1
 fi
 
@@ -69,6 +69,14 @@ if [ -z $USE_PLC_SIM_ADVANCED ]; then
     exit 1
 fi
 
+if [ "$8" = "true" ]; then
+	echo "Project certificate is going to be deleted and regenerated again."
+	FORCE=true
+else
+	echo "Project certificate is going to be generated if it does not already exists."
+	FORCE=false
+fi
+
 PLCSIM=0
 case "$(echo "$USE_PLC_SIM_ADVANCED" | tr '[:upper:]' '[:lower:]')" in
     "true")
@@ -107,11 +115,18 @@ if [ "$PLCSIM" -eq 1 ]; then
 	$plcsim_script $NAMESPACE $PLC_NAME $PLC_IP_ADDRESS
 fi
 
+
 #apax run ci                                  # clean and install dependencies
 apax clean
 apax install --catalog
 apax install
 
+if [ "$FORCE" = "true" ]; then
+	certs_folder="./certs"
+    rm -rf "${certs_folder:?}/"*
+	hwc_gen_folder="./hwc/hwc.gen"
+    rm -rf "${hwc_gen_folder:?}/"*
+fi
 #clean_plc                                    # total reset of the PLC excluding IP and name
 clean_plc=$( dirname ${BASH_SOURCE[0]})"\\clean_plc.sh"
 $clean_plc $PLC_IP_ADDRESS $USERNAME $PASSWORD

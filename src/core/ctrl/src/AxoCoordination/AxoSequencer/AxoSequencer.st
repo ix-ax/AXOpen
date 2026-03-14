@@ -1,11 +1,25 @@
+USING AXOpen.Messaging;
+USING AXOpen.Messaging.Static;
 NAMESPACE AXOpen.Core
     USING System.Strings;
     {S7.extern=ReadWrite}
     CLASS AxoSequencer EXTENDS AxoTask IMPLEMENTS IAxoSequencer
-        VAR PUBLIC                  
-            {#ix-set:AttributeName = "<#Stepping mode#>"}
+        VAR PUBLIC 
+            {#ix-set:AttributeName = "<#Required stepping mode#>"}
+            ReqSteppingMode : eAxoSteppingMode;
+            {#ix-set:AttributeName = "<#Set required stepping mode#>"}
+            SetReqSteppingMode : BOOL;
+            {#ix-set:AttributeName = "<#Current stepping mode#>"}
+            {S7.extern=Read}
+            {#ix-attr:[ReadOnly()]}
             SteppingMode : eAxoSteppingMode;
-            {#ix-set:AttributeName = "<#Sequence mode#>"}
+            {#ix-set:AttributeName = "<#Required sequence mode#>"}
+            ReqSequenceMode : eAxoSequenceMode;                 
+            {#ix-set:AttributeName = "<#Set required sequence mode#>"}
+            SetReqSequenceMode : BOOL;
+            {#ix-set:AttributeName = "<#Current sequence mode#>"}
+            {S7.extern=Read}
+            {#ix-attr:[ReadOnly()]}
             SequenceMode : eAxoSequenceMode;
             CurrentOrder : ULINT;
             {#ix-set:AttributeName = ">>"}
@@ -30,7 +44,10 @@ NAMESPACE AXOpen.Core
             _refStep :  REF_TO AxoStep;       
             _microStep : UINT;   
             _context        :   IAxoContext;
-            _analytics : IAxoSequencerAnalytics;                      
+            _analytics : IAxoSequencerAnalytics;    
+            _stepExecutionMode : eAxoStepExecutionMode;                 
+            _steppingMode : eAxoSteppingMode;
+            _sequenceMode : eAxoSequenceMode;
         END_VAR
                 
         METHOD PUBLIC SetAnalitics
@@ -47,9 +64,27 @@ NAMESPACE AXOpen.Core
             IF _context = NULL THEN 
                 _context := THIS.GetContext(); 
             END_IF;
-
             Open := FALSE;
+
+            SteppingMode := _steppingMode;
+            IF SetReqSteppingMode THEN
+                IF ReqSteppingMode = eAxoSteppingMode#StepByStep AND 
+                    _steppingMode <> eAxoSteppingMode#StepByStep THEN 
+                    THIS.SetSteppingMode(ReqSteppingMode);
+                END_IF;
+                IF ReqSteppingMode = eAxoSteppingMode#Continous AND 
+                    _steppingMode <> eAxoSteppingMode#Continous THEN 
+                    THIS.SetSteppingMode(ReqSteppingMode);
+                END_IF;
+                SetReqSteppingMode := FALSE;
+            END_IF;
                        
+            SequenceMode := _sequenceMode;
+            IF SetReqSequenceMode THEN
+                THIS.SetSequenceMode(ReqSequenceMode);
+                SetReqSequenceMode := FALSE;
+            END_IF;
+
             SUPER.SetSuspendMultipleExecuteCallCheck(TRUE);
 
             StepForwardCommand.SetSuspendMultipleExecuteCallCheck(TRUE);
@@ -57,6 +92,9 @@ NAMESPACE AXOpen.Core
             StepBackwardCommand.SetSuspendMultipleExecuteCallCheck(TRUE);
 
             IF SUPER.Execute() THEN
+                // Resets the message category requalification to default value of None at the beginning of each sequence execution to avoid unexpected message category requalifications caused by previous sequence executions.
+                _context.GetMessengerService().RequalifyDownstreamMessages(eAxoMessageCategory#None);
+                
                 IF _context = NULL THEN 
                     RETURN; 
                 END_IF;         
@@ -83,6 +121,10 @@ NAMESPACE AXOpen.Core
             END_IF;            
         END_METHOD    
         
+        VAR PUBLIC
+            _msgStepTimedOut : AxoStepTimedOutMessenger;
+        END_VAR    
+
         METHOD INTERNAL Execute : BOOL
             VAR_INPUT
                 step : IAxoStep;                
@@ -98,7 +140,6 @@ NAMESPACE AXOpen.Core
                 END_IF;     
                 
                 _step := step;
-                            
                 IF(_coordinatorState = AxoCoordinatorStates#Configuring) THEN
                     THIS.DetermineOrder(step);  
                 END_IF;                                                            
@@ -106,7 +147,7 @@ NAMESPACE AXOpen.Core
                 // Stepping inside the sequence
                 IF _coordinatorState = AxoCoordinatorStates#Running THEN
                     // Stepping is possible only in StepByStepMode
-                    IF SteppingMode = eAxoSteppingMode#StepByStep THEN
+                    IF _steppingMode = eAxoSteppingMode#StepByStep THEN
                         // Stepping Forwards and Backwards commands cannot be executed simultaneously
                         StepForwardCommand.SetIsDisabled(StepBackwardCommand.IsBusy() 
                                                             // Stepping Forwards disabled from last step
@@ -138,7 +179,7 @@ NAMESPACE AXOpen.Core
                 END_IF;
                
                 IF _coordinatorState = AxoCoordinatorStates#Running && (CurrentOrder = step.GetStepOrder()) && step.IsCalledJustOnceInThisPlcCycle() THEN
-                    IF SteppingMode = eAxoSteppingMode#Continous THEN
+                    IF _steppingMode = eAxoSteppingMode#Continous THEN
                         IF Enable THEN
                             step.SetIsActive(TRUE);
                             IF step.IsDone() THEN
@@ -152,7 +193,7 @@ NAMESPACE AXOpen.Core
                             //     CurrentOrder := ULINT#1;
                             // END_IF;
                         END_IF;
-                    ELSIF SteppingMode = eAxoSteppingMode#StepByStep THEN
+                    ELSIF _steppingMode = eAxoSteppingMode#StepByStep THEN
                         StepIn.SetIsDisabled(FALSE);
                         IF Enable THEN
                             step.SetIsActive(TRUE);
@@ -179,12 +220,18 @@ NAMESPACE AXOpen.Core
                     step.SetIsDisabled(NOT step.GetIsActive());
                 END_IF;
                 
-                IF step.GetIsActive() AND (step.IsReady() OR step.IsDone() OR SteppingMode = eAxoSteppingMode#StepByStep) THEN
-                    IF (SteppingMode = eAxoSteppingMode#Continous) THEN
+                IF step.GetIsActive() AND (step.IsReady() OR step.IsDone() OR _steppingMode = eAxoSteppingMode#StepByStep) THEN
+                    IF (_steppingMode = eAxoSteppingMode#Continous) THEN
+                        // Switching to step mode as the step is marked as 'SwitchToStepModeBeforeEnteringStep'
+                        _stepExecutionMode := _step.GetStepExecutionMode();
+                        IF _stepExecutionMode = eAxoStepExecutionMode#SwitchToStepModeBeforeEnteringStep THEN
+                            THIS.SetSteppingMode(eAxoSteppingMode#StepByStep);
+                            RETURN;
+                        END_IF;
                         step.Invoke();
                         _context.GetLogger().Log('<#Starts step :#>', AXOpen.Logging.eLogLevel#Verbose, step);
                     // Invoke the step in a case of step mode when StepIn Command is invoked
-                    ELSIF (SteppingMode = eAxoSteppingMode#StepByStep) THEN
+                    ELSIF (_steppingMode = eAxoSteppingMode#StepByStep) THEN
                         IF StepIn.Execute() THEN
                             IF _step.HasError() THEN
                                 _step.Restore();
@@ -208,6 +255,21 @@ NAMESPACE AXOpen.Core
             IF(THIS.CurrentOrder = step.GetStepOrder()) THEN
                 _refStep ?= step;
                 CurrentStep := _refStep^;                
+            END_IF;   
+
+            IF(THIS.MaxSequenceDuration = LT#0s) THEN
+                THIS.MaxSequenceDuration := LT#10s; // Default value for max sequence duration to 10 seconds if not set
+            END_IF;    
+
+            // We will only report step timeout when the step duration exceeds the MaxSequenceDuration, 
+            // which is set for the whole sequence, to avoid too much noise in the logs.
+            IF(THIS.CurrentStep.Duration > THIS.MaxSequenceDuration) THEN
+                IF(Execute) THEN 
+                    _context.GetMessengerService().RequalifyDownstreamMessages(eAxoMessageCategory#Error);
+                    _msgStepTimedOut.Activate(THIS, _refStep); 
+                END_IF;               
+            ELSE
+                _msgStepTimedOut.Deactivate(THIS, _refStep);                                              
             END_IF;   
 
             // IF(THIS.CurrentOrder + ULINT#1 = step.GetStepOrder() OR (THIS.CurrentOrder = THIS.GetNumberOfConfiguredSteps() AND step.GetStepOrder() = UINT#1)) THEN
@@ -236,10 +298,10 @@ NAMESPACE AXOpen.Core
                     _context.GetLogger().Log('<#Step done :#>', AXOpen.Logging.eLogLevel#Verbose, _step);
                     _step.DoneWhen(_step.IsBusy());
                     IF(_analytics <> NULL) THEN _analytics.UpdateAnalytics(CurrentStep); END_IF;
-                    _step.SetIsActive(FALSE);                     
+                    _step.SetIsActive(FALSE);       
                     CurrentOrder := CurrentOrder + ULINT#1;                                      
                     // Finalize the StepIn Command in a case of step mode
-                    StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);
+                    StepIn.DoneWhen(_steppingMode = eAxoSteppingMode#StepByStep);
                 END_IF;
             END_IF;
         END_METHOD
@@ -266,7 +328,7 @@ NAMESPACE AXOpen.Core
                     IF(_analytics <> NULL) THEN _analytics.UpdateAnalytics(CurrentStep); END_IF;
                     CurrentOrder := RequestedStep.GetStepOrder();
                     // Finalize the StepIn Command in a case of step mode
-                    StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);
+                    StepIn.DoneWhen(_steppingMode = eAxoSteppingMode#StepByStep);
                 END_IF;
             END_IF;
         END_METHOD
@@ -288,9 +350,9 @@ NAMESPACE AXOpen.Core
                     _step.SetIsActive(FALSE);
                     _coordinatorState := AxoCoordinatorStates#Idle;
                     CurrentOrder := ULINT#1;
-                    SUPER.DoneWhen(SequenceMode =eAxoSequenceMode#RunOnce);
+                    SUPER.DoneWhen(_sequenceMode =eAxoSequenceMode#RunOnce);
                     // Finalize the StepIn Command in a case of step mode
-                    StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);
+                    StepIn.DoneWhen(_steppingMode = eAxoSteppingMode#StepByStep);
                     THIS.OnCompleteSequence();
                     _context.GetLogger().Log('<#Sequence completed :#>', AXOpen.Logging.eLogLevel#Verbose, THIS);
                 END_IF;
@@ -310,6 +372,20 @@ NAMESPACE AXOpen.Core
             ;
         END_METHOD    
             
+        ///<summary>
+        /// Executes once when the sequence is switched to StepByStep mode.
+        ///</summary>
+        METHOD PROTECTED OnEnterStepByStepMode
+            ;
+        END_METHOD    
+            
+        ///<summary>
+        /// Executes once when the sequence is switched to Continous mode.
+        ///</summary>
+        METHOD PROTECTED OnEnterContinousMode
+            ;
+        END_METHOD   
+
         ///<summary>
         /// Gets the state of the coordinator                        
         ///</summary>
@@ -434,15 +510,103 @@ NAMESPACE AXOpen.Core
         END_METHOD
 
         METHOD PUBLIC GetSteppingMode : eAxoSteppingMode
-            GetSteppingMode := SteppingMode;
+            GetSteppingMode := _steppingMode;
         END_METHOD
 
         METHOD PUBLIC SetSteppingMode 
             VAR_INPUT
                 inSteppingMode : eAxoSteppingMode; 
             END_VAR
-            SteppingMode := inSteppingMode;
+            IF inSteppingMode = eAxoSteppingMode#StepByStep THEN 
+                THIS.OnEnterStepByStepMode();
+            ELSIF inSteppingMode = eAxoSteppingMode#Continous THEN 
+                THIS.OnEnterContinousMode();
+            END_IF;
+            _steppingMode := inSteppingMode;
         END_METHOD
 
-    END_CLASS    
+        METHOD PUBLIC GetSequenceMode : eAxoSequenceMode
+            GetSequenceMode := _sequenceMode;
+        END_METHOD
+
+        METHOD PUBLIC SetSequenceMode 
+            VAR_INPUT
+                inSequenceMode : eAxoSequenceMode; 
+            END_VAR
+            _sequenceMode := inSequenceMode;
+        END_METHOD
+    END_CLASS     
+    
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC AxoStepTimedOutMessenger EXTENDS AxoMessenger
+
+        VAR CONSTANT
+            MSG_STEP_TIMED_OUT : STRING[254] := '<#Step timed out: #>';            
+        END_VAR    
+
+        VAR PRIVATE
+            _refObservedStep : REF_TO AxoStep;
+        END_VAR    
+
+        METHOD INTERNAL Activate 
+            VAR_INPUT
+                inParent : IAxoObject;            
+                inStep : REF_TO AXOpen.Core.AxoStep;
+            END_VAR
+            
+            VAR
+                _context : IAxoContext;
+            END_VAR   
+            
+            IF(inStep = NULL) THEN
+               RETURN;
+            END_IF;    
+                      
+            IF(THIS.MessengerState = eAxoMessengerState#Idle && _refObservedStep <> inStep) THEN
+                THIS.MessengerState := eAxoMessengerState#ActiveAcknowledgeNotRequired;            
+                _context := inParent.GetContext();   
+                Risen := _context.GetRtc().NowUTC();                
+                Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
+                Acknowledged := LDATE_AND_TIME#1970-01-01-00:00:00.000;                                
+                Category := eAxoMessageCategory#Error;   
+                Message := System.Strings.Concat(MSG_STEP_TIMED_OUT, inStep^.GetStepDescription());  
+                MessageCode := ULINT#18446744073709551615; // No specific message code for step timeout                
+                _context.GetLogger().Log(System.Strings.Concat(RISE_SIGNATURE, Message), AXOpen.Logging.eLogLevel#Error, THIS);                
+                _refObservedStep := inStep;
+            END_IF;
+
+            IF(THIS.MessengerState <> eAxoMessengerState#Idle && _refObservedStep = inStep) THEN
+                inParent.AggregateMessage(1);
+            END_IF;    
+        END_METHOD
+
+        
+        METHOD INTERNAL Deactivate 
+            VAR_INPUT
+                inParent : IAxoObject;                                     
+                inStep : REF_TO AXOpen.Core.AxoStep;
+            END_VAR 
+            VAR
+                _context : IAxoContext;
+            END_VAR
+
+            IF(_refObservedStep = NULL) THEN
+                RETURN;
+            END_IF;    
+
+           
+            IF(THIS.MessengerState = eAxoMessengerState#ActiveAcknowledgeNotRequired) THEN   
+                _context := inParent.GetContext();   
+                Fallen := _context.GetRtc().NowUTC();     
+                Message :=System.Strings.Concat(MSG_STEP_TIMED_OUT, _refObservedStep^.GetStepDescription());
+                MessageCode := ULINT#18446744073709551615; // No specific message code for step timeout
+                _context.GetLogger().Log(System.Strings.Concat(FALL_SIGNATURE, Message), AXOpen.Logging.eLogLevel#Error, THIS);
+                THIS.MessengerState := eAxoMessengerState#Idle;
+            END_IF; 
+
+            _refObservedStep := NULL;   
+
+        END_METHOD
+    END_CLASS
+
 END_NAMESPACE

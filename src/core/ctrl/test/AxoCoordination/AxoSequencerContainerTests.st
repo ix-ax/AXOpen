@@ -1020,30 +1020,30 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
         {Test}
         METHOD PUBLIC should_return_the_continous_stepping_mode
-            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.SteppingMode, eAxoSteppingMode#Continous));
+            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.GetSteppingMode(), eAxoSteppingMode#Continous));
         END_METHOD
         
         {Test}
         METHOD PUBLIC should_return_the_step_by_step_stepping_mode
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
-            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.SteppingMode, eAxoSteppingMode#StepByStep));
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
+            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.GetSteppingMode(), eAxoSteppingMode#StepByStep));
         END_METHOD
         
         {Test}
         METHOD PUBLIC should_return_the_cyclic_mode
-            Assert.Equal(TRUE ,THIS.EqualeAxoSequenceMode(_sequencer.SequenceMode, eAxoSequenceMode#Cyclic));
+            Assert.Equal(TRUE ,THIS.EqualeAxoSequenceMode(_sequencer.GetSequenceMode(), eAxoSequenceMode#Cyclic));
         END_METHOD
         
         {Test}
         METHOD PUBLIC should_return_the_runonce_mode
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
-            Assert.Equal(TRUE ,THIS.EqualeAxoSequenceMode(_sequencer.SequenceMode, eAxoSequenceMode#RunOnce));
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
+            Assert.Equal(TRUE ,THIS.EqualeAxoSequenceMode(_sequencer.GetSequenceMode(), eAxoSequenceMode#RunOnce));
         END_METHOD
         
         {Test}        
         METHOD PUBLIC RunOnce_mode_CompleteSequence_should_set_currently_executed_step_to_Done
             THIS.ExecuteSequence(TRUE,FALSE);
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
             Assert.Equal(FALSE, _sequencer._step_3.IsDone());
             _sequencer.CompleteSequence();
             Assert.Equal(TRUE, _sequencer._step_3.IsDone());
@@ -1052,7 +1052,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC RunOnce_mode_CompleteSequence_should_reset_the_Busy_state_of_the_currently_executed_step
             THIS.ExecuteSequence(TRUE,FALSE);
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
             Assert.Equal(TRUE, _sequencer._step_3.IsBusy());
             _sequencer.CompleteSequence();
             Assert.Equal(FALSE, _sequencer._step_3.IsBusy());
@@ -1061,7 +1061,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC RunOnce_mode_CompleteSequence_should_set_the_Current_Order_to_1
             THIS.ExecuteSequence(TRUE,FALSE);
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
             _sequencer.CompleteSequence();
             Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
         END_METHOD
@@ -1069,7 +1069,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC RunOnce_mode_CompleteSequence_should_set_the_coordinator_state_to_Idle
             THIS.ExecuteSequence(TRUE,FALSE);
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
             _sequencer.CompleteSequence();
             Assert.Equal(TRUE, THIS.EqualAxoCoordinatorStates(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
         END_METHOD
@@ -1077,7 +1077,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC RunOnce_mode_CompleteSequence_should_set_the_CurrentOrder_to_1
             THIS.ExecuteSequence(TRUE,FALSE);
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
             _sequencer.CompleteSequence();
             _context.Close();
 
@@ -1087,7 +1087,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC RunOnce_mode_CompleteSequence_should_stops_the_execution_of_the_active_step_in_the_next_PLC_cycles
             THIS.ExecuteSequence(TRUE,FALSE);
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
             _sequencer.CompleteSequence();
             _context.Close();
 
@@ -1109,7 +1109,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC RunOnce_mode_CompleteSequence_coordinator_state_should_stay_in_Idle_in_the_next_PLC_cycles
             THIS.ExecuteSequence(TRUE,FALSE);
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
             _sequencer.CompleteSequence();
             _context.Close();
 
@@ -1146,8 +1146,8 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         
         {Test}        
         METHOD PUBLIC all_stepping_commands_should_be_disabled_when_Sequencer_is_not_running_mode
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
-            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.SteppingMode, eAxoSteppingMode#StepByStep));
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
+            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.GetSteppingMode(), eAxoSteppingMode#StepByStep));
             THIS.PrepareSequence();
             Assert.Equal(TRUE, THIS.EqualAxoCoordinatorStates(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
             Assert.Equal(TRUE,_sequencer.StepForwardCommand.GetIsDisabled());
@@ -1157,8 +1157,8 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
         {Test}        
         METHOD PUBLIC StepForward_and_StepIn_commands_should_not_be_disabled_when_Sequencer_is_running_mode
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
-            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.SteppingMode, eAxoSteppingMode#StepByStep));
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
+            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.GetSteppingMode(), eAxoSteppingMode#StepByStep));
             THIS.ExecuteSequence(TRUE,TRUE);
             Assert.Equal(TRUE, THIS.EqualAxoCoordinatorStates(AxoCoordinatorStates#Running , _sequencer.GetCoordinatorState()));
             Assert.Equal(FALSE,_sequencer.StepForwardCommand.GetIsDisabled());
@@ -1167,8 +1167,8 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
         {Test}        
         METHOD PUBLIC StepBackward_command_should_not_be_disabled_when_Sequencer_is_running_mode_and_CurrentOrder_is_greather_then_one
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
-            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.SteppingMode, eAxoSteppingMode#StepByStep));
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
+            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.GetSteppingMode(), eAxoSteppingMode#StepByStep));
             THIS.ExecuteSequence(TRUE,TRUE);
             _sequencer.RequestStep(_sequencer._step_2);
             THIS.ExecuteSequence(TRUE,TRUE);
@@ -1179,8 +1179,8 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC StepInCommand_should_invoke_the_current_step
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
-            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.SteppingMode, eAxoSteppingMode#StepByStep));
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
+            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.GetSteppingMode(), eAxoSteppingMode#StepByStep));
             THIS.ExecuteSequence(FALSE,FALSE);
             Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
             Assert.Equal(TRUE,_sequencer._step_1.IsActive);
@@ -1206,8 +1206,8 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC StepInCommand_should_invoke_the_current_step_if_Current_step_is_Done_StepIn_should_be_also_Done
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
-            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.SteppingMode, eAxoSteppingMode#StepByStep));
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
+            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.GetSteppingMode(), eAxoSteppingMode#StepByStep));
             THIS.ExecuteSequence(TRUE,FALSE);
             Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
             Assert.Equal(TRUE , _sequencer._step_1.IsActive);
@@ -1248,8 +1248,8 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
             Assert.Equal(TRUE , _sequencer._step_2.GetIsDisabled());
 
             // Act
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
-            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.SteppingMode, eAxoSteppingMode#StepByStep));
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
+            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.GetSteppingMode(), eAxoSteppingMode#StepByStep));
             THIS.ExecuteSequence(TRUE,FALSE);
 
             // Assert
@@ -1272,7 +1272,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
                 _previousOrder : ULINT;
             END_VAR
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(FALSE,FALSE);
@@ -1331,7 +1331,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC StepForward_should_restore_the_currently_executing_step
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(FALSE,FALSE);
@@ -1362,7 +1362,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC StepForward_should_prepare_following_step_to_be_ready_to_execute
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(FALSE,FALSE);
@@ -1390,7 +1390,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC StepForward_command_should_be_in_done_state_after_succesfull_execution
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(FALSE,FALSE);
@@ -1420,7 +1420,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
                 _previousOrder : ULINT;
             END_VAR
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(FALSE,FALSE);
@@ -1445,7 +1445,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
                 _previousOrder : ULINT;
             END_VAR
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
             _sequencer.RequestStep(_sequencer._step_3);
             _sequencer.StepIn.Invoke();
@@ -1467,7 +1467,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
         {Test}        
         METHOD PUBLIC StepForward_command_should_be_disabled_when_CurrentOrder_is_equal_to_last_step_order
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
             _sequencer.RequestStep(_sequencer._step_3);
             THIS.ExecuteSequence(FALSE,FALSE);
@@ -1485,7 +1485,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
                 _previousOrder : ULINT;
             END_VAR
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
             _sequencer.RequestStep(_sequencer._step_3);
             _sequencer.StepIn.Invoke();
@@ -1548,7 +1548,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
                 _previousOrder : ULINT;
             END_VAR
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
             _sequencer.RequestStep(_sequencer._step_3);
             _sequencer.StepIn.Invoke();
@@ -1580,7 +1580,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
                 _previousOrder : ULINT;
             END_VAR
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
             _sequencer.RequestStep(_sequencer._step_3);
             _sequencer.StepIn.Invoke();
@@ -1614,7 +1614,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
                 _previousOrder : ULINT;
             END_VAR
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
             _sequencer.RequestStep(_sequencer._step_3);
             _sequencer.StepIn.Invoke();
@@ -1644,7 +1644,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
                 _previousOrder : ULINT;
             END_VAR
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
             _sequencer.RequestStep(_sequencer._step_3);
             _sequencer.StepIn.Invoke();
@@ -1670,7 +1670,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
                 _previousOrder : ULINT;
             END_VAR
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE,TRUE,FALSE,TRUE);
             _sequencer.RequestStep(_sequencer._step_3);
             _sequencer.StepIn.Invoke();
@@ -1692,7 +1692,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
         {Test}        
         METHOD PUBLIC StepBackward_command_should_be_disabled_when_CurrentOrder_is_equal_to_last_step_order
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
 
             Assert.Equal(ULINT#1,_sequencer.CurrentOrder);
@@ -1720,7 +1720,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
         {Test}        
         METHOD PUBLIC OnBeforeSequenceStart_should_be_triggered_when_sequence_starts_even_in_step_by_step_mode
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS._counter :=  _sequencer.GetOnBeforeSequenceStartCounter();
             THIS.ExecuteSequence(FALSE,FALSE);
             Assert.Equal(THIS._counter + ULINT#1,_sequencer.GetOnBeforeSequenceStartCounter());
@@ -1728,7 +1728,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
         {Test}        
         METHOD PUBLIC OnBeforeSequenceStart_should_not_be_triggered_when_sequence_has_been_already_started_even_in_step_by_step_mode
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
             THIS._counter :=  _sequencer.GetOnBeforeSequenceStartCounter();
             THIS.ExecuteSequence(FALSE,FALSE);
@@ -1737,7 +1737,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
         {Test}        
         METHOD PUBLIC OnBeforeSequenceStart_should_be_triggered_when_sequence_starts_even_in_run_once_mode
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
             THIS._counter :=  _sequencer.GetOnBeforeSequenceStartCounter();
             THIS.ExecuteSequence(FALSE,FALSE);
             Assert.Equal(THIS._counter + ULINT#1,_sequencer.GetOnBeforeSequenceStartCounter());
@@ -1745,7 +1745,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
         {Test}        
         METHOD PUBLIC OnBeforeSequenceStart_should_not_be_triggered_when_sequence_has_been_already_started_even_in_run_once_mode
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
             THIS.ExecuteSequence(FALSE,FALSE);
             THIS._counter :=  _sequencer.GetOnBeforeSequenceStartCounter();
             THIS.ExecuteSequence(FALSE,FALSE);
@@ -1754,8 +1754,8 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
         {Test}        
         METHOD PUBLIC OnBeforeSequenceStart_should_be_triggered_when_sequence_starts_even_in_run_once_mode_and_step_by_step_mode
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS._counter :=  _sequencer.GetOnBeforeSequenceStartCounter();
             THIS.ExecuteSequence(FALSE,FALSE);
             Assert.Equal(THIS._counter + ULINT#1,_sequencer.GetOnBeforeSequenceStartCounter());
@@ -1763,8 +1763,8 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
         {Test}        
         METHOD PUBLIC OnBeforeSequenceStart_should_not_be_triggered_when_sequence_has_been_already_started_even_in_run_once_mode_and_step_by_step_mode
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS.ExecuteSequence(FALSE,FALSE);
             THIS._counter :=  _sequencer.GetOnBeforeSequenceStartCounter();
             THIS.ExecuteSequence(FALSE,FALSE);
@@ -1791,7 +1791,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC OnCompleteSequence_should_be_triggered_when_CompleteSequence_is_called_even_in_step_by_step_mode
             THIS.ExecuteSequence(TRUE,FALSE);
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS._counter :=  _sequencer.GetOnCompleteSequenceCounter();
             _sequencer.CompleteSequence();
             Assert.Equal(THIS._counter + ULINT#1,_sequencer.GetOnCompleteSequenceCounter());
@@ -1800,7 +1800,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC OnCompleteSequence_should_not_be_triggered_when_CompleteSequence_was_already_called_even_in_step_by_step_mode
             THIS.ExecuteSequence(TRUE,FALSE);
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             _sequencer.CompleteSequence();
             THIS._counter :=  _sequencer.GetOnCompleteSequenceCounter();
             _sequencer.CompleteSequence();
@@ -1810,7 +1810,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC OnCompleteSequence_should_be_triggered_when_CompleteSequence_is_called_even_in_run_once_mode
             THIS.ExecuteSequence(TRUE,FALSE);
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
             THIS._counter :=  _sequencer.GetOnCompleteSequenceCounter();
             _sequencer.CompleteSequence();
             Assert.Equal(THIS._counter + ULINT#1,_sequencer.GetOnCompleteSequenceCounter());
@@ -1819,7 +1819,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC OnCompleteSequence_should_not_be_triggered_when_CompleteSequence_was_already_called_even_in_run_once_mode
             THIS.ExecuteSequence(TRUE,FALSE);
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
             _sequencer.CompleteSequence();
             THIS._counter :=  _sequencer.GetOnCompleteSequenceCounter();
             _sequencer.CompleteSequence();
@@ -1829,8 +1829,8 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC OnCompleteSequence_should_be_triggered_when_CompleteSequence_is_called_even_in_run_once_mode_and_step_by_step_mode
             THIS.ExecuteSequence(TRUE,FALSE);
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             THIS._counter :=  _sequencer.GetOnCompleteSequenceCounter();
             _sequencer.CompleteSequence();
             Assert.Equal(THIS._counter + ULINT#1,_sequencer.GetOnCompleteSequenceCounter());
@@ -1839,8 +1839,8 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         {Test}        
         METHOD PUBLIC OnCompleteSequence_should_not_be_triggered_when_CompleteSequence_was_already_called_even_in_run_once_mode_and_step_by_step_mode
             THIS.ExecuteSequence(TRUE,FALSE);
-            _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
+            _sequencer.SetSequenceMode(eAxoSequenceMode#RunOnce);
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
             _sequencer.CompleteSequence();
             THIS._counter :=  _sequencer.GetOnCompleteSequenceCounter();
             _sequencer.CompleteSequence();
@@ -1853,8 +1853,8 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
                 count :ULINT;
             END_VAR
             // Arrange
-            _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
-            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.SteppingMode, eAxoSteppingMode#StepByStep));
+            _sequencer.SetSteppingMode(eAxoSteppingMode#StepByStep);
+            Assert.Equal(TRUE ,THIS.EqualeAxoSteppingMode(_sequencer.GetSteppingMode(), eAxoSteppingMode#StepByStep));
 
             THIS.ExecuteSequence(FALSE,FALSE);
             _sequencer.StepIn.Invoke();

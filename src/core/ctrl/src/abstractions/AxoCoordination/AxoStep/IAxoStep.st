@@ -10,5 +10,6 @@ NAMESPACE AXOpen.Core
         METHOD IsFirstEntryToStep : BOOL END_METHOD
         METHOD UpdateStepAnalitics VAR_IN_OUT inoAnalytics : AxoStepAnalytics; END_VAR    END_METHOD       
         METHOD GetStepDescription : STRING END_METHOD    
+        METHOD GetStepExecutionMode : eAxoStepExecutionMode END_METHOD
     END_INTERFACE
 END_NAMESPACE

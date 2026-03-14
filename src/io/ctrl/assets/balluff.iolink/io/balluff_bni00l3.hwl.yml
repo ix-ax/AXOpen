@@ -127,42 +127,42 @@ Templates:
                 FileName: 'GSDML-V2.45-BALLUFF-BNI-XG3-X0X-XB5-X067-20250822.XML'
                 GsdId: 'IDS_IOLM'
               Slot: 1 
-              IoConfiguration:
-              Inputs:
-                # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
-                ProcessImagePartition: 'Automatic update'
-              Outputs:
-                # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
-                ProcessImagePartition: 'Automatic update'
-            # - Apply: ${X01}
-            #   Arguments:
-            #     SubmoduleName: 'X01'
-            #     Slot: 2
-            # - Apply: ${X02}
-            #   Arguments:
-            #     SubmoduleName: 'X02'
-            #     Slot: 3
-            # - Apply: ${X03}
-            #   Arguments:
-            #     SubmoduleName: 'X03'
-            #     Slot: 4
-            # - Apply: ${X04}
-            #   Arguments:
-            #     SubmoduleName: 'X04'
-            #     Slot: 5
-            # - Apply: ${X05}
-            #   Arguments:
-            #     SubmoduleName: 'X05'
-            #     Slot: 6
-            # - Apply: ${X06}
-            #   Arguments:
-            #     SubmoduleName: 'X06'
-            #     Slot: 7
-            # - Apply: ${X07}
-            #   Arguments:
-            #     SubmoduleName: 'X07'
-            #     Slot: 8
-            # - Apply: ${X08}
-            #   Arguments:
-            #     SubmoduleName: 'X08'
-            #     Slot: 9
+              # IoConfiguration:
+              # Inputs:
+              #   # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
+              #   ProcessImagePartition: 'Automatic update'
+              # Outputs:
+              #   # Supported Process Image Partitions depend on the specific controller type in use (e.g., S7-1500 supports PIP 0–31).
+              #   ProcessImagePartition: 'Automatic update'
+            - Apply: ${X01}
+              Arguments:
+                SubmoduleName: 'X01'
+                Slot: 2
+            - Apply: ${X02}
+              Arguments:
+                SubmoduleName: 'X02'
+                Slot: 3
+            - Apply: ${X03}
+              Arguments:
+                SubmoduleName: 'X03'
+                Slot: 4
+            - Apply: ${X04}
+              Arguments:
+                SubmoduleName: 'X04'
+                Slot: 5
+            - Apply: ${X05}
+              Arguments:
+                SubmoduleName: 'X05'
+                Slot: 6
+            - Apply: ${X06}
+              Arguments:
+                SubmoduleName: 'X06'
+                Slot: 7
+            - Apply: ${X07}
+              Arguments:
+                SubmoduleName: 'X07'
+                Slot: 8
+            - Apply: ${X08}
+              Arguments:
+                SubmoduleName: 'X08'
+                Slot: 9

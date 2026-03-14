@@ -20,13 +20,15 @@ namespace AXOpen.Data.Query
             CollectProperties(rootType, true);
         }
 
-        internal static Dictionary<Type, List<string>> IgnoreInterfacesProperty = new();
-        internal static HashSet<Type> IgnoredInterfaceTypes = new(); // speed up
+        internal static readonly Dictionary<Type, List<string>> IgnoreInterfacesProperty = new();
+        internal static readonly HashSet<Type> IgnoredInterfaceTypes = new(); // speed up
 
-        internal static Dictionary<Type, List<string>> IgnoredTypesProperty = new();
-        internal static HashSet<Type> IgnoredTypes = new();
+        internal static readonly Dictionary<Type, List<string>> IgnoredTypesProperty = new();
+        internal static readonly HashSet<Type> IgnoredTypes = new();
 
-        internal static List<string> IgnoredRootTypeProperties = new List<string>() { "Hash", "Changes", "RecordId" };
+        internal static readonly List<string> IgnoredRootTypeProperties = new List<string>() { "Hash", "Changes", "RecordId" };
+        internal static readonly List<Type> IgnoredAttributes = new List<Type>() { typeof(PlainSymbolIgnoreAttribute) };
+
         public static void ClearStaticConfiguration()
         {
             IgnoredRootTypeProperties.Clear();
@@ -37,27 +39,27 @@ namespace AXOpen.Data.Query
 
             IgnoredTypesProperty.Clear();
             IgnoredTypes.Clear();
+
+            IgnoredAttributes.Clear();
+            IgnoredAttributes.Add(typeof(PlainSymbolIgnoreAttribute));
         }
 
         public static void IgnoreProperty(Type inType, string propertyName)
         {
-            Dictionary<Type, List<string>> targetDict = inType.IsInterface
-                ? IgnoreInterfacesProperty
-                : IgnoredTypesProperty;
+            var targetDict = inType.IsInterface ? IgnoreInterfacesProperty : IgnoredTypesProperty;
 
             if (!targetDict.TryGetValue(inType, out var list))
-            {
-                list = new List<string>();
-                targetDict[inType] = list;
-            }
+                targetDict[inType] = list = [];
 
             if (!list.Contains(propertyName))
-            {
                 list.Add(propertyName);
-            }
 
-            IgnoredInterfaceTypes = new(IgnoreInterfacesProperty.Keys);
-            IgnoredTypes = new(IgnoredTypesProperty.Keys);
+            // Rebuild lookup sets
+            IgnoredInterfaceTypes.Clear();
+            IgnoredInterfaceTypes.UnionWith(IgnoreInterfacesProperty.Keys);
+
+            IgnoredTypes.Clear();
+            IgnoredTypes.UnionWith(IgnoredTypesProperty.Keys);
         }
 
         public static void IgnoreRootProperty(string propertyName)
@@ -65,6 +67,19 @@ namespace AXOpen.Data.Query
             if (!IgnoredRootTypeProperties.Contains(propertyName))
             {
                 IgnoredRootTypeProperties.Add(propertyName);
+            }
+        }
+
+        public static void IgnoreAttribute(Type attributeType)
+        {
+            if (!typeof(Attribute).IsAssignableFrom(attributeType))
+            {
+                throw new ArgumentException($"Type '{attributeType.FullName}' is not an Attribute.", nameof(attributeType));
+            }
+
+            if (!IgnoredAttributes.Contains(attributeType))
+            {
+                IgnoredAttributes.Add(attributeType);
             }
         }
 
@@ -130,26 +145,28 @@ namespace AXOpen.Data.Query
                     }
                 }
 
-                if (Attribute.IsDefined(prop, typeof(PlainSymbolIgnoreAttribute)))
+                if (IgnoredAttributes.Any(attr => Attribute.IsDefined(prop, attr)))
                 {
                     continue;
                 }
 
                 var isNullableType = Nullable.GetUnderlyingType(prop.PropertyType) != null;
-                var isPlainType = typeof(IPlain).IsAssignableFrom(prop.PropertyType);
+                var actualType = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
+                var isPlainType = typeof(IPlain).IsAssignableFrom(actualType);
 
-                var p = new PlainFilterVariable(prop.Name, prop.PropertyType, isPlainType);
-
-                if (isNullableType && !isPlainType)
+                if (isNullableType && isPlainType)
                 {
+                    // Skip nullable IPlain objects to avoid circular references
                     continue;
                 }
+
+                var p = new PlainFilterVariable(prop.Name, actualType, isPlainType);
 
                 objectProperties.Add(p);
 
                 if (isPlainType)
                 {
-                    CollectProperties(prop.PropertyType, false);
+                    CollectProperties(actualType, false);
                 }
             }
 

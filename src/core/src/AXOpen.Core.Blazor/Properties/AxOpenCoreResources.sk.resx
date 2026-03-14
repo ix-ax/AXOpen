@@ -133,19 +133,19 @@
     <value>Resetovať úlohu</value>
   </data>
   <!-- Severity Names -->
-  <data name="SeverityInfo" xml:space="preserve">
+  <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>
-  <data name="SeverityWarning" xml:space="preserve">
+  <data name="Warning" xml:space="preserve">
     <value>Varovanie</value>
   </data>
-  <data name="SeverityMinorFault" xml:space="preserve">
-    <value>Menšia chyba</value>
+  <data name="Error_" xml:space="preserve">
+    <value>Chyba</value>
   </data>
   <data name="SeverityMajorFault" xml:space="preserve">
     <value>Väčšia chyba</value>
   </data>
-  <data name="SeverityCritical" xml:space="preserve">
+  <data name="Critical" xml:space="preserve">
     <value>Kritický</value>
   </data>
   <!-- State Labels -->
@@ -170,5 +170,137 @@
   </data>
   <data name="Active" xml:space="preserve">
     <value>aktívny</value>
+  </data>
+  <data name="SequencerSendSuspendConfiguration" xml:space="preserve">
+    <value>Odoslat konfiguraciu pozastavenia</value>
+  </data>
+  <data name="SequencerSuspendBeforeExecution" xml:space="preserve">
+    <value>Pozastavit pred vykonanim</value>
+  </data>
+  <data name="SequencerSuspendAfterExecution" xml:space="preserve">
+    <value>Pozastavit po vykonani</value>
+  </data>
+  <data name="SequencerStepExecutionMode" xml:space="preserve">
+    <value>Rezim vykonania kroku</value>
+  </data>
+  <data name="SequencerNoStepsFound" xml:space="preserve">
+    <value>Nenasli sa ziadne kroky.</value>
+  </data>
+  <data name="SeverityError" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Chyba systému</value>
+  </data>
+  <data name="Severity" xml:space="preserve">
+    <value>Závažnosť</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Názov</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Štát</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Činnosti</value>
+  </data>
+  <data name="SearchAlarms" xml:space="preserve">
+    <value>Vyhľadávanie alarmov</value>
+  </data>
+  <data name="SearchTitleOrEquipment" xml:space="preserve">
+    <value>Vyhľadávanie názvu alebo zariadenia</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Obnoviť</value>
+  </data>
+  <data name="RefreshMessages" xml:space="preserve">
+    <value>Obnovenie správ</value>
+  </data>
+  <data name="NoAlarmsToDisplay" xml:space="preserve">
+    <value>Nezobrazujú sa žiadne alarmy.</value>
+  </data>
+  <data name="HideDetails_Duplicate[1]" xml:space="preserve">
+    <value>Skryť podrobnosti</value>
+  </data>
+  <data name="ShowDetails_Duplicate[1]" xml:space="preserve">
+    <value>Zobraziť podrobnosti</value>
+  </data>
+  <data name="AcknowledgeAlarm" xml:space="preserve">
+    <value>Potvrdenie alarmu</value>
+  </data>
+  <data name="ACKN" xml:space="preserve">
+    <value>ACKN</value>
+  </data>
+  <data name="Ack" xml:space="preserve">
+    <value>Ack</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Čaká sa na</value>
+  </data>
+  <data name="ActiveAck" xml:space="preserve">
+    <value>Aktívne - Ack</value>
+  </data>
+  <data name="Alarms" xml:space="preserve">
+    <value>alarmy</value>
+  </data>
+  <data name="Alarm" xml:space="preserve">
+    <value>alarm</value>
+  </data>
+  <data name="ToggleServiceView" xml:space="preserve">
+    <value>Prepnutie zobrazenia služby</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>Normálne</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>Služba</value>
+  </data>
+  <data name="CONFIGURATION" xml:space="preserve">
+    <value>KONFIGURÁCIA</value>
+  </data>
+  <data name="STATE" xml:space="preserve">
+    <value>ŠTÁT</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Údaje</value>
+  </data>
+  <data name="SeverityLabel" xml:space="preserve">
+    <value>Závažnosť</value>
+  </data>
+  <data name="AlarmCode" xml:space="preserve">
+    <value>Kód alarmu</value>
+  </data>
+  <data name="SequencerMonitoredSteps" xml:space="preserve">
+    <value>Monitorované kroky</value>
+  </data>
+  <data name="SequencerNoMonitoredStepsSelected" xml:space="preserve">
+    <value>Nie sú vybraté žiadne monitorované kroky.</value>
+  </data>
+  <data name="SequencerBreakpoint" xml:space="preserve">
+    <value>Bod prerušenia</value>
+  </data>
+  <data name="SequencerOrder" xml:space="preserve">
+    <value>Poradie</value>
+  </data>
+  <data name="SequencerDesc" xml:space="preserve">
+    <value>Popis</value>
+  </data>
+  <data name="SequencerMonitor" xml:space="preserve">
+    <value>Monitor</value>
+  </data>
+  <data name="SequencerContinue" xml:space="preserve">
+    <value>Pokračovať</value>
+  </data>
+  <data name="SequencerRemove" xml:space="preserve">
+    <value>Odstrániť</value>
+  </data>
+  <data name="SequencerAddToMonitor" xml:space="preserve">
+    <value>Pridať do monitoru</value>
+  </data>
+  <data name="SequencerApplyBreakpoints" xml:space="preserve">
+    <value>Použiť body prerušenia</value>
+  </data>
+  <data name="SequencerClearAllBreakpoints" xml:space="preserve">
+    <value>Vymazať všetky body prerušenia</value>
   </data>
 </root>

@@ -3,28 +3,28 @@
   "isRoot": true,
   "tools": {
     "AXSharp.ixc": {
-      "version": "0.47.0-alpha.439",
+      "version": "0.47.0-alpha.452",
       "commands": [
         "ixc"
       ],
       "rollForward": false
     },
     "docfx": {
-      "version": "2.78.4",
+      "version": "2.78.5",
       "commands": [
         "docfx"
       ],
       "rollForward": false
     },
     "AXSharp.ixd": {
-      "version": "0.47.0-alpha.439",
+      "version": "0.47.0-alpha.452",
       "commands": [
         "ixd"
       ],
       "rollForward": false
     },
     "AXSharp.ixr": {
-      "version": "0.47.0-alpha.439",
+      "version": "0.47.0-alpha.452",
       "commands": [
         "ixr"
       ],
@@ -45,7 +45,7 @@
       "rollForward": false
     },
     "gitversion.tool": {
-      "version": "5.12.0",
+      "version": "6.6.0",
       "commands": [
         "dotnet-gitversion"
       ],

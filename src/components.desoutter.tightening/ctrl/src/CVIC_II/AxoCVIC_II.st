@@ -17,15 +17,6 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             _RequiredScrewingProgram : BYTE;
             _infoTimer :  AXOpen.Timers.OnDelayTimer;
             _errorTimer :  AXOpen.Timers.OnDelayTimer;
-            // _hwID                   :   WORD;
-            // _hwId_Input_1_byte_1    :   WORD;
-            // _hwId_Input_1_byte_2    :   WORD;
-            // _hwId_Input_2_word_1    :   WORD;
-            // _hwId_Input_1_word_1    :   WORD;
-            // _hwId_Input_2_word_2    :   WORD;
-            // _hwId_Input_1_word_2    :   WORD;
-            // _hwId_Output_1_byte_1   :   WORD;
-            // _hwId_Output_1_byte_2   :   WORD;
 
             _tempDword  :   DWORD;
             _returnValue : WORD;
@@ -565,7 +556,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             //*****************************************
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Input_1_byte_1) ,_data_1);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1201, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1201, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1201;
                 RETURN;
             END_IF;
@@ -581,7 +572,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Input_1_byte_2) ,_data_1);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1202, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1202, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1202;
                 RETURN;
             END_IF;
@@ -590,7 +581,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Input_2_word_1) ,_data_4);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1203, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1203, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1203;
                 RETURN;
             END_IF;
@@ -599,7 +590,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Input_1_word_1) ,_data_2);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1204, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1204, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1204;
                 RETURN;
             END_IF;
@@ -608,7 +599,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Input_2_word_2),_data_4);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1205, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1205, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1205;
                 RETURN;
             END_IF;
@@ -617,7 +608,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.ReadData((Config.HWIDs.HwID_Input_1_word_2) ,_data_2);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1206, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1206, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1206;
                 RETURN;
             END_IF;
@@ -660,7 +651,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 // Reset running: waiting for 'Failed' flag to be reseted.
                 IF _progress = 300 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#500, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#500;
                     END_IF;
 
@@ -676,7 +667,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 // Reset running: waiting for 'InCycle' flag to be reseted.
                 IF _progress = 301 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#501, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#501;
                     END_IF;
 
@@ -687,7 +678,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 // Reset running: waiting for the device to be Ready.
                 IF _progress = 302 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#502, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#502;
                     END_IF;
 
@@ -757,7 +748,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 // Set screwing program running: waiting for the program number is mirrored back. 
                 IF _progress = 310 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#510, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#510;
                     END_IF;
 
@@ -847,7 +838,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 // Screwing running: waiting for the program number is mirrored back.
                 IF _progress = 322 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#522, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#522;
                     END_IF;
 
@@ -862,7 +853,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 // Screwing running: waiting for 'InCycle' flag to be reseted.
                 IF _progress = 323 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#523, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#523;
                     END_IF;
 
@@ -874,7 +865,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 // Screwing running: waiting for the device to be Ready.
                 IF _progress = 324 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#524, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#524;
                     END_IF;
 
@@ -886,7 +877,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 // Screwing running: waiting for the screwing cycle is started.
                 IF _progress = 325 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#525, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#525;
                     END_IF;
 
@@ -901,7 +892,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 // Screwing running: waiting for the screwing cycle is finished.
                 IF _progress = 326 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#526, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#526;
                     END_IF;
                     
@@ -913,7 +904,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 // Screwing running: waiting for the overall screwing results are ready.
                 IF _progress = 327 THEN
                     IF _infoTimer.output THEN
-                        TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Warning);
+                        TaskMessenger.Activate( UINT#527, eAxoMessageCategory#Potential);
                         Status.Error.Id :=      UINT#527;
                     END_IF;
 
@@ -952,8 +943,8 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
                 Status.Error.Id  :=  UINT#10021;
             END_IF; 
             Messenger.ActivateOnCondition(ULINT#10020,StartScrewingTask.HasError(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#10021,StartScrewingTask.IsAborted(), eAxoMessageCategory#Error);
-            Messenger.ActivateOnCondition(ULINT#122,StartScrewingTask.RestoreTriggered() , eAxoMessageCategory#Error);
+            Messenger.ActivateOnCondition(ULINT#10021,StartScrewingTask.IsAborted(), eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#122,StartScrewingTask.RestoreTriggered() , eAxoMessageCategory#Info);
             IF StartScrewingTask.RestoreTriggered() AND _progress >= 320 AND _progress <= 339  THEN
                 Status.Action.Id :=  UINT#122;
                 _progress := 0;
@@ -972,7 +963,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Output_1_byte_1),_data_1);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1231, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1231, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1231;
                 RETURN;
             END_IF;
@@ -981,7 +972,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
 
             _returnValue := Siemens.Simatic.DistributedIO.WriteData((Config.HWIDs.HwID_Output_1_byte_2),_data_1);
             IF _returnValue > WORD#0 THEN
-                Messenger.Activate(UINT#1232, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(UINT#1232, eAxoMessageCategory#Error);
                 Status.Error.Id := UINT#1232;
                 RETURN;
             END_IF;

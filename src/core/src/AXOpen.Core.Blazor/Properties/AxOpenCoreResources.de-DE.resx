@@ -189,14 +189,14 @@
   <data name="ResetTask" xml:space="preserve">
     <value>Aufgabe zurücksetzen</value>
   </data>
-  <data name="SeverityInfo" xml:space="preserve">
+  <data name="Info" xml:space="preserve">
     <value>Infos</value>
   </data>
-  <data name="SeverityWarning" xml:space="preserve">
+  <data name="Warning" xml:space="preserve">
     <value>Warnung</value>
   </data>
-  <data name="SeverityMinorFault" xml:space="preserve">
-    <value>Kleinere Störung</value>
+  <data name="Error_" xml:space="preserve">
+    <value>Fehler</value>
   </data>
   <data name="SeverityMajorFault" xml:space="preserve">
     <value>Major Fault</value>
@@ -204,10 +204,10 @@
   <data name="SeverityError" xml:space="preserve">
     <value>Fehler</value>
   </data>
-  <data name="SeverityProgrammingError" xml:space="preserve">
+  <data name="System" xml:space="preserve">
     <value>Systemfehler</value>
   </data>
-  <data name="SeverityCritical" xml:space="preserve">
+  <data name="Critical" xml:space="preserve">
     <value>Kritisch</value>
   </data>
   <data name="ActiveAcknowledged" xml:space="preserve">
@@ -260,10 +260,10 @@
   <data name="NoAlarmsToDisplay" xml:space="preserve">
     <value>Keine Alarme anzuzeigen.</value>
   </data>
-  <data name="HideDetails" xml:space="preserve">
+  <data name="HideDetails_Duplicate[1]" xml:space="preserve">
     <value>Details ausblenden</value>
   </data>
-  <data name="ShowDetails" xml:space="preserve">
+  <data name="ShowDetails_Duplicate[1]" xml:space="preserve">
     <value>Details anzeigen</value>
   </data>
   <data name="AcknowledgeAlarm" xml:space="preserve">
@@ -313,5 +313,53 @@
   </data>
   <data name="AlarmCode" xml:space="preserve">
     <value>Alarmcode</value>
+  </data>
+  <data name="SequencerSendSuspendConfiguration" xml:space="preserve">
+    <value>Sperrkonfiguration senden</value>
+  </data>
+  <data name="SequencerSuspendBeforeExecution" xml:space="preserve">
+    <value>Vor Ausfuehrung sperren</value>
+  </data>
+  <data name="SequencerSuspendAfterExecution" xml:space="preserve">
+    <value>Nach Ausfuehrung sperren</value>
+  </data>
+  <data name="SequencerStepExecutionMode" xml:space="preserve">
+    <value>Schrittausfuehrungsmodus</value>
+  </data>
+  <data name="SequencerNoStepsFound" xml:space="preserve">
+    <value>Keine Schritte gefunden.</value>
+  </data>
+  <data name="SequencerMonitoredSteps" xml:space="preserve">
+    <value>Uberwachte Schritte</value>
+  </data>
+  <data name="SequencerNoMonitoredStepsSelected" xml:space="preserve">
+    <value>Keine uberwachten Schritte ausgewahlt.</value>
+  </data>
+  <data name="SequencerBreakpoint" xml:space="preserve">
+    <value>Haltepunkt</value>
+  </data>
+  <data name="SequencerOrder" xml:space="preserve">
+    <value>Reihenfolge</value>
+  </data>
+  <data name="SequencerDesc" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="SequencerMonitor" xml:space="preserve">
+    <value>Uberwachen</value>
+  </data>
+  <data name="SequencerContinue" xml:space="preserve">
+    <value>Fortsetzen</value>
+  </data>
+  <data name="SequencerRemove" xml:space="preserve">
+    <value>Entfernen</value>
+  </data>
+  <data name="SequencerAddToMonitor" xml:space="preserve">
+    <value>Zur Uberwachung hinzufugen</value>
+  </data>
+  <data name="SequencerApplyBreakpoints" xml:space="preserve">
+    <value>Breakpoints anwenden</value>
+  </data>
+  <data name="SequencerClearAllBreakpoints" xml:space="preserve">
+    <value>Alle Breakpoints loschen</value>
   </data>
 </root>

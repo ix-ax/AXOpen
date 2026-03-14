@@ -5,7 +5,7 @@ USING AXOpen.Messaging.Static;
 
 NAMESPACE AXOpen.Messaging    
     {S7.extern=ReadWrite}
-    CLASS PUBLIC AxoMessengerService EXTENDS AxoObject IMPLEMENTS IAxoMessagingServices
+    CLASS PUBLIC AxoMessengerService EXTENDS AxoObject IMPLEMENTS AXOpen.Core.IAxoMessagingServices
         VAR PRIVATE
             _messages : REF_TO ARRAY[*] OF REF_TO AxoMessenger; // Array to hold message references
             _nextMessageIndex : DINT;
@@ -95,6 +95,20 @@ NAMESPACE AXOpen.Messaging
             IsSuspended := _isSuspended;
         END_METHOD    
 
+        VAR PRIVATE
+            _requalificationCategory : eAxoMessageCategory := eAxoMessageCategory#None;            
+        END_VAR
+        
+        METHOD PUBLIC RequalifyDownstreamMessages
+            VAR_INPUT
+                inMessageCategory : eAxoMessageCategory;
+            END_VAR
+            _requalificationCategory := inMessageCategory;
+        END_METHOD
+    
+        METHOD PUBLIC GetRequalifiedMessageCategory : eAxoMessageCategory
+            GetRequalifiedMessageCategory := _requalificationCategory;
+        END_METHOD
     END_CLASS
         
    
