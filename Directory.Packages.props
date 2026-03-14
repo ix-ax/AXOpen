@@ -6,7 +6,7 @@
   </PropertyGroup>
   <!-- Build Tools -->
   <ItemGroup>
-    <GlobalPackageReference Include="GitVersion.MsBuild" Version="5.10.3" />
+    <GlobalPackageReference Include="GitVersion.MsBuild" Version="6.6.0" />
   </ItemGroup>
   <!-- Framework-Agnostic Packages -->
   <ItemGroup>
