@@ -6,7 +6,7 @@
 |--------------|----------|-----------------|------------|------------------|
 | Siemens | PLC series 12xx, 1510 to 1515 | PLC | Cannot use our sequencer, our components, or technology objects for Siemens frequency converters. Small memory, only one network card. | Siemens 1516, 1517, 1518 V4.0+ |
 | Siemens | PLC with firmware lower then 4.0 | PLC | Not suitable for high communication load  | Siemens 1516, 1517, 1518 V4.0+ |
-| ANY | IOlink device | IOlink master or slave | No support for IOlink in Simatic AX | Siemens ET200AL boxes DI/AI boxes |
+| ANY | IOlink device | IOlink master or slave, except few devices. NOTE: see the white list. | No support for IOlink in Simatic AX.  | Siemens ET200AL boxes DI/AI boxes |
 | Siemens | any old HMI Panels except Unified with firmware 20.2+ | HMI Panel | Has to be capable to open browser that supports .NET8, I guess | Unified with firmware 20.2+ at least 20inch at least 1920*1080 resolution |
 | Festo with Siemens PLC | Pneumatic manifolds with EtherCAT | Pneumatic manifolds with EtherCAT | Siemens does not support EtherCAT bus | Festo manifolds with PROFINET |
 | Aventics with Siemens PLC | Pneumatic manifolds with EtherCAT | Pneumatic manifolds with EtherCAT | Siemens does not support EtherCAT bus | Aventics manifolds with PROFINET |

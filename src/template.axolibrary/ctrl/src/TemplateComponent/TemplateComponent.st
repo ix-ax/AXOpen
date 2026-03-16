@@ -2337,7 +2337,7 @@ NAMESPACE Template.Axolibrary
             IF TemplateTask_10steps_1.StartTriggered() THEN
                 Status.Action.Id :=  UINT#100;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#100,TemplateTask_10steps_1.IsBusy(), eAxoMessageCategory#Info;
+            Messenger.ActivateOnCondition(ULINT#100,TemplateTask_10steps_1.IsBusy(), eAxoMessageCategory#Info);
             Messenger.ActivateOnCondition(ULINT#101,TemplateTask_10steps_1.IsDone(), eAxoMessageCategory#Info);
             IF TemplateTask_10steps_1.Execute(THIS) THEN
                 IF _progress = 0 THEN
