@@ -28,13 +28,13 @@
             </AuthorizeView>
         }
 
-        <button type="button" class="btn @(DistributedVM.EnableInjectLocalIds ? "btn-outline-warning" : "btn-primary")"
+        <button type="button" class="btn @(DistributedVM.EnableLocalConcatEntityIds ? "btn-outline-warning" : "btn-primary")"
                 @onclick="DistributedVM.TogleLocalEntityIdsInjection">
-            @if (DistributedVM.EnableInjectLocalIds)
+            @if (DistributedVM.EnableLocalConcatEntityIds)
             {
                 @Localizer["Do not concat query"]
                 <p class="ms-1">
-                    @($"[{@DistributedVM.TransmitedEntities?.Count}]")
+                    @($"[{@DistributedVM.LocalConcatEntityIds?.Count}]")
                 </p>
             }
             else
@@ -43,21 +43,21 @@
             }
         </button>
 
-        @if (DistributedVM.InjectedEntities != null && DistributedVM.InjectedEntities.Count > 0)
+        @if (DistributedVM.ExternalEntityIds != null && DistributedVM.ExternalEntityIds.Count > 0)
         {
-            <button type="button" class="btn @(DistributedVM.EnableInjectedExternalIds ? "btn-outline-warning" : "btn-primary")"
+            <button type="button" class="btn @(DistributedVM.EnableExternalEntityIds ? "btn-outline-warning" : "btn-primary")"
                     @onclick="() => DistributedVM.TogleExternalEntityIdsInjection()">
 
-                @if (DistributedVM.EnableInjectedExternalIds)
+                @if (DistributedVM.EnableExternalEntityIds)
                 {
-                    @Localizer["Disable Injected Ids"]
+                    @Localizer["Disable External Entity Ids"]
                     <p class="ms-1">
-                        @($"[{@DistributedVM.InjectedEntities?.Count}]")
+                        @($"[{@DistributedVM.ExternalEntityIds?.Count}]")
                     </p>
                 }
                 else
                 {
-                    @Localizer["Enable injected Ids"]
+                    @Localizer["Enable External Entity Ids"]
                 }
             </button>
         }

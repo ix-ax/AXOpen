@@ -205,7 +205,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     protected override async Task OnInitializedAsync()
     {
-        Vm.InjectedPredicateContainer = ExternalPredicates;
+        Vm.ExternalPredicates = ExternalPredicates;
 
         await Vm.Filter();
 

@@ -1,3 +1,5 @@
+using AXSharp.Connector;
+
 namespace AXOpen.Data.Query
 {
     public class PlainSymbolBuilder

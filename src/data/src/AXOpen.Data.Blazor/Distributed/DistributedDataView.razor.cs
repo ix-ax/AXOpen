@@ -1,4 +1,4 @@
-﻿using AXOpen.Base.Data.Query;
+using AXOpen.Base.Data.Query;
 using AXOpen.Base.Dialogs;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -35,8 +35,8 @@ namespace AXOpen.Data
         [Parameter] public bool EnableSorting { get; set; } = false;
 
 
-        [Parameter] public List<string>? InjectedEntities { get; set; }
-        [Parameter] public PredicateContainer? InjectedPredicateContainer { get; set; }
+        [Parameter] public List<string>? ExternalEntityIds { get; set; }
+        [Parameter] public PredicateContainer? ExternalPredicates { get; set; }
 
 
         [Inject]
@@ -83,8 +83,8 @@ namespace AXOpen.Data
                     this.GroupName,
                     this.DisplayOnePerDataType,
                     this.ConfigSuffix,
-                    this.InjectedEntities,
-                    this.InjectedPredicateContainer
+                    this.ExternalEntityIds,
+                    this.ExternalPredicates
                     );
 
                 this.DistributedVM.StateHasChangedDelegate = StateHasChanged;

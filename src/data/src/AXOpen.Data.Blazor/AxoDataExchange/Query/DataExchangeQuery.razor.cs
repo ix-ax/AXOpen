@@ -106,8 +106,8 @@ namespace AXOpen.Data.Query
         {
             Task initTask = Task.Run(() =>
             {
-                bool addExternalPredicates = Exchange.InjectedPredicateContainer != null && (Exchange.InjectedPredicateContainer.PredicatesCount() > 0
-                || Exchange.InjectedPredicateContainer.SortingCount() > 0);
+                bool addExternalPredicates = Exchange.ExternalPredicates != null && (Exchange.ExternalPredicates.PredicatesCount() > 0
+                || Exchange.ExternalPredicates.SortingCount() > 0);
 
                 PlainBuilders = Exchange.GetPlainTypes().Select(t => new PlainSymbolBuilder(t)).ToList();
 
@@ -128,7 +128,7 @@ namespace AXOpen.Data.Query
 
                     if (addExternalPredicates)
                     {
-                        var extQueries = Exchange.InjectedPredicateContainer.GetPredicates(rootType);
+                        var extQueries = Exchange.ExternalPredicates.GetPredicates(rootType);
 
                         if (extQueries != null)
                         {
@@ -138,7 +138,7 @@ namespace AXOpen.Data.Query
                             }
                         }
 
-                        var extSorting = Exchange.InjectedPredicateContainer.GetSorting(rootType);
+                        var extSorting = Exchange.ExternalPredicates.GetSorting(rootType);
                         if (extSorting != null)
                         {
                             foreach (var sort in extSorting)
@@ -299,9 +299,9 @@ namespace AXOpen.Data.Query
             PredicateContainer = null;
             PredicateContainer = new PredicateContainer();
 
-            if (Exchange.InjectedPredicateContainer != null)
+            if (Exchange.ExternalPredicates != null)
             {
-                PredicateContainer.AddPredicatesFrom(Exchange.InjectedPredicateContainer);
+                PredicateContainer.AddPredicatesFrom(Exchange.ExternalPredicates);
             }
 
             foreach (var symbolConfig in CurrentQuery.Queries)

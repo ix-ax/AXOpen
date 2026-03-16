@@ -1,4 +1,4 @@
-﻿using AXOpen.Data;
+using AXOpen.Data;
 using AXOpen.Base.Data;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace AXOpen.Data
     public interface IDataExchangeQueryViewModel
     {
         IEnumerable<Type> GetPlainTypes();
-        PredicateContainer InjectedPredicateContainer { get; set; }
+        PredicateContainer ExternalPredicates { get; set; }
         Task FillObservableRecordsAsync(PredicateContainer? predicates = null);
         public void InvokeStateHasChanged();
     }

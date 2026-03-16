@@ -143,7 +143,7 @@ namespace AXOpen.Data
             {
                 if (_DefaulQueryDataEntityId == null)
                 {
-                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration(DataExchange.GetPlainTypes().First().FullName,"_EntityId", typeof(string).FullName, "StartsWith", "", "");
+                    _DefaulQueryDataEntityId = new QuerySymbolConfiguration(DataExchange.GetPlainTypes().First().FullName, "_EntityId", typeof(string).FullName, "StartsWith", "", "");
                 }
 
                 return _DefaulQueryDataEntityId;
@@ -183,9 +183,14 @@ namespace AXOpen.Data
         public PredicateContainer LastFilter { set; get; }
 
         // injected from view or other service
-        public PredicateContainer InjectedPredicateContainer { get; set; }
+        public PredicateContainer ExternalPredicates { get; set; }
 
         private List<string> EntityIdsInjected = new();
+        private bool AreEntityIdsInjected = false;
+
+        /// <summary>
+        /// List of ids, that will be used when is concatenating between Exchanges
+        /// </summary>
         internal List<string> EntityIdsIntersected = new();
         public bool ReadAllEntityIdsForConcatQuery { set; get; }
 
@@ -263,31 +268,24 @@ namespace AXOpen.Data
 
             lock (_lockInjectEntities)
             {
+                this.EntityIdsIntersected.Clear();
 
-                if (EntityIdsInjected != null && EntityIdsInjected.Count > 0)
+                if (this.AreEntityIdsInjected)
                 {
-                    this.EntityIdsIntersected.Clear();
 
                     EntityIdsIntersected.AddRange(DataExchange.GetEntityIds(predicates, EntityIdsInjected).ToList());
-
                     this.FilteredCount = EntityIdsIntersected.Count;
-
                     var toFind = EntityIdsIntersected.Skip(skip).Take(limit).ToList();
-
                     filtered = DataExchange.GetRecords(toFind, predicates).ToList();
                 }
                 else
                 {
-                    this.EntityIdsIntersected.Clear();
-
                     if (this.ReadAllEntityIdsForConcatQuery)
                     {
-                        var ids = DataExchange.GetEntityIds(predicates).ToList();
-                        EntityIdsIntersected.AddRange(ids);
+                        EntityIdsIntersected.AddRange(DataExchange.GetEntityIds(predicates).ToList());
                     }
 
                     FilteredCount = this.DataExchange.Repository.FilteredCount(predicates);
-
                     filtered = this.DataExchange.GetRecords(predicates, limit, skip);
                 }
             }
@@ -310,7 +308,7 @@ namespace AXOpen.Data
             try
             {
                 PredicateContainer pc = new PredicateContainer();
-                if (InjectedPredicateContainer != null) pc.AddPredicatesFrom(InjectedPredicateContainer);
+                if (ExternalPredicates != null) pc.AddPredicatesFrom(ExternalPredicates);
 
                 pc.AddQuerySymbolToPredicates(PlainBuilders, DefaulQueryDataEntityId);
 
@@ -488,7 +486,6 @@ namespace AXOpen.Data
         //    }
         //}
 
-
         public Task ExportDataAsync(string path)
         {
             exportStatus = eOperationStatus.Busy;
@@ -576,7 +573,6 @@ namespace AXOpen.Data
 
         public Action StateHasChangedDelegate { get; set; }
 
-
         public bool GetCustomExportDataValue(string fragmentKey)
         {
             var result = new Dictionary<string, object>();
@@ -641,8 +637,17 @@ namespace AXOpen.Data
             lock (_lockInjectEntities)
             {
                 this.EntityIdsInjected.Clear();
-
                 this.EntityIdsInjected.AddRange(ids);
+                this.AreEntityIdsInjected = true;
+            }
+        }
+
+        public void ResetInjectedEntityIds()
+        {
+            lock (_lockInjectEntities)
+            {
+                this.EntityIdsInjected.Clear();
+                this.AreEntityIdsInjected = false;
             }
         }
     }
