@@ -1,15 +1,4 @@
-using AXOpen.Data;
-using AXOpen.Base.Data;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.Json.Serialization;
-using Newtonsoft.Json.Linq;
-using AXOpen.Base.Data.Query;
 
 namespace AXOpen.Data.Query
 {
@@ -17,7 +6,7 @@ namespace AXOpen.Data.Query
     public class SortSymbolConfiguration : SymbolConfiguration
     {
         [JsonConstructor]
-        public SortSymbolConfiguration( string parentFullTypeName, string symbolPathWithParent, string symbolTypeFullName, bool isAscending) : base( parentFullTypeName ,symbolPathWithParent, symbolTypeFullName)
+        public SortSymbolConfiguration(string parentFullTypeName, string symbolPathWithParent, string symbolTypeFullName, bool isAscending) : base(parentFullTypeName, symbolPathWithParent, symbolTypeFullName)
         {
             this.IsAscending = isAscending;
         }

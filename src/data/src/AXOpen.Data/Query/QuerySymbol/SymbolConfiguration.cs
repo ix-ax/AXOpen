@@ -1,14 +1,4 @@
-using AXOpen.Data;
-using AXOpen.Base.Data;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.Json.Serialization;
-using Newtonsoft.Json.Linq;
 
 namespace AXOpen.Data.Query
 {
@@ -23,7 +13,6 @@ namespace AXOpen.Data.Query
         public string SymbolTypeName { get; set; }
 
         public Guid TrackSymbolId { get; set; } = Guid.NewGuid();
-
 
         private Type _SymbolType;
 
@@ -40,7 +29,6 @@ namespace AXOpen.Data.Query
                 return _SymbolType;
             }
         }
-
 
         internal object CheckType(object inputValue)
         {
@@ -96,6 +84,5 @@ namespace AXOpen.Data.Query
 
             return OperationProvider.GetMinForType(SymbolType);
         }
-
     }
 }

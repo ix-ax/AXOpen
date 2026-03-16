@@ -1,15 +1,3 @@
-using AXOpen.Data;
-using AXOpen.Base.Data;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AXSharp.Connector;
-using Microsoft.AspNetCore.Routing;
-
 namespace AXOpen.Data.Query
 {
     public class PlainSymbolBuilder
@@ -104,7 +92,6 @@ namespace AXOpen.Data.Query
             }
         }
 
-
         public Dictionary<Type, List<PlainFilterVariable>> TypeDictionary = new();
 
         public Type RootType { get; private set; }
@@ -146,7 +133,6 @@ namespace AXOpen.Data.Query
                 }
             }
 
-
             foreach (var prop in type.GetProperties())
             {
                 if (isRoot) // remove not presentable fields
@@ -171,7 +157,7 @@ namespace AXOpen.Data.Query
                 }
 
                 var isNullableType = Nullable.GetUnderlyingType(prop.PropertyType) != null;
-                var actualType =   prop.PropertyType;
+                var actualType = prop.PropertyType;
                 var isPlainType = typeof(IPlain).IsAssignableFrom(actualType);
 
                 if (isNullableType && isPlainType)
@@ -195,6 +181,7 @@ namespace AXOpen.Data.Query
                 TypeDictionary[type] = objectProperties;
             }
         }
+
         private void CollectSymbolPaths(Type type, string currentPath, List<string> symbols)
         {
             if (!TypeDictionary.TryGetValue(type, out var properties))
@@ -202,7 +189,7 @@ namespace AXOpen.Data.Query
 
             foreach (var prop in properties)
             {
-                string newPath = string.IsNullOrEmpty(currentPath) ?  prop.Name : $"{currentPath}.{prop.Name}";
+                string newPath = string.IsNullOrEmpty(currentPath) ? prop.Name : $"{currentPath}.{prop.Name}";
 
                 if (!prop.IsPlainType)
                 {
@@ -221,23 +208,21 @@ namespace AXOpen.Data.Query
         public List<AXOpen.Data.Query.Symbol> GetSymbols()
         {
             var symbols = new List<AXOpen.Data.Query.Symbol>();
-            symbols.AddRange(GetSymbolPaths().Select(p => new AXOpen.Data.Query.Symbol( RootTypeName , p)));
+            symbols.AddRange(GetSymbolPaths().Select(p => new AXOpen.Data.Query.Symbol(RootTypeName, p)));
             return symbols;
         }
 
-       
         /// <summary>
         /// Returns the dot-separated paths to all leaf (non-<see cref="IPlain"/>) properties reachable from the root type.
         /// </summary>
-        public List<string> GetSymbolPaths( )
+        public List<string> GetSymbolPaths()
         {
             var plainSymbolPaths = new List<string>();
 
             if (RootType == null || !TypeDictionary.ContainsKey(RootType))
                 return plainSymbolPaths;
 
-
-            CollectSymbolPaths(RootType,"", plainSymbolPaths);
+            CollectSymbolPaths(RootType, "", plainSymbolPaths);
 
             return plainSymbolPaths;
         }
@@ -256,7 +241,7 @@ namespace AXOpen.Data.Query
 
             Type currentType = RootType;
 
-            foreach (var part in parts) 
+            foreach (var part in parts)
             {
                 if (!TypeDictionary.ContainsKey(currentType))
                     return null;

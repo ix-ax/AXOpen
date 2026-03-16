@@ -1,12 +1,3 @@
-using AXOpen.Data;
-using AXOpen.Base.Data;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AXOpen.Base.Data.Query;
 
 namespace AXOpen.Data.Query
@@ -32,8 +23,6 @@ namespace AXOpen.Data.Query
 
             return pc;
         }
-
-
 
         public static PredicateContainer AddQuerySymbolToPredicates(this PredicateContainer pc, IEnumerable<PlainSymbolBuilder> builders, QuerySymbolConfiguration config)
         {

@@ -1,4 +1,4 @@
-﻿namespace AXOpen.Data.Query
+namespace AXOpen.Data.Query
 {
     using System;
     using System.Collections.Generic;

@@ -1,13 +1,3 @@
-using AXOpen.Data;
-using AXOpen.Base.Data;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace AXOpen.Data.Query
 {
     public static class PlainSymbolBuilderExtension
@@ -46,13 +36,11 @@ namespace AXOpen.Data.Query
             return new SortSymbolConfiguration(symbol.RootTypeName, symbol.SymbolPath, symbolType.FullName, false);
         }
 
-
         public static QuerySymbolConfiguration CreateNewQuerySymbol(this IEnumerable<PlainSymbolBuilder> plains, Symbol symbol)
         {
             var builder = plains.Where(p => p.RootTypeName == symbol.RootTypeName).First();
             return builder.CreateNewQuerySymbol(symbol);
         }
-
 
         public static SortSymbolConfiguration CreateNewSortSymbol(this IEnumerable<PlainSymbolBuilder> plains, Symbol symbol)
         {
