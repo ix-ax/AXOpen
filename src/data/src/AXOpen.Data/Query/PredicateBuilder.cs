@@ -1,10 +1,8 @@
-﻿namespace AXOpen.Data.Query
-{
-    using System;
-    using System.Linq.Expressions;
-    using AXOpen.Base;
-    using Base.Data.Query;
+using AXOpen.Base;
+using System.Linq.Expressions;
 
+namespace AXOpen.Data.Query
+{
     public static class PredicateBuilder
     {
         public static LambdaExpression BuildLambdaPredicate(Type targetType, string propertyName, string operation, object minOrValue, object max)
@@ -18,9 +16,12 @@
             if (property == null)
                 throw new ArgumentException($"Property '{propertyName}' not found on type '{targetType.Name}'.");
 
+            var underlyingType = Nullable.GetUnderlyingType(property.Type);
+            var valueType = underlyingType ?? property.Type;
+
             // Convert value to the correct type
-            var convertedMinOrValue = Convert.ChangeType(minOrValue, property.Type);
-            var constant = Expression.Constant(convertedMinOrValue);
+            var convertedMinOrValue = Convert.ChangeType(minOrValue, valueType);
+            var constant = Expression.Constant(convertedMinOrValue, property.Type);
 
             // Create Binary Expression (p.PropertyName [operator] value)
             Expression body = operation switch
@@ -34,8 +35,8 @@
                 "Contains" => Expression.Call(property, typeof(string).GetMethod("Contains", new[] { typeof(string) })!, constant),
                 "StartsWith" => Expression.Call(property, typeof(string).GetMethod("StartsWith", new[] { typeof(string) })!, constant),
                 "EndsWith" => Expression.Call(property, typeof(string).GetMethod("EndsWith", new[] { typeof(string) })!, constant),
-                "InRange" => BuildRangeExpression(property, minOrValue, max), // Range filtering
-                "OutOfRange" => BuildOutOfRangeExpression(property, minOrValue, max), // Range filtering
+                "InRange" => BuildRangeExpression(property, convertedMinOrValue, Convert.ChangeType(max, valueType)),
+                "OutOfRange" => BuildOutOfRangeExpression(property, convertedMinOrValue, Convert.ChangeType(max, valueType)),
                 _ => throw new NotSupportedException($"Operation '{operation}' is not supported.")
             };
 
