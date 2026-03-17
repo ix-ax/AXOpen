@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -361,5 +361,23 @@
   </data>
   <data name="SequencerClearAllBreakpoints" xml:space="preserve">
     <value>Wyczysc wszystkie punkty przerwania</value>
+  </data>
+  <data name="SequencerTaskStateReady" xml:space="preserve">
+    <value>Gotowy</value>
+  </data>
+  <data name="SequencerTaskStateKicking" xml:space="preserve">
+    <value>Uruchamianie</value>
+  </data>
+  <data name="SequencerTaskStateBusy" xml:space="preserve">
+    <value>W trakcie</value>
+  </data>
+  <data name="SequencerTaskStateDone" xml:space="preserve">
+    <value>Zakonczono</value>
+  </data>
+  <data name="SequencerTaskStateAborted" xml:space="preserve">
+    <value>Przerwano</value>
+  </data>
+  <data name="SequencerTaskStateError" xml:space="preserve">
+    <value>Blad</value>
   </data>
 </root>
