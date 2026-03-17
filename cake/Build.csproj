@@ -2,6 +2,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>    
     <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+	  <GitVersionOutputFile>$(MSBuildProjectDirectory)\obj\gitversion.json</GitVersionOutputFile>
 	  <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>

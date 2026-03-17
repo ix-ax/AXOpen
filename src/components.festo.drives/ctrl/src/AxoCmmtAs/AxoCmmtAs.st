@@ -515,7 +515,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
                 _initHwCheckDone    := TRUE;
             END_IF;            
-            Messenger.ActivateOnCondition(ULINT#1800, NOT _ScalingRead, eAxoMessageCategory#Warning);            
+            Messenger.ActivateOnCondition(ULINT#1800, NOT _ScalingRead, eAxoMessageCategory#Potential);            
             //********************Diagnostics******************//          
             HardwareDiagnosticsTask.Run(THIS,AxisRefExt.HWIDs.HW_Device);
             //********************PARAMETRIZAION***************//          
@@ -523,7 +523,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Parametrization.Inputs.HardwareId := AxisRefExt.HWIDs.HW_ModuleAccessPoint;            
             //*******************SCALING***********************//          
             IF NOT _ScalingRead THEN
-                Messenger.Activate(ULINT#1800 , eAxoMessageCategory#Warning);            
+                Messenger.Activate(ULINT#1800 , eAxoMessageCategory#Potential);            
                 IF State = UINT#0 THEN
                     State := UINT#1;
                 END_IF;
@@ -746,8 +746,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
             //*************************************************//
 
-            Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Warning);
-            Messenger.ActivateOnCondition(ULINT#301, Enable AND NOT EnableNegative, eAxoMessageCategory#Warning);
+            Messenger.ActivateOnCondition(ULINT#300, Enable AND NOT EnablePositive, eAxoMessageCategory#Info);
+            Messenger.ActivateOnCondition(ULINT#301, Enable AND NOT EnableNegative, eAxoMessageCategory#Info);
 
             //************************************************************
             SUPER.Run(THIS,AxisRefExt,Enable,EnablePositive,EnableNegative);
@@ -801,7 +801,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             returnValue := Siemens.Simatic.DistributedIO.ReadData(_AxisReference^.HWIDs.HW_Telegram111 ,_Telegram111);
             IF returnValue > WORD#0 THEN
-                Messenger.Activate(     UINT#1411, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1411, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1411;
                 RETURN;
             END_IF;
@@ -873,7 +873,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             //M_Actual 
             returnValue := Siemens.Simatic.DistributedIO.ReadData(_AxisReference^.HWIDs.HW_Telegram750,_Telegram750);
             IF returnValue > WORD#0 THEN
-                Messenger.Activate(     UINT#1412, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1412, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1412;
                 RETURN;
             END_IF;
@@ -996,7 +996,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             returnValue := Siemens.Simatic.DistributedIO.WriteData(_AxisReference^.HWIDs.HW_Telegram111,_Telegram111);
             IF returnValue > WORD#0 THEN
-                Messenger.Activate(     UINT#1421, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1421, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1421;
                 RETURN;
             END_IF;
@@ -1012,7 +1012,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
             returnValue := Siemens.Simatic.DistributedIO.WriteData(_AxisReference^.HWIDs.HW_Telegram750,_Telegram750);
             IF returnValue > WORD#0 THEN
-                Messenger.Activate(     UINT#1422, eAxoMessageCategory#ProgrammingError);
+                Messenger.Activate(     UINT#1422, eAxoMessageCategory#Error);
                 DriveStatus.Error.Id := UINT#1422;
                 RETURN;
             END_IF;
@@ -1225,7 +1225,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#22;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1444, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1444, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1444;
                         State := UINT#59;
                     END_IF;
@@ -1253,7 +1253,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#24;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1445, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1445, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1445;
                         State := UINT#59;
                     END_IF;
@@ -1281,7 +1281,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#26;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1446, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1446, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1446;
                         State := UINT#59;
                     END_IF;
@@ -1309,7 +1309,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#28;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1447, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1447, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1447;
                         State := UINT#59;
                     END_IF;
@@ -1337,7 +1337,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#30;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1448, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1448, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1448;
                         State := UINT#59;
                     END_IF;
@@ -1365,7 +1365,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#32;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1449, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1449, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1449;
                         State := UINT#59;
                     END_IF;
@@ -1393,7 +1393,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#34;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1450, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1450, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1450;
                         State := UINT#59;
                     END_IF;
@@ -1421,7 +1421,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#36;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1451, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1451, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1451;
                         State := UINT#59;
                     END_IF;
@@ -1449,7 +1449,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#38;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1452, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1452, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1452;
                         State := UINT#59;
                     END_IF;
@@ -1498,7 +1498,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#42;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1453, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1453, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1453;
                         State := UINT#59;
                     END_IF;
@@ -1526,7 +1526,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#44;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1454, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1454, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1454;
                         State := UINT#59;
                     END_IF;
@@ -1554,7 +1554,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#46;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1455, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1455, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1455;
                         State := UINT#59;
                     END_IF;
@@ -1582,7 +1582,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#48;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1456, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1456, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1456;
                         State := UINT#59;
                     END_IF;
@@ -1610,7 +1610,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#50;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1457, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1457, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1457;
                         State := UINT#59;
                     END_IF;
@@ -1655,7 +1655,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#54;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1458, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1458, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1458;
                         State := UINT#59;
                     END_IF;
@@ -1683,7 +1683,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                          State := UINT#56;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1459, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1459, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1459;
                         State := UINT#59;
                     END_IF;
@@ -1707,7 +1707,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Parametrization.Inputs.ValueWriteLINT := PNU_11735;
 
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1460, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1460, eAxoMessageCategory#Error);
                         MC_HomeErrorID :=   DINT#1460;
                         State := UINT#59;
                     END_IF;                    
@@ -1846,7 +1846,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#62;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1473, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1473, eAxoMessageCategory#Error);
                         MC_StopErrorID :=   DINT#1473;
                         State := UINT#69;
                     END_IF;
@@ -2023,7 +2023,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#72;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate( UINT#1483, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate( UINT#1483, eAxoMessageCategory#Error);
                         MC_HaltErrorID :=   DINT#1483;
                         State := UINT#79;
                     END_IF;
@@ -2240,7 +2240,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#82;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1495, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1495, eAxoMessageCategory#Error);
                         MC_MoveAbsoluteErrorID :=   DINT#1495;
                         State := UINT#89;
                     END_IF;
@@ -2464,7 +2464,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#92;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1505, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1505, eAxoMessageCategory#Error);
                         MC_MoveRelativeErrorID :=   DINT#1505;
                         State := UINT#99;
                     END_IF;
@@ -2708,7 +2708,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#102;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1515, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1515, eAxoMessageCategory#Error);
                         MC_MoveAdditiveErrorID :=   DINT#1515;
                         State := UINT#109;
                     END_IF;
@@ -2970,7 +2970,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#112;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1526, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1526, eAxoMessageCategory#Error);
                         MC_MoveVelocityErrorID :=   DINT#1526;
                         State := UINT#119;
                     END_IF;
@@ -3246,7 +3246,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         RETURN;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1540, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1540, eAxoMessageCategory#Error);
                         MC_TorqueControlErrorID :=  DINT#1540;
                         Parametrization.Inputs.Enable := FALSE;
                         Parametrization.Inputs.ReadWrite   := FALSE;
@@ -3281,7 +3281,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         RETURN;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1540, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1540, eAxoMessageCategory#Error);
                         MC_TorqueControlErrorID :=  DINT#1540;
                         Parametrization.Inputs.Enable := FALSE;
                         Parametrization.Inputs.ReadWrite   := FALSE;
@@ -3306,7 +3306,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         RETURN;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1541, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1541, eAxoMessageCategory#Error);
                         MC_TorqueControlErrorID :=  DINT#1541;
                         State := UINT#129;
                     END_IF;
@@ -3506,7 +3506,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#131;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1551, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1551, eAxoMessageCategory#Error);
                         MC_SetPositionErrorID :=    DINT#1551;
                         State := UINT#159;
                     END_IF;
@@ -3532,7 +3532,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#133;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1552, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1552, eAxoMessageCategory#Error);
                         MC_SetPositionErrorID :=    DINT#1552;
                         State := UINT#159;
                     END_IF;
@@ -3558,7 +3558,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#135;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1553, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1553, eAxoMessageCategory#Error);
                         MC_SetPositionErrorID :=    DINT#1553;
                         State := UINT#159;
                     END_IF;
@@ -3584,7 +3584,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#137;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1554, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1554, eAxoMessageCategory#Error);
                         MC_SetPositionErrorID :=    DINT#1554;
                         State := UINT#159;
                     END_IF;
@@ -3610,7 +3610,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#139;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1555, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1555, eAxoMessageCategory#Error);
                         MC_SetPositionErrorID :=    DINT#1555;
                         State := UINT#159;
                     END_IF;
@@ -3641,7 +3641,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#141;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1556, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1556, eAxoMessageCategory#Error);
                         MC_SetPositionErrorID :=    DINT#1556;
                         State := UINT#159;
                     END_IF;
@@ -3667,7 +3667,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#143;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1557, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1557, eAxoMessageCategory#Error);
                         MC_SetPositionErrorID :=    DINT#1557;
                         State := UINT#159;
                     END_IF;
@@ -3708,7 +3708,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#147;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1558, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1558, eAxoMessageCategory#Error);
                         MC_SetPositionErrorID :=    DINT#1558;
                         State := UINT#159;
                     END_IF;
@@ -3734,7 +3734,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                          State := UINT#149;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1559, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1559, eAxoMessageCategory#Error);
                         MC_SetPositionErrorID :=    DINT#1559;
                         State := UINT#159;
                     END_IF;
@@ -3759,7 +3759,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#151;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1560, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1560, eAxoMessageCategory#Error);
                         MC_SetPositionErrorID :=    DINT#1560;
                         State := UINT#159;
                    END_IF;
@@ -3967,7 +3967,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#161;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1581, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1581, eAxoMessageCategory#Error);
                         MC_ReadParameterErrorID :=  DINT#1581;
                         State := UINT#169;
                     END_IF;
@@ -4070,7 +4070,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#171;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(             UINT#1591, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1591, eAxoMessageCategory#Error);
                         MC_ReadRealParameterErrorID :=  DINT#1591;
                         State := UINT#179;
                     END_IF;
@@ -4174,7 +4174,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#181;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(             UINT#1601, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1601, eAxoMessageCategory#Error);
                         MC_ReadBoolParameterErrorID :=  DINT#1601;
                         State := UINT#189;
                     END_IF;
@@ -4278,7 +4278,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#191;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1611, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1611, eAxoMessageCategory#Error);
                         MC_WriteParameterErrorID := DINT#1611;
                         State := UINT#199;
                     END_IF;
@@ -4389,7 +4389,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#201;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(             UINT#1621, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1621, eAxoMessageCategory#Error);
                         MC_WriteRealParameterErrorID := DINT#1621;
                         State := UINT#209;
                     END_IF;
@@ -4500,7 +4500,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#211;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(             UINT#1631, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1631, eAxoMessageCategory#Error);
                         MC_WriteBoolParameterErrorID := DINT#1631;
                         State := UINT#219;
                     END_IF;
@@ -4626,7 +4626,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#221;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(             UINT#1642, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1642, eAxoMessageCategory#Error);
                         MC_ReadDigitalInputErrorID :=   DINT#1642;
                         State := UINT#229;
                     END_IF;
@@ -4736,7 +4736,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#231;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(             UINT#1652, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1652, eAxoMessageCategory#Error);
                         MC_ReadDigitalOutputErrorID :=  DINT#1652;
                         State := UINT#239;
                     END_IF;
@@ -4852,7 +4852,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#241;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(             UINT#1663, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(             UINT#1663, eAxoMessageCategory#Error);
                         MC_WriteDigitalOutputErrorID := DINT#1663;
                         State := UINT#249;
                     END_IF;
@@ -5239,7 +5239,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#311;
                     END_IF;
                     IF Parametrization.Outputs.Error THEN 
-                        Messenger.Activate(         UINT#1731, eAxoMessageCategory#ProgrammingError);
+                        Messenger.Activate(         UINT#1731, eAxoMessageCategory#Error);
                         MC_ReadAxisErrorErrorID :=  DINT#1731;
                         State := UINT#319;
                     END_IF;
