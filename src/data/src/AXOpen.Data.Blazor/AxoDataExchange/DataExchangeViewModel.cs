@@ -185,14 +185,17 @@ namespace AXOpen.Data
         // injected from view or other service
         public PredicateContainer ExternalPredicates { get; set; }
 
-        private List<string> EntityIdsInjected = new();
-        private bool AreEntityIdsInjected = false;
+        internal InjectedStatus InjectedStatus { get; private set; }
 
         /// <summary>
-        /// List of ids, that will be used when is concatenating between Exchanges
+        /// ids, injected from distributed manager
         /// </summary>
-        internal List<string> EntityIdsIntersected = new();
-        public bool ReadAllEntityIdsForConcatQuery { set; get; }
+        public List<string> EntityIdsInjected { get; private set; } = new();
+
+        /// <summary>
+        /// ids, that will be used when is concatenating between Exchanges
+        /// </summary>
+        public List<string> EntityIdsIntersected { get; private set; } = new();
 
         public IDataExchangeGlobalActions? GlobalActions { internal set; get; }
 
@@ -254,7 +257,7 @@ namespace AXOpen.Data
 
             LastFilter = predicates;
 
-            if (EntityIdsInjected.Count > 0 && (Page - 1) * Limit >= EntityIdsInjected.Count) // is over limit => set last page
+            if (EntityIdsInjected != null && EntityIdsInjected.Count > 0 && (Page - 1) * Limit >= EntityIdsInjected.Count) // is over limit => set last page
             {
                 Page = (EntityIdsInjected.Count - 1) / Limit;
             }
@@ -268,25 +271,28 @@ namespace AXOpen.Data
 
             lock (_lockInjectEntities)
             {
-                this.EntityIdsIntersected.Clear();
-
-                if (this.AreEntityIdsInjected)
+                if (InjectedStatus == InjectedStatus.None) // normal filtering without any injected ids
                 {
-
-                    EntityIdsIntersected.AddRange(DataExchange.GetEntityIds(predicates, EntityIdsInjected).ToList());
-                    this.FilteredCount = EntityIdsIntersected.Count;
-                    var toFind = EntityIdsIntersected.Skip(skip).Take(limit).ToList();
-                    filtered = DataExchange.GetRecords(toFind, predicates).ToList();
+                    FilteredCount = this.DataExchange.Repository.FilteredCount(predicates);
+                    filtered = this.DataExchange.GetRecords(predicates, limit, skip);
                 }
                 else
                 {
-                    if (this.ReadAllEntityIdsForConcatQuery)
+                    if (InjectedStatus == InjectedStatus.Initialization) // needs to be initialized
                     {
-                        EntityIdsIntersected.AddRange(DataExchange.GetEntityIds(predicates).ToList());
+                        EntityIdsInjected = DataExchange.GetEntityIds(predicates).ToList();
+                        this.InjectedStatus = InjectedStatus.Concatenating;
                     }
 
-                    FilteredCount = this.DataExchange.Repository.FilteredCount(predicates);
-                    filtered = this.DataExchange.GetRecords(predicates, limit, skip);
+                    if (InjectedStatus == InjectedStatus.Concatenating)
+                    {
+                        EntityIdsIntersected.Clear();
+                        EntityIdsIntersected.AddRange(DataExchange.GetEntityIds(predicates, EntityIdsInjected).ToList()); // intersect external ids and predicates
+                        this.FilteredCount = EntityIdsIntersected.Count();
+                        var toFind = EntityIdsIntersected.Skip(skip).Take(limit).ToList();
+                        filtered = DataExchange.GetRecords(toFind, predicates).ToList();
+                    }
+
                 }
             }
 
@@ -634,11 +640,26 @@ namespace AXOpen.Data
 
         public void SetInjectedEntityIds(List<string> ids)
         {
+            if (ids == null) throw new ArgumentNullException(nameof(ids));
+
             lock (_lockInjectEntities)
             {
-                this.EntityIdsInjected.Clear();
-                this.EntityIdsInjected.AddRange(ids);
-                this.AreEntityIdsInjected = true;
+                if (ids.Count == 0)
+                {
+                    this.EntityIdsInjected.Clear();
+                    this.EntityIdsIntersected.Clear();
+                    this.InjectedStatus = InjectedStatus.Initialization;
+                }
+                else
+                {
+
+                    this.EntityIdsInjected.Clear();
+                    this.EntityIdsIntersected.Clear();
+
+                    this.EntityIdsInjected.AddRange(ids);
+                    this.EntityIdsIntersected.AddRange(ids);
+                    this.InjectedStatus = InjectedStatus.Concatenating;
+                }
             }
         }
 
@@ -647,8 +668,17 @@ namespace AXOpen.Data
             lock (_lockInjectEntities)
             {
                 this.EntityIdsInjected.Clear();
-                this.AreEntityIdsInjected = false;
+                this.EntityIdsIntersected.Clear(); 
+                this.InjectedStatus = InjectedStatus.None;
             }
         }
     }
+
+    public enum InjectedStatus
+    {
+        None,
+        Initialization,
+        Concatenating,
+    }
+
 }
