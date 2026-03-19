@@ -188,7 +188,7 @@ namespace axopen.data.distributed.tests_l4
             recs = svm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList();
             Assert.Equal(new[] { "7", "8" }, recs);
 
-            await dvm.TogleExternalEntityIdsInjectionAsync(); // DISABLE, and fill records ...
+            await dvm.TogleExternalPredicatesAsync(); // DISABLE, and fill records ...
             Assert.False(dvm.EnableExternalEntityIds);
 
             recs = svm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList();
@@ -210,7 +210,7 @@ namespace axopen.data.distributed.tests_l4
             Assert.Equal(new[] { "9", "10" }, recs);
 
             // ----------------- PHASE 2 : DistributedManager, disable external predicates ------------------
-            await dvm.TogleExternalEntityIdsInjectionAsync(); // disable
+            await dvm.TogleExternalPredicatesAsync(); // disable
             Assert.False(dvm.EnableExternalEntityIds);
 
             // ----------------- PHASE 3 : DistributedManager, enable local entity ids ------------------
@@ -234,7 +234,7 @@ namespace axopen.data.distributed.tests_l4
             Assert.Equal(new[] { "1", "2" }, recs);
 
             // ----------------- PHASE 5 : DistributedManager, intersect local and external predicates ------------------
-            await dvm.TogleExternalEntityIdsInjectionAsync(); // enable
+            await dvm.TogleExternalPredicatesAsync(); // enable
             Assert.True(dvm.EnableExternalEntityIds);
             Assert.True(dvm.EnableLocalConcatEntityIds);
 
@@ -243,7 +243,7 @@ namespace axopen.data.distributed.tests_l4
             Assert.Empty(recs);
 
             // ----------------- PHASE 6 : DistributedManager, disable both external and local predicates ------------------
-            await dvm.TogleExternalEntityIdsInjectionAsync(); // disable
+            await dvm.TogleExternalPredicatesAsync(); // disable
             Assert.False(dvm.EnableExternalEntityIds);
 
             await dvm.TogleLocalEntityIdsInjectionAsync(); // disable
@@ -267,7 +267,7 @@ namespace axopen.data.distributed.tests_l4
             Assert.Equal(new[] { "9", "10" }, recs);
 
             // ----------------- PHASE 2 : DistributedManager, disabled: external and local-ids ------------------
-            await dvm.TogleExternalEntityIdsInjectionAsync(); // disable
+            await dvm.TogleExternalPredicatesAsync(); // disable
             Assert.False(dvm.EnableExternalEntityIds);
             Assert.False(dvm.EnableLocalConcatEntityIds);
 
