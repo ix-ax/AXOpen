@@ -139,10 +139,14 @@ namespace AXOpen.Data
         public List<string>? ExternalEntityIds { private set; get; }
 
         public List<string>? AllExternalEntityIds { private set; get; }
+        public int ExternalEntityIdsCount =>  AllExternalEntityIds?.Count ?? 0;
 
         public bool EnableLocalConcatEntityIds { get; private set; } = false; // controlled by UI button
 
         public int LocalConcatEntityIdsCount => LocalConcatEntityIds?.Count ?? 0;
+
+        public bool IsShownDistributedFilter { get; internal set; } = false;
+
 
         /// <summary>
         /// Entity Ids that have been transmitted between local view models.
@@ -167,6 +171,7 @@ namespace AXOpen.Data
         /// Gets the collection of all data exchanges managed by the instance, available for distributed grop
         /// </summary>
         public IEnumerable<IAxoDataExchange> AllExchanges { get; protected set; } // used for load to plc
+
 
         #region IDistributedDataActions
 
@@ -775,7 +780,7 @@ namespace AXOpen.Data
             await RefreshInjectedIdsAsync();
         }
 
-        public async Task TogleExternalEntityIdsInjectionAsync()
+        public async Task TogleExternalPredicatesAsync()
         {
             EnableExternalEntityIds = !EnableExternalEntityIds;
             await RefreshInjectedIdsAsync();
@@ -788,6 +793,11 @@ namespace AXOpen.Data
             await SelectedManagerVm.FillObservableRecordsAsync();
 
             SelectedManagerVm.InvokeStateHasChanged();
+        }
+        public async Task TogleDistributedFilter()
+        {
+            this.IsShownDistributedFilter = !this.IsShownDistributedFilter;
+            this.InvokeStateHasChanged();
         }
     }
 }

@@ -54,7 +54,6 @@ namespace AXOpen.Data
         [Inject]
         public IAxoDataExchangeConfigurationService? ExchangeConfigService { set; get; }
 
-        public bool AdvanceFilterConfig { get; set; } = false;
 
         public DistributedDataViewModel DistributedVM { set; get; }
 

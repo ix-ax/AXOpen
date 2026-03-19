@@ -3,70 +3,6 @@
 @using Microsoft.AspNetCore.Components.Authorization
 
 
-<div data-distributed-data-view class="flex flex-wrap flex-row items-center simple-border gap-2 p-1">
-
-    <h5>@Localizer["Global Actions:"]</h5>
-
-    @if (EnableFiltering)
-    {
-        <AuthorizeView Roles="@DataExchangeRoleNames.can_data_filter_advanced">
-            <Authorized>
-
-
-                <button type="button" class="btn @(AdvanceFilterConfig ? "btn-outline-warning" : "btn-primary")" @onclick="() => { AdvanceFilterConfig = !AdvanceFilterConfig; }">
-                    @if (AdvanceFilterConfig)
-                    {
-                        @Localizer["Hide filter"]
-                    }
-                    else
-                    {
-                        @Localizer["Filter"]
-                    }
-                </button>
-            </Authorized>
-        </AuthorizeView>
-    }
-
-    <button type="button" class="btn @(DistributedVM.EnableLocalConcatEntityIds ? "btn-outline-warning" : "btn-primary")"
-            @onclick="async () => await DistributedVM.TogleLocalEntityIdsInjectionAsync()">
-        @if (DistributedVM.EnableLocalConcatEntityIds)
-        {
-            @Localizer["Do not concat query"]
-            <p class="ms-1">
-                @($"[{@DistributedVM.LocalConcatEntityIds?.Count}]")
-            </p>
-        }
-        else
-        {
-            @Localizer["Concat query"]
-        }
-    </button>
-
-    @if (DistributedVM.ExternalEntityIds != null && DistributedVM.ExternalEntityIds.Count > 0)
-    {
-        <button type="button" class="btn @(DistributedVM.EnableExternalEntityIds ? "btn-outline-warning" : "btn-primary")"
-                @onclick="async () => await DistributedVM.TogleExternalEntityIdsInjectionAsync()">
-
-            @if (DistributedVM.EnableExternalEntityIds)
-            {
-                @Localizer["Disable External Entity Ids"]
-                <p class="ms-1">
-                    @($"[{@DistributedVM.ExternalEntityIds?.Count}]")
-                </p>
-            }
-            else
-            {
-                @Localizer["Enable External Entity Ids"]
-            }
-        </button>
-    }
-</div>
-
-
-@if (AdvanceFilterConfig)
-{
-    <AXOpen.Data.Query.DataExchangeQuery Exchange="@this.DistributedVM"></AXOpen.Data.Query.DataExchangeQuery>
-}
 
 
 @if (DistributedVM == null)
@@ -75,6 +11,12 @@
 }
 else
 {
+
+    @if (DistributedVM.IsShownDistributedFilter)
+    {
+        <AXOpen.Data.Query.DataExchangeQuery Exchange="@this.DistributedVM"></AXOpen.Data.Query.DataExchangeQuery>
+    }
+
     if (DistributedVM.DisplayedExchanges != null)
     {
         <ul class="tab">

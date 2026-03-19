@@ -5,13 +5,13 @@
 // https://github.com/inxton/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/inxton/axsharp/blob/dev/notices.md
 
-using System.Security.Cryptography;
+using AXOpen.Base.Data.Query;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
-
+using Operon.Components.Dropdown;
 using Operon.Components.Toast;
-using AXOpen.Base.Data.Query;
+using System.Security.Cryptography;
 using static AXOpen.Data.DataExchangeViewModel;
 using Properties = AXOpen.Data.Blazor.Properties;
 
@@ -60,6 +60,8 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     private PredicateContainer _lastPredicates;
 
     private string _ClientFolder = string.Empty;
+
+    private Dropdown _dropdownExtentions { get; set; }
 
     public string ClientFolder
     {

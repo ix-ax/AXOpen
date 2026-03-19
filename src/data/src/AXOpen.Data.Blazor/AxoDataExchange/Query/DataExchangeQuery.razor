@@ -27,7 +27,7 @@
         {
             <Dropdown @ref="_DropdownInjectedQueries">
                 <DropdownButton>
-                    <button type="button" class="btn btn-primary" @onclick="_DropdownInjectedQueries.Toggle">
+                    <button type="button" class="btn btn-primary" @onclick="_DropdownInjectedQueries.ToggleAsync">
                         @Localizer["Injected query !"]
                         <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_DropdownInjectedQueries?.Open ?? false ? "rotated" : null))" />
                     </button>
@@ -45,7 +45,7 @@
         {
             <Dropdown @ref="_DropdownInjectedSorting">
                 <DropdownButton>
-                    <button type="button" class="btn btn-primary" @onclick="_DropdownInjectedSorting.Toggle">
+                    <button type="button" class="btn btn-primary" @onclick="_DropdownInjectedSorting.ToggleAsync">
                         @Localizer["Injected sort!"]
                         <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_DropdownInjectedSorting?.Open ?? false ? "rotated" : null))" />
                     </button>
@@ -191,7 +191,7 @@
 
             <Dropdown @ref="_DropdownHistory">
                 <DropdownButton>
-                    <button type="button" class="btn btn-primary" @onclick="_DropdownHistory.Toggle">
+                    <button type="button" class="btn btn-primary" @onclick="_DropdownHistory.ToggleAsync">
                         @CurrentQuery.Name
                         <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_DropdownHistory?.Open ?? false ? "rotated" : null))" />
                     </button>
