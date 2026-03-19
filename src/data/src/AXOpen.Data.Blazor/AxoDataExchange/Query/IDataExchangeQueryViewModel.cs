@@ -15,7 +15,13 @@ namespace AXOpen.Data
     public interface IDataExchangeQueryViewModel
     {
         IEnumerable<Type> GetPlainTypes();
-        PredicateContainer ExternalPredicates { get; set; }
+
+        PredicateContainer ExternalPredicates { get;  } // expose for merging queries
+        // List<string> ExternalEntityIds { get;  }
+
+        void SetExternalPredicates(PredicateContainer externalPredicates);
+        void SetExternalEntityIds(List<string> entityIds); //  null-will be initialized, [0..xx] valid range-display
+        void ResetExternalEntityIds();// implicitly tells to disable external ids
         Task FillObservableRecordsAsync(PredicateContainer? predicates = null);
         public void InvokeStateHasChanged();
     }

@@ -29,7 +29,7 @@
         }
 
         <button type="button" class="btn @(DistributedVM.EnableLocalConcatEntityIds ? "btn-outline-warning" : "btn-primary")"
-                @onclick="DistributedVM.TogleLocalEntityIdsInjection">
+                @onclick="async () => await DistributedVM.TogleLocalEntityIdsInjectionAsync()">
             @if (DistributedVM.EnableLocalConcatEntityIds)
             {
                 @Localizer["Do not concat query"]
@@ -46,7 +46,7 @@
         @if (DistributedVM.ExternalEntityIds != null && DistributedVM.ExternalEntityIds.Count > 0)
         {
             <button type="button" class="btn @(DistributedVM.EnableExternalEntityIds ? "btn-outline-warning" : "btn-primary")"
-                    @onclick="() => DistributedVM.TogleExternalEntityIdsInjection()">
+                    @onclick="async () => await DistributedVM.TogleExternalEntityIdsInjectionAsync()">
 
                 @if (DistributedVM.EnableExternalEntityIds)
                 {

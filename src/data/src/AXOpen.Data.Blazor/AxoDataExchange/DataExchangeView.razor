@@ -92,6 +92,16 @@ else
                 <button type="button" class="btn btn-outline-primary mx-2" @onclick="Vm.Filter">
                     @Localizer["Search"]
                 </button>
+
+                <button type="button" class="btn btn-outline-warning mx-2" @onclick="() => Vm.TogleExchangeConcat(true)">
+                    @Localizer["Concat"]
+                </button>
+
+                  <button type="button" class="btn btn-outline-warning mx-2" @onclick="() => Vm.TogleExchangeConcat(false)">
+                    @Localizer["NoConcat"]
+                </button>
+
+                
             }
             @if (EnableFiltering)
             {
@@ -298,14 +308,14 @@ else
                 </div>
             }
 
-            @if (Vm.GlobalActions != null)
+            @if (Vm.DistributedActions != null)
             {
                 @if (ButtonOperationName.Equals("Create"))
                 {
                     <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)"
                             @onclick="async () => {
                                  _modalCreate.CloseModal();
-                        await Vm.GlobalActions.Create(Vm.CreateItemId);
+                        await Vm.DistributedActions.Create(Vm.CreateItemId);
                         Vm.UpdateObservableRecords();
                         Vm.InvokeStateHasChanged();
                         Vm.UnLocked();
@@ -318,7 +328,7 @@ else
                     <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)"
                             @onclick="async () => {
                                  _modalCreate.CloseModal();
-                        await Vm.GlobalActions.Copy(Vm.SelectedRecord._EntityId, Vm.CreateItemId);
+                        await Vm.DistributedActions.Copy(Vm.SelectedRecord._EntityId, Vm.CreateItemId);
                         Vm.UpdateObservableRecords();
                         Vm.InvokeStateHasChanged();
                         Vm.UnLocked();
@@ -331,7 +341,7 @@ else
                     <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)"
                             @onclick="async () => {
                                  _modalCreate.CloseModal();
-                        await Vm.GlobalActions.CreateNewFromPlc(Vm.CreateItemId);
+                        await Vm.DistributedActions.CreateNewFromPlc(Vm.CreateItemId);
                         Vm.UpdateObservableRecords();
                         Vm.InvokeStateHasChanged();
                         Vm.UnLocked();
@@ -521,13 +531,13 @@ else
                     <h6>@Localizer["This record has external modifications!"]</h6>
                 </div>
             }
-            @if (Vm.GlobalActions != null)
+            @if (Vm.DistributedActions != null)
             {
                 <button type="button" class="btn btn-danger @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)"
                 @onclick="async () =>
                 {
                     _modalDelete.CloseModal();
-                    await Vm.GlobalActions.Delete(Vm.SelectedRecord._EntityId);
+                    await Vm.DistributedActions.Delete(Vm.SelectedRecord._EntityId);
                     Vm.UnLocked();
                     Vm.UpdateObservableRecords();
                     Vm.InvokeStateHasChanged();
@@ -557,12 +567,12 @@ else
             </button>
         </div>
         <div class="modal-footer flex justify-end gap-1">
-            @if (Vm.GlobalActions != null)
+            @if (Vm.DistributedActions != null)
             {
                 <button type="button" class="btn btn-primary"
                         @onclick="async () => {
                             _modalAckSendToPlc.CloseModal();
-                        await Vm.GlobalActions.SendToPlc(Vm.SelectedRecord._EntityId);}">
+                        await Vm.DistributedActions.SendToPlc(Vm.SelectedRecord._EntityId);}">
                     @Localizer["Send data to ALL PLCs"]
                 </button>
 

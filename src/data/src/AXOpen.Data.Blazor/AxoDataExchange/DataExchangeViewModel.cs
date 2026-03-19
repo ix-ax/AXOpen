@@ -180,24 +180,24 @@ namespace AXOpen.Data
             }
         }
 
-        public PredicateContainer LastFilter { set; get; }
+        public PredicateContainer LastPredicates { set; get; }
 
         // injected from view or other service
-        public PredicateContainer ExternalPredicates { get; set; }
+        public PredicateContainer ExternalPredicates { get; private set; }
 
-        internal InjectedStatus InjectedStatus { get; private set; }
+        internal bool AreEntityIdsInjected { get; private set; }
 
         /// <summary>
         /// ids, injected from distributed manager
         /// </summary>
-        public List<string> EntityIdsInjected { get; private set; } = new();
+        public List<string> ExternalEntityIds { get; private set; } = new();
 
         /// <summary>
         /// ids, that will be used when is concatenating between Exchanges
         /// </summary>
         public List<string> EntityIdsIntersected { get; private set; } = new();
 
-        public IDataExchangeGlobalActions? GlobalActions { internal set; get; }
+        public IDistributedDataActions? DistributedActions { internal set; get; }
 
         internal void Locked()
         {
@@ -247,23 +247,52 @@ namespace AXOpen.Data
         {
             if (predicates == null)
             {
-                if (LastFilter == null)
+                if (LastPredicates == null)
                 {
-                    LastFilter = new PredicateContainer();
+                    LastPredicates = new PredicateContainer();
                 }
 
-                predicates = LastFilter;
+                predicates = LastPredicates;
             }
 
-            LastFilter = predicates;
+            LastPredicates = predicates;
 
-            if (EntityIdsInjected != null && EntityIdsInjected.Count > 0 && (Page - 1) * Limit >= EntityIdsInjected.Count) // is over limit => set last page
+            if (ExternalEntityIds != null && ExternalEntityIds.Count > 0 && (Page - 1) * Limit >= ExternalEntityIds.Count) // is over limit => set last page
             {
-                Page = (EntityIdsInjected.Count - 1) / Limit;
+                Page = (ExternalEntityIds.Count - 1) / Limit;
             }
 
             Filter(predicates, Limit, (Page - 1) * Limit);
         }
+
+        public List<string> GetLastEntityIds()
+        {
+            var ids = new List<string>();
+
+            if (LastPredicates == null)
+            {
+                LastPredicates = new PredicateContainer();
+            }
+
+            if (ExternalEntityIds != null && ExternalEntityIds.Count > 0 && (Page - 1) * Limit >= ExternalEntityIds.Count) // is over limit => set last page
+            {
+                Page = (ExternalEntityIds.Count - 1) / Limit;
+            }
+
+            if (AreEntityIdsInjected)
+            {
+                EntityIdsIntersected.Clear();
+                EntityIdsIntersected.AddRange(DataExchange.GetEntityIds(LastPredicates, ExternalEntityIds).ToList()); // intersect external ids and predicates
+                ids = EntityIdsIntersected;
+            }
+            else
+            {
+                ids = DataExchange.GetEntityIds(LastPredicates).ToList();
+            }
+
+            return ids;
+        }
+
 
         public virtual IEnumerable<IBrowsableDataObject> Filter(PredicateContainer predicates, int limit = 10, int skip = 0)
         {
@@ -271,35 +300,31 @@ namespace AXOpen.Data
 
             lock (_lockInjectEntities)
             {
-                if (InjectedStatus == InjectedStatus.None) // normal filtering without any injected ids
+                if (!AreEntityIdsInjected) // normal filtering without any injected ids
                 {
                     FilteredCount = this.DataExchange.Repository.FilteredCount(predicates);
                     filtered = this.DataExchange.GetRecords(predicates, limit, skip);
                 }
                 else
                 {
-                    if (InjectedStatus == InjectedStatus.Initialization) // needs to be initialized
-                    {
-                        EntityIdsInjected = DataExchange.GetEntityIds(predicates).ToList();
-                        this.InjectedStatus = InjectedStatus.Concatenating;
-                    }
-
-                    if (InjectedStatus == InjectedStatus.Concatenating)
-                    {
-                        EntityIdsIntersected.Clear();
-                        EntityIdsIntersected.AddRange(DataExchange.GetEntityIds(predicates, EntityIdsInjected).ToList()); // intersect external ids and predicates
-                        this.FilteredCount = EntityIdsIntersected.Count();
-                        var toFind = EntityIdsIntersected.Skip(skip).Take(limit).ToList();
-                        filtered = DataExchange.GetRecords(toFind, predicates).ToList();
-                    }
-
+                    EntityIdsIntersected.Clear();
+                    EntityIdsIntersected.AddRange(DataExchange.GetEntityIds(predicates, ExternalEntityIds).ToList()); // intersect external ids and predicates
+                    this.FilteredCount = EntityIdsIntersected.Count();
+                    var toFind = EntityIdsIntersected.Skip(skip).Take(limit).ToList();
+                    filtered = DataExchange.GetRecords(toFind, predicates).ToList();
                 }
             }
 
+            // update local concat if is activated
+            if (DistributedActions != null && DistributedActions.EnableLocalConcatEntityIds)
+            {
+                DistributedActions.SetLocalExchangeConcatIds(EntityIdsIntersected);
+            }
+
+            // update observable collection in locked way
             lock (_viewRefreshMutex)
             {
                 Records.Clear();
-
                 foreach (var item in filtered)
                 {
                     this.Records.Add(item);
@@ -636,42 +661,56 @@ namespace AXOpen.Data
             }
         }
 
+        public void SetExternalEntityIds(List<string> value) // null-will be initialized,[0..xx] valid range-display
+        {
+            lock (_lockInjectEntities)
+            {
+                this.AreEntityIdsInjected = true;
+                this.ExternalEntityIds.Clear();
+                this.EntityIdsIntersected.Clear();
+
+                if (value != null && value.Count > 0)
+                {
+                    this.ExternalEntityIds.Clear();
+                    this.EntityIdsIntersected.Clear();
+                    this.ExternalEntityIds.AddRange(value);
+                    this.EntityIdsIntersected.AddRange(value);
+                }
+            }
+        }
+        public void ResetExternalEntityIds() // implicitly tells to disable external ids
+        {
+            lock (_lockInjectEntities)
+            {
+                this.ExternalEntityIds.Clear();
+                this.EntityIdsIntersected.Clear();
+                this.AreEntityIdsInjected = false;
+            }
+        }
+
+        public void SetExternalPredicates(PredicateContainer? value) // null-reset, !null - set for concatenation
+        {
+            if (value != ExternalPredicates)
+            {
+                ExternalPredicates = value;
+            }
+        }
+
+        public void TogleExchangeConcat(bool enableConcat = true)
+        {
+            if (enableConcat)
+            {
+                var ids = this.DataExchange.GetEntityIds(LastPredicates).ToList();
+                DistributedActions.SetLocalExchangeConcatIds(ids);
+            }
+            else
+            {
+                DistributedActions.ResetLocalExchangeConcatIds();
+            }
+        }
+
+
         #endregion IDataExchangeQueryViewModel implementation
-
-        public void SetInjectedEntityIds(List<string> ids)
-        {
-            if (ids == null) throw new ArgumentNullException(nameof(ids));
-
-            lock (_lockInjectEntities)
-            {
-                if (ids.Count == 0)
-                {
-                    this.EntityIdsInjected.Clear();
-                    this.EntityIdsIntersected.Clear();
-                    this.InjectedStatus = InjectedStatus.Initialization;
-                }
-                else
-                {
-
-                    this.EntityIdsInjected.Clear();
-                    this.EntityIdsIntersected.Clear();
-
-                    this.EntityIdsInjected.AddRange(ids);
-                    this.EntityIdsIntersected.AddRange(ids);
-                    this.InjectedStatus = InjectedStatus.Concatenating;
-                }
-            }
-        }
-
-        public void ResetInjectedEntityIds()
-        {
-            lock (_lockInjectEntities)
-            {
-                this.EntityIdsInjected.Clear();
-                this.EntityIdsIntersected.Clear(); 
-                this.InjectedStatus = InjectedStatus.None;
-            }
-        }
     }
 
     public enum InjectedStatus

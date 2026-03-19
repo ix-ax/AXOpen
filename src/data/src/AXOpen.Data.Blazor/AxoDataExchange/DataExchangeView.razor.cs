@@ -122,9 +122,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     private string ButtonOperationName { get; set; } = "";
 
-    private int MaxPage =>
-        (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit);
-
     public void AddLine(ColumnData line)
     {
         if (!Columns.Contains(line))
@@ -145,12 +142,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
         }
     }
 
-    private int mod(int x, int m)
-    {
-        if (m == 0) return 0; // avoid exception caused by % 0
-        var r = x % m;
-        return r < 0 ? r + m : r;
-    }
 
     private async Task setSortExpresionAsync(string sortExpresion)
     {
@@ -205,11 +196,9 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     protected override async Task OnInitializedAsync()
     {
-        Vm.ExternalPredicates = ExternalPredicates;
-
-        await Vm.Filter();
-
         Vm.StateHasChangedDelegate = StateHasChanged;
+        Vm.SetExternalPredicates(ExternalPredicates);
+        await Vm.Filter();
     }
 
     private async Task LoadFile(InputFileChangeEventArgs e)
