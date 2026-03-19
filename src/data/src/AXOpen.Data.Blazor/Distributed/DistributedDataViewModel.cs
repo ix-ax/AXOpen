@@ -20,7 +20,6 @@ namespace AXOpen.Data
         protected readonly bool DisplayOnePerDataType;
         protected readonly string ConfiguraionSuffix = "";
 
-
         public DistributedDataViewModel(
             IToastService toastService,
             AuthenticationStateProvider authentication,
@@ -50,10 +49,8 @@ namespace AXOpen.Data
 
             DisplayedExchanges = displayOnePerDataType ? Exchanges : AllExchanges; // select for display
 
-
             IntersectExternalEntityIds();
             InitializeSelectedViewModel(Exchanges.First());
-
         }
 
         #region IDataExchangeQueryViewModel
@@ -83,25 +80,20 @@ namespace AXOpen.Data
 
         public Task FillObservableRecordsAsync(PredicateContainer? predicates = null)
         {
-            if (predicates == null)
+            // refresh ui
+            if ((predicates == null) && (this.SelectedManagerVm != null))
             {
-                if (this.SelectedManagerVm != null)
-                {
-                    return SelectedManagerVm.FillObservableRecordsAsync();
-                }
+                return SelectedManagerVm.FillObservableRecordsAsync();
             }
 
             if (ExternalPredicates != null && this.EnableExternalEntityIds) // merge predicates
                 predicates.AddPredicatesFrom(ExternalPredicates);
-
-            List<string> commonEntities = Exchanges.GetEntityIds(predicates);
-            LastFragmentQueryCount = commonEntities.Count;
-
+            
             LocalConcatEntityIds.Clear();
             EnableLocalConcatEntityIds = true;
-            LocalConcatEntityIds.AddRange(commonEntities);
+            LocalConcatEntityIds.AddRange(Exchanges.GetEntityIds(predicates));
 
-            if (this.SelectedManagerVm != null)
+            if (this.SelectedManagerVm != null) // refresh with new predicates and merged entity ids
             {
                 IntersectExternalAndLocalEntityIds(SelectedManagerVm);
                 return this.SelectedManagerVm.FillObservableRecordsAsync(predicates);
@@ -149,6 +141,7 @@ namespace AXOpen.Data
         public List<string>? AllExternalEntityIds { private set; get; }
 
         public bool EnableLocalConcatEntityIds { get; private set; } = false; // controlled by UI button
+
         /// <summary>
         /// Entity Ids that have been transmitted between local view models.
         /// </summary>
@@ -158,17 +151,18 @@ namespace AXOpen.Data
 
         public DataExchangeViewModel SelectedManagerVm { get; protected set; }
 
-        public int LastFragmentQueryCount { set; get; }
-
+        /// <summary>
+        /// Gets the collection of data exchanges currently displayed in the view.
+        /// </summary>
         public IEnumerable<IAxoDataExchange> DisplayedExchanges { get; protected set; } // used for view
 
-        /// <summary>
-        /// Only one per data type
-        /// </summary>
+         /// <summary>
+         /// Gets the collection of data exchange interfaces used for managing data operations.
+         /// </summary>
         public IEnumerable<IAxoDataExchange> Exchanges { get; protected set; } // used for data managent
 
         /// <summary>
-        /// All instances in a data manager group
+        /// Gets the collection of all data exchanges managed by the instance, available for distributed grop
         /// </summary>
         public IEnumerable<IAxoDataExchange> AllExchanges { get; protected set; } // used for load to plc
 
@@ -598,12 +592,12 @@ namespace AXOpen.Data
             LocalConcatEntityIds = entityIdsToInject;
             EnableLocalConcatEntityIds = true;
         }
+
         void IDistributedDataActions.ResetLocalExchangeConcatIds()
         {
             LocalConcatEntityIds.Clear();
             EnableLocalConcatEntityIds = false;
         }
-
 
         #endregion IDistributedDataActions
 
@@ -664,10 +658,7 @@ namespace AXOpen.Data
         protected void IntersectExternalEntityIds()
         {
             // enable external injection
-            if (ExternalEntityIds != null || ExternalPredicates != null)
-            {
-                EnableExternalEntityIds = true;
-            }
+            if (ExternalEntityIds != null || ExternalPredicates != null) EnableExternalEntityIds = true;
 
             AllExternalEntityIds = ExternalEntityIds;
 
@@ -677,15 +668,11 @@ namespace AXOpen.Data
                 if (idsFromPredicates != null && idsFromPredicates.Count > 0)
                 {
                     if (ExternalEntityIds == null)
-                    { // no provided external ids, use those from predicates
-                        AllExternalEntityIds = idsFromPredicates;
+                    {
+                        AllExternalEntityIds = idsFromPredicates; // no provided external ids, use those from predicates
                     }
                     else
                     {
-                        //AllExternalEntityIds.AddRange(idsFromPredicates);
-                        //AllExternalEntityIds = ExternalEntityIds.Distinct().ToList();
-
-                        // intersect with existing ones
                         AllExternalEntityIds = this.AllExternalEntityIds.Intersect(idsFromPredicates).ToList();
                     }
                 }
@@ -735,10 +722,9 @@ namespace AXOpen.Data
             exchange.SetExternalEntityIds(ids);
         }
 
-
-        public void SetExternalPredicates(PredicateContainer? value) // used for testing
+        //
+        public void SetExternalPredicates(PredicateContainer? value) // for testing and external injection
         {
-
             if (value != ExternalPredicates)
             {
                 ExternalPredicates = value;
@@ -750,7 +736,8 @@ namespace AXOpen.Data
                 }
             }
         }
-        public void SetExternalEntityIds(List<string>? value) // used for testing
+
+        public void SetExternalEntityIds(List<string>? value) // for testing and external injection
         {
             if (value != ExternalEntityIds)
             {
@@ -763,14 +750,14 @@ namespace AXOpen.Data
                 }
             }
         }
-        public void ResetExternalEntityIds()
+
+        public void ResetExternalEntityIds() // satisfy interface
         {
             throw new NotImplementedException();
         }
-      
+
         public async Task TogleLocalEntityIdsInjectionAsync()
         {
-
             if (!EnableLocalConcatEntityIds)
             {
                 EnableLocalConcatEntityIds = true;
@@ -800,45 +787,5 @@ namespace AXOpen.Data
 
             SelectedManagerVm.InvokeStateHasChanged();
         }
-
-
-        public Dictionary<string, List<IBrowsableDataObject>> GetRecords(PredicateContainer predicates,
-            int limit, int skip)
-        {
-            List<string> commonEntities = Exchanges.GetEntityIds(predicates);
-
-            this.LastFragmentQueryCount = commonEntities.Count;
-
-            var toFind = commonEntities.Skip(skip).Take(limit).ToList();
-
-            return GetRecords(toFind);
-        }
-
-        //public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
-        //{
-        //    List<string> commonEntities = Exchanges.GetEntityIds(predicates);
-
-        //    this.LastFragmentQueryCount = commonEntities.Count;
-
-        //    return commonEntities;
-        //}
-
-        public Dictionary<string, List<IBrowsableDataObject>> GetRecords(IEnumerable<string> identifiers)
-        {
-            var result = new Dictionary<string, List<IBrowsableDataObject>>();
-
-            foreach (var fragment in Exchanges)
-            {
-                var matching = fragment.GetRecords(identifiers); // Assuming fragment supports this
-                if (matching.Any())
-                {
-                    result[fragment.ManagerDataTypeName] = matching.ToList();
-                }
-            }
-
-            return result;
-        }
-
-
     }
 }
