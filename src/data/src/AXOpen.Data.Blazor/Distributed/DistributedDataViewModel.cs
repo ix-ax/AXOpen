@@ -814,14 +814,14 @@ namespace AXOpen.Data
             return GetRecords(toFind);
         }
 
-        public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
-        {
-            List<string> commonEntities = Exchanges.GetEntityIds(predicates);
+        //public IEnumerable<string> GetEntityIds(PredicateContainer predicates)
+        //{
+        //    List<string> commonEntities = Exchanges.GetEntityIds(predicates);
 
-            this.LastFragmentQueryCount = commonEntities.Count;
+        //    this.LastFragmentQueryCount = commonEntities.Count;
 
-            return commonEntities;
-        }
+        //    return commonEntities;
+        //}
 
         public Dictionary<string, List<IBrowsableDataObject>> GetRecords(IEnumerable<string> identifiers)
         {

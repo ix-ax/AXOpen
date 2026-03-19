@@ -54,10 +54,6 @@ namespace AXOpen.Data
         [Inject]
         public IAxoDataExchangeConfigurationService? ExchangeConfigService { set; get; }
 
-        public string BtnOperation { get; set; } = string.Empty;
-        public string SelectedEntityId { get; set; } = string.Empty;
-        public string OperationRecordName { get; set; } = string.Empty;
-
         public bool AdvanceFilterConfig { get; set; } = false;
 
         public DistributedDataViewModel DistributedVM { set; get; }
@@ -95,21 +91,5 @@ namespace AXOpen.Data
             }
         }
 
-        public void EndBtnOperation()
-        {
-            this.BtnOperation = "";
-            this.SelectedEntityId = "";
-            this.OperationRecordName = "";
-        }
-
-        public bool IsAnyActiveOperation()
-        {
-            return !string.IsNullOrEmpty(this.BtnOperation);
-        }
-
-        public bool IsNoActiveOperation()
-        {
-            return string.IsNullOrEmpty(this.BtnOperation);
-        }
     }
 }
