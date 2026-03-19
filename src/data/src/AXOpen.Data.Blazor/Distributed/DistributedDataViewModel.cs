@@ -142,6 +142,8 @@ namespace AXOpen.Data
 
         public bool EnableLocalConcatEntityIds { get; private set; } = false; // controlled by UI button
 
+        public int LocalConcatEntityIdsCount => LocalConcatEntityIds?.Count ?? 0;
+
         /// <summary>
         /// Entity Ids that have been transmitted between local view models.
         /// </summary>

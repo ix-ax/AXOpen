@@ -696,16 +696,22 @@ namespace AXOpen.Data
             }
         }
 
-        public void TogleExchangeConcat(bool enableConcat = true)
+        public async Task TogleDistributedExchangeConcat()
         {
-            if (enableConcat)
+            if (DistributedActions.EnableLocalConcatEntityIds)
             {
-                var ids = this.DataExchange.GetEntityIds(LastPredicates).ToList();
-                DistributedActions.SetLocalExchangeConcatIds(ids);
+                DistributedActions.ResetLocalExchangeConcatIds();
+                await this.FillObservableRecordsAsync(); // refresh records with last ids
             }
             else
             {
-                DistributedActions.ResetLocalExchangeConcatIds();
+                // send last ids to distributed manager
+                var ids = this.DataExchange.GetEntityIds(LastPredicates).ToList();
+                this.ExternalEntityIds.Clear();
+                this.EntityIdsIntersected.Clear();
+                this.ExternalEntityIds.AddRange(ids);
+                this.EntityIdsIntersected.AddRange(ids);
+                DistributedActions.SetLocalExchangeConcatIds(ExternalEntityIds);
             }
         }
 

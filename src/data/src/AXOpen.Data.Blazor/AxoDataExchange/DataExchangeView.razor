@@ -24,7 +24,7 @@ else
                 {
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_item_create">
                         <Authorized>
-                            <button type="button" class="btn btn-primary" @onclick='() => { _modalCreate.Toggle(); ButtonOperationName = "Create"; }'>
+                            <button type="button" class="btn btn-outline-primary" @onclick='() => { _modalCreate.Toggle(); ButtonOperationName = "Create"; }'>
                                 @Localizer["Create new"]
                             </button>
                         </Authorized>
@@ -34,7 +34,7 @@ else
                 {
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_load_from_plc">
                         <Authorized>
-                            <button type="button" class="btn btn-primary" @onclick='() => { _modalCreate.Toggle(); ButtonOperationName = "LoadFromPlc"; }'>
+                            <button type="button" class="btn btn-outline-primary" @onclick='() => { _modalCreate.Toggle(); ButtonOperationName = "LoadFromPlc"; }'>
                                 @Localizer["Create new from PLC"]
                             </button>
                         </Authorized>
@@ -44,13 +44,13 @@ else
                 {
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_export">
                         <Authorized>
-                            <button type="button" class="btn btn-primary" @onclick='async () => { _modalExport.Toggle(); await LoadCustomExportDataAsync();}'>@Localizer["Export"]</button>
+                            <button type="button" class="btn btn-outline-primary" @onclick='async () => { _modalExport.Toggle(); await LoadCustomExportDataAsync();}'>@Localizer["Export"]</button>
                         </Authorized>
                     </AuthorizeView>
 
                     <AuthorizeView Roles="@DataExchangeRoleNames.can_data_import">
                         <Authorized>
-                            <button type="button" class="btn btn-primary" @onclick="async () => { _modalImport.Toggle(); await LoadCustomExportDataAsync(); }">@Localizer["Import"]</button>
+                            <button type="button" class="btn btn-outline-primary" @onclick="async () => { _modalImport.Toggle(); await LoadCustomExportDataAsync(); }">@Localizer["Import"]</button>
                         </Authorized>
                     </AuthorizeView>
                 }
@@ -89,12 +89,24 @@ else
                     @Localizer["Search"]
                 </button>
 
-                <button type="button" class="btn btn-outline-warning mx-2" @onclick="() => Vm.TogleExchangeConcat(true)">
-                    @Localizer["Concat"]
-                </button>
+                <button type="button"
+                    class="btn @(Vm.DistributedActions.EnableLocalConcatEntityIds ? "btn-outline-warning" : "btn-outline-primary")"
+                    @onclick="() => Vm.TogleDistributedExchangeConcat()">
 
-                  <button type="button" class="btn btn-outline-warning mx-2" @onclick="() => Vm.TogleExchangeConcat(false)">
-                    @Localizer["NoConcat"]
+                    @if(Vm.DistributedActions.EnableLocalConcatEntityIds)
+                    {
+                         <Operon.Icons.HeroIcon Icon="link" Type="Operon.Icons.IconType.Outline" Class="size-5 -translate-y-1" />
+
+                        <span class="primary">
+                            [@Vm.DistributedActions.LocalConcatEntityIdsCount / @Vm.ExternalEntityIds.Count]
+                        </span>
+
+                    }
+                    else
+                    {
+                         <Operon.Icons.HeroIcon Icon="link-slash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                    }
+
                 </button>
 
                 
@@ -103,7 +115,7 @@ else
             {
                 <AuthorizeView Roles="@DataExchangeRoleNames.can_data_filter_advanced">
                     <Authorized>
-                        <button type="button" class="btn @(AdvanceFilterConfig ? "btn-warning" : "btn-primary") items-center mx-2" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}" title="Advanced filter">
+                        <button type="button" class="btn @(AdvanceFilterConfig ? "btn-warning" : "btn-outline-primary") items-center mx-2" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}" title="Advanced filter">
                             <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Outline" Class="size-5" />
                         </button>
                     </Authorized>

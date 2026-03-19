@@ -14,7 +14,7 @@ namespace axopen.data.distributed.tests_l4
     using Microsoft.AspNetCore.Http.HttpResults;
 
     [Collection("DistributedExchange")]
-    public class DistributedExchangeTests 
+    public class DistributedExchangeTests
     {
         protected DistributedFixture Fixture { get; set; }
 
@@ -33,17 +33,17 @@ namespace axopen.data.distributed.tests_l4
 
             // distributed data exchange service should have collected 1 group name
             Assert.Equal(1, Fixture.DataService.ExistingGroupNames.Count);
-            Assert.Equal( Constants.DISTRIBUTED_GROUP_NAME , Fixture.DataService.ExistingGroupNames.First());
-            
-            Assert.Equal( 2 , Fixture.DistributedVM.Exchanges.Count());
+            Assert.Equal(Constants.DISTRIBUTED_GROUP_NAME, Fixture.DataService.ExistingGroupNames.First());
+
+            Assert.Equal(2, Fixture.DistributedVM.Exchanges.Count());
 
             List<IAxoDataExchange> exchanges = Fixture.DistributedVM.Exchanges.ToList();
 
-            Assert.Equal( "Shared Header"   , exchanges[0].PresentableInstanceName);
-            Assert.Equal( "Station"         , exchanges[1].PresentableInstanceName);
+            Assert.Equal("Shared Header", exchanges[0].PresentableInstanceName);
+            Assert.Equal("Station", exchanges[1].PresentableInstanceName);
 
-            Assert.NotNull( exchanges[0].Repository);
-            Assert.NotNull( exchanges[1].Repository);
+            Assert.NotNull(exchanges[0].Repository);
+            Assert.NotNull(exchanges[1].Repository);
 
         }
 
@@ -76,7 +76,7 @@ namespace axopen.data.distributed.tests_l4
             externalPredicate.AddPredicates<PocosStation>(p => p.NestObj.vInt > 5);
 
             dvm.SetExternalPredicates(externalPredicate); // should filter out 6,7,8,9,10
-            dvm.SetExternalEntityIds(new List<string> {"3", "10" });
+            dvm.SetExternalEntityIds(new List<string> { "3", "10" });
             await dvm.FillObservableRecordsAsync();
 
             recs = dvm.SelectedManagerVm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList();
@@ -93,7 +93,7 @@ namespace axopen.data.distributed.tests_l4
             // switch on local concat between station and header
             await dvm.TogleLocalEntityIdsInjectionAsync();
 
-            Assert.True( dvm.SelectedManagerVm.ExternalEntityIds.Count == 10); // entities are injected
+            Assert.True(dvm.SelectedManagerVm.ExternalEntityIds.Count == 10); // entities are injected
             var recs = dvm.SelectedManagerVm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList(); // local entities are taken from fist manager
             Assert.Equal(new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }, recs); // 1- 10
 
@@ -104,7 +104,7 @@ namespace axopen.data.distributed.tests_l4
 
             // set predicate on station that should filter out 3,4.
             var headerPredicates = new PredicateContainer();
-            headerPredicates.AddPredicates<PocosHeader>(p => (p.vInt > 2) && (p.vInt < 5) );
+            headerPredicates.AddPredicates<PocosHeader>(p => (p.vInt > 2) && (p.vInt < 5));
 
             await svm.FillObservableRecordsAsync(headerPredicates);
 
@@ -128,7 +128,7 @@ namespace axopen.data.distributed.tests_l4
 
             // set predicate that should filter out 1,2.
             var headerPredicates_2 = new PredicateContainer();
-            headerPredicates_2.AddPredicates<PocosHeader>(p => (p.vInt < 3) );   
+            headerPredicates_2.AddPredicates<PocosHeader>(p => (p.vInt < 3));
 
             await svm.FillObservableRecordsAsync(headerPredicates_2);
 
@@ -138,7 +138,7 @@ namespace axopen.data.distributed.tests_l4
 
         }
 
-         [Fact]
+        [Fact]
         public async void should_combine_concat_and_then_external_predicates()
         {
             // ----------------- PHASE 1 : StationManager, filter with predicates ------------------
@@ -179,15 +179,15 @@ namespace axopen.data.distributed.tests_l4
             Assert.True(dvm.EnableExternalEntityIds);
 
             // check intersect of extenal predicates 1-8, 
-             Assert.Equal(new[] { "1", "2", "3", "4", "5", "6", "7", "8" }, dvm.AllExternalEntityIds.OrderBy(int.Parse).ToList()); // only predicates are applied 
-             Assert.Null(dvm.ExternalEntityIds); // explicit id list is not injected
+            Assert.Equal(new[] { "1", "2", "3", "4", "5", "6", "7", "8" }, dvm.AllExternalEntityIds.OrderBy(int.Parse).ToList()); // only predicates are applied 
+            Assert.Null(dvm.ExternalEntityIds); // explicit id list is not injected
 
             await dvm.FillObservableRecordsAsync(); // it has to be called becouse that way is not for UI
 
             // verify that intersection is applied on header manager as well
             recs = svm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList();
             Assert.Equal(new[] { "7", "8" }, recs);
-           
+
             await dvm.TogleExternalEntityIdsInjectionAsync(); // DISABLE, and fill records ...
             Assert.False(dvm.EnableExternalEntityIds);
 
@@ -196,7 +196,7 @@ namespace axopen.data.distributed.tests_l4
 
         }
 
-          [Fact]
+        [Fact]
         public async void should_start_with_external_ids_then_concat_and_then__external_intersect()
         {
             // ----------------- PHASE 1 : DistributedManager, with external predicats ------------------
@@ -204,7 +204,7 @@ namespace axopen.data.distributed.tests_l4
             var externalPredicate = new PredicateContainer();
             externalPredicate.AddPredicates<PocosHeader>(p => p.vInt > 8); // should filter out 10
             dvm.SetExternalPredicates(externalPredicate); // set external predicates => External predicates will be SET-ON
-            await dvm.FillObservableRecordsAsync();
+            await dvm.FillObservableRecordsAsync(); // refresh selected manager 
 
             var recs = dvm.SelectedManagerVm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList();
             Assert.Equal(new[] { "9", "10" }, recs);
@@ -212,9 +212,12 @@ namespace axopen.data.distributed.tests_l4
             // ----------------- PHASE 2 : DistributedManager, disable external predicates ------------------
             await dvm.TogleExternalEntityIdsInjectionAsync(); // disable
             Assert.False(dvm.EnableExternalEntityIds);
+
             // ----------------- PHASE 3 : DistributedManager, enable local entity ids ------------------
             await dvm.TogleLocalEntityIdsInjectionAsync(); // enable
             Assert.True(dvm.EnableLocalConcatEntityIds);
+            recs = dvm.SelectedManagerVm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList();
+            Assert.Equal(new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }, recs); // 1- 10
 
             var localPredicate = new PredicateContainer();
             localPredicate.AddPredicates<PocosHeader>(p => p.vInt <= 2); // should filter 1,2
@@ -230,14 +233,69 @@ namespace axopen.data.distributed.tests_l4
             recs = dvm.SelectedManagerVm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList();
             Assert.Equal(new[] { "1", "2" }, recs);
 
-             // ----------------- PHASE 5 : DistributedManager, intersect local and external predicates ------------------
+            // ----------------- PHASE 5 : DistributedManager, intersect local and external predicates ------------------
             await dvm.TogleExternalEntityIdsInjectionAsync(); // enable
             Assert.True(dvm.EnableExternalEntityIds);
             Assert.True(dvm.EnableLocalConcatEntityIds);
 
             // intersection for [1,2,] and [9,10] should be empty
-             recs = dvm.SelectedManagerVm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList();
+            recs = dvm.SelectedManagerVm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList();
             Assert.Empty(recs);
+
+            // ----------------- PHASE 6 : DistributedManager, disable both external and local predicates ------------------
+            await dvm.TogleExternalEntityIdsInjectionAsync(); // disable
+            Assert.False(dvm.EnableExternalEntityIds);
+
+            await dvm.TogleLocalEntityIdsInjectionAsync(); // disable
+            Assert.False(dvm.EnableLocalConcatEntityIds);
+            recs = dvm.SelectedManagerVm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList();
+            Assert.Equal(new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }, recs); // 1- 10
+        }
+
+
+        [Fact]
+        public async void should_start_with_external_ids_then_concat_only_local_ids()
+        {
+            // ----------------- PHASE 1 : DistributedManager, with external predicates ------------------
+            var dvm = Fixture.DistributedVM;
+            var externalPredicate = new PredicateContainer();
+            externalPredicate.AddPredicates<PocosHeader>(p => p.vInt > 8); // should filter out 10
+            dvm.SetExternalPredicates(externalPredicate); // set external predicates => External predicates will be SET-ON
+            await dvm.FillObservableRecordsAsync(); // refresh selected manager 
+
+            var recs = dvm.SelectedManagerVm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList();
+            Assert.Equal(new[] { "9", "10" }, recs);
+
+            // ----------------- PHASE 2 : DistributedManager, disabled: external and local-ids ------------------
+            await dvm.TogleExternalEntityIdsInjectionAsync(); // disable
+            Assert.False(dvm.EnableExternalEntityIds);
+            Assert.False(dvm.EnableLocalConcatEntityIds);
+
+            // ----------------- PHASE 3 : StationManager, verify injected ids ------------------
+            await dvm.SelectManager(dvm.DisplayedExchanges.Last()); // select station manager
+            Assert.Equal(Constants.SYMBOL_STATION_MANAGER, dvm.SelectedManagerVm.RefUIData.Symbol);
+            recs = dvm.SelectedManagerVm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList();
+            Assert.Equal(new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }, recs); // 1- 10, all recs
+
+            // ----------------- PHASE 4 : StationManager, apply local predicates ------------------
+            var stationPredicate = new PredicateContainer();
+            stationPredicate.AddPredicates<PocosStation>(p => p.NestObj.vInt > 6);
+            await dvm.SelectedManagerVm.FillObservableRecordsAsync(stationPredicate);
+            recs = dvm.SelectedManagerVm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList();
+            Assert.Equal(new[] { "7", "8", "9", "10" }, recs); // 7-10, all recs that satisfy station predicate
+
+            // ----------------- PHASE 5 : StationManager, set local concat ids to distributed exchange ------------------
+            await dvm.SelectedManagerVm.TogleDistributedExchangeConcat(); // enable local concat ids
+            Assert.True(dvm.EnableLocalConcatEntityIds);
+            recs = dvm.LocalConcatEntityIds.OrderBy(int.Parse).ToList();
+            Assert.Equal(new[] { "7", "8", "9", "10" }, recs); // 7-10, all recs that satisfy station predicate
+
+             // ----------------- PHASE 6 : HeaderManager, verify injected ids ------------------
+            await dvm.SelectManager(dvm.DisplayedExchanges.First()); // select header manager
+            Assert.Equal(Constants.SYMBOL_HEADER_MANAGER, dvm.SelectedManagerVm.RefUIData.Symbol);
+            recs = dvm.SelectedManagerVm.Records.Select(r => r._EntityId).OrderBy(int.Parse).ToList();
+            Assert.Equal(new[] { "7", "8", "9", "10" }, recs);
+
 
         }
 

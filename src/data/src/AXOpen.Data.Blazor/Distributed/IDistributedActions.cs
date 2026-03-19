@@ -1,4 +1,4 @@
-﻿
+
 namespace AXOpen.Data.Interfaces
 {
     public interface IDistributedDataActions
@@ -12,6 +12,7 @@ namespace AXOpen.Data.Interfaces
 
         public bool EnableExternalEntityIds { get; }
         public bool EnableLocalConcatEntityIds { get; }
+        public int LocalConcatEntityIdsCount { get; }
         public void SetLocalExchangeConcatIds( List<string> entityIdsToInject);
         public void ResetLocalExchangeConcatIds( );
 
