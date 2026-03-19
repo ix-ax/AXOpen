@@ -31,7 +31,7 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
 
     private bool ShowCurrentStepRunButtons =>
         Component.CurrentStep is not null
-        && Component.CurrentStep.StepExecutionMode.LastValue != (short)eAxoStepExecutionMode.ExecuteAndContinue
+        //&& Component.CurrentStep.StepExecutionMode.LastValue != (short)eAxoStepExecutionMode.ExecuteAndContinue
             && Component.CurrentStep.Status.LastValue == (short)eAxoTaskState.Ready;
 
     private bool ShowCurrentStepRunning =>
@@ -124,7 +124,12 @@ public partial class AxoSequencerDebuggerView : RenderableComplexComponentBase<A
         if (!isChecked)
         {
             if (item.Step.StepExecutionMode.LastValue != (short)eAxoStepExecutionMode.ExecuteAndContinue)
+            { 
                 await item.Step.StepExecutionMode.SetAsync((short)eAxoStepExecutionMode.ExecuteAndContinue);
+
+                //await this.Component.SetReqSteppingMode.SetAsync(true);
+                //await this.Component.ReqSteppingMode.SetAsync((short)eAxoSteppingMode.Continous);
+            }
         }
 
         StateHasChanged();
