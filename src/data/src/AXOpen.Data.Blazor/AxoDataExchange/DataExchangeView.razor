@@ -47,9 +47,22 @@ else
 
                 <QuerySymbolConfigurationView SymbolConfiguration="@Vm.DefaulQueryDataEntityId" HideDescription="true"></QuerySymbolConfigurationView>
 
-                <button type="button" class="btn btn-outline-primary mx-2" @onclick="Vm.Filter">
+                <button type="button" class="btn btn-outline-primary me-4" @onclick="Vm.Filter">
                     @Localizer["Search"]
                 </button>
+
+            }
+
+                @if (EnableFiltering)
+                {
+                    <AuthorizeView Roles="@DataExchangeRoleNames.can_data_filter_advanced">
+                        <Authorized>
+                            <button type="button" class="btn @(AdvanceFilterConfig ? "btn-outline-warning" : "btn-outline-primary") items-center" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}" title="Advanced filter">
+                                <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                            </button>
+                        </Authorized>
+                    </AuthorizeView>
+                }
 
                 <button type="button"
                     class="btn @(Vm.DistributedActions.EnableLocalConcatEntityIds ? "btn-outline-warning" : "btn-outline-primary")"
@@ -61,7 +74,7 @@ else
                          <Operon.Icons.HeroIcon Icon="link" Type="Operon.Icons.IconType.Outline" Class="size-5" />
 
                         <span class="primary">
-                            [@Vm.DistributedActions.LocalConcatEntityIdsCount / @Vm.ExternalEntityIds.Count]
+                            [@Vm.ExternalEntityIds.Count]
                         </span>
 
                     }
@@ -75,19 +88,7 @@ else
 
                
                 
-            }
-            @if (EnableFiltering)
-            {
-                <AuthorizeView Roles="@DataExchangeRoleNames.can_data_filter_advanced">
-                    <Authorized>
-                        <button type="button" class="btn @(AdvanceFilterConfig ? "btn-warning" : "btn-outline-primary") items-center mx-2" @onclick="()=>{AdvanceFilterConfig = !AdvanceFilterConfig;}" title="Advanced filter">
-                            <Operon.Icons.HeroIcon Icon="funnel" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                        </button>
-                    </Authorized>
-                </AuthorizeView>
-
-                 
-            }
+          
 
         <Dropdown @ref="_dropdownExtentions">
             <DropdownButton>

@@ -604,6 +604,8 @@ namespace AXOpen.Data
         {
             LocalConcatEntityIds.Clear();
             EnableLocalConcatEntityIds = false;
+
+            IntersectExternalAndLocalEntityIds(SelectedManagerVm);
         }
 
         #endregion IDistributedDataActions
