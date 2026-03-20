@@ -3338,22 +3338,20 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
                 IF (State = UINT#126 OR State = UINT#127 OR MC_TorqueControlContinuousUpdate_SV) AND 
                     _AxisReference^.Telegram111_In.POS_ZSW2.%X13 THEN
-                    MC_TorqueControlTorqueWindowTimer.OnDelay(  Parent := THIS,
-                                                                inSignal := ActualTorque >= MC_TorqueControlTorqueWindowMin AND ActualTorque <= MC_TorqueControlTorqueWindowMax,
-                                                                TimeDelay := _AxisReference^.Config.InTorqueWindowTime);
+                    InTorque := MC_TorqueControlTorqueWindowTimer.OnDelay(  Parent := THIS,
+                                                                            inSignal := ActualTorque >= MC_TorqueControlTorqueWindowMin AND ActualTorque <= MC_TorqueControlTorqueWindowMax,
+                                                                            TimeDelay := _AxisReference^.Config.InTorqueWindowTime);
                 ELSE
                     MC_TorqueControlTorqueWindowTimer.OnDelay(  Parent := THIS,inSignal := FALSE,TimeDelay := LT#0s);
                     InTorque := FALSE;
                 END_IF;    
               
                 IF State = UINT#126 THEN
-                    // InTorque :=  _AxisReference^.Telegram111_In.POS_ZSW2.%X13;            
                     IF NOT MC_TorqueControlContinuousUpdate_SV THEN      
                         State := UINT#127;
                     END_IF;    
                 END_IF;
                 IF State = UINT#127 THEN
-                    // InTorque :=  _AxisReference^.Telegram111_In.POS_ZSW2.%X13;            
                     MC_TorqueControlCycle := ULINT#0;     
                 END_IF;         
                 IF State = UINT#128 THEN
