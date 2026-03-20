@@ -3101,6 +3101,12 @@ NAMESPACE AXOpen.Components.Festo.Drives
             MC_TorqueControlDeceleration_PV             :   LREAL;                                
             MC_TorqueControlJerk_PV                     :   LREAL;                     
             MC_TorqueControlDirection_PV                :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;        
+            MC_TorqueControlTorqueA                     :   LREAL;
+            MC_TorqueControlPositiveDirectionA          :   BOOL;
+            MC_TorqueControlTorqueWindowMin             :   LREAL;
+            MC_TorqueControlTorqueWindowMax             :   LREAL;                
+            MC_TorqueControlTorqueWindowTimer           :   AXOpen.Timers.OnDelayTimer;
+
         END_VAR
         METHOD PUBLIC OVERRIDE MC_TorqueControl
             VAR_INPUT
@@ -3127,11 +3133,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsAxisReference;
                 Dummy : BOOL;
-                Torque_          :   LREAL;
-                PositiveDirection_  : BOOL;
-                TorqueWindowPerCent     :   LREAL := LREAL#5.0;
-                TorqueWindowMin         :   LREAL;
-                TorqueWindowMax         :   LREAL;                
             END_VAR
 
             _AxisReference ?= AxisRef;
@@ -3152,29 +3153,38 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
 
             IF Execute THEN 	
-                Messenger.ActivateOnCondition(ULINT#1531,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
-                Messenger.ActivateOnCondition(ULINT#1532, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
-                Messenger.ActivateOnCondition(ULINT#1533, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
-                Messenger.ActivateOnCondition(ULINT#1534, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
-                Messenger.ActivateOnCondition(ULINT#1535, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
-                Messenger.ActivateOnCondition(ULINT#1536, Execute AND Torque = 0, eAxoMessageCategory#ProgrammingError);
-                Messenger.ActivateOnCondition(ULINT#1537, Execute AND TorqueRamp <= 0, eAxoMessageCategory#ProgrammingError);
-                
-                IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
-                    Torque_ := Torque;
-                ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
-                    Torque_ := -1 * Torque;
-                ELSE
-                    RETURN;
-                END_IF; 
-                PositiveDirection_ := Torque_ > 0;  
-
                 THIS.UpdateInputs(AxisRef);         
                 IF NOT ContinuousUpdate THEN
                     MC_TorqueControlContinuousUpdate_SV := FALSE;
                 END_IF;
 
                 IF State = UINT#0 THEN
+                    Messenger.ActivateOnCondition(ULINT#1531, Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection, eAxoMessageCategory#ProgrammingError);
+                    Messenger.ActivateOnCondition(ULINT#1532, Execute AND Velocity <= 0, eAxoMessageCategory#ProgrammingError);
+                    Messenger.ActivateOnCondition(ULINT#1533, Execute AND Acceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                    Messenger.ActivateOnCondition(ULINT#1534, Execute AND Deceleration <= 0, eAxoMessageCategory#ProgrammingError);
+                    Messenger.ActivateOnCondition(ULINT#1535, Execute AND Jerk <= 0, eAxoMessageCategory#ProgrammingError);
+                    Messenger.ActivateOnCondition(ULINT#1536, Execute AND Torque = 0, eAxoMessageCategory#ProgrammingError);
+                    Messenger.ActivateOnCondition(ULINT#1537, Execute AND TorqueRamp <= 0, eAxoMessageCategory#ProgrammingError);
+                    
+                    IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection THEN
+                        MC_TorqueControlTorqueA := Torque;
+                    ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection THEN
+                        MC_TorqueControlTorqueA := -1 * Torque;
+                    ELSE
+                        RETURN;
+                    END_IF; 
+                    
+                    MC_TorqueControlPositiveDirectionA := MC_TorqueControlTorqueA > 0;  
+
+                    IF MC_TorqueControlPositiveDirectionA  THEN
+                        MC_TorqueControlTorqueWindowMax := MC_TorqueControlTorqueA + (MC_TorqueControlTorqueA * _AxisReference^.Config.InTorqueWindowPerCent / REAL#100.0);
+                        MC_TorqueControlTorqueWindowMin := MC_TorqueControlTorqueA - (MC_TorqueControlTorqueA * _AxisReference^.Config.InTorqueWindowPerCent / REAL#100.0);
+                    ELSE
+                        MC_TorqueControlTorqueWindowMax := MC_TorqueControlTorqueA - (MC_TorqueControlTorqueA * _AxisReference^.Config.InTorqueWindowPerCent / REAL#100.0);
+                        MC_TorqueControlTorqueWindowMin := MC_TorqueControlTorqueA + (MC_TorqueControlTorqueA * _AxisReference^.Config.InTorqueWindowPerCent / REAL#100.0);
+                    END_IF;
+
                     Busy := TRUE;            
                     Active := TRUE;          
                     MC_TorqueControlErrorID := DINT#0;
@@ -3216,11 +3226,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 IF State = UINT#120 THEN
                     Busy := TRUE;            
                     Active := TRUE;   
-                    IF PositiveDirection_ AND THIS.ActualPosition >= MC_TorqueControlPositionLimit_PV THEN
+                    IF MC_TorqueControlPositiveDirectionA AND THIS.ActualPosition >= MC_TorqueControlPositionLimit_PV THEN
                         State := UINT#129;
                         Messenger.Activate(         UINT#1538, eAxoMessageCategory#ProgrammingError);
                         MC_TorqueControlErrorID :=  DINT#1538;
-                    ELSIF NOT PositiveDirection_ AND THIS.ActualPosition <= MC_TorqueControlPositionLimit_PV THEN
+                    ELSIF NOT MC_TorqueControlPositiveDirectionA AND THIS.ActualPosition <= MC_TorqueControlPositionLimit_PV THEN
                         State := UINT#129;
                         Messenger.Activate(         UINT#1539, eAxoMessageCategory#ProgrammingError);
                         MC_TorqueControlErrorID :=  DINT#1539;
@@ -3253,16 +3263,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#129;
                     END_IF;
                 END_IF;
-                // IF State = UINT#122 THEN
-                //     Busy := TRUE;            
-                //     Active := TRUE;          
-                //     Parametrization.Inputs.Enable := FALSE;
-                //     Parametrization.Inputs.ReadWrite   := FALSE;
-                //     Debug := Debug + LINT#1;
-                //     IF  NOT Parametrization.Outputs.Done THEN
-                //         State := UINT#123;
-                //     END_IF;
-                // END_IF;  
                 //Writing PNU 11822 Default value torque rise ramp torque
                 IF State = UINT#122 THEN
                     Busy := TRUE;            
@@ -3335,22 +3335,25 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#126;
                     END_IF;    
                 END_IF;
-                IF PositiveDirection_  THEN
-                    TorqueWindowMax := Torque_ + (Torque_ * TorqueWindowPerCent / REAL#100.0);
-                    TorqueWindowMin := Torque_ - (Torque_ * TorqueWindowPerCent / REAL#100.0);
+
+                IF (State = UINT#126 OR State = UINT#127 OR MC_TorqueControlContinuousUpdate_SV) AND 
+                    _AxisReference^.Telegram111_In.POS_ZSW2.%X13 THEN
+                    MC_TorqueControlTorqueWindowTimer.OnDelay(  Parent := THIS,
+                                                                inSignal := ActualTorque >= MC_TorqueControlTorqueWindowMin AND ActualTorque <= MC_TorqueControlTorqueWindowMax,
+                                                                TimeDelay := _AxisReference^.Config.InTorqueWindowTime);
                 ELSE
-                    TorqueWindowMax := Torque_ - (Torque_ * TorqueWindowPerCent / REAL#100.0);
-                    TorqueWindowMin := Torque_ + (Torque_ * TorqueWindowPerCent / REAL#100.0);
-                END_IF;
-                InTorque := ActualTorque >= TorqueWindowMin AND ActualTorque <= TorqueWindowMax;                   
+                    MC_TorqueControlTorqueWindowTimer.OnDelay(  Parent := THIS,inSignal := FALSE,TimeDelay := LT#0s);
+                    InTorque := FALSE;
+                END_IF;    
+              
                 IF State = UINT#126 THEN
-                    InTorque :=  _AxisReference^.Telegram111_In.POS_ZSW2.%X13;            
+                    // InTorque :=  _AxisReference^.Telegram111_In.POS_ZSW2.%X13;            
                     IF NOT MC_TorqueControlContinuousUpdate_SV THEN      
                         State := UINT#127;
                     END_IF;    
                 END_IF;
                 IF State = UINT#127 THEN
-                    InTorque :=  _AxisReference^.Telegram111_In.POS_ZSW2.%X13;            
+                    // InTorque :=  _AxisReference^.Telegram111_In.POS_ZSW2.%X13;            
                     MC_TorqueControlCycle := ULINT#0;     
                 END_IF;         
                 IF State = UINT#128 THEN
