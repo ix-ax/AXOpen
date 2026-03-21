@@ -16,7 +16,10 @@ namespace AXOpen.Data.Query
         public QuerySymbolConfiguration SymbolConfiguration { get; set; }
 
         [Parameter]
-        public bool HideDescripion { get; set; }
+        public string HiddenPrefix { get; set; } = "";
+
+        [Parameter]
+        public bool HideDescription { get; set; }
 
 
         [Parameter] 
@@ -60,7 +63,6 @@ namespace AXOpen.Data.Query
                 }
             }
         }
-
 
         protected void OnAnyValueChange()
         {

@@ -2,118 +2,52 @@
 @using System.Reflection
 @using Microsoft.AspNetCore.Components.Authorization
 
-@if (IsNoActiveOperation())
+
+
+
+@if (DistributedVM == null)
 {
-    <div data-distributed-data-view class="flex flex-wrap flex-row items-center simple-border gap-2 p-1">
-
-        <h5>@Localizer["Global Actions:"]</h5>
-
-        @if (EnableFiltering)
-        {
-            <AuthorizeView Roles="@DataExchangeRoleNames.can_data_filter_advanced">
-                <Authorized>
-
-
-                    <button type="button" class="btn @(AdvanceFilterConfig ? "btn-outline-warning" : "btn-primary")" @onclick="() => { AdvanceFilterConfig = !AdvanceFilterConfig; }">
-                        @if (AdvanceFilterConfig)
-                        {
-                            @Localizer["Hide filter"]
-                        }
-                        else
-                        {
-                            @Localizer["Filter"]
-                        }
-                    </button>
-                </Authorized>
-            </AuthorizeView>
-        }
-
-        <button type="button" class="btn @(DistributedVM.EnableInjectLocalIds ? "btn-outline-warning" : "btn-primary")"
-                @onclick="DistributedVM.TogleLocalEntityIdsInjection">
-            @if (DistributedVM.EnableInjectLocalIds)
-            {
-                @Localizer["Do not concat query"]
-                <p class="ms-1">
-                    @($"[{@DistributedVM.TransmitedEntities?.Count}]")
-                </p>
-            }
-            else
-            {
-                @Localizer["Concat query"]
-            }
-        </button>
-
-        @if (DistributedVM.InjectedEntities != null && DistributedVM.InjectedEntities.Count > 0)
-        {
-            <button type="button" class="btn @(DistributedVM.EnableInjectedExternalIds ? "btn-outline-warning" : "btn-primary")"
-                    @onclick="() => DistributedVM.TogleExternalEntityIdsInjection()">
-
-                @if (DistributedVM.EnableInjectedExternalIds)
-                {
-                    @Localizer["Disable Injected Ids"]
-                    <p class="ms-1">
-                        @($"[{@DistributedVM.InjectedEntities?.Count}]")
-                    </p>
-                }
-                else
-                {
-                    @Localizer["Enable injected Ids"]
-                }
-            </button>
-        }
-    </div>
-}
-
-@if (IsAnyActiveOperation())
-{
-
+    <p>Initializing ...</p>
 }
 else
 {
-    @if (AdvanceFilterConfig)
+
+    @if (DistributedVM.IsShownDistributedFilter)
     {
         <AXOpen.Data.Query.DataExchangeQuery Exchange="@this.DistributedVM"></AXOpen.Data.Query.DataExchangeQuery>
     }
 
-
-    @if (DistributedVM == null)
+    if (DistributedVM.DisplayedExchanges != null)
     {
-        <p>Initializing ...</p>
-    }
-    else
-    {
-        if (DistributedVM.DisplayedExchanges != null)
-        {
-            <ul class="tab">
-                @foreach (var exchange in DistributedVM.DisplayedExchanges)
-                {
-                    <button type="button" class="btn tab-btn @(DistributedVM?.SelectedManagerVm?.Model == exchange ? "active" : null)" @onclick="async () => {await DistributedVM.SelectManager(exchange);}">@exchange.PresentableInstanceName</button>
-                }
-            </ul>
-        }
-    }
-    <div class="mt-1">
-        <DataExchangeView @key="@DistributedVM.SelectedManagerVm.Model"
-                          Vm="@DistributedVM.SelectedManagerVm"
-                          Presentation="@this.Presentation"
-                          EnableCreate="@this.EnableCreate"
-                          EnableCopy="@this.EnableCopy"
-                          EnableDelete="@this.EnableDelete"
-                          EnableCreateNewFromPlc="@this.EnableCreateNewFromPlc"
-                          EnableSendToPlc="@this.EnableSendToPlc"
-                          EnableFiltering="@this.EnableFiltering"
-                          EnableSorting="@this.EnableSorting"
-                          EnableExport="@this.EnableExport">
-
-            @foreach (var column in DistributedVM.ExchangeConfig.Collumns)
+        <ul class="tab">
+            @foreach (var exchange in DistributedVM.DisplayedExchanges)
             {
-                <ColumnData HeaderName="@column.ColumnName"
-                            BindingValue="@column.BindingValuePath"
-                            Clickable="@column.ClickEnabled"
-                            PresentationTemplate="@column.TemplateType"></ColumnData>
+                <button type="button" class="btn tab-btn @(DistributedVM?.SelectedManagerVm?.Model == exchange ? "active" : null)" @onclick="async () => { await DistributedVM.SelectManager(exchange); }">@exchange.PresentableInstanceName</button>
             }
-
-        </DataExchangeView>
-    </div>
+        </ul>
+    }
 }
+<div class="mt-1">
+    <DataExchangeView @key="@DistributedVM.SelectedManagerVm.Model"
+                      Vm="@DistributedVM.SelectedManagerVm"
+                      Presentation="@this.Presentation"
+                      EnableCreate="@this.EnableCreate"
+                      EnableCopy="@this.EnableCopy"
+                      EnableDelete="@this.EnableDelete"
+                      EnableCreateNewFromPlc="@this.EnableCreateNewFromPlc"
+                      EnableSendToPlc="@this.EnableSendToPlc"
+                      EnableFiltering="@this.EnableFiltering"
+                      EnableSorting="@this.EnableSorting"
+                      EnableExport="@this.EnableExport">
+
+        @foreach (var column in DistributedVM.ExchangeConfig.Collumns)
+        {
+            <ColumnData HeaderName="@column.ColumnName"
+                        BindingValue="@column.BindingValuePath"
+                        Clickable="@column.ClickEnabled"
+                        PresentationTemplate="@column.TemplateType"></ColumnData>
+        }
+
+    </DataExchangeView>
+</div>
 

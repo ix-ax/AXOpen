@@ -1,4 +1,4 @@
-﻿using AXOpen.Base.Data;
+using AXOpen.Base.Data;
 using AXOpen.Data.MongoDb;
 using MongoDB.Driver;
 
@@ -10,6 +10,8 @@ namespace Tests_L4
     public class SingleRepositoryFixture_Base : IDisposable
     {
         public IRepository<ProcessData> Repository;
+
+        public DateTime InitialTestTime;
 
         public SingleRepositoryFixture_Base()
         {
@@ -23,6 +25,8 @@ namespace Tests_L4
 
         internal void InitializeData()
         {
+            InitialTestTime = DateTime.Now;
+
             for (int i = 0; i < 10; i++)
             {
                 var item = new ProcessData();
@@ -33,9 +37,16 @@ namespace Tests_L4
             }
         }
 
+        /// <summary>
+        /// Populates a fixture record with deterministic test data.
+        /// </summary>
+
         private void FillUpData(ProcessData obj, int iteration)
         {
             obj._EntityId = iteration.ToString();
+
+            var isEvenIteration = iteration % 2 == 0;
+
             obj.vBool = true;
             obj.vString = "even " + iteration.ToString();
             obj.vInt = (short)iteration;
@@ -43,7 +54,7 @@ namespace Tests_L4
             obj.Primitives.vSTRING = "odd " + (iteration + 1).ToString();
             obj.Primitives.vBOOL = true;
 
-            if (iteration % 2 == 0)
+            if (isEvenIteration)
             {
                 obj.vBool = false;
                 obj.vString = "odd " + iteration.ToString();

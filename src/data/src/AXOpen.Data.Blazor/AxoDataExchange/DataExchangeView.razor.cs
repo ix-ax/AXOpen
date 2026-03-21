@@ -5,29 +5,12 @@
 // https://github.com/inxton/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/inxton/axsharp/blob/dev/notices.md
 
-using AXOpen.Base.Data;
 using AXOpen.Base.Data.Query;
-using AXOpen.Base.Dialogs;
-using AXOpen.Core;
-using AXOpen.Core;
-using AXOpen.Data;
-using AXOpen.Data;
-using AXOpen.Data;
-using AXOpen.Data.Interfaces;
-using AXOpen.Data.Interfaces;
-using AXOpen.Data.Interfaces;
-using AXOpen.Data.Query;
-using AXSharp.Connector;
-using AXSharp.Presentation.Blazor.Controls.Templates;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+using Operon.Components.Dropdown;
 using Operon.Components.Toast;
-using System.Data.Common;
-using System.IO;
 using System.Security.Cryptography;
 using static AXOpen.Data.DataExchangeViewModel;
 using Properties = AXOpen.Data.Blazor.Properties;
@@ -49,7 +32,7 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     [Parameter] public bool EnableCreateNewFromPlc { get; set; } = false;
 
     [Parameter] public bool EnableFiltering { get; set; } = false;
-    [Parameter] public bool EnableExport { get; set; } = false; 
+    [Parameter] public bool EnableExport { get; set; } = false;
     [Parameter] public bool EnableSorting { get; set; } = false;
 
     //[Parameter] public bool EnableUpdateFromPlc { get; set; } = false;
@@ -77,6 +60,8 @@ public partial class DataExchangeView : ComponentBase, IDisposable
     private PredicateContainer _lastPredicates;
 
     private string _ClientFolder = string.Empty;
+
+    private Dropdown _dropdownExtentions { get; set; }
 
     public string ClientFolder
     {
@@ -122,9 +107,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     private string ButtonOperationName { get; set; } = "";
 
-    private int MaxPage =>
-        (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit);
-
     public void AddLine(ColumnData line)
     {
         if (!Columns.Contains(line))
@@ -143,13 +125,6 @@ public partial class DataExchangeView : ComponentBase, IDisposable
             Columns.Remove(line);
             StateHasChanged();
         }
-    }
-
-    private int mod(int x, int m)
-    {
-        if (m == 0) return 0; // avoid exception caused by % 0
-        var r = x % m;
-        return r < 0 ? r + m : r;
     }
 
     private async Task setSortExpresionAsync(string sortExpresion)
@@ -205,11 +180,9 @@ public partial class DataExchangeView : ComponentBase, IDisposable
 
     protected override async Task OnInitializedAsync()
     {
-        Vm.InjectedPredicateContainer = ExternalPredicates;
-
-        await Vm.Filter();
-
         Vm.StateHasChangedDelegate = StateHasChanged;
+        Vm.SetExternalPredicates(ExternalPredicates);
+        await Vm.Filter();
     }
 
     private async Task LoadFile(InputFileChangeEventArgs e)

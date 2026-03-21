@@ -1,4 +1,4 @@
-﻿@using AXOpen.VisualComposer.Components.VisualComposerItem
+@using AXOpen.VisualComposer.Components.VisualComposerItem
 @using AXSharp.Connector;
 @using Microsoft.AspNetCore.Components.Forms;
 @* @using KristofferStrube.Blazor.SVGEditor *@
@@ -29,7 +29,7 @@
                 {
                     <Dropdown @ref="_dropdownOption">
                         <DropdownButton>
-                            <button class="btn btn-primary" @onclick="_dropdownOption.Toggle">
+                            <button class="btn btn-primary" @onclick="_dropdownOption.ToggleAsync">
                                 Options
                                 <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownOption?.Open ?? false ? "rotated" : null))" />
                             </button>
