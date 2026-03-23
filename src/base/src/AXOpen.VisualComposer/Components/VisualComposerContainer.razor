@@ -12,18 +12,19 @@
 
 <AuthorizeView Roles="Administrator">
     <Authorized>
-        <div class="flex flex-wrap items-center">
-            <nav class="tab m-2 grow">
+        <div class="flex flex-wrap">
+            
+                <nav class="tab">
                 @foreach (var item in _serverStorageAllViews)
                 {
-                    <button class="btn tab-btn @(_currentViewName == item ? "active" : null) @GetBgColor(SaveLocationType.Server)" @onclick="() => LoadAsync(item)">@item</button>
+                    <button class="tab-btn @(_currentViewName == item ? "active" : null) @GetBgColor(SaveLocationType.Server)" @onclick="() => LoadAsync(item)">@item</button>
                 }
                 @foreach (var item in _localStorageData.Keys)
                 {
-                    <button class="btn tab-btn @(_currentViewName == item ? "active" : null) @GetBgColor(SaveLocationType.Local)" @onclick="() => LoadAsync(item)">@item</button>
+                    <button class="tab-btn @(_currentViewName == item ? "active" : null) @GetBgColor(SaveLocationType.Local)" @onclick="() => LoadAsync(item)">@item</button>
                 }
             </nav>
-
+            
             <div class="flex items-center ms-auto">
                 @if (_inDesignMode)
                 {

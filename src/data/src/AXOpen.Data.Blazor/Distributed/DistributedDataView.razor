@@ -22,7 +22,7 @@ else
         <ul class="tab">
             @foreach (var exchange in DistributedVM.DisplayedExchanges)
             {
-                <button type="button" class="btn tab-btn @(DistributedVM?.SelectedManagerVm?.Model == exchange ? "active" : null)" @onclick="async () => { await DistributedVM.SelectManager(exchange); }">@exchange.PresentableInstanceName</button>
+                <button type="button" class="tab-btn @(DistributedVM?.SelectedManagerVm?.Model == exchange ? "active" : null)" @onclick="async () => { await DistributedVM.SelectManager(exchange); }">@exchange.PresentableInstanceName</button>
             }
         </ul>
     }
