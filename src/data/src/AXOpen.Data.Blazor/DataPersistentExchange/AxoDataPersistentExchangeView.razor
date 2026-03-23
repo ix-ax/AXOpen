@@ -1,4 +1,4 @@
-﻿@namespace AXOpen.Data
+@namespace AXOpen.Data
 @using AXOpen.Base
 @using AXOpen.Data;
 @using AXSharp.Connector;
@@ -37,7 +37,7 @@ else
 
                 <Dropdown @ref="_dropdownSearch">
                     <DropdownButton>
-                        <button type="button" class="btn btn-primary" @onclick="_dropdownSearch.Toggle">
+                        <button type="button" class="btn btn-primary" @onclick="_dropdownSearch.ToggleAsync">
                             Options
                         <Operon.Icons.HeroIcon Icon="chevron-down" Type="Operon.Icons.IconType.Outline" Class="@("size-5 ms-2 icon-button-rotate " + (_dropdownSearch?.Open ?? false ? "rotated" : null))" />
                     </button>

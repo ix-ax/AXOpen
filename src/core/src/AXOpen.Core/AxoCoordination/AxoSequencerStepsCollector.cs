@@ -7,8 +7,6 @@ namespace AXOpen.Core;
 
 public sealed class AxoSequencerStepsCollector
 {
-    public IReadOnlyList<FlatAxoStepItem> GetStepsBySequence(ITwinObject root, string sequenceSymbol)
-        => GetStepsBySequence(root, sequenceSymbol, static (sequence, step) => new FlatAxoStepItem(sequence, step), static item => item.Order);
 
     public IReadOnlyList<TItem> GetStepsBySequence<TItem>(
         ITwinObject root,
