@@ -571,7 +571,7 @@
     <NotAuthorized>
         @if (_serverStorageConfiguration != null)
         {
-            <nav class="tab m-2">
+            <nav class="tab">
                 @foreach (var item in _serverStorageConfiguration.Views)
                 {
                     <button class="tab-btn @(_currentViewName == item ? "active" : null)" @onclick="() => LoadAsync(item)">@item</button>
