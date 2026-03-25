@@ -574,7 +574,7 @@
             <nav class="tab m-2">
                 @foreach (var item in _serverStorageConfiguration.Views)
                 {
-                    <button class="btn tab-btn @(_currentViewName == item ? "active" : null)" @onclick="() => LoadAsync(item)">@item</button>
+                    <button class="tab-btn @(_currentViewName == item ? "active" : null)" @onclick="() => LoadAsync(item)">@item</button>
                 }
             </nav>
         }
