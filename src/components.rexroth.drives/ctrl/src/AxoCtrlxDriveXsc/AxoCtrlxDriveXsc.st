@@ -141,6 +141,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             _infoTimer              :   AXOpen.Timers.OnDelayTimer;
             _errorTimer             :   AXOpen.Timers.OnDelayTimer;
+            _tmpTimer                :   AXOpen.Timers.OnDelayTimer;
+            
             _lastMessageCodeFromMC  :   ULINT;
         END_VAR
 
@@ -1955,6 +1957,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DriveStatus.Error.Id :=  UINT#0;
                     TaskMessenger.Restore();
                     THIS.CallTimers(FALSE);
+                    _tmpTimer.OnDelay(THIS, FALSE , T#0s);
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.IPOSYNC := FALSE;
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveHalt := FALSE;
                     // _AxisReference^.Outputs.DriveControlWord_S_0_0134_0_0.DriveEnable := FALSE;
@@ -2186,8 +2189,27 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;
                 END_IF;
                 IF _State = UINT#323 THEN
-                    _State := UINT#327;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AcceptanceOfPositioningCommandValue := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.HomingControl := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.AbsoluteRelative := FALSE;      
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ImmediateChange := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogPositive := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.JogNegative := FALSE;
+                    _AxisReference^.Outputs.SignalControlWord_S_0_0145_0_0.ClearError := FALSE;
+                    _State := UINT#324;
                 END_IF;
+                IF _State = UINT#324 THEN
+                    _tmpTimer.OnDelay(THIS,  _AxisReference^.Inputs.DriveStatusWord_S_0_0135_0_0.InReference AND _AxisReference^.Inputs.SignalStatusWord_S_0_0144_0_0.DriveStandstill , T#100ms);
+                    IF _tmpTimer.output THEN
+                        _State := UINT#325;
+                    END_IF;
+                END_IF;     
+                IF _State = UINT#325 THEN
+                    _State := UINT#326;
+                END_IF;                              
+                IF _State = UINT#326 THEN
+                    _State := UINT#327;
+                END_IF;                              
                 IF _State = UINT#327 THEN
                     Done := TRUE;            
                     MC_HomeCycle := ULINT#0;     
