@@ -1,6 +1,6 @@
 Templates:
   Modules:
-  - Name: '6ES7517-3AQ10-0AB0_v4_1'
+  - Name: '6ES7517-3AQ10-0AB0_v4_0'
     Placeholders:
     - Name: 'NAME'
     - Name: 'IP_ADDRESS_X1'
@@ -35,12 +35,12 @@ Templates:
     - Name: TimeSynchronizationServer4
       Optional: TRUE    
     - Name: TimeSynchronizationUpdateInterval
-      Optional: TRUE    
+      Optional: TRUE          
     Content:
       Name: '${NAME}'
       TypeIdentifier:
         OrderNumber: '6ES7 517-3AQ10-0AB0'
-        Version: 'V4.1'
+        Version: 'V4.0'
       Services:
       - Name: 'IDeviceServiceName'
         Type: 'IDevice'
@@ -49,7 +49,7 @@ Templates:
           ParameterAssignmentOfPnInterfaceByHigherLevelIoController: False
           AssetManagementViaUserProgram: False
         Interfaces:
-        # - Ref: '@Module/PROFINET_interface_1'
+        # - Ref: 'Device/PLC_1/PROFINET_interface_1'
         TransferAreas:
         # - Name: 'iodata_I_consume'
         #   Length: 1
@@ -66,6 +66,8 @@ Templates:
         Parameters:
           # Possible values: NoSecurity | Basic256Sha256Sign | Basic256Sha256SignEncrypt
           SecurityPolicies:
+          - 'NoSecurity'
+          - 'Basic256Sha256Sign'
           - 'Basic256Sha256SignEncrypt'
           AutoAcceptAllClientCertificates: True
           # Possible value range: [1024, 49151]
@@ -73,7 +75,6 @@ Templates:
           # AlarmsAndConditionsAcknowledgeActive (Boolean)
           AlarmsAndConditionsEnable: False
           # AlarmsAndConditionsActiveMultilingual (Boolean)
-          ApplicationUri: 'urn:SIMATIC:'
       - Type: 'Syslog'
         Enabled: False
         Parameters:
@@ -88,10 +89,9 @@ Templates:
       - Name: 'PROFINET_interface_1'
         Label: 'X1'
         Addresses:
-        - Type: 'IPv4'
-          Address: '${IP_ADDRESS_X1}'
-        - Type: 'Profinet'
-          ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+          Configured:
+          - IPv4: '${IP_ADDRESS_X1}'
+          - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
         Parameters:
           LoadLimitation: True
           OverwriteDeviceNames: False
@@ -103,10 +103,9 @@ Templates:
       - Name: 'PROFINET_interface_2'
         Label: 'X2'
         Addresses:
-        - Type: 'IPv4'
-          Address: '${IP_ADDRESS_X2}'
-        - Type: 'Profinet'
-          ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X2}'
+          Configured:
+          - IPv4: '${IP_ADDRESS_X2}'
+          - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X2}'
         Parameters:
           LoadLimitation: False
           OverwriteDeviceNames: False
@@ -118,10 +117,9 @@ Templates:
       - Name: 'PROFINET_interface_GBIT_3'
         Label: 'X3'
         Addresses:
-        - Type: 'IPv4'
-          Address: '${IP_ADDRESS_X3}'
-        - Type: 'Profinet'
-          ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X3}'
+          Configured:
+          - IPv4: '${IP_ADDRESS_X3}'
+          - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X3}'
         Parameters:
           LoadLimitation: False
           UseWebServerForInterface: True
@@ -182,13 +180,6 @@ Templates:
           # TransmissionRateAutoNegotiation: True
           # MediumAttachmentType: 'Copper'
       Parameters:
-        EnableLockUserAccountAtRunTime: True
-        # Possible value range: [1, 99]
-        NumberOfFailedLoginAttempts: 5
-        # Possible value range: [1, 30]
-        LoginRetryInterval: 2
-        # Possible value range: [1, 60]
-        LockAccountForDuration: 2
         # Possible values: 0 - Deactivated | 4 - Device | 1 - Project | 2 - Remotely
         PnDnsConfigNameResolve: 'Deactivated'
         SNMPActive: False
@@ -253,7 +244,7 @@ Templates:
         CentralAlarmManagement: True
         # Possible values: 0 - NoLicense | 1 - SimaticOpcUaS71500Small | 2 - SimaticOpcUaS71500Medium | 3 - SimaticOpcUaS71500Large
         OpcUaPurchasedLicense: 'NoLicense'
-        # Possible values: 0 - NoLicense | 1 - Value1X | 2 - Value2X | 3 - Value3X | 4 - Value4X | 5 - Value5X
+        # Possible values: 0 - NoLicense | 5 - Value5X
         ProDiagUsedLicenses: 'NoLicense'
         IPv4ForwardingActive: False
         # MacRtLicensePurchased (Integer)
@@ -265,9 +256,6 @@ Templates:
         # HostnameConfiguration (Integer)
         # HostnameIdenticalToDeviceNameActive (Boolean)
         # Domain (String)
-        # CirModeIsEnabled (Boolean)
-        # CirProfinetNetworkCalculation (Integer)
-        # CirState (Integer)
       UserManagement:
         Users:
         # UserManagement parameters listed below are intended as a sample. It is essential to adjust these settings according to your specific requirements before using them in your project.
