@@ -3,7 +3,6 @@ Templates:
   - Name: '6ES7587-1AP00-0AB0_v4_1'
     Placeholders:
     - Name: 'NAME'
-      Value: 'PLC_1'
     - Name: 'IP_ADDRESS_X1'
       Value: '192.168.0.1/24'
     - Name: 'PROFINET_DEVICE_NAME_X1'
@@ -25,7 +24,7 @@ Templates:
           ParameterAssignmentOfPnInterfaceByHigherLevelIoController: False
           AssetManagementViaUserProgram: False
         Interfaces:
-        # - Ref: 'Device/PLC_1/PROFINET_interface_1'
+        # - Ref: '@Module/PROFINET_interface_1'
         TransferAreas:
         # - Name: 'iodata_I_consume'
         #   Length: 1
@@ -64,9 +63,10 @@ Templates:
       - Name: 'PROFINET_interface_1'
         Label: 'X1'
         Addresses:
-          Configured:
-          - IPv4: '${IP_ADDRESS_X1}'
-          - ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
+        - Type: 'IPv4'
+          Address: '${IP_ADDRESS_X1}'
+        - Type: 'Profinet'
+          ProfinetDeviceName: '${PROFINET_DEVICE_NAME_X1}'
         Parameters:
           LoadLimitation: False
           OverwriteDeviceNames: False
@@ -158,7 +158,7 @@ Templates:
         CentralAlarmManagement: True
         # Possible values: 0 - NoLicense | 1 - SimaticOpcUaS71500Small | 2 - SimaticOpcUaS71500Medium | 3 - SimaticOpcUaS71500Large
         OpcUaPurchasedLicense: 'NoLicense'
-        # Possible values: 0 - NoLicense | 5 - Value5X
+        # Possible values: 0 - NoLicense | 1 - Value1X | 2 - Value2X | 3 - Value3X | 4 - Value4X | 5 - Value5X
         ProDiagUsedLicenses: 'NoLicense'
         IPv4ForwardingActive: False
         # MacRtLicensePurchased (Integer)
