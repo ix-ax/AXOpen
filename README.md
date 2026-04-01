@@ -73,7 +73,7 @@ END_IF;
 ~~~
 
 ~~~CSharp
-Entry.Plc.AxoRemoteTasks._remoteTask.Initialize(() => Console.WriteLine($"Remote task executed PLC sent this string: '{Entry.Plc.AxoRemoteTasks._remoteTask.Message.GetAsync().Result}'"));
+Entry.Plc.Ctx.AxoRemoteTasks._remoteTask.Initialize(() => Console.WriteLine($"Remote task executed PLC sent this string: '{Entry.Plc.Ctx.AxoRemoteTasks._remoteTask.Message.GetAsync().Result}'"));
 ~~~
 
 ![Remote Task](assets/readme_pics/image-remote-task.png)

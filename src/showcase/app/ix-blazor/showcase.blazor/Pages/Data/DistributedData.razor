@@ -1,0 +1,39 @@
+@page "/DataDocSnippets/DistributedData"
+@using AXOpen.Base.Dialogs;
+@using AXOpen.Data;
+@inject AuthenticationStateProvider _authenticationProvider
+@inject Operon.Components.Toast.IToastService _alertDialogService
+
+<div class="card">
+    <div class="px-4 py-3 border-b border-border">
+        <h2>Distributed Data selector</h2>
+    </div>
+    <div class="card-body">
+         //<BlazorViewDistributedDataSelector> 
+            <DistributedDataSelectorView GroupName="default" ConfigSuffix="" EnableCurrentView=true DisableUserRoles=true  MinPaginationLimit="20"/>
+         //</BlazorViewDistributedDataSelector>
+    </div>
+</div>
+
+<div class="card">
+    <div class="px-4 py-3 border-b border-border">
+        <h2>Distributed Data View</h2>
+    </div>
+    <div class="card-body">
+         //<BlazorViewDistributedData> 
+           <DistributedDataView Presentation="Command"
+                     GroupName="default" 
+                     ConfigSuffix="" 
+                     DisplayOnePerDataType="true" 
+                     EnableCreate="true" 
+                     EnableDelete="true" 
+                     EnableCopy="true" 
+                     EnableFiltering="true"
+                     EnableSorting="false"
+                     EnableExport="true" 
+                     EnableSendToPlc="true"
+                     EnableCreateNewFromPlc="true"
+                     />
+         //</BlazorViewDistributedData>
+    </div>
+</div>

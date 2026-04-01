@@ -1,0 +1,132 @@
+@page "/Robotics/Documentation"
+@using AXOpen.Core;
+@using Operon.Components.Tab
+@using showcase.Services;
+@inherits RenderableComponentBase
+
+<PageTitle>Robotics - Documentation</PageTitle>
+
+<SourceViewerModal @ref="_modal" />
+
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+	<nav class="text-sm text-slate-500">
+		<a href="/" class="hover:text-slate-800">Home</a>
+		<span class="px-2">/</span>
+		<span class="font-medium text-slate-800">Robotics Documentation</span>
+	</nav>
+
+	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
+		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Robotics</p>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Robotics (Base) Showcase</h1>
+		<p class="mt-2 max-w-3xl text-slate-600">
+			Generic robotics base library providing abstract interfaces and common types for vendor-specific robot integrations.
+			See the vendor-specific pages (ABB, KUKA, UR, Mitsubishi) for concrete component demos.
+		</p>
+	</header>
+
+	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+		<aside class="space-y-4 xl:col-span-1">
+			<section class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-base font-semibold text-slate-900">Component Overview</h2>
+				<ul class="mt-3 space-y-2 text-sm text-slate-600">
+					<li><span class="font-medium text-slate-800">Category:</span> Robotics (base)</li>
+					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">robotics_documentation</span></li>
+					<li><span class="font-medium text-slate-800">Note:</span> Empty context — no components instantiated</li>
+				</ul>
+				<div class="mt-3 pt-3 border-t border-slate-100">
+					<p class="text-xs font-medium text-slate-500 mb-1">Maturity</p>
+					<MaturityBadge Implemented="green" Tested="yellow" BattleTested="red" />
+				</div>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
+				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
+				<ul class="mt-3 space-y-2 text-sm min-w-0">
+					<li class="min-w-0"><SourceFileLink Path="@_plcContextPath" OnOpen="OpenModalAsync" /></li>
+				</ul>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
+				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
+
+				<!-- Documentation -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"       Label="README — Overview"        Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="Component_1 — Guide"     Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="Component_2 — Guide"     Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"     Label="Troubleshooting"          Mono="false" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<!-- External Links -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">External Links</p>
+					<ul class="space-y-1">
+						<ExternalLinks />
+					</ul>
+				</div>
+			</section>
+		</aside>
+
+		<section class="space-y-6 xl:col-span-2">
+			<article class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
+				<p class="mt-1 text-sm text-slate-600">Automatic rendering of the robotics base documentation context.</p>
+
+				<div class="mt-4 space-y-4">
+					<Tab>
+						<TabPage Title="Automatic rendering">
+							<div class="mt-4">
+								<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
+								<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
+									<option value="Command-Control">Command-Control</option>
+									<option value="Status-Display">Status-Display</option>
+									<option value="Service-Control">Service-Control</option>
+									<option value="Spot">Spot</option>
+									<option value="Compact">Compact</option>
+								</select>
+							</div>
+							<RenderableContentControl Context="@Entry.Plc.Ctx.robotics_documentation" Presentation="@_selectedPresentation" />
+							<div class="mt-4 p-4 text-sm text-slate-500 bg-slate-50 rounded border border-slate-200">
+								The base robotics context has no components declared. Visit the vendor-specific pages for live demos:
+								<ul class="mt-2 list-disc list-inside space-y-1">
+									<li><a href="/AbbRobotics/Documentation" class="text-cyan-700 hover:underline">ABB Robotics</a></li>
+									<li><a href="/KukaRobotics/Documentation" class="text-cyan-700 hover:underline">KUKA Robotics</a></li>
+									<li><a href="/UrRobotics/Documentation" class="text-cyan-700 hover:underline">Universal Robots</a></li>
+									<li><a href="/MitsubishiRobotics/Documentation" class="text-cyan-700 hover:underline">Mitsubishi Robotics</a></li>
+								</ul>
+							</div>
+						</TabPage>
+					</Tab>
+				</div>
+			</article>
+		</section>
+	</div>
+</div>
+
+@code {
+	private SourceViewerModal _modal = default!;
+	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
+
+	private string _selectedPresentation = "Command-Control";
+
+	private readonly string _plcContextPath    = "src/showcase/app/src/ComponentsRobotics/Documentation/DocumentationContext.st";
+
+	// Library resource paths
+	private readonly string _libReadmePath       = "src/components.robotics/docs/README.md";
+	private readonly string _libComponent1DocPath = "src/components.robotics/docs/Component_1.md";
+	private readonly string _libComponent2DocPath = "src/components.robotics/docs/Component_2.md";
+	private readonly string _libTroublesPath     = "src/components.robotics/docs/TROUBLES.md";
+
+	protected override async Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+	}
+
+	public override void ConfigurePolling()
+	{
+		this.StartPolling(Entry.Plc.Ctx.robotics_documentation, 250);
+	}
+}

@@ -1,0 +1,36 @@
+@*
+    MaturityBadge.razor — Displays component maturity status from COMPONENTS_MATURITY.md.
+
+    Usage:
+      <MaturityBadge Implemented="green" Tested="yellow" BattleTested="red" />
+
+    Values: "green" (🟢), "yellow" (🟡), "red" (🔴)
+*@
+
+<div class="flex items-center gap-3 text-xs">
+    <span class="inline-flex items-center gap-1">
+        <span class="@DotClass(Implemented)">●</span>
+        <span class="text-slate-500">Implemented</span>
+    </span>
+    <span class="inline-flex items-center gap-1">
+        <span class="@DotClass(Tested)">●</span>
+        <span class="text-slate-500">Tested</span>
+    </span>
+    <span class="inline-flex items-center gap-1">
+        <span class="@DotClass(BattleTested)">●</span>
+        <span class="text-slate-500">Battle Tested</span>
+    </span>
+</div>
+
+@code {
+    [Parameter] public string Implemented { get; set; } = "red";
+    [Parameter] public string Tested { get; set; } = "red";
+    [Parameter] public string BattleTested { get; set; } = "red";
+
+    private static string DotClass(string level) => level?.ToLowerInvariant() switch
+    {
+        "green" => "text-emerald-500",
+        "yellow" => "text-amber-400",
+        _ => "text-red-400"
+    };
+}

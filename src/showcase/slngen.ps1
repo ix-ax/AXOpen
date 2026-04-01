@@ -1,0 +1,1 @@
+dotnet slngen showcase.solution.proj -o showcase.sln --folders true --launch false

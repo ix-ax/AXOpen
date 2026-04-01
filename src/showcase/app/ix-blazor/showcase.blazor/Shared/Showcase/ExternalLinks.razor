@@ -1,0 +1,13 @@
+@if (!string.IsNullOrEmpty(VendorName) && !string.IsNullOrEmpty(VendorUrl))
+{
+	<li><a class="text-xs text-cyan-700 hover:underline" href="@VendorUrl" target="_blank" rel="noopener noreferrer">@VendorName — Vendor website ↗</a></li>
+}
+<li><a class="text-xs text-cyan-700 hover:underline" href="https://inxton.github.io/AXOpen/" target="_blank" rel="noopener noreferrer">AXOpen documentation ↗</a></li>
+<li><a class="text-xs text-cyan-700 hover:underline" href="https://inxton.github.io/AXSharp/" target="_blank" rel="noopener noreferrer">AXSharp documentation ↗</a></li>
+<li><a class="text-xs text-cyan-700 hover:underline" href="https://docs.industrial-operations-x.siemens.cloud/p/simatic-ax" target="_blank" rel="noopener noreferrer">Siemens AX developer docs ↗</a></li>
+<li><a class="text-xs text-cyan-700 hover:underline" href="https://github.com/inxton/AXOpen/issues/new/choose" target="_blank" rel="noopener noreferrer">Report an issue ↗</a></li>
+
+@code {
+	[Parameter] public string? VendorName { get; set; }
+	[Parameter] public string? VendorUrl { get; set; }
+}

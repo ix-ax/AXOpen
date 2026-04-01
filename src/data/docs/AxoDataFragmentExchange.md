@@ -8,7 +8,7 @@ Fragment data exchange allows to group of multiple data managers into a single o
 
 Data exchange object must be extended by `AxoDataFragmentExchange`.
 
-[!code-smalltalk[](../app/src/Examples/AxoDataFragmentExchangeExample.st?name=AxoProcessDataManagerDeclaration)]
+[!code-smalltalk[](../../showcase/app/src/DataExamples/AxoDataFragmentExchangeExample.st?name=AxoProcessDataManagerDeclaration)]
 
 **Nesting AxoDataExchanger(s)**
 
@@ -24,15 +24,15 @@ AxoDataFragmenExchange can group several data managers where each can point to a
 
 We will now need to create an instance of `AxoDataFragmentExchange` in a context object (`AxoContext`) (or as a member of another class that derives from `AxoObject`). We will also need to call `AxoDataFragmentExchangeContext` in the Main method of appropriate context.
 
-[!code-smalltalk[](../app/src/Examples/AxoDataFragmentExchangeExample.st?name=ContextDeclaration)]
+[!code-smalltalk[](../../showcase/app/src/DataExamples/AxoDataFragmentExchangeExample.st?name=ContextDeclaration)]
 
 Execute run method in CU
 
-[!code-smalltalk[](../app/src/Examples/AxoDataExchangeExample.st?name=Execute)]
+[!code-smalltalk[](../../showcase/app/src/DataExamples/AxoDataExchangeExample.st?name=Execute)]
 
 Use in Automat Sequence
 
-[!code-smalltalk[](../app/src/Examples/AxoDataExchangeExample.st?name=Run)]
+[!code-smalltalk[](../../showcase/app/src/DataExamples/AxoDataExchangeExample.st?name=Run)]
 
 ### Data exchange initialization in .NET
 
@@ -40,7 +40,7 @@ At this point, we have everything ready in the PLC.
 
 If the nested data exchange object does not have the repository set previously, we will need to tell the to fragment manager wich repositories we be used by in data exchange. We will work with data stored in files in JSON format.
 
-[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=SetUpAxoDataFragmentExchange)]
+[!code-csharp[](../../showcase/app/docs-snippets/data-blazor/Program.cs?name=SetUpAxoDataFragmentExchange)]
 
 > [!NOTE]
 > `MyData` should be of type from `Pocos`.

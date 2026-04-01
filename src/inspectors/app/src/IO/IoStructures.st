@@ -1,3 +1,0 @@
-﻿NAMESPACE AXOpen.Inspectors
-END_NAMESPACE
-

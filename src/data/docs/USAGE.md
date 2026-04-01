@@ -2,4 +2,4 @@
 
 Now we can freely shuffle the data between PLC and the local folder.
 
-[!code-smalltalk[](../app/src/Examples/AxoDataExchangeExample.st?name=Usage)]
+[!code-smalltalk[](../../showcase/app/src/DataExamples/AxoDataExchangeExample.st?name=Usage)]

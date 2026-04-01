@@ -1,0 +1,64 @@
+USING AXOpen.Core;
+
+NAMESPACE AXOpen.Components.Balluff.Identification
+    {S7.extern=ReadWrite}
+    CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
+        //<ComponentDeclaration>
+        VAR PUBLIC                
+            ExampleReader : AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045;             
+        END_VAR
+        //</ComponentDeclaration>                          
+
+        //<InitializationArgumentsDeclaration>
+        VAR PUBLIC              
+            {#ix-set:AttributeName = "<#Activate manual control#>"}
+            ActivateManualControl : BOOL;         
+        END_VAR
+        //</InitializationArgumentsDeclaration>            
+
+        METHOD PUBLIC OVERRIDE Run
+            VAR_INPUT
+                inParent : IAxoObject;
+            END_VAR    
+
+            SUPER.Run(inParent);
+
+            IF ActivateManualControl THEN
+                ExampleReader.ActivateManualControl();
+            END_IF;
+
+            //<Initialization>        
+            ExampleReader.Run(  inParent := THIS,
+                                hwID            := AXOpen.Showcase.HwIdentifiers#BNIPNT507005Z040_HwID);
+            //</Initialization>
+
+        THIS.UseInSequencer();
+        END_METHOD
+
+        //<Usage>    
+        VAR PUBLIC                       
+            Sequencer : AxoSequencer;       
+            Steps : ARRAY[0..3] OF AXOpen.Core.AxoStep;
+        END_VAR
+
+        METHOD PRIVATE UseInSequencer   
+
+            Sequencer.Run(THIS);
+            Sequencer.Open();
+
+            IF(Steps[0].Execute(Sequencer, 'Read')) THEN
+                IF(ExampleReader.Read().IsDone()) THEN                
+                    Sequencer.MoveNext();                
+                END_IF;    
+            END_IF;
+
+            IF(Steps[1].Execute(Sequencer, 'Write')) THEN
+                IF(ExampleReader.Write().IsDone()) THEN                
+                    Sequencer.MoveNext();                
+                END_IF;    
+            END_IF;       
+        END_METHOD
+        
+        //</Usage>
+    END_CLASS
+END_NAMESPACE

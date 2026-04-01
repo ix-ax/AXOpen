@@ -14,21 +14,21 @@ AxoAiConfig contains:
 
 ## Declare component
 
-[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=AxoAoDeclaration)]
+[!code-smalltalk[](../../showcase/app/src/ComponentsElements/Documentation/DocumentationContext.st?name=AxoAoDeclaration)]
 
 ## Declare initialization variables
 
 *Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.*
 
-[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=AxoAoInitializationArgumentsDeclaration)]
+[!code-smalltalk[](../../showcase/app/src/ComponentsElements/Documentation/DocumentationContext.st?name=AxoAoInitializationArgumentsDeclaration)]
 
 ## Manual Control
 
-[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=AxoAoManualControl)]
+[!code-smalltalk[](../../showcase/app/src/ComponentsElements/Documentation/DocumentationContext.st?name=AxoAoManualControl)]
 
 ## Initialize & Run
 
-[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=AxoAoInitialization)]
+[!code-smalltalk[](../../showcase/app/src/ComponentsElements/Documentation/DocumentationContext.st?name=AxoAoInitialization)]
 
 [!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
 

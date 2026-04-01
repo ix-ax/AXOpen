@@ -17,15 +17,15 @@ Each inspector contains:
 
 1. Declare variables
 
-[!code-smalltalk[](../app/src/Documentation/Inspectors.st?name=AxoInspectorDeclaration)]
+[!code-smalltalk[](../../showcase/app/src/Foundation/InspectorsShowcase.st?name=AxoInspectorDeclaration)]
 
 2. Set initial inspection pass and fail timers
 
-[!code-smalltalk[](../app/src/Documentation/Inspectors.st?name=AxoInspectorDataSet)]
+[!code-smalltalk[](../../showcase/app/src/Foundation/InspectorsShowcase.st?name=AxoInspectorDataSet)]
 
 3. Run inspections
 
-[!code-smalltalk[](../app/src/Documentation/Inspectors.st?name=AxoInspectorSimpleInspection)]
+[!code-smalltalk[](../../showcase/app/src/Foundation/InspectorsShowcase.st?name=AxoInspectorSimpleInspection)]
 
 4. Check each inspector's data for results
 
@@ -35,7 +35,7 @@ Each inspector contains:
 ## Example inspection with Coordinator
 Example of inspection within a sequencer in PLC:
 
-[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=ExampleInspectionWithCoordinatorExample)]
+[!code-smalltalk[](../../showcase/app/src/Foundation/InspectorsShowcase.st?name=ExampleInspectionWithCoordinatorExample)]
 
 1. A _presenceInspector is created instance of `AxoDigitalInspector`
 2. A coordinator is passed to this inspector with `WithCoordinator(THIS)` method, in this case it is a sequencer, a parent object.
@@ -68,7 +68,7 @@ When an inspector fails, OnFail() provides a series of methods for making decisi
 
 The following example specify, that when inspection fails, dialog is shown and is requesting user decision.
 
-[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=HandlingFailureExample)]
+[!code-smalltalk[](../../showcase/app/src/Foundation/InspectorsShowcase.st?name=HandlingFailureExample)]
 
 ![Inspection failure](assets/inspection-failure-dialog.png)
 
@@ -81,4 +81,4 @@ When `RetryAttemptsCount` is same as `NumberOfAllowedRetries`, no more inspectio
 
 Overall result of a series of inspections can be preserved in `AxoComprehensiveResult`. Each inspector has `UpdateComprehensiveResult` method that provides the update function. Once the `UpdateComprehensiveResult` marks the overall result as Failed, successive inspection will not overwrite the result.
 
-[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=PreservingOverallResultExample)]
+[!code-smalltalk[](../../showcase/app/src/Foundation/InspectorsShowcase.st?name=PreservingOverallResultExample)]

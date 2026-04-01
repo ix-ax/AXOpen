@@ -1,0 +1,845 @@
+@page "/SiemIdentification/Documentation"
+@using AXOpen.Core;
+@using Operon.Components.Tab
+@using showcase.Services;
+@inherits RenderableComponentBase
+
+<PageTitle>Siemens Identification - Documentation</PageTitle>
+
+<SourceViewerModal @ref="_modal" />
+
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+	<nav class="text-sm text-slate-500">
+		<a href="/" class="hover:text-slate-800">Home</a>
+		<span class="px-2">/</span>
+		<span class="font-medium text-slate-800">Siemens Identification Documentation</span>
+	</nav>
+
+	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
+		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Siem.Identification</p>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Siemens Identification Showcase</h1>
+		<p class="mt-2 max-w-3xl text-slate-600">
+			RFID readers via Ident profile, IO-Link, and cyclic communication using Siemens RF186C / RF260R / RF340R hardware.
+			Use this page as a practical reference for integrating Siemens identification components in SIMATIC AX applications.
+		</p>
+	</header>
+
+	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+		<aside class="space-y-4 xl:col-span-1">
+			<section class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-base font-semibold text-slate-900">Component Overview</h2>
+				<ul class="mt-3 space-y-2 text-sm text-slate-600">
+					<li><span class="font-medium text-slate-800">Category:</span> Identification</li>
+					<li><span class="font-medium text-slate-800">Vendor:</span> Siemens</li>
+					<li><span class="font-medium text-slate-800">Components:</span> Ident Profile, IO-Link RF200, Cyclic RF260R, Cyclic RF340R</li>
+					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">siem_identification_documentation</span></li>
+				</ul>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
+				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
+				<ul class="mt-3 space-y-2 text-sm min-w-0">
+					<li class="min-w-0"><SourceFileLink Path="@_plcContextPath"    OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent1Path" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent2Path" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent3Path" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent4Path" OnOpen="OpenModalAsync" /></li>
+				</ul>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
+				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
+
+				<!-- Documentation -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="Component_1 — Ident Profile"  Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="Component_2 — IO-Link RF200"  Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<!-- Hardware Assets -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Hardware Assets</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_hwcPlcLineYmlPath" Label="IO system wiring — plc_line.hwl.yml" Mono="false" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<!-- External Links -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">External Links</p>
+					<ul class="space-y-1">
+						<ExternalLinks VendorName="Siemens" VendorUrl="https://www.siemens.com/" />
+					</ul>
+				</div>
+			</section>
+		</aside>
+
+		<section class="space-y-6 xl:col-span-2">
+			<article class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
+				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
+
+				<div class="mt-4">
+					<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
+					<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
+						<option value="Command-Control">Command-Control</option>
+						<option value="Status-Display">Status-Display</option>
+						<option value="Service-Control">Service-Control</option>
+						<option value="Spot">Spot</option>
+						<option value="Compact">Compact</option>
+					</select>
+				</div>
+
+				<div class="mt-4 space-y-4">
+					<Tab>
+						<TabPage Title="AxoIdentDevice (Profile)">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="yellow" BattleTested="red" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.siem_identification_documentation.componentOne" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent1Path" Label="@_plcComponent1Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_c1DeclarationSnippet != null && !_c1DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_c1DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent1Path" Label="@_plcComponent1Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_c1InitSnippet != null && !_c1InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_c1InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Device template — RF186C (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcDeviceTemplatePath" Label="@_hwcDeviceTemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;SiemIdentificationTemplate&gt; region
+												</p>
+												@if (_hwcDeviceTemplateSnippet != null && !_hwcDeviceTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcDeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;SiemIdentificationIoSystem&gt; region
+												</p>
+												@if (_hwcIoSystemSnippet != null && !_hwcIoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcIoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.siem_identification_documentation.componentOne.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.siem_identification_documentation.componentOne.Sequencer" />
+											<article class="rounded-xl border border-slate-200 bg-white p-4">
+												<h4 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h4>
+												<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
+													<SourceFileLink Path="@_plcComponent1Path" Label="Component_1.st" OnOpen="OpenModalAsync" />.
+												</p>
+												@if (_c1StepLogicBlocks.Count > 0)
+												{
+													<div class="mt-4 space-y-3">
+														@foreach (var step in _c1StepLogicBlocks)
+														{
+															_c1StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+															<AxoStepCard Step="step" LiveStep="liveStep" />
+														}
+													</div>
+												}
+												else if (_loadingCode)
+												{
+													<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+												}
+												else
+												{
+													<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+														No sequencer step blocks were detected.
+													</div>
+												}
+											</article>
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+
+						<TabPage Title="AxoIOLink RF200">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="yellow" BattleTested="red" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.siem_identification_documentation.componentTwo" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent2Path" Label="@_plcComponent2Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_c2DeclarationSnippet != null && !_c2DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_c2DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent2Path" Label="@_plcComponent2Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_c2InitSnippet != null && !_c2InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_c2InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Device template — RF186C (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcDeviceTemplatePath" Label="@_hwcDeviceTemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;SiemIdentificationTemplate&gt; region
+												</p>
+												@if (_hwcDeviceTemplateSnippet != null && !_hwcDeviceTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcDeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;SiemIdentificationIoSystem&gt; region
+												</p>
+												@if (_hwcIoSystemSnippet != null && !_hwcIoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcIoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.siem_identification_documentation.componentTwo.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.siem_identification_documentation.componentTwo.Sequencer" />
+											<article class="rounded-xl border border-slate-200 bg-white p-4">
+												<h4 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h4>
+												<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
+													<SourceFileLink Path="@_plcComponent2Path" Label="Component_2.st" OnOpen="OpenModalAsync" />.
+												</p>
+												@if (_c2StepLogicBlocks.Count > 0)
+												{
+													<div class="mt-4 space-y-3">
+														@foreach (var step in _c2StepLogicBlocks)
+														{
+															_c2StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+															<AxoStepCard Step="step" LiveStep="liveStep" />
+														}
+													</div>
+												}
+												else if (_loadingCode)
+												{
+													<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+												}
+												else
+												{
+													<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+														No sequencer step blocks were detected.
+													</div>
+												}
+											</article>
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+
+						<TabPage Title="AxoSimaticIdent RF260R">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="yellow" BattleTested="red" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.siem_identification_documentation.componentThree" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent3Path" Label="@_plcComponent3Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_c3DeclarationSnippet != null && !_c3DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_c3DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent3Path" Label="@_plcComponent3Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_c3InitSnippet != null && !_c3InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_c3InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Device template — RF186C (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcDeviceTemplatePath" Label="@_hwcDeviceTemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;SiemIdentificationTemplate&gt; region
+												</p>
+												@if (_hwcDeviceTemplateSnippet != null && !_hwcDeviceTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcDeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;SiemIdentificationIoSystem&gt; region
+												</p>
+												@if (_hwcIoSystemSnippet != null && !_hwcIoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcIoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.siem_identification_documentation.componentThree.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.siem_identification_documentation.componentThree.Sequencer" />
+											<article class="rounded-xl border border-slate-200 bg-white p-4">
+												<h4 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h4>
+												<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
+													<SourceFileLink Path="@_plcComponent3Path" Label="Component_3.st" OnOpen="OpenModalAsync" />.
+												</p>
+												@if (_c3StepLogicBlocks.Count > 0)
+												{
+													<div class="mt-4 space-y-3">
+														@foreach (var step in _c3StepLogicBlocks)
+														{
+															_c3StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+															<AxoStepCard Step="step" LiveStep="liveStep" />
+														}
+													</div>
+												}
+												else if (_loadingCode)
+												{
+													<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+												}
+												else
+												{
+													<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+														No sequencer step blocks were detected.
+													</div>
+												}
+											</article>
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+
+						<TabPage Title="AxoSimaticIdent RF340R">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="yellow" BattleTested="red" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.siem_identification_documentation.componentFour" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent4Path" Label="@_plcComponent4Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_c4DeclarationSnippet != null && !_c4DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_c4DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent4Path" Label="@_plcComponent4Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_c4InitSnippet != null && !_c4InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_c4InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Device template — RF186C (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcDeviceTemplatePath" Label="@_hwcDeviceTemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;SiemIdentificationTemplate&gt; region
+												</p>
+												@if (_hwcDeviceTemplateSnippet != null && !_hwcDeviceTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcDeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;SiemIdentificationIoSystem&gt; region
+												</p>
+												@if (_hwcIoSystemSnippet != null && !_hwcIoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcIoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.siem_identification_documentation.componentFour.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.siem_identification_documentation.componentFour.Sequencer" />
+											<article class="rounded-xl border border-slate-200 bg-white p-4">
+												<h4 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h4>
+												<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
+													<SourceFileLink Path="@_plcComponent4Path" Label="Component_4.st" OnOpen="OpenModalAsync" />.
+												</p>
+												@if (_c4StepLogicBlocks.Count > 0)
+												{
+													<div class="mt-4 space-y-3">
+														@foreach (var step in _c4StepLogicBlocks)
+														{
+															_c4StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+															<AxoStepCard Step="step" LiveStep="liveStep" />
+														}
+													</div>
+												}
+												else if (_loadingCode)
+												{
+													<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+												}
+												else
+												{
+													<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+														No sequencer step blocks were detected.
+													</div>
+												}
+											</article>
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+					</Tab>
+				</div>
+			</article>
+		</section>
+	</div>
+</div>
+
+@code {
+	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
+
+	private SourceViewerModal _modal = default!;
+	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
+
+	// Component 1 snippets
+	private CodeSnippet? _c1DeclarationSnippet;
+	private CodeSnippet? _c1InitSnippet;
+	private List<StepLogicBlock> _c1StepLogicBlocks = new();
+
+	// Component 2 snippets
+	private CodeSnippet? _c2DeclarationSnippet;
+	private CodeSnippet? _c2InitSnippet;
+	private List<StepLogicBlock> _c2StepLogicBlocks = new();
+
+	// Component 3 snippets
+	private CodeSnippet? _c3DeclarationSnippet;
+	private CodeSnippet? _c3InitSnippet;
+	private List<StepLogicBlock> _c3StepLogicBlocks = new();
+
+	// Component 4 snippets
+	private CodeSnippet? _c4DeclarationSnippet;
+	private CodeSnippet? _c4InitSnippet;
+	private List<StepLogicBlock> _c4StepLogicBlocks = new();
+
+	// HWC snippets
+	private CodeSnippet? _hwcDeviceTemplateSnippet;
+	private CodeSnippet? _hwcIoSystemSnippet;
+
+	private bool _loadingCode = true;
+	private string _selectedPresentation = "Command-Control";
+
+	private readonly string _plcContextPath    = "src/showcase/app/src/ComponentsSiemIdentification/Documentation/DocumentationContext.st";
+	private readonly string _plcComponent1Path = "src/showcase/app/src/ComponentsSiemIdentification/Documentation/Component_1.st";
+	private readonly string _plcComponent2Path = "src/showcase/app/src/ComponentsSiemIdentification/Documentation/Component_2.st";
+	private readonly string _plcComponent3Path = "src/showcase/app/src/ComponentsSiemIdentification/Documentation/Component_3.st";
+	private readonly string _plcComponent4Path = "src/showcase/app/src/ComponentsSiemIdentification/Documentation/Component_4.st";
+
+	// Hardware configuration paths
+	private readonly string _hwcPlcLineYmlPath    = "src/showcase/app/hwc/plc_line.hwl.yml";
+	private readonly string _hwcDeviceTemplatePath = "src/showcase/app/hwc/library_templates/siemens_identification/rf186c.hwl.yml";
+
+	// Library resource paths
+	private readonly string _libReadmePath        = "src/components.siem.identification/docs/README.md";
+	private readonly string _libComponent1DocPath = "src/components.siem.identification/docs/Component_1.md";
+	private readonly string _libComponent2DocPath = "src/components.siem.identification/docs/Component_2.md";
+	private readonly string _libTroublesPath      = "src/components.siem.identification/docs/TROUBLES.md";
+
+	private Dictionary<string, AXOpen.Core.AxoStep> _c1StepsBySymbol = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _c2StepsBySymbol = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _c3StepsBySymbol = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _c4StepsBySymbol = new();
+
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			// Component 1 tasks
+			var c1DeclTask  = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "ComponentDeclaration");
+			var c1InitTask  = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "Initialization");
+			var c1StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
+
+			// Component 2 tasks
+			var c2DeclTask  = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "ComponentDeclaration");
+			var c2InitTask  = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "Initialization");
+			var c2StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent2Path);
+
+			// Component 3 tasks
+			var c3DeclTask  = CodeProvider.GetTaggedRegionAsync(_plcComponent3Path, "ComponentDeclaration");
+			var c3InitTask  = CodeProvider.GetTaggedRegionAsync(_plcComponent3Path, "Initialization");
+			var c3StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent3Path);
+
+			// Component 4 tasks
+			var c4DeclTask  = CodeProvider.GetTaggedRegionAsync(_plcComponent4Path, "ComponentDeclaration");
+			var c4InitTask  = CodeProvider.GetTaggedRegionAsync(_plcComponent4Path, "Initialization");
+			var c4StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent4Path);
+
+			// HWC tasks
+			var hwcTemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcDeviceTemplatePath, "SiemIdentificationTemplate");
+			var hwcIoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "SiemIdentificationIoSystem");
+
+			await Task.WhenAll(c1DeclTask, c1InitTask, c1StepsTask,
+				c2DeclTask, c2InitTask, c2StepsTask,
+				c3DeclTask, c3InitTask, c3StepsTask,
+				c4DeclTask, c4InitTask, c4StepsTask,
+				hwcTemplateTask, hwcIoSystemTask);
+
+			_c1DeclarationSnippet = await c1DeclTask;
+			_c1InitSnippet        = await c1InitTask;
+			_c1StepLogicBlocks    = await c1StepsTask;
+
+			_c2DeclarationSnippet = await c2DeclTask;
+			_c2InitSnippet        = await c2InitTask;
+			_c2StepLogicBlocks    = await c2StepsTask;
+
+			_c3DeclarationSnippet = await c3DeclTask;
+			_c3InitSnippet        = await c3InitTask;
+			_c3StepLogicBlocks    = await c3StepsTask;
+
+			_c4DeclarationSnippet = await c4DeclTask;
+			_c4InitSnippet        = await c4InitTask;
+			_c4StepLogicBlocks    = await c4StepsTask;
+
+			_hwcDeviceTemplateSnippet = await hwcTemplateTask;
+			_hwcIoSystemSnippet      = await hwcIoSystemTask;
+
+			_c1StepsBySymbol = Entry.Plc.Ctx.siem_identification_documentation.componentOne.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+
+			_c2StepsBySymbol = Entry.Plc.Ctx.siem_identification_documentation.componentTwo.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+
+			_c3StepsBySymbol = Entry.Plc.Ctx.siem_identification_documentation.componentThree.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+
+			_c4StepsBySymbol = Entry.Plc.Ctx.siem_identification_documentation.componentFour.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+		}
+		catch (Exception ex)
+		{
+			Console.Error.WriteLine($"Error loading code snippets: {ex.Message}");
+		}
+		finally
+		{
+			_loadingCode = false;
+			StateHasChanged();
+		}
+
+		await base.OnInitializedAsync();
+	}
+
+	public override void ConfigurePolling()
+	{
+		var seq1   = Entry.Plc.Ctx.siem_identification_documentation.componentOne.Sequencer;
+		var steps1 = Entry.Plc.Ctx.siem_identification_documentation.componentOne.Steps;
+		var seq2   = Entry.Plc.Ctx.siem_identification_documentation.componentTwo.Sequencer;
+		var steps2 = Entry.Plc.Ctx.siem_identification_documentation.componentTwo.Steps;
+		var seq3   = Entry.Plc.Ctx.siem_identification_documentation.componentThree.Sequencer;
+		var steps3 = Entry.Plc.Ctx.siem_identification_documentation.componentThree.Steps;
+		var seq4   = Entry.Plc.Ctx.siem_identification_documentation.componentFour.Sequencer;
+		var steps4 = Entry.Plc.Ctx.siem_identification_documentation.componentFour.Steps;
+
+		this.StartPolling(seq1, 250);
+		foreach (var step in steps1)
+		{
+			this.StartPolling(step.IsActive,  250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order,     250);
+			this.StartPolling(step.Descr,     500);
+		}
+
+		this.StartPolling(seq2, 250);
+		foreach (var step in steps2)
+		{
+			this.StartPolling(step.IsActive,  250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order,     250);
+			this.StartPolling(step.Descr,     500);
+		}
+
+		this.StartPolling(seq3, 250);
+		foreach (var step in steps3)
+		{
+			this.StartPolling(step.IsActive,  250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order,     250);
+			this.StartPolling(step.Descr,     500);
+		}
+
+		this.StartPolling(seq4, 250);
+		foreach (var step in steps4)
+		{
+			this.StartPolling(step.IsActive,  250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order,     250);
+			this.StartPolling(step.Descr,     500);
+		}
+	}
+}

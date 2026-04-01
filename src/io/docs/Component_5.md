@@ -5,48 +5,48 @@
 ## How to use component in controller
 
 ## Declare component
-[!code-pascal[](../app/src/Documentation/Component_5.st?name=ComponentDeclaration)]
+[!code-pascal[](../../showcase/app/docs-snippets/io-src/Documentation/Component_5.st?name=ComponentDeclaration)]
 
 ## Declare initialization variables
 
 *Most of the initialization variables will come from the I/O system. This example is only for demonstrational purposes.*
 
-[!code-pascal[](../app/src/Documentation/Component_5.st?name=InitializationArgumentsDeclaration)]
+[!code-pascal[](../../showcase/app/docs-snippets/io-src/Documentation/Component_5.st?name=InitializationArgumentsDeclaration)]
 
 ## Initialize & Run
 
-[!code-pascal[](../app/src/Documentation/Component_5.st?name=Initialization)]
+[!code-pascal[](../../showcase/app/docs-snippets/io-src/Documentation/Component_5.st?name=Initialization)]
 
 [!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
 
 ## Use
-[!code-pascal[](../app/src/Documentation/Component_5.st?name=Usage)]
+[!code-pascal[](../../showcase/app/docs-snippets/io-src/Documentation/Component_5.st?name=Usage)]
 
 # [.NET TWIN](#tab/twin)
 
 > [!NOTE]
 > In order to interpret numeric values of hardware ids as meaningful names we need to provide mapping of name-value pairs. 
 
-[!code-csharp[](../app/ix-blazor/Pages/Component_5.razor?name=SpecifyNameValues)]
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/Component_5.razor?name=SpecifyNameValues)]
 
 
 # [BLAZOR](#tab/blazor)
 
 ## Generic Read-Only view 
 
-[!code-html[](../app/ix-blazor/Pages/Component_5.razor?name=GenericComponentStatusView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/Component_5.razor?name=GenericComponentStatusView)]
 
 ## Generic control view 
 
-[!code-html[](../app/ix-blazor/Pages/Component_5.razor?name=GenericComponentCommandView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/Component_5.razor?name=GenericComponentCommandView)]
 
 ## Type agnostic using RenderableContentControl status (Read-Only) view
 
-[!code-html[](../app/ix-blazor/Pages/Component_5.razor?name=RccComponentStatusView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/Component_5.razor?name=RccComponentStatusView)]
 
 
 ## Type agnostic using RenderableContentControl control view
 
-[!code-html[](../app/ix-blazor/Pages/Component_5.razor?name=RccComponentCommandView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/Component_5.razor?name=RccComponentCommandView)]
 
 ---

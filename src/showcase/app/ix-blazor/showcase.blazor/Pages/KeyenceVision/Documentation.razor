@@ -1,0 +1,628 @@
+@page "/KeyenceVision/Documentation"
+@using AXOpen.Core;
+@using Operon.Components.Tab
+@using showcase.Services;
+@inherits RenderableComponentBase
+
+<PageTitle>Keyence Vision - Documentation</PageTitle>
+
+<SourceViewerModal @ref="_modal" />
+
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+	<nav class="text-sm text-slate-500">
+		<a href="/" class="hover:text-slate-800">Home</a>
+		<span class="px-2">/</span>
+		<span class="font-medium text-slate-800">Keyence Vision Documentation</span>
+	</nav>
+
+	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
+		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Keyence.Vision</p>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Keyence Vision Showcase</h1>
+		<p class="mt-2 max-w-3xl text-slate-600">
+			This page combines runnable command widgets, live component status, and direct links to PLC source files.
+			Use it as a practical reference for integrating Keyence vision systems in SIMATIC AX applications.
+		</p>
+	</header>
+
+	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+		<aside class="space-y-4 xl:col-span-1">
+			<section class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-base font-semibold text-slate-900">Component Overview</h2>
+				<ul class="mt-3 space-y-2 text-sm text-slate-600">
+					<li><span class="font-medium text-slate-800">Category:</span> Vision</li>
+					<li><span class="font-medium text-slate-800">Vendor:</span> Keyence</li>
+					<li><span class="font-medium text-slate-800">Components:</span> 3 (componentOne .. componentThree)</li>
+					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">keyence_vision_documentation</span></li>
+				</ul>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
+				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
+				<ul class="mt-3 space-y-2 text-sm min-w-0">
+					<li class="min-w-0"><SourceFileLink Path="@_plcContextPath"    OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent1Path" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent2Path" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent3Path" OnOpen="OpenModalAsync" /></li>
+				</ul>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
+				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
+
+				<!-- Documentation -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"   Label="README — Overview" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath" Label="Troubleshooting"    Mono="false" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<!-- Hardware Assets -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Hardware Assets</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_hwcDevice1TemplatePath" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_hwcDevice2TemplatePath" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_hwcDevice3TemplatePath" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<!-- External Links -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">External Links</p>
+					<ul class="space-y-1">
+						<ExternalLinks VendorName="Keyence" VendorUrl="https://www.keyence.com/" />
+					</ul>
+				</div>
+			</section>
+		</aside>
+
+		<section class="space-y-6 xl:col-span-2">
+			<article class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
+				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
+
+				<div class="mt-4">
+					<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
+					<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
+						<option value="Command-Control">Command-Control</option>
+						<option value="Status-Display">Status-Display</option>
+						<option value="Service-Control">Service-Control</option>
+						<option value="Spot">Spot</option>
+						<option value="Compact">Compact</option>
+					</select>
+				</div>
+
+				<div class="mt-4 space-y-4">
+					<Tab>
+						<TabPage Title="AxoSR750">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="yellow" BattleTested="red" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.keyence_vision_documentation.componentOne" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent1Path" Label="@_plcComponent1Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_comp1DeclarationSnippet != null && !_comp1DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp1DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent1Path" Label="@_plcComponent1Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_comp1InitSnippet != null && !_comp1InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp1InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-4">
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;KeyenceSr750Device&gt; region
+												</p>
+												@if (_hwc1DeviceInstanceSnippet != null && !_hwc1DeviceInstanceSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc1DeviceInstanceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcDevice1TemplatePath" Label="@_hwcDevice1TemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;KeyenceSr750Template&gt; region
+												</p>
+												@if (_hwc1DeviceTemplateSnippet != null && !_hwc1DeviceTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc1DeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;KeyenceSr750IoSystem&gt; region
+												</p>
+												@if (_hwc1IoSystemSnippet != null && !_hwc1IoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc1IoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.keyence_vision_documentation.componentOne.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.keyence_vision_documentation.componentOne.Sequencer" />
+											@if (_stepLogicBlocks.Count > 0)
+											{
+												<div class="mt-4 space-y-3">
+													@foreach (var step in _stepLogicBlocks)
+													{
+														_stepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+														<AxoStepCard Step="step" LiveStep="liveStep" />
+													}
+												</div>
+											}
+											else if (_loadingCode)
+											{
+												<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+											}
+											else
+											{
+												<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+													No sequencer step blocks were detected.
+												</div>
+											}
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+
+						<TabPage Title="AxoSR1000">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="yellow" BattleTested="red" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.keyence_vision_documentation.componentTwo" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent2Path" Label="@_plcComponent2Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_comp2DeclarationSnippet != null && !_comp2DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp2DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent2Path" Label="@_plcComponent2Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_comp2InitSnippet != null && !_comp2InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp2InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-4">
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;KeyenceSr1000Device&gt; region
+												</p>
+												@if (_hwc2DeviceInstanceSnippet != null && !_hwc2DeviceInstanceSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc2DeviceInstanceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcDevice2TemplatePath" Label="@_hwcDevice2TemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;KeyenceSr1000Template&gt; region
+												</p>
+												@if (_hwc2DeviceTemplateSnippet != null && !_hwc2DeviceTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc2DeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;KeyenceSr1000IoSystem&gt; region
+												</p>
+												@if (_hwc2IoSystemSnippet != null && !_hwc2IoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc2IoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+											No sequencer step blocks were detected.
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+
+						<TabPage Title="AxoIV3">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="yellow" BattleTested="red" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.keyence_vision_documentation.componentThree" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent3Path" Label="@_plcComponent3Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_comp3DeclarationSnippet != null && !_comp3DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp3DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent3Path" Label="@_plcComponent3Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_comp3InitSnippet != null && !_comp3InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp3InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-4">
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;KeyenceIv3Device&gt; region
+												</p>
+												@if (_hwc3DeviceInstanceSnippet != null && !_hwc3DeviceInstanceSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc3DeviceInstanceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcDevice3TemplatePath" Label="@_hwcDevice3TemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;KeyenceIv3Template&gt; region
+												</p>
+												@if (_hwc3DeviceTemplateSnippet != null && !_hwc3DeviceTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc3DeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;KeyenceIv3IoSystem&gt; region
+												</p>
+												@if (_hwc3IoSystemSnippet != null && !_hwc3IoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwc3IoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+											No sequencer step blocks were detected.
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+					</Tab>
+				</div>
+			</article>
+		</section>
+	</div>
+</div>
+
+@code {
+	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
+
+	private SourceViewerModal _modal = default!;
+	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
+
+	// Component 1 snippets
+	private CodeSnippet? _comp1DeclarationSnippet;
+	private CodeSnippet? _comp1InitSnippet;
+	// Component 2 snippets
+	private CodeSnippet? _comp2DeclarationSnippet;
+	private CodeSnippet? _comp2InitSnippet;
+	// Component 3 snippets
+	private CodeSnippet? _comp3DeclarationSnippet;
+	private CodeSnippet? _comp3InitSnippet;
+
+	// Hardware snippets — per component
+	private CodeSnippet? _hwc1DeviceInstanceSnippet;
+	private CodeSnippet? _hwc1DeviceTemplateSnippet;
+	private CodeSnippet? _hwc1IoSystemSnippet;
+	private CodeSnippet? _hwc2DeviceInstanceSnippet;
+	private CodeSnippet? _hwc2DeviceTemplateSnippet;
+	private CodeSnippet? _hwc2IoSystemSnippet;
+	private CodeSnippet? _hwc3DeviceInstanceSnippet;
+	private CodeSnippet? _hwc3DeviceTemplateSnippet;
+	private CodeSnippet? _hwc3IoSystemSnippet;
+
+	// Step logic
+	private List<StepLogicBlock> _stepLogicBlocks = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _stepsBySymbol = new();
+
+	private bool _loadingCode = true;
+	private string _selectedPresentation = "Command-Control";
+
+	// PLC source paths
+	private readonly string _plcContextPath    = "src/showcase/app/src/ComponentsKeyenceVision/Documentation/DocumentationContext.st";
+	private readonly string _plcComponent1Path = "src/showcase/app/src/ComponentsKeyenceVision/Documentation/Component_1.st";
+	private readonly string _plcComponent2Path = "src/showcase/app/src/ComponentsKeyenceVision/Documentation/Component_2.st";
+	private readonly string _plcComponent3Path = "src/showcase/app/src/ComponentsKeyenceVision/Documentation/Component_3.st";
+
+	// Hardware configuration paths
+	private readonly string _hwcPlcLineYmlPath     = "src/showcase/app/hwc/plc_line.hwl.yml";
+	private readonly string _hwcDevice1TemplatePath = "src/showcase/app/hwc/library_templates/Keyence_SR_750/Keyence_SR_750.hwl.yml";
+	private readonly string _hwcDevice2TemplatePath = "src/showcase/app/hwc/library_templates/Keyence_SR_1000/Keyence_SR_1000.hwl.yml";
+	private readonly string _hwcDevice3TemplatePath = "src/showcase/app/hwc/library_templates/Keyence_IV3/Keyence_IV3.hwl.yml";
+
+	// Library resource paths
+	private readonly string _libReadmePath   = "src/components.keyence.vision/docs/README.md";
+	private readonly string _libTroublesPath = "src/components.keyence.vision/docs/TROUBLES.md";
+
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			var comp1DeclTask = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "ComponentDeclaration");
+			var comp1InitTask = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "Initialization");
+			var comp2DeclTask = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "ComponentDeclaration");
+			var comp2InitTask = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "Initialization");
+			var comp3DeclTask = CodeProvider.GetTaggedRegionAsync(_plcComponent3Path, "ComponentDeclaration");
+			var comp3InitTask = CodeProvider.GetTaggedRegionAsync(_plcComponent3Path, "Initialization");
+			var stepLogicTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
+
+			// Hardware snippets — per component
+			var hwc1InstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KeyenceSr750Device");
+			var hwc1TemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcDevice1TemplatePath, "KeyenceSr750Template");
+			var hwc1IoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KeyenceSr750IoSystem");
+			var hwc2InstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KeyenceSr1000Device");
+			var hwc2TemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcDevice2TemplatePath, "KeyenceSr1000Template");
+			var hwc2IoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KeyenceSr1000IoSystem");
+			var hwc3InstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KeyenceIv3Device");
+			var hwc3TemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcDevice3TemplatePath, "KeyenceIv3Template");
+			var hwc3IoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KeyenceIv3IoSystem");
+
+			await Task.WhenAll(comp1DeclTask, comp1InitTask, comp2DeclTask, comp2InitTask,
+				comp3DeclTask, comp3InitTask, stepLogicTask,
+				hwc1InstanceTask, hwc1TemplateTask, hwc1IoSystemTask,
+				hwc2InstanceTask, hwc2TemplateTask, hwc2IoSystemTask,
+				hwc3InstanceTask, hwc3TemplateTask, hwc3IoSystemTask);
+
+			_comp1DeclarationSnippet = await comp1DeclTask;
+			_comp1InitSnippet        = await comp1InitTask;
+			_comp2DeclarationSnippet = await comp2DeclTask;
+			_comp2InitSnippet        = await comp2InitTask;
+			_comp3DeclarationSnippet = await comp3DeclTask;
+			_comp3InitSnippet        = await comp3InitTask;
+			_stepLogicBlocks         = await stepLogicTask;
+
+			_hwc1DeviceInstanceSnippet = await hwc1InstanceTask;
+			_hwc1DeviceTemplateSnippet = await hwc1TemplateTask;
+			_hwc1IoSystemSnippet       = await hwc1IoSystemTask;
+			_hwc2DeviceInstanceSnippet = await hwc2InstanceTask;
+			_hwc2DeviceTemplateSnippet = await hwc2TemplateTask;
+			_hwc2IoSystemSnippet       = await hwc2IoSystemTask;
+			_hwc3DeviceInstanceSnippet = await hwc3InstanceTask;
+			_hwc3DeviceTemplateSnippet = await hwc3TemplateTask;
+			_hwc3IoSystemSnippet       = await hwc3IoSystemTask;
+
+			_stepsBySymbol = Entry.Plc.Ctx.keyence_vision_documentation.componentOne.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+		}
+		catch (Exception ex)
+		{
+			Console.Error.WriteLine($"Error loading code snippets: {ex.Message}");
+		}
+		finally
+		{
+			_loadingCode = false;
+			StateHasChanged();
+		}
+
+		await base.OnInitializedAsync();
+	}
+
+	public override void ConfigurePolling()
+	{
+		var seq   = Entry.Plc.Ctx.keyence_vision_documentation.componentOne.Sequencer;
+		var steps = Entry.Plc.Ctx.keyence_vision_documentation.componentOne.Steps;
+
+		this.StartPolling(seq, 250);
+		foreach (var step in steps)
+		{
+			this.StartPolling(step.IsActive,  250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order,     250);
+			this.StartPolling(step.Descr,     500);
+		}
+	}
+}

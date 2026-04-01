@@ -1,0 +1,21 @@
+@namespace showcase.blazor.Templates
+@inherits AXOpen.Data.ColumnDataCellBase
+
+@if (CastedValue == true)
+{
+    <span class="text-success font-semibold">&#x2713; Pass</span>
+}
+else
+{
+    <span class="text-danger font-semibold">&#x2717; Failed</span>
+}
+
+@code {
+    public bool CastedValue { set; get; }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+       CastedValue = (bool)PropertyValue; 
+    }
+}

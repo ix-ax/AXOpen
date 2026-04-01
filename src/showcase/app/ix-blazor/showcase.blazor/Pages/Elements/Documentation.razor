@@ -1,0 +1,396 @@
+@page "/Elements/Documentation"
+@using AXOpen.Core;
+@using Operon.Components.Tab
+@using showcase.Services;
+@inherits RenderableComponentBase
+
+<PageTitle>Elements — Documentation</PageTitle>
+
+<SourceViewerModal @ref="_modal" />
+
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+	<nav class="text-sm text-slate-500">
+		<a href="/" class="hover:text-slate-800">Home</a>
+		<span class="px-2">/</span>
+		<span class="font-medium text-slate-800">Elements Documentation</span>
+	</nav>
+
+	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
+		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Elements</p>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Elements Showcase</h1>
+		<p class="mt-2 max-w-3xl text-slate-600">
+			Basic I/O building blocks — digital inputs/outputs, analog inputs/outputs, signal tower, and rotary indexing table.
+			Use this page as a practical reference for integrating these components in SIMATIC AX applications.
+		</p>
+	</header>
+
+	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+		<aside class="space-y-4 xl:col-span-1">
+			<section class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-base font-semibold text-slate-900">Component Overview</h2>
+				<ul class="mt-3 space-y-2 text-sm text-slate-600">
+					<li><span class="font-medium text-slate-800">Category:</span> Elements (I/O)</li>
+					<li><span class="font-medium text-slate-800">Components:</span> AxoDi, AxoDo, AxoAi, AxoAo, AxoRotaryIndexingTable</li>
+					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">elements_documentation.Cu</span></li>
+				</ul>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
+				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
+				<ul class="mt-3 space-y-2 text-sm min-w-0">
+					<li class="min-w-0"><SourceFileLink Path="@_plcContextPath" OnOpen="OpenModalAsync" /></li>
+				</ul>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
+				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
+
+				<!-- Documentation -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"   Label="README — Overview"    Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libAxoDiDocPath" Label="AxoDi — Digital Input" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libAxoDoDocPath" Label="AxoDo — Digital Output" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libAxoAiDocPath" Label="AxoAi — Analog Input"  Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libAxoAoDocPath" Label="AxoAo — Analog Output" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libHowtoPath"    Label="How-To Guide"          Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath" Label="Troubleshooting"       Mono="false" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<!-- External Links -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">External Links</p>
+					<ul class="space-y-1">
+						<ExternalLinks />
+					</ul>
+				</div>
+			</section>
+		</aside>
+
+		<section class="space-y-6 xl:col-span-2">
+			<article class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
+				<p class="mt-1 text-sm text-slate-600">Run component commands directly against the connected PLC context.</p>
+
+				<div class="mt-4">
+					<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
+					<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
+						<option value="Command-Control">Command-Control</option>
+						<option value="Status-Display">Status-Display</option>
+						<option value="Service-Control">Service-Control</option>
+						<option value="Spot">Spot</option>
+						<option value="Compact">Compact</option>
+					</select>
+				</div>
+
+				<div class="mt-4 space-y-4">
+					<Tab>
+						<TabPage Title="AxoDi">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="green" BattleTested="yellow" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.elements_documentation.Cu._testDi" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcContextPath" Label="@_plcContextPath" OnOpen="OpenModalAsync" />
+													— &lt;AxoDiDeclaration&gt; region
+												</p>
+												@if (_axoDiDeclarationSnippet != null && !_axoDiDeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_axoDiDeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Initialization & Usage (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcContextPath" Label="@_plcContextPath" OnOpen="OpenModalAsync" />
+													— &lt;AxoDiInitialization&gt; and &lt;AxoDiUsage&gt; regions
+												</p>
+												@if (_axoDiInitSnippet != null && !_axoDiInitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_axoDiInitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												@if (_axoDiUsageSnippet != null && !_axoDiUsageSnippet.IsError)
+												{
+													<CodeBlock Content="@(_axoDiUsageSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+											</div>
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+
+						<TabPage Title="AxoDo">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="green" BattleTested="yellow" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.elements_documentation.Cu._testDo" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcContextPath" Label="@_plcContextPath" OnOpen="OpenModalAsync" />
+													— &lt;AxoDoDeclaration&gt; region
+												</p>
+												@if (_axoDoDeclarationSnippet != null && !_axoDoDeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_axoDoDeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+											</div>
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Initialization & Usage (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcContextPath" Label="@_plcContextPath" OnOpen="OpenModalAsync" />
+													— &lt;AxoDoInitialization&gt; and &lt;AxoDoUsage&gt; regions
+												</p>
+												@if (_axoDoInitSnippet != null && !_axoDoInitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_axoDoInitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												@if (_axoDoUsageSnippet != null && !_axoDoUsageSnippet.IsError)
+												{
+													<CodeBlock Content="@(_axoDoUsageSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+											</div>
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+
+						<TabPage Title="AxoAi">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="green" BattleTested="yellow" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.elements_documentation.Cu._testAi" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Declaration & Initialization (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcContextPath" Label="@_plcContextPath" OnOpen="OpenModalAsync" />
+													— &lt;AxoAiDeclaration&gt; and &lt;AxoAiInitialization&gt; regions
+												</p>
+												@if (_axoAiDeclarationSnippet != null && !_axoAiDeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_axoAiDeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												@if (_axoAiInitSnippet != null && !_axoAiInitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_axoAiInitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+											</div>
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+
+						<TabPage Title="AxoAo">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="green" BattleTested="yellow" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.elements_documentation.Cu._testAo" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Declaration & Initialization (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcContextPath" Label="@_plcContextPath" OnOpen="OpenModalAsync" />
+													— &lt;AxoAoDeclaration&gt; and &lt;AxoAoInitialization&gt; regions
+												</p>
+												@if (_axoAoDeclarationSnippet != null && !_axoAoDeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_axoAoDeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												@if (_axoAoInitSnippet != null && !_axoAoInitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_axoAoInitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+											</div>
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+
+						<TabPage Title="AxoRotaryIndexingTable">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="green" BattleTested="yellow" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.elements_documentation.Cu._testCarousel" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Declaration & Initialization (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcContextPath" Label="@_plcContextPath" OnOpen="OpenModalAsync" />
+													— &lt;AxoCarouselDeclaration&gt; and &lt;AxoCarouselInitialization&gt; regions
+												</p>
+												@if (_axoCarouselDeclarationSnippet != null && !_axoCarouselDeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_axoCarouselDeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												@if (_axoCarouselInitSnippet != null && !_axoCarouselInitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_axoCarouselInitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+											</div>
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+					</Tab>
+				</div>
+			</article>
+		</section>
+	</div>
+</div>
+
+@code {
+	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
+
+	private SourceViewerModal _modal = default!;
+	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
+
+	private CodeSnippet? _axoDiDeclarationSnippet;
+	private CodeSnippet? _axoDiInitSnippet;
+	private CodeSnippet? _axoDiUsageSnippet;
+	private CodeSnippet? _axoDoDeclarationSnippet;
+	private CodeSnippet? _axoDoInitSnippet;
+	private CodeSnippet? _axoDoUsageSnippet;
+	private CodeSnippet? _axoAiDeclarationSnippet;
+	private CodeSnippet? _axoAiInitSnippet;
+	private CodeSnippet? _axoAoDeclarationSnippet;
+	private CodeSnippet? _axoAoInitSnippet;
+	private CodeSnippet? _axoCarouselDeclarationSnippet;
+	private CodeSnippet? _axoCarouselInitSnippet;
+
+	private bool _loadingCode = true;
+	private string _selectedPresentation = "Command-Control";
+
+	private readonly string _plcContextPath = "src/showcase/app/src/ComponentsElements/Documentation/DocumentationContext.st";
+
+	// Library resource paths
+	private readonly string _libReadmePath   = "src/components.elements/docs/README.md";
+	private readonly string _libAxoDiDocPath  = "src/components.elements/docs/AXODI.md";
+	private readonly string _libAxoDoDocPath  = "src/components.elements/docs/AXODO.md";
+	private readonly string _libAxoAiDocPath  = "src/components.elements/docs/AXOAI.md";
+	private readonly string _libAxoAoDocPath  = "src/components.elements/docs/AXOAO.md";
+	private readonly string _libHowtoPath     = "src/components.elements/docs/HOWTO.md";
+	private readonly string _libTroublesPath  = "src/components.elements/docs/TROUBLES.md";
+
+	public override void ConfigurePolling()
+	{
+		var cu = Entry.Plc.Ctx.elements_documentation.Cu;
+		this.StartPolling(cu._testDi, 250);
+		this.StartPolling(cu._testDo, 250);
+		this.StartPolling(cu._testAi, 250);
+		this.StartPolling(cu._testAo, 250);
+		this.StartPolling(cu._testCarousel, 250);
+	}
+
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			var tasks = new[]
+			{
+				CodeProvider.GetTaggedRegionAsync(_plcContextPath, "AxoDiDeclaration"),
+				CodeProvider.GetTaggedRegionAsync(_plcContextPath, "AxoDiInitialization"),
+				CodeProvider.GetTaggedRegionAsync(_plcContextPath, "AxoDiUsage"),
+				CodeProvider.GetTaggedRegionAsync(_plcContextPath, "AxoDoDeclaration"),
+				CodeProvider.GetTaggedRegionAsync(_plcContextPath, "AxoDoInitialization"),
+				CodeProvider.GetTaggedRegionAsync(_plcContextPath, "AxoDoUsage"),
+				CodeProvider.GetTaggedRegionAsync(_plcContextPath, "AxoAiDeclaration"),
+				CodeProvider.GetTaggedRegionAsync(_plcContextPath, "AxoAiInitialization"),
+				CodeProvider.GetTaggedRegionAsync(_plcContextPath, "AxoAoDeclaration"),
+				CodeProvider.GetTaggedRegionAsync(_plcContextPath, "AxoAoInitialization"),
+				CodeProvider.GetTaggedRegionAsync(_plcContextPath, "AxoCarouselDeclaration"),
+				CodeProvider.GetTaggedRegionAsync(_plcContextPath, "AxoCarouselInitialization"),
+			};
+
+			await Task.WhenAll(tasks);
+
+			_axoDiDeclarationSnippet      = await tasks[0];
+			_axoDiInitSnippet             = await tasks[1];
+			_axoDiUsageSnippet            = await tasks[2];
+			_axoDoDeclarationSnippet      = await tasks[3];
+			_axoDoInitSnippet             = await tasks[4];
+			_axoDoUsageSnippet            = await tasks[5];
+			_axoAiDeclarationSnippet      = await tasks[6];
+			_axoAiInitSnippet             = await tasks[7];
+			_axoAoDeclarationSnippet      = await tasks[8];
+			_axoAoInitSnippet             = await tasks[9];
+			_axoCarouselDeclarationSnippet = await tasks[10];
+			_axoCarouselInitSnippet       = await tasks[11];
+		}
+		catch (Exception ex)
+		{
+			Console.Error.WriteLine($"Error loading code snippets: {ex.Message}");
+		}
+		finally
+		{
+			_loadingCode = false;
+			StateHasChanged();
+		}
+
+		await base.OnInitializedAsync();
+	}
+}

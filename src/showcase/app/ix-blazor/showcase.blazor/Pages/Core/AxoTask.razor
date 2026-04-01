@@ -1,0 +1,532 @@
+@page "/Core/AxoTask"
+@using AXOpen.Core;
+@using Operon.Components.Tab
+@using showcase.Services;
+@inherits RenderableComponentBase
+
+<PageTitle>Core — AxoTask</PageTitle>
+
+<SourceViewerModal @ref="_modal" />
+
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+	<nav class="text-sm text-slate-500">
+		<a href="/" class="hover:text-slate-800">Home</a>
+		<span class="px-2">/</span>
+		<span class="font-medium text-slate-800">Core — AxoTask</span>
+	</nav>
+
+	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
+		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Core</p>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Task Execution</h1>
+		<p class="mt-2 max-w-3xl text-slate-600">
+			AxoTask provides basic task execution for PLC programs. This page covers all task variants:
+			<strong>AxoTask</strong>, <strong>AxoMomentaryTask</strong>, <strong>AxoToggleTask</strong>, and <strong>AxoRemoteTask</strong>.
+			Use it as a practical reference for implementing task-based control flow in SIMATIC AX applications.
+		</p>
+	</header>
+
+	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+		<aside class="space-y-4 xl:col-span-1">
+			<section class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-base font-semibold text-slate-900">Component Overview</h2>
+				<ul class="mt-3 space-y-2 text-sm text-slate-600">
+					<li><span class="font-medium text-slate-800">Category:</span> Core / Framework</li>
+					<li><span class="font-medium text-slate-800">Subcategory:</span> Task Execution</li>
+					<li>
+						<span class="font-medium text-slate-800">Variants:</span>
+						<ul class="mt-1 ml-4 list-disc text-xs text-slate-500">
+							<li>AxoTask — standard fire &amp; forget</li>
+							<li>AxoMomentaryTask — push-button (on while held)</li>
+							<li>AxoToggleTask — latching on/off</li>
+							<li>AxoRemoteTask — executes C# code from PLC</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="mt-3 pt-3 border-t border-slate-100">
+					<p class="text-xs font-medium text-slate-500 mb-1">Maturity</p>
+					<MaturityBadge Implemented="green" Tested="green" BattleTested="yellow" />
+				</div>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
+				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
+				<ul class="mt-3 space-y-2 text-sm min-w-0">
+					<li class="min-w-0"><SourceFileLink Path="@_plcTaskDocuPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcTaskExamplePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcMomentaryDocuPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcToggleDocuPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcRemoteDocuPath" OnOpen="OpenModalAsync" /></li>
+				</ul>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
+				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
+
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_docTaskPath" Label="AxoTask — Guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_docMomentaryPath" Label="AxoMomentaryTask — Guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_docTogglePath" Label="AxoToggleTask — Guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_docRemotePath" Label="AxoRemoteTask — Guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">PLC Library Source</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_libTaskStPath" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libMomentaryStPath" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libToggleStPath" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libRemoteStPath" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">External Links</p>
+					<ul class="space-y-1">
+						<ExternalLinks />
+					</ul>
+				</div>
+			</section>
+		</aside>
+
+		<section class="space-y-6 xl:col-span-2">
+			<article class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-lg font-semibold text-slate-900">AxoTask Documentation</h2>
+				<p class="mt-1 text-sm text-slate-600">Explore live task demos, PLC usage patterns, UI integration, and API reference.</p>
+
+				<div class="mt-4 space-y-4">
+					<Tab>
+						<TabPage Title="Live Demo">
+							<div class="mt-4">
+								<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
+								<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
+									<option value="Command-Control">Command-Control</option>
+									<option value="Status-Display">Status-Display</option>
+									<option value="Command">Command</option>
+									<option value="Status">Status</option>
+								</select>
+							</div>
+
+							<div class="mt-4 space-y-6">
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">AxoTask</h3>
+									<p class="text-xs text-slate-500 mb-2">Standard task — fire with <code>Invoke()</code>, run logic inside <code>Execute()</code>, finish with <code>DoneWhen()</code>.</p>
+									<RenderableContentControl Context="@Entry.Plc.Ctx.AxoTaskDocu._myTask" Presentation="@_selectedPresentation" />
+								</div>
+
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">AxoMomentaryTask</h3>
+									<p class="text-xs text-slate-500 mb-2">Push-button task — active while the signal is held, deactivates on release.</p>
+									<RenderableContentControl Context="@Entry.Plc.Ctx.AxoMomentaryTasks.MomentaryTaskExample" Presentation="@_selectedPresentation" />
+								</div>
+
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">AxoToggleTask</h3>
+									<p class="text-xs text-slate-500 mb-2">Latching task — switches on/off with <code>SwitchOn()</code>, <code>SwitchOff()</code>, or <code>Toggle()</code>.</p>
+									<RenderableContentControl Context="@Entry.Plc.Ctx.AxoToggleTasks._toggleTask1" Presentation="@_selectedPresentation" />
+								</div>
+
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">AxoRemoteTask</h3>
+									<p class="text-xs text-slate-500 mb-2">Executes C# code from PLC — <code>Invoke()</code> triggers a .NET handler.</p>
+									<RenderableContentControl Context="@Entry.Plc.Ctx.AxoRemoteTasks._remoteTask" Presentation="@_selectedPresentation" />
+								</div>
+							</div>
+						</TabPage>
+
+						<TabPage Title="PLC Usage">
+							<div class="mt-4 space-y-6">
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">AxoTask — Invoke (fire &amp; forget)</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcTaskDocuPath" OnOpen="OpenModalAsync" /> — <code>AxoTaskInvoke</code> region
+									</p>
+									@if (_snippetTaskInvoke is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetTaskInvoke.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">AxoTask — Invoke + wait for Done</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcTaskDocuPath" OnOpen="OpenModalAsync" /> — <code>AxoTaskInvokeDone</code> region
+									</p>
+									@if (_snippetTaskInvokeDone is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetTaskInvokeDone.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">AxoTask — Fire &amp; forget (separate invoke/done)</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcTaskDocuPath" OnOpen="OpenModalAsync" /> — <code>AxoTaskInvokeDoneSeparatelly</code> region
+									</p>
+									@if (_snippetTaskInvokeSeparate is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetTaskInvokeSeparate.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">AxoTask — Check running state</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcTaskDocuPath" OnOpen="OpenModalAsync" /> — <code>AxoTaskRunning</code> region
+									</p>
+									@if (_snippetTaskRunning is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetTaskRunning.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">AxoTask — Check error state</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcTaskDocuPath" OnOpen="OpenModalAsync" /> — <code>AxoTaskError</code> region
+									</p>
+									@if (_snippetTaskError is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetTaskError.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">AxoTask — Event-like method overrides</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcTaskDocuPath" OnOpen="OpenModalAsync" /> — <code>AxoTaskEventLikeMethods</code> region
+									</p>
+									@if (_snippetTaskEvents is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetTaskEvents.Content ?? string.Empty)" Language="language-iecst" MaxHeight="20rem" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div class="border-t border-slate-200 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">AxoMomentaryTask — IsSwitchedOn / IsSwitchedOff</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcMomentaryDocuPath" OnOpen="OpenModalAsync" />
+									</p>
+									@if (_snippetMomentaryOn is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetMomentaryOn.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									@if (_snippetMomentaryOff is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetMomentaryOff.Content ?? string.Empty)" Language="language-iecst" />
+									}
+								</div>
+
+								<div class="border-t border-slate-200 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">AxoToggleTask — SwitchOn / SwitchOff / Toggle</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcToggleDocuPath" OnOpen="OpenModalAsync" />
+									</p>
+									@if (_snippetToggleOn is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetToggleOn.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									@if (_snippetToggleOff is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetToggleOff.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									@if (_snippetToggleToggle is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetToggleToggle.Content ?? string.Empty)" Language="language-iecst" />
+									}
+								</div>
+
+								<div class="border-t border-slate-200 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">AxoRemoteTask — Class declaration</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcRemoteDocuPath" OnOpen="OpenModalAsync" /> — <code>AxoRemoteTaskExample</code> region
+									</p>
+									@if (_snippetRemoteDecl is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetRemoteDecl.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+							</div>
+						</TabPage>
+
+						<TabPage Title="UI Integration">
+							<div class="mt-4 space-y-6">
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">AxoTaskView — Controllable</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_razorTaskDocuPath" OnOpen="OpenModalAsync" /> — <code>AxoTaskViewControlable</code> region
+									</p>
+									@if (_snippetUiControlable is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetUiControlable.Content ?? string.Empty)" Language="language-markup" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">AxoTaskView — Display only</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_razorTaskDocuPath" OnOpen="OpenModalAsync" /> — <code>AxoTaskViewDisplayOnly</code> region
+									</p>
+									@if (_snippetUiDisplayOnly is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetUiDisplayOnly.Content ?? string.Empty)" Language="language-markup" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">RenderableContentControl — Command (controllable)</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_razorTaskDocuPath" OnOpen="OpenModalAsync" /> — <code>RenderableContentControlCommand</code> region
+									</p>
+									@if (_snippetUiCommand is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetUiCommand.Content ?? string.Empty)" Language="language-markup" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">RenderableContentControl — Status (display only)</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_razorTaskDocuPath" OnOpen="OpenModalAsync" /> — <code>RenderableContentControlStatus</code> region
+									</p>
+									@if (_snippetUiStatus is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetUiStatus.Content ?? string.Empty)" Language="language-markup" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+							</div>
+						</TabPage>
+
+						<TabPage Title="API & States">
+							<div class="mt-4 space-y-6">
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">State Machine</h3>
+									<p class="text-sm text-slate-600 mb-3">
+										AxoTask transitions through the following states. Call <code>Invoke()</code> to start,
+										<code>Execute()</code> cyclically to run, and use <code>DoneWhen()</code> / <code>ThrowWhen()</code> to terminate.
+									</p>
+									<div class="overflow-x-auto">
+										<table class="w-full text-sm border border-slate-200 rounded">
+											<thead class="bg-slate-50">
+												<tr>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">State</th>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">Description</th>
+												</tr>
+											</thead>
+											<tbody class="divide-y divide-slate-100">
+												<tr><td class="px-3 py-2 font-mono text-cyan-700">Ready</td><td class="px-3 py-2 text-slate-600">Initial state; waiting for <code>Invoke()</code></td></tr>
+												<tr><td class="px-3 py-2 font-mono text-cyan-700">Kicking</td><td class="px-3 py-2 text-slate-600">Invoke called; waiting for first <code>Execute()</code> cycle</td></tr>
+												<tr><td class="px-3 py-2 font-mono text-cyan-700">Busy</td><td class="px-3 py-2 text-slate-600">Executing; <code>Execute()</code> returns TRUE</td></tr>
+												<tr><td class="px-3 py-2 font-mono text-cyan-700">Done</td><td class="px-3 py-2 text-slate-600">Completed successfully via <code>DoneWhen(TRUE)</code></td></tr>
+												<tr><td class="px-3 py-2 font-mono text-cyan-700">Error</td><td class="px-3 py-2 text-slate-600">Failed via <code>ThrowWhen(TRUE)</code>; call <code>Restore()</code> to reset</td></tr>
+												<tr><td class="px-3 py-2 font-mono text-cyan-700">Aborted</td><td class="px-3 py-2 text-slate-600">Aborted via <code>Abort()</code>; call <code>Resume()</code> to continue</td></tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">Key Methods</h3>
+									<div class="overflow-x-auto">
+										<table class="w-full text-sm border border-slate-200 rounded">
+											<thead class="bg-slate-50">
+												<tr>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">Method</th>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">Call Pattern</th>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">Purpose</th>
+												</tr>
+											</thead>
+											<tbody class="divide-y divide-slate-100">
+												<tr><td class="px-3 py-2 font-mono">Invoke()</td><td class="px-3 py-2">Single / cyclical</td><td class="px-3 py-2 text-slate-600">Fires task execution</td></tr>
+												<tr><td class="px-3 py-2 font-mono">Execute()</td><td class="px-3 py-2">Cyclical</td><td class="px-3 py-2 text-slate-600">Returns TRUE while task should run</td></tr>
+												<tr><td class="px-3 py-2 font-mono">DoneWhen(cond)</td><td class="px-3 py-2">Single</td><td class="px-3 py-2 text-slate-600">Completes task when condition is TRUE</td></tr>
+												<tr><td class="px-3 py-2 font-mono">ThrowWhen(cond)</td><td class="px-3 py-2">Single</td><td class="px-3 py-2 text-slate-600">Terminates with error when condition is TRUE</td></tr>
+												<tr><td class="px-3 py-2 font-mono">Abort()</td><td class="px-3 py-2">Single</td><td class="px-3 py-2 text-slate-600">Aborts from Busy state</td></tr>
+												<tr><td class="px-3 py-2 font-mono">Resume()</td><td class="px-3 py-2">Single</td><td class="px-3 py-2 text-slate-600">Resumes from Aborted state</td></tr>
+												<tr><td class="px-3 py-2 font-mono">Restore()</td><td class="px-3 py-2">Single</td><td class="px-3 py-2 text-slate-600">Resets to Ready from any state</td></tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">Event-Like Methods (override in subclass)</h3>
+									<div class="overflow-x-auto">
+										<table class="w-full text-sm border border-slate-200 rounded">
+											<thead class="bg-slate-50">
+												<tr>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">Method</th>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">Trigger</th>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">Call Pattern</th>
+												</tr>
+											</thead>
+											<tbody class="divide-y divide-slate-100">
+												<tr><td class="px-3 py-2 font-mono">OnStart()</td><td class="px-3 py-2 text-slate-600">Kicking &rarr; Busy transition</td><td class="px-3 py-2">Once</td></tr>
+												<tr><td class="px-3 py-2 font-mono">OnDone()</td><td class="px-3 py-2 text-slate-600">Enters Done state</td><td class="px-3 py-2">Once</td></tr>
+												<tr><td class="px-3 py-2 font-mono">OnError()</td><td class="px-3 py-2 text-slate-600">Enters Error state</td><td class="px-3 py-2">Once</td></tr>
+												<tr><td class="px-3 py-2 font-mono">WhileError()</td><td class="px-3 py-2 text-slate-600">While in Error (Execute called)</td><td class="px-3 py-2">Cyclical</td></tr>
+												<tr><td class="px-3 py-2 font-mono">OnAbort()</td><td class="px-3 py-2 text-slate-600">Task is aborted</td><td class="px-3 py-2">Once</td></tr>
+												<tr><td class="px-3 py-2 font-mono">OnResume()</td><td class="px-3 py-2 text-slate-600">Task is resumed from Aborted</td><td class="px-3 py-2">Once</td></tr>
+												<tr><td class="px-3 py-2 font-mono">OnRestore()</td><td class="px-3 py-2 text-slate-600">Task is restored to Ready</td><td class="px-3 py-2">Once</td></tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">IAxoTaskState Members</h3>
+									<p class="text-sm text-slate-600 mb-2"><code>Invoke()</code> returns <code>IAxoTaskState</code> with:</p>
+									<ul class="list-disc ml-5 text-sm text-slate-600 space-y-1">
+										<li><code>IsBusy</code> — execution started and running</li>
+										<li><code>IsDone</code> — execution completed successfully</li>
+										<li><code>HasError</code> — execution terminated with failure</li>
+										<li><code>IsAborted</code> — execution was aborted</li>
+									</ul>
+								</div>
+
+							</div>
+						</TabPage>
+					</Tab>
+				</div>
+			</article>
+		</section>
+	</div>
+</div>
+
+@code {
+	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
+
+	private SourceViewerModal _modal = default!;
+	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
+
+	// ---- Snippet fields ----
+	private CodeSnippet? _snippetTaskInvoke;
+	private CodeSnippet? _snippetTaskInvokeDone;
+	private CodeSnippet? _snippetTaskInvokeSeparate;
+	private CodeSnippet? _snippetTaskRunning;
+	private CodeSnippet? _snippetTaskError;
+	private CodeSnippet? _snippetTaskEvents;
+	private CodeSnippet? _snippetMomentaryOn;
+	private CodeSnippet? _snippetMomentaryOff;
+	private CodeSnippet? _snippetToggleOn;
+	private CodeSnippet? _snippetToggleOff;
+	private CodeSnippet? _snippetToggleToggle;
+	private CodeSnippet? _snippetRemoteDecl;
+	private CodeSnippet? _snippetUiControlable;
+	private CodeSnippet? _snippetUiDisplayOnly;
+	private CodeSnippet? _snippetUiCommand;
+	private CodeSnippet? _snippetUiStatus;
+
+	private bool _loadingCode = true;
+	private string _selectedPresentation = "Command-Control";
+
+	// ---- PLC example paths ----
+	private readonly string _plcTaskDocuPath       = "src/showcase/app/src/CoreExamples/AXOpen.AxoTask/AxoTaskDocuExample.st";
+	private readonly string _plcTaskExamplePath    = "src/showcase/app/src/CoreExamples/AXOpen.AxoTask/AxoTaskExample.st";
+	private readonly string _plcMomentaryDocuPath  = "src/showcase/app/src/CoreExamples/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st";
+	private readonly string _plcToggleDocuPath     = "src/showcase/app/src/CoreExamples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st";
+	private readonly string _plcRemoteDocuPath     = "src/showcase/app/src/CoreExamples/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st";
+	private readonly string _razorTaskDocuPath     = "src/showcase/app/ix-blazor/showcase.blazor/Pages/Core/DocuExamples/AxoTaskDocu.razor";
+
+	// ---- Library source paths ----
+	private readonly string _libTaskStPath         = "src/core/ctrl/src/AxoTask/AxoTask.st";
+	private readonly string _libMomentaryStPath    = "src/core/ctrl/src/AxoMomentaryTask/AxoMomentaryTask.st";
+	private readonly string _libToggleStPath       = "src/core/ctrl/src/AxoToggleTask/AxoToggleTask.st";
+	private readonly string _libRemoteStPath       = "src/core/ctrl/src/AxoRemoteTask/AxoRemoteTask.st";
+
+	// ---- Documentation paths ----
+	private readonly string _docTaskPath           = "src/core/docs/AXOTASK.md";
+	private readonly string _docMomentaryPath      = "src/core/docs/AXOMOMENETARY TASK.md";
+	private readonly string _docTogglePath         = "src/core/docs/AXOTOGGLETASK.md";
+	private readonly string _docRemotePath         = "src/core/docs/AXOREMOTETASK.md";
+
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			var t1  = CodeProvider.GetTaggedRegionAsync(_plcTaskDocuPath, "AxoTaskInvoke");
+			var t2  = CodeProvider.GetTaggedRegionAsync(_plcTaskDocuPath, "AxoTaskInvokeDone");
+			var t3  = CodeProvider.GetTaggedRegionAsync(_plcTaskDocuPath, "AxoTaskInvokeDoneSeparatelly");
+			var t4  = CodeProvider.GetTaggedRegionAsync(_plcTaskDocuPath, "AxoTaskRunning");
+			var t5  = CodeProvider.GetTaggedRegionAsync(_plcTaskDocuPath, "AxoTaskError");
+			var t6  = CodeProvider.GetTaggedRegionAsync(_plcTaskDocuPath, "AxoTaskEventLikeMethods");
+			var t7  = CodeProvider.GetTaggedRegionAsync(_plcMomentaryDocuPath, "AxoMomentaryTaskIsSwitchedOn");
+			var t8  = CodeProvider.GetTaggedRegionAsync(_plcMomentaryDocuPath, "AxoMomentaryTaskIsSwitchedOff");
+			var t9  = CodeProvider.GetTaggedRegionAsync(_plcToggleDocuPath, "AxoToggleTaskSwitchOn");
+			var t10 = CodeProvider.GetTaggedRegionAsync(_plcToggleDocuPath, "AxoToggleTaskSwitchOff");
+			var t11 = CodeProvider.GetTaggedRegionAsync(_plcToggleDocuPath, "AxoToggleTaskToggle");
+			var t12 = CodeProvider.GetTaggedRegionAsync(_plcRemoteDocuPath, "AxoRemoteTaskExample");
+			var t13 = CodeProvider.GetTaggedRegionAsync(_razorTaskDocuPath, "AxoTaskViewControlable");
+			var t14 = CodeProvider.GetTaggedRegionAsync(_razorTaskDocuPath, "AxoTaskViewDisplayOnly");
+			var t15 = CodeProvider.GetTaggedRegionAsync(_razorTaskDocuPath, "RenderableContentControlCommand");
+			var t16 = CodeProvider.GetTaggedRegionAsync(_razorTaskDocuPath, "RenderableContentControlStatus");
+
+			await Task.WhenAll(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16);
+
+			_snippetTaskInvoke         = await t1;
+			_snippetTaskInvokeDone     = await t2;
+			_snippetTaskInvokeSeparate = await t3;
+			_snippetTaskRunning        = await t4;
+			_snippetTaskError          = await t5;
+			_snippetTaskEvents         = await t6;
+			_snippetMomentaryOn        = await t7;
+			_snippetMomentaryOff       = await t8;
+			_snippetToggleOn           = await t9;
+			_snippetToggleOff          = await t10;
+			_snippetToggleToggle       = await t11;
+			_snippetRemoteDecl         = await t12;
+			_snippetUiControlable      = await t13;
+			_snippetUiDisplayOnly      = await t14;
+			_snippetUiCommand          = await t15;
+			_snippetUiStatus           = await t16;
+		}
+		catch (Exception ex)
+		{
+			Console.Error.WriteLine($"Error loading code snippets: {ex.Message}");
+		}
+		finally
+		{
+			_loadingCode = false;
+			StateHasChanged();
+		}
+
+		await base.OnInitializedAsync();
+	}
+
+	public override void ConfigurePolling()
+	{
+		this.StartPolling(Entry.Plc.Ctx.AxoTaskDocu._myTask,                          250);
+		this.StartPolling(Entry.Plc.Ctx.AxoMomentaryTasks.MomentaryTaskExample,       250);
+		this.StartPolling(Entry.Plc.Ctx.AxoToggleTasks._toggleTask1,                  250);
+		this.StartPolling(Entry.Plc.Ctx.AxoRemoteTasks._remoteTask,                   250);
+	}
+}

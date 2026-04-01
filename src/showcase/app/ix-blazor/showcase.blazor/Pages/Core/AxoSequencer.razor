@@ -1,0 +1,414 @@
+@page "/Core/AxoSequencer"
+@using AXOpen.Core;
+@using Operon.Components.Tab
+@using showcase.Services;
+@inherits RenderableComponentBase
+
+<PageTitle>Core — AxoSequencer</PageTitle>
+
+<SourceViewerModal @ref="_modal" />
+
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+	<nav class="text-sm text-slate-500">
+		<a href="/" class="hover:text-slate-800">Home</a>
+		<span class="px-2">/</span>
+		<span class="font-medium text-slate-800">Core — AxoSequencer</span>
+	</nav>
+
+	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
+		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Core</p>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Sequencer &amp; Step Coordination</h1>
+		<p class="mt-2 max-w-3xl text-slate-600">
+			AxoSequencer triggers steps in order, supports step-by-step / continuous modes,
+			and provides analytics. AxoSequencerContainer wraps a sequencer with its context for reuse.
+		</p>
+	</header>
+
+	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+		<aside class="space-y-4 xl:col-span-1">
+			<section class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-base font-semibold text-slate-900">Component Overview</h2>
+				<ul class="mt-3 space-y-2 text-sm text-slate-600">
+					<li><span class="font-medium text-slate-800">Category:</span> Core / Framework</li>
+					<li><span class="font-medium text-slate-800">Subcategory:</span> Sequencing</li>
+					<li><span class="font-medium text-slate-800">Components:</span> AxoSequencer, AxoSequencerContainer, AxoStep</li>
+				</ul>
+				<div class="mt-3 pt-3 border-t border-slate-100">
+					<p class="text-xs font-medium text-slate-500 mb-1">Maturity</p>
+					<MaturityBadge Implemented="green" Tested="green" BattleTested="yellow" />
+				</div>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
+				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
+				<ul class="mt-3 space-y-2 text-sm min-w-0">
+					<li class="min-w-0"><SourceFileLink Path="@_plcSeqDocuPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcSeqExamplePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcContainerDocuPath" OnOpen="OpenModalAsync" /></li>
+				</ul>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
+				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
+
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_docSeqPath" Label="AxoSequencer — Guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_docContainerPath" Label="AxoSequencerContainer — Guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_docStepPath" Label="AxoStep — Guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">External Links</p>
+					<ul class="space-y-1">
+						<ExternalLinks />
+					</ul>
+				</div>
+			</section>
+		</aside>
+
+		<section class="space-y-6 xl:col-span-2">
+			<article class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-lg font-semibold text-slate-900">AxoSequencer Documentation</h2>
+				<p class="mt-1 text-sm text-slate-600">Live sequencer demo, PLC usage patterns, step logic visualization, and API reference.</p>
+
+				<div class="mt-4 space-y-4">
+					<Tab>
+						<TabPage Title="Live Demo">
+							<div class="mt-4 space-y-4">
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">Sequencer Controls</h3>
+									<AxoTaskCommandView Component="@Entry.Plc.Ctx.AxoSequencers.coord" />
+									<AxoSequencerCommandView Component="@Entry.Plc.Ctx.AxoSequencers.coord" />
+								</div>
+
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">Sequencer View</h3>
+									<AxoSequencerView Component="@Entry.Plc.Ctx.AxoSequencers.coord" PollingInterval="100" />
+								</div>
+
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">AxoSequencerContainer</h3>
+									<p class="text-xs text-slate-500 mb-2">Wraps a sequencer with its own context for modular reuse.</p>
+									<RenderableContentControl Context="@Entry.Plc.Ctx.AxoSequencerContainer" Presentation="Command-Control" />
+								</div>
+							</div>
+						</TabPage>
+
+						<TabPage Title="PLC Usage">
+							<div class="mt-4 space-y-6">
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Initialize</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcSeqDocuPath" OnOpen="OpenModalAsync" /> — <code>Initialize</code> region
+									</p>
+									@if (_snippetInit is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetInit.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Open (cyclical call before logic)</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcSeqDocuPath" OnOpen="OpenModalAsync" /> — <code>Open</code> region
+									</p>
+									@if (_snippetOpen is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetOpen.Content ?? string.Empty)" Language="language-iecst" MaxHeight="16rem" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Simple Step</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcSeqDocuPath" OnOpen="OpenModalAsync" /> — <code>SimpleStep</code> region
+									</p>
+									@if (_snippetSimple is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetSimple.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Step with Enable condition</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcSeqDocuPath" OnOpen="OpenModalAsync" /> — <code>EnableStep</code> region
+									</p>
+									@if (_snippetEnable is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetEnable.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Full Step (all parameters)</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcSeqDocuPath" OnOpen="OpenModalAsync" /> — <code>FullStep</code> region
+									</p>
+									@if (_snippetFull is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetFull.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+								<div class="border-t border-slate-200 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">SequencerContainer — MAIN method</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcContainerDocuPath" OnOpen="OpenModalAsync" /> — <code>MAIN</code> region
+									</p>
+									@if (_snippetContainerMain is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetContainerMain.Content ?? string.Empty)" Language="language-iecst" MaxHeight="20rem" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
+								</div>
+
+							</div>
+						</TabPage>
+
+						<TabPage Title="Step Logic">
+							<div class="mt-4">
+								<AxoTaskCommandView Component="@Entry.Plc.Ctx.AxoSequencers.coord" />
+								<article class="rounded-xl border border-slate-200 bg-white p-4 mt-4">
+									<h2 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h2>
+									<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
+										<SourceFileLink Path="@_plcSeqExamplePath" Label="SequencerExample.st" OnOpen="OpenModalAsync" />.
+									</p>
+									@if (_stepLogicBlocks.Count > 0)
+									{
+										<div class="mt-4 space-y-3">
+											@foreach (var step in _stepLogicBlocks)
+											{
+												_stepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+												<AxoStepCard Step="step" LiveStep="liveStep" />
+											}
+										</div>
+									}
+									else if (_loadingCode)
+									{
+										<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+									}
+									else
+									{
+										<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+											No sequencer step blocks were detected.
+										</div>
+									}
+								</article>
+							</div>
+						</TabPage>
+
+						<TabPage Title="API Reference">
+							<div class="mt-4 space-y-6">
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">Key Methods</h3>
+									<div class="overflow-x-auto">
+										<table class="w-full text-sm border border-slate-200 rounded">
+											<thead class="bg-slate-50">
+												<tr>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">Method</th>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">Purpose</th>
+												</tr>
+											</thead>
+											<tbody class="divide-y divide-slate-100">
+												<tr><td class="px-3 py-2 font-mono">Open()</td><td class="px-3 py-2 text-slate-600">Must be called cyclically before step logic; returns TRUE when ready to execute steps</td></tr>
+												<tr><td class="px-3 py-2 font-mono">MoveNext()</td><td class="px-3 py-2 text-slate-600">Terminates current step and advances to the next</td></tr>
+												<tr><td class="px-3 py-2 font-mono">RequestStep(step)</td><td class="px-3 py-2 text-slate-600">Jumps to a specific step (forward = same cycle, backward = next cycle)</td></tr>
+												<tr><td class="px-3 py-2 font-mono">CompleteSequence()</td><td class="px-3 py-2 text-slate-600">Terminates current step and finishes the sequence</td></tr>
+												<tr><td class="px-3 py-2 font-mono">GetCoordinatorState()</td><td class="px-3 py-2 text-slate-600">Returns Idle / Configuring / Running</td></tr>
+												<tr><td class="px-3 py-2 font-mono">GetNumberOfConfiguredSteps()</td><td class="px-3 py-2 text-slate-600">Returns the count of configured steps</td></tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">Stepping Modes</h3>
+									<p class="text-sm text-slate-600 mb-2">Set via <code>SetSteppingMode()</code>, read via <code>GetSteppingMode()</code>:</p>
+									<div class="overflow-x-auto">
+										<table class="w-full text-sm border border-slate-200 rounded">
+											<thead class="bg-slate-50">
+												<tr>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">Mode</th>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">Behavior</th>
+												</tr>
+											</thead>
+											<tbody class="divide-y divide-slate-100">
+												<tr><td class="px-3 py-2 font-mono text-cyan-700">Continuous</td><td class="px-3 py-2 text-slate-600">Steps advance automatically (default)</td></tr>
+												<tr><td class="px-3 py-2 font-mono text-cyan-700">StepByStep</td><td class="px-3 py-2 text-slate-600">Each step must be manually started via <code>StepIn</code> command</td></tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">Sequence Modes</h3>
+									<p class="text-sm text-slate-600 mb-2">Set via <code>SetSequenceMode()</code>, read via <code>GetSequenceMode()</code>:</p>
+									<div class="overflow-x-auto">
+										<table class="w-full text-sm border border-slate-200 rounded">
+											<thead class="bg-slate-50">
+												<tr>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">Mode</th>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">Behavior</th>
+												</tr>
+											</thead>
+											<tbody class="divide-y divide-slate-100">
+												<tr><td class="px-3 py-2 font-mono text-cyan-700">Cyclic</td><td class="px-3 py-2 text-slate-600">After <code>CompleteSequence()</code>, sequence restarts from the beginning (default)</td></tr>
+												<tr><td class="px-3 py-2 font-mono text-cyan-700">RunOnce</td><td class="px-3 py-2 text-slate-600">After <code>CompleteSequence()</code>, execution terminates</td></tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">Coordinator States</h3>
+									<div class="overflow-x-auto">
+										<table class="w-full text-sm border border-slate-200 rounded">
+											<thead class="bg-slate-50">
+												<tr>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">State</th>
+													<th class="px-3 py-2 text-left font-medium text-slate-700">Description</th>
+												</tr>
+											</thead>
+											<tbody class="divide-y divide-slate-100">
+												<tr><td class="px-3 py-2 font-mono text-cyan-700">Idle</td><td class="px-3 py-2 text-slate-600">Not running</td></tr>
+												<tr><td class="px-3 py-2 font-mono text-cyan-700">Configuring</td><td class="px-3 py-2 text-slate-600">Assigning step orders (first cycle after Open)</td></tr>
+												<tr><td class="px-3 py-2 font-mono text-cyan-700">Running</td><td class="px-3 py-2 text-slate-600">Executing steps in order</td></tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+							</div>
+						</TabPage>
+					</Tab>
+				</div>
+			</article>
+		</section>
+	</div>
+</div>
+
+@code {
+	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
+
+	private SourceViewerModal _modal = default!;
+	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
+
+	private CodeSnippet? _snippetInit;
+	private CodeSnippet? _snippetOpen;
+	private CodeSnippet? _snippetSimple;
+	private CodeSnippet? _snippetEnable;
+	private CodeSnippet? _snippetFull;
+	private CodeSnippet? _snippetContainerMain;
+	private List<StepLogicBlock> _stepLogicBlocks = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _stepsBySymbol = new();
+	private bool _loadingCode = true;
+
+	private readonly string _plcSeqDocuPath       = "src/showcase/app/src/CoreExamples/AXOpen.AxoSequencer/AxoSequencerDocuExample.st";
+	private readonly string _plcSeqExamplePath    = "src/showcase/app/src/CoreExamples/AXOpen.AxoSequencer/AxoSequencerExample.st";
+	private readonly string _plcContainerDocuPath = "src/showcase/app/src/CoreExamples/AXOpen.AxoSequencerContainer/AxoSequencerContainerDocuExample.st";
+
+	private readonly string _docSeqPath           = "src/core/docs/AXOSEQUENCER.md";
+	private readonly string _docContainerPath     = "src/core/docs/AXOSEQUENCERCONTAINER.md";
+	private readonly string _docStepPath          = "src/core/docs/AXOSTEP.md";
+
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			var t1 = CodeProvider.GetTaggedRegionAsync(_plcSeqDocuPath, "Initialize");
+			var t2 = CodeProvider.GetTaggedRegionAsync(_plcSeqDocuPath, "Open");
+			var t3 = CodeProvider.GetTaggedRegionAsync(_plcSeqDocuPath, "SimpleStep");
+			var t4 = CodeProvider.GetTaggedRegionAsync(_plcSeqDocuPath, "EnableStep");
+			var t5 = CodeProvider.GetTaggedRegionAsync(_plcSeqDocuPath, "FullStep");
+			var t6 = CodeProvider.GetTaggedRegionAsync(_plcContainerDocuPath, "MAIN");
+			var t7 = CodeProvider.GetStepLogicBlocksAsync(_plcSeqExamplePath);
+
+			await Task.WhenAll(t1, t2, t3, t4, t5, t6, t7);
+
+			_snippetInit          = await t1;
+			_snippetOpen          = await t2;
+			_snippetSimple        = await t3;
+			_snippetEnable        = await t4;
+			_snippetFull          = await t5;
+			_snippetContainerMain = await t6;
+			_stepLogicBlocks      = await t7;
+
+			var steps = new AXOpen.Core.AxoStep[]
+			{
+				Entry.Plc.Ctx.AxoSequencers.step_1,
+				Entry.Plc.Ctx.AxoSequencers.step_2,
+				Entry.Plc.Ctx.AxoSequencers.step_3,
+				Entry.Plc.Ctx.AxoSequencers.step_4,
+				Entry.Plc.Ctx.AxoSequencers.step_5,
+				Entry.Plc.Ctx.AxoSequencers.step_6,
+				Entry.Plc.Ctx.AxoSequencers.step_7,
+				Entry.Plc.Ctx.AxoSequencers.step_8,
+				Entry.Plc.Ctx.AxoSequencers.step_9,
+				Entry.Plc.Ctx.AxoSequencers.step_10,
+			};
+
+			_stepsBySymbol = steps.ToDictionary(
+				s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+				s => s
+			);
+		}
+		catch (Exception ex)
+		{
+			Console.Error.WriteLine($"Error loading code snippets: {ex.Message}");
+		}
+		finally
+		{
+			_loadingCode = false;
+			StateHasChanged();
+		}
+
+		await base.OnInitializedAsync();
+	}
+
+	public override void ConfigurePolling()
+	{
+		var seq = Entry.Plc.Ctx.AxoSequencers.coord;
+		this.StartPolling(seq, 250);
+
+		var steps = new AXOpen.Core.AxoStep[]
+		{
+			Entry.Plc.Ctx.AxoSequencers.step_1,
+			Entry.Plc.Ctx.AxoSequencers.step_2,
+			Entry.Plc.Ctx.AxoSequencers.step_3,
+			Entry.Plc.Ctx.AxoSequencers.step_4,
+			Entry.Plc.Ctx.AxoSequencers.step_5,
+			Entry.Plc.Ctx.AxoSequencers.step_6,
+			Entry.Plc.Ctx.AxoSequencers.step_7,
+			Entry.Plc.Ctx.AxoSequencers.step_8,
+			Entry.Plc.Ctx.AxoSequencers.step_9,
+			Entry.Plc.Ctx.AxoSequencers.step_10,
+		};
+
+		foreach (var step in steps)
+		{
+			this.StartPolling(step.IsActive, 250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order, 250);
+			this.StartPolling(step.Descr, 500);
+		}
+
+		this.StartPolling(Entry.Plc.Ctx.AxoSequencerContainer, 250);
+	}
+}

@@ -1,0 +1,548 @@
+@page "/DukaneWelders/Documentation"
+@using AXOpen.Core;
+@using Operon.Components.Tab
+@using showcase.Services;
+@inherits RenderableComponentBase
+
+<PageTitle>Dukane Welders - Documentation</PageTitle>
+
+<SourceViewerModal @ref="_modal" />
+
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+	<nav class="text-sm text-slate-500">
+		<a href="/" class="hover:text-slate-800">Home</a>
+		<span class="px-2">/</span>
+		<span class="font-medium text-slate-800">Dukane Welders Documentation</span>
+	</nav>
+
+	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
+		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Dukane.Welders</p>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Dukane Welders Showcase</h1>
+		<p class="mt-2 max-w-3xl text-slate-600">
+			This page combines runnable command widgets, live component status, and direct links to PLC source files.
+			Use it as a practical reference for integrating Dukane welders in SIMATIC AX applications.
+		</p>
+	</header>
+
+	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+		<aside class="space-y-4 xl:col-span-1">
+			<section class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-base font-semibold text-slate-900">Component Overview</h2>
+				<ul class="mt-3 space-y-2 text-sm text-slate-600">
+					<li><span class="font-medium text-slate-800">Category:</span> Welders</li>
+					<li><span class="font-medium text-slate-800">Vendor:</span> Dukane</li>
+					<li><span class="font-medium text-slate-800">Components:</span> <span class="font-mono">componentOne</span>, <span class="font-mono">componentTwo</span></li>
+				</ul>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
+				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
+				<ul class="mt-3 space-y-2 text-sm min-w-0">
+					<li class="min-w-0"><SourceFileLink Path="@_plcContextPath"    OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent1Path" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent2Path" OnOpen="OpenModalAsync" /></li>
+				</ul>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
+				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
+
+				<!-- Documentation -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"               Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="IQ Series Welder — Component 1"  Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="IQ Series Welder — Component 2"  Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"                  Mono="false" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<!-- PLC Library Source -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">PLC Library Source</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_libAxoIqWelderStPath" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"       OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<!-- Hardware Assets -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Hardware Assets</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_libHwlYmlPath" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libGsdmlPath"  Label="GSDML — Dukane IQ" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<!-- External Links -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">External Links</p>
+					<ul class="space-y-1">
+						<ExternalLinks VendorName="Dukane" VendorUrl="https://www.dukane.com/" />
+					</ul>
+				</div>
+			</section>
+		</aside>
+
+		<section class="space-y-6 xl:col-span-2">
+			<article class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
+				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
+
+				<div class="mt-4">
+					<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
+					<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
+						<option value="Command-Control">Command-Control</option>
+						<option value="Status-Display">Status-Display</option>
+						<option value="Service-Control">Service-Control</option>
+						<option value="Spot">Spot</option>
+						<option value="Compact">Compact</option>
+					</select>
+				</div>
+
+				<div class="mt-4 space-y-4">
+					<Tab>
+						<TabPage Title="AxoIQ Welder (Example 1)">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="yellow" BattleTested="red" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.dukane_welders_documentation.componentOne.Dukane_IQ_SeriesWelder" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<!-- Component declaration -->
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent1Path" Label="@_plcComponent1Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_comp1DeclarationSnippet != null && !_comp1DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp1DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<!-- Component Run call -->
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent1Path" Label="@_plcComponent1Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_comp1RunSnippet != null && !_comp1RunSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp1RunSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Device instantiation (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;DukaneIqWelderDevice&gt; region
+												</p>
+												@if (_hwcDeviceInstanceSnippet != null && !_hwcDeviceInstanceSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcDeviceInstanceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcDeviceTemplatePath" Label="@_hwcDeviceTemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;DukaneIqWelderTemplate&gt; region
+												</p>
+												@if (_hwcDeviceTemplateSnippet != null && !_hwcDeviceTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcDeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;DukaneIqWelderIoSystem&gt; region
+												</p>
+												@if (_hwcIoSystemSnippet != null && !_hwcIoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcIoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.dukane_welders_documentation.componentOne.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.dukane_welders_documentation.componentOne.Sequencer" />
+											<article class="rounded-xl border border-slate-200 bg-white p-4">
+												<h2 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h2>
+												<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
+													<SourceFileLink Path="@_plcComponent1Path" Label="Component_1.st" OnOpen="OpenModalAsync" />.
+												</p>
+												@if (_comp1StepLogicBlocks.Count > 0)
+												{
+													<div class="mt-4 space-y-3">
+														@foreach (var step in _comp1StepLogicBlocks)
+														{
+															_comp1StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+															<AxoStepCard Step="step" LiveStep="liveStep" />
+														}
+													</div>
+												}
+												else if (_loadingCode)
+												{
+													<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+												}
+												else
+												{
+													<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+														No sequencer step blocks were detected.
+													</div>
+												}
+											</article>
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+
+						<TabPage Title="AxoIQ Welder (Example 2)">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="yellow" BattleTested="red" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.dukane_welders_documentation.componentTwo.Dukane_IQ_SeriesWelder" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<!-- Component declaration -->
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent2Path" Label="@_plcComponent2Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_comp2DeclarationSnippet != null && !_comp2DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp2DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<!-- Component Run call -->
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent2Path" Label="@_plcComponent2Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_comp2RunSnippet != null && !_comp2RunSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp2RunSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Device instantiation (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;DukaneIqWelderDevice&gt; region
+												</p>
+												@if (_hwcDeviceInstanceSnippet != null && !_hwcDeviceInstanceSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcDeviceInstanceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcDeviceTemplatePath" Label="@_hwcDeviceTemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;DukaneIqWelderTemplate&gt; region
+												</p>
+												@if (_hwcDeviceTemplateSnippet != null && !_hwcDeviceTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcDeviceTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;DukaneIqWelderIoSystem&gt; region
+												</p>
+												@if (_hwcIoSystemSnippet != null && !_hwcIoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcIoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.dukane_welders_documentation.componentTwo.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.dukane_welders_documentation.componentTwo.Sequencer" />
+											<article class="rounded-xl border border-slate-200 bg-white p-4">
+												<h2 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h2>
+												<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
+													<SourceFileLink Path="@_plcComponent2Path" Label="Component_2.st" OnOpen="OpenModalAsync" />.
+												</p>
+												@if (_comp2StepLogicBlocks.Count > 0)
+												{
+													<div class="mt-4 space-y-3">
+														@foreach (var step in _comp2StepLogicBlocks)
+														{
+															_comp2StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+															<AxoStepCard Step="step" LiveStep="liveStep" />
+														}
+													</div>
+												}
+												else if (_loadingCode)
+												{
+													<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+												}
+												else
+												{
+													<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+														No sequencer step blocks were detected.
+													</div>
+												}
+											</article>
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+					</Tab>
+				</div>
+			</article>
+		</section>
+	</div>
+</div>
+
+@code {
+	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
+
+	private SourceViewerModal _modal = default!;
+	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
+
+	private CodeSnippet? _comp1DeclarationSnippet;
+	private CodeSnippet? _comp1RunSnippet;
+	private CodeSnippet? _comp2DeclarationSnippet;
+	private CodeSnippet? _comp2RunSnippet;
+	private CodeSnippet? _hwcDeviceInstanceSnippet;
+	private CodeSnippet? _hwcDeviceTemplateSnippet;
+	private CodeSnippet? _hwcIoSystemSnippet;
+	private List<StepLogicBlock> _comp1StepLogicBlocks = new();
+	private List<StepLogicBlock> _comp2StepLogicBlocks = new();
+	private bool _loadingCode = true;
+	private string _selectedPresentation = "Command-Control";
+
+	private readonly string _plcContextPath    = "src/showcase/app/src/ComponentsDukaneWelders/Documentation/DocumentationContext.st";
+	private readonly string _plcComponent1Path = "src/showcase/app/src/ComponentsDukaneWelders/Documentation/Component_1.st";
+	private readonly string _plcComponent2Path = "src/showcase/app/src/ComponentsDukaneWelders/Documentation/Component_2.st";
+
+	// Hardware configuration paths
+	private readonly string _hwcPlcLineYmlPath    = "src/showcase/app/hwc/plc_line.hwl.yml";
+	private readonly string _hwcDeviceTemplatePath = "src/showcase/app/hwc/library_templates/dukane_welders_iq_series/DukaneIqSeriesWelder.hwl.yml";
+
+	// Library resource paths
+	private readonly string _libReadmePath         = "src/components.dukane.welders/docs/README.md";
+	private readonly string _libComponent1DocPath  = "src/components.dukane.welders/docs/Component_1.md";
+	private readonly string _libComponent2DocPath  = "src/components.dukane.welders/docs/Component_2.md";
+	private readonly string _libTroublesPath        = "src/components.dukane.welders/docs/TROUBLES.md";
+	private readonly string _libAxoIqWelderStPath   = "src/components.dukane.welders/ctrl/src/AxoIQSeriesWelder/Axo_IQ_SeriesWelder.st";
+	private readonly string _libApaxYmlPath         = "src/components.dukane.welders/ctrl/apax.yml";
+	private readonly string _libHwlYmlPath          = "src/components.dukane.welders/ctrl/assets/dukane_welders_iq_series/DukaneIqSeriesWelder.hwl.yml";
+	private readonly string _libGsdmlPath           = "src/components.dukane.welders/ctrl/assets/dukane_welders_iq_series/GSDML-V2.31-DUKANE-IQ-20190110.xml";
+
+	private Dictionary<string, AXOpen.Core.AxoStep> _comp1StepsBySymbol = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _comp2StepsBySymbol = new();
+
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			var comp1DeclTask  = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "ComponentDeclaration");
+			var comp1RunTask   = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "Initialization");
+			var comp1StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
+			var comp2DeclTask  = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "ComponentDeclaration");
+			var comp2RunTask   = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "Initialization");
+			var comp2StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent2Path);
+			var hwcInstanceTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "DukaneIqWelderDevice");
+			var hwcTemplateTask  = CodeProvider.GetTaggedRegionAsync(_hwcDeviceTemplatePath, "DukaneIqWelderTemplate");
+			var hwcIoSystemTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "DukaneIqWelderIoSystem");
+
+			await Task.WhenAll(comp1DeclTask, comp1RunTask, comp1StepsTask,
+				comp2DeclTask, comp2RunTask, comp2StepsTask,
+				hwcInstanceTask, hwcTemplateTask, hwcIoSystemTask);
+
+			_comp1DeclarationSnippet = await comp1DeclTask;
+			_comp1RunSnippet         = await comp1RunTask;
+			_comp1StepLogicBlocks    = await comp1StepsTask;
+			_comp2DeclarationSnippet = await comp2DeclTask;
+			_comp2RunSnippet         = await comp2RunTask;
+			_comp2StepLogicBlocks    = await comp2StepsTask;
+			_hwcDeviceInstanceSnippet = await hwcInstanceTask;
+			_hwcDeviceTemplateSnippet = await hwcTemplateTask;
+			_hwcIoSystemSnippet       = await hwcIoSystemTask;
+
+			_comp1StepsBySymbol = Entry.Plc.Ctx.dukane_welders_documentation.componentOne.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+
+			_comp2StepsBySymbol = Entry.Plc.Ctx.dukane_welders_documentation.componentTwo.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+		}
+		catch (Exception ex)
+		{
+			Console.Error.WriteLine($"Error loading code snippets: {ex.Message}");
+		}
+		finally
+		{
+			_loadingCode = false;
+			StateHasChanged();
+		}
+
+		await base.OnInitializedAsync();
+	}
+
+	public override void ConfigurePolling()
+	{
+		var seq1   = Entry.Plc.Ctx.dukane_welders_documentation.componentOne.Sequencer;
+		var steps1 = Entry.Plc.Ctx.dukane_welders_documentation.componentOne.Steps;
+		var seq2   = Entry.Plc.Ctx.dukane_welders_documentation.componentTwo.Sequencer;
+		var steps2 = Entry.Plc.Ctx.dukane_welders_documentation.componentTwo.Steps;
+
+		this.StartPolling(seq1, 250);
+		foreach (var step in steps1)
+		{
+			this.StartPolling(step.IsActive,  250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order,     250);
+			this.StartPolling(step.Descr,     500);
+		}
+
+		this.StartPolling(seq2, 250);
+		foreach (var step in steps2)
+		{
+			this.StartPolling(step.IsActive,  250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order,     250);
+			this.StartPolling(step.Descr,     500);
+		}
+	}
+}

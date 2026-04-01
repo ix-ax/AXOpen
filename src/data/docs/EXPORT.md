@@ -4,7 +4,7 @@ If you want to enable data export, you must add the `EnableExport` attribute wit
 
 Like this:
 
-[!code-smalltalk[](../app/ix-blazor/librarytemplate.blazor/Pages/Rendering.razor?name=Export)]
+[!code-smalltalk[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Data/Rendering.razor?name=Export)]
 
 [See all user roles from AxOpen.Data](Security.md#-authorization).
 
@@ -23,7 +23,7 @@ You also can create own exporter. To do this, you must create a class that imple
 
 For a better user experience, it is strongly recommended to clean the `Temp` directory when starting the application. The best way to do this is to add the following lines to the "Program.cs" file:
 
-[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=CleanUp)]
+[!code-csharp[](../../showcase/app/docs-snippets/data-blazor/Program.cs?name=CleanUp)]
 
 > [!IMPORTANT]
 > Export and import function will create high load on the application. Don't use with large datasets. These function can be used only on a limited number (100 or less) documents. Typical used would be for recipes and settings, but not for large collections of production or event data.

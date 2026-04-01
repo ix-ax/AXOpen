@@ -9,11 +9,11 @@ It is possible to add custom columns if needed. Add an `AXOpen.Data.ColumnData` 
 
 ---
 
-[!code-smalltalk[](../app/ix-blazor/librarytemplate.blazor/Pages/Rendering.razor?name=CustomColumns)]
+[!code-smalltalk[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Data/Rendering.razor?name=CustomColumns)]
 
 When adding data view manually, you will need to create ViewModel:
 
-[!code-smalltalk[](../app/ix-blazor/librarytemplate.blazor/Pages/Rendering.razor?name=CustomColumnsCode)]
+[!code-smalltalk[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Data/Rendering.razor?name=CustomColumnsCode)]
 
 > [!NOTE]
 > When creating ViewModel, don't forget to provide AlertDialogService and AuthenticationProvider.

@@ -1,0 +1,29 @@
+@page "/CoreDocSnippets/AxoComponentExample"
+@using AXOpen.Core;
+@using Operon;
+
+<h3>AxoComponentExample</h3>
+
+<div class="card">
+    <div class="card-title">
+        Simple AxoComponent example
+    </div>
+    <div class="card-body">
+        <div class="flex flex-col gap-4">
+        <div class="flex-1">
+            <RenderableContentControl Context="@Entry.Plc.Ctx.myComponentExample.ActivateManualControl" Presentation="Control" />
+        </div>
+        <div class="flex-1">
+            <RenderableContentControl Context="@Entry.Plc.Ctx.myComponentExample.MyComponent._isManuallyControllable" Presentation="Control" />
+        </div>
+        </div>
+        <div class="flex-1">
+            //<RenderedView>
+                <RenderableContentControl 
+                    Context="@Entry.Plc.Ctx.myComponentExample.MyComponent" 
+                    Presentation="Command" />
+            //</RenderedView>
+        </div>
+    </div>
+   
+</div>

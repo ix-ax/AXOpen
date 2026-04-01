@@ -1,0 +1,5 @@
+.apax/
+bin/
+ix/
+obj/
+*.user

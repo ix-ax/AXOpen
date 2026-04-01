@@ -1,0 +1,58 @@
+@page "/"
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@namespace showcase.blazor.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="~/" />
+    <link href="showcase.blazor.styles.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- Momentum CSS (Operon Design System) -->
+    <link href="_content/Inxton.Operon/css/momentum.css" rel="stylesheet" />
+    <link href="_content/AXSharp.Presentation.Blazor.Controls/css/momentum.css" rel="stylesheet" />
+    <link href="_content/AXOpen.Operon.Blazor/css/momentum.css" rel="stylesheet" />
+
+    <!-- Prism.js syntax highlighting (IEC 61131-3 ST, YAML, XML, Markdown + extras) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+</head>
+<body>
+    <component type="typeof(App)" render-mode="ServerPrerendered" />
+
+    <div id="blazor-error-ui">
+        <environment include="Staging,Production">
+            An error has occurred. This application may no longer respond until reloaded.
+        </environment>
+        <environment include="Development">
+            
+        </environment>        
+    </div>
+    <script src="_framework/blazor.server.js"></script>
+    <!-- Prism core + grammars loaded manually so we control when highlighting runs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        // Tell autoloader where to find grammar files
+        if (window.Prism && Prism.plugins && Prism.plugins.autoloader) {
+            Prism.plugins.autoloader.languages_path =
+                'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/';
+        }
+        // Interop: highlight all <code> elements that carry a language-* class
+        window.prismHighlightAll = function () {
+            if (window.Prism) { Prism.highlightAll(); }
+        };
+        // Interop: copy text to clipboard, returns true on success
+        window.copyToClipboard = function (text) {
+            if (!navigator.clipboard) return Promise.resolve(false);
+            return navigator.clipboard.writeText(text).then(() => true, () => false);
+        };
+    </script>
+</body>
+</html>

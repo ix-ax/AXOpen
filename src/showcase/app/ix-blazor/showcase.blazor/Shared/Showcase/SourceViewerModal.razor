@@ -1,0 +1,80 @@
+@using Markdig
+@using showcase.Services
+@using Operon.Components
+
+<Modal @bind-Open="_open">
+	<div class="modal-header">
+		<h5 class="font-mono text-xs text-white truncate max-w-xl">@_title</h5>
+		<button type="button" class="cursor-pointer ms-auto" @onclick="() => _open = false">
+			<Operon.Icons.HeroIcon Icon="x-mark" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+		</button>
+	</div>
+	<div class="modal-body p-0">
+		@if (_loading)
+		{
+			<div class="p-10 text-center text-slate-400">Loading...</div>
+		}
+		else if (_isMarkdown)
+		{
+			<div class="p-6 overflow-y-auto max-h-[70vh] prose prose-slate prose-sm max-w-none">
+				@((MarkupString)_html)
+			</div>
+		}
+		else
+		{
+			<CodeBlock Content="@_content" Language="@LanguageFor(_title)" MaxHeight="70vh" />
+		}
+	</div>
+</Modal>
+
+@code {
+	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
+
+	private bool _open;
+	private bool _loading;
+	private bool _isMarkdown;
+	private string _title   = string.Empty;
+	private string _content = string.Empty;
+	private string _html    = string.Empty;
+
+	private static readonly MarkdownPipeline _pipeline =
+		new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
+
+	/// <summary>Open the modal and load the content for <paramref name="path"/>.</summary>
+	public async Task OpenAsync(string path)
+	{
+		_title      = path;
+		_content    = string.Empty;
+		_html       = string.Empty;
+		_isMarkdown = path.EndsWith(".md", StringComparison.OrdinalIgnoreCase);
+		_loading    = true;
+		_open       = true;
+		StateHasChanged();
+
+		var snippet = await CodeProvider.GetSnippetAsync(path);
+		_content = snippet.Content ?? string.Empty;
+		if (_isMarkdown)
+			_html = Markdown.ToHtml(_content, _pipeline);
+
+		_loading = false;
+		StateHasChanged();
+		// CodeBlock.OnAfterRenderAsync handles prismHighlightAll for code view;
+		// markdown is rendered as raw HTML so no Prism pass needed.
+	}
+
+	/// <summary>Maps a file path extension to a Prism language class.</summary>
+	public static string LanguageFor(string path) =>
+		System.IO.Path.GetExtension(path).ToLowerInvariant() switch
+		{
+			".st"   => "language-iecst",
+			".yml"  => "language-yaml",
+			".yaml" => "language-yaml",
+			".xml"  => "language-xml",
+			".cs"   => "language-csharp",
+			".razor"=> "language-markup",
+			".html" => "language-markup",
+			".htm"  => "language-markup",
+			".md"   => "language-markdown",
+			_       => "language-none",
+		};
+}

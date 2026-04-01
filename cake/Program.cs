@@ -371,22 +371,16 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         {
             foreach (var package in context.Libraries)
             {
-                var app = Path.Combine(context.RootDir, package.folder, "app");
                 var ax = Path.Combine(context.RootDir, package.folder, "ax");
 
-                if (Directory.Exists(app))
-                {
-                    context.ApaxDownload(app);
-                }
-                else if (Directory.Exists(ax))
+                if (Directory.Exists(ax))
                 {
                     context.ApaxDownload(ax);
                 }
                 else
                 {
-                    //throw new Exception($"No app or ax folder found for {package.folder}");
-                    context.Log.Information($"No app or ax folder found for {package.folder}");
-                    break;
+                    context.Log.Information($"No ax folder found for {package.folder}");
+                    continue;
                 }
 
                 context.DotNetTest(Path.Combine(context.RootDir, package.folder, "tmp_L3_.proj"), context.DotNetTestSettings);
@@ -482,7 +476,7 @@ public sealed class AppsRunTask : FrostingTask<BuildContext>
                 string logFilePath = createResult.FilePath;
                 AppsRunTaskHelpers.WriteResult(context, "AppName,ApaxInstall,ApaxPlcSim,ApaxGsd,ApaxHwl,ApaxHwcc,ApaxHwid,ApaxHwadr,ApaxHwdo,ApaxBuild,DotnetIxc,ApaxSlfdo,Slngen,DotnetClean,DotnetBuild,DotnetRun", logFilePath);
 
-                string appFolder = Path.Combine(Path.Combine(context.RootDir, context.BuildParameters.AppRunOnlyFolderName), "app");
+                string appFolder = Path.Combine(context.RootDir, context.BuildParameters.AppRunOnlyFolderName);
                 string appFile = context.GetApaxFile(appFolder);
                 string appName = context.GetApplicationName(appFile);
 

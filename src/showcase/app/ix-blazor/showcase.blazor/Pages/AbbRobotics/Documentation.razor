@@ -1,0 +1,574 @@
+@page "/AbbRobotics/Documentation"
+@using AXOpen.Components.Abb.Robotics
+@using AXOpen.Core;
+@using Operon.Components.Tab
+@using showcase.Services;
+@inherits RenderableComponentBase
+
+<PageTitle>ABB Robotics - Documentation</PageTitle>
+
+<SourceViewerModal @ref="_modal" />
+
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+	<nav class="text-sm text-slate-500">
+		<a href="/" class="hover:text-slate-800">Home</a>
+		<span class="px-2">/</span>
+		<span class="font-medium text-slate-800">ABB Robotics Documentation</span>
+	</nav>
+
+	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
+		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Abb.Robotics</p>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">ABB Robotics Showcase</h1>
+		<p class="mt-2 max-w-3xl text-slate-600">
+			This page combines runnable command widgets, live component status, and direct links to PLC source files.
+			Use it as a practical reference for integrating ABB robots in SIMATIC AX applications.
+		</p>
+	</header>
+
+	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+		<aside class="space-y-4 xl:col-span-1">
+			<section class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-base font-semibold text-slate-900">Component Overview</h2>
+				<ul class="mt-3 space-y-2 text-sm text-slate-600">
+					<li><span class="font-medium text-slate-800">Category:</span> Robotics</li>
+					<li><span class="font-medium text-slate-800">Vendor:</span> ABB</li>
+					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">abb_robotics_documentation</span></li>
+				</ul>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
+				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
+				<ul class="mt-3 space-y-2 text-sm min-w-0">
+					<li class="min-w-0"><SourceFileLink Path="@_plcContextPath"    OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent1Path" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent2Path" OnOpen="OpenModalAsync" /></li>
+				</ul>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
+				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
+
+				<!-- Documentation -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="Component_1 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="Component_2 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<!-- PLC Library Source -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">PLC Library Source</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_libAxoIrc5StPath" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"   OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<!-- Hardware Assets -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Hardware Assets</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_libHwlYmlPath" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libGsdmlPath"  Label="GSDML — ABB IRC5 v2.33" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
+				<!-- External Links -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">External Links</p>
+					<ul class="space-y-1">
+						<ExternalLinks VendorName="ABB" VendorUrl="https://new.abb.com/products/robotics" />
+					</ul>
+				</div>
+			</section>
+		</aside>
+
+		<section class="space-y-6 xl:col-span-2">
+			<article class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
+				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
+
+				<div class="mt-4">
+					<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
+					<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
+						<option value="Command-Control">Command-Control</option>
+						<option value="Status-Display">Status-Display</option>
+						<option value="Service-Control">Service-Control</option>
+						<option value="Spot">Spot</option>
+						<option value="Compact">Compact</option>
+					</select>
+				</div>
+
+				<div class="mt-4 space-y-4">
+					<Tab>
+						<TabPage Title="AxoIrc5">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="yellow" BattleTested="red" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.abb_robotics_documentation.componentOne" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent1Path" Label="@_plcComponent1Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_c1DeclarationSnippet != null && !_c1DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_c1DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent1Path" Label="@_plcComponent1Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_c1InitSnippet != null && !_c1InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_c1InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Device instantiation (hwl)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;AbbIrc5Device&gt; region
+												</p>
+												@if (_hwcIrc5DeviceSnippet != null && !_hwcIrc5DeviceSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcIrc5DeviceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcIrc5TemplatePath" Label="@_hwcIrc5TemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;AbbIrc5Template&gt; region
+												</p>
+												@if (_hwcIrc5TemplateSnippet != null && !_hwcIrc5TemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcIrc5TemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;AbbIrc5IoSystem&gt; region
+												</p>
+												@if (_hwcIrc5IoSystemSnippet != null && !_hwcIrc5IoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcIrc5IoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.abb_robotics_documentation.componentOne.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.abb_robotics_documentation.componentOne.Sequencer" />
+											<article class="rounded-xl border border-slate-200 bg-white p-4">
+												<h4 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h4>
+												<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
+													<SourceFileLink Path="@_plcComponent1Path" Label="Component_1.st" OnOpen="OpenModalAsync" />.
+												</p>
+												@if (_c1StepLogicBlocks.Count > 0)
+												{
+													<div class="mt-4 space-y-3">
+														@foreach (var step in _c1StepLogicBlocks)
+														{
+															_c1StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+															<AxoStepCard Step="step" LiveStep="liveStep" />
+														}
+													</div>
+												}
+												else if (_loadingCode)
+												{
+													<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+												}
+												else
+												{
+													<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+														No sequencer step blocks were detected.
+													</div>
+												}
+											</article>
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+
+						<TabPage Title="AxoOmnicore">
+							<div class="mt-4 space-y-4">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge Implemented="green" Tested="yellow" BattleTested="red" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.abb_robotics_documentation.componentTwo" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent2Path" Label="@_plcComponent2Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_c2DeclarationSnippet != null && !_c2DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_c2DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent2Path" Label="@_plcComponent2Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_c2InitSnippet != null && !_c2InitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_c2InitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Device instantiation (hwl)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;AbbOmnicoreDevice&gt; region
+												</p>
+												@if (_hwcOmnicoreDeviceSnippet != null && !_hwcOmnicoreDeviceSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcOmnicoreDeviceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcOmnicoreTemplatePath" Label="@_hwcOmnicoreTemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;AbbOmnicoreTemplate&gt; region
+												</p>
+												@if (_hwcOmnicoreTemplateSnippet != null && !_hwcOmnicoreTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcOmnicoreTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;AbbOmnicoreIoSystem&gt; region
+												</p>
+												@if (_hwcOmnicoreIoSystemSnippet != null && !_hwcOmnicoreIoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcOmnicoreIoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.abb_robotics_documentation.componentTwo.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.abb_robotics_documentation.componentTwo.Sequencer" />
+											<article class="rounded-xl border border-slate-200 bg-white p-4">
+												<h4 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h4>
+												<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
+													<SourceFileLink Path="@_plcComponent2Path" Label="Component_2.st" OnOpen="OpenModalAsync" />.
+												</p>
+												@if (_c2StepLogicBlocks.Count > 0)
+												{
+													<div class="mt-4 space-y-3">
+														@foreach (var step in _c2StepLogicBlocks)
+														{
+															_c2StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+															<AxoStepCard Step="step" LiveStep="liveStep" />
+														}
+													</div>
+												}
+												else if (_loadingCode)
+												{
+													<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+												}
+												else
+												{
+													<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+														No sequencer step blocks were detected.
+													</div>
+												}
+											</article>
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+					</Tab>
+				</div>
+			</article>
+		</section>
+	</div>
+</div>
+
+@code {
+	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
+
+	private SourceViewerModal _modal = default!;
+	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
+
+	// Component 1 snippets
+	private CodeSnippet? _c1DeclarationSnippet;
+	private CodeSnippet? _c1InitSnippet;
+	private List<StepLogicBlock> _c1StepLogicBlocks = new();
+
+	// Component 2 snippets
+	private CodeSnippet? _c2DeclarationSnippet;
+	private CodeSnippet? _c2InitSnippet;
+	private List<StepLogicBlock> _c2StepLogicBlocks = new();
+
+	// IRC5 HWC snippets
+	private CodeSnippet? _hwcIrc5DeviceSnippet;
+	private CodeSnippet? _hwcIrc5TemplateSnippet;
+	private CodeSnippet? _hwcIrc5IoSystemSnippet;
+
+	// OmniCore HWC snippets
+	private CodeSnippet? _hwcOmnicoreDeviceSnippet;
+	private CodeSnippet? _hwcOmnicoreTemplateSnippet;
+	private CodeSnippet? _hwcOmnicoreIoSystemSnippet;
+
+	private bool _loadingCode = true;
+	private string _selectedPresentation = "Command-Control";
+
+	private readonly string _plcContextPath    = "src/showcase/app/src/ComponentsAbbRobotics/Documentation/DocumentationContext.st";
+	private readonly string _plcComponent1Path = "src/showcase/app/src/ComponentsAbbRobotics/Documentation/Component_1.st";
+	private readonly string _plcComponent2Path = "src/showcase/app/src/ComponentsAbbRobotics/Documentation/Component_2.st";
+
+	// Hardware configuration paths
+	private readonly string _hwcPlcLineYmlPath       = "src/showcase/app/hwc/plc_line.hwl.yml";
+	private readonly string _hwcIrc5TemplatePath      = "src/showcase/app/hwc/library_templates/abb_robotics_irc5/abb_irc5_robot_in64b_out64b.hwl.yml";
+	private readonly string _hwcOmnicoreTemplatePath  = "src/showcase/app/hwc/library_templates/abb_robotics_omnicore/abb_omnicore_robot_in64b_out64b.hwl.yml";
+
+	// Library resource paths
+	private readonly string _libReadmePath        = "src/components.abb.robotics/docs/README.md";
+	private readonly string _libComponent1DocPath = "src/components.abb.robotics/docs/Component_1.md";
+	private readonly string _libComponent2DocPath = "src/components.abb.robotics/docs/Component_2.md";
+	private readonly string _libTroublesPath      = "src/components.abb.robotics/docs/TROUBLES.md";
+	private readonly string _libAxoIrc5StPath     = "src/components.abb.robotics/ctrl/src/AxoIrc5_v_1_x_x.st";
+	private readonly string _libApaxYmlPath       = "src/components.abb.robotics/ctrl/apax.yml";
+	private readonly string _libHwlYmlPath        = "src/components.abb.robotics/ctrl/assets/abb_robotics_irc5/abb_irc5_robot_in64b_out64b.hwl.yml";
+	private readonly string _libGsdmlPath         = "src/components.abb.robotics/ctrl/assets/abb_robotics_irc5/gsdml-v2.33-abb-robotics-robot-device-20180814.xml";
+
+	private Dictionary<string, AXOpen.Core.AxoStep> _c1StepsBySymbol = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _c2StepsBySymbol = new();
+
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			// Component 1 tasks
+			var c1DeclTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "ComponentDeclaration");
+			var c1InitTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "Initialization");
+			var c1StepsTask   = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
+
+			// Component 2 tasks
+			var c2DeclTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "ComponentDeclaration");
+			var c2InitTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "Initialization");
+			var c2StepsTask   = CodeProvider.GetStepLogicBlocksAsync(_plcComponent2Path);
+
+			// IRC5 HWC tasks
+			var hwcIrc5DeviceTask   = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "AbbIrc5Device");
+			var hwcIrc5TemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcIrc5TemplatePath, "AbbIrc5Template");
+			var hwcIrc5IoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "AbbIrc5IoSystem");
+
+			// OmniCore HWC tasks
+			var hwcOmnicoreDeviceTask   = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "AbbOmnicoreDevice");
+			var hwcOmnicoreTemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcOmnicoreTemplatePath, "AbbOmnicoreTemplate");
+			var hwcOmnicoreIoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "AbbOmnicoreIoSystem");
+
+			await Task.WhenAll(c1DeclTask, c1InitTask, c1StepsTask,
+				c2DeclTask, c2InitTask, c2StepsTask,
+				hwcIrc5DeviceTask, hwcIrc5TemplateTask, hwcIrc5IoSystemTask,
+				hwcOmnicoreDeviceTask, hwcOmnicoreTemplateTask, hwcOmnicoreIoSystemTask);
+
+			_c1DeclarationSnippet = await c1DeclTask;
+			_c1InitSnippet        = await c1InitTask;
+			_c1StepLogicBlocks    = await c1StepsTask;
+
+			_c2DeclarationSnippet = await c2DeclTask;
+			_c2InitSnippet        = await c2InitTask;
+			_c2StepLogicBlocks    = await c2StepsTask;
+
+			_hwcIrc5DeviceSnippet   = await hwcIrc5DeviceTask;
+			_hwcIrc5TemplateSnippet = await hwcIrc5TemplateTask;
+			_hwcIrc5IoSystemSnippet = await hwcIrc5IoSystemTask;
+
+			_hwcOmnicoreDeviceSnippet   = await hwcOmnicoreDeviceTask;
+			_hwcOmnicoreTemplateSnippet = await hwcOmnicoreTemplateTask;
+			_hwcOmnicoreIoSystemSnippet = await hwcOmnicoreIoSystemTask;
+
+			_c1StepsBySymbol = Entry.Plc.Ctx.abb_robotics_documentation.componentOne.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+
+			_c2StepsBySymbol = Entry.Plc.Ctx.abb_robotics_documentation.componentTwo.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+		}
+		catch (Exception ex)
+		{
+			Console.Error.WriteLine($"Error loading code snippets: {ex.Message}");
+		}
+		finally
+		{
+			_loadingCode = false;
+			StateHasChanged();
+		}
+
+		await base.OnInitializedAsync();
+	}
+
+	public override void ConfigurePolling()
+	{
+		var seq1   = Entry.Plc.Ctx.abb_robotics_documentation.componentOne.Sequencer;
+		var steps1 = Entry.Plc.Ctx.abb_robotics_documentation.componentOne.Steps;
+		var seq2   = Entry.Plc.Ctx.abb_robotics_documentation.componentTwo.Sequencer;
+		var steps2 = Entry.Plc.Ctx.abb_robotics_documentation.componentTwo.Steps;
+
+		this.StartPolling(seq1, 250);
+		foreach (var step in steps1)
+		{
+			this.StartPolling(step.IsActive,  250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order,     250);
+			this.StartPolling(step.Descr,     500);
+		}
+
+		this.StartPolling(seq2, 250);
+		foreach (var step in steps2)
+		{
+			this.StartPolling(step.IsActive,  250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order,     250);
+			this.StartPolling(step.Descr,     500);
+		}
+	}
+}

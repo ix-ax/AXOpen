@@ -9,7 +9,7 @@
 
 **AxoTask initialization within a AxoContext**
 
-[!code-smalltalk[](../app/src/Examples/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st?name=AxoTaskIntitialization)]
+[!code-smalltalk[](../../showcase/app/src/CoreExamples/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st?name=AxoTaskIntitialization)]
 
 There are two key methods for managing the AxoRemoteTask:
 
@@ -30,7 +30,7 @@ To reset the AxoRemoteTask from any state at any moment, there is the following 
 
 The `AxoRemoteTask` executes upon the `Invoke` method call. `Invoke` fires the execution of `Execute` logic upon the first call, and `Invoke` does not need cyclical calling.
 
-[!code-smalltalk[](../app/src/Examples/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st?name=AxoTaskInvoke)]
+[!code-smalltalk[](../../showcase/app/src/CoreExamples/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st?name=AxoTaskInvoke)]
 
 `Invoke()` method returns IAxoTaskState with the following members:
 
@@ -41,7 +41,7 @@ The `AxoRemoteTask` executes upon the `Invoke` method call. `Invoke` fires the e
 
 ## Task initialization in .NET
 
-[!code-csharp[](../app/ix-blazor/axopencore.blazor/Program.cs?name=InitializeRemoteTask)]
+[!code-csharp[](../../showcase/app/docs-snippets/core-blazor/Program.cs?name=InitializeRemoteTask)]
 
 In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the labmda expression.
 
@@ -51,12 +51,12 @@ In this example, when the PLC invokes this task it will write a message into con
 ## Executing from PLC
 
 Invoking the AxoRemoteTask and waiting for its completion at the same place.
-[!code-smalltalk[](../app/src/Examples/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st?name=AxoTaskInvokeDone)]
+[!code-smalltalk[](../../showcase/app/src/CoreExamples/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st?name=AxoTaskInvokeDone)]
 Invoking the AxoRemoteTask and waiting for its completion at the different places.
-[!code-smalltalk[](../app/src/Examples/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st?name=AxoTaskInvokeDoneSeparatelly)]
+[!code-smalltalk[](../../showcase/app/src/CoreExamples/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st?name=AxoTaskInvokeDoneSeparatelly)]
 Checking if the AxoRemoteTask is executing.
-[!code-smalltalk[](../app/src/Examples/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st?name=AxoTaskRunning)]
+[!code-smalltalk[](../../showcase/app/src/CoreExamples/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st?name=AxoTaskRunning)]
 Check for the AxoRemoteTask's error state. 
-[!code-smalltalk[](../app/src/Examples/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st?name=AxoTaskError)]
+[!code-smalltalk[](../../showcase/app/src/CoreExamples/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st?name=AxoTaskError)]
 
 

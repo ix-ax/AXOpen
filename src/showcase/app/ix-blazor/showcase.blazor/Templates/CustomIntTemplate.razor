@@ -1,0 +1,27 @@
+@namespace showcase.blazor.Templates
+@inherits AXOpen.Data.ColumnDataCellBase
+
+@PropertyValue.ToString() -
+
+@if (CastedValue <= 100)
+{
+    <span>&#x2190;</span>
+    <span>over</span>
+}
+else
+{
+    <span>&#x2192;</span>
+    <span>below</span>
+}
+
+@code {
+
+    public short CastedValue { set; get; }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        CastedValue = (short)PropertyValue;
+    }
+}
