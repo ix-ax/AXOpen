@@ -234,12 +234,12 @@
 										<div class="mt-4">
 											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Sequencer" />
 											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Sequencer" />
-											@if (_stepLogicBlocks.Count > 0)
+											@if (_c1StepLogicBlocks.Count > 0)
 											{
 												<div class="mt-4 space-y-3">
-													@foreach (var step in _stepLogicBlocks)
+													@foreach (var step in _c1StepLogicBlocks)
 													{
-														_stepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+														_c1StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
 														<AxoStepCard Step="step" LiveStep="liveStep" />
 													}
 												</div>
@@ -379,34 +379,29 @@
 										<div class="mt-4">
 											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentTwo.Sequencer" />
 											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentTwo.Sequencer" />
-											<article class="rounded-xl border border-slate-200 bg-white p-4">
-												<h4 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h4>
-												<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
-													<SourceFileLink Path="@_plcComponent2Path" Label="Component_2.st" OnOpen="OpenModalAsync" />.
-												</p>
-												@if (_c2StepLogicBlocks.Count > 0)
-												{
-													<div class="mt-4 space-y-3">
-														@foreach (var step in _c2StepLogicBlocks)
-														{
-															_c2StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
-															<AxoStepCard Step="step" LiveStep="liveStep" />
-														}
-													</div>
-												}
-												else if (_loadingCode)
-												{
-													<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
-												}
-												else
-												{
-													<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
-														No sequencer step blocks were detected.
-													</div>
-												}
-											</article>
+											@if (_c2StepLogicBlocks.Count > 0)
+											{
+												<div class="mt-4 space-y-3">
+													@foreach (var step in _c2StepLogicBlocks)
+													{
+														_c2StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+														<AxoStepCard Step="step" LiveStep="liveStep" />
+													}
+												</div>
+											}
+											else if (_loadingCode)
+											{
+												<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+											}
+											else
+											{
+												<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+													No sequencer step blocks were detected.
+												</div>
+											}
 										</div>
 									</TabPage>
+
 								</Tab>
 							</div>
 						</TabPage>
@@ -530,34 +525,29 @@
 										<div class="mt-4">
 											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentThree.Sequencer" />
 											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentThree.Sequencer" />
-											<article class="rounded-xl border border-slate-200 bg-white p-4">
-												<h4 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h4>
-												<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
-													<SourceFileLink Path="@_plcComponent3Path" Label="Component_3.st" OnOpen="OpenModalAsync" />.
-												</p>
-												@if (_c3StepLogicBlocks.Count > 0)
-												{
-													<div class="mt-4 space-y-3">
-														@foreach (var step in _c3StepLogicBlocks)
-														{
-															_c3StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
-															<AxoStepCard Step="step" LiveStep="liveStep" />
-														}
-													</div>
-												}
-												else if (_loadingCode)
-												{
-													<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
-												}
-												else
-												{
-													<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
-														No sequencer step blocks were detected.
-													</div>
-												}
-											</article>
+											@if (_c3StepLogicBlocks.Count > 0)
+											{
+												<div class="mt-4 space-y-3">
+													@foreach (var step in _c3StepLogicBlocks)
+													{
+														_c3StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+														<AxoStepCard Step="step" LiveStep="liveStep" />
+													}
+												</div>
+											}
+											else if (_loadingCode)
+											{
+												<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+											}
+											else
+											{
+												<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+													No sequencer step blocks were detected.
+												</div>
+											}
 										</div>
 									</TabPage>
+
 								</Tab>
 							</div>
 						</TabPage>
@@ -681,34 +671,29 @@
 										<div class="mt-4">
 											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentFour.Sequencer" />
 											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentFour.Sequencer" />
-											<article class="rounded-xl border border-slate-200 bg-white p-4">
-												<h4 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h4>
-												<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
-													<SourceFileLink Path="@_plcComponent4Path" Label="Component_4.st" OnOpen="OpenModalAsync" />.
-												</p>
-												@if (_c4StepLogicBlocks.Count > 0)
-												{
-													<div class="mt-4 space-y-3">
-														@foreach (var step in _c4StepLogicBlocks)
-														{
-															_c4StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
-															<AxoStepCard Step="step" LiveStep="liveStep" />
-														}
-													</div>
-												}
-												else if (_loadingCode)
-												{
-													<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
-												}
-												else
-												{
-													<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
-														No sequencer step blocks were detected.
-													</div>
-												}
-											</article>
+											@if (_c4StepLogicBlocks.Count > 0)
+											{
+												<div class="mt-4 space-y-3">
+													@foreach (var step in _c4StepLogicBlocks)
+													{
+														_c4StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+														<AxoStepCard Step="step" LiveStep="liveStep" />
+													}
+												</div>
+											}
+											else if (_loadingCode)
+											{
+												<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+											}
+											else
+											{
+												<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+													No sequencer step blocks were detected.
+												</div>
+											}
 										</div>
 									</TabPage>
+
 								</Tab>
 							</div>
 						</TabPage>
@@ -832,34 +817,29 @@
 										<div class="mt-4">
 											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentFive.Sequencer" />
 											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentFive.Sequencer" />
-											<article class="rounded-xl border border-slate-200 bg-white p-4">
-												<h4 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h4>
-												<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
-													<SourceFileLink Path="@_plcComponent5Path" Label="Component_5.st" OnOpen="OpenModalAsync" />.
-												</p>
-												@if (_c5StepLogicBlocks.Count > 0)
-												{
-													<div class="mt-4 space-y-3">
-														@foreach (var step in _c5StepLogicBlocks)
-														{
-															_c5StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
-															<AxoStepCard Step="step" LiveStep="liveStep" />
-														}
-													</div>
-												}
-												else if (_loadingCode)
-												{
-													<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
-												}
-												else
-												{
-													<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
-														No sequencer step blocks were detected.
-													</div>
-												}
-											</article>
+											@if (_c5StepLogicBlocks.Count > 0)
+											{
+												<div class="mt-4 space-y-3">
+													@foreach (var step in _c5StepLogicBlocks)
+													{
+														_c5StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+														<AxoStepCard Step="step" LiveStep="liveStep" />
+													}
+												</div>
+											}
+											else if (_loadingCode)
+											{
+												<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+											}
+											else
+											{
+												<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+													No sequencer step blocks were detected.
+												</div>
+											}
 										</div>
 									</TabPage>
+
 								</Tab>
 							</div>
 						</TabPage>
@@ -879,18 +859,24 @@
 	// Component 1 snippets
 	private CodeSnippet? _comp1DeclarationSnippet;
 	private CodeSnippet? _comp1InitSnippet;
+	private List<StepLogicBlock> _c1StepLogicBlocks = new();
+
 	// Component 2 snippets
 	private CodeSnippet? _comp2DeclarationSnippet;
 	private CodeSnippet? _comp2InitSnippet;
+	private List<StepLogicBlock> _c2StepLogicBlocks = new();
 	// Component 3 snippets
 	private CodeSnippet? _comp3DeclarationSnippet;
 	private CodeSnippet? _comp3InitSnippet;
+	private List<StepLogicBlock> _c3StepLogicBlocks = new();
 	// Component 4 snippets
 	private CodeSnippet? _comp4DeclarationSnippet;
 	private CodeSnippet? _comp4InitSnippet;
+	private List<StepLogicBlock> _c4StepLogicBlocks = new();
 	// Component 5 snippets
 	private CodeSnippet? _comp5DeclarationSnippet;
 	private CodeSnippet? _comp5InitSnippet;
+	private List<StepLogicBlock> _c5StepLogicBlocks = new();
 
 	// Hardware snippets — per component
 	private CodeSnippet? _hwc1DeviceInstanceSnippet;
@@ -909,17 +895,15 @@
 	private CodeSnippet? _hwc5DeviceTemplateSnippet;
 	private CodeSnippet? _hwc5IoSystemSnippet;
 
-	// Step logic — per component
-	private List<StepLogicBlock> _stepLogicBlocks = new();
-	private Dictionary<string, AXOpen.Core.AxoStep> _stepsBySymbol = new();
-	private List<StepLogicBlock> _c2StepLogicBlocks = new();
+	// Step logic
+	// private List<StepLogicBlock> _stepLogicBlocks = new();
+	// private Dictionary<string, AXOpen.Core.AxoStep> _stepsBySymbol = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _c1StepsBySymbol = new();
 	private Dictionary<string, AXOpen.Core.AxoStep> _c2StepsBySymbol = new();
-	private List<StepLogicBlock> _c3StepLogicBlocks = new();
 	private Dictionary<string, AXOpen.Core.AxoStep> _c3StepsBySymbol = new();
-	private List<StepLogicBlock> _c4StepLogicBlocks = new();
 	private Dictionary<string, AXOpen.Core.AxoStep> _c4StepsBySymbol = new();
-	private List<StepLogicBlock> _c5StepLogicBlocks = new();
 	private Dictionary<string, AXOpen.Core.AxoStep> _c5StepsBySymbol = new();
+
 
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
@@ -945,7 +929,9 @@
 	private readonly string _libComponent1DocPath = "src/components.cognex.vision/docs/Component_1.md";
 	private readonly string _libComponent2DocPath = "src/components.cognex.vision/docs/Component_2.md";
 	private readonly string _libComponent3DocPath = "src/components.cognex.vision/docs/Component_3.md";
-	private readonly string _libTroublesPath      = "src/components.cognex.vision/docs/TROUBLES.md";
+	private readonly string _libComponent4DocPath = "src/components.cognex.vision/docs/Component_4.md";
+	private readonly string _libComponent5DocPath = "src/components.cognex.vision/docs/Component_5.md";
+	private readonly string _libTroublesPath = "src/components.cognex.vision/docs/TROUBLES.md";
 
 	// PLC library source paths
 	private readonly string _libAxoInsightStPath   = "src/components.cognex.vision/ctrl/src/v_6_0_0_0/AxoInsight/AxoInsight.st";
@@ -967,11 +953,13 @@
 			var comp4InitTask = CodeProvider.GetTaggedRegionAsync(_plcComponent4Path, "Initialization");
 			var comp5DeclTask = CodeProvider.GetTaggedRegionAsync(_plcComponent5Path, "ComponentDeclaration");
 			var comp5InitTask = CodeProvider.GetTaggedRegionAsync(_plcComponent5Path, "Initialization");
-			var stepLogicTask  = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
-			var c2StepTask     = CodeProvider.GetStepLogicBlocksAsync(_plcComponent2Path);
-			var c3StepTask     = CodeProvider.GetStepLogicBlocksAsync(_plcComponent3Path);
-			var c4StepTask     = CodeProvider.GetStepLogicBlocksAsync(_plcComponent4Path);
-			var c5StepTask     = CodeProvider.GetStepLogicBlocksAsync(_plcComponent5Path);
+			var c1StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
+			var c2StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent2Path);
+			var c3StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent3Path);
+			var c4StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent4Path);
+			var c5StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent5Path);
+
+			// var stepLogicTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
 
 			// Hardware snippets — per component
 			var hwc1InstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexInsight7600Device");
@@ -992,8 +980,7 @@
 
 			await Task.WhenAll(comp1DeclTask, comp1InitTask, comp2DeclTask, comp2InitTask,
 				comp3DeclTask, comp3InitTask, comp4DeclTask, comp4InitTask,
-				comp5DeclTask, comp5InitTask,
-				stepLogicTask, c2StepTask, c3StepTask, c4StepTask, c5StepTask,
+				comp5DeclTask, comp5InitTask, c1StepsTask, c2StepsTask, c3StepsTask, c4StepsTask, c5StepsTask, //stepLogicTask,
 				hwc1InstanceTask, hwc1TemplateTask, hwc1IoSystemTask,
 				hwc2InstanceTask, hwc2TemplateTask, hwc2IoSystemTask,
 				hwc3InstanceTask, hwc3TemplateTask, hwc3IoSystemTask,
@@ -1010,11 +997,13 @@
 			_comp4InitSnippet        = await comp4InitTask;
 			_comp5DeclarationSnippet = await comp5DeclTask;
 			_comp5InitSnippet        = await comp5InitTask;
-			_stepLogicBlocks         = await stepLogicTask;
-			_c2StepLogicBlocks       = await c2StepTask;
-			_c3StepLogicBlocks       = await c3StepTask;
-			_c4StepLogicBlocks       = await c4StepTask;
-			_c5StepLogicBlocks       = await c5StepTask;
+			// _stepLogicBlocks         = await stepLogicTask;
+			_c1StepLogicBlocks = await c1StepsTask;
+			_c2StepLogicBlocks = await c2StepsTask;
+			_c3StepLogicBlocks = await c3StepsTask;
+			_c4StepLogicBlocks = await c4StepsTask;
+			_c5StepLogicBlocks = await c5StepsTask;
+
 
 			_hwc1DeviceInstanceSnippet = await hwc1InstanceTask;
 			_hwc1DeviceTemplateSnippet = await hwc1TemplateTask;
@@ -1032,7 +1021,12 @@
 			_hwc5DeviceTemplateSnippet = await hwc5TemplateTask;
 			_hwc5IoSystemSnippet       = await hwc5IoSystemTask;
 
-			_stepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Steps
+			 // _stepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Steps
+			// 	.ToDictionary(
+			// 		s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+			// 		s => s
+			// 	);
+			_c1StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
@@ -1077,7 +1071,11 @@
 
 	public override void ConfigurePolling()
 	{
-		void PollComponent(AXOpen.Core.AxoSequencer seq, AXOpen.Core.AxoStep[] steps)
+		var seq1   = Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Sequencer;
+		var steps1 = Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Steps;
+
+		this.StartPolling(seq1, 250);
+		foreach (var step in steps1)
 		{
 			this.StartPolling(seq, 250);
 			foreach (var step in steps)
@@ -1089,15 +1087,52 @@
 			}
 		}
 
-		PollComponent(Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Sequencer,
-		              Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Steps);
-		PollComponent(Entry.Plc.Ctx.cognex_vision_documentation.componentTwo.Sequencer,
-		              Entry.Plc.Ctx.cognex_vision_documentation.componentTwo.Steps);
-		PollComponent(Entry.Plc.Ctx.cognex_vision_documentation.componentThree.Sequencer,
-		              Entry.Plc.Ctx.cognex_vision_documentation.componentThree.Steps);
-		PollComponent(Entry.Plc.Ctx.cognex_vision_documentation.componentFour.Sequencer,
-		              Entry.Plc.Ctx.cognex_vision_documentation.componentFour.Steps);
-		PollComponent(Entry.Plc.Ctx.cognex_vision_documentation.componentFive.Sequencer,
-		              Entry.Plc.Ctx.cognex_vision_documentation.componentFive.Steps);
+		var seq2 = Entry.Plc.Ctx.cognex_vision_documentation.componentTwo.Sequencer;
+		var steps2 = Entry.Plc.Ctx.cognex_vision_documentation.componentTwo.Steps;
+
+		this.StartPolling(seq2, 250);
+		foreach (var step in steps2)
+		{
+			this.StartPolling(step.IsActive, 250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order, 250);
+			this.StartPolling(step.Descr, 500);
+		}
+
+		var seq3 = Entry.Plc.Ctx.cognex_vision_documentation.componentThree.Sequencer;
+		var steps3 = Entry.Plc.Ctx.cognex_vision_documentation.componentThree.Steps;
+
+		this.StartPolling(seq3, 250);
+		foreach (var step in steps3)
+		{
+			this.StartPolling(step.IsActive, 250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order, 250);
+			this.StartPolling(step.Descr, 500);
+		}
+
+		var seq4 = Entry.Plc.Ctx.cognex_vision_documentation.componentFour.Sequencer;
+		var steps4 = Entry.Plc.Ctx.cognex_vision_documentation.componentFour.Steps;
+
+		this.StartPolling(seq4, 250);
+		foreach (var step in steps4)
+		{
+			this.StartPolling(step.IsActive, 250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order, 250);
+			this.StartPolling(step.Descr, 500);
+		}
+
+		var seq5 = Entry.Plc.Ctx.cognex_vision_documentation.componentFive.Sequencer;
+		var steps5 = Entry.Plc.Ctx.cognex_vision_documentation.componentFive.Steps;
+
+		this.StartPolling(seq5, 250);
+		foreach (var step in steps5)
+		{
+			this.StartPolling(step.IsActive, 250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order, 250);
+			this.StartPolling(step.Descr, 500);
+		}
 	}
 }
