@@ -1,7 +1,7 @@
 Devices:
   - Name: plc_line
     Modules:
-    - Apply: 6ES7518-3AT10-0AB0_v4_1
+    - Apply: 6ES7518-3AT10-0AB0_v4_0
       Arguments:
         NAME: plc_line
         IP_ADDRESS_X1: '192.168.100.130/24'
