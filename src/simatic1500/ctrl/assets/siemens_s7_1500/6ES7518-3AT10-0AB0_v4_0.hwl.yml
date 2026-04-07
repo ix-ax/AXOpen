@@ -19,6 +19,23 @@ Templates:
       Value: 'admin'
     - Name: CYCLE_COMMUNICATION_LOAD
       Value: 20
+    - Name: TimeSynchronizationNtpV2
+      Value: 'SetServersInProject'
+      AllowedValues:
+        - 'Disabled'
+        - 'SetServersAtDevice'
+        - 'SetServersInProject'
+        - 'SetServersRemotely'
+    - Name: TimeSynchronizationServer1
+      Optional: TRUE    
+    - Name: TimeSynchronizationServer2
+      Optional: TRUE    
+    - Name: TimeSynchronizationServer3
+      Optional: TRUE    
+    - Name: TimeSynchronizationServer4
+      Optional: TRUE    
+    - Name: TimeSynchronizationUpdateInterval
+      Optional: TRUE    
     Content:
       Name: '${NAME}'
       TypeIdentifier:
@@ -219,11 +236,11 @@ Templates:
         TimeOfDayStandardTimeStartWeek: 'Last'
         # Possible values: 1 - Sunday | 2 - Monday | 3 - Tuesday | 4 - Wednesday | 5 - Thursday | 6 - Friday | 7 - Saturday
         TimeOfDayStandardTimeStartWeekday: 'Sunday'
-        # TimeSynchronizationServer1 (String)
-        # TimeSynchronizationServer2 (String)
-        # TimeSynchronizationServer3 (String)
-        # TimeSynchronizationServer4 (String)
-        # TimeSynchronizationUpdateInterval (Integer)
+        TimeSynchronizationServer1: ${TimeSynchronizationServer1}
+        TimeSynchronizationServer2: ${TimeSynchronizationServer2}
+        TimeSynchronizationServer3: ${TimeSynchronizationServer3}
+        TimeSynchronizationServer4: ${TimeSynchronizationServer4}
+        TimeSynchronizationUpdateInterval:  ${TimeSynchronizationUpdateInterval}
         CentralAlarmManagement: True
         # Possible values: 0 - NoLicense | 1 - SimaticOpcUaS71500Small | 2 - SimaticOpcUaS71500Medium | 3 - SimaticOpcUaS71500Large
         OpcUaPurchasedLicense: 'NoLicense'
@@ -232,7 +249,7 @@ Templates:
         IPv4ForwardingActive: False
         # MacRtLicensePurchased (Integer)
         # Possible values: 0 - Disabled | 1 - SetServersAtDevice | 2 - SetServersInProject | 3 - SetServersRemotely
-        TimeSynchronizationNtpV2: 'Disabled'
+        TimeSynchronizationNtpV2: ${TimeSynchronizationNtpV2}
         # DomainConfiguration (Integer)
         HostAndDomainnameActive: False
         # Hostname (String)

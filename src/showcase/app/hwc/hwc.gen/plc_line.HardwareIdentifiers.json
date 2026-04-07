@@ -1146,10 +1146,6 @@
       "Value": 51
     },
     {
-      "Name": "plc_line~plc_line~DP interface_1",
-      "Value": 60
-    },
-    {
       "Name": "plc_line~plc_line~OPC UA_1",
       "Value": 117
     },
@@ -1172,6 +1168,18 @@
     {
       "Name": "plc_line~plc_line~PROFINET_interface_2~Port_3",
       "Value": 73
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_2~Port_4",
+      "Value": 74
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_GBIT_3",
+      "Value": 120
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_GBIT_3~Port_5",
+      "Value": 121
     },
     {
       "Name": "plc_line~plc_line~Virtual communication interface",
