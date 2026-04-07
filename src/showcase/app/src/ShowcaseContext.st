@@ -77,9 +77,11 @@ CLASS ShowcaseContext EXTENDS AXOpen.Core.AxoContext
 
         // ---- Foundation ----
         abstractions_documentation : AXOpen.Showcase.Abstractions.DocumentationContext;
+        components_abstractions_documentation : AXOpen.Showcase.ComponentsAbstractions.DocumentationContext;
         inspectors_documentation : AXOpen.Showcase.Inspectors.DocumentationContext;
         io_documentation : AXOpen.Showcase.Io.DocumentationContext;
         probers_documentation : AXOpen.Showcase.Probers.DocumentationContext;
+        simatic1500_documentation : AXOpen.Showcase.Simatic1500.DocumentationContext;
         timers_documentation : AXOpen.Showcase.Timers.DocumentationContext;
         utils_documentation : AXOpen.Showcase.Utils.DocumentationContext;
 
@@ -217,6 +219,9 @@ CLASS ShowcaseContext EXTENDS AXOpen.Core.AxoContext
         THIS.InitializeRootObject(abstractions_documentation);
         abstractions_documentation.Execute();
 
+        THIS.InitializeRootObject(components_abstractions_documentation);
+        components_abstractions_documentation.Execute();
+
         THIS.InitializeRootObject(inspectors_documentation);
         inspectors_documentation.Execute();
 
@@ -225,6 +230,9 @@ CLASS ShowcaseContext EXTENDS AXOpen.Core.AxoContext
 
         THIS.InitializeRootObject(probers_documentation);
         probers_documentation.Execute();
+
+        THIS.InitializeRootObject(simatic1500_documentation);
+        simatic1500_documentation.Execute();
 
         THIS.InitializeRootObject(timers_documentation);
         timers_documentation.Execute();

@@ -1,0 +1,208 @@
+@page "/Simatic1500/Documentation"
+@using AXOpen.Core;
+@using Operon.Components.Tab
+@using showcase.Services;
+@inherits RenderableComponentBase
+
+<PageTitle>SIMATIC S7-1500 - Documentation</PageTitle>
+
+<SourceViewerModal @ref="_modal" />
+
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+	<nav class="text-sm text-slate-500">
+		<a href="/" class="hover:text-slate-800">Home</a>
+		<span class="px-2">/</span>
+		<span class="font-medium text-slate-800">SIMATIC S7-1500 Documentation</span>
+	</nav>
+
+	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
+		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.S71500</p>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">SIMATIC S7-1500 Showcase</h1>
+		<p class="mt-2 max-w-3xl text-slate-600">
+			Platform-specific implementations of IAxoRtc (real-time clock) and IAxoRtm (runtime measurement)
+			for the SIMATIC S7-1500 PLC family. These services are injected into AxoContext to provide
+			system clock and elapsed time capabilities.
+		</p>
+	</header>
+
+	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+		<aside class="space-y-4 xl:col-span-1">
+			<section class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-base font-semibold text-slate-900">Library Overview</h2>
+				<ul class="mt-3 space-y-2 text-sm text-slate-600">
+					<li><span class="font-medium text-slate-800">Category:</span> Foundation / Platform</li>
+					<li><span class="font-medium text-slate-800">Components:</span> Rtc (IAxoRtc), Rtm (IAxoRtm)</li>
+					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">simatic1500_documentation</span></li>
+				</ul>
+				<div class="mt-3 pt-3 border-t border-slate-100">
+					<p class="text-xs font-medium text-slate-500 mb-1">Maturity</p>
+					<MaturityBadge Implemented="green" Tested="green" BattleTested="green" />
+				</div>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
+				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
+				<ul class="mt-3 space-y-2 text-sm min-w-0">
+					<li class="min-w-0"><SourceFileLink Path="@_plcContextPath" OnOpen="OpenModalAsync" /></li>
+				</ul>
+			</section>
+
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
+				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">PLC Library Source</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_libRtcPath" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libRtmPath" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">External Links</p>
+					<ul class="space-y-1">
+						<ExternalLinks />
+					</ul>
+				</div>
+			</section>
+		</aside>
+
+		<section class="space-y-6 xl:col-span-2">
+			<article class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-lg font-semibold text-slate-900">Platform Services Reference</h2>
+				<p class="mt-1 text-sm text-slate-600">View live Rtc/Rtm values and code examples for S7-1500 platform services.</p>
+
+				<div class="mt-4 space-y-4">
+					<Tab>
+						<TabPage Title="Automatic rendering">
+							<div class="mt-4">
+								<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
+								<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
+									<option value="Command-Control">Command-Control</option>
+									<option value="Status-Display">Status-Display</option>
+									<option value="Service-Control">Service-Control</option>
+									<option value="Spot">Spot</option>
+									<option value="Compact">Compact</option>
+								</select>
+							</div>
+							<RenderableContentControl Context="@Entry.Plc.Ctx.simatic1500_documentation" Presentation="@_selectedPresentation" PollingInterval="100" />
+						</TabPage>
+
+						<TabPage Title="Code reference">
+							<div class="mt-4 space-y-6">
+								<div>
+									<h3 class="text-sm font-semibold text-gray-900 mb-1">Rtc/Rtm declarations (ST)</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcContextPath" Label="@_plcContextPath" OnOpen="OpenModalAsync" />
+										— &lt;Simatic1500Declarations&gt; region
+									</p>
+									@if (_declarationSnippet != null && !_declarationSnippet.IsError)
+									{
+										<CodeBlock Content="@(_declarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode)
+									{
+										<div class="p-4 text-center text-slate-500">Loading...</div>
+									}
+									else
+									{
+										<p class="text-xs text-orange-600">Unable to load snippet</p>
+									}
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-gray-900 mb-1">Real-time clock usage (ST)</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcContextPath" Label="@_plcContextPath" OnOpen="OpenModalAsync" />
+										— &lt;RtcUsage&gt; region
+									</p>
+									@if (_rtcUsageSnippet != null && !_rtcUsageSnippet.IsError)
+									{
+										<CodeBlock Content="@(_rtcUsageSnippet.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode)
+									{
+										<div class="p-4 text-center text-slate-500">Loading...</div>
+									}
+									else
+									{
+										<p class="text-xs text-orange-600">Unable to load snippet</p>
+									}
+								</div>
+
+								<div>
+									<h3 class="text-sm font-semibold text-gray-900 mb-1">Runtime measurement usage (ST)</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcContextPath" Label="@_plcContextPath" OnOpen="OpenModalAsync" />
+										— &lt;RtmUsage&gt; region
+									</p>
+									@if (_rtmUsageSnippet != null && !_rtmUsageSnippet.IsError)
+									{
+										<CodeBlock Content="@(_rtmUsageSnippet.Content ?? string.Empty)" Language="language-iecst" />
+									}
+									else if (_loadingCode)
+									{
+										<div class="p-4 text-center text-slate-500">Loading...</div>
+									}
+									else
+									{
+										<p class="text-xs text-orange-600">Unable to load snippet</p>
+									}
+								</div>
+							</div>
+						</TabPage>
+					</Tab>
+				</div>
+			</article>
+		</section>
+	</div>
+</div>
+
+@code {
+	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
+
+	private SourceViewerModal _modal = default!;
+	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
+
+	private CodeSnippet? _declarationSnippet;
+	private CodeSnippet? _rtcUsageSnippet;
+	private CodeSnippet? _rtmUsageSnippet;
+	private bool _loadingCode = true;
+	private string _selectedPresentation = "Command-Control";
+
+	private readonly string _plcContextPath = "src/showcase/app/src/Foundation/Simatic1500Showcase.st";
+	private readonly string _libRtcPath     = "src/simatic1500/ctrl/src/Rtc.st";
+	private readonly string _libRtmPath     = "src/simatic1500/ctrl/src/Rtm.st";
+	private readonly string _libApaxYmlPath = "src/simatic1500/ctrl/apax.yml";
+
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			var declarationTask = CodeProvider.GetTaggedRegionAsync(_plcContextPath, "Simatic1500Declarations");
+			var rtcUsageTask    = CodeProvider.GetTaggedRegionAsync(_plcContextPath, "RtcUsage");
+			var rtmUsageTask    = CodeProvider.GetTaggedRegionAsync(_plcContextPath, "RtmUsage");
+
+			await Task.WhenAll(declarationTask, rtcUsageTask, rtmUsageTask);
+
+			_declarationSnippet = await declarationTask;
+			_rtcUsageSnippet    = await rtcUsageTask;
+			_rtmUsageSnippet    = await rtmUsageTask;
+		}
+		catch (Exception ex)
+		{
+			Console.Error.WriteLine($"Error loading code snippets: {ex.Message}");
+		}
+		finally
+		{
+			_loadingCode = false;
+			StateHasChanged();
+		}
+
+		await base.OnInitializedAsync();
+	}
+
+	public override void ConfigurePolling()
+	{
+		this.StartPolling(Entry.Plc.Ctx.simatic1500_documentation, 250);
+	}
+}

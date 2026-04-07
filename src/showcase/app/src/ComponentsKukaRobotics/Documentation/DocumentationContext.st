@@ -10,7 +10,6 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
         METHOD PUBLIC Execute
             _rootObject.Run(THIS);
             componentOne.Run(_rootObject);
-            RETURN;
             componentTwo.Run(_rootObject);
         END_METHOD
     END_CLASS

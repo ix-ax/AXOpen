@@ -1,20 +1,20 @@
 Devices:
   - Name: plc_line
     Modules:
-    - Apply: 6ES7518-3AT10-0AB0_v4_1
+    - Apply: 6ES7518-3AT10-0AB0_v4_0
       Arguments:
         NAME: plc_line
         IP_ADDRESS_X1: '192.168.100.130/24'
         PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
-        IP_ADDRESS_X2: '192.168.101.130/24'
-        PROFINET_DEVICE_NAME_X2: 'plc_line_x2'
-        IP_ADDRESS_X3: '192.168.102.120/24'
-        PROFINET_DEVICE_NAME_X3: 'plc_line_x3'
+        # IP_ADDRESS_X2: '192.168.101.130/24'
+        # PROFINET_DEVICE_NAME_X2: 'plc_line_x2'
+        # IP_ADDRESS_X3: '192.168.102.120/24'
+        # PROFINET_DEVICE_NAME_X3: 'plc_line_x3'
         ADMIN_NAME: 'admin'
         CYCLE_COMMUNICATION_LOAD: 50  
-        TimeSynchronizationNtpV2: 'SetServersInProject'
-        TimeSynchronizationServer1: '192.168.100.249'
-        TimeSynchronizationUpdateInterval: 60               
+        # TimeSynchronizationNtpV2: 'SetServersInProject'
+        # TimeSynchronizationServer1: '192.168.100.249'
+        # TimeSynchronizationUpdateInterval: 60               
     # DI module on PLC rail (for pneumatics)
     - Apply: 6ES7521-1BL00-0AB0_v2_2
       Arguments:

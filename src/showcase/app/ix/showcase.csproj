@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net10.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
+	</ItemGroup>
+
+	<ItemGroup>
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\inxton_axopen_core.csproj" />
+	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\inxton_axopen_abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\data\src\AXOpen.Data\inxton_axopen_data.csproj" />
+	  <ProjectReference Include="..\..\..\inspectors\src\AXOpen.Inspectors\inxton_axopen_inspectors.csproj" />
+	  <ProjectReference Include="..\..\..\io\src\AXOpen.Io\inxton_axopen_io.csproj" />
+	  <ProjectReference Include="..\..\..\probers\src\AXOpen.Probers\inxton_axopen_probers.csproj" />
+	  <ProjectReference Include="..\..\..\utils\src\AXOpen.Utils\inxton_axopen_utils.csproj" />
+	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\inxton_axopen_timers.csproj" />
+	  <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\inxton_axopen_simatic1500.csproj" />
+	  <ProjectReference Include="..\..\..\components.abstractions\src\AXOpen.Components.Abstractions\inxton_axopen_components_abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\components.drives\src\AXOpen.Components.Drives\inxton_axopen_components_drives.csproj" />
+	  <ProjectReference Include="..\..\..\components.elements\src\AXOpen.Components.Elements\inxton_axopen_components_elements.csproj" />
+	  <ProjectReference Include="..\..\..\components.pneumatics\src\AXOpen.Components.Pneumatics\inxton_axopen_components_pneumatics.csproj" />
+	  <ProjectReference Include="..\..\..\components.robotics\src\AXOpen.Components.Robotics\inxton_axopen_components_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.abb.robotics\src\AXOpen.Components.Abb.Robotics\inxton_axopen_components_abb_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.balluff.identification\src\AXOpen.Components.Balluff.Identification\inxton_axopen_components_balluff_identification.csproj" />
+	  <ProjectReference Include="..\..\..\components.cognex.vision\src\AXOpen.Components.Cognex.Vision\inxton_axopen_components_cognex_vision.csproj" />
+	  <ProjectReference Include="..\..\..\components.desoutter.tightening\src\AXOpen.Components.Desoutter.Tightening\inxton_axopen_components_desoutter_tightening.csproj" />
+	  <ProjectReference Include="..\..\..\components.dukane.welders\src\AXOpen.Components.Dukane.Welders\inxton_axopen_components_dukane_welders.csproj" />
+	  <ProjectReference Include="..\..\..\components.festo.drives\src\AXOpen.Components.Festo.Drives\inxton_axopen_components_festo_drives.csproj" />
+	  <ProjectReference Include="..\..\..\components.keyence.vision\src\AXOpen.Components.Keyence.Vision\inxton_axopen_components_keyence_vision.csproj" />
+	  <ProjectReference Include="..\..\..\components.kuka.robotics\src\AXOpen.Components.Kuka.Robotics\inxton_axopen_components_kuka_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.mitsubishi.robotics\src\AXOpen.Components.Mitsubishi.Robotics\inxton_axopen_components_mitsubishi_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.rexroth.drives\src\AXOpen.Components.Rexroth.Drives\inxton_axopen_components_rexroth_drives.csproj" />
+	  <ProjectReference Include="..\..\..\components.rexroth.press\src\AXOpen.Components.Rexroth.Press\inxton_axopen_components_rexroth_press.csproj" />
+	  <ProjectReference Include="..\..\..\components.rexroth.tightening\src\AXOpen.Components.Rexroth.Tightening\inxton_axopen_components_rexroth_tightening.csproj" />
+	  <ProjectReference Include="..\..\..\components.siem.communication\src\AXOpen.Components.Siem.Communication\inxton_axopen_components_siem_communication.csproj" />
+	  <ProjectReference Include="..\..\..\components.siem.identification\src\AXOpen.Components.Siem.Identification\inxton_axopen_components_siem_identification.csproj" />
+	  <ProjectReference Include="..\..\..\components.ur.robotics\src\AXOpen.Components.Ur.Robotics\inxton_axopen_components_ur_robotics.csproj" />
+	  <ProjectReference Include="..\..\..\components.zebra.vision\src\AXOpen.Components.Zebra.Vision\inxton_axopen_components_zebra_vision.csproj" />
+	</ItemGroup>
+</Project>
