@@ -19,7 +19,6 @@ NAMESPACE AXOpen.Components.Siem.Communication
             VAR_INPUT
                 inParent : IAxoObject;
             END_VAR    
-            return;
             SUPER.Run(inParent);
 
             IF ActivateManualControl THEN

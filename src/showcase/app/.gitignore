@@ -1,5 +1,6 @@
 .apax/
 bin/
-ix/
+.g/
+.meta/
 obj/
 *.user

@@ -52,10 +52,11 @@
     <ProjectReference Include="..\..\ix\showcase.csproj" />
   </ItemGroup>
 
-  <!-- IO Razor pages are snippet-only sources for docfx — exclude from Razor compilation -->
+  <!-- Legacy IO docfx snippet pages — exclude from Razor compilation.
+       The live showcase page is Pages/Io/Documentation.razor (included). -->
   <ItemGroup>
-    <Content Remove="Pages\Io\**" />
-    <None Include="Pages\Io\**" />
+    <Content Remove="Pages\Io\Component*.razor" />
+    <None Include="Pages\Io\Component*.razor" />
   </ItemGroup>
 
 </Project>

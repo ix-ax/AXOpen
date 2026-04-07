@@ -76,6 +76,17 @@
 					</ul>
 				</div>
 
+				<!-- PLC Library Source -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">PLC Library Source</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_libAxoInsightStPath"  OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libAxoDatamanStPath"  OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libAxoVisionProStPath" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"       OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
+
 				<!-- External Links -->
 				<div>
 					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">External Links</p>
@@ -922,6 +933,12 @@
 	private readonly string _libComponent5DocPath = "src/components.cognex.vision/docs/Component_5.md";
 	private readonly string _libTroublesPath = "src/components.cognex.vision/docs/TROUBLES.md";
 
+	// PLC library source paths
+	private readonly string _libAxoInsightStPath   = "src/components.cognex.vision/ctrl/src/v_6_0_0_0/AxoInsight/AxoInsight.st";
+	private readonly string _libAxoDatamanStPath   = "src/components.cognex.vision/ctrl/src/v_6_0_0_0/AxoDataman/AxoDataman.st";
+	private readonly string _libAxoVisionProStPath = "src/components.cognex.vision/ctrl/src/AxoVisionPro/AxoVisionPro.st";
+	private readonly string _libApaxYmlPath        = "src/components.cognex.vision/ctrl/apax.yml";
+
 	protected override async Task OnInitializedAsync()
 	{
 		try
@@ -1038,7 +1055,6 @@
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
-
 		}
 		catch (Exception ex)
 		{
@@ -1061,10 +1077,14 @@
 		this.StartPolling(seq1, 250);
 		foreach (var step in steps1)
 		{
-			this.StartPolling(step.IsActive,  250);
-			this.StartPolling(step.IsEnabled, 250);
-			this.StartPolling(step.Order,     250);
-			this.StartPolling(step.Descr,     500);
+			this.StartPolling(seq, 250);
+			foreach (var step in steps)
+			{
+				this.StartPolling(step.IsActive,  250);
+				this.StartPolling(step.IsEnabled, 250);
+				this.StartPolling(step.Order,     250);
+				this.StartPolling(step.Descr,     500);
+			}
 		}
 
 		var seq2 = Entry.Plc.Ctx.cognex_vision_documentation.componentTwo.Sequencer;
