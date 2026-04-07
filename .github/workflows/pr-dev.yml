@@ -53,7 +53,7 @@ jobs:
       shell: pwsh
                        
     - name: "Run build script"
-      continue-on-error: true     
+      continue-on-error: false     
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
           GH_USER : ${{ secrets.GH_USER }}
