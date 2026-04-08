@@ -24,6 +24,8 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddIxBlazorServices();
 builder.Services.AddAxoCoreServices();
 builder.Services.AddSingleton<CodeSnippetProvider>();
+builder.Services.AddSingleton<showcase.Services.Search.ContentIndexService>();
+builder.Services.AddSingleton<showcase.Services.Search.ShowcaseSearchService>();
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
@@ -131,6 +133,9 @@ exchangeConfigurationService.AddConfiguration<Pocos.AxoDataDistributedExample.St
     });
 
 var app = builder.Build();
+
+// Initialize content search index (fire-and-forget, non-blocking)
+_ = app.Services.GetRequiredService<showcase.Services.Search.ContentIndexService>().InitializeAsync();
 
 if (!app.Environment.IsDevelopment())
 {

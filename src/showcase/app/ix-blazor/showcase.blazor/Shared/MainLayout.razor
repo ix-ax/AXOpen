@@ -14,12 +14,14 @@
 
     <NavMenu @ref="NavMenu" Main="this" />
 
+    <SearchDialog @ref="SearchDialog" />
     <ToastView />
 </div>
 
 @code {
     public NavMenu? NavMenu { get; set; }
     public TopRow? TopRow { get; set; }
+    public SearchDialog? SearchDialog { get; set; }
 
     [Inject]
     private NavigationManager _navigationManager { get; set; } = default!;

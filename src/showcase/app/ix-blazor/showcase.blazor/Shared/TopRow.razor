@@ -11,7 +11,13 @@
         <span class="text-lg font-semibold text-text">AXOpen Showcase</span>
     </div>
 
-    <div class="flex items-center mx-2">
+    <div class="flex items-center mx-2 gap-2">
+        <button class="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white/80 px-3 py-1.5 text-sm text-slate-500 hover:text-slate-700 hover:border-slate-300 transition-colors"
+                @onclick="OpenSearch">
+            <HeroIcon Icon="magnifying-glass" Type="IconType.Outline" Class="size-4" />
+            <span class="hidden sm:inline text-xs">Search</span>
+            <kbd class="hidden sm:inline text-[10px] text-slate-400 border border-slate-200 rounded px-1 py-0.5 font-mono ml-1">Ctrl+K</kbd>
+        </button>
         <AxOpen.Security.Views.LoginDisplay />
     </div>
 
@@ -26,6 +32,12 @@
 @code {
     [Parameter]
     public MainLayout? Main { get; set; }
+
+    private void OpenSearch()
+    {
+        Main?.SearchDialog?.Open();
+        Main?.StateHasChangedExternal();
+    }
 
     public void StateHasChangedExternal()
     {

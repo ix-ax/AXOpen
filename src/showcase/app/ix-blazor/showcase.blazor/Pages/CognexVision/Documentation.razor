@@ -1077,14 +1077,14 @@
 		this.StartPolling(seq1, 250);
 		foreach (var step in steps1)
 		{
-			this.StartPolling(seq, 250);
-			foreach (var step in steps)
-			{
+			// this.StartPolling(seq, 250);
+			// foreach (var step in steps)
+			// {
 				this.StartPolling(step.IsActive,  250);
 				this.StartPolling(step.IsEnabled, 250);
 				this.StartPolling(step.Order,     250);
 				this.StartPolling(step.Descr,     500);
-			}
+			//}
 		}
 
 		var seq2 = Entry.Plc.Ctx.cognex_vision_documentation.componentTwo.Sequencer;

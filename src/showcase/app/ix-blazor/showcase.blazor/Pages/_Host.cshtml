@@ -53,6 +53,23 @@
             if (!navigator.clipboard) return Promise.resolve(false);
             return navigator.clipboard.writeText(text).then(() => true, () => false);
         };
+
+        // Interop: register global keyboard shortcut for search dialog
+        window.registerSearchShortcut = function (dotNetRef) {
+            document.addEventListener('keydown', function (e) {
+                var tag = e.target.tagName;
+                var isInput = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || e.target.isContentEditable;
+                if ((e.ctrlKey && e.key === 'k') || (e.key === '/' && !isInput)) {
+                    e.preventDefault();
+                    dotNetRef.invokeMethodAsync('OpenSearch');
+                }
+            });
+        };
+
+        // Interop: focus an element reference
+        window.focusElement = function (element) {
+            if (element) { element.focus(); }
+        };
     </script>
 </body>
 </html>
