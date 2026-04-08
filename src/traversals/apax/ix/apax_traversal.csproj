@@ -49,8 +49,7 @@
 	  <ProjectReference Include="..\..\..\data\tests\AXOpen.Repository.Integration.Tests_L4\ix\axopen_integration_tests_l4.csproj" />
 	  <ProjectReference Include="..\..\..\inspectors\src\AXOpen.Inspectors\inxton_axopen_inspectors.csproj" />
 	  <ProjectReference Include="..\..\..\io\src\AXOpen.Io\inxton_axopen_io.csproj" />
-	  <ProjectReference Include="..\..\..\probers\src\AXOpen.Probers\inxton_axopen_probers.csproj" />
-	  <ProjectReference Include="..\..\..\sandbox\app\ix\sandbox.csproj" />
+	  <ProjectReference Include="..\..\..\probers\src\AXOpen.Probers\inxton_axopen_probers.csproj" />	  
 	  <ProjectReference Include="..\..\..\showcase\app\ix\showcase.csproj" />
 	  <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\inxton_axopen_simatic1500.csproj" />
 	  <ProjectReference Include="..\..\..\template.axolibrary\src\projname\inxton_apaxlibname.csproj" />
