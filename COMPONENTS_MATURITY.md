@@ -18,6 +18,11 @@ This document tracks the maturity state of all AXOpen components across differen
 | [AxoTask](src/core/)                                            | Framework     | 🟢          | 🟢     | 🟡            | Latest    | Task execution framework, uses IAxoTaskState       |
 | [AxoContext](src/core/)                                         | Framework     | 🟢          | 🟢     | 🟡            | Latest    | Application context                                |
 | [AxoObject](src/core/)                                          | Framework     | 🟢          | 🟢     | 🟡            | Latest    | Base object class                                  |
+| [AxoSequencer](src/core/)                                       | Framework     | 🟢          | 🟢     | 🟡            | Latest    | Sequencer state machine                            |
+| [AxoMessaging](src/core/)                                       | Framework     | 🟢          | 🟢     | 🟡            | Latest    | Messaging & notification framework                 |
+| [AxoDialogs](src/core/)                                         | Framework     | 🟢          | 🟢     | 🟡            | Latest    | Dialog UI framework                                |
+| [Abstractions](src/abstractions/)                               | Framework     | 🟢          | 🟢     | 🟢            | Latest    | Core abstraction interfaces                        |
+| [ComponentsAbstractions](src/components.abstractions/)          | Framework     | 🟢          | 🟢     | 🟢            | Latest    | Component abstraction layer                        |
 | **I/O Components**                                              |               |             |        |               |           |                                                    |
 | [Pneumatics](src/components.pneumatics/)                        | I/O           | 🟢          | 🟢     | 🟡            | Latest    | Cylinders, valves                                  |
 | [Elements](src/components.elements/)                            | I/O           | 🟢          | 🟢     | 🟡            | Latest    | Basic I/O elements                                 |
@@ -36,6 +41,7 @@ This document tracks the maturity state of all AXOpen components across differen
 | [Mitsubishi CR800 v_1_x_x](src/components.mitsubishi.robotics/) | Robotics      | 🟢          | 🟡     | 🔴            | v_1_x_x   | CR800 controller integration                       |
 | [Generic Robotics](src/components.robotics/)                    | Robotics      | 🟢          | 🟡     | 🔴            | Latest    | Abstract robotics interfaces                       |
 | **Drive Systems**                                               |               |             |        |               |           |                                                    |
+| [Generic Drives](src/components.drives/)                        | Motion        | 🟢          | 🟡     | 🔴            | Latest    | Abstract drive interfaces                          |
 | [Rexroth Drives](src/components.rexroth.drives/)                | Motion        | 🟢          | 🟡     | 🔴            | Latest    | Rexroth servo drives                               |
 | [Festo Drives](src/components.festo.drives/)                    | Motion        | 🟢          | 🟡     | 🔴            | TBD       | Festo drive integration                            |
 | **Manufacturing**                                               |               |             |        |               |           |                                                    |
@@ -54,6 +60,10 @@ This document tracks the maturity state of all AXOpen components across differen
 | [Timers](src/timers/)                                           | Utilities     | 🟢          | 🟢     | 🔴            | Latest    | Timer utilities including AxoBlinker               |
 | [IO](src/io/)                                                   | I/O           | 🟢          | 🟢     | 🔴            | Latest    | Basic I/O abstractions                             |
 | [Simatic1500](src/simatic1500/)                                 | Platform      | 🟢          | 🟢     | 🔴            | Latest    | S7-1500 hardware integration                       |
+| [Utils](src/utils/)                                             | Utilities     | 🟢          | 🟢     | 🔴            | Latest    | General utility functions                          |
+| [Probers](src/probers/)                                         | Utilities     | 🟢          | 🟡     | 🔴            | Latest    | Diagnostic & probe tools                           |
+| **Communication**                                               |               |             |        |               |           |                                                    |
+| [SiemCommunication](src/components.siem.communication/)         | Communication | 🟢          | 🟡     | 🔴            | Latest    | Siemens communication framework                    |
 
 
 ## Component Maturity Guidelines
