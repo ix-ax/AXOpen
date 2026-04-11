@@ -48,8 +48,11 @@ NAMESPACE AXOpen.Components.Mitsubishi.Robotics
 
             IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
                 manualControl := FALSE;
-                ExampleRobot.Restore();              
-                Sequencer.MoveNext();                
+                ExampleRobot.Config.InfoTime      := LTIME#2S;
+                ExampleRobot.Config.TaskTimeout   := LTIME#0S;
+                ExampleRobot.Config.ErrorTime     := LTIME#0S;
+                ExampleRobot.Restore();
+                Sequencer.MoveNext();
             END_IF;
 
             IF(Steps[1].Execute(Sequencer, 'Start at main')) THEN

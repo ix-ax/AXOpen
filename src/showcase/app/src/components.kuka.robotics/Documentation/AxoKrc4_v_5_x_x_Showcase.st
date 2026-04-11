@@ -39,7 +39,7 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
         //<Usage>    
         VAR PUBLIC                       
             Sequencer : AxoSequencer;       
-            Steps : ARRAY[0..14] OF AXOpen.Core.AxoStep;
+            Steps : ARRAY[0..19] OF AXOpen.Core.AxoStep;
         END_VAR
 
 
@@ -51,10 +51,11 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
 
             IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
                 ActivateManualControl := FALSE;
+                ExampleRobot.Config.InfoTime      := LTIME#2S;
                 ExampleRobot.Config.TaskTimeout   := LTIME#0S;
                 ExampleRobot.Config.ErrorTime     := LTIME#0S;
-                ExampleRobot.Restore();    
-                Sequencer.MoveNext();                
+                ExampleRobot.Restore();
+                Sequencer.MoveNext();
             END_IF;
  
             IF(Steps[1].Execute(Sequencer, 'Start at main')) THEN
@@ -167,13 +168,44 @@ NAMESPACE AXOpen.Components.Kuka.Robotics
             END_IF;       
 
             IF(Steps[13].Execute(Sequencer, 'Stop movement and program')) THEN
-                IF(ExampleRobot.StopMovementsAndProgram().IsDone()) THEN                
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-            IF(Steps[14].Execute(Sequencer, 'Restore')) THEN
-                ExampleRobot.Restore();              
-                Sequencer.CompleteSequence();                
+                IF(ExampleRobot.StopMovementsAndProgram().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[14].Execute(Sequencer, 'Stop motors')) THEN
+                IF(ExampleRobot.StopMotors().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[15].Execute(Sequencer, 'Reset all outputs')) THEN
+                IF(ExampleRobot.ResetAllOutputs().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[16].Execute(Sequencer, 'Start motors, program and movements combined')) THEN
+                IF(ExampleRobot.StartMotorsProgramAndMovements(movementParams).IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[17].Execute(Sequencer, 'Stop program')) THEN
+                IF(ExampleRobot.StopProgram().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[18].Execute(Sequencer, 'Start program')) THEN
+                IF(ExampleRobot.StartProgram().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[19].Execute(Sequencer, 'Restore')) THEN
+                ExampleRobot.Restore();
+                Sequencer.CompleteSequence();
             END_IF;   
         END_METHOD
         

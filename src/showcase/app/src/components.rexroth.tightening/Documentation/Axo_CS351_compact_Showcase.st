@@ -48,9 +48,14 @@ NAMESPACE AXOpen.Components.Rexroth.Tightening
             Sequencer.Open();
 
             IF(Steps[0].Execute(Sequencer, 'Disable')) THEN
-                IF(ExampleComponent.Disable().IsDone()) THEN                
-                    Sequencer.MoveNext();                
-                END_IF;    
+                ExampleComponent.Config.InfoTime               := LTIME#5S;
+                ExampleComponent.Config.ErrorTime              := LTIME#60S;
+                ExampleComponent.Config.TaskTimeout            := LTIME#60S;
+                ExampleComponent.Config.TorqueScalingConstant  := REAL#100000.0;
+                ExampleComponent.Config.AngleScalingConstant   := REAL#10000.0;
+                IF(ExampleComponent.Disable().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
             END_IF;
 
             IF(Steps[1].Execute(Sequencer, 'Enable')) THEN

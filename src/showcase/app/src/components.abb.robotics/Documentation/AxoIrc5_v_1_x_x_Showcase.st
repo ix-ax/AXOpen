@@ -36,20 +36,22 @@ NAMESPACE AXOpen.Components.Abb.Robotics
         //<Usage>    
         VAR PUBLIC                       
             Sequencer : AxoSequencer;       
-            Steps : ARRAY[0..14] OF AXOpen.Core.AxoStep;
+            Steps : ARRAY[0..18] OF AXOpen.Core.AxoStep;
         END_VAR
 
         METHOD PRIVATE UseInSequencer   
 
             Sequencer.Run(THIS);
             Sequencer.Open();
+            Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
 
             IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
                 manualControl := FALSE;
+                AxoIrc5_v_1_x_x.Config.InfoTime      := LTIME#2S;
                 AxoIrc5_v_1_x_x.Config.TaskTimeout   := LTIME#0S;
                 AxoIrc5_v_1_x_x.Config.ErrorTime     := LTIME#0S;
-                AxoIrc5_v_1_x_x.Restore();    
-                Sequencer.MoveNext();                
+                AxoIrc5_v_1_x_x.Restore();
+                Sequencer.MoveNext();
             END_IF;
  
             IF(Steps[1].Execute(Sequencer, 'Start at main')) THEN
@@ -161,13 +163,38 @@ NAMESPACE AXOpen.Components.Abb.Robotics
             END_IF;       
 
             IF(Steps[13].Execute(Sequencer, 'Stop movement and program')) THEN
-                IF(AxoIrc5_v_1_x_x.StopMovementsAndProgram().IsDone()) THEN                
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
-            IF(Steps[14].Execute(Sequencer, 'Restore')) THEN
-                AxoIrc5_v_1_x_x.Restore();              
-                Sequencer.CompleteSequence();                
+                IF(AxoIrc5_v_1_x_x.StopMovementsAndProgram().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[14].Execute(Sequencer, 'Stop motors')) THEN
+                IF(AxoIrc5_v_1_x_x.StopMotors().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[15].Execute(Sequencer, 'Start motors, program and movements combined')) THEN
+                IF(AxoIrc5_v_1_x_x.StartMotorsProgramAndMovements(movementParams).IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[16].Execute(Sequencer, 'Stop program')) THEN
+                IF(AxoIrc5_v_1_x_x.StopProgram().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[17].Execute(Sequencer, 'Start program')) THEN
+                IF(AxoIrc5_v_1_x_x.StartProgram().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[18].Execute(Sequencer, 'Restore')) THEN
+                AxoIrc5_v_1_x_x.Restore();
+                Sequencer.CompleteSequence();
             END_IF;   
         END_METHOD
         

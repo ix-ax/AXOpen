@@ -68,8 +68,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Enable := FALSE;
                 EnablePositive := FALSE;
                 EnableNegative := FALSE;
-                CtrlXdrive.Restore();   
-                Sequencer.MoveNext();                
+                CtrlXdrive.DriveConfig.InfoTime    := LTIME#2S;
+                CtrlXdrive.DriveConfig.ErrorTime   := LTIME#5S;
+                CtrlXdrive.DriveConfig.TaskTimeout := LTIME#50S;
+                CtrlXdrive.Restore();
+                Sequencer.MoveNext();
                 RETURN;
             END_IF;
 

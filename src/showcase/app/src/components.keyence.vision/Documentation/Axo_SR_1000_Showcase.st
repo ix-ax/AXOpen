@@ -37,7 +37,7 @@ NAMESPACE AXOpen.Components.Keyence.Vision
         //<Usage>    
         VAR PUBLIC                       
             Sequencer : AxoSequencer;       
-            Steps : ARRAY[0..3] OF AXOpen.Core.AxoStep;
+            Steps : ARRAY[0..4] OF AXOpen.Core.AxoStep;
         END_VAR
 
         VAR PRIVATE
@@ -48,28 +48,37 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             Sequencer.Run(THIS);
             Sequencer.Open();
+            Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
 
-            IF(Steps[0].Execute(Sequencer, 'Clear result data')) THEN
-                IF(Component.ClearResultData().IsDone()) THEN                
-                    Sequencer.MoveNext();                
-                END_IF;    
+            IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+                Component.Config.InfoTime    := LTIME#2S;
+                Component.Config.ErrorTime   := LTIME#5S;
+                Component.Config.TaskTimeout := LTIME#50S;
+                Component.Restore();
+                Sequencer.MoveNext();
             END_IF;
 
-            IF(Steps[1].Execute(Sequencer, 'Tune')) THEN
-                IF(Component.Tune(UINT#0).IsDone()) THEN                
-                    Sequencer.MoveNext();                
-                END_IF;    
+            IF(Steps[1].Execute(Sequencer, 'Clear result data')) THEN
+                IF(Component.ClearResultData().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
             END_IF;
 
-            IF(Steps[2].Execute(Sequencer, 'Read data')) THEN
-                IF(Component.Read(UINT#0).IsDone()) THEN                       
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
+            IF(Steps[2].Execute(Sequencer, 'Tune')) THEN
+                IF(Component.Tune(UINT#0).IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
 
-            IF(Steps[3].Execute(Sequencer, 'Evaluate data')) THEN
+            IF(Steps[3].Execute(Sequencer, 'Read data')) THEN
+                IF(Component.Read(UINT#0).IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[4].Execute(Sequencer, 'Evaluate data')) THEN
                 _ResultData := Component.ResultData;
-                Sequencer.CompleteSequence();                               
+                Sequencer.CompleteSequence();
             END_IF;   
 
         END_METHOD

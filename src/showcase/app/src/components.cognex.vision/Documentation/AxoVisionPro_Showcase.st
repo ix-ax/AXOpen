@@ -56,8 +56,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             Sequencer.Open();
 
             IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+                VisionPro.Config.InfoTime    := LTIME#5S;
+                VisionPro.Config.ErrorTime   := LTIME#10S;
+                VisionPro.Config.TaskTimeout := LTIME#50S;
                 VisionPro.Restore();
-                Sequencer.MoveNext();                
+                Sequencer.MoveNext();
             END_IF;       
 
             IF(Steps[1].Execute(Sequencer, 'HardResetAllCameras')) THEN

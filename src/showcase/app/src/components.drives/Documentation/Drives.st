@@ -4,11 +4,13 @@ NAMESPACE AXOpen.Components.Drives
         VAR PUBLIC
             _rootObject :   AxoObject;
             axoDriveExample : AxoDriveExample_Showcase;
+            axoDriveExample_2 : AxoDriveExample_Showcase2;
         END_VAR
 
         METHOD PUBLIC Execute
             _rootObject.Run(THIS);
             axoDriveExample.Run(_rootObject);
+            axoDriveExample_2.Run(_rootObject);
         END_METHOD
     END_CLASS
 END_NAMESPACE

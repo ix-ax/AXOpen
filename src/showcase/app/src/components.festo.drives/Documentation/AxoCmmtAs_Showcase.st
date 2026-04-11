@@ -71,8 +71,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 Enable := FALSE;
                 EnablePositive := FALSE;
                 EnableNegative := FALSE;
-                AxoCmmtAs.Restore();   
-                Sequencer.MoveNext();                
+                AxoCmmtAs.DriveConfig.InfoTime    := LTIME#2S;
+                AxoCmmtAs.DriveConfig.ErrorTime   := LTIME#5S;
+                AxoCmmtAs.DriveConfig.TaskTimeout := LTIME#50S;
+                AxoCmmtAs.Restore();
+                Sequencer.MoveNext();
                 RETURN;
             END_IF;
 

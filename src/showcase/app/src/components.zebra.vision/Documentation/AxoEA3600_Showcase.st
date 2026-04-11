@@ -50,9 +50,12 @@ NAMESPACE AXOpen.Components.Zebra.Vision
 
             IF(Steps[0].Execute(Sequencer, 'ClearData')) THEN
                 ActivateManualControl := FALSE;
-                IF(ExampleComponent.ClearData().IsDone()) THEN                
-                    Sequencer.MoveNext();                
-                END_IF;    
+                ExampleComponent.Config.InfoTime    := LTIME#5S;
+                ExampleComponent.Config.ErrorTime   := LTIME#10S;
+                ExampleComponent.Config.TaskTimeout := LTIME#50S;
+                IF(ExampleComponent.ClearData().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
             END_IF;
 
             IF(Steps[1].Execute(Sequencer, 'Read')) THEN

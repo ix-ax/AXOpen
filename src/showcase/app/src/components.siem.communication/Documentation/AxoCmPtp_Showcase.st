@@ -57,8 +57,11 @@ NAMESPACE AXOpen.Components.Siem.Communication
             Sequencer.Open();
 
             IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+                ExampleComponent.Config.InfoTime    := LTIME#5S;
+                ExampleComponent.Config.ErrorTime   := LTIME#0S;
+                ExampleComponent.Config.TaskTimeout := LTIME#0S;
                 ExampleComponent.Restore();
-                Sequencer.MoveNext();    
+                Sequencer.MoveNext();
             END_IF;       
 
             IF(Steps[1].Execute(Sequencer, 'Port config')) THEN

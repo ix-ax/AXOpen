@@ -50,10 +50,14 @@ NAMESPACE AXOpen.Components.Keyence.Vision
 
             Sequencer.Run(THIS);
             Sequencer.Open();
+            Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
 
             IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+                Component.Config.InfoTime    := LTIME#5S;
+                Component.Config.ErrorTime   := LTIME#10S;
+                Component.Config.TaskTimeout := LTIME#50S;
                 Component.Restore();
-                Sequencer.MoveNext();                
+                Sequencer.MoveNext();
             END_IF;    
 
             IF(Steps[1].Execute(Sequencer, 'Change program')) THEN

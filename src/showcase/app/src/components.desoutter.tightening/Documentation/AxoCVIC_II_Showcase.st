@@ -48,8 +48,13 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
             Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
 
             IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+                ExampleScrewdriver.Config.InfoTime              := LTIME#2S;
+                ExampleScrewdriver.Config.ErrorTime             := LTIME#5S;
+                ExampleScrewdriver.Config.TaskTimeout           := LTIME#50S;
+                ExampleScrewdriver.Config.ScrewingCycleTimeout  := TIME#60S;
+                ExampleScrewdriver.Config.ProgramChangeTimeout  := TIME#2S;
                 ExampleScrewdriver.Restore();
-                Sequencer.MoveNext();                
+                Sequencer.MoveNext();
             END_IF;
 
             IF(Steps[1].Execute(Sequencer, 'Reset')) THEN

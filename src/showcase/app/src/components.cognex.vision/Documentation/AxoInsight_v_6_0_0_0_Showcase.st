@@ -56,8 +56,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             Sequencer.Open();
 
             IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+                Insight_7600.Config.InfoTime    := LTIME#10S;
+                Insight_7600.Config.ErrorTime   := LTIME#50S;
+                Insight_7600.Config.TaskTimeout := LTIME#50S;
                 Insight_7600.Restore();
-                Sequencer.MoveNext();                
+                Sequencer.MoveNext();
             END_IF;       
 
             IF(Steps[1].Execute(Sequencer, 'Change job by number:2')) THEN

@@ -57,8 +57,10 @@ NAMESPACE AXOpen.Components.Siem.Identification
             
             IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
                 ActivateManualControl := FALSE;
+                IOlinkReader.Config.InfoTime    := LTIME#2S;
+                IOlinkReader.Config.ErrorTime   := LTIME#5S;
                 IOlinkReader.Restore();
-                Sequencer.MoveNext();      
+                Sequencer.MoveNext();
             END_IF;
 
             IF(Steps[1].Execute(Sequencer, 'Write Tag')) THEN

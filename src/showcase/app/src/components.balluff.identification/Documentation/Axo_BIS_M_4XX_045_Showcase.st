@@ -38,25 +38,62 @@ NAMESPACE AXOpen.Components.Balluff.Identification
         //<Usage>    
         VAR PUBLIC                       
             Sequencer : AxoSequencer;       
-            Steps : ARRAY[0..3] OF AXOpen.Core.AxoStep;
+            Steps : ARRAY[0..6] OF AXOpen.Core.AxoStep;
         END_VAR
 
-        METHOD PRIVATE UseInSequencer   
+        METHOD PRIVATE UseInSequencer
 
             Sequencer.Run(THIS);
             Sequencer.Open();
+            Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
 
-            IF(Steps[0].Execute(Sequencer, 'Read')) THEN
-                IF(ExampleReader.Read().IsDone()) THEN                
-                    Sequencer.MoveNext();                
-                END_IF;    
+            IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+                ExampleReader.Config.InfoTime      := LTIME#2S;
+                ExampleReader.Config.ErrorTime     := LTIME#5S;
+                ExampleReader.Config.TaskTimeout   := LTIME#50S;
+                ExampleReader.Config.StartAddress  := WORD#0;
+                ExampleReader.Config.RfidCodeSize  := WORD#50;
+                ExampleReader.Restore();
+                Sequencer.MoveNext();
             END_IF;
 
-            IF(Steps[1].Execute(Sequencer, 'Write')) THEN
-                IF(ExampleReader.Write().IsDone()) THEN                
-                    Sequencer.MoveNext();                
-                END_IF;    
-            END_IF;       
+            IF(Steps[1].Execute(Sequencer, 'Reset reader')) THEN
+                IF(ExampleReader.ResetReader().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[2].Execute(Sequencer, 'Read')) THEN
+                IF(ExampleReader.Read().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[3].Execute(Sequencer, 'Write')) THEN
+                IF(ExampleReader.Write().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[4].Execute(Sequencer, 'Write char to memory')) THEN
+                IF(ExampleReader.WriteCharToMemory(character     := BYTE#16#41,  // 'A'
+                                                   Address       := WORD#0,
+                                                   NumberOfBytes := WORD#1
+                                                   ).IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[5].Execute(Sequencer, 'Reset communication')) THEN
+                IF(ExampleReader.ResetCommunication().IsDone()) THEN
+                    Sequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            IF(Steps[6].Execute(Sequencer, 'Restore')) THEN
+                ExampleReader.Restore();
+                Sequencer.CompleteSequence();
+            END_IF;
         END_METHOD
         
         //</Usage>

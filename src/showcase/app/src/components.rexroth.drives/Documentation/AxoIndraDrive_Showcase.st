@@ -65,8 +65,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Enable := FALSE;
                 EnablePositive := FALSE;
                 EnableNegative := FALSE;
-                IndraDrive.Restore();   
-                Sequencer.MoveNext();                
+                IndraDrive.DriveConfig.InfoTime    := LTIME#2S;
+                IndraDrive.DriveConfig.ErrorTime   := LTIME#5S;
+                IndraDrive.DriveConfig.TaskTimeout := LTIME#50S;
+                IndraDrive.Restore();
+                Sequencer.MoveNext();
             END_IF;
 
             _i := _i + 1;

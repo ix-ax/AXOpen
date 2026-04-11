@@ -27,7 +27,7 @@
 				<ul class="mt-3 space-y-2 text-sm text-slate-600">
 					<li><span class="font-medium text-slate-800">Category:</span> Pneumatics</li>
 					<li><span class="font-medium text-slate-800">Components:</span> AxoCylinder</li>
-					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">pneumatics_documentation.myAxoCylinder</span></li>
+					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">pneumatics_documentation.axoCylinder.AxoCylinder_</span></li>
 				</ul>
 				<div class="mt-3 pt-3 border-t border-slate-100">
 					<p class="text-xs font-medium text-slate-500 mb-1">Maturity</p>
@@ -69,7 +69,7 @@
 									<option value="Compact">Compact</option>
 								</select>
 							</div>
-							<RenderableContentControl Context="@Entry.Plc.Ctx.pneumatics_documentation.myAxoCylinder" Presentation="@_selectedPresentation" />
+							<RenderableContentControl Context="@Entry.Plc.Ctx.pneumatics_documentation.axoCylinder.AxoCylinder_" Presentation="@_selectedPresentation" />
 						</TabPage>
 						<TabPage Title="Code reference">
 							<div class="mt-4 space-y-6">
@@ -196,7 +196,7 @@
 	private CodeSnippet? _hwcIoSystemSnippet;
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
-	private readonly string _plcContextPath = "src/showcase/app/src/components.pneumatics/PneumaticsShowcase.st";
+	private readonly string _plcContextPath = "src/showcase/app/src/components.pneumatics/Documentation/PneumaticsShowcase.st";
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath    = "src/showcase/app/hwc/plc_line.hwl.yml";
 	private readonly string _hwcDeviceTemplatePath = "src/showcase/app/hwc/library_templates/AventicsPneumatics/AventicsPneumaticsAES.hwl.yml";
@@ -234,6 +234,6 @@
 	}
 	public override void ConfigurePolling()
 	{
-		this.StartPolling(Entry.Plc.Ctx.pneumatics_documentation.myAxoCylinder, 250);
+		this.StartPolling(Entry.Plc.Ctx.pneumatics_documentation.axoCylinder.AxoCylinder_, 250);
 	}
 }

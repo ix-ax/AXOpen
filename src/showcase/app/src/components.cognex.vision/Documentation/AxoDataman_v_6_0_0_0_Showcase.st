@@ -56,8 +56,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             Sequencer.Open();
 
             IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+                Dataman_280.Config.InfoTime    := LTIME#2S;
+                Dataman_280.Config.ErrorTime   := LTIME#5S;
+                Dataman_280.Config.TaskTimeout := LTIME#50S;
                 Dataman_280.Restore();
-                Sequencer.MoveNext();                
+                Sequencer.MoveNext();
             END_IF;
             
             IF(Steps[1].Execute(Sequencer, 'Clear result data')) THEN
