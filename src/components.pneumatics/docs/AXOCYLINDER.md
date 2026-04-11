@@ -19,11 +19,11 @@ To accomplish this, call the `Run` method cyclically with the proper variables (
 
 #### Declare component and initialization variables
 
-[!code-smalltalk[](../../showcase/app/src/components.pneumatics/PneumaticsShowcase.st?name=DeclarationAndHWIO_Assignement)]
+[!code-smalltalk[](../../showcase/app/src/components.pneumatics/Documentation/AxoCylinder.st?name=DeclarationAndHWIO_Assignement)]
 
 #### Initialize & Run
 
-[!code-smalltalk[](../../showcase/app/src/components.pneumatics/PneumaticsShowcase.st?name=Pneumatic_Run)]
+[!code-smalltalk[](../../showcase/app/src/components.pneumatics/Documentation/AxoCylinder.st?name=Pneumatic_Run)]
 
 [!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
 
@@ -35,13 +35,13 @@ To accomplish this, call the `Run` method cyclically with the proper variables (
 To trigger the movements, two public methods, `MoveToHome` and `MoveToWork` are present. 
 
 **Example of using MoveToHome method**
-[!code-smalltalk[](../../showcase/app/src/components.pneumatics/PneumaticsShowcase.st?name=MoveToHome)]
+[!code-smalltalk[](../../showcase/app/src/components.pneumatics/Documentation/AxoCylinder.st?name=MoveToHome)]
 **Example of using MoveToWork method**
-[!code-smalltalk[](../../showcase/app/src/components.pneumatics/PneumaticsShowcase.st?name=MoveToWork)]
+[!code-smalltalk[](../../showcase/app/src/components.pneumatics/Documentation/AxoCylinder.st?name=MoveToWork)]
 
 To stop the movement, when the cylinder is moving, the public `Stop` method is present. 
 **Example of using Stop method**
-[!code-smalltalk[](../../showcase/app/src/components.pneumatics/PneumaticsShowcase.st?name=Stop)]
+[!code-smalltalk[](../../showcase/app/src/components.pneumatics/Documentation/AxoCylinder.st?name=Stop)]
 >[!NOTE] 
 >If the `Stop` method does not work as expected, check if your pneumatic circuit meets the precondition.
 
@@ -50,16 +50,16 @@ To block the movement, there are four public methods present:
 `SuspendMoveToInWhile(Condition)` - Suspends the movement to the home position while the `Condition` is `TRUE`. If the task was already invoked, it remains still executing and, with the falling edge of the `Condition` cylinder, continues its movement to the home position. If the task is invoked when `Condition` is already `TRUE`, the task starts to be executed, but the movement starts also with the falling edge of the `Condition`. 
 `SuspendMoveToOutWhile(Condition)` - Works exactly the same as `SuspendMoveToInWhile(Condition)` but in the opposite direction.
 **Example of using SuspendMoveToInWhile method**
-[!code-smalltalk[](../../showcase/app/src/components.pneumatics/PneumaticsShowcase.st?name=SuspendMoveToInWhile)]
+[!code-smalltalk[](../../showcase/app/src/components.pneumatics/Documentation/AxoCylinder.st?name=SuspendMoveToInWhile)]
 **Example of using SuspendMoveToOutWhile method**
-[!code-smalltalk[](../../showcase/app/src/components.pneumatics/PneumaticsShowcase.st?name=SuspendMoveToOutWhile)]
+[!code-smalltalk[](../../showcase/app/src/components.pneumatics/Documentation/AxoCylinder.st?name=SuspendMoveToOutWhile)]
 
 `AbortMoveToHomeWhen(Condition)` - Aborts the movement to the home position when the `Condition` is `TRUE`. If the task was already invoked, it is restored and disabled. After the falling edge of the `Condition` cylinder does not continue its movement to the home position. The task needs to be invoked again to start the movement. 
 `AbortMoveToWorkWhen(Condition)` - Works exactly the same as `AbortMoveToHomeWhen(Condition)` but in the opposite direction.
 **Example of using AbortMoveToHomeWhen method**
-[!code-smalltalk[](../../showcase/app/src/components.pneumatics/PneumaticsShowcase.st?name=AbortMoveToHomeWhen)]
+[!code-smalltalk[](../../showcase/app/src/components.pneumatics/Documentation/AxoCylinder.st?name=AbortMoveToHomeWhen)]
 **Example of using AbortMoveToWorkWhen method**
-[!code-smalltalk[](../../showcase/app/src/components.pneumatics/PneumaticsShowcase.st?name=AbortMoveToWorkWhen)]
+[!code-smalltalk[](../../showcase/app/src/components.pneumatics/Documentation/AxoCylinder.st?name=AbortMoveToWorkWhen)]
 
 
 # [.NET TWIN](#tab/twin)
