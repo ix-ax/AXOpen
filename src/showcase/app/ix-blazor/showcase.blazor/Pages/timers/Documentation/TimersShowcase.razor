@@ -1,4 +1,4 @@
-@page "/Timers/Documentation"
+@page "/timers/Documentation/TimersShowcase"
 @using AXOpen.Core;
 @using Operon.Components.Tab
 @using showcase.Services;
@@ -179,7 +179,7 @@
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
 
-	private readonly string _plcContextPath = "src/showcase/app/src/Foundation/TimersShowcase.st";
+	private readonly string _plcContextPath = "src/showcase/app/src/timers/TimersShowcase.st";
 	private readonly string _libApaxYmlPath = "src/timers/ctrl/apax.yml";
 
 	private Dictionary<string, AXOpen.Core.AxoStep> _stepsBySymbol = new();

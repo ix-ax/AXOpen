@@ -1,4 +1,4 @@
-@page "/BalluffIdentification/Documentation"
+@page "/components-balluff-identification/Documentation/BalluffIdentification"
 @using AXOpen.Core;
 @using Operon.Components.Tab
 @using showcase.Services;
@@ -53,8 +53,8 @@
 					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
 					<ul class="space-y-1 min-w-0">
 						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="Component_1 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="Component_2 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoBIS_M — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="AxoBIS_M (Example 2) — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
 						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
 					</ul>
 				</div>
@@ -104,7 +104,7 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.balluff_identification_documentation.componentOne" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.balluff_identification_documentation.axo_BIS_M_4XX_045" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
 
@@ -198,8 +198,8 @@
 
 									<TabPage Title="Example sequence">
 										<div class="mt-4">
-											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.balluff_identification_documentation.componentOne.Sequencer" />
-											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.balluff_identification_documentation.componentOne.Sequencer" />
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.balluff_identification_documentation.axo_BIS_M_4XX_045.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.balluff_identification_documentation.axo_BIS_M_4XX_045.Sequencer" />
 											@if (_stepLogicBlocks.Count > 0)
 											{
 												<div class="mt-4 space-y-3">
@@ -235,7 +235,7 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.balluff_identification_documentation.componentTwo" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.balluff_identification_documentation.axo_BIS_M_4XX_045_2" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
 
@@ -361,9 +361,9 @@
 	private string _selectedPresentation = "Command-Control";
 
 	// PLC source paths
-	private readonly string _plcContextPath    = "src/showcase/app/src/ComponentsBalluffIdentification/Documentation/DocumentationContext.st";
-	private readonly string _plcComponent1Path = "src/showcase/app/src/ComponentsBalluffIdentification/Documentation/Component_1.st";
-	private readonly string _plcComponent2Path = "src/showcase/app/src/ComponentsBalluffIdentification/Documentation/Component_2.st";
+	private readonly string _plcContextPath    = "src/showcase/app/src/components.balluff.identification/Documentation/BalluffIdentification.st";
+	private readonly string _plcComponent1Path = "src/showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_Showcase.st";
+	private readonly string _plcComponent2Path = "src/showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_Showcase2.st";
 
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath    = "src/showcase/app/hwc/plc_line.hwl.yml";
@@ -371,8 +371,8 @@
 
 	// Library resource paths
 	private readonly string _libReadmePath        = "src/components.balluff.identification/docs/README.md";
-	private readonly string _libComponent1DocPath = "src/components.balluff.identification/docs/Component_1.md";
-	private readonly string _libComponent2DocPath = "src/components.balluff.identification/docs/Component_2.md";
+	private readonly string _libComponent1DocPath = "src/components.balluff.identification/docs/Axo_BIS_M_4XX_045_Showcase.md";
+	private readonly string _libComponent2DocPath = "src/components.balluff.identification/docs/Axo_BIS_M_4XX_045_Showcase2.md";
 	private readonly string _libTroublesPath      = "src/components.balluff.identification/docs/TROUBLES.md";
 
 	protected override async Task OnInitializedAsync()
@@ -398,7 +398,7 @@
 			_hwcDeviceTemplateSnippet = await hwcTemplateTask;
 			_hwcIoSystemSnippet       = await hwcIoSystemTask;
 
-			_stepsBySymbol = Entry.Plc.Ctx.balluff_identification_documentation.componentOne.Steps
+			_stepsBySymbol = Entry.Plc.Ctx.balluff_identification_documentation.axo_BIS_M_4XX_045.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
@@ -419,8 +419,8 @@
 
 	public override void ConfigurePolling()
 	{
-		var seq   = Entry.Plc.Ctx.balluff_identification_documentation.componentOne.Sequencer;
-		var steps = Entry.Plc.Ctx.balluff_identification_documentation.componentOne.Steps;
+		var seq   = Entry.Plc.Ctx.balluff_identification_documentation.axo_BIS_M_4XX_045.Sequencer;
+		var steps = Entry.Plc.Ctx.balluff_identification_documentation.axo_BIS_M_4XX_045.Steps;
 
 		this.StartPolling(seq, 250);
 		foreach (var step in steps)

@@ -4,7 +4,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Showcase.Inspectors
 
     {S7.extern=ReadWrite}
-    CLASS DocumentationContext EXTENDS AXOpen.Core.AxoObject
+    CLASS InspectorsShowcase EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             _startInspection : BOOL := FALSE;
             _automat: AutomatSequence;

@@ -25,26 +25,26 @@
 # [.NET TWIN](#tab/twin)
 
 
-[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/{ComponentName}.razor?name=WriteTaskDurationToConsole)]
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Pages/io/Documentation/{ComponentName}.razor?name=WriteTaskDurationToConsole)]
 
 
 # [BLAZOR](#tab/blazor)
 
 ## Generic Read-Only view 
 
-[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/{ComponentName}.razor?name=GenericComponentStatusView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/io/Documentation/{ComponentName}.razor?name=GenericComponentStatusView)]
 
 ## Generic control view 
 
-[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/{ComponentName}.razor?name=GenericComponentCommandView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/io/Documentation/{ComponentName}.razor?name=GenericComponentCommandView)]
 
 ## Type agnostic using RenderableContentControl status (Read-Only) view
 
-[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/{ComponentName}.razor?name=RccComponentStatusView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/io/Documentation/{ComponentName}.razor?name=RccComponentStatusView)]
 
 
 ## Type agnostic using RenderableContentControl control view
 
-[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/{ComponentName}.razor?name=RccComponentCommandView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/io/Documentation/{ComponentName}.razor?name=RccComponentCommandView)]
 
 ---

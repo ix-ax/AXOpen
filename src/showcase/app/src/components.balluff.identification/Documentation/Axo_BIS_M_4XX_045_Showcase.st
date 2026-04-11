@@ -2,7 +2,7 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Components.Balluff.Identification
     {S7.extern=ReadWrite}
-    CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
+    CLASS Axo_BIS_M_4XX_045_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             ExampleReader : AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045;             

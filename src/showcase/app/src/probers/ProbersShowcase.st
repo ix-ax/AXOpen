@@ -5,7 +5,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Showcase.Probers
 
     {S7.extern=ReadWrite}
-    CLASS DocumentationContext EXTENDS AXOpen.Core.AxoObject
+    CLASS ProbersShowcase EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             _rootObject : AxoObject;
             _probersDoc : ProbersDoc;

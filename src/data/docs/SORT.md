@@ -6,6 +6,6 @@ If you are using custom columns and `EnableSorting` is set to true, these column
 
 The example of usage:
 
-[!code-smalltalk[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Data/Rendering.razor?name=Sorting)]
+[!code-smalltalk[](../../showcase/app/ix-blazor/showcase.blazor/Pages/data/Rendering.razor?name=Sorting)]
 
 ![Sorting](assets/Sort.png)

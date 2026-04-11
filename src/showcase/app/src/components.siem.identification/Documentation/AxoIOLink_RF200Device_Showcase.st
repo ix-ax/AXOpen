@@ -4,7 +4,7 @@ USING System.Strings;
 
 NAMESPACE AXOpen.Components.Siem.Identification
     {S7.extern=ReadWrite}
-    CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoIOLink_RF200Device_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             IOlinkReader : AXOpen.Components.Siem.Identification.AxoIOLink_RF200Device;          

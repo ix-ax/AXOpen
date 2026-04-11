@@ -5,7 +5,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Showcase.Utils
 
     {S7.extern=ReadWrite}
-    CLASS DocumentationContext EXTENDS AXOpen.Core.AxoObject
+    CLASS UtilsShowcase EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             _rootObject : AxoObject;
             _utilsDoc : UtilsDoc;

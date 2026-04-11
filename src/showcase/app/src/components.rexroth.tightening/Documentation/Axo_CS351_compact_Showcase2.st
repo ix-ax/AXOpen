@@ -1,7 +1,7 @@
 USING AXOpen.Core;
 NAMESPACE AXOpen.Components.Rexroth.Tightening
     {S7.extern=ReadWrite}
-    CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
+    CLASS Axo_CS351_compact_Showcase2 EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             ExampleComponent : AXOpen.Components.Rexroth.Tightening.Axo_CS351_compact;

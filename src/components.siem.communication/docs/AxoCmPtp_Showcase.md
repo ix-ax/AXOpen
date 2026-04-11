@@ -23,26 +23,26 @@
 # [.NET TWIN](#tab/twin)
 
 
-[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Pages/SiemCommunication/Component_1.razor?name=WriteTaskDurationToConsole)]
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-siem-communication/Documentation/Component_1.razor?name=WriteTaskDurationToConsole)]
 
 
 # [BLAZOR](#tab/blazor)
 
 ## Generic Read-Only view 
 
-[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/SiemCommunication/Component_1.razor?name=GenericComponentStatusView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-siem-communication/Documentation/Component_1.razor?name=GenericComponentStatusView)]
 
 ## Generic control view 
 
-[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/SiemCommunication/Component_1.razor?name=GenericComponentCommandView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-siem-communication/Documentation/Component_1.razor?name=GenericComponentCommandView)]
 
 ## Type agnostic using RenderableContentControl status (Read-Only) view
 
-[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/SiemCommunication/Component_1.razor?name=RccComponentStatusView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-siem-communication/Documentation/Component_1.razor?name=RccComponentStatusView)]
 
 
 ## Type agnostic using RenderableContentControl control view
 
-[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/SiemCommunication/Component_1.razor?name=RccComponentCommandView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-siem-communication/Documentation/Component_1.razor?name=RccComponentCommandView)]
 
 ---

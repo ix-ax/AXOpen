@@ -3,7 +3,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Components.Drives
     
     {S7.extern=ReadWrite}
-    CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoDriveExample_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             AxoDrive_ : AXOpen.Components.Drives.AxoDriveExample;      

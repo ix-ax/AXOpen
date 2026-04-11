@@ -4,7 +4,7 @@ If you want to enable data export, you must add the `EnableExport` attribute wit
 
 Like this:
 
-[!code-smalltalk[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Data/Rendering.razor?name=Export)]
+[!code-smalltalk[](../../showcase/app/ix-blazor/showcase.blazor/Pages/data/Rendering.razor?name=Export)]
 
 [See all user roles from AxOpen.Data](Security.md#-authorization).
 

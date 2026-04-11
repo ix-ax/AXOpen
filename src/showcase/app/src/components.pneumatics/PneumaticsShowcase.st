@@ -1,7 +1,7 @@
 NAMESPACE AXOpen.Showcase.Pneumatics
 
     {S7.extern=ReadWrite}
-    CLASS DocumentationContext EXTENDS AXOpen.Core.AxoObject
+    CLASS PneumaticsShowcase EXTENDS AXOpen.Core.AxoObject
         //<DeclarationAndHWIO_Assignement>
         VAR PUBLIC
             CylinderParent : AXOpen.Core.AxoObject;
@@ -26,7 +26,7 @@ NAMESPACE AXOpen.Showcase.Pneumatics
     END_CLASS
 
     {S7.extern=ReadWrite}
-    CLASS AnotherDocumentationContext EXTENDS DocumentationContext
+    CLASS AnotherPneumaticsShowcase EXTENDS PneumaticsShowcase
         VAR
             _suspendHomeCondition : BOOL;
             _suspendWorkCondition : BOOL;

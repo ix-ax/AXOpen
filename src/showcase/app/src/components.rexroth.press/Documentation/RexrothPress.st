@@ -1,15 +1,15 @@
 NAMESPACE AXOpen.Components.Rexroth.Press
 
     {S7.extern=ReadWrite}
-    CLASS DocumentationContext EXTENDS AXOpen.Core.AxoObject
+    CLASS RexrothPress EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             _rootObject : AxoObject;
-            componentOne : Component_1;
+            axoSmartFunctionKit_v_4_x_x : AxoSmartFunctionKit_v_4_x_x_Showcase;
         END_VAR
-    
+
         METHOD PUBLIC Execute
             _rootObject.Run(THIS);
-            componentOne.Run(_rootObject);
+            axoSmartFunctionKit_v_4_x_x.Run(_rootObject);
         END_METHOD
     END_CLASS
 END_NAMESPACE

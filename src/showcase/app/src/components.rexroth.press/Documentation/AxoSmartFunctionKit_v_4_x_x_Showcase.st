@@ -3,7 +3,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Components.Rexroth.Press
 
     {S7.extern=ReadWrite}
-    CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoSmartFunctionKit_v_4_x_x_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             AxoSmartFunctionKit : AXOpen.Components.Rexroth.Press.AxoSmartFunctionKit_v_4_x_x;             

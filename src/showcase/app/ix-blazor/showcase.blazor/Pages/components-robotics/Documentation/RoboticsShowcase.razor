@@ -1,4 +1,4 @@
-@page "/Robotics/Documentation"
+@page "/components-robotics/Documentation/RoboticsShowcase"
 @using AXOpen.Core;
 @using Operon.Components.Tab
 @using showcase.Services;
@@ -92,10 +92,10 @@
 							<div class="mt-4 p-4 text-sm text-slate-500 bg-slate-50 rounded border border-slate-200">
 								The base robotics context has no components declared. Visit the vendor-specific pages for live demos:
 								<ul class="mt-2 list-disc list-inside space-y-1">
-									<li><a href="/AbbRobotics/Documentation" class="text-cyan-700 hover:underline">ABB Robotics</a></li>
-									<li><a href="/KukaRobotics/Documentation" class="text-cyan-700 hover:underline">KUKA Robotics</a></li>
-									<li><a href="/UrRobotics/Documentation" class="text-cyan-700 hover:underline">Universal Robots</a></li>
-									<li><a href="/MitsubishiRobotics/Documentation" class="text-cyan-700 hover:underline">Mitsubishi Robotics</a></li>
+									<li><a href="/components-abb-robotics/Documentation/AbbRobotics" class="text-cyan-700 hover:underline">ABB Robotics</a></li>
+									<li><a href="/components-kuka-robotics/Documentation/KukaRobotics" class="text-cyan-700 hover:underline">KUKA Robotics</a></li>
+									<li><a href="/components-ur-robotics/Documentation/UrRobotics" class="text-cyan-700 hover:underline">Universal Robots</a></li>
+									<li><a href="/components-mitsubishi-robotics/Documentation/MitsubishiRobotics" class="text-cyan-700 hover:underline">Mitsubishi Robotics</a></li>
 								</ul>
 							</div>
 						</TabPage>
@@ -112,12 +112,12 @@
 
 	private string _selectedPresentation = "Command-Control";
 
-	private readonly string _plcContextPath    = "src/showcase/app/src/ComponentsRobotics/Documentation/DocumentationContext.st";
+	private readonly string _plcContextPath    = "src/showcase/app/src/components.robotics/Documentation/Robotics.st";
 
 	// Library resource paths
 	private readonly string _libReadmePath       = "src/components.robotics/docs/README.md";
-	private readonly string _libComponent1DocPath = "src/components.robotics/docs/Component_1.md";
-	private readonly string _libComponent2DocPath = "src/components.robotics/docs/Component_2.md";
+	private readonly string _libComponent1DocPath = "src/components.robotics/docs/Component_1.md"; // TODO: No showcase .st files exist for robotics yet
+	private readonly string _libComponent2DocPath = "src/components.robotics/docs/Component_2.md"; // TODO: No showcase .st files exist for robotics yet
 	private readonly string _libTroublesPath     = "src/components.robotics/docs/TROUBLES.md";
 
 	protected override async Task OnInitializedAsync()

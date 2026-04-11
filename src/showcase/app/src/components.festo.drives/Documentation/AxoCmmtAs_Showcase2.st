@@ -3,7 +3,7 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Components.Festo.Drives
     {S7.extern=ReadWrite}
-    CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoCmmtAs_Showcase2 EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             AxoCmmtAs : AXOpen.Components.Festo.Drives.AxoCmmtAs;     

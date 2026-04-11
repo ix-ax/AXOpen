@@ -2,7 +2,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Components.Mitsubishi.Robotics
 
     {S7.extern=ReadWrite}
-    CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoCr800_v_1_x_x_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             ExampleRobot : AXOpen.Components.Mitsubishi.Robotics.v_1_x_x.AxoCr800; 

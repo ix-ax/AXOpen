@@ -1,7 +1,7 @@
 USING AXOpen.Core;
 NAMESPACE AXOpen.Components.Siem.Communication
     {S7.extern=ReadWrite}
-    CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoCmPtp_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             ExampleComponent : AXOpen.Components.Siem.Communication.AxoCmPtp;             

@@ -1,16 +1,16 @@
 NAMESPACE AXOpen.Components.Festo.Drives
     {S7.extern=ReadWrite}
-    CLASS DocumentationContext EXTENDS AXOpen.Core.AxoObject
+    CLASS FestoDrives EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             _rootObject:    AxoObject;
-            componentOne    : Component_1;
-            componentTwo    : Component_2;
+            axoCmmtAs    : AxoCmmtAs_Showcase;
+            axoCmmtAs_2    : AxoCmmtAs_Showcase2;
         END_VAR
-    
+
         METHOD PUBLIC Execute
             _rootObject.Run(THIS);
-            componentOne.Run(_rootObject);
-            // componentTwo.Run(_rootObject);
+            axoCmmtAs.Run(_rootObject);
+            // axoCmmtAs_2.Run(_rootObject);
         END_METHOD
     END_CLASS
 END_NAMESPACE

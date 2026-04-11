@@ -12,7 +12,7 @@ public static class ShowcasePageRegistry
         // ── Core Framework ──────────────────────────────────────────────
         new()
         {
-            Route = "/Core/AxoTask",
+            Route = "/core/AxoTask",
             PageTitle = "AxoTask",
             LibraryNamespace = "AXOpen.Core",
             Category = "Core",
@@ -20,11 +20,11 @@ public static class ShowcasePageRegistry
             Icon = "play",
             Tags = ["task", "fire and forget", "momentary", "toggle", "remote task", "control flow"],
             SourceFilePaths = [
-                "src/showcase/app/src/CoreExamples/AXOpen.AxoTask/AxoTaskDocuExample.st",
-                "src/showcase/app/src/CoreExamples/AXOpen.AxoTask/AxoTaskExample.st",
-                "src/showcase/app/src/CoreExamples/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st",
-                "src/showcase/app/src/CoreExamples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st",
-                "src/showcase/app/src/CoreExamples/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st",
+                "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskDocuExample.st",
+                "src/showcase/app/src/core/AXOpen.AxoTask/AxoTaskExample.st",
+                "src/showcase/app/src/core/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st",
+                "src/showcase/app/src/core/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st",
+                "src/showcase/app/src/core/AXOpen.AxoRemoteTask/AxoRemoteTaskDocuExample.st",
                 "src/core/ctrl/src/AxoTask/AxoTask.st",
                 "src/core/ctrl/src/AxoMomentaryTask/AxoMomentaryTask.st",
                 "src/core/ctrl/src/AxoToggleTask/AxoToggleTask.st",
@@ -37,7 +37,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/Core/AxoSequencer",
+            Route = "/core/AxoSequencer",
             PageTitle = "AxoSequencer",
             LibraryNamespace = "AXOpen.Core",
             Category = "Core",
@@ -45,9 +45,9 @@ public static class ShowcasePageRegistry
             Icon = "queue-list",
             Tags = ["sequencer", "step", "sequence", "coordination", "state machine"],
             SourceFilePaths = [
-                "src/showcase/app/src/CoreExamples/AXOpen.AxoSequencer/AxoSequencerDocuExample.st",
-                "src/showcase/app/src/CoreExamples/AXOpen.AxoSequencer/AxoSequencerExample.st",
-                "src/showcase/app/src/CoreExamples/AXOpen.AxoSequencerContainer/AxoSequencerContainerDocuExample.st",
+                "src/showcase/app/src/core/AXOpen.AxoSequencer/AxoSequencerDocuExample.st",
+                "src/showcase/app/src/core/AXOpen.AxoSequencer/AxoSequencerExample.st",
+                "src/showcase/app/src/core/AXOpen.AxoSequencerContainer/AxoSequencerContainerDocuExample.st",
                 "src/core/docs/AXOSEQUENCER.md",
                 "src/core/docs/AXOSEQUENCERCONTAINER.md",
                 "src/core/docs/AXOSTEP.md",
@@ -55,7 +55,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/Core/AxoComponent",
+            Route = "/core/AxoComponent",
             PageTitle = "AxoComponent",
             LibraryNamespace = "AXOpen.Core",
             Category = "Core",
@@ -63,15 +63,15 @@ public static class ShowcasePageRegistry
             Icon = "puzzle-piece",
             Tags = ["component", "base class", "lifecycle", "restore", "header", "detail"],
             SourceFilePaths = [
-                "src/showcase/app/src/CoreExamples/AXOpen.AxoComponent/AxoComponentExample.st",
-                "src/showcase/app/src/CoreExamples/AXOpen.AxoComponent/AxoComponentHeaderOnlyExample.st",
+                "src/showcase/app/src/core/AXOpen.AxoComponent/AxoComponentExample.st",
+                "src/showcase/app/src/core/AXOpen.AxoComponent/AxoComponentHeaderOnlyExample.st",
                 "src/core/docs/AXOCOMPONENT.md",
                 "src/core/ctrl/src/AxoComponent/AxoComponent.st",
             ]
         },
         new()
         {
-            Route = "/Core/AxoMessaging",
+            Route = "/core/AxoMessaging",
             PageTitle = "AxoMessaging",
             LibraryNamespace = "AXOpen.Core",
             Category = "Core",
@@ -79,9 +79,9 @@ public static class ShowcasePageRegistry
             Icon = "chat-bubble-left-right",
             Tags = ["messaging", "messenger", "text list", "logging", "diagnostics", "acknowledgement"],
             SourceFilePaths = [
-                "src/showcase/app/src/CoreExamples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st",
-                "src/showcase/app/src/CoreExamples/AXOpen.TextList/AxoTextListExample.st",
-                "src/showcase/app/src/CoreExamples/AXOpen.Logging/AxoLoggerDocuExample.st",
+                "src/showcase/app/src/core/AXOpen.Messaging/AxoStaticMessengerDocuExample.st",
+                "src/showcase/app/src/core/AXOpen.TextList/AxoTextListExample.st",
+                "src/showcase/app/src/core/AXOpen.Logging/AxoLoggerDocuExample.st",
                 "src/core/docs/AXOMESSENGER.md",
                 "src/core/docs/AXOTEXTLIST.md",
                 "src/core/docs/AXOLOGGER.md",
@@ -89,7 +89,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/Core/AxoDialogs",
+            Route = "/core/AxoDialogs",
             PageTitle = "AxoDialogs",
             LibraryNamespace = "AXOpen.Core",
             Category = "Core",
@@ -97,8 +97,8 @@ public static class ShowcasePageRegistry
             Icon = "chat-bubble-bottom-center-text",
             Tags = ["dialog", "alert", "prompt", "notification", "SignalR", "user interaction"],
             SourceFilePaths = [
-                "src/showcase/app/src/CoreExamples/AXOpen.Dialogs/AxoDialogExamples.st",
-                "src/showcase/app/src/CoreExamples/AXOpen.Dialogs/AxoDialogTest.st",
+                "src/showcase/app/src/core/AXOpen.Dialogs/AxoDialogExamples.st",
+                "src/showcase/app/src/core/AXOpen.Dialogs/AxoDialogTest.st",
                 "src/core/docs/AXODIALOG.md",
                 "src/core/docs/AXOALERTDIALOG.md",
             ]
@@ -107,7 +107,7 @@ public static class ShowcasePageRegistry
         // ── Data Management ─────────────────────────────────────────────
         new()
         {
-            Route = "/Data/DataExchange",
+            Route = "/data/DataExchange",
             PageTitle = "Data Exchange",
             LibraryNamespace = "AXOpen.Data",
             Category = "Data",
@@ -115,10 +115,10 @@ public static class ShowcasePageRegistry
             Icon = "arrows-right-left",
             Tags = ["data", "CRUD", "repository", "persistence", "fragment", "distributed", "exchange"],
             SourceFilePaths = [
-                "src/showcase/app/src/DataExamples/AxoDataExchangeExample.st",
-                "src/showcase/app/src/DataExamples/AxoDataFragmentExchangeExample.st",
-                "src/showcase/app/src/DataExamples/AxoDataPersistentExchangeExample.st",
-                "src/showcase/app/src/DataExamples/AxoDataDistributedExample.st",
+                "src/showcase/app/src/data/AxoDataExchange/AxoDataExchangeExample.st",
+                "src/showcase/app/src/data/AxoDataFragmentExchange/AxoDataFragmentExchangeExample.st",
+                "src/showcase/app/src/data/AxoDataPersistentExchange/AxoDataPersistentExchangeExample.st",
+                "src/showcase/app/src/data/AxoDataDistributed/AxoDataDistributedExample.st",
                 "src/data/docs/AxoDataExchange.md",
                 "src/data/docs/AxoDataFragmentExchange.md",
                 "src/data/docs/AxoDataPersistentExchange.md",
@@ -129,7 +129,7 @@ public static class ShowcasePageRegistry
         // ── Generic Components ──────────────────────────────────────────
         new()
         {
-            Route = "/ComponentsAbstractions/Documentation",
+            Route = "/components-abstractions/Documentation/ComponentsAbstractionsShowcase",
             PageTitle = "Components Abstractions",
             LibraryNamespace = "AXOpen.Components.Abstractions",
             Category = "Components",
@@ -137,13 +137,13 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["abstractions", "interface", "contract", "IAxoDrive", "IAxoRobotics", "IAxoCodeReader", "IAxoVisionSensor"],
             SourceFilePaths = [
-                "src/showcase/app/src/Foundation/ComponentsAbstractionsShowcase.st",
+                "src/showcase/app/src/components.abstractions/ComponentsAbstractionsShowcase.st",
                 "src/components.abstractions/ctrl/apax.yml",
             ]
         },
         new()
         {
-            Route = "/Drives/Documentation",
+            Route = "/components-drives/Documentation/DrivesShowcase",
             PageTitle = "Drives",
             LibraryNamespace = "AXOpen.Components.Drives",
             Category = "Components",
@@ -151,11 +151,11 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["drive", "motion", "motor", "servo", "axis", "abstract"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsDrives/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsDrives/Documentation/Component_1.st",
+                "src/showcase/app/src/components.drives/Documentation/Drives.st",
+                "src/showcase/app/src/components.drives/Documentation/AxoDriveExample_Showcase.st",
                 "src/components.drives/docs/README.md",
-                "src/components.drives/docs/Component_1.md",
-                "src/components.drives/docs/Component_2.md",
+                "src/components.drives/docs/AxoDriveExample_Showcase.md",
+                "src/components.drives/docs/AxoDriveExample_Showcase2.md",
                 "src/components.drives/docs/TROUBLES.md",
                 "src/components.drives/ctrl/src/AxoDrives/AxoDrive.st",
                 "src/components.drives/ctrl/apax.yml",
@@ -163,7 +163,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/Elements/Documentation",
+            Route = "/components-elements/Documentation/ElementsShowcase",
             PageTitle = "Elements",
             LibraryNamespace = "AXOpen.Components.Elements",
             Category = "Components",
@@ -171,7 +171,7 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["elements", "digital", "analog", "signal tower", "rotary", "indexing table", "I/O"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsElements/Documentation/DocumentationContext.st",
+                "src/showcase/app/src/components.elements/Documentation/Elements.st",
                 "src/components.elements/docs/README.md",
                 "src/components.elements/docs/AXODI.md",
                 "src/components.elements/docs/AXODO.md",
@@ -183,7 +183,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/Pneumatics/Documentation",
+            Route = "/components-pneumatics/Documentation/PneumaticsShowcase",
             PageTitle = "Pneumatics",
             LibraryNamespace = "AXOpen.Components.Pneumatics",
             Category = "Components",
@@ -191,7 +191,7 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["pneumatics", "cylinder", "actuator", "valve", "move-in", "move-out"],
             SourceFilePaths = [
-                "src/showcase/app/src/Foundation/PneumaticsShowcase.st",
+                "src/showcase/app/src/components.pneumatics/PneumaticsShowcase.st",
                 "src/showcase/app/hwc/plc_line.hwl.yml",
                 "src/showcase/app/hwc/library_templates/AventicsPneumatics/AventicsPneumaticsAES.hwl.yml",
                 "src/components.pneumatics/docs/README.md",
@@ -202,7 +202,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/Robotics/Documentation",
+            Route = "/components-robotics/Documentation/RoboticsShowcase",
             PageTitle = "Robotics",
             LibraryNamespace = "AXOpen.Components.Robotics",
             Category = "Components",
@@ -210,10 +210,10 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["robotics", "robot", "base", "abstract", "motion"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsRobotics/Documentation/DocumentationContext.st",
+                "src/showcase/app/src/components.robotics/Documentation/Robotics.st",
                 "src/components.robotics/docs/README.md",
-                "src/components.robotics/docs/Component_1.md",
-                "src/components.robotics/docs/Component_2.md",
+                "src/components.robotics/docs/Component_1.md", // TODO: No showcase files exist for robotics yet
+                "src/components.robotics/docs/Component_2.md", // TODO: No showcase files exist for robotics yet
                 "src/components.robotics/docs/TROUBLES.md",
             ]
         },
@@ -221,7 +221,7 @@ public static class ShowcasePageRegistry
         // ── Vendor Components: Robotics ─────────────────────────────────
         new()
         {
-            Route = "/AbbRobotics/Documentation",
+            Route = "/components-abb-robotics/Documentation/AbbRobotics",
             PageTitle = "ABB Robotics",
             LibraryNamespace = "AXOpen.Components.Abb.Robotics",
             Category = "Vendor Components",
@@ -230,14 +230,14 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["ABB", "robot", "robotics", "IRB"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsAbbRobotics/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsAbbRobotics/Documentation/Component_1.st",
-                "src/showcase/app/src/ComponentsAbbRobotics/Documentation/Component_2.st",
+                "src/showcase/app/src/components.abb.robotics/Documentation/AbbRobotics.st",
+                "src/showcase/app/src/components.abb.robotics/Documentation/AxoIrc5_v_1_x_x_Showcase.st",
+                "src/showcase/app/src/components.abb.robotics/Documentation/AxoOmnicore_v_1_x_x_Showcase.st",
                 "src/showcase/app/hwc/library_templates/abb_robotics_irc5/abb_irc5_robot_in64b_out64b.hwl.yml",
                 "src/showcase/app/hwc/library_templates/abb_robotics_omnicore/abb_omnicore_robot_in64b_out64b.hwl.yml",
                 "src/components.abb.robotics/docs/README.md",
-                "src/components.abb.robotics/docs/Component_1.md",
-                "src/components.abb.robotics/docs/Component_2.md",
+                "src/components.abb.robotics/docs/AxoIrc5_v_1_x_x_Showcase.md",
+                "src/components.abb.robotics/docs/AxoOmnicore_v_1_x_x_Showcase.md",
                 "src/components.abb.robotics/docs/TROUBLES.md",
                 "src/components.abb.robotics/ctrl/src/AxoIrc5_v_1_x_x.st",
                 "src/components.abb.robotics/ctrl/apax.yml",
@@ -245,7 +245,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/KukaRobotics/Documentation",
+            Route = "/components-kuka-robotics/Documentation/KukaRobotics",
             PageTitle = "KUKA Robotics",
             LibraryNamespace = "AXOpen.Components.Kuka.Robotics",
             Category = "Vendor Components",
@@ -254,13 +254,13 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["KUKA", "robot", "robotics"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsKukaRobotics/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsKukaRobotics/Documentation/Component_1.st",
-                "src/showcase/app/src/ComponentsKukaRobotics/Documentation/Component_2.st",
+                "src/showcase/app/src/components.kuka.robotics/Documentation/KukaRobotics.st",
+                "src/showcase/app/src/components.kuka.robotics/Documentation/AxoKrc4_v_5_x_x_Showcase.st",
+                "src/showcase/app/src/components.kuka.robotics/Documentation/AxoKrc4_v_5_x_x_Showcase2.st",
                 "src/showcase/app/hwc/library_templates/kuka_krc4/kuka_krc4_dio512.hwl.yml",
                 "src/components.kuka.robotics/docs/README.md",
-                "src/components.kuka.robotics/docs/Component_1.md",
-                "src/components.kuka.robotics/docs/Component_2.md",
+                "src/components.kuka.robotics/docs/AxoKrc4_v_5_x_x_Showcase.md",
+                "src/components.kuka.robotics/docs/AxoKrc4_v_5_x_x_Showcase2.md",
                 "src/components.kuka.robotics/docs/TROUBLES.md",
                 "src/components.kuka.robotics/ctrl/src/AxoKrc4_v_5_x_x.st",
                 "src/components.kuka.robotics/ctrl/apax.yml",
@@ -268,7 +268,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/MitsubishiRobotics/Documentation",
+            Route = "/components-mitsubishi-robotics/Documentation/MitsubishiRobotics",
             PageTitle = "Mitsubishi Robotics",
             LibraryNamespace = "AXOpen.Components.Mitsubishi.Robotics",
             Category = "Vendor Components",
@@ -277,10 +277,10 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["Mitsubishi", "robot", "robotics", "MELFA"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsMitsubishiRobotics/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsMitsubishiRobotics/Documentation/Component_1.st",
+                "src/showcase/app/src/components.mitsubishi.robotics/Documentation/MitsubishiRobotics.st",
+                "src/showcase/app/src/components.mitsubishi.robotics/Documentation/AxoCr800_v_1_x_x_Showcase.st",
                 "src/components.mitsubishi.robotics/docs/README.md",
-                "src/components.mitsubishi.robotics/docs/Component_1.md",
+                "src/components.mitsubishi.robotics/docs/AxoCr800_v_1_x_x_Showcase.md",
                 "src/components.mitsubishi.robotics/docs/TROUBLES.md",
                 "src/components.mitsubishi.robotics/ctrl/src/AxoCr800_v_1_x_x.st",
                 "src/components.mitsubishi.robotics/ctrl/apax.yml",
@@ -288,7 +288,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/UrRobotics/Documentation",
+            Route = "/components-ur-robotics/Documentation/UrRobotics",
             PageTitle = "UR Robotics",
             LibraryNamespace = "AXOpen.Components.Ur.Robotics",
             Category = "Vendor Components",
@@ -297,11 +297,11 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["Universal Robots", "UR", "cobot", "collaborative robot", "robotics"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsUrRobotics/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsUrRobotics/Documentation/Component_1.st",
+                "src/showcase/app/src/components.ur.robotics/Documentation/UrRobotics.st",
+                "src/showcase/app/src/components.ur.robotics/Documentation/AxoUrCb3_v_3_x_x_Showcase.st",
                 "src/showcase/app/hwc/library_templates/ur_robotics/ur_robot.hwl.yml",
                 "src/components.ur.robotics/docs/README.md",
-                "src/components.ur.robotics/docs/Component_1.md",
+                "src/components.ur.robotics/docs/AxoUrCb3_v_3_x_x_Showcase.md",
                 "src/components.ur.robotics/docs/TROUBLES.md",
                 "src/components.ur.robotics/ctrl/src/AxoUrCb3/AxoUrCb3_v_3_x_x.st",
                 "src/components.ur.robotics/ctrl/apax.yml",
@@ -311,7 +311,7 @@ public static class ShowcasePageRegistry
         // ── Vendor Components: Vision ───────────────────────────────────
         new()
         {
-            Route = "/CognexVision/Documentation",
+            Route = "/components-cognex-vision/Documentation/CognexVision",
             PageTitle = "Cognex Vision",
             LibraryNamespace = "AXOpen.Components.Cognex.Vision",
             Category = "Vendor Components",
@@ -320,18 +320,18 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["Cognex", "vision", "camera", "inspection", "image"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsCognexVision/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsCognexVision/Documentation/Component_1.st",
-                "src/showcase/app/src/ComponentsCognexVision/Documentation/Component_2.st",
-                "src/showcase/app/src/ComponentsCognexVision/Documentation/Component_3.st",
-                "src/showcase/app/src/ComponentsCognexVision/Documentation/Component_4.st",
-                "src/showcase/app/src/ComponentsCognexVision/Documentation/Component_5.st",
+                "src/showcase/app/src/components.cognex.vision/Documentation/CognexVision.st",
+                "src/showcase/app/src/components.cognex.vision/Documentation/AxoInsight_v_6_0_0_0_Showcase.st",
+                "src/showcase/app/src/components.cognex.vision/Documentation/AxoDataman_v_6_0_0_0_Showcase.st",
+                "src/showcase/app/src/components.cognex.vision/Documentation/AxoDataman_v_6_0_0_0_Showcase2.st",
+                "src/showcase/app/src/components.cognex.vision/Documentation/AxoInsight_v_24_0_0_Showcase.st",
+                "src/showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro_Showcase.st",
                 "src/components.cognex.vision/docs/README.md",
-                "src/components.cognex.vision/docs/Component_1.md",
-                "src/components.cognex.vision/docs/Component_2.md",
-                "src/components.cognex.vision/docs/Component_3.md",
-                "src/components.cognex.vision/docs/Component_4.md",
-                "src/components.cognex.vision/docs/Component_5.md",
+                "src/components.cognex.vision/docs/AxoInsight_v_6_0_0_0_Showcase.md",
+                "src/components.cognex.vision/docs/AxoDataman_v_6_0_0_0_Showcase.md",
+                "src/components.cognex.vision/docs/AxoDataman_v_6_0_0_0_Showcase2.md",
+                "src/components.cognex.vision/docs/AxoInsight_v_24_0_0_Showcase.md",
+                "src/components.cognex.vision/docs/AxoVisionPro_Showcase.md",
                 "src/components.cognex.vision/docs/TROUBLES.md",
                 "src/components.cognex.vision/ctrl/src/v_6_0_0_0/AxoInsight/AxoInsight.st",
                 "src/components.cognex.vision/ctrl/src/v_6_0_0_0/AxoDataman/AxoDataman.st",
@@ -341,7 +341,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/KeyenceVision/Documentation",
+            Route = "/components-keyence-vision/Documentation/KeyenceVision",
             PageTitle = "Keyence Vision",
             LibraryNamespace = "AXOpen.Components.Keyence.Vision",
             Category = "Vendor Components",
@@ -350,17 +350,17 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["Keyence", "vision", "camera", "inspection", "image"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsKeyenceVision/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsKeyenceVision/Documentation/Component_1.st",
-                "src/showcase/app/src/ComponentsKeyenceVision/Documentation/Component_2.st",
-                "src/showcase/app/src/ComponentsKeyenceVision/Documentation/Component_3.st",
+                "src/showcase/app/src/components.keyence.vision/Documentation/KeyenceVision.st",
+                "src/showcase/app/src/components.keyence.vision/Documentation/Axo_SR_750_Showcase.st",
+                "src/showcase/app/src/components.keyence.vision/Documentation/Axo_SR_1000_Showcase.st",
+                "src/showcase/app/src/components.keyence.vision/Documentation/Axo_IV3_Showcase.st",
                 "src/components.keyence.vision/docs/README.md",
                 "src/components.keyence.vision/docs/TROUBLES.md",
             ]
         },
         new()
         {
-            Route = "/ZebraVision/Documentation",
+            Route = "/components-zebra-vision/Documentation/ZebraVision",
             PageTitle = "Zebra Vision",
             LibraryNamespace = "AXOpen.Components.Zebra.Vision",
             Category = "Vendor Components",
@@ -369,9 +369,9 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["Zebra", "vision", "camera", "barcode", "scanner"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsZebraVision/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsZebraVision/Documentation/Component_1.st",
-                "src/showcase/app/src/ComponentsZebraVision/Documentation/Component_2.st",
+                "src/showcase/app/src/components.zebra.vision/Documentation/ZebraVision.st",
+                "src/showcase/app/src/components.zebra.vision/Documentation/AxoEA3600_Showcase.st",
+                "src/showcase/app/src/components.zebra.vision/Documentation/AxoEA3600_Showcase2.st",
                 "src/components.zebra.vision/docs/README.md",
                 "src/components.zebra.vision/docs/TROUBLES.md",
             ]
@@ -380,7 +380,7 @@ public static class ShowcasePageRegistry
         // ── Vendor Components: Identification ───────────────────────────
         new()
         {
-            Route = "/BalluffIdentification/Documentation",
+            Route = "/components-balluff-identification/Documentation/BalluffIdentification",
             PageTitle = "Balluff Identification",
             LibraryNamespace = "AXOpen.Components.Balluff.Identification",
             Category = "Vendor Components",
@@ -389,18 +389,18 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["Balluff", "identification", "RFID", "reader", "code reader"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsBalluffIdentification/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsBalluffIdentification/Documentation/Component_1.st",
-                "src/showcase/app/src/ComponentsBalluffIdentification/Documentation/Component_2.st",
+                "src/showcase/app/src/components.balluff.identification/Documentation/BalluffIdentification.st",
+                "src/showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_Showcase.st",
+                "src/showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_Showcase2.st",
                 "src/components.balluff.identification/docs/README.md",
-                "src/components.balluff.identification/docs/Component_1.md",
-                "src/components.balluff.identification/docs/Component_2.md",
+                "src/components.balluff.identification/docs/Axo_BIS_M_4XX_045_Showcase.md",
+                "src/components.balluff.identification/docs/Axo_BIS_M_4XX_045_Showcase2.md",
                 "src/components.balluff.identification/docs/TROUBLES.md",
             ]
         },
         new()
         {
-            Route = "/SiemIdentification/Documentation",
+            Route = "/components-siem-identification/Documentation/SiemIdentification",
             PageTitle = "Siemens Identification",
             LibraryNamespace = "AXOpen.Components.Siem.Identification",
             Category = "Vendor Components",
@@ -409,14 +409,14 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["Siemens", "identification", "RFID", "IO-Link", "RF186C", "RF260R", "RF340R"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsSiemIdentification/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsSiemIdentification/Documentation/Component_1.st",
-                "src/showcase/app/src/ComponentsSiemIdentification/Documentation/Component_2.st",
-                "src/showcase/app/src/ComponentsSiemIdentification/Documentation/Component_3.st",
-                "src/showcase/app/src/ComponentsSiemIdentification/Documentation/Component_4.st",
+                "src/showcase/app/src/components.siem.identification/Documentation/SiemIdentification.st",
+                "src/showcase/app/src/components.siem.identification/Documentation/Axo_IdentDevice_Showcase.st",
+                "src/showcase/app/src/components.siem.identification/Documentation/AxoIOLink_RF200Device_Showcase.st",
+                "src/showcase/app/src/components.siem.identification/Documentation/AxoSimaticIdentCyclic_Showcase.st",
+                "src/showcase/app/src/components.siem.identification/Documentation/AxoSimaticIdentCyclic_Showcase2.st",
                 "src/components.siem.identification/docs/README.md",
-                "src/components.siem.identification/docs/Component_1.md",
-                "src/components.siem.identification/docs/Component_2.md",
+                "src/components.siem.identification/docs/Axo_IdentDevice_Showcase.md",
+                "src/components.siem.identification/docs/AxoIOLink_RF200Device_Showcase.md",
                 "src/components.siem.identification/docs/TROUBLES.md",
             ]
         },
@@ -424,7 +424,7 @@ public static class ShowcasePageRegistry
         // ── Vendor Components: Drives ───────────────────────────────────
         new()
         {
-            Route = "/FestoDrives/Documentation",
+            Route = "/components-festo-drives/Documentation/FestoDrives",
             PageTitle = "Festo Drives",
             LibraryNamespace = "AXOpen.Components.Festo.Drives",
             Category = "Vendor Components",
@@ -433,12 +433,12 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["Festo", "drive", "servo", "motor", "motion"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsFestoDrives/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsFestoDrives/Documentation/Component_1.st",
-                "src/showcase/app/src/ComponentsFestoDrives/Documentation/Component_2.st",
+                "src/showcase/app/src/components.festo.drives/Documentation/FestoDrives.st",
+                "src/showcase/app/src/components.festo.drives/Documentation/AxoCmmtAs_Showcase.st",
+                "src/showcase/app/src/components.festo.drives/Documentation/AxoCmmtAs_Showcase2.st",
                 "src/components.festo.drives/docs/README.md",
-                "src/components.festo.drives/docs/Component_1.md",
-                "src/components.festo.drives/docs/Component_2.md",
+                "src/components.festo.drives/docs/AxoCmmtAs_Showcase.md",
+                "src/components.festo.drives/docs/AxoCmmtAs_Showcase2.md",
                 "src/components.festo.drives/docs/TROUBLES.md",
                 "src/components.festo.drives/ctrl/src/AxoCmmtAs/AxoCmmtAs.st",
                 "src/components.festo.drives/ctrl/apax.yml",
@@ -446,7 +446,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/RexrothDrives/Documentation",
+            Route = "/components-rexroth-drives/Documentation/RexrothDrives",
             PageTitle = "Rexroth Drives",
             LibraryNamespace = "AXOpen.Components.Rexroth.Drives",
             Category = "Vendor Components",
@@ -455,12 +455,12 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["Rexroth", "Bosch", "drive", "IndraDrive", "ctrlX", "servo", "motion"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsRexrothDrives/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsRexrothDrives/Documentation/Component_1.st",
-                "src/showcase/app/src/ComponentsRexrothDrives/Documentation/Component_2.st",
+                "src/showcase/app/src/components.rexroth.drives/Documentation/RexrothDrives.st",
+                "src/showcase/app/src/components.rexroth.drives/Documentation/AxoIndraDrive_Showcase.st",
+                "src/showcase/app/src/components.rexroth.drives/Documentation/AxoCtrlxDriveXsc_Showcase.st",
                 "src/components.rexroth.drives/docs/README.md",
-                "src/components.rexroth.drives/docs/Component_1.md",
-                "src/components.rexroth.drives/docs/Component_2.md",
+                "src/components.rexroth.drives/docs/AxoIndraDrive_Showcase.md",
+                "src/components.rexroth.drives/docs/AxoCtrlxDriveXsc_Showcase.md",
                 "src/components.rexroth.drives/docs/TROUBLES.md",
                 "src/components.rexroth.drives/ctrl/src/AxoIndraDrive/AxoIndraDrive.st",
                 "src/components.rexroth.drives/ctrl/src/AxoCtrlxDriveXsc/AxoCtrlxDriveXsc.st",
@@ -471,7 +471,7 @@ public static class ShowcasePageRegistry
         // ── Vendor Components: Tightening ───────────────────────────────
         new()
         {
-            Route = "/DesoutterTightening/Documentation",
+            Route = "/components-desoutter-tightening/Documentation/DesoutterTightening",
             PageTitle = "Desoutter Tightening",
             LibraryNamespace = "AXOpen.Components.Desoutter.Tightening",
             Category = "Vendor Components",
@@ -480,11 +480,11 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["Desoutter", "tightening", "torque", "screw", "fastening"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsDesoutterTightening/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsDesoutterTightening/Documentation/Component_1.st",
+                "src/showcase/app/src/components.desoutter.tightening/Documentation/DesoutterTightening.st",
+                "src/showcase/app/src/components.desoutter.tightening/Documentation/AxoCVIC_II_Showcase.st",
                 "src/components.desoutter.tightening/docs/README.md",
-                "src/components.desoutter.tightening/docs/Component_1.md",
-                "src/components.desoutter.tightening/docs/Component_2.md",
+                "src/components.desoutter.tightening/docs/AxoCVIC_II_Showcase.md",
+                "src/components.desoutter.tightening/docs/AxoCVIC_II_Showcase2.md",
                 "src/components.desoutter.tightening/docs/TROUBLES.md",
                 "src/components.desoutter.tightening/ctrl/src/CVIC_II/AxoCVIC_II.st",
                 "src/components.desoutter.tightening/ctrl/apax.yml",
@@ -492,7 +492,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/RexrothTightening/Documentation",
+            Route = "/components-rexroth-tightening/Documentation/RexrothTightening",
             PageTitle = "Rexroth Tightening",
             LibraryNamespace = "AXOpen.Components.Rexroth.Tightening",
             Category = "Vendor Components",
@@ -501,12 +501,12 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["Rexroth", "Bosch", "tightening", "torque", "screw", "fastening"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsRexrothTightening/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsRexrothTightening/Documentation/Component_1.st",
-                "src/showcase/app/src/ComponentsRexrothTightening/Documentation/Component_2.st",
+                "src/showcase/app/src/components.rexroth.tightening/Documentation/RexrothTightening.st",
+                "src/showcase/app/src/components.rexroth.tightening/Documentation/Axo_CS351_compact_Showcase.st",
+                "src/showcase/app/src/components.rexroth.tightening/Documentation/Axo_CS351_compact_Showcase2.st",
                 "src/components.rexroth.tightening/docs/README.md",
-                "src/components.rexroth.tightening/docs/Component_1.md",
-                "src/components.rexroth.tightening/docs/Component_2.md",
+                "src/components.rexroth.tightening/docs/Axo_CS351_compact_Showcase.md",
+                "src/components.rexroth.tightening/docs/Axo_CS351_compact_Showcase2.md",
                 "src/components.rexroth.tightening/docs/TROUBLES.md",
                 "src/components.rexroth.tightening/ctrl/src/Axo_CS351_compact/Axo_CS351_compact.st",
                 "src/components.rexroth.tightening/ctrl/apax.yml",
@@ -516,7 +516,7 @@ public static class ShowcasePageRegistry
         // ── Vendor Components: Other ────────────────────────────────────
         new()
         {
-            Route = "/DukaneWelders/Documentation",
+            Route = "/components-dukane-welders/Documentation/DukaneWelders",
             PageTitle = "Dukane Welders",
             LibraryNamespace = "AXOpen.Components.Dukane.Welders",
             Category = "Vendor Components",
@@ -525,12 +525,12 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["Dukane", "welder", "welding", "ultrasonic"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsDukaneWelders/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsDukaneWelders/Documentation/Component_1.st",
-                "src/showcase/app/src/ComponentsDukaneWelders/Documentation/Component_2.st",
+                "src/showcase/app/src/components.dukane.welders/Documentation/DukaneWelders.st",
+                "src/showcase/app/src/components.dukane.welders/Documentation/Axo_IQ_SeriesWelder_Showcase.st",
+                "src/showcase/app/src/components.dukane.welders/Documentation/Axo_IQ_SeriesWelder_Showcase2.st",
                 "src/components.dukane.welders/docs/README.md",
-                "src/components.dukane.welders/docs/Component_1.md",
-                "src/components.dukane.welders/docs/Component_2.md",
+                "src/components.dukane.welders/docs/Axo_IQ_SeriesWelder_Showcase.md",
+                "src/components.dukane.welders/docs/Axo_IQ_SeriesWelder_Showcase2.md",
                 "src/components.dukane.welders/docs/TROUBLES.md",
                 "src/components.dukane.welders/ctrl/src/AxoIQSeriesWelder/Axo_IQ_SeriesWelder.st",
                 "src/components.dukane.welders/ctrl/apax.yml",
@@ -538,7 +538,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/RexrothPress/Documentation",
+            Route = "/components-rexroth-press/Documentation/RexrothPress",
             PageTitle = "Rexroth Press",
             LibraryNamespace = "AXOpen.Components.Rexroth.Press",
             Category = "Vendor Components",
@@ -547,10 +547,10 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["Rexroth", "Bosch", "press", "Smart Function Kit", "force"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsRexrothPress/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsRexrothPress/Documentation/Component_1.st",
+                "src/showcase/app/src/components.rexroth.press/Documentation/RexrothPress.st",
+                "src/showcase/app/src/components.rexroth.press/Documentation/AxoSmartFunctionKit_v_4_x_x_Showcase.st",
                 "src/components.rexroth.press/docs/README.md",
-                "src/components.rexroth.press/docs/Component_1.md",
+                "src/components.rexroth.press/docs/AxoSmartFunctionKit_v_4_x_x_Showcase.md",
                 "src/components.rexroth.press/docs/TROUBLES.md",
                 "src/components.rexroth.press/ctrl/src/AxoSmartFunctionKit_v_4_x_x.st",
                 "src/components.rexroth.press/ctrl/apax.yml",
@@ -558,7 +558,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/SiemCommunication/Documentation",
+            Route = "/components-siem-communication/Documentation/SiemCommunication",
             PageTitle = "Siemens Communication",
             LibraryNamespace = "AXOpen.Components.Siem.Communication",
             Category = "Vendor Components",
@@ -567,10 +567,10 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["Siemens", "communication", "serial", "PtP", "ET200SP", "point-to-point"],
             SourceFilePaths = [
-                "src/showcase/app/src/ComponentsSiemCommunication/Documentation/DocumentationContext.st",
-                "src/showcase/app/src/ComponentsSiemCommunication/Documentation/Component_1.st",
+                "src/showcase/app/src/components.siem.communication/Documentation/SiemCommunication.st",
+                "src/showcase/app/src/components.siem.communication/Documentation/AxoCmPtp_Showcase.st",
                 "src/components.siem.communication/docs/README.md",
-                "src/components.siem.communication/docs/Component_1.md",
+                "src/components.siem.communication/docs/AxoCmPtp_Showcase.md",
                 "src/components.siem.communication/docs/TROUBLES.md",
             ]
         },
@@ -578,7 +578,7 @@ public static class ShowcasePageRegistry
         // ── Foundation / Tooling ────────────────────────────────────────
         new()
         {
-            Route = "/Abstractions/Documentation",
+            Route = "/abstractions/Documentation/AbstractionsShowcase",
             PageTitle = "Abstractions",
             LibraryNamespace = "AXOpen.Abstractions",
             Category = "Foundation",
@@ -586,13 +586,13 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["abstractions", "interface", "IAxoContext", "IAxoObject", "IAxoMessenger", "IAxoLogger"],
             SourceFilePaths = [
-                "src/showcase/app/src/Foundation/AbstractionsShowcase.st",
+                "src/showcase/app/src/abstractions/AbstractionsShowcase.st",
                 "src/abstractions/ctrl/apax.yml",
             ]
         },
         new()
         {
-            Route = "/Inspectors/Documentation",
+            Route = "/inspectors/Documentation/InspectorsShowcase",
             PageTitle = "Inspectors",
             LibraryNamespace = "AXOpen.Inspectors",
             Category = "Foundation",
@@ -600,7 +600,7 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["inspector", "inspection", "digital", "analogue", "pass", "fail", "quality"],
             SourceFilePaths = [
-                "src/showcase/app/src/Foundation/InspectorsShowcase.st",
+                "src/showcase/app/src/inspectors/InspectorsShowcase.st",
                 "src/inspectors/docs/README.md",
                 "src/inspectors/docs/AXODIGITALINSPECTOR.md",
                 "src/inspectors/docs/AXOANALOGUEINSPECTOR.md",
@@ -609,20 +609,28 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/Io/Documentation",
+            Route = "/io/Documentation/IoShowcase",
             PageTitle = "I/O",
-            LibraryNamespace = "AXOpen.Showcase.Io",
+            LibraryNamespace = "AXOpen.Io",
             Category = "Foundation",
-            Description = "Documentation snippets for showcasing I/O patterns with inline code examples and live PLC context views.",
+            Description = "Hardware diagnostics, IO component monitoring, PROFINET record access, and IO-Link module configuration for SIMATIC AX applications.",
             Icon = "document-text",
-            Tags = ["I/O", "IO", "input", "output", "hardware"],
+            Tags = ["I/O", "IO", "input", "output", "hardware", "diagnostics", "AxoIoComponent", "AxoHwDiag", "AxoRecordAccessTool", "AxoIOLinkET200SP", "PROFINET", "IO-Link", "Balluff"],
             SourceFilePaths = [
-                "src/showcase/app/src/Foundation/IoShowcase.st",
+                "src/showcase/app/src/IO/IoShowcase.st",
+                "src/showcase/app/src/IO/AxoIoComponent_Showcase.st",
+                "src/showcase/app/src/IO/AxoHwDiag_Showcase.st",
+                "src/showcase/app/src/IO/AxoRecordAccessTool_Showcase.st",
+                "src/showcase/app/src/IO/AxoIOLinkET200SP_Balluff_IO_Showcase.st",
+                "src/io/ctrl/src/AxoIoComponent/AxoIoComponent.st",
+                "src/io/ctrl/src/AxoHwDiag/AxoHwDiag.st",
+                "src/io/ctrl/src/AxoRecordAccessTool/AxoRecordAccessTool.st",
+                "src/io/ctrl/apax.yml",
             ]
         },
         new()
         {
-            Route = "/Probers/Documentation",
+            Route = "/probers/Documentation/ProbersShowcase",
             PageTitle = "Probers",
             LibraryNamespace = "AXOpen.Probers",
             Category = "Foundation",
@@ -630,13 +638,13 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["prober", "test", "cyclic", "probe", "condition"],
             SourceFilePaths = [
-                "src/showcase/app/src/Foundation/ProbersShowcase.st",
+                "src/showcase/app/src/probers/ProbersShowcase.st",
                 "src/probers/ctrl/apax.yml",
             ]
         },
         new()
         {
-            Route = "/Simatic1500/Documentation",
+            Route = "/simatic1500/Documentation/Simatic1500Showcase",
             PageTitle = "SIMATIC S7-1500",
             LibraryNamespace = "AXOpen.S71500",
             Category = "Foundation",
@@ -644,7 +652,7 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["S7-1500", "SIMATIC", "RTC", "real-time clock", "runtime", "platform"],
             SourceFilePaths = [
-                "src/showcase/app/src/Foundation/Simatic1500Showcase.st",
+                "src/showcase/app/src/simatic1500/Simatic1500Showcase.st",
                 "src/simatic1500/ctrl/src/Rtc.st",
                 "src/simatic1500/ctrl/src/Rtm.st",
                 "src/simatic1500/ctrl/apax.yml",
@@ -652,7 +660,7 @@ public static class ShowcasePageRegistry
         },
         new()
         {
-            Route = "/Timers/Documentation",
+            Route = "/timers/Documentation/TimersShowcase",
             PageTitle = "Timers",
             LibraryNamespace = "AXOpen.Timers",
             Category = "Foundation",
@@ -660,13 +668,13 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["timer", "delay", "pulse", "blinker", "TON", "TOF", "TP"],
             SourceFilePaths = [
-                "src/showcase/app/src/Foundation/TimersShowcase.st",
+                "src/showcase/app/src/timers/TimersShowcase.st",
                 "src/timers/ctrl/apax.yml",
             ]
         },
         new()
         {
-            Route = "/Utils/Documentation",
+            Route = "/utils/Documentation/UtilsShowcase",
             PageTitle = "Utils",
             LibraryNamespace = "AXOpen.Utils",
             Category = "Foundation",
@@ -674,7 +682,7 @@ public static class ShowcasePageRegistry
             Icon = "document-text",
             Tags = ["utils", "string", "CRC", "checksum", "builder"],
             SourceFilePaths = [
-                "src/showcase/app/src/Foundation/UtilsShowcase.st",
+                "src/showcase/app/src/utils/UtilsShowcase.st",
                 "src/utils/ctrl/apax.yml",
             ]
         },

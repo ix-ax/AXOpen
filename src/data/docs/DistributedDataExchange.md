@@ -7,7 +7,7 @@ The `DistributedDataView` is dynamic component for dispalying data from IDistrib
 
 # Usage (Blazor)
 
-[!code-smalltalk[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Data/DistributedData.razor?name=BlazorViewDistributedData)]
+[!code-smalltalk[](../../showcase/app/ix-blazor/showcase.blazor/Pages/data/DistributedData.razor?name=BlazorViewDistributedData)]
 
 
 ### Parameters:
@@ -44,6 +44,6 @@ To define the **main exchange** for a group, use the following code in your Prog
 ---
 # Prerequisites (Ax)
 To enable automatic collection of data exchanges, you must use the appropriate attribute in your PLC code, like this:  
-[!code-csharp[](../../showcase/app/src/DataExamples/AxoDataDistributedExample.st?name=UseDistributedDataAttribute)]
+[!code-csharp[](../../showcase/app/src/data/AxoDataDistributed/AxoDataDistributedExample.st?name=UseDistributedDataAttribute)]
 
      

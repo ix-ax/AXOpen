@@ -1,4 +1,4 @@
-@page "/MitsubishiRobotics/Documentation"
+@page "/components-mitsubishi-robotics/Documentation/MitsubishiRobotics"
 @using AXOpen.Components.Mitsubishi.Robotics
 @using AXOpen.Core;
 @using Operon.Components.Tab
@@ -32,7 +32,7 @@
 				<ul class="mt-3 space-y-2 text-sm text-slate-600">
 					<li><span class="font-medium text-slate-800">Category:</span> Robotics</li>
 					<li><span class="font-medium text-slate-800">Vendor:</span> Mitsubishi Electric</li>
-					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">mitsubishi_robotics_documentation.componentOne</span></li>
+					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">mitsubishi_robotics_documentation.axoCr800_v_1_x_x</span></li>
 				</ul>
 				<div class="mt-3 pt-3 border-t border-slate-100">
 					<p class="text-xs font-medium text-slate-500 mb-1">Maturity</p>
@@ -56,7 +56,7 @@
 					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
 					<ul class="space-y-1 min-w-0">
 						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="Component_1 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoCr800 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
 						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
 					</ul>
 				</div>
@@ -107,7 +107,7 @@
 									<option value="Compact">Compact</option>
 								</select>
 							</div>
-							<RenderableContentControl Context="@Entry.Plc.Ctx.mitsubishi_robotics_documentation.componentOne" Presentation="@_selectedPresentation" />
+							<RenderableContentControl Context="@Entry.Plc.Ctx.mitsubishi_robotics_documentation.axoCr800_v_1_x_x" Presentation="@_selectedPresentation" />
 						</TabPage>
 
 						<TabPage Title="Code reference">
@@ -228,12 +228,12 @@
 						</TabPage>
 
 						<TabPage Title="Example sequence">
-							<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.mitsubishi_robotics_documentation.componentOne.Sequencer" />
-							<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.mitsubishi_robotics_documentation.componentOne.Sequencer" />
+							<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.mitsubishi_robotics_documentation.axoCr800_v_1_x_x.Sequencer" />
+							<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.mitsubishi_robotics_documentation.axoCr800_v_1_x_x.Sequencer" />
 							<article class="rounded-xl border border-slate-200 bg-white p-4">
 								<h2 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h2>
 								<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
-									<SourceFileLink Path="@_plcComponentPath" Label="Component_1.st" OnOpen="OpenModalAsync" />.
+									<SourceFileLink Path="@_plcComponentPath" Label="AxoCr800_v_1_x_x_Showcase.st" OnOpen="OpenModalAsync" />.
 								</p>
 								@if (_stepLogicBlocks.Count > 0)
 								{
@@ -279,8 +279,8 @@
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
 
-	private readonly string _plcContextPath   = "src/showcase/app/src/ComponentsMitsubishiRobotics/Documentation/DocumentationContext.st";
-	private readonly string _plcComponentPath = "src/showcase/app/src/ComponentsMitsubishiRobotics/Documentation/Component_1.st";
+	private readonly string _plcContextPath   = "src/showcase/app/src/components.mitsubishi.robotics/Documentation/MitsubishiRobotics.st";
+	private readonly string _plcComponentPath = "src/showcase/app/src/components.mitsubishi.robotics/Documentation/AxoCr800_v_1_x_x_Showcase.st";
 
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath    = "src/showcase/app/hwc/plc_line.hwl.yml";
@@ -288,7 +288,7 @@
 
 	// Library resource paths
 	private readonly string _libReadmePath        = "src/components.mitsubishi.robotics/docs/README.md";
-	private readonly string _libComponent1DocPath = "src/components.mitsubishi.robotics/docs/Component_1.md";
+	private readonly string _libComponent1DocPath = "src/components.mitsubishi.robotics/docs/AxoCr800_v_1_x_x_Showcase.md";
 	private readonly string _libTroublesPath      = "src/components.mitsubishi.robotics/docs/TROUBLES.md";
 	private readonly string _libAxoCr800StPath    = "src/components.mitsubishi.robotics/ctrl/src/AxoCr800_v_1_x_x.st";
 	private readonly string _libApaxYmlPath       = "src/components.mitsubishi.robotics/ctrl/apax.yml";
@@ -318,7 +318,7 @@
 			_hwcDeviceTemplateSnippet    = await hwcTemplateTask;
 			_hwcIoSystemSnippet          = await hwcIoSystemTask;
 
-			_stepsBySymbol = Entry.Plc.Ctx.mitsubishi_robotics_documentation.componentOne.Steps
+			_stepsBySymbol = Entry.Plc.Ctx.mitsubishi_robotics_documentation.axoCr800_v_1_x_x.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
@@ -339,8 +339,8 @@
 
 	public override void ConfigurePolling()
 	{
-		var seq   = Entry.Plc.Ctx.mitsubishi_robotics_documentation.componentOne.Sequencer;
-		var steps = Entry.Plc.Ctx.mitsubishi_robotics_documentation.componentOne.Steps;
+		var seq   = Entry.Plc.Ctx.mitsubishi_robotics_documentation.axoCr800_v_1_x_x.Sequencer;
+		var steps = Entry.Plc.Ctx.mitsubishi_robotics_documentation.axoCr800_v_1_x_x.Steps;
 
 		this.StartPolling(seq, 250);
 		foreach (var step in steps)

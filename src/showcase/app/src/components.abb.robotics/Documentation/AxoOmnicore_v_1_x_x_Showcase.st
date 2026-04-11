@@ -1,7 +1,7 @@
 USING AXOpen.Core;
 NAMESPACE AXOpen.Components.Abb.Robotics
     {S7.extern=ReadWrite}
-    CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoOmnicore_v_1_x_x_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             AxoOmnicore_v_1_x_x : AXOpen.Components.Abb.Robotics.AxoOmnicore_v_1_x_x;  

@@ -1,10 +1,10 @@
-@page "/Io/Documentation"
+@page "/io/Documentation/IoShowcase"
 @using AXOpen.Core;
 @using Operon.Components.Tab
 @using showcase.Services;
 @inherits RenderableComponentBase
 
-<PageTitle>I/O Doc Snippets - Documentation</PageTitle>
+<PageTitle>I/O - Documentation</PageTitle>
 
 <SourceViewerModal @ref="_modal" />
 
@@ -12,15 +12,15 @@
 	<nav class="text-sm text-slate-500">
 		<a href="/" class="hover:text-slate-800">Home</a>
 		<span class="px-2">/</span>
-		<span class="font-medium text-slate-800">I/O Documentation Snippets</span>
+		<span class="font-medium text-slate-800">I/O Documentation</span>
 	</nav>
 
 	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
-		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Showcase.Io</p>
-		<h1 class="mt-1 text-3xl font-semibold text-slate-900">I/O Doc Snippets Showcase</h1>
+		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Io</p>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">I/O Showcase</h1>
 		<p class="mt-2 max-w-3xl text-slate-600">
-			Documentation snippet components for showcasing I/O patterns.
-			Each tab renders a standalone documentation component with inline code examples and live PLC context views.
+			Hardware diagnostics, IO component monitoring, record access tools, and IO-Link module configuration.
+			Each tab demonstrates a different IO library component with live PLC bindings and code examples.
 		</p>
 	</header>
 
@@ -30,7 +30,7 @@
 				<h2 class="text-base font-semibold text-slate-900">Component Overview</h2>
 				<ul class="mt-3 space-y-2 text-sm text-slate-600">
 					<li><span class="font-medium text-slate-800">Category:</span> Foundation / I/O</li>
-					<li><span class="font-medium text-slate-800">Components:</span> I/O Doc Snippets 1–5</li>
+					<li><span class="font-medium text-slate-800">Components:</span> AxoIoComponent, AxoHwDiag, AxoRecordAccessTool, AxoIOLinkET200SP</li>
 					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">io_documentation</span></li>
 				</ul>
 				<div class="mt-3 pt-3 border-t border-slate-100">
@@ -42,14 +42,25 @@
 			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
 				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
 				<ul class="mt-3 space-y-2 text-sm min-w-0">
-					<li class="min-w-0"><SourceFileLink Path="@_plcContextPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcContextPath"          OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcIoComponentPath"       OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcHwDiagPath"            OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcRecordAccessPath"      OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcIOLinkET200SPPath"     OnOpen="OpenModalAsync" /></li>
 				</ul>
 			</section>
 
 			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
 				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
-
-				<!-- External Links -->
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Source</p>
+					<ul class="space-y-1 min-w-0">
+						<li class="min-w-0"><SourceFileLink Path="@_libIoComponentStPath"  Label="AxoIoComponent.st"       Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libHwDiagStPath"       Label="AxoHwDiag.st"            Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libRecordAccessStPath" Label="AxoRecordAccessTool.st"  Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"        Label="apax.yml"                Mono="false" OnOpen="OpenModalAsync" /></li>
+					</ul>
+				</div>
 				<div>
 					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">External Links</p>
 					<ul class="space-y-1">
@@ -62,24 +73,231 @@
 		<section class="space-y-6 xl:col-span-2">
 			<article class="rounded-xl border border-slate-200 bg-white p-4">
 				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
-				<p class="mt-1 text-sm text-slate-600">Each tab renders a self-contained documentation component with live PLC bindings.</p>
+				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
+
+				<div class="mt-4">
+					<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
+					<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
+						<option value="Command-Control">Command-Control</option>
+						<option value="Status-Display">Status-Display</option>
+						<option value="Service-Control">Service-Control</option>
+						<option value="Spot">Spot</option>
+						<option value="Compact">Compact</option>
+					</select>
+				</div>
 
 				<div class="mt-4 space-y-4">
 					<Tab>
-						<TabPage Title="Component_1">
-							<Component_1></Component_1>
+						<!-- AxoIoComponent -->
+						<TabPage Title="AxoIoComponent">
+							<div class="mt-4 space-y-4">
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.io_documentation.axoIoComponent" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcIoComponentPath" Label="@_plcIoComponentPath" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_ioCompDeclSnippet != null && !_ioCompDeclSnippet.IsError)
+												{
+													<CodeBlock Content="@(_ioCompDeclSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+											</div>
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcIoComponentPath" Label="@_plcIoComponentPath" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_ioCompInitSnippet != null && !_ioCompInitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_ioCompInitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.io_documentation.axoIoComponent.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.io_documentation.axoIoComponent.Sequencer" />
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
 						</TabPage>
-						<TabPage Title="Component_2">
-							<Component_2></Component_2>
+
+						<!-- AxoHwDiag -->
+						<TabPage Title="AxoHwDiag">
+							<div class="mt-4 space-y-4">
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.io_documentation.axoHwDiag" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcHwDiagPath" Label="@_plcHwDiagPath" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_hwDiagDeclSnippet != null && !_hwDiagDeclSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwDiagDeclSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+											</div>
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Configuration &amp; Run (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcHwDiagPath" Label="@_plcHwDiagPath" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_hwDiagInitSnippet != null && !_hwDiagInitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwDiagInitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.io_documentation.axoHwDiag.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.io_documentation.axoHwDiag.Sequencer" />
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
 						</TabPage>
-						<TabPage Title="Component_3">
-							<Component_3></Component_3>
+
+						<!-- AxoRecordAccessTool -->
+						<TabPage Title="AxoRecordAccessTool">
+							<div class="mt-4 space-y-4">
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.io_documentation.axoRecordAccessTool" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcRecordAccessPath" Label="@_plcRecordAccessPath" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_recAccDeclSnippet != null && !_recAccDeclSnippet.IsError)
+												{
+													<CodeBlock Content="@(_recAccDeclSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+											</div>
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcRecordAccessPath" Label="@_plcRecordAccessPath" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_recAccInitSnippet != null && !_recAccInitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_recAccInitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.io_documentation.axoRecordAccessTool.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.io_documentation.axoRecordAccessTool.Sequencer" />
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
 						</TabPage>
-						<TabPage Title="Component_4">
-							<Component_4></Component_4>
-						</TabPage>
-						<TabPage Title="Component_5">
-							<Component_5></Component_5>
+
+						<!-- AxoIOLinkET200SP_Balluff_IO -->
+						<TabPage Title="AxoIOLinkET200SP">
+							<div class="mt-4 space-y-4">
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.io_documentation.axoIOLinkET200SP_Balluff_IO" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcIOLinkET200SPPath" Label="@_plcIOLinkET200SPPath" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_ioLinkDeclSnippet != null && !_ioLinkDeclSnippet.IsError)
+												{
+													<CodeBlock Content="@(_ioLinkDeclSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+											</div>
+											<div>
+												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcIOLinkET200SPPath" Label="@_plcIOLinkET200SPPath" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_ioLinkInitSnippet != null && !_ioLinkInitSnippet.IsError)
+												{
+													<CodeBlock Content="@(_ioLinkInitSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<div class="mt-4">
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.io_documentation.axoIOLinkET200SP_Balluff_IO.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.io_documentation.axoIOLinkET200SP_Balluff_IO.Sequencer" />
+										</div>
+									</TabPage>
+								</Tab>
+							</div>
 						</TabPage>
 					</Tab>
 				</div>
@@ -89,14 +307,51 @@
 </div>
 
 @code {
+	[Inject] private CodeSnippetProvider Snippets { get; set; } = default!;
+
 	private SourceViewerModal _modal = default!;
 	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
 
-	private readonly string _plcContextPath = "src/showcase/app/src/Foundation/IoShowcase.st";
+	private bool _loadingCode = true;
+	private string _selectedPresentation = "Command-Control";
+
+	// Showcase ST paths
+	private readonly string _plcContextPath       = "src/showcase/app/src/IO/IoShowcase.st";
+	private readonly string _plcIoComponentPath    = "src/showcase/app/src/IO/AxoIoComponent_Showcase.st";
+	private readonly string _plcHwDiagPath         = "src/showcase/app/src/IO/AxoHwDiag_Showcase.st";
+	private readonly string _plcRecordAccessPath   = "src/showcase/app/src/IO/AxoRecordAccessTool_Showcase.st";
+	private readonly string _plcIOLinkET200SPPath  = "src/showcase/app/src/IO/AxoIOLinkET200SP_Balluff_IO_Showcase.st";
+
+	// Library source paths
+	private readonly string _libIoComponentStPath  = "src/io/ctrl/src/AxoIoComponent/AxoIoComponent.st";
+	private readonly string _libHwDiagStPath       = "src/io/ctrl/src/AxoHwDiag/AxoHwDiag.st";
+	private readonly string _libRecordAccessStPath = "src/io/ctrl/src/AxoRecordAccessTool/AxoRecordAccessTool.st";
+	private readonly string _libApaxYmlPath        = "src/io/ctrl/apax.yml";
+
+	// Code snippets
+	private CodeSnippet? _ioCompDeclSnippet, _ioCompInitSnippet;
+	private CodeSnippet? _hwDiagDeclSnippet, _hwDiagInitSnippet;
+	private CodeSnippet? _recAccDeclSnippet, _recAccInitSnippet;
+	private CodeSnippet? _ioLinkDeclSnippet, _ioLinkInitSnippet;
 
 	protected override async Task OnInitializedAsync()
 	{
 		await base.OnInitializedAsync();
+
+		var tasks = new[]
+		{
+			Snippets.GetTaggedRegionAsync(_plcIoComponentPath,   "ComponentDeclaration").ContinueWith(t => _ioCompDeclSnippet = t.Result),
+			Snippets.GetTaggedRegionAsync(_plcIoComponentPath,   "Initialization").ContinueWith(t => _ioCompInitSnippet = t.Result),
+			Snippets.GetTaggedRegionAsync(_plcHwDiagPath,        "ComponentDeclaration").ContinueWith(t => _hwDiagDeclSnippet = t.Result),
+			Snippets.GetTaggedRegionAsync(_plcHwDiagPath,        "Initialization").ContinueWith(t => _hwDiagInitSnippet = t.Result),
+			Snippets.GetTaggedRegionAsync(_plcRecordAccessPath,  "ComponentDeclaration").ContinueWith(t => _recAccDeclSnippet = t.Result),
+			Snippets.GetTaggedRegionAsync(_plcRecordAccessPath,  "Initialization").ContinueWith(t => _recAccInitSnippet = t.Result),
+			Snippets.GetTaggedRegionAsync(_plcIOLinkET200SPPath, "ComponentDeclaration").ContinueWith(t => _ioLinkDeclSnippet = t.Result),
+			Snippets.GetTaggedRegionAsync(_plcIOLinkET200SPPath, "Initialization").ContinueWith(t => _ioLinkInitSnippet = t.Result),
+		};
+
+		await Task.WhenAll(tasks);
+		_loadingCode = false;
 	}
 
 	public override void ConfigurePolling()

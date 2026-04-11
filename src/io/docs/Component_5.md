@@ -27,26 +27,26 @@
 > [!NOTE]
 > In order to interpret numeric values of hardware ids as meaningful names we need to provide mapping of name-value pairs. 
 
-[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/Component_5.razor?name=SpecifyNameValues)]
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Pages/io/Documentation/Component_5.razor?name=SpecifyNameValues)]
 
 
 # [BLAZOR](#tab/blazor)
 
 ## Generic Read-Only view 
 
-[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/Component_5.razor?name=GenericComponentStatusView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/io/Documentation/Component_5.razor?name=GenericComponentStatusView)]
 
 ## Generic control view 
 
-[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/Component_5.razor?name=GenericComponentCommandView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/io/Documentation/Component_5.razor?name=GenericComponentCommandView)]
 
 ## Type agnostic using RenderableContentControl status (Read-Only) view
 
-[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/Component_5.razor?name=RccComponentStatusView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/io/Documentation/Component_5.razor?name=RccComponentStatusView)]
 
 
 ## Type agnostic using RenderableContentControl control view
 
-[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Io/Component_5.razor?name=RccComponentCommandView)]
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/io/Documentation/Component_5.razor?name=RccComponentCommandView)]
 
 ---

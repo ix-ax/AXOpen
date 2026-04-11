@@ -3,7 +3,7 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Components.Rexroth.Drives
     {S7.extern=ReadWrite}
-    CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoCtrlxDriveXsc_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             CtrlXdrive : AXOpen.Components.Rexroth.Drives.AxoCtrlxDriveXsc;      

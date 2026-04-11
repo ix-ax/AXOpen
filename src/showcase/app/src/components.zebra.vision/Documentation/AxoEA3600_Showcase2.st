@@ -1,7 +1,7 @@
 USING AXOpen.Core;
 NAMESPACE AXOpen.Components.Zebra.Vision
     {S7.extern=ReadWrite}
-    CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoEA3600_Showcase2 EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             ExampleComponent : AXOpen.Components.Zebra.Vision.AxoEA3600;             

@@ -46,10 +46,10 @@ A `Potential` message can be automatically requalified to `Warning` or `Error` b
 These attributes are used to set the values of the static texts of the messenger. These values are read out at the compilation time, transferred to .NET counterpart and set as constant strings. Therefore, they can't be changed at the runtime.
 
 Example of declaration of the instance and defining the attributes `MessageText` and `Help`.
-[!code-smalltalk[](../../showcase/app/src/CoreExamples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=MessageTextHelpDeclaration)]
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=MessageTextHelpDeclaration)]
 
 Example of declaration of the instance and defining the attribute `PlcTextList`.
-[!code-smalltalk[](../../showcase/app/src/CoreExamples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=PlcTextListDeclaration)]
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=PlcTextListDeclaration)]
 
 **How to use `AxoMessenger`**
 
@@ -62,17 +62,17 @@ In the case of `PlcTextList` attribute is defined, the parsed values from this a
 [!code-csharp[](../../showcase/app/ix/AXOpen.Messaging/AxoStaticMessengerDocuExample.cs?name=InitializationOfTheDotNetTextList)]
 
 Avoid mixing several activation principles with the same instance.
-[!code-smalltalk[](../../showcase/app/src/CoreExamples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=MessengerCompleteExample)]
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=MessengerCompleteExample)]
 
 If necessary, the default behaviour of the acknowledgeable messenger should be changed as follows.
-[!code-smalltalk[](../../showcase/app/src/CoreExamples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=DoNotRequireAcknowledgement)]
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=DoNotRequireAcknowledgement)]
 Contrariwise, the default behaviour of the unacknowledgeable messenger should be changed as follows.
-[!code-smalltalk[](../../showcase/app/src/CoreExamples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=RequireAcknowledgement)]
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=RequireAcknowledgement)]
 
 **How to visualize `AxoMessenger`**
 
 On the UI side, use the `RenderableContentControl` and set its Context according to the placement of the instance of the `AxoMessenger`.
-[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Pages/Core/DocuExamples/AxoMessagingStaticDocu.razor?name=RenderedView)]
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Pages/core/DocuExamples/AxoMessagingStaticDocu.razor?name=RenderedView)]
 
 
 See also [AxoLogger](AXOLOGGER.md#axologger-and-axomessenger)

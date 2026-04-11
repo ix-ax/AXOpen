@@ -3,7 +3,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Components.Cognex.Vision
 
     {S7.extern=ReadWrite}
-    CLASS Component_5 EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoVisionPro_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             VisionPro : AXOpen.Components.Cognex.Vision.AxoVisionPro;

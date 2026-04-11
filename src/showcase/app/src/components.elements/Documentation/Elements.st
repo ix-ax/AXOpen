@@ -2,7 +2,7 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Components.Elements
     {S7.extern=ReadWrite}
-    CLASS DocumentationContext EXTENDS AXOpen.Core.AxoObject
+    CLASS ElementsShowcase EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             Cu : DocumentationControllUnit;
         END_VAR

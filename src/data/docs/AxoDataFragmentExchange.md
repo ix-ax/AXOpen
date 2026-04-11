@@ -8,7 +8,7 @@ Fragment data exchange allows to group of multiple data managers into a single o
 
 Data exchange object must be extended by `AxoDataFragmentExchange`.
 
-[!code-smalltalk[](../../showcase/app/src/DataExamples/AxoDataFragmentExchangeExample.st?name=AxoProcessDataManagerDeclaration)]
+[!code-smalltalk[](../../showcase/app/src/data/AxoDataFragmentExchange/AxoDataFragmentExchangeExample.st?name=AxoProcessDataManagerDeclaration)]
 
 **Nesting AxoDataExchanger(s)**
 
@@ -24,15 +24,15 @@ AxoDataFragmenExchange can group several data managers where each can point to a
 
 We will now need to create an instance of `AxoDataFragmentExchange` in a context object (`AxoContext`) (or as a member of another class that derives from `AxoObject`). We will also need to call `AxoDataFragmentExchangeContext` in the Main method of appropriate context.
 
-[!code-smalltalk[](../../showcase/app/src/DataExamples/AxoDataFragmentExchangeExample.st?name=ContextDeclaration)]
+[!code-smalltalk[](../../showcase/app/src/data/AxoDataFragmentExchange/AxoDataFragmentExchangeExample.st?name=ContextDeclaration)]
 
 Execute run method in CU
 
-[!code-smalltalk[](../../showcase/app/src/DataExamples/AxoDataExchangeExample.st?name=Execute)]
+[!code-smalltalk[](../../showcase/app/src/data/AxoDataExchange/AxoDataExchangeExample.st?name=Execute)]
 
 Use in Automat Sequence
 
-[!code-smalltalk[](../../showcase/app/src/DataExamples/AxoDataExchangeExample.st?name=Run)]
+[!code-smalltalk[](../../showcase/app/src/data/AxoDataExchange/AxoDataExchangeExample.st?name=Run)]
 
 ### Data exchange initialization in .NET
 

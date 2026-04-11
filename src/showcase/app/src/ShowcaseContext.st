@@ -64,74 +64,74 @@ CLASS ShowcaseContext EXTENDS AXOpen.Core.AxoContext
         AxoDataDistributedContext : AxoDataDistributedExample.Context;
 
         // ---- Components.Drives ----
-        drives_documentation : AXOpen.Components.Drives.DocumentationContext;
+        drives_documentation : AXOpen.Components.Drives.DrivesShowcase;
 
         // ---- Components.Elements ----
-        elements_documentation : AXOpen.Components.Elements.DocumentationContext;
+        elements_documentation : AXOpen.Components.Elements.ElementsShowcase;
 
         // ---- Components.Pneumatics ----
-        pneumatics_documentation : AXOpen.Showcase.Pneumatics.DocumentationContext;
+        pneumatics_documentation : AXOpen.Showcase.Pneumatics.PneumaticsShowcase;
 
         // ---- Components.Robotics ----
-        robotics_documentation : AXOpen.Components.Robotics.DocumentationContext;
+        robotics_documentation : AXOpen.Components.Robotics.RoboticsShowcase;
 
         // ---- Foundation ----
-        abstractions_documentation : AXOpen.Showcase.Abstractions.DocumentationContext;
-        components_abstractions_documentation : AXOpen.Showcase.ComponentsAbstractions.DocumentationContext;
-        inspectors_documentation : AXOpen.Showcase.Inspectors.DocumentationContext;
-        io_documentation : AXOpen.Showcase.Io.DocumentationContext;
-        probers_documentation : AXOpen.Showcase.Probers.DocumentationContext;
-        simatic1500_documentation : AXOpen.Showcase.Simatic1500.DocumentationContext;
-        timers_documentation : AXOpen.Showcase.Timers.DocumentationContext;
-        utils_documentation : AXOpen.Showcase.Utils.DocumentationContext;
+        abstractions_documentation : AXOpen.Showcase.Abstractions.AbstractionsShowcase;
+        components_abstractions_documentation : AXOpen.Showcase.ComponentsAbstractions.ComponentsAbstractionsShowcase;
+        inspectors_documentation : AXOpen.Showcase.Inspectors.InspectorsShowcase;
+        io_documentation : AXOpen.Showcase.Io.IoShowcase;
+        probers_documentation : AXOpen.Showcase.Probers.ProbersShowcase;
+        simatic1500_documentation : AXOpen.Showcase.Simatic1500.Simatic1500Showcase;
+        timers_documentation : AXOpen.Showcase.Timers.TimersShowcase;
+        utils_documentation : AXOpen.Showcase.Utils.UtilsShowcase;
 
         // ---- Components.Abb.Robotics ----
-        abb_robotics_documentation : AXOpen.Components.Abb.Robotics.DocumentationContext;
+        abb_robotics_documentation : AXOpen.Components.Abb.Robotics.AbbRobotics;
 
         // ---- Components.Balluff.Identification ----
-        balluff_identification_documentation : AXOpen.Components.Balluff.Identification.DocumentationContext;
+        balluff_identification_documentation : AXOpen.Components.Balluff.Identification.BalluffIdentification;
 
         // ---- Components.Cognex.Vision ----
-        cognex_vision_documentation : AXOpen.Components.Cognex.Vision.DocumentationContext;
+        cognex_vision_documentation : AXOpen.Components.Cognex.Vision.CognexVision;
 
         // ---- Components.Desoutter.Tightening ----
-        desoutter_tightening_documentation : AXOpen.Components.Desoutter.Tightening.DocumentationContext;
+        desoutter_tightening_documentation : AXOpen.Components.Desoutter.Tightening.DesoutterTightening;
 
         // ---- Components.Dukane.Welders ----
-        dukane_welders_documentation : AXOpen.Components.Dukane.Welders.DocumentationContext;
+        dukane_welders_documentation : AXOpen.Components.Dukane.Welders.DukaneWelders;
 
         // ---- Components.Festo.Drives ----
-        festo_drives_documentation : AXOpen.Components.Festo.Drives.DocumentationContext;
+        festo_drives_documentation : AXOpen.Components.Festo.Drives.FestoDrives;
 
         // ---- Components.Keyence.Vision ----
-        keyence_vision_documentation : AXOpen.Components.Keyence.Vision.DocumentationContext;
+        keyence_vision_documentation : AXOpen.Components.Keyence.Vision.KeyenceVision;
 
         // ---- Components.Kuka.Robotics ----
-        kuka_robotics_documentation : AXOpen.Components.Kuka.Robotics.DocumentationContext;
+        kuka_robotics_documentation : AXOpen.Components.Kuka.Robotics.KukaRobotics;
 
         // ---- Components.Mitsubishi.Robotics ----
-        mitsubishi_robotics_documentation : AXOpen.Components.Mitsubishi.Robotics.DocumentationContext;
+        mitsubishi_robotics_documentation : AXOpen.Components.Mitsubishi.Robotics.MitsubishiRobotics;
 
         // ---- Components.Rexroth.Drives ----
-        rexroth_drives_documentation : AXOpen.Components.Rexroth.Drives.DocumentationContext;
+        rexroth_drives_documentation : AXOpen.Components.Rexroth.Drives.RexrothDrives;
 
         // ---- Components.Rexroth.Press ----
-        rexroth_press_documentation : AXOpen.Components.Rexroth.Press.DocumentationContext;
+        rexroth_press_documentation : AXOpen.Components.Rexroth.Press.RexrothPress;
 
         // ---- Components.Rexroth.Tightening ----
-        rexroth_tightening_documentation : AXOpen.Components.Rexroth.Tightening.DocumentationContext;
+        rexroth_tightening_documentation : AXOpen.Components.Rexroth.Tightening.RexrothTightening;
 
         // ---- Components.Siem.Communication ----
-        siem_communication_documentation : AXOpen.Components.Siem.Communication.DocumentationContext;
+        siem_communication_documentation : AXOpen.Components.Siem.Communication.SiemCommunication;
 
         // ---- Components.Siem.Identification ----
-        siem_identification_documentation : AXOpen.Components.Siem.Identification.DocumentationContext;
+        siem_identification_documentation : AXOpen.Components.Siem.Identification.SiemIdentification;
 
         // ---- Components.Ur.Robotics ----
-        ur_robotics_documentation : AXOpen.Components.Ur.Robotics.DocumentationContext;
+        ur_robotics_documentation : AXOpen.Components.Ur.Robotics.UrRobotics;
 
         // ---- Components.Zebra.Vision ----
-        zebra_vision_documentation : AXOpen.Components.Zebra.Vision.DocumentationContext;
+        zebra_vision_documentation : AXOpen.Components.Zebra.Vision.ZebraVision;
     END_VAR
 
     METHOD PROTECTED OVERRIDE Main

@@ -3,7 +3,7 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Components.Rexroth.Drives
     {S7.extern=ReadWrite}
-    CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoIndraDrive_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             IndraDrive : AXOpen.Components.Rexroth.Drives.AxoIndraDrive;      

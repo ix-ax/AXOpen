@@ -1,7 +1,7 @@
 USING AXOpen.Core;
 NAMESPACE AXOpen.Components.Keyence.Vision
     {S7.extern=ReadWrite}
-    CLASS Component_2 EXTENDS AXOpen.Core.AxoObject
+    CLASS Axo_SR_1000_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             Component : AXOpen.Components.Keyence.Vision.Axo_SR_1000;             

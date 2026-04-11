@@ -9,7 +9,7 @@ USING AXOpen.Logging;
 NAMESPACE AXOpen.Showcase.Abstractions
 
     {S7.extern=ReadWrite}
-    CLASS DocumentationContext EXTENDS AXOpen.Core.AxoObject
+    CLASS AbstractionsShowcase EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             _rootObject : AxoObject;
             _interfaceDoc : InterfaceUsageDoc;

@@ -1,16 +1,16 @@
 NAMESPACE AXOpen.Components.Dukane.Welders
     {S7.extern=ReadWrite}
-    CLASS DocumentationContext EXTENDS AXOpen.Core.AxoObject
+    CLASS DukaneWelders EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             rootObject      : AxoObject;
-            componentOne    : AXOpen.Components.Dukane.Welders.Component_1;
-            componentTwo    : AXOpen.Components.Dukane.Welders.Component_2;
+            axo_IQ_SeriesWelder : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Showcase;
+            axo_IQ_SeriesWelder_2 : AXOpen.Components.Dukane.Welders.Axo_IQ_SeriesWelder_Showcase2;
         END_VAR
 
         METHOD PUBLIC Execute
             rootObject.Run(THIS);
-            componentOne.Run(rootObject);
-            componentTwo.Run(rootObject);
+            axo_IQ_SeriesWelder.Run(rootObject);
+            axo_IQ_SeriesWelder_2.Run(rootObject);
         END_METHOD
     END_CLASS
 END_NAMESPACE

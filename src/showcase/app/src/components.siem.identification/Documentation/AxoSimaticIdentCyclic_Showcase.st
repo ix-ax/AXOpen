@@ -5,7 +5,7 @@ USING System.Serialization;
 
 NAMESPACE AXOpen.Components.Siem.Identification
     {S7.extern=ReadWrite}
-    CLASS Component_3 EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoSimaticIdentCyclic_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             RF260R : AXOpen.Components.Siem.Identification.AxoSimaticIdentCyclic;     

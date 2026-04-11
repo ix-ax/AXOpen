@@ -5,7 +5,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Showcase.Timers
 
     {S7.extern=ReadWrite}
-    CLASS DocumentationContext EXTENDS AXOpen.Core.AxoObject
+    CLASS TimersShowcase EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             _rootObject : AxoObject;
             _timersDoc : TimersDoc;

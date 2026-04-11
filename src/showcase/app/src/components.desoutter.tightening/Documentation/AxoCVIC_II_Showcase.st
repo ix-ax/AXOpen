@@ -2,7 +2,7 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Components.Desoutter.Tightening
     {S7.extern=ReadWrite}
-    CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoCVIC_II_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             ExampleScrewdriver : AXOpen.Components.Desoutter.Tightening.AxoCVIC_II;             

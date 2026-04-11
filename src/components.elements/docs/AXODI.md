@@ -10,27 +10,27 @@ AxoDi is used for checking values of digital inputs.
 
 ## Declare component
 
-[!code-smalltalk[](../../showcase/app/src/ComponentsElements/Documentation/DocumentationContext.st?name=AxoDiDeclaration)]
+[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoDiDeclaration)]
 
 ## Declare initialization variables
 
 *Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.*
 
-[!code-smalltalk[](../../showcase/app/src/ComponentsElements/Documentation/DocumentationContext.st?name=AxoDiInitializationArgumentsDeclaration)]
+[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoDiInitializationArgumentsDeclaration)]
 
 ## Manual Control
 
-[!code-smalltalk[](../../showcase/app/src/ComponentsElements/Documentation/DocumentationContext.st?name=AxoDiManualControl)]
+[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoDiManualControl)]
 
 ## Initialize & Run
 
-[!code-smalltalk[](../../showcase/app/src/ComponentsElements/Documentation/DocumentationContext.st?name=AxoDiInitialization)]
+[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoDiInitialization)]
 
 [!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
 
 ## Use
 
-[!code-smalltalk[](../../showcase/app/src/ComponentsElements/Documentation/DocumentationContext.st?name=AxoDiUsage)]
+[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoDiUsage)]
 
 # [.NET TWIN](#tab/twin)
 

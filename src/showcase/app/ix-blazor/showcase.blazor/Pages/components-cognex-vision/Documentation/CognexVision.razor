@@ -1,4 +1,4 @@
-@page "/CognexVision/Documentation"
+@page "/components-cognex-vision/Documentation/CognexVision"
 @using AXOpen.Components.Cognex.Vision
 @using AXOpen.Core;
 @using Operon.Components.Tab
@@ -57,9 +57,9 @@
 					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
 					<ul class="space-y-1 min-w-0">
 						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="Component_1 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="Component_2 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent3DocPath" Label="Component_3 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoInsight v6 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="AxoDataman v6 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libComponent3DocPath" Label="AxoDataman v6 (Ex.2) — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
 						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
 					</ul>
 				</div>
@@ -124,7 +124,7 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.componentOne" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
 									<TabPage Title="Code reference">
@@ -232,8 +232,8 @@
 									</TabPage>
 									<TabPage Title="Example sequence">
 										<div class="mt-4">
-											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Sequencer" />
-											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Sequencer" />
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Sequencer" />
 											@if (_c1StepLogicBlocks.Count > 0)
 											{
 												<div class="mt-4 space-y-3">
@@ -269,7 +269,7 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.componentTwo" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
 									<TabPage Title="Code reference">
@@ -377,8 +377,8 @@
 									</TabPage>
 									<TabPage Title="Example sequence">
 										<div class="mt-4">
-											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentTwo.Sequencer" />
-											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentTwo.Sequencer" />
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Sequencer" />
 											@if (_c2StepLogicBlocks.Count > 0)
 											{
 												<div class="mt-4 space-y-3">
@@ -415,7 +415,7 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.componentThree" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
 									<TabPage Title="Code reference">
@@ -523,8 +523,8 @@
 									</TabPage>
 									<TabPage Title="Example sequence">
 										<div class="mt-4">
-											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentThree.Sequencer" />
-											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentThree.Sequencer" />
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2.Sequencer" />
 											@if (_c3StepLogicBlocks.Count > 0)
 											{
 												<div class="mt-4 space-y-3">
@@ -561,7 +561,7 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.componentFour" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
 									<TabPage Title="Code reference">
@@ -669,8 +669,8 @@
 									</TabPage>
 									<TabPage Title="Example sequence">
 										<div class="mt-4">
-											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentFour.Sequencer" />
-											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentFour.Sequencer" />
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0.Sequencer" />
 											@if (_c4StepLogicBlocks.Count > 0)
 											{
 												<div class="mt-4 space-y-3">
@@ -707,7 +707,7 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.componentFive" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
 									<TabPage Title="Code reference">
@@ -815,8 +815,8 @@
 									</TabPage>
 									<TabPage Title="Example sequence">
 										<div class="mt-4">
-											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentFive.Sequencer" />
-											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.componentFive.Sequencer" />
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Sequencer" />
 											@if (_c5StepLogicBlocks.Count > 0)
 											{
 												<div class="mt-4 space-y-3">
@@ -909,12 +909,12 @@
 	private string _selectedPresentation = "Command-Control";
 
 	// PLC source paths
-	private readonly string _plcContextPath    = "src/showcase/app/src/ComponentsCognexVision/Documentation/DocumentationContext.st";
-	private readonly string _plcComponent1Path = "src/showcase/app/src/ComponentsCognexVision/Documentation/Component_1.st";
-	private readonly string _plcComponent2Path = "src/showcase/app/src/ComponentsCognexVision/Documentation/Component_2.st";
-	private readonly string _plcComponent3Path = "src/showcase/app/src/ComponentsCognexVision/Documentation/Component_3.st";
-	private readonly string _plcComponent4Path = "src/showcase/app/src/ComponentsCognexVision/Documentation/Component_4.st";
-	private readonly string _plcComponent5Path = "src/showcase/app/src/ComponentsCognexVision/Documentation/Component_5.st";
+	private readonly string _plcContextPath    = "src/showcase/app/src/components.cognex.vision/Documentation/CognexVision.st";
+	private readonly string _plcComponent1Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoInsight_v_6_0_0_0_Showcase.st";
+	private readonly string _plcComponent2Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoDataman_v_6_0_0_0_Showcase.st";
+	private readonly string _plcComponent3Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoDataman_v_6_0_0_0_Showcase2.st";
+	private readonly string _plcComponent4Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoInsight_v_24_0_0_Showcase.st";
+	private readonly string _plcComponent5Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro_Showcase.st";
 
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath     = "src/showcase/app/hwc/plc_line.hwl.yml";
@@ -926,11 +926,11 @@
 
 	// Library resource paths
 	private readonly string _libReadmePath        = "src/components.cognex.vision/docs/README.md";
-	private readonly string _libComponent1DocPath = "src/components.cognex.vision/docs/Component_1.md";
-	private readonly string _libComponent2DocPath = "src/components.cognex.vision/docs/Component_2.md";
-	private readonly string _libComponent3DocPath = "src/components.cognex.vision/docs/Component_3.md";
-	private readonly string _libComponent4DocPath = "src/components.cognex.vision/docs/Component_4.md";
-	private readonly string _libComponent5DocPath = "src/components.cognex.vision/docs/Component_5.md";
+	private readonly string _libComponent1DocPath = "src/components.cognex.vision/docs/AxoInsight_v_6_0_0_0_Showcase.md";
+	private readonly string _libComponent2DocPath = "src/components.cognex.vision/docs/AxoDataman_v_6_0_0_0_Showcase.md";
+	private readonly string _libComponent3DocPath = "src/components.cognex.vision/docs/AxoDataman_v_6_0_0_0_Showcase2.md";
+	private readonly string _libComponent4DocPath = "src/components.cognex.vision/docs/AxoInsight_v_24_0_0_Showcase.md";
+	private readonly string _libComponent5DocPath = "src/components.cognex.vision/docs/AxoVisionPro_Showcase.md";
 	private readonly string _libTroublesPath = "src/components.cognex.vision/docs/TROUBLES.md";
 
 	// PLC library source paths
@@ -1021,36 +1021,36 @@
 			_hwc5DeviceTemplateSnippet = await hwc5TemplateTask;
 			_hwc5IoSystemSnippet       = await hwc5IoSystemTask;
 
-			 // _stepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Steps
+			 // _stepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Steps
 			// 	.ToDictionary(
 			// 		s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 			// 		s => s
 			// 	);
-			_c1StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Steps
+			_c1StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
 
-			_c2StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.componentTwo.Steps
+			_c2StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
 
-			_c3StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.componentThree.Steps
+			_c3StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
 
-			_c4StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.componentFour.Steps
+			_c4StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
 
-			_c5StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.componentFive.Steps
+			_c5StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
@@ -1071,8 +1071,8 @@
 
 	public override void ConfigurePolling()
 	{
-		var seq1   = Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Sequencer;
-		var steps1 = Entry.Plc.Ctx.cognex_vision_documentation.componentOne.Steps;
+		var seq1   = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Sequencer;
+		var steps1 = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Steps;
 
 		this.StartPolling(seq1, 250);
 		foreach (var step in steps1)
@@ -1087,8 +1087,8 @@
 			//}
 		}
 
-		var seq2 = Entry.Plc.Ctx.cognex_vision_documentation.componentTwo.Sequencer;
-		var steps2 = Entry.Plc.Ctx.cognex_vision_documentation.componentTwo.Steps;
+		var seq2 = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Sequencer;
+		var steps2 = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Steps;
 
 		this.StartPolling(seq2, 250);
 		foreach (var step in steps2)
@@ -1099,8 +1099,8 @@
 			this.StartPolling(step.Descr, 500);
 		}
 
-		var seq3 = Entry.Plc.Ctx.cognex_vision_documentation.componentThree.Sequencer;
-		var steps3 = Entry.Plc.Ctx.cognex_vision_documentation.componentThree.Steps;
+		var seq3 = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2.Sequencer;
+		var steps3 = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2.Steps;
 
 		this.StartPolling(seq3, 250);
 		foreach (var step in steps3)
@@ -1111,8 +1111,8 @@
 			this.StartPolling(step.Descr, 500);
 		}
 
-		var seq4 = Entry.Plc.Ctx.cognex_vision_documentation.componentFour.Sequencer;
-		var steps4 = Entry.Plc.Ctx.cognex_vision_documentation.componentFour.Steps;
+		var seq4 = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0.Sequencer;
+		var steps4 = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0.Steps;
 
 		this.StartPolling(seq4, 250);
 		foreach (var step in steps4)
@@ -1123,8 +1123,8 @@
 			this.StartPolling(step.Descr, 500);
 		}
 
-		var seq5 = Entry.Plc.Ctx.cognex_vision_documentation.componentFive.Sequencer;
-		var steps5 = Entry.Plc.Ctx.cognex_vision_documentation.componentFive.Steps;
+		var seq5 = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Sequencer;
+		var steps5 = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Steps;
 
 		this.StartPolling(seq5, 250);
 		foreach (var step in steps5)

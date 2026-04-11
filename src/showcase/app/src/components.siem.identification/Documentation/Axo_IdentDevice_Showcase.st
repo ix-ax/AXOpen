@@ -4,7 +4,7 @@ USING System.Strings;
 
 NAMESPACE AXOpen.Components.Siem.Identification
     {S7.extern=ReadWrite}
-    CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
+    CLASS Axo_IdentDevice_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             IdentProfileReader : AXOpen.Components.Siem.Identification.Axo_IdentDevice;          

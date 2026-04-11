@@ -1,4 +1,4 @@
-@page "/RexrothDrives/Documentation"
+@page "/components-rexroth-drives/Documentation/RexrothDrives"
 @using AXOpen.Components.Rexroth.Drives
 @using AXOpen.Core;
 @using Operon.Components.Tab
@@ -116,7 +116,7 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_drives_documentation.componentOne.IndraDrive" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.IndraDrive" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
 
@@ -238,12 +238,12 @@
 									</TabPage>
 
 									<TabPage Title="Example sequence">
-										<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.rexroth_drives_documentation.componentOne.Sequencer" />
-										<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.rexroth_drives_documentation.componentOne.Sequencer" />
+										<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.Sequencer" />
+										<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.Sequencer" />
 										<article class="rounded-xl border border-slate-200 bg-white p-4">
 											<h2 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h2>
 											<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
-												<SourceFileLink Path="@_plcComponentPath" Label="Component_1.st" OnOpen="OpenModalAsync" />.
+												<SourceFileLink Path="@_plcComponentPath" Label="AxoIndraDrive_Showcase.st" OnOpen="OpenModalAsync" />.
 											</p>
 											@if (_comp1StepLogicBlocks.Count > 0)
 											{
@@ -280,7 +280,7 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_drives_documentation.componentTwo.CtrlXdrive" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.CtrlXdrive" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
 
@@ -402,12 +402,12 @@
 									</TabPage>
 
 									<TabPage Title="Example sequence">
-										<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.rexroth_drives_documentation.componentTwo.Sequencer" />
-										<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.rexroth_drives_documentation.componentTwo.Sequencer" />
+										<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.Sequencer" />
+										<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.Sequencer" />
 										<article class="rounded-xl border border-slate-200 bg-white p-4">
 											<h2 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h2>
 											<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
-												<SourceFileLink Path="@_plcComponent2Path" Label="Component_2.st" OnOpen="OpenModalAsync" />.
+												<SourceFileLink Path="@_plcComponent2Path" Label="AxoCtrlxDriveXsc_Showcase.st" OnOpen="OpenModalAsync" />.
 											</p>
 											@if (_comp2StepLogicBlocks.Count > 0)
 											{
@@ -470,9 +470,9 @@
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
 
-	private readonly string _plcContextPath   = "src/showcase/app/src/ComponentsRexrothDrives/Documentation/DocumentationContext.st";
-	private readonly string _plcComponentPath  = "src/showcase/app/src/ComponentsRexrothDrives/Documentation/Component_1.st";
-	private readonly string _plcComponent2Path = "src/showcase/app/src/ComponentsRexrothDrives/Documentation/Component_2.st";
+	private readonly string _plcContextPath   = "src/showcase/app/src/components.rexroth.drives/Documentation/RexrothDrives.st";
+	private readonly string _plcComponentPath  = "src/showcase/app/src/components.rexroth.drives/Documentation/AxoIndraDrive_Showcase.st";
+	private readonly string _plcComponent2Path = "src/showcase/app/src/components.rexroth.drives/Documentation/AxoCtrlxDriveXsc_Showcase.st";
 
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath          = "src/showcase/app/hwc/plc_line.hwl.yml";
@@ -481,8 +481,8 @@
 
 	// Library resource paths
 	private readonly string _libReadmePath         = "src/components.rexroth.drives/docs/README.md";
-	private readonly string _libComponent1DocPath  = "src/components.rexroth.drives/docs/Component_1.md";
-	private readonly string _libComponent2DocPath  = "src/components.rexroth.drives/docs/Component_2.md";
+	private readonly string _libComponent1DocPath  = "src/components.rexroth.drives/docs/AxoIndraDrive_Showcase.md";
+	private readonly string _libComponent2DocPath  = "src/components.rexroth.drives/docs/AxoCtrlxDriveXsc_Showcase.md";
 	private readonly string _libTroublesPath       = "src/components.rexroth.drives/docs/TROUBLES.md";
 	private readonly string _libAxoIndraDriveStPath    = "src/components.rexroth.drives/ctrl/src/AxoIndraDrive/AxoIndraDrive.st";
 	private readonly string _libAxoCtrlxDriveXscStPath = "src/components.rexroth.drives/ctrl/src/AxoCtrlxDriveXsc/AxoCtrlxDriveXsc.st";
@@ -536,13 +536,13 @@
 			_hwcCtrlxDriveTemplateSnippet = await hwcCtrlxDriveTemplateTask;
 			_hwcCtrlxDriveIoSystemSnippet = await hwcCtrlxDriveIoSystemTask;
 
-			_comp1StepsBySymbol = Entry.Plc.Ctx.rexroth_drives_documentation.componentOne.Steps
+			_comp1StepsBySymbol = Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
 
-			_comp2StepsBySymbol = Entry.Plc.Ctx.rexroth_drives_documentation.componentTwo.Steps
+			_comp2StepsBySymbol = Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
@@ -563,10 +563,10 @@
 
 	public override void ConfigurePolling()
 	{
-		var comp1Seq   = Entry.Plc.Ctx.rexroth_drives_documentation.componentOne.Sequencer;
-		var comp1Steps = Entry.Plc.Ctx.rexroth_drives_documentation.componentOne.Steps;
-		var comp2Seq   = Entry.Plc.Ctx.rexroth_drives_documentation.componentTwo.Sequencer;
-		var comp2Steps = Entry.Plc.Ctx.rexroth_drives_documentation.componentTwo.Steps;
+		var comp1Seq   = Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.Sequencer;
+		var comp1Steps = Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.Steps;
+		var comp2Seq   = Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.Sequencer;
+		var comp2Steps = Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.Steps;
 
 		this.StartPolling(comp1Seq, 250);
 		foreach (var step in comp1Steps)

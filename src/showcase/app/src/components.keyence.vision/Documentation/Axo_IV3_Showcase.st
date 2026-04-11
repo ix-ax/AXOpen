@@ -1,7 +1,7 @@
 USING AXOpen.Core;
 NAMESPACE AXOpen.Components.Keyence.Vision
     {S7.extern=ReadWrite}
-    CLASS Component_3 EXTENDS AXOpen.Core.AxoObject
+    CLASS Axo_IV3_Showcase EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
             {#ix-set:DeviceIpAddress = "192.168.1.106"} // Needed for live view

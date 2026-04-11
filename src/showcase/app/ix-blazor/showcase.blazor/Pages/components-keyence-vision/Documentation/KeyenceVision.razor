@@ -1,4 +1,4 @@
-@page "/KeyenceVision/Documentation"
+@page "/components-keyence-vision/Documentation/KeyenceVision"
 @using AXOpen.Core;
 @using Operon.Components.Tab
 @using showcase.Services;
@@ -105,7 +105,7 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.keyence_vision_documentation.componentOne" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_750" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
 									<TabPage Title="Code reference">
@@ -213,8 +213,8 @@
 									</TabPage>
 									<TabPage Title="Example sequence">
 										<div class="mt-4">
-											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.keyence_vision_documentation.componentOne.Sequencer" />
-											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.keyence_vision_documentation.componentOne.Sequencer" />
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_750.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_750.Sequencer" />
 											@if (_c1StepLogicBlocks.Count > 0)
 											{
 												<div class="mt-4 space-y-3">
@@ -250,7 +250,7 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.keyence_vision_documentation.componentTwo" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_1000" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
 									<TabPage Title="Code reference">
@@ -358,8 +358,8 @@
 									</TabPage>
 									<TabPage Title="Example sequence">
 										<div class="mt-4">
-											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.keyence_vision_documentation.componentTwo.Sequencer" />
-											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.keyence_vision_documentation.componentTwo.Sequencer" />
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_1000.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_1000.Sequencer" />
 											@if (_c2StepLogicBlocks.Count > 0)
 											{
 												<div class="mt-4 space-y-3">
@@ -396,7 +396,7 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.keyence_vision_documentation.componentThree" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.keyence_vision_documentation.axo_IV3" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
 									<TabPage Title="Code reference">
@@ -504,8 +504,8 @@
 									</TabPage>
 									<TabPage Title="Example sequence">
 										<div class="mt-4">
-											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.keyence_vision_documentation.componentThree.Sequencer" />
-											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.keyence_vision_documentation.componentThree.Sequencer" />
+											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.keyence_vision_documentation.axo_IV3.Sequencer" />
+											<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.keyence_vision_documentation.axo_IV3.Sequencer" />
 											@if (_c3StepLogicBlocks.Count > 0)
 											{
 												<div class="mt-4 space-y-3">
@@ -578,10 +578,10 @@
 	private string _selectedPresentation = "Command-Control";
 
 	// PLC source paths
-	private readonly string _plcContextPath    = "src/showcase/app/src/ComponentsKeyenceVision/Documentation/DocumentationContext.st";
-	private readonly string _plcComponent1Path = "src/showcase/app/src/ComponentsKeyenceVision/Documentation/Component_1.st";
-	private readonly string _plcComponent2Path = "src/showcase/app/src/ComponentsKeyenceVision/Documentation/Component_2.st";
-	private readonly string _plcComponent3Path = "src/showcase/app/src/ComponentsKeyenceVision/Documentation/Component_3.st";
+	private readonly string _plcContextPath    = "src/showcase/app/src/components.keyence.vision/Documentation/KeyenceVision.st";
+	private readonly string _plcComponent1Path = "src/showcase/app/src/components.keyence.vision/Documentation/Axo_SR_750_Showcase.st";
+	private readonly string _plcComponent2Path = "src/showcase/app/src/components.keyence.vision/Documentation/Axo_SR_1000_Showcase.st";
+	private readonly string _plcComponent3Path = "src/showcase/app/src/components.keyence.vision/Documentation/Axo_IV3_Showcase.st";
 
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath     = "src/showcase/app/hwc/plc_line.hwl.yml";
@@ -644,19 +644,19 @@
 			_hwc3DeviceTemplateSnippet = await hwc3TemplateTask;
 			_hwc3IoSystemSnippet       = await hwc3IoSystemTask;
 
-			_c1StepsBySymbol = Entry.Plc.Ctx.keyence_vision_documentation.componentOne.Steps
+			_c1StepsBySymbol = Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_750.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
 
-			_c2StepsBySymbol = Entry.Plc.Ctx.keyence_vision_documentation.componentTwo.Steps
+			_c2StepsBySymbol = Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_1000.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
 
-			_c3StepsBySymbol = Entry.Plc.Ctx.keyence_vision_documentation.componentThree.Steps
+			_c3StepsBySymbol = Entry.Plc.Ctx.keyence_vision_documentation.axo_IV3.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
@@ -677,8 +677,8 @@
 
 	public override void ConfigurePolling()
 	{
-		var seq1   = Entry.Plc.Ctx.keyence_vision_documentation.componentOne.Sequencer;
-		var steps1 = Entry.Plc.Ctx.keyence_vision_documentation.componentOne.Steps;
+		var seq1   = Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_750.Sequencer;
+		var steps1 = Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_750.Steps;
 
 		this.StartPolling(seq1, 250);
 		foreach (var step in steps1)
@@ -689,8 +689,8 @@
 			this.StartPolling(step.Descr,     500);
 		}
 
-		var seq2   = Entry.Plc.Ctx.keyence_vision_documentation.componentTwo.Sequencer;
-		var steps2 = Entry.Plc.Ctx.keyence_vision_documentation.componentTwo.Steps;
+		var seq2   = Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_1000.Sequencer;
+		var steps2 = Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_1000.Steps;
 
 		this.StartPolling(seq2, 250);
 		foreach (var step in steps2)
@@ -701,8 +701,8 @@
 			this.StartPolling(step.Descr,     500);
 		}
 
-		var seq3 = Entry.Plc.Ctx.keyence_vision_documentation.componentThree.Sequencer;
-		var steps3 = Entry.Plc.Ctx.keyence_vision_documentation.componentThree.Steps;
+		var seq3 = Entry.Plc.Ctx.keyence_vision_documentation.axo_IV3.Sequencer;
+		var steps3 = Entry.Plc.Ctx.keyence_vision_documentation.axo_IV3.Steps;
 
 		this.StartPolling(seq3, 250);
 		foreach (var step in steps3)
