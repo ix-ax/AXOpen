@@ -62,7 +62,7 @@ NAMESPACE AxoSequencerExamples
                 IF _step_2.Execute(coord := _mySequencer, Enable := _myCounter <= ULINT#20) THEN
                     _myCounter := _myCounter + ULINT#1;
                     IF _myCounter = ULINT#20 THEN
-                        // Jumping to step 1. As it is jumping backwards, the execution of step 1  
+                        // Jumping to step 1. As it is jumping backwards, the execution of step 1
                         // is going to be started in the next context cycle.
                         _mySequencer.RequestStep(_step_1);
                     END_IF;
@@ -70,7 +70,7 @@ NAMESPACE AxoSequencerExamples
             //</EnableStep>
 
             //<FullStep>
-                IF _step_3.Execute(coord := _mySequencer, Enable := TRUE, Description := 'This is a description of the step 3' ) THEN
+                IF _step_3.Execute(coord := _mySequencer, Enable := TRUE, Description := '<#Process data#>' ) THEN
                     _myCounter := _myCounter + ULINT#1;
                     IF (_myCounter MOD ULINT#7) = ULINT#0 THEN
                         // Finalize the sequence and initiate the execution from the first step.
@@ -78,6 +78,16 @@ NAMESPACE AxoSequencerExamples
                     END_IF;
                 END_IF;
             //</FullStep>
-        END_METHOD   
+        END_METHOD
+
+        //<SequenceMode>
+        METHOD SequenceModeExamples
+            // RunOnce: sequence executes once and stays in Done state
+            _mySequencer.SequenceMode := eAxoSequenceMode#RunOnce;
+
+            // Cyclic: sequence restarts automatically after CompleteSequence
+            _mySequencer.SequenceMode := eAxoSequenceMode#Cyclic;
+        END_METHOD
+        //</SequenceMode>   
     END_CLASS
 END_NAMESPACE

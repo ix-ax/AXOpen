@@ -27,12 +27,13 @@ END_IF;
 
 ## Getting started 
 
-1. Make sure your Blazor application references `axopen_core_blazor` project and AxoCore services are added to builder in `Program.cs` file. Also, map `dialoghub` which is needed for dialog synchronization using SignalR technology. 
-```C#
-builder.Services.AddAxoCoreServices();
-//...
-app.MapHub<DialogHub>("/dialoghub");
-```
+1. Make sure your Blazor application references `axopen_core_blazor` project and AxoCore services are added to builder in `Program.cs` file. Also, map `dialoghub` which is needed for dialog synchronization using SignalR technology.
+
+Service registration:
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Program.cs?name=AddBlazorServices)]
+
+SignalR dialog hub mapping:
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Program.cs?name=MapDialogHub)]
 
 
 
@@ -79,6 +80,11 @@ Answers of dialogs are synchronized across multiple clients with the SignalR tec
 ![Dialog sync](assets/dialog-sync.gif)
 
 
+### Show() — Simple dialog (HMI-only response)
+
+The simplest way to show a dialog and wait for user response via the Blazor HMI:
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Dialogs/AxoDialogTest.st?name=DialogShowSimplePattern)]
+
 ## Closing a dialog with external signal
 
 External signals can be provided to dialog instance within a `ShowWithExternalClose` method, which can be then used to close dialog externally (for example from other page of application, or by pressing a hardware button...).
@@ -114,6 +120,9 @@ END_IF;
 ```
 
 ![Dialog sync](assets/dialog-external-close.gif)
+
+Full showcase example with external close signals:
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Dialogs/AxoDialogTest.st?name=DialogShowWithExternalClosePattern)]
 
 ## Creation of own modal dialog
 

@@ -20,6 +20,7 @@ This document tracks the maturity state of all AXOpen components across differen
 | [AxoObject](src/core/)                                          | Framework     | 🟢          | 🟢     | 🟡            | Latest    | Base object class                                  |
 | [AxoSequencer](src/core/)                                       | Framework     | 🟢          | 🟢     | 🟡            | Latest    | Sequencer state machine                            |
 | [AxoMessaging](src/core/)                                       | Framework     | 🟢          | 🟢     | 🟡            | Latest    | Messaging & notification framework                 |
+| [AxoLogger](src/core/)                                          | Framework     | 🟢          | 🟢     | 🟡            | Latest    | PLC-to-.NET logging                                |
 | [AxoDialogs](src/core/)                                         | Framework     | 🟢          | 🟢     | 🟡            | Latest    | Dialog UI framework                                |
 | [Abstractions](src/abstractions/)                               | Framework     | 🟢          | 🟢     | 🟢            | Latest    | Core abstraction interfaces                        |
 | [ComponentsAbstractions](src/components.abstractions/)          | Framework     | 🟢          | 🟢     | 🟢            | Latest    | Component abstraction layer                        |

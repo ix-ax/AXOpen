@@ -53,6 +53,26 @@ The `Foo` method retrieves the context's logger using `THIS.GetContext().GetLogg
 [!code-smalltalk[](../../showcase/app/src/core/AXOpen.Logging/AxoLoggerDocuExample.st?name=UseLoggerFromInnerObject)]
 
 
+## Log Levels
+
+The following log levels are available, from least to most severe:
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Logging/AxoLoggerDocuExample.st?name=LogLevels)]
+
+## Setting Minimum Level
+
+`SetMinimumLevel` filters out messages below the threshold — only messages at or above the configured level are captured:
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Logging/AxoLoggerDocuExample.st?name=SetMinimumLevel)]
+
+## Logging with Sender Identity
+
+Pass `THIS` as the sender to record the object identity for traceability:
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Logging/AxoLoggerDocuExample.st?name=LogWithSender)]
+
+## Logging with Message Code
+
+Use message codes for structured log lookup on the .NET side:
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Logging/AxoLoggerDocuExample.st?name=LogWithMessageCode)]
+
 ## Summary
 Through this example, we've shown how to declare and utilize the `AxoLogger` for logging messages with different levels of severity. We've also illustrated how nested objects can retrieve and use the logger of their parent context to log messages, showcasing a flexible and potent approach to handle logging in applications with complex, nested structures.
 
@@ -107,10 +127,12 @@ This code sets up a new Serilog logger with a single sink directed to the consol
 
 ## Connecting Loggers to the Application
 
-Finally, we connect our previously defined `AxoLogger` instances, `LoggerOne` and `LoggerTwo`, to our application. 
-
+Finally, we connect our previously defined `AxoLogger` instances, `LoggerOne` and `LoggerTwo`, to our application.
 
 [!code-smalltalk[](../../showcase/app/docs-snippets/core-blazor/Program.cs?name=AxoLoggerInitialization)]
+
+Showcase application example of `StartDequeuing` with a dedicated Serilog logger:
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Program.cs?name=AxoLoggerStartDequeuing)]
 
 The `StartDequeuing` method is now called with two parameters. The first parameter `AxoApplication.Current.Logger` refers to the instance of the logger that was created and configured in the previous step. The second parameter is `250`. This starts a loop that dequeues log messages from the `AxoLogger`'s message queue every 250 milliseconds, passing them to the configured sinks—in our case, the console window.
 

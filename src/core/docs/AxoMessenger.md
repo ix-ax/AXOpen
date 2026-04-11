@@ -46,7 +46,7 @@ A `Potential` message can be automatically requalified to `Warning` or `Error` b
 These attributes are used to set the values of the static texts of the messenger. These values are read out at the compilation time, transferred to .NET counterpart and set as constant strings. Therefore, they can't be changed at the runtime.
 
 Example of declaration of the instance and defining the attributes `MessageText` and `Help`.
-[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=MessageTextHelpDeclaration)]
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=PlcTextListDeclaration)]
 
 Example of declaration of the instance and defining the attribute `PlcTextList`.
 [!code-smalltalk[](../../showcase/app/src/core/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=PlcTextListDeclaration)]
@@ -75,4 +75,4 @@ On the UI side, use the `RenderableContentControl` and set its Context according
 [!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Pages/core/DocuExamples/AxoMessagingStaticDocu.razor?name=RenderedView)]
 
 
-See also [AxoLogger](AXOLOGGER.md#axologger-and-axomessenger)
+See also [AxoLogger](AxoLogger.md#axologger-and-axomessenger)

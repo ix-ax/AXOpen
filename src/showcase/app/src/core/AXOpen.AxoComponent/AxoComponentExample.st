@@ -7,9 +7,14 @@ NAMESPACE AxoComponentExamples
     {S7.extern=ReadWrite}
     CLASS PUBLIC AxoComponentExample EXTENDS AXOpen.Core.AxoComponent  
         METHOD PUBLIC OVERRIDE Restore
-            ;
+            // Reset component state to initial values.
+            // Called when the component needs to be returned to a known-good state.
+            Status.SomeStatusValue1 := REAL#45.3;
+            Status.SomeStatusValue2 := DINT#46587;
         END_METHOD
         METHOD PROTECTED OVERRIDE ManualControl
+            // Propagate manual control to sub-components.
+            // Called automatically when ActivateManualControl() is invoked.
             ;
         END_METHOD
 
@@ -173,7 +178,7 @@ NAMESPACE AxoComponentExamples
     CLASS PUBLIC Diagnostics_ComponentExample
         VAR PUBLIC
             {#ix-set:AttributeName = "Some diagnostic message"}
-            SomeDiagnosticMessage : STRING := 'TODO: Some diagnostic message needs to be placed here';
+            SomeDiagnosticMessage : STRING := 'No active faults detected.';
         END_VAR
     END_CLASS
 
@@ -183,7 +188,7 @@ NAMESPACE AxoComponentExamples
     CLASS PUBLIC Help_ComponentExample
         VAR PUBLIC
             {#ix-set:AttributeName = "Some help"}
-            SomeHelp : STRING := 'TODO: Provide some help';
+            SomeHelp : STRING := 'Use Start/Stop tasks in header to control this component.';
         END_VAR
     END_CLASS
    //</ClassDefinitions>

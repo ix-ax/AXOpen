@@ -17,10 +17,10 @@
 
 	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
 		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Core</p>
-		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Messaging, TextLists &amp; Logging</h1>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Messaging &amp; TextLists</h1>
 		<p class="mt-2 max-w-3xl text-slate-600">
 			AxoMessenger provides categorized PLC messages with acknowledgement support.
-			AxoTextList maps message codes to human-readable text. AxoLogger bridges PLC logging to .NET.
+			AxoTextList maps message codes to human-readable text.
 		</p>
 	</header>
 
@@ -31,7 +31,7 @@
 				<ul class="mt-3 space-y-2 text-sm text-slate-600">
 					<li><span class="font-medium text-slate-800">Category:</span> Core / Framework</li>
 					<li><span class="font-medium text-slate-800">Subcategory:</span> Messaging &amp; Diagnostics</li>
-					<li><span class="font-medium text-slate-800">Components:</span> AxoMessenger, AxoTextList, AxoLogger</li>
+					<li><span class="font-medium text-slate-800">Components:</span> AxoMessenger, AxoTextList</li>
 				</ul>
 				<div class="mt-3 pt-3 border-t border-slate-100">
 					<p class="text-xs font-medium text-slate-500 mb-1">Maturity</p>
@@ -44,7 +44,6 @@
 				<ul class="mt-3 space-y-2 text-sm min-w-0">
 					<li class="min-w-0"><SourceFileLink Path="@_plcMessengerDocuPath" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_plcTextListPath" OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_plcLoggerPath" OnOpen="OpenModalAsync" /></li>
 				</ul>
 			</section>
 
@@ -55,7 +54,6 @@
 					<ul class="space-y-1 min-w-0">
 						<li class="min-w-0"><SourceFileLink Path="@_docMessengerPath" Label="AxoMessenger — Guide" Mono="false" OnOpen="OpenModalAsync" /></li>
 						<li class="min-w-0"><SourceFileLink Path="@_docTextListPath" Label="AxoTextList — Guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_docLoggerPath" Label="AxoLogger — Guide" Mono="false" OnOpen="OpenModalAsync" /></li>
 					</ul>
 				</div>
 				<div>
@@ -209,56 +207,6 @@
 
 							</div>
 						</TabPage>
-
-						<TabPage Title="Logger">
-							<div class="mt-4 space-y-6">
-
-								<div>
-									<h3 class="text-sm font-semibold text-slate-900 mb-2">Live Demo</h3>
-									<RenderableContentControl Context="@Entry.Plc.Ctx.AxoLoggers" Presentation="Command-Control" />
-								</div>
-
-								<div class="border-t border-slate-100 pt-4">
-									<h3 class="text-sm font-semibold text-slate-900 mb-1">Declare loggers</h3>
-									<p class="text-xs text-slate-500 mb-2">
-										<SourceFileLink Path="@_plcLoggerPath" OnOpen="OpenModalAsync" /> — <code>DeclareLoggers</code> region
-									</p>
-									@if (_snippetDeclareLoggers is { IsError: false })
-									{
-										<CodeBlock Content="@(_snippetDeclareLoggers.Content ?? string.Empty)" Language="language-iecst" />
-									}
-									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
-									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
-								</div>
-
-								<div>
-									<h3 class="text-sm font-semibold text-slate-900 mb-1">Inject loggers</h3>
-									<p class="text-xs text-slate-500 mb-2">
-										<SourceFileLink Path="@_plcLoggerPath" OnOpen="OpenModalAsync" /> — <code>InjectLoggers</code> region
-									</p>
-									@if (_snippetInjectLoggers is { IsError: false })
-									{
-										<CodeBlock Content="@(_snippetInjectLoggers.Content ?? string.Empty)" Language="language-iecst" />
-									}
-									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
-									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
-								</div>
-
-								<div>
-									<h3 class="text-sm font-semibold text-slate-900 mb-1">Use logger from inner object</h3>
-									<p class="text-xs text-slate-500 mb-2">
-										<SourceFileLink Path="@_plcLoggerPath" OnOpen="OpenModalAsync" /> — <code>UseLoggerFromInnerObject</code> region
-									</p>
-									@if (_snippetUseLogger is { IsError: false })
-									{
-										<CodeBlock Content="@(_snippetUseLogger.Content ?? string.Empty)" Language="language-iecst" />
-									}
-									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
-									else { <p class="text-xs text-orange-600">Unable to load snippet</p> }
-								</div>
-
-							</div>
-						</TabPage>
 					</Tab>
 				</div>
 			</article>
@@ -283,20 +231,16 @@
 	private CodeSnippet? _snippetTextListLevels;
 	private CodeSnippet? _snippetTextListNoPrefix;
 	private CodeSnippet? _snippetTextListNoLevels;
-	// Logger snippets
-	private CodeSnippet? _snippetDeclareLoggers;
-	private CodeSnippet? _snippetInjectLoggers;
-	private CodeSnippet? _snippetUseLogger;
 
 	private bool _loadingCode = true;
 
 	private readonly string _plcMessengerDocuPath = "src/showcase/app/src/core/AXOpen.Messaging/AxoStaticMessengerDocuExample.st";
 	private readonly string _plcTextListPath      = "src/showcase/app/src/core/AXOpen.TextList/AxoTextListExample.st";
-	private readonly string _plcLoggerPath        = "src/showcase/app/src/core/AXOpen.Logging/AxoLoggerDocuExample.st";
 
-	private readonly string _docMessengerPath     = "src/core/docs/AXOMESSENGER.md";
-	private readonly string _docTextListPath      = "src/core/docs/AXOTEXTLIST.md";
-	private readonly string _docLoggerPath        = "src/core/docs/AXOLOGGER.md";
+	private readonly string _docMessengerPath     = "src/core/docs/AxoMessenger.md";
+	private readonly string _docTextListPath      = "src/core/docs/AxoTextList.md";
+	private readonly string _docTroublesPath      = "src/core/docs/TROUBLES.md";
+	private readonly string _docChangelogPath     = "src/core/docs/CHANGELOG.md";
 
 	protected override async Task OnInitializedAsync()
 	{
@@ -311,11 +255,7 @@
 			var t7  = CodeProvider.GetTaggedRegionAsync(_plcTextListPath, "AxoTextListWithLevelsDefined");
 			var t8  = CodeProvider.GetTaggedRegionAsync(_plcTextListPath, "AxoTextListWithoutPrefix");
 			var t9  = CodeProvider.GetTaggedRegionAsync(_plcTextListPath, "AxoTextListWithoutLevelsDefined");
-			var t10 = CodeProvider.GetTaggedRegionAsync(_plcLoggerPath, "DeclareLoggers");
-			var t11 = CodeProvider.GetTaggedRegionAsync(_plcLoggerPath, "InjectLoggers");
-			var t12 = CodeProvider.GetTaggedRegionAsync(_plcLoggerPath, "UseLoggerFromInnerObject");
-
-			await Task.WhenAll(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12);
+			await Task.WhenAll(t1, t2, t3, t4, t5, t6, t7, t8, t9);
 
 			_snippetActivate        = await t1;
 			_snippetCondition       = await t2;
@@ -326,9 +266,6 @@
 			_snippetTextListLevels  = await t7;
 			_snippetTextListNoPrefix = await t8;
 			_snippetTextListNoLevels = await t9;
-			_snippetDeclareLoggers  = await t10;
-			_snippetInjectLoggers   = await t11;
-			_snippetUseLogger       = await t12;
 		}
 		catch (Exception ex)
 		{
@@ -347,6 +284,5 @@
 	{
 		this.StartPolling(Entry.Plc.Ctx.AxoMessengersDocu, 250);
 		this.StartPolling(Entry.Plc.Ctx.AxoTextListExampleContext, 250);
-		this.StartPolling(Entry.Plc.Ctx.AxoLoggers, 500);
 	}
 }

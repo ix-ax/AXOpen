@@ -65,8 +65,24 @@ NAMESPACE AxoDialogExamples
                 _alertIterationStep := 0;
             END_IF;   
 
-            //<DialogShowPattern>
-            //----------------------  DIALOG AND WAIT FOR RESPONSE -------
+            //<DialogShowSimplePattern>
+            //----------------------  SIMPLE DIALOG (HMI-only response) -------
+            IF(_callDialog) THEN
+               _answer := _dialog.Show(THIS)
+                                  .WithCaption(Caption)
+                                  .WithText(Question)
+                                  .WithYesNoCancel()
+                                  .WithType(eDialogType#Warning)
+                                  .Answer();
+
+                IF _answer <> eDialogAnswer#NoAnswer THEN
+                    _callDialog := FALSE;
+                END_IF;
+            END_IF;
+            //</DialogShowSimplePattern>
+
+            //<DialogShowWithExternalClosePattern>
+            //----------------------  DIALOG WITH EXTERNAL CLOSE SIGNALS -------
             IF(_callDialog) THEN
                _answer := _dialog.ShowWithExternalClose(THIS, _externButtonSignal_ok, _externButtonSignal_yes, _externButtonSignal_no, _externButtonSignal_cancel)
                                                 .WithYesNoCancel()
@@ -75,11 +91,11 @@ NAMESPACE AxoDialogExamples
                                                 .WithText(Question)
                                                 .Answer();
 
-                if _answer <> eDialogAnswer#NoAnswer THEN
+                IF _answer <> eDialogAnswer#NoAnswer THEN
                     _callDialog := FALSE;
-               END_IF;
+                END_IF;
             END_IF;
-            //</DialogShowPattern>
+            //</DialogShowWithExternalClosePattern>
             
             //<DialogSequencePattern>
             //----------------------  DIALOG IN SEQUNCE-------------------

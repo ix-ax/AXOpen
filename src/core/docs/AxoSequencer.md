@@ -42,3 +42,8 @@ This step is going to be executed just in the first run of the sequence, as duri
 [!code-smalltalk[](../../showcase/app/src/core/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?name=EnableStep)]
 Example of use of the `Execute()` method of the `AxoStep` class with all three parameters defined.
 [!code-smalltalk[](../../showcase/app/src/core/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?name=FullStep)]
+
+#### SequenceMode
+
+The `SequenceMode` property controls whether the sequence restarts after completion or stays done:
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?name=SequenceMode)]

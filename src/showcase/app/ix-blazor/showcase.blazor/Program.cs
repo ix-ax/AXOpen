@@ -1,5 +1,6 @@
 using AXOpen;
 using AXOpen.Core;
+using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXOpen.Base.Data;
 using AXOpen.Data;
 using AXOpen.Data.Json;
@@ -21,13 +22,16 @@ builder.Services.ConfigureAxBlazorSecurity(SetUpJsonSecurity(), Roles.CreateRole
 builder.Services.AddLocalization();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+//<AddBlazorServices>
 builder.Services.AddIxBlazorServices();
 builder.Services.AddAxoCoreServices();
+//</AddBlazorServices>
 builder.Services.AddSingleton<CodeSnippetProvider>();
 builder.Services.AddSingleton<ComponentMaturityService>();
 builder.Services.AddSingleton<showcase.Services.Search.ContentIndexService>();
 builder.Services.AddSingleton<showcase.Services.Search.ShowcaseSearchService>();
 
+//<ConnectorConfiguration>
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
 Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.ReThrow;
@@ -41,10 +45,28 @@ Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
     .CreateLogger());
 
 _ = Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
+//</ConnectorConfiguration>
 
+//<AxoApplicationBuilder>
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Verbose()
     .CreateLogger()));
+//</AxoApplicationBuilder>
+
+//<AxoLoggerStartDequeuing>
+// AxoLogger — forward PLC log entries to .NET Serilog logger
+Entry.Plc.Ctx.AxoLoggers.LoggerOne.StartDequeuing(
+    new SerilogLogger(new LoggerConfiguration().WriteTo.Console().MinimumLevel.Verbose().CreateLogger()), 250);
+//</AxoLoggerStartDequeuing>
+
+//<AxoRemoteTaskInitialize>
+// AxoRemoteTask — wire .NET handler for PLC remote invocation.
+// Without this, the PLC task enters error state ("REMOTE TASK IS NOT INITIALIZED").
+Entry.Plc.Ctx.AxoRemoteTasks._remoteTask.Initialize(() =>
+{
+    Console.WriteLine($"Remote task executed: {Entry.Plc.Ctx.AxoRemoteTasks._remoteTask.Message.LastValue}");
+});
+//</AxoRemoteTaskInitialize>
 
 // ---- Data Exchange Initialization ----
 var jsonRepoDir = Path.GetFullPath(
@@ -148,6 +170,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.MapBlazorHub();
+//<MapDialogHub>
+// SignalR hub for dialog/alert cross-client synchronization
+app.MapHub<SignalRDialogHub>(SignalRDialogHub.HUB_URL_SUFFIX);
+//</MapDialogHub>
 app.MapFallbackToPage("/_Host");
 app.Run();
 

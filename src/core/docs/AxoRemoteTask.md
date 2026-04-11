@@ -1,6 +1,6 @@
 # AxoRemoteTask
 
-`AxoRemoteTask` provides task execution, where the execution of the task is deferred to .NET environment. AxoRemoteTask derives from [AxoTask](AXOTASK.md).
+`AxoRemoteTask` provides task execution, where the execution of the task is deferred to .NET environment. AxoRemoteTask derives from [AxoTask](AxoTask.md).
 
 `AxoRemoteTask` needs to be initialized to set the proper AxoContext.
 
@@ -41,9 +41,15 @@ The `AxoRemoteTask` executes upon the `Invoke` method call. `Invoke` fires the e
 
 ## Task initialization in .NET
 
+> [!IMPORTANT]
+> Every `AxoRemoteTask` that gets `Invoke()`d on the PLC side **must** have a matching `.Initialize(handler)` call in Program.cs. Without it, the PLC task enters error state with message "REMOTE TASK IS NOT INITIALIZED".
+
 [!code-csharp[](../../showcase/app/docs-snippets/core-blazor/Program.cs?name=InitializeRemoteTask)]
 
-In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the labmda expression.
+Showcase application example:
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Program.cs?name=AxoRemoteTaskInitialize)]
+
+In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the lambda expression.
 
 ![Alt text](assets/remote_exect.gif)
 

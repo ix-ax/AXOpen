@@ -61,22 +61,19 @@ Where:
 
 ## Invoking alerts from PLC
 
-Alerts can be invoked from PLC similarly like [AxoDialog](AXODIALOG.md), however there is no need for user interaction.
+Alerts can be invoked from PLC similarly like [AxoDialog](AxoDialog.md), however there is no need for user interaction.
 
-```
-VAR PUBLIC
-    _alertDialog : AXOpen.Core.AxoAlertDialog;
-END_VAR
-//...
-IF(_alertDialog.Show(THIS)
-    .WithTitle('Plc alert')
-    .WithType(eDialogType#Success)
-    .WithMessage('This is alert invoked from plc!')
-    .WithTimeToBurn(UINT#5).IsShown() = true) THEN
-    //when task is done, move next
-    THIS.MoveNext(); 
-END_IF;	
-```
+### Declaration
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Dialogs/AxoAlertDocuExample.st?name=AlertDeclaration)]
+
+### Show pattern
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Dialogs/AxoAlertDocuExample.st?name=AlertShowPattern)]
+
+### Alert types (Info, Success, Warning, Danger)
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Dialogs/AxoAlertDocuExample.st?name=AlertTypes)]
+
+### Restore
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.Dialogs/AxoAlertDocuExample.st?name=AlertRestore)]
 
 > [!NOTE]
 > `Alerts` invoked from PLC are synchronized across clients. 

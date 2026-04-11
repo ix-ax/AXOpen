@@ -29,10 +29,17 @@ public static class ShowcasePageRegistry
                 "src/core/ctrl/src/AxoMomentaryTask/AxoMomentaryTask.st",
                 "src/core/ctrl/src/AxoToggleTask/AxoToggleTask.st",
                 "src/core/ctrl/src/AxoRemoteTask/AxoRemoteTask.st",
-                "src/core/docs/AXOTASK.md",
-                "src/core/docs/AXOMOMENETARY TASK.md",
-                "src/core/docs/AXOTOGGLETASK.md",
-                "src/core/docs/AXOREMOTETASK.md",
+                "src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs",
+                "src/showcase/app/ix-blazor/showcase.blazor/Program.cs",
+                "src/core/docs/AxoTask.md",
+                "src/core/docs/AxoMomentaryTask.md",
+                "src/core/docs/AxoToggleTask.md",
+                "src/core/docs/AxoRemoteTask.md",
+                "src/core/docs/AxoBoolArray.md",
+                "src/core/docs/AxoByteArray.md",
+                "src/core/docs/AxoStep.md",
+                "src/core/docs/TROUBLES.md",
+                "src/core/docs/CHANGELOG.md",
             ]
         },
         new()
@@ -48,9 +55,11 @@ public static class ShowcasePageRegistry
                 "src/showcase/app/src/core/AXOpen.AxoSequencer/AxoSequencerDocuExample.st",
                 "src/showcase/app/src/core/AXOpen.AxoSequencer/AxoSequencerExample.st",
                 "src/showcase/app/src/core/AXOpen.AxoSequencerContainer/AxoSequencerContainerDocuExample.st",
-                "src/core/docs/AXOSEQUENCER.md",
-                "src/core/docs/AXOSEQUENCERCONTAINER.md",
-                "src/core/docs/AXOSTEP.md",
+                "src/core/docs/AxoSequencer.md",
+                "src/core/docs/AxoSequencerContainer.md",
+                "src/core/docs/AxoStep.md",
+                "src/core/docs/TROUBLES.md",
+                "src/core/docs/CHANGELOG.md",
             ]
         },
         new()
@@ -65,8 +74,10 @@ public static class ShowcasePageRegistry
             SourceFilePaths = [
                 "src/showcase/app/src/core/AXOpen.AxoComponent/AxoComponentExample.st",
                 "src/showcase/app/src/core/AXOpen.AxoComponent/AxoComponentHeaderOnlyExample.st",
-                "src/core/docs/AXOCOMPONENT.md",
+                "src/core/docs/AxoComponent.md",
                 "src/core/ctrl/src/AxoComponent/AxoComponent.st",
+                "src/core/docs/TROUBLES.md",
+                "src/core/docs/CHANGELOG.md",
             ]
         },
         new()
@@ -75,16 +86,35 @@ public static class ShowcasePageRegistry
             PageTitle = "AxoMessaging",
             LibraryNamespace = "AXOpen.Core",
             Category = "Core",
-            Description = "Messaging, TextLists and Logging. AxoMessenger provides categorized PLC messages with acknowledgement. AxoTextList maps codes to text. AxoLogger bridges PLC logging to .NET.",
+            Description = "AxoMessenger provides categorized PLC messages with acknowledgement. AxoTextList maps message codes to human-readable text.",
             Icon = "chat-bubble-left-right",
-            Tags = ["messaging", "messenger", "text list", "logging", "diagnostics", "acknowledgement"],
+            Tags = ["messaging", "messenger", "text list", "diagnostics", "acknowledgement"],
             SourceFilePaths = [
                 "src/showcase/app/src/core/AXOpen.Messaging/AxoStaticMessengerDocuExample.st",
                 "src/showcase/app/src/core/AXOpen.TextList/AxoTextListExample.st",
+                "src/core/docs/AxoMessenger.md",
+                "src/core/docs/AxoTextList.md",
+                "src/core/docs/TROUBLES.md",
+                "src/core/docs/CHANGELOG.md",
+            ]
+        },
+        new()
+        {
+            Route = "/core/AxoLogger",
+            PageTitle = "AxoLogger",
+            LibraryNamespace = "AXOpen.Core",
+            Category = "Core",
+            Description = "PLC-to-.NET logging bridge. Log entries are queued on the PLC with severity levels, sender identity, and message codes, then dequeued asynchronously to Serilog.",
+            Icon = "document-magnifying-glass",
+            Tags = ["logger", "logging", "serilog", "dequeue", "diagnostics", "log level"],
+            SourceFilePaths = [
                 "src/showcase/app/src/core/AXOpen.Logging/AxoLoggerDocuExample.st",
-                "src/core/docs/AXOMESSENGER.md",
-                "src/core/docs/AXOTEXTLIST.md",
-                "src/core/docs/AXOLOGGER.md",
+                "src/core/src/AXOpen.Core/AxoLogger/AxoLogger.cs",
+                "src/core/ctrl/src/AxoLogger/AxoLogger.st",
+                "src/showcase/app/ix-blazor/showcase.blazor/Program.cs",
+                "src/core/docs/AxoLogger.md",
+                "src/core/docs/TROUBLES.md",
+                "src/core/docs/CHANGELOG.md",
             ]
         },
         new()
@@ -99,8 +129,12 @@ public static class ShowcasePageRegistry
             SourceFilePaths = [
                 "src/showcase/app/src/core/AXOpen.Dialogs/AxoDialogExamples.st",
                 "src/showcase/app/src/core/AXOpen.Dialogs/AxoDialogTest.st",
-                "src/core/docs/AXODIALOG.md",
-                "src/core/docs/AXOALERTDIALOG.md",
+                "src/showcase/app/src/core/AXOpen.Dialogs/AxoAlertDocuExample.st",
+                "src/showcase/app/ix-blazor/showcase.blazor/Program.cs",
+                "src/core/docs/AxoDialog.md",
+                "src/core/docs/AxoAlertDialog.md",
+                "src/core/docs/TROUBLES.md",
+                "src/core/docs/CHANGELOG.md",
             ]
         },
 

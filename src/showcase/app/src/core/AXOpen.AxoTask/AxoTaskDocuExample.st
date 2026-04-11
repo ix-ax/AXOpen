@@ -57,6 +57,18 @@ NAMESPACE AxoTaskExamples
         //<AxoTaskInvoke>
             _myTask.Invoke();
         //</AxoTaskInvoke>
+
+        //<AxoTaskAbort>
+            _myTask.Abort();
+        //</AxoTaskAbort>
+
+        //<AxoTaskResume>
+            _myTask.Resume();
+        //</AxoTaskResume>
+
+        //<AxoTaskRestore>
+            _myTask.Restore();
+        //</AxoTaskRestore>
         END_METHOD
     END_CLASS  
 

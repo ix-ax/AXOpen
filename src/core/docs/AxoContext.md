@@ -50,3 +50,31 @@ Cyclical call of the AxoContext logic (`Main` method) is ensured when AxoContext
 **How to start AxoContext's execution**
 
 [!code-smalltalk[](../../showcase/app/src/core/AXOpen.AxoContext/AxoContextExample.st?name=Implementation)]
+
+## Injecting services
+
+AxoContext provides injection methods for framework services: Logger, Messenger Service, RTC (Real-Time Clock), and RTM (Real-Time Monitor). These must be called in `Main` before any object that depends on them:
+
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.AxoContext/AxoContextExample.st?name=ContextWithServices)]
+
+## Initializing root objects
+
+`InitializeRootObject` wires an AxoObject into the context's object tree. It must be called before any other method on the object. Multiple root objects can be initialized:
+
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.AxoContext/AxoContextExample.st?name=InitializeRootObject)]
+
+## .NET-side setup
+
+On the .NET side, the connector and AxoApplication must be configured before the context runs. The following shows the essential setup in Program.cs:
+
+### Connector configuration
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Program.cs?name=ConnectorConfiguration)]
+
+### AxoApplication builder
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Program.cs?name=AxoApplicationBuilder)]
+
+### Blazor service registration
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Program.cs?name=AddBlazorServices)]
+
+### SignalR dialog hub
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Program.cs?name=MapDialogHub)]

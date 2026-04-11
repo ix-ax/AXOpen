@@ -57,6 +57,9 @@ CLASS ShowcaseContext EXTENDS AXOpen.Core.AxoContext
         // ---- Core: AxoDialogs ----
         AxoDialogs : AxoDialogExamples.Dialogs;
 
+        // ---- Core: AxoAlert ----
+        AxoAlertDocu : AxoAlertExamples.AxoAlertDocuExample;
+
         // ---- Data ----
         AxoDataExchangeContext : AxoDataExchangeExample.Context;
         AxoDataFragmentsExchangeContext : AxoDataFramentsExchangeExample.Context;
@@ -188,6 +191,9 @@ CLASS ShowcaseContext EXTENDS AXOpen.Core.AxoContext
 
         THIS.InitializeRootObject(AxoDialogs);
         AxoDialogs.Execute();
+
+        THIS.InitializeRootObject(AxoAlertDocu);
+        AxoAlertDocu.Execute();
 
         // --- Data ---
         THIS.InitializeRootObject(AxoDataExchangeContext);

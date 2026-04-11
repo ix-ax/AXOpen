@@ -110,6 +110,15 @@ Checking if the AxoTask is executing.
 Check for the AxoTask's error state. 
 [!code-smalltalk[](../../showcase/app/src/core/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskError)]
 
+Aborting the running AxoTask (enters `Aborted` state, can be resumed):
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskAbort)]
+
+Resuming the aborted AxoTask (returns to `Busy` state):
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskResume)]
+
+Restoring the AxoTask from any state back to `Ready`:
+[!code-smalltalk[](../../showcase/app/src/core/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskRestore)]
+
 The AxoTask can be started only from the `Ready` state by calling the `Invoke()` method in the same Context cycle as the `Execute()` method is called, regardless the order of the methods calls. After AxoTask completion, the state of the AxoTask will remain in Done, unless:
 
 1.) AxoTask's `Restore` method is called (AxoTask changes it's state to `Ready` state).
