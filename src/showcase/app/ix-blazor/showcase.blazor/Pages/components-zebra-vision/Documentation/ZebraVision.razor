@@ -3,18 +3,14 @@
 @using Operon.Components.Tab
 @using showcase.Services;
 @inherits RenderableComponentBase
-
 <PageTitle>Zebra Vision - Documentation</PageTitle>
-
 <SourceViewerModal @ref="_modal" />
-
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
 	<nav class="text-sm text-slate-500">
 		<a href="/" class="hover:text-slate-800">Home</a>
 		<span class="px-2">/</span>
 		<span class="font-medium text-slate-800">Zebra Vision Documentation</span>
 	</nav>
-
 	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
 		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Zebra.Vision</p>
 		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Zebra Vision Showcase</h1>
@@ -23,7 +19,6 @@
 			Use it as a practical reference for integrating Zebra vision systems in SIMATIC AX applications.
 		</p>
 	</header>
-
 	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
 		<aside class="space-y-4 xl:col-span-1">
 			<section class="rounded-xl border border-slate-200 bg-white p-4">
@@ -35,7 +30,6 @@
 					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">zebra_vision_documentation</span></li>
 				</ul>
 			</section>
-
 			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
 				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
 				<ul class="mt-3 space-y-2 text-sm min-w-0">
@@ -44,36 +38,20 @@
 					<li class="min-w-0"><SourceFileLink Path="@_plcComponent2Path" OnOpen="OpenModalAsync" /></li>
 				</ul>
 			</section>
-
-			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
-				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
-
-				<!-- Documentation -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"   Label="README — Overview" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath" Label="Troubleshooting"    Mono="false" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- Hardware Assets -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Hardware Assets</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_hwcDeviceTemplatePath" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-						<ExternalLinks VendorName="Zebra Technologies" VendorUrl="https://www.zebra.com/" />
-			</section>
+			<LibraryResources VendorName="Zebra Technologies" VendorUrl="https://www.zebra.com/">
+				<Documentation>
+					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"   Label="README — Overview" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath" Label="Troubleshooting"    Mono="false" OnOpen="OpenModalAsync" /></li>
+				</Documentation>
+				<HardwareAssets>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDeviceTemplatePath" OnOpen="OpenModalAsync" /></li>
+				</HardwareAssets>
+			</LibraryResources>
 		</aside>
-
 		<section class="space-y-6 xl:col-span-2">
 			<article class="rounded-xl border border-slate-200 bg-white p-4">
 				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
 				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
-
 				<div class="mt-4">
 					<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
 					<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
@@ -84,7 +62,6 @@
 						<option value="Compact">Compact</option>
 					</select>
 				</div>
-
 				<div class="mt-4 space-y-4">
 					<Tab>
 						<TabPage Title="AxoEA3600 (Example 1)">
@@ -99,7 +76,6 @@
 											<RenderableContentControl Context="@Entry.Plc.Ctx.zebra_vision_documentation.axoEA3600" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
-
 									<TabPage Title="Code reference">
 										<div class="mt-4 space-y-6">
 											<div>
@@ -121,7 +97,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
 												<p class="text-xs text-slate-500 mb-2">
@@ -143,7 +118,6 @@
 											</div>
 										</div>
 									</TabPage>
-
 									<TabPage Title="Hardware configuration">
 										<div class="mt-4 space-y-6">
 											<div>
@@ -165,7 +139,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h3 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h3>
 												<p class="text-xs text-slate-500 mb-2">
@@ -185,7 +158,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h3 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h3>
 												<p class="text-xs text-slate-500 mb-2">
@@ -207,7 +179,6 @@
 											</div>
 										</div>
 									</TabPage>
-
 									<TabPage Title="Example sequence">
 										<div class="mt-4">
 											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.zebra_vision_documentation.axoEA3600.Sequencer" />
@@ -237,7 +208,6 @@
 								</Tab>
 							</div>
 						</TabPage>
-
 						<TabPage Title="AxoEA3600 (Example 2)">
 							<div class="mt-4 space-y-4">
 								<div class="flex items-center gap-2">
@@ -250,7 +220,6 @@
 											<RenderableContentControl Context="@Entry.Plc.Ctx.zebra_vision_documentation.axoEA3600_2" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
-
 									<TabPage Title="Code reference">
 										<div class="mt-4 space-y-6">
 											<div>
@@ -272,7 +241,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
 												<p class="text-xs text-slate-500 mb-2">
@@ -294,7 +262,6 @@
 											</div>
 										</div>
 									</TabPage>
-
 									<TabPage Title="Hardware configuration">
 										<div class="mt-4 space-y-6">
 											<div>
@@ -316,7 +283,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h3 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h3>
 												<p class="text-xs text-slate-500 mb-2">
@@ -336,7 +302,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h3 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h3>
 												<p class="text-xs text-slate-500 mb-2">
@@ -367,45 +332,35 @@
 		</section>
 	</div>
 </div>
-
 @code {
 	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
-
 	private SourceViewerModal _modal = default!;
 	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
-
 	// Component 1 snippets
 	private CodeSnippet? _comp1DeclarationSnippet;
 	private CodeSnippet? _comp1InitSnippet;
 	// Component 2 snippets
 	private CodeSnippet? _comp2DeclarationSnippet;
 	private CodeSnippet? _comp2InitSnippet;
-
 	// Hardware snippets
 	private CodeSnippet? _hwcDeviceInstanceSnippet;
 	private CodeSnippet? _hwcDeviceTemplateSnippet;
 	private CodeSnippet? _hwcIoSystemSnippet;
-
 	// Step logic
 	private List<StepLogicBlock> _stepLogicBlocks = new();
 	private Dictionary<string, AXOpen.Core.AxoStep> _stepsBySymbol = new();
-
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
-
 	// PLC source paths
 	private readonly string _plcContextPath    = "src/showcase/app/src/components.zebra.vision/Documentation/ZebraVision.st";
 	private readonly string _plcComponent1Path = "src/showcase/app/src/components.zebra.vision/Documentation/AxoEA3600_Showcase.st";
 	private readonly string _plcComponent2Path = "src/showcase/app/src/components.zebra.vision/Documentation/AxoEA3600_Showcase2.st";
-
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath    = "src/showcase/app/hwc/plc_line.hwl.yml";
 	private readonly string _hwcDeviceTemplatePath = "src/showcase/app/hwc/library_templates/zebra_ea3600/zebra_ea3600_88in6out.hwl.yml";
-
 	// Library resource paths
 	private readonly string _libReadmePath   = "src/components.zebra.vision/docs/README.md";
 	private readonly string _libTroublesPath = "src/components.zebra.vision/docs/TROUBLES.md";
-
 	protected override async Task OnInitializedAsync()
 	{
 		try
@@ -418,10 +373,8 @@
 			var hwcInstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "ZebraEa3600Device");
 			var hwcTemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcDeviceTemplatePath, "ZebraEa3600Template");
 			var hwcIoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "ZebraEa3600IoSystem");
-
 			await Task.WhenAll(comp1DeclTask, comp1InitTask, comp2DeclTask, comp2InitTask,
 				stepLogicTask, hwcInstanceTask, hwcTemplateTask, hwcIoSystemTask);
-
 			_comp1DeclarationSnippet = await comp1DeclTask;
 			_comp1InitSnippet        = await comp1InitTask;
 			_comp2DeclarationSnippet = await comp2DeclTask;
@@ -430,7 +383,6 @@
 			_hwcDeviceInstanceSnippet = await hwcInstanceTask;
 			_hwcDeviceTemplateSnippet = await hwcTemplateTask;
 			_hwcIoSystemSnippet       = await hwcIoSystemTask;
-
 			_stepsBySymbol = Entry.Plc.Ctx.zebra_vision_documentation.axoEA3600.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
@@ -446,15 +398,12 @@
 			_loadingCode = false;
 			StateHasChanged();
 		}
-
 		await base.OnInitializedAsync();
 	}
-
 	public override void ConfigurePolling()
 	{
 		var seq   = Entry.Plc.Ctx.zebra_vision_documentation.axoEA3600.Sequencer;
 		var steps = Entry.Plc.Ctx.zebra_vision_documentation.axoEA3600.Steps;
-
 		this.StartPolling(seq, 250);
 		foreach (var step in steps)
 		{

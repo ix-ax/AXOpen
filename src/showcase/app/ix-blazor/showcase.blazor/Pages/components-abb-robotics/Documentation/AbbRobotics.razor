@@ -4,18 +4,14 @@
 @using Operon.Components.Tab
 @using showcase.Services;
 @inherits RenderableComponentBase
-
 <PageTitle>ABB Robotics - Documentation</PageTitle>
-
 <SourceViewerModal @ref="_modal" />
-
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
 	<nav class="text-sm text-slate-500">
 		<a href="/" class="hover:text-slate-800">Home</a>
 		<span class="px-2">/</span>
 		<span class="font-medium text-slate-800">ABB Robotics Documentation</span>
 	</nav>
-
 	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
 		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Abb.Robotics</p>
 		<h1 class="mt-1 text-3xl font-semibold text-slate-900">ABB Robotics Showcase</h1>
@@ -24,7 +20,6 @@
 			Use it as a practical reference for integrating ABB robots in SIMATIC AX applications.
 		</p>
 	</header>
-
 	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
 		<aside class="space-y-4 xl:col-span-1">
 			<section class="rounded-xl border border-slate-200 bg-white p-4">
@@ -35,7 +30,6 @@
 					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">abb_robotics_documentation</span></li>
 				</ul>
 			</section>
-
 			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
 				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
 				<ul class="mt-3 space-y-2 text-sm min-w-0">
@@ -44,48 +38,27 @@
 					<li class="min-w-0"><SourceFileLink Path="@_plcComponent2Path" OnOpen="OpenModalAsync" /></li>
 				</ul>
 			</section>
-
-			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
-				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
-
-				<!-- Documentation -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoIrc5 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="AxoOmnicore — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- PLC Library Source -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">PLC Library Source</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libAxoIrc5StPath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"   OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- Hardware Assets -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Hardware Assets</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libHwlYmlPath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libGsdmlPath"  Label="GSDML — ABB IRC5 v2.33" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-						<ExternalLinks VendorName="ABB" VendorUrl="https://new.abb.com/products/robotics" />
-			</section>
+			<LibraryResources VendorName="ABB" VendorUrl="https://new.abb.com/products/robotics">
+				<Documentation>
+					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoIrc5 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="AxoOmnicore — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
+				</Documentation>
+				<PlcSource>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoIrc5StPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"   OnOpen="OpenModalAsync" /></li>
+				</PlcSource>
+				<HardwareAssets>
+					<li class="min-w-0"><SourceFileLink Path="@_libHwlYmlPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libGsdmlPath"  Label="GSDML — ABB IRC5 v2.33" OnOpen="OpenModalAsync" /></li>
+				</HardwareAssets>
+			</LibraryResources>
 		</aside>
-
 		<section class="space-y-6 xl:col-span-2">
 			<article class="rounded-xl border border-slate-200 bg-white p-4">
 				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
 				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
-
 				<div class="mt-4">
 					<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
 					<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
@@ -96,7 +69,6 @@
 						<option value="Compact">Compact</option>
 					</select>
 				</div>
-
 				<div class="mt-4 space-y-4">
 					<Tab>
 						<TabPage Title="AxoIrc5">
@@ -111,7 +83,6 @@
 											<RenderableContentControl Context="@Entry.Plc.Ctx.abb_robotics_documentation.axoIrc5_v_1_x_x" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
-
 									<TabPage Title="Code reference">
 										<div class="mt-4 space-y-6">
 											<div>
@@ -133,7 +104,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
 												<p class="text-xs text-slate-500 mb-2">
@@ -155,7 +125,6 @@
 											</div>
 										</div>
 									</TabPage>
-
 									<TabPage Title="Hardware configuration">
 										<div class="mt-4 space-y-6">
 											<div>
@@ -177,7 +146,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h4>
 												<p class="text-xs text-slate-500 mb-2">
@@ -197,7 +165,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h4>
 												<p class="text-xs text-slate-500 mb-2">
@@ -219,7 +186,6 @@
 											</div>
 										</div>
 									</TabPage>
-
 									<TabPage Title="Example sequence">
 										<div class="mt-4">
 											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.abb_robotics_documentation.axoIrc5_v_1_x_x.Sequencer" />
@@ -255,7 +221,6 @@
 								</Tab>
 							</div>
 						</TabPage>
-
 						<TabPage Title="AxoOmnicore">
 							<div class="mt-4 space-y-4">
 								<div class="flex items-center gap-2">
@@ -268,7 +233,6 @@
 											<RenderableContentControl Context="@Entry.Plc.Ctx.abb_robotics_documentation.axoOmnicore_v_1_x_x" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
-
 									<TabPage Title="Code reference">
 										<div class="mt-4 space-y-6">
 											<div>
@@ -290,7 +254,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
 												<p class="text-xs text-slate-500 mb-2">
@@ -312,7 +275,6 @@
 											</div>
 										</div>
 									</TabPage>
-
 									<TabPage Title="Hardware configuration">
 										<div class="mt-4 space-y-6">
 											<div>
@@ -334,7 +296,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h4>
 												<p class="text-xs text-slate-500 mb-2">
@@ -354,7 +315,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h4>
 												<p class="text-xs text-slate-500 mb-2">
@@ -376,7 +336,6 @@
 											</div>
 										</div>
 									</TabPage>
-
 									<TabPage Title="Example sequence">
 										<div class="mt-4">
 											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.abb_robotics_documentation.axoOmnicore_v_1_x_x.Sequencer" />
@@ -418,45 +377,35 @@
 		</section>
 	</div>
 </div>
-
 @code {
 	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
-
 	private SourceViewerModal _modal = default!;
 	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
-
 	// Component 1 snippets
 	private CodeSnippet? _c1DeclarationSnippet;
 	private CodeSnippet? _c1InitSnippet;
 	private List<StepLogicBlock> _c1StepLogicBlocks = new();
-
 	// Component 2 snippets
 	private CodeSnippet? _c2DeclarationSnippet;
 	private CodeSnippet? _c2InitSnippet;
 	private List<StepLogicBlock> _c2StepLogicBlocks = new();
-
 	// IRC5 HWC snippets
 	private CodeSnippet? _hwcIrc5DeviceSnippet;
 	private CodeSnippet? _hwcIrc5TemplateSnippet;
 	private CodeSnippet? _hwcIrc5IoSystemSnippet;
-
 	// OmniCore HWC snippets
 	private CodeSnippet? _hwcOmnicoreDeviceSnippet;
 	private CodeSnippet? _hwcOmnicoreTemplateSnippet;
 	private CodeSnippet? _hwcOmnicoreIoSystemSnippet;
-
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
-
 	private readonly string _plcContextPath    = "src/showcase/app/src/components.abb.robotics/Documentation/AbbRobotics.st";
 	private readonly string _plcComponent1Path = "src/showcase/app/src/components.abb.robotics/Documentation/AxoIrc5_v_1_x_x_Showcase.st";
 	private readonly string _plcComponent2Path = "src/showcase/app/src/components.abb.robotics/Documentation/AxoOmnicore_v_1_x_x_Showcase.st";
-
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath       = "src/showcase/app/hwc/plc_line.hwl.yml";
 	private readonly string _hwcIrc5TemplatePath      = "src/showcase/app/hwc/library_templates/abb_robotics_irc5/abb_irc5_robot_in64b_out64b.hwl.yml";
 	private readonly string _hwcOmnicoreTemplatePath  = "src/showcase/app/hwc/library_templates/abb_robotics_omnicore/abb_omnicore_robot_in64b_out64b.hwl.yml";
-
 	// Library resource paths
 	private readonly string _libReadmePath        = "src/components.abb.robotics/docs/README.md";
 	private readonly string _libComponent1DocPath = "src/components.abb.robotics/docs/AxoIrc5_v_1_x_x_Showcase.md";
@@ -466,10 +415,8 @@
 	private readonly string _libApaxYmlPath       = "src/components.abb.robotics/ctrl/apax.yml";
 	private readonly string _libHwlYmlPath        = "src/components.abb.robotics/ctrl/assets/abb_robotics_irc5/abb_irc5_robot_in64b_out64b.hwl.yml";
 	private readonly string _libGsdmlPath         = "src/components.abb.robotics/ctrl/assets/abb_robotics_irc5/gsdml-v2.33-abb-robotics-robot-device-20180814.xml";
-
 	private Dictionary<string, AXOpen.Core.AxoStep> _c1StepsBySymbol = new();
 	private Dictionary<string, AXOpen.Core.AxoStep> _c2StepsBySymbol = new();
-
 	protected override async Task OnInitializedAsync()
 	{
 		try
@@ -478,49 +425,39 @@
 			var c1DeclTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "ComponentDeclaration");
 			var c1InitTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "Initialization");
 			var c1StepsTask   = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
-
 			// Component 2 tasks
 			var c2DeclTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "ComponentDeclaration");
 			var c2InitTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "Initialization");
 			var c2StepsTask   = CodeProvider.GetStepLogicBlocksAsync(_plcComponent2Path);
-
 			// IRC5 HWC tasks
 			var hwcIrc5DeviceTask   = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "AbbIrc5Device");
 			var hwcIrc5TemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcIrc5TemplatePath, "AbbIrc5Template");
 			var hwcIrc5IoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "AbbIrc5IoSystem");
-
 			// OmniCore HWC tasks
 			var hwcOmnicoreDeviceTask   = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "AbbOmnicoreDevice");
 			var hwcOmnicoreTemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcOmnicoreTemplatePath, "AbbOmnicoreTemplate");
 			var hwcOmnicoreIoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "AbbOmnicoreIoSystem");
-
 			await Task.WhenAll(c1DeclTask, c1InitTask, c1StepsTask,
 				c2DeclTask, c2InitTask, c2StepsTask,
 				hwcIrc5DeviceTask, hwcIrc5TemplateTask, hwcIrc5IoSystemTask,
 				hwcOmnicoreDeviceTask, hwcOmnicoreTemplateTask, hwcOmnicoreIoSystemTask);
-
 			_c1DeclarationSnippet = await c1DeclTask;
 			_c1InitSnippet        = await c1InitTask;
 			_c1StepLogicBlocks    = await c1StepsTask;
-
 			_c2DeclarationSnippet = await c2DeclTask;
 			_c2InitSnippet        = await c2InitTask;
 			_c2StepLogicBlocks    = await c2StepsTask;
-
 			_hwcIrc5DeviceSnippet   = await hwcIrc5DeviceTask;
 			_hwcIrc5TemplateSnippet = await hwcIrc5TemplateTask;
 			_hwcIrc5IoSystemSnippet = await hwcIrc5IoSystemTask;
-
 			_hwcOmnicoreDeviceSnippet   = await hwcOmnicoreDeviceTask;
 			_hwcOmnicoreTemplateSnippet = await hwcOmnicoreTemplateTask;
 			_hwcOmnicoreIoSystemSnippet = await hwcOmnicoreIoSystemTask;
-
 			_c1StepsBySymbol = Entry.Plc.Ctx.abb_robotics_documentation.axoIrc5_v_1_x_x.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
-
 			_c2StepsBySymbol = Entry.Plc.Ctx.abb_robotics_documentation.axoOmnicore_v_1_x_x.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
@@ -536,17 +473,14 @@
 			_loadingCode = false;
 			StateHasChanged();
 		}
-
 		await base.OnInitializedAsync();
 	}
-
 	public override void ConfigurePolling()
 	{
 		var seq1   = Entry.Plc.Ctx.abb_robotics_documentation.axoIrc5_v_1_x_x.Sequencer;
 		var steps1 = Entry.Plc.Ctx.abb_robotics_documentation.axoIrc5_v_1_x_x.Steps;
 		var seq2   = Entry.Plc.Ctx.abb_robotics_documentation.axoOmnicore_v_1_x_x.Sequencer;
 		var steps2 = Entry.Plc.Ctx.abb_robotics_documentation.axoOmnicore_v_1_x_x.Steps;
-
 		this.StartPolling(seq1, 250);
 		foreach (var step in steps1)
 		{
@@ -555,7 +489,6 @@
 			this.StartPolling(step.Order,     250);
 			this.StartPolling(step.Descr,     500);
 		}
-
 		this.StartPolling(seq2, 250);
 		foreach (var step in steps2)
 		{

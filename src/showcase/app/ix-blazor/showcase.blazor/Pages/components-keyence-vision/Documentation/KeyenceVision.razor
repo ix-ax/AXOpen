@@ -3,18 +3,14 @@
 @using Operon.Components.Tab
 @using showcase.Services;
 @inherits RenderableComponentBase
-
 <PageTitle>Keyence Vision - Documentation</PageTitle>
-
 <SourceViewerModal @ref="_modal" />
-
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
 	<nav class="text-sm text-slate-500">
 		<a href="/" class="hover:text-slate-800">Home</a>
 		<span class="px-2">/</span>
 		<span class="font-medium text-slate-800">Keyence Vision Documentation</span>
 	</nav>
-
 	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
 		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Keyence.Vision</p>
 		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Keyence Vision Showcase</h1>
@@ -23,7 +19,6 @@
 			Use it as a practical reference for integrating Keyence vision systems in SIMATIC AX applications.
 		</p>
 	</header>
-
 	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
 		<aside class="space-y-4 xl:col-span-1">
 			<section class="rounded-xl border border-slate-200 bg-white p-4">
@@ -35,7 +30,6 @@
 					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">keyence_vision_documentation</span></li>
 				</ul>
 			</section>
-
 			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
 				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
 				<ul class="mt-3 space-y-2 text-sm min-w-0">
@@ -45,38 +39,22 @@
 					<li class="min-w-0"><SourceFileLink Path="@_plcComponent3Path" OnOpen="OpenModalAsync" /></li>
 				</ul>
 			</section>
-
-			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
-				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
-
-				<!-- Documentation -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"   Label="README — Overview" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath" Label="Troubleshooting"    Mono="false" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- Hardware Assets -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Hardware Assets</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_hwcDevice1TemplatePath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_hwcDevice2TemplatePath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_hwcDevice3TemplatePath" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-						<ExternalLinks VendorName="Keyence" VendorUrl="https://www.keyence.com/" />
-			</section>
+			<LibraryResources VendorName="Keyence" VendorUrl="https://www.keyence.com/">
+				<Documentation>
+					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"   Label="README — Overview" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath" Label="Troubleshooting"    Mono="false" OnOpen="OpenModalAsync" /></li>
+				</Documentation>
+				<HardwareAssets>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDevice1TemplatePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDevice2TemplatePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDevice3TemplatePath" OnOpen="OpenModalAsync" /></li>
+				</HardwareAssets>
+			</LibraryResources>
 		</aside>
-
 		<section class="space-y-6 xl:col-span-2">
 			<article class="rounded-xl border border-slate-200 bg-white p-4">
 				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
 				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
-
 				<div class="mt-4">
 					<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
 					<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
@@ -87,7 +65,6 @@
 						<option value="Compact">Compact</option>
 					</select>
 				</div>
-
 				<div class="mt-4 space-y-4">
 					<Tab>
 						<TabPage Title="AxoSR750">
@@ -123,7 +100,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
 												<p class="text-xs text-slate-500 mb-2">
@@ -165,7 +141,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcDevice1TemplatePath" Label="@_hwcDevice1TemplatePath" OnOpen="OpenModalAsync" />
@@ -184,7 +159,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
@@ -234,7 +208,6 @@
 								</Tab>
 							</div>
 						</TabPage>
-
 						<TabPage Title="AxoSR1000">
 							<div class="mt-4 space-y-4">
 								<div class="flex items-center gap-2">
@@ -268,7 +241,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
 												<p class="text-xs text-slate-500 mb-2">
@@ -310,7 +282,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcDevice2TemplatePath" Label="@_hwcDevice2TemplatePath" OnOpen="OpenModalAsync" />
@@ -329,7 +300,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
@@ -376,11 +346,9 @@
 											}
 										</div>
 									</TabPage>
-
 								</Tab>
 							</div>
 						</TabPage>
-
 						<TabPage Title="AxoIV3">
 							<div class="mt-4 space-y-4">
 								<div class="flex items-center gap-2">
@@ -414,7 +382,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
 												<p class="text-xs text-slate-500 mb-2">
@@ -456,7 +423,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcDevice3TemplatePath" Label="@_hwcDevice3TemplatePath" OnOpen="OpenModalAsync" />
@@ -475,7 +441,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
@@ -522,7 +487,6 @@
 											}
 										</div>
 									</TabPage>
-
 								</Tab>
 							</div>
 						</TabPage>
@@ -532,13 +496,10 @@
 		</section>
 	</div>
 </div>
-
 @code {
 	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
-
 	private SourceViewerModal _modal = default!;
 	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
-
 	// Component 1 snippets
 	private CodeSnippet? _comp1DeclarationSnippet;
 	private CodeSnippet? _comp1InitSnippet;
@@ -548,7 +509,6 @@
 	// Component 3 snippets
 	private CodeSnippet? _comp3DeclarationSnippet;
 	private CodeSnippet? _comp3InitSnippet;
-
 	// Hardware snippets — per component
 	private CodeSnippet? _hwc1DeviceInstanceSnippet;
 	private CodeSnippet? _hwc1DeviceTemplateSnippet;
@@ -559,7 +519,6 @@
 	private CodeSnippet? _hwc3DeviceInstanceSnippet;
 	private CodeSnippet? _hwc3DeviceTemplateSnippet;
 	private CodeSnippet? _hwc3IoSystemSnippet;
-
 	// Step logic
 	private List<StepLogicBlock> _c1StepLogicBlocks = new();
 	private List<StepLogicBlock> _c2StepLogicBlocks = new();
@@ -567,26 +526,21 @@
 	private Dictionary<string, AXOpen.Core.AxoStep> _c1StepsBySymbol = new();
 	private Dictionary<string, AXOpen.Core.AxoStep> _c2StepsBySymbol = new();
 	private Dictionary<string, AXOpen.Core.AxoStep> _c3StepsBySymbol = new();
-
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
-
 	// PLC source paths
 	private readonly string _plcContextPath    = "src/showcase/app/src/components.keyence.vision/Documentation/KeyenceVision.st";
 	private readonly string _plcComponent1Path = "src/showcase/app/src/components.keyence.vision/Documentation/Axo_SR_750_Showcase.st";
 	private readonly string _plcComponent2Path = "src/showcase/app/src/components.keyence.vision/Documentation/Axo_SR_1000_Showcase.st";
 	private readonly string _plcComponent3Path = "src/showcase/app/src/components.keyence.vision/Documentation/Axo_IV3_Showcase.st";
-
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath     = "src/showcase/app/hwc/plc_line.hwl.yml";
 	private readonly string _hwcDevice1TemplatePath = "src/showcase/app/hwc/library_templates/Keyence_SR_750/Keyence_SR_750.hwl.yml";
 	private readonly string _hwcDevice2TemplatePath = "src/showcase/app/hwc/library_templates/Keyence_SR_1000/Keyence_SR_1000.hwl.yml";
 	private readonly string _hwcDevice3TemplatePath = "src/showcase/app/hwc/library_templates/Keyence_IV3/Keyence_IV3.hwl.yml";
-
 	// Library resource paths
 	private readonly string _libReadmePath   = "src/components.keyence.vision/docs/README.md";
 	private readonly string _libTroublesPath = "src/components.keyence.vision/docs/TROUBLES.md";
-
 	protected override async Task OnInitializedAsync()
 	{
 		try
@@ -600,7 +554,6 @@
 			var step1LogicTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
 			var step2LogicTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent2Path);
 			var step3LogicTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent3Path);
-
 			// Hardware snippets — per component
 			var hwc1InstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KeyenceSr750Device");
 			var hwc1TemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcDevice1TemplatePath, "KeyenceSr750Template");
@@ -611,13 +564,11 @@
 			var hwc3InstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KeyenceIv3Device");
 			var hwc3TemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcDevice3TemplatePath, "KeyenceIv3Template");
 			var hwc3IoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KeyenceIv3IoSystem");
-
 			await Task.WhenAll(comp1DeclTask, comp1InitTask, comp2DeclTask, comp2InitTask,
 				comp3DeclTask, comp3InitTask, step1LogicTask, step2LogicTask, step2LogicTask,
 				hwc1InstanceTask, hwc1TemplateTask, hwc1IoSystemTask,
 				hwc2InstanceTask, hwc2TemplateTask, hwc2IoSystemTask,
 				hwc3InstanceTask, hwc3TemplateTask, hwc3IoSystemTask);
-
 			_comp1DeclarationSnippet = await comp1DeclTask;
 			_comp1InitSnippet        = await comp1InitTask;
 			_comp2DeclarationSnippet = await comp2DeclTask;
@@ -627,7 +578,6 @@
 			_c1StepLogicBlocks       = await step1LogicTask;
 			_c2StepLogicBlocks       = await step2LogicTask;
 			_c3StepLogicBlocks		 = await step3LogicTask;
-
 			_hwc1DeviceInstanceSnippet = await hwc1InstanceTask;
 			_hwc1DeviceTemplateSnippet = await hwc1TemplateTask;
 			_hwc1IoSystemSnippet       = await hwc1IoSystemTask;
@@ -637,19 +587,16 @@
 			_hwc3DeviceInstanceSnippet = await hwc3InstanceTask;
 			_hwc3DeviceTemplateSnippet = await hwc3TemplateTask;
 			_hwc3IoSystemSnippet       = await hwc3IoSystemTask;
-
 			_c1StepsBySymbol = Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_750.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
-
 			_c2StepsBySymbol = Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_1000.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
-
 			_c3StepsBySymbol = Entry.Plc.Ctx.keyence_vision_documentation.axo_IV3.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
@@ -665,15 +612,12 @@
 			_loadingCode = false;
 			StateHasChanged();
 		}
-
 		await base.OnInitializedAsync();
 	}
-
 	public override void ConfigurePolling()
 	{
 		var seq1   = Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_750.Sequencer;
 		var steps1 = Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_750.Steps;
-
 		this.StartPolling(seq1, 250);
 		foreach (var step in steps1)
 		{
@@ -682,10 +626,8 @@
 			this.StartPolling(step.Order,     250);
 			this.StartPolling(step.Descr,     500);
 		}
-
 		var seq2   = Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_1000.Sequencer;
 		var steps2 = Entry.Plc.Ctx.keyence_vision_documentation.axo_SR_1000.Steps;
-
 		this.StartPolling(seq2, 250);
 		foreach (var step in steps2)
 		{
@@ -694,10 +636,8 @@
 			this.StartPolling(step.Order,     250);
 			this.StartPolling(step.Descr,     500);
 		}
-
 		var seq3 = Entry.Plc.Ctx.keyence_vision_documentation.axo_IV3.Sequencer;
 		var steps3 = Entry.Plc.Ctx.keyence_vision_documentation.axo_IV3.Steps;
-
 		this.StartPolling(seq3, 250);
 		foreach (var step in steps3)
 		{

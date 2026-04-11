@@ -4,18 +4,14 @@
 @using Operon.Components.Tab
 @using showcase.Services;
 @inherits RenderableComponentBase
-
 <PageTitle>Cognex Vision - Documentation</PageTitle>
-
 <SourceViewerModal @ref="_modal" />
-
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
 	<nav class="text-sm text-slate-500">
 		<a href="/" class="hover:text-slate-800">Home</a>
 		<span class="px-2">/</span>
 		<span class="font-medium text-slate-800">Cognex Vision Documentation</span>
 	</nav>
-
 	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
 		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Cognex.Vision</p>
 		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Cognex Vision Showcase</h1>
@@ -24,7 +20,6 @@
 			Use it as a practical reference for integrating Cognex vision systems in SIMATIC AX applications.
 		</p>
 	</header>
-
 	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
 		<aside class="space-y-4 xl:col-span-1">
 			<section class="rounded-xl border border-slate-200 bg-white p-4">
@@ -36,7 +31,6 @@
 					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">cognex_vision_documentation</span></li>
 				</ul>
 			</section>
-
 			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
 				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
 				<ul class="mt-3 space-y-2 text-sm min-w-0">
@@ -48,54 +42,33 @@
 					<li class="min-w-0"><SourceFileLink Path="@_plcComponent5Path" OnOpen="OpenModalAsync" /></li>
 				</ul>
 			</section>
-
-			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
-				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
-
-				<!-- Documentation -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoInsight v6 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="AxoDataman v6 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent3DocPath" Label="AxoDataman v6 (Ex.2) — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- Hardware Assets -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Hardware Assets</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_hwcDevice1TemplatePath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_hwcDevice2TemplatePath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_hwcDevice3TemplatePath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_hwcDevice4TemplatePath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_hwcDevice5TemplatePath" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- PLC Library Source -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">PLC Library Source</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libAxoInsightStPath"  OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libAxoDatamanStPath"  OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libAxoVisionProStPath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"       OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-						<ExternalLinks VendorName="Cognex" VendorUrl="https://www.cognex.com/" />
-			</section>
+			<LibraryResources VendorName="Cognex" VendorUrl="https://www.cognex.com/">
+				<Documentation>
+					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoInsight v6 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="AxoDataman v6 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent3DocPath" Label="AxoDataman v6 (Ex.2) — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
+				</Documentation>
+				<HardwareAssets>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDevice1TemplatePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDevice2TemplatePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDevice3TemplatePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDevice4TemplatePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDevice5TemplatePath" OnOpen="OpenModalAsync" /></li>
+				</HardwareAssets>
+				<PlcSource>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoInsightStPath"  OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoDatamanStPath"  OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoVisionProStPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"       OnOpen="OpenModalAsync" /></li>
+				</PlcSource>
+			</LibraryResources>
 		</aside>
-
 		<section class="space-y-6 xl:col-span-2">
 			<article class="rounded-xl border border-slate-200 bg-white p-4">
 				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
 				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
-
 				<div class="mt-4">
 					<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
 					<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
@@ -106,7 +79,6 @@
 						<option value="Compact">Compact</option>
 					</select>
 				</div>
-
 				<div class="mt-4 space-y-4">
 					<Tab>
 						<TabPage Title="AxoInsight 7600">
@@ -142,7 +114,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
 												<p class="text-xs text-slate-500 mb-2">
@@ -184,7 +155,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcDevice1TemplatePath" Label="@_hwcDevice1TemplatePath" OnOpen="OpenModalAsync" />
@@ -203,7 +173,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
@@ -253,7 +222,6 @@
 								</Tab>
 							</div>
 						</TabPage>
-
 						<TabPage Title="AxoDataman 280">
 							<div class="mt-4 space-y-4">
 								<div class="flex items-center gap-2">
@@ -287,7 +255,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
 												<p class="text-xs text-slate-500 mb-2">
@@ -329,7 +296,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcDevice2TemplatePath" Label="@_hwcDevice2TemplatePath" OnOpen="OpenModalAsync" />
@@ -348,7 +314,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
@@ -395,11 +360,9 @@
 											}
 										</div>
 									</TabPage>
-
 								</Tab>
 							</div>
 						</TabPage>
-
 						<TabPage Title="AxoDataman 380">
 							<div class="mt-4 space-y-4">
 								<div class="flex items-center gap-2">
@@ -433,7 +396,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
 												<p class="text-xs text-slate-500 mb-2">
@@ -475,7 +437,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcDevice3TemplatePath" Label="@_hwcDevice3TemplatePath" OnOpen="OpenModalAsync" />
@@ -494,7 +455,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
@@ -541,11 +501,9 @@
 											}
 										</div>
 									</TabPage>
-
 								</Tab>
 							</div>
 						</TabPage>
-
 						<TabPage Title="AxoInsight 2800">
 							<div class="mt-4 space-y-4">
 								<div class="flex items-center gap-2">
@@ -579,7 +537,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
 												<p class="text-xs text-slate-500 mb-2">
@@ -621,7 +578,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcDevice4TemplatePath" Label="@_hwcDevice4TemplatePath" OnOpen="OpenModalAsync" />
@@ -640,7 +596,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
@@ -687,11 +642,9 @@
 											}
 										</div>
 									</TabPage>
-
 								</Tab>
 							</div>
 						</TabPage>
-
 						<TabPage Title="AxoVisionPro">
 							<div class="mt-4 space-y-4">
 								<div class="flex items-center gap-2">
@@ -725,7 +678,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
 												<p class="text-xs text-slate-500 mb-2">
@@ -767,7 +719,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcDevice5TemplatePath" Label="@_hwcDevice5TemplatePath" OnOpen="OpenModalAsync" />
@@ -786,7 +737,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<p class="text-xs text-slate-500 mb-2">
 													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
@@ -833,7 +783,6 @@
 											}
 										</div>
 									</TabPage>
-
 								</Tab>
 							</div>
 						</TabPage>
@@ -843,18 +792,14 @@
 		</section>
 	</div>
 </div>
-
 @code {
 	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
-
 	private SourceViewerModal _modal = default!;
 	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
-
 	// Component 1 snippets
 	private CodeSnippet? _comp1DeclarationSnippet;
 	private CodeSnippet? _comp1InitSnippet;
 	private List<StepLogicBlock> _c1StepLogicBlocks = new();
-
 	// Component 2 snippets
 	private CodeSnippet? _comp2DeclarationSnippet;
 	private CodeSnippet? _comp2InitSnippet;
@@ -871,7 +816,6 @@
 	private CodeSnippet? _comp5DeclarationSnippet;
 	private CodeSnippet? _comp5InitSnippet;
 	private List<StepLogicBlock> _c5StepLogicBlocks = new();
-
 	// Hardware snippets — per component
 	private CodeSnippet? _hwc1DeviceInstanceSnippet;
 	private CodeSnippet? _hwc1DeviceTemplateSnippet;
@@ -888,7 +832,6 @@
 	private CodeSnippet? _hwc5DeviceInstanceSnippet;
 	private CodeSnippet? _hwc5DeviceTemplateSnippet;
 	private CodeSnippet? _hwc5IoSystemSnippet;
-
 	// Step logic
 	// private List<StepLogicBlock> _stepLogicBlocks = new();
 	// private Dictionary<string, AXOpen.Core.AxoStep> _stepsBySymbol = new();
@@ -897,11 +840,8 @@
 	private Dictionary<string, AXOpen.Core.AxoStep> _c3StepsBySymbol = new();
 	private Dictionary<string, AXOpen.Core.AxoStep> _c4StepsBySymbol = new();
 	private Dictionary<string, AXOpen.Core.AxoStep> _c5StepsBySymbol = new();
-
-
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
-
 	// PLC source paths
 	private readonly string _plcContextPath    = "src/showcase/app/src/components.cognex.vision/Documentation/CognexVision.st";
 	private readonly string _plcComponent1Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoInsight_v_6_0_0_0_Showcase.st";
@@ -909,7 +849,6 @@
 	private readonly string _plcComponent3Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoDataman_v_6_0_0_0_Showcase2.st";
 	private readonly string _plcComponent4Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoInsight_v_24_0_0_Showcase.st";
 	private readonly string _plcComponent5Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro_Showcase.st";
-
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath     = "src/showcase/app/hwc/plc_line.hwl.yml";
 	private readonly string _hwcDevice1TemplatePath = "src/showcase/app/hwc/library_templates/Cognex_Vision_Insight_V_6_0_0/Cognex_Vision_Insight_V_6_0_0.hwl.yml";
@@ -917,7 +856,6 @@
 	private readonly string _hwcDevice3TemplatePath = "src/showcase/app/hwc/library_templates/cognex_vision_dataman380/Cognex_Dataman380.hwl.yml";
 	private readonly string _hwcDevice4TemplatePath = "src/showcase/app/hwc/library_templates/cognex_vision_insight_2800/Cognex_Insight2800.hwl.yml";
 	private readonly string _hwcDevice5TemplatePath = "src/showcase/app/hwc/library_templates/cognex_vision_pro/cognex_vision_pro.hwl.yml";
-
 	// Library resource paths
 	private readonly string _libReadmePath        = "src/components.cognex.vision/docs/README.md";
 	private readonly string _libComponent1DocPath = "src/components.cognex.vision/docs/AxoInsight_v_6_0_0_0_Showcase.md";
@@ -926,13 +864,11 @@
 	private readonly string _libComponent4DocPath = "src/components.cognex.vision/docs/AxoInsight_v_24_0_0_Showcase.md";
 	private readonly string _libComponent5DocPath = "src/components.cognex.vision/docs/AxoVisionPro_Showcase.md";
 	private readonly string _libTroublesPath = "src/components.cognex.vision/docs/TROUBLES.md";
-
 	// PLC library source paths
 	private readonly string _libAxoInsightStPath   = "src/components.cognex.vision/ctrl/src/v_6_0_0_0/AxoInsight/AxoInsight.st";
 	private readonly string _libAxoDatamanStPath   = "src/components.cognex.vision/ctrl/src/v_6_0_0_0/AxoDataman/AxoDataman.st";
 	private readonly string _libAxoVisionProStPath = "src/components.cognex.vision/ctrl/src/AxoVisionPro/AxoVisionPro.st";
 	private readonly string _libApaxYmlPath        = "src/components.cognex.vision/ctrl/apax.yml";
-
 	protected override async Task OnInitializedAsync()
 	{
 		try
@@ -952,9 +888,7 @@
 			var c3StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent3Path);
 			var c4StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent4Path);
 			var c5StepsTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent5Path);
-
 			// var stepLogicTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
-
 			// Hardware snippets — per component
 			var hwc1InstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexInsight7600Device");
 			var hwc1TemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcDevice1TemplatePath, "CognexInsight7600Template");
@@ -971,7 +905,6 @@
 			var hwc5InstanceTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexVisionProDevice");
 			var hwc5TemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcDevice5TemplatePath, "CognexVisionProTemplate");
 			var hwc5IoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "CognexVisionProIoSystem");
-
 			await Task.WhenAll(comp1DeclTask, comp1InitTask, comp2DeclTask, comp2InitTask,
 				comp3DeclTask, comp3InitTask, comp4DeclTask, comp4InitTask,
 				comp5DeclTask, comp5InitTask, c1StepsTask, c2StepsTask, c3StepsTask, c4StepsTask, c5StepsTask, //stepLogicTask,
@@ -980,7 +913,6 @@
 				hwc3InstanceTask, hwc3TemplateTask, hwc3IoSystemTask,
 				hwc4InstanceTask, hwc4TemplateTask, hwc4IoSystemTask,
 				hwc5InstanceTask, hwc5TemplateTask, hwc5IoSystemTask);
-
 			_comp1DeclarationSnippet = await comp1DeclTask;
 			_comp1InitSnippet        = await comp1InitTask;
 			_comp2DeclarationSnippet = await comp2DeclTask;
@@ -997,8 +929,6 @@
 			_c3StepLogicBlocks = await c3StepsTask;
 			_c4StepLogicBlocks = await c4StepsTask;
 			_c5StepLogicBlocks = await c5StepsTask;
-
-
 			_hwc1DeviceInstanceSnippet = await hwc1InstanceTask;
 			_hwc1DeviceTemplateSnippet = await hwc1TemplateTask;
 			_hwc1IoSystemSnippet       = await hwc1IoSystemTask;
@@ -1014,7 +944,6 @@
 			_hwc5DeviceInstanceSnippet = await hwc5InstanceTask;
 			_hwc5DeviceTemplateSnippet = await hwc5TemplateTask;
 			_hwc5IoSystemSnippet       = await hwc5IoSystemTask;
-
 			 // _stepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Steps
 			// 	.ToDictionary(
 			// 		s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
@@ -1025,25 +954,21 @@
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
-
 			_c2StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
-
 			_c3StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
-
 			_c4StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
-
 			_c5StepsBySymbol = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
@@ -1059,15 +984,12 @@
 			_loadingCode = false;
 			StateHasChanged();
 		}
-
 		await base.OnInitializedAsync();
 	}
-
 	public override void ConfigurePolling()
 	{
 		var seq1   = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Sequencer;
 		var steps1 = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_6_0_0_0.Steps;
-
 		this.StartPolling(seq1, 250);
 		foreach (var step in steps1)
 		{
@@ -1080,10 +1002,8 @@
 				this.StartPolling(step.Descr,     500);
 			//}
 		}
-
 		var seq2 = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Sequencer;
 		var steps2 = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0.Steps;
-
 		this.StartPolling(seq2, 250);
 		foreach (var step in steps2)
 		{
@@ -1092,10 +1012,8 @@
 			this.StartPolling(step.Order, 250);
 			this.StartPolling(step.Descr, 500);
 		}
-
 		var seq3 = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2.Sequencer;
 		var steps3 = Entry.Plc.Ctx.cognex_vision_documentation.axoDataman_v_6_0_0_0_2.Steps;
-
 		this.StartPolling(seq3, 250);
 		foreach (var step in steps3)
 		{
@@ -1104,10 +1022,8 @@
 			this.StartPolling(step.Order, 250);
 			this.StartPolling(step.Descr, 500);
 		}
-
 		var seq4 = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0.Sequencer;
 		var steps4 = Entry.Plc.Ctx.cognex_vision_documentation.axoInsight_v_24_0_0.Steps;
-
 		this.StartPolling(seq4, 250);
 		foreach (var step in steps4)
 		{
@@ -1116,10 +1032,8 @@
 			this.StartPolling(step.Order, 250);
 			this.StartPolling(step.Descr, 500);
 		}
-
 		var seq5 = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Sequencer;
 		var steps5 = Entry.Plc.Ctx.cognex_vision_documentation.axoVisionPro.Steps;
-
 		this.StartPolling(seq5, 250);
 		foreach (var step in steps5)
 		{

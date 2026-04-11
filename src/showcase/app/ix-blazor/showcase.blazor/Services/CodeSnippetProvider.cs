@@ -12,6 +12,9 @@ namespace showcase.Services
     {
         private readonly string _basePath;
 
+        /// <summary>The resolved base path used for file lookups.</summary>
+        public string BasePath => _basePath;
+
         public CodeSnippetProvider(string basePath = null)
         {
             // Default to the project root if not specified

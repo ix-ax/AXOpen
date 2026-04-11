@@ -4,18 +4,14 @@
 @using Operon.Components.Tab
 @using showcase.Services;
 @inherits RenderableComponentBase
-
 <PageTitle>Mitsubishi Robotics - Documentation</PageTitle>
-
 <SourceViewerModal @ref="_modal" />
-
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
 	<nav class="text-sm text-slate-500">
 		<a href="/" class="hover:text-slate-800">Home</a>
 		<span class="px-2">/</span>
 		<span class="font-medium text-slate-800">Mitsubishi Robotics Documentation</span>
 	</nav>
-
 	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
 		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Mitsubishi.Robotics</p>
 		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Mitsubishi Robotics Showcase</h1>
@@ -24,7 +20,6 @@
 			Use it as a practical reference for integrating Mitsubishi robots in SIMATIC AX applications.
 		</p>
 	</header>
-
 	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
 		<aside class="space-y-4 xl:col-span-1">
 			<section class="rounded-xl border border-slate-200 bg-white p-4">
@@ -39,7 +34,6 @@
 					<MaturityBadge ComponentName="Mitsubishi CR800 v_1_x_x" />
 				</div>
 			</section>
-
 			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
 				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
 				<ul class="mt-3 space-y-2 text-sm min-w-0">
@@ -47,47 +41,26 @@
 					<li class="min-w-0"><SourceFileLink Path="@_plcComponentPath" OnOpen="OpenModalAsync" /></li>
 				</ul>
 			</section>
-
-			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
-				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
-
-				<!-- Documentation -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoCr800 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- PLC Library Source -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">PLC Library Source</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libAxoCr800StPath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"    OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- Hardware Assets -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Hardware Assets</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libHwlYmlPath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libGsdmlPath"  Label="GSDML — Mitsubishi TZ535 v2.3" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-						<ExternalLinks VendorName="Mitsubishi Electric" VendorUrl="https://www.mitsubishielectric.com/" />
-			</section>
+			<LibraryResources VendorName="Mitsubishi Electric" VendorUrl="https://www.mitsubishielectric.com/">
+				<Documentation>
+					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoCr800 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
+				</Documentation>
+				<PlcSource>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoCr800StPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"    OnOpen="OpenModalAsync" /></li>
+				</PlcSource>
+				<HardwareAssets>
+					<li class="min-w-0"><SourceFileLink Path="@_libHwlYmlPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libGsdmlPath"  Label="GSDML — Mitsubishi TZ535 v2.3" OnOpen="OpenModalAsync" /></li>
+				</HardwareAssets>
+			</LibraryResources>
 		</aside>
-
 		<section class="space-y-6 xl:col-span-2">
 			<article class="rounded-xl border border-slate-200 bg-white p-4">
 				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
 				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
-
 				<div class="mt-4 space-y-4">
 					<Tab>
 						<TabPage Title="Automatic rendering">
@@ -103,10 +76,8 @@
 							</div>
 							<RenderableContentControl Context="@Entry.Plc.Ctx.mitsubishi_robotics_documentation.axoCr800_v_1_x_x" Presentation="@_selectedPresentation" />
 						</TabPage>
-
 						<TabPage Title="Code reference">
 							<div class="mt-4 space-y-6">
-
 								<!-- 1. Component declaration (ST tagged region) -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
@@ -127,7 +98,6 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 								<!-- 2. Component Run call (ST tagged region: Initialization) -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
@@ -148,13 +118,10 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 							</div>
 						</TabPage>
-
 						<TabPage Title="Hardware configuration">
 							<div class="mt-4 space-y-6">
-
 								<!-- 1. Device instantiation in plc_line.hwl.yml -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Device instantiation (hwl)</h3>
@@ -175,7 +142,6 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 								<!-- 2. Device template -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h3>
@@ -196,7 +162,6 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 								<!-- 3. IO system wiring -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h3>
@@ -217,10 +182,8 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 							</div>
 						</TabPage>
-
 						<TabPage Title="Example sequence">
 							<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.mitsubishi_robotics_documentation.axoCr800_v_1_x_x.Sequencer" />
 							<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.mitsubishi_robotics_documentation.axoCr800_v_1_x_x.Sequencer" />
@@ -257,13 +220,10 @@
 		</section>
 	</div>
 </div>
-
 @code {
 	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
-
 	private SourceViewerModal _modal = default!;
 	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
-
 	private CodeSnippet? _componentDeclarationSnippet;
 	private CodeSnippet? _componentRunSnippet;
 	private CodeSnippet? _hwcDeviceInstanceSnippet;
@@ -272,14 +232,11 @@
 	private List<StepLogicBlock> _stepLogicBlocks = new();
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
-
 	private readonly string _plcContextPath   = "src/showcase/app/src/components.mitsubishi.robotics/Documentation/MitsubishiRobotics.st";
 	private readonly string _plcComponentPath = "src/showcase/app/src/components.mitsubishi.robotics/Documentation/AxoCr800_v_1_x_x_Showcase.st";
-
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath    = "src/showcase/app/hwc/plc_line.hwl.yml";
 	private readonly string _hwcDeviceTemplatePath = "src/showcase/app/hwc/library_templates/mitsubishi_tz535/mitsubishi_tz535_64b_inout.hwl.yml";
-
 	// Library resource paths
 	private readonly string _libReadmePath        = "src/components.mitsubishi.robotics/docs/README.md";
 	private readonly string _libComponent1DocPath = "src/components.mitsubishi.robotics/docs/AxoCr800_v_1_x_x_Showcase.md";
@@ -288,9 +245,7 @@
 	private readonly string _libApaxYmlPath       = "src/components.mitsubishi.robotics/ctrl/apax.yml";
 	private readonly string _libHwlYmlPath        = "src/components.mitsubishi.robotics/ctrl/assets/mitsubishi_tz535/mitsubishi_tz535_64b_inout.hwl.yml";
 	private readonly string _libGsdmlPath         = "src/components.mitsubishi.robotics/ctrl/assets/mitsubishi_tz535/gsdml-v2.3-mitsubishi-tz535_pn-20140619.xml";
-
 	private Dictionary<string, AXOpen.Core.AxoStep> _stepsBySymbol = new();
-
 	protected override async Task OnInitializedAsync()
 	{
 		try
@@ -301,17 +256,14 @@
 			var hwcInstanceTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "MitsubishiTz535Device");
 			var hwcTemplateTask  = CodeProvider.GetTaggedRegionAsync(_hwcDeviceTemplatePath, "MitsubishiTz535Template");
 			var hwcIoSystemTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "MitsubishiTz535IoSystem");
-
 			await Task.WhenAll(declarationTask, componentRunTask, stepLogicTask,
 				hwcInstanceTask, hwcTemplateTask, hwcIoSystemTask);
-
 			_componentDeclarationSnippet = await declarationTask;
 			_componentRunSnippet         = await componentRunTask;
 			_stepLogicBlocks             = await stepLogicTask;
 			_hwcDeviceInstanceSnippet    = await hwcInstanceTask;
 			_hwcDeviceTemplateSnippet    = await hwcTemplateTask;
 			_hwcIoSystemSnippet          = await hwcIoSystemTask;
-
 			_stepsBySymbol = Entry.Plc.Ctx.mitsubishi_robotics_documentation.axoCr800_v_1_x_x.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
@@ -327,15 +279,12 @@
 			_loadingCode = false;
 			StateHasChanged();
 		}
-
 		await base.OnInitializedAsync();
 	}
-
 	public override void ConfigurePolling()
 	{
 		var seq   = Entry.Plc.Ctx.mitsubishi_robotics_documentation.axoCr800_v_1_x_x.Sequencer;
 		var steps = Entry.Plc.Ctx.mitsubishi_robotics_documentation.axoCr800_v_1_x_x.Steps;
-
 		this.StartPolling(seq, 250);
 		foreach (var step in steps)
 		{

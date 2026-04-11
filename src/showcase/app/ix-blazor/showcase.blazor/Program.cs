@@ -27,6 +27,8 @@ builder.Services.AddIxBlazorServices();
 builder.Services.AddAxoCoreServices();
 //</AddBlazorServices>
 builder.Services.AddSingleton<CodeSnippetProvider>();
+builder.Services.AddSingleton<DocFxMarkdownProcessor>(sp =>
+    new DocFxMarkdownProcessor(sp.GetRequiredService<CodeSnippetProvider>().BasePath));
 builder.Services.AddSingleton<ComponentMaturityService>();
 builder.Services.AddSingleton<showcase.Services.Search.ContentIndexService>();
 builder.Services.AddSingleton<showcase.Services.Search.ShowcaseSearchService>();

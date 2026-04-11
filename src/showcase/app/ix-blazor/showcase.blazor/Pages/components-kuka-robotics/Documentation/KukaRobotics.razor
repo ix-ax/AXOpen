@@ -4,18 +4,14 @@
 @using Operon.Components.Tab
 @using showcase.Services;
 @inherits RenderableComponentBase
-
 <PageTitle>KUKA Robotics - Documentation</PageTitle>
-
 <SourceViewerModal @ref="_modal" />
-
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
 	<nav class="text-sm text-slate-500">
 		<a href="/" class="hover:text-slate-800">Home</a>
 		<span class="px-2">/</span>
 		<span class="font-medium text-slate-800">KUKA Robotics Documentation</span>
 	</nav>
-
 	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
 		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Kuka.Robotics</p>
 		<h1 class="mt-1 text-3xl font-semibold text-slate-900">KUKA Robotics Showcase</h1>
@@ -24,7 +20,6 @@
 			Use it as a practical reference for integrating KUKA robots in SIMATIC AX applications.
 		</p>
 	</header>
-
 	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
 		<aside class="space-y-4 xl:col-span-1">
 			<section class="rounded-xl border border-slate-200 bg-white p-4">
@@ -35,7 +30,6 @@
 					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">kuka_robotics_documentation</span></li>
 				</ul>
 			</section>
-
 			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
 				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
 				<ul class="mt-3 space-y-2 text-sm min-w-0">
@@ -44,48 +38,27 @@
 					<li class="min-w-0"><SourceFileLink Path="@_plcComponent2Path" OnOpen="OpenModalAsync" /></li>
 				</ul>
 			</section>
-
-			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
-				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
-
-				<!-- Documentation -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoKrc4 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="AxoKrc4 (Example 2) — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- PLC Library Source -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">PLC Library Source</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libAxoKrc4StPath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"   OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- Hardware Assets -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Hardware Assets</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libHwlYmlPath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libGsdmlPath"  Label="GSDML — KUKA KRC4 v2.33" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-						<ExternalLinks VendorName="KUKA" VendorUrl="https://www.kuka.com/" />
-			</section>
+			<LibraryResources VendorName="KUKA" VendorUrl="https://www.kuka.com/">
+				<Documentation>
+					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoKrc4 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="AxoKrc4 (Example 2) — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
+				</Documentation>
+				<PlcSource>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoKrc4StPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"   OnOpen="OpenModalAsync" /></li>
+				</PlcSource>
+				<HardwareAssets>
+					<li class="min-w-0"><SourceFileLink Path="@_libHwlYmlPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libGsdmlPath"  Label="GSDML — KUKA KRC4 v2.33" OnOpen="OpenModalAsync" /></li>
+				</HardwareAssets>
+			</LibraryResources>
 		</aside>
-
 		<section class="space-y-6 xl:col-span-2">
 			<article class="rounded-xl border border-slate-200 bg-white p-4">
 				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
 				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
-
 				<div class="mt-4">
 					<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
 					<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
@@ -96,7 +69,6 @@
 						<option value="Compact">Compact</option>
 					</select>
 				</div>
-
 				<div class="mt-4 space-y-4">
 					<Tab>
 						<TabPage Title="AxoKrc4 (Example 1)">
@@ -111,7 +83,6 @@
 											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
-
 									<TabPage Title="Code reference">
 										<div class="mt-4 space-y-6">
 											<div>
@@ -133,7 +104,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
 												<p class="text-xs text-slate-500 mb-2">
@@ -155,7 +125,6 @@
 											</div>
 										</div>
 									</TabPage>
-
 									<TabPage Title="Hardware configuration">
 										<div class="mt-4 space-y-6">
 											<div>
@@ -177,7 +146,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h4>
 												<p class="text-xs text-slate-500 mb-2">
@@ -197,7 +165,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h4>
 												<p class="text-xs text-slate-500 mb-2">
@@ -219,7 +186,6 @@
 											</div>
 										</div>
 									</TabPage>
-
 									<TabPage Title="Example sequence">
 										<div class="mt-4">
 											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.Sequencer" />
@@ -255,7 +221,6 @@
 								</Tab>
 							</div>
 						</TabPage>
-
 						<TabPage Title="AxoKrc4 (Example 2)">
 							<div class="mt-4 space-y-4">
 								<div class="flex items-center gap-2">
@@ -268,7 +233,6 @@
 											<RenderableContentControl Context="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x_2" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
-
 									<TabPage Title="Code reference">
 										<div class="mt-4 space-y-6">
 											<div>
@@ -290,7 +254,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h4>
 												<p class="text-xs text-slate-500 mb-2">
@@ -312,7 +275,6 @@
 											</div>
 										</div>
 									</TabPage>
-
 									<TabPage Title="Hardware configuration">
 										<div class="mt-4 space-y-6">
 											<div>
@@ -334,7 +296,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h4>
 												<p class="text-xs text-slate-500 mb-2">
@@ -354,7 +315,6 @@
 													<p class="text-xs text-orange-600">Unable to load snippet</p>
 												}
 											</div>
-
 											<div>
 												<h4 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h4>
 												<p class="text-xs text-slate-500 mb-2">
@@ -376,7 +336,6 @@
 											</div>
 										</div>
 									</TabPage>
-
 									<TabPage Title="Example sequence">
 										<div class="mt-4">
 											<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x_2.Sequencer" />
@@ -418,39 +377,30 @@
 		</section>
 	</div>
 </div>
-
 @code {
 	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
-
 	private SourceViewerModal _modal = default!;
 	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
-
 	// Component 1 snippets
 	private CodeSnippet? _c1DeclarationSnippet;
 	private CodeSnippet? _c1InitSnippet;
 	private List<StepLogicBlock> _c1StepLogicBlocks = new();
-
 	// Component 2 snippets
 	private CodeSnippet? _c2DeclarationSnippet;
 	private CodeSnippet? _c2InitSnippet;
 	private List<StepLogicBlock> _c2StepLogicBlocks = new();
-
 	// HWC snippets
 	private CodeSnippet? _hwcDeviceInstanceSnippet;
 	private CodeSnippet? _hwcDeviceTemplateSnippet;
 	private CodeSnippet? _hwcIoSystemSnippet;
-
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
-
 	private readonly string _plcContextPath    = "src/showcase/app/src/components.kuka.robotics/Documentation/KukaRobotics.st";
 	private readonly string _plcComponent1Path = "src/showcase/app/src/components.kuka.robotics/Documentation/AxoKrc4_v_5_x_x_Showcase.st";
 	private readonly string _plcComponent2Path = "src/showcase/app/src/components.kuka.robotics/Documentation/AxoKrc4_v_5_x_x_Showcase2.st";
-
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath    = "src/showcase/app/hwc/plc_line.hwl.yml";
 	private readonly string _hwcDeviceTemplatePath = "src/showcase/app/hwc/library_templates/kuka_krc4/kuka_krc4_dio512.hwl.yml";
-
 	// Library resource paths
 	private readonly string _libReadmePath        = "src/components.kuka.robotics/docs/README.md";
 	private readonly string _libComponent1DocPath = "src/components.kuka.robotics/docs/AxoKrc4_v_5_x_x_Showcase.md";
@@ -460,10 +410,8 @@
 	private readonly string _libApaxYmlPath       = "src/components.kuka.robotics/ctrl/apax.yml";
 	private readonly string _libHwlYmlPath        = "src/components.kuka.robotics/ctrl/assets/kuka_krc4/kuka_krc4_dio512.hwl.yml";
 	private readonly string _libGsdmlPath         = "src/components.kuka.robotics/ctrl/assets/kuka_krc4/GSDML-V2.33-KUKA-KRC4-ProfiNet_5.0-20181102.xml";
-
 	private Dictionary<string, AXOpen.Core.AxoStep> _c1StepsBySymbol = new();
 	private Dictionary<string, AXOpen.Core.AxoStep> _c2StepsBySymbol = new();
-
 	protected override async Task OnInitializedAsync()
 	{
 		try
@@ -472,39 +420,31 @@
 			var c1DeclTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "ComponentDeclaration");
 			var c1InitTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent1Path, "Initialization");
 			var c1StepsTask   = CodeProvider.GetStepLogicBlocksAsync(_plcComponent1Path);
-
 			// Component 2 tasks
 			var c2DeclTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "ComponentDeclaration");
 			var c2InitTask    = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "Initialization");
 			var c2StepsTask   = CodeProvider.GetStepLogicBlocksAsync(_plcComponent2Path);
-
 			// HWC tasks
 			var hwcInstanceTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KukaKrc4Device");
 			var hwcTemplateTask  = CodeProvider.GetTaggedRegionAsync(_hwcDeviceTemplatePath, "KukaKrc4Template");
 			var hwcIoSystemTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "KukaKrc4IoSystem");
-
 			await Task.WhenAll(c1DeclTask, c1InitTask, c1StepsTask,
 				c2DeclTask, c2InitTask, c2StepsTask,
 				hwcInstanceTask, hwcTemplateTask, hwcIoSystemTask);
-
 			_c1DeclarationSnippet = await c1DeclTask;
 			_c1InitSnippet        = await c1InitTask;
 			_c1StepLogicBlocks    = await c1StepsTask;
-
 			_c2DeclarationSnippet = await c2DeclTask;
 			_c2InitSnippet        = await c2InitTask;
 			_c2StepLogicBlocks    = await c2StepsTask;
-
 			_hwcDeviceInstanceSnippet = await hwcInstanceTask;
 			_hwcDeviceTemplateSnippet = await hwcTemplateTask;
 			_hwcIoSystemSnippet       = await hwcIoSystemTask;
-
 			_c1StepsBySymbol = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
 					s => s
 				);
-
 			_c2StepsBySymbol = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x_2.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
@@ -520,17 +460,14 @@
 			_loadingCode = false;
 			StateHasChanged();
 		}
-
 		await base.OnInitializedAsync();
 	}
-
 	public override void ConfigurePolling()
 	{
 		var seq1   = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.Sequencer;
 		var steps1 = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x.Steps;
 		var seq2   = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x_2.Sequencer;
 		var steps2 = Entry.Plc.Ctx.kuka_robotics_documentation.axoKrc4_v_5_x_x_2.Steps;
-
 		this.StartPolling(seq1, 250);
 		foreach (var step in steps1)
 		{
@@ -539,7 +476,6 @@
 			this.StartPolling(step.Order,     250);
 			this.StartPolling(step.Descr,     500);
 		}
-
 		this.StartPolling(seq2, 250);
 		foreach (var step in steps2)
 		{

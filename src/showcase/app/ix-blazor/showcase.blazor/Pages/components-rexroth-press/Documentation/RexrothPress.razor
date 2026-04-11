@@ -3,18 +3,14 @@
 @using Operon.Components.Tab
 @using showcase.Services;
 @inherits RenderableComponentBase
-
 <PageTitle>Rexroth Press - Documentation</PageTitle>
-
 <SourceViewerModal @ref="_modal" />
-
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
 	<nav class="text-sm text-slate-500">
 		<a href="/" class="hover:text-slate-800">Home</a>
 		<span class="px-2">/</span>
 		<span class="font-medium text-slate-800">Rexroth Press Documentation</span>
 	</nav>
-
 	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
 		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Rexroth.Press</p>
 		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Rexroth Press Showcase</h1>
@@ -23,7 +19,6 @@
 			Use it as a practical reference for integrating Bosch Rexroth Smart Function Kit press systems in SIMATIC AX applications.
 		</p>
 	</header>
-
 	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
 		<aside class="space-y-4 xl:col-span-1">
 			<section class="rounded-xl border border-slate-200 bg-white p-4">
@@ -38,7 +33,6 @@
 					<MaturityBadge ComponentName="Rexroth Smart Function Kit" />
 				</div>
 			</section>
-
 			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
 				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
 				<ul class="mt-3 space-y-2 text-sm min-w-0">
@@ -46,46 +40,25 @@
 					<li class="min-w-0"><SourceFileLink Path="@_plcComponentPath" OnOpen="OpenModalAsync" /></li>
 				</ul>
 			</section>
-
-			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
-				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
-
-				<!-- Documentation -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"                      Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoSmartFunctionKit — Component guide"   Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"                         Mono="false" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- PLC Library Source -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">PLC Library Source</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libAxoSmartFunctionKitStPath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"               OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- Hardware Assets -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Hardware Assets</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_hwcDeviceTemplatePath" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-						<ExternalLinks VendorName="Bosch Rexroth" VendorUrl="https://www.boschrexroth.com/" />
-			</section>
+			<LibraryResources VendorName="Bosch Rexroth" VendorUrl="https://www.boschrexroth.com/">
+				<Documentation>
+					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"                      Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoSmartFunctionKit — Component guide"   Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"                         Mono="false" OnOpen="OpenModalAsync" /></li>
+				</Documentation>
+				<PlcSource>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoSmartFunctionKitStPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"               OnOpen="OpenModalAsync" /></li>
+				</PlcSource>
+				<HardwareAssets>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcDeviceTemplatePath" OnOpen="OpenModalAsync" /></li>
+				</HardwareAssets>
+			</LibraryResources>
 		</aside>
-
 		<section class="space-y-6 xl:col-span-2">
 			<article class="rounded-xl border border-slate-200 bg-white p-4">
 				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
 				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
-
 				<div class="mt-4 space-y-4">
 					<Tab>
 						<TabPage Title="Automatic rendering">
@@ -101,10 +74,8 @@
 							</div>
 							<RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_press_documentation.axoSmartFunctionKit_v_4_x_x.AxoSmartFunctionKit" Presentation="@_selectedPresentation" />
 						</TabPage>
-
 						<TabPage Title="Code reference">
 							<div class="mt-4 space-y-6">
-
 								<!-- 1. Component declaration -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
@@ -125,7 +96,6 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 								<!-- 2. Component Run call -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
@@ -146,13 +116,10 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 							</div>
 						</TabPage>
-
 						<TabPage Title="Hardware configuration">
 							<div class="mt-4 space-y-6">
-
 								<!-- 1. Device instantiation -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Device instantiation (hwl)</h3>
@@ -173,7 +140,6 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 								<!-- 2. Device template -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h3>
@@ -194,7 +160,6 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 								<!-- 3. IO system wiring -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h3>
@@ -215,10 +180,8 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 							</div>
 						</TabPage>
-
 						<TabPage Title="Example sequence">
 							<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.rexroth_press_documentation.axoSmartFunctionKit_v_4_x_x.Sequencer" />
 							<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.rexroth_press_documentation.axoSmartFunctionKit_v_4_x_x.Sequencer" />
@@ -255,13 +218,10 @@
 		</section>
 	</div>
 </div>
-
 @code {
 	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
-
 	private SourceViewerModal _modal = default!;
 	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
-
 	private CodeSnippet? _componentDeclarationSnippet;
 	private CodeSnippet? _componentRunSnippet;
 	private CodeSnippet? _hwcDeviceInstanceSnippet;
@@ -270,23 +230,18 @@
 	private List<StepLogicBlock> _stepLogicBlocks = new();
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
-
 	private readonly string _plcContextPath   = "src/showcase/app/src/components.rexroth.press/Documentation/RexrothPress.st";
 	private readonly string _plcComponentPath  = "src/showcase/app/src/components.rexroth.press/Documentation/AxoSmartFunctionKit_v_4_x_x_Showcase.st";
-
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath    = "src/showcase/app/hwc/plc_line.hwl.yml";
 	private readonly string _hwcDeviceTemplatePath = "src/showcase/app/hwc/library_templates/rexroth_sfk_press/rexroth_sfk_press.hwl.yml";
-
 	// Library resource paths
 	private readonly string _libReadmePath              = "src/components.rexroth.press/docs/README.md";
 	private readonly string _libComponent1DocPath       = "src/components.rexroth.press/docs/AxoSmartFunctionKit_v_4_x_x_Showcase.md";
 	private readonly string _libTroublesPath             = "src/components.rexroth.press/docs/TROUBLES.md";
 	private readonly string _libAxoSmartFunctionKitStPath = "src/components.rexroth.press/ctrl/src/AxoSmartFunctionKit_v_4_x_x.st";
 	private readonly string _libApaxYmlPath              = "src/components.rexroth.press/ctrl/apax.yml";
-
 	private Dictionary<string, AXOpen.Core.AxoStep> _stepsBySymbol = new();
-
 	protected override async Task OnInitializedAsync()
 	{
 		try
@@ -297,17 +252,14 @@
 			var hwcInstanceTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "RexrothSfkPressDevice");
 			var hwcTemplateTask  = CodeProvider.GetTaggedRegionAsync(_hwcDeviceTemplatePath, "RexrothSfkPressTemplate");
 			var hwcIoSystemTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "RexrothSfkPressIoSystem");
-
 			await Task.WhenAll(declarationTask, componentRunTask, stepLogicTask,
 				hwcInstanceTask, hwcTemplateTask, hwcIoSystemTask);
-
 			_componentDeclarationSnippet = await declarationTask;
 			_componentRunSnippet         = await componentRunTask;
 			_stepLogicBlocks             = await stepLogicTask;
 			_hwcDeviceInstanceSnippet    = await hwcInstanceTask;
 			_hwcDeviceTemplateSnippet    = await hwcTemplateTask;
 			_hwcIoSystemSnippet          = await hwcIoSystemTask;
-
 			_stepsBySymbol = Entry.Plc.Ctx.rexroth_press_documentation.axoSmartFunctionKit_v_4_x_x.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
@@ -323,15 +275,12 @@
 			_loadingCode = false;
 			StateHasChanged();
 		}
-
 		await base.OnInitializedAsync();
 	}
-
 	public override void ConfigurePolling()
 	{
 		var seq   = Entry.Plc.Ctx.rexroth_press_documentation.axoSmartFunctionKit_v_4_x_x.Sequencer;
 		var steps = Entry.Plc.Ctx.rexroth_press_documentation.axoSmartFunctionKit_v_4_x_x.Steps;
-
 		this.StartPolling(seq, 250);
 		foreach (var step in steps)
 		{

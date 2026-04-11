@@ -1,6 +1,7 @@
 @using Markdig
 @using showcase.Services
 @using Operon.Components
+@inject IJSRuntime JS
 
 <Modal @bind-Open="_open">
 	<div class="modal-header">
@@ -16,7 +17,7 @@
 		}
 		else if (_isMarkdown)
 		{
-			<div class="p-6 overflow-y-auto max-h-[70vh] prose prose-slate prose-sm max-w-none">
+			<div @ref="_markdownContainer" class="p-6 overflow-y-auto max-h-[70vh] prose prose-slate prose-sm max-w-none">
 				@((MarkupString)_html)
 			</div>
 		}
@@ -29,13 +30,16 @@
 
 @code {
 	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
+	[Inject] private DocFxMarkdownProcessor DocFxProcessor { get; set; } = default!;
 
 	private bool _open;
 	private bool _loading;
 	private bool _isMarkdown;
+	private bool _needsMermaid;
 	private string _title   = string.Empty;
 	private string _content = string.Empty;
 	private string _html    = string.Empty;
+	private ElementReference _markdownContainer;
 
 	private static readonly MarkdownPipeline _pipeline =
 		new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
@@ -54,12 +58,26 @@
 		var snippet = await CodeProvider.GetSnippetAsync(path);
 		_content = snippet.Content ?? string.Empty;
 		if (_isMarkdown)
+		{
+			// Resolve DocFX directives ([!code-*], [!INCLUDE]) before Markdig rendering
+			_content = await DocFxProcessor.ProcessAsync(_content, path);
 			_html = Markdown.ToHtml(_content, _pipeline);
+			_needsMermaid = _html.Contains("class=\"mermaid\"");
+		}
 
 		_loading = false;
 		StateHasChanged();
 		// CodeBlock.OnAfterRenderAsync handles prismHighlightAll for code view;
 		// markdown is rendered as raw HTML so no Prism pass needed.
+	}
+
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		if (_needsMermaid && _isMarkdown && !_loading)
+		{
+			_needsMermaid = false;
+			await JS.InvokeVoidAsync("renderMermaidDiagrams", _markdownContainer);
+		}
 	}
 
 	/// <summary>Maps a file path extension to a Prism language class.</summary>

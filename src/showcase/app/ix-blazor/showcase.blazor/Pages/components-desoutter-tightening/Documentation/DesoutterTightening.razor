@@ -3,18 +3,14 @@
 @using Operon.Components.Tab
 @using showcase.Services;
 @inherits RenderableComponentBase
-
 <PageTitle>Desoutter Tightening - Documentation</PageTitle>
-
 <SourceViewerModal @ref="_modal" />
-
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
 	<nav class="text-sm text-slate-500">
 		<a href="/" class="hover:text-slate-800">Home</a>
 		<span class="px-2">/</span>
 		<span class="font-medium text-slate-800">Desoutter Tightening Documentation</span>
 	</nav>
-
 	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
 		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Desoutter.Tightening</p>
 		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Desoutter Tightening Showcase</h1>
@@ -23,7 +19,6 @@
 			Use it as a practical reference for integrating Desoutter tightening controllers in SIMATIC AX applications.
 		</p>
 	</header>
-
 	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
 		<aside class="space-y-4 xl:col-span-1">
 			<section class="rounded-xl border border-slate-200 bg-white p-4">
@@ -38,7 +33,6 @@
 					<MaturityBadge ComponentName="Desoutter Tightening" />
 				</div>
 			</section>
-
 			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
 				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
 				<ul class="mt-3 space-y-2 text-sm min-w-0">
@@ -46,48 +40,27 @@
 					<li class="min-w-0"><SourceFileLink Path="@_plcComponentPath" OnOpen="OpenModalAsync" /></li>
 				</ul>
 			</section>
-
-			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
-				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
-
-				<!-- Documentation -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"              Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoCVIC_II — Component guide"    Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="Component 2 — Component guide"   Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"                 Mono="false" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- PLC Library Source -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">PLC Library Source</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libAxoCvicIiStPath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"     OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- Hardware Assets -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Hardware Assets</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libHwlYmlPath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libGsdmlPath"  Label="GSDML — Desoutter PRT" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-						<ExternalLinks VendorName="Desoutter" VendorUrl="https://www.desouttertools.com/" />
-			</section>
+			<LibraryResources VendorName="Desoutter" VendorUrl="https://www.desouttertools.com/">
+				<Documentation>
+					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"              Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoCVIC_II — Component guide"    Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="Component 2 — Component guide"   Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"                 Mono="false" OnOpen="OpenModalAsync" /></li>
+				</Documentation>
+				<PlcSource>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoCvicIiStPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"     OnOpen="OpenModalAsync" /></li>
+				</PlcSource>
+				<HardwareAssets>
+					<li class="min-w-0"><SourceFileLink Path="@_libHwlYmlPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libGsdmlPath"  Label="GSDML — Desoutter PRT" OnOpen="OpenModalAsync" /></li>
+				</HardwareAssets>
+			</LibraryResources>
 		</aside>
-
 		<section class="space-y-6 xl:col-span-2">
 			<article class="rounded-xl border border-slate-200 bg-white p-4">
 				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
 				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
-
 				<div class="mt-4 space-y-4">
 					<Tab>
 						<TabPage Title="Automatic rendering">
@@ -103,10 +76,8 @@
 							</div>
 							<RenderableContentControl Context="@Entry.Plc.Ctx.desoutter_tightening_documentation.axoCVIC_II.ExampleScrewdriver" Presentation="@_selectedPresentation" />
 						</TabPage>
-
 						<TabPage Title="Code reference">
 							<div class="mt-4 space-y-6">
-
 								<!-- 1. Component declaration (ST tagged region) -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
@@ -127,7 +98,6 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 								<!-- 2. Razor explicit component usage (this page) -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Explicit component usage (Razor)</h3>
@@ -148,7 +118,6 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 								<!-- 3. Component Run call (ST tagged region: Initialization) -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
@@ -169,13 +138,10 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 							</div>
 						</TabPage>
-
 						<TabPage Title="Hardware configuration">
 							<div class="mt-4 space-y-6">
-
 								<!-- 1. Device instantiation in plc_line.hwl.yml -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Device instantiation (hwl)</h3>
@@ -196,7 +162,6 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 								<!-- 2. Device template -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h3>
@@ -217,7 +182,6 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 								<!-- 3. IO system wiring -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h3>
@@ -238,10 +202,8 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 							</div>
 						</TabPage>
-
 						<TabPage Title="Example sequence">
 							<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.desoutter_tightening_documentation.axoCVIC_II.Sequencer" />
 							<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.desoutter_tightening_documentation.axoCVIC_II.Sequencer" />
@@ -278,13 +240,10 @@
 		</section>
 	</div>
 </div>
-
 @code {
 	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
-
 	private SourceViewerModal _modal = default!;
 	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
-
 	private CodeSnippet? _componentDeclarationSnippet;
 	private CodeSnippet? _componentRunSnippet;
 	private CodeSnippet? _razorUsageSnippet;
@@ -294,15 +253,12 @@
 	private List<StepLogicBlock> _stepLogicBlocks = new();
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
-
 	private readonly string _plcContextPath   = "src/showcase/app/src/components.desoutter.tightening/Documentation/DesoutterTightening.st";
 	private readonly string _plcComponentPath  = "src/showcase/app/src/components.desoutter.tightening/Documentation/AxoCVIC_II_Showcase.st";
 	private readonly string _razorPagePath     = "src/showcase/app/ix-blazor/showcase.blazor/Pages/DesoutterTightening/Documentation.razor";
-
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath    = "src/showcase/app/hwc/plc_line.hwl.yml";
 	private readonly string _hwcDeviceTemplatePath = "src/showcase/app/hwc/library_templates/desoutter_tightenning_CVIC_II/Desoutter_CVIC_II.hwl.yml";
-
 	// Library resource paths
 	private readonly string _libReadmePath        = "src/components.desoutter.tightening/docs/README.md";
 	private readonly string _libComponent1DocPath  = "src/components.desoutter.tightening/docs/AxoCVIC_II_Showcase.md";
@@ -312,9 +268,7 @@
 	private readonly string _libApaxYmlPath        = "src/components.desoutter.tightening/ctrl/apax.yml";
 	private readonly string _libHwlYmlPath         = "src/components.desoutter.tightening/ctrl/assets/desoutter_tightenning_CVIC_II/Desoutter_CVIC_II.hwl.yml";
 	private readonly string _libGsdmlPath          = "src/components.desoutter.tightening/ctrl/assets/desoutter_tightenning_CVIC_II/GSDML-V2.2-DESOUTTER-PRT-20100408.xml";
-
 	private Dictionary<string, AXOpen.Core.AxoStep> _stepsBySymbol = new();
-
 	protected override async Task OnInitializedAsync()
 	{
 		try
@@ -326,10 +280,8 @@
 			var hwcInstanceTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "DesoutterCvicIiDevice");
 			var hwcTemplateTask  = CodeProvider.GetTaggedRegionAsync(_hwcDeviceTemplatePath, "DesoutterCvicIiTemplate");
 			var hwcIoSystemTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "DesoutterCvicIiIoSystem");
-
 			await Task.WhenAll(declarationTask, componentRunTask, razorUsageTask, stepLogicTask,
 				hwcInstanceTask, hwcTemplateTask, hwcIoSystemTask);
-
 			_componentDeclarationSnippet = await declarationTask;
 			_componentRunSnippet         = await componentRunTask;
 			_razorUsageSnippet           = await razorUsageTask;
@@ -337,7 +289,6 @@
 			_hwcDeviceInstanceSnippet    = await hwcInstanceTask;
 			_hwcDeviceTemplateSnippet    = await hwcTemplateTask;
 			_hwcIoSystemSnippet          = await hwcIoSystemTask;
-
 			_stepsBySymbol = Entry.Plc.Ctx.desoutter_tightening_documentation.axoCVIC_II.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
@@ -353,15 +304,12 @@
 			_loadingCode = false;
 			StateHasChanged();
 		}
-
 		await base.OnInitializedAsync();
 	}
-
 	public override void ConfigurePolling()
 	{
 		var seq   = Entry.Plc.Ctx.desoutter_tightening_documentation.axoCVIC_II.Sequencer;
 		var steps = Entry.Plc.Ctx.desoutter_tightening_documentation.axoCVIC_II.Steps;
-
 		this.StartPolling(seq, 250);
 		foreach (var step in steps)
 		{

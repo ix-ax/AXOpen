@@ -4,18 +4,14 @@
 @using Operon.Components.Tab
 @using showcase.Services;
 @inherits RenderableComponentBase
-
 <PageTitle>Festo Drives - Documentation</PageTitle>
-
 <SourceViewerModal @ref="_modal" />
-
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
 	<nav class="text-sm text-slate-500">
 		<a href="/" class="hover:text-slate-800">Home</a>
 		<span class="px-2">/</span>
 		<span class="font-medium text-slate-800">Festo Drives Documentation</span>
 	</nav>
-
 	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
 		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Festo.Drives</p>
 		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Festo Drives Showcase</h1>
@@ -24,7 +20,6 @@
 			Use it as a practical reference for integrating Festo drives in SIMATIC AX applications.
 		</p>
 	</header>
-
 	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
 		<aside class="space-y-4 xl:col-span-1">
 			<section class="rounded-xl border border-slate-200 bg-white p-4">
@@ -39,7 +34,6 @@
 					<MaturityBadge ComponentName="Festo Drives" />
 				</div>
 			</section>
-
 			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
 				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
 				<ul class="mt-3 space-y-2 text-sm min-w-0">
@@ -48,48 +42,27 @@
 					<li class="min-w-0"><SourceFileLink Path="@_plcComponent2Path" OnOpen="OpenModalAsync" /></li>
 				</ul>
 			</section>
-
-			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0 space-y-4">
-				<h2 class="text-base font-semibold text-slate-900">Library Resources</h2>
-
-				<!-- Documentation -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Documentation</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoCmmtAs — Component guide"   Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="AxoCmmtAs (Ex.2) — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- PLC Library Source -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">PLC Library Source</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libAxoCmmtAsStPath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"     OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-				<!-- Hardware Assets -->
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Hardware Assets</p>
-					<ul class="space-y-1 min-w-0">
-						<li class="min-w-0"><SourceFileLink Path="@_libHwlYmlPath" OnOpen="OpenModalAsync" /></li>
-						<li class="min-w-0"><SourceFileLink Path="@_libGsdmlPath"  Label="GSDML — CMMT-AS v2.41" OnOpen="OpenModalAsync" /></li>
-					</ul>
-				</div>
-
-						<ExternalLinks VendorName="Festo" VendorUrl="https://www.festo.com/de/en/" />
-			</section>
+			<LibraryResources VendorName="Festo" VendorUrl="https://www.festo.com/de/en/">
+				<Documentation>
+					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoCmmtAs — Component guide"   Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="AxoCmmtAs (Ex.2) — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
+				</Documentation>
+				<PlcSource>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoCmmtAsStPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"     OnOpen="OpenModalAsync" /></li>
+				</PlcSource>
+				<HardwareAssets>
+					<li class="min-w-0"><SourceFileLink Path="@_libHwlYmlPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libGsdmlPath"  Label="GSDML — CMMT-AS v2.41" OnOpen="OpenModalAsync" /></li>
+				</HardwareAssets>
+			</LibraryResources>
 		</aside>
-
 		<section class="space-y-6 xl:col-span-2">
 			<article class="rounded-xl border border-slate-200 bg-white p-4">
 				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
 				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
-
 				<div class="mt-4 space-y-4">
 					<Tab>
 						<TabPage Title="Automatic rendering">
@@ -105,10 +78,8 @@
 							</div>
 							<RenderableContentControl Context="@Entry.Plc.Ctx.festo_drives_documentation.axoCmmtAs.AxoCmmtAs" Presentation="@_selectedPresentation" />
 						</TabPage>
-						
 						<TabPage Title="Code reference">
 							<div class="mt-4 space-y-6">
-
 								<!-- 1. Component declaration (ST tagged region) -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
@@ -129,7 +100,6 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 								<!-- 2. Razor explicit component usage (this page) -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Explicit component usage (Razor)</h3>
@@ -150,7 +120,6 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 								<!-- 3. Component Run call (ST tagged region: Initialization) -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
@@ -171,13 +140,10 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 							</div>
 						</TabPage>
-
 						<TabPage Title="Hardware configuration">
 							<div class="mt-4 space-y-6">
-
 								<!-- 1. Device instantiation in plc_line.hwl.yml -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Device instantiation (hwl)</h3>
@@ -198,7 +164,6 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 								<!-- 2. Device template -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h3>
@@ -219,7 +184,6 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 								<!-- 3. IO system wiring -->
 								<div>
 									<h3 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h3>
@@ -240,10 +204,8 @@
 										<p class="text-xs text-orange-600">Unable to load snippet</p>
 									}
 								</div>
-
 							</div>
 						</TabPage>
-
 						<TabPage Title="Example sequence">
 							<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.festo_drives_documentation.axoCmmtAs.Sequencer" />
 							<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.festo_drives_documentation.axoCmmtAs.Sequencer" />
@@ -280,13 +242,10 @@
 		</section>
 	</div>
 </div>
-
 @code {
 	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
-
 	private SourceViewerModal _modal = default!;
 	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
-
 	private CodeSnippet? _componentDeclarationSnippet;
 	private CodeSnippet? _componentRunSnippet;
 	private CodeSnippet? _razorUsageSnippet;
@@ -296,16 +255,13 @@
 	private List<StepLogicBlock> _stepLogicBlocks = new();
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
-
 	private readonly string _plcContextPath   = "src/showcase/app/src/components.festo.drives/Documentation/FestoDrives.st";
 	private readonly string _plcComponentPath  = "src/showcase/app/src/components.festo.drives/Documentation/AxoCmmtAs_Showcase.st";
 	private readonly string _plcComponent2Path = "src/showcase/app/src/components.festo.drives/Documentation/AxoCmmtAs_Showcase2.st";
 	private readonly string _razorPagePath     = "src/showcase/app/ix-blazor/showcase.blazor/Pages/FestoDrives/Documentation.razor";
-
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath    = "src/showcase/app/hwc/plc_line.hwl.yml";
 	private readonly string _hwcDeviceTemplatePath = "src/showcase/app/hwc/library_templates/festo_drives_cmmt_as/FestoCmmtAs.hwl.yml";
-
 	// Library resource paths
 	private readonly string _libReadmePath        = "src/components.festo.drives/docs/README.md";
 	private readonly string _libComponent1DocPath  = "src/components.festo.drives/docs/AxoCmmtAs_Showcase.md";
@@ -315,9 +271,7 @@
 	private readonly string _libApaxYmlPath        = "src/components.festo.drives/ctrl/apax.yml";
 	private readonly string _libHwlYmlPath         = "src/components.festo.drives/ctrl/assets/festo_drives_cmmt_as/FestoCmmtAs.hwl.yml";
 	private readonly string _libGsdmlPath          = "src/components.festo.drives/ctrl/assets/festo_drives_cmmt_as/gsdml-v2.41-festo-cmmt-as-20230601.xml";
-
 	private Dictionary<string, AXOpen.Core.AxoStep> _stepsBySymbol = new();
-
 	protected override async Task OnInitializedAsync()
 	{
 		try
@@ -329,10 +283,8 @@
 			var hwcInstanceTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "FestoCmmtAsDevice");
 			var hwcTemplateTask  = CodeProvider.GetTaggedRegionAsync(_hwcDeviceTemplatePath, "FestoCmmtAsTemplate");
 			var hwcIoSystemTask  = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "FestoCmmtAsIoSystem");
-
 			await Task.WhenAll(declarationTask, componentRunTask, razorUsageTask, stepLogicTask,
 				hwcInstanceTask, hwcTemplateTask, hwcIoSystemTask);
-
 			_componentDeclarationSnippet = await declarationTask;
 			_componentRunSnippet         = await componentRunTask;
 			_razorUsageSnippet           = await razorUsageTask;
@@ -340,7 +292,6 @@
 			_hwcDeviceInstanceSnippet    = await hwcInstanceTask;
 			_hwcDeviceTemplateSnippet    = await hwcTemplateTask;
 			_hwcIoSystemSnippet          = await hwcIoSystemTask;
-
 			_stepsBySymbol = Entry.Plc.Ctx.festo_drives_documentation.axoCmmtAs.Steps
 				.ToDictionary(
 					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
@@ -356,15 +307,12 @@
 			_loadingCode = false;
 			StateHasChanged();
 		}
-
 		await base.OnInitializedAsync();
 	}
-
 	public override void ConfigurePolling()
 	{
 		var seq   = Entry.Plc.Ctx.festo_drives_documentation.axoCmmtAs.Sequencer;
 		var steps = Entry.Plc.Ctx.festo_drives_documentation.axoCmmtAs.Steps;
-
 		this.StartPolling(seq, 250);
 		foreach (var step in steps)
 		{
@@ -375,4 +323,3 @@
 		}
 	}
 }
-
