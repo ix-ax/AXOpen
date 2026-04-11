@@ -13,9 +13,9 @@
         href: README.md
         items:
           - name: AxoKrc4_v_5_x_x
-            href: Component_1.md
+            href: AxoKrc4_v_5_x_x_Showcase.md
           # - name: Component 2
-          #   href: Component_2.md
+          #   href: AxoKrc4_v_5_x_x_Showcase2.md
       - name: Changes
         href: CHANGELOG.md      
       - name: Troubleshooting

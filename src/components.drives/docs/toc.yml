@@ -13,9 +13,9 @@
         href: README.md
         items:
           - name: AxoDrive
-            href: Component_1.md
+            href: AxoDriveExample_Showcase.md
           # - name: Component 2
-          #   href: Component_2.md
+          #   href: AxoDriveExample_Showcase2.md
       - name: Changes
         href: CHANGELOG.md      
       - name: Troubleshooting

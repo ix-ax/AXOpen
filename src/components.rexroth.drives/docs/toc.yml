@@ -13,9 +13,9 @@
         href: README.md
         items:
           - name: AxoIndraDrive
-            href: Component_1.md
+            href: AxoIndraDrive_Showcase.md
           # - name: Component 2
-          #   href: Component_2.md
+          #   href: AxoCtrlxDriveXsc_Showcase.md
       - name: Changes
         href: CHANGELOG.md      
       - name: Troubleshooting

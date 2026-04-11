@@ -13,9 +13,9 @@
         href: README.md
         items:
           - name: Axo_IQ_SeriesWelder
-            href: Component_1.md
+            href: Axo_IQ_SeriesWelder_Showcase.md
           - name: Component 2
-            href: Component_2.md
+            href: Axo_IQ_SeriesWelder_Showcase2.md
       - name: Changes
         href: CHANGELOG.md      
       - name: Troubleshooting

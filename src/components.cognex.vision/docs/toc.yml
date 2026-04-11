@@ -13,9 +13,9 @@
         href: README.md
         items:
           - name: AxoInsight v6.0.0
-            href: Component_1.md
+            href: AxoInsight_v_6_0_0_0_Showcase.md
           - name: AxoDataman v6.0.0
-            href: Component_2.md
+            href: AxoDataman_v_6_0_0_0_Showcase.md
       - name: Changes
         href: CHANGELOG.md      
       - name: Troubleshooting

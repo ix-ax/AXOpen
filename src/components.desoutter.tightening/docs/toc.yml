@@ -13,9 +13,9 @@
         href: README.md
         items:
           - name: AxoCVIC_II
-            href: Component_1.md
+            href: AxoCVIC_II_Showcase.md
           # - name: Component 2
-          #   href: Component_2.md
+          #   href: AxoCVIC_II_Showcase2.md
       - name: Changes
         href: CHANGELOG.md      
       - name: Troubleshooting
