@@ -1,22 +1,24 @@
       items:
       - name: Introduction
-        href: index.md  
-      - name : Packages  
+        href: index.md
+      - name : Packages
         items :
           - name: Controller
             href: ../ctrl/README.md
           - name: .NET TWIN
             href: ../src/AXOpen.Components.Siem.Identification/README.md
           - name: Blazor
-            href: ../src/AXOpen.Components.Siem.Identification.blazor/README.md    
+            href: ../src/AXOpen.Components.Siem.Identification.blazor/README.md
       - name: Components
         href: README.md
         items:
-          - name: Component 1
-            href: Axo_IdentDevice_Showcase.md
-          - name: Component 2
-            href: AxoIOLink_RF200Device_Showcase.md
+          - name: AxoSimaticIdentCyclic
+            href: AxoSimaticIdentCyclic.md
+          - name: Axo_IdentDevice
+            href: Axo_IdentDevice.md
+          - name: AxoIOLink_RF200Device
+            href: AxoIOLink_RF200Device.md
       - name: Changes
-        href: CHANGELOG.md      
+        href: CHANGELOG.md
       - name: Troubleshooting
         href: TROUBLES.md

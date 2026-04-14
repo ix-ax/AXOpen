@@ -13,3 +13,10 @@
 -->
 
 
+
+### 0.43.0
+
+**Other:**
+- Renamed component docs from `*_Showcase.md` to class-name convention (`AxoIrc5_v_1_x_x.md`, `AxoOmnicore_v_1_x_x.md`).
+- Added .NET TWIN, BLAZOR, HARDWARE tabs with source links and DocFX `[!code-*[]]` references to live showcase markers.
+- Removed obsolete `ComponentTemplate.md` placeholder.

@@ -13,3 +13,10 @@
 -->
 
 
+
+### 0.43.0
+
+**Other:**
+- Renamed showcase docs to class-name `Axo_IQ_SeriesWelder.md`; merged Showcase2 scenario.
+- Added .NET TWIN, BLAZOR, HARDWARE tabs with source links.
+- Removed obsolete `ComponentTemplate.md`.

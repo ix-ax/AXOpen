@@ -13,3 +13,11 @@
 -->
 
 
+
+### 0.43.0
+
+**Other:**
+- Renamed `AxoDriveExample_Showcase.md` → `AxoDrive.md` (class-name; documents the abstract base class).
+- Merged `Showcase2` scenario as additional section.
+- Added .NET TWIN, BLAZOR tabs with source links.
+- Removed obsolete `ComponentTemplate.md`.

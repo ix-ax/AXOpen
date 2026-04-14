@@ -13,9 +13,7 @@
         href: README.md
         items:
           - name: Axo_BIS_M_4XX_045
-            href: Axo_BIS_M_4XX_045_Showcase.md
-          # - name: Component 2
-          #   href: Axo_BIS_M_4XX_045_Showcase2.md
+            href: Axo_BIS_M_4XX_045.md
       - name: Changes
         href: CHANGELOG.md      
       - name: Troubleshooting

@@ -13,9 +13,9 @@
         href: README.md
         items:
           - name: AxoIrc5_v_1_x_x
-            href: AxoIrc5_v_1_x_x_Showcase.md
+            href: AxoIrc5_v_1_x_x.md
           - name: AxoOmnicore_v_1_x_x
-            href: AxoOmnicore_v_1_x_x_Showcase.md
+            href: AxoOmnicore_v_1_x_x.md
       - name: Changes
         href: CHANGELOG.md      
       - name: Troubleshooting

@@ -1,22 +1,20 @@
       items:
       - name: Introduction
-        href: index.md  
-      - name : Packages  
+        href: index.md
+      - name : Packages
         items :
           - name: Controller
             href: ../ctrl/README.md
           - name: .NET TWIN
             href: ../src/AXOpen.Components.Siem.Communication/README.md
           - name: Blazor
-            href: ../src/AXOpen.Components.Siem.Communication.blazor/README.md    
+            href: ../src/AXOpen.Components.Siem.Communication.blazor/README.md
       - name: Components
         href: README.md
         items:
-          - name: Component 1
-            href: AxoCmPtp_Showcase.md
-          - name: Component 2
-            href: AxoCmPtp_Showcase2.md
+          - name: AxoCmPtp
+            href: AxoCmPtp.md
       - name: Changes
-        href: CHANGELOG.md      
+        href: CHANGELOG.md
       - name: Troubleshooting
         href: TROUBLES.md

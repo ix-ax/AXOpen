@@ -1,28 +1,28 @@
       items:
       - name: Introduction
-        href: index.md  
-      - name : Packages  
+        href: index.md
+      - name : Packages
         items :
           - name: Controller
             href: ../ctrl/README.md
           - name: .NET TWIN
             href: ../src/AXOpen.Io/README.md
           - name: Blazor
-            href: ../src/AXOpen.Io.blazor/README.md    
+            href: ../src/AXOpen.Io.blazor/README.md
       - name: Components
         href: README.md
         items:
-          - name: Base I/O component
-            href: Component_1.md
-          - name: Component hardware diagnostics
-            href: Component_2.md
-          - name: Record access tool
-            href: Component_3.md  
-          - name: IOLinkET200SP & Balluff I/O
-            href: Component_4.md  
-          - name: Hardware diagnostics
-            href: Component_5.md  
+          - name: AxoIoComponent
+            href: AxoIoComponent.md
+          - name: AxoHardwareDiagnostics
+            href: AxoHardwareDiagnostics.md
+          - name: AxoRecordAccessTool
+            href: AxoRecordAccessTool.md
+          - name: AxoIOLinkET200SP_Balluff_IO
+            href: AxoIOLinkET200SP_Balluff_IO.md
+          - name: AxoHwDiag
+            href: AxoHwDiag.md
       - name: Changes
-        href: CHANGELOG.md      
+        href: CHANGELOG.md
       - name: Troubleshooting
         href: TROUBLES.md

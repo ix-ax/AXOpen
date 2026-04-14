@@ -1,22 +1,26 @@
       items:
       - name: Introduction
-        href: index.md  
-      - name : Packages  
+        href: index.md
+      - name : Packages
         items :
           - name: Controller
             href: ../ctrl/README.md
           - name: .NET TWIN
             href: ../src/AXOpen.Components.Cognex.Vision/README.md
           - name: Blazor
-            href: ../src/AXOpen.Components.Cognex.Vision.blazor/README.md    
+            href: ../src/AXOpen.Components.Cognex.Vision.blazor/README.md
       - name: Components
         href: README.md
         items:
+          - name: AxoDataman
+            href: AxoDataman.md
           - name: AxoInsight v6.0.0
-            href: AxoInsight_v_6_0_0_0_Showcase.md
-          - name: AxoDataman v6.0.0
-            href: AxoDataman_v_6_0_0_0_Showcase.md
+            href: AxoInsight_v_6_0_0_0.md
+          - name: AxoInsight v24.0.0
+            href: AxoInsight_v_24_0_0.md
+          - name: AxoVisionPro
+            href: AxoVisionPro.md
       - name: Changes
-        href: CHANGELOG.md      
+        href: CHANGELOG.md
       - name: Troubleshooting
         href: TROUBLES.md

@@ -237,3 +237,42 @@
 		this.StartPolling(Entry.Plc.Ctx.pneumatics_documentation.axoCylinder.AxoCylinder_, 250);
 	}
 }
+
+@* ================================================================== *@
+@* DocFX snippet markers — do not render.                              *@
+@* These regions exist solely for documentation extraction by          *@
+@* /axopen-docs via [!code-html[]] directives in docs/{ComponentName}.md. *@
+@* Do not remove or rename.                                            *@
+@* ================================================================== *@
+@if (false)
+{
+    <!-- <GenericComponentStatusView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.pneumatics_documentation.axoCylinder.AxoCylinder_"
+                              Presentation="Status-Display" />
+    <!-- </GenericComponentStatusView> -->
+
+    <!-- <GenericComponentCommandView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.pneumatics_documentation.axoCylinder.AxoCylinder_"
+                              Presentation="Command-Control" />
+    <!-- </GenericComponentCommandView> -->
+
+    <!-- <RccComponentStatusView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.pneumatics_documentation.axoCylinder.AxoCylinder_"
+                              Presentation="Status-Display" />
+    <!-- </RccComponentStatusView> -->
+
+    <!-- <RccComponentCommandView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.pneumatics_documentation.axoCylinder.AxoCylinder_"
+                              Presentation="Command-Control" />
+    <!-- </RccComponentCommandView> -->
+
+    <!-- <AxoCylinderStatusView> -->
+    <AxoCylinderView Context="@Entry.Plc.Ctx.pneumatics_documentation.axoCylinder.AxoCylinder_"
+                     Presentation="Status-Display" />
+    <!-- </AxoCylinderStatusView> -->
+
+    <!-- <AxoCylinderCommandView> -->
+    <AxoCylinderView Context="@Entry.Plc.Ctx.pneumatics_documentation.axoCylinder.AxoCylinder_"
+                     Presentation="Command-Control" />
+    <!-- </AxoCylinderCommandView> -->
+}

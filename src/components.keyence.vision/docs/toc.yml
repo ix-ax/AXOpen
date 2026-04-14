@@ -1,22 +1,24 @@
       items:
       - name: Introduction
-        href: index.md  
-      - name : Packages  
+        href: index.md
+      - name : Packages
         items :
           - name: Controller
             href: ../ctrl/README.md
           - name: .NET TWIN
             href: ../src/AXOpen.Components.Keyence.Vision/README.md
           - name: Blazor
-            href: ../src/AXOpen.Components.Keyence.Vision.blazor/README.md    
+            href: ../src/AXOpen.Components.Keyence.Vision.blazor/README.md
       - name: Components
         href: README.md
         items:
-          - name: Component 1
-            href: Axo_SR_750_Showcase.md
-          - name: Component 2
-            href: Axo_SR_1000_Showcase.md
+          - name: Axo_IV3
+            href: Axo_IV3.md
+          - name: Axo_SR_750
+            href: Axo_SR_750.md
+          - name: Axo_SR_1000
+            href: Axo_SR_1000.md
       - name: Changes
-        href: CHANGELOG.md      
+        href: CHANGELOG.md
       - name: Troubleshooting
         href: TROUBLES.md

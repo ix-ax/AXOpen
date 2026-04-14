@@ -1,10 +1,20 @@
-items:
-- name: Introduction
-  href: README.md
-- name: HowTos
-  href: HOWTO.md
-  items:
-  - name: Cylinder
-    href: AXOCYLINDER.md
-- name: Troubleshooting
-  href: TROUBLES.md
+      items:
+      - name: Introduction
+        href: index.md
+      - name : Packages
+        items :
+          - name: Controller
+            href: ../ctrl/README.md
+          - name: .NET TWIN
+            href: ../src/AXOpen.Components.Pneumatics/README.md
+          - name: Blazor
+            href: ../src/AXOpen.Components.Pneumatics.blazor/README.md
+      - name: Components
+        href: README.md
+        items:
+          - name: AxoCylinder
+            href: AxoCylinder.md
+      - name: Changes
+        href: CHANGELOG.md
+      - name: Troubleshooting
+        href: TROUBLES.md

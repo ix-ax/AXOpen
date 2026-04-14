@@ -2117,7 +2117,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
         ///<summary>
         /// This method commands a controlled motion to a specified absolute position.
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_MoveAbsoluteExecute_PV					: 	BOOL;				//Execute - previous value
             MC_MoveAbsoluteErrorID					    : 	DINT;
@@ -2345,7 +2345,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
         ///<summary>
         /// This method  commands a controlled motion of a specified distance relative to the set position at the time of the execution.
-        ///<summary>
+        ///</summary>
         VAR INTERNAL
             MC_MoveRelativeExecute_PV					: 	BOOL;				//Execute - previous value
             MC_MoveRelativeErrorID					    : 	DINT;

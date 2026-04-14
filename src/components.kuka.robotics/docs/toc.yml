@@ -1,22 +1,20 @@
       items:
       - name: Introduction
-        href: index.md  
-      - name : Packages  
+        href: index.md
+      - name : Packages
         items :
           - name: Controller
             href: ../ctrl/README.md
           - name: .NET TWIN
             href: ../src/AXOpen.Components.Kuka.Robotics/README.md
           - name: Blazor
-            href: ../src/AXOpen.Components.Kuka.Robotics.blazor/README.md    
+            href: ../src/AXOpen.Components.Kuka.Robotics.blazor/README.md
       - name: Components
         href: README.md
         items:
           - name: AxoKrc4_v_5_x_x
-            href: AxoKrc4_v_5_x_x_Showcase.md
-          # - name: Component 2
-          #   href: AxoKrc4_v_5_x_x_Showcase2.md
+            href: AxoKrc4_v_5_x_x.md
       - name: Changes
-        href: CHANGELOG.md      
+        href: CHANGELOG.md
       - name: Troubleshooting
         href: TROUBLES.md

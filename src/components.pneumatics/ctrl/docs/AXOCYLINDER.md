@@ -49,5 +49,5 @@ To block the movement, there are four public methods present:
 
 
 **How to visualize `AxoCylinder`**
+
 On the UI side, use the `RenderableContentControl` and set its Context according to the placement of the instance of the `AxoCylinder`.
-[!code-csharp[](../../../../src/components.pneumatics/app/ix-blazor/PneumaticComponents.blazor/Pages/Documentation.razor?name=RenderedView)]

@@ -1,3 +1,10 @@
+# Changelog
+
+### 0.43.0
+
+**Other:**
+- Documentation reviewed and wired into central DocFX navigation.
+
 ## Changes
 <!--  
     Leave the file intact at the end of the file add the following:
