@@ -41,6 +41,10 @@
 				</ul>
 			</section>
 			<LibraryResources>
+				<Documentation>
+					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath" Label="README — Overview" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath" Label="Troubleshooting" Mono="false" OnOpen="OpenModalAsync" /></li>
+				</Documentation>
 				<PlcSource>
 					<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath" OnOpen="OpenModalAsync" /></li>
 				</PlcSource>
@@ -153,8 +157,10 @@
 	private CodeSnippet? _driveEnumsSnippet;
 	private bool _loadingCode = true;
 	private string _selectedPresentation = "Command-Control";
-	private readonly string _plcContextPath = "src/showcase/app/src/components.abstractions/ComponentsAbstractionsShowcase.st";
-	private readonly string _libApaxYmlPath = "src/components.abstractions/ctrl/apax.yml";
+	private readonly string _plcContextPath  = "src/showcase/app/src/components.abstractions/ComponentsAbstractionsShowcase.st";
+	private readonly string _libApaxYmlPath  = "src/components.abstractions/ctrl/apax.yml";
+	private readonly string _libReadmePath   = "src/components.abstractions/docs/README.md";
+	private readonly string _libTroublesPath = "src/components.abstractions/docs/TROUBLES.md";
 	protected override async Task OnInitializedAsync()
 	{
 		try

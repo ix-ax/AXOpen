@@ -200,7 +200,7 @@
 								<Tab>
 									<TabPage Title="Automatic rendering">
 										<div class="mt-4">
-											<RenderableContentControl Context="@Entry.Plc.Ctx.balluff_identification_documentation.axo_BIS_M_4XX_045_2" Presentation="@_selectedPresentation" />
+											<RenderableContentControl Context="@Entry.Plc.Ctx.balluff_identification_documentation.axo_BIS_M_4XX_045_ManualControl" Presentation="@_selectedPresentation" />
 										</div>
 									</TabPage>
 									<TabPage Title="Code reference">
@@ -316,15 +316,15 @@
 	private string _selectedPresentation = "Command-Control";
 	// PLC source paths
 	private readonly string _plcContextPath    = "src/showcase/app/src/components.balluff.identification/Documentation/BalluffIdentification.st";
-	private readonly string _plcComponent1Path = "src/showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_Showcase.st";
-	private readonly string _plcComponent2Path = "src/showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_Showcase2.st";
+	private readonly string _plcComponent1Path = "src/showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045.st";
+	private readonly string _plcComponent2Path = "src/showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_ManualControl.st";
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath    = "src/showcase/app/hwc/plc_line.hwl.yml";
 	private readonly string _hwcDeviceTemplatePath = "src/showcase/app/hwc/library_templates/balluff_identification_BIS_M_4XX_045/BNIPNT507005Z040.hwl.yml";
 	// Library resource paths
 	private readonly string _libReadmePath        = "src/components.balluff.identification/docs/README.md";
-	private readonly string _libComponent1DocPath = "src/components.balluff.identification/docs/Axo_BIS_M_4XX_045_Showcase.md";
-	private readonly string _libComponent2DocPath = "src/components.balluff.identification/docs/Axo_BIS_M_4XX_045_Showcase2.md";
+	private readonly string _libComponent1DocPath = "src/components.balluff.identification/docs/Axo_BIS_M_4XX_045.md";
+	private readonly string _libComponent2DocPath = "src/components.balluff.identification/docs/Axo_BIS_M_4XX_045.md";
 	private readonly string _libTroublesPath      = "src/components.balluff.identification/docs/TROUBLES.md";
 	protected override async Task OnInitializedAsync()
 	{

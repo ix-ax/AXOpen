@@ -290,12 +290,16 @@
 	private readonly string _plcContextPath = "src/showcase/app/src/components.elements/Documentation/Elements.st";
 	// Library resource paths
 	private readonly string _libReadmePath   = "src/components.elements/docs/README.md";
-	private readonly string _libAxoDiDocPath  = "src/components.elements/docs/AXODI.md";
-	private readonly string _libAxoDoDocPath  = "src/components.elements/docs/AXODO.md";
-	private readonly string _libAxoAiDocPath  = "src/components.elements/docs/AXOAI.md";
-	private readonly string _libAxoAoDocPath  = "src/components.elements/docs/AXOAO.md";
+	private readonly string _libAxoDiDocPath  = "src/components.elements/docs/AxoDi.md";
+	private readonly string _libAxoDoDocPath  = "src/components.elements/docs/AxoDo.md";
+	private readonly string _libAxoAiDocPath  = "src/components.elements/docs/AxoAi.md";
+	private readonly string _libAxoAoDocPath  = "src/components.elements/docs/AxoAo.md";
+	private readonly string _libAxoBacklitButtonDocPath = "src/components.elements/docs/AxoBacklitButton.md";
+	private readonly string _libAxoSignalTowerDocPath   = "src/components.elements/docs/AxoSignalTower.md";
+	private readonly string _libAxoRotaryIndexingTableDocPath = "src/components.elements/docs/AxoRotaryIndexingTable.md";
 	private readonly string _libHowtoPath     = "src/components.elements/docs/HOWTO.md";
 	private readonly string _libTroublesPath  = "src/components.elements/docs/TROUBLES.md";
+	private readonly string _libChangelogPath = "src/components.elements/docs/CHANGELOG.md";
 	public override void ConfigurePolling()
 	{
 		var cu = Entry.Plc.Ctx.elements_documentation.Cu;
@@ -303,6 +307,8 @@
 		this.StartPolling(cu._testDo, 250);
 		this.StartPolling(cu._testAi, 250);
 		this.StartPolling(cu._testAo, 250);
+		this.StartPolling(cu._testBacklitButton, 250);
+		this.StartPolling(cu._testSignalTower, 250);
 		this.StartPolling(cu._testCarousel, 250);
 	}
 	protected override async Task OnInitializedAsync()
@@ -476,6 +482,22 @@
     <AxoRotaryIndexingTableView Context="@Entry.Plc.Ctx.elements_documentation.Cu._testCarousel" Presentation="Command-Control" />
     <!-- </AxoRotaryIndexingTableCommandView> -->
 
+    <!-- <GenericComponentStatusView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.elements_documentation.Cu._testSignalTower" Presentation="Status-Display" />
+    <!-- </GenericComponentStatusView> -->
+
+    <!-- <GenericComponentCommandView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.elements_documentation.Cu._testSignalTower" Presentation="Command-Control" />
+    <!-- </GenericComponentCommandView> -->
+
+    <!-- <RccComponentStatusView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.elements_documentation.Cu._testSignalTower" Presentation="Status-Display" />
+    <!-- </RccComponentStatusView> -->
+
+    <!-- <RccComponentCommandView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.elements_documentation.Cu._testSignalTower" Presentation="Command-Control" />
+    <!-- </RccComponentCommandView> -->
+
     <!-- <AxoSignalTowerStatusView> -->
     <AxoSignalTowerView Context="@Entry.Plc.Ctx.elements_documentation.Cu._testSignalTower" Presentation="Status-Display" />
     <!-- </AxoSignalTowerStatusView> -->
@@ -483,5 +505,21 @@
     <!-- <AxoSignalTowerCommandView> -->
     <AxoSignalTowerView Context="@Entry.Plc.Ctx.elements_documentation.Cu._testSignalTower" Presentation="Command-Control" />
     <!-- </AxoSignalTowerCommandView> -->
+
+    <!-- <GenericComponentStatusView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.elements_documentation.Cu._testBacklitButton" Presentation="Status-Display" />
+    <!-- </GenericComponentStatusView> -->
+
+    <!-- <GenericComponentCommandView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.elements_documentation.Cu._testBacklitButton" Presentation="Command-Control" />
+    <!-- </GenericComponentCommandView> -->
+
+    <!-- <RccComponentStatusView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.elements_documentation.Cu._testBacklitButton" Presentation="Status-Display" />
+    <!-- </RccComponentStatusView> -->
+
+    <!-- <RccComponentCommandView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.elements_documentation.Cu._testBacklitButton" Presentation="Command-Control" />
+    <!-- </RccComponentCommandView> -->
 
 }

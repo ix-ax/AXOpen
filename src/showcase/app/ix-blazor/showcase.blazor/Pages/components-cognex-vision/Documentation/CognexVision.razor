@@ -27,7 +27,7 @@
 				<ul class="mt-3 space-y-2 text-sm text-slate-600">
 					<li><span class="font-medium text-slate-800">Category:</span> Vision</li>
 					<li><span class="font-medium text-slate-800">Vendor:</span> Cognex</li>
-					<li><span class="font-medium text-slate-800">Components:</span> 5 (componentOne .. componentFive)</li>
+					<li><span class="font-medium text-slate-800">Components:</span> AxoInsight v6, AxoInsight v24, AxoDataman (2), AxoVisionPro</li>
 					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">cognex_vision_documentation</span></li>
 				</ul>
 			</section>
@@ -47,7 +47,8 @@
 					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoInsight v6 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="AxoDataman v6 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_libComponent3DocPath" Label="AxoDataman v6 (Ex.2) — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent3DocPath" Label="AxoInsight v24 — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent4DocPath" Label="AxoVisionPro — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
 				</Documentation>
 				<HardwareAssets>
@@ -58,7 +59,8 @@
 					<li class="min-w-0"><SourceFileLink Path="@_hwcDevice5TemplatePath" OnOpen="OpenModalAsync" /></li>
 				</HardwareAssets>
 				<PlcSource>
-					<li class="min-w-0"><SourceFileLink Path="@_libAxoInsightStPath"  OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoInsightV6StPath"  OnOpen="OpenModalAsync" /></li>
+						<li class="min-w-0"><SourceFileLink Path="@_libAxoInsightV24StPath" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libAxoDatamanStPath"  OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libAxoVisionProStPath" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"       OnOpen="OpenModalAsync" /></li>
@@ -844,11 +846,11 @@
 	private string _selectedPresentation = "Command-Control";
 	// PLC source paths
 	private readonly string _plcContextPath    = "src/showcase/app/src/components.cognex.vision/Documentation/CognexVision.st";
-	private readonly string _plcComponent1Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoInsight_v_6_0_0_0_Showcase.st";
-	private readonly string _plcComponent2Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoDataman_v_6_0_0_0_Showcase.st";
-	private readonly string _plcComponent3Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoDataman_v_6_0_0_0_Showcase2.st";
-	private readonly string _plcComponent4Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoInsight_v_24_0_0_Showcase.st";
-	private readonly string _plcComponent5Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro_Showcase.st";
+	private readonly string _plcComponent1Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoInsight_v_6_0_0.st";
+	private readonly string _plcComponent2Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoDataman.st";
+	private readonly string _plcComponent3Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoDataman_Secondary.st";
+	private readonly string _plcComponent4Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoInsight_v_24_0_0.st";
+	private readonly string _plcComponent5Path = "src/showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro.st";
 	// Hardware configuration paths
 	private readonly string _hwcPlcLineYmlPath     = "src/showcase/app/hwc/plc_line.hwl.yml";
 	private readonly string _hwcDevice1TemplatePath = "src/showcase/app/hwc/library_templates/Cognex_Vision_Insight_V_6_0_0/Cognex_Vision_Insight_V_6_0_0.hwl.yml";
@@ -858,15 +860,15 @@
 	private readonly string _hwcDevice5TemplatePath = "src/showcase/app/hwc/library_templates/cognex_vision_pro/cognex_vision_pro.hwl.yml";
 	// Library resource paths
 	private readonly string _libReadmePath        = "src/components.cognex.vision/docs/README.md";
-	private readonly string _libComponent1DocPath = "src/components.cognex.vision/docs/AxoInsight_v_6_0_0_0_Showcase.md";
-	private readonly string _libComponent2DocPath = "src/components.cognex.vision/docs/AxoDataman_v_6_0_0_0_Showcase.md";
-	private readonly string _libComponent3DocPath = "src/components.cognex.vision/docs/AxoDataman_v_6_0_0_0_Showcase2.md";
-	private readonly string _libComponent4DocPath = "src/components.cognex.vision/docs/ComponentTemplate.md";
-	private readonly string _libComponent5DocPath = "src/components.cognex.vision/docs/index.md";
+	private readonly string _libComponent1DocPath = "src/components.cognex.vision/docs/AxoInsight_v_6_0_0_0.md";
+	private readonly string _libComponent2DocPath = "src/components.cognex.vision/docs/AxoDataman.md";
+	private readonly string _libComponent3DocPath = "src/components.cognex.vision/docs/AxoInsight_v_24_0_0.md";
+	private readonly string _libComponent4DocPath = "src/components.cognex.vision/docs/AxoVisionPro.md";
 	private readonly string _libTroublesPath = "src/components.cognex.vision/docs/TROUBLES.md";
 	// PLC library source paths
-	private readonly string _libAxoInsightStPath   = "src/components.cognex.vision/ctrl/src/AxoInsight/v_6_0_0/AxoInsight.st";
-	private readonly string _libAxoDatamanStPath   = "src/components.cognex.vision/ctrl/src/AxoDataman/v_6_0_0/AxoDataman.st";
+	private readonly string _libAxoInsightV6StPath  = "src/components.cognex.vision/ctrl/src/AxoInsight/v_6_0_0/AxoInsight.st";
+	private readonly string _libAxoInsightV24StPath = "src/components.cognex.vision/ctrl/src/AxoInsight/v_24_0_0/AxoInsight.st";
+	private readonly string _libAxoDatamanStPath    = "src/components.cognex.vision/ctrl/src/AxoDataman/v_6_0_0/AxoDataman.st";
 	private readonly string _libAxoVisionProStPath = "src/components.cognex.vision/ctrl/src/AxoVisionPro/AxoVisionPro.st";
 	private readonly string _libApaxYmlPath        = "src/components.cognex.vision/ctrl/apax.yml";
 	protected override async Task OnInitializedAsync()

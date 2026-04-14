@@ -42,10 +42,16 @@
 			<LibraryResources>
 				<Documentation>
 					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"       Label="README — Overview"        Mono="false" OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="Component_1 — Guide"     Mono="false" OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="Component_2 — Guide"     Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libUtilitiesDocPath"     Label="Robotics Utilities — Guide"   Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libVendorDocPath"        Label="Vendor Implementations"       Mono="false" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"     Label="Troubleshooting"          Mono="false" OnOpen="OpenModalAsync" /></li>
 				</Documentation>
+				<PlcSource>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoRobotStatusPath"    Label="AxoRobot_Status.st"           OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libCalculateDistancePath" Label="CalculateDistance.st"         OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libCoordsNearlyEqualPath" Label="CoordinatesAreNearlyEqual.st" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libIsNearlyEqualPath"     Label="IsNearlyEqual.st"             OnOpen="OpenModalAsync" /></li>
+				</PlcSource>
 			</LibraryResources>
 		</aside>
 		<section class="space-y-6 xl:col-span-2">
@@ -88,10 +94,15 @@
 	private string _selectedPresentation = "Command-Control";
 	private readonly string _plcContextPath    = "src/showcase/app/src/components.robotics/Documentation/Robotics.st";
 	// Library resource paths
-	private readonly string _libReadmePath       = "src/components.robotics/docs/README.md";
-	private readonly string _libComponent1DocPath = "src/components.robotics/docs/Component_1.md"; // TODO: No showcase .st files exist for robotics yet
-	private readonly string _libComponent2DocPath = "src/components.robotics/docs/Component_2.md"; // TODO: No showcase .st files exist for robotics yet
-	private readonly string _libTroublesPath     = "src/components.robotics/docs/TROUBLES.md";
+	private readonly string _libReadmePath         = "src/components.robotics/docs/README.md";
+	private readonly string _libUtilitiesDocPath   = "src/components.robotics/docs/RoboticsUtilities.md";
+	private readonly string _libVendorDocPath      = "src/components.robotics/docs/VendorImplementations.md";
+	private readonly string _libTroublesPath       = "src/components.robotics/docs/TROUBLES.md";
+	// Library source paths
+	private readonly string _libAxoRobotStatusPath      = "src/components.robotics/ctrl/src/AxoRobotics/AxoRobot_Status.st";
+	private readonly string _libCalculateDistancePath   = "src/components.robotics/ctrl/src/AxoRobotics/CalculateDistance.st";
+	private readonly string _libCoordsNearlyEqualPath   = "src/components.robotics/ctrl/src/AxoRobotics/CoordinatesAreNearlyEqual.st";
+	private readonly string _libIsNearlyEqualPath       = "src/components.robotics/ctrl/src/AxoRobotics/IsNearlyEqual.st";
 	protected override async Task OnInitializedAsync()
 	{
 		await base.OnInitializedAsync();

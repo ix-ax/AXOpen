@@ -2,24 +2,24 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Components.Balluff.Identification
     {S7.extern=ReadWrite}
-    CLASS Axo_BIS_M_4XX_045_Showcase2 EXTENDS AXOpen.Core.AxoObject
+    CLASS Axo_BIS_M_4XX_045_Example EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
-        VAR PUBLIC                
-            ExampleReader : AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045;             
+        VAR PUBLIC
+            ExampleReader : AXOpen.Components.Balluff.Identification.Axo_BIS_M_4XX_045;
         END_VAR
-        //</ComponentDeclaration>                          
+        //</ComponentDeclaration>
 
         //<InitializationArgumentsDeclaration>
-        VAR PUBLIC              
+        VAR PUBLIC
             {#ix-set:AttributeName = "<#Activate manual control#>"}
-            ActivateManualControl : BOOL;         
+            ActivateManualControl : BOOL;
         END_VAR
-        //</InitializationArgumentsDeclaration>            
+        //</InitializationArgumentsDeclaration>
 
         METHOD PUBLIC OVERRIDE Run
             VAR_INPUT
                 inParent : IAxoObject;
-            END_VAR    
+            END_VAR
 
             SUPER.Run(inParent);
 
@@ -27,18 +27,18 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 ExampleReader.ActivateManualControl();
             END_IF;
 
-            //<Initialization>        
+            //<Initialization>
             ExampleReader.Run(  inParent := THIS,
-                                hwID            := AXOpen.Showcase.HwIdentifiers#BNIPNT507005Z040_HwID);
+                                hwID     := AXOpen.Showcase.HwIdentifiers#BNIPNT507005Z040_HwID);
             //</Initialization>
 
-        THIS.UseInSequencer();
+            THIS.UseInSequencer();
         END_METHOD
 
-        //<Usage>    
-        VAR PUBLIC                       
-            Sequencer : AxoSequencer;       
-            Steps : ARRAY[0..6] OF AXOpen.Core.AxoStep;
+        //<Usage>
+        VAR PUBLIC
+            Sequencer : AxoSequencer;
+            Steps     : ARRAY[0..7] OF AXOpen.Core.AxoStep;
         END_VAR
 
         METHOD PRIVATE UseInSequencer
@@ -47,7 +47,7 @@ NAMESPACE AXOpen.Components.Balluff.Identification
             Sequencer.Open();
             Sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
 
-            IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
+            IF(Steps[0].Execute(Sequencer, 'Configure and restore reader')) THEN
                 ExampleReader.Config.InfoTime      := LTIME#2S;
                 ExampleReader.Config.ErrorTime     := LTIME#5S;
                 ExampleReader.Config.TaskTimeout   := LTIME#50S;
@@ -63,20 +63,20 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 END_IF;
             END_IF;
 
-            IF(Steps[2].Execute(Sequencer, 'Read')) THEN
+            IF(Steps[2].Execute(Sequencer, 'Read tag data')) THEN
                 IF(ExampleReader.Read().IsDone()) THEN
                     Sequencer.MoveNext();
                 END_IF;
             END_IF;
 
-            IF(Steps[3].Execute(Sequencer, 'Write')) THEN
+            IF(Steps[3].Execute(Sequencer, 'Write tag data')) THEN
                 IF(ExampleReader.Write().IsDone()) THEN
                     Sequencer.MoveNext();
                 END_IF;
             END_IF;
 
-            IF(Steps[4].Execute(Sequencer, 'Write char to memory')) THEN
-                IF(ExampleReader.WriteCharToMemory(character     := BYTE#16#41,
+            IF(Steps[4].Execute(Sequencer, 'Write single char to memory')) THEN
+                IF(ExampleReader.WriteCharToMemory(character     := BYTE#16#41,  // 'A'
                                                    Address       := WORD#0,
                                                    NumberOfBytes := WORD#1
                                                    ).IsDone()) THEN
@@ -90,12 +90,15 @@ NAMESPACE AXOpen.Components.Balluff.Identification
                 END_IF;
             END_IF;
 
-            IF(Steps[6].Execute(Sequencer, 'Restore')) THEN
+            IF(Steps[6].Execute(Sequencer, 'Error recovery')) THEN
                 ExampleReader.Restore();
+                Sequencer.MoveNext();
+            END_IF;
+
+            IF(Steps[7].Execute(Sequencer, 'Complete')) THEN
                 Sequencer.CompleteSequence();
             END_IF;
         END_METHOD
-        
         //</Usage>
     END_CLASS
 END_NAMESPACE

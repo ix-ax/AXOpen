@@ -45,6 +45,7 @@
 					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"            Mono="false" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoIdentDevice — Ident Profile"  Mono="false" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="AxoIOLink_RF200 — IO-Link RF200"  Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent3DocPath" Label="AxoSimaticIdentCyclic — Cyclic" Mono="false" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"               Mono="false" OnOpen="OpenModalAsync" /></li>
 				</Documentation>
 				<HardwareAssets>
@@ -633,8 +634,9 @@
 	private readonly string _hwcDeviceTemplatePath = "src/showcase/app/hwc/library_templates/siemens_identification/rf186c.hwl.yml";
 	// Library resource paths
 	private readonly string _libReadmePath        = "src/components.siem.identification/docs/README.md";
-	private readonly string _libComponent1DocPath = "src/components.siem.identification/docs/Axo_IdentDevice_Showcase.md";
-	private readonly string _libComponent2DocPath = "src/components.siem.identification/docs/AxoIOLink_RF200Device_Showcase.md";
+	private readonly string _libComponent1DocPath = "src/components.siem.identification/docs/Axo_IdentDevice.md";
+	private readonly string _libComponent2DocPath = "src/components.siem.identification/docs/AxoIOLink_RF200Device.md";
+	private readonly string _libComponent3DocPath = "src/components.siem.identification/docs/AxoSimaticIdentCyclic.md";
 	private readonly string _libTroublesPath      = "src/components.siem.identification/docs/TROUBLES.md";
 	private Dictionary<string, AXOpen.Core.AxoStep> _c1StepsBySymbol = new();
 	private Dictionary<string, AXOpen.Core.AxoStep> _c2StepsBySymbol = new();

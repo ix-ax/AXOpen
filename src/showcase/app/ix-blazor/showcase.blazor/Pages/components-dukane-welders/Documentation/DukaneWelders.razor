@@ -40,8 +40,7 @@
 			<LibraryResources VendorName="Dukane" VendorUrl="https://www.dukane.com/">
 				<Documentation>
 					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"               Mono="false" OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="IQ Series Welder — Component 1"  Mono="false" OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="IQ Series Welder — Component 2"  Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponentDocPath" Label="IQ Series Welder — Component reference"  Mono="false" OnOpen="OpenModalAsync" /></li>
 					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"                  Mono="false" OnOpen="OpenModalAsync" /></li>
 				</Documentation>
 				<PlcSource>
@@ -403,8 +402,7 @@
 	private readonly string _hwcDeviceTemplatePath = "src/showcase/app/hwc/library_templates/dukane_welders_iq_series/DukaneIqSeriesWelder.hwl.yml";
 	// Library resource paths
 	private readonly string _libReadmePath         = "src/components.dukane.welders/docs/README.md";
-	private readonly string _libComponent1DocPath  = "src/components.dukane.welders/docs/Axo_IQ_SeriesWelder_Showcase.md";
-	private readonly string _libComponent2DocPath  = "src/components.dukane.welders/docs/Axo_IQ_SeriesWelder_Showcase2.md";
+	private readonly string _libComponentDocPath   = "src/components.dukane.welders/docs/Axo_IQ_SeriesWelder.md";
 	private readonly string _libTroublesPath        = "src/components.dukane.welders/docs/TROUBLES.md";
 	private readonly string _libAxoIqWelderStPath   = "src/components.dukane.welders/ctrl/src/AxoIQSeriesWelder/Axo_IQ_SeriesWelder.st";
 	private readonly string _libApaxYmlPath         = "src/components.dukane.welders/ctrl/apax.yml";
@@ -503,5 +501,21 @@
 
     <!-- <RccComponentCommandView> -->
     <RenderableContentControl Context="@Entry.Plc.Ctx.dukane_welders_documentation.axo_IQ_SeriesWelder.Dukane_IQ_SeriesWelder" Presentation="Command-Control" />
+    <!-- </RccComponentCommandView> -->
+
+    <!-- <GenericComponentStatusView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.dukane_welders_documentation.axo_IQ_SeriesWelder_2.Dukane_IQ_SeriesWelder" Presentation="Status-Display" />
+    <!-- </GenericComponentStatusView> -->
+
+    <!-- <GenericComponentCommandView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.dukane_welders_documentation.axo_IQ_SeriesWelder_2.Dukane_IQ_SeriesWelder" Presentation="Command-Control" />
+    <!-- </GenericComponentCommandView> -->
+
+    <!-- <RccComponentStatusView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.dukane_welders_documentation.axo_IQ_SeriesWelder_2.Dukane_IQ_SeriesWelder" Presentation="Status-Display" />
+    <!-- </RccComponentStatusView> -->
+
+    <!-- <RccComponentCommandView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.dukane_welders_documentation.axo_IQ_SeriesWelder_2.Dukane_IQ_SeriesWelder" Presentation="Command-Control" />
     <!-- </RccComponentCommandView> -->
 }

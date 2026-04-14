@@ -3,10 +3,10 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Components.Cognex.Vision
 
     {S7.extern=ReadWrite}
-    CLASS AxoDataman_v_6_0_0_0_Showcase2 EXTENDS AXOpen.Core.AxoObject
+    CLASS AxoDataman_Example EXTENDS AXOpen.Core.AxoObject
         //<ComponentDeclaration>
         VAR PUBLIC                
-            Dataman_300 : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman;     
+            Dataman_280 : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman;     
         END_VAR
         //</ComponentDeclaration>                          
 
@@ -26,12 +26,12 @@ NAMESPACE AXOpen.Components.Cognex.Vision
 
             IF ActivateManualControl THEN
                 //<DatamanManualControl>
-                Dataman_300.ActivateManualControl();
+                Dataman_280.ActivateManualControl();
                 //</DatamanManualControl>
             END_IF;
 
-            //<Initialization>        
-            Dataman_300.Run(inParent := THIS, hwID :=  AXOpen.Showcase.HwIdentifiers#cognex_dataman_380_HwID);
+            //<Initialization>    
+            Dataman_280.Run(inParent  :=  THIS, hwID :=  AXOpen.Showcase.HwIdentifiers#cognex_dataman_280_HwID);    
             //</Initialization>
 
             THIS.UseInSequencer();
@@ -55,36 +55,35 @@ NAMESPACE AXOpen.Components.Cognex.Vision
             Sequencer.Run(THIS);
             Sequencer.Open();
 
-            
             IF(Steps[0].Execute(Sequencer, 'Restore')) THEN
-                Dataman_300.Config.InfoTime    := LTIME#2S;
-                Dataman_300.Config.ErrorTime   := LTIME#5S;
-                Dataman_300.Config.TaskTimeout := LTIME#50S;
-                Dataman_300.Restore();
+                Dataman_280.Config.InfoTime    := LTIME#2S;
+                Dataman_280.Config.ErrorTime   := LTIME#5S;
+                Dataman_280.Config.TaskTimeout := LTIME#50S;
+                Dataman_280.Restore();
                 Sequencer.MoveNext();
-            END_IF;  
-
+            END_IF;
+            
             IF(Steps[1].Execute(Sequencer, 'Clear result data')) THEN
-                IF(Dataman_300.ClearResultData().IsDone()) THEN                
+                IF(Dataman_280.ClearResultData().IsDone()) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;  
 
             IF(Steps[2].Execute(Sequencer, 'Read data')) THEN
-                IF(Dataman_300.Read().IsDone()) THEN                
+                IF(Dataman_280.Read().IsDone()) THEN                
                     Sequencer.MoveNext();                
                 END_IF;    
             END_IF;
 
             IF(Steps[3].Execute(Sequencer, 'Evaluate data')) THEN
-                _ResultData := Dataman_300.ResultData;
+                _ResultData := Dataman_280.ResultData;
                 Sequencer.MoveNext();                
             END_IF;       
     
             IF(Steps[4].Execute(Sequencer, 'Restore')) THEN
-                Dataman_300.Restore();                
+                Dataman_280.Restore();
                 Sequencer.CompleteSequence();                               
-            END_IF;  
+            END_IF;
 
         END_METHOD
         

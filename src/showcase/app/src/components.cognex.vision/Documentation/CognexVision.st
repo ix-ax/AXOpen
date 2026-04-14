@@ -6,11 +6,11 @@ NAMESPACE AXOpen.Components.Cognex.Vision
     CLASS CognexVision EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             _rootObject :   AxoObject;
-            axoInsight_v_6_0_0_0 : AxoInsight_v_6_0_0_0_Showcase;
-            axoDataman_v_6_0_0_0 : AxoDataman_v_6_0_0_0_Showcase;
-            axoDataman_v_6_0_0_0_2 : AxoDataman_v_6_0_0_0_Showcase2;
-            axoInsight_v_24_0_0 : AxoInsight_v_24_0_0_Showcase;
-            axoVisionPro : AxoVisionPro_Showcase;
+            axoInsight_v_6_0_0_0 : AxoInsight_v_6_0_0_Example;
+            axoDataman_v_6_0_0_0 : AxoDataman_Example;
+            axoDataman_v_6_0_0_0_2 : AxoDataman_Secondary_Example;
+            axoInsight_v_24_0_0 : AxoInsight_v_24_0_0_Example;
+            axoVisionPro : AxoVisionPro_Example;
         END_VAR
 
         METHOD PUBLIC Execute

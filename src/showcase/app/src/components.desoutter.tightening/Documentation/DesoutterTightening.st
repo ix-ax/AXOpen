@@ -3,7 +3,7 @@ NAMESPACE AXOpen.Components.Desoutter.Tightening
     CLASS DesoutterTightening EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             _rootObject :AxoObject;
-            axoCVIC_II : AxoCVIC_II_Showcase;
+            axoCVIC_II : AxoCVIC_II_Example;
         END_VAR
 
         METHOD PUBLIC Execute

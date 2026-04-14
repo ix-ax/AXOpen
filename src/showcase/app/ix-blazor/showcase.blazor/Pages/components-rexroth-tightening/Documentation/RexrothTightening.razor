@@ -40,8 +40,7 @@
 			<LibraryResources VendorName="Bosch Rexroth" VendorUrl="https://www.boschrexroth.com/">
 				<Documentation>
 					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"              Mono="false" OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="CS351 Compact — Component 1"   Mono="false" OnOpen="OpenModalAsync" /></li>
-					<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="CS351 Compact — Component 2"   Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponentDocPath" Label="CS351 Compact" Mono="false" OnOpen="OpenModalAsync" /></li>					
 					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"                Mono="false" OnOpen="OpenModalAsync" /></li>
 				</Documentation>
 				<PlcSource>
@@ -403,8 +402,7 @@
 	private readonly string _hwcDeviceTemplatePath = "src/showcase/app/hwc/library_templates/rexroth_tightening_cs351/rexroth_tightening_cs351.hwl.yml";
 	// Library resource paths
 	private readonly string _libReadmePath         = "src/components.rexroth.tightening/docs/README.md";
-	private readonly string _libComponent1DocPath  = "src/components.rexroth.tightening/docs/Axo_CS351_compact_Showcase.md";
-	private readonly string _libComponent2DocPath  = "src/components.rexroth.tightening/docs/Axo_CS351_compact_Showcase2.md";
+	private readonly string _libComponentDocPath  = "src/components.rexroth.tightening/docs/Axo_CS351_compact.md";
 	private readonly string _libTroublesPath        = "src/components.rexroth.tightening/docs/TROUBLES.md";
 	private readonly string _libAxoCs351StPath      = "src/components.rexroth.tightening/ctrl/src/Axo_CS351_compact/Axo_CS351_compact.st";
 	private readonly string _libApaxYmlPath         = "src/components.rexroth.tightening/ctrl/apax.yml";
