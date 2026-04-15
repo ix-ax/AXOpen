@@ -214,10 +214,23 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             });
             
             
-            context.DotNetRestore(Path.Combine(context.RootDir, "AXOpen.proj"));            
+           
+
+            context.DotNetRestore(Path.Combine(context.RootDir, "AXOpen.proj"));
             BuildTailwindCss(context);
 
             context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.proj"), context.DotNetBuildSettings);
+
+             var showcaseAppFolder = Path.Combine(context.RootDir, "showcase", "app");
+            if (File.Exists(Path.Combine(showcaseAppFolder, "apax.yml")))
+            {
+                context.Log.Information("---------------------------------");
+                context.Log.Information("Building showcase application (PLC).");
+                context.Log.Information("---------------------------------");
+                context.ApaxInstall(new[] { showcaseAppFolder });
+                context.ApaxBuild(new[] { showcaseAppFolder });
+                context.DotnetIxc(new[] { showcaseAppFolder });
+            }
         }
 
         
