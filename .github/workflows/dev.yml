@@ -1,6 +1,12 @@
 name: dev
 permissions:
   contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 on:
 #  push:
@@ -53,3 +59,67 @@ jobs:
         dotnet run --project cake/Build.csproj --do-publish-only --do-publish --do-publish-release
         "PACK_EXIT_CODE=$LASTEXITCODE" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
       shell: pwsh
+
+  docs:
+    needs: build
+    runs-on: [self-hosted, Windows, X64, L2, AX]
+    steps:
+    - name: Generate ctrl API metadata (ixd)
+      shell: pwsh
+      run: |
+        dotnet ixd `
+          -x .\src\abstractions\ctrl `
+             .\src\core\ctrl `
+             .\src\data\ctrl `
+             .\src\inspectors\ctrl `
+             .\src\io\ctrl `
+             .\src\probers\ctrl `
+             .\src\simatic1500\ctrl `
+             .\src\timers\ctrl `
+             .\src\utils\ctrl `
+             .\src\components.abstractions\ctrl `
+             .\src\components.abb.robotics\ctrl `
+             .\src\components.balluff.identification\ctrl `
+             .\src\components.cognex.vision\ctrl `
+             .\src\components.desoutter.tightening\ctrl `
+             .\src\components.drives\ctrl `
+             .\src\components.dukane.welders\ctrl `
+             .\src\components.elements\ctrl `
+             .\src\components.festo.drives\ctrl `
+             .\src\components.keyence.vision\ctrl `
+             .\src\components.kuka.robotics\ctrl `
+             .\src\components.mitsubishi.robotics\ctrl `
+             .\src\components.pneumatics\ctrl `
+             .\src\components.rexroth.drives\ctrl `
+             .\src\components.rexroth.press\ctrl `
+             .\src\components.rexroth.tightening\ctrl `
+             .\src\components.robotics\ctrl `
+             .\src\components.siem.communication\ctrl `
+             .\src\components.siem.identification\ctrl `
+             .\src\components.ur.robotics\ctrl `
+             .\src\components.zebra.vision\ctrl `
+          -o .\docfx\apictrl\
+
+    - name: Docfx metadata
+      shell: pwsh
+      run: dotnet docfx metadata .\docfx\docfx.json
+
+    - name: Docfx build
+      shell: pwsh
+      run: dotnet docfx build .\docfx\docfx.json --output .\docs\
+
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: docs
+
+  deploy:
+    needs: docs
+    runs-on: [self-hosted, Windows, X64, L2, AX]
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

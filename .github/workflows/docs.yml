@@ -1,10 +1,6 @@
 name: docs
 
 on:
-  workflow_run:
-    workflows: ["dev"]
-    types: [completed]
-    branches: [dev]
   workflow_dispatch:
 
 permissions:
@@ -18,7 +14,6 @@ concurrency:
 
 jobs:
   build:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: [self-hosted, Windows, X64, L2, AX]
     steps:
       - name: Checkout
