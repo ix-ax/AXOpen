@@ -76,5 +76,6 @@
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\..\..\io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj" />
     <ProjectReference Include="..\AXOpen.Components.Festo.Drives\inxton_axopen_components_festo_drives.csproj" />
+    <ProjectReference Include="..\..\..\components.drives\src\AXOpen.Components.Drives.blazor\AXOpen.Components.Drives.blazor.csproj" />
   </ItemGroup>
 </Project>

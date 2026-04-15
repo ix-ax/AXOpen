@@ -1,1 +1,1 @@
-{"OutputProjectFolder":"..\\src\\AXOpen.Io","UseBase":false,"NoDependencyUpdate":false,"IgnoreS7Pragmas":false,"SkipDependencyCompilation":false,"TargetPlatfromMoniker":"ax","ProjectFile":"inxton_axopen_io.csproj"}
+{"OutputProjectFolder":"..\\src\\AXOpen.Io","UseBase":false,"NoDependencyUpdate":false,"IgnoreS7Pragmas":false,"SkipDependencyCompilation":false,"TargetPlatfromMoniker":"ax","ProjectFile":"inxton_axopen_io.csproj","UiHostProject":"..\\src\\AXOpen.Io.blazor\\AXOpen.Io.blazor.csproj"}

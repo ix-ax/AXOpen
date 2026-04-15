@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Packable>false</Packable>
+  </PropertyGroup>
+
+  <!-- Core infrastructure -->
+  <ItemGroup>
+    <PackageReference Include="Inxton.Operon" />
+    <PackageReference Include="Markdig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj" />
+    <ProjectReference Include="..\..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
+    <ProjectReference Include="..\..\..\..\data\src\AXOpen.Data.Blazor\axopen_data_blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
+  </ItemGroup>
+
+  <!-- Library Blazor component packages -->
+  <!-- Path: showcase/app/ix-blazor/showcase.blazor/ -> ../../../../<lib>/  -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\inspectors\src\AXOpen.Inspectors.blazor\AXOpen.Inspectors.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.drives\src\AXOpen.Components.Drives.blazor\AXOpen.Components.Drives.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.elements\src\AXOpen.Components.Elements.blazor\AXOpen.Components.Elements.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.pneumatics\src\AXOpen.Components.Pneumatics.blazor\AXOpen.Components.Pneumatics.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.robotics\src\AXOpen.Components.Robotics.blazor\AXOpen.Components.Robotics.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.abb.robotics\src\AXOpen.Components.Abb.Robotics.blazor\AXOpen.Components.Abb.Robotics.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.balluff.identification\src\AXOpen.Components.Balluff.Identification.blazor\AXOpen.Components.Balluff.Identification.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.cognex.vision\src\AXOpen.Components.Cognex.Vision.blazor\AXOpen.Components.Cognex.Vision.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.desoutter.tightening\src\AXOpen.Components.Desoutter.Tightening.blazor\AXOpen.Components.Desoutter.Tightening.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.dukane.welders\src\AXOpen.Components.Dukane.Welders.blazor\AXOpen.Components.Dukane.Welders.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.festo.drives\src\AXOpen.Components.Festo.Drives.blazor\AXOpen.Components.Festo.Drives.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.keyence.vision\src\AXOpen.Components.Keyence.Vision.blazor\AXOpen.Components.Keyence.Vision.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.kuka.robotics\src\AXOpen.Components.Kuka.Robotics.blazor\AXOpen.Components.Kuka.Robotics.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.mitsubishi.robotics\src\AXOpen.Components.Mitsubishi.Robotics.blazor\AXOpen.Components.Mitsubishi.Robotics.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.rexroth.drives\src\AXOpen.Components.Rexroth.Drives.blazor\AXOpen.Components.Rexroth.Drives.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.rexroth.press\src\AXOpen.Components.Rexroth.Press.blazor\AXOpen.Components.Rexroth.Press.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.rexroth.tightening\src\AXOpen.Components.Rexroth.Tightening.blazor\AXOpen.Components.Rexroth.Tightening.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.siem.communication\src\AXOpen.Components.Siem.Communication.blazor\AXOpen.Components.Siem.Communication.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.siem.identification\src\AXOpen.Components.Siem.Identification.blazor\AXOpen.Components.Siem.Identification.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.ur.robotics\src\AXOpen.Components.Ur.Robotics.blazor\AXOpen.Components.Ur.Robotics.blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\components.zebra.vision\src\AXOpen.Components.Zebra.Vision.blazor\AXOpen.Components.Zebra.Vision.blazor.csproj" />	  
+  </ItemGroup>
+
+  <!-- Generated IXC connector for the showcase PLC program -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\ix\showcase.csproj" />
+  </ItemGroup>
+
+  <!-- Legacy IO docfx snippet pages — exclude from Razor compilation.
+       The live showcase page is Pages/Io/Documentation.razor (included). -->
+  <ItemGroup>
+    <Content Remove="Pages\Io\Component*.razor" />
+    <None Include="Pages\Io\Component*.razor" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,125 @@
+@using Operon.Icons
+@using showcase.blazor.Shared.Menu
+@inject NavigationManager NavigationManager
+@implements IDisposable
+
+<div style="position:fixed; top:0; right:0; bottom:0; width:16rem; z-index:550; overflow-x:hidden; overflow-y:auto; transform:@(NavCollapsed ? "translateX(100%)" : "none"); transition:transform 0.4s;" class="flex flex-col bg-background-light">
+    <nav class="nav">
+        <!-- Sidebar Header / Brand -->
+        <div class="flex flex-wrap p-4 gap-2 border-b-1 border-border items-center w-full">
+            <div class="flex flex-wrap items-center gap-2">
+                <div class="p-2 rounded-xl text-primary/90 bg-primary/8">
+                    <HeroIcon Icon="bolt" Type="IconType.Solid" Class="size-7" />
+                </div>
+                <div class="flex flex-wrap flex-col">
+                    <div class="text-xl text-text font-bold">AXOpen</div>
+                    <div class="text-sm text-text/60 font-semibold">SHOWCASE</div>
+                </div>
+            </div>
+            <!-- Desktop collapse toggle -->
+            <button class="btn btn-no-bg-primary mx-2 ms-auto" @onclick="NavToggle" title="@(NavCollapsed ? "Expand menu" : "Collapse menu")">
+                <HeroIcon Icon="chevron-right" Type="IconType.Outline" Class="size-5" />
+            </button>
+        </div>
+
+        <!-- Navigation Items -->
+        <MenuItem Name="Home" Link="/" Icon="home" Description="DASHBOARD" />
+
+        <ExpandableMenuItem Name="Core" Icon="cube" Description="FRAMEWORK">
+            <MenuItem Name="AxoTask" Link="core/AxoTask" Icon="play" />
+            <MenuItem Name="AxoSequencer" Link="core/AxoSequencer" Icon="queue-list" />
+            <MenuItem Name="AxoComponent" Link="core/AxoComponent" Icon="puzzle-piece" />
+            <MenuItem Name="AxoMessaging" Link="core/AxoMessaging" Icon="chat-bubble-left-right" />
+            <MenuItem Name="AxoLogger" Link="core/AxoLogger" Icon="document-magnifying-glass" />
+            <MenuItem Name="AxoDialogs" Link="core/AxoDialogs" Icon="chat-bubble-bottom-center-text" />
+        </ExpandableMenuItem>
+
+        <ExpandableMenuItem Name="Data" Icon="circle-stack" Description="DATA MANAGEMENT">
+            <MenuItem Name="Data Exchange" Link="data/DataExchange" Icon="arrows-right-left" />
+        </ExpandableMenuItem>
+
+        <ExpandableMenuItem Name="Components" Icon="squares-2x2" Description="GENERIC COMPONENTS">
+            <MenuItem Name="Components Abstractions" Link="components-abstractions/Documentation/ComponentsAbstractionsShowcase" Icon="document-text" />
+            <MenuItem Name="Drives" Link="components-drives/Documentation/DrivesShowcase" Icon="document-text" />
+            <MenuItem Name="Elements" Link="components-elements/Documentation/ElementsShowcase" Icon="document-text" />
+            <MenuItem Name="Pneumatics" Link="components-pneumatics/Documentation/PneumaticsShowcase" Icon="document-text" />
+            <MenuItem Name="Robotics" Link="components-robotics/Documentation/RoboticsShowcase" Icon="document-text" />
+        </ExpandableMenuItem>
+
+        <ExpandableMenuItem Name="Vendor Components" Icon="building-office-2" Description="VENDOR-SPECIFIC">
+            <MenuItem Name="ABB Robotics" Link="components-abb-robotics/Documentation/AbbRobotics" Icon="document-text" />
+            <MenuItem Name="Balluff Identification" Link="components-balluff-identification/Documentation/BalluffIdentification" Icon="document-text" />
+            <MenuItem Name="Cognex Vision" Link="components-cognex-vision/Documentation/CognexVision" Icon="document-text" />
+            <MenuItem Name="Desoutter Tightening" Link="components-desoutter-tightening/Documentation/DesoutterTightening" Icon="document-text" />
+            <MenuItem Name="Dukane Welders" Link="components-dukane-welders/Documentation/DukaneWelders" Icon="document-text" />
+            <MenuItem Name="Festo Drives" Link="components-festo-drives/Documentation/FestoDrives" Icon="document-text" />
+            <MenuItem Name="Keyence Vision" Link="components-keyence-vision/Documentation/KeyenceVision" Icon="document-text" />
+            <MenuItem Name="KUKA Robotics" Link="components-kuka-robotics/Documentation/KukaRobotics" Icon="document-text" />
+            <MenuItem Name="Mitsubishi Robotics" Link="components-mitsubishi-robotics/Documentation/MitsubishiRobotics" Icon="document-text" />
+            <MenuItem Name="Rexroth Drives" Link="components-rexroth-drives/Documentation/RexrothDrives" Icon="document-text" />
+            <MenuItem Name="Rexroth Press" Link="components-rexroth-press/Documentation/RexrothPress" Icon="document-text" />
+            <MenuItem Name="Rexroth Tightening" Link="components-rexroth-tightening/Documentation/RexrothTightening" Icon="document-text" />
+            <MenuItem Name="Siemens Communication" Link="components-siem-communication/Documentation/SiemCommunication" Icon="document-text" />
+            <MenuItem Name="Siemens Identification" Link="components-siem-identification/Documentation/SiemIdentification" Icon="document-text" />
+            <MenuItem Name="UR Robotics" Link="components-ur-robotics/Documentation/UrRobotics" Icon="document-text" />
+            <MenuItem Name="Zebra Vision" Link="components-zebra-vision/Documentation/ZebraVision" Icon="document-text" />
+        </ExpandableMenuItem>
+
+        <ExpandableMenuItem Name="Foundation" Icon="wrench-screwdriver" Description="TOOLING">
+            <MenuItem Name="Abstractions" Link="abstractions/Documentation/AbstractionsShowcase" Icon="document-text" />
+            <MenuItem Name="Inspectors" Link="inspectors/Documentation/InspectorsShowcase" Icon="document-text" />
+            <MenuItem Name="I/O" Link="io/Documentation/IoShowcase" Icon="document-text" />
+            <MenuItem Name="Probers" Link="probers/Documentation/ProbersShowcase" Icon="document-text" />
+            <MenuItem Name="SIMATIC S7-1500" Link="simatic1500/Documentation/Simatic1500Showcase" Icon="document-text" />
+            <MenuItem Name="Timers" Link="timers/Documentation/TimersShowcase" Icon="document-text" />
+            <MenuItem Name="Utils" Link="utils/Documentation/UtilsShowcase" Icon="document-text" />
+        </ExpandableMenuItem>
+
+        <MenuItem Name="Security" Link="Security" Icon="lock-closed" Description="ADMINISTRATION" />
+    </nav>
+
+    <!-- Bottom toggle -->
+    <div class="flex flex-wrap justify-center p-4 mt-auto">
+        <button class="btn btn-no-bg-primary w-full" @onclick="NavToggle">
+            <HeroIcon Icon="bars-3" Type="IconType.Outline" Class="size-6" />
+        </button>
+    </div>
+
+    <!-- Sidebar Footer -->
+    <div class="flex flex-wrap p-4 sticky bottom-0 w-full">
+        <a href="" class="opacity-75 hover:opacity-100">
+            <img src="logo-header.svg" alt="Logo" class="h-15" />
+        </a>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public MainLayout? Main { get; set; }
+
+    public bool NavCollapsed = false;
+
+    protected override void OnInitialized()
+    {
+        NavigationManager.LocationChanged += OnLocationChanged;
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        NavCollapsed = false;
+        StateHasChanged();
+    }
+
+    public void NavToggle()
+    {
+        NavCollapsed = !NavCollapsed;
+        StateHasChanged();
+        Main?.StateHasChangedExternal();
+        Main?.TopRow?.StateHasChangedExternal();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
+}

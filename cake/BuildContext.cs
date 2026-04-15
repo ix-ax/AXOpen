@@ -168,38 +168,37 @@ public partial class BuildContext : FrostingContext
         ("ax.axopen.hwlibrary", "ax.axopen.hwlibrary", true, false, false),
         ("ax.axopen.app", "ax.axopen.app", true, false, false),
         ("sdk-ax", "ax-sdk", true, false, false),
-        ("abstractions", "axopen.abstractions", true, true, true),
+        ("abstractions", "axopen.abstractions", true, false, true),
         ("timers", "axopen.timers", true, false, true),
         ("simatic1500", "axopen.simatic1500", true, false, true),
         ("utils", "axopen.utils", true, false, true),
-        ("core", "axopen.core", true, true, true),
-        ("data", "axopen.data", true, true, true),
-        ("probers", "axopen.probers", true, true, false),
-        ("inspectors", "axopen.inspectors", true, true, true),
-        ("components.abstractions", "axopen.components.abstractions", true, true, true),
-        ("components.elements", "axopen.components.elements", true, true, true),
-        ("io", "axopen.io", true, true, false),
-        ("components.cognex.vision", "axopen.components.cognex.vision", true, true, true),
-        ("components.pneumatics", "axopen.components.pneumatics", true, true, true),
-        ("components.drives", "axopen.components.drives", true, true, true),
-        ("components.rexroth.drives", "axopen.components.rexroth.drives", true, true, true),
-        ("components.rexroth.press", "axopen.components.rexroth.press", true, true, true),
-        ("components.festo.drives", "axopen.components.festo.drives", true, true, true),
-        ("components.desoutter.tightening", "axopen.components.desoutter.tightening", true, true, true),
-        ("components.robotics", "axopen.components.robotics", true, true, true),
-        ("components.abb.robotics", "axopen.components.abb.robotics", true, true, true),
-        ("components.mitsubishi.robotics", "axopen.components.mitsubishi.robotics", true, true, true),
-        ("components.ur.robotics", "axopen.components.ur.robotics", true, true, true),
-        ("components.kuka.robotics", "axopen.components.kuka.robotics", true, true, true),
-        ("components.siem.identification", "axopen.components.siem.identification", true, true, true),
-        ("components.siem.communication", "axopen.components.siem.communication", true, true, true),
-        ("components.balluff.identification", "axopen.components.balluff.identification", true, true, true),
-        ("components.keyence.vision", "axopen.components.keyence.vision", true, true, true),
-        ("components.rexroth.tightening", "axopen.components.rexroth.tightening", true, true, true),
-        ("components.dukane.welders", "axopen.components.dukane.welders", true, true, true),
-        ("components.zebra.vision", "axopen.components.zebra.vision", true, true, true),
-        ("integrations", "ix.integrations", false,false, false),
-        ("template.axolibrary", "template.axolibrary", false, true, false)
+        ("core", "axopen.core", true, false, true),
+        ("data", "axopen.data", true, false, true),
+        ("probers", "axopen.probers", true, false, false),
+        ("inspectors", "axopen.inspectors", true, false, true),
+        ("components.abstractions", "axopen.components.abstractions", true, false, true),
+        ("components.elements", "axopen.components.elements", true, false, true),
+        ("io", "axopen.io", true, false, false),
+        ("components.cognex.vision", "axopen.components.cognex.vision", true, false, true),
+        ("components.pneumatics", "axopen.components.pneumatics", true, false, true),
+        ("components.drives", "axopen.components.drives", true, false, true),
+        ("components.rexroth.drives", "axopen.components.rexroth.drives", true, false, true),
+        ("components.rexroth.press", "axopen.components.rexroth.press", true, false, true),
+        ("components.festo.drives", "axopen.components.festo.drives", true, false, true),
+        ("components.desoutter.tightening", "axopen.components.desoutter.tightening", true, false, true),
+        ("components.robotics", "axopen.components.robotics", true, false, true),
+        ("components.abb.robotics", "axopen.components.abb.robotics", true, false, true),
+        ("components.mitsubishi.robotics", "axopen.components.mitsubishi.robotics", true, false, true),
+        ("components.ur.robotics", "axopen.components.ur.robotics", true, false, true),
+        ("components.kuka.robotics", "axopen.components.kuka.robotics", true, false, true),
+        ("components.siem.identification", "axopen.components.siem.identification", true, false, true),
+        ("components.siem.communication", "axopen.components.siem.communication", true, false, true),
+        ("components.balluff.identification", "axopen.components.balluff.identification", true, false, true),
+        ("components.keyence.vision", "axopen.components.keyence.vision", true, false, true),
+        ("components.rexroth.tightening", "axopen.components.rexroth.tightening", true, false, true),
+        ("components.dukane.welders", "axopen.components.dukane.welders", true, false, true),
+        ("components.zebra.vision", "axopen.components.zebra.vision", true, false, true),        
+        ("template.axolibrary", "template.axolibrary", false, false, false)
     };
     #endregion
     
@@ -214,8 +213,7 @@ public partial class BuildContext : FrostingContext
         var paths = new string[]
         {
             Path.Combine(Path.Combine(RootDir, library.folder), "ctrl"),
-            Path.Combine(Path.Combine(RootDir, library.folder), "app"),
-            Path.Combine(Path.Combine(RootDir, library.folder), "ax")            
+            Path.Combine(Path.Combine(RootDir, library.folder), "ax")
         };
 
         return paths.Where(p => File.Exists(Path.Combine(p, "apax.yml")));
@@ -224,9 +222,8 @@ public partial class BuildContext : FrostingContext
     public IEnumerable<string> GetApplicationAxFolders((string folder, string name, bool pack) library)
     {
         var paths = new string[]
-        {            
-            Path.Combine(Path.Combine(RootDir, library.folder), "app"),
-            Path.Combine(Path.Combine(RootDir, library.folder), "ax")            
+        {
+            Path.Combine(Path.Combine(RootDir, library.folder), "ax")
         };
 
         return paths.Where(p => File.Exists(Path.Combine(p, "apax.yml")));
@@ -283,7 +280,6 @@ public partial class BuildContext : FrostingContext
         var paths = new string[]
         {
             Path.Combine(Path.Combine(RootDir, library.folder), "ctrl", "apax.yml"),
-            Path.Combine(Path.Combine(RootDir, library.folder), "app", "apax.yml"),
             Path.Combine(Path.Combine(RootDir, library.folder), "ax", "apax.yml")
         };
 

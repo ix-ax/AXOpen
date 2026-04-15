@@ -1,0 +1,44 @@
+@page "/core/doc-snippets/AxoMomentaryTaskDocu"
+@using AXOpen.Core;
+<h3>AxoMomentaryTaskDocu</h3>
+
+<div class="max-w-4xl mx-auto">
+    <div class="card">
+        <div class="flex items-center px-4 py-3 border-b border-primary">
+            <div class="text-primary font-semibold">MomentaryTask example.</div>
+        </div>
+        <div class="card-body">
+            <div class="text-left">
+                <div class="flex flex-col gap-4">
+                    <div class="flex-1">
+                        <div class="card p-2">
+                            <label>Displayed using AxoMomentaryTaskView. Controlable as the value of Disable is FALSE"</label>
+                            //<AxoMomentaryTaskViewControlable>
+                                <AxoMomentaryTaskView Component="@Entry.Plc.Ctx.AxoMomentaryTaskDocu._myMomentaryTask" Disable="false" />
+                            //</AxoMomentaryTaskViewControlable>
+                        </div>
+                        <div class="card p-2">
+                            <label>Displayed using AxoMomentaryTaskView. Viewable only as the value of Disable is TRUE"</label>
+                            //<AxoMomentaryTaskViewDisplayOnly>
+                                <AxoMomentaryTaskView Component="@Entry.Plc.Ctx.AxoMomentaryTaskDocu._myMomentaryTask" Disable="true" />
+                            //</AxoMomentaryTaskViewDisplayOnly>
+                        </div>
+                        <div class="card p-2">
+                            <label>Rendered by using RenderableContentControl. Controllable as the Presentation is Command</label>
+                            //<RenderableContentControlCommand>
+                                <RenderableContentControl Context="@Entry.Plc.Ctx.AxoMomentaryTaskDocu._myMomentaryTask" Presentation="Command" />
+                            //</RenderableContentControlCommand>
+                        </div>
+                        <div class="card p-2">
+                            <label>Rendered by using RenderableContentControl. Viewable only as the Presentation is Status</label>
+                            //<RenderableContentControlStatus>
+                                <RenderableContentControl Context="@Entry.Plc.Ctx.AxoMomentaryTaskDocu._myMomentaryTask" Presentation="Status" />
+                            //</RenderableContentControlStatus>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+

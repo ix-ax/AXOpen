@@ -1,54 +1,65 @@
+# Keyence Vision
+
+[!INCLUDE [General](../../../docfx/articles/notes/LIBRARYHEADER.md)]
+
 ## Description
 
+`axopen.components.keyence.vision` provides AXOpen control components for
+[Keyence](https://www.keyence.com/) industrial vision and code-reading
+hardware over PROFINET. It encapsulates the cyclic I/O exchange,
+trigger/result handshakes, and result-data parsing required to use these
+devices from a SIMATIC AX application.
 
-This library provide access to the Keyence IV3 vision system.
+The package ships:
 
+- A **PLC library** (`@inxton/axopen.components.keyence.vision`) — control
+  components and data types.
+- A **.NET twin** (`AXOpen.Components.Keyence.Vision`) — runtime mirror of
+  the PLC types for orchestration and visualization. The `Axo_IV3` twin
+  additionally exposes a reverse-proxy helper that surfaces the device's
+  built-in HTTP live view inside the application's web UI.
+- A **Blazor package** (`AXOpen.Components.Keyence.Vision.blazor`) — UI
+  rendering. The components render via the generic `RenderableContentControl`
+  pattern, with a dedicated `Axo_IV3View` available when richer visualization
+  is required.
 
-## Live view
+## Components
 
-The component allows to display live view from the Keyence IV3 vision system.
+| Component | Device family | Purpose |
+|-----------|---------------|---------|
+| [`Axo_IV3`](Axo_IV3.md) | Keyence IV3 | Fixed vision sensor — pattern matching, presence/absence, with optional HTTP live view via the .NET twin's reverse-proxy helper. |
+| [`Axo_SR_750`](Axo_SR_750.md) | Keyence SR-750 | Fixed barcode/2D-code reader — trigger/read cycles with result-data parsing. |
+| [`Axo_SR_1000`](Axo_SR_1000.md) | Keyence SR-1000 | Fixed barcode/2D-code reader (next generation) — same usage pattern as SR-750 with the SR-1000 result/user data layout. |
 
-To enable the live view, you need to set the `DeviceIpAddress` property of the `Axo_IV3` component to the IP address of the Keyence IV3 device, and define a proxy for the reverse proxy endpoint.
+## Hardware configuration
 
-### Setup in Structured Text
+PROFINET device templates for each supported model live under
+`showcase/app/hwc/library_templates/`:
 
-Example:
-```st
-{#ix-set:DeviceIpAddress = "192.168.1.106"}
-{#ix-set:Proxy = "keyence_iv3"}
-KeyenceVisionSystem : AXOpen.Components.Keyence.Vision.Axo_IV3;
-```
+- `Keyence_IV3/`
+- `Keyence_SR_750/`
+- `Keyence_SR_1000/`
 
-### Accessing the Live View
+The showcase `plc_line.hwl.yml` instantiates each device under the tagged
+regions `KeyenceIv3Device`, `KeyenceSr750Device`/`KeyenceSr750IoSystem`, and
+`KeyenceSr1000Device`/`KeyenceSr1000IoSystem`. See each component's
+**HARDWARE** tab for the live YAML references.
 
-The live view is accessed through a reverse proxy endpoint. The component will fetch the camera feed from the device and serve it through the reverse proxy, which is accessible at `/{Proxy}/iv3-wm-i.html`, where `{Proxy}` is the proxy identifier of the component (e.g., `keyence_iv3` in the example above).
+## Dependencies
 
-### Blazor Application Setup
+| Dependency | Why |
+|------------|-----|
+| `@inxton/axopen.io` | Base PROFINET I/O abstractions and hardware-diagnostics infrastructure. |
 
-To enable the reverse proxy functionality in your Blazor application, you must call the `ConfigureProxy` method from the `Axo_IV3` component in your middleware pipeline. This should be done before the Blazor endpoint handling.
+## Vendor documentation
 
-Add the following to your `Program.cs`:
+- [Keyence — Vision Systems](https://www.keyence.com/products/vision/vision-sys/)
+- [Keyence — IV3 Series](https://www.keyence.com/products/vision/vision-sys/iv3/)
+- [Keyence — SR-750 Series](https://www.keyence.com/products/barcode/handheld/sr-750/)
+- [Keyence — SR-1000 Series](https://www.keyence.com/products/barcode/fixed/sr-1000/)
 
-```csharp
-// Register HttpClientFactory
-builder.Services.AddHttpClient();
+## See also
 
-// Build the app
-var app = builder.Build();
-
-// Configure Keyence IV3 reverse proxy
-app.Use(async (context, next) =>
-{
-    var keyenceComponent = /* Get your Axo_IV3 component instance */;
-    await keyenceComponent.ConfigureProxy(context, next);
-});
-
-// ... rest of your middleware configuration
-```
-
-**Note:** The server must be able to reach the device IP address for the live view to work. Make sure to register `IHttpClientFactory` in your DI container by adding `builder.Services.AddHttpClient();` in your `Program.cs`.
-
-The reverse proxy setup allows the web application to access the Keyence IV3 live view without CORS issues, as the request is proxied through the server backend rather than being accessed directly from the browser.
-
-
-
+- [AXOpen documentation](https://inxton.github.io/AXOpen/)
+- [Troubleshooting](TROUBLES.md) — common issues and resolution steps.
+- [Changelog](CHANGELOG.md) — version history.

@@ -1,0 +1,51 @@
+<NavLink href="@GetLink()" class="nav-item" ActiveClass="active" Match="NavLinkMatch.All">
+    @if (Icon != null)
+    {
+        <div class="nav-item-icon">
+            <Operon.Icons.HeroIcon Icon="@Icon" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+        </div>
+    }
+    <div class="nav-item-text">
+        @Name
+        @if (Description != null)
+        {
+            <p class="nav-item-text-description">@Description</p>
+        }
+    </div>
+</NavLink>
+
+@code {
+    [Parameter]
+    public string? Name { get; set; }
+
+    [Parameter]
+    public string? Link { get; set; }
+
+    [Parameter]
+    public string? Icon { get; set; }
+
+    [Parameter]
+    public string? Description { get; set; }
+
+    private string? _dashedName;
+
+    [CascadingParameter]
+    protected ExpandableMenuItem? parent { get; set; }
+
+    protected override void OnInitialized()
+    {
+        _dashedName = Name?.Replace(' ', '-').ToLower();
+        base.OnInitialized();
+    }
+
+    public string GetLink()
+    {
+        if (Link != null)
+            return Link;
+
+        if (parent != null)
+            return $"{parent.GetLink()}/{_dashedName}";
+
+        return $"{_dashedName}";
+    }
+}

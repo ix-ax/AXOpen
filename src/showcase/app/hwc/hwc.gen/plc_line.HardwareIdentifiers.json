@@ -1,0 +1,1777 @@
+{
+  "Version": 1,
+  "HardwareIdentifiers": [
+    {
+      "Name": "BNIPNT507005Z040",
+      "Value": 303
+    },
+    {
+      "Name": "BNIPNT507005Z040~BIS_M-4XX-045_1~BIS M-4XX-045",
+      "Value": 308
+    },
+    {
+      "Name": "BNIPNT507005Z040~BNIPNT507005Z040",
+      "Value": 307
+    },
+    {
+      "Name": "BNIPNT507005Z040~BNIPNT507005Z040~BNI PNT-507-005-Z040",
+      "Value": 312
+    },
+    {
+      "Name": "BNIPNT507005Z040~BNIPNT507005Z040~profinet",
+      "Value": 302
+    },
+    {
+      "Name": "BNIPNT507005Z040~BNIPNT507005Z040~profinet~port 1 - M12",
+      "Value": 304
+    },
+    {
+      "Name": "BNIPNT507005Z040~BNIPNT507005Z040~profinet~port 2 - M12",
+      "Value": 305
+    },
+    {
+      "Name": "BNIPNT507005Z040~Rack",
+      "Value": 306
+    },
+    {
+      "Name": "BNIPNT507005Z040~Standard I/O_2~Standard I/O",
+      "Value": 311
+    },
+    {
+      "Name": "BNIPNT507005Z040~Standard I/O_3~Standard I/O",
+      "Value": 310
+    },
+    {
+      "Name": "BNIPNT507005Z040~Standard I/O_4~Standard I/O",
+      "Value": 309
+    },
+    {
+      "Name": "abb_irc5_robot",
+      "Value": 676
+    },
+    {
+      "Name": "abb_irc5_robot~DI_64_bytes~DI 64 bytes",
+      "Value": 681
+    },
+    {
+      "Name": "abb_irc5_robot~DO_64_bytes~DO 64 bytes",
+      "Value": 680
+    },
+    {
+      "Name": "abb_irc5_robot~Rack",
+      "Value": 678
+    },
+    {
+      "Name": "abb_irc5_robot~abb_irc5_robot",
+      "Value": 679
+    },
+    {
+      "Name": "abb_irc5_robot~abb_irc5_robot~PROFINET_Interface",
+      "Value": 675
+    },
+    {
+      "Name": "abb_irc5_robot~abb_irc5_robot~PROFINET_Interface~Port_1",
+      "Value": 677
+    },
+    {
+      "Name": "abb_irc5_robot~abb_irc5_robot~Robot Basic Device",
+      "Value": 682
+    },
+    {
+      "Name": "abb_omnicore_robot",
+      "Value": 668
+    },
+    {
+      "Name": "abb_omnicore_robot~DI_64_bytes~DI 64 bytes",
+      "Value": 673
+    },
+    {
+      "Name": "abb_omnicore_robot~DO_64_bytes~DO 64 bytes",
+      "Value": 672
+    },
+    {
+      "Name": "abb_omnicore_robot~Rack",
+      "Value": 670
+    },
+    {
+      "Name": "abb_omnicore_robot~abb_omnicore_robot",
+      "Value": 671
+    },
+    {
+      "Name": "abb_omnicore_robot~abb_omnicore_robot~OmniCore Standard PROFINET Device",
+      "Value": 674
+    },
+    {
+      "Name": "abb_omnicore_robot~abb_omnicore_robot~PROFINET_Interface",
+      "Value": 667
+    },
+    {
+      "Name": "abb_omnicore_robot~abb_omnicore_robot~PROFINET_Interface~Port_1",
+      "Value": 669
+    },
+    {
+      "Name": "aes_pnio",
+      "Value": 258
+    },
+    {
+      "Name": "aes_pnio~Rack",
+      "Value": 261
+    },
+    {
+      "Name": "aes_pnio~Slot_1~Valve driver 4 valves (4)",
+      "Value": 263
+    },
+    {
+      "Name": "aes_pnio~aes_pnio",
+      "Value": 262
+    },
+    {
+      "Name": "aes_pnio~aes_pnio~AES Modul",
+      "Value": 264
+    },
+    {
+      "Name": "aes_pnio~aes_pnio~PN-IO",
+      "Value": 257
+    },
+    {
+      "Name": "aes_pnio~aes_pnio~PN-IO~Port_1",
+      "Value": 259
+    },
+    {
+      "Name": "aes_pnio~aes_pnio~PN-IO~Port_2",
+      "Value": 260
+    },
+    {
+      "Name": "cognex_dataman_280",
+      "Value": 559
+    },
+    {
+      "Name": "cognex_dataman_280~Acquisition_Control~Acquisition Control",
+      "Value": 569
+    },
+    {
+      "Name": "cognex_dataman_280~Acquisition_Status~Acquisition Status",
+      "Value": 566
+    },
+    {
+      "Name": "cognex_dataman_280~Rack",
+      "Value": 561
+    },
+    {
+      "Name": "cognex_dataman_280~ResultData_128~Result Data - 128 bytes",
+      "Value": 563
+    },
+    {
+      "Name": "cognex_dataman_280~Results_Control~Results Control",
+      "Value": 568
+    },
+    {
+      "Name": "cognex_dataman_280~Results_Status~Results Status",
+      "Value": 565
+    },
+    {
+      "Name": "cognex_dataman_280~Soft_Event_Control~Soft Event Control",
+      "Value": 567
+    },
+    {
+      "Name": "cognex_dataman_280~UserData_128~User Data - 128 bytes",
+      "Value": 564
+    },
+    {
+      "Name": "cognex_dataman_280~cognex_dataman_280",
+      "Value": 562
+    },
+    {
+      "Name": "cognex_dataman_280~cognex_dataman_280~DataMan 280 CC-B",
+      "Value": 570
+    },
+    {
+      "Name": "cognex_dataman_280~cognex_dataman_280~Interface",
+      "Value": 558
+    },
+    {
+      "Name": "cognex_dataman_280~cognex_dataman_280~Interface~Port_1",
+      "Value": 560
+    },
+    {
+      "Name": "cognex_dataman_380",
+      "Value": 546
+    },
+    {
+      "Name": "cognex_dataman_380~Acquisition_Control~Acquisition Control",
+      "Value": 556
+    },
+    {
+      "Name": "cognex_dataman_380~Acquisition_Status~Acquisition Status",
+      "Value": 553
+    },
+    {
+      "Name": "cognex_dataman_380~Rack",
+      "Value": 548
+    },
+    {
+      "Name": "cognex_dataman_380~ResultData_128~Result Data - 128 bytes",
+      "Value": 550
+    },
+    {
+      "Name": "cognex_dataman_380~Results_Control~Results Control",
+      "Value": 555
+    },
+    {
+      "Name": "cognex_dataman_380~Results_Status~Results Status",
+      "Value": 552
+    },
+    {
+      "Name": "cognex_dataman_380~Soft_Event_Control~Soft Event Control",
+      "Value": 554
+    },
+    {
+      "Name": "cognex_dataman_380~UserData_128~User Data - 128 bytes",
+      "Value": 551
+    },
+    {
+      "Name": "cognex_dataman_380~cognex_dataman_380",
+      "Value": 549
+    },
+    {
+      "Name": "cognex_dataman_380~cognex_dataman_380~DataMan 380 CC-B",
+      "Value": 557
+    },
+    {
+      "Name": "cognex_dataman_380~cognex_dataman_380~Interface",
+      "Value": 545
+    },
+    {
+      "Name": "cognex_dataman_380~cognex_dataman_380~Interface~Port_1",
+      "Value": 547
+    },
+    {
+      "Name": "cognex_insight_2800",
+      "Value": 527
+    },
+    {
+      "Name": "cognex_insight_2800~Rack",
+      "Value": 529
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_11_ResultData_250~Results - 250 bytes",
+      "Value": 534
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_12~Results - 250 bytes",
+      "Value": 533
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_13~Results - 250 bytes",
+      "Value": 532
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_14~Results - 250 bytes",
+      "Value": 531
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_1~Acquisition Control",
+      "Value": 543
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_2~Acquisition Status",
+      "Value": 538
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_3~Inspection Control",
+      "Value": 542
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_4~Inspection Status",
+      "Value": 539
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_5~Command Control",
+      "Value": 540
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_6~ExternalEvent Control",
+      "Value": 541
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_7~User Data - 254 bytes",
+      "Value": 537
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_8~User Data - 254 bytes",
+      "Value": 536
+    },
+    {
+      "Name": "cognex_insight_2800~Slot_9~User Data - 254 bytes",
+      "Value": 535
+    },
+    {
+      "Name": "cognex_insight_2800~cognex_insight_2800",
+      "Value": 530
+    },
+    {
+      "Name": "cognex_insight_2800~cognex_insight_2800~In-Sight IS28XX CC-B",
+      "Value": 544
+    },
+    {
+      "Name": "cognex_insight_2800~cognex_insight_2800~Interface",
+      "Value": 526
+    },
+    {
+      "Name": "cognex_insight_2800~cognex_insight_2800~Interface~Port_1",
+      "Value": 528
+    },
+    {
+      "Name": "cognex_insight_7600",
+      "Value": 572
+    },
+    {
+      "Name": "cognex_insight_7600~Acquisition_Control~Acquisition Control",
+      "Value": 583
+    },
+    {
+      "Name": "cognex_insight_7600~Acquisition_Status~Acquisition Status",
+      "Value": 579
+    },
+    {
+      "Name": "cognex_insight_7600~Command_Control~Command Control",
+      "Value": 580
+    },
+    {
+      "Name": "cognex_insight_7600~Inspection_Control~Inspection Control",
+      "Value": 582
+    },
+    {
+      "Name": "cognex_insight_7600~Inspection_Status~Inspection Status",
+      "Value": 578
+    },
+    {
+      "Name": "cognex_insight_7600~Rack",
+      "Value": 574
+    },
+    {
+      "Name": "cognex_insight_7600~ResultData_128~Results - 128 bytes",
+      "Value": 576
+    },
+    {
+      "Name": "cognex_insight_7600~SoftEvent_Control~SoftEvent Control",
+      "Value": 581
+    },
+    {
+      "Name": "cognex_insight_7600~UserData_128~User Data - 128 bytes",
+      "Value": 577
+    },
+    {
+      "Name": "cognex_insight_7600~cognex_insight_7600",
+      "Value": 575
+    },
+    {
+      "Name": "cognex_insight_7600~cognex_insight_7600~In-Sight IS79XX-IS75XX CC-B",
+      "Value": 584
+    },
+    {
+      "Name": "cognex_insight_7600~cognex_insight_7600~Interface",
+      "Value": 571
+    },
+    {
+      "Name": "cognex_insight_7600~cognex_insight_7600~Interface~Port_1",
+      "Value": 573
+    },
+    {
+      "Name": "desoutter_cvic_ii",
+      "Value": 366
+    },
+    {
+      "Name": "desoutter_cvic_ii~Input_1_byte_1~Input 1 byte",
+      "Value": 377
+    },
+    {
+      "Name": "desoutter_cvic_ii~Input_1_byte_2~Input 1 byte",
+      "Value": 376
+    },
+    {
+      "Name": "desoutter_cvic_ii~Input_1_word_1~Input 1 word",
+      "Value": 374
+    },
+    {
+      "Name": "desoutter_cvic_ii~Input_1_word_2~Input 1 word",
+      "Value": 372
+    },
+    {
+      "Name": "desoutter_cvic_ii~Input_2_word_1~Input 2 word",
+      "Value": 375
+    },
+    {
+      "Name": "desoutter_cvic_ii~Input_2_word_2~Input 2 word",
+      "Value": 373
+    },
+    {
+      "Name": "desoutter_cvic_ii~Output_1_byte_1~Output 1 byte",
+      "Value": 371
+    },
+    {
+      "Name": "desoutter_cvic_ii~Output_1_byte_2~Output 1 byte",
+      "Value": 370
+    },
+    {
+      "Name": "desoutter_cvic_ii~Rack",
+      "Value": 368
+    },
+    {
+      "Name": "desoutter_cvic_ii~desoutter_cvic_ii",
+      "Value": 369
+    },
+    {
+      "Name": "desoutter_cvic_ii~desoutter_cvic_ii~Interface",
+      "Value": 365
+    },
+    {
+      "Name": "desoutter_cvic_ii~desoutter_cvic_ii~Interface~Port_1",
+      "Value": 367
+    },
+    {
+      "Name": "desoutter_cvic_ii~desoutter_cvic_ii~RT",
+      "Value": 378
+    },
+    {
+      "Name": "dukaneiqauto",
+      "Value": 357
+    },
+    {
+      "Name": "dukaneiqauto~PLC_to_iQ_Outputs~PLC-to-iQ Outputs",
+      "Value": 362
+    },
+    {
+      "Name": "dukaneiqauto~Rack",
+      "Value": 360
+    },
+    {
+      "Name": "dukaneiqauto~dukaneiqauto",
+      "Value": 361
+    },
+    {
+      "Name": "dukaneiqauto~dukaneiqauto~DAP",
+      "Value": 364
+    },
+    {
+      "Name": "dukaneiqauto~dukaneiqauto~Interface",
+      "Value": 356
+    },
+    {
+      "Name": "dukaneiqauto~dukaneiqauto~Interface~Port_1",
+      "Value": 358
+    },
+    {
+      "Name": "dukaneiqauto~dukaneiqauto~Interface~Port_2",
+      "Value": 359
+    },
+    {
+      "Name": "dukaneiqauto~iQ_to_PLC_Inputs~iQ-to-PLC Inputs",
+      "Value": 363
+    },
+    {
+      "Name": "et200sp",
+      "Value": 294
+    },
+    {
+      "Name": "et200sp_CM_4xIO_Link_RF200",
+      "Value": 276
+    },
+    {
+      "Name": "et200sp_CM_4xIO_Link_RF200~CM_4xIO-Link_V2_2_144I_128O_1~CM 4xIO-Link V2.2 144I/128O",
+      "Value": 282
+    },
+    {
+      "Name": "et200sp_CM_4xIO_Link_RF200~Rack",
+      "Value": 279
+    },
+    {
+      "Name": "et200sp_CM_4xIO_Link_RF200~Server_module_V1_1~Server module V1.1 (0 bytes)",
+      "Value": 281
+    },
+    {
+      "Name": "et200sp_CM_4xIO_Link_RF200~et200sp_CM_4xIO_Link_RF200",
+      "Value": 280
+    },
+    {
+      "Name": "et200sp_CM_4xIO_Link_RF200~et200sp_CM_4xIO_Link_RF200~IM 155-6 PN ST V4.2",
+      "Value": 283
+    },
+    {
+      "Name": "et200sp_CM_4xIO_Link_RF200~et200sp_CM_4xIO_Link_RF200~Port_1",
+      "Value": 277
+    },
+    {
+      "Name": "et200sp_CM_4xIO_Link_RF200~et200sp_CM_4xIO_Link_RF200~Port_2",
+      "Value": 278
+    },
+    {
+      "Name": "et200sp_CM_4xIO_Link_RF200~et200sp_CM_4xIO_Link_RF200~profinet",
+      "Value": 275
+    },
+    {
+      "Name": "et200sp~CpPtp~CM PtP V2.0",
+      "Value": 300
+    },
+    {
+      "Name": "et200sp~Rack",
+      "Value": 297
+    },
+    {
+      "Name": "et200sp~Server_module_V1_1~Server module V1.1 (0 bytes)",
+      "Value": 299
+    },
+    {
+      "Name": "et200sp~et200sp",
+      "Value": 298
+    },
+    {
+      "Name": "et200sp~et200sp~IM 155-6 PN ST V4.2",
+      "Value": 301
+    },
+    {
+      "Name": "et200sp~et200sp~Port_1",
+      "Value": 295
+    },
+    {
+      "Name": "et200sp~et200sp~Port_2",
+      "Value": 296
+    },
+    {
+      "Name": "et200sp~et200sp~profinet",
+      "Value": 293
+    },
+    {
+      "Name": "festo_cmmtas",
+      "Value": 624
+    },
+    {
+      "Name": "festo_cmmtas~Rack",
+      "Value": 627
+    },
+    {
+      "Name": "festo_cmmtas~SiemensTelegram111-PZD-12-12",
+      "Value": 633
+    },
+    {
+      "Name": "festo_cmmtas~SiemensTelegram750-PZD-4-1",
+      "Value": 634
+    },
+    {
+      "Name": "festo_cmmtas~empty_submodule",
+      "Value": 632
+    },
+    {
+      "Name": "festo_cmmtas~festo_cmmtas",
+      "Value": 628
+    },
+    {
+      "Name": "festo_cmmtas~festo_cmmtas~CMMT-AS-...-MP",
+      "Value": 635
+    },
+    {
+      "Name": "festo_cmmtas~festo_cmmtas~DoServo",
+      "Value": 629
+    },
+    {
+      "Name": "festo_cmmtas~festo_cmmtas~DoServo~Module Access Point",
+      "Value": 630
+    },
+    {
+      "Name": "festo_cmmtas~festo_cmmtas~PN-IO_Interface",
+      "Value": 623
+    },
+    {
+      "Name": "festo_cmmtas~festo_cmmtas~PN-IO_Interface~Port_1",
+      "Value": 625
+    },
+    {
+      "Name": "festo_cmmtas~festo_cmmtas~PN-IO_Interface~Port_2",
+      "Value": 626
+    },
+    {
+      "Name": "festo_cmmtas~festo_cmmtas~empty_submodule_1",
+      "Value": 631
+    },
+    {
+      "Name": "keyence_iv3",
+      "Value": 387
+    },
+    {
+      "Name": "keyence_iv3~CommandControl~Command Control",
+      "Value": 461
+    },
+    {
+      "Name": "keyence_iv3~CommandStatusBits~Command Status Bits",
+      "Value": 460
+    },
+    {
+      "Name": "keyence_iv3~DeviceResultBits_1~Device Result Bits",
+      "Value": 459
+    },
+    {
+      "Name": "keyence_iv3~DeviceResultBits_2~Device Result Bits",
+      "Value": 391
+    },
+    {
+      "Name": "keyence_iv3~DeviceStatistics~Device Statistics",
+      "Value": 457
+    },
+    {
+      "Name": "keyence_iv3~DeviceStatusWords~Device Status Words",
+      "Value": 458
+    },
+    {
+      "Name": "keyence_iv3~PositionAdjustResult~Position Adjust Result",
+      "Value": 456
+    },
+    {
+      "Name": "keyence_iv3~Rack",
+      "Value": 389
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_10~Tool Result",
+      "Value": 446
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_11~Tool Result",
+      "Value": 445
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_12~Tool Result",
+      "Value": 444
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_13~Tool Result",
+      "Value": 443
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_14~Tool Result",
+      "Value": 442
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_15~Tool Result",
+      "Value": 441
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_16~Tool Result",
+      "Value": 440
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_17~Tool Result",
+      "Value": 439
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_18~Tool Result",
+      "Value": 438
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_19~Tool Result",
+      "Value": 437
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_1~Tool Result",
+      "Value": 455
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_20~Tool Result",
+      "Value": 436
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_21~Tool Result",
+      "Value": 435
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_22~Tool Result",
+      "Value": 434
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_23~Tool Result",
+      "Value": 433
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_24~Tool Result",
+      "Value": 432
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_25~Tool Result",
+      "Value": 431
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_26~Tool Result",
+      "Value": 430
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_27~Tool Result",
+      "Value": 429
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_28~Tool Result",
+      "Value": 428
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_29~Tool Result",
+      "Value": 427
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_2~Tool Result",
+      "Value": 454
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_30~Tool Result",
+      "Value": 426
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_31~Tool Result",
+      "Value": 425
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_32~Tool Result",
+      "Value": 424
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_33~Tool Result",
+      "Value": 423
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_34~Tool Result",
+      "Value": 422
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_35~Tool Result",
+      "Value": 421
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_36~Tool Result",
+      "Value": 420
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_37~Tool Result",
+      "Value": 419
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_38~Tool Result",
+      "Value": 418
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_39~Tool Result",
+      "Value": 417
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_3~Tool Result",
+      "Value": 453
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_40~Tool Result",
+      "Value": 416
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_41~Tool Result",
+      "Value": 415
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_42~Tool Result",
+      "Value": 414
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_43~Tool Result",
+      "Value": 413
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_44~Tool Result",
+      "Value": 412
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_45~Tool Result",
+      "Value": 411
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_46~Tool Result",
+      "Value": 410
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_47~Tool Result",
+      "Value": 409
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_48~Tool Result",
+      "Value": 408
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_49~Tool Result",
+      "Value": 407
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_4~Tool Result",
+      "Value": 452
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_50~Tool Result",
+      "Value": 406
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_51~Tool Result",
+      "Value": 405
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_52~Tool Result",
+      "Value": 404
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_53~Tool Result",
+      "Value": 403
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_54~Tool Result",
+      "Value": 402
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_55~Tool Result",
+      "Value": 401
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_56~Tool Result",
+      "Value": 400
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_57~Tool Result",
+      "Value": 399
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_58~Tool Result",
+      "Value": 398
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_59~Tool Result",
+      "Value": 397
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_5~Tool Result",
+      "Value": 451
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_60~Tool Result",
+      "Value": 396
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_61~Tool Result",
+      "Value": 395
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_62~Tool Result",
+      "Value": 394
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_63~Tool Result",
+      "Value": 393
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_64~Tool Result",
+      "Value": 392
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_6~Tool Result",
+      "Value": 450
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_7~Tool Result",
+      "Value": 449
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_8~Tool Result",
+      "Value": 448
+    },
+    {
+      "Name": "keyence_iv3~ToolResult_9~Tool Result",
+      "Value": 447
+    },
+    {
+      "Name": "keyence_iv3~keyence_iv3",
+      "Value": 390
+    },
+    {
+      "Name": "keyence_iv3~keyence_iv3~IV3-XXXX",
+      "Value": 462
+    },
+    {
+      "Name": "keyence_iv3~keyence_iv3~Interface",
+      "Value": 386
+    },
+    {
+      "Name": "keyence_iv3~keyence_iv3~Interface~Port_1",
+      "Value": 388
+    },
+    {
+      "Name": "keyence_sr_1000",
+      "Value": 464
+    },
+    {
+      "Name": "keyence_sr_1000~BusyStatus~BUSY Status Bits",
+      "Value": 480
+    },
+    {
+      "Name": "keyence_sr_1000~CompletionClearControl~Completion Clear Control Bits",
+      "Value": 470
+    },
+    {
+      "Name": "keyence_sr_1000~CompletionStatus~Completion Status Bits",
+      "Value": 479
+    },
+    {
+      "Name": "keyence_sr_1000~ErrorStatus~Error Status Bits",
+      "Value": 478
+    },
+    {
+      "Name": "keyence_sr_1000~HandshakeAndGeneralErrorStatus~Handshake and General Error Status Bits",
+      "Value": 481
+    },
+    {
+      "Name": "keyence_sr_1000~LatchAndErrorClearControl~Latch and Error Clear Control Bits",
+      "Value": 472
+    },
+    {
+      "Name": "keyence_sr_1000~MatchingLevelAndTotalEvaluationGradeStatus~Matching Level and Total Evaluation Grade Status",
+      "Value": 475
+    },
+    {
+      "Name": "keyence_sr_1000~OperationInstructionControl~Operation instruction Control Bits",
+      "Value": 471
+    },
+    {
+      "Name": "keyence_sr_1000~OperationResultStatus~Operation Result Status",
+      "Value": 474
+    },
+    {
+      "Name": "keyence_sr_1000~ParameterBank~Parameter Bank Number",
+      "Value": 469
+    },
+    {
+      "Name": "keyence_sr_1000~Rack",
+      "Value": 466
+    },
+    {
+      "Name": "keyence_sr_1000~ResultData_128~Read Data 128Byte",
+      "Value": 473
+    },
+    {
+      "Name": "keyence_sr_1000~TerminalStatus~Terminal Status Bits",
+      "Value": 477
+    },
+    {
+      "Name": "keyence_sr_1000~UnstableReadStatus~Unstable Read Status Bits",
+      "Value": 476
+    },
+    {
+      "Name": "keyence_sr_1000~UserData_128~User Data 128Byte",
+      "Value": 468
+    },
+    {
+      "Name": "keyence_sr_1000~keyence_sr_1000",
+      "Value": 467
+    },
+    {
+      "Name": "keyence_sr_1000~keyence_sr_1000~Interface",
+      "Value": 463
+    },
+    {
+      "Name": "keyence_sr_1000~keyence_sr_1000~Interface~Port_1",
+      "Value": 465
+    },
+    {
+      "Name": "keyence_sr_1000~keyence_sr_1000~SR-1000X",
+      "Value": 482
+    },
+    {
+      "Name": "keyence_sr_750",
+      "Value": 484
+    },
+    {
+      "Name": "keyence_sr_750~BusyStatus~BUSY Status Bits",
+      "Value": 500
+    },
+    {
+      "Name": "keyence_sr_750~CompletionClearControl~Completion Clear Control Bits",
+      "Value": 490
+    },
+    {
+      "Name": "keyence_sr_750~CompletionStatus~Completion Status Bits",
+      "Value": 499
+    },
+    {
+      "Name": "keyence_sr_750~ErrorStatus~Error Status Bits",
+      "Value": 498
+    },
+    {
+      "Name": "keyence_sr_750~HandshakeAndGeneralErrorStatus~Handshake and General Error Status Bits",
+      "Value": 501
+    },
+    {
+      "Name": "keyence_sr_750~LatchAndErrorClearControl~Latch and Error Clear Control Bits",
+      "Value": 492
+    },
+    {
+      "Name": "keyence_sr_750~MatchingLevelAndTotalEvaluationGradeStatus~Matching Level and Total Evaluation Grade Status",
+      "Value": 495
+    },
+    {
+      "Name": "keyence_sr_750~OperationInstructionControl~Operation instruction Control Bits",
+      "Value": 491
+    },
+    {
+      "Name": "keyence_sr_750~OperationResultStatus~Operation Result Status",
+      "Value": 494
+    },
+    {
+      "Name": "keyence_sr_750~ParameterBank~Parameter Bank Number",
+      "Value": 489
+    },
+    {
+      "Name": "keyence_sr_750~Rack",
+      "Value": 486
+    },
+    {
+      "Name": "keyence_sr_750~ResultData_128~Read Data 128Byte",
+      "Value": 493
+    },
+    {
+      "Name": "keyence_sr_750~TerminalStatus~Terminal Status Bits",
+      "Value": 497
+    },
+    {
+      "Name": "keyence_sr_750~UnstableReadStatus~Unstable Read Status Bits",
+      "Value": 496
+    },
+    {
+      "Name": "keyence_sr_750~UserData_128~User Data 128Byte",
+      "Value": 488
+    },
+    {
+      "Name": "keyence_sr_750~keyence_sr_750",
+      "Value": 487
+    },
+    {
+      "Name": "keyence_sr_750~keyence_sr_750~Interface",
+      "Value": 483
+    },
+    {
+      "Name": "keyence_sr_750~keyence_sr_750~Interface~Port_1",
+      "Value": 485
+    },
+    {
+      "Name": "keyence_sr_750~keyence_sr_750~SR-75X",
+      "Value": 502
+    },
+    {
+      "Name": "kuka_rb1",
+      "Value": 661
+    },
+    {
+      "Name": "kuka_rb1~DIO512~512 digital in- and outputs",
+      "Value": 665
+    },
+    {
+      "Name": "kuka_rb1~Rack",
+      "Value": 663
+    },
+    {
+      "Name": "kuka_rb1~kuka_rb1",
+      "Value": 664
+    },
+    {
+      "Name": "kuka_rb1~kuka_rb1~Interface1",
+      "Value": 660
+    },
+    {
+      "Name": "kuka_rb1~kuka_rb1~Interface1~Port_1",
+      "Value": 662
+    },
+    {
+      "Name": "kuka_rb1~kuka_rb1~KRC4-ProfiNet_5.0",
+      "Value": 666
+    },
+    {
+      "Name": "mitsubishi_tz535_robot",
+      "Value": 653
+    },
+    {
+      "Name": "mitsubishi_tz535_robot~In_Out_64_byte~In/Out  64 byte",
+      "Value": 658
+    },
+    {
+      "Name": "mitsubishi_tz535_robot~Rack",
+      "Value": 656
+    },
+    {
+      "Name": "mitsubishi_tz535_robot~mitsubishi_tz535_robot",
+      "Value": 657
+    },
+    {
+      "Name": "mitsubishi_tz535_robot~mitsubishi_tz535_robot~2D-TZ535-PN(PROFINET IO)",
+      "Value": 659
+    },
+    {
+      "Name": "mitsubishi_tz535_robot~mitsubishi_tz535_robot~Interface",
+      "Value": 652
+    },
+    {
+      "Name": "mitsubishi_tz535_robot~mitsubishi_tz535_robot~Interface~Port_1",
+      "Value": 654
+    },
+    {
+      "Name": "mitsubishi_tz535_robot~mitsubishi_tz535_robot~Interface~Port_2",
+      "Value": 655
+    },
+    {
+      "Name": "plc_line",
+      "Value": 32
+    },
+    {
+      "Name": "plc_line~A1~A1",
+      "Value": 684
+    },
+    {
+      "Name": "plc_line~Rail_0",
+      "Value": 683
+    },
+    {
+      "Name": "plc_line~plc_line",
+      "Value": 48
+    },
+    {
+      "Name": "plc_line~plc_line~CPU display_1",
+      "Value": 54
+    },
+    {
+      "Name": "plc_line~plc_line~Card reader/writer_1",
+      "Value": 51
+    },
+    {
+      "Name": "plc_line~plc_line~OPC UA_1",
+      "Value": 117
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_1",
+      "Value": 64
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_1~Port_1",
+      "Value": 65
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_1~Port_2",
+      "Value": 66
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_2",
+      "Value": 72
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_2~Port_3",
+      "Value": 73
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_2~Port_4",
+      "Value": 74
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_GBIT_3",
+      "Value": 120
+    },
+    {
+      "Name": "plc_line~plc_line~PROFINET_interface_GBIT_3~Port_5",
+      "Value": 121
+    },
+    {
+      "Name": "plc_line~plc_line~Virtual communication interface",
+      "Value": 135
+    },
+    {
+      "Name": "profinet_plc_line",
+      "Value": 256
+    },
+    {
+      "Name": "rexroth_cs351",
+      "Value": 314
+    },
+    {
+      "Name": "rexroth_cs351~Input_2_word_1~Input 2 word",
+      "Value": 318
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_10~Input 4 word",
+      "Value": 325
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_11~Input 4 word",
+      "Value": 324
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_12~Input 4 word",
+      "Value": 323
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_13~Input 4 word",
+      "Value": 322
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_14~Input 4 word",
+      "Value": 321
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_15~Input 4 word",
+      "Value": 320
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_16~Input 4 word",
+      "Value": 319
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_1~Input 4 word",
+      "Value": 334
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_2~Input 4 word",
+      "Value": 333
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_3~Input 4 word",
+      "Value": 332
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_4~Input 4 word",
+      "Value": 331
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_5~Input 4 word",
+      "Value": 330
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_6~Input 4 word",
+      "Value": 329
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_7~Input 4 word",
+      "Value": 328
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_8~Input 4 word",
+      "Value": 327
+    },
+    {
+      "Name": "rexroth_cs351~Input_4_word_9~Input 4 word",
+      "Value": 326
+    },
+    {
+      "Name": "rexroth_cs351~Output_2_word_1~Output 2 word",
+      "Value": 335
+    },
+    {
+      "Name": "rexroth_cs351~Output_4_word_1~Output 4 word",
+      "Value": 343
+    },
+    {
+      "Name": "rexroth_cs351~Output_4_word_2~Output 4 word",
+      "Value": 342
+    },
+    {
+      "Name": "rexroth_cs351~Output_4_word_3~Output 4 word",
+      "Value": 341
+    },
+    {
+      "Name": "rexroth_cs351~Output_4_word_4~Output 4 word",
+      "Value": 340
+    },
+    {
+      "Name": "rexroth_cs351~Output_4_word_5~Output 4 word",
+      "Value": 339
+    },
+    {
+      "Name": "rexroth_cs351~Output_4_word_6~Output 4 word",
+      "Value": 338
+    },
+    {
+      "Name": "rexroth_cs351~Output_4_word_7~Output 4 word",
+      "Value": 337
+    },
+    {
+      "Name": "rexroth_cs351~Output_4_word_8~Output 4 word",
+      "Value": 336
+    },
+    {
+      "Name": "rexroth_cs351~Rack",
+      "Value": 316
+    },
+    {
+      "Name": "rexroth_cs351~rexroth_cs351",
+      "Value": 317
+    },
+    {
+      "Name": "rexroth_cs351~rexroth_cs351~DAP V2.0",
+      "Value": 344
+    },
+    {
+      "Name": "rexroth_cs351~rexroth_cs351~Interface",
+      "Value": 313
+    },
+    {
+      "Name": "rexroth_cs351~rexroth_cs351~Interface~Port_1",
+      "Value": 315
+    },
+    {
+      "Name": "rexroth_ctrlx_drive",
+      "Value": 586
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~Inputs",
+      "Value": 592
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~Outputs",
+      "Value": 591
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~P-0-0106_0_0__STO_function__Operating_status",
+      "Value": 600
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~Rack",
+      "Value": 589
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0080_0_0__Torque_force_command_value",
+      "Value": 609
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0084_0_0__Torque_force_feedback_value",
+      "Value": 599
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0092_0_0__Torque_force_limitation__Limit_value_bipolar",
+      "Value": 608
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0134_0_0__Master_control_word__Value",
+      "Value": 601
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0135_0_0__Drive_status_word__Value",
+      "Value": 596
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0144_0_0__Signal_status_word__Value",
+      "Value": 597
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0145_0_0__Signal_control_word__Value",
+      "Value": 606
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0193_0_0__Positioning_jerk",
+      "Value": 610
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0259_0_0__Positioning_profile__Profile_velocity",
+      "Value": 605
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0260_0_0__Positioning_profile__Acceleration",
+      "Value": 602
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0282_0_0__Drive-controlled_positioning__Command_value",
+      "Value": 603
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0359_0_0__Positioning_profile__Deceleration",
+      "Value": 604
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0386_0_0__Position_controller__Position_actual_value",
+      "Value": 593
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0390_0_0__Diagnostic_message__Manufacturer_status_register",
+      "Value": 595
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-0535_0_0__Velocity_controller__Velocity_actual_value",
+      "Value": 594
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-1720_0_1__Power_supply_control__Control_word",
+      "Value": 607
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~S-0-1720_0_2__Power_supply_control__Status_word",
+      "Value": 598
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~rexroth_ctrlx_drive",
+      "Value": 590
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~rexroth_ctrlx_drive~XCS_interface_PF30",
+      "Value": 585
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~rexroth_ctrlx_drive~XCS_interface_PF30~Port_1",
+      "Value": 587
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~rexroth_ctrlx_drive~XCS_interface_PF30~Port_2",
+      "Value": 588
+    },
+    {
+      "Name": "rexroth_ctrlx_drive~rexroth_ctrlx_drive~ctrlX DRIVE XCS",
+      "Value": 611
+    },
+    {
+      "Name": "rexroth_indradrive",
+      "Value": 613
+    },
+    {
+      "Name": "rexroth_indradrive~F-Modul_not_used~ID_FMod_NotUsed",
+      "Value": 621
+    },
+    {
+      "Name": "rexroth_indradrive~Input_9_Words~ID_InMod_9Words",
+      "Value": 619
+    },
+    {
+      "Name": "rexroth_indradrive~Output_13_Words~ID_OutMod_13Words",
+      "Value": 618
+    },
+    {
+      "Name": "rexroth_indradrive~ParamCh_5Words~ID_PaCh_5Words",
+      "Value": 620
+    },
+    {
+      "Name": "rexroth_indradrive~Rack",
+      "Value": 616
+    },
+    {
+      "Name": "rexroth_indradrive~rexroth_indradrive",
+      "Value": 617
+    },
+    {
+      "Name": "rexroth_indradrive~rexroth_indradrive~DAP 1",
+      "Value": 622
+    },
+    {
+      "Name": "rexroth_indradrive~rexroth_indradrive~PN-IO",
+      "Value": 612
+    },
+    {
+      "Name": "rexroth_indradrive~rexroth_indradrive~PN-IO~Port_1",
+      "Value": 614
+    },
+    {
+      "Name": "rexroth_indradrive~rexroth_indradrive~PN-IO~Port_2",
+      "Value": 615
+    },
+    {
+      "Name": "rexroth_press",
+      "Value": 346
+    },
+    {
+      "Name": "rexroth_press~F-Modul_not_used~ID_FMod_NotUsed",
+      "Value": 354
+    },
+    {
+      "Name": "rexroth_press~Input_24_Words~ID_InMod_24Words",
+      "Value": 352
+    },
+    {
+      "Name": "rexroth_press~Output_21_Words~ID_OutMod_21Words",
+      "Value": 351
+    },
+    {
+      "Name": "rexroth_press~ParamCh_5Words~ID_PaCh_5Words",
+      "Value": 353
+    },
+    {
+      "Name": "rexroth_press~Rack",
+      "Value": 349
+    },
+    {
+      "Name": "rexroth_press~rexroth_press",
+      "Value": 350
+    },
+    {
+      "Name": "rexroth_press~rexroth_press~DAP 1",
+      "Value": 355
+    },
+    {
+      "Name": "rexroth_press~rexroth_press~PN-IO",
+      "Value": 345
+    },
+    {
+      "Name": "rexroth_press~rexroth_press~PN-IO~Port_1",
+      "Value": 347
+    },
+    {
+      "Name": "rexroth_press~rexroth_press~PN-IO~Port_2",
+      "Value": 348
+    },
+    {
+      "Name": "rf186c",
+      "Value": 285
+    },
+    {
+      "Name": "rf186c_cyc",
+      "Value": 266
+    },
+    {
+      "Name": "rf186c_cyc~RF260R_1~Reader (32 byte, cyclic io communication)",
+      "Value": 272
+    },
+    {
+      "Name": "rf186c_cyc~RF340R_1~Reader (128 byte, cyclic io communication)",
+      "Value": 271
+    },
+    {
+      "Name": "rf186c_cyc~Rack",
+      "Value": 269
+    },
+    {
+      "Name": "rf186c_cyc~rf186c_cyc",
+      "Value": 270
+    },
+    {
+      "Name": "rf186c_cyc~rf186c_cyc~CM~Communication",
+      "Value": 273
+    },
+    {
+      "Name": "rf186c_cyc~rf186c_cyc~RF186C cyc V2.2",
+      "Value": 274
+    },
+    {
+      "Name": "rf186c_cyc~rf186c_cyc~profinet",
+      "Value": 265
+    },
+    {
+      "Name": "rf186c_cyc~rf186c_cyc~profinet~Port_1",
+      "Value": 267
+    },
+    {
+      "Name": "rf186c_cyc~rf186c_cyc~profinet~Port_2",
+      "Value": 268
+    },
+    {
+      "Name": "rf186c~Rack",
+      "Value": 288
+    },
+    {
+      "Name": "rf186c~Reader_1~ Reader ",
+      "Value": 290
+    },
+    {
+      "Name": "rf186c~rf186c",
+      "Value": 289
+    },
+    {
+      "Name": "rf186c~rf186c~CM_1~ Communication ",
+      "Value": 291
+    },
+    {
+      "Name": "rf186c~rf186c~RF186C   V2.x",
+      "Value": 292
+    },
+    {
+      "Name": "rf186c~rf186c~profinet",
+      "Value": 284
+    },
+    {
+      "Name": "rf186c~rf186c~profinet~Port_1",
+      "Value": 286
+    },
+    {
+      "Name": "rf186c~rf186c~profinet~Port_2",
+      "Value": 287
+    },
+    {
+      "Name": "ureol2l",
+      "Value": 637
+    },
+    {
+      "Name": "ureol2l~10_O2T_General_Purpose_Registers_2~10_O2T General Purpose Registers 2",
+      "Value": 641
+    },
+    {
+      "Name": "ureol2l~1_T2O_State~1_T2O State",
+      "Value": 650
+    },
+    {
+      "Name": "ureol2l~2_T2O_IO~2_T2O IO",
+      "Value": 649
+    },
+    {
+      "Name": "ureol2l~3_T2O_Joints~3_T2O Joints",
+      "Value": 648
+    },
+    {
+      "Name": "ureol2l~4_T2O_TCP~4_T2O TCP",
+      "Value": 647
+    },
+    {
+      "Name": "ureol2l~5_T2O_General_Purpose_Bit_Registers~5_T2O General Purpose Bit Registers",
+      "Value": 646
+    },
+    {
+      "Name": "ureol2l~6_T2O_General_Purpose_Int_Registers~6_T2O General Purpose Int Registers",
+      "Value": 645
+    },
+    {
+      "Name": "ureol2l~7_T2O_General_Purpose_Float_Registers~7_T2O General Purpose Float Registers",
+      "Value": 644
+    },
+    {
+      "Name": "ureol2l~8_O2T_Robot_IO~8_O2T Robot IO",
+      "Value": 643
+    },
+    {
+      "Name": "ureol2l~9_O2T_General_Purpose_Registers_1~9_O2T General Purpose Registers 1",
+      "Value": 642
+    },
+    {
+      "Name": "ureol2l~Rack",
+      "Value": 639
+    },
+    {
+      "Name": "ureol2l~ureol2l",
+      "Value": 640
+    },
+    {
+      "Name": "ureol2l~ureol2l~Interface",
+      "Value": 636
+    },
+    {
+      "Name": "ureol2l~ureol2l~Interface~Port_1",
+      "Value": 638
+    },
+    {
+      "Name": "ureol2l~ureol2l~V1.0",
+      "Value": 651
+    },
+    {
+      "Name": "vision_pro",
+      "Value": 504
+    },
+    {
+      "Name": "vision_pro~Engine_Control_1~Engine Control",
+      "Value": 523
+    },
+    {
+      "Name": "vision_pro~Engine_Control_2~Engine Control",
+      "Value": 522
+    },
+    {
+      "Name": "vision_pro~Engine_Control_3~Engine Control",
+      "Value": 521
+    },
+    {
+      "Name": "vision_pro~Engine_Control_4~Engine Control",
+      "Value": 520
+    },
+    {
+      "Name": "vision_pro~Rack",
+      "Value": 506
+    },
+    {
+      "Name": "vision_pro~Result_Data_240_bytes_1~Results - 240 bytes",
+      "Value": 518
+    },
+    {
+      "Name": "vision_pro~Result_Data_240_bytes_2~Results - 240 bytes",
+      "Value": 512
+    },
+    {
+      "Name": "vision_pro~Result_Data_240_bytes_3~Results - 240 bytes",
+      "Value": 511
+    },
+    {
+      "Name": "vision_pro~Result_Data_240_bytes_4~Results - 240 bytes",
+      "Value": 510
+    },
+    {
+      "Name": "vision_pro~Result_Data_240_bytes_5~Results - 240 bytes",
+      "Value": 509
+    },
+    {
+      "Name": "vision_pro~Result_Data_64_bytes_1~Results - 64 bytes",
+      "Value": 508
+    },
+    {
+      "Name": "vision_pro~System_Control~System Control",
+      "Value": 524
+    },
+    {
+      "Name": "vision_pro~User_Data_240_bytes_1~User Data - 240 bytes",
+      "Value": 519
+    },
+    {
+      "Name": "vision_pro~User_Data_240_bytes_2~User Data - 240 bytes",
+      "Value": 517
+    },
+    {
+      "Name": "vision_pro~User_Data_240_bytes_3~User Data - 240 bytes",
+      "Value": 516
+    },
+    {
+      "Name": "vision_pro~User_Data_240_bytes_4~User Data - 240 bytes",
+      "Value": 515
+    },
+    {
+      "Name": "vision_pro~User_Data_240_bytes_5~User Data - 240 bytes",
+      "Value": 514
+    },
+    {
+      "Name": "vision_pro~User_Data_64_bytes_1~User Data - 64 bytes",
+      "Value": 513
+    },
+    {
+      "Name": "vision_pro~vision_pro",
+      "Value": 507
+    },
+    {
+      "Name": "vision_pro~vision_pro~Communication Card CC24",
+      "Value": 525
+    },
+    {
+      "Name": "vision_pro~vision_pro~Interface",
+      "Value": 503
+    },
+    {
+      "Name": "vision_pro~vision_pro~Interface~Port_1",
+      "Value": 505
+    },
+    {
+      "Name": "zebra",
+      "Value": 380
+    },
+    {
+      "Name": "zebra~Data88Bin6Bout~Data and Transfer Control v2",
+      "Value": 384
+    },
+    {
+      "Name": "zebra~Rack",
+      "Value": 382
+    },
+    {
+      "Name": "zebra~zebra",
+      "Value": 383
+    },
+    {
+      "Name": "zebra~zebra~EA3600 PIO Interface",
+      "Value": 385
+    },
+    {
+      "Name": "zebra~zebra~Interface",
+      "Value": 379
+    },
+    {
+      "Name": "zebra~zebra~Interface~Port_1",
+      "Value": 381
+    }
+  ]
+}

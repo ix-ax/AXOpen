@@ -40,10 +40,10 @@
 
   <ItemGroup>
 	<FrameworkReference Include="Microsoft.AspNetCore.App" />  
-	<PackageReference Include="AXSharp.Presentation.Blazor"/>
-    <PackageReference Include="AXSharp.Presentation.Blazor.Controls"/>
-    <PackageReference Include="Humanizer"/>    
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client"/>
+	<PackageReference Include="AXSharp.Presentation.Blazor" />
+    <PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
+    <PackageReference Include="Humanizer" />    
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
 	  
   </ItemGroup>
 
@@ -61,5 +61,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\AXOpen.Components.Robotics\inxton_axopen_components_robotics.csproj" />
+    <ProjectReference Include="..\..\..\io\src\AXOpen.Io.blazor\AXOpen.Io.blazor.csproj" />
   </ItemGroup>
 </Project>

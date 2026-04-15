@@ -64,27 +64,30 @@ else
                     </AuthorizeView>
                 }
 
-                <button type="button"
-                    class="btn @(Vm.DistributedActions.EnableLocalConcatEntityIds ? "btn-outline-warning" : "btn-outline-primary")"
-                    @onclick="() => Vm.TogleDistributedExchangeConcat()">
+                @if (Vm.DistributedActions != null)
+                {
+                    <button type="button"
+                        class="btn @(Vm.DistributedActions.EnableLocalConcatEntityIds ? "btn-outline-warning" : "btn-outline-primary")"
+                        @onclick="() => Vm.TogleDistributedExchangeConcat()">
 
-                    @if(Vm.DistributedActions.EnableLocalConcatEntityIds)
-                    {
-                        @* @Localizer["Do not concat query"] *@
-                         <Operon.Icons.HeroIcon Icon="link" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                        @if(Vm.DistributedActions.EnableLocalConcatEntityIds)
+                        {
+                            @* @Localizer["Do not concat query"] *@
+                             <Operon.Icons.HeroIcon Icon="link" Type="Operon.Icons.IconType.Outline" Class="size-5" />
 
-                        <span class="primary">
-                            [@Vm.ExternalEntityIds.Count]
-                        </span>
+                            <span class="primary">
+                                [@Vm.ExternalEntityIds.Count]
+                            </span>
 
-                    }
-                    else
-                    {
-                         @* @Localizer["Concat query"] *@
-                         <Operon.Icons.HeroIcon Icon="link-slash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
-                    }
+                        }
+                        else
+                        {
+                             @* @Localizer["Concat query"] *@
+                             <Operon.Icons.HeroIcon Icon="link-slash" Type="Operon.Icons.IconType.Outline" Class="size-5" />
+                        }
 
-                </button>
+                    </button>
+                }
 
                
                 

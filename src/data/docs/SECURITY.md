@@ -62,4 +62,4 @@ You can find the list of predefined role names here:
 ### 🧩 Adding Roles to Your Custom Role List
 Use the following code to register all required roles in your application's role system:
 
-[!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=CollectAllDataExchangeRoles)]
+[!code-csharp[](../../showcase/app/docs-snippets/data-blazor/Program.cs?name=CollectAllDataExchangeRoles)]

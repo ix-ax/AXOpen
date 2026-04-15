@@ -4,48 +4,56 @@
   - name : Contexs and objects
     items:
     - name : AxoContext
-      href : AXOCONTEXT.md
+      href : AxoContext.md
     - name : AxoObject
-      href : AXOOBJECT.md
+      href : AxoObject.md
   - name : Tasks
     items:
     - name : AxoTask
-      href : AXOTASK.md
+      href : AxoTask.md
     - name : AxoToggleTask
-      href : AXOTOGGLETASK.md    
+      href : AxoToggleTask.md
     - name : AxoMomentaryTask
-      href : AXOMOMENTARYTASK.md
+      href : AxoMomentaryTask.md
     - name : AxoRemoteTask
-      href : AXOREMOTETASK.md
+      href : AxoRemoteTask.md
   - name : Components
     items:
     - name : AxoComponent
-      href : AXOCOMPONENT.md
+      href : AxoComponent.md
     - name : Convetions
       href : ../../../articles/guidelines/components.html
   - name : Coordination
     items:
     - name : AxoSequencer
-      href : AXOSEQUENCER.md
+      href : AxoSequencer.md
     - name : AxoStep
-      href : AXOSTEP.md   
+      href : AxoStep.md
     - name : AxoSequencerContainer
-      href : AXOSEQUENCERCONTAINER.md     
+      href : AxoSequencerContainer.md
   - name : Messengers (Alarms)    
     items:
     - name : AxoMessenger
-      href : AXOMESSENGER.md  
+      href : AxoMessenger.md
   - name : Logging
     items:
     - name : AxoLogger
-      href : AXOLOGGER.md
+      href : AxoLogger.md
   - name : Dialogs and alerts
     items:
     - name : AxoDialog
-      href : AXODIALOG.md 
+      href : AxoDialog.md
     - name : AxoAlertDialog
-      href : AXOALERTDIALOG.md     
+      href : AxoAlertDialog.md
   - name : Misc
     items:
     - name : AxoTextList
-      href : AXOTEXTLIST.md    
+      href : AxoTextList.md
+    - name : AxoBoolArray
+      href : AxoBoolArray.md
+    - name : AxoByteArray
+      href : AxoByteArray.md
+  - name : Changes
+    href : CHANGELOG.md
+  - name : Troubleshooting
+    href : TROUBLES.md

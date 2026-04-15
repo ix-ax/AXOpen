@@ -1,5 +1,0 @@
-# How to
-
-[!INCLUDE [AXOCYLINDER](AXOCYLINDER.md)]
-
----

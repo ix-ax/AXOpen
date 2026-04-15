@@ -1,0 +1,372 @@
+@page "/data/DataExchange"
+@using AXOpen.Data;
+@using AXOpen.Core;
+@using Operon.Components.Tab
+@using showcase.Services;
+@inherits RenderableComponentBase
+<PageTitle>Data — Exchange</PageTitle>
+<SourceViewerModal @ref="_modal" />
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+	<nav class="text-sm text-slate-500">
+		<a href="/" class="hover:text-slate-800">Home</a>
+		<span class="px-2">/</span>
+		<span class="font-medium text-slate-800">Data — Exchange</span>
+	</nav>
+	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
+		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Data</p>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Data Exchange &amp; Persistence</h1>
+		<p class="mt-2 max-w-3xl text-slate-600">
+			AXOpen.Data provides CRUD operations between PLC and .NET repositories.
+			Covers standard exchange, fragment-based exchange, persistent storage, and distributed data patterns.
+		</p>
+	</header>
+	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+		<aside class="space-y-4 xl:col-span-1">
+			<section class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-base font-semibold text-slate-900">Component Overview</h2>
+				<ul class="mt-3 space-y-2 text-sm text-slate-600">
+					<li><span class="font-medium text-slate-800">Category:</span> Data Management</li>
+					<li>
+						<span class="font-medium text-slate-800">Variants:</span>
+						<ul class="mt-1 ml-4 list-disc text-xs text-slate-500">
+							<li>AxoDataExchange — standard CRUD</li>
+							<li>AxoDataFragmentExchange — multi-fragment</li>
+							<li>AxoDataPersistentExchange — auto-persistence</li>
+							<li>AxoDataDistributed — cross-context sharing</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="mt-3 pt-3 border-t border-slate-100">
+					<p class="text-xs font-medium text-slate-500 mb-1">Maturity</p>
+					<MaturityBadge ComponentName="Data" />
+				</div>
+			</section>
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
+				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
+				<ul class="mt-3 space-y-2 text-sm min-w-0">
+					<li class="min-w-0"><SourceFileLink Path="@_plcExchangePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcFragmentPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcPersistentPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcDistributedPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_dotnetProgramPath" OnOpen="OpenModalAsync" /></li>
+				</ul>
+			</section>
+			<LibraryResources>
+				<Documentation>
+					<li class="min-w-0"><SourceFileLink Path="@_docExchangePath" Label="AxoDataExchange — Guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_docFragmentPath" Label="AxoDataFragment — Guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_docPersistentPath" Label="AxoDataPersistent — Guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_docDistributedPath" Label="AxoDataDistributed — Guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+				</Documentation>
+			</LibraryResources>
+		</aside>
+		<section class="space-y-6 xl:col-span-2">
+			<article class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-lg font-semibold text-slate-900">Data Exchange Documentation</h2>
+				<p class="mt-1 text-sm text-slate-600">Live demos and code references for all data exchange variants.</p>
+				<div class="mt-4 space-y-4">
+					<Tab>
+						<TabPage Title="AxoDataExchange">
+							<div class="mt-4 space-y-6">
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">Live Demo</h3>
+									<div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+										<div>
+											<p class="text-xs font-medium text-slate-500 mb-1">Commands</p>
+											<RenderableContentControl Context="@Entry.Plc.Ctx.AxoDataExchangeContext.ManagerUsage" Presentation="Command-Control" />
+										</div>
+										<div>
+											<p class="text-xs font-medium text-slate-500 mb-1">Operations</p>
+											<RenderableContentControl Context="@Entry.Plc.Ctx.AxoDataExchangeContext.DataManager.Operation" Presentation="Command" />
+										</div>
+									</div>
+								</div>
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Context declaration (PLC)</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcExchangePath" OnOpen="OpenModalAsync" /> — <code>ContextDeclaration</code> region
+									</p>
+									@if (_snippetExCtx is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetExCtx.Content ?? string.Empty)" Language="language-iecst" MaxHeight="16rem" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+								</div>
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Data manager declaration</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcExchangePath" OnOpen="OpenModalAsync" /> — <code>AxoProcessDataManagerDeclaration</code> region
+									</p>
+									@if (_snippetExMgr is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetExMgr.Content ?? string.Empty)" Language="language-iecst" />
+									}
+								</div>
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Data entity declaration</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcExchangePath" OnOpen="OpenModalAsync" /> — <code>AxoProcessDataDeclaration</code> region
+									</p>
+									@if (_snippetExData is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetExData.Content ?? string.Empty)" Language="language-iecst" />
+									}
+								</div>
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Usage in sequence</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcExchangePath" OnOpen="OpenModalAsync" /> — <code>Run</code> region
+									</p>
+									@if (_snippetExRun is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetExRun.Content ?? string.Empty)" Language="language-iecst" MaxHeight="16rem" />
+									}
+								</div>
+							</div>
+						</TabPage>
+						<TabPage Title="Fragments">
+							<div class="mt-4 space-y-6">
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">Live Demo</h3>
+									<RenderableContentControl Context="@Entry.Plc.Ctx.AxoDataFragmentsExchangeContext" Presentation="Command-Control" />
+								</div>
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Context declaration</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcFragmentPath" OnOpen="OpenModalAsync" /> — <code>ContextDeclaration</code> region
+									</p>
+									@if (_snippetFrCtx is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetFrCtx.Content ?? string.Empty)" Language="language-iecst" MaxHeight="16rem" />
+									}
+								</div>
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Usage in sequence</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcFragmentPath" OnOpen="OpenModalAsync" /> — <code>Run</code> region
+									</p>
+									@if (_snippetFrRun is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetFrRun.Content ?? string.Empty)" Language="language-iecst" MaxHeight="16rem" />
+									}
+								</div>
+							</div>
+						</TabPage>
+						<TabPage Title="Persistent">
+							<div class="mt-4 space-y-6">
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">Live Demo</h3>
+									<RenderableContentControl Context="@Entry.Plc.Ctx.AxoDataPersistentContext" Presentation="Command-Control" />
+								</div>
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Context declaration</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcPersistentPath" OnOpen="OpenModalAsync" /> — <code>ContextDeclaration</code> region
+									</p>
+									@if (_snippetPeCtx is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetPeCtx.Content ?? string.Empty)" Language="language-iecst" MaxHeight="16rem" />
+									}
+								</div>
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Persistent attribute usage</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcPersistentPath" OnOpen="OpenModalAsync" /> — <code>PersistentAttribute</code> region
+									</p>
+									@if (_snippetPeAttr is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetPeAttr.Content ?? string.Empty)" Language="language-iecst" MaxHeight="20rem" />
+									}
+								</div>
+							</div>
+						</TabPage>
+						<TabPage Title="Distributed">
+							<div class="mt-4 space-y-6">
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">Distributed Data Selector</h3>
+									<DistributedDataSelectorView GroupName="default" ConfigSuffix="" EnableCurrentView="true" DisableUserRoles="true" MinPaginationLimit="20" />
+								</div>
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-2">Distributed Data View</h3>
+									<DistributedDataView Presentation="Command"
+														 GroupName="default"
+														 ConfigSuffix=""
+														 DisplayOnePerDataType="true"
+														 EnableCreate="true"
+														 EnableDelete="true"
+														 EnableCopy="true"
+														 EnableFiltering="true"
+														 EnableSorting="false"
+														 EnableExport="true"
+														 EnableSendToPlc="true"
+														 EnableCreateNewFromPlc="true" />
+								</div>
+								<div class="border-t border-slate-100 pt-4">
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Context declaration</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcDistributedPath" OnOpen="OpenModalAsync" /> — <code>ContextDeclaration</code> region
+									</p>
+									@if (_snippetDiCtx is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetDiCtx.Content ?? string.Empty)" Language="language-iecst" MaxHeight="16rem" />
+									}
+								</div>
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">DistributedData attribute</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcDistributedPath" OnOpen="OpenModalAsync" /> — <code>UseDistributedDataAttribute</code> region
+									</p>
+									@if (_snippetDiAttr is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetDiAttr.Content ?? string.Empty)" Language="language-iecst" />
+									}
+								</div>
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Usage in sequence</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_plcDistributedPath" OnOpen="OpenModalAsync" /> — <code>Run</code> region
+									</p>
+									@if (_snippetDiRun is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetDiRun.Content ?? string.Empty)" Language="language-iecst" MaxHeight="16rem" />
+									}
+								</div>
+							</div>
+						</TabPage>
+						<TabPage Title=".NET Setup">
+							<div class="mt-4 space-y-6">
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">AxoDataExchange repository setup</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_dotnetProgramPath" OnOpen="OpenModalAsync" /> — <code>SetUpAxoDataExchange</code> region
+									</p>
+									@if (_snippetNetExchange is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetNetExchange.Content ?? string.Empty)" Language="language-csharp" />
+									}
+									else if (_loadingCode) { <div class="p-4 text-center text-slate-500">Loading...</div> }
+								</div>
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">AxoDataFragmentExchange setup</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_dotnetProgramPath" OnOpen="OpenModalAsync" /> — <code>SetUpAxoDataFragmentExchange</code> region
+									</p>
+									@if (_snippetNetFragment is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetNetFragment.Content ?? string.Empty)" Language="language-csharp" MaxHeight="16rem" />
+									}
+								</div>
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">AxoDataPersistentExchange setup</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_dotnetProgramPath" OnOpen="OpenModalAsync" /> — <code>SetUpAxoDataPersistentExchange</code> region
+									</p>
+									@if (_snippetNetPersistent is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetNetPersistent.Content ?? string.Empty)" Language="language-csharp" MaxHeight="16rem" />
+									}
+								</div>
+								<div>
+									<h3 class="text-sm font-semibold text-slate-900 mb-1">Distributed data services</h3>
+									<p class="text-xs text-slate-500 mb-2">
+										<SourceFileLink Path="@_dotnetProgramPath" OnOpen="OpenModalAsync" /> — <code>DistributedDataServices</code> region
+									</p>
+									@if (_snippetNetDistributed is { IsError: false })
+									{
+										<CodeBlock Content="@(_snippetNetDistributed.Content ?? string.Empty)" Language="language-csharp" />
+									}
+								</div>
+							</div>
+						</TabPage>
+					</Tab>
+				</div>
+			</article>
+		</section>
+	</div>
+</div>
+@code {
+	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
+	private SourceViewerModal _modal = default!;
+	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
+	// PLC snippets
+	private CodeSnippet? _snippetExCtx;
+	private CodeSnippet? _snippetExMgr;
+	private CodeSnippet? _snippetExData;
+	private CodeSnippet? _snippetExRun;
+	private CodeSnippet? _snippetFrCtx;
+	private CodeSnippet? _snippetFrRun;
+	private CodeSnippet? _snippetPeCtx;
+	private CodeSnippet? _snippetPeAttr;
+	private CodeSnippet? _snippetDiCtx;
+	private CodeSnippet? _snippetDiAttr;
+	private CodeSnippet? _snippetDiRun;
+	// .NET snippets
+	private CodeSnippet? _snippetNetExchange;
+	private CodeSnippet? _snippetNetFragment;
+	private CodeSnippet? _snippetNetPersistent;
+	private CodeSnippet? _snippetNetDistributed;
+	private bool _loadingCode = true;
+	private readonly string _plcExchangePath    = "src/showcase/app/src/data/AxoDataExchange/AxoDataExchangeExample.st";
+	private readonly string _plcFragmentPath    = "src/showcase/app/src/data/AxoDataFragmentExchange/AxoDataFragmentExchangeExample.st";
+	private readonly string _plcPersistentPath  = "src/showcase/app/src/data/AxoDataPersistentExchange/AxoDataPersistentExchangeExample.st";
+	private readonly string _plcDistributedPath = "src/showcase/app/src/data/AxoDataDistributed/AxoDataDistributedExample.st";
+	private readonly string _dotnetProgramPath  = "src/showcase/app/docs-snippets/data-blazor/Program.cs";
+	private readonly string _docExchangePath    = "src/data/docs/AxoDataExchange.md";
+	private readonly string _docFragmentPath    = "src/data/docs/AxoDataFragmentExchange.md";
+	private readonly string _docPersistentPath  = "src/data/docs/AxoDataPersistentExchange.md";
+	private readonly string _docDistributedPath = "src/data/docs/DistributedDataExchange.md";
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			var t1  = CodeProvider.GetTaggedRegionAsync(_plcExchangePath, "ContextDeclaration");
+			var t2  = CodeProvider.GetTaggedRegionAsync(_plcExchangePath, "AxoProcessDataManagerDeclaration");
+			var t3  = CodeProvider.GetTaggedRegionAsync(_plcExchangePath, "AxoProcessDataDeclaration");
+			var t4  = CodeProvider.GetTaggedRegionAsync(_plcExchangePath, "Run");
+			var t5  = CodeProvider.GetTaggedRegionAsync(_plcFragmentPath, "ContextDeclaration");
+			var t6  = CodeProvider.GetTaggedRegionAsync(_plcFragmentPath, "Run");
+			var t7  = CodeProvider.GetTaggedRegionAsync(_plcPersistentPath, "ContextDeclaration");
+			var t8  = CodeProvider.GetTaggedRegionAsync(_plcPersistentPath, "PersistentAttribute");
+			var t9  = CodeProvider.GetTaggedRegionAsync(_plcDistributedPath, "ContextDeclaration");
+			var t10 = CodeProvider.GetTaggedRegionAsync(_plcDistributedPath, "UseDistributedDataAttribute");
+			var t11 = CodeProvider.GetTaggedRegionAsync(_plcDistributedPath, "Run");
+			var t12 = CodeProvider.GetTaggedRegionAsync(_dotnetProgramPath, "SetUpAxoDataExchange");
+			var t13 = CodeProvider.GetTaggedRegionAsync(_dotnetProgramPath, "SetUpAxoDataFragmentExchange");
+			var t14 = CodeProvider.GetTaggedRegionAsync(_dotnetProgramPath, "SetUpAxoDataPersistentExchange");
+			var t15 = CodeProvider.GetTaggedRegionAsync(_dotnetProgramPath, "DistributedDataServices");
+			await Task.WhenAll(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15);
+			_snippetExCtx         = await t1;
+			_snippetExMgr         = await t2;
+			_snippetExData        = await t3;
+			_snippetExRun         = await t4;
+			_snippetFrCtx         = await t5;
+			_snippetFrRun         = await t6;
+			_snippetPeCtx         = await t7;
+			_snippetPeAttr        = await t8;
+			_snippetDiCtx         = await t9;
+			_snippetDiAttr        = await t10;
+			_snippetDiRun         = await t11;
+			_snippetNetExchange   = await t12;
+			_snippetNetFragment   = await t13;
+			_snippetNetPersistent = await t14;
+			_snippetNetDistributed = await t15;
+		}
+		catch (Exception ex)
+		{
+			Console.Error.WriteLine($"Error loading code snippets: {ex.Message}");
+		}
+		finally
+		{
+			_loadingCode = false;
+			StateHasChanged();
+		}
+		await base.OnInitializedAsync();
+	}
+	public override void ConfigurePolling()
+	{
+		this.StartPolling(Entry.Plc.Ctx.AxoDataExchangeContext, 500);
+		this.StartPolling(Entry.Plc.Ctx.AxoDataFragmentsExchangeContext, 500);
+		this.StartPolling(Entry.Plc.Ctx.AxoDataPersistentContext, 500);
+		this.StartPolling(Entry.Plc.Ctx.AxoDataDistributedContext, 500);
+	}
+}

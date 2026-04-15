@@ -1,0 +1,376 @@
+Devices:
+  - Name: plc_line
+    Modules:
+    - Apply: 6ES7518-3AT10-0AB0_v4_0
+      Arguments:
+        NAME: plc_line
+        IP_ADDRESS_X1: '192.168.100.130/24'
+        PROFINET_DEVICE_NAME_X1: 'plc_line_x1'
+        IP_ADDRESS_X2: '192.168.101.130/24'
+        PROFINET_DEVICE_NAME_X2: 'plc_line_x2'
+        IP_ADDRESS_X3: '192.168.102.120/24'
+        PROFINET_DEVICE_NAME_X3: 'plc_line_x3'
+        ADMIN_NAME: 'admin'
+        CYCLE_COMMUNICATION_LOAD: 50  
+        TimeSynchronizationNtpV2: 'SetServersInProject'
+        TimeSynchronizationServer1: '192.168.100.249'
+        TimeSynchronizationUpdateInterval: 60               
+    # DI module on PLC rail (for pneumatics)
+    - Apply: 6ES7521-1BL00-0AB0_v2_2
+      Arguments:
+        NAME: A1
+
+  # =============================================
+  # Robotics (.121 - .125)
+  # =============================================
+
+  #<AbbIrc5Device>
+  # ABB IRC5 Robot
+  - Apply: abb_irc5_robot_in64b_out64b
+    Arguments:
+      NAME: abb_irc5_robot
+      IP_ADDRESS_X1: '192.168.100.101/24'
+      PROFINET_DEVICE_NAME_X1: abb_irc5_robot
+  #</AbbIrc5Device>
+
+  #<AbbOmnicoreDevice>
+  # ABB OmniCore Robot
+  - Apply: abb_omnicore_robot_in64b_out64b
+    Arguments:
+      NAME: abb_omnicore_robot
+      IP_ADDRESS_X1: '192.168.100.102/24'
+      PROFINET_DEVICE_NAME_X1: abb_omnicore_robot
+  #</AbbOmnicoreDevice>
+
+  #<KukaKrc4Device>
+  # KUKA KRC4 Robot
+  - Apply: kuka_krc4_dio512
+    Arguments:
+      NAME: kuka_rb1
+      IP_ADDRESS_X1: '192.168.100.103/24'
+      PROFINET_DEVICE_NAME_X1: kuka_rb1
+  #</KukaKrc4Device>
+
+  #<MitsubishiTz535Device>
+  # Mitsubishi TZ535 Robot
+  - Apply: mitsubishi_tz535_64b_inout
+    Arguments:
+      NAME: mitsubishi_tz535_robot
+      IP_ADDRESS_X1: '192.168.100.104/24'
+      PROFINET_DEVICE_NAME_X1: mitsubishi_tz535_robot
+  #</MitsubishiTz535Device>
+
+  #<UrRobotDevice>
+  # Universal Robots
+  - Apply: ur_robot
+    Arguments:
+      NAME: ureol2l
+      IP_ADDRESS_X1: '192.168.100.105/24'
+      PROFINET_DEVICE_NAME_X1: ureol2l
+  #</UrRobotDevice>
+
+  # =============================================
+  # Drives (.131 - .133)
+  # =============================================
+
+  #<FestoCmmtAsDevice>
+  # Festo CMMT-AS
+  - Apply: FestoCmmtAs
+    Arguments:
+      NAME: festo_cmmtas
+      IP_ADDRESS_X1: '192.168.100.131/24'
+      PROFINET_DEVICE_NAME_X1: festo_cmmtas
+  #</FestoCmmtAsDevice>
+
+  #<RexrothIndraDriveDevice>
+  # Rexroth IndraDrive
+  - Apply: rexroth_indradrive
+    Arguments:
+      NAME: rexroth_indradrive
+      IP_ADDRESS_X1: '192.168.100.132/24'
+      PROFINET_DEVICE_NAME_X1: rexroth_indradrive
+  #</RexrothIndraDriveDevice>
+
+  #<RexrothCtrlxDriveDevice>
+  # Rexroth ctrlX Drive XCS
+  - Apply: rexroth_ctrlx_drive_xcs
+    Arguments:
+      NAME: rexroth_ctrlx_drive
+      IP_ADDRESS_X1: '192.168.100.133/24'
+      PROFINET_DEVICE_NAME_X1: rexroth_ctrlx_drive
+  #</RexrothCtrlxDriveDevice>
+
+  # =============================================
+  # Vision Systems (.141 - .149)
+  # =============================================
+
+  #<CognexInsight7600Device>
+  # Cognex Vision Insight 7600
+  - Apply: Cognex_Vision_Insight_V_6_0_0
+    Arguments:
+      NAME: cognex_insight_7600
+      IP_ADDRESS_X1: '192.168.100.141/24'
+      PROFINET_DEVICE_NAME_X1: cognex_insight_7600
+      DEVICE_FAMILY: Cognex_Vision_Insight_V_6_0_0_IS79XX_IS75XX
+      USER_DATA: Cognex_Vision_Insight_V_6_0_0_UserData_128
+      RESULT_DATA: Cognex_Vision_Insight_V_6_0_0_ResultData_128
+  #</CognexInsight7600Device>
+
+  #<CognexDataman280Device>
+  # Cognex DataMan 280
+  - Apply: Cognex_Dataman280
+    Arguments:
+      NAME: cognex_dataman_280
+      IP_ADDRESS_X1: '192.168.100.142/24'
+      PROFINET_DEVICE_NAME_X1: cognex_dataman_280
+      USER_DATA: Cognex_Dataman280_UserData_128
+      RESULT_DATA: Cognex_Dataman280_ResultData_128
+  #</CognexDataman280Device>
+
+  #<CognexDataman380Device>
+  # Cognex DataMan 380
+  - Apply: Cognex_Dataman380
+    Arguments:
+      NAME: cognex_dataman_380
+      IP_ADDRESS_X1: '192.168.100.143/24'
+      PROFINET_DEVICE_NAME_X1: cognex_dataman_380
+      USER_DATA: Cognex_Dataman380_UserData_128
+      RESULT_DATA: Cognex_Dataman380_ResultData_128
+  #</CognexDataman380Device>
+
+  #<CognexInsight2800Device>
+  # Cognex Insight 2800
+  - Apply: Cognex_Insight2800
+    Arguments:
+      NAME: cognex_insight_2800
+      IP_ADDRESS_X1: '192.168.100.144/24'
+      PROFINET_DEVICE_NAME_X1: cognex_insight_2800
+      USER_DATA_SLOT_7: Cognex_Insight2800_UserData_254
+      USER_DATA_SLOT_8: Cognex_Insight2800_UserData_254
+      USER_DATA_SLOT_9: Cognex_Insight2800_UserData_254
+      USER_DATA_SLOT_10: Cognex_Insight2800_empty_slot
+      RESULT_DATA_SLOT_11: Cognex_Insight2800_ResultData_250
+      RESULT_DATA_SLOT_12: Cognex_Insight2800_ResultDataAdd_250
+      RESULT_DATA_SLOT_13: Cognex_Insight2800_ResultDataAdd_250
+      RESULT_DATA_SLOT_14: Cognex_Insight2800_ResultDataAdd_250
+  #</CognexInsight2800Device>
+
+  #<CognexVisionProDevice>
+  # Cognex Vision Pro
+  - Apply: cognex_vision_pro
+    Arguments:
+      NAME: vision_pro
+      IP_ADDRESS_X1: '192.168.100.145/24'
+      PROFINET_DEVICE_NAME_X1: vision_pro
+  #</CognexVisionProDevice>
+
+  #<KeyenceSr750Device>
+  # Keyence SR-750
+  - Apply: Keyence_SR_750
+    Arguments:
+      NAME: keyence_sr_750
+      IP_ADDRESS_X1: '192.168.100.146/24'
+      PROFINET_DEVICE_NAME_X1: keyence_sr_750
+      RESULT_DATA: Keyence_SR_750_ResultData_128
+      USER_DATA: Keyence_SR_750_UserData_128
+  #</KeyenceSr750Device>
+
+  #<KeyenceSr1000Device>
+  # Keyence SR-1000
+  - Apply: Keyence_SR_1000
+    Arguments:
+      NAME: keyence_sr_1000
+      IP_ADDRESS_X1: '192.168.100.147/24'
+      PROFINET_DEVICE_NAME_X1: keyence_sr_1000
+      RESULT_DATA: Keyence_SR_1000_ResultData_128
+      USER_DATA: Keyence_SR_1000_UserData_128
+  #</KeyenceSr1000Device>
+
+  #<KeyenceIv3Device>
+  # Keyence IV3
+  - Apply: Keyence_IV3
+    Arguments:
+      NAME: keyence_iv3
+      IP_ADDRESS_X1: '192.168.100.148/24'
+      PROFINET_DEVICE_NAME_X1: keyence_iv3
+  #</KeyenceIv3Device>
+
+  #<ZebraEa3600Device>
+  # Zebra EA3600
+  - Apply: zebra_ea3600_88in6out
+    Arguments:
+      NAME: zebra
+      IP_ADDRESS_X1: '192.168.100.149/24'
+      PROFINET_DEVICE_NAME_X1: zebra
+  #</ZebraEa3600Device>
+
+  # =============================================
+  # Tightening / Welding / Press (.151 - .154)
+  # =============================================
+
+  #<DesoutterCvicIiDevice>
+  # Desoutter CVIC II
+  - Apply: Desoutter_CVIC_II
+    Arguments:
+      NAME: desoutter_cvic_ii
+      IP_ADDRESS_X1: '192.168.100.151/24'
+      PROFINET_DEVICE_NAME_X1: desoutter_cvic_ii
+  #</DesoutterCvicIiDevice>
+
+  #<DukaneIqWelderDevice>
+  # Dukane IQ Series Welder
+  - Apply: DukaneIqSeriesWelder
+    Arguments:
+      NAME: dukaneiqauto
+      IP_ADDRESS_X1: '192.168.100.152/24'
+      PROFINET_DEVICE_NAME_X1: dukaneiqauto
+  #</DukaneIqWelderDevice>
+
+  #<RexrothSfkPressDevice>
+  # Rexroth SFK Press
+  - Apply: rexroth_sfk_press
+    Arguments:
+      NAME: rexroth_press
+      IP_ADDRESS_X1: '192.168.100.153/24'
+      PROFINET_DEVICE_NAME_X1: rexroth_press
+  #</RexrothSfkPressDevice>
+
+  #<RexrothCs351Device>
+  # Rexroth Tightening CS351
+  - Apply: rexroth_tightening_cs351
+    Arguments:
+      NAME: rexroth_cs351
+      IP_ADDRESS_X1: '192.168.100.154/24'
+      PROFINET_DEVICE_NAME_X1: rexroth_cs351
+  #</RexrothCs351Device>
+
+  # =============================================
+  # Pneumatics (.171)
+  # =============================================
+
+  #<AventicsPneumaticsDevice>
+  # Aventics Pneumatics AES Controller
+  - Apply: AventicsPneumaticsAES
+    Arguments:
+      NAME: aes_pnio
+      IP_ADDRESS_X1: '192.168.100.171/24'
+      PROFINET_DEVICE_NAME_X1: aes_pnio
+      SLOT_1: AventicsPneumaticsAESValveDriver4Valves
+      SLOT_2: AventicsPneumaticsAESEmptySlot
+      SLOT_3: AventicsPneumaticsAESEmptySlot
+      SLOT_4: AventicsPneumaticsAESEmptySlot
+      SLOT_5: AventicsPneumaticsAESEmptySlot
+      SLOT_6: AventicsPneumaticsAESEmptySlot
+      SLOT_7: AventicsPneumaticsAESEmptySlot
+      SLOT_8: AventicsPneumaticsAESEmptySlot
+      SLOT_9: AventicsPneumaticsAESEmptySlot
+      SLOT_10: AventicsPneumaticsAESEmptySlot
+      SLOT_11: AventicsPneumaticsAESEmptySlot
+      SLOT_12: AventicsPneumaticsAESEmptySlot
+      SLOT_13: AventicsPneumaticsAESEmptySlot
+      SLOT_14: AventicsPneumaticsAESEmptySlot
+      SLOT_15: AventicsPneumaticsAESEmptySlot
+      SLOT_16: AventicsPneumaticsAESEmptySlot
+  #</AventicsPneumaticsDevice>
+
+  # =============================================
+  # Identification / Communication
+  # Standalone devices auto-loaded from library_templates
+  # (IPs defined in template files, not parameterizable):
+  #   - BNIPNT507005Z040 (balluff)     @ .3
+  #   - et200sp (siem communication)   @ .121
+  #   - rf186c (siem identification)   @ .99
+  #   - et200sp_CM_4xIO_Link_RF200     @ .98
+  #   - rf186c_cyc                     @ .100
+  # =============================================
+
+IoSystems:
+- Name: profinet_plc_line
+  ControllerInterfaces:
+  - Ref: plc_line/plc_line/PROFINET_interface_1
+  DeviceInterfaces:
+  # Robotics
+  #<AbbIrc5IoSystem>
+  - Ref: abb_irc5_robot/abb_irc5_robot/PROFINET_Interface
+  #</AbbIrc5IoSystem>
+  #<AbbOmnicoreIoSystem>
+  - Ref: abb_omnicore_robot/abb_omnicore_robot/PROFINET_Interface
+  #</AbbOmnicoreIoSystem>
+  #<KukaKrc4IoSystem>
+  - Ref: kuka_rb1/kuka_rb1/Interface1
+  #</KukaKrc4IoSystem>
+  #<MitsubishiTz535IoSystem>
+  - Ref: mitsubishi_tz535_robot/mitsubishi_tz535_robot/Interface
+  #</MitsubishiTz535IoSystem>
+  #<UrRobotIoSystem>
+  - Ref: ureol2l/ureol2l/Interface
+    Parameters:
+      PnWatchdogFactor: 4
+  #</UrRobotIoSystem>
+  # Drives
+  #<FestoCmmtAsIoSystem>
+  - Ref: festo_cmmtas/festo_cmmtas/PN-IO_Interface
+  #</FestoCmmtAsIoSystem>
+  #<RexrothIndraDriveIoSystem>
+  - Ref: rexroth_indradrive/rexroth_indradrive/PN-IO
+  #</RexrothIndraDriveIoSystem>
+  #<RexrothCtrlxDriveIoSystem>
+  - Ref: rexroth_ctrlx_drive/rexroth_ctrlx_drive/XCS_interface_PF30
+  #</RexrothCtrlxDriveIoSystem>
+  # Vision
+  #<CognexInsight7600IoSystem>
+  - Ref: cognex_insight_7600/cognex_insight_7600/Interface
+  #</CognexInsight7600IoSystem>
+  #<CognexDataman280IoSystem>
+  - Ref: cognex_dataman_280/cognex_dataman_280/Interface
+  #</CognexDataman280IoSystem>
+  #<CognexDataman380IoSystem>
+  - Ref: cognex_dataman_380/cognex_dataman_380/Interface
+  #</CognexDataman380IoSystem>
+  #<CognexInsight2800IoSystem>
+  - Ref: cognex_insight_2800/cognex_insight_2800/Interface
+  #</CognexInsight2800IoSystem>
+  #<CognexVisionProIoSystem>
+  - Ref: vision_pro/vision_pro/Interface
+  #</CognexVisionProIoSystem>
+  #<KeyenceSr750IoSystem>
+  - Ref: keyence_sr_750/keyence_sr_750/Interface
+  #</KeyenceSr750IoSystem>
+  #<KeyenceSr1000IoSystem>
+  - Ref: keyence_sr_1000/keyence_sr_1000/Interface
+  #</KeyenceSr1000IoSystem>
+  #<KeyenceIv3IoSystem>
+  - Ref: keyence_iv3/keyence_iv3/Interface
+  #</KeyenceIv3IoSystem>
+  #<ZebraEa3600IoSystem>
+  - Ref: zebra/zebra/Interface
+  #</ZebraEa3600IoSystem>
+  # Tightening / Welding / Press
+  #<DesoutterCvicIiIoSystem>
+  - Ref: desoutter_cvic_ii/desoutter_cvic_ii/Interface
+  #</DesoutterCvicIiIoSystem>
+  #<DukaneIqWelderIoSystem>
+  - Ref: dukaneiqauto/dukaneiqauto/Interface
+  #</DukaneIqWelderIoSystem>
+  #<RexrothSfkPressIoSystem>
+  - Ref: rexroth_press/rexroth_press/PN-IO
+  #</RexrothSfkPressIoSystem>
+  #<RexrothCs351IoSystem>
+  - Ref: rexroth_cs351/rexroth_cs351/Interface
+  #</RexrothCs351IoSystem>
+  # Identification / Communication (auto-loaded from library_templates)
+  #<BalluffBisIoSystem>
+  - Ref: BNIPNT507005Z040/BNIPNT507005Z040/profinet
+  #</BalluffBisIoSystem>
+  #<SiemCommunicationIoSystem>
+  - Ref: et200sp/et200sp/profinet
+  #</SiemCommunicationIoSystem>
+  #<SiemIdentificationIoSystem>
+  - Ref: rf186c/rf186c/profinet
+  - Ref: et200sp_CM_4xIO_Link_RF200/et200sp_CM_4xIO_Link_RF200/profinet
+  - Ref: rf186c_cyc/rf186c_cyc/profinet
+  #</SiemIdentificationIoSystem>
+  # Pneumatics
+  #<AventicsPneumaticsIoSystem>
+  - Ref: aes_pnio/aes_pnio/PN-IO
+  #</AventicsPneumaticsIoSystem>

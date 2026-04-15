@@ -1,0 +1,547 @@
+@page "/components-rexroth-drives/Documentation/RexrothDrives"
+@using AXOpen.Components.Rexroth.Drives
+@using AXOpen.Core;
+@using Operon.Components.Tab
+@using showcase.Services;
+@inherits RenderableComponentBase
+<PageTitle>Rexroth Drives - Documentation</PageTitle>
+<SourceViewerModal @ref="_modal" />
+<div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+	<nav class="text-sm text-slate-500">
+		<a href="/" class="hover:text-slate-800">Home</a>
+		<span class="px-2">/</span>
+		<span class="font-medium text-slate-800">Rexroth Drives Documentation</span>
+	</nav>
+	<header class="rounded-xl border border-slate-200 bg-linear-to-r from-cyan-50 to-white p-6">
+		<p class="text-xs uppercase tracking-wider text-cyan-700">AXOpen.Components.Rexroth.Drives</p>
+		<h1 class="mt-1 text-3xl font-semibold text-slate-900">Rexroth Drives Showcase</h1>
+		<p class="mt-2 max-w-3xl text-slate-600">
+			This page combines runnable command widgets, live component status, and direct links to PLC source files.
+			Use it as a practical reference for integrating Bosch Rexroth drives (IndraDrive, ctrlX DRIVE) in SIMATIC AX applications.
+		</p>
+	</header>
+	<div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+		<aside class="space-y-4 xl:col-span-1">
+			<section class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-base font-semibold text-slate-900">Component Overview</h2>
+				<ul class="mt-3 space-y-2 text-sm text-slate-600">
+					<li><span class="font-medium text-slate-800">Category:</span> Drives</li>
+					<li><span class="font-medium text-slate-800">Vendor:</span> Bosch Rexroth</li>
+					<li><span class="font-medium text-slate-800">Components:</span> IndraDrive, ctrlX DRIVE XSC</li>
+					<li><span class="font-medium text-slate-800">Context:</span> <span class="font-mono">rexroth_drives_documentation</span></li>
+				</ul>
+			</section>
+			<section class="rounded-xl border border-slate-200 bg-white p-4 min-w-0">
+				<h2 class="text-base font-semibold text-slate-900">Source References</h2>
+				<ul class="mt-3 space-y-2 text-sm min-w-0">
+					<li class="min-w-0"><SourceFileLink Path="@_plcContextPath"   OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponentPath"  OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_plcComponent2Path" OnOpen="OpenModalAsync" /></li>
+				</ul>
+			</section>
+			<LibraryResources VendorName="Bosch Rexroth" VendorUrl="https://www.boschrexroth.com/">
+				<Documentation>
+					<li class="min-w-0"><SourceFileLink Path="@_libReadmePath"        Label="README — Overview"                Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent1DocPath" Label="AxoIndraDrive — Component guide"   Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libComponent2DocPath" Label="AxoCtrlxDriveXsc — Component guide" Mono="false" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libTroublesPath"      Label="Troubleshooting"                   Mono="false" OnOpen="OpenModalAsync" /></li>
+				</Documentation>
+				<PlcSource>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoIndraDriveStPath"    OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libAxoCtrlxDriveXscStPath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_libApaxYmlPath"            OnOpen="OpenModalAsync" /></li>
+				</PlcSource>
+				<HardwareAssets>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcIndraDriveTemplatePath" OnOpen="OpenModalAsync" /></li>
+					<li class="min-w-0"><SourceFileLink Path="@_hwcCtrlxDriveTemplatePath" OnOpen="OpenModalAsync" /></li>
+				</HardwareAssets>
+			</LibraryResources>
+		</aside>
+		<section class="space-y-6 xl:col-span-2">
+			<article class="rounded-xl border border-slate-200 bg-white p-4">
+				<h2 class="text-lg font-semibold text-slate-900">Live Demo Controls</h2>
+				<p class="mt-1 text-sm text-slate-600">Run sequenced tasks and component commands directly against the connected PLC context.</p>
+				<div class="mt-4 space-y-4">
+					<div>
+						<label class="mb-1 block text-sm font-medium text-slate-700">Presentation</label>
+						<select @bind="_selectedPresentation" class="w-full max-w-xs rounded border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 shadow-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200">
+							<option value="Command-Control">Command-Control</option>
+							<option value="Status-Display">Status-Display</option>
+							<option value="Service-Control">Service-Control</option>
+							<option value="Spot">Spot</option>
+							<option value="Compact">Compact</option>
+						</select>
+					</div>
+					<Tab>
+						<TabPage Title="IndraDrive (Component 1)">
+							<div class="mt-4 space-y-6">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge ComponentName="Rexroth Drives" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.IndraDrive" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<!-- 1. Component declaration -->
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponentPath" Label="@_plcComponentPath" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_comp1DeclarationSnippet != null && !_comp1DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp1DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<!-- 2. Component Run call -->
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponentPath" Label="@_plcComponentPath" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_comp1RunSnippet != null && !_comp1RunSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp1RunSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-6">
+											<!-- 1. Device instantiation -->
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Device instantiation (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;RexrothIndraDriveDevice&gt; region
+												</p>
+												@if (_hwcIndraDriveDeviceSnippet != null && !_hwcIndraDriveDeviceSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcIndraDriveDeviceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<!-- 2. Device template -->
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcIndraDriveTemplatePath" Label="@_hwcIndraDriveTemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;RexrothIndraDriveTemplate&gt; region
+												</p>
+												@if (_hwcIndraDriveTemplateSnippet != null && !_hwcIndraDriveTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcIndraDriveTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<!-- 3. IO system wiring -->
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;RexrothIndraDriveIoSystem&gt; region
+												</p>
+												@if (_hwcIndraDriveIoSystemSnippet != null && !_hwcIndraDriveIoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcIndraDriveIoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.Sequencer" />
+										<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.Sequencer" />
+										<article class="rounded-xl border border-slate-200 bg-white p-4">
+											<h2 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h2>
+											<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
+												<SourceFileLink Path="@_plcComponentPath" Label="AxoIndraDrive_Showcase.st" OnOpen="OpenModalAsync" />.
+											</p>
+											@if (_comp1StepLogicBlocks.Count > 0)
+											{
+												<div class="mt-4 space-y-3">
+													@foreach (var step in _comp1StepLogicBlocks)
+													{
+														_comp1StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+														<AxoStepCard Step="step" LiveStep="liveStep" />
+													}
+												</div>
+											}
+											else if (_loadingCode)
+											{
+												<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+											}
+											else
+											{
+												<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+													No sequencer step blocks were detected.
+												</div>
+											}
+										</article>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+						<TabPage Title="ctrlX DRIVE XSC (Component 2)">
+							<div class="mt-4 space-y-6">
+								<div class="flex items-center gap-2">
+									<span class="text-xs font-medium text-slate-500">Maturity:</span>
+									<MaturityBadge ComponentName="Rexroth Drives" />
+								</div>
+								<Tab>
+									<TabPage Title="Automatic rendering">
+										<div class="mt-4">
+											<RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.CtrlXdrive" Presentation="@_selectedPresentation" />
+										</div>
+									</TabPage>
+									<TabPage Title="Code reference">
+										<div class="mt-4 space-y-6">
+											<!-- 1. Component declaration -->
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component declaration (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent2Path" Label="@_plcComponent2Path" OnOpen="OpenModalAsync" />
+													— &lt;ComponentDeclaration&gt; region
+												</p>
+												@if (_comp2DeclarationSnippet != null && !_comp2DeclarationSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp2DeclarationSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<!-- 2. Component Run call -->
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Component Run call (ST)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_plcComponent2Path" Label="@_plcComponent2Path" OnOpen="OpenModalAsync" />
+													— &lt;Initialization&gt; region
+												</p>
+												@if (_comp2RunSnippet != null && !_comp2RunSnippet.IsError)
+												{
+													<CodeBlock Content="@(_comp2RunSnippet.Content ?? string.Empty)" Language="language-iecst" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Hardware configuration">
+										<div class="mt-4 space-y-6">
+											<!-- 1. Device instantiation -->
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Device instantiation (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;RexrothCtrlxDriveDevice&gt; region
+												</p>
+												@if (_hwcCtrlxDriveDeviceSnippet != null && !_hwcCtrlxDriveDeviceSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcCtrlxDriveDeviceSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<!-- 2. Device template -->
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">Device template (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcCtrlxDriveTemplatePath" Label="@_hwcCtrlxDriveTemplatePath" OnOpen="OpenModalAsync" />
+													— &lt;RexrothCtrlxDriveTemplate&gt; region
+												</p>
+												@if (_hwcCtrlxDriveTemplateSnippet != null && !_hwcCtrlxDriveTemplateSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcCtrlxDriveTemplateSnippet.Content ?? string.Empty)" Language="language-yaml" MaxHeight="24rem" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+											<!-- 3. IO system wiring -->
+											<div>
+												<h3 class="text-sm font-semibold text-gray-900 mb-1">PROFINET IO system wiring (hwl)</h3>
+												<p class="text-xs text-slate-500 mb-2">
+													<SourceFileLink Path="@_hwcPlcLineYmlPath" Label="@_hwcPlcLineYmlPath" OnOpen="OpenModalAsync" />
+													— &lt;RexrothCtrlxDriveIoSystem&gt; region
+												</p>
+												@if (_hwcCtrlxDriveIoSystemSnippet != null && !_hwcCtrlxDriveIoSystemSnippet.IsError)
+												{
+													<CodeBlock Content="@(_hwcCtrlxDriveIoSystemSnippet.Content ?? string.Empty)" Language="language-yaml" />
+												}
+												else if (_loadingCode)
+												{
+													<div class="p-4 text-center text-slate-500">Loading...</div>
+												}
+												else
+												{
+													<p class="text-xs text-orange-600">Unable to load snippet</p>
+												}
+											</div>
+										</div>
+									</TabPage>
+									<TabPage Title="Example sequence">
+										<AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.Sequencer" />
+										<AXOpen.Core.AxoSequencerCommandView Component="@Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.Sequencer" />
+										<article class="rounded-xl border border-slate-200 bg-white p-4">
+											<h2 class="text-lg font-semibold text-slate-900">Sequencer Step Logic</h2>
+											<p class="mt-1 text-sm text-slate-600">Each block below is parsed from
+												<SourceFileLink Path="@_plcComponent2Path" Label="AxoCtrlxDriveXsc_Showcase.st" OnOpen="OpenModalAsync" />.
+											</p>
+											@if (_comp2StepLogicBlocks.Count > 0)
+											{
+												<div class="mt-4 space-y-3">
+													@foreach (var step in _comp2StepLogicBlocks)
+													{
+														_comp2StepsBySymbol.TryGetValue(step.StepSymbol, out var liveStep);
+														<AxoStepCard Step="step" LiveStep="liveStep" />
+													}
+												</div>
+											}
+											else if (_loadingCode)
+											{
+												<div class="mt-4 p-4 text-sm text-slate-500">Loading step logic...</div>
+											}
+											else
+											{
+												<div class="mt-4 p-4 text-sm text-orange-700 bg-orange-50 rounded border border-orange-200">
+													No sequencer step blocks were detected.
+												</div>
+											}
+										</article>
+									</TabPage>
+								</Tab>
+							</div>
+						</TabPage>
+					</Tab>
+				</div>
+			</article>
+		</section>
+	</div>
+</div>
+@code {
+	[Inject] private CodeSnippetProvider CodeProvider { get; set; } = default!;
+	private SourceViewerModal _modal = default!;
+	private Task OpenModalAsync(string path) => _modal.OpenAsync(path);
+	// Component 1 (IndraDrive) snippets
+	private CodeSnippet? _comp1DeclarationSnippet;
+	private CodeSnippet? _comp1RunSnippet;
+	private List<StepLogicBlock> _comp1StepLogicBlocks = new();
+	// Component 2 (ctrlX DRIVE XSC) snippets
+	private CodeSnippet? _comp2DeclarationSnippet;
+	private CodeSnippet? _comp2RunSnippet;
+	private List<StepLogicBlock> _comp2StepLogicBlocks = new();
+	// IndraDrive HWC snippets
+	private CodeSnippet? _hwcIndraDriveDeviceSnippet;
+	private CodeSnippet? _hwcIndraDriveTemplateSnippet;
+	private CodeSnippet? _hwcIndraDriveIoSystemSnippet;
+	// ctrlX Drive HWC snippets
+	private CodeSnippet? _hwcCtrlxDriveDeviceSnippet;
+	private CodeSnippet? _hwcCtrlxDriveTemplateSnippet;
+	private CodeSnippet? _hwcCtrlxDriveIoSystemSnippet;
+	private bool _loadingCode = true;
+	private string _selectedPresentation = "Command-Control";
+	private readonly string _plcContextPath   = "src/showcase/app/src/components.rexroth.drives/Documentation/RexrothDrives.st";
+	private readonly string _plcComponentPath  = "src/showcase/app/src/components.rexroth.drives/Documentation/AxoIndraDrive_Showcase.st";
+	private readonly string _plcComponent2Path = "src/showcase/app/src/components.rexroth.drives/Documentation/AxoCtrlxDriveXsc_Showcase.st";
+	// Hardware configuration paths
+	private readonly string _hwcPlcLineYmlPath          = "src/showcase/app/hwc/plc_line.hwl.yml";
+	private readonly string _hwcIndraDriveTemplatePath   = "src/showcase/app/hwc/library_templates/rexroth_indradrive/rexroth_indradrive.hwl.yml";
+	private readonly string _hwcCtrlxDriveTemplatePath   = "src/showcase/app/hwc/library_templates/rexroth_ctrlx_drive/rexroth_ctrlx_drive_xcs.hwl.yml";
+	// Library resource paths
+	private readonly string _libReadmePath         = "src/components.rexroth.drives/docs/README.md";
+	private readonly string _libComponent1DocPath  = "src/components.rexroth.drives/docs/AxoIndraDrive.md";
+	private readonly string _libComponent2DocPath  = "src/components.rexroth.drives/docs/AxoCtrlxDriveXsc.md";
+	private readonly string _libTroublesPath       = "src/components.rexroth.drives/docs/TROUBLES.md";
+	private readonly string _libAxoIndraDriveStPath    = "src/components.rexroth.drives/ctrl/src/AxoIndraDrive/AxoIndraDrive.st";
+	private readonly string _libAxoCtrlxDriveXscStPath = "src/components.rexroth.drives/ctrl/src/AxoCtrlxDriveXsc/AxoCtrlxDriveXsc.st";
+	private readonly string _libApaxYmlPath        = "src/components.rexroth.drives/ctrl/apax.yml";
+	private Dictionary<string, AXOpen.Core.AxoStep> _comp1StepsBySymbol = new();
+	private Dictionary<string, AXOpen.Core.AxoStep> _comp2StepsBySymbol = new();
+	protected override async Task OnInitializedAsync()
+	{
+		try
+		{
+			// Component 1 snippets
+			var comp1DeclTask = CodeProvider.GetTaggedRegionAsync(_plcComponentPath, "ComponentDeclaration");
+			var comp1RunTask  = CodeProvider.GetTaggedRegionAsync(_plcComponentPath, "Initialization");
+			var comp1StepTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponentPath);
+			// Component 2 snippets
+			var comp2DeclTask = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "ComponentDeclaration");
+			var comp2RunTask  = CodeProvider.GetTaggedRegionAsync(_plcComponent2Path, "Initialization");
+			var comp2StepTask = CodeProvider.GetStepLogicBlocksAsync(_plcComponent2Path);
+			// IndraDrive HWC snippets
+			var hwcIndraDriveDeviceTask   = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "RexrothIndraDriveDevice");
+			var hwcIndraDriveTemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcIndraDriveTemplatePath, "RexrothIndraDriveTemplate");
+			var hwcIndraDriveIoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "RexrothIndraDriveIoSystem");
+			// ctrlX Drive HWC snippets
+			var hwcCtrlxDriveDeviceTask   = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "RexrothCtrlxDriveDevice");
+			var hwcCtrlxDriveTemplateTask = CodeProvider.GetTaggedRegionAsync(_hwcCtrlxDriveTemplatePath, "RexrothCtrlxDriveTemplate");
+			var hwcCtrlxDriveIoSystemTask = CodeProvider.GetTaggedRegionAsync(_hwcPlcLineYmlPath, "RexrothCtrlxDriveIoSystem");
+			await Task.WhenAll(comp1DeclTask, comp1RunTask, comp1StepTask,
+				comp2DeclTask, comp2RunTask, comp2StepTask,
+				hwcIndraDriveDeviceTask, hwcIndraDriveTemplateTask, hwcIndraDriveIoSystemTask,
+				hwcCtrlxDriveDeviceTask, hwcCtrlxDriveTemplateTask, hwcCtrlxDriveIoSystemTask);
+			_comp1DeclarationSnippet = await comp1DeclTask;
+			_comp1RunSnippet         = await comp1RunTask;
+			_comp1StepLogicBlocks    = await comp1StepTask;
+			_comp2DeclarationSnippet = await comp2DeclTask;
+			_comp2RunSnippet         = await comp2RunTask;
+			_comp2StepLogicBlocks    = await comp2StepTask;
+			_hwcIndraDriveDeviceSnippet   = await hwcIndraDriveDeviceTask;
+			_hwcIndraDriveTemplateSnippet = await hwcIndraDriveTemplateTask;
+			_hwcIndraDriveIoSystemSnippet = await hwcIndraDriveIoSystemTask;
+			_hwcCtrlxDriveDeviceSnippet   = await hwcCtrlxDriveDeviceTask;
+			_hwcCtrlxDriveTemplateSnippet = await hwcCtrlxDriveTemplateTask;
+			_hwcCtrlxDriveIoSystemSnippet = await hwcCtrlxDriveIoSystemTask;
+			_comp1StepsBySymbol = Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+			_comp2StepsBySymbol = Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.Steps
+				.ToDictionary(
+					s => s.Symbol.Substring(s.Symbol.LastIndexOf('.') + 1),
+					s => s
+				);
+		}
+		catch (Exception ex)
+		{
+			Console.Error.WriteLine($"Error loading code snippets: {ex.Message}");
+		}
+		finally
+		{
+			_loadingCode = false;
+			StateHasChanged();
+		}
+		await base.OnInitializedAsync();
+	}
+	public override void ConfigurePolling()
+	{
+		var comp1Seq   = Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.Sequencer;
+		var comp1Steps = Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.Steps;
+		var comp2Seq   = Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.Sequencer;
+		var comp2Steps = Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.Steps;
+		this.StartPolling(comp1Seq, 250);
+		foreach (var step in comp1Steps)
+		{
+			this.StartPolling(step.IsActive,  250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order,     250);
+			this.StartPolling(step.Descr,     500);
+		}
+		this.StartPolling(comp2Seq, 250);
+		foreach (var step in comp2Steps)
+		{
+			this.StartPolling(step.IsActive,  250);
+			this.StartPolling(step.IsEnabled, 250);
+			this.StartPolling(step.Order,     250);
+			this.StartPolling(step.Descr,     500);
+		}
+	}
+}
+
+@* ================================================================== *@
+@* DocFX snippet markers -- do not render.                             *@
+@* ================================================================== *@
+@if (false)
+{
+    <!-- <GenericComponentStatusView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.IndraDrive" Presentation="Status-Display" />
+    <!-- </GenericComponentStatusView> -->
+
+    <!-- <GenericComponentCommandView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.IndraDrive" Presentation="Command-Control" />
+    <!-- </GenericComponentCommandView> -->
+
+    <!-- <RccComponentStatusView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.IndraDrive" Presentation="Status-Display" />
+    <!-- </RccComponentStatusView> -->
+
+    <!-- <RccComponentCommandView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_drives_documentation.axoIndraDrive.IndraDrive" Presentation="Command-Control" />
+    <!-- </RccComponentCommandView> -->
+
+    <!-- <GenericComponentStatusView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.CtrlXdrive" Presentation="Status-Display" />
+    <!-- </GenericComponentStatusView> -->
+
+    <!-- <GenericComponentCommandView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.CtrlXdrive" Presentation="Command-Control" />
+    <!-- </GenericComponentCommandView> -->
+
+    <!-- <RccComponentStatusView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.CtrlXdrive" Presentation="Status-Display" />
+    <!-- </RccComponentStatusView> -->
+
+    <!-- <RccComponentCommandView> -->
+    <RenderableContentControl Context="@Entry.Plc.Ctx.rexroth_drives_documentation.axoCtrlxDriveXsc.CtrlXdrive" Presentation="Command-Control" />
+    <!-- </RccComponentCommandView> -->
+
+}
