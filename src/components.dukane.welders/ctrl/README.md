@@ -14,5 +14,5 @@ apax add "@inxton/axopen.components.dukane.welders"
 
 ~~~yml
 dependencies:
-  "@inxton/axopen.components.dukane.welders": '{axopen-version}'  
+  "@inxton/axopen.components.dukane.welders": '0.43.0'  
 ~~~

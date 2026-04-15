@@ -2,9 +2,9 @@
 
 AxoAo is used for setting analogue values. AxoAo un-scales input signal based on `SetPoint` and values in `AxoAoConfig` class.
 
-AxoAiConfig contains:
+AxoAoConfig contains:
 
-[!code-smalltalk[](../ctrl/src/AxoAo/AxoAoConfig.st?name=AxoAoConfigDeclaration)]
+[!code-pascal[](../ctrl/src/AxoAo/AxoAoConfig.st?name=AxoAoConfigDeclaration)]
 
 # How to
 
@@ -14,23 +14,32 @@ AxoAiConfig contains:
 
 ## Declare component
 
-[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAoDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAoDeclaration)]
 
 ## Declare initialization variables
 
 *Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.*
 
-[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAoInitializationArgumentsDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAoInitializationArgumentsDeclaration)]
 
 ## Manual Control
 
-[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAoManualControl)]
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAoManualControl)]
+
+## Apply configuration
+
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAoConfig)]
 
 ## Initialize & Run
 
-[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAoInitialization)]
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAoInitialization)]
 
 [!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
+
+## Use
+
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAoUsage)]
+
 # [.NET TWIN](#tab/twin)
 
 
@@ -57,6 +66,8 @@ Alternatively, render via `RenderableContentControl` which inspects the componen
 [!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-elements/Documentation/ElementsShowcase.razor?name=RccComponentStatusView)]
 
 [!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-elements/Documentation/ElementsShowcase.razor?name=RccComponentCommandView)]
+
+![AxoAo](assets/axoao.gif)
 
 ## Source
 

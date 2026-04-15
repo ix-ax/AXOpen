@@ -4,7 +4,7 @@ AxoAi is used for checking values of analogue inputs. AxoAi scales input signal 
 
 AxoAiConfig contains:
 
-[!code-smalltalk[](../ctrl/src//AxoAi/AxoAiConfig.st?name=AxoAiConfigDeclaration)]
+[!code-pascal[](../ctrl/src//AxoAi/AxoAiConfig.st?name=AxoAiConfigDeclaration)]
 
 # How to
 
@@ -14,23 +14,32 @@ AxoAiConfig contains:
 
 ## Declare component
 
-[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAiDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAiDeclaration)]
 
 ## Declare initialization variables
 
 *Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.*
 
-[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAiInitializationArgumentsDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAiInitializationArgumentsDeclaration)]
 
 ## Manual Control
 
-[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAiManualControl)]
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAiManualControl)]
+
+## Apply configuration
+
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAiConfig)]
 
 ## Initialize & Run
 
-[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAiInitialization)]
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAiInitialization)]
 
 [!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
+
+## Use
+
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoAiUsage)]
+
 # [.NET TWIN](#tab/twin)
 
 
@@ -57,6 +66,8 @@ Alternatively, render via `RenderableContentControl` which inspects the componen
 [!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-elements/Documentation/ElementsShowcase.razor?name=RccComponentStatusView)]
 
 [!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-elements/Documentation/ElementsShowcase.razor?name=RccComponentCommandView)]
+
+![AxoAi](assets/axoai.gif)
 
 ## Source
 

@@ -8,41 +8,41 @@ Generated documentation for the `AxoDataman` component.
 
 ## Declare component
 
-[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoDataman_v_6_0_0_0_Showcase.st?name=ComponentDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoDataman.st?name=ComponentDeclaration)]
 
 ## Declare initialization variables
 
 *Most of the initialization variables come from the I/O system. The example below is for demonstration purposes.*
 
-[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoDataman_v_6_0_0_0_Showcase.st?name=InitializationArgumentsDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoDataman.st?name=InitializationArgumentsDeclaration)]
 
 ## Initialize & Run
 
-[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoDataman_v_6_0_0_0_Showcase.st?name=Initialization)]
+[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoDataman.st?name=Initialization)]
 
 [!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
 
 ## Use
 
-[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoDataman_v_6_0_0_0_Showcase.st?name=Usage)]
+[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoDataman.st?name=Usage)]
 
 
 ## Additional scenario (Dataman 300)
 
-A second instance demonstrates the Dataman 300 model in `AxoDataman_v_6_0_0_0_Showcase2.st`:
+A second instance demonstrates the Dataman 300 model in `AxoDataman_Secondary.st`:
 
-[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoDataman_v_6_0_0_0_Showcase2.st?name=Initialization)]
+[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoDataman_Secondary.st?name=Initialization)]
 
 ## Source
 
-View the library source at [`AxoDataman.st`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.cognex.vision/ctrl/src/AxoDataman/AxoDataman.st).
+View the library source at [`AxoDataman`](https://github.com/Inxton/AXOpen/tree/troublesense-integration/src/components.cognex.vision/ctrl/src/AxoDataman/).
 
 # [.NET TWIN](#tab/twin)
 
 
 ## Source
 
-View the .NET twin source at [`AXOpen.ComponentsCognexVision`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.cognex.vision/src/AXOpen.ComponentsCognexVision/).
+View the .NET twin source at [`AXOpen.Components.Cognex.Vision`](https://github.com/Inxton/AXOpen/tree/troublesense-integration/src/components.cognex.vision/src/AXOpen.Components.Cognex.Vision/).
 
 # [BLAZOR](#tab/blazor)
 
@@ -68,7 +68,7 @@ Available `Presentation` values: `Status-Display`, `Command-Control`, `Service-C
 
 ## Source
 
-View the Blazor package at [`AXOpen.ComponentsCognexVision.blazor`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.cognex.vision/src/AXOpen.ComponentsCognexVision.blazor/).
+View the Blazor package at [`AXOpen.Components.Cognex.Vision.blazor`](https://github.com/Inxton/AXOpen/tree/troublesense-integration/src/components.cognex.vision/src/AXOpen.Components.Cognex.Vision.blazor/).
 
 # [HARDWARE](#tab/hardware)
 

@@ -8,34 +8,34 @@ Generated documentation for the `AxoCVIC_II` component.
 
 ## Declare component
 
-[!code-pascal[](../../showcase/app/src/components.desoutter.tightening/Documentation/AxoCVIC_II_Showcase.st?name=ComponentDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.desoutter.tightening/Documentation/AxoCVIC_II.st?name=ComponentDeclaration)]
 
 ## Declare initialization variables
 
 *Most of the initialization variables come from the I/O system. The example below is for demonstration purposes.*
 
-[!code-pascal[](../../showcase/app/src/components.desoutter.tightening/Documentation/AxoCVIC_II_Showcase.st?name=InitializationArgumentsDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.desoutter.tightening/Documentation/AxoCVIC_II.st?name=InitializationArgumentsDeclaration)]
 
 ## Initialize & Run
 
-[!code-pascal[](../../showcase/app/src/components.desoutter.tightening/Documentation/AxoCVIC_II_Showcase.st?name=Initialization)]
+[!code-pascal[](../../showcase/app/src/components.desoutter.tightening/Documentation/AxoCVIC_II.st?name=Initialization)]
 
 [!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
 
 ## Use
 
-[!code-pascal[](../../showcase/app/src/components.desoutter.tightening/Documentation/AxoCVIC_II_Showcase.st?name=Usage)]
+[!code-pascal[](../../showcase/app/src/components.desoutter.tightening/Documentation/AxoCVIC_II.st?name=Usage)]
 
 ## Source
 
-View the library source at [`AxoCVIC_II.st`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.desoutter.tightening/ctrl/src/AxoCVIC_II/AxoCVIC_II.st).
+View the library source at [`AxoCVIC_II.st`](https://github.com/Inxton/axopen.templates/tree/troublesense-integration/axopen/src/components.desoutter.tightening/ctrl/src/CVIC_II/AxoCVIC_II.st).
 
 # [.NET TWIN](#tab/twin)
 
 
 ## Source
 
-View the .NET twin source at [`AXOpen.ComponentsDesoutterTightening`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.desoutter.tightening/src/AXOpen.ComponentsDesoutterTightening/).
+View the .NET twin source at [`AXOpen.Components.Desoutter.Tightening`](https://github.com/Inxton/axopen.templates/tree/troublesense-integration/axopen/src/components.desoutter.tightening/src/AXOpen.Components.Desoutter.Tightening/).
 
 # [BLAZOR](#tab/blazor)
 
@@ -61,7 +61,7 @@ Available `Presentation` values: `Status-Display`, `Command-Control`, `Service-C
 
 ## Source
 
-View the Blazor package at [`AXOpen.ComponentsDesoutterTightening.blazor`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.desoutter.tightening/src/AXOpen.ComponentsDesoutterTightening.blazor/).
+View the Blazor package at [`AXOpen.Components.Desoutter.Tightening.blazor`](https://github.com/Inxton/axopen.templates/tree/troublesense-integration/axopen/src/components.desoutter.tightening/src/AXOpen.Components.Desoutter.Tightening.blazor/).
 
 # [HARDWARE](#tab/hardware)
 

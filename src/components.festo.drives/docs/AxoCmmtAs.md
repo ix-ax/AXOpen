@@ -73,6 +73,6 @@ PROFINET hardware template at `showcase/app/hwc/library_templates/festo_drives_c
 
 ## IO system wiring
 
-[!code-yaml[](../../showcase/app/hwc/plc_line.hwl.yml?name=FestoCmmtAsDeviceIoSystem)]
+[!code-yaml[](../../showcase/app/hwc/plc_line.hwl.yml?name=FestoCmmtAsIoSystem)]
 
 ---

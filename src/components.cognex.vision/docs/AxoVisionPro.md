@@ -8,34 +8,34 @@ Generated documentation for the `AxoVisionPro` component.
 
 ## Declare component
 
-[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro_Showcase.st?name=ComponentDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro.st?name=ComponentDeclaration)]
 
 ## Declare initialization variables
 
 *Most of the initialization variables come from the I/O system. The example below is for demonstration purposes.*
 
-[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro_Showcase.st?name=InitializationArgumentsDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro.st?name=InitializationArgumentsDeclaration)]
 
 ## Initialize & Run
 
-[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro_Showcase.st?name=Initialization)]
+[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro.st?name=Initialization)]
 
 [!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
 
 ## Use
 
-[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro_Showcase.st?name=Usage)]
+[!code-pascal[](../../showcase/app/src/components.cognex.vision/Documentation/AxoVisionPro.st?name=Usage)]
 
 ## Source
 
-View the library source at [`AxoVisionPro.st`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.cognex.vision/ctrl/src/AxoVisionPro/AxoVisionPro.st).
+View the library source at [`AxoVisionPro`](https://github.com/Inxton/AXOpen/tree/troublesense-integration/src/components.cognex.vision/ctrl/src/AxoVisionPro/).
 
 # [.NET TWIN](#tab/twin)
 
 
 ## Source
 
-View the .NET twin source at [`AXOpen.ComponentsCognexVision`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.cognex.vision/src/AXOpen.ComponentsCognexVision/).
+View the .NET twin source at [`AXOpen.Components.Cognex.Vision`](https://github.com/Inxton/AXOpen/tree/troublesense-integration/src/components.cognex.vision/src/AXOpen.Components.Cognex.Vision/).
 
 # [BLAZOR](#tab/blazor)
 
@@ -61,7 +61,7 @@ Available `Presentation` values: `Status-Display`, `Command-Control`, `Service-C
 
 ## Source
 
-View the Blazor package at [`AXOpen.ComponentsCognexVision.blazor`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.cognex.vision/src/AXOpen.ComponentsCognexVision.blazor/).
+View the Blazor package at [`AXOpen.Components.Cognex.Vision.blazor`](https://github.com/Inxton/AXOpen/tree/troublesense-integration/src/components.cognex.vision/src/AXOpen.Components.Cognex.Vision.blazor/).
 
 # [HARDWARE](#tab/hardware)
 

@@ -8,41 +8,47 @@ Generated documentation for the `Axo_BIS_M_4XX_045` component.
 
 ## Declare component
 
-[!code-pascal[](../../showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_Showcase.st?name=ComponentDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045.st?name=ComponentDeclaration)]
 
 ## Declare initialization variables
 
 *Most of the initialization variables come from the I/O system. The example below is for demonstration purposes.*
 
-[!code-pascal[](../../showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_Showcase.st?name=InitializationArgumentsDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045.st?name=InitializationArgumentsDeclaration)]
 
 ## Initialize & Run
 
-[!code-pascal[](../../showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_Showcase.st?name=Initialization)]
+[!code-pascal[](../../showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045.st?name=Initialization)]
 
 [!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
 
 ## Use
 
-[!code-pascal[](../../showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_Showcase.st?name=Usage)]
+[!code-pascal[](../../showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045.st?name=Usage)]
 
 
-## Additional scenario
+## Additional scenario — manual control
 
-A second instance is provided in `Axo_BIS_M_4XX_045_Showcase2.st`:
+A second scenario demonstrates operating the reader from the HMI without a
+sequencer (all tasks are triggered from the `RenderableContentControl`
+command view). See `Axo_BIS_M_4XX_045_ManualControl.st`:
 
-[!code-pascal[](../../showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_Showcase2.st?name=Initialization)]
+[!code-pascal[](../../showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_ManualControl.st?name=ComponentDeclaration)]
+
+[!code-pascal[](../../showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_ManualControl.st?name=Initialization)]
+
+[!code-pascal[](../../showcase/app/src/components.balluff.identification/Documentation/Axo_BIS_M_4XX_045_ManualControl.st?name=Usage)]
 
 ## Source
 
-View the library source at [`Axo_BIS_M_4XX_045.st`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.balluff.identification/ctrl/src/Axo_BIS_M_4XX_045/Axo_BIS_M_4XX_045.st).
+View the library source at [`Axo_BIS_M_4XX_045.st`](https://github.com/Inxton/AXOpen/tree/troublesense-integration/src/components.balluff.identification/ctrl/src/Axo_BIS_M_4XX_045.st).
 
 # [.NET TWIN](#tab/twin)
 
 
 ## Source
 
-View the .NET twin source at [`AXOpen.ComponentsBalluffIdentification`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.balluff.identification/src/AXOpen.ComponentsBalluffIdentification/).
+View the .NET twin source at [`AXOpen.Components.Balluff.Identification`](https://github.com/Inxton/AXOpen/tree/troublesense-integration/src/components.balluff.identification/src/AXOpen.Components.Balluff.Identification/).
 
 # [BLAZOR](#tab/blazor)
 
@@ -68,6 +74,6 @@ Available `Presentation` values: `Status-Display`, `Command-Control`, `Service-C
 
 ## Source
 
-View the Blazor package at [`AXOpen.ComponentsBalluffIdentification.blazor`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.balluff.identification/src/AXOpen.ComponentsBalluffIdentification.blazor/).
+View the Blazor package at [`AXOpen.Components.Balluff.Identification.blazor`](https://github.com/Inxton/AXOpen/tree/troublesense-integration/src/components.balluff.identification/src/AXOpen.Components.Balluff.Identification.blazor/).
 
 ---

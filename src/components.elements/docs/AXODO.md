@@ -1,6 +1,6 @@
 # AxoDo
 
-AxoDo is used for setting values of digital inputs.
+AxoDo is used for setting values of digital outputs.
 
 # How to
 
@@ -10,23 +10,28 @@ AxoDo is used for setting values of digital inputs.
 
 ## Declare component
 
-[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoDoDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoDoDeclaration)]
 
 ## Declare initialization variables
 
 *Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.*
 
-[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoDoInitializationArgumentsDeclaration)]
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoDoInitializationArgumentsDeclaration)]
 
 ## Manual Control
 
-[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoDoManualControl)]
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoDoManualControl)]
 
 ## Initialize & Run
 
-[!code-smalltalk[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoDoInitialization)]
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoDoInitialization)]
 
 [!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
+
+## Use
+
+[!code-pascal[](../../showcase/app/src/components.elements/Documentation/Elements.st?name=AxoDoUsage)]
+
 # [.NET TWIN](#tab/twin)
 
 
@@ -53,6 +58,8 @@ Alternatively, render via `RenderableContentControl` which inspects the componen
 [!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-elements/Documentation/ElementsShowcase.razor?name=RccComponentStatusView)]
 
 [!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-elements/Documentation/ElementsShowcase.razor?name=RccComponentCommandView)]
+
+![AxoDo](assets/axodo.gif)
 
 ## Source
 

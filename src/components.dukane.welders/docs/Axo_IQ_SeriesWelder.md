@@ -35,14 +35,14 @@ A second instance is provided in `Axo_IQ_SeriesWelder_Showcase2.st`:
 
 ## Source
 
-View the library source at [`Axo_IQ_SeriesWelder.st`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.dukane.welders/ctrl/src/Axo_IQ_SeriesWelder/Axo_IQ_SeriesWelder.st).
+View the library source at [`Axo_IQ_SeriesWelder.st`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.dukane.welders/ctrl/src/AxoIQSeriesWelder/Axo_IQ_SeriesWelder.st).
 
 # [.NET TWIN](#tab/twin)
 
 
 ## Source
 
-View the .NET twin source at [`AXOpen.ComponentsDukaneWelders`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.dukane.welders/src/AXOpen.ComponentsDukaneWelders/).
+View the .NET twin source at [`AXOpen.Components.Dukane.Welders`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.dukane.welders/src/AXOpen.Components.Dukane.Welders/).
 
 # [BLAZOR](#tab/blazor)
 
@@ -68,13 +68,15 @@ Available `Presentation` values: `Status-Display`, `Command-Control`, `Service-C
 
 ## Source
 
-View the Blazor package at [`AXOpen.ComponentsDukaneWelders.blazor`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.dukane.welders/src/AXOpen.ComponentsDukaneWelders.blazor/).
+View the Blazor package at [`AXOpen.Components.Dukane.Welders.blazor`](https://github.com/Inxton/AXOpen/tree/3-unify-showcase/src/components.dukane.welders/src/AXOpen.Components.Dukane.Welders.blazor/).
 
 # [HARDWARE](#tab/hardware)
 
 ## Device template
 
-PROFINET hardware template at `showcase/app/hwc/library_templates/dukane_welders_iq_series/`.
+PROFINET hardware template at `showcase/app/hwc/library_templates/dukane_welders_iq_series/DukaneIqSeriesWelder.hwl.yml`.
+
+[!code-yaml[](../../showcase/app/hwc/library_templates/dukane_welders_iq_series/DukaneIqSeriesWelder.hwl.yml?name=DukaneIqWelderTemplate)]
 
 ## Device instantiation
 

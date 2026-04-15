@@ -34,50 +34,31 @@ View the library source at [`Axo_IV3.st`](https://github.com/Inxton/AXOpen/tree/
 
 ## Live view
 
-The component allows to display live view from the Keyence IV3 vision system.
+The `Axo_IV3` .NET twin exposes a reverse-proxy helper (`ConfigureProxy`) that
+surfaces the device's built-in HTTP live view inside the application's web UI.
+Two pragmas on the ST component instance drive the wiring:
 
-To enable the live view, you need to set the `DeviceIpAddress` property of the `Axo_IV3` component to the IP address of the Keyence IV3 device, and define a proxy for the reverse proxy endpoint.
+| Pragma | Purpose |
+|--------|---------|
+| `{#ix-set:DeviceIpAddress = "..."}` | IP address of the Keyence IV3 device that the server will reach. |
+| `{#ix-set:Proxy = "..."}` | Proxy identifier used to mount the reverse-proxy endpoint (`/{Proxy}/iv3-wm-i.html`). |
 
-### Setup in Structured Text
+The showcase component declaration illustrates the `DeviceIpAddress` pragma:
 
-Example:
-```st
-{#ix-set:DeviceIpAddress = "192.168.1.106"}
-{#ix-set:Proxy = "keyence_iv3"}
-KeyenceVisionSystem : AXOpen.Components.Keyence.Vision.Axo_IV3;
-```
+[!code-pascal[](../../showcase/app/src/components.keyence.vision/Documentation/Axo_IV3_Showcase.st?name=ComponentDeclaration)]
 
-### Accessing the Live View
+The reverse-proxy middleware must be wired in the Blazor host (`Program.cs`)
+before the Blazor endpoint handling so that image requests are routed through
+the server and CORS is not required. `IHttpClientFactory` must also be
+registered.
 
-The live view is accessed through a reverse proxy endpoint. The component will fetch the camera feed from the device and serve it through the reverse proxy, which is accessible at `/{Proxy}/iv3-wm-i.html`, where `{Proxy}` is the proxy identifier of the component (e.g., `keyence_iv3` in the example above).
+### Register `IHttpClientFactory`
 
-### Blazor Application Setup
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Program.cs?name=KeyenceIv3HttpClient)]
 
-To enable the reverse proxy functionality in your Blazor application, you must call the `ConfigureProxy` method from the `Axo_IV3` component in your middleware pipeline. This should be done before the Blazor endpoint handling.
+### Wire the reverse-proxy middleware
 
-Add the following to your `Program.cs`:
-
-```csharp
-// Register HttpClientFactory
-builder.Services.AddHttpClient();
-
-// Build the app
-var app = builder.Build();
-
-// Configure Keyence IV3 reverse proxy
-app.Use(async (context, next) =>
-{
-    var keyenceComponent = /* Get your Axo_IV3 component instance */;
-    await keyenceComponent.ConfigureProxy(context, next);
-});
-
-// ... rest of your middleware configuration
-```
-
-**Note:** The server must be able to reach the device IP address for the live view to work. Make sure to register `IHttpClientFactory` in your DI container by adding `builder.Services.AddHttpClient();` in your `Program.cs`.
-
-The reverse proxy setup allows the web application to access the Keyence IV3 live view without CORS issues, as the request is proxied through the server backend rather than being accessed directly from the browser.
-
+[!code-csharp[](../../showcase/app/ix-blazor/showcase.blazor/Program.cs?name=KeyenceIv3ReverseProxy)]
 
 ## Source
 
@@ -85,7 +66,11 @@ View the .NET twin source at [`AXOpen.Components.Keyence.Vision`](https://github
 
 # [BLAZOR](#tab/blazor)
 
-`Axo_IV3` does not ship a dedicated Blazor view. It renders via the generic `AxoComponent` pattern using `RenderableContentControl`, which inspects the component type at runtime and selects the matching rendering based on the `Presentation` attribute.
+`Axo_IV3` renders via the generic `AxoComponent` pattern using
+`RenderableContentControl` — the runtime inspects the component type and
+selects the matching rendering based on the `Presentation` attribute. A
+dedicated `Axo_IV3View` is also available when richer visualization
+(including the reverse-proxied live view) is required.
 
 ## Status display
 
@@ -94,6 +79,14 @@ View the .NET twin source at [`AXOpen.Components.Keyence.Vision`](https://github
 ## Command control
 
 [!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-keyence-vision/Documentation/KeyenceVision.razor?name=GenericComponentCommandView)]
+
+## Dedicated Axo_IV3 status view
+
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-keyence-vision/Documentation/KeyenceVision.razor?name=Axo_IV3StatusView)]
+
+## Dedicated Axo_IV3 command view
+
+[!code-html[](../../showcase/app/ix-blazor/showcase.blazor/Pages/components-keyence-vision/Documentation/KeyenceVision.razor?name=Axo_IV3CommandView)]
 
 ## Type-agnostic status view
 
@@ -118,5 +111,9 @@ PROFINET hardware template at `showcase/app/hwc/library_templates/Keyence_IV3/`.
 ## Device instantiation
 
 [!code-yaml[](../../showcase/app/hwc/plc_line.hwl.yml?name=KeyenceIv3Device)]
+
+## IO system wiring
+
+[!code-yaml[](../../showcase/app/hwc/plc_line.hwl.yml?name=KeyenceIv3IoSystem)]
 
 ---

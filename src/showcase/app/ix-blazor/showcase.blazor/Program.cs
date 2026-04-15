@@ -32,6 +32,13 @@ builder.Services.AddSingleton<DocFxMarkdownProcessor>(sp =>
 builder.Services.AddSingleton<ComponentMaturityService>();
 builder.Services.AddSingleton<showcase.Services.Search.ContentIndexService>();
 builder.Services.AddSingleton<showcase.Services.Search.ShowcaseSearchService>();
+//<KeyenceIv3HttpClient>
+builder.Services.AddHttpClient();
+//</KeyenceIv3HttpClient>
+
+
+
+
 
 //<ConnectorConfiguration>
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
@@ -158,6 +165,14 @@ exchangeConfigurationService.AddConfiguration<Pocos.AxoDataDistributedExample.St
     });
 
 var app = builder.Build();
+
+//<KeyenceIv3ReverseProxy>
+app.Use(async (context, next) =>
+{
+    var keyenceComponent = Entry.Plc.Ctx.keyence_vision_documentation.axo_IV3.Component; // Replace with your actual component instance.
+    await keyenceComponent.ConfigureProxy(context, next);
+});
+//</KeyenceIv3ReverseProxy>
 
 // Initialize content search index (fire-and-forget, non-blocking)
 _ = app.Services.GetRequiredService<showcase.Services.Search.ContentIndexService>().InitializeAsync();
